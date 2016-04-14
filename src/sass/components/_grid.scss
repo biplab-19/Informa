@@ -1,0 +1,189 @@
+// ----------------------------------------------------
+// _ad-sub-hero
+// ----------------------------------------------------
+ul, ol {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* If you have a theme for yourself which you need to follow this then extend this pro-theme to that class and make
+appropriate style change */
+.pro-theme {
+    color: get-color('dark');
+    a{
+        color: get-color('accent');
+        &:hover{
+            color: get-color('accent', 'dark');
+        }
+    }
+    .btn {
+        background: get-color('accent', 'base');
+        color: get-color('accent', 'fallback');
+        border-color: get-color('accent', 'base');
+        &:hover{
+            background: get-color('accent', 'base');
+            color: get-color('accent', 'fallback');
+        }
+    }
+    .component {
+        padding: 0px;
+        color: get-color('dark');
+        .component-content {
+            padding: 0px;
+            display: block;
+            height: 100%;
+            background-color: transparent;
+        }
+
+        &.boxed {
+            .component-content {
+                padding: $gutterside;
+                background-color: get-color('primary', 'light');
+        }
+        }
+        a{
+            color: get-color('accent');
+            &:hover{
+                color: get-color('accent','dark');
+            }
+        }
+        h1, h2, h3 {
+            margin-top: 0px;
+        }
+        .btn {
+            color: get-color('light');
+            &:hover{
+                color: get-color('light');
+            }
+        }
+    }
+    .card-container {
+        padding-top: $gutterside;
+        .component {
+            padding: 0px $gutterside $gutterside 0px;
+        }
+        &>.container {
+            padding-right: 0px;
+        }
+    }
+    .panel {
+        @include panel-variant(get-color('primary','light'), get-color('dark'), get-color('primary','light'), get-color('primary','light'));
+        .panel-heading {
+            .panel-title a {
+                color: get-color('dark');
+            }
+        }
+    }
+}
+
+/*Classes used by sitecore to create different columns structures
+Use classes like .informa-layout-col-1,2,3,4 to get appropriate columns where .informa-layout-col-4 takes full width
+Use 3 column by givng .informa-layout-3  to parent then internally use bootstrap classes .col-sm 8 to take width
+And finall use .informa-layout-col-1 to get final width as has been explained in the layout formation documentation.*/
+.informa-layout-col-1, .informa-layout-col-2, .informa-layout-col-3, .informa-layout-col-4 {
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-left: $gutterside;
+    padding-right: $gutterside;
+}
+
+.informa-layout-col-1           { float: left; width: 25%;  }
+.informa-layout-col-2           { float: left; width: 50%;  }
+.informa-layout-col-3           { float: left; width: 75%;  }
+.informa-layout-col-4           { float: left; width: 100%; }
+
+.informa-layout-3 {
+    .col-sm-4 {
+        .informa-layout-col-1   { width: 100%; }
+        .informa-layout-col-2   { width: 100%; }
+        .informa-layout-col-3   { width: 100%; }
+        .informa-layout-col-4   { width: 100%; }
+    }
+    .col-sm-8 {
+        .informa-layout-col-1   { width: 50%;  }
+        .informa-layout-col-2   { width: 100%; }
+        .informa-layout-col-3   { width: 100%; }
+        .informa-layout-col-4   { width: 100%; }
+    }
+    .col-sm-12 {
+        .informa-layout-col-1   { width: 33.3333%; }
+        .informa-layout-col-2   { width: 66.6667%; }
+        .informa-layout-col-3   { width: 100%; }
+        .informa-layout-col-4   { width: 100%; }
+    }
+
+}
+
+.informa-layout-4 {
+    // 1 Column : Left and Right Rail
+    .col-sm-3 {
+        .informa-layout-col-1           { width: 100%; }
+        .informa-layout-col-2           { width: 100%; }
+        .informa-layout-col-3           { width: 100%; }
+        .informa-layout-col-4           { width: 100%; }
+    }
+
+    // 2 Column : Main Content (3 column template)
+    .col-sm-6 {
+        .informa-layout-col-1           { width: 50%;  }
+        .informa-layout-col-2           { width: 100%; }
+        .informa-layout-col-3           { width: 100%; }
+        .informa-layout-col-4           { width: 100%; }
+    }
+
+    // 3 Column : Main Content (2 column template)
+    .col-sm-9 {
+        .informa-layout-col-1           { width: 33.3333%; }
+        .informa-layout-col-2           { width: 66.6667%; }
+        .informa-layout-col-3           { width: 100%; }
+        .informa-layout-col-4           { width: 100%; }
+    }
+}
+
+/* Overwrites all column styles to default. No column structure will be respected if this mixin is included */
+@mixin resetColumns {
+    .informa-layout-col-1, .informa-layout-col-2, .informa-layout-col-3, .informa-layout-col-4 {
+        float: none; width: auto;
+    }
+}
+
+/* Making it responsive for mobile by resetting all widths and floats to auto on mobile */
+@include mobile {
+    @include resetColumns;
+
+    .informa-layout-3 {
+        .col-sm-4, .col-sm-8, .col-sm-12 {
+            @include resetColumns;
+        }
+    }
+
+    .informa-layout-3 {
+        // 1 Column : Left and Right Rail
+        .col-sm-3, .col-sm-6, .col-sm-9 {
+            @include resetColumns;
+        }
+    }
+}
+
+//Container widths modified based on this project
+.container {
+  @include container-fixed($gutterwidth);
+
+    @include tablet{
+        width: $tablet-width - $gutterwidth;
+    }
+    @include desktop{
+        width: $desktop-width - $gutterwidth;
+    }
+    @include lgdesktop{
+        width: $max-width;
+    }
+}
+
+//Add your theme name here and use it in pages where such styling is required.
+.my-theme { @extend .pro-theme; }
+
+.row {
+  @include make-row(30px);
+}

@@ -1,0 +1,101 @@
+.slick-prev:before, .slick-next:before {
+    font-size: 28px;
+}
+
+.informa-slides {
+    padding-left: 3*$gutterside/2;
+    padding-right: 3*$gutterside/2;
+}
+
+.informa-slider .slide.slide-promo {
+    padding: 0 $gutterside/2;
+}
+
+.slide-promo .slide-content {
+    min-height: 300px;
+    background: get-color('primary', 'light');
+    padding: $gutterside;
+  /*  @include border-radius(4px); */
+}
+
+.slide-promo .slide-promo-title{
+	/*font-size: 24px;
+	line-height: 30px;*/
+	margin: 0px;
+}
+.slide-promo .slide-promo-description {
+    margin: 0px;
+	margin-top: $gutterside;
+}
+
+.slide-promo .slide-promo-button {
+    margin: 0px;
+        float: right;
+	margin-top: $gutterside;
+}
+
+/*.slide-promo.no-background  {
+	color: black;
+	border:1px solid black;
+	background:#FFF;
+}*/
+.informa-slider .informa-slides .slick-next{
+	right: -3px;
+}
+.informa-slider .informa-slides .slick-prev{
+	left: 0px;
+}
+
+.informa-slider .informa-slides .slick-prev,
+.informa-slider .informa-slides .slick-next {
+	height: $gutterwidth;
+	width: $gutterwidth;
+	display: block;
+	margin-top: -$gutterside;
+	/*transform:scale(1.5);*/
+	opacity: 0.8;
+}
+
+.informa-slider .informa-slides .slick-prev:hover,
+.informa-slider .informa-slides .slick-next:hover {
+	opacity: 1;
+}
+
+.informa-slider .informa-slides .slick-prev:before,
+.informa-slider .informa-slides .slick-next:before {
+	/*content: "◆";
+    font-size: 24px;
+	color: #111111;
+	position: absolute;
+	top: -22px;
+	left: -6px;
+	display: block;*/
+  background: get-color('primary', 'light');
+}
+
+/*.informa-slider .informa-slides .slick-prev:hover:after,
+.informa-slider .informa-slides .slick-prev:focus:after,
+.informa-slider .informa-slides .slick-next:hover:after,
+.informa-slider .informa-slides .slick-next:focus:after {
+	background: transparent url(/clientlibs/images/carousel-arrow.png) no-repeat 0px 0;
+}
+
+.informa-slider .informa-slides .slick-prev:after,
+.informa-slider .informa-slides .slick-next:after {
+	color: black;
+	position: absolute;
+	top: 5px;
+	left: 9px;
+	width: $gutterwidth;
+	height: $gutterwidth;
+	background: transparent url(/clientlibs/images/carousel-arrow.png) no-repeat center 0;
+	content: " ";
+	display: block;
+}
+
+.informa-slider .informa-slides .slick-prev:after,
+.informa-slider .informa-slides .slick-prev:hover:after,
+.informa-slider .informa-slides .slick-prev:focus:after {
+	left: 3px;
+	background-position: center -36px;
+}*/

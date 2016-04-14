@@ -10,5 +10,6 @@
     - If bower gives you GIT issues reconfigure git [(details)](http://stackoverflow.com/questions/21789683/howto-fix-bower-ecmderr#answer-21790275):  
     - $ git config --global url."https://".insteadOf git://
 6. Install node modules within the project location
-    - __*$ sudo npm install*__ 
-7.
+    - __*$ sudo npm install*__
+7. bower install within the project location
+8. Run grunt server within the project location
