@@ -2145,55 +2145,38 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 .slick-dots li button:before { position: absolute; top: 0; left: 0; content: "•"; width: 20px; height: 20px; font-family: "slick"; font-size: 6px; line-height: 20px; text-align: center; color: black; opacity: 0.25; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 .slick-dots li.slick-active button:before { color: black; opacity: 0.75; }
 
-/* To use any maps provided below you just have to use the mixin name by sending that parameter
-For ex: For z-index of 300 we will use get-zindex(z3)*/
-/*Z-index using the list of z-indexes*/
-/*All colors will come here */
-/*Use it like this get-color('primary', 'light')*/
-/*Opacity including older browser support*/
-/* Border radius keeping all browsers support */
-/*Absolute position css by sending 4 attributes, default being auto*/
-/*
-* @include triangle within a pseudo element and add positioning properties (ie. top, left)
-* $direction: up, down, left, right
-*/
-/* Truncate by giving clip,ellipsis */
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
-/*******************ANIMATION MIXIN****************************/
-/*******************ANIMATION MIXIN****************************/
-/*******************TRANSITION MIXIN****************************/
-/*******************TRANSITION MIXIN****************************/
-/*Button colurs used across site can be defined*/
-/*$btn-default-color:              #333 !default;
-$btn-default-bg:                 #fff !default;
-$btn-default-border:             #ccc !default;*/
 ul, ol { margin-bottom: 0; margin-top: 0; }
 
-/* If you have a theme for yourself which you need to follow this then extend this pro-theme to that class and make 
+/* If you have a theme for yourself which you need to follow this then extend this agri-theme to that class and make
 appropriate style change */
-.pro-theme, .my-theme { color: #212121; }
-.pro-theme a, .my-theme a { color: #f44336; }
-.pro-theme a:hover, .my-theme a:hover { color: #d32f2f; }
-.pro-theme .btn, .my-theme .btn { background: #f44336; color: #e9e9e9; border-color: #f44336; }
-.pro-theme .btn:hover, .my-theme .btn:hover { background: #d32f2f; color: #e9e9e9; }
-.pro-theme .component, .my-theme .component { padding: 0px; color: #212121; }
-.pro-theme .component .component-content, .my-theme .component .component-content { padding: 0px; display: block; height: 100%; background-color: transparent; }
-.pro-theme .component.boxed .component-content, .my-theme .component.boxed .component-content { padding: 15px; background-color: #9FA8DA; }
-.pro-theme .component a, .my-theme .component a { color: #f44336; }
-.pro-theme .component a:hover, .my-theme .component a:hover { color: #d32f2f; }
-.pro-theme .component h1, .my-theme .component h1, .pro-theme .component h2, .my-theme .component h2, .pro-theme .component h3, .my-theme .component h3 { margin-top: 0px; }
-.pro-theme .component .btn, .my-theme .component .btn { color: #e9e9e9; }
-.pro-theme .component .btn:hover, .my-theme .component .btn:hover { color: #e9e9e9; }
-.pro-theme .card-container, .my-theme .card-container { padding-top: 15px; }
-.pro-theme .card-container .component, .my-theme .card-container .component { padding: 0px 15px 15px 0px; }
-.pro-theme .card-container > .container, .my-theme .card-container > .container { padding-right: 0px; }
-.pro-theme .panel, .my-theme .panel { border-color: #9FA8DA; }
-.pro-theme .panel > .panel-heading, .my-theme .panel > .panel-heading { color: #212121; background-color: #9FA8DA; border-color: #9FA8DA; }
-.pro-theme .panel > .panel-heading + .panel-collapse > .panel-body, .my-theme .panel > .panel-heading + .panel-collapse > .panel-body { border-top-color: #9FA8DA; }
-.pro-theme .panel > .panel-heading .badge, .my-theme .panel > .panel-heading .badge { color: #9FA8DA; background-color: #212121; }
-.pro-theme .panel > .panel-footer + .panel-collapse > .panel-body, .my-theme .panel > .panel-footer + .panel-collapse > .panel-body { border-bottom-color: #9FA8DA; }
-.pro-theme .panel .panel-heading .panel-title a, .my-theme .panel .panel-heading .panel-title a { color: #212121; }
+.agri-theme { color: #6a7285; }
+.agri-theme a { color: #ef7c00; }
+.agri-theme a:hover { color: #ffd600; }
+.agri-theme .btn { background: #fff; color: #6a7285; border-color: #ef7c00; border-radius: 0; border-width: 2px; }
+.agri-theme .btn:hover { background: #fff; color: #6a7285; }
+.agri-theme .component { padding: 0px; color: get-color("dark"); }
+.agri-theme .component .component-content { padding: 0px; display: block; height: 100%; background-color: transparent; }
+.agri-theme .component.boxed .component-content { padding: 15px; background-color: #6a7285; }
+.agri-theme .component a { color: #6a7285; }
+.agri-theme .component a:hover { color: #6a7285; }
+.agri-theme .component h1, .agri-theme .component h2, .agri-theme .component h3 { margin-top: 0px; }
+.agri-theme .component .btn { color: #6a7285; }
+.agri-theme .component .btn:hover { color: #6a7285; }
+.agri-theme .card-container { padding-top: 15px; }
+.agri-theme .card-container .component { padding: 0px 15px 15px 0px; }
+.agri-theme .card-container > .container { padding-right: 0px; }
+.agri-theme .panel { border-color: get-color("primary", "light"); }
+.agri-theme .panel > .panel-heading { color: get-color("dark"); background-color: get-color("primary", "light"); border-color: get-color("primary", "light"); }
+.agri-theme .panel > .panel-heading + .panel-collapse > .panel-body { border-top-color: get-color("primary", "light"); }
+.agri-theme .panel > .panel-heading .badge { color: get-color("primary", "light"); background-color: get-color("dark"); }
+.agri-theme .panel > .panel-footer + .panel-collapse > .panel-body { border-bottom-color: get-color("primary", "light"); }
+.agri-theme .panel .panel-heading .panel-title a { color: get-color("dark"); }
+.agri-theme section { min-width: 100%; min-height: 100px; }
+.agri-theme .bg-gary-light { background-color: #fff; }
+.agri-theme .bg-gary-dark { background: #343943; }
+.agri-theme .bg-white { background: #fff; }
 
 /*Classes used by sitecore to create different columns structures
 Use classes like .informa-layout-col-1,2,3,4 to get appropriate columns where .informa-layout-col-4 takes full width
@@ -2243,116 +2226,26 @@ And finall use .informa-layout-col-1 to get final width as has been explained in
 .container { margin-right: auto; margin-left: auto; padding-left: 15px; padding-right: 15px; }
 .container:before, .container:after { content: " "; display: table; }
 .container:after { clear: both; }
-@media (min-width: 768px) and (max-width: 1023px) { .container { width: 738px; } }
-@media (min-width: 1024px) and (max-width: 1399px) { .container { width: 994px; } }
+@media (min-width: 768px) and (max-width: 1169px) { .container { width: 738px; } }
+@media (min-width: 1170px) and (max-width: 1399px) { .container { width: 1140px; } }
 @media (min-width: 1400px) { .container { width: 1170px; } }
 
 .row { margin-left: -15px; margin-right: -15px; }
 .row:before, .row:after { content: " "; display: table; }
 .row:after { clear: both; }
 
-.component.accordion .panel-group { margin-bottom: 0px; }
+.main-header .header-logo { height: 100px; vertical-align: middle; background-color: #434952; }
+.main-header .header-logo .navbar-header { padding-top: 18px; }
+.main-header .navbar { border: none; }
+.main-header .header-links { height: 50px; vertical-align: middle; background-color: #343943; }
+.main-header .header-links .navbar-nav > li > a { color: #fff; font-weight: bold; }
+.main-header .header-links .navbar-nav > li > a:hover { color: #ffd600; }
 
-.cards .card { background: transparent; color: #212121; padding: 15px; width: 100%; height: 100%; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; }
+.main-footer { background-color: #3C404C; min-height: 200px; }
+.main-footer .footer-nav li { width: 100%; border-bottom: 2px solid green; color: red; }
+.main-footer .footer-nav li a { color: #fff; padding-left: 0px; }
+.main-footer .footer-nav li a:hover { background: #3C404C; }
 
-.cards .card h3 { margin-top: 0px; }
+.footer-links { background-color: #424A57; min-height: 100px; }
 
-.cards .component-content > .row { margin-left: -7.5px; margin-right: -7.5px; /*display: table;
-width: 100%;*/ /*overflow: hidden;*/ }
-
-.cards .component-content > .row > div { padding-left: 7.5px; padding-right: 7.5px; /*float: none;
-display: table-cell;
-vertical-align: top;*/ /*margin-bottom: -99999px;
-padding-bottom: 99999px;*/ }
-
-.hero-carousel .bg { position: absolute; width: 100%; z-index: -1; }
-
-.hero-carousel .slide { height: 400px; }
-@media (max-width: 768px -1px) { .hero-carousel .slide { height: auto; } }
-
-.hero-carousel .title { display: block; width: 100%; background: white; opacity: 0.4; padding: 15px; height: 400px; }
-
-.hero-carousel .title h2 { display: block; margin: 0px; }
-
-.image-responsive { width: 100%; max-height: 400px; overflow: hidden; }
-
-.image-responsive img { width: 100%; }
-
-.slick-slider.hero-carousel .slide { position: relative; }
-
-.slick-slider.hero-carousel .slick-prev { left: 25px; }
-
-.slick-slider.hero-carousel .slick-next { right: 25px; }
-
-.slick-slider.hero-carousel .slick-dots { bottom: -30px; }
-
-.slick-prev:before, .slick-next:before { font-size: 28px; }
-
-.informa-slides { padding-left: 22.5px; padding-right: 22.5px; }
-
-.informa-slider .slide.slide-promo { padding: 0 7.5px; }
-
-.slide-promo .slide-content { min-height: 200px; background: #9FA8DA; padding: 15px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -ms-border-radius: 4px; border-radius: 4px; }
-
-.slide-promo .slide-promo-title { /*font-size: 24px;
-line-height: 30px;*/ margin: 0px; }
-
-.slide-promo .slide-promo-description { margin: 0px; margin-top: 15px; }
-
-.slide-promo .slide-promo-button { margin: 0px; margin-top: 15px; }
-
-/*.slide-promo.no-background  {
-	color: black;
-	border:1px solid black;
-	background:#FFF;
-}*/
-.informa-slider .informa-slides .slick-next { right: -3px; }
-
-.informa-slider .informa-slides .slick-prev { left: 0px; }
-
-.informa-slider .informa-slides .slick-prev, .informa-slider .informa-slides .slick-next { height: 30px; width: 30px; display: block; margin-top: -15px; /*transform:scale(1.5);*/ opacity: 0.8; }
-
-.informa-slider .informa-slides .slick-prev:hover, .informa-slider .informa-slides .slick-next:hover { opacity: 1; }
-
-.informa-slider .informa-slides .slick-prev:before, .informa-slider .informa-slides .slick-next:before { 	/*content: "Γùå"; font-size: 24px;
-	color: #111111;
-	position: absolute;
-	top: -22px;
-	left: -6px;
-	display: block;*/ color: #303F9F; }
-
-/*.informa-slider .informa-slides .slick-prev:hover:after, 
-.informa-slider .informa-slides .slick-prev:focus:after, 
-.informa-slider .informa-slides .slick-next:hover:after, 
-.informa-slider .informa-slides .slick-next:focus:after {
-	background: transparent url(/clientlibs/images/carousel-arrow.png) no-repeat 0px 0;
-}
-
-.informa-slider .informa-slides .slick-prev:after,
-.informa-slider .informa-slides .slick-next:after {
-	color: black;
-	position: absolute;
-	top: 5px;
-	left: 9px;
-	width: $gutterwidth;
-	height: $gutterwidth;
-	background: transparent url(/clientlibs/images/carousel-arrow.png) no-repeat center 0;
-	content: " ";
-	display: block;
-}
-
-.informa-slider .informa-slides .slick-prev:after,
-.informa-slider .informa-slides .slick-prev:hover:after,
-.informa-slider .informa-slides .slick-prev:focus:after {
-	left: 3px;
-	background-position: center -36px;
-}*/
-.main-header { padding: 15px 0; }
-
-.main-footer { padding: 15px 0; }
-
-.page-list ul { list-style: outside none none; padding-left: 0px; }
-
-.page-list ul li { display: block; padding: 8px 16px; }
-
-.page-list ul li a { width: auto; }
+.contactus-section { background: #424A57; }

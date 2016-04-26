@@ -24,7 +24,7 @@ module.exports = function(grunt) {
         //Watch these files to do thier respective tasks on change
         watch: {
             assemble: {
-                files: ['<%= config.src %>/{content,data,templates, components}/{,*/}*.{hbs,json}'],
+                files: ['<%= config.src %>/{content,data,templates,components}/{,*/}*.{hbs,json}'],
                 tasks: ['assemble:dev']
             },
             scripts: {
@@ -197,6 +197,7 @@ module.exports = function(grunt) {
                             'favicon.ico',
                             'videos/**/*',
                             'images/**/*',
+                            'styleguide/*.html',
                             'scripts/**/*.js'
                         ]
                     },
@@ -388,7 +389,27 @@ module.exports = function(grunt) {
                 ]
             }
         },
-
+      //   styledown: {
+      //     options: {
+      //             title: 'Informa Styleguide'
+      //           },
+      //     dist: {
+      //         files: {
+      //             '<%= config.dist %>/styleguide/index.html': '<%= config.src %>/styleguide/main.css'
+      //         },
+      //         options: {
+      //             config: '<%= config.src %>/styleguide/config_dist.md',
+      //         }
+      //     },
+      //     tmp: {
+      //         files: {
+      //             '<%= config.tmp %>/styleguide/index.html': '<%= config.src %>/styleguide/main.css'
+      //         },
+      //         options: {
+      //             config: '<%= config.src %>/styleguide/config_dist.md',
+      //         }
+      //     }
+      // },
         accessibility: {
           options: {
             accessibilityLevel: 'WCAG2A'
@@ -396,7 +417,10 @@ module.exports = function(grunt) {
           test: {
             src: '<%= config.tmp %>/wca-error.html'
           }
-        }
+        },
+        eslint: {
+		          target: ['<%= config.src %>/components/**/js/*.js']
+	      }
 
     });
 
@@ -411,8 +435,10 @@ module.exports = function(grunt) {
             'copy:dev',
             'compass:dev',
             'assemble:dev',
+            //'styledown',
             'connect:dev',
             'watch',
+
         ]);
     });
 
@@ -426,7 +452,9 @@ module.exports = function(grunt) {
         'uglify:prod',
         'usemin',
         'modernizr',
-        'accessibility'
+        'eslint'
+      //  'styledown'
+        // 'accessibility'
     ]);
 
     grunt.registerTask('werk', [
