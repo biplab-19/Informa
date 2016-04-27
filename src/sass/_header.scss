@@ -1,0 +1,25 @@
+.main-header {
+    .header-logo {
+        height: 100px;
+        vertical-align: middle;
+        background-color: $gray-base;
+        .navbar-header {
+            padding-top: 18px;
+        }
+    }
+    .navbar {
+        border: none;
+    }
+    .header-links {
+        height: 50px;
+        vertical-align: middle;
+        background-color: $gray-bg;
+        .navbar-nav > li > a {
+            color: $navbar-default-color;
+            font-weight: bold;
+        }
+        .navbar-nav > li > a:hover {
+            color: $brand-secondary;
+        }
+    }
+}

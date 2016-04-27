@@ -1,0 +1,20 @@
+.main-footer {
+    background-color: $gray-dark;
+    min-height: 200px;
+    .footer-nav li {
+        width: 100%;
+        border-bottom: 2px solid green;
+        color: red;
+        a {
+            color: #fff;
+            padding-left: 0;
+        }
+        a:hover {
+            background: $gray-dark;
+        }
+    }
+}
+.footer-links {
+    background-color: $gray-light;
+    min-height: 100px;
+}

@@ -1,0 +1,59 @@
+.sector-list {
+      p{
+        margin-top: 10px;
+      }
+    ul.sector-list-products {
+        display: block;
+        margin: 15px 0 25px 0;
+        padding: 0;
+    }
+    ul.sector-list-products li {
+        display: inline;
+        text-align: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 18px;
+    }
+    ul.sector-list-products li:after {
+        content: ", ";
+        color: #aaa;
+    }
+    ul.sector-list-products li:last-child:after {
+        content: "";
+    }
+    .show-more-btn-container {
+        display: none;
+    }
+    .btn-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .sector-card {
+        padding: 45px 0;
+    }
+
+    @media screen and (min-device-width: 320px) and (max-device-width: 767px) {
+        .sector-card {
+            display: none;
+        }
+        .sector-card:nth-child(2n) {
+            display: block;
+        }
+        .show-more-btn-container {
+          display: block;
+          border-bottom: solid 1px $brand-secondary;
+          width: 100px;
+          margin: 0 auto;
+          padding: 5px;
+          cursor: pointer;
+        }
+        .glyphicon-plus-sign{
+          font-size: 30px;
+        }
+        .btn-container {
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+}

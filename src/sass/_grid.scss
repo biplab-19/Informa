@@ -1,0 +1,178 @@
+  // ----------------------------------------------------
+// _ad-sub-hero
+// ----------------------------------------------------
+ul, ol {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+html {
+  font-family: 'FSMe'; // 1
+  -ms-text-size-adjust: 100%; // 2
+  -webkit-text-size-adjust: 100%; // 2
+}
+
+body {
+  font-family: "FSMe";
+}
+
+
+/* If you have a theme for yourself which you need to follow this then extend this agri-theme to that class and make
+appropriate style change */
+.agri-theme {
+    color: $gray-darker;
+    a{
+        color: $link-color;
+        &:hover{
+            color: $link-hover-color;
+        }
+    }
+    .btn {
+        background: $btn-default-bg;
+        color: $btn-default-color;
+        border-color: $btn-default-border;
+        border-radius: $border-radius-base;
+        border-width: 2px;
+        &:hover{
+            background: $btn-default-bg;
+            color: $btn-default-color;
+        }
+        &:next{
+
+        }
+
+    }
+
+    .btn-default{
+       text-align: left;
+       padding-top: 15px;
+       padding-bottom: 15px;
+       border-color: $brand-secondary;
+       position: relative;
+
+    }
+
+    .btn-default:after{
+      content: ">";
+      right: 15px;
+      font-weight: bold;
+      position: absolute;
+
+    }
+
+
+    .component {
+        padding: 0px;
+        color: $text-color;
+        .component-content {
+            padding: 0px;
+            display: block;
+            height: 100%;
+            background-color: transparent;
+        }
+
+        &.boxed {
+            .component-content {
+                padding: $gutterside;
+                background-color: $btn-default-color ;
+        }
+        }
+        a{
+            color: $btn-default-color;
+            &:hover{
+                color:$btn-default-color;
+            }
+        }
+        h1 {
+          font-weight: bold;
+        }
+        h1, h2, h3 {
+            margin-top: 0px;
+        }
+        .btn {
+            color: $btn-default-color;
+            &:hover{
+                color: $btn-default-color ;
+            }
+        }
+
+    }
+    .card-container {
+        padding-top: $gutterside;
+        .component {
+            padding: 0px $gutterside $gutterside 0px;
+        }
+        &>.container {
+            padding-right: 0px;
+        }
+    }
+    // .panel {
+    //     @include panel-variant(get-color('primary','light'), get-color('dark'), get-color('primary','light'), get-color('primary','light'));
+    //     .panel-heading {
+    //         .panel-title a {
+    //             color: get-color('dark');
+    //         }
+    //     }
+    // }
+
+    section {
+      min-width: 100%;
+      min-height: 100px;
+    }
+
+    .bg-gary-light {
+      background-color: #fff;
+    }
+
+    .bg-gary-dark {
+      background: $gray-bg;
+    }
+
+    .bg-white {
+      background: #fff;
+    }
+
+    .bg-light-blue {
+      background: #fff;
+    }
+
+}
+
+//Container widths modified based on this project
+.container {
+  //@include container-fixed($gutterwidth);
+    @include mobile{
+      width: 100%;
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+    }
+    @include tablet{
+      width: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    @include desktop{
+      width: 1172px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+}
+
+//Add your theme name here and use it in pages where such styling is required.
+//.my-theme { @extend .agri-theme; }
+
+.row {
+  @include make-row(30px);
+  @include mobile{
+    @include make-row(15px);
+  }
+  [class*='col-']{
+    padding-left: 15px;
+    padding-right: 15px;
+    @include mobile{
+      padding-left: 7.5px;
+      padding-right: 7.5px;
+    }
+  }
+}
