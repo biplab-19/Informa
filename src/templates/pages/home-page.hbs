@@ -1,140 +1,127 @@
 <div class="page-content my-theme">
- <section id="hero-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Hero</h2>
+    <section id="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Hero</h2>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="main-catogory-section" class="bg-gray-light">
+        <div class="contained-component-placeholder sector-list">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Global expertise across the value chain</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    {{>sector_list sectors1}}
+                </div>
+                <div class="row show-more-btn-container text-center">
+                  <a id="showMoreSectors" class="center-block" href="#" role="button"><i class="glyphicon glyphicon-plus-sign"></i></br>View all</a>
+                </div>
             </div>
         </div>
-
-    </div>
-  </section>
+    </section>
 
 
-  <section id="main-catogory-section" class="bg-gray-light">
+
+    <section id="brand-section" class="bg-gray-dark">
         <div class="contained-component-placeholder card-container informa-layout-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Global expertise across the value chain</h2>
-                <div class="sector-list">
-                    {{>sector_list card}}
-                </div>
-            </div>
-        </div>
-
-    </div>
-        </div>
-  </section>
-
-
-
-  <section id="brand-section" class="bg-gray-dark">
-        <div class="contained-component-placeholder card-container informa-layout-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Brands</h2>
-                <div class="">
-                    <h3>{{brand.title1}}</h3>
-                    {{>cards brand.forecast}}
-                </div>
-                <div class="">
-                  <h3>{{brand.title2}}</h3>
-                    {{>cards brand.news}}
-                </div>
-            </div>
-
-
-        </div>
-
-    </div>
-        </div>
-  </section>
-
-
-  <section id="latest-news-section" class="bg-gray-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Latest</h2>
-
-            </div>
-        </div>
-
-    </div>
-  </section>
-
-
-  <section id="reports-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Report</h2>
-
-            </div>
-        </div>
-
-    </div>
-  </section>
-
-
-  <section id="social-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2>Twitter</h2>
-
-            </div>
-        </div>
-
-    </div>
-  </section>
-
-  <section id="contactus-section">
-  <div class="contactus-section">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3>Hello.</h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>Brands</h2>
+                        <div class="">
+                            <h3>{{brand.title1}}</h3> {{>cards brand.forecast}}
+                        </div>
+                        <div class="">
+                            <h3>{{brand.title2}}</h3> {{>cards brand.news}}
+                        </div>
                     </div>
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra
-                        varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt
-                        condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis
-                        nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                        accumsan. Aliquam in felis sit amet augue.</div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3>Hello.</h3>
-                    </div>
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra
-                        varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt
-                        condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis
-                        nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                        accumsan. Aliquam in felis sit amet augue.</div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3>Hello.</h3>
-                    </div>
-                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra
-                        varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt
-                        condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis
-                        nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor
-                        accumsan. Aliquam in felis sit amet augue.</div>
                 </div>
             </div>
         </div>
-    </div>
-  </div>
-  </section>
+    </section>
+
+
+    <section id="latest-news-section" class="bg-gray-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Latest</h2>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="reports-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Report</h2>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="social-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Twitter</h2>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contactus-section">
+        <div class="contactus-section">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>Hello.</h3>
+                            </div>
+                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi.
+                                Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>Hello.</h3>
+                            </div>
+                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi.
+                                Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3>Hello.</h3>
+                            </div>
+                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi.
+                                Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </div>

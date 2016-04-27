@@ -2002,6 +2002,7 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 @media print { .visible-print-inline-block { display: inline-block !important; } }
 
 @media print { .hidden-print { display: none !important; } }
+@font-face { font-family: 'FSMe'; src: url("fonts/FSMe.eot?#iefix") format("embedded-opentype"), url("../fonts/FSMe.ttf") format("truetype"), url("fonts/FSMe.woff") format("woff"); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'Alive'; src: url("fonts/Alive.eot?#iefix") format("embedded-opentype"), url("fonts/Alive.woff") format("woff"), url("fonts/Alive.ttf") format("truetype"), url("fonts/Alive.svg#Alive") format("svg"); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'Oswald'; src: url("fonts/Oswald.eot?#iefix") format("embedded-opentype"), url("fonts/Oswald.woff") format("woff"), url("fonts/Oswald.ttf") format("truetype"), url("fonts/Oswald.svg#Oswald") format("svg"); font-weight: normal; font-style: normal; }
 @font-face { font-family: 'Oswald-Bold'; src: url("fonts/Oswald-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/Oswald-Bold.woff") format("woff"), url("fonts/Oswald-Bold.ttf") format("truetype"), url("fonts/Oswald-Bold.svg#Oswald-Bold") format("svg"); font-weight: normal; font-style: normal; }
@@ -2149,6 +2150,10 @@ button.close { padding: 0; cursor: pointer; background: transparent; border: 0; 
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 ul, ol { margin-bottom: 0; margin-top: 0; }
 
+html { font-family: 'FSMe'; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+
+body { font-family: "FSMe"; }
+
 /* If you have a theme for yourself which you need to follow this then extend this agri-theme to that class and make
 appropriate style change */
 .agri-theme { color: #6a7285; }
@@ -2156,83 +2161,38 @@ appropriate style change */
 .agri-theme a:hover { color: #ffd600; }
 .agri-theme .btn { background: #fff; color: #6a7285; border-color: #ef7c00; border-radius: 0; border-width: 2px; }
 .agri-theme .btn:hover { background: #fff; color: #6a7285; }
-.agri-theme .component { padding: 0px; color: get-color("dark"); }
+.agri-theme .btn-default { text-align: left; padding-top: 15px; padding-bottom: 15px; border-color: #ffd600; position: relative; }
+.agri-theme .btn-default:after { content: ">"; right: 15px; font-weight: bold; position: absolute; }
+.agri-theme .component { padding: 0px; color: #3C404C; }
 .agri-theme .component .component-content { padding: 0px; display: block; height: 100%; background-color: transparent; }
 .agri-theme .component.boxed .component-content { padding: 15px; background-color: #6a7285; }
 .agri-theme .component a { color: #6a7285; }
 .agri-theme .component a:hover { color: #6a7285; }
+.agri-theme .component h1 { font-weight: bold; }
 .agri-theme .component h1, .agri-theme .component h2, .agri-theme .component h3 { margin-top: 0px; }
 .agri-theme .component .btn { color: #6a7285; }
 .agri-theme .component .btn:hover { color: #6a7285; }
 .agri-theme .card-container { padding-top: 15px; }
 .agri-theme .card-container .component { padding: 0px 15px 15px 0px; }
 .agri-theme .card-container > .container { padding-right: 0px; }
-.agri-theme .panel { border-color: get-color("primary", "light"); }
-.agri-theme .panel > .panel-heading { color: get-color("dark"); background-color: get-color("primary", "light"); border-color: get-color("primary", "light"); }
-.agri-theme .panel > .panel-heading + .panel-collapse > .panel-body { border-top-color: get-color("primary", "light"); }
-.agri-theme .panel > .panel-heading .badge { color: get-color("primary", "light"); background-color: get-color("dark"); }
-.agri-theme .panel > .panel-footer + .panel-collapse > .panel-body { border-bottom-color: get-color("primary", "light"); }
-.agri-theme .panel .panel-heading .panel-title a { color: get-color("dark"); }
 .agri-theme section { min-width: 100%; min-height: 100px; }
 .agri-theme .bg-gary-light { background-color: #fff; }
 .agri-theme .bg-gary-dark { background: #343943; }
 .agri-theme .bg-white { background: #fff; }
+.agri-theme .bg-light-blue { background: #fff; }
 
-/*Classes used by sitecore to create different columns structures
-Use classes like .informa-layout-col-1,2,3,4 to get appropriate columns where .informa-layout-col-4 takes full width
-Use 3 column by givng .informa-layout-3  to parent then internally use bootstrap classes .col-sm 8 to take width
-And finall use .informa-layout-col-1 to get final width as has been explained in the layout formation documentation.*/
-.informa-layout-col-1, .informa-layout-col-2, .informa-layout-col-3, .informa-layout-col-4 { float: left; position: relative; min-height: 1px; padding-left: 15px; padding-right: 15px; }
-
-.informa-layout-col-1 { float: left; width: 25%; }
-
-.informa-layout-col-2 { float: left; width: 50%; }
-
-.informa-layout-col-3 { float: left; width: 75%; }
-
-.informa-layout-col-4 { float: left; width: 100%; }
-
-.informa-layout-3 .col-sm-4 .informa-layout-col-1 { width: 100%; }
-.informa-layout-3 .col-sm-4 .informa-layout-col-2 { width: 100%; }
-.informa-layout-3 .col-sm-4 .informa-layout-col-3 { width: 100%; }
-.informa-layout-3 .col-sm-4 .informa-layout-col-4 { width: 100%; }
-.informa-layout-3 .col-sm-8 .informa-layout-col-1 { width: 50%; }
-.informa-layout-3 .col-sm-8 .informa-layout-col-2 { width: 100%; }
-.informa-layout-3 .col-sm-8 .informa-layout-col-3 { width: 100%; }
-.informa-layout-3 .col-sm-8 .informa-layout-col-4 { width: 100%; }
-.informa-layout-3 .col-sm-12 .informa-layout-col-1 { width: 33.3333%; }
-.informa-layout-3 .col-sm-12 .informa-layout-col-2 { width: 66.6667%; }
-.informa-layout-3 .col-sm-12 .informa-layout-col-3 { width: 100%; }
-.informa-layout-3 .col-sm-12 .informa-layout-col-4 { width: 100%; }
-
-.informa-layout-4 .col-sm-3 .informa-layout-col-1 { width: 100%; }
-.informa-layout-4 .col-sm-3 .informa-layout-col-2 { width: 100%; }
-.informa-layout-4 .col-sm-3 .informa-layout-col-3 { width: 100%; }
-.informa-layout-4 .col-sm-3 .informa-layout-col-4 { width: 100%; }
-.informa-layout-4 .col-sm-6 .informa-layout-col-1 { width: 50%; }
-.informa-layout-4 .col-sm-6 .informa-layout-col-2 { width: 100%; }
-.informa-layout-4 .col-sm-6 .informa-layout-col-3 { width: 100%; }
-.informa-layout-4 .col-sm-6 .informa-layout-col-4 { width: 100%; }
-.informa-layout-4 .col-sm-9 .informa-layout-col-1 { width: 33.3333%; }
-.informa-layout-4 .col-sm-9 .informa-layout-col-2 { width: 66.6667%; }
-.informa-layout-4 .col-sm-9 .informa-layout-col-3 { width: 100%; }
-.informa-layout-4 .col-sm-9 .informa-layout-col-4 { width: 100%; }
-
-/* Overwrites all column styles to default. No column structure will be respected if this mixin is included */
-/* Making it responsive for mobile by resetting all widths and floats to auto on mobile */
-@media (max-width: 768px -1px) { .informa-layout-col-1, .informa-layout-col-2, .informa-layout-col-3, .informa-layout-col-4 { float: none; width: auto; }
-  .informa-layout-3 .col-sm-4 .informa-layout-col-1, .informa-layout-3 .col-sm-4 .informa-layout-col-2, .informa-layout-3 .col-sm-4 .informa-layout-col-3, .informa-layout-3 .col-sm-4 .informa-layout-col-4, .informa-layout-3 .col-sm-8 .informa-layout-col-1, .informa-layout-3 .col-sm-8 .informa-layout-col-2, .informa-layout-3 .col-sm-8 .informa-layout-col-3, .informa-layout-3 .col-sm-8 .informa-layout-col-4, .informa-layout-3 .col-sm-12 .informa-layout-col-1, .informa-layout-3 .col-sm-12 .informa-layout-col-2, .informa-layout-3 .col-sm-12 .informa-layout-col-3, .informa-layout-3 .col-sm-12 .informa-layout-col-4 { float: none; width: auto; }
-  .informa-layout-3 .col-sm-3 .informa-layout-col-1, .informa-layout-3 .col-sm-3 .informa-layout-col-2, .informa-layout-3 .col-sm-3 .informa-layout-col-3, .informa-layout-3 .col-sm-3 .informa-layout-col-4, .informa-layout-3 .col-sm-6 .informa-layout-col-1, .informa-layout-3 .col-sm-6 .informa-layout-col-2, .informa-layout-3 .col-sm-6 .informa-layout-col-3, .informa-layout-3 .col-sm-6 .informa-layout-col-4, .informa-layout-3 .col-sm-9 .informa-layout-col-1, .informa-layout-3 .col-sm-9 .informa-layout-col-2, .informa-layout-3 .col-sm-9 .informa-layout-col-3, .informa-layout-3 .col-sm-9 .informa-layout-col-4 { float: none; width: auto; } }
-.container { margin-right: auto; margin-left: auto; padding-left: 15px; padding-right: 15px; }
-.container:before, .container:after { content: " "; display: table; }
-.container:after { clear: both; }
-@media (min-width: 768px) and (max-width: 1169px) { .container { width: 738px; } }
-@media (min-width: 1170px) and (max-width: 1399px) { .container { width: 1140px; } }
-@media (min-width: 1400px) { .container { width: 1170px; } }
+@media (max-width: 767px) { .container { width: 100%; padding-left: 7.5px; padding-right: 7.5px; } }
+@media (min-width: 768px) and (max-width: 1141px) { .container { width: 100%; padding-left: 15px; padding-right: 15px; } }
+@media (min-width: 1142px) { .container { width: 1172px; padding-left: 15px; padding-right: 15px; } }
 
 .row { margin-left: -15px; margin-right: -15px; }
 .row:before, .row:after { content: " "; display: table; }
 .row:after { clear: both; }
+@media (max-width: 767px) { .row { margin-left: -7.5px; margin-right: -7.5px; }
+  .row:before, .row:after { content: " "; display: table; }
+  .row:after { clear: both; } }
+.row [class*='col-'] { padding-left: 15px; padding-right: 15px; }
+@media (max-width: 767px) { .row [class*='col-'] { padding-left: 7.5px; padding-right: 7.5px; } }
 
 .main-header .header-logo { height: 100px; vertical-align: middle; background-color: #434952; }
 .main-header .header-logo .navbar-header { padding-top: 18px; }
@@ -2249,3 +2209,17 @@ And finall use .informa-layout-col-1 to get final width as has been explained in
 .footer-links { background-color: #424A57; min-height: 100px; }
 
 .contactus-section { background: #424A57; }
+
+.sector-list p { margin-top: 10px; }
+.sector-list ul.sector-list-products { display: block; margin: 15px 0 25px 0; padding: 0; }
+.sector-list ul.sector-list-products li { display: inline; text-align: center; list-style: none; margin: 0; padding: 0; font-size: 18px; }
+.sector-list ul.sector-list-products li:after { content: ", "; color: #aaa; }
+.sector-list ul.sector-list-products li:last-child:after { content: ""; }
+.sector-list .show-more-btn-container { display: none; }
+.sector-list .btn-container { width: 80%; margin: 0 auto; }
+.sector-list .sector-card { padding: 45px 0; }
+@media screen and (min-device-width: 320px) and (max-device-width: 767px) { .sector-list .sector-card { display: none; }
+  .sector-list .sector-card:nth-child(2n) { display: block; }
+  .sector-list .show-more-btn-container { display: block; border-bottom: solid 1px #ffd600; width: 100px; margin: 0 auto; padding: 5px; cursor: pointer; }
+  .sector-list .glyphicon-plus-sign { font-size: 30px; }
+  .sector-list .btn-container { width: 100%; margin: 0 auto; } }

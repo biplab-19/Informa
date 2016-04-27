@@ -11,6 +11,10 @@
 
    <script type="text/javascript">
         $INFORMA = jQuery.noConflict();
+        $INFORMA("#showMoreSectors").click(function(){
+          $INFORMA('.sector-card').css('display', 'block');
+          $INFORMA('.show-more-btn-container').css('display', 'none');
+        });
     </script>
 
     <!-- build:js project/scripts/informaui.main.js -->
