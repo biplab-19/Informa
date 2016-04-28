@@ -8,31 +8,58 @@ $bootstrap-sass-asset-helper: false; // Cosmo 3.3.6
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
-$gray-bg: #343943;
-$gray-base: #434952;
-$gray-darker: #6a7285;
-$gray-dark: #888e9e; // #333
-$gray: #a6aab6; // #555
-$gray-light: #D1497C; // #999
-$gray-lighter: #1191D1; // #eee
-$brand-primary: #ef7c00;
-$brand-success: #ef7c00;
-$brand-info: #ef7c00;
-$brand-warning: #ef7c00;
-$brand-danger: #ef7c00;
-$brand-secondary: #ffd600;
-$gray-dark: #3C404C;
-$gray-light: #424A57;
-$footer-top-gray: #3C404C;
-$footer-bottom-gray: #424A57; //== Scaffolding
+$gray-bg:               #343943;
+$gray-base:             #434952;
+$gray-darker:           #6a7285;
+$gray-dark:             #888e9e;   // #333
+$gray:                  #a6aab6; // #555
+$gray-light:            #D1497C;   // #999
+$gray-lighter:          #1191D1; // #eee
+$black:                 #000;
+$yellow:                #ffd500;
+
+$brand-primary:         #ef7c00;
+$brand-success:         #ef7c00;
+$brand-info:            #ef7c00;
+$brand-warning:         #ef7c00;
+$brand-danger:          #ef7c00;
+
+
+$brand-secondary:       #ffd600;
+
+// Text colors
+$text-gray:             #6a7287;
+$text-gray-dark:       #444957;
+
+$gray-dark:             #3C404C;
+$gray-light:            #424A57;
+$footer-top-gray:       #3C404C;
+$footer-bottom-gray:    #424A57;
+$light:                 #fff;
+
+// Sub colors : Used in footer links
+$sub-pink:              #d14a7d;
+$sub-red:               #dc0a36;
+$sub-green:             #5ab031;
+$sub-blue:              #1291d1;
+
+//== Scaffolding
 //
 //## Settings for some of the most global styles.
 //** Background color for `<body>`.
-$body-bg: #fff; //** Global text color on `<body>`.
-$text-color: $gray-dark; //** Global textual link color.
-$link-color: $brand-primary; //** Link hover color set via `darken()` function.
-$link-hover-color: $brand-secondary; //** Link hover decoration.
-$link-hover-decoration: underline; //== Typography
+$body-bg:               #f0f1f3;
+//** Global text color on `<body>`.
+$text-color:            $gray-dark;
+
+//** Global textual link color.
+$link-color:           $brand-primary;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      $brand-secondary;
+//** Link hover decoration.
+$link-hover-decoration: underline;
+
+
+//== Typography
 //
 //## Font, line-height, and color for body text, headings, and more.
 $font-family-sans-serif: "Source Sans Pro", Calibri, Candara, Arial, sans-serif;

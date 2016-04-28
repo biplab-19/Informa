@@ -1,0 +1,26 @@
+//Elemnt level
+body {
+  background: $body-bg;
+}
+h1 {
+    font-family: FSMe-Bold;
+    font-size: 40px;
+    &.dark {
+        color: $text-gray;
+    }
+}
+h3 {
+  font-size: 17px;
+  &.light {
+    color: #fff;
+  }
+  &.gray {
+    color: $gray-dark;
+  }
+}
+.btn {
+    position: relative;
+    &:after {
+        position: absolute;
+    }
+}

@@ -1,20 +1,128 @@
-.main-footer {
-    background-color: $gray-dark;
-    min-height: 200px;
-    .footer-nav li {
-        width: 100%;
-        border-bottom: 2px solid green;
-        color: red;
-        a {
-            color: #fff;
-            padding-left: 0;
+footer {
+  // The customer list + SLider
+  section#customers_list{
+    height: 208px;
+    overflow: hidden;
+    .title_comp {
+      h3 {
+        margin: 35px 0 50px;
+      }
+    }
+    .customers_list_slider {
+      opacity: 0;
+      transition: .5s ease;
+      &.slick-slider {
+        opacity: 1;
+        .slick-prev:before,.slick-next:before {
+          color: $gray-dark;
         }
-        a:hover {
-            background: $gray-dark;
+      }
+      .customer {
+        img { width: 100%;}
+      }
+    }
+  }
+
+  // Naivgational Links & Social Icons
+  section#footer-links {
+    background: $footer-top-gray;
+    padding: 36px 0 42px;
+    h3 {
+      margin: 0 0 25px;
+    }
+    nav {
+      ul {
+        float: none;
+        li {
+          float: none;
+          a {
+            color: $light;
+            padding: 10px 0;
+            &:Hover {
+              background: inherit;
+            }
+          }
+          &.pink {
+            a:after {
+              color: $sub-pink;
+            }
+            a {
+              border-color: $sub-pink
+            }
+          }
+          &.red {
+            a:after {
+              color: $sub-red;
+            }
+            a {
+              border-color: $sub-red
+            }
+          }
+          &.green {
+            a:after {
+              color: $sub-green;
+            }
+            a {
+              border-color: $sub-green
+            }
+          }
+          &.blue {
+            a:after {
+              color: $sub-blue;
+            }
+            a {
+              border-color: $sub-blue
+            }
+          }
+        }
+      }
+    }
+    .links {
+        nav {
+          ul {
+            width: 75%;
+              a {
+                border-bottom: 1px solid;
+                display: block;
+                position: relative;
+                &:after {
+                  content: '>';
+                  position: absolute;
+                  right: 0;
+                }
+              }
+          }
         }
     }
-}
-.footer-links {
-    background-color: $gray-light;
-    min-height: 100px;
+    .social {
+      border-left: 1px solid $light;
+    }
+  }
+
+  // Privacy section
+  section#privacy{
+    background: $footer-bottom-gray;
+    padding: 35px 0;
+    color: $light;
+    ul {
+      li {
+        margin-right: 35px;
+      }
+      a {
+        color: $light;
+        padding: 0;
+        text-decoration: underline;
+        &:Hover {
+          background: inherit;
+        }
+      }
+    }
+    .disclaimer-copyright {
+      font-size: 12px;
+      margin: 30px 0 0;
+      & + .bottom-logo {
+        padding: 25px 0 0;
+      }
+    }
+  }
 }
