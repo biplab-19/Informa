@@ -45,3 +45,11 @@ h3 {
     top: 50%;
     transform: translateY(-50%);
 }
+
+.btn-primary {
+    position: relative;
+    
+    &:after {
+        position: absolute;
+    }
+}
