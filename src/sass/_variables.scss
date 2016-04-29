@@ -19,10 +19,7 @@ $black:                 #000;
 $yellow:                #ffd500;
 
 $brand-primary:         #ef7c00;
-$brand-success:         #ef7c00;
-$brand-info:            #ef7c00;
-$brand-warning:         #ef7c00;
-$brand-danger:          #ef7c00;
+$orange:                #ef7c00;
 
 
 $brand-secondary:       #ffd600;
@@ -202,7 +199,7 @@ $zindex-modal: 1050; //== Media queries breakpoints
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
 // Extra small screen / phone
 //** Deprecated `$screen-xs` as of v3.0.1
-$screen-xs: 480px; //** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs: 320px; //** Deprecated `$screen-xs-min` as of v3.2.0
 $screen-xs-min: $screen-xs; //** Deprecated `$screen-phone` as of v3.0.1
 $screen-phone: $screen-xs-min; // Small screen / tablet
 //** Deprecated `$screen-sm` as of v3.0.1
@@ -210,7 +207,7 @@ $screen-sm: 768px;
 $screen-sm-min: $screen-sm; //** Deprecated `$screen-tablet` as of v3.0.1
 $screen-tablet: $screen-sm-min; // Medium screen / desktop
 //** Deprecated `$screen-md` as of v3.0.1
-$screen-md: 992px;
+$screen-md: 1142px;
 $screen-md-min: $screen-md; //** Deprecated `$screen-desktop` as of v3.0.1
 $screen-desktop: $screen-md-min; // Large screen / wide desktop
 //** Deprecated `$screen-lg` as of v3.0.1
