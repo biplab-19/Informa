@@ -185,7 +185,13 @@ module.exports = function(grunt) {
                             'bower_components/parallax/deploy/jquery.parallax.js',
 							              'bower_components/picturefill/src/picturefill.js',
 							              'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
-                            'src/components/carousel/js/carousel.js'
+                            'src/components/carousel/js/carousel.js',
+                            'src/components/feature-list/js/*.js',
+                            'src/components/pdp-customer-quote/js/*.js',
+                            'src/components/global_footer/js/*.js',
+                            'src/components/_global/js/global.js'
+
+
                         ],
                         dest: '<%= config.tmp %>'
                     },
@@ -212,8 +218,19 @@ module.exports = function(grunt) {
                     },
                     {
                         expand: true,
-                        cwd: '<%= config.src %>/sass/fonts',
-                        dest: '<%= config.tmp %>/styles/fonts',
+                        cwd: 'bower_components/bootstrap-sass-official/assets/fonts',
+                        dest: '<%= config.tmp %>/fonts',
+                        src: [
+                            '{,*/}*.*',
+                            "!_fonts.scss"
+                        ]
+                    },
+
+
+                    {
+                        expand: true,
+                        cwd: '<%= config.src %>/fonts',
+                        dest: '<%= config.tmp %>/fonts',
                         src: [
                             '{,*/}*.*',
                             "!_fonts.scss"

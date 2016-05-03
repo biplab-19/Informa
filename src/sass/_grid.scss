@@ -28,13 +28,13 @@ appropriate style change */
         }
     }
     .btn {
-        background: $btn-default-bg;
+        background: transparent;
         color: $btn-default-color;
         border-color: $btn-default-border;
         border-radius: $border-radius-base;
         border-width: 2px;
         &:hover{
-            background: $btn-default-bg;
+            background: transparent;
             color: $btn-default-color;
         }
         &:next{
@@ -45,8 +45,8 @@ appropriate style change */
 
     .btn-default{
        text-align: left;
-       padding-top: 10px;
-       padding-bottom: 10px;
+       padding-top: 15px;
+       padding-bottom: 15px;
        border-color: $brand-secondary;
        position: relative;
        &:after{
@@ -61,8 +61,8 @@ appropriate style change */
     .btn-primary{
        text-align: left;
        width:100%;
-       padding-top: 10px;
-       padding-bottom: 10px;
+       padding-top: 15px;
+       padding-bottom: 15px;
        border-color: $brand-primary;
        background-color: $brand-primary;
        color: $white;
@@ -139,7 +139,7 @@ appropriate style change */
       min-height: 100px;
     }
 
-    .bg-gray-dark {
+    .bg-gray-light {
       background-color: $gray-light-bg;
     }
 
@@ -165,13 +165,29 @@ appropriate style change */
 
     }
     .bg-gray-dark {
-      h1 {
+      h1, h2 {
         @include header-color('bg-gray-dark');
+      }
+
+    h2{
+      font-size: 26px;
+    }
+      .btn{
+        color: $white;
+
       }
     }
 
 }
 
+.panel{
+  border-radius: 0;
+  .panel-heading{
+    border: none;
+    color: $gray-darker;
+    padding: 6px 15px;
+  }
+}
 //Container widths modified based on this project
 .container {
   //@include container-fixed($gutterwidth);

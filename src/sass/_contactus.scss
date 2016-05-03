@@ -1,5 +1,28 @@
-.contactus-section {
-    background: $gray-light;
-    .panel {}
-    .panel > .panel-heading {}
+.contactus-list {
+    padding-bottom: 25px;
+    padding-top: 25px;
+    .contactus-card {
+        .panel {
+            min-height: 295px;
+        }
+        .icon {
+            padding-right: 8px;
+        }
+        .panel-body {
+            padding: 20px;
+            .phone-number {
+                padding-top: 20px;
+                a {
+                        font-size: 28px;
+                        text-decoration: none;
+                }
+            }
+            .btn-container {
+                width: 200px;
+                position: absolute;
+                bottom: 35px;
+                float: left;
+            }
+        }
+    }
 }

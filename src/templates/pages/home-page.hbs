@@ -1,95 +1,10 @@
 <div class="page-content my-theme">
-    <section id="hero-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Hero</h2>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-
+    {{>home_hero}}
     {{>sector_list sectors}}
     {{>brand_list brands1}}
     {{>brand_list brands2}}
-
-
-    <section id="latest-news-section" class="bg-gray-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Latest</h2>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section id="reports-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Report</h2>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section id="social-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Twitter</h2>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="contactus-section">
-        <div class="contactus-section">
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3>Hello.</h3>
-                            </div>
-                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi.
-                                Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3>Hello.</h3>
-                            </div>
-                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi.
-                                Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3>Hello.</h3>
-                            </div>
-                            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis dolor, in sagittis nisi.
-                                Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. Aliquam in felis sit amet augue.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    {{>home_latest_news}}
+    {{>home-agri-report}}
+    {{>home_social}}
+    {{>home_contactus contactus}}
 </div>
