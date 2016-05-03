@@ -1,0 +1,60 @@
+section#agri-report{
+    background: $gray-light-bg;
+    padding: 40px 0;
+    position: relative;
+    @include mobile {
+        padding: 10px 0 20px;
+    }
+    h1 {
+        @include tablet {
+            font-size: 32px;
+        }
+        @include mobile {
+            font-size: 24px;
+        }
+    }
+    .agri-report-wrapper {
+        position: relative;
+        font-family: FSMe-Light;
+        font-size: 18px;
+        @include mobile {
+            font-size: 12px;
+        }
+        .headline {
+            font-family:FSMe-Bold;
+            padding: 60px 0 20px;
+            @include tablet {
+                padding: 30px 0 10px;
+            }
+            @include mobile {
+                display: none;
+            }
+        }
+        .splash-image {
+            position: absolute;
+            bottom: -40px;
+            right:100px;
+            @include mobile {
+                position: static;
+                margin-top: 35px;
+                & > img {
+                    width: 200px;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+        .description {
+            line-height: 2eM;
+        }
+        .download-report {
+            font-size: 14px;
+            font-family: FSMe;
+            width: 100%;
+            margin-top: 60px;
+            @include mobile {
+                margin-top: 20px;
+            }
+        }
+    }
+}

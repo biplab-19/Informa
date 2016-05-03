@@ -1,0 +1,35 @@
+<section id="customer-quote">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="light">How we've helped other businesses</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-7 col-sm-9 col-xs-12">
+                <div class="slider-component" id="customer-quote-slider">
+                    <!-- singel slide starts -->
+                    {{#each this}}
+                        <div class="customer-quote-slide">
+                            <div>
+                                <em class="saying">
+                                    {{quote}}
+                                </em>
+                                <div class="saidBy">
+                                    <span class="owner">{{owner}}</span>
+                                    <span class="description">{{description}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                    <!-- single slide ends -->
+                </div>
+            </div>
+        </div>
+        <div class="design-helper">
+            <div class="white-streak"></div>
+        </div>
+        <div class="design-helper two">
+            <div class="white-streak two"></div>
+        </div>
+</section>

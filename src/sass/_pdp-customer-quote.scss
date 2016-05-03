@@ -1,0 +1,134 @@
+section#customer-quote {
+    background: $yellow;
+    padding: 70px 0;
+    position: relative;
+    color: $text-gray;
+    overflow: hidden;
+    @include desktop {
+        height: 576px;
+    }
+    @include mobile{
+        padding: 11px 0 59px;
+        h1 {
+            font-size: 24px;
+        }
+    }
+    #customer-quote-slider {
+        &:before {
+            content: ',,';
+            font-family: FSMe-Bold;
+            font-size: 90px;
+            opacity: .45;
+            position: absolute;
+            top: -10px;
+            transform: rotate(180Deg);
+            color: #fff;
+            left: -60px;
+        }
+
+        @include mobile {
+            &:before {
+                left: 0;
+                top: -20px;
+            }
+        }
+        position: relative;
+        margin-top: 66px;
+        @include mobile {
+            margin-top: 10px;
+        }
+        .customer-quote-slide {
+            em {
+                font-size: 24px;
+                font-family: FSMe-Light;
+                font-style: normal;
+                margin-bottom: 30px;
+                display: block;
+                @include mobile {
+                    font-size: 16px;
+                }
+            }
+            .saidBy {
+                font-size: 14px;
+                @include mobile {
+                    font-size: 12px;
+                }
+                font-family: FSMe-Bold;
+                span {
+                    padding-right: 15px;
+                    position: relative;
+                    &.owner:after {
+                        position: absolute;
+                        content: '\/';
+                        right: 3px;
+                        font-family: FSMe-Light;
+                    }
+                }
+                .description {
+                    font-family: FSMe-Light;
+                }
+            }
+        }
+    }
+    .design-helper {
+        position: absolute;
+        width: auto;
+        height: 500px;
+        top:0;
+        right: 0;
+        pointer-events: none;
+        @include mobile {
+            display: none;
+        }
+        .white-streak{
+            transform: skew(34Deg);
+            width: 100px;
+            height: 230px;
+            background: $light;
+            opacity: .3;
+            &.two {
+                height: 500px;
+            }
+        }
+        &.two {
+            top: 130px;
+            right: 0;
+        }
+    }
+    .slick-initialized {
+        ul.slick-dots {
+            text-align: left;
+            @include mobile {
+                text-align: center;
+                width: 100%;
+            }
+            bottom: -56px;
+            width: auto;
+            li {
+                height: 10px;
+                width: 10px;
+                border-radius: 5px;
+                background: $orange;
+                button:before {
+                    content: '';
+                }
+                &.slick-active{
+                    background: $light;
+                }
+            }
+        }
+        .slick-prev,.slick-next {
+            top: auto;
+            bottom: -56px;
+            left: auto;
+            right: 0;
+            transform: none;
+            @include mobile {
+                display: none!important;
+            }
+        }
+        .slick-prev {
+            right: 25px;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+--- component: pdp-feature-list ---
+<section id="feature-list">
+    <div class="container">
+        <div class="row headline">
+            <div class="col-xs-12">
+                <h1 class="dark">Features</h1>
+            </div>
+        </div>
+        <div class="row">
+            {{#each this}}
+                <div class="feature-list-container">
+                    <div class="feature-list">
+                        <div class="feature-image">
+                            <img src="images/feature-list/{{image}}">
+                        </div>
+                        <div class="headText">
+                            {{title}}
+                        </div>
+                        <p>{{description}}</p>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="row">
+            <button class="btn btn-showMore yellow" data-alt-text="See less Features">See all Features</button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,65 @@
+section#feature-list{
+    background: $light;
+    padding: 50px 0;
+    .feature-list-container {
+        float: left;
+        width: 25%;
+        padding: 40px 40px;
+        @include tablet {
+            width: 33.3333%;
+            &:nth-child(n+7) {
+                display: none;
+            }
+        }
+        @include mobile{ //todo: change this
+            width: 100%;
+            &:nth-child(n+3) {
+                display: none;
+            }
+        }
+        .feature-image, .headText, p {
+            text-align: center;
+        }
+        .headText {
+            font-family: FSMe-Bold;
+            font-size: 16px;
+            color: $text-gray-dark;
+            padding: 12px 0 6px;
+        }
+        p {
+            font-family: FSMe-Light;
+            font-size: 14px;
+            color: $black;
+        }
+        &:nth-child(n+9) {
+            display: none;
+        }
+    }
+    .btn-showMore {
+        background: none;
+        width: 260px;
+        padding: 15px;
+        margin: 0 auto;
+        text-align: left;
+        color: $text-gray-dark;
+        border-color: $yellow;
+        display: block;
+        &:after {
+            content: '+';
+            right: 10px;
+            color: #fff;
+            background: #ffd500;
+            height: 30px;
+            width: 30px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 24px;
+            top: 9px;
+        }
+        &.showLess {
+            &:after {
+                content: '-';
+            }
+        }
+    }
+}

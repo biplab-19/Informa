@@ -1,0 +1,45 @@
+.product-brands-list {
+    padding-bottom: 20px;
+    .brand-list-card {
+        position: relative;
+        min-height: 300px;
+        background-color: $white;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        .image-thumbnail {
+            min-height: 220px;
+            -webkit-clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
+            clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
+        }
+        .caption {
+            //  min-height: 150px;
+            height: 189px;
+            padding: 10px;
+            p {
+                padding-top: 15px;
+                padding-bottom: 5px;
+            }
+            h2 {
+                color: $gray-darker;
+            }
+        }
+        .showmore {
+            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 10%);
+            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 10%);
+            min-height: 90px;
+            //  position: relative;
+            .btn-container {
+                width: 200px;
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                float: right;
+            }
+        }
+    }
+    .show-more-products {
+        .btn {
+            width: 20%;
+        }
+    }
+}

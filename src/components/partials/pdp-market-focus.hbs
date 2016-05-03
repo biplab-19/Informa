@@ -1,0 +1,22 @@
+---
+component: pdp-feature-list
+---
+<section id="market-focus">
+    <div class="container">
+        <div class="row headline">
+            <div class="col-xs-12">
+                <h1 class="dark">Market Focus</h1>
+            </div>
+        </div>
+        <div class="row">
+            {{#each this}}
+                <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
+                    <div class="market-list"  style="background-image:url(/images/market-focus/{{image}}?w=160)">
+                        <h2>{{title}}</h2>
+                        <p>{{description}}</p>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

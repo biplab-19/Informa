@@ -180,14 +180,18 @@ appropriate style change */
 
 }
 
-.panel{
-  border-radius: 0;
-  .panel-heading{
-    border: none;
-    color: $gray-darker;
-    padding: 6px 15px;
+.panel-group{
+  .panel{
+    border-radius: 0;
+    .panel-heading{
+      border: none;
+      color: $gray-darker;
+      padding: 6px 15px;
+    }
   }
 }
+
+
 //Container widths modified based on this project
 .container {
   //@include container-fixed($gutterwidth);
