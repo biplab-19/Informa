@@ -186,7 +186,7 @@ appropriate style change */
     .panel-heading{
       border: none;
       color: $gray-darker;
-      padding: 6px 15px;
+      padding: 10px 15px;
     }
   }
 }
@@ -229,4 +229,50 @@ appropriate style change */
       padding-right: 7.5px;
     }
   }
+}
+
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+@mixin rotate($param) {
+	-ms-transform: rotate($param); /* IE 9 */
+    -webkit-transform: rotate($param); /* Chrome, Safari, Opera */
+    transform: rotate($param);
+}
+
+
+.yellow-bullets {
+	list-style-type: none;
+	padding-left: 20px;
+	li {
+		margin-bottom: 5px;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			left: -20px;
+			width: 5px;
+			height: 5px;
+			top: 7px;
+			background-color: $yellow;
+			@include border-radius(50%);
+			font-family: 'FS Me Bold'; //discuss
+		}
+	}
+}
+
+.white-mail, .white-linkedin {
+	width: 24px;
+	height: 17px;
+	background-image: url(../images/yellow-mail.png); // background Image
+	display: block;
+}
+.white-twitter {
+	width: 23px;
+	height: 16px;
+	background-image: url(../images/yellow-twitter.png);
+	display: block;
 }

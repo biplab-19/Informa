@@ -279,8 +279,10 @@ module.exports = function(grunt) {
             },
             prod: {
                 files: {
-                    '<%= config.dist %>/scripts/informaui.main.js': ['<%= config.tmp %>/scripts/components/*.js','<%= config.tmp %>/scripts/informaui.main.js'],
-                    '<%= config.dist %>/scripts/vendor/vendor.js': ['bower_components/jquery/jquery.js','bower_components/slick-carousel/slick/slick.js']
+                    '<%= config.dist %>/scripts/main.js':['<%= config.tmp %>/src/components/_global/js/global.js',
+                     '<%= config.tmp %>/src/components/feature-list/js/feature-list.js',
+                     '<%= config.tmp %>/src/components/global_footer/js/global_footer.js'],
+                    '<%= config.dist %>/scripts/vendor/vendor.js': ['bower_components/jquery/jquery.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js']
                 }
             }
         },
