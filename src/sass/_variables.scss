@@ -546,6 +546,13 @@ $min-width: 320px; // define breakpoints
 $tablet-width: 768px;
 $desktop-width: 1142px;
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+
+@mixin not-mobile {
+     @media (min-width: #{$tablet-width}){
+        @content;
+    }
+}
+
 @mixin mobile {
      @media (max-width: #{$tablet-width - 1px}){
         @content;

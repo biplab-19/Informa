@@ -195,17 +195,17 @@ appropriate style change */
 //Container widths modified based on this project
 .container {
   //@include container-fixed($gutterwidth);
-    @include mobile{
+    @include mobile {
       width: 100%;
       padding-left: 7.5px;
       padding-right: 7.5px;
     }
-    @include tablet{
+    @include tablet {
       width: 100%;
       padding-left: 15px;
       padding-right: 15px;
     }
-    @include desktop{
+    @include desktop {
       width: 1172px;
       padding-left: 15px;
       padding-right: 15px;
