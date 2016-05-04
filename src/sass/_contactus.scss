@@ -3,6 +3,9 @@
         .collapse {
             display: table-row;
         }
+        .panel-heading {
+            pointer-events: none;
+        }
         .panel-group .panel {
             float: left;
             width: 31.5%;
@@ -28,10 +31,15 @@
             display: none;
         }
     }
-    .accordion-toggle{
-      position: relative;
+    .white-color {
+        color: $white;
     }
-
+    .contactus-header {
+        padding-bottom: 20px;
+    }
+    .accordion-toggle {
+        position: relative;
+    }
     .accordion-toggle:after {
         font-family: 'Glyphicons Halflings';
         content: "\e082";
@@ -42,15 +50,15 @@
         top: 18px;
     }
     .accordion-toggle.collapsed:after {
-          content: "\e081";
-          right: 30px;
-          top: 18px;
-          font-size: 35px;
+        content: "\e081";
+        right: 30px;
+        top: 18px;
+        font-size: 35px;
     }
     padding-bottom: 25px;
     padding-top: 25px;
     .panel {
-    //  min-height: 250px;
+        //  min-height: 250px;
         position: relative;
         .panel-body {
             padding: 20px;
@@ -68,7 +76,6 @@
                 float: left;
             }
         }
-
         .icon {
             padding-right: 8px;
         }
