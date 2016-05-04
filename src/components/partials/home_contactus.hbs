@@ -15,7 +15,7 @@
                      <div class="panel-body">
                         {{#each content}}
                         {{#if number}}
-                        <h4>{{{title}}}</h4>
+                        <div class="content-wrapper-number">{{{title}}}</div>
                         <div class="phone-number">
                            <a href="tel:{{number}}">{{number}}</a>
                         </div>
@@ -25,7 +25,7 @@
                         <p class="email"> {{name}} <a href="mailto:{{{email}}}">{{{email}}}</a></p>
                         {{/if}}
                         {{#if cta}}
-                        <div class="content-wrapper">{{{title}}}</div>
+                        <div class="content-wrapper-cta">{{{title}}}</div>
                         <div class="btn-container">
                            <a class="btn btn-primary" href="{{cta.link}}" role="button">{{cta.label}}</a>
                         </div>
