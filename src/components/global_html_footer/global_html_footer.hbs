@@ -2,24 +2,24 @@
     component: global_html_footer
 ---
 
-    <!-- build:js global/scripts/vendor/vendor.js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-
-    <!-- endbuild -->
 
    <script type="text/javascript">
         $INFORMA = jQuery.noConflict();
+        $INFORMA("#showMoreSectors").click(function(){
+          $INFORMA('.sector-card').css('display', 'block');
+          $INFORMA('.show-more-btn-container').css('display', 'none');
+        });
     </script>
 
     <!-- build:js project/scripts/informaui.main.js -->
 	<script src="scripts/components/config.js"> </script>
 
-      <!-- <script src="src/components/_global/js/global.js"> </script> -->
-      <script src="src/components/carousel/js/carousel.js"> </script>
-      <script src="src/components/global_footer/js/global_footer.js"> </script>
-    <script src="scripts/informaui.main.js"> </script>
+    <script src="src/components/_global/js/global.js"></script>
+    <script src="src/components/carousel/js/carousel.js"></script>
+    <script src="src/components/feature-list/js/feature-list.js"></script>
+    <script src="src/components/pdp-customer-quote/js/pdp-customer-quote.js"></script>
+    <script src="src/components/global_footer/js/global_footer.js"></script>
+    <script src="scripts/informaui.main.js"></script>
     <!-- endbuild -->
 
 </body>

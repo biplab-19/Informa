@@ -93,8 +93,39 @@ module.exports = function(grunt) {
                     assets: '<%= config.tmp %>',
                     layout: 'main-layout.hbs',
                     layoutdir: '<%= config.src %>/templates/layouts',
-                    data: '<%= config.src %>/data/*.{json,yml}',
-                    partials: '<%= config.src %>/components/**/*.hbs'
+                    data: ['<%= config.src %>/components/sector_list/data/sectors.json',
+                            '<%= config.src %>/components/brand_list/data/brands1.json',
+                            '<%= config.src %>/components/brand_list/data/brands2.json',
+                            '<%= config.src %>/components/home_latest_news/data/*.json',
+                            '<%= config.src %>/components/home_agri_report/data/*.json',
+                            '<%= config.src %>/components/home_social/data/*.json',
+                            '<%= config.src %>/components/home_contactus/data/*.json',
+                            '<%= config.src %>/components/pdp-hero/data/*.json',
+                            '<%= config.src %>/components/pdp-feature-list/data/*.json',
+                            '<%= config.src %>/components/pdp-feature-list/data/*.json',
+                            '<%= config.src %>/components/pdp-market-focus/data/*.json',
+                            '<%= config.src %>/components/pdp-customer-quote/data/*.json',
+                            '<%= config.src %>/components/pdp-analyst/data/*.json'
+
+                          ],
+                    partials: ['<%= config.src %>/components/global_html_header/global_html_header.hbs',
+                              '<%= config.src %>/components/global_html_footer/global_html_footer.hbs',
+                              '<%= config.src %>/components/global_header/global_header.hbs',
+                              '<%= config.src %>/components/global_footer/global_footer.hbs',
+                              '<%= config.src %>/components/home_hero/home_hero.hbs',
+                              '<%= config.src %>/components/sector_list/sector_list.hbs',
+                              '<%= config.src %>/components/brand_list/brand_list.hbs',
+                              '<%= config.src %>/components/home_latest_news/home_latest_news.hbs',
+                              '<%= config.src %>/components/home_agri_report/home_agri_report.hbs',
+                              '<%= config.src %>/components/home_social/home_social.hbs',
+                              '<%= config.src %>/components/home_contactus/home_contactus.hbs',
+                              '<%= config.src %>/components/pdp-hero/pdp-hero.hbs',
+                              '<%= config.src %>/components/pdp-feature-list/pdp-feature-list.hbs',
+                              '<%= config.src %>/components/pdp-feature-list/pdp-feature-list.hbs',
+                              '<%= config.src %>/components/pdp-market-focus/pdp-market-focus.hbs',
+                              '<%= config.src %>/components/pdp-customer-quote/pdp-customer-quote.hbs',
+                              '<%= config.src %>/components/pdp-analyst/pdp-analyst.hbs'
+                                ]
                 },
                 files: {
                     '<%= config.tmp %>/': ['<%= config.src %>/templates/pages/*.hbs']
