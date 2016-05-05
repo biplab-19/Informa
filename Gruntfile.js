@@ -102,7 +102,6 @@ module.exports = function(grunt) {
                             '<%= config.src %>/components/home_contactus/data/*.json',
                             '<%= config.src %>/components/pdp-hero/data/*.json',
                             '<%= config.src %>/components/pdp-feature-list/data/*.json',
-                            '<%= config.src %>/components/pdp-feature-list/data/*.json',
                             '<%= config.src %>/components/pdp-market-focus/data/*.json',
                             '<%= config.src %>/components/pdp-customer-quote/data/*.json',
                             '<%= config.src %>/components/pdp-analyst/data/*.json'
@@ -120,7 +119,6 @@ module.exports = function(grunt) {
                               '<%= config.src %>/components/home_social/home_social.hbs',
                               '<%= config.src %>/components/home_contactus/home_contactus.hbs',
                               '<%= config.src %>/components/pdp-hero/pdp-hero.hbs',
-                              '<%= config.src %>/components/pdp-feature-list/pdp-feature-list.hbs',
                               '<%= config.src %>/components/pdp-feature-list/pdp-feature-list.hbs',
                               '<%= config.src %>/components/pdp-market-focus/pdp-market-focus.hbs',
                               '<%= config.src %>/components/pdp-customer-quote/pdp-customer-quote.hbs',
@@ -217,7 +215,8 @@ module.exports = function(grunt) {
 							              'bower_components/picturefill/src/picturefill.js',
 							              'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
                             'src/components/carousel/js/carousel.js',
-                            'src/components/feature-list/js/*.js',
+                            'src/components/sector_list/js/*.js',
+                            'src/components/pdp-feature-list/js/*.js',
                             'src/components/pdp-customer-quote/js/*.js',
                             'src/components/global_footer/js/*.js',
                             'src/components/_global/js/global.js'

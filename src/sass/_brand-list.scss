@@ -37,9 +37,18 @@
             }
         }
     }
+
     .show-more-products {
         .btn {
             width: 20%;
         }
+    }
+    @include mobile {
+        .show-more-products {
+            .btn {
+                width: 50%;
+            }
+        }
+
     }
 }

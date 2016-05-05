@@ -1,4 +1,5 @@
 .sector-list {
+  padding-bottom: 10px;
     p {
         margin-top: 10px;
     }
@@ -24,6 +25,12 @@
     }
     .show-more-btn-container {
         display: none;
+        .glyphicon {
+          color: $brand-secondary;
+        }
+        a{
+          color: $text-gray;
+        }
     }
     .btn-container {
         width: 80%;
@@ -35,15 +42,14 @@
             word-wrap: break-word;
         }
     }
-    @media screen and (min-device-width: 320px) and (max-device-width: 767px) {
-        .sector-card {
-            display: none;
+    @include mobile {
+        .container > .row + .row >.text-center:nth-child(n+3) {
+        //  display: none;
+          //todo: optimize it
         }
-        .sector-card:nth-child(2n) {
-            display: block;
-        }
+
         .show-more-btn-container {
-            display: block;
+            display: none;
             border-bottom: solid 1px $brand-secondary;
             width: 100px;
             margin: 0 auto;
