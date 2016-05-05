@@ -19,7 +19,7 @@ h3 {
       &.slick-slider {
         opacity: 1;
         .slick-prev,.slick-next {
-             background-image: url(/images/yellow-arrow.png);
+             background-image: url(/Static/images/yellow-arrow.png);
              height: 60px;
              width: 41px;
              &:before {
@@ -118,6 +118,8 @@ h3 {
                   position: absolute;
                   right: 0;
                   font-family: FSMe-Bold;
+                  top: 12px;
+                  font-size: 21px;
                 }
               }
           }
@@ -132,14 +134,14 @@ h3 {
       li {
             padding:0 0 6px  60px;
             pointer-events: none;
-            &.fb {
-                  background: url(/images/social/fb.png) no-repeat;
+            &.facebook-white {
+                  background: url(/Static/images/social/fb.png) no-repeat;
             }
-            &.tw {
-                  background: url(/images/social/tw.png) no-repeat;
+            &.twitter-white {
+                  background: url(/Static/images/social/tw.png) no-repeat;
             }
-            &.in {
-                  background: url(/images/social/in.png) no-repeat;
+            &.linkedin-white {
+                  background: url(/Static/images/social/in.png) no-repeat;
             }
             @include mobile {
                   float: left;
