@@ -30,6 +30,9 @@ footer {
     h3 {
       margin: 0 0 25px;
     }
+    .links:nth-child(2) h3 {
+          display: none;
+   }
     nav {
       ul {
         float: none;
@@ -80,7 +83,10 @@ footer {
     .links {
         nav {
           ul {
-            width: 75%; //todo: add media query
+            width: 75%;
+            @include mobile{
+                  width: 100%;
+            }
               a {
                 border-bottom: 1px solid;
                 display: block;
