@@ -1,4 +1,9 @@
 footer {
+font-family: FSMe-Light;
+overflow-x: hidden;
+h3 {
+      font-size: 19px;
+}
   // The customer list + SLider
   section#customers_list{
     height: 208px;
@@ -13,9 +18,24 @@ footer {
       transition: .5s ease;
       &.slick-slider {
         opacity: 1;
-        .slick-prev:before,.slick-next:before {
-          color: $gray-dark;
+        .slick-prev,.slick-next {
+             background-image: url(/images/yellow-arrow.png);
+             height: 60px;
+             width: 41px;
+             &:before {
+                   content: '';
+             }
+             @include mobile{
+                   display: none!important;
+             }
+             @include tablet{
+                   display: none!important;
+             }
         }
+        .slick-prev {
+             transform: rotate(180Deg);
+             top: -5px;
+       }
       }
       .customer {
         img { width: 100%;}
@@ -30,8 +50,10 @@ footer {
     h3 {
       margin: 0 0 25px;
     }
-    .links:nth-child(2) h3 {
-          display: none;
+    @include mobile {
+          .links:nth-child(2) h3 {
+               display: none;
+        }
    }
     nav {
       ul {
@@ -95,13 +117,39 @@ footer {
                   content: '>';
                   position: absolute;
                   right: 0;
+                  font-family: FSMe-Bold;
                 }
               }
           }
         }
     }
     .social {
-      border-left: 1px solid $light;
+      border-left: 2px solid #4a4f5e;
+      @include mobile {
+            padding-top: 40px;
+            border: none;
+      }
+      li {
+            padding:0 0 6px  60px;
+            pointer-events: none;
+            &.fb {
+                  background: url(/images/social/fb.png) no-repeat;
+            }
+            &.tw {
+                  background: url(/images/social/tw.png) no-repeat;
+            }
+            &.in {
+                  background: url(/images/social/in.png) no-repeat;
+            }
+            @include mobile {
+                  float: left;
+                  width: 30px;
+                  height: 45px;
+                  a {
+                        display: none;
+                  }
+            }
+      }
     }
   }
 
@@ -113,13 +161,15 @@ footer {
     ul {
       li {
         margin-right: 35px;
+        display: inline-block;
       }
       a {
         color: $light;
         padding: 0;
         text-decoration: underline;
+        font-family: FSMe-Light;
         &:Hover {
-          background: inherit;
+          background: none;
         }
       }
     }
@@ -128,6 +178,14 @@ footer {
       margin: 30px 0 0;
       & + .bottom-logo {
         padding: 25px 0 0;
+        img {
+             display: block;
+             float: right;
+             @include mobile {
+                   float: none;
+                   margin: 0 auto;
+             }
+       }
       }
     }
   }

@@ -24,10 +24,19 @@ INFORMA.globalFooter = (function(window, $, namespace) {
         var _slideCount = _customersList.data(INFORMA.global.device.viewport+'-items') || 1,
             _slidesToScroll = _customersList.data(INFORMA.global.device.viewport+'-displacement') || _slideCount,
             _infinite = _customersList.data('infinite') || true;
+            if($('#scPageExtendersForm').length > 0){
+                  _infinite = false;
+            }
+            if(INFORMA.global.device.viewportN == 1){
+                  _slideCount = 4;
+            }
+            else if (INFORMA.global.device.viewportN == 1){
+                  _slideCount = 3;
+            }
         _customersList.slick({
             infinite: true,
-            slidesToShow: 6,
-            slidesToScroll: 6,
+            slidesToShow: _slideCount,
+            slidesToScroll: _slideCount,
             autoplay: true,
             autoplaySpeed: 4000
         });
