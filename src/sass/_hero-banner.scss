@@ -1,14 +1,11 @@
-section#pdp-hero {
+section#hero-banner {
     position: relative;
-    &:before {
-        content: '';
-        height: 100%;
-        width: 100%;
-        background: rgba(68, 73, 87,.8);
-        position: absolute;
-    }
+    overflow: hidden;
     height: 425px;
     color: $light;
+    .abs-image, .logo {
+          display: none;
+   }
     h1 {
         font-family: FSMe-Bold;
         font-size: 60px;
@@ -63,4 +60,45 @@ section#pdp-hero {
     @include mobile{
         height: auto;
     }
+    // variation : bg-image, heading, copy text
+    &.variant1 {
+          .abs-image {
+            display: block;
+            top:50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+          }
+          .subtext, .btn {
+                display: none;
+          }
+   }
+   //varaition: varaition 1 + bg-image in right corner
+   &.variant2, &.variant3, &.variant4 {
+         .abs-image {
+               display: block;
+               width: 33.33%;
+               height: 100%;
+               right: 0;
+         }
+         .subtext, .btn {
+               display: none;
+         }
+         background: $yellow;
+   }
+   //variation: variation 2 + sub heading + copy text + cta
+   &.variant3 {
+        .subtext, .btn {
+             display: block;
+       }
+       background:$footer-bottom-gray;
+   }
+   &.variant4{
+         .logo {
+               display: block;
+         }
+         .description {
+               display: none;
+         }
+   }
+
 }
