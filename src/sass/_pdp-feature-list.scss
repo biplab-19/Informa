@@ -26,6 +26,9 @@ section#feature-list{
             font-size: 14px;
             color: $black;
         }
+        @include tablet {
+             width: 33.3333%;
+       }
         @include mobile{
             width: 100%;
             padding: 30px 40px;

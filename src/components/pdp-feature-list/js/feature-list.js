@@ -41,5 +41,5 @@ INFORMA.featureList = (function(window, $, namespace) {
     return {
         init: init
     };
-}(this, jQuery, 'INFORMA'));
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.featureList.init());
