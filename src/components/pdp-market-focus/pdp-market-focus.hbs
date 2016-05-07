@@ -11,7 +11,8 @@ component: pdp-feature-list
         <div class="row">
             {{#each this}}
                 <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
-                    <div class="market-list"  style="background-image:url(/images/market-focus/{{image}}?w=160)">
+                    <div class="market-list">
+                        <div class="abs-image"><img src="/images/market-focus/{{image}}"></div>
                         <h2>{{title}}</h2>
                         <p>{{description}}</p>
                     </div>

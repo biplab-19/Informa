@@ -1,5 +1,5 @@
 --- component: pdp-feature-list ---
-<section id="feature-list">
+<section id="feature-list" data-desktop=8 data-mobile=2>
     <div class="container">
         <div class="row headline">
             <div class="col-xs-12">
@@ -20,9 +20,14 @@
                     </div>
                 </div>
             {{/each}}
-        </div>
+        </div> 
         <div class="row">
-            <button class="btn btn-showMore yellow" data-alt-text="See less Features">See all Features</button>
+             <div class="col-xs-12">
+                  <button class="btn btn-showMore">
+                        <span class="more">See all Features</span>
+                         <span class="less">See Less Features</span>
+                  </button>
+            </div>
         </div>
     </div>
 </section>

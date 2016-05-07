@@ -42,5 +42,5 @@ INFORMA.global = (function(window, $, namespace) {
         init: init,
 		device: device
 	};
-}(this, jQuery, 'INFORMA'));
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.global.init());

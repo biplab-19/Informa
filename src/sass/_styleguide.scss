@@ -96,3 +96,13 @@ section {
         opacity: 1!important; // only for dev purpose
     }
 }
+
+
+@mixin limitHeight($height){
+      height: $height;
+      overflow:hidden;
+      @include mobile {
+            height: auto;
+            overflow: initial;
+      }
+}

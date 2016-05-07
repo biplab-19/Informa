@@ -41,6 +41,18 @@ section#hero-banner {
             margin-bottom: 10px;
             text-align: left;
         }
+        &.priceCTA {
+             padding: 0;
+             font-size: 14px;
+             color: $light;
+             font-family: FSMe-Light;
+             .priceDetails {
+                   span.price {
+                        font-size: 26px;
+                        font-family: FSMe-Bold;
+                  }
+             }
+       }
     }
     .cta1,.cta2 {
         font-size: 14px;

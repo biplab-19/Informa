@@ -10,13 +10,8 @@ section#feature-list{
     .feature-list-container {
         float: left;
         width: 25%;
-        padding: 40px 40px;
-        @include tablet {
-            width: 33.3333%;
-            &:nth-child(n+7) {
-                display: none;
-            }
-        }
+        padding: 40px 40px 20px;
+        @include limitHeight(257px); // 1 headlne, 4 copy text
         .feature-image, .headText, p {
             text-align: center;
         }
@@ -31,15 +26,9 @@ section#feature-list{
             font-size: 14px;
             color: $black;
         }
-        &:nth-child(n+9) {
-            display: none;
-        }
         @include mobile{
             width: 100%;
             padding: 30px 40px;
-            &:nth-child(n+3) {
-                display: none;
-            }
             .headText {
                 font-size: 16px;
             }

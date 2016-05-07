@@ -1,3 +1,7 @@
+// todo: overriding the bootstrap style.. this should be moved
+.nav > li > a:hover, .nav > li > a:focus {
+      background: none;
+}
 footer {
 font-family: FSMe-Light;
 overflow-x: hidden;
@@ -63,9 +67,6 @@ h3 {
           a {
             color: $light;
             padding: 10px 0;
-            &:Hover {
-              background: inherit;
-            }
           }
           &.pink {
             a:after {
@@ -133,7 +134,6 @@ h3 {
       }
       li {
             padding:0 0 6px  60px;
-            pointer-events: none;
             &.facebook-white {
                   background: url(/Static/images/social/fb.png) no-repeat;
             }
