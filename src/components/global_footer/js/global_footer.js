@@ -21,8 +21,8 @@ INFORMA.globalFooter = (function(window, $, namespace) {
 
     _createSlider = function(){
         // if data-items, data-infinite is defined, used it
-        var _slideCount = _customersList.data('itemsperframe') || 6,
-            _infinite = _customersList.data('autorotate') || true,
+        var _slideCount = _customersList.data('itemsperframe'),
+            _autoplay = _customersList.data('autorotate'),
             _speed = _customersList.data('transitionspeed'), // speed of transition
             _duration = _customersList.data('slideduration'); // how long the slider will be dis
 
@@ -37,8 +37,8 @@ INFORMA.globalFooter = (function(window, $, namespace) {
                   _slideCount = 3;
             }
         _customersList.slick({
-            infinite: _infinite,
-            autoplay: _infinite,
+            infinite: true,
+            autoplay: _autoplay,
             autoplaySpeed: _duration,
             slidesToShow: _slideCount,
             slidesToScroll: _slideCount,
@@ -55,5 +55,5 @@ INFORMA.globalFooter = (function(window, $, namespace) {
     return {
         init: init
     };
-}(this, jQuery, 'INFORMA'));
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.globalFooter.init());
