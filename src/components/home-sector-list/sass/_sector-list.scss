@@ -1,0 +1,111 @@
+.sector-list {
+    // @include desktop {
+    //     .col-lg-4:nth-child(3n+1),
+    //     .col-md-4:nth-child(3n+1) {
+    //         clear: left;
+    //     }
+    // }
+    // @include tablet {
+    //     .col-sm-6:nth-child(2n+1) {
+    //         clear: left;
+    //     }
+    // }
+    .card-col {
+      min-height: 350px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      max-height: 455px;
+    }
+    h2 {
+        word-wrap: break-word;
+        max-height: 65px;
+        overflow: hidden;
+        line-height: 1.6em;
+    }
+    .content {
+        line-height: 1.6em;
+        //  height: 112px;
+        overflow: hidden;
+        P {
+            line-height: 1.6em;
+            min-height: 86px;
+            //max-height: 312px;
+            overflow: hidden;
+        }
+    }
+    .icon {
+        padding-bottom: 20px;
+    }
+    ul.sector-list-products {
+        max-height: 90px;
+        padding: 15px 0 25px;
+        overflow: hidden;
+    }
+    ul.sector-list-products li {
+        font-family: FSMe-Bold;
+        display: inline;
+        word-wrap: break-word;
+        text-align: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        //  font-size: 18px;
+    }
+    ul.sector-list-products li:after {
+        content: "";
+        width: 0.7px;
+        height: 0.5px;
+        border-left: 1px solid $font-color;
+        margin: 0 0.625em;
+    }
+    .col-lg-4:nth-child(3n+1) {
+        //  clear: left;
+    }
+    ul.sector-list-products li:last-child:after {
+        content: "";
+        border-left: none;
+    }
+    .view-all-sectors-btn-container {
+        display: none;
+    }
+    .btn-container {
+        width: 80%;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .sector-card {
+        // word-wrap: break-word;
+        // padding: 25px 0;
+        // position: relative;
+        // h2 {
+        //     //  min-height: 60px;
+        //     overflow: hidden;
+        // }
+    }
+    @include mobile {
+        .container > .row + .row > .text-center:nth-child(n+3) {
+            display: none;
+            //todo: optimize it
+        }
+        .view-all-sectors-btn-container {
+            display: block;
+            border-bottom: solid 1px $brand-secondary;
+            width: 100px;
+            margin: 0 auto;
+            padding: 5px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .informa-icon {
+            font-size: 30px;
+            color: $brand-secondary;
+        }
+        .btn-container {
+          width: 92%;
+          margin: 0 auto;
+        }
+    }
+}

@@ -19,41 +19,37 @@ INFORMA.globalFooter = (function(window, $, namespace) {
         init,
         _createSlider;
 
-    _createSlider = function(container){
+    _createSlider = function(){
         // if data-items, data-infinite is defined, used it
-        var _slideCount = container.data('itemsperframe'),
-            _autoplay = container.data('autorotate'),
-            _speed = container.data('transitionspeed'), // speed of transition
-            _duration = container.data('slideduration'); // how long the slider will be dis
-
-            //chk for sitecore preview
+        var _slideCount = _customersList.data(INFORMA.global.device.viewport+'-items') || 1,
+            _slidesToScroll = _customersList.data(INFORMA.global.device.viewport+'-displacement') || _slideCount,
+            _infinite = _customersList.data('infinite') || true;
             if($('#scPageExtendersForm').length > 0){
                   _infinite = false;
             }
             if(INFORMA.global.device.viewportN == 1){
                   _slideCount = 4;
             }
-            else if (INFORMA.global.device.viewportN == 2){
+            else if (INFORMA.global.device.viewportN == 1){
                   _slideCount = 3;
             }
-        container.slick({
+        _customersList.slick({
             infinite: true,
-            autoplay: _autoplay,
-            autoplaySpeed: _duration,
             slidesToShow: _slideCount,
             slidesToScroll: _slideCount,
-            speed: _speed
+            autoplay: true,
+            autoplaySpeed: 4000
         });
     }
 
     init = function() {
         if (_customersList.length > 0) {
-            _createSlider(_customersList);
+            _createSlider();
         }
     };
 
     return {
         init: init
     };
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+}(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.globalFooter.init());

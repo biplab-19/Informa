@@ -1,0 +1,19 @@
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+@mixin rotate($param) {
+	-ms-transform: rotate($param); /* IE 9 */
+    -webkit-transform: rotate($param); /* Chrome, Safari, Opera */
+    transform: rotate($param);
+}
+
+@mixin limitHeight($height){
+      height: $height;
+      overflow:hidden;
+      @include mobile {
+            height: auto;
+            overflow: initial;
+      }
+}

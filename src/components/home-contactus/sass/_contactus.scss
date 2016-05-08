@@ -1,0 +1,118 @@
+.contactus-list {
+    @include not-mobile {
+        padding-bottom: 25px;
+        padding-top: 25px;
+        .panel-heading {
+            pointer-events: none;
+            h2 {
+                color: $text-gray-dark;
+                margin: 0;
+                img {
+                  margin-top: -6px;
+                  margin-right: 10px;
+                }
+            }
+        }
+        .panel-group .panel {
+            overflow: hidden;
+            float: left;
+            width: 22.5%;
+            margin-top: 0;
+            height: 306px;
+            //  margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .panel-group .panel:nth-child(1) {
+            margin-right: 2.5%;
+        }
+        .panel-group .panel:nth-child(2) {
+            margin-right: 2.5%;
+        }
+        .panel-group .panel:nth-child(3) {
+            margin-right: 2.5%;
+        }
+        .panel-group .panel+.panel {
+            margin-top: 0;
+        }
+        .panel-group .panel-heading + .panel-collapse > .panel-body {
+            border: none;
+        }
+        .accordion-toggle.collapsed:after,
+        .accordion-toggle:after {
+            display: none;
+        }
+    }
+    .white-color {
+        color: $white;
+    }
+    .contactus-header {
+        padding-bottom: 20px;
+    }
+    .accordion-toggle {
+        position: relative;
+    }
+    .accordion-toggle:after {
+        font-family: 'Glyphicons Halflings';
+        content: "\e082";
+        float: right;
+        position: absolute;
+        font-size: 35px;
+        right: 30px;
+        top: 10px;
+    }
+    .accordion-toggle.collapsed:after {
+        content: "\e081";
+        right: 30px;
+          top: 10px;
+        font-size: 35px;
+    }
+    .panel {
+        //  min-height: 250px;
+        position: relative;
+        .panel-heading {
+            padding: 25px;
+            background-color: $blue-lighter-bg;
+            @include mobile {
+                padding: 20px 20px 10px 20px;
+            }
+        }
+        .panel-body {
+            padding: 20px;
+            .phone-number {
+                padding-top: 20px;
+                a {
+                    font-size: 28px;
+                    text-decoration: none;
+                }
+                @include mobile {
+                    padding-top: 0;
+                }
+            }
+            .content-wrapper-number {
+                font-size: 18px;
+                @include mobile {
+                    display: none;
+                }
+            }
+            .content-wrapper-cta {
+                min-height: 120px;
+                @include mobile {
+                    min-height: auto;
+                    margin-bottom: 15px;
+                }
+            }
+            .btn-container {
+                width: 200px;
+                position: absolute;
+                bottom: 15px;
+                @include mobile {
+                    position: relative;
+                    padding-top: 15px;
+                }
+            }
+        }
+        .icon {
+            padding-right: 8px;
+        }
+    }
+}

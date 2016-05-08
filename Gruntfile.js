@@ -24,15 +24,15 @@ module.exports = function(grunt) {
         //Watch these files to do thier respective tasks on change
         watch: {
             assemble: {
-                files: ['<%= config.src %>/{content,data,templates,components}/{,*/}*.{hbs,json}'],
+                files: ['<%= config.src %>/{content,data,templates,components}/{,*/}*.{hbs,json}', '<%= config.src %>/components/**/*.hbs', '<%= config.src %>/components/**/data/*.json'],
                 tasks: ['assemble:dev']
             },
             scripts: {
-                files: ['<%= config.src %>/{scripts,json}/**/*'],
+                files: ['<%= config.src %>/components/**/js/*.js'],
                 tasks: ['copy:dev']
             },
             compass: {
-                files: ['<%= config.src %>/sass/**/*.{scss,sass}'],
+                files: ['<%= config.src %>/sass/**/*.{scss,sass}', '<%= config.src %>/components/**/sass/*.{scss,sass}'],
                 tasks: ['compass:dev']
             },
             images: {
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
                 },
                 files: [
                     '<%= config.tmp %>/{,*/}*.html',
-                    '<%= config.tmp %>/styles/**/*.css',
+                    '<%= config.tmp %>/css/**/*.css',
                     '<%= config.tmp %>/{,*/}*.js',
                     '<%= config.tmp %>/{,*/}*.json',
                     '<%= config.tmp %>/{,*/}*.{png,jpg,jpeg,gif}'
@@ -93,38 +93,8 @@ module.exports = function(grunt) {
                     assets: '<%= config.tmp %>',
                     layout: 'main-layout.hbs',
                     layoutdir: '<%= config.src %>/templates/layouts',
-                    data: ['<%= config.src %>/components/sector_list/data/sectors.json',
-                            '<%= config.src %>/components/brand_list/data/brands1.json',
-                            '<%= config.src %>/components/brand_list/data/brands2.json',
-                            '<%= config.src %>/components/home_latest_news/data/*.json',
-                            '<%= config.src %>/components/home_agri_report/data/*.json',
-                            '<%= config.src %>/components/home_social/data/*.json',
-                            '<%= config.src %>/components/home_contactus/data/*.json',
-                            '<%= config.src %>/components/hero-banner/data/*.json',
-                            '<%= config.src %>/components/pdp-feature-list/data/*.json',
-                            '<%= config.src %>/components/pdp-market-focus/data/*.json',
-                            '<%= config.src %>/components/pdp-customer-quote/data/*.json',
-                            '<%= config.src %>/components/pdp-analyst/data/*.json'
-
-                          ],
-                    partials: ['<%= config.src %>/components/global_html_header/global_html_header.hbs',
-                              '<%= config.src %>/components/global_html_footer/global_html_footer.hbs',
-                              '<%= config.src %>/components/global_header/global_header.hbs',
-                              '<%= config.src %>/components/global_footer/global_footer.hbs',
-                              '<%= config.src %>/components/home_hero/home_hero.hbs',
-                              '<%= config.src %>/components/sector_list/sector_list.hbs',
-                              '<%= config.src %>/components/article_list/article_list.hbs',
-                              '<%= config.src %>/components/brand_list/brand_list.hbs',
-                              '<%= config.src %>/components/home_latest_news/home_latest_news.hbs',
-                              '<%= config.src %>/components/home_agri_report/home_agri_report.hbs',
-                              '<%= config.src %>/components/home_social/home_social.hbs',
-                              '<%= config.src %>/components/home_contactus/home_contactus.hbs',
-                              '<%= config.src %>/components/hero-banner/hero-banner.hbs',
-                              '<%= config.src %>/components/pdp-feature-list/pdp-feature-list.hbs',
-                              '<%= config.src %>/components/pdp-market-focus/pdp-market-focus.hbs',
-                              '<%= config.src %>/components/pdp-customer-quote/pdp-customer-quote.hbs',
-                              '<%= config.src %>/components/pdp-analyst/pdp-analyst.hbs'
-                                ]
+                    data: ['<%= config.src %>/components/**/*.{json,yml}'],
+                    partials: ['<%= config.src %>/components/**/*.hbs']
                 },
                 files: {
                     '<%= config.tmp %>/': ['<%= config.src %>/templates/pages/*.hbs']
@@ -136,8 +106,8 @@ module.exports = function(grunt) {
                     assets: '<%= config.dist %>',
                     layout: 'main-layout.hbs',
                     layoutdir: '<%= config.src %>/templates/layouts',
-                    data: '<%= config.src %>/data/*.{json,yml}',
-                    partials: '<%= config.src %>/components/**/*.hbs'
+                    data: ['<%= config.src %>/components/**/*.{json,yml}'],
+                    partials: ['<%= config.src %>/components/**/*.hbs']
                 },
                 files: {
                     '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
@@ -150,12 +120,12 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     sassDir: ['<%= config.src %>/sass'],
-                    cssDir: ['<%= config.tmp %>/styles'],
+                    cssDir: ['<%= config.tmp %>/css'],
                     environment: 'development',
                     generatedImagesDir: '<%= config.tmp %>/images',
                     imagesDir: '<%= config.src %>/images',
                     fontsDir: '<%= config.src %>/sass/fonts',
-                    importPath: 'bower_components',
+                    importPath: ['bower_components','<%= config.src %>/sass/global', '<%= config.src %>/components'],
                     httpImagesPath: '/images',
                     httpGeneratedImagesPath: '/images',
                     httpFontsPath: '/fonts',
@@ -213,19 +183,15 @@ module.exports = function(grunt) {
                             'bower_components/jquery/dist/jquery.js',
                             'bower_components/slick-carousel/slick/slick.js',
                             'bower_components/parallax/deploy/jquery.parallax.js',
-							'bower_components/picturefill/src/picturefill.js',
-							'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
-                            'src/components/carousel/js/carousel.js',
-                            'src/components/sector_list/js/*.js',
-                            'src/components/article_list/js/*.js',
-                            'src/components/pdp-feature-list/js/*.js',
-                            'src/components/pdp-customer-quote/js/*.js',
-                            'src/components/global_footer/js/*.js',
-                            'src/components/_global/js/global.js'
-
-
-                        ],
+							              'bower_components/picturefill/src/picturefill.js',
+							              'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'],
                         dest: '<%= config.tmp %>'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= config.src %>/components/**/js/*.js'],
+                        dest: '<%= config.tmp %>/js/'
                     },
                     {
                         expand: true,
@@ -235,8 +201,7 @@ module.exports = function(grunt) {
                             'favicon.ico',
                             'videos/**/*',
                             'images/**/*',
-                            'styleguide/*.html',
-                            'scripts/**/*.js'
+                            'styleguide/*.html'
                         ]
                     },
                     {
@@ -282,8 +247,8 @@ module.exports = function(grunt) {
                         ]
                     },
                     {expand: true, cwd: '<%= config.src %>/images', src: ['**/*.*'], dest: '<%= config.dist %>/images'},
-                    {expand: true, cwd: '<%= config.tmp %>/styles/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/css/fonts'},
-                    {expand: true, cwd: '<%= config.tmp %>/styles', src: ['**/*.*'], dest: '<%= config.dist %>/css'}
+                    {expand: true, cwd: '<%= config.tmp %>/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/fonts'},
+                    {expand: true, cwd: '<%= config.tmp %>/css', src: ['**/*.*'], dest: '<%= config.dist %>/css'}
                 ]
             },
             werk: {
@@ -364,9 +329,9 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= config.tmp %>/styles/',
+                    cwd: '<%= config.tmp %>/css/',
                     src: '{,*/}*.css',
-                    dest: '<%= config.tmp %>/styles/'
+                    dest: '<%= config.tmp %>/css/'
                 }]
             }
         },
@@ -374,16 +339,16 @@ module.exports = function(grunt) {
         concurrent: {
             server: [
                 'compass:dev',
-                'copy:styles'
+                'copy:css'
             ],
             prod: [
                 'compass:prod',
-                'copy:styles',
+                'copy:css',
                 'imagemin'
             ],
             werk: [
                 'compass',
-                'copy:styles'
+                'copy:css'
             ]
         },
 
@@ -419,7 +384,7 @@ module.exports = function(grunt) {
                             '!images/sprites/**',
                             '!images/svg-sprites/**',
                             'scripts/**',
-                            'styles/**',
+                            'css/**',
                             'apple-touch-icon.png',
                             'favicon.ico',
                             '*.html'
