@@ -1,27 +1,75 @@
-.main-header {
-    .header-logo {
-        height: 100px;
-        vertical-align: middle;
-        background-color: $gray-light-bg;
-        .navbar-header {
-            padding-top: 18px;
-        }
-    }
-    .navbar {
-        border: none;
-    }
-    .header-links {
-        height: 50px;
-        vertical-align: middle;
-        background-color: $gray-drak-bg;
-        .navbar-nav > li > a {
-            color: $navbar-default-color;
-            font-weight: bold;
-        }
-        .navbar-nav > li > a:hover {
-            color: $brand-secondary;
-        }
-    }
+header {
+      color: $light;
+      section.informaTop {
+            background: $gray-header;
+            .informa-select {
+                  font-size: 18px;
+                  text-transform: lowercase;
+                  width: 60px;
+                  text-align: center;
+                  margin: 0 auto;
+                  padding: 5px;
+            }
+      }
+      section.logoSection{
+            background: $gray-light-bg;
+            padding: 20px 0;
+            .logo {
+                  float: left;
+            }
+            .login {
+                  float: right;
+                  cursor: pointer;
+                  border: 2px solid $gray-header;
+                  padding: 5px 30px;
+                  margin-top: 5px;
+                  position: relative;
+                  &:after {
+                        content: '>';
+                        font-family: FSMe-Light;
+                        transform: rotate(90Deg);
+                        position: absolute;
+                        top: 8px;
+                        right: 15px;
+                        font-size: 10px;
+                  }
+            }
+            @mobile {
+                  .logo,.login {
+                        float:none;
+                  }
+            }
+      }
+      nav#mainNavigation {
+            background: $gray-dark-bg;
+            &.main-nav-fixed {
+                  position: fixed;
+                  top: 0;
+                  width: 100%;
+            }
+            ul {
+                  margin: 0;
+                  li {
+                        a {
+                              color: $light;
+                              padding: 20px 60px 20px 0;
+                        }
+                  }
+            }
+            .mainCTA {
+                  & > ul li {
+                        width: 50%;
+                        text-align: center;
+                        border-left: 1px solid $gray-header;
+                        float: left;
+                        a {
+                              color: $light;
+                              padding: 20px 10px;
+                        }
+                        &:last-child {
+                              border-right: 1px solid $gray-header;
+                        }
+                  }
+            }
+      }
 }
-// overriding the default style from bootstrap
-.navbar-nav {margin:0}
