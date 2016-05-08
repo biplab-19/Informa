@@ -19,12 +19,12 @@ INFORMA.globalFooter = (function(window, $, namespace) {
         init,
         _createSlider;
 
-    _createSlider = function(){
+    _createSlider = function(container){
         // if data-items, data-infinite is defined, used it
-        var _slideCount = _customersList.data('itemsperframe'),
-            _autoplay = _customersList.data('autorotate'),
-            _speed = _customersList.data('transitionspeed'), // speed of transition
-            _duration = _customersList.data('slideduration'); // how long the slider will be dis
+        var _slideCount = container.data('itemsperframe'),
+            _autoplay = container.data('autorotate'),
+            _speed = container.data('transitionspeed'), // speed of transition
+            _duration = container.data('slideduration'); // how long the slider will be dis
 
             //chk for sitecore preview
             if($('#scPageExtendersForm').length > 0){
@@ -36,7 +36,7 @@ INFORMA.globalFooter = (function(window, $, namespace) {
             else if (INFORMA.global.device.viewportN == 2){
                   _slideCount = 3;
             }
-        _customersList.slick({
+        container.slick({
             infinite: true,
             autoplay: _autoplay,
             autoplaySpeed: _duration,
@@ -48,7 +48,7 @@ INFORMA.globalFooter = (function(window, $, namespace) {
 
     init = function() {
         if (_customersList.length > 0) {
-            _createSlider();
+            _createSlider(_customersList);
         }
     };
 
