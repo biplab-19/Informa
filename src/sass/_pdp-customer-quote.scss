@@ -1,45 +1,50 @@
 section#customer-quote {
+      & > div {
+            position: relative;
+            // this fix the right and left perfectly for arrows
+            // what an idea sirji
+      }
     background: $yellow;
-    padding: 70px 0;
+    padding: 40px 0 30px;
     position: relative;
     color: $text-gray;
     overflow: hidden;
-    @include desktop {
-        height: 576px;
-    }
+    h1 {
+          font-family: FSMe-Light;
+          font-size: 24px;
+   }
     @include mobile{
         padding: 11px 0 59px;
-        h1 {
-            font-size: 24px;
-        }
     }
-    #customer-quote-slider {
-        &:before {
-            content: ',,';
-            font-family: FSMe-Bold;
-            font-size: 90px;
-            opacity: .45;
-            position: absolute;
-            top: -10px;
-            transform: rotate(180Deg);
-            color: #fff;
-            left: -60px;
-        }
+    .quote {
+          &:before {
+             content: ',,';
+             font-family: FSMe-Bold;
+             font-size: 90px;
+             opacity: .45;
+             position: absolute;
+             top: 70px;
+             transform: rotate(180Deg);
+             color: #fff;
+             left: 60px;
+          }
 
-        @include mobile {
-            &:before {
-                left: 0;
-                top: -20px;
-            }
-        }
+          @include mobile {
+             &:before {
+                  left: 0;
+                  top: -20px;
+             }
+          }
+   }
+    #customer-quote-slider {
         position: relative;
-        margin-top: 66px;
+        margin-top: 30px;
         @include mobile {
             margin-top: 10px;
         }
         .customer-quote-slide {
             em {
-                font-size: 24px;
+                font-size: 18px;
                 font-family: FSMe-Light;
                 font-style: normal;
                 margin-bottom: 30px;
@@ -48,8 +53,14 @@ section#customer-quote {
                     font-size: 16px;
                 }
             }
+            .case-study{
+                  margin: 20px 0;
+                  border-color: $light;
+                  a{color: $text-gray;}
+            }
             .saidBy {
                 font-size: 14px;
+                .owner {text-transform: uppercase;}
                 @include mobile {
                     font-size: 12px;
                 }
@@ -97,18 +108,14 @@ section#customer-quote {
     }
     .slick-initialized {
         ul.slick-dots {
-            text-align: left;
-            @include mobile {
-                text-align: center;
-                width: 100%;
-            }
-            bottom: -56px;
-            width: auto;
+            text-align: center;
+            width: 100%;
+            bottom: 20px;
             li {
                 height: 10px;
                 width: 10px;
                 border-radius: 5px;
-                background: $orange;
+                background: $text-gray;
                 button:before {
                     content: '';
                 }
@@ -118,17 +125,24 @@ section#customer-quote {
             }
         }
         .slick-prev,.slick-next {
-            top: auto;
-            bottom: -56px;
-            left: auto;
+            top: 50%;
+            transform: translateY(-50%);
             right: 0;
-            transform: none;
             @include mobile {
                 display: none!important;
             }
+            background: url(/Static/images/white-arrow.jpg);
+            transform: rotate(180Deg);
+            height: 60px;
+            width: 46px;
+            &:before {
+                 content: '';
+           }
         }
         .slick-prev {
-            right: 25px;
+            left: 0;
+            right: auto;
+            transform: rotate(0Deg);
         }
     }
 }

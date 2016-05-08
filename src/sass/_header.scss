@@ -57,11 +57,17 @@ header {
                   }
             }
             .mainCTA {
+                  ul {
+                        float: none;
+                  }
                   & > ul li {
                         width: 50%;
                         text-align: center;
                         border-left: 1px solid $gray-header;
                         float: left;
+                        &.search {
+                              background: $orange;
+                        }
                         a {
                               color: $light;
                               padding: 20px 10px;

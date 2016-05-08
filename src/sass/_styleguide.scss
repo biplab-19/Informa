@@ -96,7 +96,12 @@ section {
         opacity: 1!important; // only for dev purpose
     }
 }
-
+.staticDa {
+      position: static!important;
+      @include mobile {
+            position: initial!Important;
+      }
+}
 
 @mixin limitHeight($height){
       height: $height;
