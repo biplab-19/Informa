@@ -37,7 +37,8 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            autoplaySpeed: _duration,
            slidesToShow: _slideCount,
            slidesToScroll: _slideCount,
-           speed: _speed
+           speed: _speed,
+           dots: true
        });
     }
 
