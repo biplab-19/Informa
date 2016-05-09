@@ -1,5 +1,5 @@
 /*
- * analyst-list.js
+ * Home-Social.js
  *
  *
  * @project:    Informa
@@ -13,7 +13,7 @@
 INFORMA.homeSocial = (function(window, $, namespace) {
     'use strict';
     //variables
-    var  _articleList = $('.list-container'),
+    var  _articleList = $('.twitter-carousel'),
         _listItemCounts = _articleList.find(".panel").size(),
         // methods
         init,
