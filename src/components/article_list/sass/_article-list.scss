@@ -3,7 +3,7 @@
     .list-container {
         list-style-type: none;
         padding: 0;
-        margin: 0 1.2%;
+        margin: 0;
         @include mobile{
             margin: 0 1.2%;
         }
@@ -79,6 +79,7 @@
         padding: 3% 2%;
         background: $yellow url("/images/common/sprite.png") no-repeat center center;
         background-size: 55%;
+        z-index: 1;
         @include mobile {
             background-size: 65%;
             padding: 6% 2%;
