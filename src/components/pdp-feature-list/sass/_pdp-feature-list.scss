@@ -1,22 +1,17 @@
 section#feature-list{
     background: $light;
-    padding: 50px 0;
+    padding: 20px 0;
+    @include mobile {
+        padding:5px 0 25px;
+        h1 {
+            font-size: 24px;
+        }
+    }
     .feature-list-container {
         float: left;
         width: 25%;
-        padding: 40px 40px;
-        @include tablet {
-            width: 33.3333%;
-            &:nth-child(n+7) {
-                display: none;
-            }
-        }
-        @include mobile{ //todo: change this
-            width: 100%;
-            &:nth-child(n+3) {
-                display: none;
-            }
-        }
+        padding: 40px 40px 20px;
+        @include limitHeight(257px); // 1 headlne, 4 copy text
         .feature-image, .headText, p {
             text-align: center;
         }
@@ -31,8 +26,18 @@ section#feature-list{
             font-size: 14px;
             color: $black;
         }
-        &:nth-child(n+9) {
-            display: none;
+        @include tablet {
+             width: 33.3333%;
+       }
+        @include mobile{
+            width: 100%;
+            padding: 30px 40px;
+            .headText {
+                font-size: 16px;
+            }
+            p {
+                font-size: 12px;
+            }
         }
     }
     .btn-showMore {
@@ -44,6 +49,9 @@ section#feature-list{
         color: $text-gray-dark;
         border-color: $yellow;
         display: block;
+        @include mobile {
+            width: 100%;
+        }
         &:after {
             content: '+';
             right: 10px;
@@ -56,7 +64,19 @@ section#feature-list{
             font-size: 24px;
             top: 9px;
         }
+        span.more {
+            display: block;
+        }
+        span.less {
+            display: none;
+        }
         &.showLess {
+            span.more {
+                display: none;
+            }
+            span.less {
+                display: block;
+            }
             &:after {
                 content: '-';
             }

@@ -102,3 +102,12 @@ section {
             position: initial!Important;
       }
 }
+
+@mixin limitHeight($height){
+      height: $height;
+      overflow:hidden;
+      @include mobile {
+            height: auto;
+            overflow: initial;
+      }
+}

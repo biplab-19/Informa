@@ -1,4 +1,5 @@
 section#agri-report{
+    //background: $gray-light-bg;
     padding: 40px 0;
     position: relative;
     @include mobile {
@@ -13,6 +14,7 @@ section#agri-report{
         }
     }
     .agri-report-wrapper {
+      //  color: $white;
         position: relative;
         font-family: FSMe-Light;
         font-size: 18px;
@@ -33,6 +35,10 @@ section#agri-report{
             position: absolute;
             bottom: -40px;
             right:100px;
+            img {
+                  width: 250px;
+                  height: auto;
+            }
             @include mobile {
                 position: static;
                 margin-top: 35px;
