@@ -33,56 +33,62 @@
 
 <body class="agri-theme">
 
-
+<!-- 
 
 <header id="informa-main-header">
-    <div class="main-header">
-        <div class="container-fluid">
-            <div class="row">
-
-                <nav class="navbar navbar-default">
-
-
-                    <div class="container-fluid navbar-inverse header-logo">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="#">
-                                <img alt="informa" src="images/logo.png">
-                            </a>
+      <section class="informaTop">
+            <div class="container">
+                  <div class="row">
+                        <div class="col-xs-12">
+                              <div class="informa-select">Informa</div>
                         </div>
-                    </div>
-
-                    <div class="container-fluid navbar-inverse header-links collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-
-                        <ul class="nav navbar-nav">
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">Sectors</a></li>
-                            <li><a href="#">Brands</a></li>
-                            <li><a href="#">Resources</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-
-                    </div>
-                </nav>
-
+                  </div>
             </div>
-        </div>
-    </div>
+      </section>
+      <section class="logoSection">
+            <div class="container">
+                  <div class="row">
+                        <div class="col-xs-12">
+                              <div class="logo">
+                                    <img src="images/logo.png">
+                              </div>
+                              <div class="login">
+                                    Log in
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </section>
+      <nav id="mainNavigation" class="navbar-default">
+            <div class="container">
+                  <div class="row">
+                        <div class="col-xs-12 col-md-9 navigation-primary">
+                              <ul class="nav navbar-nav">
+                                    <li><a href="#">Sectors & Products</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Free Content</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Support Us</a></li>
+                                    <li><a href="#">Contact</a></li>
+                              </ul>
+                        </div>
+                        <div class="col-xs-12 col-md-3 mainCTA">
+                              <ul class="nav">
+                                    <li class="touch"><a href="#">Get in touch</a></li>
+                                    <li class="search"><a href="#">Search</a></li>
+                              </ul>
+                        </div>
+                  </div>
+            </div>
+      </nav>
 </header>
-
+ -->
 
    <div class="container">
     <section class="index-page">
         <h1>Informa UI Oversight</h1>
         <nav>
-            <h2 class="navigation-headline">Generic</h2>
+            <!-- <h2 class="navigation-headline">Generic</h2>
             <ul class="navigation-list">
                 <li class="navigation-list__item">
                     <a href="doc/index.html" target="_blank" class="navigation-list__item__link">Documentation</a>
@@ -93,7 +99,7 @@
                 <li class="navigation-list__item">
                     <a href="assets/images/preview.html" target="_blank" class="navigation-list__item__link">Icon Preview</a>
                 </li>
-            </ul>
+            </ul> -->
             <h2 class="navigation-headline">Pages</h2>
             <ul class="navigation-list">
                 <li class="navigation-list__item">
@@ -104,7 +110,7 @@
                 </li>
 
             </ul>
-            <h2 class="navigation-headline">Components</h2>
+            <!-- <h2 class="navigation-headline">Components</h2>
             <ul class="navigation-list">
                 <li class="navigation-list__item">
                         <a href="/template-components.html" target="_blank" class="navigation-list__item__link">Carousel</a>
@@ -119,7 +125,7 @@
                 <li class="navigation-list__item">
                     <a href="#" target="_blank" class="navigation-list__item__link">Registration</a>
                 </li>
-            </ul>
+            </ul> -->
         </nav>
     </section>
 </div>
@@ -137,7 +143,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="customers_list_slider slider-component col-sm-12" data-desktop-items=6 data-desktop-displacement=3 data-tablet-items=4 data-tablet-displacement=4  data-mobile-items=2 data-mobilep-displacement=2>
+                <div class="customers_list_slider slider-component col-sm-12" data-itemsperframe="6" data-autorotate=1 data-transitionspeed="300" data-slideduration="4000">
                       <div class="customer">
                           <img src="images/customers/pepsi.png" title="pepsico" alt="pepsico">
                       </div>
@@ -207,9 +213,9 @@
               <nav class="footer-nav" role="navigation">
                   <h3 class="light"> Social Networks</h3>
                   <ul class="nav navbar-nav">
-                     <li ><a href="#">Get the Latest</a></li>
-                     <li ><a href="#">Follow Our Stories</a></li>
-                     <li ><a href="#">Connect With Us</a></li>
+                     <li class="facebook-white"><a href="#">Get the Latest</a></li>
+                     <li class="twitter-white"><a href="#">Follow Our Stories</a></li>
+                     <li class="linkedin-white"><a href="#">Connect With Us</a></li>
                   </ul>
               </nav>
             </div>
@@ -248,15 +254,6 @@
 </footer> <!-- /#ad-footer -->
 
 
-
-
-   <script type="text/javascript">
-        $INFORMA = jQuery.noConflict();
-        $INFORMA("#showMoreSectors").click(function(){
-          $INFORMA('.sector-card').css('display', 'block');
-          $INFORMA('.show-more-btn-container').css('display', 'none');
-        });
-    </script>
 
     <script src="project/scripts/informaui.main.js"></script>
 

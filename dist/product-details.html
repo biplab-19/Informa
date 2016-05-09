@@ -33,77 +33,109 @@
 
 <body class="agri-theme">
 
-
+<!-- 
 
 <header id="informa-main-header">
-    <div class="main-header">
-        <div class="container-fluid">
-            <div class="row">
-
-                <nav class="navbar navbar-default">
-
-
-                    <div class="container-fluid navbar-inverse header-logo">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="#">
-                                <img alt="informa" src="images/logo.png">
-                            </a>
+      <section class="informaTop">
+            <div class="container">
+                  <div class="row">
+                        <div class="col-xs-12">
+                              <div class="informa-select">Informa</div>
                         </div>
-                    </div>
-
-                    <div class="container-fluid navbar-inverse header-links collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-
-                        <ul class="nav navbar-nav">
-                            <li><a href="#">Products</a></li>
-                            <li><a href="#">Sectors</a></li>
-                            <li><a href="#">Brands</a></li>
-                            <li><a href="#">Resources</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-
-                    </div>
-                </nav>
-
+                  </div>
             </div>
-        </div>
-    </div>
+      </section>
+      <section class="logoSection">
+            <div class="container">
+                  <div class="row">
+                        <div class="col-xs-12">
+                              <div class="logo">
+                                    <img src="images/logo.png">
+                              </div>
+                              <div class="login">
+                                    Log in
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </section>
+      <nav id="mainNavigation" class="navbar-default">
+            <div class="container">
+                  <div class="row">
+                        <div class="col-xs-12 col-md-9 navigation-primary">
+                              <ul class="nav navbar-nav">
+                                    <li><a href="#">Sectors & Products</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Free Content</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Support Us</a></li>
+                                    <li><a href="#">Contact</a></li>
+                              </ul>
+                        </div>
+                        <div class="col-xs-12 col-md-3 mainCTA">
+                              <ul class="nav">
+                                    <li class="touch"><a href="#">Get in touch</a></li>
+                                    <li class="search"><a href="#">Search</a></li>
+                              </ul>
+                        </div>
+                  </div>
+            </div>
+      </nav>
 </header>
-
+ -->
 
    <div class="product-detail-page">
-    <section id="pdp-hero" style="background-image:url(images/agri-bg.jpg)">
+    <section id="hero-banner" class="variant1">
+      <div class="abs-image"><img src="images/agri-bg.jpg"></div>
     <div class="container alignVertical">
         <div class="row splash">
             <div class="col-xs-12 col-sm-8 col-md-6">
-                <h1>Issue Monitor</h1>
-                <div class="subtext">Giving you the best agriculture, energy, food, economics and trade analysis from the world&#x27;s most trusted source in agribusiness consulting</div>
-                <div class="description">You can get the news a lot of places. You cannot get the Informa Economics believes will help clients make better business decisions anywhere but on this new platform.</div>
+                  <div class="logo"><img src="images/customers/abbot2.png"></div>
+                  <h1>Issue Monitor</h1>
+                  <div class="subtext">Giving you the best agriculture, energy, food, economics and trade analysis from the world&#x27;s most trusted source in agribusiness consulting</div>
+                  <div class="description">You can get the news a lot of places. You cannot get the Informa Economics believes will help clients make better business decisions anywhere but on this new platform.</div>
             </div>
         </div>
-        <div class="row cta">
+      <div class="row cta">
             <div class="col-xs-12 col-sm-3 col-md-2">
-                <a class="cta1 btn solid orange">Get a free trial</a>
+                 <a class="priceCTA btn trans">
+                       <div class="headline">Subscriptions Starts from</div>
+                       <div class="priceDetails">
+                             <span class="price">&euro;1,140</span>
+                             <span class="per">per year</span>
+                       </div>
+                 </a>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2">
                 <a class="cta2 btn semi-trans">See sample content</a>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2">
-                <a class="cta3 btn trans icon">Speak to a specialist</a>
+                <a class="cta1 btn solid orange">Get a free trial</a>
             </div>
+
         </div>
     </div>
 </section>
 
+    <nav id="pdp-navigation" class="navbar-default">
+      <div class="container">
+            <div class="row">
+                  <div class="col-xs-12">
+                        <ul class="nav navbar-nav">
+                              <li><a href="#" data-target="feature-list">Features</a></li>
+                              <li><a href="#"  data-target="market-focus">Market Focus</a></li>
+                              <li><a href="#"  data-target="customer-quote">Quotes</a></li>
+                              <li><a href="#"  data-target="pdp-analyst">Analysts</a></li>
+                              <li><a href="#"  data-target="agri-report">Agri report</a></li>
+                              <div class="menuFollower"></div>
+                        </ul>
+                  </div>
+            </div>
+      </div>
+</nav>
+
     
-<section id="feature-list">
+<section id="feature-list" data-desktop=8 data-tablet=6 data-mobile=2>
     <div class="container">
         <div class="row headline">
             <div class="col-xs-12">
@@ -258,7 +290,12 @@
             
         </div>
         <div class="row">
-            <button class="btn btn-showMore yellow" data-alt-text="See less Features">See all Features</button>
+             <div class="col-xs-12">
+                  <button class="btn btn-showMore">
+                        <span class="more">See all Features</span>
+                         <span class="less">See Less Features</span>
+                  </button>
+            </div>
         </div>
     </div>
 </section>
@@ -273,57 +310,65 @@
         </div>
         <div class="row">
             
-                <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
-                    <div class="market-list"  style="background-image:url(/images/market-focus/1.jpg?w=160)">
+                <div class="market-list-wrapper col-xs-12 col-sm-6 col-md-3">
+                    <div class="market-list">
+                        <div class="abs-image"><img src="/images/market-focus/1.jpg"></div>
                         <h2>Agriculture</h2>
                         <p>Our crop protection, fertilizer and animal health services provide vital global market intelligence and analysis</p>
                     </div>
                 </div>
             
-                <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
-                    <div class="market-list"  style="background-image:url(/images/market-focus/2.jpg?w=160)">
+                <div class="market-list-wrapper col-xs-12 col-sm-6 col-md-3">
+                    <div class="market-list">
+                        <div class="abs-image"><img src="/images/market-focus/2.jpg"></div>
                         <h2>Fibre</h2>
                         <p>Supporting the global industry  for fibres including cotton, hemp, flax and more essential materials</p>
                     </div>
                 </div>
             
-                <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
-                    <div class="market-list"  style="background-image:url(/images/market-focus/3.jpg?w=160)">
+                <div class="market-list-wrapper col-xs-12 col-sm-6 col-md-3">
+                    <div class="market-list">
+                        <div class="abs-image"><img src="/images/market-focus/3.jpg"></div>
                         <h2>Food</h2>
                         <p>Essential news and insights for anyone in the food industry, covering crops, harvests, markets, imports, and exports</p>
                     </div>
                 </div>
             
-                <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
-                    <div class="market-list"  style="background-image:url(/images/market-focus/4.jpg?w=160)">
+                <div class="market-list-wrapper col-xs-12 col-sm-6 col-md-3">
+                    <div class="market-list">
+                        <div class="abs-image"><img src="/images/market-focus/4.jpg"></div>
                         <h2>Energy</h2>
                         <p>Whether in Oil &amp; Gas, Mining, or Petrochemical, your focus is on mitigating risks, effective investment and commissioning of assets</p>
                     </div>
                 </div>
             
-                <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
-                    <div class="market-list"  style="background-image:url(/images/market-focus/5.jpg?w=160)">
+                <div class="market-list-wrapper col-xs-12 col-sm-6 col-md-3">
+                    <div class="market-list">
+                        <div class="abs-image"><img src="/images/market-focus/5.jpg"></div>
                         <h2>Renewable Fuels</h2>
                         <p>Focus on the global renewable energies market, providing reports and analysis on solar energy, wind energy, and energy efficiency</p>
                     </div>
                 </div>
             
-                <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
-                    <div class="market-list"  style="background-image:url(/images/market-focus/6.jpg?w=160)">
+                <div class="market-list-wrapper col-xs-12 col-sm-6 col-md-3">
+                    <div class="market-list">
+                        <div class="abs-image"><img src="/images/market-focus/6.jpg"></div>
                         <h2>Feedstocks</h2>
                         <p>Reports on the basic materials used to produce goods or intermediate materials which are feedstock for future finished products</p>
                     </div>
                 </div>
             
-                <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
-                    <div class="market-list"  style="background-image:url(/images/market-focus/7.jpg?w=160)">
+                <div class="market-list-wrapper col-xs-12 col-sm-6 col-md-3">
+                    <div class="market-list">
+                        <div class="abs-image"><img src="/images/market-focus/7.jpg"></div>
                         <h2>Transportation</h2>
                         <p>The transportation &amp; logistics industry forms the backbone of modern global supply chains </p>
                     </div>
                 </div>
             
-                <div class="market-list-wrapper col-xs-12 col-sm-12 col-md-3">
-                    <div class="market-list"  style="background-image:url(/images/market-focus/8.jpg?w=160)">
+                <div class="market-list-wrapper col-xs-12 col-sm-6 col-md-3">
+                    <div class="market-list">
+                        <div class="abs-image"><img src="/images/market-focus/8.jpg"></div>
                         <h2>By-products / co-products</h2>
                         <p>Co-products are desirable secondary goods that are generated during the manufacturing process</p>
                     </div>
@@ -336,13 +381,13 @@
     <section id="customer-quote">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-offset-1 col-xs-12">
                 <h1 class="light">How we've helped other businesses</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-offset-1 col-md-7 col-sm-9 col-xs-12">
-                <div class="slider-component" id="customer-quote-slider">
+            <div class="col-md-offset-1 col-md-7 col-sm-9 col-xs-12 staticDa quote">
+                <div class="slider-component staticDa" id="customer-quote-slider"  data-itemsperframe="1" data-autorotate=1 data-transitionspeed="1000" data-slideduration="4000">
                     <!-- singel slide starts -->
                     
                         <div class="customer-quote-slide">
@@ -354,17 +399,8 @@
                                     <span class="owner">John Smith</span>
                                     <span class="description">Senior Vice President at HBS Food</span>
                                 </div>
-                            </div>
-                        </div>
-                    
-                        <div class="customer-quote-slide">
-                            <div>
-                                <em class="saying">
-                                    We asked Informa to help us understand the global viewpoint on feedstuffs movements and logistics.  With Issue Monitor, we get all of that information in one place. 
-                                </em>
-                                <div class="saidBy">
-                                    <span class="owner">John Smith</span>
-                                    <span class="description">Senior Vice President at HBS Food</span>
+                                <div class="btn CTA semi-trans case-study">
+                                      <a href="#">View Case Study</a>
                                 </div>
                             </div>
                         </div>
@@ -377,6 +413,24 @@
                                 <div class="saidBy">
                                     <span class="owner">John Smith</span>
                                     <span class="description">Senior Vice President at HBS Food</span>
+                                </div>
+                                <div class="btn CTA semi-trans case-study">
+                                      <a href="#">View Case Study</a>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="customer-quote-slide">
+                            <div>
+                                <em class="saying">
+                                    We asked Informa to help us understand the global viewpoint on feedstuffs movements and logistics.  With Issue Monitor, we get all of that information in one place. 
+                                </em>
+                                <div class="saidBy">
+                                    <span class="owner">John Smith</span>
+                                    <span class="description">Senior Vice President at HBS Food</span>
+                                </div>
+                                <div class="btn CTA semi-trans case-study">
+                                      <a href="#">View Case Study</a>
                                 </div>
                             </div>
                         </div>
@@ -549,6 +603,120 @@
 	</div>
 </section>
 
+    <section id="agri-report" class="bg-lighter-blue">
+    <div class="container agri-report-wrapper">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Get your free Agribusiness Annual 2016 report</h1>
+            </div>
+        </div>
+        <div class="row headline">
+            <div class="col-xs-12 col-md-6 ">
+                    The Global Agribusiness Annual 2016 report covers
+            </div>
+        </div>
+        <div class="row description">
+            <div class=" col-xs-12 col-sm-4 col-md-3">
+                Global agriculturre and trade policy Seed and crop protection Fertiliser and soil nutrition rains and oilseeds Sugar and ethanol Processed fruit and vegetables Meat and livestock Animal health Agricultural land
+            </div>
+        </div>
+        <div class="splash-image">
+            <img src="images/agri-report.png">
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <a class="btn semi-trans orange-bd download-report" href="#">Download Report</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="analyst-profile">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<div class="introduction clearfix">
+					<div class="details">
+						<h2>About <i>Toe</i></h2>
+						<p class="place">Washington DC, United States</p>
+						<p class="experience">+10 years experience</p>
+					</div>
+					<div class="image">
+						<img src="images/analyst-profile/profile-1.png" alt="profile-1" />
+					</div>
+				</div>
+				<div class="descriptions">
+					<p class="bold">Mr. Alden is a senior commodity analyst on the Crops team within Informa Economics’ Research group. His primary emphasis is on analysis of oilseed, protein meal and the vegetable oil markets.</p>
+					<p>Prior to this work, Mr. Alden was a senior consultant in the Informa Economics’ Livestock, Meat, Poultry and Dairy Group with particular emphasis on price risk management and strategic business planning.  </p>
+					<p>Prior to joining Informa, he worked as a strategist in the hedge fund industry, developing and implementing trading strategies in the grain, oilseed and</p>
+				</div>
+				<div class="btn-container text-center">
+					<a href="javascript:void(0);" class="show-options">Show More</a>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<div class="more-stories">
+					<p class="heading">Specialities</p>
+					<ul class="feature bold">
+						
+	                    	<li>Current Farm Policy Situation</li>
+						
+	                    	<li>Understanding Agriculture&#x27;s Power</li>
+						
+	                    	<li>Agricultural crops</li>
+						
+	                    	<li>Crop products</li>
+						
+					</ul>
+					<p class="heading"><i>Tore</i> writes for</p>
+					<ul class="feature">
+						
+			               	<li><a href="#">Food News</a></li>
+						
+			               	<li><a href="#">Issue Monitor</a></li>
+						
+			               	<li><a href="#">International Sugar Journal</a></li>
+						
+			               	<li><a href="#">Cottonseed Digest</a></li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script type="text/javascript">
+var INFORMA = window.INFORMA || {};
+INFORMA.analystProfile = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    //var _analystList = $('#pdp-analyst'),
+    // methods
+     var init,
+        _bindShowMore;
+
+    _bindShowMore = function(container){
+        
+        // if data-items, data-infinite is defined, used it
+        var _showMore = $('.show-options');
+        _showMore.click(function(){
+            $(this).parents('#analyst-profile').find('.descriptions').toggleClass("show-content");
+        });
+    }
+
+    init = function() {
+        //if (_analystList.length > 0) {
+            _bindShowMore();
+        //}
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.analystProfile.init());
+
+</script>
  </div>
 
 
@@ -564,7 +732,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="customers_list_slider slider-component col-sm-12" data-desktop-items=6 data-desktop-displacement=3 data-tablet-items=4 data-tablet-displacement=4  data-mobile-items=2 data-mobilep-displacement=2>
+                <div class="customers_list_slider slider-component col-sm-12" data-itemsperframe="6" data-autorotate=1 data-transitionspeed="300" data-slideduration="4000">
                       <div class="customer">
                           <img src="images/customers/pepsi.png" title="pepsico" alt="pepsico">
                       </div>
@@ -634,9 +802,9 @@
               <nav class="footer-nav" role="navigation">
                   <h3 class="light"> Social Networks</h3>
                   <ul class="nav navbar-nav">
-                     <li ><a href="#">Get the Latest</a></li>
-                     <li ><a href="#">Follow Our Stories</a></li>
-                     <li ><a href="#">Connect With Us</a></li>
+                     <li class="facebook-white"><a href="#">Get the Latest</a></li>
+                     <li class="twitter-white"><a href="#">Follow Our Stories</a></li>
+                     <li class="linkedin-white"><a href="#">Connect With Us</a></li>
                   </ul>
               </nav>
             </div>
@@ -675,15 +843,6 @@
 </footer> <!-- /#ad-footer -->
 
 
-
-
-   <script type="text/javascript">
-        $INFORMA = jQuery.noConflict();
-        $INFORMA("#showMoreSectors").click(function(){
-          $INFORMA('.sector-card').css('display', 'block');
-          $INFORMA('.show-more-btn-container').css('display', 'none');
-        });
-    </script>
 
     <script src="project/scripts/informaui.main.js"></script>
 
