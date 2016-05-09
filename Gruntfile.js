@@ -183,14 +183,14 @@ module.exports = function(grunt) {
                             'bower_components/jquery/dist/jquery.js',
                             'bower_components/slick-carousel/slick/slick.js',
                             'bower_components/parallax/deploy/jquery.parallax.js',
-							              'bower_components/picturefill/src/picturefill.js',
-							              'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'],
+							'bower_components/picturefill/src/picturefill.js',
+							'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'],
                         dest: '<%= config.tmp %>'
                     },
                     {
                         expand: true,
                         flatten: true,
-                        src: ['<%= config.src %>/components/**/js/*.js'],
+                        src: ['<%= config.src %>/components/**/js/*.js', '<%= config.src %>/scripts/*.js'],
                         dest: '<%= config.tmp %>/js/'
                     },
                     {

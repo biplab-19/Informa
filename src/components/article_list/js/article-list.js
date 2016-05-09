@@ -1,4 +1,4 @@
-/*
+    /*
  * global-footer.js
  *
  *
@@ -19,43 +19,7 @@ INFORMA.article_list = (function(window, $, namespace) {
         numberItemShown = (el.data("slides-show") !== null && el.data("slides-show") !== undefined) ? Math.floor(el.data("slides-show")) : 3,
         // methods
         init,
-        _createSlider, _getDataOptions,
-        partial = {
-            'match': 
-                '{{#each articleListItems}}'+
-                        '<li>'+
-                            '<p class="category">{{ContentType}}'+
-                              '<strong>{{SectorType}}</strong>'+
-                            '</p>'+
-                            '<img src="{{Image}}" alt="{{ImageAltText}}" />'+
-                            '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
-                            '<p class="date">30.03.2016</p>'+
-                            '<div class="list-content">'+
-                                '{{#if Description}}'+
-                                    '<p class="description">{{Description}}</p>'+
-                                    '<span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>'+
-                                        '<span class="article-info"><em>Topic:</em>'+ 
-                                            '<strong>{{Topics}}</strong>'+
-                                        '</span>'+
-                                '{{/if}}'+
-                                '{{#if Video}}'+
-                                    '<div class="video-container">'+
-                                        '<a href="{{Video.url}}" class="video-link">'+
-                                            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
-                                        '</a>'+
-                                        '<span class="play-icon"></span>'+
-                                    '</div>'+
-                                '{{/if}}'+
-                            '</div>'+
-                            '{{#if ResourceLink}}'+
-                                '<div class="btn-container">'+
-                                  '<a role="button" href="{{ResourceLink.url}}" class="btn btn-default" target="{{ResourceLink.target}}">{{ResourceLink.linkText}}</a>'+
-                                '</div>'+
-                            '{{/if}}'+
-                        '</li>'+
-                      '{{/each}}'
-            
-        };
+        _createSlider, _getDataOptions;
 
     //get all default setting value from component and check 
     //if exist any default setting then return true else false.
