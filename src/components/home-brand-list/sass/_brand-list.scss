@@ -25,7 +25,7 @@
                 font-family: FSMe;
             }
             h2::after {
-                content: url("../images/product_brands/icon.png");
+                content: url("/Static/images/product-icon.png");
                 padding-left: 5px;
             }
             p {
@@ -56,6 +56,15 @@
         }
     }
     @include mobile {
+        .container > .row > .card-col-heading:nth-child(1) {
+            display: block;
+        }
+        .container > .row > .card-col-heading:nth-child(2) {
+            display: block;
+        }
+        .container > .row > .card-col-heading {
+            display: none;
+        }
         .container > .row > .card-col-heading {
             display: none;
         }
