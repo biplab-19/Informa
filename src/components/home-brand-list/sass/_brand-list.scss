@@ -8,11 +8,14 @@
         margin-top: 15px;
         margin-bottom: 15px;
         .image-thumbnail {
-            min-height: 225px;
+          //  min-height: 225px;
             -webkit-clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
             -moz-clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
             clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
             //  clip-path: url("/images/product_brands/img-clip.svg");
+            img {
+                width: 100%;
+            }
         }
         .caption {
             //  min-height: 150px;
@@ -68,7 +71,7 @@
         .container > .row > .card-col-heading {
             display: none;
         }
-        .container > .row > .card-col:nth-child(n+4) {
+        .container > .row > .card-col:nth-child(n+5) {
             display: none;
         }
         .show-more-btn-container {
