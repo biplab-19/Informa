@@ -1,0 +1,74 @@
+<section id="analyst-profile">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<div class="introduction clearfix">
+					<div class="details">
+						<h2>About <i>{{name}}</i></h2>
+						<p class="place">{{place}}</p>
+						<p class="experience">{{experience}}</p>
+					</div>
+					<div class="image">
+						<img src="{{image}}" alt="profile-1" />
+					</div>
+				</div>
+				<div class="descriptions">
+					<p class="bold">{{highlight-content}}</p>
+					<p>{{para1}} </p>
+					<p>{{para2}}</p>
+				</div>
+				<div class="btn-container text-center">
+					<a href="javascript:void(0);" class="show-options">Show More</a>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<div class="more-stories">
+					<p class="heading">Specialities</p>
+					<ul class="feature bold">
+						{{#each specialities}}
+	                    	<li>{{name}}</li>
+						{{/each}}
+					</ul>
+					<p class="heading"><i>Tore</i> writes for</p>
+					<ul class="feature">
+						{{#each writing}}
+			               	<li><a href="#">{{name}}</a></li>
+						{{/each}}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script type="text/javascript">
+var INFORMA = window.INFORMA || {};
+INFORMA.analystProfile = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    //var _analystList = $('#pdp-analyst'),
+    // methods
+     var init,
+        _bindShowMore;
+
+    _bindShowMore = function(container){
+        
+        // if data-items, data-infinite is defined, used it
+        var _showMore = $('.show-options');
+        _showMore.click(function(){
+            $(this).parents('#analyst-profile').find('.descriptions').toggleClass("show-content");
+        });
+    }
+
+    init = function() {
+        //if (_analystList.length > 0) {
+            _bindShowMore();
+        //}
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.analystProfile.init());
+
+</script>

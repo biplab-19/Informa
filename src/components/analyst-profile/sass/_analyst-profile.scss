@@ -1,4 +1,7 @@
 #analyst-profile {
+	a {
+		color: $orange
+	}
 	.introduction {
 		margin-bottom: 20px;
 		.image {
@@ -30,9 +33,7 @@
 			height: auto;
 			+ .btn-container {
 				.show-options {
-					&:before {
-						content: 'Hide Less';
-					}
+					color: $orange;
 					&:after {
 						content: '-';
 					}
@@ -49,11 +50,8 @@
 		position: relative;
 		color: $text-gray-dark;
 		margin-top: 30px;
-		&:before {
-			content: "Show More";
-			position: absolute;
-			left: 0;
-		}
+		text-align: left;
+		text-decoration: none;
 		&:after {
 			content: "+";
 			position: absolute;
