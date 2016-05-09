@@ -1,122 +1,41 @@
 <section id="article-list-section">
-    <div class="article_list carousel-lists" id="article-list">
+    <div class="article-list carousel-lists" id="article-list">
         <div class="container">
             <div class="row">
-                    <ul class="list-container">
+                    <ul class="list-container" data-slider-dots="true" data-slider-infinite="true" data-slides-show="3" data-slides-scroll="3" data-speed="400" 
+                    data-autoplay-speed="4000" data-autoplay="false">
+                    {{#each articleListItems}}
                     	<li>
-                    		<p class="category">Issue monitor
-                    		  <strong>Agriculture food policy & reulations</strong>
+                    		<p class="category">{{ContentType}}
+                    		  <strong>{{SectorType}}</strong>
                     		</p>
-                            <img src="/images/article_list/policy.png" alt="icon" />
-                    		<h2 class="poduct-brand-subheading">World leaders hid wealth via shell companies</h2>
+                            <img src="{{Image}}" alt="{{ImageAltText}}" />
+                    		<h2 class="poduct-brand-subheading">{{Title}}</h2>
                     		<p class="date">30.03.2016</p>
                             <div class="list-content">
-                                <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                <span class="article-info"><em>Author:</em> <strong>Jim Wiesemeyer</strong></span>
-                                <span class="article-info"><em>Topic:</em> 
-                                    <strong>Jim Wiesemeyer</strong>
-                                </span>
+                                {{#if Description}}
+                                    <p class="description">{{Description}}</p>
+                                    <span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>
+                                        <span class="article-info"><em>Topic:</em> 
+                                            <strong>{{Topics}}</strong>
+                                        </span>
+                                {{/if}}
+                                {{#if Video}}
+                                    <div class="video-container">
+                                        <a href="{{Video.url}}" class="video-link">
+                                            <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />
+                                        </a>
+                                        <span class="play-icon"></span>
+                                    </div>
+                                {{/if}}
                             </div>
-                            <div class="btn-container">
-                    		  <a role="button" href="#" class="btn btn-default">Full article</a>
-                            </div>
+                            {{#if ResourceLink}}
+                                <div class="btn-container">
+                        		  <a role="button" href="{{ResourceLink.url}}" class="btn btn-default" target="{{ResourceLink.target}}">{{ResourceLink.linkText}}</a>
+                                </div>
+                            {{/if}}
                     	</li>
-
-                        <li>
-                            <p class="category">Issue monitor
-                              <strong>Agriculture food policy & reulations</strong>
-                            </p>
-                            <img src="/images/article_list/commodities.png" alt="icon" />
-                            <h2 class="poduct-brand-subheading">World leaders hid wealth via shell companies</h2>
-                            <p class="date">30.03.2016</p>
-                            <div class="list-content">
-                                <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                <span class="article-info"><em>Author:</em> <strong>Jim Wiesemeyer</strong></span>
-                                <span class="article-info"><em>Topic:</em> 
-                                    <strong>Jim Wiesemeyer</strong>
-                                </span>
-                            </div>
-                            <div class="btn-container">
-                              <a role="button" href="#" class="btn btn-default">Full article</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <p class="category">Issue monitor
-                              <strong>Agriculture food policy & reulations</strong>
-                            </p>
-                            <img src="/images/article_list/commodities.png" alt="icon" />
-                            <h2 class="poduct-brand-subheading">World leaders hid wealth via shell companies</h2>
-                            <p class="date">30.03.2016</p>
-                            <div class="list-content">
-                                <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                <span class="article-info"><em>Author:</em> <strong>Jim Wiesemeyer</strong></span>
-                                <span class="article-info"><em>Topic:</em> 
-                                    <strong>Jim Wiesemeyer</strong>
-                                </span>
-                            </div>
-                            <div class="btn-container">
-                              <a role="button" href="#" class="btn btn-default">Full article</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <p class="category">Issue monitor
-                              <strong>Agriculture food policy & reulations</strong>
-                            </p>
-                            <img src="/images/article_list/policy.png" alt="icon" />
-                            <h2 class="poduct-brand-subheading">World leaders hid wealth via shell companies</h2>
-                            <p class="date">30.03.2016</p>
-                            <div class="list-content">
-                                <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                <span class="article-info"><em>Author:</em> <strong>Jim Wiesemeyer</strong></span>
-                                <span class="article-info"><em>Topic:</em> 
-                                    <strong>Jim Wiesemeyer</strong>
-                                </span>
-                            </div>
-                            <div class="btn-container">
-                              <a role="button" href="#" class="btn btn-default">Full article</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <p class="category">Issue monitor
-                              <strong>Agriculture food policy & reulations</strong>
-                            </p>
-                            <img src="/images/article_list/commodities.png" alt="icon" />
-                            <h2 class="poduct-brand-subheading">World leaders hid wealth via shell companies</h2>
-                            <p class="date">30.03.2016</p>
-                            <div class="list-content">
-                                <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                <span class="article-info"><em>Author:</em> <strong>Jim Wiesemeyer</strong></span>
-                                <span class="article-info"><em>Topic:</em> 
-                                    <strong>Jim Wiesemeyer</strong>
-                                </span>
-                            </div>
-                            <div class="btn-container">
-                              <a role="button" href="#" class="btn btn-default">Full article</a>
-                            </div>
-                        </li>
-
-                        <li>
-                            <p class="category">Issue monitor
-                              <strong>Agriculture food policy & reulations</strong>
-                            </p>
-                            <img src="/images/article_list/commodities.png" alt="icon" />
-                            <h2 class="poduct-brand-subheading">World leaders hid wealth via shell companies</h2>
-                            <p class="date">30.03.2016</p>
-                            <div class="list-content">
-                                <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                <span class="article-info"><em>Author:</em> <strong>Jim Wiesemeyer</strong></span>
-                                <span class="article-info"><em>Topic:</em> 
-                                    <strong>Jim Wiesemeyer</strong>
-                                </span>
-                            </div>
-                            <div class="btn-container">
-                              <a role="button" href="#" class="btn btn-default">Full article</a>
-                            </div>
-                        </li>
-
+                      {{/each}}
                     </ul>
             </div>
 
