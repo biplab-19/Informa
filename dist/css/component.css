@@ -171,8 +171,9 @@ section#hero-banner.variant4 .description {
 /* line 36, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .icon {
   padding-bottom: 20px;
+  min-height: 50px;
 }
-/* line 39, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 40, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products {
   height: 90px;
   padding: 15px 0 25px;
@@ -180,7 +181,7 @@ section#hero-banner.variant4 .description {
   position: absolute;
   bottom: 50px;
 }
-/* line 46, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 47, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li {
   font-family: FSMe-Bold;
   display: inline;
@@ -190,7 +191,7 @@ section#hero-banner.variant4 .description {
   margin: 0;
   padding: 0;
 }
-/* line 56, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 57, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li:after {
   content: "";
   width: 0.7px;
@@ -198,16 +199,16 @@ section#hero-banner.variant4 .description {
   border-left: 1px solid #6a7287;
   margin: 0 0.625em;
 }
-/* line 66, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 67, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li:last-child:after {
   content: "";
   border-left: none;
 }
-/* line 70, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 71, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .view-all-sectors-btn-container {
   display: none;
 }
-/* line 73, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 74, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .btn-container {
   width: 80%;
   margin: 0 auto;
@@ -217,11 +218,11 @@ section#hero-banner.variant4 .description {
   right: 0;
 }
 @media (max-width: 767px) {
-  /* line 91, ../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 92, ../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .container > .row + .row > .text-center:nth-child(n+3) {
     display: none;
   }
-  /* line 95, ../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 96, ../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .view-all-sectors-btn-container {
     display: block;
     border-bottom: solid 1px #ffd600;
@@ -231,12 +232,12 @@ section#hero-banner.variant4 .description {
     cursor: pointer;
     margin-bottom: 15px;
   }
-  /* line 104, ../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 105, ../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .informa-icon {
     font-size: 30px;
     color: #ffd600;
   }
-  /* line 108, ../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 109, ../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .btn-container {
     width: 92%;
     margin: 0 auto;
