@@ -155,13 +155,13 @@ module.exports = function(grunt) {
                 banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */',
             },
             prod: {
-                files: {
-                    '<%= config.tmp %>/scripts/informaui.main.js': [
-                        '<%= config.src %>/scripts/informaui.main.js',
-                        '<%= config.src %>/scripts/plugins/*.js',
-                        '!<%= config.src %>/scripts/handlebars_helpers.js'
-                    ]
-                }
+                // files: {
+                //     '<%= config.tmp %>/scripts/informaui.main.js': [
+                //         '<%= config.src %>/scripts/informaui.main.js',
+                //         '<%= config.src %>/scripts/plugins/*.js',
+                //         '!<%= config.src %>/scripts/handlebars_helpers.js'
+                //     ]
+                // }
             }
         },
 
@@ -202,6 +202,7 @@ module.exports = function(grunt) {
                             'favicon.ico',
                             'videos/**/*',
                             'images/**/*',
+                            'Static/**/*',
                             'styleguide/*.html'
                         ]
                     },
@@ -247,8 +248,10 @@ module.exports = function(grunt) {
                             'videos/**/*'
                         ]
                     },
+                    {expand: true, cwd: '<%= config.src %>/Static', src: ['**/*.*'], dest: '<%= config.dist %>/Static'},
                     {expand: true, cwd: '<%= config.src %>/images', src: ['**/*.*'], dest: '<%= config.dist %>/images'},
                     {expand: true, cwd: '<%= config.tmp %>/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/fonts'},
+                    {expand: true, cwd: '<%= config.tmp %>/js', src: ['**/*.*'], dest: '<%= config.dist %>/js'},
                     {expand: true, cwd: '<%= config.tmp %>/css', src: ['**/*.*'], dest: '<%= config.dist %>/css'}
                 ]
             },
@@ -339,17 +342,14 @@ module.exports = function(grunt) {
 
         concurrent: {
             server: [
-                'compass:dev',
-                'copy:css'
+                'compass:dev'
             ],
             prod: [
                 'compass:prod',
-                'copy:css',
                 'imagemin'
             ],
             werk: [
-                'compass',
-                'copy:css'
+                'compass'
             ]
         },
 
@@ -464,7 +464,7 @@ module.exports = function(grunt) {
         'assemble:prod',
         'useminPrepare',
         'copy:prod',
-        'concurrent:prod',
+      //  'concurrent:prod',
         'concat:prod',
         'uglify:prod',
         'usemin',
@@ -479,7 +479,7 @@ module.exports = function(grunt) {
         'assemble:prod',
         'useminPrepare',
         'copy:prod',
-        'concurrent:werk',
+      //  'concurrent:werk',
         'concat:prod',
         'uglify:prod',
         'usemin',
