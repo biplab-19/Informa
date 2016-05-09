@@ -1,0 +1,30 @@
+nav#pdp-navigation {
+      background: $yellow;
+      border-top: 1px solid $light;
+      border-bottom: 2px solid $gray-light;
+      &.navbar-fixed-top {
+            position: fixed;
+            width: 100%;
+      }
+      ul {
+            margin: 0;
+            position: relative;
+            li {
+                  width: 150px;
+                  a {
+                        font-size: 14px;
+                        color: $gray-dark-bg;
+                        padding: 20px 60px 20px 0;
+                  }
+            }
+      }
+      .menuFollower {
+            background: $light;
+            height: 5px;
+            width: 150px;
+            position: absolute;
+            bottom:0;
+            left: -30px; // because the <a> has 60 left padding
+            transition: .3s ease-in;
+      }
+}
