@@ -147,15 +147,14 @@ section#hero-banner.variant4 .description {
 
 /* line 13, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .card-col {
-  min-height: 350px;
   margin-top: 30px;
   margin-bottom: 30px;
-  max-height: 455px;
+  height: 400px;
 }
 /* line 19, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list h2 {
   word-wrap: break-word;
-  max-height: 65px;
+  height: 65px;
   overflow: hidden;
   line-height: 1.6em;
 }
@@ -167,7 +166,6 @@ section#hero-banner.variant4 .description {
 /* line 29, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .content P {
   line-height: 1.6em;
-  min-height: 86px;
   overflow: hidden;
 }
 /* line 36, ../../src/components/home-sector-list/sass/_sector-list.scss */
@@ -176,11 +174,13 @@ section#hero-banner.variant4 .description {
 }
 /* line 39, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products {
-  max-height: 90px;
+  height: 90px;
   padding: 15px 0 25px;
   overflow: hidden;
+  position: absolute;
+  bottom: 50px;
 }
-/* line 44, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 46, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li {
   font-family: FSMe-Bold;
   display: inline;
@@ -190,7 +190,7 @@ section#hero-banner.variant4 .description {
   margin: 0;
   padding: 0;
 }
-/* line 54, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 56, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li:after {
   content: "";
   width: 0.7px;
@@ -198,16 +198,16 @@ section#hero-banner.variant4 .description {
   border-left: 1px solid #6a7287;
   margin: 0 0.625em;
 }
-/* line 64, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 66, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li:last-child:after {
   content: "";
   border-left: none;
 }
-/* line 68, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 70, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .view-all-sectors-btn-container {
   display: none;
 }
-/* line 71, ../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 73, ../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .btn-container {
   width: 80%;
   margin: 0 auto;
@@ -217,11 +217,11 @@ section#hero-banner.variant4 .description {
   right: 0;
 }
 @media (max-width: 767px) {
-  /* line 89, ../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 91, ../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .container > .row + .row > .text-center:nth-child(n+3) {
     display: none;
   }
-  /* line 93, ../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 95, ../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .view-all-sectors-btn-container {
     display: block;
     border-bottom: solid 1px #ffd600;
@@ -231,12 +231,12 @@ section#hero-banner.variant4 .description {
     cursor: pointer;
     margin-bottom: 15px;
   }
-  /* line 102, ../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 104, ../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .informa-icon {
     font-size: 30px;
     color: #ffd600;
   }
-  /* line 106, ../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 108, ../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .btn-container {
     width: 92%;
     margin: 0 auto;
@@ -261,41 +261,40 @@ section#hero-banner.variant4 .description {
   -webkit-clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
   -moz-clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
   clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
-  position: relative;
 }
-/* line 26, ../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 16, ../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .image-thumbnail img {
   width: 100%;
 }
-/* line 30, ../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 20, ../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption {
   padding: 15px;
   word-wrap: break-word;
   height: 189px;
   overflow: hidden;
 }
-/* line 36, ../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 26, ../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption h2 {
   color: #6a7285;
   font-family: FSMe;
 }
-/* line 40, ../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 30, ../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption h2::after {
   content: url("/Static/images/product-icon.png");
   padding-left: 5px;
 }
-/* line 44, ../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 34, ../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption p {
   padding-top: 15px;
 }
-/* line 48, ../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 38, ../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore {
   -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 20%);
   -moz-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 20%);
   clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 20%);
   min-height: 90px;
 }
-/* line 54, ../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 44, ../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore .btn-container {
   width: 165px;
   position: absolute;
@@ -303,40 +302,40 @@ section#hero-banner.variant4 .description {
   right: 15px;
   float: right;
 }
-/* line 63, ../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 53, ../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .view-all-mobile-container {
   display: none;
 }
-/* line 67, ../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 57, ../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .show-more-btn-container .btn {
   width: 20%;
 }
 @media (max-width: 767px) {
-  /* line 72, ../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 62, ../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(1) {
     display: block;
   }
-  /* line 75, ../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 65, ../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(2) {
     display: block;
   }
-  /* line 78, ../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 68, ../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 81, ../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 71, ../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 84, ../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 74, ../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col:nth-child(n+5) {
     display: none;
   }
-  /* line 88, ../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 78, ../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .show-more-btn-container .btn {
     width: 50%;
   }
-  /* line 92, ../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 82, ../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .view-all-mobile-container {
     display: block;
     color: #fff;
@@ -346,12 +345,12 @@ section#hero-banner.variant4 .description {
     padding: 5px;
     cursor: pointer;
   }
-  /* line 101, ../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 91, ../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .informa-icon {
     font-size: 30px;
     color: #ffd600;
   }
-  /* line 105, ../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 95, ../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .btn-container {
     width: 100%;
     margin: 0 auto;
