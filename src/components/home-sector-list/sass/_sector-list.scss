@@ -11,14 +11,14 @@
     //     }
     // }
     .card-col {
-      min-height: 350px;
+
       margin-top: 30px;
       margin-bottom: 30px;
-      max-height: 455px;
+      height: 400px;
     }
     h2 {
         word-wrap: break-word;
-        max-height: 65px;
+        height: 65px;
         overflow: hidden;
         line-height: 1.6em;
     }
@@ -28,7 +28,7 @@
         overflow: hidden;
         P {
             line-height: 1.6em;
-            min-height: 86px;
+            //max-height: 100px;
             //max-height: 312px;
             overflow: hidden;
         }
@@ -37,9 +37,11 @@
         padding-bottom: 20px;
     }
     ul.sector-list-products {
-        max-height: 90px;
+        height: 90px;
         padding: 15px 0 25px;
         overflow: hidden;
+        position: absolute;
+        bottom: 50px;
     }
     ul.sector-list-products li {
         font-family: FSMe-Bold;
