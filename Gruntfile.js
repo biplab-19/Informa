@@ -182,6 +182,7 @@ module.exports = function(grunt) {
                         src: [
                             'bower_components/jquery/dist/jquery.js',
                             'bower_components/slick-carousel/slick/slick.js',
+                            'bower_components/handlebars/handlebars.js',
                             'bower_components/parallax/deploy/jquery.parallax.js',
 							'bower_components/picturefill/src/picturefill.js',
 							'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'],
