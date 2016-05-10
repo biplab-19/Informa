@@ -15,7 +15,7 @@ var INFORMA = window.INFORMA || {};
 	'use strict';
 	//variables
   INFORMA.Templates = {
-    'articleListTemplate': 
+    'articleListItems': 
     '{{#each articleListItems}}'+
             '<li>'+
                 '<p class="category">{{ContentType}}'+

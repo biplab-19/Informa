@@ -185,6 +185,7 @@ module.exports = function(grunt) {
                             'bower_components/handlebars/handlebars.js',
                             'bower_components/parallax/deploy/jquery.parallax.js',
 							'bower_components/picturefill/src/picturefill.js',
+                            'bower_components/chosen/chosen.jquery.js',
 							'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js'],
                         dest: '<%= config.tmp %>'
                     },

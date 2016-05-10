@@ -45,10 +45,9 @@
                                 params.success_callback.call(this, msg);
                             }
                         } else {
-                            var data = null,
-                                serviceFunction = service + "Result";
+                            var data = null;
 
-                            if (msg.hasOwnProperty(serviceFunction)) { data = msg[serviceFunction]; } else { data = false; }
+                            if (msg!==null) { data = msg } else { data = false; }
 
                             if (typeof params !== "undefined" && typeof params.success_callback === "function") {
                                 params.success_callback.call(this, data);
