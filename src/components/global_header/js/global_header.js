@@ -15,13 +15,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     'use strict';
     var _mainNavigation = $('#mainNavigation'),
       _navHeight = _mainNavigation.height(),
-      _headerPos,
+      _headerPos = 0,
       _fixed = 'navbar-fixed-top',
       _isHeaderFixed = false,
       // for sticky nav of pdp-navigation
       _pdpNavigation = $('#pdp-navigation'),
-      _pdpNavigationHeight = _pdpNavigation.height(),
-      _pdpNavigationPos,
+      _pdpNavigationHeight = 0,
+      _pdpNavigationPos = 0,
       _pdpWrapper = $('.product-detail-page'),
       _pdpMenuFollower = $('#pdp-navigation .menuFollower'),
       // for scrolling purpose
@@ -38,8 +38,18 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _activatePdpFixedHeader,
       _pdpNavigationScrollTo;
 
-      if(_pdpNavigation.length > 0) _pdpNavigationPos = _pdpNavigation.offset().top;
-      if(_mainNavigation.length > 0) _headerPos = _mainNavigation.offset().top;
+
+      // if header or pdp is present then only we calc the values.
+      // so that even if the elements are not present, the calc will happen
+
+      if(_pdpNavigation.length > 0) {
+            _pdpNavigationHeight = _pdpNavigation.height(),
+            _pdpNavigationPos = _pdpNavigation.offset().top;
+      }
+      if(_mainNavigation.length > 0) {
+            _navHeight = _mainNavigation.height();
+            _headerPos = _mainNavigation.offset().top;
+      }
 
       _whenScrolling = function(){
          $(window).on('scroll',function(){
@@ -112,7 +122,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                   e.preventDefault();
                   var _target = $(this).data('target');
                   $('html, body').animate({
-                        scrollTop: $("#"+_target).offset().top - 120
+                        scrollTop: $("#"+_target).offset().top - (_navHeight + _pdpNavigationHeight)
                   }, 1000);
             })
       };
