@@ -15,7 +15,7 @@ INFORMA.global = (function(window, $, namespace) {
 	'use strict';
 	//variables
 	var device = {},
-		sitecore = {},
+		siteCore = {},
 		_html = $('html');
 
 	var init = function(){
