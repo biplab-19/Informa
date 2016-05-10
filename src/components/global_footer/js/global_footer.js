@@ -24,11 +24,15 @@ INFORMA.globalFooter = (function(window, $, namespace) {
         var _slideCount = container.data('itemsperframe'),
             _autoplay = container.data('autorotate'),
             _speed = container.data('transitionspeed'), // speed of transition
-            _duration = container.data('slideduration'); // how long the slider will be dis
-
+            _duration = container.data('slideduration'), // how long the slider will be dis
+            _infinite = true;
             //chk for sitecore preview
-            if($('#scPageExtendersForm').length > 0){
-                  _infinite = false;
+            if (INFORMA.global.siteCore.isPreview) {
+                _autoplay = true;
+            }
+            if (INFORMA.global.siteCore.isExperience) {
+                _autoplay = false;
+                _infinite = false;
             }
             if(INFORMA.global.device.viewportN == 1){
                   _slideCount = 4;
@@ -37,7 +41,7 @@ INFORMA.globalFooter = (function(window, $, namespace) {
                   _slideCount = 3;
             }
         container.slick({
-            infinite: true,
+            infinite: _infinite,
             autoplay: _autoplay,
             autoplaySpeed: _duration,
             slidesToShow: _slideCount,

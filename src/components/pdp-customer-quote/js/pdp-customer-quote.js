@@ -22,17 +22,23 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
     _createSlider = function(container){
         // if data-items, data-infinite is defined, used it
         //todo: for the love of Madonna Sebastian move this to common
-        var _slideCount = container.data('itemsperframe'),
+        var _slideCount = 1,//container.data('itemsperframe'),
            _autoplay = container.data('autorotate'),
            _speed = container.data('transitionspeed'), // speed of transition
-           _duration = container.data('slideduration'); // how long the slider will be dis
+           _duration = container.data('slideduration'), // how long the slider will be dis
+           _infinite = true;
 
-           //chk for sitecore preview
-           if($('#scPageExtendersForm').length > 0){
-                 _infinite = false;
-           }
+     //chk for sitecore preview
+     if (INFORMA.global.siteCore.isPreview) {
+          _autoplay = true;
+      }
+      if (INFORMA.global.siteCore.isExperience) {
+          _autoplay = false;
+          _infinite = false;
+      }
+
        container.slick({
-           infinite: true,
+           infinite: _infinite,
            autoplay: _autoplay,
            autoplaySpeed: _duration,
            slidesToShow: _slideCount,
