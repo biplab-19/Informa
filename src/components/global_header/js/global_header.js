@@ -15,7 +15,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     'use strict';
     var _mainNavigation = $('#mainNavigation'),
       _navHeight = _mainNavigation.height(),
-      _headerPos = _mainNavigation.offset().top,
+      _headerPos,
       _fixed = 'navbar-fixed-top',
       _isHeaderFixed = false,
       // for sticky nav of pdp-navigation
@@ -38,7 +38,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _activatePdpFixedHeader,
       _pdpNavigationScrollTo;
 
-      if(_pdpNavigation.length > 0) _pdpNavigationPos = _pdpNavigation.offset().top || 0;
+      if(_pdpNavigation.length > 0) _pdpNavigationPos = _pdpNavigation.offset().top;
+      if(_mainNavigation.length > 0) _headerPos = _mainNavigation.offset().top;
 
       _whenScrolling = function(){
          $(window).on('scroll',function(){
@@ -73,9 +74,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                         _pdpMenuObj.push($(_sectionName).offset().top - 120 );
                   }
                   else {
-                        $(_pdpLink).addClass('JustGonnaStayThereAndWatchMeBurn');
+                        $(_pdpLink[i]).addClass('JustGonnaStayThereAndWatchMeBurn');
                   }
-                  $('.JustGonnaStayThereAndWatchMeBurn').remove();
+                  $('.JustGonnaStayThereAndWatchMeBurn').parent().remove();
             }
             console.log(_pdpMenuObj);
             // todo: not a right place to add,so.. you know what to do
@@ -117,11 +118,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       };
 
       init = function() {
-            if(_pdpNavigation.length > 0){
-                  _initPdpMenuBarFollow();
-                  _pdpNavigationScrollTo();
+            if(INFORMA.global.device.viewport!='mobile'){
+                  if(_pdpNavigation.length > 0){
+                        //_initPdpMenuBarFollow();
+                        _pdpNavigationScrollTo();
+                  }
+                  _whenScrolling();
             }
-            _whenScrolling();
       };
 
     return {

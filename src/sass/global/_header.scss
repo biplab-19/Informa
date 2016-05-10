@@ -18,6 +18,9 @@ header {
                   float: left;
             }
             .login {
+                  @include mobile {
+                        display: none;
+                  }
                   float: right;
                   cursor: pointer;
                   border: 2px solid $gray-header;
@@ -42,6 +45,13 @@ header {
       }
       nav#mainNavigation {
             background: $gray-dark-bg;
+            @include mobile{
+                  display: none;
+            }
+            @include tablet {
+
+            }
+
             &.main-nav-fixed {
                   position: fixed;
                   top: 0;

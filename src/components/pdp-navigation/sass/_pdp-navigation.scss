@@ -2,6 +2,9 @@ nav#pdp-navigation {
       background: $yellow;
       border-top: 1px solid $light;
       border-bottom: 2px solid $gray-light;
+      @include mobile {
+            display: none;
+      }
       &.navbar-fixed-top {
             position: fixed;
             width: 100%;

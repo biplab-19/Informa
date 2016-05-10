@@ -85,8 +85,8 @@ section#customer-quote {
         position: absolute;
         width: auto;
         height: 500px;
-        top:0;
-        right: 0;
+        top:-70px;
+        right: -70px;
         pointer-events: none;
         @include mobile {
             display: none;
@@ -103,7 +103,7 @@ section#customer-quote {
         }
         &.two {
             top: 130px;
-            right: 0;
+            right: -150px;
         }
     }
     .slick-initialized {
