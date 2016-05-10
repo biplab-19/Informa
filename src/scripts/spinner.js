@@ -6,6 +6,7 @@
             var spinner,
                 rePosition = null,
                 control,
+                objectContainer,
                 window = $(window),
                 loader = {
                     width: 38,
@@ -13,16 +14,17 @@
                 };
 
             this.Hide = function() {
-                control.fadeOut("fast");
+                objectContainer.find('.load-spinner').fadeOut("fast");
 
             };
 
             this.Show = function(container) {
-                var IsSpinnerExist = container.find(".load-spinner");
+            	objectContainer = container;
+                var IsSpinnerExist = objectContainer.find(".load-spinner");
 
                 if (!IsSpinnerExist.length) {
                     control = $("<div><img src='/images/puff.svg' /></div>");
-                    control.addClass("load-spinner").prependTo(container);
+                    control.addClass("load-spinner").prependTo(objectContainer);
                 }
                 control.fadeIn("fast");
 
@@ -34,7 +36,7 @@
             }
 
             var RePosition = function() {
-                control.find("img").css({
+                objectContainer.find(".load-spinner img").css({
                     left: ((control.width()) / 2),
                     top: "50%"
                 });
