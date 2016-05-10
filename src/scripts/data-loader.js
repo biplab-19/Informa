@@ -54,6 +54,7 @@
                             }
                         }
                         RunningCalls[service] = null;
+                        INFORMA.Spinner.Hide();
 
                     },
                     error: function(xhr, status, error) {

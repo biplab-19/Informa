@@ -33,12 +33,16 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             return false;
     },
     RenderCarousel = function (xhtml) {
-        el.slick('unslick');
+        //el.fadeOut("fast")
+          el.slick('unslick');
+
         el.empty().html(xhtml);
         CreateSlider();
+        //el.fadeIn("slow");
     },
     GetCarouselData = function(FilterName){
 
+        INFORMA.Spinner.Show($(".article-list"));
         INFORMA.DataLoader.GetServiceData("/webservices/article_list.json", {
             method : "GET", 
             data : "{ \"FilterName\" : "+ FilterName +"\" }",
@@ -57,7 +61,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         });
     },
     BindFilterEvents = function() {
-            $(".chosen-select").chosen({disable_search_threshold: 10});
             //Filter menu present then bind filter event to dropdown
             if (FilterMenu) {
                 FilterMenu.on("change", function(e) {
@@ -104,6 +107,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             ]
         });
         if(FilterMenu){
+            $(".chosen-select").chosen({disable_search_threshold: 10,width:"100%"});
             BindFilterEvents();
         }
     }
