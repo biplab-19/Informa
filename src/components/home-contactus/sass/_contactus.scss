@@ -134,5 +134,11 @@
             width: 22.5%;
         }
     }
+    @include mobile {
+          &.three, &.four {
+             .contactus-list .panel-group .panel {
+                 width: 100%
+             }
+         }
+   }
 }
-
