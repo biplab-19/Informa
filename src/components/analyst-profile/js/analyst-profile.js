@@ -13,9 +13,6 @@
 var INFORMA = window.INFORMA || {};
 INFORMA.analystProfile = (function(window, $, namespace) {
     'use strict';
-    //variables
-    //var _analystList = $('#pdp-analyst'),
-    // methods
      var init,
         _bindShowMore;
 
@@ -23,8 +20,8 @@ INFORMA.analystProfile = (function(window, $, namespace) {
         
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.show-options');
-        _showMore.on('click',function(){
-            debugger;
+        _showMore.click(function(){
+            $(this).parents('#analyst-profile').find('.descriptions').toggleClass("show-content");
         });
     }
 
