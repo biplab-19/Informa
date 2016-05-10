@@ -120,4 +120,21 @@
       color: $light;
       // not sure where to add, Saurabh pls move it
       // todo:
+
 }
+#contactus-section {
+    a {
+        color: $orange;
+    }
+    &.three {
+        .contactus-list .panel-group .panel {
+            width: 30.5%;
+        }
+    }
+    &.four {
+        .contactus-list .panel-group .panel {
+            width: 22.5%;
+        }
+    }
+}
+
