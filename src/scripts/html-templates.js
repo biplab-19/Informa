@@ -23,7 +23,7 @@ var INFORMA = window.INFORMA || {};
                 '</p>'+
                 '<img src="{{Image}}" alt="{{ImageAltText}}" />'+
                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
-                '<p class="date">30.03.2016</p>'+
+                '<p class="date">{{TimeStamp}}</p>'+
                 '<div class="list-content">'+
                     '{{#if Description}}'+
                         '<p class="description">{{Description}}</p>'+

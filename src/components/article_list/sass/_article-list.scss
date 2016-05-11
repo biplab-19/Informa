@@ -61,6 +61,14 @@
                     min-width: 70px;
                     font-style: normal;
                 }
+                strong{
+                    display: inline-block;
+                    vertical-align: top;
+                    width: auto;
+                    @include mobile{
+                        width: 70%;
+                    }
+                }
             }
             .btn-container {
                 margin: 20px 0 10px 0;
