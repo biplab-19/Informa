@@ -1,5 +1,13 @@
-<section id="hero-banner" class="variant1">
-      <div class="abs-image"><img src="images/agri-bg.jpg"></div>
+<section id="hero-banner" class="default">
+      <div class="abs-image">
+            <picture>
+                  <source srcset="images/agri-bg.jpg" media="(min-width: 1024px)">
+                  <source srcset="images/agri-bg_medium.jpg?w=1024" media="(min-width: 768px)">
+                  <source srcset="images/agri-bg_small.jpg?w=768" media="(min-width: 660px)">
+                  <source srcset="images/agri-bg_xs.jpg?w=660" media="(min-width: 320px)">
+                  <img srcset="images/agri-bg.jpg">
+            </picture>
+      </div>
     <div class="container alignVertical">
         <div class="row splash">
             <div class="col-xs-12 col-sm-8 col-md-6">

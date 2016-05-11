@@ -11,23 +11,21 @@ nav#pdp-navigation {
       }
       ul {
             margin: 0;
-            position: relative;
             li {
-                  width: 150px;
                   a {
                         font-size: 14px;
                         color: $gray-dark-bg;
-                        padding: 20px 60px 20px 0;
+                        padding: 15px 20px;
                   }
             }
       }
       .menuFollower {
             background: $light;
             height: 5px;
+            margin-top: -5px;
             width: 150px;
             position: absolute;
-            bottom:0;
-            left: -30px; // because the <a> has 60 left padding
             transition: .3s ease-in;
+            display: none;
       }
 }

@@ -102,6 +102,12 @@ section {
             position: initial!Important;
       }
 }
+// for local navigation
+ul.navigation-list {
+      li a {
+            color: $gray-dark-bg;
+      }
+}
 
 @mixin limitHeight($height){
       height: $height;

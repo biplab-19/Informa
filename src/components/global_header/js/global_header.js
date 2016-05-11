@@ -1,14 +1,15 @@
 /*
- * global-header.js
- *
- *
- * @project:    Informa
- * @date:       2016-May-8
- * @author:     Jagadeesh Jayachandran, jjayachandran2@sapient.com
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
+* global-header.js
+* pdp-navigation.js
+* Because I dont want to create two on('scroll')
+*
+* @project:    Informa
+* @date:       2016-May-8
+* @author:     Jagadeesh Jayachandran, jjayachandran2@sapient.com
+* @licensor:   SAPIENNITRO
+* @namespaces: INFORMA
+*
+*/
 
 var INFORMA = window.INFORMA || {};
 INFORMA.globalHeader = (function(window, $, namespace) {
@@ -27,7 +28,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       // for scrolling purpose
       _pdpLink = $('#pdp-navigation ul > li > a'),
       _pdpFixed = false,
-      _pdpMenuObj = [],
+      _pdpMenuPos = [],
+      _pdpMenuWidth = [],
+      _pdpMenuleft = [],
+
+      _arrayFlag = true,
 
       //functions
       init,
@@ -50,6 +55,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _navHeight = _mainNavigation.height();
             _headerPos = _mainNavigation.offset().top;
       }
+
+      // both pdp nav and main nav handled here
 
       _whenScrolling = function(){
          $(window).on('scroll',function(){
@@ -80,15 +87,16 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                   if($(_sectionName).length > 0){
                         // all sections will be printed in navbar html, if the section
                         // is not there, smack that
-                        // else push the offset value to top
-                        _pdpMenuObj.push($(_sectionName).offset().top - 120 );
+                        // else push the offset value to array
+                        //_pdpMenuPos.push($(_sectionName).offset().top);
                   }
                   else {
                         $(_pdpLink[i]).addClass('JustGonnaStayThereAndWatchMeBurn');
                   }
-                  $('.JustGonnaStayThereAndWatchMeBurn').parent().remove();
             }
-            console.log(_pdpMenuObj);
+                                                $('.JustGonnaStayThereAndWatchMeBurn').parent().remove();
+                                                _pdpLink = $('#pdp-navigation ul > li > a');
+            console.log(_pdpMenuPos);
             // todo: not a right place to add,so.. you know what to do
 
       };
@@ -98,8 +106,19 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                if(_windowPos > (_pdpNavigationPos - _navHeight)){
                      _pdpNavigation.addClass(_fixed);
                      _pdpNavigation.css('top',_navHeight+'px');
-                     _pdpWrapper.css('padding-top',_navHeight);
+                    _pdpWrapper.css('padding-top',_navHeight);
                      _pdpFixed = true;
+                     if(_arrayFlag){
+                           for(var i=0;i<_pdpLink.length;i++){
+                                 var _sectionName = '#'+$(_pdpLink[i]).data('target');
+                                 _pdpMenuPos.push($(_sectionName).offset().top);
+                                 _pdpMenuWidth.push($(_pdpLink[i]).parent().width());
+                                 _pdpMenuleft.push($(_pdpLink[i]).parent().offset().left);
+                           }
+                           _pdpMenuFollower.show();
+                           _arrayFlag = false;
+                     }
+
                }
                else {
                      _pdpNavigation.removeClass(_fixed);
@@ -107,11 +126,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                      _pdpFixed = false;
                }
                // todo: should be moved to function, atleast for readability
-               var i= _pdpMenuObj.length - 1;
+               // line follower robot is something i shud ve built during my college days.
+               var i= _pdpMenuPos.length - 1;
                for(; i>=0;i--){
-                     if( _windowPos >= _pdpMenuObj[i] ){
-                           _pdpMenuFollower.css('transform','translateX('+(100*i)+'%)')
-                           // .menuFollower { transform: translateX(100%)}
+                     if( _windowPos + 120 >= _pdpMenuPos[i]  ){
+                           _pdpMenuFollower.css('width',_pdpMenuWidth[i]);
+                           _pdpMenuFollower.css('left',_pdpMenuleft[i]);
+                              // .menuFollower { transform: translateX(100%)}
                            i=-1;
                      }
                }
@@ -121,7 +142,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _pdpLink.on('click',function(e){
                   e.preventDefault();
                   var _target = $(this).data('target');
-                  $('html, body').animate({
+                  $('html, body').stop().animate({
                         scrollTop: $("#"+_target).offset().top - (_navHeight + _pdpNavigationHeight)
                   }, 1000);
             })
@@ -130,7 +151,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       init = function() {
             if(INFORMA.global.device.viewport!='mobile'){
                   if(_pdpNavigation.length > 0){
-                        //_initPdpMenuBarFollow();
+                        _initPdpMenuBarFollow();
                         _pdpNavigationScrollTo();
                   }
                   _whenScrolling();
