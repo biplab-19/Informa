@@ -15,12 +15,18 @@
       margin-top: 30px;
       margin-bottom: 30px;
       height: 400px;
+      @include mobile {
+        height: auto;
+      }
     }
     h2 {
         word-wrap: break-word;
-        height: 65px;
+        height: 75px;
         overflow: hidden;
         line-height: 1.6em;
+        @include mobile {
+            height: auto;
+        }
     }
     .content {
         line-height: 1.6em;
@@ -34,8 +40,13 @@
         }
     }
     .icon {
-        padding-bottom: 20px;
         min-height: 50px;
+        @include mobile {
+            min-height: auto;
+        }
+        img {
+            margin-bottom: 20px;
+        }
     }
     ul.sector-list-products {
         height: 90px;
@@ -43,6 +54,10 @@
         overflow: hidden;
         position: absolute;
         bottom: 50px;
+        @include mobile {
+            position: static;
+            height: auto;
+        }
     }
     ul.sector-list-products li {
         font-family: FSMe-Bold;
@@ -58,7 +73,7 @@
         content: "";
         width: 0.7px;
         height: 0.5px;
-        border-left: 1px solid $font-color;
+        border-left: 2px solid $font-color;
         margin: 0 0.625em;
     }
     .col-lg-4:nth-child(3n+1) {
@@ -78,6 +93,9 @@
         bottom: 0;
         left: 0;
         right: 0;
+        @include mobile {
+            position: static;
+        }
     }
     .sector-card {
         // word-wrap: break-word;

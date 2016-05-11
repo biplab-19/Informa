@@ -23,6 +23,9 @@
             word-wrap: break-word;
             height: 189px;
             overflow: hidden;
+            @include mobile {
+                height: auto;
+            }
             h2 {
                 color: $gray-darker;
                 font-family: FSMe;
