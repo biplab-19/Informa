@@ -92,7 +92,7 @@ INFORMA.analystList = (function(window, $, namespace) {
 
     init = function() {
         if (_analystList.length > 0) {
-            _bindElement();
+           // _bindElement();
             _bindShowMore(_analystList);
         }
     };

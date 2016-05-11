@@ -2,8 +2,8 @@
 	<div class="container">
 		<h1>Meet the analysts</h1>
 		<div class="row analyst-items">
-			{{!-- {{#each this}}
-				<div class="col-xs-12 col-sm-6 col-md-4">
+			{{#each this}}
+				<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container">
 		            <div class="meet-anlyst-section">
 		                <div class="anlyst-heading">
 		                    <div class="analyst-details">
@@ -39,7 +39,10 @@
 		                </div>
 		            </div>
 	        	</div>
-	        {{/each}} --}}
+	        {{/each}}
+		</div>
+		<div class="btn-container text-center">
+			<a href="javascript:void(0)" class="btn btn-default btn-showMore">See All Profile</a>
 		</div>
 	</div>
 </section>
