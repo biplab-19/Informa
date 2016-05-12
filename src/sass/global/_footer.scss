@@ -18,6 +18,9 @@ h3 {
     .title_comp {
       h3 {
         margin: 35px 0 50px;
+        @include mobile {
+             margin: 35px 0 32px;
+       }
       }
     }
     .customers_list_slider {
@@ -150,10 +153,11 @@ h3 {
             }
             @include mobile {
                   float: left;
-                  width: 30px;
+                  width: 60px;
                   height: 45px;
+                  padding: 0;
                   a {
-                        display: none;
+                        opacity: 0;
                   }
             }
       }
