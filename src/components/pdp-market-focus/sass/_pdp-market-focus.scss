@@ -1,5 +1,5 @@
 section#market-focus{
-    background: $light;
+      background-color: $body-bg;    
     padding: 12px 0 28px;
     font-family: FSMe-Light;
     @include mobile {
@@ -17,19 +17,18 @@ section#market-focus{
             margin-bottom: 15px;
         }
         .market-list {
-            background-color: $body-bg;
+            background: $light;
             background-repeat: no-repeat;;
             background-position: 100% 0;
             position: relative;
-            @include limitHeight(185px);
-            padding: 15px;
-            @include mobile {
-                min-height: 135px;
-            }
+            padding: 18px 15px 8px;
+            overflow: hidden;
+            height: 62px;
             h2 {
                 color: $text-gray-dark;
             }
             p {
+                  display: none;
                 font-size: 14px;
                 line-height: 1.6eM;
                 @include mobile {
