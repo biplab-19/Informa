@@ -10,6 +10,11 @@
 				display: none;
 			}	
 		}
+		@include tablet {
+			&:nth-child(n+3) {
+				display: none;
+			}
+		}
 		.meet-anlyst-section {
 			overflow: hidden;
 			margin-bottom: 10px;
