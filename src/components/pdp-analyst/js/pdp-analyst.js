@@ -29,7 +29,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         _showMore.on('click',function(){
             var _vp = INFORMA.global.device.viewportN;
             if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
-                _vp = 1; //to emulate nth-child(n+3)
+                _vp = 2; //to emulate nth-child(n+3)
             }
             else {
                 _vp = 4; // or (n+9)
