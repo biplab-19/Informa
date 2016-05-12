@@ -43,11 +43,12 @@ section#feature-list{
     .btn-showMore {
         background: none;
         width: 260px;
-        padding: 15px;
+        padding: 15px 0;
         margin: 0 auto;
         text-align: left;
         color: $text-gray-dark;
-        border-color: $yellow;
+        border: none;
+        border-bottom: 2px solid $yellow;
         display: block;
         @include mobile {
             width: 100%;
