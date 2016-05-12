@@ -69,4 +69,4 @@
         }
         return new DATALOADER();
     }());
-}(window, INFORMA, $));
+}(window, INFORMA, jQuery));
