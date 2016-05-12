@@ -17,6 +17,7 @@ INFORMA.globalFooter = (function(window, $, namespace) {
     var _customersList = $('.customers_list_slider'),
     // methods
         init,
+        _dots,
         _createSlider;
 
     _createSlider = function(container){
@@ -25,7 +26,8 @@ INFORMA.globalFooter = (function(window, $, namespace) {
             _autoplay = container.data('autorotate'),
             _speed = container.data('transitionspeed'), // speed of transition
             _duration = container.data('slideduration'), // how long the slider will be dis
-            _infinite = true;
+            _infinite = true,
+            _dots = false;
             //chk for sitecore preview
             if (INFORMA.global.siteCore.isPreview) {
                 _autoplay = true;
@@ -38,7 +40,8 @@ INFORMA.globalFooter = (function(window, $, namespace) {
                   _slideCount = 4;
             }
             else if (INFORMA.global.device.viewportN == 2){
-                  _slideCount = 3;
+                  _slideCount = 2;
+                  _dots = true;
             }
         container.slick({
             infinite: _infinite,
@@ -46,7 +49,8 @@ INFORMA.globalFooter = (function(window, $, namespace) {
             autoplaySpeed: _duration,
             slidesToShow: _slideCount,
             slidesToScroll: _slideCount,
-            speed: _speed
+            speed: _speed,
+            dots: _dots
         });
     }
 

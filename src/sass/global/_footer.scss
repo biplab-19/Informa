@@ -132,8 +132,10 @@ h3 {
     .social {
       border-left: 2px solid #4a4f5e;
       @include mobile {
-            padding-top: 40px;
+            padding-top: 26px;
+            margin-top: 30px;
             border: none;
+            border-top: 2px solid #4a4f5e;
       }
       li {
             padding:0 0 6px  60px;
@@ -181,6 +183,10 @@ h3 {
     .disclaimer-copyright {
       font-size: 12px;
       margin: 30px 0 0;
+      @include mobile {
+            padding: 0 42px;
+            text-align: center;
+      }
       & + .bottom-logo {
         padding: 25px 0 0;
         img {
@@ -194,4 +200,21 @@ h3 {
       }
     }
   }
+      ul.slick-dots {
+            text-align: center;
+            width: 100%;
+            bottom: -40px;
+            li {
+                height: 10px;
+                width: 10px;
+                border-radius: 5px;
+                background: $gray;
+                button:before {
+                    content: '';
+                }
+                &.slick-active{
+                    background: $orange;
+                }
+            }
+      }
 }
