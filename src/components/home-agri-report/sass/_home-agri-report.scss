@@ -52,6 +52,9 @@ section#agri-report{
         .description {
             line-height: 1.2eM;
             padding-top: 50px;
+            @include mobile {
+                  padding-top: 15px;
+            }
             strong {
                   font-family: FSMe-Bold;
             }
@@ -62,7 +65,10 @@ section#agri-report{
             width: 100%;
             margin-top: 60px;
             @include mobile {
-                margin-top: 20px;
+                  margin: 0 auto;
+                  display: block;
+                  width: 80%;
+                  margin-top: 20px;
             }
         }
     }
