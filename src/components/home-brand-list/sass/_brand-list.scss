@@ -16,6 +16,9 @@
             img {
                 width: 100%;
             }
+            @include mobile {
+                height: auto;
+            }
         }
         .caption {
             //  min-height: 150px;

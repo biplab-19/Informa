@@ -40,12 +40,19 @@
         }
     }
     .icon {
-        min-height: 50px;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
         @include mobile {
-            min-height: auto;
+            width: 15%;
+            height: 15%;
         }
         img {
-            margin-bottom: 20px;
+            padding-bottom: 20px;
+            @include mobile {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
     ul.sector-list-products {
