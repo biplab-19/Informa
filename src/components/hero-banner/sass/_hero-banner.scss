@@ -106,10 +106,7 @@ section#hero-banner {
    }
    &.default, &.brand, &.product, &.casestudy {
          .abs-image{
-               @include mobile {
-                     display: none;         
-               }
-
+               display: none;
          }
    }
 
