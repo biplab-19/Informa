@@ -32,6 +32,7 @@
         line-height: 1.6em;
         //  height: 112px;
         overflow: hidden;
+        min-height: 75px;
         P {
             line-height: 1.6em;
             //max-height: 100px;
@@ -59,8 +60,6 @@
         height: 90px;
         padding: 15px 0 25px;
         overflow: hidden;
-        position: absolute;
-        bottom: 50px;
         @include mobile {
             position: static;
             height: auto;
