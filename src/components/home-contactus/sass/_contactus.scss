@@ -1,38 +1,38 @@
 .contactus-list {
     @include not-mobile {
-        padding-bottom: 25px;
         padding-top: 25px;
         .panel-heading {
             pointer-events: none;
             h2 {
                 color: $text-gray-dark;
                 margin: 0;
+                position: relative;
+                padding-left: 40px;
                 img {
                   margin-top: -6px;
                   margin-right: 10px;
+                  position: absolute;
+                  left: 0;
+                  top: 2px;
                 }
+            }
+        }
+        .panel-group {
+            margin: -1.25%;
+            &:after {
+                content: " ";
+                clear: both;
+                height: 0;
             }
         }
         .panel-group .panel {
             overflow: hidden;
             float: left;
             width: 22.5%;
-            margin-top: 0;
             height: 306px;
             //  margin-bottom: 20px;
             font-size: 14px;
-        }
-        .panel-group .panel:nth-child(1) {
-            margin-right: 2.5%;
-        }
-        .panel-group .panel:nth-child(2) {
-            margin-right: 2.5%;
-        }
-        .panel-group .panel:nth-child(3) {
-            margin-right: 2.5%;
-        }
-        .panel-group .panel+.panel {
-            margin-top: 0;
+            margin: 0 1.25% 20px 1.25%;
         }
         .panel-group .panel-heading + .panel-collapse > .panel-body {
             border: none;
