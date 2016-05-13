@@ -104,6 +104,11 @@ section#hero-banner {
    &.product {
        background:$footer-bottom-gray;
    }
+   &.default, &.brand, &.product, &.casestudy {
+         .abs-image{
+               display: none;
+         }
+   }
 
    &.video {
       overflow: hidden;
@@ -113,5 +118,7 @@ section#hero-banner {
         height: 100%;
       }
    }
+
+
 
 }
