@@ -1,5 +1,5 @@
 /*
- * Home-Social.js
+ * twitter-feed.js
  *
  *
  * @project:    Informa
@@ -9,61 +9,59 @@
  * @namespaces: INFORMA
  *
  */
-    var INFORMA = window.INFORMA || {};
-INFORMA.homeSocial = (function(window, $, namespace) {
+
+var INFORMA = window.INFORMA || {};
+INFORMA.twitterFeed = (function(window, $, namespace) {
     'use strict';
     //variables
-    var  _articleList = $('.twitter-carousel'),
-        _listItemCounts = _articleList.find(".panel").size(),
-        // methods
+    var _twitterList = $('.twitter-carousel'),
+    // methods
         init,
+        _dots,
         _createSlider;
 
-    _createSlider = function() {
+    _createSlider = function(container){
         // if data-items, data-infinite is defined, used it
-        _articleList.slick({
-            dots: true,
-            infinite: true,
-            speed: 400,
-            autoplay: true,
-            autoplaySpeed:4000,
-            slidesToShow: (_listItemCounts >= 3 ) ? 3 : _listItemCounts,
-            slidesToScroll: 3,
-            responsive: [{ //TODO - SW450 - Setting need to be move to config file.
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: (_listItemCounts >= 2 ) ? 2 : _listItemCounts,
-                        slidesToScroll: 2,
-                        dots: true
-                    }
-                }, {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: (_listItemCounts >= 2 ) ? 2 : _listItemCounts,
-                        slidesToScroll: 2
-                    }
-                }, {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
+        var _slideCount = container.data('itemsperframe'),
+            _autoplay = container.data('autorotate'),
+            _speed = container.data('transitionspeed'), // speed of transition
+            _duration = container.data('slideduration'), // how long the slider will be dis
+            _infinite = true,
+            _dots = container.data('pagination');
+            //chk for sitecore preview
+            if (INFORMA.global.siteCore.isPreview) {
+                _autoplay = true;
+            }
+            if (INFORMA.global.siteCore.isExperience) {
+                _autoplay = false;
+                _infinite = false;
+            }
+            if(INFORMA.global.device.viewportN == 1){
+                  _slideCount = 2;
+            }
+            else if (INFORMA.global.device.viewportN == 2){
+                  _slideCount = 1;
+                  _dots = true;
+            }
+        container.slick({
+            infinite: _infinite,
+            autoplay: _autoplay,
+            autoplaySpeed: _duration,
+            slidesToShow: _slideCount,
+            slidesToScroll: _slideCount,
+            speed: _speed,
+            dots: _dots
         });
     }
 
     init = function() {
-        if (_articleList.length > 0) {
-            _createSlider();
+        if (_twitterList.length > 0) {
+            _createSlider(_twitterList);
         }
     };
 
     return {
         init: init
     };
-}(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.homeSocial.init());
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.twitterFeed.init());

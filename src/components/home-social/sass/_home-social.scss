@@ -5,11 +5,13 @@
 		color: $white;
 		margin-bottom: 40px;
 	}
+	.slick-list {
+		border-right: 1px solid $light-blue-border;
+	}
 	.twitter-carousel {
 		.panel {
 			background-color: transparent;
 			margin-bottom: 0;
-
 			p {
 				font-size: 14px;
 			}
@@ -23,12 +25,22 @@
 				.twit-img {
 					margin-bottom: 20px;
 				}
+				.feed-heading {
+					margin-bottom: 10px;
+					span {
+						margin-right: 10px;
+						font-size: 14px;
+						color: #8f939e;
+					}
+				}
+				a {
+					color: $orange;
+				}
 			}
 			.message {
 				color: $blue-light-bg;
 				font-size: 18px;
 			}
-			
 		}
 		
 		.slick-dots li {

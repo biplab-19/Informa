@@ -4,18 +4,21 @@
             <h1>Keep up to date</h1>
         </div>
         <div class="col-lg-12">
-            <div class="twitter-carousel" data-slider-dots="true" data-slider-infinite="true" data-slides-show="{{ItemsPerFrame}}" data-slides-scroll="{{ItemsPerFrame}}" data-speed="400" 
-                data-autoplay-speed="4000" data-autoplay="false">
+            <div class="twitter-carousel"data-itemsperframe="4" data-autorotate=0 data-transitionspeed="300" data-slideduration="4000" data-pagination=true>
             	{{#each ReTweetUserList}}
 	            	<div class="panel">
 	            		<div class="feed">
-	            			<p>{{createdAt}}</p>
+	            			<div class="feed-heading clearfix">
+	            				<span>{{createdAt}}</span><span class="twittedby">@informaecon</span>
+	            			</div>
 	            			{{#if Image}}
 	            				<div class="twit-img">
 	            					<img src="{{Image}}" alt="{{ScreenName}}"/>
 	            				</div>
 	            			{{/if}}
-	            			<p class="message">{{Message}}</p>
+	            			<p class="message">
+								6 reasons why the <a class="hastag">#biosimilars</a> market is exp. to grow from $1.7b to $30b by 2020. <a class="handle">@Frost_Sullivan</a> for @BioProcessOL <a href="https://t.co/K66Uzi4O5x">https://t.co/K66Uzi4O5x</a>
+	            			</p>
 	            		</div>
 	            	</div>
 	            {{/each}}
