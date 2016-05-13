@@ -6,7 +6,7 @@ section#hero-banner {
     h1 {
         font-family: FSMe-Bold;
         font-size: 60px;
-        text-transform: capitalize;
+        font-size: 50px; // really ?
         margin: 0 0 35px 0;
         @include mobile {
             margin: 17px 0 7px 0;
@@ -49,6 +49,9 @@ section#hero-banner {
                         font-family: FSMe-Bold;
                   }
              }
+             .headline {
+                   font-family: FSMe-Bold;
+             }
        }
     }
     .cta1,.cta2 {
@@ -80,6 +83,14 @@ section#hero-banner {
 
    }
    //varaition: varaition 1 + bg-image in right corner
+   &.brand {
+      .description {
+            color: $gray-dark-bg;
+      }
+      h1 {
+            font-size: 40px;
+      }
+   }
    &.brand, &.product, &.casestudy {
          .abs-image {
                display: block;

@@ -94,9 +94,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                         $(_pdpLink[i]).addClass('JustGonnaStayThereAndWatchMeBurn');
                   }
             }
-                                                $('.JustGonnaStayThereAndWatchMeBurn').parent().remove();
-                                                _pdpLink = $('#pdp-navigation ul > li > a');
-            console.log(_pdpMenuPos);
+            $('.JustGonnaStayThereAndWatchMeBurn').parent().remove();
+            _pdpLink = $('#pdp-navigation ul > li > a');
+            //console.log(_pdpMenuPos);
             // todo: not a right place to add,so.. you know what to do
 
       };
