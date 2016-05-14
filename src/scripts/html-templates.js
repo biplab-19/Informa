@@ -47,7 +47,20 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                 '{{/if}}'+
             '</li>'+
-          '{{/each}}'
+          '{{/each}}',
+        'HeadlinesListItems': 
+            '{{#each Headlines}}'+
+                '<li>'+
+                    '<p class="date">{{Date}}</p>'+
+                    '<div class="list-content">'+
+                        '<h4 class="poduct-brand-subheading">{{Title}}</h4>'+
+                    '</div>'+
+                    '<div class="link">'+
+                        '<a role="button" href="{{Url}}" title="External Link" target="_blank">'+
+                        '<span class="icon-external-link"></span></a>'+
+                    '</div>'+
+                '</li>'+
+            '{{/each}}'
   }
 }(this, jQuery, 'INFORMA'));
 

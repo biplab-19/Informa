@@ -14,53 +14,77 @@ var INFORMA = window.INFORMA || {};
 INFORMA.ArticleList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var el = $('.article-list .list-container'),
-        _listItemCounts = el.find("li").size(),
-        NumberItemShown = (el.data("slides-show") !== null && el.data("slides-show") !== undefined) ? Math.floor(el.data("slides-show")) : 3,
+    var _ArticleLists = $('.article-list .list-container'),
+        _HeadlinesLists = $('.headline-list .list-container'),
         FilterMenu = $(".category-filter-list .categoryFilter"),
+        Templates = INFORMA.Templates,
         // methods
         init,
-        CreateSlider, GetDataOptions, GetCarouselData, RenderCarousel, BindFilterEvents;
+        SliderOption = {
+            "autoplay": false,
+            "autoplaySpeed": 4000,
+            "sliderDots": true,
+            "sliderInfinite": true,
+            "slidesScroll": 3,
+            "slidesShow": 3,
+            "speed": 400
+        },
+        CreateSlider, GetCarouselOptions, GetCarouselUpdatedHtml, GetCarouselData, RenderCarousel, BindFilterEvents, GetListCount;
 
     //get all default setting value from component and check 
-    //if exist any default setting then return true else false.
+    //if exist any default setting then update and return carousel object.
 
-    GetDataOptions = function(key) {
-            var DataValue = el.data(key);
-            if (DataValue !== null && DataValue !== undefined) {
-                return true;
-            }
-            return false;
-    },
-    RenderCarousel = function (xhtml) {
-        //el.fadeOut("fast")
-          el.slick('unslick');
+    GetCarouselOptions = function(ele) {
+            var DataObject = ele.data(),
+                OptionObj = {};
 
-        el.empty().html(xhtml);
-        CreateSlider();
-        //el.fadeIn("slow");
-    },
-    GetCarouselData = function(data){
-
-        INFORMA.Spinner.Show($(".article-list"));
-        INFORMA.DataLoader.GetServiceData("/client/search/getarticles", {
-            method : "GET", 
-            data : data,
-            success_callback : function(data)
-            {
-                if(data.Articles){
-                    var ListTemplate = Handlebars.compile(INFORMA.Templates.articleListItems),
-                        html = ListTemplate({ Articles : data.Articles });
-                        RenderCarousel(html);
+            if (typeof DataObject === "object") {
+                for (var key in DataObject) {
+                    if (DataObject.hasOwnProperty(key)) {
+                        var val = DataObject[key];
+                        OptionObj[key] = (val !== null && val !== undefined) ? val : SliderOption[key];
+                    }
                 }
-            },
-            error_callback : function()
-            {
-
+                return OptionObj;
             }
-        });
-    },
-    BindFilterEvents = function() {
+        },
+        GetListCount = function(ele) {
+            var count = ele.find("li").size();
+            return count;
+        },
+        GetCarouselUpdatedHtml = function(TemplateName, DataObject) {
+            var ListTemplate = Handlebars.compile(TemplateName),
+                html = ListTemplate(DataObject);
+            return html;
+        },
+        RenderCarousel = function(xhtml, ele) {
+            ele.slick('unslick');
+            ele.empty().html(xhtml);
+            CreateSlider(ele);
+        },
+        GetCarouselData = function(data) {
+
+            INFORMA.Spinner.Show($(".article-list"));
+            INFORMA.DataLoader.GetServiceData("/webservices/article_list.json", {
+                method: "GET",
+                data: data,
+                success_callback: function(data) {
+                    if (data.Articles) {
+                        var html = GetCarouselUpdatedHtml(Templates.articleListItems, { Articles: data.Articles });
+                        console.log(html);
+                        RenderCarousel(html, _ArticleLists);
+                    }
+                    if (data.Headlines) {
+                        var html = GetCarouselUpdatedHtml(Templates.HeadlinesListItems, { Headlines: data.Headlines });
+                        RenderCarousel(html, _HeadlinesLists);
+                    }
+                },
+                error_callback: function() {
+
+                }
+            });
+        },
+        BindFilterEvents = function() {
             //Filter menu present then bind filter event to dropdown
             if (FilterMenu) {
                 FilterMenu.on("change", function(e) {
@@ -70,51 +94,55 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 });
             }
 
-    },
-    CreateSlider = function() {
+        },
+        CreateSlider = function(el) {
+            var _listItemCounts = GetListCount(el),
+                Options = GetCarouselOptions(el);
 
-        // if data-items, data-infinite is defined, used it  - Todo - SW-450 - move null and undefined check to method to remove repetition
-        el.slick({
-            dots: (GetDataOptions("slider-dots")) ? el.data("slider-dots") : false,
-            infinite: (GetDataOptions("infinite")) ? el.data("infinite") : true,
-            speed: (GetDataOptions("speed")) ? el.data("speed") : 400,
-            autoplay: (GetDataOptions("autoplay")) ? el.data("autoplay") : true,
-            autoplaySpeed: (GetDataOptions("autoplay-speed")) ? el.data("autoplay-speed") : 4000,
-            slidesToShow: (_listItemCounts >= NumberItemShown) ? NumberItemShown : _listItemCounts,
-            slidesToScroll: (GetDataOptions("slides-scroll")) ? Math.floor(el.data("slides-scroll")) : 3,
-            responsive: [{ //TODO - SW450 - Setting need to be move to config file.
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: (_listItemCounts >= 2) ? 2 : _listItemCounts,
-                        slidesToScroll: 2
+            el.slick({
+                dots: Options.sliderDots,
+                infinite: Options.sliderInfinite,
+                speed: Options.speed,
+                autoplay: Options.autoplay,
+                autoplaySpeed: Options.autoplaySpeed,
+                slidesToShow: (_listItemCounts >= Options.slidesShow) ? Options.slidesShow : _listItemCounts,
+                slidesToScroll: Options.slidesScroll,
+                responsive: [{
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: (_listItemCounts >= 2) ? 2 : _listItemCounts,
+                            slidesToScroll: 2
+                        }
+                    }, {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: (_listItemCounts >= 2) ? 2 : _listItemCounts,
+                            slidesToScroll: 2
+                        }
+                    }, {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
-                }, {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: (_listItemCounts >= 2) ? 2 : _listItemCounts,
-                        slidesToScroll: 2
-                    }
-                }, {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
-        });
-        if(FilterMenu){
-            $(".chosen-select").chosen({disable_search_threshold: 10,width:"100%"});
-            BindFilterEvents();
+                    // You can unslick at a given breakpoint now by adding:
+                    // settings: "unslick"
+                    // instead of a settings object
+                ]
+            });
         }
-    }
 
     init = function() {
-        if (el.length > 0) {
-            CreateSlider();
+        if (_ArticleLists.length > 0) {
+            CreateSlider(_ArticleLists);
+        }
+        if (_HeadlinesLists.length > 0) {
+            CreateSlider(_HeadlinesLists);
+        }
+        if (FilterMenu) {
+            $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
+            BindFilterEvents();
         }
     };
 
