@@ -24,27 +24,34 @@
 }
 
 @font-face {
-  font-family: "custom-font";
-  src:url("../fonts/custom-font.eot");
-  src:url("../fonts/custom-font.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/custom-font.woff") format("woff"),
-    url("../fonts/custom-font.ttf") format("truetype"),
-    url("../fonts/custom-font.svg#custom-font") format("svg");
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'InformaIcons';
+    src:url('../fonts/informa-icons.eot?3n5it7');
+    src:url('../fonts/informa-icons.eot?3n5it7#iefix') format('embedded-opentype'),
+        url('../fonts/informa-icons.ttf?3n5it7') format('truetype'),
+        url('../fonts/informa-icons.woff?3n5it7') format('woff'),
+        url('../fonts/informa-icons.svg?3n5it7#informa-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'InformaIcons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-@font-face {
-  font-family: 'InformaIcons';
-  src: url('../fonts/informa-icons.eot'); /* IE9 */
-  src: url('../fonts/informa-icons.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../fonts/informa-icons.woff') format('woff'); /* Modern Browsers */
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 [data-icon]:before {
-  font-family: "custom-font" !important;
+  font-family: "InformaIcons" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -58,7 +65,7 @@
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: "custom-font" !important;
+  font-family: "InformaIcons" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -67,116 +74,4 @@
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-social-twitter:before {
-  content: "a";
-}
-.icon-google-plus:before {
-  content: "c";
-}
-.icon-facebook:before {
-  content: "d";
-}
-.icon-instagram:before {
-  content: "e";
-}
-.icon-angle-right:before {
-  content: "f";
-}
-.icon-angle-left:before {
-  content: "g";
-}
-.icon-angle-down:before {
-  content: "h";
-}
-.icon-angle-up:before {
-  content: "i";
-}
-.icon-x:before {
-  content: "j";
-}
-.icon-bus-two:before {
-  content: "k";
-}
-.icon-car-front:before {
-  content: "l";
-}
-.icon-buy-tickets:before {
-  content: "m";
-}
-.icon-ptint:before {
-  content: "n";
-}
-.icon-mail-bubble:before {
-  content: "p";
-}
-.icon-chevron-left:before {
-  content: "q";
-}
-.icon-chevron-right:before {
-  content: "r";
-}
-.icon-chevron-up:before {
-  content: "s";
-}
-.icon-alert:before {
-  content: "t";
-}
-.icon-calendar:before {
-  content: "v";
-}
-.icon-play:before {
-  content: "w";
-}
-.icon-pause:before {
-  content: "x";
-}
-.icon-volume-up:before {
-  content: "y";
-}
-.icon-volume-down:before {
-  content: "z";
-}
-.icon-search:before {
-  content: "A";
-}
-.icon-split:before {
-  content: "B";
-}
-.icon-chevron-down:before {
-  content: "C";
-}
-.icon-regional-railways:before {
-  content: "D";
-}
-.icon-camera-1:before {
-  content: "E";
-}
-.icon-check:before {
-  content: "F";
-}
-.icon-youtube:before {
-  content: "b";
-}
-.icon-pinterest:before {
-  content: "G";
-}
-.icon-information-circle:before {
-  content: "o";
-}
-.icon-plus-1:before {
-  content: "H";
-}
-.icon-minus-1:before {
-  content: "J";
-}
-.icon-chevron-down-1:before {
-  content: "I";
-}
-.icon-sms-bubble:before {
-  content: "u";
-}
-.icon-tick:before {
-  content: "K";
 }
