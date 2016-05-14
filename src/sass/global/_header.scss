@@ -46,6 +46,7 @@ header {
       nav#mainNavigation {
             background: $gray-dark-bg;
             @include mobile{
+                  height: 0;
                   display: none;
             }
             @include tablet {

@@ -2,15 +2,13 @@ nav#pdp-navigation {
       background: $yellow;
       border-top: 1px solid $light;
       border-bottom: 2px solid $gray-light;
-      @include mobile {
-            display: none;
-      }
       &.navbar-fixed-top {
             position: fixed;
             width: 100%;
       }
       ul {
             margin: 0;
+            position: relative;
             li {
                   a {
                         font-size: 14px;
@@ -27,5 +25,41 @@ nav#pdp-navigation {
             position: absolute;
             transition: .3s ease-in;
             display: none;
+      }
+      @include mobile {
+            .menuFollower {
+                  display: none!important;
+            }
+            &.cont {
+                  li {
+                        pointer-events: none;
+                        // actually this is genius.
+                        // No.. Use bootstrap collapse. change html sumit
+                  }
+            }
+            ul {
+                  margin: 20px 0;
+                  border: 1px solid $light;
+
+                  li {
+                        width: 100%;
+                        display: none;
+                        &:first-child {
+                              display: block;
+                        }
+                        &.selected {
+                              display: block;
+                              a {
+                                    &:after{
+                                          content: '>';
+                                          position: absolute;
+                                          right: 10px;
+                                          transform: rotate(90Deg);
+                                          color: $light;
+                                    }
+                              }
+                        }
+                  }
+            }
       }
 }

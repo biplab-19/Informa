@@ -2,6 +2,10 @@
 * global-header.js
 * pdp-navigation.js
 * Because I dont want to create two on('scroll')
+* Update : Bad idea Man, move pdp nav to new file
+* Update 2: If this comment is still here, that means the code is not optimized.
+* Dont try to optimize unless you have absolutely no story to do
+* Already wasted 2 hrs
 *
 * @project:    Informa
 * @date:       2016-May-8
@@ -61,8 +65,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _whenScrolling = function(){
          $(window).on('scroll',function(){
                // little savings here, the first function will not be executed when pdp nav is sticky
-             if(!_pdpFixed && _mainNavigation.length >0) _activateMainFixedHeader();
-             if(_pdpNavigation.length > 0) _activatePdpFixedHeader();
+             if(!_pdpFixed && _mainNavigation.length >0 && !INFORMA.global.device.isMobile) _activateMainFixedHeader();
+             if(_pdpNavigation.length > 0 ) _activatePdpFixedHeader();
          });
       };
 
@@ -71,7 +75,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             if(_windowPos > _headerPos){
                   _mainNavigation.addClass(_fixed);
                   $('body').css('padding-top',_navHeight);
-                  console.log('main');
+                  //console.log('main');
             }
             else {
                   _mainNavigation.removeClass(_fixed);
@@ -83,7 +87,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             for(var i=0;i<_pdpLink.length;i++){
                   // id name comes as data attribute. construct the id
                   var _sectionName = '#'+$(_pdpLink[i]).data('target');
-                  console.log($(_sectionName))
+                  //console.log($(_sectionName))
                   if($(_sectionName).length > 0){
                         // all sections will be printed in navbar html, if the section
                         // is not there, smack that
@@ -106,7 +110,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                if(_windowPos > (_pdpNavigationPos - _navHeight)){
                      _pdpNavigation.addClass(_fixed);
                      _pdpNavigation.css('top',_navHeight+'px');
-                    _pdpWrapper.css('padding-top',_navHeight);
+                    _pdpWrapper.css('padding-top',_pdpNavigationHeight);
                      _pdpFixed = true;
                      if(_arrayFlag){
                            for(var i=0;i<_pdpLink.length;i++){
@@ -116,6 +120,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                                  _pdpMenuleft.push($(_pdpLink[i]).parent().offset().left);
                            }
                            _pdpMenuFollower.show();
+                           // Ilaiyaraja rocks, fix the hard code later
+                           $('#pdp-navigation ul > li:first-child').addClass('selected');
+                           if(INFORMA.global.device.isMobile) _pdpNavigation.addClass('cont');
                            _arrayFlag = false;
                      }
 
@@ -136,26 +143,54 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                            i=-1;
                      }
                }
+            // todo: easily the worst code I have written, please optimize this
       };
       // when clicking the pdp-navigation
       _pdpNavigationScrollTo = function(){
             _pdpLink.on('click',function(e){
                   e.preventDefault();
+                  _pdpNavigation.addClass('cont');
                   var _target = $(this).data('target');
+                  // todo, remove hardcoding
+                  $('#pdp-navigation li').removeClass('selected');
                   $('html, body').stop().animate({
                         scrollTop: $("#"+_target).offset().top - (_navHeight + _pdpNavigationHeight)
                   }, 1000);
+
+                  if(INFORMA.global.device.isMobile) {
+                        // lesson learnt, hack is wrong.
+                        $(this).parent().addClass('selected');
+                        setTimeout(function(){
+                              // i am sorry future Jack
+                              $('#pdp-navigation li:not(".selected")').slideUp();
+                              _pdpNavigation.addClass('cont');
+                        },100)
+
+                  }
             })
       };
 
       init = function() {
-            if(INFORMA.global.device.viewport!='mobile'){
+            //if(INFORMA.global.device.viewport!='mobile'){
                   if(_pdpNavigation.length > 0){
                         _initPdpMenuBarFollow();
                         _pdpNavigationScrollTo();
                   }
                   _whenScrolling();
+            //}
+
+            // hack for mobile viewport
+            // most stupid hack ever, use bootstrap collapse
+            // bootstrap collapse will disturb the offset().top, be careful
+            //@eod, I think u r genius but code is so damned, clean it before review
+            if(INFORMA.global.device.isMobile){
+                  $('#pdp-navigation ul').on('click',function(){
+                        //todo stop hardcoding
+                        $('#pdp-navigation li:not(".selected")').slideDown();
+                        _pdpNavigation.removeClass('cont');
+                  });
             }
+
       };
 
     return {
