@@ -1,0 +1,42 @@
+<section id="article-list-section">
+    <div class="article-list carousel-lists" id="article-list">
+        <div class="container">
+                    <ul class="list-container" data-slider-dots="true" data-slider-infinite="true" data-slides-show="3" data-slides-scroll="3" data-speed="400" 
+                    data-autoplay-speed="4000" data-autoplay="false">
+                    {{#each Articles}}
+                        <li>
+                            <p class="category">{{ContentType}}
+                              <strong>{{SectorType}}</strong>
+                            </p>
+                            <img src="{{Image}}" alt="{{ImageAltText}}" />
+                            <h2 class="poduct-brand-subheading">{{Title}}</h2>
+                            <p class="date">30.03.2016</p>
+                            <div class="list-content">
+                                {{#if Description}}
+                                    <p class="description">{{Description}}</p>
+                                    <span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>
+                                        <span class="article-info"><em>Topic:</em> 
+                                            <strong>{{Topics}}</strong>
+                                        </span>
+                                {{/if}}
+                                {{#if Video}}
+                                    <div class="video-container">
+                                        <a href="{{Video.url}}" class="video-link">
+                                            <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />
+                                        </a>
+                                        <span class="play-icon"></span>
+                                    </div>
+                                {{/if}}
+                            </div>
+                            {{#if ResourceLink}}
+                                <div class="btn-container">
+                                  <a role="button" href="{{ResourceLink.url}}" class="btn btn-default" target="{{ResourceLink.target}}">{{ResourceLink.linkText}}</a>
+                                </div>
+                            {{/if}}
+                        </li>
+                      {{/each}}
+                    </ul>
+
+        </div>
+    </div>
+</section>
