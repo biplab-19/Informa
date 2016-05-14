@@ -80,6 +80,7 @@ section#hero-banner {
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
           }
+          background: $gray-dark-bg;
 
    }
    //varaition: varaition 1 + bg-image in right corner
@@ -106,7 +107,7 @@ section#hero-banner {
    }
    &.default, &.brand, &.product, &.casestudy {
          .abs-image{
-               @include mobile { 
+               @include mobile {
                      display: none;
                }
 

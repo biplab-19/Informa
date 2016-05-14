@@ -32,7 +32,7 @@ section#customer-quote {
           @include mobile {
              &:before {
                   left: 0;
-                  top: -20px;
+                  top: 60px;
              }
           }
    }
@@ -43,6 +43,15 @@ section#customer-quote {
             margin-top: 10px;
         }
         .customer-quote-slide {
+             & > div {
+                   padding-right: 40%;
+                   @include tablet {
+                        padding-right: 30%;
+                  }
+                  @include mobile {
+                        padding-right: 0;
+                  }
+             }
             em {
                 font-size: 18px;
                 font-family: FSMe-Light;
