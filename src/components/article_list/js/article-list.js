@@ -40,17 +40,17 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         CreateSlider();
         //el.fadeIn("slow");
     },
-    GetCarouselData = function(FilterName){
+    GetCarouselData = function(data){
 
         INFORMA.Spinner.Show($(".article-list"));
-        INFORMA.DataLoader.GetServiceData("/webservices/article_list.json", {
+        INFORMA.DataLoader.GetServiceData("/client/search/getarticles", {
             method : "GET", 
-            data : "{ \"FilterName\" : "+ FilterName +"\" }",
+            data : data,
             success_callback : function(data)
             {
-                if(data.articleListItems){
+                if(data.Articles){
                     var ListTemplate = Handlebars.compile(INFORMA.Templates.articleListItems),
-                        html = ListTemplate({ articleListItems : data.articleListItems });
+                        html = ListTemplate({ Articles : data.Articles });
                         RenderCarousel(html);
                 }
             },
