@@ -1,0 +1,46 @@
+.headline-list {
+    background-color: #f6f6f8;
+    position: relative;
+    .loading {
+        opacity: 0.3;
+        background: transparent url("/Static/images/common/sprite.png") no-repeat 0 0;
+    }
+    h3 {
+        font-size: $font-size-h2;
+        font-family: FSMe-Light;
+        margin-bottom: 20px;
+        color: $gray-dark-bg;
+    }
+    .list-container {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        @include mobile {
+            margin: 0 1.2%;
+        }
+        li {
+            background-color: $white;
+            padding: 15px;
+            border-left: 1px solid #c3c6d0;
+            .list-content {
+                min-height: 100px;
+            }
+            .poduct-brand-subheading {
+                font-size: $font-size-h4;
+                font-family: FSMe-Bold;
+            }
+            .link {
+                margin-top: 10px;
+                a {
+                    color: $yellow;
+                    &:after {
+                        color: $yellow;
+                    }
+                }
+            }
+        }
+        .slick-arrow {
+            top: 42%;
+        }
+    }
+}

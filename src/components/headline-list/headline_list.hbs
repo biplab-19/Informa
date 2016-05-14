@@ -1,0 +1,22 @@
+<section id="headline-list-section">
+    <div class="headline-list carousel-lists" id="headline-list">
+        <div class="container">
+            <h3>Headlines</h3>
+                <ul class="list-container" data-slider-dots="true" data-slider-infinite="true" data-slides-show="6" data-slides-scroll="6" data-speed="400" 
+                    data-autoplay-speed="4000" data-autoplay="false">
+                    {{#each Headlines}}
+                        <li>
+                            <p class="date">{{Date}}</p>
+                            <div class="list-content">
+                                <h4 class="poduct-brand-subheading">{{Title}}</h4>
+                            </div>
+                            <div class="link">
+                                <a role="button" href="{{Url}}" title="External Link" target="_blank">
+                                <span class="icon-external-link"></span></a>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ul>
+        </div>
+    </div>
+</section>
