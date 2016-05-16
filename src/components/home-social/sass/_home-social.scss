@@ -23,6 +23,20 @@
 				.twit-img {
 					margin-bottom: 20px;
 				}
+				.twit-video {
+					display: block;
+				}
+				.feed-heading {
+					margin-bottom: 10px;
+					span {
+						margin-right: 10px;
+						font-size: 14px;
+						color: #8f939e;
+					}
+				}
+				a {
+					color: $orange;
+				}
 			}
 			.message {
 				color: $blue-light-bg;
@@ -30,7 +44,9 @@
 			}
 			
 		}
-		
+		.slick-list {
+			border-right: 1px solid $light-blue-border;
+		}
 		.slick-dots li {
 			button:before {
 				color: $default-dots-color;

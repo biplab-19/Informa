@@ -9,12 +9,18 @@
 	            	<div class="panel">
 	            		<div class="feed">
 	            			<div class="feed-heading clearfix">
-	            				<span>{{createdAt}}</span><span class="twittedby">@informaecon</span>
+	            				<span>{{createdAt}}</span><span class="twittedby"><span>@</span>informaecon</span>
 	            			</div>
 	            			{{#if Image}}
 	            				<div class="twit-img">
 	            					<img src="{{Image}}" alt="{{ScreenName}}"/>
 	            				</div>
+	            			{{/if}}
+	            			{{#if Video}}
+	            				<a href="videourl" class="twit-video">
+	            					<span class="play-icon"></span>
+	            					<img src="{{imageurl}}" alt="{{ScreenName}}"/>
+	            				</a>
 	            			{{/if}}
 	            			<p class="message">
 								6 reasons why the <a class="hastag">#biosimilars</a> market is exp. to grow from $1.7b to $30b by 2020. <a class="handle">@Frost_Sullivan</a> for @BioProcessOL <a href="https://t.co/K66Uzi4O5x">https://t.co/K66Uzi4O5x</a>
