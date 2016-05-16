@@ -23,7 +23,7 @@
                 var IsSpinnerExist = objectContainer.find(".load-spinner");
 
                 if (!IsSpinnerExist.length) {
-                    control = $("<div class='load-spinner'><img src='/images/puff.svg' /></div>").hide();
+                    control = $("<div class='load-spinner'><img src='/static/images/puff.svg' /></div>").hide();
                     control.prependTo(objectContainer);
                     control.fadeIn("slow");
                 }

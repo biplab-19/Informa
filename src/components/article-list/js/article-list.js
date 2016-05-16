@@ -58,7 +58,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             return html;
         },
         RenderCarousel = function(xhtml, ele) {
-            ele.slick('unslick');
             ele.empty().html(xhtml);
             CreateSlider(ele);
         },
@@ -69,13 +68,14 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 method: "GET",
                 data: data,
                 success_callback: function(data) {
-                    if (data.Articles) {
+                    if (data.Articles!==undefined && data.Articles.length > 0) {
                         var html = GetCarouselUpdatedHtml(Templates.articleListItems, { Articles: data.Articles });
-                        console.log(html);
+                        _ArticleLists.slick('unslick');
                         RenderCarousel(html, _ArticleLists);
                     }
-                    if (data.Headlines) {
+                    if (data.Articles!==undefined && data.Headlines.length > 0) {
                         var html = GetCarouselUpdatedHtml(Templates.HeadlinesListItems, { Headlines: data.Headlines });
+                        _HeadlinesLists.slick('unslick');
                         RenderCarousel(html, _HeadlinesLists);
                     }
                 },
