@@ -120,6 +120,9 @@ section#customer-quote {
             text-align: center;
             width: 100%;
             bottom: 20px;
+            @include mobile {
+              position: static;
+            }
             li {
                 height: 10px;
                 width: 10px;
