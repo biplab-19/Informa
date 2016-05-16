@@ -18,10 +18,10 @@ var INFORMA = window.INFORMA || {};
     'articleListItems': 
     '{{#each Articles}}'+
             '<li>'+
-                '<p class="category">{{ContentType}}'+
+                '<p class="category">{{ContentType.[0]}}'+
                   '<strong>{{SectorType}}</strong>'+
                 '</p>'+
-                '<img src="{{Image}}" alt="{{ImageAltText}}" />'+
+                '<img src="{{ContentType.[1]}}" alt="{{ContentType.[2]}}" />'+
                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
                 '<p class="date">{{TimeStamp}}</p>'+
                 '<div class="list-content">'+
