@@ -1,5 +1,11 @@
 section#market-focus{
-      background-color: $body-bg;    
+      background-color: $body-bg;
+      &.sector-page-coverage {
+            background-color: $light;
+            .market-list-wrapper .market-list {
+                  background-color: $body-bg;
+            }
+      }
     padding: 12px 0 28px;
     font-family: FSMe-Light;
     @include mobile {
