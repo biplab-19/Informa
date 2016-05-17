@@ -39,6 +39,12 @@
 						content: '-';
 					}
 				}
+				.more {
+					display: none;
+				}
+				.less {
+					display: block;
+				}
 			}
 		}
 	}
@@ -57,6 +63,7 @@
 			content: "+";
 			position: absolute;
 			right: 0;
+			top: 5px;
 			width: 20px;
 			height: 20px;
 			background-color: $yellow;
@@ -65,6 +72,12 @@
 			@include border-radius(50%);
 			font-size: 16px;
 			padding: 0 6px;
+		}
+		.more {
+			display: block;
+		}
+		.less {
+			display: none;
 		}
 	}
 	.more-stories {
