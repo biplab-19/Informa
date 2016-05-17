@@ -64,7 +64,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         GetCarouselData = function(data) {
 
             INFORMA.Spinner.Show($(".article-list"));
-            INFORMA.DataLoader.GetServiceData("/webservices/article_list.json", {
+            INFORMA.DataLoader.GetServiceData("/client/search/getarticles", {
                 method: "GET",
                 data: data,
                 success_callback: function(data) {
