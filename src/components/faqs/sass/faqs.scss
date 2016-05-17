@@ -17,6 +17,9 @@
 	    				font-size: 18px;
 	    				font-style: italic;
 	    				font-weight: bold;
+	    				&:hover, &:active, &:focus {
+	    					text-decoration: none;
+	    				}
 	    				&.collapsed {
 	    					font-weight: normal;
 	    					&:after {
@@ -43,6 +46,7 @@
 	    	}
 	    	.panel-body {
 	    		border: none;
+    			padding: 15px 60px 15px 15px;
 	    	}
 		}
 	}

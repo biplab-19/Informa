@@ -1,9 +1,21 @@
 #analyst-profile {
+	overflow: hidden;
 	a {
 		color: $orange
 	}
+	.analyst-content {
+		margin-top: 20px;
+	}
 	.introduction {
 		margin-bottom: 20px;
+	    background-color: #ffea7f;
+	    padding: 48px 15px 10px;
+	    position: relative;
+	    transform: skewY(-2deg);
+	    margin-top: -35px;
+	    .container {
+	    	transform: skewY(2deg);
+	    }
 		.image {
 		    width: 120px;
 		    float: left;
@@ -24,8 +36,8 @@
 				position: absolute;
 			}
 		}
-		
 	}
+
 	.descriptions {
 		height: 100px;
 		min-height: 100px;
@@ -81,6 +93,13 @@
 		}
 	}
 	.more-stories {
+		margin-top: 0;
+		@include mobile {
+			margin-top: 50px;
+		}
+		@include tablet {
+			margin-top: 30px;
+		}
 		.heading {
 			font-size: 18px;
 		}
@@ -91,6 +110,11 @@
 			li {
 				padding: 3px 0;
 				position: relative;
+				width: 50%;
+				display: inline-block;
+				@include tablet {
+					width: 100%;
+				}
 				&:before {
 					content: "\e013";
 				    font-family: 'Glyphicons Halflings';
@@ -104,6 +128,11 @@
 				    height: 15px;
 				    padding: 0 2px;
 				}
+			}
+			&:after {
+				content: '';
+				clear: both;
+				display: block;
 			}
 		}
 
