@@ -151,8 +151,25 @@
 		margin-top: 30px;
 		.btn {
 			width: 260px;
+			span {
+				line-height: 1;
+			}
 			@include mobile {
 				width: 100%;
+			}
+			.more {
+				display: block;
+			}
+			.less {
+				display: none;
+			}
+			&.showLess {
+				.more {
+					display: none;
+				}
+				.less {
+					display: block;
+				}
 			}
 		}
 	}
