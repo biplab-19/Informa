@@ -5,28 +5,30 @@
                     data-autoplay-speed="4000" data-autoplay="false">
                     {{#each Articles}}
                         <li>
-                            <p class="category">{{ContentType.[0]}}
-                              <strong>{{SectorType}}</strong>
-                            </p>
-                            <img src="{{ContentType.[1]}}" alt="{{ContentType.[2]}}" />
-                            <h2 class="poduct-brand-subheading">{{Title}}</h2>
-                            <p class="date">30.03.2016</p>
-                            <div class="list-content">
-                                {{#if Description}}
-                                    <p class="description">{{Description}}</p>
-                                    <span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>
-                                        <span class="article-info"><em>Topic:</em> 
-                                            <strong>{{Topics}}</strong>
-                                        </span>
-                                {{/if}}
-                                {{#if Video}}
-                                    <div class="video-container">
-                                        <a href="{{Video.url}}" class="video-link">
-                                            <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />
-                                        </a>
-                                        <span class="play-icon"></span>
-                                    </div>
-                                {{/if}}
+                        <div class="columns">
+                                <p class="category">{{ContentType.[0]}}
+                                  <strong>{{SectorType}}</strong>
+                                </p>
+                                <img src="{{ContentType.[1]}}" alt="{{ContentType.[2]}}" />
+                                <h2 class="poduct-brand-subheading">{{Title}}</h2>
+                                <p class="date">30.03.2016</p>
+                                <div class="list-content">
+                                    {{#if Description}}
+                                        <p class="description">{{Description}}</p>
+                                        <span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>
+                                            <span class="article-info"><em>Topic:</em> 
+                                                <strong>{{Topics}}</strong>
+                                            </span>
+                                    {{/if}}
+                                    {{#if Video}}
+                                        <div class="video-container">
+                                            <a href="{{Video.url}}" class="video-link">
+                                                <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />
+                                                <span class="play-icon icon-play"></span>
+                                            </a>
+                                        </div>
+                                    {{/if}}
+                                </div>
                             </div>
                             {{#if ResourceLink}}
                                 <div class="btn-container">
