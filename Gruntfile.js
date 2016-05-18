@@ -158,7 +158,7 @@ module.exports = function(grunt) {
                 files: {
                     '<%= config.dist %>/Static/js/unminified/main.js': ['<%= config.tmp %>/Static/js/*.js'],
                     '<%= config.dist %>/Static/js/unminified/components.js': ['<%= config.tmp %>/Static/js/components/*.js'],
-                      '<%= config.dist %>/Static/css/unminified/components.css': ['<%= config.tmp %>/Static/css/components.css'],
+                      '<%= config.dist %>/Static/css/unminified/component.css': ['<%= config.tmp %>/Static/css/component.css'],
                       '<%= config.dist %>/Static/css/unminified/global.css': ['<%= config.tmp %>/Static/css/global.css'],
                       '<%= config.dist %>/Static/css/unminified/theme.css': ['<%= config.tmp %>/Static/css/theme.css']
                 }
@@ -349,7 +349,7 @@ module.exports = function(grunt) {
           prod: {
               files:  [
                 {
-                  '<%= config.dist %>/Static/css/components.css':['<%= config.tmp %>/Static/css/components.css']
+                  '<%= config.dist %>/Static/css/component.css':['<%= config.tmp %>/Static/css/component.css']
                 },
                 {
                   '<%= config.dist %>/Static/css/global.css':['<%= config.tmp %>/Static/css/global.css']
