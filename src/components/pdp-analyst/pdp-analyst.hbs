@@ -6,14 +6,16 @@
 				<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container">
 		            <div class="meet-anlyst-section">
 		                <div class="anlyst-heading">
-		                    <div class="analyst-details">
-		                        <h2>{{name}}</h2>
-		                        <h3>{{analystdesc}}</h3>
-		                        <p class="location">{{location}}</p>
-		                    </div>
-		                    <div class="analyst-img">
-		                        <img src="{{image}}" alt="{{image}}" />
-		                    </div>
+		                	<div class="analyst-heading-content">
+			                    <div class="analyst-details">
+			                        <h2>{{name}}</h2>
+			                        <h3>{{analystdesc}}</h3>
+			                        <p class="location">{{location}}</p>
+			                    </div>
+			                    <div class="analyst-img">
+			                        <img src="{{image}}" alt="{{image}}" />
+			                    </div>
+			                </div>
 		                </div>
 		                <div class="analyst-description">
 		                    <p class="heading">{{question}}</p>
@@ -29,13 +31,15 @@
 			                    {{/each}}
 		                    </ul>
 		                </div>
-		                <div class="analyst-footer clearfix">
-		                	<ul class="nav-links">
-		                		<li><a href="#" class="white-twitter"></a></li>
-		                		<li><a href="#" class="white-linkedin"></a></li>
-		                		<li><a href="#" class="white-mail"></a></li>
-		                	</ul>
-		                	<a href="#" class="btn btn-default orange pull-right">Full Profile</a>
+		                <div class="analyst-footer">
+		                	<div class="analyst-footer-content clearfix">
+			                	<ul class="nav-links">
+			                		<li><a href="#" class="white-twitter"></a></li>
+			                		<li><a href="#" class="white-linkedin"></a></li>
+			                		<li><a href="#" class="white-mail"></a></li>
+			                	</ul>
+			                	<a href="#" class="btn btn-default pull-right">Full Profile</a>
+			                </div>
 		                </div>
 		            </div>
 	        	</div>

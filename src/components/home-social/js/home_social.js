@@ -27,7 +27,7 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             _speed = container.data('transitionspeed'), // speed of transition
             _duration = container.data('slideduration'), // how long the slider will be dis
             _infinite = true,
-            _dots = container.data('pagination');
+            _dots = Boolean(container.data('pagination'));
             //chk for sitecore preview
             if (INFORMA.global.siteCore.isPreview) {
                 _autoplay = true;
@@ -50,7 +50,8 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             slidesToShow: _slideCount,
             slidesToScroll: _slideCount,
             speed: _speed,
-            dots: _dots
+            dots: _dots,
+            adaptiveHeight: true
         });
     }
 

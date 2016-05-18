@@ -9,7 +9,6 @@
 		.panel {
 			background-color: transparent;
 			margin-bottom: 0;
-
 			p {
 				font-size: 14px;
 			}
@@ -17,11 +16,16 @@
 				padding: 0 15px;
 				min-height: 250px;
 				border-left: 1px solid $light-blue-border;
+				border-right: 1px solid $light-blue-border;
+				margin: 0 -1px;
 				@include mobile {
 					min-height: auto;
 				}
 				.twit-img {
 					margin-bottom: 20px;
+					img {
+						width: 100%;
+					}
 				}
 				.video-wrap {
 					display: block;
@@ -46,10 +50,6 @@
 				color: $blue-light-bg;
 				font-size: 18px;
 			}
-			
-		}
-		.slick-list {
-			border-right: 1px solid $light-blue-border;
 		}
 		.slick-dots {
 			@include mobile {
@@ -59,6 +59,7 @@
 		.slick-dots li {
 			button:before {
 				color: $default-dots-color;
+				font-size: 10px;
 			}
 			&.slick-active {
 				button:before {
