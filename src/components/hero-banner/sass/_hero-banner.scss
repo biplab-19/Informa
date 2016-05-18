@@ -124,5 +124,290 @@ section#hero-banner {
    }
 
 
+      //adding styles for anlayst
+     //  for 3 images
+      &.analyst{
+        height: auto;
+        padding-bottom: 20px;
+        color: $light;
+        @include mobile {
+          padding: 10px;
+        }
+        h1{
+          font-size: 50px;
+           margin-bottom: 0px;
+
+           @include mobile {
+               margin: 17px 0 7px 0;
+               font-size: 35px;
+               text-align: left;
+           }
+           @include tablet {
+               font-size: 40px;
+               margin-top: 0px;
+           }
+        }
+       .span-arrow{
+           font-size: 300%;
+         @include mobile {
+             display: none;
+           }
+       }
+       .subtext {
+           font-family: FSMe;
+           font-size: 30px;
+           color: #444957;
+           padding-bottom: 0px;
+           @include mobile {
+               font-size: 25px;
+               letter-spacing: normal;
+               margin: 10px 0px 30px 0px;
+               text-align: left;
+           }
+           @include tablet {
+               font-size: 20px;
+               letter-spacing: normal;
+           }
+       }
+       h3{
+             font-weight: bold;
+             color: #444957;
+         }
+         .color-subtext{
+           color: #444957;
+           @include mobile {
+             text-align: left;
+             line-height: 20px;
+           }
+         }
+         .line{
+           position: absolute;
+           height: 2px;
+           width: 60%;
+           top: 50px;
+           left: 50%;
+           transform: translateX(-50%);
+           background-color: white;
+
+           @include mobile {
+               display: none;
+           }
+           @include tablet {
+               right: 150px;
+           }
+         }
+         .image-margin{
+           margin-right: 70px;
+           @include mobile {
+             margin-right: 0px;
+              margin-top: 10px;
+           }
+         }
+         @media only screen and (min-width : 1024px) and (max-device-width : 1224px) {
+           .image-margin{
+             margin-right: 130px;
+           }
+         }
+      }
+      // for two images
+      .analyst-two-images{
+        height: auto;
+        padding-bottom: 20px;
+        color: $light;
+        @include mobile {
+          padding: 10px;
+        }
+        h1{
+          font-size: 50px;
+           margin-bottom: 0px;
+
+           @include mobile {
+               margin: 17px 0 7px 0;
+               font-size: 35px;
+               text-align: left;
+           }
+           @include tablet {
+               font-size: 40px;
+               margin-top: 0px;
+           }
+        }
+       .span-arrow{
+           font-size: 300%;
+         @include mobile {
+             display: none;
+           }
+       }
+       .img-mobile{
+         @include mobile {
+             margin-top: 17px;
+         }
+       }
+       .subtext {
+           font-family: FSMe;
+           font-size: 30px;
+           color: #444957;
+           padding-bottom: 0px;
+           @include mobile {
+               font-size: 25px;
+               letter-spacing: normal;
+               margin: 10px 0px 30px 0px;
+               text-align: left;
+           }
+           @include tablet {
+               font-size: 20px;
+               letter-spacing: normal;
+           }
+       }
+       h3{
+             font-weight: bold;
+             color: #444957;
+         }
+         .color-subtext{
+           color: #444957;
+           @include mobile {
+             text-align: left;
+             line-height: 20px;
+           }
+         }
+
+         .image-margin{
+           margin-right: 70px;
+         }
+         @media only screen and (min-device-width : 768px) and (max-device-width : 1023px) {
+           .image-margin{
+             margin-right: 70px;
+           }
+           }
+
+           @media only screen and (min-width : 1024px) and (max-device-width : 1224px) {
+             .image-margin{
+               margin-right: 60%;
+             }
+           }
+
+        .line{
+          position: absolute;
+          height: 2px;
+          width: 50%;
+          top: 50px;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: white;
+
+          @include mobile {
+              display: none;
+          }
+          @include tablet {
+              right: 150px;
+          }
+        }
+
+        .image-margin{
+          margin-left: 30px;
+          @include mobile {
+            margin-left: 0px;
+            margin-top: 3px;
+          }
+        }
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+          .image-margin{
+            margin-right: 70px;
+          }
+          }
+
+          @media only screen and (min-width : 1024px) and (max-device-width : 1224px) {
+
+            .image-margin{
+              margin-right: 60%;
+            }
+          }
+      }
+     //  for single image
+     .analyst-single-image{
+       height: auto;
+       padding-bottom: 20px;
+       color: $light;
+       @include mobile {
+         padding: 10px;
+       }
+       h1{
+         font-size: 150px;
+          margin-bottom: 0px;
+
+          @include mobile {
+              margin: 17px 0 7px 0;
+              font-size: 35px;
+              text-align: left;
+          }
+          @include tablet {
+              font-size: 40px;
+              margin-top: 0px;
+          }
+       }
+      .span-arrow{
+          //margin-bottom: 20px;
+          font-size: 300%;
+        @include mobile {
+            display: none;
+          }
+      }
+      .img-mobile{
+        @include mobile {
+            margin-top: 17px;
+        }
+      }
+      .subtext {
+          font-family: FSMe;
+          font-size: 30px;
+          color: #444957;
+          padding-bottom: 0px;
+          @include mobile {
+              font-size: 25px;
+              letter-spacing: normal;
+              margin: 10px 0px 30px 0px;
+              text-align: left;
+          }
+          @include tablet {
+              font-size: 20px;
+              letter-spacing: normal;
+          }
+      }
+      h3{
+            font-weight: bold;
+            color: #444957;
+        }
+        .color-subtext{
+          color: #444957;
+          @include mobile {
+            text-align: left;
+            line-height: 20px;
+          }
+        }
+
+       .image-margin{
+         margin-left: 30px;
+           @include tablet {
+             margin-left: 0px;
+           }
+           @include mobile {
+             margin-left: 0px;
+             margin-top: 17px;
+           }
+       }
+       // @media only screen and (min-device-width : 768px) and (max-device-width : 1023px) {
+       //   .image-margin{
+       //     margin-right: 70px;
+       //   }
+       //   }
+
+         @media only screen and (min-width : 1024px) and (max-device-width : 1224px) {
+
+           .image-margin{
+             margin-left: 20px;
+           }
+         }
+     }
+
+
 
 }
