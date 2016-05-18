@@ -120,9 +120,9 @@ module.exports = function(grunt) {
             dev: {
                 options: {
                     sassDir: ['<%= config.src %>/sass'],
-                    cssDir: ['<%= config.tmp %>/css'],
+                    cssDir: ['<%= config.tmp %>/Static/css'],
                     environment: 'development',
-                    generatedImagesDir: '<%= config.tmp %>/images',
+                    generatedImagesDir: '<%= config.tmp %>/Static/images',
                     imagesDir: '<%= config.src %>/images',
                     fontsDir: '<%= config.src %>/sass/fonts',
                     importPath: ['bower_components','<%= config.src %>/sass/global', '<%= config.src %>/components'],
@@ -155,13 +155,13 @@ module.exports = function(grunt) {
                 banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */',
             },
             prod: {
-                // files: {
-                //     '<%= config.tmp %>/scripts/informaui.main.js': [
-                //         '<%= config.src %>/scripts/informaui.main.js',
-                //         '<%= config.src %>/scripts/plugins/*.js',
-                //         '!<%= config.src %>/scripts/handlebars_helpers.js'
-                //     ]
-                // }
+                files: {
+                    '<%= config.dist %>/Static/js/unminified/main.js': ['<%= config.tmp %>/Static/js/*.js'],
+                    '<%= config.dist %>/Static/js/unminified/components.js': ['<%= config.tmp %>/Static/js/components/*.js'],
+                      '<%= config.dist %>/Static/css/unminified/components.css': ['<%= config.tmp %>/Static/css/components.css'],
+                      '<%= config.dist %>/Static/css/unminified/global.css': ['<%= config.tmp %>/Static/css/global.css'],
+                      '<%= config.dist %>/Static/css/unminified/theme.css': ['<%= config.tmp %>/Static/css/theme.css']
+                }
             }
         },
 
@@ -174,7 +174,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         flatten: true,
-                        dest: '<%= config.src %>/images',
+                        dest: '<%= config.tmp %>/Static/images',
                         src: ['bower_components/slick-carousel/slick/**.{gif,jpg}']
                     },
                     {
@@ -192,8 +192,14 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         flatten: true,
-                        src: ['<%= config.src %>/components/**/js/*.js', '<%= config.src %>/scripts/*.js'],
-                        dest: '<%= config.tmp %>/js/'
+                        src: ['<%= config.src %>/components/**/js/*.js'],
+                        dest: '<%= config.tmp %>/Static/js/components'
+                    },
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= config.src %>/scripts/**/*.js'],
+                        dest: '<%= config.tmp %>/Static/js'
                     },
                     {
                         expand: true,
@@ -201,16 +207,25 @@ module.exports = function(grunt) {
                         dest: '<%= config.tmp %>',
                         src: [
                             'favicon.ico',
-                            'videos/**/*',
-                            'images/**/*',
-                            'Static/**/*',
-                            'styleguide/*.html'
+                            'videos/**/*'
                         ]
                     },
                     {
                         expand: true,
+                        cwd: '<%= config.src %>/cms-images',
+                        src: ['{,*/}*.*'],
+                        dest: '<%= config.tmp %>/cms-images'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= config.src %>/Static/images',
+                        src: ['{,*/}*.*'],
+                        dest: '<%= config.tmp %>/Static/images'
+                    },
+                    {
+                        expand: true,
                         cwd: 'bower_components/slick-carousel/slick/fonts',
-                        dest: '<%= config.tmp %>/fonts',
+                        dest: '<%= config.tmp %>/Static/fonts',
                         src: [
                             '{,*/}*.*',
                             "!_fonts.scss"
@@ -219,7 +234,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: 'bower_components/bootstrap-sass-official/assets/fonts',
-                        dest: '<%= config.tmp %>/fonts',
+                        dest: '<%= config.tmp %>/Static/fonts',
                         src: [
                             '{,*/}*.*',
                             "!_fonts.scss"
@@ -230,7 +245,7 @@ module.exports = function(grunt) {
                     {
                         expand: true,
                         cwd: '<%= config.src %>/fonts',
-                        dest: '<%= config.tmp %>/fonts',
+                        dest: '<%= config.tmp %>/Static/fonts',
                         src: [
                             '{,*/}*.*',
                             "!_fonts.scss"
@@ -249,18 +264,9 @@ module.exports = function(grunt) {
                             'videos/**/*'
                         ]
                     },
-                    {expand: true, cwd: '<%= config.src %>/Static', src: ['**/*.*'], dest: '<%= config.dist %>/Static'},
-                    {expand: true, cwd: '<%= config.src %>/images', src: ['**/*.*'], dest: '<%= config.dist %>/images'},
-                    {expand: true, cwd: '<%= config.tmp %>/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/fonts'},
-                    {expand: true, cwd: '<%= config.tmp %>/js', src: ['**/*.*'], dest: '<%= config.dist %>/js'},
-                    {expand: true, cwd: '<%= config.tmp %>/css', src: ['**/*.*'], dest: '<%= config.dist %>/css'}
+                    {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/Static/images'},
+                    {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/Static/fonts'}
                 ]
-            },
-            werk: {
-                files: [
-                ]
-            },
-            styles: {
             }
         },
 
@@ -281,10 +287,9 @@ module.exports = function(grunt) {
             },
             prod: {
                 files: {
-                    '<%= config.dist %>/scripts/main.js':['<%= config.tmp %>/src/components/_global/js/global.js',
-                     '<%= config.tmp %>/src/components/feature-list/js/feature-list.js',
-                     '<%= config.tmp %>/src/components/global_footer/js/global_footer.js'],
-                    '<%= config.dist %>/scripts/vendor/vendor.js': ['bower_components/jquery/jquery.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js']
+                    '<%= config.dist %>/Static/js/components.js':['<%= config.tmp %>/Static/js/components/*.js'],
+                    '<%= config.dist %>/Static/js/main.js':['<%= config.tmp %>/Static/js/*.js'],
+                    '<%= config.dist %>/Static/js/vendor/vendor.js': ['bower_components/jquery/jquery.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js']
                 }
             }
         },
@@ -309,9 +314,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= config.src %>/images',
+                    cwd: '<%= config.src %>/cms-images',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: '<%= config.dist %>/images'
+                    dest: '<%= config.dist %>/Static/cms-images'
                 }]
             }
         },
@@ -340,7 +345,21 @@ module.exports = function(grunt) {
                 }]
             }
         },
-
+        cssmin  : {
+          prod: {
+              files:  [
+                {
+                  '<%= config.dist %>/Static/css/components.css':['<%= config.tmp %>/Static/css/components.css']
+                },
+                {
+                  '<%= config.dist %>/Static/css/global.css':['<%= config.tmp %>/Static/css/global.css']
+                },
+                {
+                  '<%= config.dist %>/Static/css/theme.css':['<%= config.tmp %>/Static/css/theme.css']
+                }
+              ]
+          }
+        },
         concurrent: {
             server: [
                 'compass:dev'
@@ -357,7 +376,7 @@ module.exports = function(grunt) {
         modernizr: {
             dist: {
                 'devFile' : 'bower_components/modernizr/modernizr.js',
-                'outputFile' : '<%= config.dist %>/scripts/vendor/modernizr.js',
+                'outputFile' : '<%= config.dist %>/Static/js/vendor/modernizr.js',
                 'uglify' : true
             }
         },
@@ -373,7 +392,7 @@ module.exports = function(grunt) {
                         var cYear = d.getFullYear();
                         cMonth = (cMonth < 10)? '0' + cMonth: cMonth;
                         cDay = (cDay < 10)? '0' + cDay: cDay;
-                        return 'releases/projecteeq_FED_' + cMonth + cDay + cYear + '.zip';
+                        return 'releases/informaui' + cMonth + cDay + cYear + '.zip';
                     }
                 },
                 files: [
@@ -407,27 +426,6 @@ module.exports = function(grunt) {
                 ]
             }
         },
-      //   styledown: {
-      //     options: {
-      //             title: 'Informa Styleguide'
-      //           },
-      //     dist: {
-      //         files: {
-      //             '<%= config.dist %>/styleguide/index.html': '<%= config.src %>/styleguide/main.css'
-      //         },
-      //         options: {
-      //             config: '<%= config.src %>/styleguide/config_dist.md',
-      //         }
-      //     },
-      //     tmp: {
-      //         files: {
-      //             '<%= config.tmp %>/styleguide/index.html': '<%= config.src %>/styleguide/main.css'
-      //         },
-      //         options: {
-      //             config: '<%= config.src %>/styleguide/config_dist.md',
-      //         }
-      //     }
-      // },
         accessibility: {
           options: {
             accessibilityLevel: 'WCAG2A'
@@ -453,10 +451,8 @@ module.exports = function(grunt) {
             'copy:dev',
             'compass:dev',
             'assemble:dev',
-            //'styledown',
             'connect:dev',
             'watch',
-
         ]);
     });
 
@@ -468,24 +464,12 @@ module.exports = function(grunt) {
       //  'concurrent:prod',
         'concat:prod',
         'uglify:prod',
+        'concat',
         'usemin',
-        'modernizr',
-        'eslint'
-      //  'styledown'
+        'cssmin',
+        'modernizr'
+        //'eslint',
         // 'accessibility'
-    ]);
-
-    grunt.registerTask('werk', [
-        'clean:prod',
-        'assemble:prod',
-        'useminPrepare',
-        'copy:prod',
-      //  'concurrent:werk',
-        'concat:prod',
-        'uglify:prod',
-        'usemin',
-        'modernizr',
-        'accessibility'
     ]);
 
     grunt.registerTask('release', [
