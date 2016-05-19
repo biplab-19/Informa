@@ -68,14 +68,20 @@
 						font-family: 'FS Me Bold';
 					}
 					h3 {
+						color: #7f828c;
 						font-size: 16px;
 						margin-top: 0;
 					}
 					.location {
-						padding-left: 15px;
+						padding-left: 20px;
+						position: relative;
 						&:before {
-							content: '';
-							//location background Image
+							content: '\e918';
+						    font-family: 'InformaIcons';
+						    position: absolute;
+						    left: 0;
+						    font-size: 20px;
+						    top: -5px;
 						}
 					}
 				}
@@ -94,14 +100,14 @@
 				margin-top: 10px;
 				position: relative;
 				&:before {
-					content: '';
-					position: absolute;
-					width: 20px;
-		    		height: 35px;
-					left: 0;
-					top: 5px;
-					background-image: url(../cms-images/analyst-product.png); // background Image
-					background-size: cover;
+					content: '\e919';
+				    position: absolute;
+				    left: 0;
+				    top: -4px;
+				    font-family: 'InformaIcons';
+				    color: #4d525f;
+				    font-size: 40px;
+				    font-weight: normal;
 				}
 				li {
 					float: left;
@@ -151,15 +157,18 @@
 					li {
 						@include border-radius(50%);
 						display: inline-block;
-						padding: 9px 0 0 6px;
-					    background-color: $text-gray-dark;
+						font-size: 22px;
+					    background-color: #6a7287;
 					    margin-right: 5px;
 					    width: 35px;
 					    height: 35px;
+					    text-align: center;
+					    a {
+					    	vertical-align: middle;
+					    }
 						&:last-child {
 							margin-right: 0;
 						}
-
 					}
 				}
 				.full-profile {
@@ -168,7 +177,7 @@
 					color: $yellow;
 				}
 				.btn {
-					width: 150px;
+					width: 160px;
 					border-color: $btn-primay-default-bg;
 					&:after {
 						color: $orange;

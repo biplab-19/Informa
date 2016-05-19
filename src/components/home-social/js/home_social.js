@@ -29,13 +29,13 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             _infinite = true,
             _dots = Boolean(container.data('pagination'));
             //chk for sitecore preview
-            if (INFORMA.global.siteCore.isPreview) {
-                _autoplay = true;
-            }
-            if (INFORMA.global.siteCore.isExperience) {
-                _autoplay = false;
-                _infinite = false;
-            }
+            // if (INFORMA.global.siteCore.isPreview) {
+            //     _autoplay = true;
+            // }
+            // if (INFORMA.global.siteCore.isExperience) {
+            //     _autoplay = false;
+            //     _infinite = false;
+            // }
             if(INFORMA.global.device.viewportN == 1){
                   _slideCount = 2;
             }
@@ -47,8 +47,8 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             infinite: _infinite,
             autoplay: _autoplay,
             autoplaySpeed: _duration,
-            slidesToShow: _slideCount,
-            slidesToScroll: _slideCount,
+            slidesToShow: 3,
+            slidesToScroll: 3,
             speed: _speed,
             dots: _dots,
             adaptiveHeight: true

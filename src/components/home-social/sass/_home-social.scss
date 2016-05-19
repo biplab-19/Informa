@@ -4,6 +4,14 @@
 	h1 {
 		color: $white;
 		margin-bottom: 40px;
+		padding-left: 50px;
+		position: relative;
+		&:before {
+			content: "\e90c";
+			position: absolute;
+			font-family: 'InformaIcons';
+			left: 0;
+		}
 	}
 	.twitter-carousel {
 		.panel {
@@ -17,7 +25,7 @@
 				min-height: 250px;
 				border-left: 1px solid $light-blue-border;
 				border-right: 1px solid $light-blue-border;
-				margin: 0 -1px;
+				margin: 0 -2px;
 				@include mobile {
 					min-height: auto;
 				}
@@ -25,6 +33,11 @@
 					margin-bottom: 20px;
 					img {
 						width: 100%;
+					}
+				}
+				.twittedby {
+					&:before {
+						content: '@';
 					}
 				}
 				.video-wrap {
@@ -51,27 +64,31 @@
 				font-size: 18px;
 			}
 		}
-		.slick-dots {
-			@include mobile {
+	 	ul.slick-dots {
+	 		@include mobile {
 				position: static;
 			}
-		}
-		.slick-dots li {
-			button:before {
-				color: $default-dots-color;
-				font-size: 10px;
-			}
-			&.slick-active {
-				button:before {
-					color: $active-dots-color;
-				}
-			}
-		}
+            text-align: center;
+            width: 100%;
+            bottom: -40px;
+            li {
+                height: 10px;
+                width: 10px;
+                border-radius: 5px;
+                background: $gray;
+                button:before {
+                    content: '';
+                }
+                &.slick-active{
+                    background: $yellow;
+                }
+            }
+       }
 		.slick-arrow {
 			min-height: 20px;
 		    min-width: 20px;
 		    padding: 3% 2%;
-		    background: #ffd500 url("/cms-images/common/sprite.png") no-repeat center center;
+		    background: #ffd500 url("Static/images/common/sprite.png") no-repeat center center;
 		    background-size: 55%;
 		    &:before {
 		    	content: '';
