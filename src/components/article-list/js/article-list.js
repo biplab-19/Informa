@@ -34,7 +34,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
     //get all default setting value from component and check 
     //if exist any default setting then update and return carousel object.
 
-        GetCarouselOptions = function(ele) {
+    GetCarouselOptions = function(ele) {
             var DataObject = ele.data(),
                 OptionObj = {};
 
@@ -68,12 +68,12 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 method: "GET",
                 data: data,
                 success_callback: function(data) {
-                    if (data.Articles!==undefined && data.Articles.length > 0) {
+                    if (data.Articles !== undefined && data.Articles.length > 0) {
                         var html = GetCarouselUpdatedHtml(Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         RenderCarousel(html, _ArticleLists);
                     }
-                    if (data.Articles!==undefined && data.Headlines.length > 0) {
+                    if (data.Articles !== undefined && data.Headlines.length > 0) {
                         var html = GetCarouselUpdatedHtml(Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
                         RenderCarousel(html, _HeadlinesLists);
@@ -84,13 +84,26 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 }
             });
         },
-        equalHeights = function(){
-            $('.list-container').each(function(){  
-                 var $columns = $('.list-content ,.columns',this);
-                 var maxHeight = Math.max.apply(Math, $columns.map(function(){
-                     return $(this).height();
-                 }).get());
-                 $columns.height(maxHeight);
+        equalHeights = function() {
+            // Select and loop the container element of the elements you want to equalise
+            $('.list-container').each(function() {
+
+                // Cache the highest
+                var highestBox = 0;
+
+                // Select and loop the elements you want to equalise
+                $('.columns', this).each(function() {
+
+                    // If this box is higher than the cached highest then store it
+                    if ($(this).height() > highestBox) {
+                        highestBox = $(this).height();
+                    }
+
+                });
+
+                // Set the height of all those children to whichever was highest 
+                $('.columns', this).height(highestBox);
+
             });
         },
         BindFilterEvents = function() {
@@ -154,6 +167,9 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
             BindFilterEvents();
         }
+        $(window).on("orientationchange", function() {
+            equalHeights();
+        });
     };
 
     return {

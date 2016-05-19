@@ -5,12 +5,18 @@
         opacity: 0.3;
         background: transparent url("/Static/images/common/sprite.png") no-repeat 0 0;
     }
+    .container{
+        padding:0 15px;
+    }
     .list-container {
         list-style-type: none;
         padding: 0;
         margin: 0;
         @include mobile {
-            margin: 0 1.2%;
+            margin: 0 1.5%;
+        }
+        @include tablet {
+            margin: 0 1.5%;
         }
         li {
             background-color: #f6f6f8;
@@ -44,10 +50,14 @@
             .video-container {
                 max-height: 156px;
                 overflow: hidden;
-                position:relative;
+                position: relative;
+                margin-bottom: 20px;
                 img {
+                    width: 100%;
+                    height: auto;
                     max-width: 100%;
-                    max-height: 100%;
+                    float: none;
+                    display: block;
                 }
                 .play-icon {
                     color: #fff;
@@ -101,30 +111,63 @@
         border-right: 1px solid #c3c6d0;
     }
     .slick-arrow {
-        min-height: 20px;
-        min-width: 20px;
-        padding: 3% 2%;
-        background: $yellow url("/Static/images/common/sprite.png") no-repeat center center;
-        background-size: 55%;
+        height: 60px;
+        width: 40px;
         z-index: 1;
+        background-color: $yellow;
+        top: 50%;
         @include mobile {
-            background-size: 65%;
-            padding: 6% 2%;
+            height: 40px;
+            width: 20px;
+            margin-top: -20px;
+            margin-left: -20px;
+        }
+        @include tablet {
+            height: 40px;
+            width: 25px;
+            margin-top: -20px;
+            margin-left: -25px;
         }
         &:before {
-            content: ''
-        }
-        &:after {
-            content: ''
+            font-family: 'InformaIcons';
+            position: absolute;
+            font-size: 26px;
+            opacity: 1;
+            top: 50%;
+            left: 50%;
+            margin-top: -13px;
+            margin-left: -13px;
+            @include mobile {
+                font-size: 14px;
+                margin-top: -7px;
+                margin-left: -7px;
+            }
+            @include tablet {
+                font-size: 16px;
+                margin-top: -8px;
+                margin-left: -8px;
+            }
         }
     }
     .slick-next {
-        right: -4%;
-        background-position: center 142%;
+        left: 100%;
+        margin-left: 0;
+        &:before {
+            content: "\e902";
+        }
     }
     .slick-prev {
-        left: -4%;
-        background-position: center -40%;
+        left: 0%;
+        margin-left: -40px;
+        @include mobile {
+            margin-left:-20px;
+        }
+        @include tablet {
+            margin-left:-25px;
+        }
+        &:before {
+            content: "\e903";
+        }
     }
     ul.slick-dots {
         text-align: center;
