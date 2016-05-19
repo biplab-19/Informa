@@ -3,7 +3,9 @@
       <div class="container">
          <div class="row row-eq-height">
            <div class="col-xs-12">
-           <h1 class="white-color contactus-header" >Have any questions? <small class="white-color">Speak to a specialist</small></h1>
+           <h1 class="white-color contactus-header" >Have any questions? <span class="white-color contactus-header-normal">Speak to a specialist</span></h1>
+           <P class="white-color contactus-header-desc"> description </p>
+            <h2 class="white-color contactus-sub-header">Subscribe and use today.</h2>
             <div class="panel-group equal-height" id="accordion">
                {{#each this}}
                <div class="panel panel-default">
@@ -33,6 +35,30 @@
                            <a class="btn btn-primary" href="{{cta.link}}" role="button">{{cta.label}}</a>
                         </div>
                         {{/if}}
+                        {{#if subscribe}}
+                        <div class="content-wrapper-cta">
+                              <p>Pick a time that's convenient.</p>
+                              <p>Pick a time that's convenient</p>
+                              <a class="btn btn-default subscribe-link">
+                                    Purchase
+                              </a>
+                              <div class="pay-with">
+                                    <span class="copy">Pay With</span>
+                                    <span class="payment visa"></span>
+                                    <span class="payment mastercard"></span>
+                                    <span class="payment amex"></span>
+                              </div>
+                        </div>
+                        <div class="btn-container">
+                              <select class="subscribe-options chosen">
+                                    <option selected disabled value=0>View other Payment Types</option>
+                                    <option value=1>Mastercard</option>
+                                    <option value=2>Visa</option>
+                                    <option value=3>Internet Banking</option>
+                             </section>
+                        </div>
+                      {{/if}}
+
                         {{/each}}
                      </div>
                   </div>
