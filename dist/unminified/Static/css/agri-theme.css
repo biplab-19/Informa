@@ -1,0 +1,152 @@
+/*! 2016-05-20 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/* To use media queries we just have to say @include tablet{font-size:14px} */
+/* If you have a theme for yourself which you need to follow this then extend this agri-theme to that class and make
+appropriate style change */
+/* line 4, ../../../src/sass/agri-theme.scss */
+.agri-theme {
+  color: #6a7285;
+}
+/* line 6, ../../../src/sass/agri-theme.scss */
+.agri-theme a {
+  color: #fff;
+}
+/* line 9, ../../../src/sass/agri-theme.scss */
+.agri-theme .btn {
+  background: transparent;
+  color: #6a7285;
+  border-color: #ef7c00;
+  border-radius: 0;
+  border-width: 2px;
+}
+/* line 15, ../../../src/sass/agri-theme.scss */
+.agri-theme .btn:hover {
+  background: transparent;
+  color: #6a7285;
+}
+/* line 21, ../../../src/sass/agri-theme.scss */
+.agri-theme .btn-default {
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: #ffd600;
+  position: relative;
+}
+/* line 27, ../../../src/sass/agri-theme.scss */
+.agri-theme .btn-default:after {
+  content: ">";
+  right: 15px;
+  font-weight: bold;
+  position: absolute;
+}
+/* line 34, ../../../src/sass/agri-theme.scss */
+.agri-theme .btn-primary {
+  text-align: left;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: #ef7c00;
+  background-color: #ef7c00;
+  color: #fff;
+  position: relative;
+}
+/* line 43, ../../../src/sass/agri-theme.scss */
+.agri-theme .btn-primary:after {
+  content: ">";
+  right: 15px;
+  font-weight: bold;
+  position: absolute;
+}
+/* line 49, ../../../src/sass/agri-theme.scss */
+.agri-theme .btn-primary:hover {
+  background-color: #ffd600;
+  border-color: #ffd600;
+  color: #fff;
+}
+/* line 55, ../../../src/sass/agri-theme.scss */
+.agri-theme .component {
+  padding: 0;
+  color: #6a7285;
+}
+/* line 58, ../../../src/sass/agri-theme.scss */
+.agri-theme .component .component-content {
+  padding: 0;
+  display: block;
+  height: 100%;
+  background-color: transparent;
+}
+/* line 65, ../../../src/sass/agri-theme.scss */
+.agri-theme .component.boxed .component-content {
+  padding: 15px;
+  background-color: #6a7285;
+}
+/* line 70, ../../../src/sass/agri-theme.scss */
+.agri-theme .component a {
+  color: #6a7285;
+}
+/* line 72, ../../../src/sass/agri-theme.scss */
+.agri-theme .component a:hover {
+  color: #6a7285;
+}
+/* line 76, ../../../src/sass/agri-theme.scss */
+.agri-theme .component h1 {
+  font-weight: bold;
+}
+/* line 79, ../../../src/sass/agri-theme.scss */
+.agri-theme .component h1,
+.agri-theme .component h2,
+.agri-theme .component h3 {
+  margin-top: 0;
+}
+/* line 84, ../../../src/sass/agri-theme.scss */
+.agri-theme .component .btn {
+  color: #6a7285;
+}
+/* line 86, ../../../src/sass/agri-theme.scss */
+.agri-theme .component .btn:hover {
+  color: #6a7285;
+}
+/* line 91, ../../../src/sass/agri-theme.scss */
+.agri-theme .card-container {
+  padding-top: 15px;
+}
+/* line 93, ../../../src/sass/agri-theme.scss */
+.agri-theme .card-container .component {
+  padding: 0 15px 15px 0;
+}
+/* line 96, ../../../src/sass/agri-theme.scss */
+.agri-theme .card-container > .container {
+  padding-right: 0;
+}
+/* line 108, ../../../src/sass/agri-theme.scss */
+.agri-theme .bg-gray-light {
+  background-color: #444957;
+}
+/* line 111, ../../../src/sass/agri-theme.scss */
+.agri-theme .bg-gray-dark {
+  background-color: #343742;
+}
+/* line 114, ../../../src/sass/agri-theme.scss */
+.agri-theme .bg-white {
+  background-color: #fff;
+}
+/* line 117, ../../../src/sass/agri-theme.scss */
+.agri-theme .bg-light-blue {
+  background: #e1e2e7;
+}
+/* line 120, ../../../src/sass/agri-theme.scss */
+.agri-theme .bg-lighter-blue {
+  background: #e1e3e7;
+}
+/* line 129, ../../../src/sass/agri-theme.scss */
+.agri-theme .bg-gray-dark h1,
+.agri-theme .bg-gray-dark h2 {
+  color: #fff;
+}
+/* line 133, ../../../src/sass/agri-theme.scss */
+.agri-theme .bg-gray-dark h2 {
+  font-size: 26px;
+}
+/* line 136, ../../../src/sass/agri-theme.scss */
+.agri-theme .bg-gray-dark .btn {
+  color: #fff;
+}
