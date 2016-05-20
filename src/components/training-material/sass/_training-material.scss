@@ -1,0 +1,75 @@
+section#training-section{
+	background-color: white;
+	padding: 50px;
+	@include mobile{
+		padding: 0px;
+	}
+	.training-material{
+		h1{
+				margin-bottom: 20px;
+		}
+		// ul{
+		// 	width: 100%;
+		// 	li{
+		// 		list-style-type: none;
+		// 		width: 33%;
+		// 		display: inline-block;
+		// 	}
+		// }
+		.h3div{
+			padding: 10px;
+			.video-wrap{
+				display: block;
+			}
+			h3{
+				color: black;
+				font-weight: bold;
+			}
+		}
+		ul.slick-dots {
+	 		@include mobile {
+				position: static;
+			}
+            text-align: center;
+            width: 100%;
+            bottom: -40px;
+            li {
+                height: 10px;
+                width: 10px;
+                border-radius: 5px;
+                background: $gray;
+                button:before {
+                    content: '';
+                }
+                &.slick-active{
+                    background: $yellow;
+                }
+            }
+       }
+		// .slick-arrow {
+		// 	min-height: 20px;
+		//     min-width: 20px;
+		//     padding: 3% 2%;
+		//     background: #ffd500 url("/images/common/sprite.png") no-repeat center center;
+		//     background-size: 55%;
+		//     &:before {
+		//     	content: '';
+		//     }
+		//     &.slick-prev {
+		//     	left: -4%;
+   // 				background-position: center -40%;
+   // 				@include mobile {
+    // 				background-position: center -15%;
+    // 			}
+		//     }
+		//     &.slick-next {
+		//     	right: -4%;
+    // 			background-position: center 142%;
+    // 			@include mobile {
+    // 				background-position: center 120%;
+    // 			}
+		//     }
+		// }
+
+	}
+}
