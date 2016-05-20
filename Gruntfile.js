@@ -161,7 +161,7 @@ module.exports = function(grunt) {
                     '<%= config.dist %>/unminified/Static/js/vendor.js': ['bower_components/jquery/jquery.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js'],
                       '<%= config.dist %>/unminified/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
                       '<%= config.dist %>/unminified/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
-                      '<%= config.dist %>/unminified/Static/css/theme.css': ['<%= config.tmp %>/Static/css/theme.css']
+                      '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css']
                 }
             }
         },
@@ -358,7 +358,7 @@ module.exports = function(grunt) {
                   '<%= config.dist %>/minified/Static/css/global.css':['<%= config.tmp %>/Static/css/global.css']
                 },
                 {
-                  '<%= config.dist %>/minified/Static/css/theme.css':['<%= config.tmp %>/Static/css/theme.css']
+                  '<%= config.dist %>/minified/Static/css/agri-theme.css':['<%= config.tmp %>/Static/css/agri-theme.css']
                 }
               ]
           }
