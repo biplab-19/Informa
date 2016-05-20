@@ -1,4 +1,4 @@
-/*! 2016-05-19 */_adjustHeigt = function(){
+/*! 2016-05-20 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -69,6 +69,63 @@ INFORMA.analystList = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.analystList.init());
+
+/*
+ * global-footer.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-May-5
+ * @author:     Rajiv Aggarwal
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.EventList = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var _EventLists = $('.analyst-profile-events .event-items'),
+        // methods
+        init,
+        SliderOption = {
+            "autoplay": false,
+            "autoplaySpeed": 4000,
+            "sliderDots": true,
+            "sliderInfinite": true,
+            "slidesScroll": 1,
+            "slidesShow": 1,
+            "speed": 400
+        },
+        CreateSlider;
+
+        CreateSlider = function(el) {
+
+            el.slick({
+                dots: SliderOption.sliderDots,
+                infinite: SliderOption.sliderInfinite,
+                speed: SliderOption.speed,
+                autoplay: SliderOption.autoplay,
+                autoplaySpeed: SliderOption.autoplaySpeed,
+                slidesToShow: SliderOption.slidesShow,
+                slidesToScroll: SliderOption.slidesScroll
+            });
+        }
+
+    init = function() {
+        if (_EventLists.length > 0) {
+            if(INFORMA.global.device.isMobile){
+                CreateSlider(_EventLists);
+            }
+        }
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.EventList.init());
 
 /*
  * analyst-list.js
@@ -1028,3 +1085,66 @@ INFORMA.sectorList = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.sectorList.init());
+
+/*
+ * training-material.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-May-18
+ * @author:     Tejaswi
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.trainingMaterial = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var _traininglist = $('.slick-carousel'),
+    // methods
+        init,
+        _dots,
+        _createSlider;
+
+    _createSlider = function(container){
+        // if data-items, data-infinite is defined, used it
+        var _slideCount = container.data('itemsperframe'),
+            _autoplay = container.data('autorotate'),
+            _speed = container.data('transitionspeed'), // speed of transition
+            _duration = container.data('slideduration'), // how long the slider will be displayed
+            _infinite = true,
+            _dots = Boolean(container.data('pagination'));
+            //chk for sitecore preview
+            if (INFORMA.global.siteCore.isPreview) {
+                _autoplay = true;
+            }
+            if (INFORMA.global.siteCore.isExperience) {
+                _autoplay = false;
+                _infinite = false;
+            }
+
+        container.slick({
+            infinite: _infinite,
+            autoplay: _autoplay,
+            autoplaySpeed: _duration,
+            slidesToShow: _slideCount,
+            slidesToScroll: _slideCount,
+            speed: _speed,
+            dots: _dots,
+            adaptiveHeight: true
+        });
+    }
+
+    init = function() {
+        if (_traininglist.length > 0) {
+            _createSlider(_traininglist);
+        }
+    };
+
+    return {
+        init: init
+    };
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.trainingMaterial.init());

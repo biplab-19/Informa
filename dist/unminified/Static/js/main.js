@@ -1,4 +1,4 @@
-/*! 2016-05-19 */var INFORMA = window.INFORMA || {};
+/*! 2016-05-20 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
 	'use strict';
     INFORMA.getCookie =function(cname) {

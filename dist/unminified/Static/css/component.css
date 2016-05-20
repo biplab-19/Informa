@@ -1,4 +1,4 @@
-/*! 2016-05-19 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-05-20 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -947,7 +947,7 @@ section#agri-report .agri-report-wrapper .download-report {
     overflow: hidden;
     float: left;
     width: 22.5%;
-    height: 306px;
+    height: 330px;
     font-size: 14px;
     margin: 0 1.25% 20px 1.25%;
   }
@@ -970,10 +970,22 @@ section#agri-report .agri-report-wrapper .download-report {
   padding-bottom: 20px;
 }
 /* line 51, ../../../src/components/home-contactus/sass/_contactus.scss */
+.contactus-list .contactus-sub-header {
+  padding-bottom: 20px;
+}
+/* line 54, ../../../src/components/home-contactus/sass/_contactus.scss */
+.contactus-list .contactus-header-desc {
+  padding-bottom: 20px;
+}
+/* line 57, ../../../src/components/home-contactus/sass/_contactus.scss */
+.contactus-list .contactus-header-normal {
+  font-family: "Fsme";
+}
+/* line 60, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .accordion-toggle {
   position: relative;
 }
-/* line 54, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 63, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .accordion-toggle:after {
   font-family: 'Glyphicons Halflings';
   content: "\e082";
@@ -983,106 +995,106 @@ section#agri-report .agri-report-wrapper .download-report {
   right: 30px;
   top: 10px;
 }
-/* line 63, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 72, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .accordion-toggle.collapsed:after {
   content: "\e081";
   right: 30px;
   top: 10px;
   font-size: 35px;
 }
-/* line 69, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 78, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel {
   position: relative;
 }
-/* line 72, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 81, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-heading {
   padding: 25px;
   background-color: #e1e3e7;
 }
 @media (max-width: 767px) {
-  /* line 72, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 81, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-heading {
     padding: 20px 20px 10px 20px;
   }
 }
-/* line 79, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 88, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body {
   padding: 20px;
 }
-/* line 81, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 90, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number {
   padding-top: 20px;
 }
-/* line 83, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 92, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number a {
   font-size: 28px;
   text-decoration: none;
 }
 @media (max-width: 767px) {
-  /* line 81, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 90, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .phone-number {
     padding-top: 0;
   }
 }
-/* line 91, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 100, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-number {
   font-size: 18px;
 }
 @media (max-width: 767px) {
-  /* line 91, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 100, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-number {
     display: none;
   }
 }
-/* line 97, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 106, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-cta {
   min-height: 120px;
 }
 @media (max-width: 767px) {
-  /* line 97, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 106, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-cta {
     min-height: auto;
     margin-bottom: 15px;
   }
 }
-/* line 104, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 113, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .subscribe-link {
   width: 100%;
-  background: #ef7c00 url(/Static/cms-images/subscribe/subscribe.png) no-repeat 5% 50%;
+  background: #ef7c00 url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
   border: none;
   padding-left: 45px;
 }
-/* line 110, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 119, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with {
   padding: 10px 0;
   font-size: 12px;
 }
-/* line 113, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 122, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with .copy {
   vertical-align: top;
   padding-top: 10px;
   display: inline-block;
 }
-/* line 118, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 127, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment {
   padding-right: 10px;
   height: 34px;
   width: 34px;
   display: inline-block;
 }
-/* line 124, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 133, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.amex {
-  background: url(/Static/cms-images/subscribe/amex.png);
-}
-/* line 127, ../../../src/components/home-contactus/sass/_contactus.scss */
-.contactus-list .panel .panel-body .pay-with span.payment.visa {
-  background: url(/Static/cms-images/subscribe/visa.png);
-}
-/* line 130, ../../../src/components/home-contactus/sass/_contactus.scss */
-.contactus-list .panel .panel-body .pay-with span.payment.mastercard {
-  background: url(/Static/cms-images/subscribe/mastercard.png);
+  background: url(/Static/images/subscribe/amex.png);
 }
 /* line 136, ../../../src/components/home-contactus/sass/_contactus.scss */
+.contactus-list .panel .panel-body .pay-with span.payment.visa {
+  background: url(/Static/images/subscribe/visa.png);
+}
+/* line 139, ../../../src/components/home-contactus/sass/_contactus.scss */
+.contactus-list .panel .panel-body .pay-with span.payment.mastercard {
+  background: url(/Static/images/subscribe/mastercard.png);
+}
+/* line 145, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container {
   width: 100%;
   padding: 20px;
@@ -1090,7 +1102,7 @@ section#agri-report .agri-report-wrapper .download-report {
   bottom: 0;
   left: 0;
 }
-/* line 142, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 151, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container select.subscribe-options {
   width: 100%;
   font-size: 13px;
@@ -1100,38 +1112,38 @@ section#agri-report .agri-report-wrapper .download-report {
   -webkit-appearance: none;
   -moz-appearance: none;
   -o-appearance: none;
-  background: #e1e3e7 url(/Static/cms-images/subscribe/drop-down.png) no-repeat 95% 50%;
+  background: #e1e3e7 url(/Static/images/subscribe/drop-down.png) no-repeat 95% 50%;
 }
 @media (max-width: 767px) {
-  /* line 136, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 145, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container {
     position: relative;
     padding-top: 15px;
   }
 }
-/* line 159, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 168, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .icon {
   padding-right: 8px;
 }
 
-/* line 166, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 175, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a {
   color: #ef7c00;
 }
-/* line 168, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 177, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a.btn {
   color: #fff;
 }
-/* line 173, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 182, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.three .contactus-list .panel-group .panel {
   width: 30.5%;
 }
-/* line 178, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 187, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.four .contactus-list .panel-group .panel {
   width: 22.5%;
 }
 @media (max-width: 767px) {
-  /* line 184, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 193, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.three .contactus-list .panel-group .panel, #contactus-section.four .contactus-list .panel-group .panel {
     width: 100%;
   }
@@ -2372,35 +2384,35 @@ nav#pdp-navigation .menuFollower {
 }
 
 /* line 1, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst {
+.analyst-views {
   background-color: #fff;
   padding-bottom: 50px;
 }
 /* line 6, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container:nth-child(n+4) {
+.analyst-views .analyst-list-container:nth-child(n+4) {
   display: none;
 }
 @media (max-width: 767px) {
   /* line 10, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-  #pdp-analyst .analyst-list-container:nth-child(n+2) {
+  .analyst-views .analyst-list-container:nth-child(n+2) {
     display: none;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 15, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-  #pdp-analyst .analyst-list-container:nth-child(n+3) {
+  .analyst-views .analyst-list-container:nth-child(n+3) {
     display: none;
   }
 }
 /* line 19, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section {
+.analyst-views .analyst-list-container .meet-anlyst-section {
   overflow: hidden;
   margin-bottom: 10px;
   background-color: #f1f1f3;
   margin-top: 20px;
 }
 /* line 24, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading {
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading {
   padding: 20px;
   background-color: #ffd500;
   position: relative;
@@ -2411,7 +2423,7 @@ nav#pdp-navigation .menuFollower {
   position: relative;
 }
 /* line 33, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading:after {
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading:after {
   content: '';
   width: 100%;
   height: 100%;
@@ -2421,13 +2433,13 @@ nav#pdp-navigation .menuFollower {
   top: -90%;
 }
 /* line 42, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-heading-content {
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-heading-content {
   -ms-transform: skewY(2deg);
   -webkit-transform: skewY(2deg);
   transform: skewY(2deg);
 }
 /* line 47, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-img {
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-img {
   width: 60px;
   height: 60px;
   position: relative;
@@ -2438,7 +2450,7 @@ nav#pdp-navigation .menuFollower {
   float: left;
 }
 /* line 54, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-img img {
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-img img {
   width: 100%;
   border: 2px solid #fff;
   -webkit-border-radius: 50%;
@@ -2446,31 +2458,32 @@ nav#pdp-navigation .menuFollower {
   border-radius: 50%;
 }
 /* line 60, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details {
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details {
   width: calc(100% - 70px);
   float: left;
   margin-right: 10px;
 }
 /* line 64, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details h2 {
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details h2 {
   font-size: 22px;
   margin-top: 0;
   font-weight: bold;
   font-family: 'FS Me Bold';
 }
 /* line 70, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details h3 {
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details h3 {
   color: #7f828c;
   font-size: 16px;
   margin-top: 0;
 }
 /* line 75, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details .location {
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details .location {
   padding-left: 20px;
   position: relative;
+  margin-top: 15px;
 }
-/* line 78, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details .location:before {
+/* line 79, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details .location:before {
   content: '\e918';
   font-family: 'InformaIcons';
   position: absolute;
@@ -2478,25 +2491,25 @@ nav#pdp-navigation .menuFollower {
   font-size: 20px;
   top: -5px;
 }
-/* line 89, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-description {
+/* line 90, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-description {
   padding: 20px 20px 40px 20px;
   background-color: #f1f1f3;
   height: 250px;
 }
-/* line 93, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-description .heading {
+/* line 94, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-description .heading {
   color: #434854;
   font-weight: bold;
 }
-/* line 98, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .track-analyst {
+/* line 99, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .track-analyst {
   list-style-type: none;
   margin-top: 10px;
   position: relative;
 }
-/* line 102, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .track-analyst:before {
+/* line 103, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .track-analyst:before {
   content: '\e919';
   position: absolute;
   left: 0;
@@ -2506,28 +2519,28 @@ nav#pdp-navigation .menuFollower {
   font-size: 40px;
   font-weight: normal;
 }
-/* line 112, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .track-analyst li {
+/* line 113, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .track-analyst li {
   float: left;
 }
-/* line 114, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .track-analyst li:after {
+/* line 115, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .track-analyst li:after {
   content: '/';
   color: #444957;
   padding: 0 7px;
   font-weight: bold;
 }
-/* line 121, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .track-analyst li:last-child:after {
+/* line 122, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .track-analyst li:last-child:after {
   content: '';
 }
-/* line 125, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .track-analyst li a {
+/* line 126, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .track-analyst li a {
   color: #434854;
 }
-/* line 130, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer {
-  padding: 20px;
+/* line 131, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer {
+  padding: 15px;
   background-color: #e2e3e8;
   position: relative;
   -ms-transform: skewY(-2deg);
@@ -2535,8 +2548,8 @@ nav#pdp-navigation .menuFollower {
   transform: skewY(-2deg);
   position: relative;
 }
-/* line 138, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer:after {
+/* line 139, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer:after {
   content: '';
   width: 100%;
   height: 100%;
@@ -2545,21 +2558,21 @@ nav#pdp-navigation .menuFollower {
   left: 0;
   top: 90%;
 }
-/* line 147, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .analyst-footer-content {
+/* line 148, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .analyst-footer-content {
   -ms-transform: skewY(2deg);
   -webkit-transform: skewY(2deg);
   transform: skewY(2deg);
 }
-/* line 152, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links {
+/* line 153, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links {
   list-style-type: none;
   padding-left: 0;
   float: left;
   margin-top: 5px;
 }
-/* line 157, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li {
+/* line 158, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
@@ -2571,78 +2584,222 @@ nav#pdp-navigation .menuFollower {
   height: 35px;
   text-align: center;
 }
-/* line 166, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li a {
-  vertical-align: middle;
+@media (max-width: 767px) {
+  /* line 158, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li {
+    background-color: transparent;
+    width: auto;
+    height: auto;
+  }
 }
-/* line 169, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li:last-child {
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 158, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li {
+    background-color: transparent;
+    width: auto;
+    height: auto;
+  }
+}
+/* line 177, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li a {
+  vertical-align: middle;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  /* line 177, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li a {
+    color: #6a7287;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 177, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li a {
+    color: #6a7287;
+  }
+}
+/* line 187, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 174, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .full-profile {
+/* line 192, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .full-profile {
   float: right;
   font-size: 16px;
   color: #ffd500;
 }
-/* line 179, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
-  width: 160px;
+/* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
+  width: 180px;
   border-color: #ef7c00;
 }
-/* line 182, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .btn:after {
+/* line 200, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn:after {
   color: #ef7c00;
 }
 @media (max-width: 767px) {
-  /* line 179, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-  #pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
-    width: 50%;
+  /* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
+    width: 60%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 179, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-  #pdp-analyst .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
-    width: 50%;
+  /* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
+    width: 60%;
   }
 }
-/* line 195, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .btn-container {
+/* line 213, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .btn-container {
   margin-top: 30px;
 }
-/* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .btn-container .btn {
+/* line 215, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .btn-container .btn {
   width: 260px;
 }
-/* line 199, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .btn-container .btn span {
+/* line 217, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .btn-container .btn span {
   line-height: 1;
 }
 @media (max-width: 767px) {
-  /* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-  #pdp-analyst .btn-container .btn {
+  /* line 215, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  .analyst-views .btn-container .btn {
     width: 100%;
   }
 }
-/* line 205, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .btn-container .btn .more {
+/* line 223, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .btn-container .btn .more {
   display: block;
 }
-/* line 208, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .btn-container .btn .less {
+/* line 226, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .btn-container .btn .less {
   display: none;
 }
-/* line 212, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .btn-container .btn.showLess .more {
+/* line 230, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .btn-container .btn.showLess .more {
   display: none;
 }
-/* line 215, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .btn-container .btn.showLess .less {
+/* line 233, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .btn-container .btn.showLess .less {
   display: block;
 }
-/* line 219, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-#pdp-analyst .btn-container .btn:after {
+/* line 237, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .btn-container .btn:after {
   top: 14px;
+}
+
+/* line 1, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events {
+  background-color: #fff;
+  position: relative;
+}
+/* line 4, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events h2 {
+  margin: 20px 0;
+}
+@media (max-width: 767px) {
+  /* line 7, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+  .analyst-profile-events .container {
+    padding: 0 25px;
+  }
+}
+/* line 12, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items {
+  padding: 0;
+  margin: 0;
+}
+/* line 15, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li {
+  list-style-type: none;
+  margin: 0 0 20px 0;
+}
+@media (max-width: 767px) {
+  /* line 15, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+  .analyst-profile-events .event-items li {
+    padding: 0;
+    margin: 0;
+  }
+}
+/* line 22, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container {
+  overflow: hidden;
+}
+/* line 24, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content {
+  background-color: #f6f6f8;
+}
+/* line 26, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .info {
+  min-height: 250px;
+  padding: 15px;
+  overflow: hidden;
+}
+/* line 30, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .info .tag {
+  color: #ef7d01;
+}
+/* line 33, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .info h3 {
+  font-size: 24px;
+  font-family: FSMe-Bold;
+  color: #444957;
+}
+/* line 38, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .info p {
+  color: #444957;
+}
+/* line 41, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .info .icon {
+  color: #444957;
+  font-size: 1.5em;
+  color: #a6aab6;
+}
+/* line 46, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .info .date {
+  margin-right: 20px;
+  display: inline-block;
+}
+/* line 51, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .parent {
+  position: relative;
+  -ms-transform: skewY(-2deg);
+  -webkit-transform: skewY(-2deg);
+  transform: skewY(-2deg);
+  background-color: #e2e3e8;
+  padding: 10px 20px;
+  position: relative;
+}
+/* line 59, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .parent:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: #e2e3e8;
+  position: absolute;
+  left: 0;
+  top: 98%;
+}
+/* line 68, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .parent .child {
+  -ms-transform: skewY(2deg);
+  -webkit-transform: skewY(2deg);
+  transform: skewY(2deg);
+}
+/* line 72, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .parent .child a.link {
+  color: #ef7c00;
+  float: left;
+  margin-top: 15px;
+  text-decoration: underline;
+}
+/* line 78, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .parent .child a.btn {
+  float: right;
+  min-width: 50%;
+  border-color: #ef7d00;
+}
+/* line 88, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items .slick-dots li {
+  margin: 0 5px;
 }
 
 /* line 1, ../../../src/components/faqs/sass/faqs.scss */
@@ -2716,4 +2873,65 @@ nav#pdp-navigation .menuFollower {
     margin: 0;
     width: 100%;
   }
+}
+
+/* line 64, ../../../src/components/faqs/sass/faqs.scss */
+.experience-mode #faqs .collapse {
+  display: block !important;
+}
+
+/* line 1, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section {
+  background-color: white;
+  padding: 50px;
+}
+@media (max-width: 767px) {
+  /* line 1, ../../../src/components/training-material/sass/_training-material.scss */
+  section#training-section {
+    padding: 0px;
+  }
+}
+/* line 8, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material h1 {
+  margin-bottom: 20px;
+}
+/* line 19, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .h3div {
+  padding: 10px;
+}
+/* line 21, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .h3div .video-wrap {
+  display: block;
+}
+/* line 24, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .h3div h3 {
+  color: black;
+  font-weight: bold;
+}
+/* line 29, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material ul.slick-dots {
+  text-align: center;
+  width: 100%;
+  bottom: -40px;
+}
+@media (max-width: 767px) {
+  /* line 29, ../../../src/components/training-material/sass/_training-material.scss */
+  section#training-section .training-material ul.slick-dots {
+    position: static;
+  }
+}
+/* line 36, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material ul.slick-dots li {
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  background: #6a7285;
+}
+/* line 41, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material ul.slick-dots li button:before {
+  content: '';
+}
+/* line 44, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material ul.slick-dots li.slick-active {
+  background: #ffd500;
 }
