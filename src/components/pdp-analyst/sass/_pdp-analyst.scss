@@ -1,4 +1,4 @@
-#pdp-analyst {
+.analyst-views {
 	background-color: $white;
 	padding-bottom: 50px;
 	.analyst-list-container {
@@ -75,6 +75,7 @@
 					.location {
 						padding-left: 20px;
 						position: relative;
+						margin-top: 15px;
 						&:before {
 							content: '\e918';
 						    font-family: 'InformaIcons';
@@ -128,7 +129,7 @@
 				}
 			}
 			.analyst-footer {
-				padding: 20px;
+				padding: 15px;
 				background-color: $gray-draker-bg;
 				position: relative;
 				-ms-transform: skewY(-2deg);
@@ -163,8 +164,25 @@
 					    width: 35px;
 					    height: 35px;
 					    text-align: center;
+					    @include mobile {
+					    	background-color: transparent;
+					    	width: auto;
+					    	height: auto;
+					    }
+					    @include tablet {
+					    	background-color: transparent;
+					    	width: auto;
+					    	height: auto;
+					    }
 					    a {
 					    	vertical-align: middle;
+					    	color: $white;
+					    	@include mobile {
+						    	color: #6a7287;
+						    }
+						    @include tablet {
+						    	color: #6a7287;
+						    }
 					    }
 						&:last-child {
 							margin-right: 0;
@@ -177,16 +195,16 @@
 					color: $yellow;
 				}
 				.btn {
-					width: 160px;
+					width: 180px;
 					border-color: $btn-primay-default-bg;
 					&:after {
 						color: $orange;
 					}
 					@include mobile {
-						width: 50%;
+						width: 60%;
 					}
 					@include tablet {
-						width: 50%;
+						width: 60%;
 					}
 				}
 			}
