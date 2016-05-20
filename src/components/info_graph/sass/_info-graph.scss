@@ -1,0 +1,36 @@
+section#infograph{
+  margin-top: 30px;
+  .row-bg{
+    background-color: #3C404C;
+    padding: 30px;
+    .numdiv{
+      font-size: 40px;
+      font-weight: bolder;
+      color: #FED402;
+      &:after {
+        content:"";
+        height: 0.5em;
+        border-left: 1px solid #595959;
+        margin-left: 100px;
+      }
+
+    }
+    .clients {
+      &:last-child {
+        .numdiv{
+          &:after {
+            border-left: none;
+          }
+        }
+      }
+    }
+
+    // .numdiv:not(:last-child):after {
+    // content: "";
+    // border-left: none;
+    // }
+    .sub-desc{
+      color: #C1C1C1;
+    }
+  }
+}
