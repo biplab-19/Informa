@@ -170,6 +170,9 @@ h3 {
     padding: 35px 0;
     color: $light;
     ul {
+       @include mobile {
+             text-align: center;
+       }
       li {
         margin-right: 35px;
         display: inline-block;
