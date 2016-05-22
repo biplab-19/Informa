@@ -38,6 +38,7 @@ INFORMA.globalFooter = (function(window, $, namespace) {
             }
             if(INFORMA.global.device.viewportN == 1){
                   _slideCount = 4;
+                  _dots = true;
             }
             else if (INFORMA.global.device.viewportN == 2){
                   _slideCount = 2;
