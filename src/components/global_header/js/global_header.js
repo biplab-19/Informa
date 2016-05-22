@@ -29,6 +29,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _pdpNavigationPos = 0,
       _pdpWrapper = $('.product-detail-page'),
       _pdpMenuFollower = $('#pdp-navigation .menuFollower'),
+      _pdpMenuActive = true,
       // for scrolling purpose
       _pdpLink = $('#pdp-navigation ul > li > a'),
       _pdpFixed = false,
@@ -59,6 +60,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _navHeight = _mainNavigation.height();
             _headerPos = _mainNavigation.offset().top;
       }
+      // To show the menu follower with right width and position, todo: remove harcode
+      _pdpMenuFollower.css('width',$(_pdpLink[0]).width())
+                     .css('left',$(_pdpLink[0]).offset().left)
+                     .show();
 
       // both pdp nav and main nav handled here
 
@@ -66,7 +71,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
          $(window).on('scroll',function(){
                // little savings here, the first function will not be executed when pdp nav is sticky
              if(!_pdpFixed && _mainNavigation.length >0 && !INFORMA.global.device.isMobile) _activateMainFixedHeader();
-             if(_pdpNavigation.length > 0 ) _activatePdpFixedHeader();
+             if(_pdpNavigation.length > 0 && _pdpMenuActive) _activatePdpFixedHeader();
          });
       };
 
@@ -102,6 +107,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _pdpLink = $('#pdp-navigation ul > li > a');
             //console.log(_pdpMenuPos);
             // todo: not a right place to add,so.. you know what to do
+            if(_pdpLink.length == 0) {
+                  _pdpNavigation.remove();
+                  _pdpMenuActive = false;
+
+                  // if there are pdp components, the li count will be 0
+                  // if the li count is zero, then remove the whole nav
+            }
 
       };
 
@@ -116,10 +128,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                            for(var i=0;i<_pdpLink.length;i++){
                                  var _sectionName = '#'+$(_pdpLink[i]).data('target');
                                  _pdpMenuPos.push($(_sectionName).offset().top);
-                                 _pdpMenuWidth.push($(_pdpLink[i]).parent().width());
+                                 _pdpMenuWidth.push($(_pdpLink[i]).width());
                                  _pdpMenuleft.push($(_pdpLink[i]).parent().offset().left);
                            }
-                           _pdpMenuFollower.show();
+
                            // Ilaiyaraja rocks, fix the hard code later
                            $('#pdp-navigation ul > li:first-child').addClass('selected');
                            if(INFORMA.global.device.isMobile) _pdpNavigation.addClass('cont');
