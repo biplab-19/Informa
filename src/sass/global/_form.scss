@@ -25,3 +25,97 @@ select.form-control{
         position:absolute;
     }
 }
+.form {
+    label.label {
+        font-family: FSMe-Light;
+        font-size: 1em;
+        font-weight: 400;
+        padding: 0;
+    }
+    :not(.lt-ie9) {
+        /* HTML5 Boilerplate accessible hidden styles */
+        .custom-radio input {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        /* the basic, unchecked style */
+        .custom-radio input + span::before {
+            content: '';
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.25em;
+            border-radius: 1em;
+            border: 0.225em solid #fff;
+            margin-right: 0.75em;
+            background: $white;
+            transition: 0.5s ease all;
+            position: relative;
+            top: -2px;
+        }
+        /* the checked style using the :checked pseudo class */
+        .custom-radio input:checked + span::before {
+            background: $input-orange;
+        }
+    }
+    .custom-multiselect {
+        a {
+            padding: 0 !important;
+        }
+        label {
+            color: $text-gray;
+        }
+        input {
+            border:1px solid #a7a9b6;
+            box-shadow:none;
+            background:$white;
+            width: 12px;
+            height: 12px;
+        }
+        .btn-group {
+            width: 100%;
+            .caret{
+                content: "\e901";
+                border:none;
+                font-family: 'InformaIcons';
+                position:absolute;
+                right: 30px;
+                &:before{
+                    font: 400 15px 'InformaIcons';
+                    content: "\e901";
+                    color:#a7a9b6;
+                }
+            }
+            .dropdown-toggle {
+                width: 100%;
+                background: $white;
+                border: none;
+                padding: 10px;
+                &:after {
+                    content: '';
+                }
+                &:hover {
+                    background: $white;
+                }
+            }
+            .dropdown-menu {
+                border-radius: 0;
+                border: none;
+                box-shadow: none;
+                width: 100%;
+                padding:10px 0;
+                .active{
+                    a{
+                        background-color:transparent;
+                    }
+                }
+            }
+        }
+    }
+}

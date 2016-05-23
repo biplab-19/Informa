@@ -1,92 +1,214 @@
 header {
-      color: $light;
-      section.informaTop {
-            background: $gray-header;
-            .informa-select {
-                  font-size: 18px;
-                  text-transform: lowercase;
-                  width: 60px;
-                  text-align: center;
-                  margin: 0 auto;
-                  padding: 5px;
+    color: $light;
+    section.informaTop {
+        background: $gray-header;
+        .informa-select {
+            font-size: 18px;
+            text-transform: lowercase;
+            width: 60px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 5px;
+        }
+    }
+    section.logoSection {
+        background: $gray-light-bg;
+        padding: 20px 0;
+        .logo {
+            float: left;
+        }
+        .login {
+            @include mobile {
+                display: none;
             }
-      }
-      section.logoSection{
-            background: $gray-light-bg;
-            padding: 20px 0;
-            .logo {
-                  float: left;
+            float: right;
+            cursor: pointer;
+            border: 2px solid $gray-header;
+            padding: 5px 30px;
+            margin-top: 5px;
+            position: relative;
+            &:after {
+                content: '>';
+                font-family: FSMe-Light;
+                transform: rotate(90Deg);
+                position: absolute;
+                top: 8px;
+                right: 15px;
+                font-size: 10px;
             }
+        }
+        @mobile {
+            .logo,
             .login {
-                  @include mobile {
-                        display: none;
-                  }
-                  float: right;
-                  cursor: pointer;
-                  border: 2px solid $gray-header;
-                  padding: 5px 30px;
-                  margin-top: 5px;
-                  position: relative;
-                  &:after {
-                        content: '>';
-                        font-family: FSMe-Light;
-                        transform: rotate(90Deg);
-                        position: absolute;
-                        top: 8px;
-                        right: 15px;
-                        font-size: 10px;
-                  }
+                float: none;
             }
-            @mobile {
-                  .logo,.login {
-                        float:none;
-                  }
+        }
+    }
+    nav#mainNavigation {
+        background: $gray-dark-bg;
+        @include mobile {
+            height: 0;
+            display: none;
+        }
+        @include tablet {}
+        &.main-nav-fixed {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        ul {
+            margin: 0;
+            li {
+                a {
+                    color: $light;
+                    padding: 20px 60px 20px 0;
+                }
             }
-      }
-      nav#mainNavigation {
-            background: $gray-dark-bg;
-            @include mobile{
-                  height: 0;
-                  display: none;
-            }
-            @include tablet {
-
-            }
-
-            &.main-nav-fixed {
-                  position: fixed;
-                  top: 0;
-                  width: 100%;
-            }
+        }
+        .mainCTA {
             ul {
-                  margin: 0;
-                  li {
-                        a {
-                              color: $light;
-                              padding: 20px 60px 20px 0;
-                        }
-                  }
+                float: none;
             }
-            .mainCTA {
-                  ul {
-                        float: none;
-                  }
-                  & > ul li {
-                        width: 50%;
-                        text-align: center;
-                        border-left: 1px solid $gray-header;
+            & > ul li {
+                width: 50%;
+                text-align: center;
+                border-left: 1px solid $gray-header;
+                float: left;
+                &.search {
+                    background: $orange;
+                    text-align: left;
+                    a {
+                        padding: 20px;
+                    }
+                    .icon {
+                        font-size: 1.5em;
+                        position: absolute;
+                        right: 15px;
+                    }
+                }
+                a {
+                    color: $light;
+                    padding: 20px 10px;
+                }
+                &:last-child {
+                    border-right: 1px solid $gray-header;
+                }
+            }
+        }
+    }
+}
+
+#mainNavigation {
+    .product-finder {
+        padding: 15px 0;
+        background-color: $gray-light-bg;
+        form {
+            margin: 0;
+            padding: 0;
+            legend {
+                border: none;
+                margin: 0;
+                display: none;
+            }
+            ul.search-options {
+                margin: 0;
+                padding: 0;
+                li {
+                    list-style-type: none;
+                    .custom-radio {
+                        margin-right: 30px;
+                        @include mobile{
+                            margin-right: 10px;
+                        }
+                        .label {
+                            font-size: 1.1em;
+                        }
+                    }
+                }
+            }
+            ul.sector-options {
+                margin: 20px 0 0;
+                padding: 0;
+                li {
+                    list-style-type: none;
+                    .label-text {
+                        background-color: #e1e2e7;
                         float: left;
-                        &.search {
-                              background: $orange;
+                        height: 40px;
+                        line-height: 38px;
+                        margin: 0;
+                        min-width: 100px;
+                        padding: 0 15px;
+                        color: $text-gray;
+                        position:relative;
+                        @include mobile {
+                            background-color: transparent;
+                            float: none;
+                            height: auto;
+                            line-height: auto;
+                            margin: 0;
+                            min-width: auto;
+                            padding: 0;
+                            color: $white;
+                        }
+                        &:after{  
+                            border:solid transparent;
+                            border-color: rgba(225,226,231,0);
+                            border-left-color:#e1e2e7;
+                            border-width: 6px;
+                            content: "";
+                            height: 0;
+                            left: 100%;
+                            top:38%;
+                            position: absolute;
+                            width: 0;
+                            z-index: 4;
+                            @include mobile{
+                                border:none;
+                            }
+                        }
+                    }
+                    .custom-multiselect {
+                        width: 73%;
+                        margin-right: 30px;
+                        height: 40px;
+                        display: inline-block;
+                        @include mobile {
+                            margin-bottom: 20px;
+                            width: 100%;
+                        }
+                        .dropdown-toggle {
+                            height: 40px;
                         }
                         a {
-                              color: $light;
-                              padding: 20px 10px;
+                            color: $text-gray;
                         }
-                        &:last-child {
-                              border-right: 1px solid $gray-header;
-                        }
-                  }
+                    }
+                }
+                .menu {
+                    display: inline-block;
+                    width: 44%;
+                    @include mobile{
+                        display: block;
+                        width: 100%
+                    }
+                }
+                .button {
+                    width: 11%;
+                    margin-right: 0;
+                    text-align:right;
+                    @include mobile{
+                        display: block;
+                        width: 100%
+                    }
+                    .btn {
+                        padding: 10px 20px;
+                        min-width: 100%;
+                        background-color: $orange;
+                        border:none;
+                    }
+                }
             }
-      }
+        }
+    }
 }
