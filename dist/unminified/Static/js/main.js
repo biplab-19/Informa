@@ -298,13 +298,13 @@ var INFORMA = window.INFORMA || {};
                 '</p>'+
                 '<img src="{{ContentType.[1]}}" alt="{{ContentType.[2]}}" />'+
                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
-                '<p class="date">{{TimeStamp}}</p>'+
+                '<p class="date">{{PublicationDate}}</p>'+
                 '<div class="list-content">'+
                     '{{#if Description}}'+
                         '<p class="description">{{Description}}</p>'+
-                        '<span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>'+
+                        '<span class="article-info"><em>Author:</em> <strong>{{Profile}}</strong></span>'+
                             '<span class="article-info"><em>Topic:</em>'+
-                                '<strong>{{Topics}}</strong>'+
+                                '<strong>{{Topic}}</strong>'+
                             '</span>'+
                     '{{/if}}'+
                     '{{#if Video}}'+
@@ -316,9 +316,9 @@ var INFORMA = window.INFORMA || {};
                         '</div>'+
                     '{{/if}}'+
                 '</div>'+
-                '{{#if ResourceLink}}'+
+                '{{#if Link}}'+
                     '<div class="btn-container">'+
-                      '<a role="button" href="{{ResourceLink.url}}" class="btn btn-default" target="{{ResourceLink.target}}">{{ResourceLink.linkText}}</a>'+
+                      '<a role="button" href="{{Link.Url}}" class="btn btn-default" target="{{Link.Target}}">{{Link.linkText}}</a>'+
                     '</div>'+
                 '{{/if}}'+
             '</li>'+
@@ -326,13 +326,13 @@ var INFORMA = window.INFORMA || {};
         'HeadlinesListItems':
             '{{#each Headlines}}'+
                 '<li>'+
-                    '<p class="date">{{Date}}</p>'+
+                    '<p class="date">{{PublicationDate}}</p>'+
                     '<div class="list-content">'+
                         '<h4 class="poduct-brand-subheading">{{Title}}</h4>'+
                     '</div>'+
                     '<div class="link">'+
-                        '<a role="button" href="{{Url}}" title="External Link" target="_blank">'+
-                        '<span class="icon-external-link"></span></a>'+
+                        '<a role="button" href="{{Link.Url}}" title="External Link" target="{{Link.Target}}">'+
+                        '<span class="icon-external-link">{{Link.linkText}}</span></a>'+
                     '</div>'+
                 '</li>'+
             '{{/each}}'
