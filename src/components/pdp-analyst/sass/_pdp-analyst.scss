@@ -164,25 +164,9 @@
 					    width: 35px;
 					    height: 35px;
 					    text-align: center;
-					    @include mobile {
-					    	background-color: transparent;
-					    	width: auto;
-					    	height: auto;
-					    }
-					    @include tablet {
-					    	background-color: transparent;
-					    	width: auto;
-					    	height: auto;
-					    }
 					    a {
 					    	vertical-align: middle;
 					    	color: $white;
-					    	@include mobile {
-						    	color: #6a7287;
-						    }
-						    @include tablet {
-						    	color: #6a7287;
-						    }
 					    }
 						&:last-child {
 							margin-right: 0;
