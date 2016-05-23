@@ -9,8 +9,8 @@
                 objectContainer,
                 window = $(window),
                 loader = {
-                    width: 38,
-                    height: 38
+                    width: 124,
+                    height: 124
                 };
 
             this.Hide = function() {
@@ -23,8 +23,9 @@
                 var IsSpinnerExist = objectContainer.find(".load-spinner");
 
                 if (!IsSpinnerExist.length) {
-                    control = $("<div><img src='/images/puff.svg' /></div>");
-                    control.addClass("load-spinner").prependTo(objectContainer);
+                    control = $("<div class='load-spinner'><img src='/Static/images/puff.svg' /></div>").hide();
+                    control.prependTo(objectContainer);
+                    control.fadeIn("slow");
                 }
                 control.fadeIn("fast");
 
@@ -37,8 +38,8 @@
 
             var RePosition = function() {
                 objectContainer.find(".load-spinner img").css({
-                    left: ((control.width()) / 2),
-                    top: "50%"
+                    left: ((control.width()-loader.width-5) / 2),
+                    top: ((control.height()-loader.height-15) / 2)
                 });
             }
         }

@@ -1,17 +1,29 @@
+/*
+ * global.js
+ *
+ *
+ * @project:	Informa
+ * @date:	   2016-April-25
+ * @author:	 Jagadeesh Jayachandran, jjayachandran2@sapient.com
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
 var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
 	'use strict';
 	//variables
   INFORMA.Templates = {
     'articleListItems':
-    '{{#each articleListItems}}'+
+    '{{#each Articles}}'+
             '<li>'+
-                '<p class="category">{{ContentType}}'+
+                '<p class="category">{{ContentType.[0]}}'+
                   '<strong>{{SectorType}}</strong>'+
                 '</p>'+
-                '<img src="{{Image}}" alt="{{ImageAltText}}" />'+
+                '<img src="{{ContentType.[1]}}" alt="{{ContentType.[2]}}" />'+
                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
-                '<p class="date">30.03.2016</p>'+
+                '<p class="date">{{TimeStamp}}</p>'+
                 '<div class="list-content">'+
                     '{{#if Description}}'+
                         '<p class="description">{{Description}}</p>'+
@@ -35,6 +47,19 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                 '{{/if}}'+
             '</li>'+
-          '{{/each}}'
+          '{{/each}}',
+        'HeadlinesListItems':
+            '{{#each Headlines}}'+
+                '<li>'+
+                    '<p class="date">{{Date}}</p>'+
+                    '<div class="list-content">'+
+                        '<h4 class="poduct-brand-subheading">{{Title}}</h4>'+
+                    '</div>'+
+                    '<div class="link">'+
+                        '<a role="button" href="{{Url}}" title="External Link" target="_blank">'+
+                        '<span class="icon-external-link"></span></a>'+
+                    '</div>'+
+                '</li>'+
+            '{{/each}}'
   }
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+}(this, jQuery, 'INFORMA'));
