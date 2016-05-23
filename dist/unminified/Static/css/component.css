@@ -1,4 +1,4 @@
-/*! 2016-05-20 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-05-23 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -1725,6 +1725,7 @@ section#market-focus.sector-page-coverage {
 /* line 5, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus.sector-page-coverage .market-list-wrapper .market-list {
   background-color: #f0f1f3;
+  height: 82px;
 }
 @media (max-width: 767px) {
   /* line 1, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
@@ -1732,27 +1733,27 @@ section#market-focus.sector-page-coverage .market-list-wrapper .market-list {
     padding: 6px 0 5px;
   }
 }
-/* line 14, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 15, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus h1 {
   margin-bottom: 40px;
 }
 @media (max-width: 767px) {
-  /* line 14, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 15, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus h1 {
     margin-bottom: 18px;
   }
 }
-/* line 20, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 21, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper {
   margin-bottom: 32px;
 }
 @media (max-width: 767px) {
-  /* line 20, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 21, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper {
     margin-bottom: 15px;
   }
 }
-/* line 25, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 26, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper .market-list {
   background: #fff;
   background-repeat: no-repeat;
@@ -1762,24 +1763,24 @@ section#market-focus .market-list-wrapper .market-list {
   overflow: hidden;
   height: 62px;
 }
-/* line 33, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 34, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper .market-list h2 {
   color: #444957;
 }
-/* line 36, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 37, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper .market-list p {
   display: none;
   font-size: 14px;
   line-height: 1.6eM;
 }
 @media (max-width: 767px) {
-  /* line 36, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 37, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper .market-list p {
     font-size: 12px;
     padding-right: 22px;
   }
 }
-/* line 45, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 46, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper .market-list .abs-image {
   top: 0;
   right: 0;
@@ -1997,24 +1998,27 @@ section#customer-quote .slick-initialized .slick-prev {
 /* line 1, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation {
   background: #ffd500;
-  border-top: 1px solid #fff;
-  border-bottom: 2px solid #6a7285;
+  border-bottom: 2px solid #c0c1c2;
 }
-/* line 5, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 4, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation.navbar-fixed-top {
   position: fixed;
   width: 100%;
 }
-/* line 9, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 8, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul {
   margin: 0;
   position: relative;
+}
+/* line 11, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+nav#pdp-navigation ul li {
+  margin-right: 20px;
 }
 /* line 13, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul li a {
   font-size: 14px;
   color: #343742;
-  padding: 15px 20px;
+  padding: 15px 0px;
 }
 /* line 20, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation .menuFollower {
@@ -2584,105 +2588,101 @@ nav#pdp-navigation .menuFollower {
   height: 35px;
   text-align: center;
 }
-@media (max-width: 767px) {
-  /* line 158, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li {
-    background-color: transparent;
-    width: auto;
-    height: auto;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 158, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li {
-    background-color: transparent;
-    width: auto;
-    height: auto;
-  }
-}
-/* line 177, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 167, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li a {
   vertical-align: middle;
   color: #fff;
 }
-@media (max-width: 767px) {
-  /* line 177, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li a {
-    color: #6a7287;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 177, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-  .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li a {
-    color: #6a7287;
-  }
-}
-/* line 187, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 171, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 192, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 176, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .full-profile {
   float: right;
   font-size: 16px;
   color: #ffd500;
 }
-/* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 181, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
   width: 180px;
   border-color: #ef7c00;
 }
-/* line 200, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 184, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn:after {
   color: #ef7c00;
 }
 @media (max-width: 767px) {
-  /* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 181, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 181, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
 }
+/* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container.analyst .anlyst-heading {
+  background-color: #ffd500;
+}
+/* line 199, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container.analyst .anlyst-heading:after {
+  background-color: #ffd500;
+}
+/* line 205, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container.consultant .anlyst-heading {
+  background-color: #ffea7f;
+}
+/* line 207, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container.consultant .anlyst-heading:after {
+  background-color: #ffea7f;
+}
 /* line 213, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container.reporter .anlyst-heading {
+  background-color: #fff7cc;
+}
+/* line 215, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container.reporter .anlyst-heading:after {
+  background-color: #fff7cc;
+}
+/* line 221, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container {
   margin-top: 30px;
 }
-/* line 215, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 223, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn {
   width: 260px;
 }
-/* line 217, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 225, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn span {
   line-height: 1;
 }
 @media (max-width: 767px) {
-  /* line 215, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 223, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .analyst-views .btn-container .btn {
     width: 100%;
   }
 }
-/* line 223, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 231, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn .more {
   display: block;
 }
-/* line 226, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 234, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn .less {
   display: none;
 }
-/* line 230, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 238, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn.showLess .more {
   display: none;
 }
-/* line 233, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 241, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn.showLess .less {
   display: block;
 }
-/* line 237, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 245, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn:after {
   top: 14px;
 }
@@ -2803,11 +2803,11 @@ nav#pdp-navigation .menuFollower {
 }
 
 /* line 1, ../../../src/components/faqs/sass/faqs.scss */
-#faqs {
+#faqs, .accordian-structure {
   padding: 30px 0;
 }
 /* line 4, ../../../src/components/faqs/sass/faqs.scss */
-#faqs .panel-group .panel {
+#faqs .panel-group .panel, .accordian-structure .panel-group .panel {
   background-color: transparent;
   border: none;
   border-bottom: 2px solid #e1e3e7;
@@ -2815,33 +2815,33 @@ nav#pdp-navigation .menuFollower {
   box-shadow: none;
 }
 /* line 10, ../../../src/components/faqs/sass/faqs.scss */
-#faqs .panel-group .panel .panel-heading {
+#faqs .panel-group .panel .panel-heading, .accordian-structure .panel-group .panel .panel-heading {
   background-color: transparent;
   position: relative;
   padding: 20px 65px 20px 15px;
 }
 /* line 15, ../../../src/components/faqs/sass/faqs.scss */
-#faqs .panel-group .panel .panel-heading .panel-title a {
+#faqs .panel-group .panel .panel-heading .panel-title a, .accordian-structure .panel-group .panel .panel-heading .panel-title a {
   color: #6a7287;
   font-size: 18px;
   font-style: italic;
   font-weight: bold;
 }
 /* line 20, ../../../src/components/faqs/sass/faqs.scss */
-#faqs .panel-group .panel .panel-heading .panel-title a:hover, #faqs .panel-group .panel .panel-heading .panel-title a:active, #faqs .panel-group .panel .panel-heading .panel-title a:focus {
+#faqs .panel-group .panel .panel-heading .panel-title a:hover, #faqs .panel-group .panel .panel-heading .panel-title a:active, #faqs .panel-group .panel .panel-heading .panel-title a:focus, .accordian-structure .panel-group .panel .panel-heading .panel-title a:hover, .accordian-structure .panel-group .panel .panel-heading .panel-title a:active, .accordian-structure .panel-group .panel .panel-heading .panel-title a:focus {
   text-decoration: none;
 }
 /* line 23, ../../../src/components/faqs/sass/faqs.scss */
-#faqs .panel-group .panel .panel-heading .panel-title a.collapsed {
+#faqs .panel-group .panel .panel-heading .panel-title a.collapsed, .accordian-structure .panel-group .panel .panel-heading .panel-title a.collapsed {
   font-weight: normal;
 }
 /* line 25, ../../../src/components/faqs/sass/faqs.scss */
-#faqs .panel-group .panel .panel-heading .panel-title a.collapsed:after {
+#faqs .panel-group .panel .panel-heading .panel-title a.collapsed:after, .accordian-structure .panel-group .panel .panel-heading .panel-title a.collapsed:after {
   content: "+";
   background-color: #ffd500;
 }
 /* line 30, ../../../src/components/faqs/sass/faqs.scss */
-#faqs .panel-group .panel .panel-heading .panel-title a:after {
+#faqs .panel-group .panel .panel-heading .panel-title a:after, .accordian-structure .panel-group .panel .panel-heading .panel-title a:after {
   content: "-";
   position: absolute;
   right: 30px;
@@ -2858,18 +2858,18 @@ nav#pdp-navigation .menuFollower {
   text-align: center;
 }
 /* line 47, ../../../src/components/faqs/sass/faqs.scss */
-#faqs .panel-group .panel .panel-body {
+#faqs .panel-group .panel .panel-body, .accordian-structure .panel-group .panel .panel-body {
   border: none;
   padding: 15px 60px 15px 15px;
 }
 /* line 53, ../../../src/components/faqs/sass/faqs.scss */
-#faqs .btn {
+#faqs .btn, .accordian-structure .btn {
   width: 260px;
   margin: 15px;
 }
 @media (max-width: 767px) {
   /* line 53, ../../../src/components/faqs/sass/faqs.scss */
-  #faqs .btn {
+  #faqs .btn, .accordian-structure .btn {
     margin: 0;
     width: 100%;
   }
@@ -2934,4 +2934,148 @@ section#training-section .training-material ul.slick-dots li button:before {
 /* line 44, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material ul.slick-dots li.slick-active {
   background: #ffd500;
+}
+
+/* line 3, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#hero-banner.about-us {
+  height: 647px;
+}
+/* line 5, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#hero-banner.about-us h1 {
+  font-size: 40px;
+}
+/* line 8, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#hero-banner.about-us .content-section {
+  height: 647px;
+  position: relative;
+  background: RGBA(0, 0, 0, 0.8);
+  padding-right: 60px;
+}
+/* line 13, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#hero-banner.about-us .content-section:before {
+  content: '';
+  position: absolute;
+  left: -130px;
+  height: 647px;
+  width: 0;
+  border-top: 647px solid transparent;
+  border-bottom: 0px solid transparent;
+  border-right: 130px solid RGBA(0, 0, 0, 0.8);
+  left: -130px;
+}
+/* line 25, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#hero-banner.about-us .abs-image {
+  width: 100%;
+  min-width: 100%;
+}
+/* line 30, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#hero-banner.about-us.light-bg .content-section {
+  background: RGBA(0, 0, 0, 0.4);
+}
+/* line 32, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#hero-banner.about-us.light-bg .content-section:before {
+  border-right: 130px solid RGBA(0, 0, 0, 0.4);
+}
+
+/* line 1, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand {
+  background-color: #444957;
+}
+/* line 3, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand h1, #contact-us-brand h3 {
+  color: #fff;
+}
+/* line 6, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand h3 {
+  font-size: 18px;
+  font-weight: normal;
+}
+/* line 10, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .contact-info {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+/* line 15, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .country-name {
+  color: #fff;
+  font-size: 22px;
+}
+/* line 20, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-heading {
+  background-color: #fff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+/* line 23, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-heading p {
+  margin-bottom: 0;
+  color: #6a7287;
+}
+/* line 27, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-heading .panel-title {
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #444957;
+}
+/* line 32, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-heading.collapsed {
+  font-weight: normal;
+  background-color: #eff0f3;
+}
+/* line 35, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-heading.collapsed:after {
+  content: "+";
+  background-color: #ffd500;
+}
+/* line 40, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-heading:after {
+  content: "-";
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  margin-top: -15px;
+  font-size: 24px;
+  color: #fff;
+  font-style: normal;
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #c3c7cf;
+  text-align: center;
+}
+/* line 56, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body {
+  background-color: #fff;
+}
+/* line 59, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body .contact-feeds p {
+  margin-top: 20px;
+}
+/* line 61, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body .contact-feeds p a {
+  color: #ef7c00;
+  padding-left: 50px;
+  position: relative;
+  font-size: 16px;
+}
+/* line 66, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body .contact-feeds p a:before {
+  position: absolute;
+  left: 0;
+  color: #6a7287;
+  top: -4px;
+  font-size: 30px;
+}
+/* line 76, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body strong {
+  display: block;
+  margin-bottom: 10px;
+}
+/* line 81, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body address p {
+  margin-bottom: 0;
 }

@@ -1,4 +1,4 @@
-/*! 2016-05-20 */var INFORMA = window.INFORMA || {};
+/*! 2016-05-23 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
 	'use strict';
     INFORMA.getCookie =function(cname) {
@@ -138,7 +138,7 @@ INFORMA.global = (function(window, $, namespace) {
 	var init = function(){
 		// viewport properties
 		var _viewportWidth = $(window).width();
-		if(_viewportWidth >= 1142){
+		if(_viewportWidth >= 1024){
 			device.isDesktop = true;
 			device.viewport = 'desktop';
 			device.viewportN = 0;
