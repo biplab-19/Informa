@@ -388,6 +388,7 @@ INFORMA.featureList = (function(window, $, namespace) {
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.featureList.init());
 
+
 /*
  * global.js
  *
