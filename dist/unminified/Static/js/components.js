@@ -388,7 +388,6 @@ INFORMA.featureList = (function(window, $, namespace) {
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.featureList.init());
 
-
 /*
  * global.js
  *
@@ -575,7 +574,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             // To show the menu follower with right width and position, todo: remove harcode
             _pdpMenuFollower.css('width',$(_pdpLink[0]).width())
                            .css('left',$(_pdpLink[0]).offset().left)
-                           .show();
+                           .show(); 
       }
       if(_mainNavigation.length > 0) {
             _navHeight = _mainNavigation.height();
