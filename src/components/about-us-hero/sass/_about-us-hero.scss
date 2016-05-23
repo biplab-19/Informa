@@ -2,14 +2,23 @@ $about-hero-height-desktop: 647px;
 
 section#hero-banner.about-us {
       height: $about-hero-height-desktop;
+      @include mobile {
+        height: auto;
+      }
       h1 {
             font-size: 40px;
+            padding-top: 60px;
+            @include mobile {
+              font-size: 25px;
+              padding-top: 10px;
+            }
       }
       .content-section {
             height: $about-hero-height-desktop;
             position: relative;
             background: RGBA(0,0,0,0.8);
-            padding-right:60px;
+            padding-right:50px;
+            line-height: 30px;
             &:before {
                   content: '';
                   position: absolute;
@@ -19,7 +28,34 @@ section#hero-banner.about-us {
                   border-top: $about-hero-height-desktop solid transparent;
                   border-bottom: 0px solid transparent;
                   border-right: 130px solid RGBA(0,0,0,0.8);
-                  left: -130px;
+            }
+            @include tablet {
+              &:before {
+                    content: '';
+                    position: absolute;
+                    left: -150px;
+                    height: $about-hero-height-desktop;
+                    width: 0;
+                    border-top: $about-hero-height-desktop solid transparent;
+                    border-bottom: 0px solid transparent;
+                    border-right: 130px solid RGBA(0,0,0,0.8);
+                    padding: 10px;
+              }
+            }
+            @include mobile {
+              padding: 20px;
+              height: auto;
+              &:before {
+                content: '';
+                position: none;
+                left: 0px;
+                height: 0px;
+                width: 0;
+                border-top: none;
+                border-bottom: none;
+                border-right: none;
+
+              }
             }
       }
       .abs-image {
