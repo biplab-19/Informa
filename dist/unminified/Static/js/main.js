@@ -235,8 +235,8 @@ jQuery(INFORMA.global.init());
                 objectContainer,
                 window = $(window),
                 loader = {
-                    width: 38,
-                    height: 38
+                    width: 124,
+                    height: 124
                 };
 
             this.Hide = function() {
@@ -249,8 +249,9 @@ jQuery(INFORMA.global.init());
                 var IsSpinnerExist = objectContainer.find(".load-spinner");
 
                 if (!IsSpinnerExist.length) {
-                    control = $("<div><img src='/images/puff.svg' /></div>");
-                    control.addClass("load-spinner").prependTo(objectContainer);
+                    control = $("<div class='load-spinner'><img src='/Static/images/puff.svg' /></div>").hide();
+                    control.prependTo(objectContainer);
+                    control.fadeIn("slow");
                 }
                 control.fadeIn("fast");
 
@@ -263,8 +264,8 @@ jQuery(INFORMA.global.init());
 
             var RePosition = function() {
                 objectContainer.find(".load-spinner img").css({
-                    left: ((control.width()) / 2),
-                    top: "50%"
+                    left: ((control.width()-loader.width-5) / 2),
+                    top: ((control.height()-loader.height-15) / 2)
                 });
             }
         }
@@ -272,20 +273,32 @@ jQuery(INFORMA.global.init());
     }());
 }(window, INFORMA, jQuery));
 
+/*
+ * global.js
+ *
+ *
+ * @project:	Informa
+ * @date:	   2016-April-25
+ * @author:	 Jagadeesh Jayachandran, jjayachandran2@sapient.com
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
 var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
 	'use strict';
 	//variables
   INFORMA.Templates = {
     'articleListItems':
-    '{{#each articleListItems}}'+
+    '{{#each Articles}}'+
             '<li>'+
-                '<p class="category">{{ContentType}}'+
+                '<p class="category">{{ContentType.[0]}}'+
                   '<strong>{{SectorType}}</strong>'+
                 '</p>'+
-                '<img src="{{Image}}" alt="{{ImageAltText}}" />'+
+                '<img src="{{ContentType.[1]}}" alt="{{ContentType.[2]}}" />'+
                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
-                '<p class="date">30.03.2016</p>'+
+                '<p class="date">{{TimeStamp}}</p>'+
                 '<div class="list-content">'+
                     '{{#if Description}}'+
                         '<p class="description">{{Description}}</p>'+
@@ -309,9 +322,22 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                 '{{/if}}'+
             '</li>'+
-          '{{/each}}'
+          '{{/each}}',
+        'HeadlinesListItems':
+            '{{#each Headlines}}'+
+                '<li>'+
+                    '<p class="date">{{Date}}</p>'+
+                    '<div class="list-content">'+
+                        '<h4 class="poduct-brand-subheading">{{Title}}</h4>'+
+                    '</div>'+
+                    '<div class="link">'+
+                        '<a role="button" href="{{Url}}" title="External Link" target="_blank">'+
+                        '<span class="icon-external-link"></span></a>'+
+                    '</div>'+
+                '</li>'+
+            '{{/each}}'
   }
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+}(this, jQuery, 'INFORMA'));
 
 (function (INFORMA, $) {
      INFORMA.Utils = (function () {
