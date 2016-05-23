@@ -149,7 +149,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         },
         CreateSlider, GetCarouselOptions, GetCarouselUpdatedHtml, GetCarouselData, equalHeights, RenderCarousel, BindFilterEvents, GetListCount;
 
-    //get all default setting value from component and check 
+    //get all default setting value from component and check
     //if exist any default setting then update and return carousel object.
 
     GetCarouselOptions = function(ele) {
@@ -187,12 +187,12 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 data: data,
                 success_callback: function(data) {
                     if (data.Articles !== undefined && data.Articles.length > 0) {
-                        var html = GetCarouselUpdatedHtml(Templates.articleListItems, { Articles: data.Articles });
+                        var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         RenderCarousel(html, _ArticleLists);
                     }
                     if (data.Articles !== undefined && data.Headlines.length > 0) {
-                        var html = GetCarouselUpdatedHtml(Templates.HeadlinesListItems, { Headlines: data.Headlines });
+                        var html = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
                         RenderCarousel(html, _HeadlinesLists);
                     }
@@ -219,7 +219,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
 
                 });
 
-                // Set the height of all those children to whichever was highest 
+                // Set the height of all those children to whichever was highest
                 $('.columns', this).height(highestBox);
 
             });
@@ -571,15 +571,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       if(_pdpNavigation.length > 0) {
             _pdpNavigationHeight = _pdpNavigation.height(),
             _pdpNavigationPos = _pdpNavigation.offset().top;
+            // To show the menu follower with right width and position, todo: remove harcode
+            _pdpMenuFollower.css('width',$(_pdpLink[0]).width())
+                           .css('left',$(_pdpLink[0]).offset().left)
+                           .show();
       }
       if(_mainNavigation.length > 0) {
             _navHeight = _mainNavigation.height();
             _headerPos = _mainNavigation.offset().top;
       }
-      // To show the menu follower with right width and position, todo: remove harcode
-      _pdpMenuFollower.css('width',$(_pdpLink[0]).width())
-                     .css('left',$(_pdpLink[0]).offset().left)
-                     .show();
 
       // both pdp nav and main nav handled here
 
