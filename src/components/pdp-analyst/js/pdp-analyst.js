@@ -15,11 +15,11 @@ INFORMA.analystList = (function(window, $, namespace) {
     'use strict';
     //variables
     var _analystList = $('#pdp-analyst'),
+        _listItems = $('.analyst-views'),
     // methods
         init,
         _bindShowMore,
-        _bindElement,
-        _template,
+        _equalHeight,
         _lists = null;
 
     _bindShowMore = function(container){
@@ -41,61 +41,32 @@ INFORMA.analystList = (function(window, $, namespace) {
         });
     }
 
-    _template = function(obj) {
-        _lists += '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container">'+
-                    '<div class="meet-anlyst-section">'+
-                        '<div class="anlyst-heading">'+
-                            '<div class="analyst-details">'+
-                                '<h2>'+obj.Title+'</h2>'+
-                                '<h3>'+obj.Description+'</h3>'+
-                                '<p class="location">'+obj.Location+'</p>'+
-                            '</div>'+
-                            '<div class="analyst-img">'+
-                                '<img src="{{image}}" alt="{{image}}" />'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="analyst-description">'+
-                            '<p class="heading">{{question}}</p>'+
-                            '<ul class="yellow-bullets">'+
-                                // {{#each specialities}}
-                                //     <li>{{name}}</li>
-                                // {{/each}}
-                            '</ul>'+
-                            '<p class="heading">{{experience}}</p>'+
-                            '<ul class="track-analyst clearfix">'+
-                                // {{#each products}}
-                                //     <li><a href="#">{{name}}</a></li>
-                                // {{/each}}
-                            '</ul>'+
-                        '</div>'+
-                        '<div class="analyst-footer clearfix">'+
-                            '<ul class="nav-links">'+
-                                '<li><a href="#" class="white-twitter"></a></li>'+
-                                '<li><a href="#" class="white-linkedin"></a></li>'+
-                                '<li><a href="#" class="white-mail"></a></li>'+
-                            '</ul>'+
-                            '<a href="#" class="btn btn-default orange pull-right">Full Profile</a>'+
-                        '</div>'+
-                    '</div>'+
-                '</div>';
-    }
+    _equalHeight = function(items) {
+        var _analystDescription = items.find('.analyst-description'),
+            _docWidth = jQuery(document).width(),
+            _eachItemWidth = jQuery(items.find('.analyst-description')[0]).width(),
+            _maxHeight = 0;
+            _analystDescription.each(function() {
+                var _currentHeight = jQuery(this).height();
+                if(_currentHeight > _maxHeight) {
+                    _maxHeight = _currentHeight;
+                }
+            });
+            debugger;
+            _analystDescription.css('height',_maxHeight+50);
 
-    _bindElement = function () {
-        var self = this;
-        $.get('../json/analyst.json', function(data) {
-            var x = null;
-            for(x in data.ResultPayLoad) {
-                _template(data.ResultPayLoad[x]);
-            }
-
-            $('.analyst-items').html(_lists);
-        });
     }
 
     init = function() {
         if (_analystList.length > 0) {
            // _bindElement();
             _bindShowMore(_analystList);
+        }
+        if (_listItems.length > 0) {
+            _listItems.each(function() {
+                var items = jQuery(this).find('.analyst-list-container');
+                _equalHeight(items);
+            });
         }
     };
 
