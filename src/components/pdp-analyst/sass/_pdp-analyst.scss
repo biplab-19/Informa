@@ -209,6 +209,30 @@
 				}
 			}
 		}
+		&.analyst {
+			.anlyst-heading {
+				background-color: $yellow;
+				&:after {
+					background-color: $yellow;
+				}
+			}
+		}
+		&.consultant {
+			.anlyst-heading {
+				background-color: #ffea7f;
+				&:after {
+					background-color: #ffea7f;
+				}
+			}
+		}
+		&.reporter {
+			.anlyst-heading {
+				background-color: #fff7cc;
+				&:after {
+					background-color: #fff7cc;
+				}
+			}
+		}
 	}
 	.btn-container {
 		margin-top: 30px;
