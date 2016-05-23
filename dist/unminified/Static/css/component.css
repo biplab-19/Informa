@@ -2948,33 +2948,18 @@ section#training-section .training-material ul.slick-dots li.slick-active {
 section#hero-banner.about-us {
   height: 647px;
 }
-@media (max-width: 767px) {
-  /* line 3, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us {
-    height: auto;
-  }
-}
-/* line 8, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+/* line 5, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#hero-banner.about-us h1 {
   font-size: 40px;
-  padding-top: 60px;
 }
-@media (max-width: 767px) {
-  /* line 8, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us h1 {
-    font-size: 25px;
-    padding-top: 10px;
-  }
-}
-/* line 16, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+/* line 8, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#hero-banner.about-us .content-section {
   height: 647px;
   position: relative;
   background: RGBA(0, 0, 0, 0.8);
-  padding-right: 50px;
-  line-height: 30px;
+  padding-right: 60px;
 }
-/* line 22, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+/* line 13, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#hero-banner.about-us .content-section:before {
   content: '';
   position: absolute;
@@ -2984,49 +2969,18 @@ section#hero-banner.about-us .content-section:before {
   border-top: 647px solid transparent;
   border-bottom: 0px solid transparent;
   border-right: 130px solid RGBA(0, 0, 0, 0.8);
+  left: -130px;
 }
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 33, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us .content-section:before {
-    content: '';
-    position: absolute;
-    left: -150px;
-    height: 647px;
-    width: 0;
-    border-top: 647px solid transparent;
-    border-bottom: 0px solid transparent;
-    border-right: 130px solid RGBA(0, 0, 0, 0.8);
-    padding: 10px;
-  }
-}
-@media (max-width: 767px) {
-  /* line 16, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us .content-section {
-    padding: 20px;
-    height: auto;
-  }
-  /* line 48, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us .content-section:before {
-    content: '';
-    position: none;
-    left: 0px;
-    height: 0px;
-    width: 0;
-    border-top: none;
-    border-bottom: none;
-    border-right: none;
-  }
-}
-/* line 61, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+/* line 25, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#hero-banner.about-us .abs-image {
   width: 100%;
   min-width: 100%;
 }
-/* line 66, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+/* line 30, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#hero-banner.about-us.light-bg .content-section {
   background: RGBA(0, 0, 0, 0.4);
 }
-/* line 68, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+/* line 32, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#hero-banner.about-us.light-bg .content-section:before {
   border-right: 130px solid RGBA(0, 0, 0, 0.4);
 }
@@ -3137,42 +3091,4 @@ section#hero-banner.about-us.light-bg .content-section:before {
 /* line 89, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 .experience-mode .collapse {
   display: block;
-}
-
-/* line 1, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.request-demo-btn-container {
-  width: 200px;
-}
-
-/* line 4, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-dialog {
-  width: 90%;
-}
-
-/* line 7, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-body {
-  padding: 15px 200px;
-}
-@media (max-width: 767px) {
-  /* line 7, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-  .modal-body {
-    padding: 15px 30px;
-  }
-}
-
-/* line 13, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-content {
-  border-radius: 0;
-  background-color: #444957;
-  color: #fff;
-}
-
-/* line 18, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-header {
-  border-bottom: 0;
-}
-/* line 20, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-header .close {
-  color: #fff;
-  opacity: 2;
 }
