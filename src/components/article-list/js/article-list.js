@@ -31,7 +31,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         },
         CreateSlider, GetCarouselOptions, GetCarouselUpdatedHtml, GetCarouselData, equalHeights, RenderCarousel, BindFilterEvents, GetListCount;
 
-    //get all default setting value from component and check 
+    //get all default setting value from component and check
     //if exist any default setting then update and return carousel object.
 
     GetCarouselOptions = function(ele) {
@@ -69,12 +69,12 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 data: data,
                 success_callback: function(data) {
                     if (data.Articles !== undefined && data.Articles.length > 0) {
-                        var html = GetCarouselUpdatedHtml(Templates.articleListItems, { Articles: data.Articles });
+                        var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         RenderCarousel(html, _ArticleLists);
                     }
                     if (data.Articles !== undefined && data.Headlines.length > 0) {
-                        var html = GetCarouselUpdatedHtml(Templates.HeadlinesListItems, { Headlines: data.Headlines });
+                        var html = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
                         RenderCarousel(html, _HeadlinesLists);
                     }
@@ -101,7 +101,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
 
                 });
 
-                // Set the height of all those children to whichever was highest 
+                // Set the height of all those children to whichever was highest
                 $('.columns', this).height(highestBox);
 
             });

@@ -292,7 +292,7 @@ module.exports = function(grunt) {
                 files: {
                     '<%= config.dist %>/minified/Static/js/components.js':['<%= config.tmp %>/Static/js/components/*.js'],
                     '<%= config.dist %>/minified/Static/js/main.js':['<%= config.tmp %>/Static/js/*.js'],
-                    '<%= config.dist %>/minified/Static/js/vendor.js': ['bower_components/jquery/jquery.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js']
+                    '<%= config.dist %>/minified/Static/js/vendor.js': ['bower_components/jquery/jquery.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js', 'bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js']
                 }
             }
         },
