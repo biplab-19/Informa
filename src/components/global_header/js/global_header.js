@@ -55,15 +55,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       if(_pdpNavigation.length > 0) {
             _pdpNavigationHeight = _pdpNavigation.height(),
             _pdpNavigationPos = _pdpNavigation.offset().top;
+            // To show the menu follower with right width and position, todo: remove harcode
+            _pdpMenuFollower.css('width',$(_pdpLink[0]).width())
+                           .css('left',$(_pdpLink[0]).offset().left)
+                           .show();
       }
       if(_mainNavigation.length > 0) {
             _navHeight = _mainNavigation.height();
             _headerPos = _mainNavigation.offset().top;
       }
-      // To show the menu follower with right width and position, todo: remove harcode
-      _pdpMenuFollower.css('width',$(_pdpLink[0]).width())
-                     .css('left',$(_pdpLink[0]).offset().left)
-                     .show();
 
       // both pdp nav and main nav handled here
 
