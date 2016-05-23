@@ -43,7 +43,7 @@ var INFORMA = window.INFORMA || {};
                 '</div>'+
                 '{{#if Link}}'+
                     '<div class="btn-container">'+
-                      '<a role="button" href="{{Link.Url}}" class="btn btn-default" target="{{Link.Target}}">{{Link.linkText}}</a>'+
+                      '<a role="button" href="{{Link.Url}}" class="btn btn-default" target="{{Link.Target}}">{{Link.LinkText}}</a>'+
                     '</div>'+
                 '{{/if}}'+
             '</li>'+
@@ -57,7 +57,7 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                     '<div class="link">'+
                         '<a role="button" href="{{Link.Url}}" title="External Link" target="{{Link.Target}}">'+
-                        '<span class="icon-external-link">{{Link.linkText}}</span></a>'+
+                        '<span class="icon-external-link">{{Link.LinkText}}</span></a>'+
                     '</div>'+
                 '</li>'+
             '{{/each}}'
