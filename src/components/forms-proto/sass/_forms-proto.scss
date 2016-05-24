@@ -1,0 +1,63 @@
+.form {
+      form {
+            padding: 20px 0;
+            @include desktop {
+                  margin: 0 auto;
+                  width: 60%;
+            }
+            .title {
+                  font-size: 20px;
+                  margin: 0 0 10px 0;
+                  position: relative;
+            }
+            .hasToolTip {
+                  .title {
+                        &:after {
+                              content: '?';
+                              position: absolute;
+                              font-size: 10px;
+                              top: 6px;
+                              margin-left: 12px;
+                              color: #fff;
+                              background: #222;
+                              height: 20px;
+                              width: 20px;
+                              border-radius: 10px;
+                              padding-top: 4px;
+                              padding-left: 8px;
+                        }
+                  }
+                  .tooltip-placeholder {
+                        display: block;
+                  }
+            }
+            .tooltip-placeholder {
+                  display: none;
+                margin: 10px 0;
+                padding: 20px;
+                background: $yellow;
+                position: relative;
+                &:after {
+                  content: '';
+                  width: 0;
+                  height: 0;
+                  border-left: 5px solid transparent;
+                  border-right: 5px solid transparent;
+                  border-bottom: 5px solid $yellow;
+                  position: absolute;
+                  top: -5px;
+                  left: 15px;
+                }
+            }
+            label {
+                  font-weight: normal;
+                  margin: 10px 0;
+            }
+            button {
+                  border: none;
+                  width: 200px;
+                  color: $light;
+            }
+
+      }
+}
