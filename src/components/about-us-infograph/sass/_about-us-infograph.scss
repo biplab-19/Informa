@@ -8,63 +8,38 @@ section#infograph{
       font-size: 40px;
       font-weight: bolder;
       color: #FED402;
+    }
+
+    .clients{
+      position: relative;
+      @include mobile {
+        margin-bottom: 25px;
+      }
       &:after {
-        content:"";
-        height: 0.5em;
-        border-left: 1px solid #595959;
-        margin-left: 70px;
+        content: '';
+        border-left: 1px solid #666666;
+        height: 50%;
+        position: absolute;
+        top: 8px;
+        right: 20px;
         @include mobile {
           display: none;
         }
-
-        @media (min-width: 1024px) and (max-width: 1141px){
-          .numdiv{
-            &:after {
-              content:"";
-              height: 0.5em;
-              border-left: 1px solid #595959;
-              margin-left: 70px;
-            }
-          }
-        }
-      }
-
-    }
-
-    .clients {
-      @include tablet {
-        margin-top: 25px;
-        //margin-bottom: 15px;
       }
       &:last-child {
-        .numdiv{
-          &:after {
+        &:after {
             border-left: none;
-          }
         }
       }
-      @include mobile {
-        margin-bottom: 15px;
-      }
-
-      @media (max-width: 1023px) and (min-width: 768px) {
-        &:nth-child(even) {
-          .numdiv{
-            &:after {
-              border-left: none;
-            }
-          }
-        }
-        &:nth-child(odd) {
-          .numdiv{
-            &:after {
-              margin-left: 180px;
-            }
-          }
-        }
-      }
-
+       @media only screen and (min-device-width : 768px) and (max-device-width : 1023px) {
+         &:nth-child(even){
+           &:after {
+               border-left: none;
+           }
+         }
+       }
     }
+
     .sub-desc{
       color: #C1C1C1;
     }

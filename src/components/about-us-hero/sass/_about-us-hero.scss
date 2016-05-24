@@ -1,73 +1,81 @@
-$about-hero-height-desktop: 647px;
+$about-hero-height-desktop: 560px;
 
-section#hero-banner.about-us {
+section#about-us-hero{
+  height: $about-hero-height-desktop;
+  margin-top: 30px;
+  .sample{
+    position: relative;
+
+    .col-xs-12{
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+  .img-bg{
+    img{
+      width: 100%;
       height: $about-hero-height-desktop;
+    }
+  }
+  .transparent-bg-content{
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    height: 100%;
+    line-height: 30px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: -130px;
+      height: $about-hero-height-desktop;
+      width: 0;
+      border-top: $about-hero-height-desktop solid transparent;
+      border-bottom: 0px solid transparent;
+      border-right: 130px solid RGBA(0,0,0,0.7);
+    }
+     @media (max-width: 1023px) and (min-width: 768px)  {
+      &:before {
+            content: '';
+            position: absolute;
+            left: -130px;
+            width: 0;
+            border-top: $about-hero-height-desktop solid transparent;
+            border-bottom: 0px solid transparent;
+            border-right: 130px solid RGBA(0,0,0,0.7);
+      }
+    }
+    @include mobile {
+      padding: 20px;
+      height: $about-hero-height-desktop;
+      &:before {
+        content: '';
+        position: none;
+        left: 0px;
+        height: 0px;
+        width: 0;
+        border-top: none;
+        border-bottom: none;
+        border-right: none;
+      }
+    }
+    h1 {
+      font-family: FSMe-Bold;
+      color: #d1d1d1;
+      font-size: 40px;
+      padding-top: 40px;
       @include mobile {
-        height: auto;
+        font-size: 25px;
+        padding-top: 10px;
       }
-      h1 {
-            font-size: 40px;
-            padding-top: 60px;
-            @include mobile {
-              font-size: 25px;
-              padding-top: 10px;
-            }
-      }
-      .content-section {
-            height: $about-hero-height-desktop;
-            position: relative;
-            background: RGBA(0,0,0,0.8);
-            padding-right:50px;
-            line-height: 30px;
-            &:before {
-                  content: '';
-                  position: absolute;
-                  left: -130px;
-                  height: $about-hero-height-desktop;
-                  width: 0;
-                  border-top: $about-hero-height-desktop solid transparent;
-                  border-bottom: 0px solid transparent;
-                  border-right: 130px solid RGBA(0,0,0,0.8);
-            }
-            @include tablet {
-              &:before {
-                    content: '';
-                    position: absolute;
-                    left: -150px;
-                    height: $about-hero-height-desktop;
-                    width: 0;
-                    border-top: $about-hero-height-desktop solid transparent;
-                    border-bottom: 0px solid transparent;
-                    border-right: 130px solid RGBA(0,0,0,0.8);
-                    padding: 10px;
-              }
-            }
-            @include mobile {
-              padding: 20px;
-              height: auto;
-              &:before {
-                content: '';
-                position: none;
-                left: 0px;
-                height: 0px;
-                width: 0;
-                border-top: none;
-                border-bottom: none;
-                border-right: none;
-
-              }
-            }
-      }
-      .abs-image {
-            width: 100%;
-            min-width: 100%;
-      }
-      &.light-bg {
-            .content-section{
-                  background: RGBA(0,0,0,0.4);
-                  &:before {
-                        border-right: 130px solid RGBA(0,0,0,0.4);
-                  }
-            }
-      }
+    }
+    .description {
+        font-family: FSMe-Light;
+        color: #d1d1d1;
+        font-size: 14px;
+        padding-bottom: 40px;
+        @include mobile {
+            padding-bottom: 25px;
+            font-size: 12px;
+        }
+    }
+  }
 }
