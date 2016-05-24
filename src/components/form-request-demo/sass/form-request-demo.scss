@@ -1,0 +1,24 @@
+.request-demo-btn-container {
+    width: 200px;
+}
+.modal-dialog {
+    width: 90%;
+}
+.modal-body {
+    padding: 15px 200px;
+   @include mobile{
+     padding: 15px 30px;
+   }
+}
+.modal-content {
+    border-radius: 0;
+    background-color: $gray-light-bg;
+    color: $white;
+}
+.modal-header {
+    border-bottom: 0;
+    .close {
+        color: $white;
+        opacity: 2;
+    }
+}
