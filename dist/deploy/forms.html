@@ -1,0 +1,314 @@
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main page</title>
+    <link rel="stylesheet" href="Static/css/global.css"/>
+
+    <link rel="stylesheet" href="Static/css/component.css"/>
+
+    <link rel="stylesheet" href="Static/css/agri-theme.css"/>
+
+    <style type="text/css">
+		body{
+			margin:0;
+		}
+    </style>
+    <script type="text/javascript">
+        INFORMA = {
+            initUI : {},
+            addModule : function(module, selector) {
+                this.initUI[selector] = module;
+            }
+        };
+
+    </script>
+
+    <script src="Static/js/vendor.js"></script>
+
+  <script> 
+        $INFORMA = jQuery.noConflict(); 
+  </script>
+
+</head>
+
+<body class="agri-theme">
+
+
+
+<header id="informa-main-header">
+      <section class="informaTop">
+            <div class="container">
+                  <div class="row">
+                        <div class="col-xs-12">
+                              <div class="informa-select">Informa</div>
+                        </div>
+                  </div>
+            </div>
+      </section>
+      <section class="logoSection">
+            <div class="container">
+                  <div class="row">
+                        <div class="col-xs-12">
+                              <div class="logo">
+                                    <img src="cms-images/logo.png">
+                              </div>
+                              <div class="login">
+                                    Log in
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </section>
+      <nav id="mainNavigation" class="navbar-default">
+            <div class="container">
+                  <div class="row">
+                        <div class="col-xs-12 col-md-9 navigation-primary">
+                              <ul class="nav navbar-nav">
+                                    <li><a href="#">Sectors & Products</a></li>
+                                    <li><a href="#">Services</a></li>
+                                    <li><a href="#">Free Content</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Support Us</a></li>
+                                    
+                              </ul>
+                        </div>
+                        <div class="col-xs-12 col-md-3 hidden-sm mainCTA">
+                              <ul class="nav">
+                                    <li class="touch"><a href="#">Get in touch</a></li>
+                                    <li class="search"><a href="#">Search<span class="icon icon-search"></a></li>
+                              </ul>
+                        </div>
+                  </div>
+            </div>
+            <div id="product-finder-section" class="product-finder">
+            	<div class="container">
+            		<div class="row">
+                   <div class="col-xs-12">
+                        <form class="form">
+                        <fieldset>
+                              <legend>Product Finder</legend>
+                              <ul class="search-options">
+                                    <li>
+	                                    <span class="custom-radio">
+		                                    <label for="ProductSearch" class="label">
+		                                          <input type="radio" class="custom-radio" name="ProductFinder" id="ProductSearch" />
+		                                          <span>Search for a product</span>
+		                                    </label>
+	                                    </span>
+	                                    <span class="custom-radio">
+	                                    <label for="SiteSearch" class="label">
+	                                          <input type="radio" class="custom-radio" name="ProductFinder" id="SiteSearch" />
+	                                          <span>Search site</span>
+	                                    </label>
+                                    </span>
+                                    </li>
+                              </ul>
+                              <ul class="sector-options">
+                              	    <li class="menu">
+                              	    	<label for="sector-list" class="label-text">Sector:</label>
+                              	    	<div class="custom-multiselect">
+                              	    		<select id="sector-list" multiple="multiple">
+											    <option value="cheese">Cheese</option>
+											    <option value="tomatoes">Tomatoes</option>
+											    <option value="mozarella">Mozzarella</option>
+											    <option value="mushrooms">Mushrooms</option>
+											    <option value="pepperoni">Pepperoni</option>
+											    <option value="onions">Onions</option>
+											</select>
+                              	    	</div>
+                                    </li>
+                                    <li class="menu">
+                                    <label for="sub-sector-list" class="label-text">Sub Sector:</label>
+                              	    <div class="custom-multiselect">
+                              	    		<select id="sub-sector-list" multiple="multiple">
+											    <option value="cheese">Cheese</option>
+											    <option value="tomatoes">Tomatoes</option>
+											    <option value="mozarella">Mozzarella</option>
+											    <option value="mushrooms">Mushrooms</option>
+											    <option value="pepperoni">Pepperoni</option>
+											    <option value="onions">Onions</option>
+											</select>
+                              	    	</div>
+                                    </li>
+                                    <li class="menu button">
+                                    	<a href="#" class="btn btn-default">Go</a>
+                                    </li>
+                              </ul>
+                        </fielset>
+                        </form>
+                  </div>
+                  </div>
+               	</div>
+            </div>
+      </nav>
+</header>
+
+
+   <div class="forms">
+    
+<div class="request-demo-btn-container">
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Request Demo
+</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+      </div>
+      <div class="modal-body">
+        <h4 class="modal-title" id="myModalLabel">Request a demo for Infoma Economics IEG</h4>
+        .........
+      </div>
+    </div>
+  </div>
+</div>
+
+ </div>
+
+
+
+<!-- GLOBAL FOOTER -->
+
+<footer id="informa-footer">
+    <section id="customers_list">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 title_comp">
+                  <h3 class="gray">Our Business Intelligence Customers</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="customers_list_slider slider-component col-sm-12" data-itemsperframe="6" data-autorotate=0 data-transitionspeed="300" data-slideduration="4000">
+                      <div class="customer">
+                          <img src="cms-images/customers/pepsi.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/abbot.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/richs.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/pepsi.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/abbot.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/richs.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/pepsi.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/abbot.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/richs.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/pepsi.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/abbot.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/richs.png" title="pepsico" alt="pepsico">
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BI customers Ends -->
+    <section id="footer-links">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-6 links">
+              <nav class="footer-nav" role="navigation">
+                <h3 class="light">More from Informa</h3>
+                  <ul class="nav navbar-nav">
+                     <li class="pink"><a href="#">Pharma Intelligence</a></li>
+                     <li class="green"><a href="#">Financial Intelligence</a></li>
+                     <li class="red"><a href="#">TMT Intelligence</a></li>
+                  </ul>
+              </nav>
+            </div>
+            <!--  First column ends -->
+            <div class="col-md-4 col-sm-6 links">
+              <nav class="footer-nav" role="navigation">
+                <h3 class="light">&nbsp;</h3>
+                  <ul class="nav navbar-nav">
+                     <li class="blue"><a href="#">Pharma Intelligence</a></li>
+                     <li class="pink"><a href="#">Financial Intelligence</a></li>
+                  </ul>
+              </nav>
+            </div>
+            <!--  Second column ends -->
+            <div class="col-md-4 col-sm-12 social">
+              <nav class="footer-nav" role="navigation">
+                  <h3 class="light"> Social Networks</h3>
+                  <ul class="nav navbar-nav">
+                     <li class="facebook-white"><a href="#">Get the Latest</a></li>
+                     <li class="twitter-white"><a href="#">Follow Our Stories</a></li>
+                     <li class="linkedin-white"><a href="#">Connect With Us</a></li>
+                  </ul>
+              </nav>
+            </div>
+            <!-- Third column ends -->
+          </div>
+        </div>
+    </section>
+    <!-- footer link ends -->
+    <section id="privacy">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <nav class="footer-nav" role="navigation">
+              <ul class="nav navbar-nav">
+                 <li ><a href="#">Home</a></li>
+                 <li ><a href="#">Privacy</a></li>
+                 <li ><a href="#">Terms</a></li>
+                 <li ><a href="#">Site Map</a></li>
+                 <li ><a href="#">Cookies</a></li>
+                 <li ><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 col-xs-12 disclaimer-copyright">
+            <div class="disclaimer">Informa UK limited is a company registered in England and Wales with company number 58421</div>
+            <div class="copyright">Copyright &copy; 2016 Informa PLC</div>
+          </div>
+          <div class="col-md-4 col-xs-12 bottom-logo">
+            <img src="cms-images/logo.png" alt="logo" text="logo">
+          </div>
+        </div>
+      </div>
+    </section>
+</footer> <!-- /#ad-footer -->
+
+
+
+    <script src="Static/js/main.js"></script>
+
+    <script src="Static/js/components.js"></script>
+
+</body>
+</html>
+

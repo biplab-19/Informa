@@ -14,11 +14,18 @@ component: global_html_header
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page</title>
-    <!-- build:css(.tmp) global/css/global.css -->
+    <!-- build:css(.tmp) Static/css/global.css -->
     <link rel="stylesheet" href="Static/css/global.css">
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) Static/css/component.css -->
     <link rel="stylesheet" href="Static/css/component.css">
+    <!-- endbuild -->
+
+    <!-- build:css(.tmp) Static/css/agri-theme.css -->
     <link rel="stylesheet" href="Static/css/agri-theme.css">
     <!-- endbuild -->
+
     <style type="text/css">
 		body{
 			margin:0;
@@ -34,15 +41,19 @@ component: global_html_header
 
     </script>
 
-    <!-- build:js global/scripts/vendor/vendor.js -->
+    <!-- build:js Static/js/vendor.js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/handlebars/handlebars.js"></script>
     <script src="bower_components/slick-carousel/slick/slick.js"></script>
     <script src="bower_components/chosen/chosen.jquery.js"></script>
     <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/bootstrap-multiselect//dist/js/bootstrap-multiselect.js"></script>
-
     <!-- endbuild -->
+
+  <script> 
+        $INFORMA = jQuery.noConflict(); 
+  </script>
+
 </head>
 
 <body class="agri-theme">

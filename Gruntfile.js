@@ -110,7 +110,7 @@ module.exports = function(grunt) {
                     partials: ['<%= config.src %>/components/**/*.hbs']
                 },
                 files: {
-                    '<%= config.dist %>/': ['<%= config.src %>/templates/pages/*.hbs']
+                    '<%= config.dist %>/deploy/': ['<%= config.src %>/templates/pages/*.hbs']
                 }
             }
         },
@@ -161,7 +161,14 @@ module.exports = function(grunt) {
                     '<%= config.dist %>/unminified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js','bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js'],
                       '<%= config.dist %>/unminified/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
                       '<%= config.dist %>/unminified/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
-                      '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css']
+                      '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
+
+                      '<%= config.dist %>/deploy/Static/js/main.js': ['<%= config.tmp %>/Static/js/*.js'],
+                      '<%= config.dist %>/deploy/Static/js/components.js': ['<%= config.tmp %>/Static/js/components/*.js'],
+                      '<%= config.dist %>/deploy/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js','bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js'],
+                        '<%= config.dist %>/deploy/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
+                        '<%= config.dist %>/deploy/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
+                        '<%= config.dist %>/deploy/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css']
                 }
             }
         },
@@ -269,7 +276,10 @@ module.exports = function(grunt) {
                     {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/minified/Static/images'},
                     {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/minified/Static/fonts'},
                     {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/unminified/Static/images'},
-                    {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/unminified/Static/fonts'}
+                    {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/unminified/Static/fonts'},
+                    {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/Static/images'},
+                    {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/Static/fonts'},
+                    {expand: true, cwd: '<%= config.src %>/cms-images', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/cms-images'}
                 ]
             }
         },
@@ -468,9 +478,9 @@ module.exports = function(grunt) {
       //  'concurrent:prod',
         'concat:prod',
         'uglify:prod',
-        'concat',
         'usemin',
         'cssmin',
+        'concat'
         //'modernizr'
         //'eslint',
         // 'accessibility'
