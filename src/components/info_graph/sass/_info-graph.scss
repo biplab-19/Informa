@@ -3,6 +3,7 @@ section#infograph{
   .row-bg{
     background-color: #3C404C;
     padding: 30px;
+
     .numdiv{
       font-size: 40px;
       font-weight: bolder;
@@ -11,11 +12,30 @@ section#infograph{
         content:"";
         height: 0.5em;
         border-left: 1px solid #595959;
-        margin-left: 100px;
+        margin-left: 70px;
+        @include mobile {
+          display: none;
+        }
+
+        @media (min-width: 1024px) and (max-width: 1141px){
+          .numdiv{
+            &:after {
+              content:"";
+              height: 0.5em;
+              border-left: 1px solid #595959;
+              margin-left: 70px;
+            }
+          }
+        }
       }
 
     }
+
     .clients {
+      @include tablet {
+        margin-top: 25px;
+        //margin-bottom: 15px;
+      }
       &:last-child {
         .numdiv{
           &:after {
@@ -23,12 +43,28 @@ section#infograph{
           }
         }
       }
-    }
+      @include mobile {
+        margin-bottom: 15px;
+      }
 
-    // .numdiv:not(:last-child):after {
-    // content: "";
-    // border-left: none;
-    // }
+      @media (max-width: 1023px) and (min-width: 768px) {
+        &:nth-child(even) {
+          .numdiv{
+            &:after {
+              border-left: none;
+            }
+          }
+        }
+        &:nth-child(odd) {
+          .numdiv{
+            &:after {
+              margin-left: 180px;
+            }
+          }
+        }
+      }
+
+    }
     .sub-desc{
       color: #C1C1C1;
     }
