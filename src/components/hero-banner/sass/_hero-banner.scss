@@ -137,7 +137,7 @@ section#hero-banner {
       //adding styles for anlayst
      //  for 3 images
       &.analyst{
-        height: auto;
+        height: 650px;
         padding-bottom: 20px;
         color: $light;
         @include mobile {
@@ -161,15 +161,17 @@ section#hero-banner {
            }
         }
        .span-arrow{
-           font-size: 300%;
+           font-size: 250%;
+           margin-top: 10px;
          @include mobile {
              display: none;
            }
        }
        .subtext {
-           font-family: FSMe;
+           font-family: FSMe-light;
            font-size: 30px;
            color: #444957;
+           margin-top: 30px;
            padding-bottom: 0px;
            @include mobile {
                font-size: 25px;
@@ -183,7 +185,8 @@ section#hero-banner {
            }
        }
        h3{
-             font-weight: bold;
+             font-family: FSMe-light;
+             font-size: 20px;
              color: #444957;
          }
          .color-subtext{
@@ -213,7 +216,7 @@ section#hero-banner {
            }
          }
          .image-margin{
-           margin-right: 70px;
+           margin-right: 65px;
            @include mobile {
              margin-right: 0px;
               margin-top: 10px;
