@@ -16,12 +16,24 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
     //variables
     var ProductFinderSection = $('#product-finder-section'),
         SubSectorList = $(".sector-search .sub-sector-list"),
+        SubmitBtn = $(".sector-search li.button"),
+        CustomSelect = $(".custom-multiselect select"),
         // methods
         init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSeach,
         Urls = INFORMA.Configs.urls.webservices,
+        SubmitHandler,
         Templates = INFORMA.Templates;
 
-    ShowHideSeach = function(ele) {
+        SubmitHandler = function() {
+
+            if (ProductFinderSection.data("isProductPage") === "true") {
+                SubmitBtn.on("click", "a", function(e) {
+                    e.preventDefault();
+                    ProductFinderSection.find("form").submit();
+                });
+            }
+        },
+        ShowHideSeach = function(ele) {
             var ShowOption = $(ele).data('show');
             $("ul.searchToggle").addClass('hidden');
             ProductFinderSection.find("ul." + ShowOption).removeClass("hidden").fadeIn("slow");
@@ -64,7 +76,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         },
         BindDropDown = function() {
             var SectorList = [];
-            jQuery(".custom-multiselect select").multiselect({
+            CustomSelect.val("");
+            CustomSelect.multiselect({
                 buttonText: function(o, s) {
 
                     if (o.length === 0) {
@@ -78,7 +91,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     }
                 },
                 onChange: function(option, checked, select) {
-                    if ($(option).parent().hasClass("sector-list")===true) {
+                    if ($(option).parent().hasClass("sector-list") === true) {
                         if (checked) {
                             SectorList.push($(option).val());
                         } else {
@@ -86,14 +99,14 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                             if (index >= 0) {
                                 SectorList.splice(index, 1);
                             }
+                            SubSectorList.parents("li").eq(0).addClass("disabled");
+                            SubSectorList.attr("disabled", "disabled");
+                            SubSectorList.multiselect('rebuild');
+                            SubmitBtn.addClass("disabled");
+                            $("li.disabled .dropdown-toggle").attr("disabled", "disabled");
                         }
                         if (SectorList.length > 0) {
                             GetSubSectorList(SectorList);
-                        }else{
-                            SubSectorList.parents("li").eq(0).addClass("disabled");
-                            SubSectorList.attr("disabled","disabled");
-                            SubSectorList.prop("disabled","disabled");
-                            SubSectorList.multiselect('rebuild');
                         }
                     }
                 }
@@ -104,6 +117,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         if (ProductFinderSection.length > 0) {
             BindDropDown();
             ToggleSearchOption();
+            SubmitHandler();
         }
     };
 
