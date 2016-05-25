@@ -14,8 +14,9 @@
                 };
 
             this.Hide = function() {
-                objectContainer.find('.load-spinner').fadeOut("fast");
-
+                if(typeof objectContainer ==="object"){
+                    objectContainer.find('.load-spinner').fadeOut("fast");
+                }
             };
 
             this.Show = function(container) {

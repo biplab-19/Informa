@@ -60,6 +60,10 @@ var INFORMA = window.INFORMA || {};
                         '<span class="icon-external-link">{{Link.LinkText}}</span></a>'+
                     '</div>'+
                 '</li>'+
+            '{{/each}}',
+        'SubSectorList':
+            '{{#each SubSectors}}'+
+                '<option value="{{SubSectorID}}">{{SubSectorName}}</option>'+
             '{{/each}}'
   }
 }(this, jQuery, 'INFORMA'));

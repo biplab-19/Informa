@@ -18,6 +18,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         _HeadlinesLists = $('.headline-list .list-container'),
         FilterMenu = $(".category-filter-list .categoryFilter"),
         Templates = INFORMA.Templates,
+        Urls = INFORMA.Configs.urls.webservices,
         // methods
         init,
         SliderOption = {
@@ -64,7 +65,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         GetCarouselData = function(data) {
 
             INFORMA.Spinner.Show($(".article-list"));
-            INFORMA.DataLoader.GetServiceData("/client/search/getarticles", {
+            INFORMA.DataLoader.GetServiceData(Urls.GetArticles, {
                 method: "GET",
                 data: data,
                 success_callback: function(data) {

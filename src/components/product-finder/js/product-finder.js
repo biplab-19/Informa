@@ -15,10 +15,13 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
     'use strict';
     //variables
     var ProductFinderSection = $('#product-finder-section'),
+        SubSectorList = $(".sector-search .sub-sector-list"),
         // methods
-        init, GetSubSectorList, ToggleSearchOption, BindDropDown,ShowHideSeach;
+        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSeach,
+        Urls = INFORMA.Configs.urls.webservices,
+        Templates = INFORMA.Templates;
 
-        ShowHideSeach = function(ele) {
+    ShowHideSeach = function(ele) {
             var ShowOption = $(ele).data('show');
             $("ul.searchToggle").addClass('hidden');
             ProductFinderSection.find("ul." + ShowOption).removeClass("hidden").fadeIn("slow");
@@ -36,13 +39,23 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         GetSubSectorList = function(arrayList) {
 
             var SectorData = {};
-            SectorData.sector = INFORMA.Utils.getUniqueArray(arrayList);
-            console.log(JSON.stringify(SectorData));
-            INFORMA.DataLoader.GetServiceData("/client/search/getsubsector", {
+            SectorData.SectorIDs = INFORMA.Utils.getUniqueArray(arrayList);
+            INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
                 method: "GET",
                 data: JSON.stringify(SectorData),
                 success_callback: function(data) {
 
+                    if (data.SubSectors.length > 0) {
+                        var ListTemplate = Handlebars.compile(Templates.SubSectorList),
+                            html = ListTemplate({ SubSectors: data.SubSectors });
+
+
+                        $(".sector-search li").removeClass("disabled");
+                        SubSectorList.removeAttr("disabled")
+                            .removeProp("disabled")
+                            .html(html);
+                        SubSectorList.multiselect('rebuild');
+                    }
                 },
                 error_callback: function() {
 
@@ -65,16 +78,23 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     }
                 },
                 onChange: function(option, checked, select) {
-                    if (checked) {
-                        SectorList.push($(option).val());
-                    } else {
-                        var index = SectorList.indexOf($(option).val());
-                        if (index >= 0) {
-                            SectorList.splice(index, 1);
+                    if ($(option).parent().hasClass("sector-list")===true) {
+                        if (checked) {
+                            SectorList.push($(option).val());
+                        } else {
+                            var index = SectorList.indexOf($(option).val());
+                            if (index >= 0) {
+                                SectorList.splice(index, 1);
+                            }
                         }
-                    }
-                    if (SectorList.length > 0) {
-                        GetSubSectorList(SectorList);
+                        if (SectorList.length > 0) {
+                            GetSubSectorList(SectorList);
+                        }else{
+                            SubSectorList.parents("li").eq(0).addClass("disabled");
+                            SubSectorList.attr("disabled","disabled");
+                            SubSectorList.prop("disabled","disabled");
+                            SubSectorList.multiselect('rebuild');
+                        }
                     }
                 }
             });
