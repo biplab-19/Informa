@@ -243,6 +243,26 @@ appropriate style change */
 		}
 	}
 }
+.gray-bullets {
+  list-style-type: none;
+  padding-left: 20px;
+  font-weight: bold;
+  li {
+    margin-bottom: 5px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      width: 5px;
+      height: 5px;
+      top: 7px;
+      background-color: $gray-dark-bg;
+      @include border-radius(50%);
+      font-family: 'FS Me Bold'; //discuss
+    }
+  }
+}
 
 .white-mail, .white-linkedin {
 	width: 24px;
