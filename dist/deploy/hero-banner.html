@@ -101,23 +101,23 @@
                                     <li>
 	                                    <span class="custom-radio">
 		                                    <label for="ProductSearch" class="label">
-		                                          <input type="radio" class="custom-radio" name="ProductFinder" id="ProductSearch" />
+		                                          <input type="radio" class="custom-radio" name="ProductFinder" id="ProductSearch" checked="checked" data-show="sector-search" value="product" />
 		                                          <span>Search for a product</span>
 		                                    </label>
 	                                    </span>
 	                                    <span class="custom-radio">
 	                                    <label for="SiteSearch" class="label">
-	                                          <input type="radio" class="custom-radio" name="ProductFinder" id="SiteSearch" />
+	                                          <input type="radio" class="custom-radio" name="ProductFinder" id="SiteSearch" data-show="site-search" value="search" />
 	                                          <span>Search site</span>
 	                                    </label>
                                     </span>
                                     </li>
                               </ul>
-                              <ul class="sector-options">
+                              <ul class="sector-search searchToggle">
                               	    <li class="menu">
                               	    	<label for="sector-list" class="label-text">Sector:</label>
                               	    	<div class="custom-multiselect">
-                              	    		<select id="sector-list" multiple="multiple">
+                              	    		<select id="sector-list" multiple="multiple" data-placeholder="Please Select">
 											    <option value="cheese">Cheese</option>
 											    <option value="tomatoes">Tomatoes</option>
 											    <option value="mozarella">Mozzarella</option>
@@ -127,10 +127,10 @@
 											</select>
                               	    	</div>
                                     </li>
-                                    <li class="menu">
+                                    <li class="menu disabled">
                                     <label for="sub-sector-list" class="label-text">Sub Sector:</label>
                               	    <div class="custom-multiselect">
-                              	    		<select id="sub-sector-list" multiple="multiple">
+                              	    		<select id="sub-sector-list" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
 											    <option value="cheese">Cheese</option>
 											    <option value="tomatoes">Tomatoes</option>
 											    <option value="mozarella">Mozzarella</option>
@@ -143,6 +143,18 @@
                                     <li class="menu button">
                                     	<a href="#" class="btn btn-default">Go</a>
                                     </li>
+                              </ul>
+                              <ul class="site-search searchToggle">
+                              	<li class="menu">
+                              		<div class="textbox">
+                              			<label for="searchField">
+                              			<input type="text" placeholder="Please Enter Search Text" id="searchField" />
+                              			</label>
+                              		</div>
+                              	</li>
+                              	<li class="button">
+                                   <a href="#" class="btn btn-default">Go</a>
+                                </li>
                               </ul>
                         </fielset>
                         </form>

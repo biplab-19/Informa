@@ -1,4 +1,4 @@
-/*! 2016-05-24 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-05-25 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -2979,122 +2979,103 @@ section#infograph .row-bg .numdiv {
   font-weight: bolder;
   color: #FED402;
 }
-/* line 11, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
-section#infograph .row-bg .numdiv:after {
-  content: "";
-  height: 0.5em;
-  border-left: 1px solid #595959;
-  margin-left: 70px;
+/* line 13, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
+section#infograph .row-bg .clients {
+  position: relative;
 }
 @media (max-width: 767px) {
-  /* line 11, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
-  section#infograph .row-bg .numdiv:after {
+  /* line 13, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
+  section#infograph .row-bg .clients {
+    margin-bottom: 25px;
+  }
+}
+/* line 18, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
+section#infograph .row-bg .clients:after {
+  content: '';
+  border-left: 1px solid #666666;
+  height: 50%;
+  position: absolute;
+  top: 8px;
+  right: 20px;
+}
+@media (max-width: 767px) {
+  /* line 18, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
+  section#infograph .row-bg .clients:after {
     display: none;
   }
 }
-@media (min-width: 1024px) and (max-width: 1141px) {
-  /* line 22, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
-  section#infograph .row-bg .numdiv:after .numdiv:after {
-    content: "";
-    height: 0.5em;
-    border-left: 1px solid #595959;
-    margin-left: 70px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 34, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
-  section#infograph .row-bg .clients {
-    margin-top: 25px;
-  }
-}
-/* line 41, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
-section#infograph .row-bg .clients:last-child .numdiv:after {
+/* line 30, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
+section#infograph .row-bg .clients:last-child:after {
   border-left: none;
 }
-@media (max-width: 767px) {
-  /* line 34, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
-  section#infograph .row-bg .clients {
-    margin-bottom: 15px;
-  }
-}
-@media (max-width: 1023px) and (min-width: 768px) {
-  /* line 53, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
-  section#infograph .row-bg .clients:nth-child(even) .numdiv:after {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
+  /* line 36, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
+  section#infograph .row-bg .clients:nth-child(even):after {
     border-left: none;
   }
-  /* line 60, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
-  section#infograph .row-bg .clients:nth-child(odd) .numdiv:after {
-    margin-left: 180px;
-  }
 }
-/* line 68, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
+/* line 43, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
 section#infograph .row-bg .sub-desc {
   color: #C1C1C1;
 }
 
 /* line 3, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-section#hero-banner.about-us {
-  height: 647px;
+section#about-us-hero {
+  height: 560px;
+  margin-top: 30px;
 }
-@media (max-width: 767px) {
-  /* line 3, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us {
-    height: auto;
-  }
-}
-/* line 8, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-section#hero-banner.about-us h1 {
-  font-size: 40px;
-  padding-top: 60px;
-}
-@media (max-width: 767px) {
-  /* line 8, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us h1 {
-    font-size: 25px;
-    padding-top: 10px;
-  }
-}
-/* line 16, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-section#hero-banner.about-us .content-section {
-  height: 647px;
+/* line 6, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#about-us-hero .sample {
   position: relative;
-  background: RGBA(0, 0, 0, 0.8);
-  padding-right: 50px;
+}
+/* line 9, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#about-us-hero .sample .col-xs-12 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 15, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#about-us-hero .img-bg img {
+  width: 100%;
+  height: 560px;
+}
+/* line 20, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#about-us-hero .transparent-bg-content {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  height: 100%;
   line-height: 30px;
 }
-/* line 22, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-section#hero-banner.about-us .content-section:before {
+/* line 25, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#about-us-hero .transparent-bg-content:before {
   content: '';
   position: absolute;
   left: -130px;
-  height: 647px;
+  height: 560px;
   width: 0;
-  border-top: 647px solid transparent;
+  border-top: 560px solid transparent;
   border-bottom: 0px solid transparent;
-  border-right: 130px solid RGBA(0, 0, 0, 0.8);
+  border-right: 130px solid RGBA(0, 0, 0, 0.7);
 }
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 33, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us .content-section:before {
+@media (max-width: 1023px) and (min-width: 768px) {
+  /* line 36, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+  section#about-us-hero .transparent-bg-content:before {
     content: '';
     position: absolute;
-    left: -150px;
-    height: 647px;
+    left: -130px;
     width: 0;
-    border-top: 647px solid transparent;
+    border-top: 560px solid transparent;
     border-bottom: 0px solid transparent;
-    border-right: 130px solid RGBA(0, 0, 0, 0.8);
-    padding: 10px;
+    border-right: 130px solid RGBA(0, 0, 0, 0.7);
   }
 }
 @media (max-width: 767px) {
-  /* line 16, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us .content-section {
+  /* line 20, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+  section#about-us-hero .transparent-bg-content {
     padding: 20px;
-    height: auto;
+    height: 560px;
   }
-  /* line 48, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-  section#hero-banner.about-us .content-section:before {
+  /* line 49, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+  section#about-us-hero .transparent-bg-content:before {
     content: '';
     position: none;
     left: 0px;
@@ -3105,18 +3086,33 @@ section#hero-banner.about-us .content-section:before {
     border-right: none;
   }
 }
-/* line 61, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-section#hero-banner.about-us .abs-image {
-  width: 100%;
-  min-width: 100%;
+/* line 60, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#about-us-hero .transparent-bg-content h1 {
+  font-family: FSMe-Bold;
+  color: #d1d1d1;
+  font-size: 40px;
+  padding-top: 40px;
 }
-/* line 66, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-section#hero-banner.about-us.light-bg .content-section {
-  background: RGBA(0, 0, 0, 0.4);
+@media (max-width: 767px) {
+  /* line 60, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+  section#about-us-hero .transparent-bg-content h1 {
+    font-size: 25px;
+    padding-top: 10px;
+  }
 }
-/* line 68, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
-section#hero-banner.about-us.light-bg .content-section:before {
-  border-right: 130px solid RGBA(0, 0, 0, 0.4);
+/* line 70, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+section#about-us-hero .transparent-bg-content .description {
+  font-family: FSMe-Light;
+  color: #d1d1d1;
+  font-size: 14px;
+  padding-bottom: 40px;
+}
+@media (max-width: 767px) {
+  /* line 70, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+  section#about-us-hero .transparent-bg-content .description {
+    padding-bottom: 25px;
+    font-size: 12px;
+  }
 }
 
 /* line 1, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
@@ -3284,8 +3280,54 @@ section#sectorpage-strengths .main-div .yellow-div {
 /* line 1, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results {
   padding: 30px 0;
+  background-color: #fff;
 }
-/* line 3, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 4, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .results {
   font-size: 22px;
+}
+/* line 7, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .front {
+  background-color: #f0f1f3;
+}
+/* line 9, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .front .header {
+  position: relative;
+  overflow: hidden;
+}
+/* line 12, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .front .header img {
+  width: 100%;
+}
+/* line 15, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .front .header:after {
+  content: "";
+  position: absolute;
+  width: 101%;
+  height: 100%;
+  background-color: #f0f1f3;
+  transform: rotate(-3deg);
+  top: calc(100% - 20px);
+  left: 4px;
+}
+/* line 26, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .front .content {
+  padding: 0 10px;
+}
+/* line 29, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .front .footer {
+  padding-top: 5%;
+  position: relative;
+  overflow: hidden;
+}
+/* line 33, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .front .footer:before {
+  content: "";
+  position: absolute;
+  width: 101%;
+  height: 100%;
+  background-color: #e1e2e7;
+  transform: rotate(-3deg);
+  top: 50%;
+  left: 0;
 }
