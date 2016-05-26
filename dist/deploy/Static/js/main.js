@@ -1,4 +1,4 @@
-/*! 2016-05-25 */var INFORMA = window.INFORMA || {};
+/*! 2016-05-26 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
 	'use strict';
     INFORMA.getCookie =function(cname) {
@@ -12,8 +12,15 @@
             return "";
      };
 
+
      INFORMA.Configs = (function () {
         function _config() {
+            this.urls = {
+                "webservices" :{
+                    "GetArticles" :"/client/search/getarticles",
+                    "GetSubSectorList" : "/data/product-finder.json"
+                }
+            },
             this.activeClass = 'informaui-active',
             this.views = {
                 'small'  : 768,
@@ -240,8 +247,9 @@ jQuery(INFORMA.global.init());
                 };
 
             this.Hide = function() {
-                objectContainer.find('.load-spinner').fadeOut("fast");
-
+                if(typeof objectContainer ==="object"){
+                    objectContainer.find('.load-spinner').fadeOut("fast");
+                }
             };
 
             this.Show = function(container) {
@@ -335,6 +343,10 @@ var INFORMA = window.INFORMA || {};
                         '<span class="icon-external-link">{{Link.LinkText}}</span></a>'+
                     '</div>'+
                 '</li>'+
+            '{{/each}}',
+        'SubSectorList':
+            '{{#each SubSectors}}'+
+                '<option value="{{SubSectorID}}">{{SubSectorName}}</option>'+
             '{{/each}}'
   }
 }(this, jQuery, 'INFORMA'));
@@ -351,6 +363,21 @@ var INFORMA = window.INFORMA || {};
                     }
                 });
                 return uniqueArray;
+            }
+            this.serializeObject = function(array) {
+                var o = {},
+                    a = array;
+                $.each(a, function() {
+                    if (o[this.name]) {
+                        if (!o[this.name].push) {
+                            o[this.name] = [o[this.name]];
+                        }
+                        o[this.name].push(this.value || '');
+                    } else {
+                        o[this.name] = this.value || '';
+                    }
+                });
+                return o;
             }
             this.getIEVersion = function() {
                 var agent = navigator.userAgent;

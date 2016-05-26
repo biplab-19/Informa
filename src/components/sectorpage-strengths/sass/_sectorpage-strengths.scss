@@ -1,14 +1,42 @@
 section#sectorpage-strengths{
+  background: #F6F6F7;
       .main-div{
         position: relative;
-        img{
-          display: block;
+      }
+      .yellow-div{
+        position: absolute;
+        top: 50%;
+        height: 60%;
+        width: 100%;
+        padding: 3% 8% 1% 2%;
+        background: rgba(254,215,24,0.9);
+      }
+      .text-description{
+          line-height: 20px;
+          background: white;
+          padding: 3% 3% 7% 2%;
+          position: relative;
+      }
+      .marg1{
+        margin-bottom: 20px;
+        @include mobile {
+          margin-bottom: 20px;
         }
-        .yellow-div{
-          position: absolute;
-          top: 30%;
-          height: 100px;
-          background: yellow;
+      }
+      .slant{
+        width: 0;
+        height: 0;
+        position: absolute;
+        bottom: 0px;
+        left: 0.8em;
+        border-right: 26em solid #E1E2E7;
+        border-top: 17px solid transparent;
+        border-bottom: 0px solid transparent;
+        @include mobile {
+          border-right: 21.5em solid #E1E2E7;
+        }
+        @include tablet {
+            border-right: 21.5em solid #E1E2E7;
         }
       }
 }

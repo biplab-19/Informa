@@ -1,4 +1,4 @@
-/*! 2016-05-25 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-05-26 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -2819,7 +2819,11 @@ nav#pdp-navigation .menuFollower {
   min-width: 50%;
   border-color: #ef7d00;
 }
-/* line 88, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+/* line 82, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .event-items li .event-container .content .parent .child a.btn:after {
+  color: #ef7d00;
+}
+/* line 91, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
 .analyst-profile-events .event-items .slick-dots li {
   margin: 0 5px;
 }
@@ -3189,36 +3193,48 @@ section#about-us-hero .transparent-bg-content .description {
 #contact-us-brand .panel-group .panel-body {
   background-color: #fff;
 }
-/* line 59, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
-#contact-us-brand .panel-group .panel-body .contact-feeds p {
-  margin-top: 20px;
+/* line 58, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body .body-heading {
+  font-size: 18px;
+  margin-bottom: 10px;
+  display: block;
 }
-/* line 61, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+/* line 64, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body .contact-feeds p {
+  margin: 0;
+}
+/* line 66, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 #contact-us-brand .panel-group .panel-body .contact-feeds p a {
   color: #ef7c00;
   padding-left: 50px;
   position: relative;
   font-size: 16px;
+  font-family: "FSMe" !important;
 }
-/* line 66, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+/* line 72, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 #contact-us-brand .panel-group .panel-body .contact-feeds p a:before {
   position: absolute;
   left: 0;
   color: #6a7287;
   top: -4px;
   font-size: 30px;
+  font-family: "InformaIcons" !important;
 }
-/* line 76, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+/* line 83, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body .contact-feeds div.col-xs-12:nth-child(2) p {
+  margin-top: 20px;
+}
+/* line 88, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 #contact-us-brand .panel-group .panel-body strong {
   display: block;
   margin-bottom: 10px;
 }
-/* line 81, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+/* line 93, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 #contact-us-brand .panel-group .panel-body address p {
   margin-bottom: 0;
 }
 
-/* line 89, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+/* line 101, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 .experience-mode .collapse {
   display: block;
 }
@@ -3244,37 +3260,222 @@ section#sectorpage-strengths .main-div .yellow-div {
   width: 200px;
 }
 
-/* line 4, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-dialog {
-  width: 90%;
+/* line 5, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal .modal-dialog {
+  width: 100%;
 }
-
-/* line 7, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-body {
-  padding: 15px 200px;
-}
-@media (max-width: 767px) {
-  /* line 7, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-  .modal-body {
-    padding: 15px 30px;
-  }
-}
-
-/* line 13, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-content {
+/* line 14, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #fff;
 }
-
-/* line 18, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-header {
+/* line 19, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal .modal-header {
   border-bottom: 0;
 }
-/* line 20, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
-.modal-header .close {
+/* line 21, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal .modal-header .close {
   color: #fff;
   opacity: 2;
+}
+/* line 26, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form {
+  font-family: "FSMe-Light";
+}
+/* line 27, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .icon-info:before {
+  content: "\e915";
+  color: #a6aab6;
+}
+/* line 31, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .icon-info:hover::before {
+  content: "\e915";
+  color: #ffd500;
+}
+/* line 36, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .form-btn-container {
+  float: right;
+}
+/* line 38, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .form-btn-container .btn {
+  width: 150px;
+  color: #fff;
+  border: none;
+}
+/* line 44, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .tooltip-placeholder {
+  position: relative;
+  display: block;
+  width: 100%;
+  color: #FFFFFF;
+  background: #FFD500;
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  /* visibility: hidden; */
+  border-radius: 0;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+  color: #6a7287;
+}
+/* line 61, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .tooltip-placeholder:after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  /* margin-left: -346px; */
+  width: 0;
+  height: 0;
+  border-right: 10px solid transparent;
+  border-left: 10px solid #FFD500;
+  border-top: 10px solid transparent;
+}
+/* line 82, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .title {
+  font-size: 22px;
+}
+/* line 85, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form label {
+  font-size: 16px;
+  font-weight: normal;
+}
+/* line 89, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form input.form-control {
+  border-radius: 0;
+  height: 50px;
+  background-color: #e1e3e7;
+}
+/* line 94, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .disabled {
+  opacity: 0.6;
+}
+/* line 97, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .textbox {
+  background-color: #fff;
+}
+/* line 99, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .textbox input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  border: none;
+  padding: 10px;
+  color: #444957;
+  font-weight: 400;
+  width: 100%;
+}
+/* line 109, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .textbox label {
+  margin-bottom: 0;
+  width: 100%;
+}
+/* line 114, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form label.label {
+  font-family: FSMe-Light;
+  font-size: 1em;
+  font-weight: 400;
+  padding: 0;
+}
+/* line 120, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form :not(.lt-ie9) {
+  /* HTML5 Boilerplate accessible hidden styles */
+  /* the basic, unchecked style */
+  /* the checked style using the :checked pseudo class */
+}
+/* line 122, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form :not(.lt-ie9) .custom-radio input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/* line 133, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form :not(.lt-ie9) .custom-radio input + span::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.25em;
+  border-radius: 1em;
+  border: 0.225em solid #fff;
+  margin-right: 0.75em;
+  background: #fff;
+  transition: 0.5s ease all;
+  position: relative;
+  top: -2px;
+}
+/* line 148, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form :not(.lt-ie9) .custom-radio input:checked + span::before {
+  background: #f07d00;
+}
+/* line 153, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect a {
+  padding: 0 !important;
+}
+/* line 156, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect label {
+  color: #434854;
+}
+/* line 159, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect input {
+  border: 1px solid #a7a9b6;
+  box-shadow: none;
+  background: #fff;
+  width: 12px;
+  height: 12px;
+}
+/* line 166, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect .btn-group {
+  width: 100%;
+}
+/* line 168, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect .btn-group .caret {
+  content: "\e901";
+  border: none;
+  font-family: 'InformaIcons';
+  position: absolute;
+  right: 30px;
+}
+/* line 174, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect .btn-group .caret:before {
+  font: 400 15px 'InformaIcons';
+  content: "\e901";
+  color: #a7a9b6;
+}
+/* line 180, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect .btn-group .dropdown-toggle {
+  width: 100%;
+  background: #fff;
+  border: none;
+  padding: 10px;
+}
+/* line 185, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect .btn-group .dropdown-toggle:after {
+  content: '';
+}
+/* line 188, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect .btn-group .dropdown-toggle:hover {
+  background: #fff;
+}
+/* line 192, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  width: 100%;
+  padding: 10px 0;
+}
+/* line 199, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active a {
+  background-color: transparent;
 }
 
 /* line 1, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
@@ -3287,20 +3488,50 @@ section#sectorpage-strengths .main-div .yellow-div {
   font-size: 22px;
 }
 /* line 7, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
-.product-finder-results .front {
-  background-color: #f0f1f3;
+.product-finder-results .product-finder-list {
+  margin-top: 20px;
 }
 /* line 9, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
-.product-finder-results .front .header {
+.product-finder-results .product-finder-list:nth-child(n+4) {
+  display: none;
+}
+/* line 13, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container {
+  height: 100%;
+  position: relative;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+  overflow: hidden;
+}
+/* line 20, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container.flip .front {
+  transform: perspective(800px) rotateY(-180deg);
+}
+/* line 23, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container.flip .back {
+  transform: perspective(800px) rotateY(0deg);
+}
+/* line 27, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .front {
+  background-color: #f0f1f3;
+  height: 100%;
+  transform: perspective(800px) rotateY(0deg);
+  -webkit-backface-visibility: hidden;
+  /* Chrome, Safari, Opera */
+  backface-visibility: hidden;
+  transition: transform .2s linear 0s;
+}
+/* line 34, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .front .header {
   position: relative;
   overflow: hidden;
 }
-/* line 12, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
-.product-finder-results .front .header img {
+/* line 37, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .front .header img {
   width: 100%;
 }
-/* line 15, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
-.product-finder-results .front .header:after {
+/* line 40, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .front .header:after {
   content: "";
   position: absolute;
   width: 101%;
@@ -3310,18 +3541,20 @@ section#sectorpage-strengths .main-div .yellow-div {
   top: calc(100% - 20px);
   left: 4px;
 }
-/* line 26, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
-.product-finder-results .front .content {
-  padding: 0 10px;
+/* line 51, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .front .content {
+  padding: 10px 10px 20px;
 }
-/* line 29, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
-.product-finder-results .front .footer {
+/* line 54, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .front .footer {
   padding-top: 5%;
-  position: relative;
+  position: absolute;
   overflow: hidden;
+  bottom: 0;
+  width: 100%;
 }
-/* line 33, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
-.product-finder-results .front .footer:before {
+/* line 60, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .front .footer:before {
   content: "";
   position: absolute;
   width: 101%;
@@ -3330,4 +3563,213 @@ section#sectorpage-strengths .main-div .yellow-div {
   transform: rotate(-3deg);
   top: 50%;
   left: 0;
+}
+/* line 72, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back {
+  background-color: #343742;
+  height: 100%;
+  transform: perspective(800px) rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  /* Chrome, Safari, Opera */
+  backface-visibility: hidden;
+  transition: transform .2s linear 0s;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+}
+/* line 83, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .header {
+  background-color: #434854;
+  -ms-transform: rotate(-3deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-3deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-3deg);
+  padding-bottom: 10px;
+}
+/* line 89, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .header .header-content {
+  background-color: #434854;
+  padding: 20px;
+  -ms-transform: rotate(3deg);
+  /* IE 9 */
+  -webkit-transform: rotate(3deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(3deg);
+}
+/* line 95, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .header .header-content h4 {
+  font-size: 18px;
+  color: #fff;
+}
+/* line 101, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .content {
+  padding: 40px 0;
+}
+/* line 103, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .content ul {
+  list-style-type: none;
+}
+/* line 105, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .content ul li {
+  padding: 10px;
+  position: relative;
+}
+/* line 108, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .content ul li a {
+  font-size: 16px;
+}
+/* line 110, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .content ul li a:before {
+  content: "\e914";
+  font-family: "InformaIcons";
+  position: absolute;
+  left: -20px;
+  top: 5px;
+  font-size: 20px;
+  color: #ffd500;
+}
+/* line 123, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .footer {
+  -ms-transform: rotate(-3deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-3deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-3deg);
+  background-color: #434854;
+  padding: 20px 0;
+  position: absolute;
+  width: 100%;
+  top: calc(100% - 80px);
+}
+/* line 132, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .footer .footer-content {
+  -ms-transform: rotate(3deg);
+  /* IE 9 */
+  -webkit-transform: rotate(3deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(3deg);
+  background-color: #434854;
+}
+/* line 137, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .footer .footer-content .btn {
+  width: 100%;
+  display: block;
+  color: #fff;
+}
+/* line 141, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .footer .footer-content .btn.free-trial {
+  border-color: #ef7c00;
+}
+/* line 143, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .footer .footer-content .btn.free-trial:after {
+  color: #ef7c00;
+}
+/* line 147, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .back .footer .footer-content .btn.more {
+  border-color: #ef7c00;
+}
+/* line 155, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .pin {
+  width: 70px;
+  height: 70px;
+  background-color: #ffd500;
+  position: absolute;
+  right: -35px;
+  top: -35px;
+  -ms-transform: rotate(45deg);
+  /* IE 9 */
+  -webkit-transform: rotate(45deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  z-index: 2;
+}
+/* line 166, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .pin:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  background-image: url(../images/pin-sprite.png);
+  position: absolute;
+  left: 30%;
+  top: 60%;
+  transform: rotate(-35deg);
+  background-position: 0 0;
+}
+/* line 180, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .un-pinned .pin:before {
+  background-position: 0 25px;
+}
+/* line 185, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .btn-container {
+  margin: 20px 0;
+  text-align: center;
+}
+/* line 188, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .btn-container .btn-ShowMore {
+  color: #444957;
+  padding: 20px 0;
+  width: 150px;
+  display: inline-block;
+  border-bottom: 2px solid #ffd500;
+  position: relative;
+}
+@media (max-width: 767px) {
+  /* line 188, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+  .product-finder-results .btn-container .btn-ShowMore {
+    padding: 20px 0 40px 0;
+  }
+}
+/* line 198, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .btn-container .btn-ShowMore span {
+  float: left;
+}
+@media (max-width: 767px) {
+  /* line 198, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+  .product-finder-results .btn-container .btn-ShowMore span {
+    float: none;
+  }
+}
+/* line 203, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .btn-container .btn-ShowMore span:before {
+  content: "\e912";
+  position: absolute;
+  right: 0;
+  font-family: "InformaIcons";
+  font-size: 25px;
+  top: 10px;
+  color: #ffd500;
+}
+@media (max-width: 767px) {
+  /* line 203, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+  .product-finder-results .btn-container .btn-ShowMore span:before {
+    right: 50%;
+    margin-right: -13px;
+    top: 35px;
+  }
+}
+/* line 218, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .btn-container .btn-ShowMore span.less:before {
+  content: "\e913";
+}
+/* line 223, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .btn-container .btn-ShowMore:hover, .product-finder-results .btn-container .btn-ShowMore:focus {
+  text-decoration: none;
+}
+/* line 228, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .more {
+  display: block;
+}
+/* line 231, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .less {
+  display: none;
+}
+/* line 235, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results.all-shown .more {
+  display: none;
+}
+/* line 238, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results.all-shown .less {
+  display: block;
 }

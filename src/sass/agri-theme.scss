@@ -18,39 +18,43 @@ appropriate style change */
         }
         &:next {}
     }
-    .btn-default {
-        text-align: left;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        border-color: $brand-secondary;
-        position: relative;
-        &:after {
-            content: ">";
-            right: 15px;
-            font-weight: bold;
-            position: absolute;
-        }
+    .btn-default{
+       text-align: left;
+       padding-top: 15px;
+       padding-bottom: 15px;
+       border-color: $brand-secondary;
+       position: relative;
+       &:after{
+         content: "\e900";
+         font-family: 'InformaIcons';
+         right: 15px;
+         font-weight: bold;
+         position: absolute;
+
+       }
     }
-    .btn-primary {
-        text-align: left;
-        width: 100%;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        border-color: $brand-primary;
-        background-color: $brand-primary;
+
+    .btn-primary{
+       text-align: left;
+       width:100%;
+       padding-top: 15px;
+       padding-bottom: 15px;
+       border-color: $brand-primary;
+       background-color: $brand-primary;
+       color: $white;
+       position: relative;
+       &:after{
+         content: "\e900";
+         font-family: 'InformaIcons';
+         right: 15px;
+         font-weight: bold;
+         position: absolute;
+       }
+       &:hover{
+        background-color: $brand-secondary;
+        border-color: $brand-secondary;
         color: $white;
-        position: relative;
-        &:after {
-            content: ">";
-            right: 15px;
-            font-weight: bold;
-            position: absolute;
-        }
-        &:hover {
-            background-color: $brand-secondary;
-            border-color: $brand-secondary;
-            color: $white;
-        }
+       }
     }
     .component {
         padding: 0;

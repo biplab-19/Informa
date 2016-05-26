@@ -88,18 +88,6 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     }
                 },
                 error_callback: function() {
-                    //To-do Sw-804- Need to remove from here just for creative testing added block here
-                    if (data.SubSectors.length > 0) {
-                        var ListTemplate = Handlebars.compile(Templates.SubSectorList),
-                            html = ListTemplate({ SubSectors: data.SubSectors });
-
-
-                        $(".sector-search li").removeClass("disabled");
-                        SubSectorList.removeAttr("disabled")
-                            .removeProp("disabled")
-                            .html(html);
-                        SubSectorList.multiselect('rebuild');
-                    }
                 }
             });
         },
