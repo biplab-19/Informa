@@ -229,6 +229,11 @@ header {
                         margin-right: 30px;
                         height: 40px;
                         display: inline-block;
+                        position:relative;
+                        img{
+                            top:3px !important;
+                            width: auto;
+                        }
                         @include mobile {
                             margin-bottom: 20px;
                             width: 100%;
