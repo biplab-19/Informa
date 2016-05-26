@@ -18,12 +18,24 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubSectorList = $(".sector-search .sub-sector-list"),
         SubmitBtn = $(".product-finder li.button"),
         CustomSelect = $(".custom-multiselect select"),
+        CloseIcon = $(".search-options .close-finder"),
+        SearchIcon =$(".navbar-default .search a"),
         // methods
-        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSeach,
+        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSeach, ToggleProductFinder,
         Urls = INFORMA.Configs.urls.webservices,
         SubmitHandler,
         Templates = INFORMA.Templates;
 
+        ToggleProductFinder = function(){
+            CloseIcon.on("click",function(e){
+                e.preventDefault();
+                ProductFinderSection.slideUp("fast");
+            });
+            SearchIcon.on("click",function(e){
+                e.preventDefault();
+                ProductFinderSection.slideDown("slow");
+            });
+        }
         SubmitHandler = function() {
 
             if (ProductFinderSection.data("product") === true) {
@@ -40,6 +52,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             ProductFinderSection.find("ul." + ShowOption).removeClass("hidden").fadeIn("slow");
         },
         ToggleSearchOption = function() {
+            ToggleProductFinder();
             jQuery(".search-options input[type=radio]").on('change', function(e) {
                 e.preventDefault();
                 ShowHideSeach($(this));
@@ -71,7 +84,18 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     }
                 },
                 error_callback: function() {
+                    //To-do Sw-804- Need to remove from here just for creative testing added block here
+                    if (data.SubSectors.length > 0) {
+                        var ListTemplate = Handlebars.compile(Templates.SubSectorList),
+                            html = ListTemplate({ SubSectors: data.SubSectors });
 
+
+                        $(".sector-search li").removeClass("disabled");
+                        SubSectorList.removeAttr("disabled")
+                            .removeProp("disabled")
+                            .html(html);
+                        SubSectorList.multiselect('rebuild');
+                    }
                 }
             });
         },
