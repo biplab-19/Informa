@@ -1089,6 +1089,13 @@ INFORMA.productListResults = (function(window, $, namespace) {
         jQuery(this).parents('.product-finder-results').find('.product-finder-list:nth-child(n+4)').slideToggle();
     })
 
+     //Resize
+    $(window).resize(function(){
+       if (_productList.length > 0) {
+            _equalHeight(_productList);
+        }
+    });
+
     init = function() {
         if (_productList.length > 0) {
             $(document).ready(function() {
@@ -1096,12 +1103,6 @@ INFORMA.productListResults = (function(window, $, namespace) {
             });
         }
     };
-    //Resize
-    $(window).resize(function(){
-       if (_productList.length > 0) {
-            _equalHeight(_productList);
-        }
-    });
     return {
         init: init
     };
