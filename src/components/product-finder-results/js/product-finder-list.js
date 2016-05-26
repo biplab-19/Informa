@@ -16,8 +16,10 @@ INFORMA.productListResults = (function(window, $, namespace) {
     //variables
     var _productList = $('.product-finder-results'),
         _productListItems = _productList.find('.product-finder-list'),
-        _hoverItem = _productList.find('.front .header'),
+        _productListContainer = _productListItems.find('.product-finder-container'),
+        _hoverFrontHeader = _productList.find('.front .header'),
         _backElement = _productList.find('.back'),
+        _combineElement = _productList.find('.front .header, .back'),
         _pinElement = _productList.find('.pin'),
         _showMore = _productList.find('.btn-ShowMore'),
     // methods
@@ -42,21 +44,21 @@ INFORMA.productListResults = (function(window, $, namespace) {
     }
 
     if(INFORMA.global.device.viewportN === 0) {
-        _hoverItem.mouseenter(function(){
+        _hoverFrontHeader.mouseenter(function(){
             var _container =jQuery(this).parents('.product-finder-container');
             if(_container.hasClass('un-pinned')) {
                 _container.addClass('flip');
             }
         });
 
-        _backElement.mouseleave(function(){
+        _backElement.mouse(function(){
             var _container =jQuery(this).parents('.product-finder-container');
             if(_container.hasClass('un-pinned')) {
                 _container.removeClass('flip');
             }
         });
     } else {
-        _hoverItem.hover(function(){
+        _combineElement.hover(function(){
             var _container =jQuery(this).parents('.product-finder-container');
             if(_container.hasClass('un-pinned')) {
                 _container.addClass('flip');
