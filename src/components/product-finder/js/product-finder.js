@@ -16,7 +16,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
     //variables
     var ProductFinderSection = $('#product-finder-section'),
         SubSectorList = $(".sector-search .sub-sector-list"),
-        SubmitBtn = $(".sector-search li.button"),
+        SubmitBtn = $(".product-finder li.button"),
         CustomSelect = $(".custom-multiselect select"),
         // methods
         init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSeach,
@@ -26,10 +26,11 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
         SubmitHandler = function() {
 
-            if (ProductFinderSection.data("isProductPage") === "true") {
+            if (ProductFinderSection.data("product") === true) {
                 SubmitBtn.on("click", "a", function(e) {
                     e.preventDefault();
-                    ProductFinderSection.find("form").submit();
+                    var fieldArray = ProductFinderSection.find("form").serializeArray(),
+                        getSerilizeData = INFORMA.Utils.serializeObject(fieldArray);
                 });
             }
         },
