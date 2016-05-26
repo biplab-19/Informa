@@ -31,6 +31,7 @@
 			-webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
    			backface-visibility: hidden;
 			transition: transform .2s linear 0s;
+			position: relative;
 			.header {
 				position: relative;
 				overflow: hidden;
@@ -50,6 +51,21 @@
 			}
 			.content {
 				padding: 10px 10px 20px;
+				&:after {
+					content: '+';
+					border: 2px solid $orange;
+					color: $orange;
+					width: 20px;
+				    height: 20px;
+				    display: block;
+				    border-radius: 50%;
+				    font-size: 18px;
+    				line-height: 1;
+				    text-align: center;
+				    position: absolute;
+				    right: 15px;
+    				bottom: 35px;
+				}
 			}
 			.footer {
 				padding-top: 5%;
