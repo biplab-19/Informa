@@ -1,24 +1,207 @@
 .request-demo-btn-container {
     width: 200px;
 }
-.modal-dialog {
-    width: 90%;
-}
-.modal-body {
-    padding: 15px 200px;
-   @include mobile{
-     padding: 15px 30px;
-   }
-}
-.modal-content {
-    border-radius: 0;
-    background-color: $gray-light-bg;
-    color: $white;
-}
-.modal-header {
-    border-bottom: 0;
-    .close {
+div#requestDemoModal {
+    .modal-dialog {
+        width: 100%;
+    }
+    .modal-body {
+        //  padding: 15px 200px;
+        @include mobile {
+            //padding: 15px 30px;
+        }
+    }
+    .modal-content {
+        border-radius: 0;
+        background-color: $gray-light-bg;
         color: $white;
-        opacity: 2;
+    }
+    .modal-header {
+        border-bottom: 0;
+        .close {
+            color: $white;
+            opacity: 2;
+        }
+    }
+    form {
+        .icon-info:before {
+            content: "\e915";
+            color: $info-icon-color;
+        }
+        .icon-info:hover::before{
+          content: "\e915";
+          color: $yellow;
+        }
+
+        .form-btn-container {
+            float: right;
+            .btn {
+                width: 150px;
+                color: $white;
+                border: none;
+            }
+        }
+        .tooltip-placeholder {
+            position: relative;
+            display: block;
+            width: 100%;
+            color: #FFFFFF;
+            background: #FFD500;
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            /* visibility: hidden; */
+            border-radius: 0;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            margin-left: 5px;
+            margin-top: 5px;
+            color: $font-color;
+        }
+        .tooltip-placeholder:after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 0;
+            /* margin-left: -346px; */
+            width: 0;
+            height: 0;
+            border-right: 10px solid transparent;
+            border-left: 10px solid #FFD500;
+            border-top: 10px solid transparent;
+        }
+        // a:hover.tooltips span {
+        //     visibility: visible;
+        //     opacity: 1;
+        //     top: 30px;
+        //     left: 50%;
+        //     margin-left: -76px;
+        //     z-index: 999;
+        // }
+        font-family: "FSMe-Light";
+        .title {
+            font-size: 22px;
+        }
+        label {
+            font-size: 16px;
+            font-weight: normal;
+        }
+        input.form-control {
+            border-radius: 0;
+            height: 50px;
+            background-color: $blue-lighter-bg;
+        }
+        .disabled {
+            opacity: 0.6;
+        }
+        .textbox {
+            background-color: $white;
+            input {
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                -ms-appearance: none;
+                border: none;
+                padding: 10px;
+                color: $text-gray-dark;
+                font-weight: 400;
+                width: 100%;
+            }
+            label {
+                margin-bottom: 0;
+                width: 100%;
+            }
+        }
+        label.label {
+            font-family: FSMe-Light;
+            font-size: 1em;
+            font-weight: 400;
+            padding: 0;
+        }
+        :not(.lt-ie9) {
+            /* HTML5 Boilerplate accessible hidden styles */
+            .custom-radio input {
+                border: 0;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
+            /* the basic, unchecked style */
+            .custom-radio input + span::before {
+                content: '';
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                vertical-align: -0.25em;
+                border-radius: 1em;
+                border: 0.225em solid #fff;
+                margin-right: 0.75em;
+                background: $white;
+                transition: 0.5s ease all;
+                position: relative;
+                top: -2px;
+            }
+            /* the checked style using the :checked pseudo class */
+            .custom-radio input:checked + span::before {
+                background: $input-orange;
+            }
+        }
+        .custom-multiselect {
+            a {
+                padding: 0 !important;
+            }
+            label {
+                color: $text-gray;
+            }
+            input {
+                border: 1px solid #a7a9b6;
+                box-shadow: none;
+                background: $white;
+                width: 12px;
+                height: 12px;
+            }
+            .btn-group {
+                width: 100%;
+                .caret {
+                    content: "\e901";
+                    border: none;
+                    font-family: 'InformaIcons';
+                    position: absolute;
+                    right: 30px;
+                    &:before {
+                        font: 400 15px 'InformaIcons';
+                        content: "\e901";
+                        color: #a7a9b6;
+                    }
+                }
+                .dropdown-toggle {
+                    width: 100%;
+                    background: $white;
+                    border: none;
+                    padding: 10px;
+                    &:after {
+                        content: '';
+                    }
+                    &:hover {
+                        background: $white;
+                    }
+                }
+                .dropdown-menu {
+                    border-radius: 0;
+                    border: none;
+                    box-shadow: none;
+                    width: 100%;
+                    padding: 10px 0;
+                    .active {
+                        a {
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
