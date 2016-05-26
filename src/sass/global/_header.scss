@@ -102,6 +102,7 @@ header {
     .product-finder {
         padding: 15px 0;
         background-color: $gray-light-bg;
+        display: none;
         .hidden {
             display: none;
         }
@@ -121,7 +122,9 @@ header {
                 display: none;
             }
             ul.search-options {
+                margin-top: 10px;
                 li {
+                    display: inline-block;
                     .custom-radio {
                         margin-right: 30px;
                         @include mobile {
@@ -129,6 +132,17 @@ header {
                         }
                         .label {
                             font-size: 1.1em;
+                            @include mobile {
+                               font-size: 1em;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        float: right;
+                        font-weight: 400;
+                        .close-finder {
+                            padding: 0;
+                            text-decoration: none;
                         }
                     }
                 }
@@ -141,9 +155,9 @@ header {
                     width: 85.5%;
                     margin-right: 36px;
                     @include mobile {
-                         width:100%;
-                         margin-right: 0;
-                         margin-bottom: 30px;
+                        width: 100%;
+                        margin-right: 0;
+                        margin-bottom: 30px;
                     }
                     @include tablet {
                         margin-right: 15px;
