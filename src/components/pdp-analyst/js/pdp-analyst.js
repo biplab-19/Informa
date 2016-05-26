@@ -52,7 +52,6 @@ INFORMA.analystList = (function(window, $, namespace) {
                     _maxHeight = _currentHeight;
                 }
             });
-            debugger;
             _analystDescription.css('height',_maxHeight+50);
 
     }
