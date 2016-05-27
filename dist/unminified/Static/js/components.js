@@ -1,4 +1,4 @@
-/*! 2016-05-26 */_adjustHeigt = function(){
+/*! 2016-05-27 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -404,7 +404,11 @@ jQuery(INFORMA.featureList.init());
 var INFORMA = window.INFORMA || {};
 INFORMA.formRequestForDemo = (function(window, $, namespace) {
     'use strict';
-     var init,
+     var _toolTip = $('.hasToolTip .icon.icon-info'),
+
+//functions
+     init,
+      _bindToolTip,
         _showOverlay;
 
     _showOverlay = function(container){
@@ -413,10 +417,21 @@ INFORMA.formRequestForDemo = (function(window, $, namespace) {
     }
 
     init = function() {
+          //todo: No null check, dont execute these bindings if forms are not there
 
             _showOverlay();
+            _bindToolTip();
 
     };
+
+    _bindToolTip = function(){
+          _toolTip.on('click',function(){
+                $(this).toggleClass('active');
+                $(this).parent().parent() // .hasToolTip
+                        .children('.tooltip-placeholder').slideToggle();
+          })
+   }
+
 
     return {
         init: init
@@ -1027,8 +1042,10 @@ INFORMA.productListResults = (function(window, $, namespace) {
     //variables
     var _productList = $('.product-finder-results'),
         _productListItems = _productList.find('.product-finder-list'),
-        _hoverItem = _productList.find('.front .header'),
+        _productListContainer = _productListItems.find('.product-finder-container'),
+        _hoverFrontHeader = _productList.find('.front .header'),
         _backElement = _productList.find('.back'),
+        _combineElement = _productList.find('.front .header, .back'),
         _pinElement = _productList.find('.pin'),
         _showMore = _productList.find('.btn-ShowMore'),
     // methods
@@ -1053,7 +1070,7 @@ INFORMA.productListResults = (function(window, $, namespace) {
     }
 
     if(INFORMA.global.device.viewportN === 0) {
-        _hoverItem.mouseenter(function(){
+        _hoverFrontHeader.mouseenter(function(){
             var _container =jQuery(this).parents('.product-finder-container');
             if(_container.hasClass('un-pinned')) {
                 _container.addClass('flip');
@@ -1067,7 +1084,7 @@ INFORMA.productListResults = (function(window, $, namespace) {
             }
         });
     } else {
-        _hoverItem.hover(function(){
+        _combineElement.hover(function(){
             var _container =jQuery(this).parents('.product-finder-container');
             if(_container.hasClass('un-pinned')) {
                 _container.addClass('flip');
@@ -1177,6 +1194,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
             var SectorData = {};
             SectorData.SectorIDs = INFORMA.Utils.getUniqueArray(arrayList);
+
             INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
                 method: "GET",
                 data: JSON.stringify(SectorData),
@@ -1195,18 +1213,6 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     }
                 },
                 error_callback: function() {
-                    //To-do Sw-804- Need to remove from here just for creative testing added block here
-                    if (data.SubSectors.length > 0) {
-                        var ListTemplate = Handlebars.compile(Templates.SubSectorList),
-                            html = ListTemplate({ SubSectors: data.SubSectors });
-
-
-                        $(".sector-search li").removeClass("disabled");
-                        SubSectorList.removeAttr("disabled")
-                            .removeProp("disabled")
-                            .html(html);
-                        SubSectorList.multiselect('rebuild');
-                    }
                 }
             });
         },
@@ -1356,7 +1362,32 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
             slidesToScroll: _slideCount,
             speed: _speed,
             dots: _dots,
-            adaptiveHeight: true
+            adaptiveHeight: true,
+            arrows: false,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                }, {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                }, {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: true
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
         });
     }
 

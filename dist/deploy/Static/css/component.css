@@ -1,4 +1,4 @@
-/*! 2016-05-26 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-05-27 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -148,44 +148,70 @@ section#hero-banner.about, section#hero-banner.contact {
   background: #ffd500;
   color: #444957;
 }
-/* line 121, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+@media (max-width: 767px) {
+  /* line 117, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  section#hero-banner.about, section#hero-banner.contact {
+    height: auto;
+    padding: 60px 0;
+  }
+}
+/* line 125, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.about h1, section#hero-banner.contact h1 {
   font-size: 60px;
   margin: 0 0 13px 0;
 }
-/* line 127, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+@media (max-width: 767px) {
+  /* line 125, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  section#hero-banner.about h1, section#hero-banner.contact h1 {
+    font-size: 30px;
+    width: 49%;
+  }
+}
+@media (min-width: 1142px) {
+  /* line 134, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  section#hero-banner.about .splash > div, section#hero-banner.contact .splash > div {
+    width: 75%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 134, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  section#hero-banner.about .splash > div, section#hero-banner.contact .splash > div {
+    width: 90%;
+  }
+}
+/* line 145, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.video {
   overflow: hidden;
 }
-/* line 129, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 147, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.video .abs-image {
   display: block;
   width: 100%;
   height: 100%;
 }
-/* line 139, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 157, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst {
   height: 650px;
   padding-bottom: 20px;
   color: #fff;
 }
 @media (max-width: 767px) {
-  /* line 139, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 157, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst {
     padding: 10px;
   }
 }
-/* line 146, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 164, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .marg-top {
   margin-top: 30px;
 }
-/* line 149, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 167, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst h1 {
   font-size: 50px;
   margin-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 149, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 167, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst h1 {
     margin: 17px 0 7px 0;
     font-size: 35px;
@@ -193,24 +219,24 @@ section#hero-banner.analyst h1 {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 149, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 167, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst h1 {
     font-size: 40px;
     margin-top: 0px;
   }
 }
-/* line 163, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 181, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .span-arrow {
   font-size: 250%;
   margin-top: 10px;
 }
 @media (max-width: 767px) {
-  /* line 163, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 181, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .span-arrow {
     display: none;
   }
 }
-/* line 170, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 188, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .subtext {
   font-family: FSMe-light;
   font-size: 30px;
@@ -219,7 +245,7 @@ section#hero-banner.analyst .subtext {
   padding-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 170, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 188, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .subtext {
     font-size: 25px;
     letter-spacing: normal;
@@ -228,34 +254,34 @@ section#hero-banner.analyst .subtext {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 170, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 188, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .subtext {
     font-size: 20px;
     letter-spacing: normal;
   }
 }
-/* line 187, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 205, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst h3 {
   font-family: FSMe-light;
   font-size: 20px;
   color: #444957;
 }
-/* line 192, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 210, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .color-subtext {
   color: #444957;
 }
 @media (max-width: 767px) {
-  /* line 192, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 210, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .color-subtext {
     text-align: left;
     line-height: 20px;
   }
 }
-/* line 199, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 217, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .pos {
   position: relative;
 }
-/* line 202, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 220, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .line {
   position: absolute;
   height: 2px;
@@ -266,53 +292,53 @@ section#hero-banner.analyst .line {
   background-color: white;
 }
 @media (max-width: 767px) {
-  /* line 202, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 220, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .line {
     display: none;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 202, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 220, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .line {
     right: 150px;
   }
 }
-/* line 218, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 236, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .image-margin {
   margin-right: 65px;
 }
 @media (max-width: 767px) {
-  /* line 218, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 236, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .image-margin {
     margin-right: 0px;
     margin-top: 10px;
   }
 }
 @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-  /* line 226, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 244, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .image-margin {
     margin-right: 130px;
   }
 }
-/* line 232, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 250, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images {
   height: auto;
   padding-bottom: 20px;
   color: #fff;
 }
 @media (max-width: 767px) {
-  /* line 232, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 250, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images {
     padding: 10px;
   }
 }
-/* line 239, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 257, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images h1 {
   font-size: 50px;
   margin-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 239, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 257, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images h1 {
     margin: 17px 0 7px 0;
     font-size: 35px;
@@ -320,29 +346,29 @@ section#hero-banner .analyst-two-images h1 {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 239, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 257, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images h1 {
     font-size: 40px;
     margin-top: 0px;
   }
 }
-/* line 253, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 271, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .span-arrow {
   font-size: 300%;
 }
 @media (max-width: 767px) {
-  /* line 253, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 271, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .span-arrow {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 259, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 277, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .img-mobile {
     margin-top: 17px;
   }
 }
-/* line 264, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 282, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .subtext {
   font-family: FSMe;
   font-size: 30px;
@@ -350,7 +376,7 @@ section#hero-banner .analyst-two-images .subtext {
   padding-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 264, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 282, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .subtext {
     font-size: 25px;
     letter-spacing: normal;
@@ -359,45 +385,45 @@ section#hero-banner .analyst-two-images .subtext {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 264, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 282, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .subtext {
     font-size: 20px;
     letter-spacing: normal;
   }
 }
-/* line 280, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 298, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images h3 {
   font-weight: bold;
   color: #444957;
 }
-/* line 284, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 302, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .color-subtext {
   color: #444957;
 }
 @media (max-width: 767px) {
-  /* line 284, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 302, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .color-subtext {
     text-align: left;
     line-height: 20px;
   }
 }
-/* line 292, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 310, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .image-margin {
   margin-right: 70px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-  /* line 296, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 314, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-right: 70px;
   }
 }
 @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-  /* line 302, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 320, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-right: 60%;
   }
 }
-/* line 307, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 325, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .line {
   position: absolute;
   height: 2px;
@@ -408,59 +434,59 @@ section#hero-banner .analyst-two-images .line {
   background-color: white;
 }
 @media (max-width: 767px) {
-  /* line 307, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 325, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .line {
     display: none;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 307, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 325, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .line {
     right: 150px;
   }
 }
-/* line 324, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 342, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .image-margin {
   margin-left: 30px;
 }
 @media (max-width: 767px) {
-  /* line 324, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 342, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-left: 0px;
     margin-top: 3px;
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  /* line 332, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 350, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-right: 70px;
   }
 }
 @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-  /* line 339, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 357, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-right: 60%;
   }
 }
-/* line 345, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 363, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image {
   height: auto;
   padding-bottom: 20px;
   color: #fff;
 }
 @media (max-width: 767px) {
-  /* line 345, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 363, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image {
     padding: 10px;
   }
 }
-/* line 352, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 370, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image h1 {
   font-size: 150px;
   margin-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 352, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 370, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image h1 {
     margin: 17px 0 7px 0;
     font-size: 35px;
@@ -468,29 +494,29 @@ section#hero-banner .analyst-single-image h1 {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 352, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 370, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image h1 {
     font-size: 40px;
     margin-top: 0px;
   }
 }
-/* line 366, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 384, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image .span-arrow {
   font-size: 300%;
 }
 @media (max-width: 767px) {
-  /* line 366, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 384, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .span-arrow {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 373, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 391, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .img-mobile {
     margin-top: 17px;
   }
 }
-/* line 378, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 396, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image .subtext {
   font-family: FSMe;
   font-size: 30px;
@@ -498,7 +524,7 @@ section#hero-banner .analyst-single-image .subtext {
   padding-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 378, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 396, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .subtext {
     font-size: 25px;
     letter-spacing: normal;
@@ -507,47 +533,47 @@ section#hero-banner .analyst-single-image .subtext {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 378, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 396, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .subtext {
     font-size: 20px;
     letter-spacing: normal;
   }
 }
-/* line 394, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 412, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image h3 {
   font-weight: bold;
   color: #444957;
 }
-/* line 398, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 416, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image .color-subtext {
   color: #444957;
 }
 @media (max-width: 767px) {
-  /* line 398, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 416, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .color-subtext {
     text-align: left;
     line-height: 20px;
   }
 }
-/* line 406, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 424, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image .image-margin {
   margin-left: 30px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 406, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 424, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .image-margin {
     margin-left: 0px;
   }
 }
 @media (max-width: 767px) {
-  /* line 406, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 424, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .image-margin {
     margin-left: 0px;
     margin-top: 17px;
   }
 }
 @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-  /* line 424, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 442, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .image-margin {
     margin-left: 20px;
   }
@@ -1785,7 +1811,7 @@ section#market-focus .market-list-wrapper .market-list {
   background-repeat: no-repeat;
   background-position: 100% 0;
   position: relative;
-  padding: 18px 15px 8px;
+  padding: 18px 60px 8px 15px;
   overflow: hidden;
   height: 62px;
 }
@@ -2498,8 +2524,8 @@ nav#pdp-navigation .menuFollower {
 .analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details h2 {
   font-size: 22px;
   margin-top: 0;
-  font-weight: bold;
-  font-family: 'FS Me Bold';
+  font-weight: normal;
+  font-family: 'FSMe-Bold';
 }
 /* line 71, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details h3 {
@@ -2926,43 +2952,51 @@ section#training-section {
 section#training-section .training-material h1 {
   margin-bottom: 20px;
 }
-/* line 19, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 12, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists .slick-list {
+  border-right: none;
+}
+/* line 15, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .container {
+  padding: 15px;
+}
+/* line 26, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .h3div {
   padding: 10px;
 }
-/* line 21, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 28, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .h3div .video-wrap {
   display: block;
 }
-/* line 24, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 31, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .h3div h3 {
   color: black;
   font-weight: bold;
 }
-/* line 29, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 36, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material ul.slick-dots {
   text-align: center;
   width: 100%;
   bottom: -40px;
 }
 @media (max-width: 767px) {
-  /* line 29, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 36, ../../../src/components/training-material/sass/_training-material.scss */
   section#training-section .training-material ul.slick-dots {
     position: static;
   }
 }
-/* line 36, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 43, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background: #6a7285;
 }
-/* line 41, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 48, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material ul.slick-dots li button:before {
   content: '';
 }
-/* line 44, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 51, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material ul.slick-dots li.slick-active {
   background: #ffd500;
 }
@@ -3029,7 +3063,7 @@ section#infograph .row-bg .sub-desc {
 
 /* line 3, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#about-us-hero {
-  height: 560px;
+  height: 600px;
   margin-top: 30px;
 }
 /* line 6, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
@@ -3044,7 +3078,7 @@ section#about-us-hero .sample .col-xs-12 {
 /* line 15, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#about-us-hero .img-bg img {
   width: 100%;
-  height: 560px;
+  height: 600px;
 }
 /* line 20, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#about-us-hero .transparent-bg-content {
@@ -3053,25 +3087,25 @@ section#about-us-hero .transparent-bg-content {
   height: 100%;
   line-height: 30px;
 }
-/* line 25, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+/* line 26, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#about-us-hero .transparent-bg-content:before {
   content: '';
   position: absolute;
   left: -130px;
-  height: 560px;
+  height: 600px;
   width: 0;
-  border-top: 560px solid transparent;
+  border-top: 600px solid transparent;
   border-bottom: 0px solid transparent;
   border-right: 130px solid RGBA(0, 0, 0, 0.7);
 }
 @media (max-width: 1023px) and (min-width: 768px) {
-  /* line 36, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+  /* line 37, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content:before {
     content: '';
     position: absolute;
     left: -130px;
     width: 0;
-    border-top: 560px solid transparent;
+    border-top: 600px solid transparent;
     border-bottom: 0px solid transparent;
     border-right: 130px solid RGBA(0, 0, 0, 0.7);
   }
@@ -3080,9 +3114,9 @@ section#about-us-hero .transparent-bg-content:before {
   /* line 20, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content {
     padding: 20px;
-    height: 560px;
+    height: 600px;
   }
-  /* line 49, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+  /* line 50, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content:before {
     content: '';
     position: none;
@@ -3094,29 +3128,35 @@ section#about-us-hero .transparent-bg-content:before {
     border-right: none;
   }
 }
-/* line 60, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+/* line 61, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#about-us-hero .transparent-bg-content h1 {
   font-family: FSMe-Bold;
   color: #d1d1d1;
   font-size: 40px;
   padding-top: 40px;
+  padding-right: 100px;
+  word-spacing: 8px;
+  padding-left: 10px;
+  margin-bottom: 20px;
 }
 @media (max-width: 767px) {
-  /* line 60, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+  /* line 61, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content h1 {
     font-size: 25px;
     padding-top: 10px;
   }
 }
-/* line 70, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+/* line 75, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
 section#about-us-hero .transparent-bg-content .description {
   font-family: FSMe-Light;
   color: #d1d1d1;
   font-size: 14px;
   padding-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 100px;
 }
 @media (max-width: 767px) {
-  /* line 70, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
+  /* line 75, ../../../src/components/about-us-hero/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content .description {
     padding-bottom: 25px;
     font-size: 12px;
@@ -3203,20 +3243,24 @@ section#about-us-hero .transparent-bg-content .description {
   margin-bottom: 10px;
   display: block;
 }
-/* line 64, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
-#contact-us-brand .panel-group .panel-body .contact-feeds p {
+/* line 63, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body .contact-feeds {
   margin: 0;
 }
-/* line 66, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
-#contact-us-brand .panel-group .panel-body .contact-feeds p a {
+/* line 65, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body .contact-feeds a {
   color: #ef7c00;
   padding-left: 50px;
   position: relative;
   font-size: 16px;
   font-family: "FSMe" !important;
+  display: inline-block;
+  margin-bottom: 15px;
+  display: inline-block;
+  margin: 10px 0 20px 0;
 }
-/* line 72, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
-#contact-us-brand .panel-group .panel-body .contact-feeds p a:before {
+/* line 75, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+#contact-us-brand .panel-group .panel-body .contact-feeds a:before {
   position: absolute;
   left: 0;
   color: #6a7287;
@@ -3224,21 +3268,21 @@ section#about-us-hero .transparent-bg-content .description {
   font-size: 30px;
   font-family: "InformaIcons" !important;
 }
-/* line 83, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+/* line 85, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 #contact-us-brand .panel-group .panel-body .contact-feeds div.col-xs-12:nth-child(2) p {
   margin-top: 20px;
 }
-/* line 88, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+/* line 90, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 #contact-us-brand .panel-group .panel-body strong {
   display: block;
   margin-bottom: 10px;
 }
-/* line 93, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+/* line 95, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 #contact-us-brand .panel-group .panel-body address p {
   margin-bottom: 0;
 }
 
-/* line 101, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
+/* line 103, ../../../src/components/contact-us-brand/sass/contact-us-brand.scss */
 .experience-mode .collapse {
   display: block;
 }
@@ -3255,9 +3299,9 @@ section#sectorpage-strengths .main-div {
 section#sectorpage-strengths .yellow-div {
   position: absolute;
   top: 50%;
-  height: 60%;
+  height: 50%;
   width: 100%;
-  padding: 3% 8% 1% 2%;
+  padding: 0% 15% 3% 2%;
   background: rgba(254, 215, 24, 0.9);
 }
 /* line 14, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
@@ -3266,39 +3310,38 @@ section#sectorpage-strengths .text-description {
   background: white;
   padding: 3% 3% 7% 2%;
   position: relative;
+  height: 250px;
+  overflow: hidden;
 }
-/* line 20, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 22, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 section#sectorpage-strengths .marg1 {
   margin-bottom: 20px;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 20, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 22, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   section#sectorpage-strengths .marg1 {
     margin-bottom: 20px;
   }
 }
-/* line 26, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 29, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 section#sectorpage-strengths .slant {
-  width: 0;
-  height: 0;
+  padding-top: 5%;
   position: absolute;
-  bottom: 0px;
-  left: 0.8em;
-  border-right: 26em solid #E1E2E7;
-  border-top: 17px solid transparent;
-  border-bottom: 0px solid transparent;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
 }
-@media (max-width: 767px) {
-  /* line 26, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
-  section#sectorpage-strengths .slant {
-    border-right: 21.5em solid #E1E2E7;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 26, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
-  section#sectorpage-strengths .slant {
-    border-right: 21.5em solid #E1E2E7;
-  }
+/* line 35, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+section#sectorpage-strengths .slant:before {
+  content: "";
+  position: absolute;
+  width: 101%;
+  height: 100%;
+  background-color: #e1e2e7;
+  transform: rotate(-3deg);
+  top: 50%;
+  left: -9px;
 }
 
 /* line 1, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
@@ -3330,29 +3373,41 @@ div#requestDemoModal form {
   font-family: "FSMe-Light";
 }
 /* line 27, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .icon-info {
+  display: none;
+}
+/* line 30, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .hasToolTip .icon-info {
+  display: inline-block;
+}
+/* line 33, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+div#requestDemoModal form .hasToolTip .icon-info.active:before {
+  color: #ffd500;
+}
+/* line 38, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .icon-info:before {
   content: "\e915";
   color: #a6aab6;
 }
-/* line 31, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 42, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .icon-info:hover::before {
   content: "\e915";
   color: #ffd500;
 }
-/* line 36, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 47, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .form-btn-container {
   float: right;
 }
-/* line 38, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 49, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .form-btn-container .btn {
   width: 150px;
   color: #fff;
   border: none;
 }
-/* line 44, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 55, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .tooltip-placeholder {
   position: relative;
-  display: block;
+  display: none;
   width: 100%;
   color: #FFFFFF;
   background: #FFD500;
@@ -3361,13 +3416,11 @@ div#requestDemoModal form .tooltip-placeholder {
   text-align: left;
   /* visibility: hidden; */
   border-radius: 0;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-  margin-top: 5px;
+  padding: 10px;
+  margin-top: 15px;
   color: #6a7287;
 }
-/* line 61, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 70, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .tooltip-placeholder:after {
   content: '';
   position: absolute;
@@ -3380,30 +3433,30 @@ div#requestDemoModal form .tooltip-placeholder:after {
   border-left: 10px solid #FFD500;
   border-top: 10px solid transparent;
 }
-/* line 82, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 91, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .title {
   font-size: 22px;
 }
-/* line 85, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 94, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form label {
   font-size: 16px;
   font-weight: normal;
 }
-/* line 89, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 98, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form input.form-control {
   border-radius: 0;
   height: 50px;
   background-color: #e1e3e7;
 }
-/* line 94, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 103, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .disabled {
   opacity: 0.6;
 }
-/* line 97, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 106, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .textbox {
   background-color: #fff;
 }
-/* line 99, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 108, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .textbox input {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -3414,25 +3467,25 @@ div#requestDemoModal form .textbox input {
   font-weight: 400;
   width: 100%;
 }
-/* line 109, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 118, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .textbox label {
   margin-bottom: 0;
   width: 100%;
 }
-/* line 114, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 123, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form label.label {
   font-family: FSMe-Light;
   font-size: 1em;
   font-weight: 400;
   padding: 0;
 }
-/* line 120, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 129, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form :not(.lt-ie9) {
   /* HTML5 Boilerplate accessible hidden styles */
   /* the basic, unchecked style */
   /* the checked style using the :checked pseudo class */
 }
-/* line 122, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 131, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form :not(.lt-ie9) .custom-radio input {
   border: 0;
   clip: rect(0 0 0 0);
@@ -3443,7 +3496,7 @@ div#requestDemoModal form :not(.lt-ie9) .custom-radio input {
   position: absolute;
   width: 1px;
 }
-/* line 133, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 142, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form :not(.lt-ie9) .custom-radio input + span::before {
   content: '';
   display: inline-block;
@@ -3458,19 +3511,19 @@ div#requestDemoModal form :not(.lt-ie9) .custom-radio input + span::before {
   position: relative;
   top: -2px;
 }
-/* line 148, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 157, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form :not(.lt-ie9) .custom-radio input:checked + span::before {
   background: #f07d00;
 }
-/* line 153, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 162, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect a {
   padding: 0 !important;
 }
-/* line 156, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 165, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect label {
   color: #434854;
 }
-/* line 159, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 168, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect input {
   border: 1px solid #a7a9b6;
   box-shadow: none;
@@ -3478,11 +3531,11 @@ div#requestDemoModal form .custom-multiselect input {
   width: 12px;
   height: 12px;
 }
-/* line 166, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 175, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect .btn-group {
   width: 100%;
 }
-/* line 168, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 177, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect .btn-group .caret {
   content: "\e901";
   border: none;
@@ -3490,28 +3543,28 @@ div#requestDemoModal form .custom-multiselect .btn-group .caret {
   position: absolute;
   right: 30px;
 }
-/* line 174, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 183, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect .btn-group .caret:before {
   font: 400 15px 'InformaIcons';
   content: "\e901";
   color: #a7a9b6;
 }
-/* line 180, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 189, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect .btn-group .dropdown-toggle {
   width: 100%;
   background: #fff;
   border: none;
   padding: 10px;
 }
-/* line 185, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 194, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect .btn-group .dropdown-toggle:after {
   content: '';
 }
-/* line 188, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 197, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect .btn-group .dropdown-toggle:hover {
   background: #fff;
 }
-/* line 192, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 201, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu {
   border-radius: 0;
   border: none;
@@ -3519,7 +3572,7 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu {
   width: 100%;
   padding: 10px 0;
 }
-/* line 199, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
+/* line 208, ../../../src/components/form-request-demo/sass/form-request-demo.scss */
 div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active a {
   background-color: transparent;
 }
@@ -3566,17 +3619,18 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   /* Chrome, Safari, Opera */
   backface-visibility: hidden;
   transition: transform .2s linear 0s;
+  position: relative;
 }
-/* line 34, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 35, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .front .header {
   position: relative;
   overflow: hidden;
 }
-/* line 37, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 38, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .front .header img {
   width: 100%;
 }
-/* line 40, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 41, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .front .header:after {
   content: "";
   position: absolute;
@@ -3587,11 +3641,27 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   top: calc(100% - 20px);
   left: 4px;
 }
-/* line 51, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 52, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .front .content {
   padding: 10px 10px 20px;
 }
 /* line 54, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+.product-finder-results .product-finder-container .front .content:after {
+  content: '+';
+  border: 2px solid #ef7c00;
+  color: #ef7c00;
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 50%;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  position: absolute;
+  right: 15px;
+  bottom: 35px;
+}
+/* line 70, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .front .footer {
   padding-top: 5%;
   position: absolute;
@@ -3599,7 +3669,7 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   bottom: 0;
   width: 100%;
 }
-/* line 60, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 76, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .front .footer:before {
   content: "";
   position: absolute;
@@ -3610,7 +3680,7 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   top: 50%;
   left: 0;
 }
-/* line 72, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 88, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back {
   background-color: #343742;
   height: 100%;
@@ -3624,7 +3694,7 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   top: 0;
   overflow: hidden;
 }
-/* line 83, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 99, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .header {
   background-color: #434854;
   -ms-transform: rotate(-3deg);
@@ -3634,7 +3704,7 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   transform: rotate(-3deg);
   padding-bottom: 10px;
 }
-/* line 89, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 105, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .header .header-content {
   background-color: #434854;
   padding: 20px;
@@ -3644,29 +3714,29 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   /* Chrome, Safari, Opera */
   transform: rotate(3deg);
 }
-/* line 95, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 111, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .header .header-content h4 {
   font-size: 18px;
   color: #fff;
 }
-/* line 101, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 117, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .content {
   padding: 40px 0;
 }
-/* line 103, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 119, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .content ul {
   list-style-type: none;
 }
-/* line 105, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 121, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .content ul li {
   padding: 10px;
   position: relative;
 }
-/* line 108, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 124, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .content ul li a {
   font-size: 16px;
 }
-/* line 110, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 126, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .content ul li a:before {
   content: "\e914";
   font-family: "InformaIcons";
@@ -3676,7 +3746,7 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   font-size: 20px;
   color: #ffd500;
 }
-/* line 123, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 139, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .footer {
   -ms-transform: rotate(-3deg);
   /* IE 9 */
@@ -3689,7 +3759,7 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   width: 100%;
   top: calc(100% - 80px);
 }
-/* line 132, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 148, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .footer .footer-content {
   -ms-transform: rotate(3deg);
   /* IE 9 */
@@ -3698,25 +3768,25 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   transform: rotate(3deg);
   background-color: #434854;
 }
-/* line 137, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 153, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .footer .footer-content .btn {
   width: 100%;
   display: block;
   color: #fff;
 }
-/* line 141, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 157, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .footer .footer-content .btn.free-trial {
   border-color: #ef7c00;
 }
-/* line 143, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 159, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .footer .footer-content .btn.free-trial:after {
   color: #ef7c00;
 }
-/* line 147, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 163, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .product-finder-container .back .footer .footer-content .btn.more {
   border-color: #ef7c00;
 }
-/* line 155, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 171, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .pin {
   cursor: pointer;
   width: 70px;
@@ -3732,7 +3802,7 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   transform: rotate(45deg);
   z-index: 2;
 }
-/* line 167, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 183, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .pin:before {
   content: '';
   width: 20px;
@@ -3744,16 +3814,16 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   transform: rotate(-35deg);
   background-position: 0 0;
 }
-/* line 181, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 197, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .un-pinned .pin:before {
   background-position: 0 25px;
 }
-/* line 186, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 202, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .btn-container {
   margin: 20px 0;
   text-align: center;
 }
-/* line 189, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 205, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .btn-container .btn-ShowMore {
   color: #444957;
   padding: 20px 0;
@@ -3763,22 +3833,22 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 189, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+  /* line 205, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
   .product-finder-results .btn-container .btn-ShowMore {
     padding: 20px 0 40px 0;
   }
 }
-/* line 199, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 215, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .btn-container .btn-ShowMore span {
   float: left;
 }
 @media (max-width: 767px) {
-  /* line 199, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+  /* line 215, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
   .product-finder-results .btn-container .btn-ShowMore span {
     float: none;
   }
 }
-/* line 204, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 220, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .btn-container .btn-ShowMore span:before {
   content: "\e912";
   position: absolute;
@@ -3789,34 +3859,109 @@ div#requestDemoModal form .custom-multiselect .btn-group .dropdown-menu .active 
   color: #ffd500;
 }
 @media (max-width: 767px) {
-  /* line 204, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+  /* line 220, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
   .product-finder-results .btn-container .btn-ShowMore span:before {
     right: 50%;
     margin-right: -13px;
     top: 35px;
   }
 }
-/* line 219, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 235, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .btn-container .btn-ShowMore span.less:before {
   content: "\e913";
 }
-/* line 224, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 240, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .btn-container .btn-ShowMore:hover, .product-finder-results .btn-container .btn-ShowMore:focus {
   text-decoration: none;
 }
-/* line 229, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 245, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .more {
   display: block;
 }
-/* line 232, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 248, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results .less {
   display: none;
 }
-/* line 236, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 252, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results.all-shown .more {
   display: none;
 }
-/* line 239, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
+/* line 255, ../../../src/components/product-finder-results/sass/_product-finder-results.scss */
 .product-finder-results.all-shown .less {
   display: block;
+}
+
+/* line 3, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form label {
+  font-size: 12px;
+  font-weight: normal;
+  font-family: 'FSMe-Bold';
+}
+/* line 8, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .chosen-container-single .chosen-single {
+  line-height: 45px;
+  height: 45px;
+  border: 1px solid #ccc;
+}
+/* line 14, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .chosen-container-single .chosen-single div:after {
+  content: '\e901';
+  position: absolute;
+  font-family: "InformaIcons";
+  left: 0;
+}
+/* line 20, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .chosen-container-single .chosen-single div b {
+  display: none;
+}
+/* line 24, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .form-control {
+  height: 45px;
+  border-radius: 0;
+}
+/* line 28, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .submit-btn {
+  width: 100%;
+  border-color: #ef7c00;
+  margin-top: 23px;
+  color: #fff;
+  height: 45px;
+  padding-top: 10px;
+}
+@media (max-width: 767px) {
+  /* line 28, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  .analyst-search form .submit-btn {
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 28, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  .analyst-search form .submit-btn {
+    margin-bottom: 20px;
+  }
+}
+/* line 41, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .submit-btn:hover {
+  color: #fff;
+}
+/* line 45, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .search-field {
+  position: relative;
+}
+/* line 47, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .search-field span {
+  position: absolute;
+  font-size: 30px;
+  left: 20px;
+  bottom: 7px;
+}
+@media (max-width: 767px) {
+  /* line 47, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  .analyst-search form .search-field span {
+    left: 15px;
+  }
+}
+/* line 56, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .search-field .form-control {
+  padding: 6px 12px 6px 40px;
 }
