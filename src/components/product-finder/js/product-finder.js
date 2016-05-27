@@ -19,23 +19,68 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitBtn = $(".product-finder li.button"),
         CustomSelect = $(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
-        SearchIcon =$(".navbar-default .search a"),
-        // methods
-        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSeach, ToggleProductFinder,
+        SearchIcon = $(".navbar-default .search a"),
+        ResultContainer = $(".product-finder-results"),
         Urls = INFORMA.Configs.urls.webservices,
-        SubmitHandler,
-        Templates = INFORMA.Templates;
+        Templates = INFORMA.Templates,
 
-        ToggleProductFinder = function(){
-            CloseIcon.on("click",function(e){
+        // methods
+        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSeach,
+        ToggleProductFinder, RenderProductSearchResult, UpdateSubSectorDropdown, GetAjaxData,
+        SubmitHandler;
+
+    ToggleProductFinder = function() {
+            CloseIcon.on("click", function(e) {
                 e.preventDefault();
                 ProductFinderSection.slideUp("fast");
             });
-            SearchIcon.on("click",function(e){
+            SearchIcon.on("click", function(e) {
                 e.preventDefault();
                 ProductFinderSection.slideDown("slow");
             });
-        }
+        },
+        UpdateSubSectorDropdown = function(data) {
+            if (data.SubSectors.length > 0) {
+                var ListTemplate = Handlebars.compile(Templates.SubSectorList),
+                    html = ListTemplate({ SubSectors: data.SubSectors });
+
+
+                $(".sector-search li").removeClass("disabled");
+                SubSectorList.removeAttr("disabled")
+                    .removeProp("disabled")
+                    .html(html);
+                SubSectorList.multiselect('rebuild');
+            }
+        },
+        RenderProductSearchResult = function(data) {
+            if (data.results && data.results.length > 0) {
+                var ListTemplate = Handlebars.compile(Templates.ProductListingSearch),
+                    html = ListTemplate({ results: data.results });
+                    if(ResultContainer.length){
+                        ResultContainer.find(".row")
+                            .hide()
+                            .empty()
+                            .html(html)
+                            .fadeIn(1000);
+                    }
+            }
+        },
+        GetAjaxData = function(url, method, data, success_callback, error_callback) {
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: JSON.stringify(data),
+                success_callback: function(data) {
+                    if (typeof success_callback === "function") {
+                        success_callback.call(this, data);
+                    }
+                },
+                error_callback: function() {
+                    if (typeof error_callback === "function") {
+                        error_callback.call(this, data);
+                    }
+                }
+            });
+        },
         SubmitHandler = function() {
 
             if (ProductFinderSection.data("product") === true) {
@@ -43,6 +88,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     e.preventDefault();
                     var fieldArray = ProductFinderSection.find("form").serializeArray(),
                         getSerilizeData = INFORMA.Utils.serializeObject(fieldArray);
+                    INFORMA.Spinner.Show($("body"));
+                    GetAjaxData(Urls.ProductSearch, "Get", getSerilizeData, RenderProductSearchResult, null);
                 });
             }
         },
@@ -66,27 +113,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
             var SectorData = {};
             SectorData.SectorIDs = INFORMA.Utils.getUniqueArray(arrayList);
-
-            INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
-                method: "GET",
-                data: JSON.stringify(SectorData),
-                success_callback: function(data) {
-
-                    if (data.SubSectors.length > 0) {
-                        var ListTemplate = Handlebars.compile(Templates.SubSectorList),
-                            html = ListTemplate({ SubSectors: data.SubSectors });
-
-
-                        $(".sector-search li").removeClass("disabled");
-                        SubSectorList.removeAttr("disabled")
-                            .removeProp("disabled")
-                            .html(html);
-                        SubSectorList.multiselect('rebuild');
-                    }
-                },
-                error_callback: function() {
-                }
-            });
+            GetAjaxData(Urls.GetSubSectorList, "Get", SectorData, UpdateSubSectorDropdown, null);
         },
         BindDropDown = function() {
             var SectorList = [];

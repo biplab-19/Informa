@@ -18,7 +18,8 @@ var INFORMA = window.INFORMA || {};
             this.urls = {
                 "webservices" :{
                     "GetArticles" :"/client/search/getarticles",
-                    "GetSubSectorList" : "/data/product-finder.json"
+                    "GetSubSectorList" : "/data/product-finder.json",
+                    "ProductSearch":"/data/product-results.json"
                 }
             },
             this.activeClass = 'informaui-active',

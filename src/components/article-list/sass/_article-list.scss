@@ -1,12 +1,13 @@
 .article-list {
     background-color: #f6f6f8;
     position: relative;
-    .loading {
-        opacity: 0.3;
-        background: transparent url("/Static/images/common/sprite.png") no-repeat 0 0;
-    }
     .container{
         padding:0 15px;
+    }
+    .load-spinner {
+        .loading {
+            position: absolute;
+        }
     }
     .list-container {
         list-style-type: none;

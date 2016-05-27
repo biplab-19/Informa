@@ -2,54 +2,7 @@
 	<div class="container">
 		<p class="results"><strong>{{products-count}}</strong> Products found</p>
 		<div class="row">
-			{{#each results}}
-				<div class="col-xs-12 col-sm-6 col-md-4 product-finder-list">
-					<div class="product-finder-container un-pinned">
-						<div class="front">
-							<div class="pin"></div>
-							<div class="header">
-								<img src="{{front.image}}" alt="video-thumb-sample" />
-							</div>
-							<div class="content">
-								<h2>{{front.heading}}</h2>
-								<p>{{front.description}}</p>
-								<ul class="gray-bullets">
-									{{#each front.items}}
-										<li>{{name}}</li>
-									{{/each}}
-								</ul>
-							</div>
-							<div class="footer">
-							</div>
-						</div>
-						<div class="back">
-							<div class="header">
-								<div class="header-content">
-									<div class="pin"></div>
-									<h4>{{back.heading}}</h4>
-								</div>
-							</div>
-							<div class="content">
-								<ul>
-									{{#each back.list}}
-										<li><a href="#">{{name}}</a></li>
-									{{/each}}
-								</ul>
-							</div>
-							<div class="footer">
-								<div class="footer-content clearfix">
-									<div class="col-xs-6">
-										<a href="#" class="btn btn-default free-trial">Free Trial</a>
-									</div>
-									<div class="col-xs-6">
-										<a href="#" class="btn btn-default orange more">More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			{{/each}}
+			
 		</div>
 		<div class="btn-container">
 			<a href="javascript:void(0)" class="btn-ShowMore">

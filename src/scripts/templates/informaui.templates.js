@@ -64,6 +64,55 @@ var INFORMA = window.INFORMA || {};
         'SubSectorList':
             '{{#each SubSectors}}'+
                 '<option value="{{SubSectorID}}">{{SubSectorName}}</option>'+
+            '{{/each}}',
+        'ProductListingSearch' :
+            '{{#each results}}'+
+            '<div class="col-xs-12 col-sm-6 col-md-4 product-finder-list">'+
+                '<div class="product-finder-container un-pinned">'+
+                    '<div class="front">'+
+                        '<div class="pin"></div>'+
+                        '<div class="header">'+
+                            '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
+                        '</div>'+
+                        '<div class="content">'+
+                            '<h2>{{Title}}</h2>'+
+                            '<p>{{Description}}</p>'+
+                            '<ul class="gray-bullets">'+
+                                '{{#each SubSectors}}'+
+                                    '<li>{{this}}</li>'+
+                                '{{/each}}'+
+                            '</ul>'+
+                        '</div>'+
+                        '<div class="footer">'+
+                        '</div>'+
+                    '</div>'+
+                    '<div class="back">'+
+                        '<div class="header">'+
+                            '<div class="header-content">'+
+                                '<div class="pin"></div>'+
+                                '<h4>{{Title}}</h4>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="content">'+
+                            '<ul>'+
+                                '{{#each Benefits}}'+
+                                    '<li><a href="#">{{this}}</a></li>'+
+                                '{{/each}}'+
+                            '</ul>'+
+                        '</div>'+
+                        '<div class="footer">'+
+                            '<div class="footer-content clearfix">'+
+                                '<div class="col-xs-6">'+
+                                    '<a href="{{FreeTrialLink}}" class="btn btn-default free-trial">Free Trial</a>'+
+                                '</div>'+
+                                '<div class="col-xs-6">'+
+                                    '<a href="{{FreeTrialLink}}" class="btn btn-default orange more">More</a>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+  
             '{{/each}}'
-  }
+}
 }(this, jQuery, 'INFORMA'));
