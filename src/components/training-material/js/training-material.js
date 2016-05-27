@@ -45,7 +45,32 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
             slidesToScroll: _slideCount,
             speed: _speed,
             dots: _dots,
-            adaptiveHeight: true
+            adaptiveHeight: true,
+            arrows: false,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                }, {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                }, {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: true
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
         });
     }
 
