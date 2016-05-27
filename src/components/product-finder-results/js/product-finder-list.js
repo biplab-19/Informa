@@ -51,7 +51,7 @@ INFORMA.productListResults = (function(window, $, namespace) {
             }
         });
 
-        _backElement.mouse(function(){
+        _backElement.mouseleave(function(){
             var _container =jQuery(this).parents('.product-finder-container');
             if(_container.hasClass('un-pinned')) {
                 _container.removeClass('flip');
