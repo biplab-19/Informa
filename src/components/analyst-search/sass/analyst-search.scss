@@ -2,6 +2,60 @@
 	form {
 		label {
 			font-size: 12px;
+		    font-weight: normal;
+		    font-family: 'FSMe-Bold';
+		}
+		.chosen-container-single .chosen-single {
+			line-height: 45px;
+			height: 45px;
+			border: 1px solid #ccc;
+		}
+		.chosen-container-single .chosen-single div {
+			&:after {
+				content: '\e901';
+				position: absolute;
+				font-family: "InformaIcons";
+				left: 0;
+			}
+			b {
+				display: none;
+			}
+		}
+		.form-control {
+			height: 45px;
+			border-radius: 0;
+		}
+		.submit-btn {
+			width: 100%;
+			border-color: $orange;
+			margin-top: 23px;
+			color: $white;
+			height: 45px;
+			padding-top: 10px;
+			@include mobile {
+				margin-bottom: 20px;
+			}
+			@include tablet {
+				margin-bottom: 20px;
+			}
+			&:hover {
+				color: $white;
+			}
+		}
+		.search-field {
+			position: relative;
+			span {
+				position: absolute;
+			    font-size: 30px;
+			    left: 20px;
+			    bottom: 7px;
+			    @include mobile {
+			    	left: 15px;
+			    }
+			}
+			.form-control {
+				padding: 6px 12px 6px 40px;
+			}
 		}
 	}
 }
