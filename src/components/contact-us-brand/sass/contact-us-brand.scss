@@ -61,7 +61,6 @@
 				display: block;
 			}
 			.contact-feeds {
-				p {
 					margin: 0;
 					a {
 						color: $orange;
@@ -69,6 +68,10 @@
 						position: relative;
 						font-size: 16px;
 						font-family: "FSMe" !important;
+						display: inline-block;
+						margin-bottom: 15px;
+						display: inline-block;
+						margin: 10px 0 20px 0;
 						&:before {
 							position: absolute;
 							left: 0;
@@ -78,7 +81,6 @@
 							font-family: "InformaIcons" !important;
 						}
 					}
-				}
 				div.col-xs-12:nth-child(2) {
 					p {
 						margin-top: 20px;
