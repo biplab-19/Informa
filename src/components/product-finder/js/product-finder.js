@@ -67,9 +67,6 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             var SectorData = {};
             SectorData.SectorIDs = INFORMA.Utils.getUniqueArray(arrayList);
 
-            //Show spinner in sub sector list
-            INFORMA.Spinner.Show(SubSectorList.parent());
-
             INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
                 method: "GET",
                 data: JSON.stringify(SectorData),
