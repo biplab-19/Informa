@@ -24,6 +24,17 @@ div#requestDemoModal {
         }
     }
     form {
+          .icon-info {
+                display: none;
+          }
+          .hasToolTip .icon-info {
+                display: inline-block;
+                &.active {
+                      &:before {
+                           color: $yellow;
+                     }
+                }
+          }
         .icon-info:before {
             content: "\e915";
             color: $info-icon-color;
@@ -43,7 +54,7 @@ div#requestDemoModal {
         }
         .tooltip-placeholder {
             position: relative;
-            display: block;
+            display: none;
             width: 100%;
             color: #FFFFFF;
             background: #FFD500;
@@ -52,10 +63,8 @@ div#requestDemoModal {
             text-align: left;
             /* visibility: hidden; */
             border-radius: 0;
-            padding-left: 10px;
-            margin-bottom: 10px;
-            margin-left: 5px;
-            margin-top: 5px;
+            padding: 10px;
+            margin-top: 15px;
             color: $font-color;
         }
         .tooltip-placeholder:after {
