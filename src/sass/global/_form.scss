@@ -24,14 +24,14 @@ select.form-control {
     .loading {
         position: fixed;
         display: block;
-        img{
+        img {
             display: block;
         }
         em {
             display: block;
             text-align: center;
-            position:relative;
-            top:60px;
+            position: relative;
+            top: 60px;
             font-weight: 700;
             color: $white;
         }
@@ -68,6 +68,7 @@ select.form-control {
     }
     :not(.lt-ie9) {
         /* HTML5 Boilerplate accessible hidden styles */
+        .custom-checkbox input,
         .custom-radio input {
             border: 0;
             clip: rect(0 0 0 0);
@@ -96,6 +97,28 @@ select.form-control {
         /* the checked style using the :checked pseudo class */
         .custom-radio input:checked + span::before {
             background: $input-orange;
+        }
+    }
+    .custom-checkbox {
+        color: $text-gray;
+        position: relative;
+        label {
+            margin-left:20px;
+            span {
+                &:before {
+                    background: #fff none repeat scroll 0 0;
+                    content: "";
+                    height: 12px;
+                    left: 0;
+                    position: absolute;
+                    top: 2px;
+                    width: 12px;
+                }
+            }
+            input:checked + span:before {
+                background: $white url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
+                background-size: 100%;
+            }
         }
     }
     .custom-multiselect {

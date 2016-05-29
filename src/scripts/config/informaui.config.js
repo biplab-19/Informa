@@ -19,7 +19,8 @@ var INFORMA = window.INFORMA || {};
                 "webservices" :{
                     "GetArticles" :"/client/search/getarticles",
                     "GetSubSectorList" : "/data/product-finder.json",
-                    "ProductSearch":"/data/product-results.json"
+                    "ProductSearch":"/data/product-results.json",
+                    "SearchResult" :"/data/search-results.json"
                 }
             },
             this.activeClass = 'informaui-active',

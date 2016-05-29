@@ -20,16 +20,16 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         CustomSelect = $(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
         SearchIcon = $(".navbar-default .search a"),
-        ResultContainer = $(".product-finder-results"),
+        SearchPage = $("#search-page"),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
 
         // methods
-        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSeach,
-        ToggleProductFinder, RenderProductSearchResult, UpdateSubSectorDropdown, GetAjaxData,
-        SubmitHandler;
+        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSearch,
+        ToggleProductFinder, RenderSearchResult, UpdateSubSectorDropdown, GetAjaxData,
+        SubmitHandler, BindAjaxHandler;
 
-    ToggleProductFinder = function() {
+        ToggleProductFinder = function() {
             CloseIcon.on("click", function(e) {
                 e.preventDefault();
                 ProductFinderSection.slideUp("fast");
@@ -52,48 +52,47 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 SubSectorList.multiselect('rebuild');
             }
         },
-        RenderProductSearchResult = function(data) {
-            if (data.results && data.results.length > 0) {
-                var ListTemplate = Handlebars.compile(Templates.ProductListingSearch),
-                    html = ListTemplate({ results: data.results });
-                    if(ResultContainer.length){
-                        ResultContainer.find(".row")
-                            .hide()
-                            .empty()
-                            .html(html)
-                            .fadeIn(1000);
-                    }
-            }
+        RenderSearchResult = function(data, SearchType) {
+            INFORMA.SearchResults.RenderSearchResults(data,SearchType);
         },
-        GetAjaxData = function(url, method, data, success_callback, error_callback) {
+        GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
                 data: JSON.stringify(data),
                 success_callback: function(data) {
-                    if (typeof success_callback === "function") {
-                        success_callback.call(this, data);
+                    if (typeof SCallback === "function") {
+                        SCallback.call(this, data, SearchType);
                     }
                 },
                 error_callback: function() {
-                    if (typeof error_callback === "function") {
-                        error_callback.call(this, data);
+                    if (typeof Errcallback === "function") {
+                        Errcallback.call(this, data, SearchType);
                     }
                 }
             });
         },
-        SubmitHandler = function() {
+        SubmitHandler = function(SearchType) {
+            SubmitBtn.on("click", "a", function(e) {
+                e.preventDefault();
+                var FieldArray = ProductFinderSection.find("form").serializeArray(),
+                    GetSerializeData = INFORMA.Utils.serializeObject(FieldArray);
+                INFORMA.Spinner.Show($("body"));
+                GetAjaxData(Urls[SearchType], "Get", GetSerializeData, RenderSearchResult, null, SearchType);
+            });
+        },
+        BindAjaxHandler = function() {
 
-            if (ProductFinderSection.data("product") === true) {
-                SubmitBtn.on("click", "a", function(e) {
-                    e.preventDefault();
-                    var fieldArray = ProductFinderSection.find("form").serializeArray(),
-                        getSerilizeData = INFORMA.Utils.serializeObject(fieldArray);
-                    INFORMA.Spinner.Show($("body"));
-                    GetAjaxData(Urls.ProductSearch, "Get", getSerilizeData, RenderProductSearchResult, null);
-                });
+            var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
+                IsSearchPage = (SearchPage.data("search") === true) ? true : false;
+
+            if (IsProductPage) {
+                SubmitHandler("ProductSearch");
+            }
+            if (IsSearchPage) {
+                SubmitHandler("SearchResult");
             }
         },
-        ShowHideSeach = function(ele) {
+        ShowHideSearch = function(ele) {
             var ShowOption = $(ele).data('show');
             $("ul.searchToggle").addClass('hidden');
             ProductFinderSection.find("ul." + ShowOption).removeClass("hidden").fadeIn("slow");
@@ -102,11 +101,11 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             ToggleProductFinder();
             jQuery(".search-options input[type=radio]").on('change', function(e) {
                 e.preventDefault();
-                ShowHideSeach($(this));
+                ShowHideSearch($(this));
             });
             var CheckedOption = jQuery(".search-options input[type=radio]:checked");
             if (typeof CheckedOption === "object") {
-                ShowHideSeach(CheckedOption);
+                ShowHideSearch(CheckedOption);
             }
         },
         GetSubSectorList = function(arrayList) {
@@ -158,7 +157,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         if (ProductFinderSection.length > 0) {
             BindDropDown();
             ToggleSearchOption();
-            SubmitHandler();
+            BindAjaxHandler();
         }
     };
 

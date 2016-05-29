@@ -2,15 +2,46 @@
     INFORMA.Utils = (function() {
         function _utils() {
 
-            this.getUniqueArray = function(arrayList) {
-                var uniqueArray = [];
-                $.each(arrayList, function(i, el) {
-                    if ($.inArray(el, uniqueArray) === -1) {
-                        uniqueArray.push(el);
+                DoFlip = function(obj) {
+                    var Container = obj.parents('.tile');
+                    if (Container.hasClass('un-pinned')) {
+                        Container.addClass('flip');
                     }
-                });
-                return uniqueArray;
-            }
+                },
+                this.flipTile = function(Object) {
+                    var TileFront = Object.find('.front .header'),
+                        TileBack = Object.find('.back'),
+                        CompleteTile = Object.find('.front .header, .back'),
+                        Pins = Object.find('.pin');
+
+                    if (INFORMA.global.device.viewportN === 0) {
+                        TileFront.mouseenter(function() {
+                            DoFlip($(this));
+                        });
+
+                        TileBack.mouseleave(function() {
+                            DoFlip($(this));
+                        });
+                    } else {
+                        CompleteTile.hover(function() {
+                            DoFlip($(this));
+                        }, function() {
+                            DoFlip($(this));
+                        });
+                    }
+                    Pins.click(function() {
+                        jQuery(this).parents('.tile').toggleClass('un-pinned');
+                    })
+                },
+                this.getUniqueArray = function(arrayList) {
+                    var uniqueArray = [];
+                    $.each(arrayList, function(i, el) {
+                        if ($.inArray(el, uniqueArray) === -1) {
+                            uniqueArray.push(el);
+                        }
+                    });
+                    return uniqueArray;
+                }
             this.serializeObject = function(array) {
                 var o = {},
                     a = array;

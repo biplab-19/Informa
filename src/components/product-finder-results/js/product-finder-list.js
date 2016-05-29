@@ -11,91 +11,104 @@
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.productListResults = (function(window, $, namespace) {
+INFORMA.SearchResults = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _productList = $('.product-finder-results'),
-        _productListItems = _productList.find('.product-finder-list'),
-        _productListContainer = _productListItems.find('.product-finder-container'),
-        _hoverFrontHeader = _productList.find('.front .header'),
-        _backElement = _productList.find('.back'),
-        _combineElement = _productList.find('.front .header, .back'),
-        _pinElement = _productList.find('.pin'),
-        _showMore = _productList.find('.btn-ShowMore'),
-    // methods
+    var Templates = INFORMA.Templates,
+        ResultContainer = $(".search-container #results"),
+        ResultCount, ResultInner,CreateRefineList,
+        // methods
         init,
-        _equalHeight;
+        equalHeight, UpdateHtmlView, ParseResult, BindEvents,ParseTemplate;
 
-    _equalHeight = function(container){
-        var _itemsList = container.find('.product-finder-list'),
-            _maxHeight = 0,
-            _padding = 10;
+        equalHeight = function(container) {
+            var ItemsList = container.find('.col-md-4'),
+                MaxHeight = 0,
+                Padding = 10;
 
-        _itemsList.each(function() {
-            var currentHeight = jQuery(this).height();
-            if(currentHeight > _maxHeight){
-                _maxHeight = currentHeight;
+            ItemsList.each(function() {
+                var currentHeight = jQuery(this).height();
+                if (currentHeight > MaxHeight) {
+                    MaxHeight = currentHeight;
+                }
+            })
+            ItemsList.css('height', MaxHeight + Padding);
+            if (INFORMA.global.device.viewportN === 2) {
+                ItemsList.css('height', 'auto');
             }
-        })
-        _itemsList.css('height',_maxHeight+_padding);
-        if(INFORMA.global.device.viewportN === 2) {
-            _itemsList.css('height','auto');
-        }
-    }
-
-    if(INFORMA.global.device.viewportN === 0) {
-        _hoverFrontHeader.mouseenter(function(){
-            var _container =jQuery(this).parents('.product-finder-container');
-            if(_container.hasClass('un-pinned')) {
-                _container.addClass('flip');
+        },
+        ParseTemplate = function(DataObject){
+            var html="";
+            for (var key in DataObject) {
+                if (DataObject.hasOwnProperty(key)) {
+                    var ResultName = key,
+                        Data = DataObject[key],
+                        TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
+                        ListTemplate = Handlebars.compile(TemplateName);
+                        console.log(Data);
+                    html += ListTemplate({ results: Data });
+                }
             }
-        });
-
-        _backElement.mouseleave(function(){
-            var _container =jQuery(this).parents('.product-finder-container');
-            if(_container.hasClass('un-pinned')) {
-                _container.removeClass('flip');
+            return html;
+        },
+        CreateRefineList = function(Html){
+            var RefineContainer = $(".search-container .refine-list");
+            if (RefineContainer.length) {
+                RefineContainer
+                    .empty()
+                    .html(Html);
+                RefineContainer.parents(".refine-result").slideDown();
             }
-        });
-    } else {
-        _combineElement.hover(function(){
-            var _container =jQuery(this).parents('.product-finder-container');
-            if(_container.hasClass('un-pinned')) {
-                _container.addClass('flip');
+            $(".refine-result").off("click").on("click","a.refine",function(e){
+                e.preventDefault();
+                RefineContainer.slideToggle();
+            })
+        },
+        BindEvents = function(){
+            INFORMA.Utils.flipTile(ResultInner);
+        },
+        UpdateHtmlView = function(Html) {
+            if (ResultContainer.length) {
+                ResultContainer
+                    .hide()
+                    .empty()
+                    .html(Html);
+
+                ResultContainer.fadeIn(1000);
+                ResultInner = $(".search-results");
+                ResultInner.each(function() {
+                    equalHeight($(this));
+                });
+                BindEvents();
             }
-        }, function() {
-            var _container =jQuery(this).parents('.product-finder-container');
-            if(_container.hasClass('un-pinned')) {
-                _container.removeClass('flip');
+        },
+        ParseResult = function(data) {
+            if (Object.keys(data).length) {
+                var Results = (data.Results !== undefined) ? data.Results : false,
+                    Refine  = (data.RefineResult !== undefined) ? data.RefineResult : false;
+                if (Results) {
+                    var html = ParseTemplate(Results);
+                    UpdateHtmlView(html);
+                }
+                if(Refine){
+                    var Data={"RefineResult":Refine};
+                    CreateRefineList(ParseTemplate(Data));
+                }
             }
-        });
-    }
+        };
 
-    _pinElement.click(function() {
-        jQuery(this).parents('.product-finder-container').toggleClass('un-pinned');
-    })
+    //Resize
+    // $(window).resize(function() {
+    //     if (SearchResults.length > 0) {
+    //         equalHeight(SearchResults);
+    //     }
+    // });
 
-    _showMore.click(function() {
-        jQuery(this).parents('.product-finder-results').toggleClass('all-shown');
-        jQuery(this).parents('.product-finder-results').find('.product-finder-list:nth-child(n+4)').slideToggle();
-    })
-
-     //Resize
-    $(window).resize(function(){
-       if (_productList.length > 0) {
-            _equalHeight(_productList);
-        }
-    });
-
-    init = function() {
-        if (_productList.length > 0) {
-            $(document).ready(function() {
-                 _equalHeight(_productList);
-            });
-        }
-    };
+    init = function() {};
     return {
-        init: init
+        init: init,
+        RenderSearchResults: ParseResult
     };
+
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.productListResults.init());
+jQuery(INFORMA.SearchResults.init());

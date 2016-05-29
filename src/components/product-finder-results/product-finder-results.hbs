@@ -1,14 +1,41 @@
-<section class="product-finder-results">
+<section class="product-finder-results search-container">
+<div class="search-filter">
 	<div class="container">
-		<p class="results"><strong>{{products-count}}</strong> Products found</p>
-		<div class="row">
-			
-		</div>
-		<div class="btn-container">
-			<a href="javascript:void(0)" class="btn-ShowMore">
-				<span class="more">More Products</span>
-				<span class="less">Less products</span>
-			</a>
+		<p class="filter-text">You've searched for:</p>
+		<div class="filter-list">
+			<div class="sector">
+				<p>Sector:</p>
+				<ul>
+					<li>Commodities<a href="#" class="remove">x</a></li>
+					<li>Crop protection<a href="#" class="remove">x</a></li>
+					<li>Diary Products<a href="#" class="remove">x</a></li>
+				</ul>
+				<a class="remove-all" href="#">Clear all x</a>
+			</div>
+			<div class="subsector">
+				<p>Sub Sector:</p>
+				<ul>
+					<li>Diary<a href="#" class="remove">x</a></li>
+					<li>Meats<a href="#" class="remove">x</a></li>
+					<li>Electronics<a href="#" class="remove">x</a></li>
+				</ul>
+				<a class="remove-all" href="#">Clear all x</a>
+			</div>
 		</div>
 	</div>
+</div>
+<div class="refine-result form">
+	<div class="container">
+		<p class="header">
+			<a href="#" class="refine">Refine results <span class="icon-chevron-down"></span></a>
+			<span class="icon-close"></span>
+		</p>
+		<div class="refine-list clearfix">
+
+		</div>
+	</div>
+</div>
+<div class="container" id="results"> 
+
+</div>
 </section>

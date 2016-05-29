@@ -65,54 +65,127 @@ var INFORMA = window.INFORMA || {};
             '{{#each SubSectors}}'+
                 '<option value="{{SubSectorID}}">{{SubSectorName}}</option>'+
             '{{/each}}',
-        'ProductListingSearch' :
+        'RefineResult' :
             '{{#each results}}'+
-            '<div class="col-xs-12 col-sm-6 col-md-4 product-finder-list">'+
-                '<div class="product-finder-container un-pinned">'+
-                    '<div class="front">'+
-                        '<div class="pin"></div>'+
-                        '<div class="header">'+
-                            '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
-                        '</div>'+
-                        '<div class="content">'+
-                            '<h2>{{Title}}</h2>'+
-                            '<p>{{Description}}</p>'+
-                            '<ul class="gray-bullets">'+
-                                '{{#each SubSectors}}'+
-                                    '<li>{{this}}</li>'+
-                                '{{/each}}'+
-                            '</ul>'+
-                        '</div>'+
-                        '<div class="footer">'+
-                        '</div>'+
-                    '</div>'+
-                    '<div class="back">'+
-                        '<div class="header">'+
-                            '<div class="header-content">'+
-                                '<div class="pin"></div>'+
-                                '<h4>{{Title}}</h4>'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="content">'+
-                            '<ul>'+
-                                '{{#each Benefits}}'+
-                                    '<li><a href="#">{{this}}</a></li>'+
-                                '{{/each}}'+
-                            '</ul>'+
-                        '</div>'+
-                        '<div class="footer">'+
-                            '<div class="footer-content clearfix">'+
-                                '<div class="col-xs-6">'+
-                                    '<a href="{{FreeTrialLink}}" class="btn btn-default free-trial">Free Trial</a>'+
-                                '</div>'+
-                                '<div class="col-xs-6">'+
-                                    '<a href="{{FreeTrialLink}}" class="btn btn-default orange more">More</a>'+
-                                '</div>'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'+
+                '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                    '<p><strong>{{RefineText}}</strong></p>'+
+                    '<ul>'+
+                        '{{#each Items}}'+
+                        '<li>'+
+                            '<span class="custom-checkbox">'+
+                                '<label class="label" for="{{Label}}">'+
+                                  '<input type="checkbox" value="{{Value}}" id="{{Label}}" name="{{Label}}" />'+
+                                  '<span>{{Label}}</span>'+
+                                '</label>'+
+                            '</span>'+
+                        '</li>'+
+                        '{{/each}}'+
+                    '</ul>'+
                 '</div>'+
-            '</div>'+  
-            '{{/each}}'
+            '{{/each}}',
+        'ProductsList' :
+            '<div class="search-results flip" id="products-list">'+
+            '<p class="count"><strong>{{results.length}}</strong> Products found</p>'+
+            '<div class="row">'+
+                '{{#each results}}'+
+                '<div class="col-xs-12 col-sm-6 col-md-4 search-tile">'+
+                    '<div class="tile un-pinned">'+
+                        '<div class="front">'+
+                            '<div class="pin"></div>'+
+                            '<div class="header">'+
+                                '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
+                            '</div>'+
+                            '<div class="content">'+
+                                '<h2>{{Title}}</h2>'+
+                                '<p>{{Description}}</p>'+
+                                '<ul class="gray-bullets">'+
+                                    '{{#each SubSectors}}'+
+                                        '<li>{{this}}</li>'+
+                                    '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                            '<div class="footer">'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="back">'+
+                            '<div class="header">'+
+                                '<div class="header-content">'+
+                                    '<div class="pin"></div>'+
+                                    '<h4>{{Title}}</h4>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="content">'+
+                                '<ul>'+
+                                    '{{#each Benefits}}'+
+                                        '<li><a href="#">{{this}}</a></li>'+
+                                    '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                            '<div class="footer">'+
+                                '<div class="footer-content clearfix">'+
+                                    '<div class="col-xs-6">'+
+                                        '<a href="{{FreeTrialLink}}" class="btn btn-default free-trial">Free Trial</a>'+
+                                    '</div>'+
+                                    '<div class="col-xs-6">'+
+                                        '<a href="{{FreeTrialLink}}" class="btn btn-default orange more">More</a>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+  
+                '{{/each}}'+
+            '</div>'+
+            '<div class="btn-container">'+
+                '<a href="javascript:void(0)" class="btn-ShowMore">'+
+                    '<span class="more">More Products</span>'+
+                    '<span class="less">Less products</span>'+
+                '</a>'+
+            '</div>'+
+        '</div>',
+    'ResourcesList':
+        '<div class="search-results" id="resources-list">'+
+            '<p class="count"><strong>{{results.length}}</strong> Resources found</p>'+
+            '<div class="row article-list"><ul class="list-container">'+
+            '{{#each results}}'+
+                '<li class="col-xs-12 col-sm-6 col-md-4">'+
+                    '<p class="category">{{ContentType.[0]}}'+
+                      '<strong>{{SectorType}}</strong>'+
+                    '</p>'+
+                    '<img src="{{ContentType.[1]}}" alt="{{ContentType.[2]}}" />'+
+                    '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
+                    '<p class="date">{{PublicationDate}}</p>'+
+                    '<div class="list-content">'+
+                        '{{#if Description}}'+
+                            '<p class="description">{{Description}}</p>'+
+                            '<span class="article-info"><em>Author:</em> <strong>{{Profile}}</strong></span>'+
+                                '<span class="article-info"><em>Topic:</em>'+
+                                    '<strong>{{Topic}}</strong>'+
+                                '</span>'+
+                        '{{/if}}'+
+                        '{{#if Video}}'+
+                            '<div class="video-container">'+
+                                '<a href="{{Video.url}}" class="video-link">'+
+                                    '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
+                                '</a>'+
+                                '<span class="play-icon"></span>'+
+                            '</div>'+
+                        '{{/if}}'+
+                    '</div>'+
+                    '{{#if Link}}'+
+                        '<div class="btn-container">'+
+                          '<a role="button" href="{{Link.Url}}" class="btn btn-default" target="{{Link.Target}}">{{Link.LinkText}}</a>'+
+                        '</div>'+
+                    '{{/if}}'+
+                '</li>'+
+            '{{/each}}'+
+        '</ul></div>'+
+            '<div class="btn-container">'+
+                '<a href="javascript:void(0)" class="btn-ShowMore">'+
+                    '<span class="more">More Products</span>'+
+                    '<span class="less">Less products</span>'+
+                '</a>'+
+            '</div>'+
+        '</div>'
 }
 }(this, jQuery, 'INFORMA'));
