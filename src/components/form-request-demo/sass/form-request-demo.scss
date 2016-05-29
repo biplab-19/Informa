@@ -3,8 +3,10 @@
 }
 div#requestDemoModal {
     .modal-dialog {
-        width: 100%;
+      width: auto;
+      margin: 0px;
     }
+
     .modal-body {
         //  padding: 15px 200px;
         @include mobile {
@@ -24,26 +26,25 @@ div#requestDemoModal {
         }
     }
     form {
-          .icon-info {
-                display: none;
-          }
-          .hasToolTip .icon-info {
-                display: inline-block;
-                &.active {
-                      &:before {
-                           color: $yellow;
-                     }
+        .icon-info {
+            display: none;
+        }
+        .hasToolTip .icon-info {
+            display: inline-block;
+            &.active {
+                &:before {
+                    color: $yellow;
                 }
-          }
+            }
+        }
         .icon-info:before {
             content: "\e915";
             color: $info-icon-color;
         }
-        .icon-info:hover::before{
-          content: "\e915";
-          color: $yellow;
+        .icon-info:hover::before {
+            content: "\e915";
+            color: $yellow;
         }
-
         .form-btn-container {
             float: right;
             .btn {
@@ -79,14 +80,6 @@ div#requestDemoModal {
             border-left: 10px solid #FFD500;
             border-top: 10px solid transparent;
         }
-        // a:hover.tooltips span {
-        //     visibility: visible;
-        //     opacity: 1;
-        //     top: 30px;
-        //     left: 50%;
-        //     margin-left: -76px;
-        //     z-index: 999;
-        // }
         font-family: "FSMe-Light";
         .title {
             font-size: 22px;
@@ -157,6 +150,62 @@ div#requestDemoModal {
             .custom-radio input:checked + span::before {
                 background: $input-orange;
             }
+        }
+        .san input {
+            display: none;
+            width: 20px;
+            height: 20px;
+        }
+        .san .interest-checkbox-label {
+            height: 100px;
+            background-color: $blue-lighter-bg;
+            display: block;
+            padding: 10px;
+        }
+        .san input:checked + .interest-checkbox-label {
+            width: 100%;
+            border: $brand-secondary 2px solid;
+            background-color: $gray-light-bg;
+            color: $white;
+        }
+        .san input:checked + .interest-checkbox-label {
+            display: block;
+        }
+        .san .interest-checkbox {
+            display: block;
+        }
+        .san {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            color: $font-color;
+        }
+        .san .interest-checkbox {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .chosen-container,
+        .chosen-single {
+            height: 50px;
+            border-radius: 0;
+            background-color: $blue-lighter-bg;
+            span {
+                margin-top: 6px;
+                font-size: 14px;
+            }
+        }
+        .chosen-container-single .chosen-drop {
+            background-color: $blue-lighter-bg;
+            font-size: 14px;
+        }
+
+        .chosen-container .chosen-results{
+          border-radius: 0px;
+        }
+        .chosen-container .chosen-results li.active-result{
+          font-size: 14px;
         }
         .custom-multiselect {
             a {

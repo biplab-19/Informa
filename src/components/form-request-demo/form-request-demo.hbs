@@ -1,161 +1,153 @@
 <section id="requestDemo">
-<div class="request-demo-btn-container">
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#requestDemoModal">
-        Request Demo
-    </button>
-</div>
+    <div class="request-demo-btn-container">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#requestDemoModal">
+            Request Demo
+        </button>
+    </div>
 
-<!-- Modal -->
-<div class="modal fade" id="requestDemoModal" tabindex="-1" role="dialog" aria-labelledby="requestDemoModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <!-- Modal -->
+    <div class="modal fade" id="requestDemoModal" tabindex="-1" role="dialog" aria-labelledby="requestDemoModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
-            </div>
-            <div class="modal-body">
+                </div>
+                <div class="modal-body">
 
-                <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                        <h3 class="modal-title" id="requestDemoModalLabel">Request a demo for <br>Infoma Economics IEG</h3>
-                        <form role="form">
-                            <div class="form-group hasToolTip">
-                                <div class="title">
-                                    Tell us your name <span class="icon icon-info"></span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label for="email">First name</label>
-                                        <input type="email" class="form-control" id="email">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <h1 class="modal-title" id="requestDemoModalLabel">Request a demo for <br>Infoma Economics IEG</h1>
+                            <form role="form">
+                                <div class="form-group hasToolTip">
+                                    <div class="title">
+                                        Tell us your name <span class="icon icon-info"></span>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="name">Surname</label>
-                                        <input type="text" class="form-control" id="name">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="email">First name</label>
+                                            <input type="email" class="form-control" id="email">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="name">Surname</label>
+                                            <input type="text" class="form-control" id="name">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="tooltip-placeholder">
-                                    <span>This is a placeholder.</span>
-                                </div>
-                            </div>
-
-                            <div class="form-group hasToolTip">
-                                <div class="title">
-                                    Your company <span class="icon icon-info"></span>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <!-- <label for="name">Your company</label> -->
-                                        <input type="text" class="form-control" id="name">
-                                    </div>
-                                </div>
                                     <div class="tooltip-placeholder">
-                                          This is a placeholder.
-                                    </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="title">
-                                    Your contact details <span class="icon icon-info"></span>
-                                </div>
-                                <div class="tooltip-placeholder">
-                                    Your contact details.
-                              </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-xs-12">
-                                        <label for="email">Email address</label>
-                                        <input type="email" class="form-control" id="email">
-                                    </div>
-                                    <div class="col-md-6 col-xs-12">
-                                        <label for="name">Phone number</label>
-                                        <input type="text" class="form-control" id="name">
+                                        <span>This is a placeholder.</span>
                                     </div>
                                 </div>
 
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="title">
-                                    Select a time <span class="icon icon-info"></span>
-                                </div>
-                                <div class="tooltip-placeholder">
-                                      Select a time.
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 col-xs-12">
-                                        <label for="email">Date</label>
-                                        <input type="date" class="form-control" id="date">
+                                <div class="form-group hasToolTip">
+                                    <div class="title">
+                                        Your company <span class="icon icon-info"></span>
                                     </div>
-                                    <div class="col-md-4 col-xs-12">
-                                        <label for="Timezone">Timezone</label>
-                                        <input type="time" class="form-control" id="Timezone">
-                                    </div>
-                                    <div class="col-md-4 col-xs-12">
-                                        <label for="Time">Time</label>
-                                        <input type="time" class="form-control" id="Time">
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="title">
-                                    Your areas of interests... <span class="icon icon-info"></span>
-                                </div>
-                                <div class="tooltip-placeholder">
-                                    <span>Your areas of interests...</span>
-                                </div>
-                                <div class="row">
-                                    {{#each intrests}}
-                                        <div class="col-md-4 col-sm-4 col-xs-12">
-                                            <label>
-                                                <input type="checkbox">{{label}}</label>
-                                        </div>
-                                    {{/each}}
-
-                                </div>
-                            </div>
-                            <div class="form-group hasToolTip">
-                                <div class="title">
-                                    Select Your Dropdown
-                                </div>
-                                <div class="tooltip-placeholder">
-                                    This is placeholder
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="custom-multiselect">
-                                            <select id="sector-list" multiple="multiple" data-placeholder="Please Select">
-
-                                            </select>
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <!-- <label for="name">Your company</label> -->
+                                            <input type="text" class="form-control" id="name">
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <div class="custom-multiselect">
-                                            <select id="sector-list" multiple="multiple" data-placeholder="Please Select">
-
-                                            </select>
-                                        </div>
+                                    <div class="tooltip-placeholder">
+                                        This is a placeholder.
                                     </div>
                                 </div>
 
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                      <div class="form-btn-container">
-                                        <button type="submit" class="btn btn-default orange">Submit</button>
+
+                                <div class="form-group hasToolTip">
+                                    <div class="title">
+                                        Your contact details <span class="icon icon-info"></span>
+                                    </div>
+                                    <div class="tooltip-placeholder">
+                                        Your contact details.
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-xs-12">
+                                            <label for="email">Email address</label>
+                                            <input type="email" class="form-control" id="email">
+                                        </div>
+                                        <div class="col-md-6 col-xs-12">
+                                            <label for="name">Phone number</label>
+                                            <input type="text" class="form-control" id="name">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group hasToolTip">
+                                    <div class="title">
+                                        Select a time <span class="icon icon-info"></span>
+                                    </div>
+                                    <div class="tooltip-placeholder">
+                                        Select a time.
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-12">
+                                            <label for="email">Date</label>
+                                            <input type="date" class="form-control" id="date">
+                                        </div>
+                                        <div class="col-md-4 col-xs-12">
+                                            <label for="Timezone">Timezone</label>
+                                            <div class="selectMenu">
+                                                <select id="Timezone" class="chosen-select">
+                                                    <option value="default" data-given-name="Fred" data-surname="Flintstone" data-city="Bedrock" data-city-description="A land right out of history" data-spouse-given-name="Wilma">London UTC(0)</option>
+
+                                                     </select>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-md-4 col-xs-12">
+                                            <label for="Timezone">Time</label>
+                                            <div class="selectMenu">
+                                                <select id="Time" class="chosen-select">
+                                                    <option value="default" data-given-name="Fred" data-surname="Flintstone" data-city="Bedrock" data-city-description="A land right out of history" data-spouse-given-name="Wilma">9:00 AM</option>
+                                                  </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <div class="title">
+                                        Your areas of interests... <span class="icon icon-info"></span>
+                                    </div>
+                                    <div class="tooltip-placeholder">
+                                        <span>Your areas of interests...</span>
+                                    </div>
+                                    <div class="row">
+                                        {{#each intrests}}
+
+
+                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                <div class="san">
+                                                    <input class="interest-checkbox" type="checkbox" id="{{label}}">
+                                                    <label class="interest-checkbox-label" for="{{label}}">{{label}}</label>
+                                                </div>
+                                            </div>
+
+                                        {{/each}}
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-btn-container">
+                                                <button type="submit" class="btn btn-default orange">Submit</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<section>
+    <section>
