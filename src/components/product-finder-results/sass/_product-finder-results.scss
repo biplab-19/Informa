@@ -27,9 +27,10 @@
                     font-size: 1.3em;
                     text-decoration: none;
                 }
-                .icon-close {
-                    float: right;
+                a.close-filter{
+                	float: right;
                     display: none;
+                    color: $text-gray-dark;
                 }
             }
             .refine-list {
@@ -61,6 +62,7 @@
     padding: 15px 0;
     background-color: $body-bg;
     border-bottom:1px solid $white;
+    display: none;
     .filter-text {
         font-size: 18px;
     }
@@ -84,6 +86,10 @@
                 border: 1px solid $gray-draker-bg;
                 color: $gray-draker-bg;
                 font-size: 12px;
+                margin-right: 10px;
+                @include mobile{
+                	margin-bottom: 10px;
+                }
                 a.remove {
                     border-left: 1px solid $gray-draker-bg;
                     padding: 0 5px 0 10px;
@@ -93,7 +99,6 @@
         }
         .remove-all {
             color: $orange;
-            margin-left: 10px;
         }
     }
 }

@@ -16,7 +16,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     //variables
     var Templates = INFORMA.Templates,
         ResultContainer = $(".search-container #results"),
-        ResultCount, ResultInner,CreateRefineList,
+        ResultCount, ResultInner,CreateRefineList,CreateFilterList,
         // methods
         init,
         equalHeight, UpdateHtmlView, ParseResult, BindEvents,ParseTemplate;
@@ -45,24 +45,48 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         Data = DataObject[key],
                         TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName);
-                        console.log(Data);
                     html += ListTemplate({ results: Data });
                 }
             }
             return html;
         },
         CreateRefineList = function(Html){
-            var RefineContainer = $(".search-container .refine-list");
+            var RefineContainer = $(".search-container .refine-list"),
+                RefineCloseBtn = $(".refine-result .close-filter");
+
             if (RefineContainer.length) {
                 RefineContainer
                     .empty()
                     .html(Html);
-                RefineContainer.parents(".refine-result").slideDown();
+                RefineContainer.parents(".refine-result").delay(1000).slideDown();
             }
+            RefineCloseBtn.off("click").on("click",function(e){
+                e.preventDefault();
+                RefineContainer.slideUp();
+            });
             $(".refine-result").off("click").on("click","a.refine",function(e){
                 e.preventDefault();
                 RefineContainer.slideToggle();
+                RefineCloseBtn.show();
             })
+
+        }
+        CreateFilterList = function(DataObject){
+            if (Object.keys(DataObject).length) {
+                 var ListTemplate = Handlebars.compile(Templates.SearchFilter),
+                     SectorHtml , SubSectorHtml,
+                     FilterCont = $(".search-filter .filter-list");
+
+                    if(DataObject.Sector){
+                        SectorHtml = ListTemplate({ results: DataObject.Sector });
+                        FilterCont.find(".sector ul").empty().html(SectorHtml);
+                    }
+                    if(DataObject.Sector){
+                        SubSectorHtml = ListTemplate({ results: DataObject.SubSector });
+                        FilterCont.find(".subsector ul").empty().html(SubSectorHtml);
+                    }
+                    $(".search-filter").delay(600).slideDown();
+            }
         },
         BindEvents = function(){
             INFORMA.Utils.flipTile(ResultInner);
@@ -85,14 +109,18 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ParseResult = function(data) {
             if (Object.keys(data).length) {
                 var Results = (data.Results !== undefined) ? data.Results : false,
-                    Refine  = (data.RefineResult !== undefined) ? data.RefineResult : false;
-                if (Results) {
-                    var html = ParseTemplate(Results);
-                    UpdateHtmlView(html);
+                    Refine  = (data.RefineResult !== undefined) ? data.RefineResult : false,
+                    SearchFilter = (data.SearchFilter !== undefined) ? data.SearchFilter : false;
+                if(SearchFilter){
+                    CreateFilterList(SearchFilter);
                 }
                 if(Refine){
                     var Data={"RefineResult":Refine};
                     CreateRefineList(ParseTemplate(Data));
+                }
+                if (Results) {
+                    var html= ParseTemplate(Results)
+                    UpdateHtmlView(html);
                 }
             }
         };

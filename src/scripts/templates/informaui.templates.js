@@ -83,6 +83,10 @@ var INFORMA = window.INFORMA || {};
                     '</ul>'+
                 '</div>'+
             '{{/each}}',
+        'SearchFilter':
+        '{{#each results}}'+
+                '<li>{{Name}}<a href="#" class="remove" data-name="{{Value}}">x</a></li>'+
+        '{{/each}}',
         'ProductsList' :
             '<div class="search-results flip" id="products-list">'+
             '<p class="count"><strong>{{results.length}}</strong> Products found</p>'+

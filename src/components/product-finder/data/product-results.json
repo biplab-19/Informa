@@ -1,7 +1,33 @@
 {
+    "SearchFilter": {
+        "Sector": [{
+                "Name": "Commodities",
+                "Value":"Guid001"
+            },
+            {
+                "Name": "Crop protection",
+                "Value":"Guid001"
+            },
+            {
+                "Name": "Diary Products",
+                "Value":"Guid001"
+            }],
+        "SubSector": [{
+                "Name": "Diary",
+                "Value":"Guid001"
+            },
+            {
+                "Name": "Meats",
+                "Value":"Guid001"
+            },
+            {
+                "Name": "Electronics",
+                "Value":"Guid001"
+            }]
+    },
     "RefineResult": [{
         "RefineText": "Information type",
-        "RefineType" :"Information",
+        "RefineType": "Information",
         "Items": [{
             "Label": "Insight News",
             "Value": "guid001"
@@ -17,7 +43,7 @@
         }]
     }, {
         "RefineText": "Your Role",
-        "RefineType" :"Role",
+        "RefineType": "Role",
         "Items": [{
             "Label": "Trader",
             "Value": "guid001"
@@ -33,7 +59,7 @@
         }]
     }, {
         "RefineText": "Brand",
-        "RefineType" :"Brand",
+        "RefineType": "Brand",
         "Items": [{
             "Label": "Food News",
             "Value": "guid001"
@@ -47,8 +73,7 @@
             "Label": "The Public Ledger",
             "Value": "guid001"
         }]
-        }
-    ],
+    }],
     "Results": {
         "ProductsList": [{
             "Image": "Static/images/video-thumb-sample.jpg",

@@ -162,10 +162,12 @@ select.form-control {
             .dropdown-menu {
                 border-radius: 0;
                 border: none;
-                box-shadow: none;
                 width: 100%;
                 padding: 10px 0;
                 background-color: #f0f1f3;
+                box-shadow:1px -1px -1px 1px rgba(0,0,0,0.75);
+                -moz-box-shadow:1px -1px -1px 1px rgba(0,0,0,0.75);
+                -webkit-box-shadow:1px -1px -1px 1px rgba(0,0,0,0.75);
                 label {
                     color: $text-gray;
                     &:before {
