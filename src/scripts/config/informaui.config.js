@@ -18,7 +18,7 @@ var INFORMA = window.INFORMA || {};
             this.urls = {
                 "webservices" :{
                     "GetArticles" :"/client/search/getarticles",
-                    "GetSubSectorList" :"/client/search/GetSubSectors"
+                    "GetSubSectorList" :"/client/search/GetSubSectors",
                     //"GetSubSectorList" : "/data/product-finder.json",
                     //"ProductSearch":"/client/search/product-result.json",
                     "ProductSearch":"/client/search/GetSubSectors",

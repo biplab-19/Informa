@@ -12,11 +12,17 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page</title>
-    <link rel="stylesheet" href="Static/css/global.css"/>
+    <!-- build:css(.tmp) Static/css/global.css -->
+    <link rel="stylesheet" href="Static/css/global.css">
+    <!-- endbuild -->
 
-    <link rel="stylesheet" href="Static/css/component.css"/>
+    <!-- build:css(.tmp) Static/css/component.css -->
+    <link rel="stylesheet" href="Static/css/component.css">
+    <!-- endbuild -->
 
-    <link rel="stylesheet" href="Static/css/agri-theme.css"/>
+    <!-- build:css(.tmp) Static/css/agri-theme.css -->
+    <link rel="stylesheet" href="Static/css/agri-theme.css">
+    <!-- endbuild -->
 
     <style type="text/css">
 		body{
@@ -33,7 +39,14 @@
 
     </script>
 
-    <script src="Static/js/vendor.js"></script>
+    <!-- build:js Static/js/vendor.js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="bower_components/chosen/chosen.jquery.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-multiselect//dist/js/bootstrap-multiselect.js"></script>
+    <!-- endbuild -->
 
   <script> 
         $INFORMA = jQuery.noConflict(); 
@@ -361,9 +374,38 @@
 
 
 
-    <script src="Static/js/main.js"></script>
+    <!-- build:js Static/js/main.js -->
+    <script src="Static/js/informaui.config.js"></script>
+    <script src="Static/js/informaui.global.js"></script>
+    <script src="Static/js/informaui.utils.js"></script>
+    <script src="Static/js/informaui.data-loader.js"></script>
+    <script src="Static/js/informaui.spinner.js"></script>
+    <script src="Static/js/informaui.templates.js"></script>
+    <script src="Static/js/informaui.int.js"></script>
+    <!-- endbuild -->
 
-    <script src="Static/js/components.js"></script>
+    <!-- build:js Static/js/components.js -->
+    <script src="Static/js/components/global_header.js"></script>
+    <script src="Static/js/components/feature-list.js"></script>
+    <script src="Static/js/components/sector-list.js"></script>
+    <script src="Static/js/components/article-list.js"></script>
+    <script src="Static/js/components/analyst-profile-events.js"></script>
+    <script src="Static/js/components/global_footer.js"></script>
+    <script src="Static/js/components/global.js"></script>
+    <script src="Static/js/components/brand-list.js"></script>
+    <script src="Static/js/components/brand-list.js"></script>
+    <script src="Static/js/components/home_social.js"></script>
+    <script src="Static/js/components/pdp-analyst.js"></script>
+    <script src="Static/js/components/hero-banner.js"></script>
+    <script src="Static/js/components/training-material.js"></script>
+    <script src="Static/js/components/product-finder.js"></script>
+    <script src="Static/js/components/search-filter.js"></script>
+    <script src="Static/js/components/search-refine.js"></script>
+    <script src="Static/js/components/search-results.js"></script>
+    <script src="Static/js/components/form-request-demo.js"></script>
+    <script src="Static/js/components/sectorpage-strengths.js"></script>
+    <script src="Static/js/components/analyst-search.js"></script>
+    <!-- endbuild -->
 
 </body>
 </html>
