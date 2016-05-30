@@ -19,7 +19,7 @@
                 "webservices" :{
                     "GetArticles" :"/client/search/getarticles",
                     "GetSubSectorList" : "/data/product-finder.json",
-                    "ProductSearch":"/data/product-results.json",
+                    "ProductSearch":"/client/search/GetSubSectors",
                     "SearchResult" :"/data/search-results.json"
                 }
             },
@@ -287,18 +287,18 @@ jQuery(INFORMA.global.init());
  * global.js
  *
  *
- * @project:	Informa
- * @date:	   2016-April-25
- * @author:	 Jagadeesh Jayachandran, jjayachandran2@sapient.com
- * @licensor:   SAPIENNITRO
+ * @project:   Informa
+ * @date:      2016-April-25
+ * @author:    Santosh
+ * @licensor:  SAPIENNITRO
  * @namespaces: INFORMA
  *
  */
 
 var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
-	'use strict';
-	//variables
+    'use strict';
+    //variables
   INFORMA.Templates = {
     'articleListItems':
     '{{#each Articles}}'+
@@ -358,9 +358,9 @@ var INFORMA = window.INFORMA || {};
                         '{{#each Items}}'+
                         '<li>'+
                             '<span class="custom-checkbox">'+
-                                '<label class="label" for="{{Label}}">'+
-                                  '<input type="checkbox" value="{{Value}}" id="{{Label}}" name="{{Label}}" />'+
-                                  '<span>{{Label}}</span>'+
+                                '<label class="label" for="{{Key}}">'+
+                                  '<input type="checkbox" value="{{Value}}" id="{{Key}}" name="{{Key}}" />'+
+                                  '<span>{{Key}}</span>'+
                                 '</label>'+
                             '</span>'+
                         '</li>'+
@@ -368,11 +368,11 @@ var INFORMA = window.INFORMA || {};
                     '</ul>'+
                 '</div>'+
             '{{/each}}',
-        'SearchFilter':
+        'ProductFilters':
         '{{#each results}}'+
-                '<li>{{Name}}<a href="#" class="remove" data-name="{{Value}}">x</a></li>'+
+                '<li>{{Key}}<a href="#" class="remove" data-name="{{Value}}">x</a></li>'+
         '{{/each}}',
-        'ProductsList' :
+        'Products' :
                 '{{#each results}}'+
                 '<div class="col-xs-12 col-sm-6 col-md-4 search-tile">'+
                     '<div class="tile un-pinned">'+
@@ -421,7 +421,7 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                 '</div>'+  
                 '{{/each}}',
-    'ResourcesList':
+    'Resources':
             '<ul class="list-container">'+
             '{{#each results}}'+
                 '<li class="col-xs-12 col-sm-6 col-md-4">'+
@@ -456,7 +456,7 @@ var INFORMA = window.INFORMA || {};
                 '</li>'+
             '{{/each}}'+
         '</ul>',
-    'AnalystList': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container">'+
+        'AnalystList': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container">'+
                         '<div class="meet-anlyst-section">'+
                             '<div class="anlyst-heading">'+
                                 '<div class="analyst-heading-content">'+

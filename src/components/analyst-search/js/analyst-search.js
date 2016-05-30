@@ -36,7 +36,6 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     	var _value = jQuery(this).val();
     	if(_value === 'All') {
     		_subsector.addClass('disabled');
-    		if()
     			_submitBtn.addClass('disabled');
     	} else {
     		_subsector.removeClass('disabled');
