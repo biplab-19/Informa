@@ -88,9 +88,6 @@ var INFORMA = window.INFORMA || {};
                 '<li>{{Name}}<a href="#" class="remove" data-name="{{Value}}">x</a></li>'+
         '{{/each}}',
         'ProductsList' :
-            '<div class="search-results flip" id="products-list">'+
-            '<p class="count"><strong>{{results.length}}</strong> Products found</p>'+
-            '<div class="row">'+
                 '{{#each results}}'+
                 '<div class="col-xs-12 col-sm-6 col-md-4 search-tile">'+
                     '<div class="tile un-pinned">'+
@@ -138,19 +135,9 @@ var INFORMA = window.INFORMA || {};
                         '</div>'+
                     '</div>'+
                 '</div>'+  
-                '{{/each}}'+
-            '</div>'+
-            '<div class="btn-container">'+
-                '<a href="javascript:void(0)" class="btn-ShowMore">'+
-                    '<span class="more">More Products</span>'+
-                    '<span class="less">Less products</span>'+
-                '</a>'+
-            '</div>'+
-        '</div>',
+                '{{/each}}',
     'ResourcesList':
-        '<div class="search-results" id="resources-list">'+
-            '<p class="count"><strong>{{results.length}}</strong> Resources found</p>'+
-            '<div class="row article-list"><ul class="list-container">'+
+            '<ul class="list-container">'+
             '{{#each results}}'+
                 '<li class="col-xs-12 col-sm-6 col-md-4">'+
                     '<p class="category">{{ContentType.[0]}}'+
@@ -183,13 +170,6 @@ var INFORMA = window.INFORMA || {};
                     '{{/if}}'+
                 '</li>'+
             '{{/each}}'+
-        '</ul></div>'+
-            '<div class="btn-container">'+
-                '<a href="javascript:void(0)" class="btn-ShowMore">'+
-                    '<span class="more">More Products</span>'+
-                    '<span class="less">Less products</span>'+
-                '</a>'+
-            '</div>'+
-        '</div>'
+        '</ul>'
 }
 }(this, jQuery, 'INFORMA'));

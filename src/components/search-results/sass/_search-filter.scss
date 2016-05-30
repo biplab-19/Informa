@@ -1,0 +1,44 @@
+.search-filter {
+    padding: 15px 0;
+    background-color: $body-bg;
+    border-bottom:1px solid $white;
+    display: none;
+    .filter-text {
+        font-size: 18px;
+    }
+    .filter-list {
+    	>div{
+    		margin-bottom: 10px;
+    	}
+        p {
+            display: inline-block;
+            min-width: 100px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: inline-block;
+            li {
+                display: inline-block;
+                padding: 5px;
+                background-color: $gray-light;
+                border: 1px solid $gray-draker-bg;
+                color: $gray-draker-bg;
+                font-size: 12px;
+                margin-right: 10px;
+                @include mobile{
+                	margin-bottom: 10px;
+                }
+                a.remove {
+                    border-left: 1px solid $gray-draker-bg;
+                    padding: 0 5px 0 10px;
+                    margin-left: 10px;
+                }
+            }
+        }
+        .remove-all {
+            color: $orange;
+        }
+    }
+}

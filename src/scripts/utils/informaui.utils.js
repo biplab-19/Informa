@@ -2,10 +2,14 @@
     INFORMA.Utils = (function() {
         function _utils() {
 
-                DoFlip = function(obj) {
+                DoFlip = function(obj,className) {
                     var Container = obj.parents('.tile');
                     if (Container.hasClass('un-pinned')) {
-                        Container.addClass('flip');
+                        if(className==="flip"){
+                            Container.addClass('flip');
+                        }else{
+                            Container.removeClass('flip');
+                        }
                     }
                 },
                 this.flipTile = function(Object) {
@@ -16,17 +20,17 @@
 
                     if (INFORMA.global.device.viewportN === 0) {
                         TileFront.mouseenter(function() {
-                            DoFlip($(this));
+                            DoFlip($(this), 'flip');
                         });
 
                         TileBack.mouseleave(function() {
-                            DoFlip($(this));
+                            DoFlip($(this),'unflip');
                         });
                     } else {
                         CompleteTile.hover(function() {
-                            DoFlip($(this));
+                            DoFlip($(this),'flip');
                         }, function() {
-                            DoFlip($(this));
+                            DoFlip($(this),'unflip');
                         });
                     }
                     Pins.click(function() {
