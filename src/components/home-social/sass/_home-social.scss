@@ -14,6 +14,29 @@
 		}
 	}
 	.twitter-carousel {
+		.slick-active {
+			.feed {
+				&:before, &:after {
+					content: '';
+					height: 100%;
+					width: 1px;
+					background-color: $white;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+				&:after {
+					left: calc(100% - 3px);
+				}
+			}
+			&:nth-child(0) {
+				.feed {
+					&:before {
+						left: 1px;
+					}
+				}
+			}
+		}
 		.panel {
 			background-color: transparent;
 			margin-bottom: 0;
@@ -23,17 +46,14 @@
 			.feed {
 				padding: 0 15px;
 				min-height: 250px;
-				border-left: 1px solid $light-blue-border;
-				border-right: 1px solid $light-blue-border;
 				margin: 0 -2px;
+				position: relative;
+				//box-shadow: 1px 0 0 0 rgba(255, 255, 255, 0.8), -1px 0 0px 0 rgba(255, 255, 255, 0.8);
 				@include mobile {
 					min-height: auto;
 				}
 				.twit-img {
 					margin-bottom: 20px;
-					img {
-						width: 100%;
-					}
 				}
 				.twittedby {
 					&:before {
