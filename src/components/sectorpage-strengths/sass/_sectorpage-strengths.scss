@@ -1,9 +1,9 @@
-section#sectorpage-strengths{
+.sectorpage-strengths{
   background: #F6F6F7;
-      .main-div{
+      .main-container{
         position: relative;
       }
-      .yellow-div{
+      .yellow-container{
         position: absolute;
         top: 50%;
         height: 50%;
@@ -48,7 +48,7 @@ section#sectorpage-strengths{
           display: none;
       }
       @include mobile {
-          .container > .row + .row > .marg1:nth-child(n+3) {
+          .container > .row + .row > .marg1:nth-child(2n+2) {
               display: none;
               //todo: optimize it
           }
