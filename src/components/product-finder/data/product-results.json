@@ -1,27 +1,27 @@
 {
-    "SearchFilter": {
-        "Sector": [{
-                "Name": "Commodities",
+    "ProductFilters": {
+        "Sectors": [{
+                "Key": "Commodities",
                 "Value":"Guid001"
             },
             {
-                "Name": "Crop protection",
+                "Key": "Crop protection",
                 "Value":"Guid001"
             },
             {
-                "Name": "Diary Products",
+                "Key": "Diary Products",
                 "Value":"Guid001"
             }],
-        "SubSector": [{
-                "Name": "Diary",
+        "SubSectors": [{
+                "Key": "Diary",
                 "Value":"Guid001"
             },
             {
-                "Name": "Meats",
+                "Key": "Meats",
                 "Value":"Guid001"
             },
             {
-                "Name": "Electronics",
+                "Key": "Electronics",
                 "Value":"Guid001"
             }]
     },
@@ -29,53 +29,53 @@
         "RefineText": "Information type",
         "RefineType": "Information",
         "Items": [{
-            "Label": "Insight News",
+            "Key": "Insight News",
             "Value": "guid001"
         }, {
-            "Label": "Pricing Information",
+            "Key": "Pricing Information",
             "Value": "guid001"
         }, {
-            "Label": "Trade flows",
+            "Key": "Trade flows",
             "Value": "guid001"
         }, {
-            "Label": "Feed",
+            "Key": "Feed",
             "Value": "guid001"
         }]
     }, {
         "RefineText": "Your Role",
         "RefineType": "Role",
         "Items": [{
-            "Label": "Trader",
+            "Key": "Trader",
             "Value": "guid001"
         }, {
-            "Label": "Buyer",
+            "Key": "Buyer",
             "Value": "guid001"
         }, {
-            "Label": "Equity Analyst",
+            "Key": "Equity Analyst",
             "Value": "guid001"
         }, {
-            "Label": "Policy Regular",
+            "Key": "Policy Regular",
             "Value": "guid001"
         }]
     }, {
         "RefineText": "Brand",
         "RefineType": "Brand",
         "Items": [{
-            "Label": "Food News",
+            "Key": "Food News",
             "Value": "guid001"
         }, {
-            "Label": "Dairy Markets",
+            "Key": "Dairy Markets",
             "Value": "guid001"
         }, {
-            "Label": "International Sugar",
+            "Key": "International Sugar",
             "Value": "guid001"
         }, {
-            "Label": "The Public Ledger",
+            "Key": "The Public Ledger",
             "Value": "guid001"
         }]
     }],
     "Results": {
-        "ProductsList": [{
+        "Products": [{
             "Image": "Static/images/video-thumb-sample.jpg",
             "Title": "Informa Economics IEG",
             "Description": "World leader since 1977 providing agricultural and commodity analysis, market research, evaluation and consulting.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at ex venenatis, aliquam eros non, bibendum velit. Sed nec eros eget arcu pretium pulvinar id ut augue.",
@@ -116,7 +116,7 @@
             "FreeTrialLink": null,
             "MoreLink": "http://informa/en/sitecore/content/Informa Shop Window/Agri/home/products/sector-page/Product1"
         }],
-        "ResourcesList": [{
+        "Resources": [{
             "Title": "Worldssss leaders hid wealth via shell companiessss",
             "Description": "Leaked files from a Panama law firm that creates shell companies show that politicians.",
             "SectorType": "Agriculture food policy & reulations",

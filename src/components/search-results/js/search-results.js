@@ -44,15 +44,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         html = "",
                         Data = DataObject[key],
                         TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
-                        ListTemplate = Handlebars.compile(TemplateName);
+                        ListTemplate = Handlebars.compile(TemplateName),
+                        ContainerID ="#"+(ResultName).toLowerCase();
                     
                     html = ListTemplate({ results: Data });
 
                     //Update Search Results
-                    $("#"+ResultName).find(".row").empty().html(html);
+                    $(ContainerID).find(".row").empty().html(html);
 
                     //Update Record Counts
-                    $("#"+ResultName).find(".count strong").empty().text(Data.length);
+                    $(ContainerID).find(".count strong").empty().text(Data.length);
                 }
             }
             var UpddateHeight = setTimeout(function() {
@@ -72,16 +73,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ResultInner.each(function() {
                     equalHeight($(this));
                 });
-                BindEvents();
+                BindTileEvents();
             }
         },
         ParseSearchData = function(data) {
             if (Object.keys(data).length) {
                 var Results = (data.Results !== undefined) ? data.Results : false,
                     Refine = (data.RefineResult !== undefined) ? data.RefineResult : false,
-                    SearchFilter = (data.SearchFilter !== undefined) ? data.SearchFilter : false;
-                if (SearchFilter) {
-                    INFORMA.SearchResultFilter.CreateFilterList(SearchFilter);
+                    ProductFilters = (data.ProductFilters !== undefined) ? data.ProductFilters : false;
+                if (ProductFilters) {
+                    INFORMA.SearchResultFilter.CreateFilterList(ProductFilters);
                 }
                 if (Refine) {
                     var Data = { "RefineResult": Refine };

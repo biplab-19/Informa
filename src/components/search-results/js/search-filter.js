@@ -21,16 +21,16 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
         CreateFilterList = function(DataObject) {
             if (Object.keys(DataObject).length) {
-                var ListTemplate = Handlebars.compile(Templates.SearchFilter),
+                var ListTemplate = Handlebars.compile(Templates.ProductFilters),
                     SectorHtml, SubSectorHtml,
                     FilterCont = $(".search-filter .filter-list");
 
-                if (DataObject.Sector) {
-                    SectorHtml = ListTemplate({ results: DataObject.Sector });
+                if (DataObject.Sectors) {
+                    SectorHtml = ListTemplate({ results: DataObject.Sectors });
                     FilterCont.find(".sector ul").empty().html(SectorHtml);
                 }
-                if (DataObject.SubSector) {
-                    SubSectorHtml = ListTemplate({ results: DataObject.SubSector });
+                if (DataObject.SubSectors) {
+                    SubSectorHtml = ListTemplate({ results: DataObject.SubSectors });
                     FilterCont.find(".subsector ul").empty().html(SubSectorHtml);
                 }
                 $(".search-filter").delay(600).slideDown();

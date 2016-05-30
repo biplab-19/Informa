@@ -19,7 +19,7 @@ var INFORMA = window.INFORMA || {};
                 "webservices" :{
                     "GetArticles" :"/client/search/getarticles",
                     "GetSubSectorList" : "/data/product-finder.json",
-                    "ProductSearch":"/data/product-results.json",
+                    "ProductSearch":"/client/search/GetSubSectors",
                     "SearchResult" :"/data/search-results.json"
                 }
             },
