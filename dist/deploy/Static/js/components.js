@@ -1,4 +1,4 @@
-/*! 2016-05-27 */_adjustHeigt = function(){
+/*! 2016-05-30 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -865,8 +865,8 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             infinite: _infinite,
             autoplay: _autoplay,
             autoplaySpeed: _duration,
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToShow: _slideCount,
+            slidesToScroll: _slideCount,
             speed: _speed,
             dots: _dots,
             adaptiveHeight: true
@@ -1025,108 +1025,6 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
 jQuery(INFORMA.pdp_customer_quote.init());
 
 /*
- * Product Results.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Saurabh Sinha
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
-var INFORMA = window.INFORMA || {};
-INFORMA.productListResults = (function(window, $, namespace) {
-    'use strict';
-    //variables
-    var _productList = $('.product-finder-results'),
-        _productListItems = _productList.find('.product-finder-list'),
-        _productListContainer = _productListItems.find('.product-finder-container'),
-        _hoverFrontHeader = _productList.find('.front .header'),
-        _backElement = _productList.find('.back'),
-        _combineElement = _productList.find('.front .header, .back'),
-        _pinElement = _productList.find('.pin'),
-        _showMore = _productList.find('.btn-ShowMore'),
-    // methods
-        init,
-        _equalHeight;
-
-    _equalHeight = function(container){
-        var _itemsList = container.find('.product-finder-list'),
-            _maxHeight = 0,
-            _padding = 10;
-
-        _itemsList.each(function() {
-            var currentHeight = jQuery(this).height();
-            if(currentHeight > _maxHeight){
-                _maxHeight = currentHeight;
-            }
-        })
-        _itemsList.css('height',_maxHeight+_padding);
-        if(INFORMA.global.device.viewportN === 2) {
-            _itemsList.css('height','auto');
-        }
-    }
-
-    if(INFORMA.global.device.viewportN === 0) {
-        _hoverFrontHeader.mouseenter(function(){
-            var _container =jQuery(this).parents('.product-finder-container');
-            if(_container.hasClass('un-pinned')) {
-                _container.addClass('flip');
-            }
-        });
-
-        _backElement.mouseleave(function(){
-            var _container =jQuery(this).parents('.product-finder-container');
-            if(_container.hasClass('un-pinned')) {
-                _container.removeClass('flip');
-            }
-        });
-    } else {
-        _combineElement.hover(function(){
-            var _container =jQuery(this).parents('.product-finder-container');
-            if(_container.hasClass('un-pinned')) {
-                _container.addClass('flip');
-            }
-        }, function() {
-            var _container =jQuery(this).parents('.product-finder-container');
-            if(_container.hasClass('un-pinned')) {
-                _container.removeClass('flip');
-            }
-        });
-    }
-
-    _pinElement.click(function() {
-        jQuery(this).parents('.product-finder-container').toggleClass('un-pinned');
-    })
-
-    _showMore.click(function() {
-        jQuery(this).parents('.product-finder-results').toggleClass('all-shown');
-        jQuery(this).parents('.product-finder-results').find('.product-finder-list:nth-child(n+4)').slideToggle();
-    })
-
-     //Resize
-    $(window).resize(function(){
-       if (_productList.length > 0) {
-            _equalHeight(_productList);
-        }
-    });
-
-    init = function() {
-        if (_productList.length > 0) {
-            $(document).ready(function() {
-                 _equalHeight(_productList);
-            });
-        }
-    };
-    return {
-        init: init
-    };
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.productListResults.init());
-
-/*
  * analyst-list.js
  *
  *
@@ -1147,34 +1045,80 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitBtn = $(".product-finder li.button"),
         CustomSelect = $(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
-        SearchIcon =$(".navbar-default .search a"),
-        // methods
-        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSeach, ToggleProductFinder,
+        SearchIcon = $(".navbar-default .search a"),
+        SearchPage = $("#search-page"),
         Urls = INFORMA.Configs.urls.webservices,
-        SubmitHandler,
-        Templates = INFORMA.Templates;
+        Templates = INFORMA.Templates,
 
-        ToggleProductFinder = function(){
-            CloseIcon.on("click",function(e){
+        // methods
+        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSearch,
+        ToggleProductFinder, RenderSearchResult, UpdateSubSectorDropdown, GetAjaxData,
+        SubmitHandler, BindAjaxHandler;
+
+        ToggleProductFinder = function() {
+            CloseIcon.on("click", function(e) {
                 e.preventDefault();
                 ProductFinderSection.slideUp("fast");
             });
-            SearchIcon.on("click",function(e){
+            SearchIcon.on("click", function(e) {
                 e.preventDefault();
                 ProductFinderSection.slideDown("slow");
             });
-        }
-        SubmitHandler = function() {
+        },
+        UpdateSubSectorDropdown = function(data) {
+            if (data.SubSectors.length > 0) {
+                var ListTemplate = Handlebars.compile(Templates.SubSectorList),
+                    html = ListTemplate({ SubSectors: data.SubSectors });
 
-            if (ProductFinderSection.data("product") === true) {
-                SubmitBtn.on("click", "a", function(e) {
-                    e.preventDefault();
-                    var fieldArray = ProductFinderSection.find("form").serializeArray(),
-                        getSerilizeData = INFORMA.Utils.serializeObject(fieldArray);
-                });
+
+                $(".sector-search li").removeClass("disabled");
+                SubSectorList.removeAttr("disabled")
+                    .removeProp("disabled")
+                    .html(html);
+                SubSectorList.multiselect('rebuild');
             }
         },
-        ShowHideSeach = function(ele) {
+        RenderSearchResult = function(data, SearchType) {
+            INFORMA.SearchResults.RenderSearchResults(data,SearchType);
+        },
+        GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: JSON.stringify(data),
+                success_callback: function(data) {
+                    if (typeof SCallback === "function") {
+                        SCallback.call(this, data, SearchType);
+                    }
+                },
+                error_callback: function() {
+                    if (typeof Errcallback === "function") {
+                        Errcallback.call(this, data, SearchType);
+                    }
+                }
+            });
+        },
+        SubmitHandler = function(SearchType) {
+            SubmitBtn.on("click", "a", function(e) {
+                e.preventDefault();
+                var FieldArray = ProductFinderSection.find("form").serializeArray(),
+                    GetSerializeData = INFORMA.Utils.serializeObject(FieldArray);
+                INFORMA.Spinner.Show($("body"));
+                GetAjaxData(Urls[SearchType], "Get", GetSerializeData, RenderSearchResult, null, SearchType);
+            });
+        },
+        BindAjaxHandler = function() {
+
+            var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
+                IsSearchPage = (SearchPage.data("search") === true) ? true : false;
+
+            if (IsProductPage) {
+                SubmitHandler("ProductSearch");
+            }
+            if (IsSearchPage) {
+                SubmitHandler("SearchResult");
+            }
+        },
+        ShowHideSearch = function(ele) {
             var ShowOption = $(ele).data('show');
             $("ul.searchToggle").addClass('hidden');
             ProductFinderSection.find("ul." + ShowOption).removeClass("hidden").fadeIn("slow");
@@ -1183,38 +1127,18 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             ToggleProductFinder();
             jQuery(".search-options input[type=radio]").on('change', function(e) {
                 e.preventDefault();
-                ShowHideSeach($(this));
+                ShowHideSearch($(this));
             });
             var CheckedOption = jQuery(".search-options input[type=radio]:checked");
             if (typeof CheckedOption === "object") {
-                ShowHideSeach(CheckedOption);
+                ShowHideSearch(CheckedOption);
             }
         },
         GetSubSectorList = function(arrayList) {
 
             var SectorData = {};
             SectorData.SectorIDs = INFORMA.Utils.getUniqueArray(arrayList);
-
-            INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
-                method: "GET",
-                data: JSON.stringify(SectorData),
-                success_callback: function(data) {
-
-                    if (data.SubSectors.length > 0) {
-                        var ListTemplate = Handlebars.compile(Templates.SubSectorList),
-                            html = ListTemplate({ SubSectors: data.SubSectors });
-
-
-                        $(".sector-search li").removeClass("disabled");
-                        SubSectorList.removeAttr("disabled")
-                            .removeProp("disabled")
-                            .html(html);
-                        SubSectorList.multiselect('rebuild');
-                    }
-                },
-                error_callback: function() {
-                }
-            });
+            GetAjaxData(Urls.GetSubSectorList, "Get", SectorData, UpdateSubSectorDropdown, null);
         },
         BindDropDown = function() {
             var SectorList = [];
@@ -1259,7 +1183,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         if (ProductFinderSection.length > 0) {
             BindDropDown();
             ToggleSearchOption();
-            SubmitHandler();
+            BindAjaxHandler();
         }
     };
 
@@ -1268,6 +1192,226 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.ProductFinder.init());
+
+/*
+ * Product Results.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-April-25
+ * @author:     Rajiv Aggarwal
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.SearchResultFilter = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var Templates = INFORMA.Templates,
+        // methods
+        init,
+        CreateFilterList;
+
+        CreateFilterList = function(DataObject) {
+            if (Object.keys(DataObject).length) {
+                var ListTemplate = Handlebars.compile(Templates.SearchFilter),
+                    SectorHtml, SubSectorHtml,
+                    FilterCont = $(".search-filter .filter-list");
+
+                if (DataObject.Sector) {
+                    SectorHtml = ListTemplate({ results: DataObject.Sector });
+                    FilterCont.find(".sector ul").empty().html(SectorHtml);
+                }
+                if (DataObject.SubSector) {
+                    SubSectorHtml = ListTemplate({ results: DataObject.SubSector });
+                    FilterCont.find(".subsector ul").empty().html(SubSectorHtml);
+                }
+                $(".search-filter").delay(600).slideDown();
+            }
+        },
+
+    init = function() {};
+    return {
+        init: init,
+        CreateFilterList:CreateFilterList
+    };
+
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.SearchResultFilter.init());
+
+/*
+ * Product Results.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-April-25
+ * @author:     Rajiv Aggarwal
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.SearchRefineResult = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var Templates = INFORMA.Templates,
+        // methods
+        init,
+        CreateRefineList, BindRefineEvents;
+
+        BindRefineEvents = function(html) {
+            var RefineContainer = $(".search-container .refine-result"),
+                RefineCloseBtn = $(".refine-result .close-filter");
+
+            if (RefineContainer.length) {
+                RefineContainer
+                    .empty()
+                    .html(html);
+                RefineContainer.parents(".refine-list").delay(1000).slideDown();
+            }
+
+            RefineCloseBtn.off("click").on("click", function(e) {
+                e.preventDefault();
+                RefineContainer.slideUp();
+            });
+
+            $(".refine-list").off("click").on("click", "a.refine", function(e) {
+                e.preventDefault();
+                RefineContainer.slideToggle();
+                RefineCloseBtn.show();
+            });
+        },
+        CreateRefineList = function(DataObject) {
+            if (Object.keys(DataObject).length) {
+                var ListTemplate = Handlebars.compile(Templates.RefineResult),
+                    html = ListTemplate({ results: DataObject.RefineResult });
+                    BindRefineEvents(html);
+            }
+
+        },
+
+    init = function() {};
+    return {
+        init: init,
+        CreateRefineList:CreateRefineList
+    };
+
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.SearchRefineResult.init());
+
+/*
+ * Product Results.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-April-25
+ * @author:     Rajiv Aggarwal
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.SearchResults = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var Templates = INFORMA.Templates,
+        ResultContainer = $(".search-container #results"),
+        ResultCount, ResultInner,
+        // methods
+        init,
+        equalHeight, UpdateHtmlView, ParseSearchData, BindTileEvents, CreateSearchResult;
+
+        equalHeight = function(container) {
+            var ItemsList = container.find('.col-md-4'),
+                MaxHeight = 0,
+                Padding = 10;
+
+            ItemsList.each(function() {
+                var currentHeight = jQuery(this).height();
+                if (currentHeight > MaxHeight) {
+                    MaxHeight = currentHeight;
+                }
+            })
+            ItemsList.css('height', MaxHeight + Padding);
+            if (INFORMA.global.device.viewportN === 2) {
+                ItemsList.css('height', 'auto');
+            }
+        },
+        CreateSearchResult = function(DataObject) {
+            for (var key in DataObject) {
+                if (DataObject.hasOwnProperty(key)) {
+                    var ResultName = key,
+                        html = "",
+                        Data = DataObject[key],
+                        TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
+                        ListTemplate = Handlebars.compile(TemplateName);
+                    
+                    html = ListTemplate({ results: Data });
+
+                    //Update Search Results
+                    $("#"+ResultName).find(".row").empty().html(html);
+
+                    //Update Record Counts
+                    $("#"+ResultName).find(".count strong").empty().text(Data.length);
+                }
+            }
+            var UpddateHeight = setTimeout(function() {
+                clearTimeout(UpddateHeight);
+                UpdateHtmlView();
+            }, 500);
+        },
+        BindTileEvents = function() {
+            INFORMA.Utils.flipTile(ResultInner);
+        },
+        UpdateHtmlView = function() {
+            if (ResultContainer.length) {
+                ResultContainer
+                    .hide()
+                    .fadeIn(1000);
+                ResultInner = $(".search-results");
+                ResultInner.each(function() {
+                    equalHeight($(this));
+                });
+                BindEvents();
+            }
+        },
+        ParseSearchData = function(data) {
+            if (Object.keys(data).length) {
+                var Results = (data.Results !== undefined) ? data.Results : false,
+                    Refine = (data.RefineResult !== undefined) ? data.RefineResult : false,
+                    SearchFilter = (data.SearchFilter !== undefined) ? data.SearchFilter : false;
+                if (SearchFilter) {
+                    INFORMA.SearchResultFilter.CreateFilterList(SearchFilter);
+                }
+                if (Refine) {
+                    var Data = { "RefineResult": Refine };
+                    INFORMA.SearchRefineResult.CreateRefineList(Data);
+                }
+                if (Results) {
+                    CreateSearchResult(Results);
+                }
+            }
+        };
+
+    //Resize
+    // $(window).resize(function() {
+    //     if (SearchResults.length > 0) {
+    //         equalHeight(SearchResults);
+    //     }
+    // });
+
+    init = function() {};
+    return {
+        init: init,
+        RenderSearchResults: ParseSearchData
+    };
+
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.SearchResults.init());
 
 /*
  * feature-list.js
@@ -1314,6 +1458,52 @@ INFORMA.sectorList = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.sectorList.init());
+
+/*
+ * feature-list.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-May-25
+ * @author:     Tejaswi , tchennupati@sapient.com
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.sectorPageStrengths = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var _sectorPageStrengths = $('.sectorpage-strengths'),
+    // methods
+        init,
+        _bindShowMore,
+        _adjustHeigt;
+
+    _bindShowMore = function(container){
+        // if data-items, data-infinite is defined, used it
+        var _showMore = $('.view-all-sectors-btn');
+        _showMore.on('click',function(){
+            var viewport = INFORMA.global.device.viewportN;
+            if(viewport == 2) {// This is mobile, toggle everything except first twbs-font-path
+              $('.sectorpage-strengths .container > .row + .row >.marg1:nth-child(2n+2)').show();
+              $('.sectorpage-strengths .view-all-sectors-btn-container').hide();
+            }
+        });
+    }
+
+    init = function() {
+              if (_sectorPageStrengths.length > 0) {
+            _bindShowMore(_sectorPageStrengths);
+        }
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.sectorPageStrengths.init());
 
 /*
  * training-material.js
