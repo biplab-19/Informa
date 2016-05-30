@@ -121,6 +121,9 @@ header {
                 margin: 0;
                 display: none;
             }
+            button[type=submit]{
+                color:$white;
+            }
             ul.search-options {
                 margin-top: 10px;
                 li {
@@ -177,6 +180,7 @@ header {
                         min-width: 100%;
                         background-color: $orange;
                         border: none;
+                        color:$white;
                     }
                 }
             }
