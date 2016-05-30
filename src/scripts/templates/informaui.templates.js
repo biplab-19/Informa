@@ -170,6 +170,46 @@ var INFORMA = window.INFORMA || {};
                     '{{/if}}'+
                 '</li>'+
             '{{/each}}'+
-        '</ul>'
+        '</ul>',
+    'AnalystList': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container">'+
+                        '<div class="meet-anlyst-section">'+
+                            '<div class="anlyst-heading">'+
+                                '<div class="analyst-heading-content">'+
+                                    '<div class="analyst-details">'+
+                                        '<h2>{{Name}}</h2>'+
+                                        '<h3>{{analystdesc}}</h3>'+
+                                        '<p class="location">{{location}}</p>'+
+                                    '</div>'+
+                                    '<div class="analyst-img">'+
+                                        '<img src="{{image}}" alt="{{image}}" />'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="analyst-description">'+
+                                '<p class="heading">{{question}}</p>'+
+                                '<ul class="yellow-bullets">'+
+                                    '{{#each MultipleProducts}}'+
+                                        '<li>{{name}}</li>'+
+                                    '{{/each}}'+
+                                '</ul>'+
+                                '<p class="heading">{{experience}}</p>'+
+                                '<ul class="track-analyst clearfix">'+
+                                    '{{#each products}}'+
+                                        '<li><a href="#">{{name}}</a></li>'+
+                                    '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                            '<div class="analyst-footer">'+
+                                '<div class="analyst-footer-content clearfix">'+
+                                    '<ul class="nav-links">'+
+                                        '<li><a href="#" class="icon-twitter"></a></li>'+
+                                        '<li><a href="#" class="icon-linked-in"></a></li>'+
+                                        '<li><a href="#" class="icon-facebook"></a></li>'+
+                                    '</ul>'+
+                                    '<a href="#" class="btn btn-default pull-right">Full Profile</a>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'
 }
 }(this, jQuery, 'INFORMA'));
