@@ -47,8 +47,8 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             infinite: _infinite,
             autoplay: _autoplay,
             autoplaySpeed: _duration,
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToShow: _slideCount,
+            slidesToScroll: _slideCount,
             speed: _speed,
             dots: _dots,
             adaptiveHeight: true
