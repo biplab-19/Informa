@@ -164,7 +164,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     })
 
     submitBtn.on('click', function() {
-
+    	
     })
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
@@ -1176,7 +1176,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             });
         },
         SubmitHandler = function(SearchType) {
-            SubmitBtn.on("click", "a", function(e) {
+            SubmitBtn.on("click", ".btn", function(e) {
                 e.preventDefault();
                 var FieldArray = ProductFinderSection.find("form").serializeArray(),
                     GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));

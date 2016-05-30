@@ -16,12 +16,13 @@
      INFORMA.Configs = (function () {
         function _config() {
             this.urls = {
+                    //Need to remove from here
+                    //"GetSubSectorList" : "/data/product-finder.json",
+                    //"ProductSearch":"/data/product-results.json",
                 "webservices" :{
                     "GetArticles" :"/client/search/getarticles",
-                    "GetSubSectorList" :"/client/search/GetSubSectors",
-                    //"GetSubSectorList" : "/data/product-finder.json",
-                    //"ProductSearch":"/client/search/product-result.json",
-                    "ProductSearch":"/client/search/GetSubSectors",
+                    "GetSubSectorList" : "/data/product-finder.json",
+                    "ProductSearch":"/client/search/product-result.json",
                     "SearchResult" :"/data/search-results.json",
                     "AnalystSearch"  :"/data/analyst-search.json"
                 }

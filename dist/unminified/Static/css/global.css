@@ -9975,56 +9975,60 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   display: none;
 }
 /* line 124, ../../../src/sass/global/_header.scss */
+#mainNavigation .product-finder form button[type=submit] {
+  color: #fff;
+}
+/* line 127, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options {
   margin-top: 10px;
 }
-/* line 126, ../../../src/sass/global/_header.scss */
+/* line 129, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li {
   display: inline-block;
 }
-/* line 128, ../../../src/sass/global/_header.scss */
+/* line 131, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li .custom-radio {
   margin-right: 30px;
 }
 @media (max-width: 767px) {
-  /* line 128, ../../../src/sass/global/_header.scss */
+  /* line 131, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.search-options li .custom-radio {
     margin-right: 10px;
   }
 }
-/* line 133, ../../../src/sass/global/_header.scss */
+/* line 136, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li .custom-radio .label {
   font-size: 1.1em;
 }
 @media (max-width: 767px) {
-  /* line 133, ../../../src/sass/global/_header.scss */
+  /* line 136, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.search-options li .custom-radio .label {
     font-size: 1em;
   }
 }
-/* line 140, ../../../src/sass/global/_header.scss */
+/* line 143, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li:last-child {
   float: right;
   font-weight: 400;
 }
-/* line 143, ../../../src/sass/global/_header.scss */
+/* line 146, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li:last-child .close-finder {
   padding: 0;
   text-decoration: none;
 }
-/* line 150, ../../../src/sass/global/_header.scss */
+/* line 153, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.site-search {
   display: none;
   margin: 20px 0 0;
 }
-/* line 153, ../../../src/sass/global/_header.scss */
+/* line 156, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.site-search .menu {
   float: left;
   width: 85.5%;
   margin-right: 36px;
 }
 @media (max-width: 767px) {
-  /* line 153, ../../../src/sass/global/_header.scss */
+  /* line 156, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.site-search .menu {
     width: 100%;
     margin-right: 0;
@@ -10032,12 +10036,12 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 153, ../../../src/sass/global/_header.scss */
+  /* line 156, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.site-search .menu {
     margin-right: 15px;
   }
 }
-/* line 166, ../../../src/sass/global/_header.scss */
+/* line 169, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.site-search .button {
   float: left;
   width: 11%;
@@ -10045,24 +10049,25 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   text-align: right;
 }
 @media (max-width: 767px) {
-  /* line 166, ../../../src/sass/global/_header.scss */
+  /* line 169, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.site-search .button {
     display: block;
     width: 100%;
   }
 }
-/* line 175, ../../../src/sass/global/_header.scss */
+/* line 178, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.site-search .button .btn {
   padding: 10px 20px;
   min-width: 100%;
   background-color: #ef7c00;
   border: none;
+  color: #fff;
 }
-/* line 183, ../../../src/sass/global/_header.scss */
+/* line 187, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search {
   margin: 20px 0 0;
 }
-/* line 186, ../../../src/sass/global/_header.scss */
+/* line 190, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .label-text {
   background-color: #e1e2e7;
   float: left;
@@ -10075,7 +10080,7 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 186, ../../../src/sass/global/_header.scss */
+  /* line 190, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .label-text {
     background-color: transparent;
     float: none;
@@ -10089,12 +10094,12 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 186, ../../../src/sass/global/_header.scss */
+  /* line 190, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .label-text {
     width: 32%;
   }
 }
-/* line 210, ../../../src/sass/global/_header.scss */
+/* line 214, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .label-text:after {
   border: solid transparent;
   border-color: rgba(225, 226, 231, 0);
@@ -10109,12 +10114,12 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   z-index: 4;
 }
 @media (max-width: 767px) {
-  /* line 210, ../../../src/sass/global/_header.scss */
+  /* line 214, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .label-text:after {
     border: none;
   }
 }
-/* line 227, ../../../src/sass/global/_header.scss */
+/* line 231, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .custom-multiselect {
   width: 73%;
   margin-right: 30px;
@@ -10122,58 +10127,58 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   display: inline-block;
   position: relative;
 }
-/* line 233, ../../../src/sass/global/_header.scss */
+/* line 237, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .custom-multiselect img {
   top: 3px !important;
   width: auto;
 }
 @media (max-width: 767px) {
-  /* line 227, ../../../src/sass/global/_header.scss */
+  /* line 231, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .custom-multiselect {
     margin-bottom: 20px;
     width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 227, ../../../src/sass/global/_header.scss */
+  /* line 231, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .custom-multiselect {
     width: 58%;
   }
 }
-/* line 244, ../../../src/sass/global/_header.scss */
+/* line 248, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .custom-multiselect .dropdown-toggle {
   height: 40px;
 }
-/* line 247, ../../../src/sass/global/_header.scss */
+/* line 251, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .custom-multiselect a {
   color: #434854;
 }
-/* line 252, ../../../src/sass/global/_header.scss */
+/* line 256, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search .menu {
   display: inline-block;
   width: 44%;
 }
 @media (max-width: 767px) {
-  /* line 252, ../../../src/sass/global/_header.scss */
+  /* line 256, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search .menu {
     display: block;
     width: 100%;
   }
 }
-/* line 260, ../../../src/sass/global/_header.scss */
+/* line 264, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search .button {
   width: 11%;
   margin-right: 0;
   text-align: right;
 }
 @media (max-width: 767px) {
-  /* line 260, ../../../src/sass/global/_header.scss */
+  /* line 264, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search .button {
     display: block;
     width: 100%;
   }
 }
-/* line 268, ../../../src/sass/global/_header.scss */
+/* line 272, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search .button .btn {
   padding: 10px 20px;
   min-width: 100%;
