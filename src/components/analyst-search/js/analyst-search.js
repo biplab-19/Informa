@@ -46,7 +46,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     })
 
     submitBtn.on('click', function() {
-
+    	
     })
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
