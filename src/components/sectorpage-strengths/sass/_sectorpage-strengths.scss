@@ -2,11 +2,15 @@
   background: #F6F6F7;
       .main-container{
         position: relative;
+        //height: 277px;
+        img{
+          height: 277px;
+        }
       }
       .yellow-container{
         position: absolute;
-        top: 50%;
-        height: 50%;
+        top: 60%;
+        height: 126px;
         width: 100%;
         padding: 0% 15% 3% 2%;
         background: rgba(254,215,24,0.9);
@@ -16,7 +20,7 @@
           background: white;
           padding: 3% 3% 7% 2%;
           position: relative;
-          height: 250px;
+          height: 230px;
           overflow: hidden;
       }
       .marg1{
@@ -66,4 +70,18 @@
               color: $brand-secondary;
           }
       }
+      .more {
+				display: block;
+			}
+			.less {
+				display: none;
+			}
+			&.showLess {
+				.more {
+					display: none;
+				}
+				.less {
+					display: block;
+				}
+			}
 }
