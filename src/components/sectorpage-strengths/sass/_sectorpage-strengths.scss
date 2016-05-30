@@ -22,6 +22,7 @@ section#sectorpage-strengths{
       .marg1{
         margin-bottom: 20px;
         overflow: hidden;
+        float: left;
         @include mobile {
           margin-bottom: 20px;
         }
@@ -43,4 +44,26 @@ section#sectorpage-strengths{
 				    left: -9px;
 				}
 			}
+      .view-all-sectors-btn-container {
+          display: none;
+      }
+      @include mobile {
+          .container > .row + .row > .marg1:nth-child(n+3) {
+              display: none;
+              //todo: optimize it
+          }
+          .view-all-sectors-btn-container {
+              display: block;
+              border-bottom: solid 1px $brand-secondary;
+              width: 100px;
+              margin: 0 auto;
+              padding: 5px;
+              cursor: pointer;
+              margin-bottom: 15px;
+          }
+          .informa-icon {
+              font-size: 30px;
+              color: $brand-secondary;
+          }
+      }
 }
