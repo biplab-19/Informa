@@ -285,7 +285,8 @@ module.exports = function(grunt) {
                     {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/unminified/Static/fonts'},
                     {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/Static/images'},
                     {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/Static/fonts'},
-                    {expand: true, cwd: '<%= config.src %>/cms-images', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/cms-images'}
+                    {expand: true, cwd: '<%= config.src %>/cms-images', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/cms-images'},
+                    {expand: true, cwd: '<%= config.tmp %>/data', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/data'}
                 ]
             }
         },
