@@ -29,7 +29,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     SectorHtml = ListTemplate({ results: DataObject.Sector });
                     FilterCont.find(".sector ul").empty().html(SectorHtml);
                 }
-                if (DataObject.Sector) {
+                if (DataObject.SubSector) {
                     SubSectorHtml = ListTemplate({ results: DataObject.SubSector });
                     FilterCont.find(".subsector ul").empty().html(SubSectorHtml);
                 }
