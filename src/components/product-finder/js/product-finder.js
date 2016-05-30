@@ -58,7 +58,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
-                data: JSON.stringify(data),
+                data: data,
                 success_callback: function(data) {
                     if (typeof SCallback === "function") {
                         SCallback.call(this, data, SearchType);
@@ -74,10 +74,10 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitHandler = function(SearchType) {
             SubmitBtn.on("click", "a", function(e) {
                 e.preventDefault();
-                var FieldArray = ProductFinderSection.find("form").serialize();
-
+                var FieldArray = ProductFinderSection.find("form").serializeArray(),
+                    GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
                 INFORMA.Spinner.Show($("body"));
-                GetAjaxData(Urls[SearchType], "Get", FieldArray, RenderSearchResult, null, SearchType);
+                GetAjaxData(Urls[SearchType], "Get", GetSerializeData, RenderSearchResult, null, SearchType);
             });
         },
         BindAjaxHandler = function() {
@@ -110,9 +110,9 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         },
         GetSubSectorList = function(arrayList) {
 
-            var SectorData = {};
-            SectorData.SectorIDs = INFORMA.Utils.getUniqueArray(arrayList);
-            GetAjaxData(Urls.GetSubSectorList, "Get", SectorData, UpdateSubSectorDropdown, null);
+            var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join("&");
+            SectorIDs = 'SectorIDs='+SectorIDs;
+            GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
         },
         BindDropDown = function() {
             var SectorList = [];
