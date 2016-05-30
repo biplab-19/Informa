@@ -74,10 +74,10 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitHandler = function(SearchType) {
             SubmitBtn.on("click", "a", function(e) {
                 e.preventDefault();
-                var FieldArray = ProductFinderSection.find("form").serializeArray(),
-                    GetSerializeData = INFORMA.Utils.serializeObject(FieldArray);
+                var FieldArray = ProductFinderSection.find("form").serialize();
+
                 INFORMA.Spinner.Show($("body"));
-                GetAjaxData(Urls[SearchType], "Get", GetSerializeData, RenderSearchResult, null, SearchType);
+                GetAjaxData(Urls[SearchType], "Get", FieldArray, RenderSearchResult, null, SearchType);
             });
         },
         BindAjaxHandler = function() {
