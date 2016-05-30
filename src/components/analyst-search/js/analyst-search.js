@@ -22,7 +22,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     	Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
-    init, GetAjaxData;
+    init, GetAjaxData, RenderSearchResult;
 
     txtField.on('keyup', function() {
     	var calcLength = jQuery(this).val().length;
@@ -46,21 +46,29 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     })
 
     submitBtn.on('click', function() {
-    	
+        var FieldArray = AnalystSearch.find("form").serializeArray(),
+            GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
+        INFORMA.Spinner.Show($("body"));
+    	GetAjaxData(Urls[AnalystSearch], "Get", GetSerializeData, RenderSearchResult, null);
     })
 
-    GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+    RenderSearchResult = function(data) {
+        debugger;
+        INFORMA.SearchResults.RenderSearchResults(data);
+    }
+
+    GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
                 data: JSON.stringify(data),
                 success_callback: function(data) {
                     if (typeof SCallback === "function") {
-                        SCallback.call(this, data, SearchType);
+                        SCallback.call(this, data);
                     }
                 },
                 error_callback: function() {
                     if (typeof Errcallback === "function") {
-                        Errcallback.call(this, data, SearchType);
+                        Errcallback.call(this, data);
                     }
                 }
             });
