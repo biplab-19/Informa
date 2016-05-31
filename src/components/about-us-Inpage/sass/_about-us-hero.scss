@@ -1,0 +1,89 @@
+$about-hero-height-desktop: 600px;
+
+section#about-us-hero{
+  height: $about-hero-height-desktop;
+  overflow: hidden; 
+  margin-top: 30px;
+  .sample{
+    position: relative;
+
+    .col-xs-12{
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+  .img-bg{
+    img{
+      width: 100%;
+      height: $about-hero-height-desktop;
+    }
+  }
+  .transparent-bg-content{
+    position: absolute;
+    background: rgba(0,0,0,0.7);
+    height: 100%;
+    line-height: 30px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -130px;
+      height: $about-hero-height-desktop;
+      width: 0;
+      border-top: $about-hero-height-desktop solid transparent;
+      border-bottom: 0px solid transparent;
+      border-right: 130px solid RGBA(0,0,0,0.7);
+    }
+     @media (max-width: 1023px) and (min-width: 768px)  {
+      &:before {
+            content: '';
+            position: absolute;
+            left: -130px;
+            width: 0;
+            border-top: $about-hero-height-desktop solid transparent;
+            border-bottom: 0px solid transparent;
+            border-right: 130px solid RGBA(0,0,0,0.7);
+      }
+    }
+    @include mobile {
+      padding: 20px;
+      height: $about-hero-height-desktop;
+      &:before {
+        content: '';
+        position: none;
+        left: 0px;
+        height: 0px;
+        width: 0;
+        border-top: none;
+        border-bottom: none;
+        border-right: none;
+      }
+    }
+    h1 {
+      font-family: FSMe-Bold;
+      color: #d1d1d1;
+      font-size: 40px;
+      padding-top: 40px;
+      padding-right: 100px;
+      word-spacing: 8px;
+      padding-left: 10px;
+      margin-bottom: 20px;
+      @include mobile {
+        font-size: 25px;
+        padding-top: 10px;
+      }
+    }
+    .description {
+        font-family: FSMe-Light;
+        color: #d1d1d1;
+        font-size: 14px;
+        padding-bottom: 40px;
+        padding-left: 10px;
+        padding-right: 100px;
+        @include mobile {
+            padding-bottom: 25px;
+            font-size: 12px;
+        }
+    }
+  }
+}
