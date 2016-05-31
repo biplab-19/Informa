@@ -176,6 +176,10 @@
     						top: 50%;
 		    				transform: translateY(-50%) translateX(-50%);
 		    				left: 50%;
+		    				&:hover, &:active {
+		    					outline: 0;
+		    					border: 0;
+		    				}
 					    }
 						&:last-child {
 							margin-right: 0;

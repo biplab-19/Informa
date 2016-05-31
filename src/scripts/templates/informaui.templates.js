@@ -219,7 +219,7 @@ var INFORMA = window.INFORMA || {};
                                     '{{/each}}'+
                                 '</div>'+
                                 '<div class="btn-container text-center">'+
-                                    '<a href="javascript:void(0)" class="btn-plus">'+
+                                    '<a href="javascript:void(0)" data-fetch="{{results.header}}" class="btn-plus">'+
                                     '<span class="more">See All Profile</span></a>'+
                                 '</div>'+
                             '</div>'+

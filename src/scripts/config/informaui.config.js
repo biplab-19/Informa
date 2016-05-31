@@ -20,14 +20,16 @@ var INFORMA = window.INFORMA || {};
             "GetSubSectorList" : "/data/product-finder.json",
             "ProductSearch":"/data/product-results.json",
             "SearchResult": "/data/search-results.json",
-            "AnalystSearch": "/data/analyst-search.json"
+            "AnalystSearch": "/data/analyst-search.json",
+            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
             "SearchResult": "/data/search-results.json",
-            "AnalystSearch": "/data/analyst-search.json"
+            "AnalystSearch": "/data/analyst-search.json",
+            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json"
         }
     };
 

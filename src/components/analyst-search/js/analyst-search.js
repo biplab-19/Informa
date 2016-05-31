@@ -16,25 +16,29 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     //variables
     var AnalystSearch = $('.analyst-search'),
     	Sector = AnalystSearch.find('.sector select'),
-    	SubSector = AnalystSearch.find('.sub-sector'),
+    	SubSector = AnalystSearch.find('.sub-sector select'),
     	submitBtn = AnalystSearch.find('.submit-btn'),
     	txtField = AnalystSearch.find('#name'),
         productAnalystResults = $('.product-analyst-results'),
-        EachView = $('.analyst-view .analyst-list-container'),
     	Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
-    init, GetAjaxData, RenderSearchResult, EventsFunctions, equalHeight;
+    init, GetAjaxData, RenderSearchResult, EventsFunctions, equalHeight, RenderChangeResult;
 
     equalHeight = function() {
-        var _maxHeight = 0;
+        var EachView = jQuery('.analyst-views');
             EachView.each(function() {
-                var Height = jQuery(this).height();
-                if (Height > _maxHeight) {
-                    _maxHeight = Height;
-                }
+                var Items = jQuery(this).find('.analyst-list-container .analyst-description'),
+                    _maxHeight = 0,
+                    _padding = 50;
+                Items.each(function() {
+                    var Height = jQuery(this).height();
+                    if(Height > _maxHeight) {
+                        _maxHeight = Height;
+                    }
+                })
+                Items.css('height', _maxHeight+ _padding);
             })
-            EachView.css('height', _maxHeight);
     }
 
     EventsFunctions = function() {
@@ -51,12 +55,20 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         Sector.chosen().on('change', function() {
         	var _value = jQuery(this).val();
         	if(_value === 'All') {
-        		SubSector.addClass('disabled');
-        			submitBtn.addClass('disabled');
+        		SubSector.parents('.sub-sector').addClass('disabled');
+        		submitBtn.addClass('disabled');
+                SubSector.parents('.form-group').find('label').html('By All');
         	} else {
-        		SubSector.removeClass('disabled');
+        		SubSector.parents('.sub-sector').removeClass('disabled');
         		submitBtn.removeClass('disabled');
+                SubSector.parents('.form-group').find('label').html('By '+_value);
         	}
+            SubSector.empty();
+            var newOption = ['<option value="1">test</option>'];
+              GetAjaxData(Urls.AnalystSearchDropDown, "Get", null, RenderChangeResult, null);
+              INFORMA.Spinner.Show(SubSector);
+              SubSector.trigger("chosen:updated");
+
         })
 
         submitBtn.on('click', function() {
@@ -65,6 +77,17 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             INFORMA.Spinner.Show($("body"));
         	GetAjaxData(Urls.AnalystSearch, "Get", GetSerializeData, RenderSearchResult, null);
         })
+    }
+
+    RenderChangeResult = function(data) {
+        var html = "",
+            options = data.options;
+
+        for(var key in data.options) {
+            html += '<option value='+data.options[key].value+'>'+data.options[key].name+'</option>';
+        }
+        SubSector.html(html);
+        SubSector.trigger("chosen:updated");
     }
 
     RenderSearchResult = function(data) {
@@ -85,6 +108,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             }
         }
         productAnalystResults.html(html);
+        equalHeight();
         return html;
     }
 
