@@ -24,8 +24,8 @@ var INFORMA = window.INFORMA || {};
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
-            "GetSubSectorList" : "/data/product-finder.json",
-            "ProductSearch": "/data/product-results.json",
+            "GetSubSectorList" : "/client/search/GetSubSectors",
+            "ProductSearch": "/data/search/getproducts",
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/data/analyst-search.json"
         }
