@@ -10,13 +10,16 @@
     		.panel-heading {
     			background-color: transparent;
     			position: relative;
-    		    padding: 20px 65px 20px 15px;
+    			padding: 0;
 	    		.panel-title {
 	    			a {
 	    				color: $font-color;
 	    				font-size: 18px;
 	    				font-style: italic;
 	    				font-weight: bold;
+	    				width: 100%;
+	    				display: block;
+	    				padding: 20px 0;
 	    				&:hover, &:active, &:focus {
 	    					text-decoration: none;
 	    				}
@@ -30,7 +33,7 @@
 	    				&:after {
 	    					content: "-";
 	    					position: absolute;
-						    right: 30px;
+						    right: 0;
 						    top: 15px;
 						    font-size: 28px;
 						    color: #fff;
@@ -52,10 +55,13 @@
 	}
 	.btn {
 		width: 260px;
-		margin: 15px;
+		margin: 15px 50px;
 		@include mobile {
 			margin: 0;
 			width: 100%;
+		}
+		&:after {
+			color: $yellow;
 		}
 	}
 }

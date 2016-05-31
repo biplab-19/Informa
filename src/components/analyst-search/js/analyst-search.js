@@ -19,42 +19,73 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     	SubSector = AnalystSearch.find('.sub-sector'),
     	submitBtn = AnalystSearch.find('.submit-btn'),
     	txtField = AnalystSearch.find('#name'),
+        productAnalystResults = $('.product-analyst-results'),
+        EachView = $('.analyst-view .analyst-list-container'),
     	Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
-    init, GetAjaxData, RenderSearchResult;
+    init, GetAjaxData, RenderSearchResult, EventsFunctions, equalHeight;
 
-    txtField.on('keyup', function() {
-    	var calcLength = jQuery(this).val().length;
+    equalHeight = function() {
+        var _maxHeight = 0;
+            EachView.each(function() {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeight) {
+                    _maxHeight = Height;
+                }
+            })
+            EachView.css('height', _maxHeight);
+    }
 
-    	if(calcLength > 3) {
-    		submitBtn.removeClass('disabled');
-    	} else {
-    		submitBtn.addClass('disabled');
-    	}
-    })
+    EventsFunctions = function() {
+        txtField.on('keyup', function() {
+        	var calcLength = jQuery(this).val().length;
 
-    Sector.chosen().on('change', function() {
-    	var _value = jQuery(this).val();
-    	if(_value === 'All') {
-    		SubSector.addClass('disabled');
-    			submitBtn.addClass('disabled');
-    	} else {
-    		SubSector.removeClass('disabled');
-    		submitBtn.removeClass('disabled');
-    	}
-    })
+        	if(calcLength > 3) {
+        		submitBtn.removeClass('disabled');
+        	} else {
+        		submitBtn.addClass('disabled');
+        	}
+        })
 
-    submitBtn.on('click', function() {
-        var FieldArray = AnalystSearch.find("form").serializeArray(),
-            GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-        INFORMA.Spinner.Show($("body"));
-    	GetAjaxData(Urls[AnalystSearch], "Get", GetSerializeData, RenderSearchResult, null);
-    })
+        Sector.chosen().on('change', function() {
+        	var _value = jQuery(this).val();
+        	if(_value === 'All') {
+        		SubSector.addClass('disabled');
+        			submitBtn.addClass('disabled');
+        	} else {
+        		SubSector.removeClass('disabled');
+        		submitBtn.removeClass('disabled');
+        	}
+        })
+
+        submitBtn.on('click', function() {
+            var FieldArray = AnalystSearch.find("form").serializeArray(),
+                GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
+            INFORMA.Spinner.Show($("body"));
+        	GetAjaxData(Urls.AnalystSearch, "Get", GetSerializeData, RenderSearchResult, null);
+        })
+    }
 
     RenderSearchResult = function(data) {
-        debugger;
-        INFORMA.SearchResults.RenderSearchResults(data);
+        //INFORMA.SearchResults.RenderSearchResults(data);
+        console.log(data);
+        var results = data.SearchDictionary,
+            html = "";
+
+        for (var key in results) {
+            if (results.hasOwnProperty(key)) {
+                var Data = results[key],
+                    HeaderText = key,
+                    TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    Data.header = HeaderText;
+                    html+= ListTemplate({ results: Data });
+
+            }
+        }
+        productAnalystResults.html(html);
+        return html;
     }
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback) {
@@ -76,6 +107,9 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
 
     init = function() {
         //alert('hi');
+        if(AnalystSearch.length > 0) {
+            EventsFunctions();
+        }
     };
 
     return {
