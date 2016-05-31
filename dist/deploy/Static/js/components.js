@@ -140,39 +140,38 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     	Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
-    init, GetAjaxData, RenderSearchResult, EventsFunctions;
+    init, GetAjaxData, RenderSearchResult;
 
-    EventsFunctions = function() {
-        txtField.on('keyup', function() {
-        	var calcLength = jQuery(this).val().length;
+    txtField.on('keyup', function() {
+    	var calcLength = jQuery(this).val().length;
 
-        	if(calcLength > 3) {
-        		submitBtn.removeClass('disabled');
-        	} else {
-        		submitBtn.addClass('disabled');
-        	}
-        })
+    	if(calcLength > 3) {
+    		submitBtn.removeClass('disabled');
+    	} else {
+    		submitBtn.addClass('disabled');
+    	}
+    })
 
-        Sector.chosen().on('change', function() {
-        	var _value = jQuery(this).val();
-        	if(_value === 'All') {
-        		SubSector.addClass('disabled');
-        			submitBtn.addClass('disabled');
-        	} else {
-        		SubSector.removeClass('disabled');
-        		submitBtn.removeClass('disabled');
-        	}
-        })
+    Sector.chosen().on('change', function() {
+    	var _value = jQuery(this).val();
+    	if(_value === 'All') {
+    		SubSector.addClass('disabled');
+    			submitBtn.addClass('disabled');
+    	} else {
+    		SubSector.removeClass('disabled');
+    		submitBtn.removeClass('disabled');
+    	}
+    })
 
-        submitBtn.on('click', function() {
-            var FieldArray = AnalystSearch.find("form").serializeArray(),
-                GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-            INFORMA.Spinner.Show($("body"));
-        	GetAjaxData(Urls.AnalystSearch, "Get", GetSerializeData, RenderSearchResult, null);
-        })
-    }
+    submitBtn.on('click', function() {
+        var FieldArray = AnalystSearch.find("form").serializeArray(),
+            GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
+        INFORMA.Spinner.Show($("body"));
+    	GetAjaxData(Urls[AnalystSearch], "Get", GetSerializeData, RenderSearchResult, null);
+    })
 
     RenderSearchResult = function(data) {
+        debugger;
         INFORMA.SearchResults.RenderSearchResults(data);
     }
 
@@ -181,7 +180,6 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 method: method,
                 data: JSON.stringify(data),
                 success_callback: function(data) {
-                    debugger;
                     if (typeof SCallback === "function") {
                         SCallback.call(this, data);
                     }
@@ -196,9 +194,6 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
 
     init = function() {
         //alert('hi');
-        if(AnalystSearch.length > 0) {
-            EventsFunctions();
-        }
     };
 
     return {
@@ -479,6 +474,58 @@ INFORMA.featureList = (function(window, $, namespace) {
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.featureList.init());
+
+/*
+ * analyst-list.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-April-25
+ * @author:     Saurabh Sinha
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.formComponents = (function(window, $, namespace) {
+    'use strict';
+     var _toolTip = $('.hasToolTip .icon.icon-info'),
+
+//functions
+     init,
+      _bindToolTip,
+        _showOverlay;
+
+    _showOverlay = function(container){
+
+      //alert(1);
+    }
+
+    init = function() {
+          //todo: No null check, dont execute these bindings if forms are not there
+            _showOverlay();
+            _bindToolTip();
+            $("#Sapient_API_Test_Form").validate(
+
+              
+            );
+    };
+
+    _bindToolTip = function(){
+          _toolTip.on('click',function(){
+                $(this).toggleClass('active');
+                $(this).parent().parent() // .hasToolTip
+                        .children('.tooltip-placeholder').slideToggle();
+          })
+   }
+
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.formComponents.init());
 
 /*
  * analyst-list.js
@@ -868,6 +915,56 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.globalHeader.init());
+
+// {{compare unicorns ponies operator="<"}}
+// 	I knew it, unicorns are just low-quality ponies!
+// {{/compare}}
+
+
+Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
+
+  if (arguments.length < 3)
+    throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
+
+  var operator = options.hash.operator || "==";
+
+  var operators = {
+    '==':		function(l,r) { return l == r; },
+    '===':	function(l,r) { return l === r; },
+    '!=':		function(l,r) { return l != r; },
+    '<':		function(l,r) { return l < r; },
+    '>':		function(l,r) { return l > r; },
+    '<=':		function(l,r) { return l <= r; },
+    '>=':		function(l,r) { return l >= r; },
+    'typeof':	function(l,r) { return typeof l == r; }
+  }
+
+  if (!operators[operator])
+    throw new Error("Handlerbars Helper 'compare' doesn't know the operator "+operator);
+
+  var result = operators[operator](lvalue,rvalue);
+
+  if( result ) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+
+});
+
+
+Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+    lvalue = parseFloat(lvalue);
+    rvalue = parseFloat(rvalue);
+
+    return {
+        "+": lvalue + rvalue,
+        "-": lvalue - rvalue,
+        "*": lvalue * rvalue,
+        "/": lvalue / rvalue,
+        "%": lvalue % rvalue
+    }[operator];
+});
 
 /*
  * Hero Video.js
