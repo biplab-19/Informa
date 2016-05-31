@@ -1,15 +1,17 @@
-section#infograph{
+.infograph{
   margin-top: 30px;
   .row-bg{
     background-color: #3C404C;
     padding: 30px;
 
-    .numdiv{
+    .number-container{
       font-size: 40px;
       font-weight: bolder;
       color: #FED402;
     }
-
+    .container-marg{
+        margin-left: 30px;
+    }
     .clients{
       position: relative;
       @include mobile {
@@ -21,7 +23,7 @@ section#infograph{
         height: 50%;
         position: absolute;
         top: 8px;
-        right: 20px;
+        right: 0px;
         @include mobile {
           display: none;
         }
