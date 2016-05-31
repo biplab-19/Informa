@@ -724,7 +724,7 @@ INFORMA.formComponents = (function(window, $, namespace) {
           //todo: No null check, dont execute these bindings if forms are not there
           //  _showOverlay();
           //  _bindToolTip();
-            $(".elq-form").validate();
+          //  $(".elq-form").validate();
     };
 
     _bindToolTip = function(){
@@ -1658,6 +1658,63 @@ jQuery(INFORMA.SearchResultFilter.init());
  */
 
 var INFORMA = window.INFORMA || {};
+INFORMA.SearchResults = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var Templates = INFORMA.Templates,
+        PageNum = 0,
+        PageSize = 6,
+        ResultContainer = $(".search-container #results"),
+        BindPaginationEvents, GetNextPageData;
+
+
+        BindPaginationEvents = function(Object, Param) {
+            Object.on("click",function(e){
+                e.preventDefault();
+                GetNextPageData(Param);
+            });
+        },
+        GetNextPageData = function(Param, PNum ,PSize,SuccessCall,ErrorCallback) {
+            INFORMA.DataLoader.GetServiceData(Param.url, {
+                method: method,
+                data: data,
+                success_callback: function(data) {
+                    if (typeof SCallback === "function") {
+                        SCallback.call(this, data, SearchType);
+                    }
+                },
+                error_callback: function() {
+                    if (typeof Errcallback === "function") {
+                        Errcallback.call(this, data, SearchType);
+                    }
+                }
+            });
+        };
+
+
+
+    init = function() {};
+    return {
+        init: init,
+        Bind:BindPaginationEvents
+    };
+
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.SearchResults.init());
+
+/*
+ * Product Results.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-April-25
+ * @author:     Rajiv Aggarwal
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
 INFORMA.SearchRefineResult = (function(window, $, namespace) {
     'use strict';
     //variables
@@ -1724,9 +1781,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     //variables
     var Templates = INFORMA.Templates,
         ResultContainer = $(".search-container #results"),
+        ProductFinder = $('#product-finder-section'),
         ResultCount, ResultInner,
         Config = INFORMA.Configs,
-        PageNum =1, 
+        PageNo =1, 
         Urls = INFORMA.Configs.urls.webservices,
         // methods
         init,
@@ -1761,12 +1819,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         BindPaginationEvents = function(Object) {
             Object.on("click", function(e) {
                 e.preventDefault();
-                var SerializeArrays = $('#product-finder-section').find("form").serializeArray(),
+                var SerializeArrays = ProductFinder.find("form").serializeArray(),
                     GetSerializeData = INFORMA.Utils.serializeObject(SerializeArrays);
                     GetSerializeData.pageSize = ($(this).data('pagesize')!==undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
-                    GetSerializeData.pageNum = PageNum++;
+                    GetSerializeData.PageNo = PageNo++;
                 
-                GetPaginatedData(Urls, "Get", JSON.stringify(GetSerializeData), ParseSearchData, null);
+                GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(GetSerializeData), ParseSearchData, null);
             });
         },
         CreateSearchResult = function(DataObject) {
@@ -1835,7 +1893,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     //     }
     // });
 
-    init = function() {};
+    init = function() {
+            var IsProductPage = (ProductFinder.data("product") === true) ? true : false;
+            if(IsProductPage){
+                if(ResultContainer.length && $(".search-tile").length){
+                    UpdateHtmlView();
+                }
+            }
+
+    };
     return {
         init: init,
         RenderSearchResults: ParseSearchData
