@@ -29,7 +29,7 @@ INFORMA.formComponents = (function(window, $, namespace) {
           //todo: No null check, dont execute these bindings if forms are not there
           //  _showOverlay();
           //  _bindToolTip();
-            $(".elq-form").validate();
+          //  $(".elq-form").validate();
     };
 
     _bindToolTip = function(){
