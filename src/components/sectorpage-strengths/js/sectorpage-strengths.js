@@ -1,5 +1,5 @@
 /*
- * feature-list.js
+ * sectorpage-strengths.js
  *
  *
  * @project:    Informa

@@ -1,4 +1,4 @@
-/*! 2016-05-31 */_adjustHeigt = function(){
+/*! 2016-05-30 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -96,7 +96,7 @@ INFORMA.analystProfile = (function(window, $, namespace) {
         _bindShowMore;
 
     _bindShowMore = function(container){
-        
+
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.show-options');
         _showMore.click(function(){
@@ -140,7 +140,11 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     	Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
+<<<<<<< Updated upstream
     init, GetAjaxData, RenderSearchResult;
+=======
+    init, GetAjaxData;
+>>>>>>> Stashed changes
 
     txtField.on('keyup', function() {
     	var calcLength = jQuery(this).val().length;
@@ -164,6 +168,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     })
 
     submitBtn.on('click', function() {
+<<<<<<< Updated upstream
         var FieldArray = AnalystSearch.find("form").serializeArray(),
             GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
         INFORMA.Spinner.Show($("body"));
@@ -176,17 +181,23 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     }
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback) {
+=======
+
+    })
+
+    GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+>>>>>>> Stashed changes
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
                 data: JSON.stringify(data),
                 success_callback: function(data) {
                     if (typeof SCallback === "function") {
-                        SCallback.call(this, data);
+                        SCallback.call(this, data, SearchType);
                     }
                 },
                 error_callback: function() {
                     if (typeof Errcallback === "function") {
-                        Errcallback.call(this, data);
+                        Errcallback.call(this, data, SearchType);
                     }
                 }
             });
@@ -763,7 +774,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             // To show the menu follower with right width and position, todo: remove harcode
             _pdpMenuFollower.css('width',$(_pdpLink[0]).width())
                            .css('left',$(_pdpLink[0]).offset().left)
-                           .show(); 
+                           .show();
       }
       if(_mainNavigation.length > 0) {
             _navHeight = _mainNavigation.height();
@@ -1098,7 +1109,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         _lists = null;
 
     _bindShowMore = function(container){
-        
+
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.btn-showMore');
         _showMore.on('click',function(){
@@ -1538,7 +1549,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName),
                         ContainerID ="#"+(ResultName).toLowerCase();
-                    
+
                     html = ListTemplate({ results: Data });
 
                     //Update Search Results
