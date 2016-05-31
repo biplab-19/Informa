@@ -118,6 +118,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             var SectorList = [];
             CustomSelect.val("");
             CustomSelect.multiselect({
+                maxHeight: 200,
                 buttonText: function(o, s) {
 
                     if (o.length === 0) {
