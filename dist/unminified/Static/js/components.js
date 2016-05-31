@@ -137,42 +137,73 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
     	SubSector = AnalystSearch.find('.sub-sector'),
     	submitBtn = AnalystSearch.find('.submit-btn'),
     	txtField = AnalystSearch.find('#name'),
+        productAnalystResults = $('.product-analyst-results'),
+        EachView = $('.analyst-view .analyst-list-container'),
     	Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
-    init, GetAjaxData, RenderSearchResult;
+    init, GetAjaxData, RenderSearchResult, EventsFunctions, equalHeight;
 
-    txtField.on('keyup', function() {
-    	var calcLength = jQuery(this).val().length;
+    equalHeight = function() {
+        var _maxHeight = 0;
+            EachView.each(function() {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeight) {
+                    _maxHeight = Height;
+                }
+            })
+            EachView.css('height', _maxHeight);
+    }
 
-    	if(calcLength > 3) {
-    		submitBtn.removeClass('disabled');
-    	} else {
-    		submitBtn.addClass('disabled');
-    	}
-    })
+    EventsFunctions = function() {
+        txtField.on('keyup', function() {
+        	var calcLength = jQuery(this).val().length;
 
-    Sector.chosen().on('change', function() {
-    	var _value = jQuery(this).val();
-    	if(_value === 'All') {
-    		SubSector.addClass('disabled');
-    			submitBtn.addClass('disabled');
-    	} else {
-    		SubSector.removeClass('disabled');
-    		submitBtn.removeClass('disabled');
-    	}
-    })
+        	if(calcLength > 3) {
+        		submitBtn.removeClass('disabled');
+        	} else {
+        		submitBtn.addClass('disabled');
+        	}
+        })
 
-    submitBtn.on('click', function() {
-        var FieldArray = AnalystSearch.find("form").serializeArray(),
-            GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-        INFORMA.Spinner.Show($("body"));
-    	GetAjaxData(Urls[AnalystSearch], "Get", GetSerializeData, RenderSearchResult, null);
-    })
+        Sector.chosen().on('change', function() {
+        	var _value = jQuery(this).val();
+        	if(_value === 'All') {
+        		SubSector.addClass('disabled');
+        			submitBtn.addClass('disabled');
+        	} else {
+        		SubSector.removeClass('disabled');
+        		submitBtn.removeClass('disabled');
+        	}
+        })
+
+        submitBtn.on('click', function() {
+            var FieldArray = AnalystSearch.find("form").serializeArray(),
+                GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
+            INFORMA.Spinner.Show($("body"));
+        	GetAjaxData(Urls.AnalystSearch, "Get", GetSerializeData, RenderSearchResult, null);
+        })
+    }
 
     RenderSearchResult = function(data) {
-        debugger;
-        INFORMA.SearchResults.RenderSearchResults(data);
+        //INFORMA.SearchResults.RenderSearchResults(data);
+        console.log(data);
+        var results = data.SearchDictionary,
+            html = "";
+
+        for (var key in results) {
+            if (results.hasOwnProperty(key)) {
+                var Data = results[key],
+                    HeaderText = key,
+                    TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    Data.header = HeaderText;
+                    html+= ListTemplate({ results: Data });
+
+            }
+        }
+        productAnalystResults.html(html);
+        return html;
     }
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback) {
@@ -194,6 +225,9 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
 
     init = function() {
         //alert('hi');
+        if(AnalystSearch.length > 0) {
+            EventsFunctions();
+        }
     };
 
     return {
@@ -474,6 +508,239 @@ INFORMA.featureList = (function(window, $, namespace) {
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.featureList.init());
+
+
+(function ($) {
+	/* "YYYY-MM[-DD]" => Date */
+	function strToDate(str) {
+		try {
+			var array = str.split('-');
+			var year = parseInt(array[0]);
+			var month = parseInt(array[1]);
+			var day = array.length > 2? parseInt(array[2]): 1 ;
+			if (year > 0 && month >= 0) {
+				return new Date(year, month - 1, day);
+			} else {
+				return null;
+			}
+		} catch (err) {}; // just throw any illegal format
+	};
+
+	/* Date => "YYYY-MM-DD" */
+	function dateToStr(d) {
+		/* fix month zero base */
+		var year = d.getFullYear();
+		var month = d.getMonth();
+		return year + "-" + (month + 1) + "-" + d.getDate();
+	};
+
+	$.fn.calendar = function (options) {
+		var _this = this;
+		var opts = $.extend({}, $.fn.calendar.defaults, options);
+		var week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+		var tHead = week.map(function (day) {
+			return "<th>" + day + "</th>";
+		}).join("");
+
+		_this.init = function () {
+			var tpl = '<table class="cal">' +
+			'<caption>' +
+			'	<span class="prev"><a href="javascript:void(0);">&larr;</a></span>' +
+			'	<span class="next"><a href="javascript:void(0);">&rarr;</a></span>' +
+			'	<span class="month"><span>' +
+			"</caption>" +
+			"<thead><tr>" +
+			tHead +
+			"</tr></thead>" +
+			"<tbody>" +
+			"</tbody>" + "</table>";
+			var html = $(tpl);
+			_this.append(html);
+		};
+
+		function daysInMonth(d) {
+			var newDate = new Date(d);
+			newDate.setMonth(newDate.getMonth() + 1);
+			newDate.setDate(0);
+			return newDate.getDate();
+		}
+
+		_this.update = function (date) {
+			var mDate = new Date(date);
+			mDate.setDate(1); /* start of the month */
+			var day = mDate.getDay(); /* value 0~6: 0 -- Sunday, 6 -- Saturday */
+			mDate.setDate(mDate.getDate() - day) /* now mDate is the start day of the table */
+
+			function dateToTag(d) {
+				var tag = $('<td><a href="javascript:void(0);"></a></td>');
+				var a = tag.find('a');
+				a.text(d.getDate());
+				a.data('date', dateToStr(d));
+				if (date.getMonth() != d.getMonth()) { // the bounday month
+					tag.addClass('off');
+				} else if (_this.data('date') == a.data('date')) { // the select day
+					tag.addClass('active');
+					_this.data('date', dateToStr(d));
+				}
+				return tag;
+			};
+
+			var tBody = _this.find('tbody');
+			tBody.empty(); /* clear previous first */
+			var cols = Math.ceil((day + daysInMonth(date))/7);
+			for (var i = 0; i < cols; i++) {
+				var tr = $('<tr></tr>');
+				for (var j = 0; j < 7; j++, mDate.setDate(mDate.getDate() + 1)) {
+					tr.append(dateToTag(mDate));
+				}
+				tBody.append(tr);
+			}
+
+			/* set month head */
+			var monthStr = dateToStr(date).replace(/-\d+$/, '');
+			_this.find('.month').text(monthStr)
+		};
+
+		_this.getCurrentDate = function () {
+			return _this.data('date');
+		}
+
+		_this.init();
+		/* in date picker mode, and input date is empty,
+		 * should not update 'data-date' field (no selected).
+		 */
+		var initDate = opts.date? opts.date: new Date();
+		if (opts.date || !opts.picker) {
+			_this.data('date', dateToStr(initDate));
+		}
+		_this.update(initDate);
+
+		/* event binding */
+		_this.delegate('tbody td', 'click', function () {
+			var $this = $(this);
+			_this.find('.active').removeClass('active');
+			$this.addClass('active');
+			_this.data('date', $this.find('a').data('date'));
+			/* if the 'off' tag become selected, switch to that month */
+			if ($this.hasClass('off')) {
+				_this.update(strToDate(_this.data('date')));
+			}
+			if (opts.picker) {  /* in picker mode, when date selected, panel hide */
+				_this.hide();
+			}
+		});
+
+		function updateTable(monthOffset) {
+			var date = strToDate(_this.find('.month').text());
+			date.setMonth(date.getMonth() + monthOffset);
+			_this.update(date);
+		};
+
+		_this.find('.next').click(function () {
+			updateTable(1);
+
+		});
+
+		_this.find('.prev').click(function () {
+			updateTable(-1);
+		});
+
+		return this;
+	};
+
+	$.fn.calendar.defaults = {
+		date: new Date(),
+		picker: false,
+	};
+
+	$.fn.datePicker = function () {
+		var _this = this;
+		var picker = $('<div></div>')
+			.addClass('picker-container')
+			.hide()
+			.calendar({'date': strToDate(_this.val()), 'picker': true});
+
+		_this.after(picker);
+
+		/* event binding */
+		// click outside area, make calendar disappear
+		$('body').click(function () {
+			picker.hide();
+		});
+
+		// click input should make calendar appear
+		_this.click(function () {
+			picker.show();
+			return false; // stop sending event to docment
+		});
+
+		// click on calender, update input
+		picker.click(function () {
+			_this.val(picker.getCurrentDate());
+			return false;
+		});
+
+		return this;
+	};
+
+	$(window).load(function () {
+		$('.jquery-calendar').each(function () {
+			$(this).calendar();
+		});
+		$('.date-picker:text').each(function () {
+			$(this).datePicker();
+		});
+	});
+}(jQuery));
+
+/*
+ * analyst-list.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-April-25
+ * @author:     Saurabh Sinha
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.formComponents = (function(window, $, namespace) {
+    'use strict';
+     var _toolTip = $('.hasToolTip .icon.icon-info'),
+
+//functions
+     init,
+      _bindToolTip,
+        _showOverlay;
+
+    _showOverlay = function(container){
+
+      //alert(1);
+    }
+
+    init = function() {
+          //todo: No null check, dont execute these bindings if forms are not there
+          //  _showOverlay();
+          //  _bindToolTip();
+            $(".elq-form").validate();
+    };
+
+    _bindToolTip = function(){
+          _toolTip.on('click',function(){
+                $(this).toggleClass('active');
+                $(this).parent().parent() // .hasToolTip
+                        .children('.tooltip-placeholder').slideToggle();
+          })
+   }
+
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.formComponents.init());
 
 /*
  * analyst-list.js
@@ -864,6 +1131,56 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.globalHeader.init());
 
+// {{compare unicorns ponies operator="<"}}
+// 	I knew it, unicorns are just low-quality ponies!
+// {{/compare}}
+
+
+Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
+
+  if (arguments.length < 3)
+    throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
+
+  var operator = options.hash.operator || "==";
+
+  var operators = {
+    '==':		function(l,r) { return l == r; },
+    '===':	function(l,r) { return l === r; },
+    '!=':		function(l,r) { return l != r; },
+    '<':		function(l,r) { return l < r; },
+    '>':		function(l,r) { return l > r; },
+    '<=':		function(l,r) { return l <= r; },
+    '>=':		function(l,r) { return l >= r; },
+    'typeof':	function(l,r) { return typeof l == r; }
+  }
+
+  if (!operators[operator])
+    throw new Error("Handlerbars Helper 'compare' doesn't know the operator "+operator);
+
+  var result = operators[operator](lvalue,rvalue);
+
+  if( result ) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+
+});
+
+
+Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+    lvalue = parseFloat(lvalue);
+    rvalue = parseFloat(rvalue);
+
+    return {
+        "+": lvalue + rvalue,
+        "-": lvalue - rvalue,
+        "*": lvalue * rvalue,
+        "/": lvalue / rvalue,
+        "%": lvalue % rvalue
+    }[operator];
+});
+
 /*
  * Hero Video.js
  *
@@ -1230,6 +1547,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             var SectorList = [];
             CustomSelect.val("");
             CustomSelect.multiselect({
+                maxHeight: 200,
                 buttonText: function(o, s) {
 
                     if (o.length === 0) {
@@ -1407,9 +1725,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     var Templates = INFORMA.Templates,
         ResultContainer = $(".search-container #results"),
         ResultCount, ResultInner,
+        Config = INFORMA.Configs,
+        PageNum =1, 
+        Urls = INFORMA.Configs.urls.webservices,
         // methods
         init,
-        equalHeight, UpdateHtmlView, ParseSearchData, BindTileEvents, CreateSearchResult;
+        equalHeight, BindPaginationEvents,GetPaginatedData, UpdateHtmlView, 
+        ParseSearchData, BindTileEvents, CreateSearchResult;
 
         equalHeight = function(container) {
             var ItemsList = container.find('.col-md-4'),
@@ -1427,6 +1749,26 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ItemsList.css('height', 'auto');
             }
         },
+        GetPaginatedData = function(Url,Method,Data,SCallBack,ErrCallack) {
+            INFORMA.Spinner.Show($("body"));
+            INFORMA.DataLoader.GetServiceData(Url, {
+                method: Method,
+                data: Data,
+                success_callback:SCallBack,
+                error_callback: ErrCallack
+            });
+        },
+        BindPaginationEvents = function(Object) {
+            Object.on("click", function(e) {
+                e.preventDefault();
+                var SerializeArrays = $('#product-finder-section').find("form").serializeArray(),
+                    GetSerializeData = INFORMA.Utils.serializeObject(SerializeArrays);
+                    GetSerializeData.pageSize = ($(this).data('pagesize')!==undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
+                    GetSerializeData.pageNum = PageNum++;
+                
+                GetPaginatedData(Urls, "Get", JSON.stringify(GetSerializeData), ParseSearchData, null);
+            });
+        },
         CreateSearchResult = function(DataObject) {
             for (var key in DataObject) {
                 if (DataObject.hasOwnProperty(key)) {
@@ -1435,15 +1777,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         Data = DataObject[key],
                         TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName),
-                        ContainerID ="#"+(ResultName).toLowerCase();
-                    
+                        ContainerID = "#" + (ResultName).toLowerCase();
+
                     html = ListTemplate({ results: Data });
 
                     //Update Search Results
-                    $(ContainerID).find(".row").empty().html(html);
+                    $(ContainerID).find(".row").html(html);
 
                     //Update Record Counts
-                    $(ContainerID).find(".count strong").empty().text(Data.length);
+                    $(ContainerID).find(".count strong").text(Data.length);
                 }
             }
             var UpddateHeight = setTimeout(function() {
@@ -1464,6 +1806,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     equalHeight($(this));
                 });
                 BindTileEvents();
+                var ShowMoreBtn = ResultContainer.find(".btn-ShowMore");
+                BindPaginationEvents(ShowMoreBtn);
             }
         },
         ParseSearchData = function(data) {

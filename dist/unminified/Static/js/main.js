@@ -24,7 +24,7 @@
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
-            "GetSubSectorList" : "/client/search/GetSubSectors",
+            "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/data/analyst-search.json"
@@ -35,6 +35,9 @@
         function _config() {
                 this.urls = {
                     "webservices": endPoints[env]
+                },
+                this.searchResult ={
+                    "pageSize" : 6
                 },
                 this.activeClass = 'informaui-active',
                 this.views = {
@@ -470,46 +473,60 @@ var INFORMA = window.INFORMA || {};
                 '</li>'+
             '{{/each}}'+
         '</ul>',
-        'AnalystList': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container">'+
-                        '<div class="meet-anlyst-section">'+
-                            '<div class="anlyst-heading">'+
-                                '<div class="analyst-heading-content">'+
-                                    '<div class="analyst-details">'+
-                                        '<h2>{{Name}}</h2>'+
-                                        '<h3>{{analystdesc}}</h3>'+
-                                        '<p class="location">{{location}}</p>'+
-                                    '</div>'+
-                                    '<div class="analyst-img">'+
-                                        '<img src="{{image}}" alt="{{image}}" />'+
-                                    '</div>'+
+        'AnalystList':  '<section class="analyst-views">'+
+                            '<div class="container">'+
+                                '<h2 class="header">{{results.header}}</h2>'+
+                                '<div class="row analyst-items">'+
+                                    '{{#each results.ModelItem}}'+
+                                        '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container">'+
+                                            '<div class="meet-anlyst-section">'+
+                                                '<div class="anlyst-heading">'+
+                                                    '<div class="analyst-heading-content">'+
+                                                        '<div class="analyst-details">'+
+                                                            '<h2>{{Name}}</h2>'+
+                                                            '<h3>{{Type}}</h3>'+
+                                                            '<p class="location">{{Country}}</p>'+
+                                                        '</div>'+
+                                                        '<div class="analyst-img">'+
+                                                            '<img src="{{ProfileImage}}" alt="{{image}}" />'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                                '<div class="analyst-description">'+
+                                                    '<p class="heading">{{question}}</p>'+
+                                                    '<ul class="yellow-bullets">'+
+                                                        '{{#each Specialization}}'+
+                                                            '<li>{{this}}</li>'+
+                                                        '{{/each}}'+
+                                                    '</ul>'+
+                                                    '<p class="heading">{{experience}}</p>'+
+                                                    '<ul class="track-analyst clearfix">'+
+                                                        '{{#each MultipleProducts}}'+
+                                                            '<li><a href="#">{{this}}</a></li>'+
+                                                        '{{/each}}'+
+                                                    '</ul>'+
+                                                '</div>'+
+                                                '<div class="analyst-footer">'+
+                                                    '<div class="analyst-footer-content clearfix">'+
+                                                        '<ul class="nav-links">'+
+                                                            '<li><a href="#" class="icon-twitter"></a></li>'+
+                                                            '<li><a href="#" class="icon-linked-in"></a></li>'+
+                                                            '<li><a href="#" class="icon-facebook"></a></li>'+
+                                                        '</ul>'+
+                                                        '<a href="#" class="btn btn-default pull-right">Full Profile</a>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '{{/each}}'+
+                                '</div>'+
+                                '<div class="btn-container text-center">'+
+                                    '<a href="javascript:void(0)" class="btn-plus">'+
+                                    '<span class="more">See All Profile</span></a>'+
                                 '</div>'+
                             '</div>'+
-                            '<div class="analyst-description">'+
-                                '<p class="heading">{{question}}</p>'+
-                                '<ul class="yellow-bullets">'+
-                                    '{{#each MultipleProducts}}'+
-                                        '<li>{{name}}</li>'+
-                                    '{{/each}}'+
-                                '</ul>'+
-                                '<p class="heading">{{experience}}</p>'+
-                                '<ul class="track-analyst clearfix">'+
-                                    '{{#each products}}'+
-                                        '<li><a href="#">{{name}}</a></li>'+
-                                    '{{/each}}'+
-                                '</ul>'+
-                            '</div>'+
-                            '<div class="analyst-footer">'+
-                                '<div class="analyst-footer-content clearfix">'+
-                                    '<ul class="nav-links">'+
-                                        '<li><a href="#" class="icon-twitter"></a></li>'+
-                                        '<li><a href="#" class="icon-linked-in"></a></li>'+
-                                        '<li><a href="#" class="icon-facebook"></a></li>'+
-                                    '</ul>'+
-                                    '<a href="#" class="btn btn-default pull-right">Full Profile</a>'+
-                                '</div>'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'
+                        '</section>'
+
 }
 }(this, jQuery, 'INFORMA'));
 

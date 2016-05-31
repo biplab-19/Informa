@@ -9826,6 +9826,31 @@ appropriate style change */
   pointer-events: all !important;
 }
 
+/* line 286, ../../../src/sass/global/_grid.scss */
+.btn-container .btn-plus {
+  color: #444957;
+  padding: 20px 0;
+  width: 150px;
+  display: inline-block;
+  border-bottom: 2px solid #ffd500;
+  position: relative;
+}
+/* line 293, ../../../src/sass/global/_grid.scss */
+.btn-container .btn-plus span {
+  color: #444957;
+  float: left;
+}
+/* line 296, ../../../src/sass/global/_grid.scss */
+.btn-container .btn-plus span:before {
+  content: "\e912";
+  position: absolute;
+  right: 0;
+  font-family: "InformaIcons";
+  font-size: 25px;
+  top: 10px;
+  color: #ffd500;
+}
+
 /* line 1, ../../../src/sass/global/_header.scss */
 header {
   color: #fff;
@@ -10504,8 +10529,9 @@ footer ul.slick-dots li.slick-active {
 /* line 9, ../../../src/sass/global/_common-components.scss */
 .video-wrap {
   position: relative;
+  display: inline-block;
 }
-/* line 11, ../../../src/sass/global/_common-components.scss */
+/* line 12, ../../../src/sass/global/_common-components.scss */
 .video-wrap .play-icon {
   position: absolute;
   width: 54px;
@@ -10520,7 +10546,7 @@ footer ul.slick-dots li.slick-active {
 /*===================================================
 	Search Flip Tile
 ====================================================*/
-/* line 28, ../../../src/sass/global/_common-components.scss */
+/* line 29, ../../../src/sass/global/_common-components.scss */
 .flip .tile {
   height: 100%;
   position: relative;
@@ -10528,15 +10554,15 @@ footer ul.slick-dots li.slick-active {
   transition: transform 0.3s;
   overflow: hidden;
 }
-/* line 35, ../../../src/sass/global/_common-components.scss */
+/* line 36, ../../../src/sass/global/_common-components.scss */
 .flip .tile.flip .front {
   transform: perspective(800px) rotateY(-180deg);
 }
-/* line 38, ../../../src/sass/global/_common-components.scss */
+/* line 39, ../../../src/sass/global/_common-components.scss */
 .flip .tile.flip .back {
   transform: perspective(800px) rotateY(0deg);
 }
-/* line 42, ../../../src/sass/global/_common-components.scss */
+/* line 43, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front {
   background-color: #f0f1f3;
   height: 100%;
@@ -10547,16 +10573,16 @@ footer ul.slick-dots li.slick-active {
   transition: transform .2s linear 0s;
   position: relative;
 }
-/* line 50, ../../../src/sass/global/_common-components.scss */
+/* line 51, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .header {
   position: relative;
   overflow: hidden;
 }
-/* line 53, ../../../src/sass/global/_common-components.scss */
+/* line 54, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .header img {
   width: 100%;
 }
-/* line 56, ../../../src/sass/global/_common-components.scss */
+/* line 57, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .header:after {
   content: "";
   position: absolute;
@@ -10567,11 +10593,11 @@ footer ul.slick-dots li.slick-active {
   top: calc(100% - 20px);
   left: 4px;
 }
-/* line 67, ../../../src/sass/global/_common-components.scss */
+/* line 68, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content {
   padding: 10px 10px 20px;
 }
-/* line 69, ../../../src/sass/global/_common-components.scss */
+/* line 70, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content:after {
   content: '+';
   border: 2px solid #ef7c00;
@@ -10587,7 +10613,7 @@ footer ul.slick-dots li.slick-active {
   right: 15px;
   bottom: 35px;
 }
-/* line 85, ../../../src/sass/global/_common-components.scss */
+/* line 86, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer {
   padding-top: 5%;
   position: absolute;
@@ -10595,7 +10621,7 @@ footer ul.slick-dots li.slick-active {
   bottom: 0;
   width: 100%;
 }
-/* line 91, ../../../src/sass/global/_common-components.scss */
+/* line 92, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer:before {
   content: "";
   position: absolute;
@@ -10606,7 +10632,7 @@ footer ul.slick-dots li.slick-active {
   top: 50%;
   left: 0;
 }
-/* line 103, ../../../src/sass/global/_common-components.scss */
+/* line 104, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back {
   background-color: #343742;
   height: 100%;
@@ -10620,7 +10646,7 @@ footer ul.slick-dots li.slick-active {
   top: 0;
   overflow: hidden;
 }
-/* line 114, ../../../src/sass/global/_common-components.scss */
+/* line 115, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .header {
   background-color: #434854;
   -ms-transform: rotate(-3deg);
@@ -10630,7 +10656,7 @@ footer ul.slick-dots li.slick-active {
   transform: rotate(-3deg);
   padding-bottom: 10px;
 }
-/* line 120, ../../../src/sass/global/_common-components.scss */
+/* line 121, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .header .header-content {
   background-color: #434854;
   padding: 20px;
@@ -10640,29 +10666,29 @@ footer ul.slick-dots li.slick-active {
   /* Chrome, Safari, Opera */
   transform: rotate(3deg);
 }
-/* line 126, ../../../src/sass/global/_common-components.scss */
+/* line 127, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .header .header-content h4 {
   font-size: 18px;
   color: #fff;
 }
-/* line 132, ../../../src/sass/global/_common-components.scss */
+/* line 133, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content {
   padding: 40px 0;
 }
-/* line 134, ../../../src/sass/global/_common-components.scss */
+/* line 135, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content ul {
   list-style-type: none;
 }
-/* line 136, ../../../src/sass/global/_common-components.scss */
+/* line 137, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content ul li {
   padding: 10px;
   position: relative;
 }
-/* line 139, ../../../src/sass/global/_common-components.scss */
+/* line 140, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content ul li a {
   font-size: 16px;
 }
-/* line 141, ../../../src/sass/global/_common-components.scss */
+/* line 142, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content ul li a:before {
   content: "\e914";
   font-family: "InformaIcons";
@@ -10672,7 +10698,7 @@ footer ul.slick-dots li.slick-active {
   font-size: 20px;
   color: #ffd500;
 }
-/* line 154, ../../../src/sass/global/_common-components.scss */
+/* line 155, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer {
   -ms-transform: rotate(-3deg);
   /* IE 9 */
@@ -10685,7 +10711,7 @@ footer ul.slick-dots li.slick-active {
   width: 100%;
   top: calc(100% - 80px);
 }
-/* line 163, ../../../src/sass/global/_common-components.scss */
+/* line 164, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content {
   -ms-transform: rotate(3deg);
   /* IE 9 */
@@ -10694,25 +10720,25 @@ footer ul.slick-dots li.slick-active {
   transform: rotate(3deg);
   background-color: #434854;
 }
-/* line 168, ../../../src/sass/global/_common-components.scss */
+/* line 169, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content .btn {
   width: 100%;
   display: block;
   color: #fff;
 }
-/* line 172, ../../../src/sass/global/_common-components.scss */
+/* line 173, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content .btn.free-trial {
   border-color: #ef7c00;
 }
-/* line 174, ../../../src/sass/global/_common-components.scss */
+/* line 175, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content .btn.free-trial:after {
   color: #ef7c00;
 }
-/* line 178, ../../../src/sass/global/_common-components.scss */
+/* line 179, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content .btn.more {
   border-color: #ef7c00;
 }
-/* line 186, ../../../src/sass/global/_common-components.scss */
+/* line 187, ../../../src/sass/global/_common-components.scss */
 .flip .pin {
   cursor: pointer;
   width: 70px;
@@ -10728,7 +10754,7 @@ footer ul.slick-dots li.slick-active {
   transform: rotate(45deg);
   z-index: 2;
 }
-/* line 198, ../../../src/sass/global/_common-components.scss */
+/* line 199, ../../../src/sass/global/_common-components.scss */
 .flip .pin:before {
   content: '';
   width: 20px;
@@ -10740,17 +10766,17 @@ footer ul.slick-dots li.slick-active {
   transform: rotate(-35deg);
   background-position: 0 0;
 }
-/* line 212, ../../../src/sass/global/_common-components.scss */
+/* line 213, ../../../src/sass/global/_common-components.scss */
 .flip .un-pinned .pin:before {
   background-position: 0 25px;
 }
 
-/* line 220, ../../../src/sass/global/_common-components.scss */
+/* line 221, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container {
   margin: 20px 0;
   text-align: center;
 }
-/* line 223, ../../../src/sass/global/_common-components.scss */
+/* line 224, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore {
   color: #444957;
   padding: 20px 0;
@@ -10760,22 +10786,22 @@ footer ul.slick-dots li.slick-active {
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 223, ../../../src/sass/global/_common-components.scss */
+  /* line 224, ../../../src/sass/global/_common-components.scss */
   .search-container .btn-container .btn-ShowMore {
     padding: 20px 0 40px 0;
   }
 }
-/* line 233, ../../../src/sass/global/_common-components.scss */
+/* line 234, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore span {
   float: left;
 }
 @media (max-width: 767px) {
-  /* line 233, ../../../src/sass/global/_common-components.scss */
+  /* line 234, ../../../src/sass/global/_common-components.scss */
   .search-container .btn-container .btn-ShowMore span {
     float: none;
   }
 }
-/* line 238, ../../../src/sass/global/_common-components.scss */
+/* line 239, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore span:before {
   content: "\e912";
   position: absolute;
@@ -10786,34 +10812,34 @@ footer ul.slick-dots li.slick-active {
   color: #ffd500;
 }
 @media (max-width: 767px) {
-  /* line 238, ../../../src/sass/global/_common-components.scss */
+  /* line 239, ../../../src/sass/global/_common-components.scss */
   .search-container .btn-container .btn-ShowMore span:before {
     right: 50%;
     margin-right: -13px;
     top: 35px;
   }
 }
-/* line 253, ../../../src/sass/global/_common-components.scss */
+/* line 254, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore span.less:before {
   content: "\e913";
 }
-/* line 258, ../../../src/sass/global/_common-components.scss */
+/* line 259, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore:hover, .search-container .btn-container .btn-ShowMore:focus {
   text-decoration: none;
 }
-/* line 263, ../../../src/sass/global/_common-components.scss */
+/* line 264, ../../../src/sass/global/_common-components.scss */
 .search-container .more {
   display: block;
 }
-/* line 266, ../../../src/sass/global/_common-components.scss */
+/* line 267, ../../../src/sass/global/_common-components.scss */
 .search-container .less {
   display: none;
 }
-/* line 270, ../../../src/sass/global/_common-components.scss */
+/* line 271, ../../../src/sass/global/_common-components.scss */
 .search-container.all-shown .more {
   display: none;
 }
-/* line 273, ../../../src/sass/global/_common-components.scss */
+/* line 274, ../../../src/sass/global/_common-components.scss */
 .search-container.all-shown .less {
   display: block;
 }
