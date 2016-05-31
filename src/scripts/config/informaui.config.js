@@ -24,7 +24,7 @@ var INFORMA = window.INFORMA || {};
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
-            "GetSubSectorList" : "/client/search/GetSubSectors",
+            "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/data/analyst-search.json"
@@ -35,6 +35,9 @@ var INFORMA = window.INFORMA || {};
         function _config() {
                 this.urls = {
                     "webservices": endPoints[env]
+                },
+                this.searchResult ={
+                    "pageSize" : 6
                 },
                 this.activeClass = 'informaui-active',
                 this.views = {

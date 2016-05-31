@@ -17,9 +17,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     var Templates = INFORMA.Templates,
         ResultContainer = $(".search-container #results"),
         ResultCount, ResultInner,
+        Config = INFORMA.Configs,
+        PageNum =1, 
+        Urls = INFORMA.Configs.urls.webservices,
         // methods
         init,
-        equalHeight, UpdateHtmlView, ParseSearchData, BindTileEvents, CreateSearchResult;
+        equalHeight, BindPaginationEvents,GetPaginatedData, UpdateHtmlView, 
+        ParseSearchData, BindTileEvents, CreateSearchResult;
 
         equalHeight = function(container) {
             var ItemsList = container.find('.col-md-4'),
@@ -37,6 +41,26 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ItemsList.css('height', 'auto');
             }
         },
+        GetPaginatedData = function(Url,Method,Data,SCallBack,ErrCallack) {
+            INFORMA.Spinner.Show($("body"));
+            INFORMA.DataLoader.GetServiceData(Url, {
+                method: Method,
+                data: Data,
+                success_callback:SCallBack,
+                error_callback: ErrCallack
+            });
+        },
+        BindPaginationEvents = function(Object) {
+            Object.on("click", function(e) {
+                e.preventDefault();
+                var SerializeArrays = $('#product-finder-section').find("form").serializeArray(),
+                    GetSerializeData = INFORMA.Utils.serializeObject(SerializeArrays);
+                    GetSerializeData.pageSize = ($(this).data('pagesize')!==undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
+                    GetSerializeData.pageNum = PageNum++;
+                
+                GetPaginatedData(Urls, "Get", JSON.stringify(GetSerializeData), ParseSearchData, null);
+            });
+        },
         CreateSearchResult = function(DataObject) {
             for (var key in DataObject) {
                 if (DataObject.hasOwnProperty(key)) {
@@ -45,15 +69,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         Data = DataObject[key],
                         TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName),
-                        ContainerID ="#"+(ResultName).toLowerCase();
-                    
+                        ContainerID = "#" + (ResultName).toLowerCase();
+
                     html = ListTemplate({ results: Data });
 
                     //Update Search Results
-                    $(ContainerID).find(".row").empty().html(html);
+                    $(ContainerID).find(".row").html(html);
 
                     //Update Record Counts
-                    $(ContainerID).find(".count strong").empty().text(Data.length);
+                    $(ContainerID).find(".count strong").text(Data.length);
                 }
             }
             var UpddateHeight = setTimeout(function() {
@@ -74,6 +98,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     equalHeight($(this));
                 });
                 BindTileEvents();
+                var ShowMoreBtn = ResultContainer.find(".btn-ShowMore");
+                BindPaginationEvents(ShowMoreBtn);
             }
         },
         ParseSearchData = function(data) {
