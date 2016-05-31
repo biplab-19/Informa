@@ -59,7 +59,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     GetSerializeData.pageSize = ($(this).data('pagesize')!==undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
                     GetSerializeData.PageNo = PageNo++;
                 
-                GetPaginatedData(Urls, "Get", JSON.stringify(GetSerializeData), ParseSearchData, null);
+                GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(GetSerializeData), ParseSearchData, null);
             });
         },
         CreateSearchResult = function(DataObject) {
