@@ -19,37 +19,34 @@
 	    				font-weight: bold;
 	    				width: 100%;
 	    				display: block;
-	    				padding: 20px 0;
+	    				padding: 25px 0;
 	    				&:hover, &:active, &:focus {
 	    					text-decoration: none;
 	    				}
 	    				&.collapsed {
 	    					font-weight: normal;
 	    					&:after {
-	    						content: "+";
-	    						background-color: $yellow;
+	    						content: "\e912";
+	    						color: $yellow;
 	    					}
 	    				}
 	    				&:after {
-	    					content: "-";
+	    					content: "\e913";
 	    					position: absolute;
 						    right: 0;
-						    top: 15px;
+						    top: 50%;
+						    margin-top: -14px;
 						    font-size: 28px;
-						    color: #fff;
+						    font-family: 'InformaIcons';
 						    font-style: normal;
-						    width: 30px;
-						    height: 30px;
-						    @include border-radius(50%);
-						    background-color: #c3c7cf;
-						    text-align: center;
+						    color: #6a7287;
 	    				}
 	    			}
 	    		}
 	    	}
 	    	.panel-body {
 	    		border: none;
-    			padding: 15px 60px 15px 15px;
+    			padding: 15px 60px 40px 0;
 	    	}
 		}
 	}

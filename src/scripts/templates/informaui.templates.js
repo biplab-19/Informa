@@ -220,7 +220,7 @@ var INFORMA = window.INFORMA || {};
                                 '</div>'+
                                 '<div class="btn-container text-center">'+
                                     '<a href="javascript:void(0)" data-fetch="{{results.header}}" class="btn-plus">'+
-                                    '<span class="more">See All Profile</span></a>'+
+                                    '<span class="more">See All {{results.TotalCount}} Analysts</span></a>'+
                                 '</div>'+
                             '</div>'+
                         '</section>'
