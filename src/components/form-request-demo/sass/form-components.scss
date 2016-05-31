@@ -1,29 +1,4 @@
-.request-demo-btn-container {
-    width: 200px;
-}
 div#requestDemoModal {
-    .modal-dialog {
-        width: auto;
-        margin: 0;
-    }
-    .modal-body {
-        //  padding: 15px 200px;
-        @include mobile {
-            //padding: 15px 30px;
-        }
-    }
-    .modal-content {
-        border-radius: 0;
-        background-color: $gray-light-bg;
-        color: $white;
-    }
-    .modal-header {
-        border-bottom: 0;
-        .close {
-            color: $white;
-            opacity: 2;
-        }
-    }
     form {
         .icon-info {
             display: none;
@@ -93,6 +68,10 @@ div#requestDemoModal {
             height: 50px;
             background-color: $blue-lighter-bg;
         }
+        textarea.form-control {
+            border-radius: 0;
+            background-color: $blue-lighter-bg;
+        }
         .disabled {
             opacity: 0.6;
         }
@@ -151,48 +130,48 @@ div#requestDemoModal {
                 background: $input-orange;
             }
         }
-        .intrests input {
+        .checkbox-container input {
             display: none;
             width: 0;
             height: 0;
             border-radius: 50px;
             background-color: #ffd500;
         }
-        .intrests .interest-checkbox-label {
+        .checkbox-container .checkbox-label {
             height: 100px;
             background-color: $blue-lighter-bg;
             display: block;
             padding: 10px;
         }
-        .intrests input:checked + .interest-checkbox-label {
+        .checkbox-container input:checked + .checkbox-label {
             width: 100%;
             border: $brand-secondary 2px solid;
             background-color: $gray-light-bg;
             color: $white;
         }
-        .intrests .interest-checkbox {
+        .checkbox-container .checkbox {
             display: block;
             background-color: #ffd500;
         }
-        .intrests {
+        .checkbox-container {
             position: relative;
             width: 100%;
             height: 100px;
             margin-bottom: 10px;
             color: $font-color;
         }
-        .intrests .interest-checkbox {
+        .checkbox-container .checkbox {
             position: absolute;
             bottom: 30px;
             right: 30px;
         }
-        .intrests input[type=checkbox]:after {
+        .checkbox-container input[type=checkbox]:after {
             content: " ";
             background-color: #ffd500;
             display: inline-block;
             visibility: hidden;
         }
-        .intrests input[type=checkbox]:checked:after {
+        .checkbox-container input[type=checkbox]:checked:after {
             content: "\2714";
             visibility: visible;
             border-radius: 50px;
@@ -218,6 +197,15 @@ div#requestDemoModal {
         }
         .chosen-container .chosen-results li.active-result {
             font-size: 14px;
+        }
+        .error {
+            color: $brand-secondary;
+            font-size: 14px;
+        }
+        input:focus, textarea:focus {
+            outline: none !important;
+            border: 2px solid $brand-secondary;
+            //box-shadow: 0 0 2px $blue-lighter-bg;
         }
     }
 }
