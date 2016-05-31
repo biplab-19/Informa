@@ -16,6 +16,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     //variables
     var Templates = INFORMA.Templates,
         ResultContainer = $(".search-container #results"),
+        ProductFinder = $('#product-finder-section'),
         ResultCount, ResultInner,
         Config = INFORMA.Configs,
         PageNum =1, 
@@ -53,7 +54,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         BindPaginationEvents = function(Object) {
             Object.on("click", function(e) {
                 e.preventDefault();
-                var SerializeArrays = $('#product-finder-section').find("form").serializeArray(),
+                var SerializeArrays = ProductFinder.find("form").serializeArray(),
                     GetSerializeData = INFORMA.Utils.serializeObject(SerializeArrays);
                     GetSerializeData.pageSize = ($(this).data('pagesize')!==undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
                     GetSerializeData.pageNum = PageNum++;
@@ -127,7 +128,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     //     }
     // });
 
-    init = function() {};
+    init = function() {
+            var IsProductPage = (ProductFinder.data("product") === true) ? true : false;
+            if(IsProductPage){
+                if(ResultContainer.length && $(".search-tile").length){
+                    UpdateHtmlView();
+                }
+            }
+
+    };
     return {
         init: init,
         RenderSearchResults: ParseSearchData
