@@ -1,4 +1,4 @@
-/*! 2016-05-31 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-01 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -20,14 +20,16 @@
             "GetSubSectorList" : "/data/product-finder.json",
             "ProductSearch":"/data/product-results.json",
             "SearchResult": "/data/search-results.json",
-            "AnalystSearch": "/data/analyst-search.json"
+            "AnalystSearch": "/data/analyst-search.json",
+            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
             "SearchResult": "/data/search-results.json",
-            "AnalystSearch": "/data/analyst-search.json"
+            "AnalystSearch": "/data/analyst-search.json",
+            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json"
         }
     };
 
@@ -521,8 +523,8 @@ var INFORMA = window.INFORMA || {};
                                     '{{/each}}'+
                                 '</div>'+
                                 '<div class="btn-container text-center">'+
-                                    '<a href="javascript:void(0)" class="btn-plus">'+
-                                    '<span class="more">See All Profile</span></a>'+
+                                    '<a href="javascript:void(0)" data-fetch="{{results.header}}" class="btn-plus">'+
+                                    '<span class="more">See All {{results.TotalCount}} Analysts</span></a>'+
                                 '</div>'+
                             '</div>'+
                         '</section>'

@@ -1,4 +1,4 @@
-/*! 2016-05-31 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-06-01 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -2712,96 +2712,101 @@ nav#pdp-navigation .menuFollower {
   transform: translateY(-50%) translateX(-50%);
   left: 50%;
 }
-/* line 180, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 179, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li a:hover, .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li a:active {
+  outline: 0;
+  border: 0;
+}
+/* line 184, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 185, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 189, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .full-profile {
   float: right;
   font-size: 16px;
   color: #ffd500;
 }
-/* line 190, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 194, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
   width: 180px;
   border-color: #ef7c00;
 }
-/* line 193, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn:after {
   color: #ef7c00;
 }
 @media (max-width: 767px) {
-  /* line 190, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 194, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 190, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 194, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .analyst-views .analyst-list-container .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
 }
-/* line 206, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 210, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container.analyst .anlyst-heading {
   background-color: #ffd500;
 }
-/* line 208, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 212, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container.analyst .anlyst-heading:after {
   background-color: #ffd500;
 }
-/* line 214, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 218, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container.consultant .anlyst-heading {
   background-color: #ffea7f;
 }
-/* line 216, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 220, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container.consultant .anlyst-heading:after {
   background-color: #ffea7f;
 }
-/* line 222, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 226, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container.reporter .anlyst-heading {
   background-color: #fff7cc;
 }
-/* line 224, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 228, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container.reporter .anlyst-heading:after {
   background-color: #fff7cc;
 }
-/* line 230, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 234, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container {
   margin-top: 30px;
 }
-/* line 235, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 239, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn {
   width: 260px;
 }
-/* line 237, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 241, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn span {
   line-height: 1;
 }
 @media (max-width: 767px) {
-  /* line 235, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 239, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .analyst-views .btn-container .btn {
     width: 100%;
   }
 }
-/* line 243, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 247, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn .more {
   display: block;
 }
-/* line 246, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 250, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn .less {
   display: none;
 }
-/* line 250, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 254, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn.showLess .more {
   display: none;
 }
-/* line 253, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 257, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn.showLess .less {
   display: block;
 }
-/* line 257, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 261, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn:after {
   top: 14px;
 }
@@ -2951,7 +2956,7 @@ nav#pdp-navigation .menuFollower {
   font-weight: bold;
   width: 100%;
   display: block;
-  padding: 20px 0;
+  padding: 25px 0;
 }
 /* line 23, ../../../src/components/faqs/sass/faqs.scss */
 #faqs .panel-group .panel .panel-heading .panel-title a:hover, #faqs .panel-group .panel .panel-heading .panel-title a:active, #faqs .panel-group .panel .panel-heading .panel-title a:focus, .accordian-structure .panel-group .panel .panel-heading .panel-title a:hover, .accordian-structure .panel-group .panel .panel-heading .panel-title a:active, .accordian-structure .panel-group .panel .panel-heading .panel-title a:focus {
@@ -2963,50 +2968,45 @@ nav#pdp-navigation .menuFollower {
 }
 /* line 28, ../../../src/components/faqs/sass/faqs.scss */
 #faqs .panel-group .panel .panel-heading .panel-title a.collapsed:after, .accordian-structure .panel-group .panel .panel-heading .panel-title a.collapsed:after {
-  content: "+";
-  background-color: #ffd500;
+  content: "\e912";
+  color: #ffd500;
 }
 /* line 33, ../../../src/components/faqs/sass/faqs.scss */
 #faqs .panel-group .panel .panel-heading .panel-title a:after, .accordian-structure .panel-group .panel .panel-heading .panel-title a:after {
-  content: "-";
+  content: "\e913";
   position: absolute;
   right: 0;
-  top: 15px;
+  top: 50%;
+  margin-top: -14px;
   font-size: 28px;
-  color: #fff;
+  font-family: 'InformaIcons';
   font-style: normal;
-  width: 30px;
-  height: 30px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
-  background-color: #c3c7cf;
-  text-align: center;
+  color: #6a7287;
 }
-/* line 50, ../../../src/components/faqs/sass/faqs.scss */
+/* line 47, ../../../src/components/faqs/sass/faqs.scss */
 #faqs .panel-group .panel .panel-body, .accordian-structure .panel-group .panel .panel-body {
   border: none;
-  padding: 15px 60px 15px 15px;
+  padding: 15px 60px 40px 0;
 }
-/* line 56, ../../../src/components/faqs/sass/faqs.scss */
+/* line 53, ../../../src/components/faqs/sass/faqs.scss */
 #faqs .btn, .accordian-structure .btn {
   width: 260px;
   margin: 15px 50px;
 }
 @media (max-width: 767px) {
-  /* line 56, ../../../src/components/faqs/sass/faqs.scss */
+  /* line 53, ../../../src/components/faqs/sass/faqs.scss */
   #faqs .btn, .accordian-structure .btn {
     margin: 0;
     width: 100%;
   }
 }
-/* line 63, ../../../src/components/faqs/sass/faqs.scss */
+/* line 60, ../../../src/components/faqs/sass/faqs.scss */
 #faqs .btn:after, .accordian-structure .btn:after {
   color: #ffd500;
 }
 
 /*Experience Mode FAQs*/
-/* line 71, ../../../src/components/faqs/sass/faqs.scss */
+/* line 68, ../../../src/components/faqs/sass/faqs.scss */
 .experience-mode #faqs .collapse {
   display: block !important;
 }
@@ -4344,4 +4344,9 @@ div#requestDemoModal form input:focus, div#requestDemoModal form textarea:focus 
 /* line 60, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .search-field .form-control {
   padding: 6px 12px 6px 40px;
+}
+
+/* line 67, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.product-analyst-results .analyst-views {
+  padding: 20px 0;
 }
