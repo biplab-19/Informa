@@ -19,7 +19,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         init,
         CreateFilterList;
 
-        CreateFilterList = function(DataObject) {
+    CreateFilterList = function(DataObject) {
             if (Object.keys(DataObject).length) {
                 var ListTemplate = Handlebars.compile(Templates.ProductFilters),
                     SectorHtml, SubSectorHtml,
@@ -37,11 +37,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             }
         },
 
-    init = function() {};
-    return {
-        init: init,
-        CreateFilterList:CreateFilterList
-    };
+        init = function() {};
+        return {
+            init: init,
+            CreateFilterList: CreateFilterList
+        };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchResultFilter.init());

@@ -19,7 +19,7 @@ INFORMA.SearchRefineResult = (function(window, $, namespace) {
         init,
         CreateRefineList, BindRefineEvents;
 
-        BindRefineEvents = function(html) {
+    BindRefineEvents = function(html) {
             var RefineContainer = $(".search-container .refine-result"),
                 RefineCloseBtn = $(".refine-result .close-filter");
 
@@ -45,16 +45,16 @@ INFORMA.SearchRefineResult = (function(window, $, namespace) {
             if (Object.keys(DataObject).length) {
                 var ListTemplate = Handlebars.compile(Templates.RefineResult),
                     html = ListTemplate({ results: DataObject.RefineResult });
-                    BindRefineEvents(html);
+                BindRefineEvents(html);
             }
 
         },
 
-    init = function() {};
-    return {
-        init: init,
-        CreateRefineList:CreateRefineList
-    };
+        init = function() {};
+        return {
+            init: init,
+            CreateRefineList: CreateRefineList
+        };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchRefineResult.init());

@@ -1642,7 +1642,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         init,
         CreateFilterList;
 
-        CreateFilterList = function(DataObject) {
+    CreateFilterList = function(DataObject) {
             if (Object.keys(DataObject).length) {
                 var ListTemplate = Handlebars.compile(Templates.ProductFilters),
                     SectorHtml, SubSectorHtml,
@@ -1660,71 +1660,14 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             }
         },
 
-    init = function() {};
-    return {
-        init: init,
-        CreateFilterList:CreateFilterList
-    };
+        init = function() {};
+        return {
+            init: init,
+            CreateFilterList: CreateFilterList
+        };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchResultFilter.init());
-
-/*
- * Product Results.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Rajiv Aggarwal
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
-var INFORMA = window.INFORMA || {};
-INFORMA.SearchResults = (function(window, $, namespace) {
-    'use strict';
-    //variables
-    var Templates = INFORMA.Templates,
-        PageNum = 0,
-        PageSize = 6,
-        ResultContainer = $(".search-container #results"),
-        BindPaginationEvents, GetNextPageData;
-
-
-        BindPaginationEvents = function(Object, Param) {
-            Object.on("click",function(e){
-                e.preventDefault();
-                GetNextPageData(Param);
-            });
-        },
-        GetNextPageData = function(Param, PNum ,PSize,SuccessCall,ErrorCallback) {
-            INFORMA.DataLoader.GetServiceData(Param.url, {
-                method: method,
-                data: data,
-                success_callback: function(data) {
-                    if (typeof SCallback === "function") {
-                        SCallback.call(this, data, SearchType);
-                    }
-                },
-                error_callback: function() {
-                    if (typeof Errcallback === "function") {
-                        Errcallback.call(this, data, SearchType);
-                    }
-                }
-            });
-        };
-
-
-
-    init = function() {};
-    return {
-        init: init,
-        Bind:BindPaginationEvents
-    };
-
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.SearchResults.init());
 
 /*
  * Product Results.js
@@ -1747,7 +1690,7 @@ INFORMA.SearchRefineResult = (function(window, $, namespace) {
         init,
         CreateRefineList, BindRefineEvents;
 
-        BindRefineEvents = function(html) {
+    BindRefineEvents = function(html) {
             var RefineContainer = $(".search-container .refine-result"),
                 RefineCloseBtn = $(".refine-result .close-filter");
 
@@ -1773,16 +1716,16 @@ INFORMA.SearchRefineResult = (function(window, $, namespace) {
             if (Object.keys(DataObject).length) {
                 var ListTemplate = Handlebars.compile(Templates.RefineResult),
                     html = ListTemplate({ results: DataObject.RefineResult });
-                    BindRefineEvents(html);
+                BindRefineEvents(html);
             }
 
         },
 
-    init = function() {};
-    return {
-        init: init,
-        CreateRefineList:CreateRefineList
-    };
+        init = function() {};
+        return {
+            init: init,
+            CreateRefineList: CreateRefineList
+        };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchRefineResult.init());
