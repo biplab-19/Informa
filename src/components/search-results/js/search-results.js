@@ -119,7 +119,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     CreateSearchResult(Results);
                 }
             }
-        };
+        },
 
     //Resize
     // $(window).resize(function() {
