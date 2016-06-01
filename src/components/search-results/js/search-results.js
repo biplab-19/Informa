@@ -17,16 +17,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     var Templates = INFORMA.Templates,
         ResultContainer = $(".search-container #results"),
         ProductFinder = $('#product-finder-section'),
+        SectorSelect = $("select.sector-list"),
+        SubSectorSelect = $("select.sub-sector-list"),
+        SubmitBtn = $(".product-finder .sector-search li.button"),
         ResultCount, ResultInner,
         Config = INFORMA.Configs,
-        PageNo =1, 
+        PageNo = 1,
         Urls = INFORMA.Configs.urls.webservices,
         // methods
         init,
-        equalHeight, BindPaginationEvents,GetPaginatedData, UpdateHtmlView, 
-        ParseSearchData, BindTileEvents, CreateSearchResult;
+        equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView,
+        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage,MakeDropPreSelected;
 
-        equalHeight = function(container) {
+    equalHeight = function(container) {
             var ItemsList = container.find('.col-md-4'),
                 MaxHeight = 0,
                 Padding = 10;
@@ -42,12 +45,45 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ItemsList.css('height', 'auto');
             }
         },
-        GetPaginatedData = function(Url,Method,Data,SCallBack,ErrCallack) {
+        MakeDropPreSelected = function(Arr,DrpDwn){
+            $.each(Arr, function(i, e) {
+               DrpDwn.find("option[value='" + e + "']").prop("selected", true);
+            });
+            DrpDwn.multiselect('rebuild');
+        },
+        UpdateResultPage = function() {
+
+            var GetUserSectors = ($("input.sector-list").val() !== null) ? $("input.sector-list").val() : null,
+                GetUserSubSectors = ($("input.sub-sector-list").val() !== null) ? $("input.sub-sector-list").val() : null,
+                SectorArray = GetUserSectors.split(","),
+                SubSectorArray = (GetUserSubSectors!==null) ? GetUserSubSectors.split(",") : null,
+                SectorIDs = 'SectorIDs=' + SectorArray.join("&");
+
+            if (SectorSelect.length && GetUserSectors !== null) {
+                MakeDropPreSelected(SectorArray, SectorSelect);
+                INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
+                    method: "Get",
+                    data: SectorIDs,
+                    success_callback: function(data) {
+                        INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
+                        if(SubSectorArray!==null){
+                            MakeDropPreSelected(SubSectorArray, SubSectorSelect);
+                        }
+                        ProductFinder.slideDown();
+                        SubmitBtn.find("button").trigger("click");
+                    },
+                    error_callback: function() {
+
+                    }
+                });
+            }
+        },
+        GetPaginatedData = function(Url, Method, Data, SCallBack, ErrCallack) {
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(Url, {
                 method: Method,
                 data: Data,
-                success_callback:SCallBack,
+                success_callback: SCallBack,
                 error_callback: ErrCallack
             });
         },
@@ -56,9 +92,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 e.preventDefault();
                 var SerializeArrays = ProductFinder.find("form").serializeArray(),
                     GetSerializeData = INFORMA.Utils.serializeObject(SerializeArrays);
-                    GetSerializeData.pageSize = ($(this).data('pagesize')!==undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
-                    GetSerializeData.PageNo = PageNo++;
-                
+                GetSerializeData.pageSize = ($(this).data('pagesize') !== undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
+                GetSerializeData.PageNo = PageNo++;
+
                 GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(GetSerializeData), ParseSearchData, null);
             });
         },
@@ -121,22 +157,20 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
         },
 
-    //Resize
-    // $(window).resize(function() {
-    //     if (SearchResults.length > 0) {
-    //         equalHeight(SearchResults);
-    //     }
-    // });
+        //Resize
+        // $(window).resize(function() {
+        //     if (SearchResults.length > 0) {
+        //         equalHeight(SearchResults);
+        //     }
+        // });
 
-    init = function() {
+        init = function() {
             var IsProductPage = (ProductFinder.data("product") === true) ? true : false;
-            if(IsProductPage){
-                if(ResultContainer.length && $(".search-tile").length){
-                    UpdateHtmlView();
-                }
+            if (IsProductPage) {
+                UpdateResultPage();
             }
 
-    };
+        };
     return {
         init: init,
         RenderSearchResults: ParseSearchData

@@ -163,7 +163,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
     };
 
     return {
-        init: init
+        init: init,
+        UpdateSubSectorDropdown: UpdateSubSectorDropdown
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.ProductFinder.init());
