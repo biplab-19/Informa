@@ -20,7 +20,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SectorSelect = $("select.sector-list"),
         SubSectorSelect = $("select.sub-sector-list"),
         SubmitBtn = $(".product-finder .sector-search li.button"),
-        ResultCount, ResultInner,
+        ResultCount, ResultInner, SectorData, SubSectorData,
         Config = INFORMA.Configs,
         PageNo = 1,
         Urls = INFORMA.Configs.urls.webservices,
@@ -53,8 +53,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         UpdateResultPage = function() {
 
-            var GetUserSectors = ($("input.sector-list").val() !== null) ? $("input.sector-list").val() : null,
-                GetUserSubSectors = ($("input.sub-sector-list").val() !== null) ? $("input.sub-sector-list").val() : null,
+            var GetUserSectors = (SectorData.val() !== null) ? SectorData.val() : null,
+                GetUserSubSectors = (SubSectorData.length) ? SubSectorData.val() : null,
                 SectorArray = GetUserSectors.split(","),
                 SubSectorArray = (GetUserSubSectors!==null) ? GetUserSubSectors.split(",") : null,
                 SectorIDs = 'SectorIDs=' + SectorArray.join("&");
@@ -166,7 +166,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
         init = function() {
             var IsProductPage = (ProductFinder.data("product") === true) ? true : false;
-            if (IsProductPage) {
+                SectorData = $("input.sector-list");
+                SubSectorData = $("input.sub-sector-list");
+            if (IsProductPage && SectorData.length > 0) {
                 UpdateResultPage();
             }
 
