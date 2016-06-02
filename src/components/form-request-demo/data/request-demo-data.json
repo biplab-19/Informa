@@ -196,25 +196,21 @@
             "displayType": "singleSelect",
             "htmlName": "timeZone",
             "optionListId": "4",
-            "OptionList": [  {
+            "OptionList": [
+              {
+              "displayText": " - Select- ",
+              "displayValue": ""
+            },
+              {
               "displayText": "GMT Standard Time",
-              "abbr": "GDT",
-              "offset": 1,
-              "isdst": true,
               "displayValue": "(UTC) Dublin, Edinburgh, Lisbon, London"
             },
             {
               "displayText": "Greenwich Standard Time",
-              "abbr": "GST",
-              "offset": 0,
-              "isdst": false,
               "displayValue": "(UTC) Monrovia, Reykjavik"
             },
             {
               "displayText": "W. Europe Standard Time",
-              "abbr": "WEDT",
-              "offset": 2,
-              "isdst": true,
               "displayValue": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
             }],
             "validations": [{
@@ -239,7 +235,12 @@
             "dataType": "text",
             "displayType": "singleSelect",
             "htmlName": "time",
-            "OptionList": [  {
+            "OptionList": [
+              {
+              "displayText": "-Select-",
+              "displayValue": ""
+            },
+              {
               "displayText": "9:00 AM",
               "displayValue": "9:00 AM"
             },
