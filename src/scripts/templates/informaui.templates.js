@@ -85,7 +85,7 @@ var INFORMA = window.INFORMA || {};
             '{{/each}}',
         'ProductFilters':
         '{{#each results}}'+
-                '<li>{{Key}}<a href="#" class="remove" data-name="{{Value}}">x</a></li>'+
+                '<li>{{Key}}<a href="#" class="remove" data-sector="{{Sector}}" data-value="{{Value}}">x</a></li>'+
         '{{/each}}',
         'Products' :
                 '{{#each results}}'+

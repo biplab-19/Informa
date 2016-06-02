@@ -20,6 +20,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SectorSelect = $("select.sector-list"),
         SubSectorSelect = $("select.sub-sector-list"),
         SubmitBtn = $(".product-finder .sector-search li.button"),
+        SectorHidden = $("input.sector-list"),
+        SubSectorHidden = $("input.sub-sector-list"),
         ResultCount, ResultInner, SectorData, SubSectorData,
         Config = INFORMA.Configs,
         PageNo = 1,
@@ -29,7 +31,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView,
         ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage,MakeDropPreSelected;
 
-    equalHeight = function(container) {
+        equalHeight = function(container) {
             var ItemsList = container.find('.col-md-4'),
                 MaxHeight = 0,
                 Padding = 10;
@@ -46,20 +48,20 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
         },
         MakeDropPreSelected = function(Arr,DrpDwn){
+            DrpDwn.val("");
             $.each(Arr, function(i, e) {
                DrpDwn.find("option[value='" + e + "']").prop("selected", true);
             });
             DrpDwn.multiselect('rebuild');
         },
-        UpdateResultPage = function() {
 
-            var GetUserSectors = (SectorData.val() !== null) ? SectorData.val() : null,
-                GetUserSubSectors = (SubSectorData.length) ? SubSectorData.val() : null,
-                SectorArray = GetUserSectors.split(","),
-                SubSectorArray = (GetUserSubSectors!==null) ? GetUserSubSectors.split(",") : null,
+        UpdateResultPage = function(SecValue ,SubSecValue) {
+
+            var SectorArray = (SecValue !== null) ? SecValue.split(",") : null,
+                SubSectorArray = (SubSecValue !== null) ? SubSecValue.split(",") : null,
                 SectorIDs = 'SectorIDs=' + SectorArray.join("&");
 
-            if (SectorSelect.length && GetUserSectors !== null) {
+            if (SectorSelect.length && SectorArray !== null) {
                 MakeDropPreSelected(SectorArray, SectorSelect);
                 INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
                     method: "Get",
@@ -134,6 +136,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ResultInner.each(function() {
                     equalHeight($(this));
                 });
+                INFORMA.SearchResultFilter.DoFilter();
                 BindTileEvents();
                 var ShowMoreBtn = ResultContainer.find(".btn-ShowMore");
                 BindPaginationEvents(ShowMoreBtn);
@@ -157,25 +160,21 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
         },
 
-        //Resize
-        // $(window).resize(function() {
-        //     if (SearchResults.length > 0) {
-        //         equalHeight(SearchResults);
-        //     }
-        // });
-
         init = function() {
             var IsProductPage = (ProductFinder.data("product") === true) ? true : false;
-                SectorData = $("input.sector-list");
-                SubSectorData = $("input.sub-sector-list");
-            if (IsProductPage && SectorData.length > 0) {
-                UpdateResultPage();
+
+            if (IsProductPage && SectorHidden.length > 0) {
+                var SVal = SectorHidden.val(),
+                    SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : null;
+                
+                UpdateResultPage(SVal,SubSecVal);
             }
 
         };
     return {
         init: init,
-        RenderSearchResults: ParseSearchData
+        RenderSearchResults: ParseSearchData,
+        UpdateResultPage:UpdateResultPage
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));

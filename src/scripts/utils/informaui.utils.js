@@ -2,12 +2,12 @@
     INFORMA.Utils = (function() {
         function _utils() {
 
-                DoFlip = function(obj,className) {
+            DoFlip = function(obj, className) {
                     var Container = obj.parents('.tile');
                     if (Container.hasClass('un-pinned')) {
-                        if(className==="flip"){
+                        if (className === "flip") {
                             Container.addClass('flip');
-                        }else{
+                        } else {
                             Container.removeClass('flip');
                         }
                     }
@@ -24,13 +24,13 @@
                         });
 
                         TileBack.mouseleave(function() {
-                            DoFlip($(this),'unflip');
+                            DoFlip($(this), 'unflip');
                         });
                     } else {
                         CompleteTile.hover(function() {
-                            DoFlip($(this),'flip');
+                            DoFlip($(this), 'flip');
                         }, function() {
-                            DoFlip($(this),'unflip');
+                            DoFlip($(this), 'unflip');
                         });
                     }
                     Pins.click(function() {
@@ -46,6 +46,25 @@
                     });
                     return uniqueArray;
                 }
+            this.RemoveArrayItem = function(Arry) {
+                var what, a = arguments,
+                    L = a.length,
+                    ax;
+                while (L > 1 && Arry.length) {
+                    what = a[--L];
+                    while ((ax = Arry.indexOf(what)) !== -1) {
+                        Arry.splice(ax, 1);
+                    }
+                }
+                return Arry;
+            }
+            this.StrngToQryStrng = function(strng) {
+                if ((typeof strng === "object" || typeof strng === "string") && strng !== null) {
+                    var Arry = strng.toString().split(","),
+                        QryStrng = Arry.join("&");
+                    return QryStrng;
+                }
+            }
             this.serializeObject = function(array) {
                 var o = {},
                     a = array;
