@@ -2,7 +2,6 @@
 // 	I knew it, unicorns are just low-quality ponies!
 // {{/compare}}
 
-
 Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 
   if (arguments.length < 3)
@@ -33,7 +32,6 @@ Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
   }
 
 });
-
 
 Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
     lvalue = parseFloat(lvalue);

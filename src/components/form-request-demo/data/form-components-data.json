@@ -1,368 +1,365 @@
 {
-        "type": "Form",
-        "currentStatus": "Draft",
-        "id": "18",
-        "createdAt": "1462957506",
-        "createdBy": "14",
+    "type": "Form",
+    "currentStatus": "Draft",
+    "id": "22",
+    "createdAt": "1464682083",
+    "createdBy": "15",
+    "depth": "complete",
+    "folderId": "7",
+    "name": "Request a demo for Informa Economics IEG",
+    "permissions": "fullControl",
+    "updatedAt": "1464689426",
+    "updatedBy": "15",
+    "elements": [{
+        "type": "FormFieldGroup",
+        "id": "11",
         "depth": "complete",
-        "folderId": "7",
-        "name": "Sapient_API_Test_Form",
-        "permissions": "fullControl",
-        "updatedAt": "1463999233",
-        "updatedBy": "15",
-        "elements": [{
-                "type": "FormField",
-                "id": "174",
-                "name": "First Name",
-                "style": {
-                    "fieldSize": "small",
-                    "labelPosition": "top"
-                },
-                "createdFromContactFieldId": "100002",
-                "dataType": "text",
-                "displayType": "text",
-                "fieldMergeId": "43",
-                "htmlName": "firstName",
-                "instructions": "Tell us your name",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormField",
-                "id": "176",
-                "name": "Email Address",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top"
-                },
-                "createdFromContactFieldId": "100001",
-                "dataType": "text",
-                "displayType": "text",
-                "fieldMergeId": "1",
-                "htmlName": "emailAddress",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormField",
-                "id": "175",
-                "name": "Last Name",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top"
-                },
-                "createdFromContactFieldId": "100003",
-                "dataType": "text",
-                "displayType": "text",
-                "fieldMergeId": "3",
-                "htmlName": "lastName",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormField",
-                "id": "216",
-                "name": "Address 1",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top"
-                },
-                "createdFromContactFieldId": "100006",
-                "dataType": "text",
-                "displayType": "textarea",
-                "fieldMergeId": "36",
-                "htmlName": "address1",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormField",
-                "id": "186",
-                "name": "Company Revenue",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top"
-                },
-                "createdFromContactFieldId": "100041",
-                "dataType": "text",
-                "displayType": "singleSelect",
-                "options": {
-                    "id": "1",
-                    "label": "UTC",
-                    "value": "UTC"
-                },
-                "htmlName": "companyRevenue1",
-                "optionListId": "2",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormField",
-                "id": "188",
-                "name": "Hidden Field",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top"
-                },
-                "dataType": "text",
-                "displayType": "hidden",
-                "htmlName": "hiddenField",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormField",
-                "id": "189",
-                "name": "Zip or Postal Code",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top"
-                },
-                "createdFromContactFieldId": "100011",
-                "dataType": "text",
-                "displayType": "text",
-                "fieldMergeId": "40",
-                "htmlName": "zipPostal",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormFieldGroup",
-                "id": "10",
+        "name": "Tell us your name",
+        "instructions": "Please enter your personal details",
+        "style": {"fieldSize":"large","labelPosition":"top","listOrder":"twoColumn"},
+        "fields": [{
+            "type": "FormField",
+            "id": "222",
+            "name": "First Name",
+            "instructions": "Please enter your first name",
+            "style": {"fieldSize":"large","labelPosition":"top"},
+            "dataType": "text",
+            "displayType": "text",
+            "fieldMergeId": "4",
+            "htmlName": "firstName",
+            "validations": [{
+                "type": "FieldValidation",
+                "id": "448",
                 "depth": "complete",
-                "name": "Custom Two Column",
-                "coloums": 2,
-                "instructions": "hi",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top"
+                "description": "Form Field Validation Rule",
+                "name": "Form Field Validation Rule",
+                "condition": {
+                    "type": "IsRequiredCondition"
                 },
-                "fields": [{
-                    "type": "FormField",
-                    "id": "218",
-                    "name": "Custom Field One",
-                    "style": {
-                        "fieldSize": "large",
-                        "labelPosition": "top"
-                    },
-                    "dataType": "text",
-                    "displayType": "text",
-                    "htmlName": "customFieldOne",
-                    "validations": [{"required" : "true"}]
-                }, {
-                    "type": "FormField",
-                    "id": "219",
-                    "name": "Custom Field Two",
-                    "style": {
-                        "fieldSize": "large",
-                        "labelPosition": "top"
-                    },
-                    "dataType": "text",
-                    "displayType": "text",
-                    "htmlName": "customFieldTwo",
-                    "validations": [{"required" : "true"}]
-                }]
-            }, {
-                "type": "FormField",
-                "id": "190",
-                "name": "Title",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top"
-                },
-                "createdFromContactFieldId": "100016",
-                "dataType": "text",
-                "displayType": "text",
-                "fieldMergeId": "22",
-                "htmlName": "title",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormFieldGroup",
-                "id": "5",
+                "isEnabled": "true",
+                "message": "This field is required"
+            }]
+        }, {
+            "type": "FormField",
+            "id": "223",
+            "name": "Surname",
+            "instructions": "Please enter your surname",
+            "style": {"fieldSize":"large","labelPosition":"top"},
+            "dataType": "text",
+            "displayType": "text",
+            "fieldMergeId": "3",
+            "htmlName": "lastName",
+            "validations": [{
+                "type": "FieldValidation",
+                "id": "449",
                 "depth": "complete",
-                "name": "Progressive Profile",
-                "instructions": "",
-                "style": {
-                    "fieldSize": "medium",
-                    "labelPosition": "top"
-                }
-            }, {
-                "type": "FormField",
-                "id": "217",
-                "name": "Single Checkbox",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top",
-                    "listOrder": "oneColumn",
-                    "isSingle": "true"
+                "description": "Form Field Validation Rule",
+                "name": "Form Field Validation Rule",
+                "condition": {
+                    "type": "IsRequiredCondition"
                 },
-                "createdFromContactFieldId": "1000217",
-                "dataType": "text",
-                "displayType": "checkbox",
-                "htmlName": "singleCheckbox",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormField",
-                "id": "217",
-                "name": "Single Checkbox",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top",
-                    "listOrder": "threeColumn",
-                    "isSingle": "true"
-                },
-                "fields": [{
-                    "type": "FormField",
-                    "id": "217",
-                    "name": "Single Checkbox",
-                    "style": {
-                        "fieldSize": "large",
-                        "labelPosition": "top",
-                        "listOrder": "oneColumn",
-                        "isSingle": "true"
-                    },
-                    "createdFromContactFieldId": "1000218",
-                    "dataType": "text",
-                    "displayType": "checkbox",
-                    "htmlName": "singleCheckbox",
-                    "validations": [{"required" : "true"}]
-                }, {
-                    "type": "FormField",
-                    "id": "217",
-                    "name": "Single Checkbox",
-                    "style": {
-                        "fieldSize": "large",
-                        "labelPosition": "top",
-                        "listOrder": "oneColumn",
-                        "isSingle": "true"
-                    },
-                    "createdFromContactFieldId": "1000219",
-                    "dataType": "text",
-                    "displayType": "checkbox",
-                    "htmlName": "singleCheckbox",
-                    "validations": [{"required" : "true"}]
-                }, {
-                    "type": "FormField",
-                    "id": "217",
-                    "name": "Single Checkbox",
-                    "style": {
-                        "fieldSize": "large",
-                        "labelPosition": "top",
-                        "listOrder": "oneColumn",
-                        "isSingle": "true"
-                    },
-                    "createdFromContactFieldId": "1000210",
-                    "dataType": "text",
-                    "displayType": "checkbox",
-                    "htmlName": "singleCheckbox",
-                    "validations": [{"required" : "true"}]
-                }],
-                "createdFromContactFieldId": "1000217",
-                "dataType": "text",
-                "displayType": "checkbox",
-                "htmlName": "multicheckBox",
-                "validations": [{"required" : "true"}]
+                "isEnabled": "true",
+                "message": "This field is required"
+            }]
+        }]
+    }, {
+        "type": "FormField",
+        "id": "224",
+        "name": "Enter your company",
+        "instructions": "Enter your company",
+        "style": {"fieldSize":"large","labelPosition":"top","listOrder":"oneColumn"},
+        "createdFromContactFieldId": "100004",
+        "dataType": "text",
+        "displayType": "text",
+        "fieldMergeId": "2",
+        "htmlName": "company",
+        "validations": [{
+            "type": "FieldValidation",
+            "id": "457",
+            "depth": "complete",
+            "description": "Form Field Validation Rule",
+            "name": "Form Field Validation Rule",
+            "condition": {
+                "type": "IsRequiredCondition"
             },
-
+            "isEnabled": "true",
+            "message": "This field is required"
+        }]
+    }, {
+        "type": "FormFieldGroup",
+        "id": "12",
+        "depth": "complete",
+        "name": "Your contact details",
+        "instructions": "Please enter your contact details",
+        "style": {"fieldSize":"large","labelPosition":"top","listOrder":"twoColumn"},
+        "fields": [{
+            "type": "FormField",
+            "id": "226",
+            "name": "Email address",
+            "instructions": "Please enter your email address",
+            "style": {"fieldSize":"large","labelPosition":"top"},
+            "dataType": "text",
+            "displayType": "text",
+            "fieldMergeId": "1",
+            "htmlName": "customFieldOne",
+            "validations": [{
+                "type": "FieldValidation",
+                "id": "450",
+                "depth": "complete",
+                "description": "Form Field Validation Rule",
+                "name": "Form Field Validation Rule",
+                "condition": {
+                    "type": "IsEmailAddressCondition"
+                },
+                "isEnabled": "true",
+                "message": "A valid email address is required"
+            }, {
+                "type": "FieldValidation",
+                "id": "451",
+                "depth": "complete",
+                "description": "Form Field Validation Rule",
+                "name": "Form Field Validation Rule",
+                "condition": {
+                    "type": "IsRequiredCondition"
+                },
+                "isEnabled": "true",
+                "message": "This field is required"
+            }]
+        }, {
+            "type": "FormField",
+            "id": "227",
+            "name": "Phone number",
+            "instructions": "Please enter your phone number",
+            "style": {"fieldSize":"large","labelPosition":"top"},
+            "dataType": "numeric",
+            "displayType": "text",
+            "htmlName": "customFieldTwo",
+            "validations": [{
+                "type": "FieldValidation",
+                "id": "452",
+                "depth": "complete",
+                "description": "Form Field Validation Rule",
+                "name": "Form Field Validation Rule",
+                "condition": {
+                    "type": "IsRequiredCondition"
+                },
+                "isEnabled": "true",
+                "message": "This field is required"
+            }]
+        }]
+    }, {
+        "type": "FormFieldGroup",
+        "id": "13",
+        "depth": "complete",
+        "name": "Select a time",
+        "instructions": "Please select a time",
+        "style": {"fieldSize":"large","labelPosition":"top","listOrder":"threeColumn"},
+        "fields": [{
+            "type": "FormField",
+            "id": "228",
+            "name": "Date",
+            "instructions": "Please pick your date",
+            "style": {"fieldSize":"large","labelPosition":"top"},
+            "dataType": "date",
+            "displayType": "text",
+            "htmlName": "date",
+            "validations": [{
+                "type": "FieldValidation",
+                "id": "453",
+                "depth": "complete",
+                "description": "Form Field Validation Rule",
+                "name": "Form Field Validation Rule",
+                "condition": {
+                    "type": "IsDateCondition"
+                },
+                "isEnabled": "true",
+                "message": "Value must be a valid date (MM\/DD\/YY or MM\/DD\/YYYY)"
+            }, {
+                "type": "FieldValidation",
+                "id": "454",
+                "depth": "complete",
+                "description": "Form Field Validation Rule",
+                "name": "Form Field Validation Rule",
+                "condition": {
+                    "type": "IsRequiredCondition"
+                },
+                "isEnabled": "true",
+                "message": "This field is required"
+            }]
+        }, {
+            "type": "FormField",
+            "id": "229",
+            "name": "Time Zone",
+            "instructions": "Please choose your time zone",
+            "style": {"fieldSize":"large","labelPosition":"top"},
+            "dataType": "text",
+            "displayType": "singleSelect",
+            "htmlName": "timeZone",
+            "optionListId": "4",
+            "OptionList": [  {
+              "displayText": "GMT Standard Time",
+              "abbr": "GDT",
+              "offset": 1,
+              "isdst": true,
+              "displayValue": "(UTC) Dublin, Edinburgh, Lisbon, London"
+            },
             {
-                "type": "FormField",
-                "id": "187",
-                "name": "Radio Buttons",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top",
-                    "listOrder": "oneColumn"
-                },
-                "dataType": "text",
-                "displayType": "radio",
-                "htmlName": "radioButtons",
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormField",
-                "id": "187",
-                "name": "Radio Buttons",
-                "style": {
-                    "fieldSize": "large",
-                    "labelPosition": "top",
-                    "listOrder": "threeColumn"
-                },
-                "dataType": "text",
-                "displayType": "radio",
-                "htmlName": "radioButtons",
-                "fields": [{
-                    "type": "FormField",
-                    "id": "188",
-                    "name": "Radio Buttons",
-                    "style": {
-                        "fieldSize": "large",
-                        "labelPosition": "top",
-                        "listOrder": "oneColumn"
-                    },
-                    "dataType": "text",
-                    "displayType": "radio",
-                    "htmlName": "radioButtons",
-                    "validations": [{"required" : "true"}]
-                }, {
-                    "type": "FormField",
-                    "id": "189",
-                    "name": "Radio Buttons",
-                    "style": {
-                        "fieldSize": "large",
-                        "labelPosition": "top",
-                        "listOrder": "oneColumn"
-                    },
-                    "dataType": "text",
-                    "displayType": "radio",
-                    "htmlName": "radioButtons",
-                    "validations": [{"required" : "true"}]
-                }, {
-                    "type": "FormField",
-                    "id": "189",
-                    "name": "Radio Buttons",
-                    "style": {
-                        "fieldSize": "large",
-                        "labelPosition": "top",
-                        "listOrder": "oneColumn"
-                    },
-                    "dataType": "text",
-                    "displayType": "radio",
-                    "htmlName": "radioButtons",
-                    "validations": [{"required" : "true"}]
-                }],
-                "validations": [{"required" : "true"}]
-            }, {
-                "type": "FormField",
-                "id": "177",
-                "name": "Submit",
-                "style": {
-                    "submitButtonStyleType": "standard",
-                    "submitButtonWidthStyle": "100px",
-                    "submitButtonHeightStyle": "24px"
-                },
-                "dataType": "text",
-                "displayType": "submit",
-                "htmlName": "submit",
-                "validations": [{"required" : "true"}]
-            }
-        ],
-        "emailAddressFormFieldId": "176",
-        "htmlName": "Sapient_API_Test_Form",
-        "processingSteps": [{
-            "type": "FormStepSendNotificationEmail",
-            "id": "189",
-            "name": "Email Notification",
-            "execute": "never",
-            "encodingId": {
-                "type": "ProcessingStepValue",
-                "constantValue": "3",
-                "valueType": "constant"
+              "displayText": "Greenwich Standard Time",
+              "abbr": "GST",
+              "offset": 0,
+              "isdst": false,
+              "displayValue": "(UTC) Monrovia, Reykjavik"
             },
-            "notificationConfigurationId": "2",
-            "recipientEmailAddress": {
-                "type": "ProcessingStepValueWithLookup",
-                "valueType": "constant"
-            },
-            "subject": {
-                "type": "ProcessingStepValueWithLookup",
-                "valueType": "constant"
-            }
-        }],
-        "processingType": "externalWebsite",
-        "size": {
-            "type": "Size",
-            "width": "0",
-            "height": "0"
-        },
-        "style": {
-            "fieldSize": "medium",
-            "labelPosition": "top"
-        },
-        "submitFailedLandingPageId": "6"
+            {
+              "displayText": "W. Europe Standard Time",
+              "abbr": "WEDT",
+              "offset": 2,
+              "isdst": true,
+              "displayValue": "(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
+            }],
+            "validations": [{
+                "type": "FieldValidation",
+                "id": "455",
+                "depth": "complete",
+                "description": "Form Field Validation Rule",
+                "name": "Form Field Validation Rule",
+                "condition": {
+                    "type": "IsRequiredCondition"
+                },
+                "isEnabled": "true",
+                "message": "This field is required"
+            }]
 
+            }, {
+            "type": "FormField",
+            "id": "230",
+            "name": "Time",
+            "instructions": "Please choose your time",
+            "style": {"fieldSize":"large","labelPosition":"top"},
+            "dataType": "text",
+            "displayType": "singleSelect",
+            "htmlName": "time",
+            "OptionList": [  {
+              "displayText": "9:00 AM",
+              "displayValue": "9:00 AM"
+            },
+            {
+             "displayText": "10:00 AM",
+             "displayValue": "10:00 AM"
+           },
+           {
+            "displayText": "11:00 AM",
+            "displayValue": "11:00 AM"
+          },
+          {
+           "displayText": "12:00 PM",
+           "displayValue": "12:00 PM"
+         },
+            {
+             "displayText": "1:00 PM",
+             "displayValue": "1:00 PM"
+           },
+           {
+            "displayText": "2:00 PM",
+            "displayValue": "2:00 PM"
+          }, {
+              "displayText": "3:00 PM",
+              "displayValue": "3:00 PM"
+          }, {
+              "displayText": "4:00 PM",
+              "displayValue": "4:00 PM"
+          }, {
+              "displayText": "5:00 PM",
+              "displayValue": "5:00 PM"
+          }],
+            "validations": [{
+                "type": "FieldValidation",
+                "id": "456",
+                "depth": "complete",
+                "description": "Form Field Validation Rule",
+                "name": "Form Field Validation Rule",
+                "condition": {
+                    "type": "IsRequiredCondition"
+                },
+                "isEnabled": "true",
+                "message": "This field is required"
+            }]
+        }]
+    }, {
+        "type": "FormField",
+        "id": "238",
+        "name": "Your area of interest...",
+        "instructions": "Select area of interest that you or that you may be interested in.",
+        "style": {"fieldSize":"large","labelPosition":"top","listOrder":"threeColumn"},
+        "dataType": "text",
+        "displayType": "checkbox",
+        "htmlName": "interest",
+        "optionListId": "25",
+        "fields": [{
+            "type": "FormField",
+            "id": "217",
+            "name": "Single Checkbox",
+            "style": {
+                "fieldSize": "large",
+                "labelPosition": "top",
+                "listOrder": "oneColumn",
+                "isSingle": "true"
+            },
+            "createdFromContactFieldId": "1000218",
+            "dataType": "text",
+            "displayType": "checkbox",
+            "htmlName": "singleCheckbox",
+            "validations": [{"required" : "true"}]
+        }, {
+            "type": "FormField",
+            "id": "217",
+            "name": "Single Checkbox",
+            "style": {
+                "fieldSize": "large",
+                "labelPosition": "top",
+                "listOrder": "oneColumn",
+                "isSingle": "true"
+            },
+            "createdFromContactFieldId": "1000219",
+            "dataType": "text",
+            "displayType": "checkbox",
+            "htmlName": "singleCheckbox",
+            "validations": [{"required" : "true"}]
+        }, {
+            "type": "FormField",
+            "id": "217",
+            "name": "Single Checkbox",
+            "style": {
+                "fieldSize": "large",
+                "labelPosition": "top",
+                "listOrder": "oneColumn",
+                "isSingle": "true"
+            },
+            "createdFromContactFieldId": "1000210",
+            "dataType": "text",
+            "displayType": "checkbox",
+            "htmlName": "singleCheckbox",
+            "validations": [{"required" : "true"}]
+        }],
+        "validations": []
+    }, {
+        "type": "FormField",
+        "id": "225",
+        "name": "Submit",
+        "style": {"submitButtonStyleType":"standard","submitButtonWidthStyle":"100px","submitButtonHeightStyle":"24px"},
+        "dataType": "text",
+        "displayType": "submit",
+        "htmlName": "submit",
+        "validations": []
+    }],
+    "htmlName": "requestTrial",
+
+    "processingSteps": [],
+    "processingType": "externalWebsite",
+    "size": {
+        "type": "Size",
+        "width": "0",
+        "height": "0"
+    },
+    "style": {"fieldSize":"medium","labelPosition":"top"}
 }

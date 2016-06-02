@@ -7,17 +7,28 @@
         background-color: $white;
         margin-top: 15px;
         margin-bottom: 15px;
+        overflow: hidden;
         .image-thumbnail {
-            height: 225px;
-            -webkit-clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
-            -moz-clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
-            clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
+            overflow: hidden;
             //  clip-path: url("/cms-images/product_brands/img-clip.svg");
+            position: relative;
             img {
                 width: 100%;
             }
             @include mobile {
                 height: auto;
+            }
+            &:after {
+                content: '';
+                width: 110%;
+                height: 100%;
+                background-color: $white;
+                position: absolute;
+                -ms-transform: rotate(-5deg); /* IE 9 */
+                -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+                transform: rotate(-5deg);
+                top: calc(100% - 33px);
+
             }
         }
         .caption {
@@ -42,11 +53,24 @@
             }
         }
         .showmore {
-            -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 20%);
-            -moz-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 20%);
-            clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 20%);
+            
             min-height: 90px;
             //  position: relative;
+            overflow: hidden;
+            position:relative;
+            padding: 60px 0;
+            &:before {
+                content: '';
+                position: absolute;
+                width: 110%;
+                top: calc(-100% + 33px);
+                left: -10px;
+                background-color: $white;
+                -ms-transform: rotate(-5deg); /* IE 9 */
+                -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+                transform: rotate(-5deg);
+                height: 100%;
+            }
             .btn-container {
                 width: 165px;
                 position: absolute;

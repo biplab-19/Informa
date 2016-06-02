@@ -1,0 +1,79 @@
+.contactUsPage-contactUs{
+  height: 1640px;
+  padding-top: 30px;
+  background: $white;
+  .call-image-pos {
+      color: $gray-lighter;
+      margin: 0;
+      position: relative;
+      padding-left: 40px;
+      hr{
+        height: 1px;
+        background: $gray-lighter;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      img {
+        margin-right: 10px;
+        position: absolute;
+        left: 0;
+        top: 0px;
+      }
+  }
+
+  .email-image-pos {
+    color: $gray-lighter;
+    margin-top: 40px;
+    position: relative;
+    padding-left: 40px;
+    @include tablet {
+        margin-top: 0px;
+    }
+    hr{
+      height: 1px;
+      background: $gray-lighter;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    img {
+      margin-right: 10px;
+      position: absolute;
+      left: 0;
+      top: 0px;
+    }
+  }
+  .contactus-box{
+    padding-left: 50px;
+    text-align: justify;
+    @include tablet {
+      padding-left: 10px;
+    }
+    @include mobile {
+      padding-left: 10px;
+    }
+  }
+  .contactus-content{
+    margin-left: 10px;
+    strong{
+      font-size: 20px;
+    }
+    .contact-descrip{
+      font-family: Fsme-bold;
+      padding-right: 110px;
+      @include mobile {
+        padding-right: 10px;
+      }
+    }
+    .contact-number-title{
+      margin-top: 20px;
+      font-family: Fsme-bold;
+      font-size: 12px;
+    }
+    .contact-number{
+      margin-top: 5px;
+      font-size: 20px;
+      font-family: Fsme-light;
+      margin-bottom: 20px;
+    }
+  }
+}

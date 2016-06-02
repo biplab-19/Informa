@@ -1,44 +1,61 @@
-/*
- * analyst-list.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Saurabh Sinha
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
 var INFORMA = window.INFORMA || {};
 INFORMA.formComponents = (function(window, $, namespace) {
     'use strict';
-     var _toolTip = $('.hasToolTip .icon.icon-info'),
+    var _toolTip = $('.hasToolTip .icon.icon-info'),
 
-//functions
-     init,
-      _bindToolTip,
-        _showOverlay;
+        //functions
+        init,
+        _bindToolTip,
+        _showOverlay, _validateForm;
 
-    _showOverlay = function(container){
+    _showOverlay = function(container) {
 
-      //alert(1);
+        //alert(1);
+    }
+
+    _validateForm = function() {
+        $('#requestDemoForm').validate({
+            errorPlacement: function(error, element) {        
+                if (element.attr('type') === 'select') {          
+                    error.insertAfter(element.closest('.chosen-container'));        
+                }
+                else{
+                  error.insertAfter(element);        
+                }
+            }
+        });
+        $('#requestTrial').validate({
+            ignore: [],
+            errorPlacement: function(error, element) {     
+              console.log(error, element);   
+                if (element.hasClass('chosen-select')) {          
+                    error.insertAfter(element.siblings('.chosen-container'));        
+                }
+                else{
+                  error.insertAfter(element);        
+                }
+            },
+            submitHandler: function(){
+              console.log("Form Submit")
+            }
+        });
     }
 
     init = function() {
-          //todo: No null check, dont execute these bindings if forms are not there
-          //  _showOverlay();
-          //  _bindToolTip();
-          //  $(".elq-form").validate();
+        //todo: No null check, dont execute these bindings if forms are not there
+        _showOverlay();
+        _bindToolTip();
+        _validateForm();
+
     };
 
-    _bindToolTip = function(){
-          _toolTip.on('click',function(){
-                $(this).toggleClass('active');
-                $(this).parent().parent() // .hasToolTip
-                        .children('.tooltip-placeholder').slideToggle();
-          })
-   }
+    _bindToolTip = function() {
+        _toolTip.on('click', function() {
+            $(this).toggleClass('active');
+            $(this).parent().parent() // .hasToolTip
+                .children('.tooltip-placeholder').slideToggle();
+        })
+    }
 
 
     return {

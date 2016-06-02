@@ -24,200 +24,200 @@ div#requestDemoModal {
             opacity: 2;
         }
     }
-    form {
-        .icon-info {
-            display: none;
-        }
-        .hasToolTip .icon-info {
-            display: inline-block;
-            &.active {
-                &:before {
-                    color: $yellow;
-                }
-            }
-        }
-        .icon-info:before {
-            content: "\e915";
-            color: $info-icon-color;
-        }
-        .icon-info:hover::before {
-            content: "\e915";
-            color: $yellow;
-        }
-        .form-btn-container {
-            float: right;
-            .btn {
-                width: 150px;
-                color: $white;
-                border: none;
-            }
-        }
-        .tooltip-placeholder {
-            position: relative;
-            display: none;
-            width: 100%;
-            color: #FFFFFF;
-            background: #FFD500;
-            height: 40px;
-            line-height: 40px;
-            text-align: left;
-            /* visibility: hidden; */
-            border-radius: 0;
-            padding: 10px;
-            margin-top: 15px;
-            color: $font-color;
-        }
-        .tooltip-placeholder:after {
-            content: '';
-            position: absolute;
-            bottom: 100%;
-            left: 0;
-            /* margin-left: -346px; */
-            width: 0;
-            height: 0;
-            border-right: 10px solid transparent;
-            border-left: 10px solid #FFD500;
-            border-top: 10px solid transparent;
-        }
-        font-family: "FSMe-Light";
-        .title {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-        label {
-            font-size: 16px;
-            font-weight: normal;
-        }
-        input.form-control {
-            border-radius: 0;
-            height: 50px;
-            background-color: $blue-lighter-bg;
-        }
-        .disabled {
-            opacity: 0.6;
-        }
-        .textbox {
-            background-color: $white;
-            input {
-                -moz-appearance: none;
-                -webkit-appearance: none;
-                -ms-appearance: none;
-                border: none;
-                padding: 10px;
-                color: $text-gray-dark;
-                font-weight: 400;
-                width: 100%;
-            }
-            label {
-                margin-bottom: 0;
-                width: 100%;
-            }
-        }
-        label.label {
-            font-family: FSMe-Light;
-            font-size: 1em;
-            font-weight: 400;
-            padding: 0;
-        }
-        :not(.lt-ie9) {
-            /* HTML5 Boilerplate accessible hidden styles */
-            .custom-radio input {
-                border: 0;
-                clip: rect(0 0 0 0);
-                height: 1px;
-                margin: -1px;
-                overflow: hidden;
-                padding: 0;
-                position: absolute;
-                width: 1px;
-            }
-            /* the basic, unchecked style */
-            .custom-radio input + span::before {
-                content: '';
-                display: inline-block;
-                width: 1em;
-                height: 1em;
-                vertical-align: -0.25em;
-                border-radius: 1em;
-                border: 0.225em solid #fff;
-                margin-right: 0.75em;
-                background: $white;
-                transition: 0.5s ease all;
-                position: relative;
-                top: -2px;
-            }
-            /* the checked style using the :checked pseudo class */
-            .custom-radio input:checked + span::before {
-                background: $input-orange;
-            }
-        }
-        .intrests input {
-            display: none;
-            width: 0;
-            height: 0;
-            border-radius: 50px;
-            background-color: #ffd500;
-        }
-        .intrests .interest-checkbox-label {
-            height: 100px;
-            background-color: $blue-lighter-bg;
-            display: block;
-            padding: 10px;
-        }
-        .intrests input:checked + .interest-checkbox-label {
-            width: 100%;
-            border: $brand-secondary 2px solid;
-            background-color: $gray-light-bg;
-            color: $white;
-        }
-        .intrests .interest-checkbox {
-            display: block;
-            background-color: #ffd500;
-        }
-        .intrests {
-            position: relative;
-            width: 100%;
-            height: 100px;
-            margin-bottom: 10px;
-            color: $font-color;
-        }
-        .intrests .interest-checkbox {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-        }
-        .intrests input[type=checkbox]:after {
-            content: " ";
-            background-color: #ffd500;
-            display: inline-block;
-            visibility: hidden;
-        }
-        .intrests input[type=checkbox]:checked:after {
-            content: "\2714";
-            visibility: visible;
-            border-radius: 50px;
-            padding: 3px 6px;
-            font-weight: bold;
-        }
-        .chosen-container,
-        .chosen-single {
-            height: 50px;
-            border-radius: 0;
-            background-color: $blue-lighter-bg;
-            span {
-                margin-top: 6px;
-                font-size: 14px;
-            }
-        }
-        .chosen-container-single .chosen-drop {
-            background-color: $blue-lighter-bg;
-            font-size: 14px;
-        }
-        .chosen-container .chosen-results {
-            border-radius: 0;
-        }
-        .chosen-container .chosen-results li.active-result {
-            font-size: 14px;
-        }
-    }
+    // form {
+    //     .icon-info {
+    //         display: none;
+    //     }
+    //     .hasToolTip .icon-info {
+    //         display: inline-block;
+    //         &.active {
+    //             &:before {
+    //                 color: $yellow;
+    //             }
+    //         }
+    //     }
+    //     .icon-info:before {
+    //         content: "\e915";
+    //         color: $info-icon-color;
+    //     }
+    //     .icon-info:hover::before {
+    //         content: "\e915";
+    //         color: $yellow;
+    //     }
+    //     .form-btn-container {
+    //         float: right;
+    //         .btn {
+    //             width: 150px;
+    //             color: $white;
+    //             border: none;
+    //         }
+    //     }
+    //     .tooltip-placeholder {
+    //         position: relative;
+    //         display: none;
+    //         width: 100%;
+    //         color: #FFFFFF;
+    //         background: #FFD500;
+    //         height: 40px;
+    //         line-height: 40px;
+    //         text-align: left;
+    //         /* visibility: hidden; */
+    //         border-radius: 0;
+    //         padding: 10px;
+    //         margin-top: 15px;
+    //         color: $font-color;
+    //     }
+    //     .tooltip-placeholder:after {
+    //         content: '';
+    //         position: absolute;
+    //         bottom: 100%;
+    //         left: 0;
+    //         /* margin-left: -346px; */
+    //         width: 0;
+    //         height: 0;
+    //         border-right: 10px solid transparent;
+    //         border-left: 10px solid #FFD500;
+    //         border-top: 10px solid transparent;
+    //     }
+    //     font-family: "FSMe-Light";
+    //     .title {
+    //         font-size: 22px;
+    //         margin-bottom: 10px;
+    //     }
+    //     label {
+    //         font-size: 16px;
+    //         font-weight: normal;
+    //     }
+    //     input.form-control {
+    //         border-radius: 0;
+    //         height: 50px;
+    //         background-color: $blue-lighter-bg;
+    //     }
+    //     .disabled {
+    //         opacity: 0.6;
+    //     }
+    //     .textbox {
+    //         background-color: $white;
+    //         input {
+    //             -moz-appearance: none;
+    //             -webkit-appearance: none;
+    //             -ms-appearance: none;
+    //             border: none;
+    //             padding: 10px;
+    //             color: $text-gray-dark;
+    //             font-weight: 400;
+    //             width: 100%;
+    //         }
+    //         label {
+    //             margin-bottom: 0;
+    //             width: 100%;
+    //         }
+    //     }
+    //     label.label {
+    //         font-family: FSMe-Light;
+    //         font-size: 1em;
+    //         font-weight: 400;
+    //         padding: 0;
+    //     }
+    //     :not(.lt-ie9) {
+    //         /* HTML5 Boilerplate accessible hidden styles */
+    //         .custom-radio input {
+    //             border: 0;
+    //             clip: rect(0 0 0 0);
+    //             height: 1px;
+    //             margin: -1px;
+    //             overflow: hidden;
+    //             padding: 0;
+    //             position: absolute;
+    //             width: 1px;
+    //         }
+    //         /* the basic, unchecked style */
+    //         .custom-radio input + span::before {
+    //             content: '';
+    //             display: inline-block;
+    //             width: 1em;
+    //             height: 1em;
+    //             vertical-align: -0.25em;
+    //             border-radius: 1em;
+    //             border: 0.225em solid #fff;
+    //             margin-right: 0.75em;
+    //             background: $white;
+    //             transition: 0.5s ease all;
+    //             position: relative;
+    //             top: -2px;
+    //         }
+    //         /* the checked style using the :checked pseudo class */
+    //         .custom-radio input:checked + span::before {
+    //             background: $input-orange;
+    //         }
+    //     }
+    //     .intrests input {
+    //         display: none;
+    //         width: 0;
+    //         height: 0;
+    //         border-radius: 50px;
+    //         background-color: #ffd500;
+    //     }
+    //     .intrests .interest-checkbox-label {
+    //         height: 100px;
+    //         background-color: $blue-lighter-bg;
+    //         display: block;
+    //         padding: 10px;
+    //     }
+    //     .intrests input:checked + .interest-checkbox-label {
+    //         width: 100%;
+    //         border: $brand-secondary 2px solid;
+    //         background-color: $gray-light-bg;
+    //         color: $white;
+    //     }
+    //     .intrests .interest-checkbox {
+    //         display: block;
+    //         background-color: #ffd500;
+    //     }
+    //     .intrests {
+    //         position: relative;
+    //         width: 100%;
+    //         height: 100px;
+    //         margin-bottom: 10px;
+    //         color: $font-color;
+    //     }
+    //     .intrests .interest-checkbox {
+    //         position: absolute;
+    //         bottom: 30px;
+    //         right: 30px;
+    //     }
+    //     .intrests input[type=checkbox]:after {
+    //         content: " ";
+    //         background-color: #ffd500;
+    //         display: inline-block;
+    //         visibility: hidden;
+    //     }
+    //     .intrests input[type=checkbox]:checked:after {
+    //         content: "\2714";
+    //         visibility: visible;
+    //         border-radius: 50px;
+    //         padding: 3px 6px;
+    //         font-weight: bold;
+    //     }
+    //     .chosen-container,
+    //     .chosen-single {
+    //         height: 50px;
+    //         border-radius: 0;
+    //         background-color: $blue-lighter-bg;
+    //         span {
+    //             margin-top: 6px;
+    //             font-size: 14px;
+    //         }
+    //     }
+    //     .chosen-container-single .chosen-drop {
+    //         background-color: $blue-lighter-bg;
+    //         font-size: 14px;
+    //     }
+    //     .chosen-container .chosen-results {
+    //         border-radius: 0;
+    //     }
+    //     .chosen-container .chosen-results li.active-result {
+    //         font-size: 14px;
+    //     }
+    // }
 }

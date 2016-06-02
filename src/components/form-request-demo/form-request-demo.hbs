@@ -11,138 +11,325 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
                 </div>
                 <div class="modal-body">
 
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <h1 class="modal-title" id="requestDemoModalLabel">Request a demo for <br>Infoma Economics IEG</h1>
-                            <form role="form">
-                                <div class="form-group hasToolTip">
-                                    <div class="title">
-                                        Tell us your name <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="email">First name</label>
-                                            <input type="email" class="form-control" id="email">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="name">Surname</label>
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        <span>This is a placeholder.</span>
-                                    </div>
-                                </div>
-
-                                <div class="form-group hasToolTip">
-                                    <div class="title">
-                                        Your company <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <!-- <label for="name">Your company</label> -->
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        This is a placeholder.
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group hasToolTip">
-                                    <div class="title">
-                                        Your contact details <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        Your contact details.
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-xs-12">
-                                            <label for="email">Email address</label>
-                                            <input type="email" class="form-control" id="email">
-                                        </div>
-                                        <div class="col-md-6 col-xs-12">
-                                            <label for="name">Phone number</label>
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="form-group hasToolTip">
-                                    <div class="title">
-                                        Select a time <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        Select a time.
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 col-xs-12">
-                                            <label for="email">Date</label>
-                                            <input type="date" class="form-control" id="date">
-                                        </div>
-                                        <div class="col-md-4 col-xs-12">
-                                            <label for="Timezone">Timezone</label>
-                                            <div class="selectMenu">
-                                                <select id="Timezone" class="chosen-select">
-                                                    <option value="default" data-given-name="Fred" data-surname="Flintstone" data-city="Bedrock" data-city-description="A land right out of history" data-spouse-given-name="Wilma">London UTC(0)</option>
-
-                                                     </select>
-                                            </div>
-
-
-                                        </div>
-                                        <div class="col-md-4 col-xs-12">
-                                            <label for="Timezone">Time</label>
-                                            <div class="selectMenu">
-                                                <select id="Time" class="chosen-select">
-                                                    <option value="default" data-given-name="Fred" data-surname="Flintstone" data-city="Bedrock" data-city-description="A land right out of history" data-spouse-given-name="Wilma">9:00 AM</option>
-                                                  </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="form-group">
-                                    <div class="title">
-                                        Your areas of interests... <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        <span>Your areas of interests...</span>
-                                    </div>
-                                    <div class="row">
-                                        {{#each intrests}}
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="{{label}}">
-                                                    <label class="interest-checkbox-label" for="{{label}}">{{label}}</label>
+                            <h1 class="modal-title" id="{{htmlName}}Header">{{name}}</h1>
+                            <div class="form-submit-response">
+                              <div class="icon-tick"></div>
+                              <div class="heading">Thanks for requesting a demo </div>
+                              <div class="description">We’ve sent you a confirmation email confirming your session with a member of our team. In the meantime here’s a sneak peak of what you will learn.</div>
+                            </div>
+                            <form role="form" method="post" action="#" onsubmit="#" id="{{htmlName}}" name="{{htmlName}}" class="elq-form">
+                                {{#each elements}}
+                                    {{#compare type "FormField" operator="==" }}
+                                        {{#compare displayType "text" operator="=="}}
+                                            <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
+                                                <div class="title">
+                                                    {{name}}
+                                                    {{#if instructions}} <span class="icon icon-info"></span>{{/if}}
+                                                </div>
+                                                {{#if instructions}}
+                                                    <div class="tooltip-placeholder">
+                                                        <span>{{instructions}}</span>
+                                                    </div>
+                                                {{/if}}
+                                                <div class="row">
+                                                    <div class="col-md-{{#compare style.fieldSize "large"}}12{{/compare}}{{#compare style.fieldSize "small"}}6{{/compare}}">
+                                                        <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                          <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                        {{#each validations}}
+                                                          {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                          {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                          {{#compare condition.type "IsEmailAddressCondition"}}
+                                                            data-msg-email="{{message}}" data-rule-email="true"
+                                                          {{/compare}}
+                                                        {{/each}} />
+                                                      </div>
                                                 </div>
                                             </div>
+                                        {{/compare}}
+                                    {{/compare}}
 
-                                        {{/each}}
+                                    {{#compare type "FormField" operator="==" }}
+                                        {{#compare displayType "textarea"}}
+                                            <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
+                                                <div class="title">
+                                                    {{name}}
+                                                    {{#if instructions}} <span class="icon icon-info"></span>{{/if}}
+                                                </div>
+                                                {{#if instructions}}
+                                                    <div class="tooltip-placeholder">
+                                                        <span>{{instructions}}</span>
+                                                    </div>
+                                                {{/if}}
+                                                <div class="row">
+                                                    <div class="col-md-{{#compare style.fieldSize "large"}}12{{/compare}} {{#compare style.fieldSize "small"}}6{{/compare}}">
+                                                        <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                        <textarea class="form-control" id="{{createdFromContactFieldId}}" rows="3" required></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/compare}}
+                                    {{/compare}}
 
-                                    </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-btn-container">
-                                                <button type="submit" class="btn btn-default orange">Submit</button>
+                                    {{#compare type "FormField" operator="==" }}
+                                        {{#compare displayType "singleSelect"}}
+                                            <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
+                                                <div class="title">
+                                                    {{name}}
+                                                    {{#if instructions}} <span class="icon icon-info"></span>{{/if}}
+                                                </div>
+                                                {{#if instructions}}
+                                                    <div class="tooltip-placeholder">
+                                                        <span>{{instructions}}</span>
+                                                    </div>
+                                                {{/if}}
+                                                <div class="row">
+                                                    <div class="col-md-{{#compare style.fieldSize "large"}}12{{/compare}} {{#compare style.fieldSize "small"}}6{{/compare}}">
+                                                        <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                        <div class="selectMenu">
+                                                            <select id="{{createdFromContactFieldId}}" class="chosen-select"
+                                                            {{#each validations}}
+                                                              {{#compare condition.type "IsRequiredCondition"}}
+                                                                 data-rule-required="true"
+                                                              {{/compare}}
+                                                              {{#if isEnabled}} {{/if}}
+                                                              {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                            {{/each}} >
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/compare}}
+                                    {{/compare}}
+
+
+
+                                    {{#compare type "FormFieldGroup" operator="==" }}
+                                        <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
+                                            <div class="title">
+                                                {{name}}
+                                                {{#if instructions}} <span class="icon icon-info"></span>{{/if}}
+                                            </div>
+                                            {{#if instructions}}
+                                                <div class="tooltip-placeholder">
+                                                    <span>{{instructions}}</span>
+                                                </div>
+                                            {{/if}}
+                                            <div class="row">
+                                                {{#compare style.listOrder "oneColumn"}}
+                                                    {{#each fields}}
+                                                        <div class="col-md-12">
+                                                            <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                            {{#compare displayType "date"}}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
+                                                            {{#compare displayType "singleSelect"}}
+                                                                <div class="selectMenu">
+                                                                    <select id="{{createdFromContactFieldId}}" class="chosen-select">
+                                                                        <option value="{{options.value}}">{{options.label}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            {{/compare}}
+                                                            {{#compare displayType "text"}}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
+                                                        </div>
+                                                    {{/each}}
+                                                {{/compare}}
+                                                {{#compare style.listOrder "twoColumn"}}
+
+                                                    {{#each fields}}
+                                                        <div class="col-md-6">
+                                                            <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                            {{#compare displayType "date"}}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
+                                                            {{#compare displayType "singleSelect"}}
+                                                                <div class="selectMenu">
+                                                                    <select id="{{createdFromContactFieldId}}" class="chosen-select">
+                                                                        <option value="{{options.value}}">{{options.label}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            {{/compare}}
+                                                            {{#compare displayType "text"}}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
+                                                        </div>
+                                                    {{/each}}
+                                                {{/compare}}
+                                                {{#compare style.listOrder "threeColumn"}}
+                                                    {{#each fields}}
+                                                        <div class="col-md-4">
+                                                            <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                            {{#compare dataType "date"}}
+                                                            <div class="right-inner">
+                                                              <i class="icon-calender"></i>
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control date-picker" id="{{createdFromContactFieldId}}" value=""
+                                                                  {{#each validations}}
+                                                                    {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                    {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                    {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                      data-msg-email="{{message}}" data-rule-email="true"
+                                                                    {{/compare}}
+                                                                  {{/each}} />
+                                                            </div>
+                                                            {{/compare}}
+                                                            {{#compare displayType "singleSelect"}}
+                                                                <div class="selectMenu">
+                                                                    <select id="{{createdFromContactFieldId}}" class="chosen-select"
+                                                                    {{#each validations}}
+                                                                      {{#compare condition.type "IsRequiredCondition"}}
+                                                                         data-rule-required="true"
+                                                                      {{/compare}}
+                                                                      {{#if isEnabled}} {{/if}}
+                                                                      {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                    {{/each}} >
+
+                                                                      {{#each OptionList}}
+                                                                        <option value="{{displayValue}}">{{displayText}}</option>
+                                                                      {{/each}} >
+
+                                                                    </select>
+                                                                </div>
+                                                            {{/compare}}
+                                                            <!-- {{#compare displayType "text"}}
+                                                            {{#compare dataType "date" operator="==" }}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
+                                                            {{/compare}} -->
+                                                        </div>
+                                                    {{/each}}
+                                                {{/compare}}
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    {{/compare}}
+
+                                    {{#compare displayType "checkbox"}}
+                                        <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
+                                            <div class="title">
+                                                {{name}}
+                                                {{#if instructions}} <span class="icon icon-info"></span>{{/if}}
+                                            </div>
+                                            {{#if instructions}}
+                                                <div class="tooltip-placeholder">
+                                                    <span>{{instructions}}</span>
+                                                </div>
+                                            {{/if}}
+                                            <div class="row">
+                                                {{#compare style.listOrder "oneColumn"}}
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="checkbox-container">
+                                                            <input class="checkbox" type="checkbox" id="{{createdFromContactFieldId}}">
+                                                            <label class="checkbox-label" for="{{createdFromContactFieldId}}">{{name}}</label>
+                                                        </div>
+                                                    </div>
+                                                {{/compare}}
+                                                {{#compare style.listOrder "threeColumn"}}
+                                                    {{#each fields}}
+                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="checkbox-container">
+                                                                <input class="checkbox" type="checkbox" id="{{createdFromContactFieldId}}">
+                                                                <label class="checkbox-label" for="{{createdFromContactFieldId}}">{{name}}</label>
+                                                            </div>
+                                                        </div>
+                                                    {{/each}}
+                                                {{/compare}}
+                                            </div>
+                                        </div>
+                                    {{/compare}}
+
+                                    {{#compare displayType "radio"}}
+                                        <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
+                                            <div class="title">
+                                                {{name}}
+                                                {{#if instructions}} <span class="icon icon-info"></span>{{/if}}
+                                            </div>
+                                            {{#if instructions}}
+                                                <div class="tooltip-placeholder">
+                                                    <span>{{instructions}}</span>
+                                                </div>
+                                            {{/if}}
+                                            <div class="row">
+                                                {{#compare style.listOrder "oneColumn"}}
+                                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                                        <span class="custom-radio">
+                                                              <label for="{{id}}" class="label">
+                                                              <input type="{{displayType}}" class="custom-radio" name="{{htmlName}}" id="{{id}}" checked="checked"  value="{{name}}">
+                                                              <span>{{name}}</span>
+                                                        </label>
+                                                        </span>
+                                                    </div>
+                                                {{/compare}}
+                                                {{#compare style.listOrder "threeColumn"}}
+                                                    {{#each fields}}
+                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                            <span class="custom-radio">
+                                                                  <label for="{{id}}" class="label">
+                                                                  <input type="{{displayType}}" class="custom-radio" name="{{htmlName}}" id="{{id}}" checked="checked"  value="{{name}}">
+                                                                  <span>{{name}}</span>
+                                                            </label>
+                                                            </span>
+                                                        </div>
+                                                    {{/each}}
+                                                {{/compare}}
+                                            </div>
+                                        </div>
+                                    {{/compare}}
+
+                                    {{#compare displayType "submit"}}
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-btn-container">
+                                                        <button type="{{displayType}}" name="{{htmlName}}" style="width:{{style.submitButtonWidthStyle}}" class="btn btn-default orange">{{name}}</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/compare}}
+                                {{/each}}
                             </form>
                         </div>
                     </div>

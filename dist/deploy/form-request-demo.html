@@ -177,248 +177,438 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
                 </div>
                 <div class="modal-body">
 
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <h1 class="modal-title" id="requestDemoModalLabel">Request a demo for <br>Infoma Economics IEG</h1>
-                            <form role="form">
-                                <div class="form-group hasToolTip">
-                                    <div class="title">
-                                        Tell us your name <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="email">First name</label>
-                                            <input type="email" class="form-control" id="email">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="name">Surname</label>
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        <span>This is a placeholder.</span>
-                                    </div>
-                                </div>
+                            <h1 class="modal-title" id="requestTrialHeader">Request a demo for Informa Economics IEG</h1>
+                            <div class="form-submit-response">
+                              <div class="icon-tick"></div>
+                              <div class="heading">Thanks for requesting a demo </div>
+                              <div class="description">We’ve sent you a confirmation email confirming your session with a member of our team. In the meantime here’s a sneak peak of what you will learn.</div>
+                            </div>
+                            <form role="form" method="post" action="#" onsubmit="#" id="requestTrial" name="requestTrial" class="elq-form">
+                                
+                                    
 
-                                <div class="form-group hasToolTip">
-                                    <div class="title">
-                                        Your company <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <!-- <label for="name">Your company</label> -->
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        This is a placeholder.
-                                    </div>
-                                </div>
+                                    
 
 
-                                <div class="form-group hasToolTip">
-                                    <div class="title">
-                                        Your contact details <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        Your contact details.
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 col-xs-12">
-                                            <label for="email">Email address</label>
-                                            <input type="email" class="form-control" id="email">
-                                        </div>
-                                        <div class="col-md-6 col-xs-12">
-                                            <label for="name">Phone number</label>
-                                            <input type="text" class="form-control" id="name">
-                                        </div>
-                                    </div>
-
-                                </div>
+                                    
 
 
-                                <div class="form-group hasToolTip">
-                                    <div class="title">
-                                        Select a time <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        Select a time.
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 col-xs-12">
-                                            <label for="email">Date</label>
-                                            <input type="date" class="form-control" id="date">
-                                        </div>
-                                        <div class="col-md-4 col-xs-12">
-                                            <label for="Timezone">Timezone</label>
-                                            <div class="selectMenu">
-                                                <select id="Timezone" class="chosen-select">
-                                                    <option value="default" data-given-name="Fred" data-surname="Flintstone" data-city="Bedrock" data-city-description="A land right out of history" data-spouse-given-name="Wilma">London UTC(0)</option>
 
-                                                     </select>
+                                    
+                                        <div class="form-group hasToolTip">
+                                            <div class="title">
+                                                Tell us your name
+                                                 <span class="icon icon-info"></span>
                                             </div>
+                                            
+                                                <div class="tooltip-placeholder">
+                                                    <span>Please enter your personal details</span>
+                                                </div>
+                                            
+                                            <div class="row">
+                                                
+                                                
 
-
-                                        </div>
-                                        <div class="col-md-4 col-xs-12">
-                                            <label for="Timezone">Time</label>
-                                            <div class="selectMenu">
-                                                <select id="Time" class="chosen-select">
-                                                    <option value="default" data-given-name="Fred" data-surname="Flintstone" data-city="Bedrock" data-city-description="A land right out of history" data-spouse-given-name="Wilma">9:00 AM</option>
-                                                  </select>
+                                                    
+                                                        <div class="col-md-6">
+                                                            <label for="" class="top">First Name</label>
+                                                            
+                                                            
+                                                            
+                                                                <input type="text" name="firstName" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                        </div>
+                                                    
+                                                        <div class="col-md-6">
+                                                            <label for="" class="top">Surname</label>
+                                                            
+                                                            
+                                                            
+                                                                <input type="text" name="lastName" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                        </div>
+                                                    
+                                                
+                                                
                                             </div>
                                         </div>
-                                    </div>
+                                    
 
-                                </div>
+                                    
 
+                                    
 
-                                <div class="form-group">
-                                    <div class="title">
-                                        Your areas of interests... <span class="icon icon-info"></span>
-                                    </div>
-                                    <div class="tooltip-placeholder">
-                                        <span>Your areas of interests...</span>
-                                    </div>
-                                    <div class="row">
+                                    
+                                
+                                    
                                         
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Market Analysis">
-                                                    <label class="interest-checkbox-label" for="Market Analysis">Market Analysis</label>
+                                            <div class="form-group hasToolTip">
+                                                <div class="title">
+                                                    Enter your company
+                                                     <span class="icon icon-info"></span>
+                                                </div>
+                                                
+                                                    <div class="tooltip-placeholder">
+                                                        <span>Enter your company</span>
+                                                    </div>
+                                                
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="100004" class="top">Enter your company</label>
+                                                          <input type="text" name="company" class="form-control" id="100004" value=""
+                                                        
+                                                           data-rule-required="true" 
+                                                           data-msg-required="This field is required" 
+                                                          
+                                                         />
+                                                      </div>
                                                 </div>
                                             </div>
-
                                         
+                                    
+
+                                    
+                                        
+                                    
 
 
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Market Commentary &amp; Reports ">
-                                                    <label class="interest-checkbox-label" for="Market Commentary &amp; Reports ">Market Commentary &amp; Reports </label>
-                                                </div>
+                                    
+                                        
+                                    
+
+
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                                    
+
+                                    
+
+
+                                    
+
+
+
+                                    
+                                        <div class="form-group hasToolTip">
+                                            <div class="title">
+                                                Your contact details
+                                                 <span class="icon icon-info"></span>
                                             </div>
-
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Informa Economics Issue Monitor">
-                                                    <label class="interest-checkbox-label" for="Informa Economics Issue Monitor">Informa Economics Issue Monitor</label>
+                                            
+                                                <div class="tooltip-placeholder">
+                                                    <span>Please enter your contact details</span>
                                                 </div>
-                                            </div>
+                                            
+                                            <div class="row">
+                                                
+                                                
 
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Education &amp; Training">
-                                                    <label class="interest-checkbox-label" for="Education &amp; Training">Education &amp; Training</label>
-                                                </div>
-                                            </div>
-
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Conferences &amp; Seminars">
-                                                    <label class="interest-checkbox-label" for="Conferences &amp; Seminars">Conferences &amp; Seminars</label>
-                                                </div>
-                                            </div>
-
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Consulting Services">
-                                                    <label class="interest-checkbox-label" for="Consulting Services">Consulting Services</label>
-                                                </div>
-                                            </div>
-
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Transportation Services">
-                                                    <label class="interest-checkbox-label" for="Transportation Services">Transportation Services</label>
-                                                </div>
-                                            </div>
-
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Energy Services">
-                                                    <label class="interest-checkbox-label" for="Energy Services">Energy Services</label>
-                                                </div>
-                                            </div>
-
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Economic Impact Services">
-                                                    <label class="interest-checkbox-label" for="Economic Impact Services">Economic Impact Services</label>
-                                                </div>
-                                            </div>
-
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Feed Ingredients Services">
-                                                    <label class="interest-checkbox-label" for="Feed Ingredients Services">Feed Ingredients Services</label>
-                                                </div>
-                                            </div>
-
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Multi-Client Studies">
-                                                    <label class="interest-checkbox-label" for="Multi-Client Studies">Multi-Client Studies</label>
-                                                </div>
-                                            </div>
-
-                                        
-
-
-                                            <div class="col-md-4 col-sm-4 col-xs-12">
-                                                <div class="intrests">
-                                                    <input class="interest-checkbox" type="checkbox" id="Speakers Bureau">
-                                                    <label class="interest-checkbox-label" for="Speakers Bureau">Speakers Bureau</label>
-                                                </div>
-                                            </div>
-
-                                        
-
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-btn-container">
-                                                <button type="submit" class="btn btn-default orange">Submit</button>
+                                                    
+                                                        <div class="col-md-6">
+                                                            <label for="" class="top">Email address</label>
+                                                            
+                                                            
+                                                            
+                                                                <input type="text" name="customFieldOne" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="A valid email address is required" 
+                                                                  
+                                                                    data-msg-email="A valid email address is required" data-rule-email="true"
+                                                                  
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                        </div>
+                                                    
+                                                        <div class="col-md-6">
+                                                            <label for="" class="top">Phone number</label>
+                                                            
+                                                            
+                                                            
+                                                                <input type="text" name="customFieldTwo" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                        </div>
+                                                    
+                                                
+                                                
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                                    
+
+                                    
+
+
+                                    
+
+
+
+                                    
+                                        <div class="form-group hasToolTip">
+                                            <div class="title">
+                                                Select a time
+                                                 <span class="icon icon-info"></span>
+                                            </div>
+                                            
+                                                <div class="tooltip-placeholder">
+                                                    <span>Please select a time</span>
+                                                </div>
+                                            
+                                            <div class="row">
+                                                
+                                                
+                                                
+                                                    
+                                                        <div class="col-md-4">
+                                                            <label for="" class="top">Date</label>
+                                                            
+                                                            <div class="right-inner">
+                                                              <i class="icon-calender"></i>
+                                                                <input type="text" name="date" class="form-control date-picker" id="" value=""
+                                                                  
+                                                                     data-rule-required="true" 
+                                                                     data-msg-required="Value must be a valid date (MM/DD/YY or MM/DD/YYYY)" 
+                                                                    
+                                                                  
+                                                                     data-rule-required="true" 
+                                                                     data-msg-required="This field is required" 
+                                                                    
+                                                                   />
+                                                            </div>
+                                                            
+                                                            
+                                                            <!-- 
+                                                            
+                                                                <input type="text" name="date" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="Value must be a valid date (MM/DD/YY or MM/DD/YYYY)" 
+                                                                  
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                             -->
+                                                        </div>
+                                                    
+                                                        <div class="col-md-4">
+                                                            <label for="" class="top">Time Zone</label>
+                                                            
+                                                            
+                                                                <div class="selectMenu">
+                                                                    <select id="" class="chosen-select"
+                                                                    
+                                                                      
+                                                                         data-rule-required="true"
+                                                                      
+                                                                       
+                                                                       data-msg-required="This field is required" 
+                                                                     >
+
+                                                                      
+                                                                        <option value=""> - Select- </option>
+                                                                      
+                                                                        <option value="(UTC) Dublin, Edinburgh, Lisbon, London">GMT Standard Time</option>
+                                                                      
+                                                                        <option value="(UTC) Monrovia, Reykjavik">Greenwich Standard Time</option>
+                                                                      
+                                                                        <option value="(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna">W. Europe Standard Time</option>
+                                                                       >
+
+                                                                    </select>
+                                                                </div>
+                                                            
+                                                            <!--  -->
+                                                        </div>
+                                                    
+                                                        <div class="col-md-4">
+                                                            <label for="" class="top">Time</label>
+                                                            
+                                                            
+                                                                <div class="selectMenu">
+                                                                    <select id="" class="chosen-select"
+                                                                    
+                                                                      
+                                                                         data-rule-required="true"
+                                                                      
+                                                                       
+                                                                       data-msg-required="This field is required" 
+                                                                     >
+
+                                                                      
+                                                                        <option value="">-Select-</option>
+                                                                      
+                                                                        <option value="9:00 AM">9:00 AM</option>
+                                                                      
+                                                                        <option value="10:00 AM">10:00 AM</option>
+                                                                      
+                                                                        <option value="11:00 AM">11:00 AM</option>
+                                                                      
+                                                                        <option value="12:00 PM">12:00 PM</option>
+                                                                      
+                                                                        <option value="1:00 PM">1:00 PM</option>
+                                                                      
+                                                                        <option value="2:00 PM">2:00 PM</option>
+                                                                      
+                                                                        <option value="3:00 PM">3:00 PM</option>
+                                                                      
+                                                                        <option value="4:00 PM">4:00 PM</option>
+                                                                      
+                                                                        <option value="5:00 PM">5:00 PM</option>
+                                                                       >
+
+                                                                    </select>
+                                                                </div>
+                                                            
+                                                            <!--  -->
+                                                        </div>
+                                                    
+                                                
+                                            </div>
+                                        </div>
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                
+                                    
+                                        
+                                    
+
+                                    
+                                        
+                                    
+
+
+                                    
+                                        
+                                    
+
+
+
+                                    
+
+                                    
+                                        <div class="form-group hasToolTip">
+                                            <div class="title">
+                                                Your area of interest...
+                                                 <span class="icon icon-info"></span>
+                                            </div>
+                                            
+                                                <div class="tooltip-placeholder">
+                                                    <span>Select area of interest that you or that you may be interested in.</span>
+                                                </div>
+                                            
+                                            <div class="row">
+                                                
+                                                
+                                                    
+                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="checkbox-container">
+                                                                <input class="checkbox" type="checkbox" id="1000218">
+                                                                <label class="checkbox-label" for="1000218">Single Checkbox</label>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="checkbox-container">
+                                                                <input class="checkbox" type="checkbox" id="1000219">
+                                                                <label class="checkbox-label" for="1000219">Single Checkbox</label>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="checkbox-container">
+                                                                <input class="checkbox" type="checkbox" id="1000210">
+                                                                <label class="checkbox-label" for="1000210">Single Checkbox</label>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                
+                                            </div>
+                                        </div>
+                                    
+
+                                    
+
+                                    
+                                
+                                    
+                                        
+                                    
+
+                                    
+                                        
+                                    
+
+
+                                    
+                                        
+                                    
+
+
+
+                                    
+
+                                    
+
+                                    
+
+                                    
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-btn-container">
+                                                        <button type="submit" name="submit" style="width:100px" class="btn btn-default orange">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                
                             </form>
                         </div>
                     </div>
