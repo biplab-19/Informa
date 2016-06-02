@@ -129,39 +129,39 @@ jQuery(INFORMA.analystProfile.init());
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.AnalystSearch = (function(window, $, namespace) {
+INFORMA.AnalystSearch = (function (window, $, namespace) {
     'use strict';
     //variables
     var AnalystSearch = $('.analyst-search'),
-    	Sector = AnalystSearch.find('.sector select'),
-    	SubSector = AnalystSearch.find('.sub-sector select'),
-    	submitBtn = AnalystSearch.find('.submit-btn'),
-    	txtField = AnalystSearch.find('#name'),
+        Sector = AnalystSearch.find('.sector select'),
+        SubSector = AnalystSearch.find('.sub-sector select'),
+        submitBtn = AnalystSearch.find('.submit-btn'),
+        txtField = AnalystSearch.find('#name'),
         productAnalystResults = $('.product-analyst-results'),
-    	Urls = INFORMA.Configs.urls.webservices,
+        Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
         _template = "",
     //methods
     init, GetAjaxData, RenderSearchResult, EventsFunctions, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults;
 
-    equalHeight = function() {
+    equalHeight = function () {
         var EachView = jQuery('.analyst-views');
-            EachView.each(function() {
-                var Items = jQuery(this).find('.analyst-list-container .analyst-description'),
-                    _maxHeight = 0,
-                    _padding = 50;
-                Items.each(function() {
-                    var Height = jQuery(this).height();
-                    if(Height > _maxHeight) {
-                        _maxHeight = Height;
-                    }
-                })
-                Items.css('height', _maxHeight+ _padding);
+        EachView.each(function () {
+            var Items = jQuery(this).find('.analyst-list-container .analyst-description'),
+                _maxHeight = 0,
+                _padding = 50;
+            Items.each(function () {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeight) {
+                    _maxHeight = Height;
+                }
             })
+            Items.css('height', _maxHeight + _padding);
+        })
     }
 
-    RenderAllSubSectorResults = function(data, sectorId) {
-        var results = data.ModelItem, 
+    RenderAllSubSectorResults = function (data, sectorId) {
+        var results = data,
             html = "";
 
         for (var key in results) {
@@ -170,36 +170,39 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                     HeaderText = key,
                     TemplateName = (Templates.AnalystListTemplate !== "undefined") ? Templates.AnalystListTemplate : "",
                     ListTemplate = Handlebars.compile(TemplateName);
-                    Data.header = HeaderText;
-                    html+= ListTemplate({ results: Data });
+                Data.header = HeaderText;
+                html += ListTemplate({ results: Data });
 
             }
         }
 
-        jQuery('a[data-fetch="'+sectorId+'"]').parents('.analyst-views').find('.analyst-items').html(html);
+        jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').find('.row').html(html);
+        equalHeight();
+       
 
-        jQuery('a[data-fetch="'+sectorId+'"]').parents('.analyst-views').toggleClass('showLess');
+        jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').addClass('showLess');
 
-        jQuery('a[data-fetch="'+sectorId+'"]').parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').slideToggle();
+        
+        jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').slideToggle();
         return html;
     }
 
-    EventsFunctions = function() {
-        txtField.on('keyup', function() {
-        	var calcLength = jQuery(this).val().length,
+    EventsFunctions = function () {
+        txtField.on('keyup', function () {
+            var calcLength = jQuery(this).val().length,
                 SectorValue = Sector.val();
-        	if(calcLength >= 3 || SectorValue != 'All') {
-        		submitBtn.removeClass('disabled');
-        	} else {
-        		submitBtn.addClass('disabled');
-        	}
+            if (calcLength < 3 || SectorValue != 'default') {
+                submitBtn.addClass('disabled');
+            } else {
+                submitBtn.removeClass('disabled');
+            }
         })
 
-        Sector.chosen().on('change', function() {
-        	var _value = jQuery(this).val(),
+        Sector.chosen().on('change', function () {
+            var _value = jQuery(this).val(),
                 _text = jQuery(this).find("option:selected").text(),
                 _txtField = txtField.val().length;
-            if (_value === 'All' || _txtField < 3) {
+            if (_value === 'default' && _txtField < 3) {
                 SubSector.parents('.sub-sector').addClass('disabled');
                 submitBtn.addClass('disabled');
                 SubSector.parents('.form-group').find('label').html('By Sub-Sector');
@@ -209,21 +212,21 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 SubSector.parents('.form-group').find('label').html('By ' + _text);
             }
 
-            GetAjaxData(Urls.AnalystSearchDropDown, "Get", _value, RenderChangeResult, null, null);
+            GetAjaxData(Urls.AnalystSearchDropDown, "Post", _value, RenderChangeResult, null, null);
             INFORMA.Spinner.Show(SubSector);
             SubSector.trigger("chosen:updated");
 
         })
 
-        submitBtn.on('click', function() {
+        submitBtn.on('click', function () {
             var FieldArray = AnalystSearch.find("form").serializeArray();
-            for(var key in FieldArray) {
-                if(FieldArray[key].value == "default") {
+            for (var key in FieldArray) {
+                if (FieldArray[key].value == "default") {
                     FieldArray[key].value = null;
                 }
             }
             var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-        	GetAjaxData(Urls.AnalystSearch, "Get", GetSerializeData, RenderSearchResult, null, null);
+            GetAjaxData(Urls.AnalystSearch, "Post", GetSerializeData, RenderSearchResult, null, null);
         })
     }
 
@@ -240,7 +243,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         SubSector.trigger("chosen:updated");
     }
 
-    RenderSearchResult = function(data) {
+    RenderSearchResult = function (data) {
         //INFORMA.SearchResults.RenderSearchResults(data);
         INFORMA.Spinner.Show($("body"));
         var results = data.SearchDictionary,
@@ -252,8 +255,8 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                     HeaderText = key,
                     TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
                     ListTemplate = Handlebars.compile(TemplateName);
-                    Data.header = HeaderText;
-                    html+= ListTemplate({ results: Data });
+                Data.header = HeaderText;
+                html += ListTemplate({ results: Data });
 
             }
         }
@@ -263,7 +266,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         return html;
     }
 
-    AppendSearchResult = function(data) {
+    AppendSearchResult = function (data) {
         var results = data.SearchDictionary,
             html = "";
 
@@ -273,8 +276,8 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                     HeaderText = key,
                     TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
                     ListTemplate = Handlebars.compile(TemplateName);
-                    Data.header = HeaderText;
-                    html+= ListTemplate({ results: Data });
+                Data.header = HeaderText;
+                html += ListTemplate({ results: Data });
 
             }
         }
@@ -283,46 +286,52 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         return html;
     }
 
-    ajaxCallonSector = function() {
+    ajaxCallonSector = function () {
         var SectorBtn = jQuery('.btn-plus');
 
-        SectorBtn.on('click', function() {
+        SectorBtn.on('click', function () {
             var sectorId = jQuery(this).data('fetch');
             var FieldArray = AnalystSearch.find("form").serializeArray(),
                 GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray)),
                 _Object = JSON.parse(GetSerializeData);
-                _Object.SectorID = sectorId;
-                for(var key in _Object) {
-                    if(_Object[key] == "default") {
-                        _Object[key] = null;
-                    }
+            _Object.SectorID = sectorId;
+            for (var key in _Object) {
+                if (_Object[key] == "default") {
+                    _Object[key] = null;
                 }
-            GetAjaxData(Urls.AnalystSearchAll, "Get", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
+            }
+            if (!jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').hasClass('showLess')) {
+                GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
+            } else {
+                jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').slideUp();
+                jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').remove();
+                jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').removeClass('showLess');
+            }
 
-            
+
         })
     },
 
-    GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
-            INFORMA.DataLoader.GetServiceData(url, {
-                method: method,
-                data: data,
-                success_callback: function(data) {
-                    if (typeof SCallback === "function") {
-                        SCallback.call(this, data, SearchType);
-                    }
-                },
-                error_callback: function() {
-                    if (typeof Errcallback === "function") {
-                        Errcallback.call(this, data, SearchType);
-                    }
+    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.DataLoader.GetServiceData(url, {
+            method: method,
+            data: JSON.stringify({ data: data }),
+            success_callback: function (data) {
+                if (typeof SCallback === "function") {
+                    SCallback.call(this, data, SearchType);
                 }
-            });
-        },
+            },
+            error_callback: function () {
+                if (typeof Errcallback === "function") {
+                    Errcallback.call(this, data, SearchType);
+                }
+            }
+        });
+    },
 
-    init = function() {
+    init = function () {
         //alert('hi');
-        if(AnalystSearch.length > 0) {
+        if (AnalystSearch.length > 0) {
             EventsFunctions();
             ajaxCallonSector();
         }
@@ -1433,7 +1442,8 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            _autoplay = container.data('autorotate'),
            _speed = container.data('transitionspeed'), // speed of transition
            _duration = container.data('slideduration'), // how long the slider will be dis
-           _infinite = true;
+           _infinite = true,
+           _dots = Boolean(container.data('dots'));
 
      //chk for sitecore preview
       if(INFORMA.global.siteCore.isPreview) {
@@ -1451,7 +1461,8 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            slidesToShow: _slideCount,
            slidesToScroll: _slideCount,
            speed: _speed,
-           dots: true
+           dots: _dots,
+           rtl: false
        });
     }
 
@@ -1956,16 +1967,13 @@ INFORMA.sectorList = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.view-all-sectors-btn');
         _showMore.on('click',function(){
-            var _vp = INFORMA.global.device.viewportN;
-            if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
               $('.sector-list .container > .row + .row >.text-center:nth-child(n+3)').show();
               $('.sector-list .view-all-sectors-btn-container').hide();
-            }
         });
     }
 
     init = function() {
-              if (_sectorList.length > 0) {
+        if (_sectorList.length > 0) {
             _bindShowMore(_sectorList);
         }
     };

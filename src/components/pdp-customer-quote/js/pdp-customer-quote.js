@@ -27,8 +27,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            _speed = container.data('transitionspeed'), // speed of transition
            _duration = container.data('slideduration'), // how long the slider will be dis
            _infinite = true,
-           _dots = Boolean(container.data('dots'))
-           _rtl = Boolean(container.data('rtl'));
+           _dots = Boolean(container.data('dots'));
 
      //chk for sitecore preview
       if(INFORMA.global.siteCore.isPreview) {
@@ -47,7 +46,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            slidesToScroll: _slideCount,
            speed: _speed,
            dots: _dots,
-           rtl: _rtl
+           rtl: false
        });
     }
 
