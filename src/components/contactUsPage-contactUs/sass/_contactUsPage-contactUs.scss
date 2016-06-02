@@ -60,6 +60,9 @@
     .contact-descrip{
       font-family: Fsme-bold;
       padding-right: 110px;
+      @include mobile {
+        padding-right: 10px;
+      }
     }
     .contact-number-title{
       margin-top: 20px;
