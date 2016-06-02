@@ -19,6 +19,9 @@ INFORMA.formComponents = (function(window, $, namespace) {
                 if (element.attr('type') === 'select') {          
                     error.insertAfter(element.closest('.chosen-container'));        
                 }
+                else{
+                  error.insertAfter(element);        
+                }
             }
         });
         $('#requestTrial').validate({
@@ -33,7 +36,7 @@ INFORMA.formComponents = (function(window, $, namespace) {
                 }
             },
             submitHandler: function(){
-              alert(1);
+              console.log("Form Submit")
             }
         });
     }

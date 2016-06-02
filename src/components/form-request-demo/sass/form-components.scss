@@ -1,4 +1,4 @@
-#formComponentModal.modal{
+#formComponentModal.modal {
     .modal-dialog {
         width: auto;
         margin: 0;
@@ -86,6 +86,7 @@ form.elq-form {
         font-size: 16px;
         font-weight: normal;
         margin-top: 5px;
+        margin-bottom: 10px;
     }
     input.form-control {
         border-radius: 0;
@@ -200,7 +201,7 @@ form.elq-form {
         content: "\e914";
         visibility: visible;
         font-family: 'InformaIcons';
-        color: #ffd600;
+        color: $brand-secondary;
         font-size: 24px;
         margin-top: 15px;
         margin-left: -5px;
@@ -279,5 +280,27 @@ form.elq-form {
         font-size: 30px;
         content: "\e920";
         color: $brand-primary;
+    }
+}
+.form-submit-response {
+    font-family: "FSMe-Light";
+    display: none;
+    .icon-tick {
+        margin-right: 15px;
+        &::before {
+            content: "\e914";
+            visibility: visible;
+            font-family: 'InformaIcons';
+            color: $brand-secondary;
+            font-size: 24px;
+            margin-top: 15px;
+            margin-left: -5px;
+        }
+    }
+    .heading {
+        font-size: 40px;
+    }
+    .description {
+        font-size: 24px;
     }
 }

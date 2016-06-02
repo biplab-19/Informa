@@ -737,25 +737,38 @@ section#hero-banner .analyst-single-image .image-margin {
   background-color: #fff;
   margin-top: 15px;
   margin-bottom: 15px;
+  overflow: hidden;
 }
-/* line 10, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 11, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .image-thumbnail {
-  height: 225px;
-  -webkit-clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
-  -moz-clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
-  clip-path: polygon(100% 0, 100% 90%, 0 100%, 0 100%, 0 0);
+  overflow: hidden;
+  position: relative;
 }
-/* line 16, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 15, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .image-thumbnail img {
   width: 100%;
 }
 @media (max-width: 767px) {
-  /* line 10, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 11, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .card .image-thumbnail {
     height: auto;
   }
 }
-/* line 23, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 21, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .card .image-thumbnail:after {
+  content: '';
+  width: 110%;
+  height: 100%;
+  background-color: #fff;
+  position: absolute;
+  -ms-transform: rotate(-5deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-5deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-5deg);
+  top: calc(100% - 33px);
+}
+/* line 34, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption {
   padding: 15px;
   word-wrap: break-word;
@@ -763,33 +776,48 @@ section#hero-banner .analyst-single-image .image-margin {
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 23, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 34, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .card .caption {
     height: auto;
   }
 }
-/* line 32, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 43, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption h2 {
   color: #6a7285;
   font-family: FSMe;
 }
-/* line 36, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 47, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption h2::after {
   content: url("/Static/cms-images/product-icon.png");
   padding-left: 5px;
 }
-/* line 40, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 51, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption p {
   padding-top: 15px;
 }
-/* line 44, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 55, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore {
-  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 20%);
-  -moz-clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 20%);
-  clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 100%, 0 20%);
   min-height: 90px;
+  overflow: hidden;
+  position: relative;
+  padding: 60px 0;
 }
-/* line 50, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 62, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .card .showmore:before {
+  content: '';
+  position: absolute;
+  width: 110%;
+  top: calc(-100% + 33px);
+  left: -10px;
+  background-color: #fff;
+  -ms-transform: rotate(-5deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-5deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(-5deg);
+  height: 100%;
+}
+/* line 74, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore .btn-container {
   width: 165px;
   position: absolute;
@@ -797,40 +825,40 @@ section#hero-banner .analyst-single-image .image-margin {
   right: 15px;
   float: right;
 }
-/* line 59, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 83, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .view-all-mobile-container {
   display: none;
 }
-/* line 63, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 87, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .show-more-btn-container .btn {
   width: 20%;
 }
 @media (max-width: 767px) {
-  /* line 68, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 92, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(1) {
     display: block;
   }
-  /* line 71, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 95, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(2) {
     display: block;
   }
-  /* line 74, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 98, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 77, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 101, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 80, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 104, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col:nth-child(n+5) {
     display: none;
   }
-  /* line 84, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 108, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .show-more-btn-container .btn {
     width: 50%;
   }
-  /* line 88, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 112, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .view-all-mobile-container {
     display: block;
     color: #fff;
@@ -840,12 +868,12 @@ section#hero-banner .analyst-single-image .image-margin {
     padding: 5px;
     cursor: pointer;
   }
-  /* line 97, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 121, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .informa-icon {
     font-size: 30px;
     color: #ffd600;
   }
-  /* line 101, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 125, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .btn-container {
     width: 100%;
     margin: 0 auto;
@@ -1907,7 +1935,7 @@ section#customer-quote #customer-quote-slider .customer-quote-slide > div {
   }
 }
 /* line 55, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
-section#customer-quote #customer-quote-slider .customer-quote-slide em {
+section#customer-quote #customer-quote-slider .customer-quote-slide .saying {
   font-size: 18px;
   font-family: FSMe-Light;
   font-style: normal;
@@ -1916,7 +1944,7 @@ section#customer-quote #customer-quote-slider .customer-quote-slide em {
 }
 @media (max-width: 767px) {
   /* line 55, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
-  section#customer-quote #customer-quote-slider .customer-quote-slide em {
+  section#customer-quote #customer-quote-slider .customer-quote-slide .saying {
     font-size: 16px;
   }
 }
@@ -2324,11 +2352,23 @@ nav#pdp-navigation .menuFollower {
   font-family: 'InformaIcons';
   left: 0;
 }
-/* line 26, ../../../src/components/home-social/sass/_home-social.scss */
+@media (max-width: 767px) {
+  /* line 12, ../../../src/components/home-social/sass/_home-social.scss */
+  #social-section h1 {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 27, ../../../src/components/home-social/sass/_home-social.scss */
+  #social-section .slick-slider {
+    margin-bottom: 10px;
+  }
+}
+/* line 34, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-active .feed {
   margin-left: 1px;
 }
-/* line 28, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 36, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-active .feed:before, #social-section .twitter-carousel .slick-active .feed:after {
   content: '';
   height: 100%;
@@ -2339,25 +2379,25 @@ nav#pdp-navigation .menuFollower {
   top: 0;
 }
 @media (max-width: 767px) {
-  /* line 28, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 36, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-active .feed:before, #social-section .twitter-carousel .slick-active .feed:after {
     left: 3px;
   }
 }
-/* line 40, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 48, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-active .feed:after {
   left: calc(100% - 3px);
 }
-/* line 45, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 53, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel {
   background-color: transparent;
   margin-bottom: 0;
 }
-/* line 48, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 56, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel p {
   font-size: 14px;
 }
-/* line 51, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 59, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed {
   padding: 0 15px;
   min-height: 350px;
@@ -2366,71 +2406,72 @@ nav#pdp-navigation .menuFollower {
   border-left: 1px solid #6a7184;
 }
 @media (max-width: 767px) {
-  /* line 51, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 59, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .panel .feed {
     min-height: auto;
+    border-left: none;
   }
 }
-/* line 61, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 70, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twit-img {
   margin-bottom: 20px;
 }
-/* line 65, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 74, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twittedby:before {
   content: '@';
 }
-/* line 69, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 78, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .video-wrap {
   display: inline-block;
   position: relative;
 }
-/* line 73, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 82, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .feed-heading {
   margin-bottom: 10px;
 }
-/* line 75, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 84, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .feed-heading span {
   margin-right: 10px;
   font-size: 14px;
   color: #8f939e;
 }
-/* line 81, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 90, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed a {
   color: #ef7c00;
 }
-/* line 85, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 94, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .message {
   color: #e1e2e7;
   font-size: 18px;
 }
-/* line 90, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 99, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots {
   text-align: center;
   width: 100%;
   bottom: -40px;
 }
 @media (max-width: 767px) {
-  /* line 90, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 99, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel ul.slick-dots {
     position: static;
   }
 }
-/* line 97, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 106, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background: #6a7285;
 }
-/* line 102, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 111, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li button:before {
   content: '';
 }
-/* line 105, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 114, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 110, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 119, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow {
   height: 60px;
   width: 40px;
@@ -2439,7 +2480,7 @@ nav#pdp-navigation .menuFollower {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 110, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 119, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 20px;
@@ -2448,7 +2489,7 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 110, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 119, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 25px;
@@ -2456,7 +2497,7 @@ nav#pdp-navigation .menuFollower {
     margin-left: -25px;
   }
 }
-/* line 128, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 137, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -2468,7 +2509,7 @@ nav#pdp-navigation .menuFollower {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 128, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 137, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -2476,52 +2517,52 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 128, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 137, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 149, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 158, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next {
   left: 100%;
   margin-left: 0;
 }
 @media (max-width: 767px) {
-  /* line 149, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 158, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-next {
     left: calc(100% - 10px);
   }
 }
-/* line 155, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 164, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next:before {
   content: "\e902";
 }
-/* line 159, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 168, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev {
   left: 0%;
   margin-left: -40px;
 }
 @media (max-width: 767px) {
-  /* line 159, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 168, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     left: 10px;
   }
 }
 @media (max-width: 767px) {
-  /* line 159, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 168, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 159, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 168, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -25px;
   }
 }
-/* line 171, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 180, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev:before {
   content: "\e903";
 }
@@ -3085,32 +3126,119 @@ section#training-section .training-material .video-container h3 {
   color: black;
   font-weight: bold;
 }
-/* line 32, ../../../src/components/training-material/sass/_training-material.scss */
-section#training-section .training-material ul.slick-dots {
-  text-align: center;
-  width: 100%;
-  bottom: -40px;
+/* line 33, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists .slick-list {
+  border-right: none;
+}
+/* line 36, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists .slick-arrow {
+  height: 60px;
+  width: 40px;
+  z-index: 1;
+  background-color: #ffd500;
+  top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 32, ../../../src/components/training-material/sass/_training-material.scss */
-  section#training-section .training-material ul.slick-dots {
-    position: static;
+  /* line 36, ../../../src/components/training-material/sass/_training-material.scss */
+  section#training-section .training-material .carousel-lists .slick-arrow {
+    height: 40px;
+    width: 20px;
+    margin-top: -20px;
+    margin-left: -20px;
   }
 }
-/* line 39, ../../../src/components/training-material/sass/_training-material.scss */
-section#training-section .training-material ul.slick-dots li {
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 36, ../../../src/components/training-material/sass/_training-material.scss */
+  section#training-section .training-material .carousel-lists .slick-arrow {
+    height: 40px;
+    width: 25px;
+    margin-top: -20px;
+    margin-left: -25px;
+  }
+}
+/* line 54, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists .slick-arrow:before {
+  font-family: 'InformaIcons';
+  position: absolute;
+  font-size: 26px;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  margin-top: -13px;
+  margin-left: -13px;
+}
+@media (max-width: 767px) {
+  /* line 54, ../../../src/components/training-material/sass/_training-material.scss */
+  section#training-section .training-material .carousel-lists .slick-arrow:before {
+    font-size: 14px;
+    margin-top: -7px;
+    margin-left: -7px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 54, ../../../src/components/training-material/sass/_training-material.scss */
+  section#training-section .training-material .carousel-lists .slick-arrow:before {
+    font-size: 16px;
+    margin-top: -8px;
+    margin-left: -8px;
+  }
+}
+/* line 75, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists .slick-next {
+  left: 94%;
+  margin-left: 0;
+  top: 140px;
+}
+/* line 79, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists .slick-next:before {
+  content: "\e902";
+}
+/* line 83, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists .slick-prev {
+  left: 6%;
+  top: 140px;
+}
+@media (max-width: 767px) {
+  /* line 83, ../../../src/components/training-material/sass/_training-material.scss */
+  section#training-section .training-material .carousel-lists .slick-prev {
+    margin-left: -20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 83, ../../../src/components/training-material/sass/_training-material.scss */
+  section#training-section .training-material .carousel-lists .slick-prev {
+    margin-left: -25px;
+  }
+}
+/* line 92, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists .slick-prev:before {
+  content: "\e903";
+}
+/* line 96, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists ul.slick-dots {
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  position: relative;
+  z-index: 2;
+  margin: 15px 0;
+}
+/* line 103, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
-  background: #6a7285;
+  border: none;
+  background: #888e9f;
+  padding: 0;
 }
-/* line 44, ../../../src/components/training-material/sass/_training-material.scss */
-section#training-section .training-material ul.slick-dots li button:before {
-  content: '';
-}
-/* line 47, ../../../src/components/training-material/sass/_training-material.scss */
-section#training-section .training-material ul.slick-dots li.slick-active {
+/* line 110, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists ul.slick-dots li.slick-active {
   background: #ffd500;
+}
+/* line 113, ../../../src/components/training-material/sass/_training-material.scss */
+section#training-section .training-material .carousel-lists ul.slick-dots li button {
+  display: none;
 }
 
 /* line 1, ../../../src/components/about-us-description/sass/_about-us-description.scss */
@@ -3638,27 +3766,28 @@ form.elq-form label {
   font-size: 16px;
   font-weight: normal;
   margin-top: 5px;
+  margin-bottom: 10px;
 }
-/* line 90, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 91, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form input.form-control {
   border-radius: 0;
   height: 50px;
   background-color: #e1e3e7;
 }
-/* line 95, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 96, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form textarea.form-control {
   border-radius: 0;
   background-color: #e1e3e7;
 }
-/* line 99, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 100, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .disabled {
   opacity: 0.6;
 }
-/* line 102, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 103, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .textbox {
   background-color: #fff;
 }
-/* line 104, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 105, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .textbox input {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -3669,12 +3798,12 @@ form.elq-form .textbox input {
   font-weight: 400;
   width: 100%;
 }
-/* line 114, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 115, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .textbox label {
   margin-bottom: 0;
   width: 100%;
 }
-/* line 119, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 120, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form label.label {
   font-family: FSMe-Light;
   font-size: 1em;
@@ -3682,13 +3811,13 @@ form.elq-form label.label {
   padding: 0;
   margin-top: 5px;
 }
-/* line 126, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 127, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form :not(.lt-ie9) {
   /* HTML5 Boilerplate accessible hidden styles */
   /* the basic, unchecked style */
   /* the checked style using the :checked pseudo class */
 }
-/* line 128, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 129, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form :not(.lt-ie9) .custom-radio input {
   border: 0;
   clip: rect(0 0 0 0);
@@ -3699,7 +3828,7 @@ form.elq-form :not(.lt-ie9) .custom-radio input {
   position: absolute;
   width: 1px;
 }
-/* line 139, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 140, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form :not(.lt-ie9) .custom-radio input + span::before {
   content: '';
   display: inline-block;
@@ -3714,11 +3843,11 @@ form.elq-form :not(.lt-ie9) .custom-radio input + span::before {
   position: relative;
   top: -2px;
 }
-/* line 154, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 155, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form :not(.lt-ie9) .custom-radio input:checked + span::before {
   background: #f07d00;
 }
-/* line 158, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 159, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .checkbox-container input {
   display: none;
   width: 0;
@@ -3726,26 +3855,26 @@ form.elq-form .checkbox-container input {
   border-radius: 50px;
   background-color: #ffd500;
 }
-/* line 165, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 166, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .checkbox-container .checkbox-label {
   height: 100px;
   background-color: #e1e3e7;
   display: block;
   padding: 10px;
 }
-/* line 171, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 172, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .checkbox-container input:checked + .checkbox-label {
   width: 100%;
   border: #ffd600 2px solid;
   background-color: #444957;
   color: #fff;
 }
-/* line 177, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 178, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .checkbox-container .checkbox {
   display: block;
   background-color: #ffd500;
 }
-/* line 181, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 182, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .checkbox-container {
   position: relative;
   width: 100%;
@@ -3754,19 +3883,19 @@ form.elq-form .checkbox-container {
   color: #6a7287;
   margin-top: 10px;
 }
-/* line 189, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 190, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .checkbox-container .checkbox {
   position: absolute;
   bottom: 30px;
   right: 30px;
 }
-/* line 194, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 195, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .checkbox-container input[type=checkbox]:after {
   content: " ";
   display: inline-block;
   visibility: hidden;
 }
-/* line 199, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 200, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .checkbox-container input[type=checkbox]:checked:after {
   content: "\e914";
   visibility: visible;
@@ -3776,45 +3905,45 @@ form.elq-form .checkbox-container input[type=checkbox]:checked:after {
   margin-top: 15px;
   margin-left: -5px;
 }
-/* line 208, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 209, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-container,
 form.elq-form .chosen-single {
   height: 50px;
   border-radius: 0;
   background-color: #e1e3e7;
 }
-/* line 213, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 214, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-container span,
 form.elq-form .chosen-single span {
   margin-top: 6px;
   font-size: 14px;
 }
-/* line 218, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 219, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-container-single .chosen-drop {
   background-color: #e1e3e7;
   font-size: 14px;
 }
-/* line 222, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 223, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-container .chosen-results {
   border-radius: 0;
 }
-/* line 225, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 226, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-container .chosen-results li.active-result {
   font-size: 14px;
 }
-/* line 228, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 229, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-drop {
   border-radius: none;
 }
-/* line 231, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 232, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-single {
   border: none;
 }
-/* line 234, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 235, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-container-single .chosen-single div b {
   display: none;
 }
-/* line 237, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 238, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-container-single .chosen-single div:after {
   top: 50%;
   margin-top: -20px;
@@ -3824,35 +3953,35 @@ form.elq-form .chosen-container-single .chosen-single div:after {
   margin-left: -10px;
   font-size: 16px;
 }
-/* line 246, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 247, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-container .chosen-results li {
   padding: 10px 6px;
 }
-/* line 249, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 250, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .chosen-container .chosen-results li.highlighted {
   background-color: #ffd600;
   color: #6a7287;
 }
-/* line 253, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 254, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .error {
   color: #ffd600;
   font-size: 14px;
 }
-/* line 257, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 258, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form input:focus,
 form.elq-form textarea:focus {
   outline: none !important;
   border: 2px solid #ffd600;
 }
-/* line 263, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 264, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .right-inner {
   position: relative;
 }
-/* line 266, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 267, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .right-inner input {
   padding-right: 30px;
 }
-/* line 269, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 270, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .right-inner i {
   position: absolute;
   right: 30px;
@@ -3860,13 +3989,41 @@ form.elq-form .right-inner i {
   padding: 10px 12px;
   pointer-events: none;
 }
-/* line 276, ../../../src/components/form-request-demo/sass/form-components.scss */
+/* line 277, ../../../src/components/form-request-demo/sass/form-components.scss */
 form.elq-form .icon-calender:before {
   font-family: 'InformaIcons';
   position: absolute;
   font-size: 30px;
   content: "\e920";
   color: #ef7c00;
+}
+
+/* line 285, ../../../src/components/form-request-demo/sass/form-components.scss */
+.form-submit-response {
+  font-family: "FSMe-Light";
+  display: none;
+}
+/* line 288, ../../../src/components/form-request-demo/sass/form-components.scss */
+.form-submit-response .icon-tick {
+  margin-right: 15px;
+}
+/* line 290, ../../../src/components/form-request-demo/sass/form-components.scss */
+.form-submit-response .icon-tick::before {
+  content: "\e914";
+  visibility: visible;
+  font-family: 'InformaIcons';
+  color: #ffd600;
+  font-size: 24px;
+  margin-top: 15px;
+  margin-left: -5px;
+}
+/* line 300, ../../../src/components/form-request-demo/sass/form-components.scss */
+.form-submit-response .heading {
+  font-size: 40px;
+}
+/* line 303, ../../../src/components/form-request-demo/sass/form-components.scss */
+.form-submit-response .description {
+  font-size: 24px;
 }
 
 /* calendar style here */
