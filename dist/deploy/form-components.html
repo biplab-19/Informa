@@ -164,15 +164,15 @@
 </header>
 
 
-   <section id="requestDemo">
+   <section id="formComponent">
     <div class="request-demo-btn-container">
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#requestDemoModal">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#formComponentModal">
             Form Components
         </button>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="requestDemoModal" tabindex="-1" role="dialog" aria-labelledby="requestDemoModalLabel">
+    <div class="modal fade" id="formComponentModal" tabindex="-1" role="dialog" aria-labelledby="formComponentModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -182,8 +182,8 @@
 
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <h1 class="modal-title" id="requestDemoModalLabel">Request a demo for Informa Economics IEG</h1>
-                            <form method="post" name="Request a demo for Informa Economics IEG" action="#" onsubmit="#" id="Request a demo for Informa Economics IEG" class="elq-form">
+                            <h1 class="modal-title" id="requestTrialHeader">Request a demo for Informa Economics IEG</h1>
+                            <form role="form" method="post" action="#" onsubmit="#" id="requestTrial" name="requestTrial" class="elq-form">
                                 
                                     
 
@@ -206,30 +206,40 @@
                                                 </div>
                                             
                                             <div class="row">
-                                              
-                                              
+                                                
+                                                
 
+                                                    
+                                                        <div class="col-md-6">
+                                                            <label for="" class="top">First Name</label>
+                                                            
+                                                            
+                                                            
+                                                                <input type="text" name="firstName" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                        </div>
+                                                    
+                                                        <div class="col-md-6">
+                                                            <label for="" class="top">Surname</label>
+                                                            
+                                                            
+                                                            
+                                                                <input type="text" name="lastName" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                        </div>
+                                                    
                                                 
-                                                <div class="col-md-6">
-                                                    <label for="createdFromContactFieldId" class="top">First Name</label>
-                                                    
-                                                    
-                                                    
-                                                    <input type="text" name="firstName" class="form-control" id="createdFromContactFieldId">
-                                                    
-                                                </div>
                                                 
-                                                <div class="col-md-6">
-                                                    <label for="createdFromContactFieldId" class="top">Surname</label>
-                                                    
-                                                    
-                                                    
-                                                    <input type="text" name="lastName" class="form-control" id="createdFromContactFieldId">
-                                                    
-                                                </div>
-                                                
-                                              
-                                              
                                             </div>
                                         </div>
                                     
@@ -254,9 +264,14 @@
                                                 
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <label for="createdFromContactFieldId" class="top">Enter your company</label>
-                                                        <input type="text" name="company" class="form-control" id="createdFromContactFieldId" >
-                                                    </div>
+                                                        <label for="100004" class="top">Enter your company</label>
+                                                          <input type="text" name="company" class="form-control" id="100004" value=""
+                                                        
+                                                           data-rule-required="true" 
+                                                           data-msg-required="This field is required" 
+                                                          
+                                                         />
+                                                      </div>
                                                 </div>
                                             </div>
                                         
@@ -302,30 +317,46 @@
                                                 </div>
                                             
                                             <div class="row">
-                                              
-                                              
+                                                
+                                                
 
+                                                    
+                                                        <div class="col-md-6">
+                                                            <label for="" class="top">Email address</label>
+                                                            
+                                                            
+                                                            
+                                                                <input type="text" name="customFieldOne" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="A valid email address is required" 
+                                                                  
+                                                                    data-msg-email="A valid email address is required" data-rule-email="true"
+                                                                  
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                        </div>
+                                                    
+                                                        <div class="col-md-6">
+                                                            <label for="" class="top">Phone number</label>
+                                                            
+                                                            
+                                                            
+                                                                <input type="text" name="customFieldTwo" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                        </div>
+                                                    
                                                 
-                                                <div class="col-md-6">
-                                                    <label for="createdFromContactFieldId" class="top">Email address</label>
-                                                    
-                                                    
-                                                    
-                                                    <input type="text" name="customFieldOne" class="form-control" id="createdFromContactFieldId">
-                                                    
-                                                </div>
                                                 
-                                                <div class="col-md-6">
-                                                    <label for="createdFromContactFieldId" class="top">Phone number</label>
-                                                    
-                                                    
-                                                    
-                                                    <input type="text" name="customFieldTwo" class="form-control" id="createdFromContactFieldId">
-                                                    
-                                                </div>
-                                                
-                                              
-                                              
                                             </div>
                                         </div>
                                     
@@ -357,46 +388,113 @@
                                                 </div>
                                             
                                             <div class="row">
-                                              
-                                              
-                                              
                                                 
-                                                <div class="col-md-4">
-                                                    <label for="createdFromContactFieldId" class="top">Date</label>
-                                                    
-                                                    
-                                                    
-                                                    <input type="text" name="date" class="form-control" id="createdFromContactFieldId">
-                                                    
-                                                </div>
                                                 
-                                                <div class="col-md-4">
-                                                    <label for="createdFromContactFieldId" class="top">Time Zone</label>
-                                                    
-                                                    
-                                                    <div class="selectMenu">
-                                                        <select id="createdFromContactFieldId" class="chosen-select">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
-                                                    
-                                                    
-                                                </div>
                                                 
-                                                <div class="col-md-4">
-                                                    <label for="createdFromContactFieldId" class="top">Time</label>
                                                     
+                                                        <div class="col-md-4">
+                                                            <label for="" class="top">Date</label>
+                                                            
+                                                            <div class="right-inner">
+                                                              <i class="icon-calender"></i>
+                                                                <input type="text" name="date" class="form-control date-picker" id="" value=""
+                                                                  
+                                                                     data-rule-required="true" 
+                                                                     data-msg-required="Value must be a valid date (MM/DD/YY or MM/DD/YYYY)" 
+                                                                    
+                                                                  
+                                                                     data-rule-required="true" 
+                                                                     data-msg-required="This field is required" 
+                                                                    
+                                                                   />
+                                                            </div>
+                                                            
+                                                            
+                                                            <!-- 
+                                                            
+                                                                <input type="text" name="date" class="form-control" id="" value=""
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="Value must be a valid date (MM/DD/YY or MM/DD/YYYY)" 
+                                                                  
+                                                                
+                                                                   data-rule-required="true" 
+                                                                   data-msg-required="This field is required" 
+                                                                  
+                                                                 />
+                                                            
+                                                             -->
+                                                        </div>
                                                     
-                                                    <div class="selectMenu">
-                                                        <select id="createdFromContactFieldId" class="chosen-select">
-                                                            <option value=""></option>
-                                                        </select>
-                                                    </div>
+                                                        <div class="col-md-4">
+                                                            <label for="" class="top">Time Zone</label>
+                                                            
+                                                            
+                                                                <div class="selectMenu">
+                                                                    <select id="" class="chosen-select"
+                                                                    
+                                                                      
+                                                                         data-rule-required="true"
+                                                                      
+                                                                       
+                                                                       data-msg-required="This field is required" 
+                                                                     >
+
+                                                                      
+                                                                        <option value="(UTC) Dublin, Edinburgh, Lisbon, London">GMT Standard Time</option>
+                                                                      
+                                                                        <option value="(UTC) Monrovia, Reykjavik">Greenwich Standard Time</option>
+                                                                      
+                                                                        <option value="(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna">W. Europe Standard Time</option>
+                                                                       >
+
+                                                                    </select>
+                                                                </div>
+                                                            
+                                                            <!--  -->
+                                                        </div>
                                                     
+                                                        <div class="col-md-4">
+                                                            <label for="" class="top">Time</label>
+                                                            
+                                                            
+                                                                <div class="selectMenu">
+                                                                    <select id="" class="chosen-select"
+                                                                    
+                                                                      
+                                                                         data-rule-required="true"
+                                                                      
+                                                                       
+                                                                       data-msg-required="This field is required" 
+                                                                     >
+
+                                                                      
+                                                                        <option value="9:00 AM">9:00 AM</option>
+                                                                      
+                                                                        <option value="10:00 AM">10:00 AM</option>
+                                                                      
+                                                                        <option value="11:00 AM">11:00 AM</option>
+                                                                      
+                                                                        <option value="12:00 PM">12:00 PM</option>
+                                                                      
+                                                                        <option value="1:00 PM">1:00 PM</option>
+                                                                      
+                                                                        <option value="2:00 PM">2:00 PM</option>
+                                                                      
+                                                                        <option value="3:00 PM">3:00 PM</option>
+                                                                      
+                                                                        <option value="4:00 PM">4:00 PM</option>
+                                                                      
+                                                                        <option value="5:00 PM">5:00 PM</option>
+                                                                       >
+
+                                                                    </select>
+                                                                </div>
+                                                            
+                                                            <!--  -->
+                                                        </div>
                                                     
-                                                </div>
                                                 
-                                              
                                             </div>
                                         </div>
                                     

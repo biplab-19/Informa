@@ -1,4 +1,4 @@
-/*! 2016-06-01 */_adjustHeigt = function(){
+/*! 2016-06-02 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -140,8 +140,9 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         productAnalystResults = $('.product-analyst-results'),
     	Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
+        _template = "",
     //methods
-    init, GetAjaxData, RenderSearchResult, EventsFunctions, equalHeight, RenderChangeResult;
+    init, GetAjaxData, RenderSearchResult, EventsFunctions, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults;
 
     equalHeight = function() {
         var EachView = jQuery('.analyst-views');
@@ -159,11 +160,35 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             })
     }
 
+    RenderAllSubSectorResults = function(data, sectorId) {
+        var results = data.ModelItem, 
+            html = "";
+
+        for (var key in results) {
+            if (results.hasOwnProperty(key)) {
+                var Data = results[key],
+                    HeaderText = key,
+                    TemplateName = (Templates.AnalystListTemplate !== "undefined") ? Templates.AnalystListTemplate : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    Data.header = HeaderText;
+                    html+= ListTemplate({ results: Data });
+
+            }
+        }
+
+        jQuery('a[data-fetch="'+sectorId+'"]').parents('.analyst-views').find('.analyst-items').html(html);
+
+        jQuery('a[data-fetch="'+sectorId+'"]').parents('.analyst-views').toggleClass('showLess');
+
+        jQuery('a[data-fetch="'+sectorId+'"]').parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').slideToggle();
+        return html;
+    }
+
     EventsFunctions = function() {
         txtField.on('keyup', function() {
-        	var calcLength = jQuery(this).val().length;
-
-        	if(calcLength > 3) {
+        	var calcLength = jQuery(this).val().length,
+                SectorValue = Sector.val();
+        	if(calcLength >= 3 || SectorValue != 'All') {
         		submitBtn.removeClass('disabled');
         	} else {
         		submitBtn.addClass('disabled');
@@ -171,38 +196,45 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         })
 
         Sector.chosen().on('change', function() {
-        	var _value = jQuery(this).val();
-        	if(_value === 'All') {
-        		SubSector.parents('.sub-sector').addClass('disabled');
-        		submitBtn.addClass('disabled');
-                SubSector.parents('.form-group').find('label').html('By All');
-        	} else {
-        		SubSector.parents('.sub-sector').removeClass('disabled');
-        		submitBtn.removeClass('disabled');
-                SubSector.parents('.form-group').find('label').html('By '+_value);
-        	}
-            SubSector.empty();
-            var newOption = ['<option value="1">test</option>'];
-              GetAjaxData(Urls.AnalystSearchDropDown, "Get", null, RenderChangeResult, null);
-              INFORMA.Spinner.Show(SubSector);
-              SubSector.trigger("chosen:updated");
+        	var _value = jQuery(this).val(),
+                _text = jQuery(this).find("option:selected").text(),
+                _txtField = txtField.val().length;
+            if (_value === 'All' || _txtField < 3) {
+                SubSector.parents('.sub-sector').addClass('disabled');
+                submitBtn.addClass('disabled');
+                SubSector.parents('.form-group').find('label').html('By Sub-Sector');
+            } else {
+                SubSector.parents('.sub-sector').removeClass('disabled');
+                submitBtn.removeClass('disabled');
+                SubSector.parents('.form-group').find('label').html('By ' + _text);
+            }
+
+            GetAjaxData(Urls.AnalystSearchDropDown, "Get", _value, RenderChangeResult, null, null);
+            INFORMA.Spinner.Show(SubSector);
+            SubSector.trigger("chosen:updated");
 
         })
 
         submitBtn.on('click', function() {
-            var FieldArray = AnalystSearch.find("form").serializeArray(),
-                GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-            INFORMA.Spinner.Show($("body"));
-        	GetAjaxData(Urls.AnalystSearch, "Get", GetSerializeData, RenderSearchResult, null);
+            var FieldArray = AnalystSearch.find("form").serializeArray();
+            for(var key in FieldArray) {
+                if(FieldArray[key].value == "default") {
+                    FieldArray[key].value = null;
+                }
+            }
+            var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
+        	GetAjaxData(Urls.AnalystSearch, "Get", GetSerializeData, RenderSearchResult, null, null);
         })
     }
 
-    RenderChangeResult = function(data) {
-        var html = "",
-            options = data.options;
+    RenderChangeResult = function (data) {
+        var defaultValue = jQuery(SubSector.find('option')[0]);
+        SubSector.empty();
 
-        for(var key in data.options) {
-            html += '<option value='+data.options[key].value+'>'+data.options[key].name+'</option>';
+        var html = '<option value=' + defaultValue.val() + '>' + defaultValue.text() + '</option>';
+
+        for (var key in data) {
+            html += '<option value=' + data[key].Value + '>' + data[key].Text + '</option>';
         }
         SubSector.html(html);
         SubSector.trigger("chosen:updated");
@@ -210,7 +242,28 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
 
     RenderSearchResult = function(data) {
         //INFORMA.SearchResults.RenderSearchResults(data);
-        console.log(data);
+        INFORMA.Spinner.Show($("body"));
+        var results = data.SearchDictionary,
+            html = "";
+
+        for (var key in results) {
+            if (results.hasOwnProperty(key)) {
+                var Data = results[key],
+                    HeaderText = key,
+                    TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    Data.header = HeaderText;
+                    html+= ListTemplate({ results: Data });
+
+            }
+        }
+        productAnalystResults.html(html);
+        equalHeight();
+        ajaxCallonSector();
+        return html;
+    }
+
+    AppendSearchResult = function(data) {
         var results = data.SearchDictionary,
             html = "";
 
@@ -230,18 +283,38 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         return html;
     }
 
-    GetAjaxData = function(url, method, data, SCallback, Errcallback) {
+    ajaxCallonSector = function() {
+        var SectorBtn = jQuery('.btn-plus');
+
+        SectorBtn.on('click', function() {
+            var sectorId = jQuery(this).data('fetch');
+            var FieldArray = AnalystSearch.find("form").serializeArray(),
+                GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray)),
+                _Object = JSON.parse(GetSerializeData);
+                _Object.SectorID = sectorId;
+                for(var key in _Object) {
+                    if(_Object[key] == "default") {
+                        _Object[key] = null;
+                    }
+                }
+            GetAjaxData(Urls.AnalystSearchAll, "Get", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
+
+            
+        })
+    },
+
+    GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
-                data: JSON.stringify(data),
+                data: data,
                 success_callback: function(data) {
                     if (typeof SCallback === "function") {
-                        SCallback.call(this, data);
+                        SCallback.call(this, data, SearchType);
                     }
                 },
                 error_callback: function() {
                     if (typeof Errcallback === "function") {
-                        Errcallback.call(this, data);
+                        Errcallback.call(this, data, SearchType);
                     }
                 }
             });
@@ -251,6 +324,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         //alert('hi');
         if(AnalystSearch.length > 0) {
             EventsFunctions();
+            ajaxCallonSector();
         }
     };
 
@@ -569,8 +643,8 @@ jQuery(INFORMA.featureList.init());
 		_this.init = function () {
 			var tpl = '<table class="cal">' +
 			'<caption>' +
-			'	<span class="prev"><a href="javascript:void(0);">&larr;</a></span>' +
-			'	<span class="next"><a href="javascript:void(0);">&rarr;</a></span>' +
+			'	<span class="prev"><a href="javascript:void(0);">&lt;</a></span>' +
+			'	<span class="next"><a href="javascript:void(0);">&gt;</a></span>' +
 			'	<span class="month"><span>' +
 			"</caption>" +
 			"<thead><tr>" +
@@ -717,18 +791,6 @@ jQuery(INFORMA.featureList.init());
 	});
 }(jQuery));
 
-/*
- * analyst-list.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Saurabh Sinha
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
 var INFORMA = window.INFORMA || {};
 INFORMA.formComponents = (function(window, $, namespace) {
     'use strict';
@@ -737,18 +799,24 @@ INFORMA.formComponents = (function(window, $, namespace) {
 //functions
      init,
       _bindToolTip,
-        _showOverlay;
+        _showOverlay,_validateForm   ;
 
     _showOverlay = function(container){
 
       //alert(1);
     }
 
+    _validateForm = function(){
+      $('#requestDemoForm').validate();
+      $('#requestTrial').validate();
+    }
+
     init = function() {
           //todo: No null check, dont execute these bindings if forms are not there
-          //  _showOverlay();
-          //  _bindToolTip();
-          //  $(".elq-form").validate();
+            _showOverlay();
+            _bindToolTip();
+            _validateForm();
+
     };
 
     _bindToolTip = function(){
@@ -765,56 +833,6 @@ INFORMA.formComponents = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.formComponents.init());
-
-/*
- * analyst-list.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Saurabh Sinha
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
-var INFORMA = window.INFORMA || {};
-INFORMA.formRequestForDemo = (function(window, $, namespace) {
-    'use strict';
-     var _toolTip = $('.hasToolTip .icon.icon-info'),
-
-//functions
-     init,
-      _bindToolTip,
-        _showOverlay;
-
-    _showOverlay = function(container){
-
-      //alert(1);
-    }
-
-    init = function() {
-          //todo: No null check, dont execute these bindings if forms are not there
-
-            _showOverlay();
-            _bindToolTip();
-
-    };
-
-    _bindToolTip = function(){
-          _toolTip.on('click',function(){
-                $(this).toggleClass('active');
-                $(this).parent().parent() // .hasToolTip
-                        .children('.tooltip-placeholder').slideToggle();
-          })
-   }
-
-
-    return {
-        init: init
-    };
-}(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.formRequestForDemo.init());
 
 /*
  * global.js
@@ -1159,7 +1177,6 @@ jQuery(INFORMA.globalHeader.init());
 // 	I knew it, unicorns are just low-quality ponies!
 // {{/compare}}
 
-
 Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 
   if (arguments.length < 3)
@@ -1190,7 +1207,6 @@ Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
   }
 
 });
-
 
 Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
     lvalue = parseFloat(lvalue);
@@ -1753,7 +1769,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SectorSelect = $("select.sector-list"),
         SubSectorSelect = $("select.sub-sector-list"),
         SubmitBtn = $(".product-finder .sector-search li.button"),
-        ResultCount, ResultInner,
+        ResultCount, ResultInner, SectorData, SubSectorData,
         Config = INFORMA.Configs,
         PageNo = 1,
         Urls = INFORMA.Configs.urls.webservices,
@@ -1786,8 +1802,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         UpdateResultPage = function() {
 
-            var GetUserSectors = ($("input.sector-list").val() !== null) ? $("input.sector-list").val() : null,
-                GetUserSubSectors = ($("input.sub-sector-list").val() !== null) ? $("input.sub-sector-list").val() : null,
+            var GetUserSectors = (SectorData.val() !== null) ? SectorData.val() : null,
+                GetUserSubSectors = (SubSectorData.length) ? SubSectorData.val() : null,
                 SectorArray = GetUserSectors.split(","),
                 SubSectorArray = (GetUserSubSectors!==null) ? GetUserSubSectors.split(",") : null,
                 SectorIDs = 'SectorIDs=' + SectorArray.join("&");
@@ -1899,7 +1915,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
         init = function() {
             var IsProductPage = (ProductFinder.data("product") === true) ? true : false;
-            if (IsProductPage) {
+                SectorData = $("input.sector-list");
+                SubSectorData = $("input.sub-sector-list");
+            if (IsProductPage && SectorData.length > 0) {
                 UpdateResultPage();
             }
 

@@ -34,8 +34,8 @@
 		_this.init = function () {
 			var tpl = '<table class="cal">' +
 			'<caption>' +
-			'	<span class="prev"><a href="javascript:void(0);">&larr;</a></span>' +
-			'	<span class="next"><a href="javascript:void(0);">&rarr;</a></span>' +
+			'	<span class="prev"><a href="javascript:void(0);">&lt;</a></span>' +
+			'	<span class="next"><a href="javascript:void(0);">&gt;</a></span>' +
 			'	<span class="month"><span>' +
 			"</caption>" +
 			"<thead><tr>" +

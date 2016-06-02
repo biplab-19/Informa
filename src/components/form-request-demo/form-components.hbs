@@ -1,12 +1,12 @@
-<section id="requestDemo">
+<section id="formComponent">
     <div class="request-demo-btn-container">
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#requestDemoModal">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#formComponentModal">
             Form Components
         </button>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="requestDemoModal" tabindex="-1" role="dialog" aria-labelledby="requestDemoModalLabel">
+    <div class="modal fade" id="formComponentModal" tabindex="-1" role="dialog" aria-labelledby="formComponentModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -16,11 +16,11 @@
 
                     <div class="row">
                         <div class="col-sm-6 col-sm-offset-3">
-                            <h1 class="modal-title" id="requestDemoModalLabel">{{name}}</h1>
-                            <form method="post" name="{{name}}" action="#" onsubmit="#" id="{{name}}" class="elq-form">
+                            <h1 class="modal-title" id="{{htmlName}}Header">{{name}}</h1>
+                            <form role="form" method="post" action="#" onsubmit="#" id="{{htmlName}}" name="{{htmlName}}" class="elq-form">
                                 {{#each elements}}
                                     {{#compare type "FormField" operator="==" }}
-                                        {{#compare displayType "text"}}
+                                        {{#compare displayType "text" operator="=="}}
                                             <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
                                                 <div class="title">
                                                     {{name}}
@@ -33,9 +33,16 @@
                                                 {{/if}}
                                                 <div class="row">
                                                     <div class="col-md-{{#compare style.fieldSize "large"}}12{{/compare}}{{#compare style.fieldSize "small"}}6{{/compare}}">
-                                                        <label for="createdFromContactFieldId" class="{{style.labelPosition}}">{{name}}</label>
-                                                        <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="createdFromContactFieldId" {{#if validations.[0].required}} required {{/if}}>
-                                                    </div>
+                                                        <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                          <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                        {{#each validations}}
+                                                          {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                          {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                          {{#compare condition.type "IsEmailAddressCondition"}}
+                                                            data-msg-email="{{message}}" data-rule-email="true"
+                                                          {{/compare}}
+                                                        {{/each}} />
+                                                      </div>
                                                 </div>
                                             </div>
                                         {{/compare}}
@@ -55,8 +62,8 @@
                                                 {{/if}}
                                                 <div class="row">
                                                     <div class="col-md-{{#compare style.fieldSize "large"}}12{{/compare}} {{#compare style.fieldSize "small"}}6{{/compare}}">
-                                                        <label for="createdFromContactFieldId" class="{{style.labelPosition}}">{{name}}</label>
-                                                        <textarea class="form-control" id="createdFromContactFieldId" rows="3"></textarea>
+                                                        <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                        <textarea class="form-control" id="{{createdFromContactFieldId}}" rows="3" required></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,13 +85,19 @@
                                                 {{/if}}
                                                 <div class="row">
                                                     <div class="col-md-{{#compare style.fieldSize "large"}}12{{/compare}} {{#compare style.fieldSize "small"}}6{{/compare}}">
-                                                        <label for="createdFromContactFieldId" class="{{style.labelPosition}}">{{name}}</label>
+                                                        <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
                                                         <div class="selectMenu">
-                                                            <select id="createdFromContactFieldId" class="chosen-select">
-                                                                <option value="{{options.value}}">{{options.label}}</option>
+                                                            <select id="{{createdFromContactFieldId}}" class="chosen-select"
+                                                            {{#each validations}}
+                                                              {{#compare condition.type "IsRequiredCondition"}}
+                                                                 data-rule-required="true"
+                                                              {{/compare}}
+                                                              {{#if isEnabled}} {{/if}}
+                                                              {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                            {{/each}} >
+
                                                             </select>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,67 +118,125 @@
                                                 </div>
                                             {{/if}}
                                             <div class="row">
-                                              {{#compare style.listOrder "oneColumn"}}
-                                                {{#each fields}}
-                                                    <div class="col-md-12">
-                                                        <label for="createdFromContactFieldId" class="{{style.labelPosition}}">{{name}}</label>
-                                                        {{#compare displayType "date"}}
-                                                        <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="createdFromContactFieldId">
-                                                        {{/compare}}
-                                                        {{#compare displayType "singleSelect"}}
-                                                        <div class="selectMenu">
-                                                            <select id="createdFromContactFieldId" class="chosen-select">
-                                                                <option value="{{options.value}}">{{options.label}}</option>
-                                                            </select>
+                                                {{#compare style.listOrder "oneColumn"}}
+                                                    {{#each fields}}
+                                                        <div class="col-md-12">
+                                                            <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                            {{#compare displayType "date"}}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
+                                                            {{#compare displayType "singleSelect"}}
+                                                                <div class="selectMenu">
+                                                                    <select id="{{createdFromContactFieldId}}" class="chosen-select">
+                                                                        <option value="{{options.value}}">{{options.label}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            {{/compare}}
+                                                            {{#compare displayType "text"}}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
                                                         </div>
-                                                        {{/compare}}
-                                                        {{#compare displayType "text"}}
-                                                        <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="createdFromContactFieldId">
-                                                        {{/compare}}
-                                                    </div>
-                                                {{/each}}
-                                              {{/compare}}
-                                              {{#compare style.listOrder "twoColumn"}}
+                                                    {{/each}}
+                                                {{/compare}}
+                                                {{#compare style.listOrder "twoColumn"}}
 
-                                                {{#each fields}}
-                                                <div class="col-md-6">
-                                                    <label for="createdFromContactFieldId" class="{{style.labelPosition}}">{{name}}</label>
-                                                    {{#compare displayType "date"}}
-                                                    <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="createdFromContactFieldId">
-                                                    {{/compare}}
-                                                    {{#compare displayType "singleSelect"}}
-                                                    <div class="selectMenu">
-                                                        <select id="createdFromContactFieldId" class="chosen-select">
-                                                            <option value="{{options.value}}">{{options.label}}</option>
-                                                        </select>
-                                                    </div>
-                                                    {{/compare}}
-                                                    {{#compare displayType "text"}}
-                                                    <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="createdFromContactFieldId">
-                                                    {{/compare}}
-                                                </div>
-                                                {{/each}}
-                                              {{/compare}}
-                                              {{#compare style.listOrder "threeColumn"}}
-                                                {{#each fields}}
-                                                <div class="col-md-4">
-                                                    <label for="createdFromContactFieldId" class="{{style.labelPosition}}">{{name}}</label>
-                                                    {{#compare displayType "date"}}
-                                                    <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="createdFromContactFieldId">
-                                                    {{/compare}}
-                                                    {{#compare displayType "singleSelect"}}
-                                                    <div class="selectMenu">
-                                                        <select id="createdFromContactFieldId" class="chosen-select">
-                                                            <option value="{{options.value}}">{{options.label}}</option>
-                                                        </select>
-                                                    </div>
-                                                    {{/compare}}
-                                                    {{#compare displayType "text"}}
-                                                    <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="createdFromContactFieldId">
-                                                    {{/compare}}
-                                                </div>
-                                                {{/each}}
-                                              {{/compare}}
+                                                    {{#each fields}}
+                                                        <div class="col-md-6">
+                                                            <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                            {{#compare displayType "date"}}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
+                                                            {{#compare displayType "singleSelect"}}
+                                                                <div class="selectMenu">
+                                                                    <select id="{{createdFromContactFieldId}}" class="chosen-select">
+                                                                        <option value="{{options.value}}">{{options.label}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            {{/compare}}
+                                                            {{#compare displayType "text"}}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
+                                                        </div>
+                                                    {{/each}}
+                                                {{/compare}}
+                                                {{#compare style.listOrder "threeColumn"}}
+                                                    {{#each fields}}
+                                                        <div class="col-md-4">
+                                                            <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                            {{#compare dataType "date"}}
+                                                            <div class="right-inner">
+                                                              <i class="icon-calender"></i>
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control date-picker" id="{{createdFromContactFieldId}}" value=""
+                                                                  {{#each validations}}
+                                                                    {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                    {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                    {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                      data-msg-email="{{message}}" data-rule-email="true"
+                                                                    {{/compare}}
+                                                                  {{/each}} />
+                                                            </div>
+                                                            {{/compare}}
+                                                            {{#compare displayType "singleSelect"}}
+                                                                <div class="selectMenu">
+                                                                    <select id="{{createdFromContactFieldId}}" class="chosen-select"
+                                                                    {{#each validations}}
+                                                                      {{#compare condition.type "IsRequiredCondition"}}
+                                                                         data-rule-required="true"
+                                                                      {{/compare}}
+                                                                      {{#if isEnabled}} {{/if}}
+                                                                      {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                    {{/each}} >
+
+                                                                      {{#each OptionList}}
+                                                                        <option value="{{displayValue}}">{{displayText}}</option>
+                                                                      {{/each}} >
+
+                                                                    </select>
+                                                                </div>
+                                                            {{/compare}}
+                                                            <!-- {{#compare displayType "text"}}
+                                                            {{#compare dataType "date" operator="==" }}
+                                                                <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
+                                                                {{#each validations}}
+                                                                  {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
+                                                                  {{#if message}} data-msg-required="{{message}}" {{/if}}
+                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    data-msg-email="{{message}}" data-rule-email="true"
+                                                                  {{/compare}}
+                                                                {{/each}} />
+                                                            {{/compare}}
+                                                            {{/compare}} -->
+                                                        </div>
+                                                    {{/each}}
+                                                {{/compare}}
                                             </div>
                                         </div>
                                     {{/compare}}

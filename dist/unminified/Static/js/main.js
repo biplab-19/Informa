@@ -1,4 +1,4 @@
-/*! 2016-06-01 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-02 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -21,15 +21,17 @@
             "ProductSearch":"/data/product-results.json",
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/data/analyst-search.json",
-            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json"
+            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json",
+            "AnalystSearchAll": "/data/analyst-search-subsector.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
             "SearchResult": "/data/search-results.json",
-            "AnalystSearch": "/data/analyst-search.json",
-            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json"
+            "AnalystSearch": "/client/search/GetSpecialists",
+            "AnalystSearchDropDown": "/client/search/GetSubSectorList",
+            "AnalystSearchAll": "/client/search/SeeAllSpecialists"
         }
     };
 
@@ -502,18 +504,26 @@ var INFORMA = window.INFORMA || {};
                                                         '{{/each}}'+
                                                     '</ul>'+
                                                     '<p class="heading">{{experience}}</p>'+
-                                                    '<ul class="track-analyst clearfix">'+
-                                                        '{{#each MultipleProducts}}'+
-                                                            '<li><a href="#">{{this}}</a></li>'+
-                                                        '{{/each}}'+
-                                                    '</ul>'+
+                                                    '{{#compare MultipleProducts 0 operator=">"}}'+
+                                                        '<ul class="track-analyst clearfix">'+
+                                                            '{{#each MultipleProducts}}'+
+                                                                '<li><a href="#">{{this}}</a></li>'+
+                                                            '{{/each}}'+
+                                                        '</ul>'+
+                                                    '{{/compare}}'+
                                                 '</div>'+
                                                 '<div class="analyst-footer">'+
                                                     '<div class="analyst-footer-content clearfix">'+
                                                         '<ul class="nav-links">'+
-                                                            '<li><a href="#" class="icon-twitter"></a></li>'+
-                                                            '<li><a href="#" class="icon-linked-in"></a></li>'+
-                                                            '<li><a href="#" class="icon-facebook"></a></li>'+
+                                                            '{{#compare TwitterLink null operator="!="}}'+
+                                                                '<li><a href="{{TwitterLink.Url}}" target="{{TwitterLink.Target}}" class="icon-twitter"></a></li>'+
+                                                            '{{/compare}}'+
+                                                            '{{#compare LinkedinLink null operator="!="}}'+
+                                                                '<li><a href="{{LinkedinLink.Url}}" target="{{LinkedinLink.Target}}" class="icon-linked-in"></a></li>'+
+                                                            '{{/compare}}'+
+                                                            '{{#compare FacebookLink null operator="!="}}'+
+                                                                '<li><a href="{{FacebookLink.Url}}" target="{{FacebookLink.Target}}" class="icon-facebook"></a></li>'+
+                                                            '{{/compare}}'+
                                                         '</ul>'+
                                                         '<a href="#" class="btn btn-default pull-right">Full Profile</a>'+
                                                     '</div>'+
@@ -523,11 +533,60 @@ var INFORMA = window.INFORMA || {};
                                     '{{/each}}'+
                                 '</div>'+
                                 '<div class="btn-container text-center">'+
-                                    '<a href="javascript:void(0)" data-fetch="{{results.header}}" class="btn-plus">'+
-                                    '<span class="more">See All {{results.TotalCount}} Analysts</span></a>'+
+                                    '<a href="javascript:void(0)" data-fetch="{{results.sectorID}}" class="btn-plus">'+
+                                    '<span class="more">See All {{results.TotalCount}} Analysts</span>'+
+                                    '<span class="less">Hide Analysts</span></a>'+
                                 '</div>'+
                             '</div>'+
-                        '</section>'
+                        '</section>',
+        'AnalystListTemplate':    '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container">'+
+                                    '<div class="meet-anlyst-section">'+
+                                        '<div class="anlyst-heading">'+
+                                            '<div class="analyst-heading-content">'+
+                                                '<div class="analyst-details">'+
+                                                    '<h2>{{Name}}</h2>'+
+                                                    '<h3>{{Type}}</h3>'+
+                                                    '<p class="location">{{Country}}</p>'+
+                                                '</div>'+
+                                                '<div class="analyst-img">'+
+                                                    '<img src="{{ProfileImage}}" alt="{{image}}" />'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="analyst-description">'+
+                                            '<p class="heading">{{question}}</p>'+
+                                            '<ul class="yellow-bullets">'+
+                                                '{{#each Specialization}}'+
+                                                    '<li>{{this}}</li>'+
+                                                '{{/each}}'+
+                                            '</ul>'+
+                                            '<p class="heading">{{experience}}</p>'+
+                                            '{{#compare MultipleProducts 0 operator=">"}}'+
+                                                '<ul class="track-analyst clearfix">'+
+                                                    '{{#each MultipleProducts}}'+
+                                                        '<li><a href="#">{{this}}</a></li>'+
+                                                    '{{/each}}'+
+                                                '</ul>'+
+                                            '{{/compare}}'+
+                                        '</div>'+
+                                        '<div class="analyst-footer">'+
+                                            '<div class="analyst-footer-content clearfix">'+
+                                                '<ul class="nav-links">'+
+                                                    '{{#compare TwitterLink null operator="!="}}'+
+                                                        '<li><a href="{{TwitterLink.Url}}" target="{{TwitterLink.Target}}" class="icon-twitter"></a></li>'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare LinkedinLink null operator="!="}}'+
+                                                        '<li><a href="{{LinkedinLink.Url}}" target="{{LinkedinLink.Target}}" class="icon-linked-in"></a></li>'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare FacebookLink null operator="!="}}'+
+                                                        '<li><a href="{{FacebookLink.Url}}" target="{{FacebookLink.Target}}" class="icon-facebook"></a></li>'+
+                                                    '{{/compare}}'+
+                                                '</ul>'+
+                                                '<a href="#" class="btn btn-default pull-right">Full Profile</a>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'
 
 }
 }(this, jQuery, 'INFORMA'));
