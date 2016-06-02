@@ -24,11 +24,8 @@ INFORMA.sectorList = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.view-all-sectors-btn');
         _showMore.on('click',function(){
-            var _vp = INFORMA.global.device.viewportN;
-            if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
               $('.sector-list .container > .row + .row >.text-center:nth-child(n+3)').show();
               $('.sector-list .view-all-sectors-btn-container').hide();
-            }
         });
     }
 
