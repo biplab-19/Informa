@@ -26,6 +26,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            _autoplay = container.data('autorotate'),
            _speed = container.data('transitionspeed'), // speed of transition
            _duration = container.data('slideduration'), // how long the slider will be dis
+           _dots = container.data('dots'),
            _infinite = true;
 
      //chk for sitecore preview
@@ -44,7 +45,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            slidesToShow: _slideCount,
            slidesToScroll: _slideCount,
            speed: _speed,
-           dots: true
+           dots: (_dots!==null || _dots!==undefined) ? _dots : true
        });
     }
 
