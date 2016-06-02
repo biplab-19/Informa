@@ -1,6 +1,9 @@
 #social-section {
 	background-color: $footer-top-gray;
 	padding: 50px 0;
+	@include mobile {
+		padding: 10px 0;
+	}
 	h1 {
 		color: $white;
 		margin-bottom: 40px;
@@ -25,6 +28,9 @@
 					position: absolute;
 					left: 0;
 					top: 0;
+					@include mobile {
+						left: 3px;
+					}
 				}
 				&:after {
 					left: calc(100% - 3px);

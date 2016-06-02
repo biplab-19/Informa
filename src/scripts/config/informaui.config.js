@@ -21,15 +21,17 @@ var INFORMA = window.INFORMA || {};
             "ProductSearch":"/data/product-results.json",
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/data/analyst-search.json",
-            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json"
+            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json",
+            "AnalystSearchAll": "/data/analyst-search-subsector.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
             "SearchResult": "/data/search-results.json",
-            "AnalystSearch": "/data/analyst-search.json",
-            "AnalystSearchDropDown": "/data/analyst-search-dropdown.json"
+            "AnalystSearch": "/client/search/GetSpecialists",
+            "AnalystSearchDropDown": "/client/search/GetSubSectorList",
+            "AnalystSearchAll": "/client/search/SeeAllSpecialists"
         }
     };
 

@@ -30,9 +30,9 @@
 				background-color: $yellow;
 				position:relative;
 				height: 130px;
-				-ms-transform: skewY(-2deg);
-			   	-webkit-transform: skewY(-2deg);
-			    transform: skewY(-2deg);
+				-ms-transform: skewY(-4deg);
+			   	-webkit-transform: skewY(-4deg);
+			    transform: skewY(-4deg);
 			    position: relative;
 			    &:after {
 			    	content: '';
@@ -44,9 +44,9 @@
 			    	top: -90%;
 			    }
 				.analyst-heading-content {
-					-ms-transform: skewY(2deg);
-				   	-webkit-transform: skewY(2deg);
-				    transform: skewY(2deg);
+					-ms-transform: skewY(4deg);
+				   	-webkit-transform: skewY(4deg);
+				    transform: skewY(4deg);
 				}
 				.analyst-img {
 					width: 60px;
@@ -194,6 +194,7 @@
 				.btn {
 					width: 180px;
 					border-color: $btn-primay-default-bg;
+					border-width: 1px;
 					&:after {
 						color: $orange;
 					}

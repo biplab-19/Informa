@@ -9,6 +9,9 @@
 		    font-weight: normal;
 		    font-family: 'FSMe-Bold';
 		}
+		.chosen-container {
+			width: 100% !important;
+		}
 		.chosen-container-single .chosen-single {
 			line-height: 45px;
 			height: 45px;
@@ -66,5 +69,22 @@
 .product-analyst-results {
 	.analyst-views {
 		padding: 20px 0;
+	}
+	.more {
+		display: block;
+	}
+	.less {
+		display: none;
+	}
+	.showLess {
+		.more {
+			display: none;
+		}
+		.less {
+			display: block;
+			&:before {
+				content: "\e913";
+			}
+		}
 	}
 }
