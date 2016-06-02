@@ -1,6 +1,11 @@
 #social-section {
 	background-color: $footer-top-gray;
 	padding: 50px 0;
+	.col-lg-12 {
+		@include mobile {
+			padding: 0 5px;
+		}
+	}
 	@include mobile {
 		padding: 10px 0;
 	}
