@@ -33,7 +33,7 @@ INFORMA.sectorList = (function(window, $, namespace) {
     }
 
     init = function() {
-              if (_sectorList.length > 0) {
+        if (_sectorList.length > 0) {
             _bindShowMore(_sectorList);
         }
     };
