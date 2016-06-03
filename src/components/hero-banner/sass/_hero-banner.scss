@@ -156,6 +156,7 @@ section#hero-banner {
      //  for 3 images
       &.analyst{
         height: 650px;
+        overflow: hidden;
         padding-bottom: 20px;
         color: $light;
         @include mobile {
@@ -180,13 +181,9 @@ section#hero-banner {
         }
        .span-arrow{
            font-size: 250%;
-           //margin-top: 10px;
          @include mobile {
              display: none;
            }
-          //  &:after{
-          //    content: "\e903";
-          //  }
        }
        .subtext {
            font-family: FSMe-light;
@@ -251,7 +248,6 @@ section#hero-banner {
       }
       // for two images
       .analyst-two-images{
-        height: auto;
         padding-bottom: 20px;
         color: $light;
         @include mobile {
@@ -364,7 +360,6 @@ section#hero-banner {
       }
      //  for single image
      .analyst-single-image{
-       height: auto;
        padding-bottom: 20px;
        color: $light;
        @include mobile {
