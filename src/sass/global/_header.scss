@@ -48,13 +48,18 @@ header {
         background: $gray-dark-bg;
         @include mobile {
             height: 0;
-            display: none;
+            display: block;
         }
         @include tablet {}
         &.main-nav-fixed {
             position: fixed;
             top: 0;
             width: 100%;
+        }
+        .container{
+            @include mobile {
+                display: none;
+            }
         }
         ul {
             margin: 0;
@@ -103,6 +108,14 @@ header {
         padding: 15px 0;
         background-color: $gray-light-bg;
         display: none;
+        @include mobile {
+            display: block;
+        }
+        .container{
+            @include mobile {
+                display: block;
+            }
+        }
         .hidden {
             display: none;
         }

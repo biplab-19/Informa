@@ -116,7 +116,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     $(ContainerID).find(".row").html(html);
 
                     //Update Record Counts
-                    $(ContainerID).find(".count strong").text(Data.length);
+                    if(Data.length>0){
+                        $(ContainerID).find(".count strong").text(Data[0].ProductCount);
+                    }else{
+                         $(ContainerID).find(".count strong").text("0");
+                         $(ContainerID).find(".btn-container").hide();
+                    }
                 }
             }
             var UpddateHeight = setTimeout(function() {
