@@ -73,7 +73,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
         txtField.on('keyup', function () {
             var calcLength = jQuery(this).val().length,
                 SectorValue = Sector.val();
-            if (calcLength < 3 || SectorValue != 'default') {
+            if (calcLength < 3 || SectorValue == 'default') {
                 submitBtn.addClass('disabled');
             } else {
                 submitBtn.removeClass('disabled');
@@ -85,12 +85,17 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 _text = jQuery(this).find("option:selected").text(),
                 _txtField = txtField.val().length;
             if (_value === 'default' && _txtField < 3) {
-                SubSector.parents('.sub-sector').addClass('disabled');
                 submitBtn.addClass('disabled');
-                SubSector.parents('.form-group').find('label').html('By Sub-Sector');
             } else {
-                SubSector.parents('.sub-sector').removeClass('disabled');
                 submitBtn.removeClass('disabled');
+            }
+
+            if (_value == "default") {
+                SubSector.parents('.sub-sector').addClass('disabled');
+                SubSector.parents('.form-group').find('label').html('By Sub-Sector');
+            }
+            else {
+                SubSector.parents('.sub-sector').removeClass('disabled');
                 SubSector.parents('.form-group').find('label').html('By ' + _text);
             }
 
