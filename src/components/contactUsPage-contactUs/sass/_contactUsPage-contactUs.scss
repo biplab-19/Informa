@@ -21,7 +21,7 @@
       }
   }
   .tabs-row{
-    background-color: #262626;
+    background-color: #373d4b;
   }
   .pos{
     position: relative;
@@ -33,16 +33,23 @@
   .nav > li > a {
   position: relative;
   display: block;
-  padding: 15px 7px;
+  padding: 15px 25px;
+    @include mobile {
+      padding: 15px 7px;
+    }
   }
   .menuFollower {
         background: #FFD910;
         height: 5px;
         top: 44px;
         left: 36px;
-        width: 123px;
+        width: 158px;
         position: absolute;
         transition: .3s ease-in;
+        @include mobile {
+          left: 29px;
+          width: 123px;
+        }
   }
   .email-image-pos {
     color: $gray-lighter;
