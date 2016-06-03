@@ -73,11 +73,15 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         RenderCarousel(html, _ArticleLists);
+                    }else{
+                        $(".article-list ").html("");
                     }
                     if (data.Articles !== undefined && data.Headlines.length > 0) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
                         RenderCarousel(html, _HeadlinesLists);
+                    }else{
+                        $(".headline-list").html("");
                     }
                 },
                 error_callback: function() {
