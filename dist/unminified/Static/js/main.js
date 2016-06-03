@@ -343,13 +343,13 @@ var INFORMA = window.INFORMA || {};
                             '<a href="{{Video.url}}" class="video-link">'+
                                 '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
                             '</a>'+
-                            '<span class="play-icon"></span>'+
+                            '<span class="play-icon icon-play"></span>'+
                         '</div>'+
                     '{{/if}}'+
                 '</div>'+
                 '{{#if Link}}'+
                     '<div class="btn-container">'+
-                      '<a role="button" href="{{Link.Url}}" class="btn btn-default" target="{{Link.Target}}">{{Link.LinkText}}</a>'+
+                      '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
                     '</div>'+
                 '{{/if}}'+
             '</li>'+
