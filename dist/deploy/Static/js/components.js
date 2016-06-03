@@ -2032,7 +2032,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     $(ContainerID).find(".row").html(html);
 
                     //Update Record Counts
-                    $(ContainerID).find(".count strong").text(Data.length);
+                    if(Data.length>0){
+                        $(ContainerID).find(".count strong").text(Data[0].ProductCount);
+                    }else{
+                         $(ContainerID).find(".count strong").text("0");
+                         $(ContainerID).find(".btn-container").hide();
+                    }
                 }
             }
             var UpddateHeight = setTimeout(function() {
@@ -2165,11 +2170,9 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.view-all-sectors-btn');
         _showMore.on('click',function(){
-            var _vp = INFORMA.global.device.viewportN;
-            if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
               $('.sectorpage-strengths .container > .row + .row >.marg1:nth-child(2n+2)').toggle();
               $(this).parents('.sectorpage-strengths').toggleClass('showLess');
-            }
+            
         });
     }
 

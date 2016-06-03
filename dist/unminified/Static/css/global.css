@@ -8297,6 +8297,7 @@ button.close {
 .slick-slider {
   position: relative;
   display: block;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -8309,7 +8310,7 @@ button.close {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* line 17, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 18, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list {
   position: relative;
   overflow: hidden;
@@ -8317,17 +8318,17 @@ button.close {
   margin: 0;
   padding: 0;
 }
-/* line 24, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 25, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list:focus {
   outline: none;
 }
-/* line 28, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 29, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list.dragging {
   cursor: pointer;
   cursor: hand;
 }
 
-/* line 33, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 34, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slider .slick-track,
 .slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
@@ -8337,72 +8338,72 @@ button.close {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 42, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 43, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track {
   position: relative;
   left: 0;
   top: 0;
   display: block;
 }
-/* line 48, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 49, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:before, .slick-track:after {
   content: "";
   display: table;
 }
-/* line 54, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 55, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:after {
   clear: both;
 }
-/* line 58, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 59, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-track {
   visibility: hidden;
 }
 
-/* line 62, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 63, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide {
   float: left;
   height: 100%;
   min-height: 1px;
   display: none;
 }
-/* line 66, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 67, ../../../bower_components/slick-carousel/slick/slick.scss */
 [dir="rtl"] .slick-slide {
   float: right;
 }
-/* line 69, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 70, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide img {
   display: block;
 }
-/* line 72, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 73, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.slick-loading img {
   display: none;
 }
-/* line 78, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 79, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.dragging img {
   pointer-events: none;
 }
-/* line 82, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 83, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-initialized .slick-slide {
   display: block;
 }
-/* line 86, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 87, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-slide {
   visibility: hidden;
 }
-/* line 90, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 91, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-vertical .slick-slide {
   display: block;
   height: auto;
   border: 1px solid transparent;
 }
 
-/* line 96, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 97, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-arrow.slick-hidden {
   display: none;
 }
 
 /* Slider */
-/* line 45, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 40, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-loading .slick-list {
   background: #fff url('/images/ajax-loader.gif') center center no-repeat;
 }
@@ -8416,7 +8417,7 @@ button.close {
   font-style: normal;
 }
 /* Arrows */
-/* line 63, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 58, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev,
 .slick-next {
   position: absolute;
@@ -8429,6 +8430,8 @@ button.close {
   background: transparent;
   color: transparent;
   top: 50%;
+  margin-top: -10px\9;
+  /*lte IE 8*/
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
@@ -8436,7 +8439,7 @@ button.close {
   border: none;
   outline: none;
 }
-/* line 81, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 77, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev:hover, .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus {
@@ -8444,20 +8447,20 @@ button.close {
   background: transparent;
   color: transparent;
 }
-/* line 85, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 81, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev:hover:before, .slick-prev:focus:before,
 .slick-next:hover:before,
 .slick-next:focus:before {
   opacity: 1;
 }
-/* line 89, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 85, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before {
   opacity: 0.25;
 }
-/* line 92, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-prev:before,
-.slick-next:before {
+
+/* line 90, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-prev:before, .slick-next:before {
   font-family: "slick";
   font-size: 20px;
   line-height: 1;
@@ -8467,60 +8470,59 @@ button.close {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 103, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 100, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev {
   left: -25px;
 }
-/* line 105, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 102, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-prev {
   left: auto;
   right: -25px;
 }
-/* line 109, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 106, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev:before {
   content: "←";
 }
-/* line 111, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 108, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-prev:before {
   content: "→";
 }
 
-/* line 117, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 114, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-next {
   right: -25px;
 }
-/* line 119, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 116, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-next {
   left: -25px;
   right: auto;
 }
-/* line 123, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 120, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-next:before {
   content: "→";
 }
-/* line 125, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 122, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-next:before {
   content: "←";
 }
 
 /* Dots */
-/* line 133, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-dotted.slick-slider {
+/* line 130, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-slider {
   margin-bottom: 30px;
 }
 
-/* line 137, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 134, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots {
   position: absolute;
-  bottom: -25px;
+  bottom: -45px;
   list-style: none;
   display: block;
   text-align: center;
   padding: 0;
-  margin: 0;
   width: 100%;
 }
-/* line 146, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 142, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li {
   position: relative;
   display: inline-block;
@@ -8530,7 +8532,7 @@ button.close {
   padding: 0;
   cursor: pointer;
 }
-/* line 154, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 150, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button {
   border: 0;
   background: transparent;
@@ -8544,15 +8546,15 @@ button.close {
   padding: 5px;
   cursor: pointer;
 }
-/* line 166, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 162, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button:hover, .slick-dots li button:focus {
   outline: none;
 }
-/* line 168, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 164, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
   opacity: 1;
 }
-/* line 172, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 168, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button:before {
   position: absolute;
   top: 0;
@@ -8569,7 +8571,7 @@ button.close {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 189, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 185, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li.slick-active button:before {
   color: black;
   opacity: 0.75;
@@ -9915,7 +9917,7 @@ header nav#mainNavigation {
   /* line 47, ../../../src/sass/global/_header.scss */
   header nav#mainNavigation {
     height: 0;
-    display: none;
+    display: block;
   }
 }
 /* line 54, ../../../src/sass/global/_header.scss */
@@ -9924,136 +9926,154 @@ header nav#mainNavigation.main-nav-fixed {
   top: 0;
   width: 100%;
 }
-/* line 59, ../../../src/sass/global/_header.scss */
+@media (max-width: 767px) {
+  /* line 59, ../../../src/sass/global/_header.scss */
+  header nav#mainNavigation .container {
+    display: none;
+  }
+}
+/* line 64, ../../../src/sass/global/_header.scss */
 header nav#mainNavigation ul {
   margin: 0;
 }
-/* line 62, ../../../src/sass/global/_header.scss */
+/* line 67, ../../../src/sass/global/_header.scss */
 header nav#mainNavigation ul li a {
   color: #fff;
   padding: 20px 60px 20px 0;
 }
-/* line 69, ../../../src/sass/global/_header.scss */
+/* line 74, ../../../src/sass/global/_header.scss */
 header nav#mainNavigation .mainCTA ul {
   float: none;
 }
-/* line 72, ../../../src/sass/global/_header.scss */
+/* line 77, ../../../src/sass/global/_header.scss */
 header nav#mainNavigation .mainCTA > ul li {
   width: 50%;
   text-align: center;
   border-left: 1px solid #565c6b;
   float: left;
 }
-/* line 77, ../../../src/sass/global/_header.scss */
+/* line 82, ../../../src/sass/global/_header.scss */
 header nav#mainNavigation .mainCTA > ul li.search {
   background: #ef7c00;
   text-align: left;
 }
-/* line 80, ../../../src/sass/global/_header.scss */
+/* line 85, ../../../src/sass/global/_header.scss */
 header nav#mainNavigation .mainCTA > ul li.search a {
   padding: 20px;
 }
-/* line 83, ../../../src/sass/global/_header.scss */
+/* line 88, ../../../src/sass/global/_header.scss */
 header nav#mainNavigation .mainCTA > ul li.search .icon {
   font-size: 1.5em;
   position: absolute;
   right: 15px;
 }
-/* line 89, ../../../src/sass/global/_header.scss */
+/* line 94, ../../../src/sass/global/_header.scss */
 header nav#mainNavigation .mainCTA > ul li a {
   color: #fff;
   padding: 20px 10px;
 }
-/* line 93, ../../../src/sass/global/_header.scss */
+/* line 98, ../../../src/sass/global/_header.scss */
 header nav#mainNavigation .mainCTA > ul li:last-child {
   border-right: 1px solid #565c6b;
 }
 
-/* line 102, ../../../src/sass/global/_header.scss */
+/* line 107, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder {
   padding: 15px 0;
   background-color: #444957;
   display: none;
 }
-/* line 106, ../../../src/sass/global/_header.scss */
+@media (max-width: 767px) {
+  /* line 107, ../../../src/sass/global/_header.scss */
+  #mainNavigation .product-finder {
+    display: block;
+  }
+}
+@media (max-width: 767px) {
+  /* line 114, ../../../src/sass/global/_header.scss */
+  #mainNavigation .product-finder .container {
+    display: block;
+  }
+}
+/* line 119, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder .hidden {
   display: none;
 }
-/* line 109, ../../../src/sass/global/_header.scss */
+/* line 122, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder ul {
   margin: 0;
   padding: 0;
 }
-/* line 112, ../../../src/sass/global/_header.scss */
+/* line 125, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder ul li {
   list-style-type: none;
 }
-/* line 116, ../../../src/sass/global/_header.scss */
+/* line 129, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form {
   margin: 0;
   padding: 0;
 }
-/* line 119, ../../../src/sass/global/_header.scss */
+/* line 132, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form legend {
   border: none;
   margin: 0;
   display: none;
 }
-/* line 124, ../../../src/sass/global/_header.scss */
+/* line 137, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form button[type=submit] {
   color: #fff;
 }
-/* line 127, ../../../src/sass/global/_header.scss */
+/* line 140, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options {
   margin-top: 10px;
 }
-/* line 129, ../../../src/sass/global/_header.scss */
+/* line 142, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li {
   display: inline-block;
 }
-/* line 131, ../../../src/sass/global/_header.scss */
+/* line 144, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li .custom-radio {
   margin-right: 30px;
 }
 @media (max-width: 767px) {
-  /* line 131, ../../../src/sass/global/_header.scss */
+  /* line 144, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.search-options li .custom-radio {
     margin-right: 10px;
   }
 }
-/* line 136, ../../../src/sass/global/_header.scss */
+/* line 149, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li .custom-radio .label {
   font-size: 1.1em;
 }
 @media (max-width: 767px) {
-  /* line 136, ../../../src/sass/global/_header.scss */
+  /* line 149, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.search-options li .custom-radio .label {
     font-size: 1em;
   }
 }
-/* line 143, ../../../src/sass/global/_header.scss */
+/* line 156, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li:last-child {
   float: right;
   font-weight: 400;
 }
-/* line 146, ../../../src/sass/global/_header.scss */
+/* line 159, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.search-options li:last-child .close-finder {
   padding: 0;
   text-decoration: none;
 }
-/* line 153, ../../../src/sass/global/_header.scss */
+/* line 166, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.site-search {
   display: none;
   margin: 20px 0 0;
 }
-/* line 156, ../../../src/sass/global/_header.scss */
+/* line 169, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.site-search .menu {
   float: left;
   width: 85.5%;
   margin-right: 36px;
 }
 @media (max-width: 767px) {
-  /* line 156, ../../../src/sass/global/_header.scss */
+  /* line 169, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.site-search .menu {
     width: 100%;
     margin-right: 0;
@@ -10061,12 +10081,12 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 156, ../../../src/sass/global/_header.scss */
+  /* line 169, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.site-search .menu {
     margin-right: 15px;
   }
 }
-/* line 169, ../../../src/sass/global/_header.scss */
+/* line 182, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.site-search .button {
   float: left;
   width: 11%;
@@ -10074,13 +10094,13 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   text-align: right;
 }
 @media (max-width: 767px) {
-  /* line 169, ../../../src/sass/global/_header.scss */
+  /* line 182, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.site-search .button {
     display: block;
     width: 100%;
   }
 }
-/* line 178, ../../../src/sass/global/_header.scss */
+/* line 191, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.site-search .button .btn {
   padding: 10px 20px;
   min-width: 100%;
@@ -10088,11 +10108,11 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   border: none;
   color: #fff;
 }
-/* line 187, ../../../src/sass/global/_header.scss */
+/* line 200, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search {
   margin: 20px 0 0;
 }
-/* line 190, ../../../src/sass/global/_header.scss */
+/* line 203, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .label-text {
   background-color: #e1e2e7;
   float: left;
@@ -10105,7 +10125,7 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 190, ../../../src/sass/global/_header.scss */
+  /* line 203, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .label-text {
     background-color: transparent;
     float: none;
@@ -10119,12 +10139,12 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 190, ../../../src/sass/global/_header.scss */
+  /* line 203, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .label-text {
     width: 32%;
   }
 }
-/* line 214, ../../../src/sass/global/_header.scss */
+/* line 227, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .label-text:after {
   border: solid transparent;
   border-color: rgba(225, 226, 231, 0);
@@ -10139,12 +10159,12 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   z-index: 4;
 }
 @media (max-width: 767px) {
-  /* line 214, ../../../src/sass/global/_header.scss */
+  /* line 227, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .label-text:after {
     border: none;
   }
 }
-/* line 231, ../../../src/sass/global/_header.scss */
+/* line 244, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .custom-multiselect {
   width: 73%;
   margin-right: 30px;
@@ -10152,58 +10172,58 @@ header nav#mainNavigation .mainCTA > ul li:last-child {
   display: inline-block;
   position: relative;
 }
-/* line 237, ../../../src/sass/global/_header.scss */
+/* line 250, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .custom-multiselect img {
   top: 3px !important;
   width: auto;
 }
 @media (max-width: 767px) {
-  /* line 231, ../../../src/sass/global/_header.scss */
+  /* line 244, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .custom-multiselect {
     margin-bottom: 20px;
     width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 231, ../../../src/sass/global/_header.scss */
+  /* line 244, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search li .custom-multiselect {
     width: 58%;
   }
 }
-/* line 248, ../../../src/sass/global/_header.scss */
+/* line 261, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .custom-multiselect .dropdown-toggle {
   height: 40px;
 }
-/* line 251, ../../../src/sass/global/_header.scss */
+/* line 264, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search li .custom-multiselect a {
   color: #434854;
 }
-/* line 256, ../../../src/sass/global/_header.scss */
+/* line 269, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search .menu {
   display: inline-block;
   width: 44%;
 }
 @media (max-width: 767px) {
-  /* line 256, ../../../src/sass/global/_header.scss */
+  /* line 269, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search .menu {
     display: block;
     width: 100%;
   }
 }
-/* line 264, ../../../src/sass/global/_header.scss */
+/* line 277, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search .button {
   width: 11%;
   margin-right: 0;
   text-align: right;
 }
 @media (max-width: 767px) {
-  /* line 264, ../../../src/sass/global/_header.scss */
+  /* line 277, ../../../src/sass/global/_header.scss */
   #mainNavigation .product-finder form ul.sector-search .button {
     display: block;
     width: 100%;
   }
 }
-/* line 272, ../../../src/sass/global/_header.scss */
+/* line 285, ../../../src/sass/global/_header.scss */
 #mainNavigation .product-finder form ul.sector-search .button .btn {
   padding: 10px 20px;
   min-width: 100%;
