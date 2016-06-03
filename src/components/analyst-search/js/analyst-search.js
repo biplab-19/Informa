@@ -73,7 +73,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
         txtField.on('keyup', function () {
             var calcLength = jQuery(this).val().length,
                 SectorValue = Sector.val();
-            if (calcLength < 3 || SectorValue == 'default') {
+            if (calcLength < 3 && SectorValue == 'default') {
                 submitBtn.addClass('disabled');
             } else {
                 submitBtn.removeClass('disabled');
