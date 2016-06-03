@@ -4215,14 +4215,26 @@ form.elq-form .icon-calender:before {
   display: inline-block;
   min-width: 100px;
 }
-/* line 17, ../../../src/components/search-results/sass/_search-filter.scss */
+@media (max-width: 767px) {
+  /* line 13, ../../../src/components/search-results/sass/_search-filter.scss */
+  .search-filter .filter-list p {
+    display: block;
+  }
+}
+/* line 20, ../../../src/components/search-results/sass/_search-filter.scss */
 .search-filter .filter-list ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
   display: inline-block;
 }
-/* line 22, ../../../src/components/search-results/sass/_search-filter.scss */
+@media (max-width: 767px) {
+  /* line 20, ../../../src/components/search-results/sass/_search-filter.scss */
+  .search-filter .filter-list ul {
+    display: block;
+  }
+}
+/* line 28, ../../../src/components/search-results/sass/_search-filter.scss */
 .search-filter .filter-list ul li {
   display: inline-block;
   padding: 5px;
@@ -4233,18 +4245,18 @@ form.elq-form .icon-calender:before {
   margin-right: 10px;
 }
 @media (max-width: 767px) {
-  /* line 22, ../../../src/components/search-results/sass/_search-filter.scss */
+  /* line 28, ../../../src/components/search-results/sass/_search-filter.scss */
   .search-filter .filter-list ul li {
     margin-bottom: 10px;
   }
 }
-/* line 33, ../../../src/components/search-results/sass/_search-filter.scss */
+/* line 39, ../../../src/components/search-results/sass/_search-filter.scss */
 .search-filter .filter-list ul li a.remove {
   border-left: 1px solid #e2e3e8;
   padding: 0 5px 0 10px;
   margin-left: 10px;
 }
-/* line 40, ../../../src/components/search-results/sass/_search-filter.scss */
+/* line 46, ../../../src/components/search-results/sass/_search-filter.scss */
 .search-filter .filter-list .remove-all {
   color: #ef7c00;
 }
