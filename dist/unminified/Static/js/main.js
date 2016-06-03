@@ -1,4 +1,4 @@
-/*! 2016-06-02 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-03 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -391,7 +391,7 @@ var INFORMA = window.INFORMA || {};
             '{{/each}}',
         'ProductFilters':
         '{{#each results}}'+
-                '<li>{{Key}}<a href="#" class="remove" data-name="{{Value}}">x</a></li>'+
+                '<li>{{Key}}<a href="#" class="remove" data-sector="{{Sector}}" data-value="{{Value}}">x</a></li>'+
         '{{/each}}',
         'Products' :
                 '{{#each results}}'+
@@ -597,12 +597,12 @@ var INFORMA = window.INFORMA || {};
     INFORMA.Utils = (function() {
         function _utils() {
 
-                DoFlip = function(obj,className) {
+            DoFlip = function(obj, className) {
                     var Container = obj.parents('.tile');
                     if (Container.hasClass('un-pinned')) {
-                        if(className==="flip"){
+                        if (className === "flip") {
                             Container.addClass('flip');
-                        }else{
+                        } else {
                             Container.removeClass('flip');
                         }
                     }
@@ -619,13 +619,13 @@ var INFORMA = window.INFORMA || {};
                         });
 
                         TileBack.mouseleave(function() {
-                            DoFlip($(this),'unflip');
+                            DoFlip($(this), 'unflip');
                         });
                     } else {
                         CompleteTile.hover(function() {
-                            DoFlip($(this),'flip');
+                            DoFlip($(this), 'flip');
                         }, function() {
-                            DoFlip($(this),'unflip');
+                            DoFlip($(this), 'unflip');
                         });
                     }
                     Pins.click(function() {
@@ -641,6 +641,25 @@ var INFORMA = window.INFORMA || {};
                     });
                     return uniqueArray;
                 }
+            this.RemoveArrayItem = function(Arry) {
+                var what, a = arguments,
+                    L = a.length,
+                    ax;
+                while (L > 1 && Arry.length) {
+                    what = a[--L];
+                    while ((ax = Arry.indexOf(what)) !== -1) {
+                        Arry.splice(ax, 1);
+                    }
+                }
+                return Arry;
+            }
+            this.StrngToQryStrng = function(strng) {
+                if ((typeof strng === "object" || typeof strng === "string") && strng !== null) {
+                    var Arry = strng.toString().split(","),
+                        QryStrng = Arry.join("&");
+                    return QryStrng;
+                }
+            }
             this.serializeObject = function(array) {
                 var o = {},
                     a = array;
