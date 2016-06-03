@@ -13,12 +13,18 @@
         p {
             display: inline-block;
             min-width: 100px;
+            @include mobile{
+                display: block;
+            }
         }
         ul {
             margin: 0;
             padding: 0;
             list-style-type: none;
             display: inline-block;
+            @include mobile{
+                display: block;
+            }
             li {
                 display: inline-block;
                 padding: 5px;
