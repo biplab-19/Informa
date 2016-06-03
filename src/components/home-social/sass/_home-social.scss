@@ -29,6 +29,24 @@
 			margin-bottom: 10px;
 		}
 	}
+	.slick-list {
+		position: relative;
+		&:before , &:after {
+			content: "";
+		    width: 2px;
+		    position: absolute;
+		    height: calc(100% - 10px);
+		    background-color: #6a7184;
+		    top: 0;
+		    left: 1px;
+		    @include mobile {
+		    	width: 0;
+		    }
+		}
+		&:after {
+			left: calc(100% - 2px);
+		}
+	}
 	.twitter-carousel {
 		.slick-active {
 			.feed {
@@ -61,13 +79,13 @@
 				min-height: 350px;
 				margin: 0 -2px;
 				position: relative;
-				border-left: 1px solid #6a7184;
 				//box-shadow: 1px 0 0 0 rgba(255, 255, 255, 0.8), -1px 0 0px 0 rgba(255, 255, 255, 0.8);
 				@include mobile {
 					min-height: auto;
 					border-left: none;
 				}
 				.twit-img {
+					margin-top: 12px;
 					margin-bottom: 20px;
 				}
 				.twittedby {

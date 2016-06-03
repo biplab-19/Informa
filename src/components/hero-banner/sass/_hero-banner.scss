@@ -141,6 +141,35 @@ section#hero-banner {
                }
          }
    }
+   &.about {
+    height: 330px;
+    h1 {
+      width: auto;
+    }
+      .abs-image {
+          display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        -ms-transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        transform: translateX(0%);
+        @include tablet {
+            -ms-transform: translateX(20%);
+            -webkit-transform: translateX(20%);
+            transform: translateX(20%);        }
+        @include mobile {
+            -ms-transform: translateX(22%);
+            -webkit-transform: translateX(22%);
+            transform: translateX(22%);
+        }
+      }
+      .splash {
+        > div {
+          width: 70%;
+        }
+      }
+   }
 
    &.video {
       overflow: hidden;

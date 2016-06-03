@@ -6,10 +6,10 @@
            <h1 class="white-color contactus-header" >Have any questions? <span class="white-color contactus-header-normal">Speak to a specialist</span></h1>
            <P class="white-color contactus-header-desc"> description </p>
             <h2 class="white-color contactus-sub-header">Subscribe and use today.</h2>
-            <div class="panel-group equal-height" id="accordion">
+            <div class="panel-group equal-height" id="contact-us-accordion">
                {{#each this}}
-               <div class="panel panel-default">
-                  <div class="panel-heading accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse{{id}}">
+               <div class="panel panel-default {{mobileopen}}">
+                  <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#contact-us-accordion" href="#collapse{{id}}">
                   <div class="contactus-heading">
                     <h2>
                         <img src="{{icon}}" height="30" width="30"> {{heading}}
