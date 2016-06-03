@@ -2630,8 +2630,8 @@ nav#pdp-navigation .menuFollower {
 }
 /* line 51, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-img {
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
   position: relative;
   overflow: hidden;
   -webkit-border-radius: 50%;
@@ -2650,7 +2650,7 @@ nav#pdp-navigation .menuFollower {
 }
 /* line 65, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .analyst-list-container .meet-anlyst-section .anlyst-heading .analyst-details {
-  width: calc(100% - 70px);
+  width: calc(100% - 85px);
   float: left;
   margin-right: 10px;
 }
@@ -4391,23 +4391,29 @@ form.elq-form .icon-calender:before {
 .product-analyst-results .analyst-views {
   padding: 20px 0;
 }
-/* line 73, ../../../src/components/analyst-search/sass/analyst-search.scss */
+@media (max-width: 767px) {
+  /* line 70, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  .product-analyst-results .analyst-views {
+    padding: 0;
+  }
+}
+/* line 76, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .more {
   display: block;
 }
-/* line 76, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 79, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .less {
   display: none;
 }
-/* line 80, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 83, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .more {
   display: none;
 }
-/* line 83, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 86, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .less {
   display: block;
 }
-/* line 85, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 88, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .less:before {
   content: "\e913";
 }
