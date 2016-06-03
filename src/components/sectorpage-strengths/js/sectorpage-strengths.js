@@ -24,11 +24,9 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.view-all-sectors-btn');
         _showMore.on('click',function(){
-            var _vp = INFORMA.global.device.viewportN;
-            if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
               $('.sectorpage-strengths .container > .row + .row >.marg1:nth-child(2n+2)').toggle();
               $(this).parents('.sectorpage-strengths').toggleClass('showLess');
-            }
+            
         });
     }
 
