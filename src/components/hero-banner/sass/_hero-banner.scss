@@ -180,10 +180,13 @@ section#hero-banner {
         }
        .span-arrow{
            font-size: 250%;
-           margin-top: 10px;
+           //margin-top: 10px;
          @include mobile {
              display: none;
            }
+          //  &:after{
+          //    content: "\e903";
+          //  }
        }
        .subtext {
            font-family: FSMe-light;
