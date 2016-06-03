@@ -192,7 +192,7 @@ section#hero-banner {
            margin-top: 30px;
            padding-bottom: 0px;
            @include mobile {
-               font-size: 25px;
+               font-size: 24px;
                letter-spacing: normal;
                margin: 10px 0px 30px 0px;
                text-align: left;
@@ -212,6 +212,8 @@ section#hero-banner {
            @include mobile {
              text-align: left;
              line-height: 20px;
+             height: 135px;
+             overflow: hidden;
            }
          }
          .pos{
@@ -237,7 +239,7 @@ section#hero-banner {
            margin-right: 65px;
            @include mobile {
              margin-right: 0px;
-              margin-top: 10px;
+              margin-top: 20px;
            }
          }
          @media only screen and (min-width : 1024px) and (max-device-width : 1224px) {
