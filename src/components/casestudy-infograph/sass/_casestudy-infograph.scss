@@ -1,0 +1,132 @@
+section#casestudy-infograph {
+    position: relative;
+
+    .challenge-container, .solution-container, .achieved-container{
+        
+        h2 {
+            font-size: $font-size-h2;
+        }
+    
+        h3 {
+            font-size: $font-size-h3;
+            margin-top: 0px;
+            margin-bottom: 15px;
+        }
+        
+        .title, .content{
+            padding: 15px;
+        }
+        
+        .info-img{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            position: relative;
+            text-align: center;
+            z-index: 1;
+            
+            &:after {
+                content: "";
+                height: 1px;
+                top: 50%;
+                border: 1.5px dashed $white;
+                position: absolute;
+                z-index: -1;
+            }
+           
+            @include mobile{
+                text-align: left;
+                padding-left: 15px;
+                &:after {
+                    display: none;
+                }
+            }
+            
+            @include tablet{
+                text-align: left;
+                padding-left: 15px;
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        
+    }
+    
+    .challenge-container, .achieved-container {
+        background-color: #eff0f3;
+        color: $text-gray;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .solution-container {
+        background-color: $blue-light-bg;
+        color: $light-blue-border;
+        padding: 0px;
+        
+        .row{
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        
+        .img-logo{
+            max-height: 30px;    
+        }
+        
+        .productdetails {
+            background-color: #c3c6d0;
+            min-height: 90px;
+            overflow: hidden;
+            position:relative;
+            padding: 60px 0;
+            &:before {
+                content: '';
+                position: absolute;
+                width: 110%;
+                top: calc(-100% + 33px);
+                left: -10px;
+                background-color: $blue-light-bg;
+                -ms-transform: rotate(-5deg); /* IE 9 */
+                -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+                transform: rotate(-5deg);
+                height: 100%;
+            }
+            
+            .btn-container {
+                width: 165px;
+                position: absolute;
+                bottom: 15px;
+                right: 15px;
+                float: right;
+            }
+        }
+    }
+    
+    .challenge-container{
+        .info-img{
+            &:after {
+                width: 50%;
+                left: 50%;
+            }
+        }
+    }
+
+    .achieved-container{
+        .info-img{
+            &:after {
+                width: 50%;
+                right: 50%;
+            }
+        }
+    }
+    
+    .solution-container{
+        .info-img{
+            &:after {
+                width: 100%;
+                left: 0;
+            }
+        }
+    }
+    
+}
