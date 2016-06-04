@@ -59,7 +59,7 @@
                 return Arry;
             }
             this.StrngToQryStrng = function(strng) {
-                if ((typeof strng === "object" || typeof strng === "string") && strng !== null) {
+                if ((typeof strng === "object" || typeof strng === "string") && strng) {
                     var Arry = strng.toString().split(","),
                         QryStrng = Arry.join("&");
                     return QryStrng;
