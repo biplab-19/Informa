@@ -143,6 +143,9 @@ section#hero-banner {
    }
    &.about {
     height: 330px;
+    @include mobile {
+      height: auto;
+    }
     h1 {
       width: auto;
     }
