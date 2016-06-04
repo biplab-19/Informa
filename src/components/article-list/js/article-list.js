@@ -61,7 +61,11 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         RenderCarousel = function(xhtml, ele) {
             ele.empty().html(xhtml);
             CreateSlider(ele);
-            equalHeights();
+            ele.show();
+            var updateCarouselHeight = setTimeout(function(){
+                updateCarouselHeight(clearTimeout);
+                equalHeights();
+            },500);
         },
         GetCarouselData = function(data) {
 
@@ -73,16 +77,18 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                     if (data.Articles !== undefined && data.Articles.length > 0) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
+                        $(".article-list ").show();
                         RenderCarousel(html, _ArticleLists);
                     }else{
-                        $(".article-list ").html("");
+                        $(".article-list ").hide();
                     }
                     if (data.Articles !== undefined && data.Headlines.length > 0) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
+                        $(".article-list ").show();
                         RenderCarousel(html, _HeadlinesLists);
                     }else{
-                        $(".headline-list").html("");
+                        $(".headline-list").hide();
                     }
                 },
                 error_callback: function() {
