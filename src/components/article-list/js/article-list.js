@@ -17,6 +17,8 @@ INFORMA.ArticleList = (function(window, $, namespace) {
     var _ArticleLists = $('.article-list .list-container'),
         _HeadlinesLists = $('.headline-list .list-container'),
         FilterMenu = $(".category-filter-list .categoryFilter"),
+        ArticleCont = $(".article-list"),
+        HeadlineCont = $(".headline-list"),
         Templates = INFORMA.Templates,
         Urls = INFORMA.Configs.urls.webservices,
         // methods
@@ -77,18 +79,18 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                     if (data.Articles !== undefined && data.Articles.length > 0) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
-                        $(".article-list ").show();
+                        ArticleCont.show();
                         RenderCarousel(html, _ArticleLists);
                     }else{
-                        $(".article-list ").hide();
+                        ArticleCont.hide();
                     }
                     if (data.Articles !== undefined && data.Headlines.length > 0) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
-                        $(".article-list ").show();
+                        HeadlineCont.show();
                         RenderCarousel(html, _HeadlinesLists);
                     }else{
-                        $(".headline-list").hide();
+                        HeadlineCont.hide();
                     }
                 },
                 error_callback: function() {
