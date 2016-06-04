@@ -18,6 +18,7 @@ var INFORMA = window.INFORMA || {};
     'articleListItems':
     '{{#each Articles}}'+
             '<li>'+
+            '<div class="columns">'+
                 '<p class="category">{{ContentType.[0]}}'+
                   '<strong>{{SectorType}}</strong>'+
                 '</p>'+
@@ -46,6 +47,7 @@ var INFORMA = window.INFORMA || {};
                       '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
                     '</div>'+
                 '{{/if}}'+
+                '</div>'+
             '</li>'+
           '{{/each}}',
         'HeadlinesListItems':
