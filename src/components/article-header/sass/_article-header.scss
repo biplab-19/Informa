@@ -1,0 +1,18 @@
+.article-banner {
+	padding: 20px 0;
+	background-color: $body-bg;
+	.italics {
+		font-style: italic;
+	}
+	.provided-by {
+		width: 40%;
+		padding: 20px 0 0 0;
+		border-top: 1px solid #585e6f;
+		@include mobile {
+			width: 100%;
+		}
+		p:last-child {
+			text-decoration: underline;
+		}
+	}
+}
