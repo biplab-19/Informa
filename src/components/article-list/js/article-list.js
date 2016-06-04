@@ -61,6 +61,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         RenderCarousel = function(xhtml, ele) {
             ele.empty().html(xhtml);
             CreateSlider(ele);
+            equalHeights();
         },
         GetCarouselData = function(data) {
 
