@@ -1,4 +1,4 @@
-/*! 2016-06-03 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-04 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -390,9 +390,15 @@ var INFORMA = window.INFORMA || {};
                 '</div>'+
             '{{/each}}',
         'ProductFilters':
-        '{{#each results}}'+
-                '<li>{{Key}}<a href="#" class="remove" data-sector="{{Sector}}" data-value="{{Value}}">x</a></li>'+
-        '{{/each}}',
+            '<div class="{{results.FilterName}}">'+
+                '<p>{{results.FilterName}}:</p>'+
+                '<ul data-filterid="{{results.FilterName}}">'+
+                    '{{#each results}}'+
+                        '<li>{{Key}}<a href="#" class="remove" data-sector="{{Sector}}" data-value="{{Value}}">x</a></li>'+
+                    '{{/each}}'+
+                '</ul>'+
+                '<a class="remove-all" href="#" data-filterid="{{results.FilterName}}">Clear all x</a>'+
+            '</div>',
         'Products' :
                 '{{#each results}}'+
                 '<div class="col-xs-12 col-sm-6 col-md-4 search-tile">'+
@@ -654,7 +660,7 @@ var INFORMA = window.INFORMA || {};
                 return Arry;
             }
             this.StrngToQryStrng = function(strng) {
-                if ((typeof strng === "object" || typeof strng === "string") && strng !== null) {
+                if ((typeof strng === "object" || typeof strng === "string") && strng) {
                     var Arry = strng.toString().split(","),
                         QryStrng = Arry.join("&");
                     return QryStrng;

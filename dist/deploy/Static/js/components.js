@@ -1,4 +1,4 @@
-/*! 2016-06-03 */_adjustHeigt = function(){
+/*! 2016-06-04 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1803,106 +1803,109 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         Utils = INFORMA.Utils,
         Urls = INFORMA.Configs.urls.webservices,
         SubmitBtn = $(".product-finder .sector-search li.button"),
-        SectorList = FilterList.find(".sector ul"),
-        SubSectorList = FilterList.find(".subsector ul"),
+        SectorSelect = $(".product-finder").find("select.sector-list"),
+        SubSectorSelect = $(".product-finder").find("select.sub-sector-list"),
         // methods
-        init,
-        CreateFilterList, MakeDropUnSelected, BindFilterEvents,UpdateSearchResult,RemoveFilterItems;
+        init, ReturnAllSelectVal,GetFilterData, ClearAllFilter,
+        CreateFilterList, MakeDropUnSelected, BindFilterEvents, UpdateSearchResult, RemoveFilter;
 
-    RemoveFilterItems = function(item,parent){
-        item.fadeOut("slow",function(){
-            item.remove();
-            var FilterLength = parent.find("li").size();
-            if(FilterLength<1){
-                parent.parent('div').hide();
-                //INFORMA.SearchResults.UpdateResultPage();
-            }
-        });
-    },
-    UpdateSearchResult = function(SectorIDs){
-
-        INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
-            method: "Get",
-            data: SectorIDs,
-            success_callback: function(data) {
-                INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
-                SubmitBtn.find("button").trigger("click");
-            },
-            error_callback: function() {
-
-            }
-        });
-    },
-    BindFilterEvents = function() {
-        var RemoveLink = FilterList.find("a.remove");
-
-        RemoveLink.on("click", function(e) {
-            e.preventDefault();
-            var SectorName = $(this).data("value"),
-                parent = $(this).parents("ul").eq(0),
-                FilterID = parent.data("filterid"), 
-                SectorIDs , SubSectorIDs =[]; 
-
-                if(SectorName !==null && FilterID !==null){
-                    RemoveFilterItems($(this).parent(),parent);
-                    //MakeDropUnSelected([SectorName],$("#"+FilterID));
-
-                    if($("#"+FilterID).hasClass("sector-list")===true){
-                        var Sectors = $("#"+FilterID).val(),
-                            SubSectorItems = SubSectorList.find("li a");
-
-                        if(Sectors!==null){
-                            SectorIDs = (Utils.RemoveArrayItem(Sectors,SectorName)).toString();
-
-                            if(SubSectorItems.length){
-                                $.each(SubSectorItems,function(){
-                                    var CurrentSector = $(this).data("sector");
-                                    if(CurrentSector===SectorName){
-                                       $(this).trigger("click");
-                                    }else{
-                                        SubSectorIDs.push($(this).data("value"));
-                                    }
-
-                                });
-                            }else{
-                               SubSectorIDs = null; 
-                            }      
-                            INFORMA.SearchResults.UpdateResultPage(SectorIDs , SubSectorIDs.toString());
-                        }
-                    }
+        RemoveFilter = function(item, parent) {
+            item.fadeOut("fast", function() {
+                item.remove();
+                var FilterLength = parent.find("li").size(),
+                    FilterData = GetFilterData();
+                if (FilterLength < 1) {
+                    parent.parent('div').hide();       
                 }
+                UpdateSearchResult(FilterData);
+            });
+        },
+        ClearAllFilter = function(ItemID,Parent){
+            Parent.fadeOut("fast", function() {
+                Parent.remove();
+                var FilterData = GetFilterData();
+                if(ItemID==="sectors"){
+                    FilterList.find(".SubSectors").remove();
+                }
+                UpdateSearchResult(FilterData);
+            });
+        },
+        ReturnAllSelectVal = function(options) {
+            var values = jQuery.map(options, function(option) {
+                return option.value;
+            });
+            return values;
+        },
+        GetFilterData = function(){
+            var Filters = FilterList.find("ul"),
+                FilterData = {};
 
-        });
-    },
-    MakeDropUnSelected = function(Arr,DrpDwn){
-        $.each(Arr, function(i, e) {
-           DrpDwn.find("option[value='" + e + "']").prop("selected", false);
-        });
-        DrpDwn.multiselect('rebuild');
-    },
-    CreateFilterList = function(DataObject) {
-        if (Object.keys(DataObject).length) {
-            var ListTemplate = Handlebars.compile(Templates.ProductFilters),
-                SectorHtml, SubSectorHtml,
-                FilterCont = $(".search-filter .filter-list");
+            $.each(Filters,function(){
+                var FilterID = $(this).data("filterid").toLowerCase(),
+                    ListItem  = $(this).find("li a"),
+                    FilterValue = [];
 
-            if (DataObject.Sectors) {
-                SectorHtml = ListTemplate({ results: DataObject.Sectors });
-                FilterCont.find(".sector ul").empty().html(SectorHtml);
+                 $.each(ListItem,function(){
+                    FilterValue.push($(this).data("value"));
+                 });
+
+                FilterData[FilterID] = FilterValue;
+            });
+            return FilterData;
+        },
+        UpdateSearchResult = function(filterData) {
+            INFORMA.Spinner.Show($("body"));
+            INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
+                method:"Get",
+                data:JSON.stringify(filterData),
+                success_callback: INFORMA.SearchResults.RenderSearchResults
+            });
+        },
+        BindFilterEvents = function() {
+            var RemoveLink = FilterList.find("a.remove"),
+                ClearAll = FilterList.find("a.remove-all");
+
+            RemoveLink.on("click", function(e) {
+                e.preventDefault();
+                var Parent = $(this).parents("ul").eq(0);
+                RemoveFilter($(this).parent(), Parent);
+            });
+
+            ClearAll.on("click", function(e) {
+                e.preventDefault();
+                var Parent = $(this).parent(),
+                    ItemID = $(this).data("filterid").toLowerCase();
+                ClearAllFilter(ItemID,Parent);
+            });
+        },
+        MakeDropUnSelected = function(Arr, DrpDwn) {
+            $.each(Arr, function(i, e) {
+                DrpDwn.find("option[value='" + e + "']").prop("selected", false);
+            });
+            DrpDwn.multiselect('rebuild');
+        },
+        CreateFilterList = function(DataObject) {
+            var html = "";
+            for (var key in DataObject) {
+                if (DataObject.hasOwnProperty(key)) {
+                    var ResultName = key,
+                        Data = DataObject[key],
+                        ListTemplate = Handlebars.compile(Templates.ProductFilters);
+
+                        if(Data.length > 0){
+                            Data.FilterName = ResultName;
+                            html += ListTemplate({ results: Data });
+                        }
+                }
             }
-            if (DataObject.SubSectors) {
-                SubSectorHtml = ListTemplate({ results: DataObject.SubSectors });
-                FilterCont.find(".subsector ul").empty().html(SubSectorHtml);
-            }
-            $(".search-filter").delay(600).slideDown();
-        }
-    },
+            return html;
+        },
 
-    init = function() {};
+        init = function() {};
     return {
         init: init,
         CreateFilterList: CreateFilterList,
-        DoFilter:BindFilterEvents
+        DoFilter: BindFilterEvents
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
@@ -1993,16 +1996,18 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SubmitBtn = $(".product-finder .sector-search li.button"),
         SectorHidden = $("input.sector-list"),
         SubSectorHidden = $("input.sub-sector-list"),
+        FilterList = $(".search-filter .filter-list"),
         ResultCount, ResultInner, SectorData, SubSectorData,
         Config = INFORMA.Configs,
         PageNo = 1,
         Urls = INFORMA.Configs.urls.webservices,
+        Utils = INFORMA.Utils,
         // methods
         init,
-        equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView,
-        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage,MakeDropPreSelected;
+        equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter, LoadProducts,
+        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected;
 
-        equalHeight = function(container) {
+    equalHeight = function(container) {
             var ItemsList = container.find('.col-md-4'),
                 MaxHeight = 0,
                 Padding = 10;
@@ -2018,29 +2023,35 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ItemsList.css('height', 'auto');
             }
         },
-        MakeDropPreSelected = function(Arr,DrpDwn){
+        MakeDropPreSelected = function(Arr, DrpDwn) {
             DrpDwn.val("");
             $.each(Arr, function(i, e) {
-               DrpDwn.find("option[value='" + e + "']").prop("selected", true);
+                DrpDwn.find("option[value='" + e + "']").prop("selected", true);
             });
             DrpDwn.multiselect('rebuild');
         },
+        LoadProducts = function(){
+            INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
+                method:"Get",
+                success_callback: ParseSearchData
+            });
+        },
+        UpdateResultPage = function(SecValue, SubSecValue) {
 
-        UpdateResultPage = function(SecValue ,SubSecValue) {
+            var SectorArray = SecValue.split(","),
+                SubSectors = SubSecValue.split(","),
+                SectorIDs = 'SectorIDs=' + Utils.StrngToQryStrng(SecValue);
 
-            var SectorArray = (SecValue !== null) ? SecValue.split(",") : null,
-                SubSectorArray = (SubSecValue !== null) ? SubSecValue.split(",") : null,
-                SectorIDs = 'SectorIDs=' + SectorArray.join("&");
-
-            if (SectorSelect.length && SectorArray !== null) {
+            if (SectorSelect.length && SectorArray) {
                 MakeDropPreSelected(SectorArray, SectorSelect);
                 INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
                     method: "Get",
                     data: SectorIDs,
                     success_callback: function(data) {
                         INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
-                        if(SubSectorArray!==null){
-                            MakeDropPreSelected(SubSectorArray, SubSectorSelect);
+
+                        if (SubSectors) {
+                            MakeDropPreSelected(SubSectors, SubSectorSelect);
                         }
                         ProductFinder.slideDown();
                         SubmitBtn.find("button").trigger("click");
@@ -2063,13 +2074,21 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         BindPaginationEvents = function(Object) {
             Object.on("click", function(e) {
                 e.preventDefault();
-                var SerializeArrays = ProductFinder.find("form").serializeArray(),
-                    GetSerializeData = INFORMA.Utils.serializeObject(SerializeArrays);
-                GetSerializeData.pageSize = ($(this).data('pagesize') !== undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
-                GetSerializeData.PageNo = PageNo++;
 
-                GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(GetSerializeData), ParseSearchData, null);
+                var SerializeArrays = ProductFinder.find("form").serializeArray(),
+                    Data = Utils.serializeObject(SerializeArrays);
+
+                Data.pageSize = ($(this).data('pagesize') !== undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
+                Data.PageNo = PageNo++;
+
+                GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(Data), ParseSearchData, null);
             });
+        },
+        ShowFilter = function(html, container) {
+            if (html && container) {
+                container.html(html);
+                $(".search-filter").delay(600).slideDown();
+            }
         },
         CreateSearchResult = function(DataObject) {
             for (var key in DataObject) {
@@ -2087,11 +2106,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     $(ContainerID).find(".row").html(html);
 
                     //Update Record Counts
-                    if(Data.length>0){
+                    if (Data.length > 0) {
                         $(ContainerID).find(".count strong").text(Data[0].ProductCount);
-                    }else{
-                         $(ContainerID).find(".count strong").text("0");
-                         $(ContainerID).find(".btn-container").hide();
+                    } else {
+                        $(ContainerID).find(".count strong").text("0");
+                        $(ContainerID).find(".btn-container").hide();
                     }
                 }
             }
@@ -2124,7 +2143,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     Refine = (data.RefineResult !== undefined) ? data.RefineResult : false,
                     ProductFilters = (data.ProductFilters !== undefined) ? data.ProductFilters : false;
                 if (ProductFilters) {
-                    INFORMA.SearchResultFilter.CreateFilterList(ProductFilters);
+                    var html = INFORMA.SearchResultFilter.CreateFilterList(ProductFilters);
+                    ShowFilter(html, FilterList);
                 }
                 if (Refine) {
                     var Data = { "RefineResult": Refine };
@@ -2141,16 +2161,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if (IsProductPage && SectorHidden.length > 0) {
                 var SVal = SectorHidden.val(),
-                    SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : null;
-                
-                UpdateResultPage(SVal,SubSecVal);
+                    SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
+                if (SVal) {
+                    UpdateResultPage(SVal, SubSecVal);
+                }else{
+                    LoadProducts();
+                }
             }
 
         };
     return {
         init: init,
         RenderSearchResults: ParseSearchData,
-        UpdateResultPage:UpdateResultPage
+        UpdateResultPage: UpdateResultPage
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
