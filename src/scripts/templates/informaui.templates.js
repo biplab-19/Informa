@@ -41,7 +41,7 @@ var INFORMA = window.INFORMA || {};
                         '</div>'+
                     '{{/if}}'+
                 '</div>'+
-                '{{#if Link}}'+
+                '{{#if LinkText}}'+
                     '<div class="btn-container">'+
                       '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
                     '</div>'+
@@ -65,24 +65,22 @@ var INFORMA = window.INFORMA || {};
             '{{#each SubSectors}}'+
                 '<option value="{{SubSectorID}}">{{SubSectorName}}</option>'+
             '{{/each}}',
-        'RefineResult' :
-            '{{#each results}}'+
-                '<div class="col-xs-12 col-sm-6 col-md-4">'+
-                    '<p><strong>{{RefineText}}</strong></p>'+
-                    '<ul>'+
-                        '{{#each Items}}'+
-                        '<li>'+
-                            '<span class="custom-checkbox">'+
-                                '<label class="label" for="{{Key}}">'+
-                                  '<input type="checkbox" value="{{Value}}" id="{{Key}}" name="{{Key}}" />'+
-                                  '<span>{{Key}}</span>'+
-                                '</label>'+
-                            '</span>'+
-                        '</li>'+
-                        '{{/each}}'+
-                    '</ul>'+
-                '</div>'+
-            '{{/each}}',
+        'ProductFacets' :
+            '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                '<p><strong>{{results.FilterName}}</strong></p>'+
+                '<ul data-filterid="{{results.FilterName}}">'+
+                    '{{#each results}}'+
+                    '<li>'+
+                        '<span class="custom-checkbox">'+
+                            '<label class="label" for="{{Key}}">'+
+                              '<input type="checkbox" data-value={{Value}} value="{{Value}}" id="{{Key}}" name="{{Key}}" />'+
+                              '<span>{{Key}}</span>'+
+                            '</label>'+
+                        '</span>'+
+                    '</li>'+
+                    '{{/each}}'+
+                '</ul>'+
+            '</div>',
         'ProductFilters':
             '<div class="{{results.FilterName}}">'+
                 '<p>{{results.FilterName}}:</p>'+
