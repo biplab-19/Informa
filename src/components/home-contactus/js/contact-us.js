@@ -26,7 +26,7 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
             var _tiles = container.find('.panel-default');
 
             _tiles.each(function(key, value) {
-                if(!jQuery(this).hasClass('on-mobile-open')) {
+                if(!jQuery(this).hasClass('on-mobile-open') && key < 2) {
                     jQuery(this).find('.collapse').collapse('hide');
                 } else {
                     jQuery(this).find('.panel-heading').removeClass('collapsed');
