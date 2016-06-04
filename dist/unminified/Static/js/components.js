@@ -597,6 +597,7 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     //variables
     var _contactUs = $('#contactus-section'),
         _accordianTile = _contactUs.find('.panel-default'),
+        _eachTile = _contactUs.find('.panel-heading'),
     // methods
         init,
         _openAccordian;
@@ -605,17 +606,26 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
         if(INFORMA.global.device.viewportN === 2) {
             var _tiles = container.find('.panel-default');
 
-            _tiles.each(function() {
+            _tiles.each(function(key, value) {
                 if(!jQuery(this).hasClass('on-mobile-open')) {
-                    jQuery(this).find('.accordion-toggle').addClass('collapsed');
-                    jQuery(this).find('.panel-collapse').removeClass('in');
+                    jQuery(this).find('.collapse').collapse('hide');
                 } else {
-                    jQuery(this).find('.accordion-toggle').removeClass('collapsed');
-                    jQuery(this).find('.panel-collapse').addClass('in');
+                    jQuery(this).find('.panel-heading').removeClass('collapsed');
                 }
             })
         }
     }
+
+    _eachTile.on('click', function() {
+        _eachTile.parent().find('.collapse').collapse('hide');
+        _eachTile.not(jQuery(this)).addClass('collapsed');
+        jQuery(this).parent().find('.collapse').collapse('hide');
+        if(jQuery(this).hasClass('collapsed')) {
+            jQuery(this).removeClass('collapsed');
+        } else {
+            jQuery(this).addClass('collapsed');
+        }
+    })
     
 
     init = function() {
