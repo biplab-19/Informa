@@ -65,7 +65,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             CreateSlider(ele);
             ele.show();
             var updateCarouselHeight = setTimeout(function(){
-                updateCarouselHeight(clearTimeout);
+                clearTimeout(updateCarouselHeight);
                 equalHeights();
             },500);
         },

@@ -42,12 +42,12 @@ var INFORMA = window.INFORMA || {};
                         '</div>'+
                     '{{/if}}'+
                 '</div>'+
+            '</div>'+
                 '{{#if LinkText}}'+
                     '<div class="btn-container">'+
                       '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
                     '</div>'+
                 '{{/if}}'+
-                '</div>'+
             '</li>'+
           '{{/each}}',
         'HeadlinesListItems':

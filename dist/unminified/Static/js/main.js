@@ -324,6 +324,7 @@ var INFORMA = window.INFORMA || {};
     'articleListItems':
     '{{#each Articles}}'+
             '<li>'+
+                '<div class="columns">'+
                 '<p class="category">{{ContentType.[0]}}'+
                   '<strong>{{SectorType}}</strong>'+
                 '</p>'+
@@ -346,6 +347,7 @@ var INFORMA = window.INFORMA || {};
                             '<span class="play-icon icon-play"></span>'+
                         '</div>'+
                     '{{/if}}'+
+                '</div>'+
                 '</div>'+
                 '{{#if LinkText}}'+
                     '<div class="btn-container">'+
