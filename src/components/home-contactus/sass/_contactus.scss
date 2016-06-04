@@ -164,6 +164,10 @@
                     position: absolute;
                     bottom: 0;
                     left: 0;
+                    @include mobile {
+                        position: static;
+                        padding: 20px 0;
+                    }
                 }
                 @include mobile {
                     position: relative;
