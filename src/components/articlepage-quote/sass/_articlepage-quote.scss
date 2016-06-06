@@ -1,0 +1,50 @@
+section.articlepage-quote {
+	background-color: $white;
+	border: 1px solid green;
+	//text-align: center;
+	.container{
+		border: 1px solid red;
+		width: 65%;
+
+		@include mobile{
+			width: 100%;
+		}
+
+		@include tablet{
+			width: 100%;
+		}
+		
+		blockquote{
+			font-size: $font-size-h3;
+			margin: 0.25em 0;
+			padding: 0.25em 40px;
+			line-height: 1.45;
+			position: relative;
+			color: $gray-light-bg;
+			border-left: none;
+
+			&:before {
+				content: "\201C";
+			  	font-size: 90px;
+			  	font-weight: bold;
+			  	color: #ffec8c;
+			  	display: block;
+				position: absolute;
+				left: -5px;
+				top: -20px;
+				
+			}
+		}
+
+		figure {
+    		float: right;
+    		width: 30%;
+    		margin: 10px;
+
+    		img {
+    			width: 100%;
+    			height: auto;
+			}
+		}
+	}
+}
