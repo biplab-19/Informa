@@ -1,9 +1,12 @@
 section.articlepage-quote {
 	background-color: $white;
+	padding: 60px 0;
 	//text-align: center;
 	.container{
 		width: 65%;
-
+		p {
+			line-height: 1.7;
+		}
 		@include mobile {
 			width: 100%;
 		}
@@ -14,7 +17,7 @@ section.articlepage-quote {
 		
 		blockquote{
 			font-size: $font-size-h3;
-			margin: 0.25em 0;
+			margin: 40px 0;
 			padding: 0.25em 40px;
 			line-height: 1.45;
 			position: relative;
@@ -33,6 +36,7 @@ section.articlepage-quote {
 				
 			}
 			cite {
+				display: block;
 				font-size: 16px;
 				margin-top: 30px;
 			}
@@ -40,12 +44,15 @@ section.articlepage-quote {
 
 		figure {
     		float: right;
-    		width: 30%;
-    		margin: 10px;
+    		width: 45%;
+    		margin: 10px 10px 10px 30px;
 
     		img {
     			width: 100%;
     			height: auto;
+			}
+			figcaption {
+				margin-top: 30px;
 			}
 		}
 	}
