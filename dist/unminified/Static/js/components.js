@@ -1,4 +1,4 @@
-/*! 2016-06-04 */_adjustHeigt = function(){
+/*! 2016-06-06 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -616,10 +616,11 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
             var _tiles = container.find('.panel-default');
 
             _tiles.each(function(key, value) {
-                if(!jQuery(this).hasClass('on-mobile-open') && key < 2) {
-                    jQuery(this).find('.collapse').collapse('hide');
-                } else {
+                if(key < 2) {
                     jQuery(this).find('.panel-heading').removeClass('collapsed');
+                } else {
+                    jQuery(this).find('.collapse').collapse('hide');
+                    
                 }
             })
         }
@@ -648,6 +649,38 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.homeContactUs.init());
+
+/*
+* analyst-list.js
+*
+*
+* @project:    Informa
+* @date:       2016-May-22
+* @author:     Tejaswi tchennupati@sapient.com
+* @licensor:   SAPIENNITRO
+* @namespaces: INFORMA
+*
+*/
+
+var INFORMA = window.INFORMA || {};
+INFORMA.navbars = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var Tabs = $('ul.nav li'),
+        init;
+    init = function() {
+
+        Tabs.on('click', function() {
+            Tabs.removeClass('active');
+            jQuery(this).addClass('active');
+        })
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.navbars.init());
 
 /*
  * feature-list.js
