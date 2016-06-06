@@ -142,6 +142,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                             }
                             SubSectorList.parents("li").eq(0).addClass("disabled");
                             SubSectorList.attr("disabled", "disabled");
+                            SubSectorList.val('');
                             SubSectorList.multiselect('rebuild');
                             SubmitBtn.addClass("disabled");
                             $("li.disabled .dropdown-toggle").attr("disabled", "disabled");

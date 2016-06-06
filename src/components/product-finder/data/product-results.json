@@ -14,24 +14,17 @@
             }],
         "SubSectors": [{
                 "Key": "Diary",
-                "Value":"01",
-                "Sector":"sector1"
+                "Value":"01"
             },
             {
                 "Key": "Meats",
-                "Value":"02",
-                 "Sector":"sector2"
+                "Value":"02"
             },
             {
                 "Key": "Electronics",
-                "Value":"03",
-                "Sector":"sector1"
-            }]
-    },
-    "RefineResult": [{
-        "RefineText": "Information type",
-        "RefineType": "Information",
-        "Items": [{
+                "Value":"03"
+            }],
+        "Information": [{
             "Key": "Insight News",
             "Value": "guid001"
         }, {
@@ -44,10 +37,23 @@
             "Key": "Feed",
             "Value": "guid001"
         }]
-    }, {
-        "RefineText": "Your Role",
-        "RefineType": "Role",
-        "Items": [{
+    },
+    "ProductFacets": {
+        "Information": [{
+            "Key": "Insight News",
+            "Value": "guid001"
+        }, {
+            "Key": "Pricing Information",
+            "Value": "guid001"
+        }, {
+            "Key": "Trade flows",
+            "Value": "guid001"
+        }, {
+            "Key": "Feed",
+            "Value": "guid001"
+        }],
+
+       "Role": [{
             "Key": "Trader",
             "Value": "guid001"
         }, {
@@ -59,11 +65,8 @@
         }, {
             "Key": "Policy Regular",
             "Value": "guid001"
-        }]
-    }, {
-        "RefineText": "Brand",
-        "RefineType": "Brand",
-        "Items": [{
+        }],
+        "Brand": [{
             "Key": "Food News",
             "Value": "guid001"
         }, {
@@ -76,7 +79,7 @@
             "Key": "The Public Ledger",
             "Value": "guid001"
         }]
-    }],
+    },
     "Results": {
         "Products": [{
             "Image": "Static/images/video-thumb-sample.jpg",
