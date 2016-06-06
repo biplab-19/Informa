@@ -666,10 +666,10 @@ var INFORMA = window.INFORMA || {};
 INFORMA.navbars = (function(window, $, namespace) {
     'use strict';
     //variables
-    var Tabs = $('ul.nav li'),
+    var Tabs = $('.tabs-row ul.nav li'),
         init;
     init = function() {
-
+        jQuery(Tabs[0]).addClass('active');
         Tabs.on('click', function() {
             Tabs.removeClass('active');
             jQuery(this).addClass('active');
@@ -1807,6 +1807,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                             }
                             SubSectorList.parents("li").eq(0).addClass("disabled");
                             SubSectorList.attr("disabled", "disabled");
+                            SubSectorList.val('');
                             SubSectorList.multiselect('rebuild');
                             SubmitBtn.addClass("disabled");
                             $("li.disabled .dropdown-toggle").attr("disabled", "disabled");
@@ -1962,67 +1963,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchResultFilter.init());
-
-/*
- * Product Results.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Rajiv Aggarwal
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
-var INFORMA = window.INFORMA || {};
-INFORMA.SearchRefineResult = (function(window, $, namespace) {
-    'use strict';
-    //variables
-    var Templates = INFORMA.Templates,
-        // methods
-        init,
-        CreateRefineList, BindRefineEvents;
-
-    BindRefineEvents = function(html) {
-            var RefineContainer = $(".search-container .refine-result"),
-                RefineCloseBtn = $(".refine-result .close-filter");
-
-            if (RefineContainer.length) {
-                RefineContainer
-                    .empty()
-                    .html(html);
-                RefineContainer.parents(".refine-list").delay(1000).slideDown();
-            }
-
-            RefineCloseBtn.off("click").on("click", function(e) {
-                e.preventDefault();
-                RefineContainer.slideUp();
-            });
-
-            $(".refine-list").off("click").on("click", "a.refine", function(e) {
-                e.preventDefault();
-                RefineContainer.slideToggle();
-                RefineCloseBtn.show();
-            });
-        },
-        CreateRefineList = function(DataObject) {
-            if (Object.keys(DataObject).length) {
-                var ListTemplate = Handlebars.compile(Templates.RefineResult),
-                    html = ListTemplate({ results: DataObject.RefineResult });
-                BindRefineEvents(html);
-            }
-
-        },
-
-        init = function() {};
-        return {
-            init: init,
-            CreateRefineList: CreateRefineList
-        };
-
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.SearchRefineResult.init());
 
 /*
  * Product Results.js
@@ -2290,24 +2230,54 @@ var INFORMA = window.INFORMA || {};
 INFORMA.sectorPageStrengths = (function(window, $, namespace) {
     'use strict';
     //variables
+
     var _sectorPageStrengths = $('.sectorpage-strengths'),
+        _elements = 0,
     // methods
         init,
         _bindShowMore,
-        _adjustHeigt;
+        _adjustHeigt, _checkElemnt;
+
+
+    _checkElemnt = function () {
+        var _vp = INFORMA.global.device.viewportN;
+
+        if(_vp == 0) {
+            var count = _sectorPageStrengths.data('desktop');
+            _sectorPageStrengths.find('.marg1:nth-child(n+'+ (count + 1)+')').hide();
+            if(_sectorPageStrengths.find('.marg1').length > (count+1)) {
+                _sectorPageStrengths.find('.view-all-sectors-btn-container').show();
+            } else {
+                _sectorPageStrengths.find('.view-all-sectors-btn-container').hide();
+            }
+            _elements = count;
+        } else if(_vp == 1) {
+          _sectorPageStrengths.find('.marg1:nth-child(n+5)').hide();
+          if(_sectorPageStrengths.find('.marg1').length > 4) {
+              _sectorPageStrengths.find('.view-all-sectors-btn-container').show();
+          } else {
+              _sectorPageStrengths.find('.view-all-sectors-btn-container').hide();
+          }
+          _elements = 4;
+        } else {
+          _sectorPageStrengths.find('.marg1:nth-child(n+4)').hide();
+          _elements = 3;
+        }
+    }
 
     _bindShowMore = function(container){
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.view-all-sectors-btn');
         _showMore.on('click',function(){
-              $('.sectorpage-strengths .container > .row + .row >.marg1:nth-child(2n+2)').toggle();
+              $('.sectorpage-strengths .container > .row + .row >.marg1:nth-child(n+'+ (_elements + 1) +')').toggle();
               $(this).parents('.sectorpage-strengths').toggleClass('showLess');
-            
+
         });
     }
 
     init = function() {
-              if (_sectorPageStrengths.length > 0) {
+        if (_sectorPageStrengths.length > 0) {
+            _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
         }
     };

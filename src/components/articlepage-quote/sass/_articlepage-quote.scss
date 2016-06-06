@@ -23,7 +23,10 @@ section.articlepage-quote {
 			position: relative;
 			color: $gray-light-bg;
 			border-left: none;
-
+			@include mobile {
+				padding: 40px 0;
+				margin: 20px 0;
+			}
 			&:before {
 				content: "\201C";
 			  	font-size: 90px;
@@ -33,7 +36,6 @@ section.articlepage-quote {
 				position: absolute;
 				left: -5px;
 				top: -20px;
-				
 			}
 			cite {
 				display: block;
