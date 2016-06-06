@@ -16,6 +16,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
     //variables
     var Templates = INFORMA.Templates,
         FilterList = $(".search-filter .filter-list"),
+        SearchFilter = $(".search-container .search-filter"),
         Utils = INFORMA.Utils,
         Urls = INFORMA.Configs.urls.webservices,
         SubmitBtn = $(".product-finder .sector-search li.button"),
@@ -28,9 +29,13 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             item.fadeOut("fast", function() {
                 item.remove();
                 var FilterLength = parent.find("li").size(),
+                    NoFilter = FilterList.find("li"),
                     FilterData = GetFilterData(FilterList);
                 if (FilterLength < 1) {
                     parent.parent('div').hide();       
+                }
+                if(!NoFilter.length){
+                    SearchFilter.slideUp();
                 }
                 UpdateSearchResult(FilterData);
             });
@@ -38,7 +43,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         ClearAllFilter = function(Parent){
             Parent.fadeOut("fast", function() {
                 Parent.remove();
-                var FilterData = GetFilterData(FilterList);
+                var FilterData = GetFilterData(FilterList),
+                    NoFilter = FilterList.find("li");
+                if(!NoFilter.length){
+                    SearchFilter.slideUp();
+                }
                 UpdateSearchResult(FilterData);
             });
         },
@@ -83,8 +92,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             var RefineCloseBtn = $(".refine-list .close-filter"),
                 RefineContainer = $(".search-container .slider"),
                 RefineBtn = $(".refine-list .btn");
-                
-            RefineContainer.hide();
+            
             RefineCloseBtn.off("click").on("click", function(e) {
                 e.preventDefault();
                 RefineContainer.slideUp();
