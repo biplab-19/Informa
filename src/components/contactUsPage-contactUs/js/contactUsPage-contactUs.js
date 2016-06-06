@@ -14,10 +14,10 @@ var INFORMA = window.INFORMA || {};
 INFORMA.navbars = (function(window, $, namespace) {
     'use strict';
     //variables
-    var Tabs = $('ul.nav li'),
+    var Tabs = $('.tabs-row ul.nav li'),
         init;
     init = function() {
-
+        jQuery(Tabs[0]).addClass('active');
         Tabs.on('click', function() {
             Tabs.removeClass('active');
             jQuery(this).addClass('active');
