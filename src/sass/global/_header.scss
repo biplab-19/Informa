@@ -10,6 +10,104 @@ header {
             margin: 0 auto;
             padding: 5px;
         }
+        .copyright-header {
+            color: $white;
+            background-color: $gray-header;
+            //  border-bottom: 1px solid $white;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            left: 0;
+            right: 0;
+            @include tablet {
+              font-size: 13px;
+            }
+            @include mobile {
+              font-size: 12px;
+            }
+        }
+        .copyright-header-inner {
+            max-width: 100%;
+            margin: 0 auto;
+            min-height: 36px;
+            text-align: center;
+            & .toggle {
+                color: $white;
+                text-decoration: none;
+                position: absolute;
+                bottom: 9px;
+                left: 50%;
+                transform: translate(-50%);
+                cursor: pointer;
+                font-size: 18px;
+                &::after {
+                    content: "";
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 9px 9px 0 9px;
+                    border-color: $white transparent transparent transparent;
+                    margin-left: 5px;
+                }
+            }
+        }
+        .copyright-header-content {
+            max-height: 0;
+            overflow: hidden;
+            text-align: left;
+            padding-top: 10px;
+            top: 100%;
+            opacity: 0;
+            filter: alpha(opacity=0);
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -ms-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+        .copyright-header-inner.open {
+            & .toggle::after {
+                border-width: 0 9px 9px 9px;
+                margin-left: 5px;
+                border-color: transparent transparent $white transparent;
+            }
+            & .copyright-header-content {
+                max-height: 150px;
+                height: 150px;
+                opacity: 1;
+                filter: alpha(opacity=100);
+                & .copyright-header-text {
+                    max-height: 90px;
+                    height: 90px;
+                    & p {
+                        word-wrap: break-word;
+                    }
+                    & .links{
+                      margin-right: 10px;
+                    }
+                    & ul {
+
+                        & li {
+                            list-style: none;
+                            display: inline;
+                            text-transform: uppercase;
+                            &:after {
+                                content: "|";
+                                padding: 0 0.5em;
+                            }
+                        }
+                        & li:last-child {
+                            content: " ";
+                            padding: 0 0.5em;
+                        }
+                    }
+                }
+                & .copyright-header-text:first-child {
+                    border-right: solid 1px $white;
+                }
+            }
+        }
     }
     section.logoSection {
         background: $gray-light-bg;
@@ -38,8 +136,8 @@ header {
             }
         }
         @mobile {
-            .logo,
-            .login {
+            .login,
+            .logo {
                 float: none;
             }
         }
@@ -55,7 +153,7 @@ header {
             top: 0;
             width: 100%;
         }
-        .container{
+        .container {
             @include mobile {
                 display: none;
             }
@@ -106,196 +204,194 @@ header {
         }
     }
 }
-
-    .product-finder {
-        padding: 15px 0;
-        background-color: $gray-light-bg;
-        display: none;
+.product-finder {
+    padding: 15px 0;
+    background-color: $gray-light-bg;
+    display: none;
+    @include mobile {
+        display: block;
+    }
+    .container {
         @include mobile {
             display: block;
         }
-        .container{
-            @include mobile {
-                display: block;
-            }
+    }
+    .hidden {
+        display: none;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            list-style-type: none;
         }
-        .hidden {
+    }
+    form {
+        margin: 0;
+        padding: 0;
+        legend {
+            border: none;
+            margin: 0;
             display: none;
         }
-        ul {
-            margin: 0;
-            padding: 0;
+        button[type=submit] {
+            color: $white;
+        }
+        ul.search-options {
+            margin-top: 10px;
             li {
-                list-style-type: none;
+                display: inline-block;
+                .custom-radio {
+                    margin-right: 30px;
+                    @include mobile {
+                        margin-right: 10px;
+                    }
+                    .label {
+                        font-size: 1.1em;
+                        @include mobile {
+                            font-size: 1em;
+                        }
+                    }
+                }
+                &:last-child {
+                    float: right;
+                    font-weight: 400;
+                    .close-finder {
+                        padding: 0;
+                        text-decoration: none;
+                    }
+                }
             }
         }
-        form {
-            margin: 0;
-            padding: 0;
-            legend {
-                border: none;
-                margin: 0;
-                display: none;
-            }
-            button[type=submit]{
-                color:$white;
-            }
-            ul.search-options {
-                margin-top: 10px;
-                li {
-                    display: inline-block;
-                    .custom-radio {
-                        margin-right: 30px;
-                        @include mobile {
-                            margin-right: 10px;
-                        }
-                        .label {
-                            font-size: 1.1em;
-                            @include mobile {
-                               font-size: 1em;
-                            }
-                        }
-                    }
-                    &:last-child {
-                        float: right;
-                        font-weight: 400;
-                        .close-finder {
-                            padding: 0;
-                            text-decoration: none;
-                        }
-                    }
+        ul.site-search {
+            display: none;
+            margin: 20px 0 0;
+            .menu {
+                float: left;
+                width: 85.5%;
+                margin-right: 36px;
+                @include mobile {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 30px;
+                }
+                @include tablet {
+                    margin-right: 15px;
                 }
             }
-            ul.site-search {
-                display: none;
-                margin: 20px 0 0;
-                .menu {
+            .button {
+                float: left;
+                width: 11%;
+                margin-right: 0;
+                text-align: right;
+                @include mobile {
+                    display: block;
+                    width: 100%;
+                }
+                .btn {
+                    padding: 10px 20px;
+                    min-width: 100%;
+                    background-color: $orange;
+                    border: none;
+                    color: $white;
+                }
+            }
+        }
+        ul.sector-search {
+            margin: 20px 0 0;
+            li {
+                .label-text {
+                    background-color: #e1e2e7;
                     float: left;
-                    width: 85.5%;
-                    margin-right: 36px;
+                    height: 40px;
+                    line-height: 38px;
+                    margin: 0;
+                    min-width: 100px;
+                    padding: 0 15px;
+                    color: $text-gray;
+                    position: relative;
                     @include mobile {
-                        width: 100%;
-                        margin-right: 0;
-                        margin-bottom: 30px;
+                        background-color: transparent;
+                        float: none;
+                        height: auto;
+                        line-height: auto;
+                        margin: 0;
+                        min-width: auto;
+                        padding: 0;
+                        color: $white;
+                        line-height: 20px;
                     }
                     @include tablet {
-                        margin-right: 15px;
+                        width: 32%;
+                    }
+                    &:after {
+                        border: solid transparent;
+                        border-color: rgba(225, 226, 231, 0);
+                        border-left-color: #e1e2e7;
+                        border-width: 6px;
+                        content: "";
+                        height: 0;
+                        left: 100%;
+                        top: 38%;
+                        position: absolute;
+                        width: 0;
+                        z-index: 4;
+                        @include mobile {
+                            border: none;
+                        }
                     }
                 }
-                .button {
-                    float: left;
-                    width: 11%;
-                    margin-right: 0;
-                    text-align: right;
-                    @include mobile {
-                        display: block;
-                        width: 100%
+                .custom-multiselect {
+                    width: 73%;
+                    margin-right: 30px;
+                    height: 40px;
+                    display: inline-block;
+                    position: relative;
+                    img {
+                        top: 3px !important;
+                        width: auto;
                     }
-                    .btn {
-                        padding: 10px 20px;
-                        min-width: 100%;
-                        background-color: $orange;
-                        border: none;
-                        color:$white;
+                    @include mobile {
+                        margin-bottom: 20px;
+                        width: 100%;
+                    }
+                    @include tablet {
+                        width: 58%;
+                    }
+                    .dropdown-toggle {
+                        height: 40px;
+                    }
+                    a {
+                        color: $text-gray;
                     }
                 }
             }
-            ul.sector-search {
-                margin: 20px 0 0;
-                li {
-                    .label-text {
-                        background-color: #e1e2e7;
-                        float: left;
-                        height: 40px;
-                        line-height: 38px;
-                        margin: 0;
-                        min-width: 100px;
-                        padding: 0 15px;
-                        color: $text-gray;
-                        position: relative;
-                        @include mobile {
-                            background-color: transparent;
-                            float: none;
-                            height: auto;
-                            line-height: auto;
-                            margin: 0;
-                            min-width: auto;
-                            padding: 0;
-                            color: $white;
-                            line-height: 20px;
-                        }
-                        @include tablet {
-                            width: 32%;
-                        }
-                        &:after {
-                            border: solid transparent;
-                            border-color: rgba(225, 226, 231, 0);
-                            border-left-color: #e1e2e7;
-                            border-width: 6px;
-                            content: "";
-                            height: 0;
-                            left: 100%;
-                            top: 38%;
-                            position: absolute;
-                            width: 0;
-                            z-index: 4;
-                            @include mobile {
-                                border: none;
-                            }
-                        }
-                    }
-                    .custom-multiselect {
-                        width: 73%;
-                        margin-right: 30px;
-                        height: 40px;
-                        display: inline-block;
-                        position:relative;
-                        img{
-                            top:3px !important;
-                            width: auto;
-                        }
-                        @include mobile {
-                            margin-bottom: 20px;
-                            width: 100%;
-                        }
-                        @include tablet {
-                            width: 58%;
-                        }
-                        .dropdown-toggle {
-                            height: 40px;
-                        }
-                        a {
-                            color: $text-gray;
-                        }
-                    }
+            .menu {
+                display: inline-block;
+                width: 44%;
+                @include mobile {
+                    display: block;
+                    width: 100%;
                 }
-                .menu {
-                    display: inline-block;
-                    width: 44%;
-                    @include mobile {
-                        display: block;
-                        width: 100%
-                    }
+            }
+            .button {
+                width: 11%;
+                margin-right: 0;
+                text-align: right;
+                @include mobile {
+                    display: block;
+                    width: 100%;
                 }
-                .button {
-                    width: 11%;
-                    margin-right: 0;
-                    text-align: right;
-                    @include mobile {
-                        display: block;
-                        width: 100%
-                    }
-                    .btn {
-                        padding: 10px 20px;
-                        min-width: 100%;
-                        background-color: $orange;
-                        border: none;
-                    }
+                .btn {
+                    padding: 10px 20px;
+                    min-width: 100%;
+                    background-color: $orange;
+                    border: none;
                 }
             }
         }
     }
-
+}
 #sub-nav {
     padding: 45px 0;
     background-color: $gray-light-bg;
@@ -310,7 +406,7 @@ header {
         .content {
             float: left;
             &:before {
-                content:'';
+                content: '';
             }
             @include mobile {
                 float: none;
@@ -320,7 +416,7 @@ header {
                     border-bottom: none;
                 }
             }
-        } 
+        }
         .heading {
             .top {
                 a {
@@ -331,7 +427,7 @@ header {
                     content: "";
                 }
             }
-            .labels li a{
+            .labels li a {
                 color: #a6aab6;
             }
         }
