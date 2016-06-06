@@ -83,7 +83,8 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             var RefineCloseBtn = $(".refine-list .close-filter"),
                 RefineContainer = $(".search-container .slider"),
                 RefineBtn = $(".refine-list .btn");
-
+                
+            RefineContainer.hide();
             RefineCloseBtn.off("click").on("click", function(e) {
                 e.preventDefault();
                 RefineContainer.slideUp();
@@ -102,7 +103,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 var getFilterData = GetRefineData();
                 UpdateSearchResult(getFilterData);
             });
-            MakeRefineSelected(FilterList);
         },
         BindFilterEvents = function() {
             var RemoveLink = FilterList.find("a.remove"),

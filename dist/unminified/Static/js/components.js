@@ -1870,7 +1870,8 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             var RefineCloseBtn = $(".refine-list .close-filter"),
                 RefineContainer = $(".search-container .slider"),
                 RefineBtn = $(".refine-list .btn");
-
+                
+            RefineContainer.hide();
             RefineCloseBtn.off("click").on("click", function(e) {
                 e.preventDefault();
                 RefineContainer.slideUp();
@@ -1889,7 +1890,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 var getFilterData = GetRefineData();
                 UpdateSearchResult(getFilterData);
             });
-            MakeRefineSelected(FilterList);
         },
         BindFilterEvents = function() {
             var RemoveLink = FilterList.find("a.remove"),
@@ -2015,7 +2015,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (SectorSelect.length && SectorArray) {
                 MakeDropPreSelected(SectorArray, SectorSelect);
                 INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
-                    method: "Post",
+                    method: "Get",
                     data: SectorIDs,
                     success_callback: function(data) {
                         INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
@@ -2103,7 +2103,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 UpdateHtmlView();
             }, 500);
         },
-        CreateFilterList = function(DataObject,Template) {
+        CreateFilterList = function(DataObject,Template,labelsObject) {
             var html = "";
             for (var key in DataObject) {
                 if (DataObject.hasOwnProperty(key)) {
@@ -2111,7 +2111,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         Data = DataObject[key],
                         ListTemplate = Handlebars.compile(Template);
                         if(Data.length > 0){
-                            Data.FilterName = ResultName;
+                            Data.FilterName = labelsObject[ResultName];
+                            Data.FilterID = ResultName;
                             html += ListTemplate({ results: Data });
                         }
                 }
@@ -2139,14 +2140,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (Object.keys(data).length) {
                 var Results = (data.Results !== undefined) ? data.Results : false,
                     Refine = (data.ProductFacets !== undefined) ? data.ProductFacets : false,
+                    FilterLabels = (data.FilterLabels !== undefined) ? data.FilterLabels : false,
                     ProductFilters = (data.ProductFilters !== undefined) ? data.ProductFilters : false;
                 if (ProductFilters) {
-                    var html = CreateFilterList(ProductFilters,Templates.ProductFilters);
+                    var html = CreateFilterList(ProductFilters,Templates.ProductFilters,FilterLabels);
                     ShowFilter(html, FilterList,true);
                     INFORMA.SearchResultFilter.DoFilter();
                 }
                 if (Refine) { 
-                   var html = CreateFilterList(Refine,Templates.ProductFacets);
+                   var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
                 }

@@ -70,7 +70,7 @@ var INFORMA = window.INFORMA || {};
         'ProductFacets' :
             '<div class="col-xs-12 col-sm-6 col-md-4">'+
                 '<p><strong>{{results.FilterName}}</strong></p>'+
-                '<ul data-filterid="{{results.FilterName}}">'+
+                '<ul data-filterid="{{results.FilterID}}">'+
                     '{{#each results}}'+
                     '<li>'+
                         '<span class="custom-checkbox">'+
@@ -86,12 +86,12 @@ var INFORMA = window.INFORMA || {};
         'ProductFilters':
             '<div class="{{results.FilterName}}">'+
                 '<p>{{results.FilterName}}:</p>'+
-                '<ul data-filterid="{{results.FilterName}}">'+
+                '<ul data-filterid="{{results.FilterID}}">'+
                     '{{#each results}}'+
                         '<li>{{Key}}<a href="#" class="remove" data-sector="{{Sector}}" data-value="{{Value}}">x</a></li>'+
                     '{{/each}}'+
                 '</ul>'+
-                '<a class="remove-all" href="#" data-filterid="{{results.FilterName}}">Clear all x</a>'+
+                '<a class="remove-all" href="#" data-filterid="{{results.FilterID}}">Clear all x</a>'+
             '</div>',
         'Products' :
                 '{{#each results}}'+
