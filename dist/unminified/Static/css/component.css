@@ -180,21 +180,21 @@ section#hero-banner.about h1, section#hero-banner.contact h1 {
   }
 }
 /* line 144, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-section#hero-banner.about {
+section#hero-banner.about, section#hero-banner.contact {
   height: 330px;
 }
 @media (max-width: 767px) {
   /* line 144, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-  section#hero-banner.about {
+  section#hero-banner.about, section#hero-banner.contact {
     height: auto;
   }
 }
 /* line 149, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-section#hero-banner.about h1 {
+section#hero-banner.about h1, section#hero-banner.contact h1 {
   width: auto;
 }
 /* line 152, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-section#hero-banner.about .abs-image {
+section#hero-banner.about .abs-image, section#hero-banner.contact .abs-image {
   display: block;
   position: absolute;
   top: 0;
@@ -205,7 +205,7 @@ section#hero-banner.about .abs-image {
 }
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 152, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-  section#hero-banner.about .abs-image {
+  section#hero-banner.about .abs-image, section#hero-banner.contact .abs-image {
     -ms-transform: translateX(20%);
     -webkit-transform: translateX(20%);
     transform: translateX(20%);
@@ -213,14 +213,14 @@ section#hero-banner.about .abs-image {
 }
 @media (max-width: 767px) {
   /* line 152, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-  section#hero-banner.about .abs-image {
+  section#hero-banner.about .abs-image, section#hero-banner.contact .abs-image {
     -ms-transform: translateX(22%);
     -webkit-transform: translateX(22%);
     transform: translateX(22%);
   }
 }
 /* line 171, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-section#hero-banner.about .splash > div {
+section#hero-banner.about .splash > div, section#hero-banner.contact .splash > div {
   width: 70%;
 }
 /* line 177, ../../../src/components/hero-banner/sass/_hero-banner.scss */
@@ -4858,34 +4858,39 @@ section#casestudy-infograph .solution-container .info-img:after {
 /* line 1, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
 section.articlepage-quote {
   background-color: #fff;
+  padding: 60px 0;
 }
-/* line 4, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+/* line 5, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
 section.articlepage-quote .container {
   width: 65%;
 }
+/* line 7, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+section.articlepage-quote .container p {
+  line-height: 1.7;
+}
 @media (max-width: 767px) {
-  /* line 4, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+  /* line 5, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
   section.articlepage-quote .container {
     width: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 4, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+  /* line 5, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
   section.articlepage-quote .container {
     width: 100%;
   }
 }
-/* line 15, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+/* line 18, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
 section.articlepage-quote .container blockquote {
   font-size: 24px;
-  margin: 0.25em 0;
+  margin: 40px 0;
   padding: 0.25em 40px;
   line-height: 1.45;
   position: relative;
   color: #444957;
   border-left: none;
 }
-/* line 24, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+/* line 27, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
 section.articlepage-quote .container blockquote:before {
   content: "\201C";
   font-size: 90px;
@@ -4896,19 +4901,24 @@ section.articlepage-quote .container blockquote:before {
   left: -5px;
   top: -20px;
 }
-/* line 35, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+/* line 38, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
 section.articlepage-quote .container blockquote cite {
+  display: block;
   font-size: 16px;
   margin-top: 30px;
 }
-/* line 41, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+/* line 45, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
 section.articlepage-quote .container figure {
   float: right;
-  width: 30%;
-  margin: 10px;
+  width: 45%;
+  margin: 10px 10px 10px 30px;
 }
-/* line 46, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+/* line 50, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
 section.articlepage-quote .container figure img {
   width: 100%;
   height: auto;
+}
+/* line 54, ../../../src/components/articlepage-quote/sass/_articlepage-quote.scss */
+section.articlepage-quote .container figure figcaption {
+  margin-top: 30px;
 }
