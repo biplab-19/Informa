@@ -1,4 +1,4 @@
-section#agri-report{
+section#agri-report {
     //background: $gray-light-bg;
     padding: 40px 0;
     position: relative;
@@ -14,7 +14,7 @@ section#agri-report{
         }
     }
     .agri-report-wrapper {
-      //  color: $white;
+        //  color: $white;
         position: relative;
         font-family: FSMe-Light;
         font-size: 18px;
@@ -22,7 +22,7 @@ section#agri-report{
             font-size: 12px;
         }
         .headline {
-            font-family:FSMe-Bold;
+            font-family: FSMe-Bold;
             padding: 60px 0 20px;
             @include tablet {
                 padding: 30px 0 10px;
@@ -34,18 +34,25 @@ section#agri-report{
         .splash-image {
             position: absolute;
             bottom: -40px;
-            right:100px;
+            right: 225px;
             img {
-                  width: 250px;
-                  height: auto;
+                width: 270px;
+                height: auto;
             }
             @include mobile {
+                right: 85px;
                 position: static;
                 margin-top: 35px;
                 & > img {
-                    width: 200px;
+                    width: 160px;
                     display: block;
                     margin: 0 auto;
+                }
+            }
+            @include tablet {
+                right: 95px;
+                & > img {
+                    width: 225px;
                 }
             }
         }
@@ -53,10 +60,10 @@ section#agri-report{
             line-height: 1.2eM;
             padding-top: 50px;
             @include mobile {
-                  padding-top: 15px;
+                padding-top: 15px;
             }
             strong {
-                  font-family: FSMe-Bold;
+                font-family: FSMe-Bold;
             }
         }
         .download-report {
@@ -64,11 +71,21 @@ section#agri-report{
             font-family: FSMe;
             width: 100%;
             margin-top: 60px;
+            border-color: $brand-secondary;
+            &:after {
+                content: "\e905";
+                font-family: 'InformaIcons';
+                right: 15px;
+                font-weight: bold;
+                position: absolute;
+                font-size: 16px;
+                color: $brand-secondary;
+            }
             @include mobile {
-                  margin: 0 auto;
-                  display: block;
-                  width: 80%;
-                  margin-top: 20px;
+                margin: 0 auto;
+                display: block;
+                width: 80%;
+                margin-top: 20px;
             }
         }
     }
