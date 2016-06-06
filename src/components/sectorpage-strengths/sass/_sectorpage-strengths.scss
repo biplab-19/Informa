@@ -48,14 +48,7 @@
 				    left: -9px;
 				}
 			}
-      .view-all-sectors-btn-container {
-          display: none;
-      }
-      @include mobile {
-          .container > .row + .row > .marg1:nth-child(2n+2) {
-              display: none;
-              //todo: optimize it
-          }
+
           .view-all-sectors-btn-container {
               display: block;
               border-bottom: solid 1px $brand-secondary;
@@ -63,13 +56,18 @@
               margin: 0 auto;
               padding: 5px;
               cursor: pointer;
-              margin-bottom: 15px;
+              margin-bottom: 25px;
+              .container > .row + .row > .marg1:nth-child(n+4) {
+                    display: none;
+                    //todo: optimize it
+                }
+                .informa-icon {
+                    font-size: 30px;
+                    color: $brand-secondary;
+                }
           }
-          .informa-icon {
-              font-size: 30px;
-              color: $brand-secondary;
-          }
-      }
+
+      
       .more {
 				display: block;
 			}
