@@ -1,16 +1,14 @@
 section.articlepage-quote {
 	background-color: $white;
-	border: 1px solid green;
 	//text-align: center;
 	.container{
-		border: 1px solid red;
 		width: 65%;
 
-		@include mobile{
+		@include mobile {
 			width: 100%;
 		}
 
-		@include tablet{
+		@include tablet {
 			width: 100%;
 		}
 		
@@ -33,6 +31,10 @@ section.articlepage-quote {
 				left: -5px;
 				top: -20px;
 				
+			}
+			cite {
+				font-size: 16px;
+				margin-top: 30px;
 			}
 		}
 
