@@ -4374,7 +4374,8 @@ form.elq-form .icon-calender:before {
 /* line 13, ../../../src/components/search-results/sass/_search-filter.scss */
 .search-filter .filter-list p {
   display: inline-block;
-  min-width: 120px;
+  min-width: 130px;
+  padding-right: 15px;
 }
 @media (max-width: 767px) {
   /* line 13, ../../../src/components/search-results/sass/_search-filter.scss */
@@ -4382,7 +4383,7 @@ form.elq-form .icon-calender:before {
     display: block;
   }
 }
-/* line 20, ../../../src/components/search-results/sass/_search-filter.scss */
+/* line 21, ../../../src/components/search-results/sass/_search-filter.scss */
 .search-filter .filter-list ul {
   margin: 0;
   padding: 0;
@@ -4390,12 +4391,12 @@ form.elq-form .icon-calender:before {
   display: inline-block;
 }
 @media (max-width: 767px) {
-  /* line 20, ../../../src/components/search-results/sass/_search-filter.scss */
+  /* line 21, ../../../src/components/search-results/sass/_search-filter.scss */
   .search-filter .filter-list ul {
     display: block;
   }
 }
-/* line 28, ../../../src/components/search-results/sass/_search-filter.scss */
+/* line 29, ../../../src/components/search-results/sass/_search-filter.scss */
 .search-filter .filter-list ul li {
   display: inline-block;
   padding: 5px;
@@ -4406,18 +4407,18 @@ form.elq-form .icon-calender:before {
   margin-right: 10px;
 }
 @media (max-width: 767px) {
-  /* line 28, ../../../src/components/search-results/sass/_search-filter.scss */
+  /* line 29, ../../../src/components/search-results/sass/_search-filter.scss */
   .search-filter .filter-list ul li {
     margin-bottom: 10px;
   }
 }
-/* line 39, ../../../src/components/search-results/sass/_search-filter.scss */
+/* line 40, ../../../src/components/search-results/sass/_search-filter.scss */
 .search-filter .filter-list ul li a.remove {
   border-left: 1px solid #e2e3e8;
   padding: 0 5px 0 10px;
   margin-left: 10px;
 }
-/* line 46, ../../../src/components/search-results/sass/_search-filter.scss */
+/* line 47, ../../../src/components/search-results/sass/_search-filter.scss */
 .search-filter .filter-list .remove-all {
   color: #ef7c00;
 }
@@ -4457,37 +4458,38 @@ form.elq-form .icon-calender:before {
   z-index: 9999;
   background-color: #e1e2e7;
   width: 100%;
+  display: none;
 }
-/* line 30, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 31, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result {
   padding: 20px 0;
   border-top: 1px solid #c3c6d0;
   border-bottom: 1px solid #c3c6d0;
 }
-/* line 34, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 35, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result p {
   font-size: 18px;
 }
-/* line 37, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 38, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result ul {
   padding: 0;
   margin: 0;
 }
-/* line 40, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 41, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result ul li {
   list-style-type: none;
   margin-bottom: 10px;
 }
-/* line 43, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 44, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result ul li label {
   color: #444957;
 }
-/* line 49, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 50, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-button {
   display: block;
   text-align: right;
 }
-/* line 52, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 53, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-button a {
   min-width: 90px;
 }
