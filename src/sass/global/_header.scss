@@ -67,6 +67,11 @@ header {
                     color: $light;
                     padding: 20px 60px 20px 0;
                 }
+                &.current-active {
+                    a {
+                        color: $yellow;
+                    }
+                }
             }
         }
         .mainCTA {
@@ -290,3 +295,76 @@ header {
             }
         }
     }
+
+#sub-nav {
+    padding: 45px 0;
+    background-color: $gray-light-bg;
+    .topic {
+        color: $yellow;
+        text-align: center;
+        padding: 25px 0;
+        background-color: #4c5161;
+        margin: 0 -7.5px;
+    }
+    .subnav-container {
+        .content {
+            float: left;
+            &:before {
+                content:'';
+            }
+            @include mobile {
+                float: none;
+                overflow: auto;
+                border-bottom: 1px solid #777b87;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        } 
+        .heading {
+            .top {
+                a {
+                    color: #a6aab6;
+                    font-family: 'FSMe-light';
+                }
+                &:after {
+                    content: "";
+                }
+            }
+            .labels li a{
+                color: #a6aab6;
+            }
+        }
+        .top {
+            padding: 0 40px 10px 0;
+            color: $white;
+            border-bottom: 1px solid #777b87;
+            font-family: 'FSMe-bold';
+            @include mobile {
+                width: 50%;
+                float: left;
+                border-bottom: none;
+                padding: 20px 0;
+            }
+            &:after {
+                content: ">";
+                margin-left: 15px;
+                color: #a2a5ad;
+            }
+        }
+        .labels {
+            list-style-type: none;
+            padding: 0;
+            li {
+                padding: 5px 40px 5px 0;
+                @include mobile {
+                    padding: 20px 0;
+                }
+            }
+            @include mobile {
+                width: 50%;
+                float: left;
+            }
+        }
+    }
+}
