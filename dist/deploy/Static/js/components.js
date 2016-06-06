@@ -979,56 +979,6 @@ INFORMA.formComponents = (function(window, $, namespace) {
 jQuery(INFORMA.formComponents.init());
 
 /*
- * analyst-list.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Saurabh Sinha
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
-var INFORMA = window.INFORMA || {};
-INFORMA.formRequestForDemo = (function(window, $, namespace) {
-    'use strict';
-     var _toolTip = $('.hasToolTip .icon.icon-info'),
-
-//functions
-     init,
-      _bindToolTip,
-        _showOverlay;
-
-    _showOverlay = function(container){
-
-      //alert(1);
-    }
-
-    init = function() {
-          //todo: No null check, dont execute these bindings if forms are not there
-
-            _showOverlay();
-            _bindToolTip();
-
-    };
-
-    _bindToolTip = function(){
-          _toolTip.on('click',function(){
-                $(this).toggleClass('active');
-                $(this).parent().parent() // .hasToolTip
-                        .children('.tooltip-placeholder').slideToggle();
-          })
-   }
-
-
-    return {
-        init: init
-    };
-}(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.formRequestForDemo.init());
-
-/*
  * global.js
  *
  *
@@ -1856,30 +1806,26 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         Utils = INFORMA.Utils,
         Urls = INFORMA.Configs.urls.webservices,
         SubmitBtn = $(".product-finder .sector-search li.button"),
-        SectorSelect = $(".product-finder").find("select.sector-list"),
-        SubSectorSelect = $(".product-finder").find("select.sub-sector-list"),
+        RefineList = $(".search-container .refine-result"),
         // methods
-        init, ReturnAllSelectVal,GetFilterData, ClearAllFilter,
-        CreateFilterList, MakeDropUnSelected, BindFilterEvents, UpdateSearchResult, RemoveFilter;
+        init, ReturnAllSelectVal,GetFilterData, ClearAllFilter, BindRefineEvents,
+        MakeDropUnSelected, BindFilterEvents, UpdateSearchResult, RemoveFilter, GetRefineData;
 
         RemoveFilter = function(item, parent) {
             item.fadeOut("fast", function() {
                 item.remove();
                 var FilterLength = parent.find("li").size(),
-                    FilterData = GetFilterData();
+                    FilterData = GetFilterData(FilterList);
                 if (FilterLength < 1) {
                     parent.parent('div').hide();       
                 }
                 UpdateSearchResult(FilterData);
             });
         },
-        ClearAllFilter = function(ItemID,Parent){
+        ClearAllFilter = function(Parent){
             Parent.fadeOut("fast", function() {
                 Parent.remove();
-                var FilterData = GetFilterData();
-                if(ItemID==="sectors"){
-                    FilterList.find(".SubSectors").remove();
-                }
+                var FilterData = GetFilterData(FilterList);
                 UpdateSearchResult(FilterData);
             });
         },
@@ -1889,13 +1835,19 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             });
             return values;
         },
-        GetFilterData = function(){
-            var Filters = FilterList.find("ul"),
+        GetRefineData = function(){
+            var AllFilterData = {},
+                FilterData = GetFilterData(FilterList),
+                RefineData = GetFilterData(RefineList);
+                $.extend(AllFilterData, RefineData, FilterData);
+            return AllFilterData;
+         },
+        GetFilterData = function(FilterContainer){
+            var Filters = FilterContainer.find("ul"),
                 FilterData = {};
-
             $.each(Filters,function(){
                 var FilterID = $(this).data("filterid").toLowerCase(),
-                    ListItem  = $(this).find("li a"),
+                    ListItem  = ($(this).find("li a").length)? $(this).find("li a") : $(this).find("li input:checked"),
                     FilterValue = [];
 
                  $.each(ListItem,function(){
@@ -1909,10 +1861,35 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         UpdateSearchResult = function(filterData) {
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
-                method:"Get",
+                method:"Post",
                 data:JSON.stringify(filterData),
                 success_callback: INFORMA.SearchResults.RenderSearchResults
             });
+        },
+        BindRefineEvents = function() {
+            var RefineCloseBtn = $(".refine-list .close-filter"),
+                RefineContainer = $(".search-container .slider"),
+                RefineBtn = $(".refine-list .btn");
+
+            RefineCloseBtn.off("click").on("click", function(e) {
+                e.preventDefault();
+                RefineContainer.slideUp();
+                 RefineCloseBtn.hide();
+            });
+
+            $(".refine-list").off("click").on("click", "a.refine", function(e) {
+                e.preventDefault();
+                RefineContainer.slideDown();
+                RefineCloseBtn.show();
+            });
+            RefineBtn.off("click").on("click", function(e) {
+                e.preventDefault();
+                RefineContainer.fadeOut();
+                RefineCloseBtn.hide();
+                var getFilterData = GetRefineData();
+                UpdateSearchResult(getFilterData);
+            });
+            MakeRefineSelected(FilterList);
         },
         BindFilterEvents = function() {
             var RemoveLink = FilterList.find("a.remove"),
@@ -1920,16 +1897,32 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
             RemoveLink.on("click", function(e) {
                 e.preventDefault();
-                var Parent = $(this).parents("ul").eq(0);
+                var Parent = $(this).parents("ul").eq(0),
+                    ItemValue = $(this).data("value"),
+                    FilterID = Parent.data("filterid").toLowerCase();
+
                 RemoveFilter($(this).parent(), Parent);
+
+                if(FilterID==="sectors"){
+                    MakeDropUnSelected([ItemValue],$("select.sector-list"));
+                }
+                if(FilterID==="subsectors"){
+                    MakeDropUnSelected([ItemValue],$("select.sub-sector-list"));
+                }
+    
             });
 
             ClearAll.on("click", function(e) {
                 e.preventDefault();
                 var Parent = $(this).parent(),
                     ItemID = $(this).data("filterid").toLowerCase();
-                ClearAllFilter(ItemID,Parent);
+
+                    if(ItemID==="sectors"){
+                        FilterList.find(".SubSectors").remove();
+                    }
+                ClearAllFilter(Parent);
             });
+
         },
         MakeDropUnSelected = function(Arr, DrpDwn) {
             $.each(Arr, function(i, e) {
@@ -1937,29 +1930,12 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             });
             DrpDwn.multiselect('rebuild');
         },
-        CreateFilterList = function(DataObject) {
-            var html = "";
-            for (var key in DataObject) {
-                if (DataObject.hasOwnProperty(key)) {
-                    var ResultName = key,
-                        Data = DataObject[key],
-                        ListTemplate = Handlebars.compile(Templates.ProductFilters);
-
-                        if(Data.length > 0){
-                            Data.FilterName = ResultName;
-                            html += ListTemplate({ results: Data });
-                        }
-                }
-            }
-            return html;
-        },
-
         init = function() {};
-    return {
-        init: init,
-        CreateFilterList: CreateFilterList,
-        DoFilter: BindFilterEvents
-    };
+        return {
+            init: init,
+            DoFilter: BindFilterEvents,
+            DoRefine:BindRefineEvents
+        };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchResultFilter.init());
@@ -1989,14 +1965,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SectorHidden = $("input.sector-list"),
         SubSectorHidden = $("input.sub-sector-list"),
         FilterList = $(".search-filter .filter-list"),
+        RefineContainer = $(".search-container .refine-result"),
         ResultCount, ResultInner, SectorData, SubSectorData,
         Config = INFORMA.Configs,
         PageNo = 1,
         Urls = INFORMA.Configs.urls.webservices,
-        Utils = INFORMA.Utils,
+        Utils = INFORMA.Utils, 
         // methods
         init,
-        equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter, LoadProducts,
+        equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter,
+        LoadProducts, CreateFilterList,
         ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected;
 
     equalHeight = function(container) {
@@ -2024,7 +2002,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         LoadProducts = function(){
             INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
-                method:"Get",
+                method:"Post",
                 success_callback: ParseSearchData
             });
         },
@@ -2037,7 +2015,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (SectorSelect.length && SectorArray) {
                 MakeDropPreSelected(SectorArray, SectorSelect);
                 INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
-                    method: "Get",
+                    method: "Post",
                     data: SectorIDs,
                     success_callback: function(data) {
                         INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
@@ -2064,7 +2042,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         },
         BindPaginationEvents = function(Object) {
-            Object.on("click", function(e) {
+            Object.off('click').on("click", function(e) {
                 e.preventDefault();
 
                 var SerializeArrays = ProductFinder.find("form").serializeArray(),
@@ -2076,33 +2054,47 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(Data), ParseSearchData, null);
             });
         },
-        ShowFilter = function(html, container) {
+        ShowFilter = function(html, container,isDefaultShow) {
             if (html && container) {
                 container.html(html);
-                $(".search-filter").delay(600).slideDown();
+                if(isDefaultShow){
+                    container.parent().parent().delay(600).slideDown();
+                }
             }
         },
         CreateSearchResult = function(DataObject) {
+
             for (var key in DataObject) {
                 if (DataObject.hasOwnProperty(key)) {
                     var ResultName = key,
                         html = "",
                         Data = DataObject[key],
+                        ResultCount, ShowMoreLink, RemainingCount,
                         TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName),
                         ContainerID = "#" + (ResultName).toLowerCase();
 
                     html = ListTemplate({ results: Data });
+                    ShowMoreLink = $(ContainerID).find(".btn-container");
 
                     //Update Search Results
                     $(ContainerID).find(".row").html(html);
+                    ShowMoreLink.removeClass('hide');
 
                     //Update Record Counts
                     if (Data.length > 0) {
-                        $(ContainerID).find(".count strong").text(Data[0].ProductCount);
+                        ResultCount = (Data[0].ProductCount) ? Data[0].ProductCount:0;
+                        RemainingCount = (Data[0].RemainingCount) ? Data[0].RemainingCount:0;
+
+                        $(ContainerID).find(".count strong").text(ResultCount);
+
+                        if(RemainingCount<1){
+                            ShowMoreLink.addClass('hide');
+                        }
+
                     } else {
                         $(ContainerID).find(".count strong").text("0");
-                        $(ContainerID).find(".btn-container").hide();
+                        ShowMoreLink.addClass('hide');
                     }
                 }
             }
@@ -2110,6 +2102,21 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 clearTimeout(UpddateHeight);
                 UpdateHtmlView();
             }, 500);
+        },
+        CreateFilterList = function(DataObject,Template) {
+            var html = "";
+            for (var key in DataObject) {
+                if (DataObject.hasOwnProperty(key)) {
+                    var ResultName = key,
+                        Data = DataObject[key],
+                        ListTemplate = Handlebars.compile(Template);
+                        if(Data.length > 0){
+                            Data.FilterName = ResultName;
+                            html += ListTemplate({ results: Data });
+                        }
+                }
+            }
+            return html;
         },
         BindTileEvents = function() {
             INFORMA.Utils.flipTile(ResultInner);
@@ -2123,7 +2130,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ResultInner.each(function() {
                     equalHeight($(this));
                 });
-                INFORMA.SearchResultFilter.DoFilter();
                 BindTileEvents();
                 var ShowMoreBtn = ResultContainer.find(".btn-ShowMore");
                 BindPaginationEvents(ShowMoreBtn);
@@ -2132,18 +2138,21 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ParseSearchData = function(data) {
             if (Object.keys(data).length) {
                 var Results = (data.Results !== undefined) ? data.Results : false,
-                    Refine = (data.RefineResult !== undefined) ? data.RefineResult : false,
+                    Refine = (data.ProductFacets !== undefined) ? data.ProductFacets : false,
                     ProductFilters = (data.ProductFilters !== undefined) ? data.ProductFilters : false;
                 if (ProductFilters) {
-                    var html = INFORMA.SearchResultFilter.CreateFilterList(ProductFilters);
-                    ShowFilter(html, FilterList);
+                    var html = CreateFilterList(ProductFilters,Templates.ProductFilters);
+                    ShowFilter(html, FilterList,true);
+                    INFORMA.SearchResultFilter.DoFilter();
                 }
-                if (Refine) {
-                    var Data = { "RefineResult": Refine };
-                    INFORMA.SearchRefineResult.CreateRefineList(Data);
+                if (Refine) { 
+                   var html = CreateFilterList(Refine,Templates.ProductFacets);
+                   ShowFilter(html, RefineContainer ,false);
+                   INFORMA.SearchResultFilter.DoRefine();
                 }
                 if (Results) {
                     CreateSearchResult(Results);
+
                 }
             }
         },
