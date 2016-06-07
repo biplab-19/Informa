@@ -27,7 +27,8 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             _speed = container.data('transitionspeed'), // speed of transition
             _duration = container.data('slideduration'), // how long the slider will be dis
             _infinite = true,
-            _dots = Boolean(container.data('pagination'));
+            _dots = Boolean(container.data('pagination')),
+            _rtl = (container.data('rtl') != undefined) ? Boolean(container.data('rtl')): Boolean(container.data('rtl'));
             //chk for sitecore preview
             // if (INFORMA.global.siteCore.isPreview) {
             //     _autoplay = true;
@@ -42,6 +43,16 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             else if (INFORMA.global.device.viewportN == 2){
                   _slideCount = 1;
                   _dots = true;
+            }
+
+            if(_rtl === true && _autoplay === true) {
+                container.on('init', function() {
+                    var $slickList = container.find('.slick-list');
+
+                    window.setInterval(function() {
+                        container.slick('slickPrev');
+                    }, _duration);
+                });
             }
         container.slick({
             infinite: _infinite,
