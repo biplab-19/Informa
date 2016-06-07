@@ -35,6 +35,9 @@
 			float: left;
 			p {
 				margin-bottom: 25px;
+				@include mobile {
+					margin-bottom: 10px;
+				}
 			}
 		}
 		.place, .experience {

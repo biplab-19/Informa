@@ -3,15 +3,17 @@
   .container-bg{
     background-color: #3C404C;
     padding: 30px;
+    position: relative;
+    min-height: 138px;
   }
-  .four-numbers:first-child{
+  .row[data-items="4"]:first-child{
     @media (max-width: 1023px) and (min-width: 768px)
        {
            margin-left: 130px;
         }
   }
 
-  .three-numbers:first-child{
+  .row[data-items="3"]:first-child{
     margin-left: 205px;
     @include tablet {
       margin-left: 138px;
@@ -20,7 +22,7 @@
       margin-left: 0px;
     }
   }
-  .two-numbers:first-child{
+  .row[data-items="2"]:first-child{
     margin-left: 327px;
     @include tablet {
       margin-left: 138px;
