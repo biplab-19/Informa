@@ -1,9 +1,43 @@
 .infograph{
   margin-top: 30px;
-  .row-bg{
+  .container-bg{
     background-color: #3C404C;
     padding: 30px;
+  }
+  .four-numbers:first-child{
+    @media (max-width: 1023px) and (min-width: 768px)
+       {
+           margin-left: 130px;
+        }
+  }
 
+  .three-numbers:first-child{
+    margin-left: 205px;
+    @include tablet {
+      margin-left: 138px;
+    }
+    @include mobile {
+      margin-left: 0px;
+    }
+  }
+  .two-numbers:first-child{
+    margin-left: 327px;
+    @include tablet {
+      margin-left: 138px;
+    }
+    @include mobile {
+      margin-left: 0px;
+    }
+  }
+    .main-container{
+      width: 280px;
+      margin: 0 auto;
+      display: inline-block;
+      @media (max-width: 1141px) and (min-width: 1024px)
+         {
+             width: 246px;
+          }
+    }
     .number-container{
       font-size: 40px;
       font-weight: bolder;
@@ -45,5 +79,5 @@
     .sub-desc{
       color: #C1C1C1;
     }
-  }
+
 }
