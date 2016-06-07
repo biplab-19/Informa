@@ -1882,7 +1882,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         FilterList = $(".search-filter .filter-list"),
         SearchFilter = $(".search-container .search-filter"),
         SearchDropDown = $(".sector-search select"),
-        SubSecDropDown = $(".sector-search select.sector-list"),
+        SubSecDropDown = $(".sector-search select.sub-sector-list"),
         Utils = INFORMA.Utils,
         Urls = INFORMA.Configs.urls.webservices,
         SubmitBtn = $(".product-finder .sector-search li.button"),
@@ -2033,7 +2033,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     SearchDropDown.val("");
                     SearchDropDown.multiselect('rebuild');
                 }
-                if (FilterID === "subsectors") {
+                if (ItemID === "subsectors") {
                     SubSecDropDown.val("");
                     SubSecDropDown.multiselect('rebuild');
                 }
