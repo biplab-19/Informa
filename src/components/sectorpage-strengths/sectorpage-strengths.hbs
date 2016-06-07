@@ -1,83 +1,25 @@
-<section class="sectorpage-strengths" data-desktop=6>
+<section class="sectorpage-strengths" data-desktop=12>
     <div class="container">
         <div class="row">
-          <div class="col-xs-12">
-              <h1>Our unique strengths</h1>
-          </div>
+            <div class="col-xs-12">
+                <h1>Our unique strengths</h1>
+            </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 marg1">
-                <div class="main-container">
-                  <img src="cms-images/sectorpage-strengths/image-2.jpg" alt="" class="img-responsive"/>
-                  <div class="yellow-container">
-                      <h3>Benefit from expert intelligence Benefit from expert </h3>
-                  </div>
+            {{#each data}}
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 marg1">
+                    <div class="main-container">
+                        <img src="cms-images/sectorpage-strengths/image-2.jpg" alt="" class="img-responsive" />
+                        <div class="yellow-container">
+                            <h3>{{title}}</h3>
+                        </div>
+                    </div>
+                    <div class="text-description">
+                        {{description}}
+                        <div class="slant"></div>
+                    </div>
                 </div>
-                <div class="text-description">
-                    Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence
-                    <div class="slant"></div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 marg1">
-                <div class="main-container">
-                  <img src="cms-images/sectorpage-strengths/image-2.jpg" alt="" class="img-responsive"/>
-                  <div class="yellow-container">
-                      <h3>Benefit from expert intelligence Benefit from expert </h3>
-                  </div>
-                </div>
-                <div class="text-description">
-                    Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence
-                    <div class="slant"></div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 marg1">
-                <div class="main-container">
-                  <img src="cms-images/sectorpage-strengths/image-2.jpg" alt="" class="img-responsive"/>
-                  <div class="yellow-container">
-                      <h3>Benefit from expert intelligence Benefit from expert </h3>
-                  </div>
-                </div>
-                <div class="text-description">
-                    Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence
-                    <div class="slant"></div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 marg1">
-                <div class="main-container">
-                  <img src="cms-images/sectorpage-strengths/image-3.jpg" alt="" class="img-responsive"/>
-                  <div class="yellow-container">
-                      <h3>Benefit from expert intelligence Benefit from expert </h3>
-                  </div>
-                </div>
-                <div class="text-description">
-                  Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence
-                  <div class="slant"></div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 marg1">
-                <div class="main-container">
-                  <img src="cms-images/sectorpage-strengths/image-4.jpg" alt="" class="img-responsive"/>
-                  <div class="yellow-container">
-                      <h3>Benefit from expert intelligence Benefit from expert </h3>
-                  </div>
-                </div>
-                <div class="text-description">
-                  Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence
-                  <div class="slant"></div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 marg1">
-                <div class="main-container">
-                  <img src="cms-images/sectorpage-strengths/image-5.jpg" alt="" class="img-responsive"/>
-                  <div class="yellow-container">
-                      <h3>Benefit from expert intelligence</h3>
-                  </div>
-                </div>
-                <div class="text-description">
-                    Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence Benefit from expert intelligence
-                    <div class="slant"></div>
-                </div>
-            </div>
+            {{/each}}
         </div>
         <div class="row view-all-sectors-btn-container">
             <span class="center-block view-all-sectors-btn text-center more" role="button">View more</br><i class="informa-icon glyphicon glyphicon-plus-sign"></i></span>
