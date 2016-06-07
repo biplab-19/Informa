@@ -105,8 +105,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
                 var SerializeArrays = ProductFinder.find("form").serializeArray(),
                     Data = Utils.serializeObject(SerializeArrays);
-
-                Data.pageSize =  PageSize+6;
+                    PageSize+=6;
+                Data.pageSize =  PageSize;
 
                 GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(Data), ParseSearchData, null);
             });
