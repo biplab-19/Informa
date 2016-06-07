@@ -1,5 +1,8 @@
 #analyst-profile {
 	overflow: hidden;
+	h2 {
+		margin: 0 0 15px 0;
+	}
 	a {
 		color: $orange
 	}
@@ -13,12 +16,14 @@
 	    position: relative;
 	    transform: skewY(-2deg);
 	    margin-top: -35px;
+	    min-height: 185px;
+	    position: relative;
 	    .container {
 	    	transform: skewY(2deg);
 	    }
 		.image {
-		    width: 120px;
-		    float: left;
+		    width: 100px;
+		    float: right;
 		    img {
 		    	@include border-radius(50%);
 		    	width: 100%;
@@ -28,7 +33,7 @@
 			width: calc(100% - 120px);
 			float: left;
 			p {
-				margin-bottom: 0;
+				margin-bottom: 25px;
 			}
 		}
 		.place, .experience {
@@ -40,7 +45,45 @@
 			}
 		}
 	}
-
+	.nav-links {
+			list-style-type: none;
+			padding-left: 0;
+			float: left;
+			margin-top: 5px;
+			@include desktop {
+				position: absolute;
+				top: 60px;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			li {
+				@include border-radius(50%);
+				display: inline-block;
+				font-size: 22px;
+			    background-color: #6a7287;
+			    margin-right: 5px;
+			    width: 35px;
+			    height: 35px;
+			    text-align: center;
+			    position: relative;
+			    a {
+			    	vertical-align: middle;
+			    	color: $white;
+			        position: absolute;
+					top: 50%;
+    				transform: translateY(-50%) translateX(-50%);
+    				left: 50%;
+    				&:hover, &:active {
+    					outline: 0;
+    					border: 0;
+    					text-decoration: initial;
+    				}
+			    }
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
 	.descriptions {
 		height: 100px;
 		min-height: 100px;
@@ -49,7 +92,6 @@
 			height: auto;
 			+ .btn-container {
 				.show-options {
-					color: $orange;
 					&:after {
 						content: '-';
 					}
@@ -113,10 +155,9 @@
 			li {
 				padding: 3px 0;
 				position: relative;
-				width: 50%;
-				display: inline-block;
-				@include tablet {
-					width: 100%;
+				@include desktop {
+					width: 50%;
+					float: left;
 				}
 				&:before {
 					content: "\e914";
@@ -127,6 +168,7 @@
 				    font-size: 16px;
 				    color: $yellow;
 				    @include border-radius(50%);
+				    font-weight: normal;
 				}
 			}
 			&:after {
@@ -137,4 +179,17 @@
 		}
 
 	}
+	.place:before {
+		width: 18px;
+		height: 26px;
+		background-image: url('Static/images/place.png');
+	}
+	.experience:before {
+		width: 20px;
+		height: 28px;
+		background-image: url('Static/images/experience.png');	
+	}
+}
+.bold {
+	font-weight: bold;
 }

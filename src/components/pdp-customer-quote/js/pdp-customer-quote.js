@@ -28,7 +28,11 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            _duration = container.data('slideduration'), // how long the slider will be dis
            _infinite = true,
            _dots = Boolean(container.data('dots')),
-           _rtl = (container.data('rtl') != undefined) ? Boolean(container.data('rtl')): Boolean(container.data('rtl'));
+           _rtl;
+          
+          if(container.data('rtl') != undefined) {
+              _rtl = container.data('rtl');
+          }
 
      //chk for sitecore preview
       if(INFORMA.global.siteCore.isPreview) {
@@ -47,28 +51,25 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
                     }, _duration);
                 });
             }
+            container.slick({
+               infinite: _infinite,
+               autoplay: _autoplay,
+               autoplaySpeed: _duration,
+               slidesToShow: _slideCount,
+               slidesToScroll: _slideCount,
+               speed: _speed,
+               dots: (_dots!==null || _dots!==undefined) ? _dots : true
+           });
       }
-
-       container.slick({
-           infinite: _infinite,
-           autoplay: _autoplay,
-           autoplaySpeed: _duration,
-           slidesToShow: _slideCount,
-           slidesToScroll: _slideCount,
-           speed: _speed,
-           dots: (_dots!==null || _dots!==undefined) ? _dots : true,
-           rtl: false
-       });
-    }
 
     init = function() {
         if (_customersList.length > 0) {
             _createSlider(_customersList);
         }
-    };
+    }
 
     return {
         init: init
-    };
+    }
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.pdp_customer_quote.init());

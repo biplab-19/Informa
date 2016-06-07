@@ -28,7 +28,11 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             _duration = container.data('slideduration'), // how long the slider will be dis
             _infinite = true,
             _dots = Boolean(container.data('pagination')),
-            _rtl = (container.data('rtl') != undefined) ? Boolean(container.data('rtl')): Boolean(container.data('rtl'));
+            _rtl;
+
+            if(container.data('rtl') != undefined) {
+                _rtl = container.data('rtl');
+            }
             //chk for sitecore preview
             // if (INFORMA.global.siteCore.isPreview) {
             //     _autoplay = true;
