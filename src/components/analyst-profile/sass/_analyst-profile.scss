@@ -37,7 +37,7 @@
 			}
 		}
 		.place, .experience {
-			padding-left: 20px;
+			padding-left: 30px;
 			position: relative;
 			&:before {
 				content: '';
@@ -181,13 +181,17 @@
 	}
 	.place:before {
 		width: 18px;
-		height: 26px;
-		background-image: url('Static/images/place.png');
+	    height: 26px;
+	    background-image: url("Static/images/place.png");
+	    left: 0;
+	    top: -5px;
 	}
 	.experience:before {
 		width: 20px;
 		height: 28px;
-		background-image: url('Static/images/experience.png');	
+		background-image: url('Static/images/experience.png');
+		left: 0;
+	    top: -5px;
 	}
 }
 .bold {
