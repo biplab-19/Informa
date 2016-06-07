@@ -4578,13 +4578,19 @@ form.elq-form .icon-calender:before {
   font-size: 1.3em;
   text-decoration: none;
 }
-/* line 16, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 15, ../../../src/components/search-results/sass/_search-refine.scss */
+.search-container .refine-list .container p.header .refine span {
+  padding-left: 3px;
+  position: relative;
+  top: 2px;
+}
+/* line 21, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .container p.header a.close-filter {
   float: right;
   display: none;
   color: #444957;
 }
-/* line 23, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 28, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider {
   padding: 0 15px;
   position: absolute;
@@ -4594,38 +4600,45 @@ form.elq-form .icon-calender:before {
   width: 100%;
   display: none;
 }
-/* line 31, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 36, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result {
-  padding: 20px 0;
-  border-top: 1px solid #c3c6d0;
-  border-bottom: 1px solid #c3c6d0;
-}
-/* line 35, ../../../src/components/search-results/sass/_search-refine.scss */
-.search-container .refine-list .slider .refine-result p {
-  font-size: 18px;
+  padding: 0;
 }
 /* line 38, ../../../src/components/search-results/sass/_search-refine.scss */
-.search-container .refine-list .slider .refine-result ul {
-  padding: 0;
+.search-container .refine-list .slider .refine-result p {
+  font-size: 18px;
+  border-top: 1px solid #c3c6d0;
+  padding: 25px 0;
   margin: 0;
 }
-/* line 41, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 44, ../../../src/components/search-results/sass/_search-refine.scss */
+.search-container .refine-list .slider .refine-result ul {
+  padding: 0 0 25px;
+  margin: 0;
+  border-bottom: 1px solid #c3c6d0;
+}
+/* line 48, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result ul li {
   list-style-type: none;
   margin-bottom: 10px;
 }
-/* line 44, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 51, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result ul li label {
   color: #444957;
 }
-/* line 50, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 57, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-button {
   display: block;
   text-align: right;
 }
-/* line 53, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 60, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-button a {
-  min-width: 90px;
+  min-width: 160px;
+  border-color: #ef7c00;
+}
+/* line 63, ../../../src/components/search-results/sass/_search-refine.scss */
+.search-container .refine-list .slider .refine-button a:after {
+  color: #ef7c00;
 }
 
 /* line 3, ../../../src/components/analyst-search/sass/analyst-search.scss */
