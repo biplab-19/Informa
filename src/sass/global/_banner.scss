@@ -1,0 +1,100 @@
+.hero-banner {
+	height: 450px;
+	overflow:hidden;
+	position: relative;
+	@include tablet {
+		height: 350px;
+	}
+	.cf-img {
+		position:absolute;
+		width: 100%;
+		height: 100%;
+		> img {
+			position: absolute;
+		    top: 0;
+		    left: 50%;
+		    transform: translate(-50%, 0);
+		}
+	}
+	.vertical-align {
+		color: $white;
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		p {
+			line-height: 1.7;
+		}
+	}
+	.content {
+		width:50%;
+		@include mobile {
+			width: 100%;
+		}
+	}
+	&.tall-hero {
+		@include tablet {
+			height: 350px;
+		}
+		@include mobile {
+			height: 275px;
+		}
+	}
+	&.slim-banner {
+		@include tablet {
+			height: 350px;
+		}
+		@include mobile {
+			height: 250px;
+		}
+	}
+	&.texture {
+		.cf-img {
+			position: absolute;
+			right: 0;
+			width: auto;
+		}
+	}
+
+}
+
+.hero-banner-texture {
+	position: relative;
+	overflow: hidden;
+	height: 330px;
+	@include tablet {
+		height: 230px;
+	}
+	@include mobile {
+		height: 225px;
+		.cf-img {
+			position: absolute;
+		    right: 0;
+		    transform: translateX(15%);
+		}
+	}
+	.cf-img {
+		position:absolute;
+		right: 0;
+	}
+	.vertical-align {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		p {
+			line-height: 1.7;
+		}
+		.content {
+			width: 60%;
+		}
+	}
+	&.bright-banner {
+		background-color: $yellow;
+		color: $text-gray;
+	}
+	&.dark-banner {
+		background-color: $gray-light-bg;
+		color: $white;
+	}
+}
