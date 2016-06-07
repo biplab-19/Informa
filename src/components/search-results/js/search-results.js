@@ -26,7 +26,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         RefineContainer = $(".search-container .refine-result"),
         ResultCount, ResultInner, SectorData, SubSectorData,
         Config = INFORMA.Configs,
-        PageNo = 1,
+        PageSize = parseInt(Config.searchResult.pageSize),
         Urls = INFORMA.Configs.urls.webservices,
         Utils = INFORMA.Utils, 
         // methods
@@ -105,9 +105,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
                 var SerializeArrays = ProductFinder.find("form").serializeArray(),
                     Data = Utils.serializeObject(SerializeArrays);
-
-                Data.pageSize = ($(this).data('pagesize') !== undefined) ? $(this).data('pagesize') : Config.searchResult.pageSize;
-                Data.PageNo = PageNo++;
+                    PageSize+=6;
+                Data.pageSize =  PageSize;
 
                 GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(Data), ParseSearchData, null);
             });
