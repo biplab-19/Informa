@@ -84,7 +84,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             var AllFilterData = {},
                 FilterData = GetFilterData(FilterList),
                 RefineData = GetFilterData(RefineList);
-            $.extend(AllFilterData, RefineData, FilterData);
+            $.extend(AllFilterData, FilterData,RefineData);
             return AllFilterData;
         },
         GetFilterData = function(FilterContainer) {
