@@ -169,7 +169,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     SearchDropDown.val("");
                     SearchDropDown.multiselect('rebuild');
                 }
-                if (FilterID === "subsectors") {
+                if (ItemID === "subsectors") {
                     SubSecDropDown.val("");
                     SubSecDropDown.multiselect('rebuild');
                 }
