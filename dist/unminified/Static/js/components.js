@@ -1,4 +1,4 @@
-/*! 2016-06-06 */_adjustHeigt = function(){
+/*! 2016-06-07 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -979,6 +979,56 @@ INFORMA.formComponents = (function(window, $, namespace) {
 jQuery(INFORMA.formComponents.init());
 
 /*
+ * analyst-list.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-April-25
+ * @author:     Saurabh Sinha
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.formRequestForDemo = (function(window, $, namespace) {
+    'use strict';
+     var _toolTip = $('.hasToolTip .icon.icon-info'),
+
+//functions
+     init,
+      _bindToolTip,
+        _showOverlay;
+
+    _showOverlay = function(container){
+
+      //alert(1);
+    }
+
+    init = function() {
+          //todo: No null check, dont execute these bindings if forms are not there
+
+            _showOverlay();
+            _bindToolTip();
+
+    };
+
+    _bindToolTip = function(){
+          _toolTip.on('click',function(){
+                $(this).toggleClass('active');
+                $(this).parent().parent() // .hasToolTip
+                        .children('.tooltip-placeholder').slideToggle();
+          })
+   }
+
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.formRequestForDemo.init());
+
+/*
  * global.js
  *
  *
@@ -1432,7 +1482,12 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             _speed = container.data('transitionspeed'), // speed of transition
             _duration = container.data('slideduration'), // how long the slider will be dis
             _infinite = true,
-            _dots = Boolean(container.data('pagination'));
+            _dots = Boolean(container.data('pagination')),
+            _rtl;
+
+            if(container.data('rtl') != undefined) {
+                _rtl = container.data('rtl');
+            }
             //chk for sitecore preview
             // if (INFORMA.global.siteCore.isPreview) {
             //     _autoplay = true;
@@ -1447,6 +1502,16 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             else if (INFORMA.global.device.viewportN == 2){
                   _slideCount = 1;
                   _dots = true;
+            }
+
+            if(_rtl === true && _autoplay === true) {
+                container.on('init', function() {
+                    var $slickList = container.find('.slick-list');
+
+                    window.setInterval(function() {
+                        container.slick('slickPrev');
+                    }, _duration);
+                });
             }
         container.slick({
             infinite: _infinite,
@@ -1578,7 +1643,12 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            _speed = container.data('transitionspeed'), // speed of transition
            _duration = container.data('slideduration'), // how long the slider will be dis
            _infinite = true,
-           _dots = Boolean(container.data('dots'));
+           _dots = Boolean(container.data('dots')),
+           _rtl;
+          
+          if(container.data('rtl') != undefined) {
+              _rtl = container.data('rtl');
+          }
 
      //chk for sitecore preview
       if(INFORMA.global.siteCore.isPreview) {
@@ -1588,28 +1658,35 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
           _autoplay = false;
           _infinite = false;
       }
+      if(_rtl === true && _autoplay === true) {
+                container.on('init', function() {
+                    var $slickList = container.find('.slick-list');
 
-       container.slick({
-           infinite: _infinite,
-           autoplay: _autoplay,
-           autoplaySpeed: _duration,
-           slidesToShow: _slideCount,
-           slidesToScroll: _slideCount,
-           speed: _speed,
-           dots: (_dots!==null || _dots!==undefined) ? _dots : true,
-           rtl: false
-       });
-    }
+                    window.setInterval(function() {
+                        container.slick('slickPrev');
+                    }, _duration);
+                });
+            }
+            container.slick({
+               infinite: _infinite,
+               autoplay: _autoplay,
+               autoplaySpeed: _duration,
+               slidesToShow: _slideCount,
+               slidesToScroll: _slideCount,
+               speed: _speed,
+               dots: (_dots!==null || _dots!==undefined) ? _dots : true
+           });
+      }
 
     init = function() {
         if (_customersList.length > 0) {
             _createSlider(_customersList);
         }
-    };
+    }
 
     return {
         init: init
-    };
+    }
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.pdp_customer_quote.init());
 

@@ -47,42 +47,43 @@
 
 
 <header id="informa-main-header">
-    <section class="informaTop">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="copyright-header">
-                            <div class="copyright-header-inner">
-                                <a href="#" class="toggle" onclick="this.parentNode.classList.toggle('open');return false">Informa</a>
-                                <div class="copyright-header-content">
-                                    <div class="col-xs-6 copyright-header-text">
-                                        <p>Agra is part of the Business Intelligence Division of Informa PLC </p>
-                                        <div class="clearfix"> <p class="links pull-left">Informa PLC </p>
-                                            <ul>
-                                                <li>ABOUT US</li>
-                                                <li>investors relations</li>
-                                                <li>TALENT</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 copyright-header-text">
-                                        <p>This site is operated by a business or businesses owned by Informa PLC and all copyright resides with them. Informa PLC's registered office is 5 Howick Place, London SW1P 1WG.</P>
-                                        <p>Registered in England and Wales. Number 8860726</p>
-                                    </div>
+    <section class="informa-header-copyright">
+
+
+                <div class="header-copyright">
+                    <div class="header-copyright-inner">
+                        <a href="#" class="toggle" onclick="this.parentNode.classList.toggle('open');return false">Informa</a>
+                        <div class="header-copyright-content">
+                          <div class="container">
+                              <div class="row">
+                            <div class="col-md-6 header-copyright-text">
+                                <p>Agra is part of the Business Intelligence Division of Informa PLC </p>
+                                <div class="clearfix">
+                                    <p class="links pull-left"><a href="http://www.informa.com/">Informa PLC </a></p>
+                                    <ul>
+                                        <li><a href="#">ABOUT US</a></li>
+                                        <li><a href="#">investors relations</a></li>
+                                        <li><a href="#">TALENT</a></li>
+                                    </ul>
                                 </div>
                             </div>
+                            <div class="col-md-6 header-copyright-text">
+                                <p>This site is operated by a business or businesses owned by Informa PLC and all copyright resides with them. Informa PLC's registered office is 5 Howick Place, London SW1P 1WG.</P>
+                                <p>Registered in England and Wales. Number 8860726</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <section class="logoSection">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-md-12">
                     <div class="logo">
                         <img src="cms-images/logo.png">
                     </div>
@@ -119,7 +120,7 @@
 <div id="product-finder-section" class="product-finder" data-product="true">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <form class="form" method="post" action="#">
                     <fieldset>
                         <legend>Product Finder</legend>
@@ -273,53 +274,75 @@
 </div>
 
 
-   <div class="product-detail-page">
-    <section id="hero-banner" class="contact">
-      <div class="abs-image">
-            <picture>
-                  <source srcset="cms-images/about-us-bg.png" media="(min-width: 1024px)">
-                  <source srcset="cms-images/about-us-bg.png?w=1024" media="(min-width: 768px)">
-                  <source srcset="cms-images/about-us-bg.png?w=768" media="(min-width: 660px)">
-                  <source srcset="cms-images/about-us-bg.png?w=660" media="(min-width: 320px)">
-                  <img srcset="cms-images/about-us-bg.png ">
-            </picture>
-      </div>
-    <div class="container alignVertical">
-        <div class="row splash">
-            <div class="col-xs-12 col-sm-8 col-md-6">
-                  <!-- <div class="logo"><img src="cms-images/customers/abbot2.png"></div> -->
-                  <h1>Issue Monitor</h1>
-                  <div class="subtext">Giving you the best agriculture, energy, food, economics and trade analysis from the world&#x27;s most trusted source in agribusiness consulting</div>
-                  <!-- <div class="description">You can get the news a lot of places. You cannot get the Informa Economics believes will help clients make better business decisions anywhere but on this new platform.</div> -->
-            </div>
-        </div>
-      <!-- <div class="row cta">
-            <div class="col-xs-12 col-sm-3 col-md-2">
-                 <a class="priceCTA btn trans">
-                       <div class="headline">Subscriptions Starts from</div>
-                       <div class="priceDetails">
-                             <span class="price">&euro;1,140</span>
-                             <span class="per">per year</span>
-                       </div>
-                 </a>
-            </div>
-            <div class="col-xs-12 col-sm-3 col-md-2">
-                <a class="cta2 btn semi-trans">See sample content</a>
-            </div>
-            <div class="col-xs-12 col-sm-3 col-md-2">
-                <a class="cta1 btn solid orange">Get a free trial</a>
-            </div>
-
-        </div> -->
-    </div>
+   
+<h2>Home Page (Templates: T001 )</h2>
+<section id="banner" class="hero-banner home-page">
+	<div class="cf-img">
+		<img src="cms-images/banner-images/A01_Homepage.jpg" alt="" />
+	</div>
+	<div class="vertical-align">
+		<div class="container">
+			<div class="content">
+				<h1>The Complete picture on global agribusiness</h1>
+				<p>We help the world's largest and most influential agribusiness organisations gain advantage by delivering actionable intelligence across the food and commodities value chain We help the We help the fgh</p>
+			</div>
+		</div>
+	</div>
 </section>
-
-</div>
-<h2>Home Page</h2>
-
-<section id="banner" class="hero-banner">
-	<div class="abs-img">
-
+<h2>Tall Page (Templates: T003 )</h2>
+<section id="banner" class="hero-banner tall-hero">
+	<div class="cf-img">
+		<img src="cms-images/banner-images/B03_Hero.jpg" alt="" />
+	</div>
+	<div class="vertical-align">
+		<div class="container">
+			<div class="content">
+				<h1>Tall Image Header</h1>
+				<p>Providing our customers with global agri commodity prices and trade data, along with market news, analysis and forecasting on crops, livestock, meat, poultry, dairy, energy and biofuels.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<h2>Slim Page (Templates: T003 )</h2>
+<section id="banner" class="hero-banner slim-banner">
+	<div class="cf-img">
+		<img src="cms-images/banner-images/slim-banner.jpg" alt="" />
+	</div>
+	<div class="vertical-align">
+		<div class="container">
+			<div class="content">
+				<h1>Slim Image Header</h1>
+				<p>[One line description of what the events page is] From here you'll be able to find out about all of our events and conferences as well sign up so you can attend them.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<h2>F01 Bright Header</h2>
+<section id="banner" class="hero-banner-texture bright-banner">
+	<div class="cf-img">
+		<img src="cms-images/banner-images/hero_texture.png" alt="" />
+	</div>
+	<div class="vertical-align">
+		<div class="container">
+			<div class="content">
+				<h1>Bright Header</h1>
+				<p>[One line description of what the events page is] From here you'll be able to find out about all of our events and conferences as well sign up so you can attend them.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<h2>F01 Bright Header</h2>
+<section id="banner" class="hero-banner-texture dark-banner">
+	<div class="cf-img">
+		<img src="cms-images/banner-images/hero_texture.png" alt="" />
+	</div>
+	<div class="vertical-align">
+		<div class="container">
+			<div class="content">
+				<h1>Dark Header</h1>
+				<p>[One line description of what the events page is] From here you'll be able to find out about all of our events and conferences as well sign up so you can attend them.</p>
+			</div>
+		</div>
 	</div>
 </section>
 
