@@ -1,6 +1,6 @@
 header {
     color: $light;
-    section.informaTop {
+    section.informa-header-copyright {
         background: $gray-header;
         .informa-select {
             font-size: 18px;
@@ -10,12 +10,12 @@ header {
             margin: 0 auto;
             padding: 5px;
         }
-        .copyright-header {
+        .header-copyright {
             color: $white;
             background-color: $gray-header;
             //  border-bottom: 1px solid $white;
             overflow: hidden;
-            position: relative;
+            position: absolute;
             z-index: 1;
             left: 0;
             right: 0;
@@ -26,7 +26,7 @@ header {
               font-size: 12px;
             }
         }
-        .copyright-header-inner {
+        .header-copyright-inner {
             max-width: 100%;
             margin: 0 auto;
             min-height: 36px;
@@ -52,7 +52,7 @@ header {
                 }
             }
         }
-        .copyright-header-content {
+        .header-copyright-content {
             max-height: 0;
             overflow: hidden;
             text-align: left;
@@ -65,19 +65,28 @@ header {
             -ms-transition: all 0.2s;
             -o-transition: all 0.2s;
             transition: all 0.2s;
+
         }
-        .copyright-header-inner.open {
+        .header-copyright-inner.open {
             & .toggle::after {
                 border-width: 0 9px 9px 9px;
                 margin-left: 5px;
                 border-color: transparent transparent $white transparent;
             }
-            & .copyright-header-content {
+            & .header-copyright-content {
                 max-height: 150px;
                 height: 150px;
                 opacity: 1;
                 filter: alpha(opacity=100);
-                & .copyright-header-text {
+                @include mobile {
+                  max-height: 180px;
+                  height: 180px;
+                }
+                @include tablet {
+                  max-height: 180px;
+                  height: 180px;
+                }
+                & .header-copyright-text {
                     max-height: 90px;
                     height: 90px;
                     & p {
@@ -97,21 +106,38 @@ header {
                                 padding: 0 0.5em;
                             }
                         }
-                        & li:last-child {
-                            content: " ";
+                        & li:last-child:after {
+                            content: "";
                             padding: 0 0.5em;
                         }
                     }
+                    @include mobile {
+                      max-height: 60px;
+                      height: 60px;
+                    }
+                    @include tablet {
+                      max-height: 60px;
+                      height: 60px;
+                    }
                 }
-                & .copyright-header-text:first-child {
+                & .header-copyright-text:first-child {
                     border-right: solid 1px $white;
+                    @include mobile {
+                      border: none;
+                    }
+                    @include tablet {
+                      border: none;
+                    }
                 }
             }
         }
     }
+
     section.logoSection {
         background: $gray-light-bg;
         padding: 20px 0;
+      //  margin-top: 35px;
+          padding-top: 50px;
         .logo {
             float: left;
         }
