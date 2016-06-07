@@ -12,6 +12,11 @@
             color: $orange;
             font-size: 1.3em;
             text-decoration: none;
+            span{
+              padding-left: 3px;
+              position:relative;
+              top:2px;
+            }
         }
         a.close-filter {
             float: right;
@@ -29,15 +34,17 @@
       width: 100%;
       display: none;
       .refine-result {
-          padding: 20px 0;
-          border-top: 1px solid #c3c6d0;
-          border-bottom: 1px solid #c3c6d0;
+          padding: 0;
           p {
               font-size: 18px;
+              border-top: 1px solid #c3c6d0;
+              padding:25px 0;
+              margin: 0;
           }
           ul {
-              padding: 0;
+              padding: 0 0 25px;
               margin: 0;
+              border-bottom: 1px solid #c3c6d0;
               li {
                   list-style-type: none;
                   margin-bottom: 10px;
@@ -51,7 +58,11 @@
         display: block;
         text-align: right;
         a{
-          min-width: 90px;
+          min-width: 160px;
+          border-color:$orange;
+          &:after{
+            color:$orange;
+          }
 
         }
       }

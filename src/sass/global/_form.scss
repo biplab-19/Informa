@@ -103,16 +103,16 @@ select.form-control {
         color: $text-gray;
         position: relative;
         label {
-            margin-left:20px;
+            margin-left:25px;
             span {
                 &:before {
                     background: #fff none repeat scroll 0 0;
                     content: "";
-                    height: 12px;
+                    height: 16px;
                     left: 0;
                     position: absolute;
-                    top: 2px;
-                    width: 12px;
+                    top: 0;
+                    width: 16px;
                 }
             }
             input:checked + span:before {
@@ -130,8 +130,8 @@ select.form-control {
         }
         input {
             opacity: 0;
-            width: 12px;
-            height: 12px;
+            width: 16px;
+            height: 16px;
         }
         .btn-group {
             width: 100%;
@@ -173,11 +173,11 @@ select.form-control {
                     &:before {
                         background: #fff none repeat scroll 0 0;
                         content: "";
-                        height: 12px;
+                        height: 16px;
                         left: 19px;
                         position: absolute;
                         top: 6px;
-                        width: 12px;
+                        width: 16px;
                     }
                 }
                 .active {
