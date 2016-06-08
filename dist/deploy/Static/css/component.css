@@ -873,7 +873,7 @@ section#hero-banner .analyst-single-image .image-margin {
   display: none;
 }
 /* line 87, ../../../src/components/home-brand-list/sass/_brand-list.scss */
-.product-brands-list .show-more-btn-container .btn {
+.product-brands-list .show-more-btn-container .btn, .product-brands-list .btn-container .btn {
   width: 20%;
   padding-right: 40px;
 }
@@ -2255,43 +2255,44 @@ nav#pdp-navigation .menuFollower {
 /* line 24, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .introduction .image {
   width: 100px;
+  height: 100px;
   float: right;
 }
-/* line 27, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 28, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .introduction .image img {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   border: 2px solid #fff;
 }
-/* line 34, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 35, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .introduction .details {
   width: calc(100% - 120px);
   float: left;
 }
-/* line 37, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 38, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .introduction .details p {
   margin-bottom: 25px;
 }
 @media (max-width: 767px) {
-  /* line 37, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 38, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .introduction .details p {
     margin-bottom: 10px;
   }
 }
-/* line 44, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 45, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .introduction .place, #analyst-profile .introduction .experience {
   padding-left: 30px;
   position: relative;
 }
-/* line 47, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 48, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .introduction .place:before, #analyst-profile .introduction .experience:before {
   content: '';
   position: absolute;
 }
-/* line 53, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 54, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links {
   list-style-type: none;
   padding-left: 0;
@@ -2299,7 +2300,7 @@ nav#pdp-navigation .menuFollower {
   margin-top: 5px;
 }
 @media (min-width: 1142px) {
-  /* line 53, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 54, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .nav-links {
     position: absolute;
     top: 60px;
@@ -2307,7 +2308,7 @@ nav#pdp-navigation .menuFollower {
     transform: translate(-50%, -50%);
   }
 }
-/* line 64, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 65, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -2321,7 +2322,7 @@ nav#pdp-navigation .menuFollower {
   text-align: center;
   position: relative;
 }
-/* line 74, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 75, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li a {
   vertical-align: middle;
   color: #fff;
@@ -2330,39 +2331,39 @@ nav#pdp-navigation .menuFollower {
   transform: translateY(-50%) translateX(-50%);
   left: 50%;
 }
-/* line 81, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 82, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li a:hover, #analyst-profile .nav-links li a:active {
   outline: 0;
   border: 0;
   text-decoration: initial;
 }
-/* line 87, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 88, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 92, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 93, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions {
   height: 100px;
   min-height: 100px;
   overflow: hidden;
 }
-/* line 96, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 97, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content {
   height: auto;
 }
-/* line 100, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 101, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .show-options:after {
   content: '-';
 }
-/* line 104, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 105, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .more {
   display: none;
 }
-/* line 107, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 108, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .less {
   display: block;
 }
-/* line 113, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 114, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options {
   width: 105px;
   padding: 5px 0;
@@ -2375,7 +2376,7 @@ nav#pdp-navigation .menuFollower {
   text-align: left;
   text-decoration: none;
 }
-/* line 124, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 125, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options:after {
   content: "+";
   position: absolute;
@@ -2392,53 +2393,53 @@ nav#pdp-navigation .menuFollower {
   font-size: 16px;
   padding: 0 6px;
 }
-/* line 138, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 139, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .more {
   display: block;
 }
-/* line 141, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 142, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .less {
   display: none;
 }
-/* line 145, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 146, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories {
   margin-top: 0;
 }
 @media (max-width: 767px) {
-  /* line 145, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 146, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 50px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 145, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 146, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 30px;
   }
 }
-/* line 153, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 154, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading {
   font-size: 18px;
 }
-/* line 156, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 157, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature {
   list-style-type: none;
   padding-left: 32px;
   margin-bottom: 40px;
 }
-/* line 160, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 161, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li {
   padding: 3px 0;
   position: relative;
 }
 @media (min-width: 1142px) {
-  /* line 160, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 161, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     width: 50%;
     float: left;
   }
 }
-/* line 167, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 168, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li:before {
   content: "\e914";
   font-family: 'InformaIcons';
@@ -2452,30 +2453,30 @@ nav#pdp-navigation .menuFollower {
   border-radius: 50%;
   font-weight: normal;
 }
-/* line 179, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 180, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature:after {
   content: '';
   clear: both;
   display: block;
 }
-/* line 187, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 188, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .place:before {
   width: 18px;
   height: 26px;
-  background-image: url("Static/images/place.png");
+  background-image: url("../../Static/images/place.png");
   left: 0;
   top: -5px;
 }
-/* line 194, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 195, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .experience:before {
   width: 20px;
   height: 28px;
-  background-image: url("Static/images/experience.png");
+  background-image: url("../../Static/images/experience.png");
   left: 0;
   top: -5px;
 }
 
-/* line 202, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 203, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .bold {
   font-weight: bold;
 }
@@ -4614,28 +4615,27 @@ form.elq-form .icon-calender:before {
 .search-container .refine-list .slider .refine-result ul {
   padding: 0 0 25px;
   margin: 0;
-  border-bottom: 1px solid #c3c6d0;
 }
-/* line 48, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 47, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result ul li {
   list-style-type: none;
   margin-bottom: 10px;
 }
-/* line 51, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 50, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-result ul li label {
   color: #444957;
 }
-/* line 57, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 56, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-button {
   display: block;
   text-align: right;
 }
-/* line 60, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 59, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-button a {
   min-width: 160px;
   border-color: #ef7c00;
 }
-/* line 63, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 62, ../../../src/components/search-results/sass/_search-refine.scss */
 .search-container .refine-list .slider .refine-button a:after {
   color: #ef7c00;
 }
