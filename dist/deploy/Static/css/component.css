@@ -873,36 +873,35 @@ section#hero-banner .analyst-single-image .image-margin {
   display: none;
 }
 /* line 87, ../../../src/components/home-brand-list/sass/_brand-list.scss */
-.product-brands-list .show-more-btn-container .btn, .product-brands-list .btn-container .btn {
+.product-brands-list .show-more-btn-container .btn {
   width: 20%;
-  padding-right: 40px;
 }
 @media (max-width: 767px) {
-  /* line 93, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 92, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(1) {
     display: block;
   }
-  /* line 96, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 95, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(2) {
     display: block;
   }
-  /* line 99, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 98, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 102, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 101, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 105, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 104, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col:nth-child(n+5) {
     display: none;
   }
-  /* line 109, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 108, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .show-more-btn-container .btn {
     width: 50%;
   }
-  /* line 113, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 112, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .view-all-mobile-container {
     display: block;
     color: #fff;
@@ -912,16 +911,21 @@ section#hero-banner .analyst-single-image .image-margin {
     padding: 5px;
     cursor: pointer;
   }
-  /* line 122, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 121, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .informa-icon {
     font-size: 30px;
     color: #ffd600;
   }
-  /* line 126, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 125, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .btn-container {
     width: 100%;
     margin: 0 auto;
   }
+}
+/* line 131, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .btn-container .btn {
+  width: auto;
+  padding-right: 40px;
 }
 
 /* line 1, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
