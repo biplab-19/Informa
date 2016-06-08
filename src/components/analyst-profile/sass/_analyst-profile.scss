@@ -23,11 +23,12 @@
 	    }
 		.image {
 		    width: 100px;
+		    height: 100px;
 		    float: right;
 		    img {
 		    	@include border-radius(50%);
-		    	width:  100px;
-		    	height: 100px;
+		    	width:  100%;
+		    	height: 100%;
 		    	border: 2px solid $white;
 		    }
 		}
@@ -187,14 +188,14 @@
 	.place:before {
 		width: 18px;
 	    height: 26px;
-	    background-image: url("Static/images/place.png");
+	    background-image: url("../../Static/images/place.png");
 	    left: 0;
 	    top: -5px;
 	}
 	.experience:before {
 		width: 20px;
 		height: 28px;
-		background-image: url('Static/images/experience.png');
+		background-image: url('../../Static/images/experience.png');
 		left: 0;
 	    top: -5px;
 	}
