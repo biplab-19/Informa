@@ -134,7 +134,7 @@ var INFORMA = window.INFORMA || {};
                                         '<a href="{{FreeTrialLink}}" class="btn btn-default free-trial">Free Trial</a>'+
                                     '</div>'+
                                     '<div class="col-xs-6">'+
-                                        '<a href="{{FreeTrialLink}}" class="btn btn-default orange more">More</a>'+
+                                        '<a href="{{MoreLink}}" class="btn btn-default orange more">More</a>'+
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
