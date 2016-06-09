@@ -20,6 +20,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         ArticleCont = $(".article-list"),
         HeadlineCont = $(".headline-list"),
         Templates = INFORMA.Templates,
+        isExperienceMode = INFORMA.global.siteCore.isExperience,
         Urls = INFORMA.Configs.urls.webservices,
         // methods
         init,
@@ -140,7 +141,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 dots: Options.sliderDots,
                 infinite: Options.sliderInfinite,
                 speed: Options.speed,
-                autoplay: Options.autoplay,
+                autoplay: (!isExperienceMode) ? Options.autoplay:false,
                 autoplaySpeed: Options.autoplaySpeed,
                 slidesToShow: (_listItemCounts >= Options.slidesShow) ? Options.slidesShow : _listItemCounts,
                 slidesToScroll: Options.slidesScroll,
@@ -177,7 +178,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         if (_HeadlinesLists.length > 0) {
             CreateSlider(_HeadlinesLists,2);
         }
-        if (FilterMenu) {
+        if (FilterMenu && !isExperienceMode) {
             $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
             BindFilterEvents();
         }
