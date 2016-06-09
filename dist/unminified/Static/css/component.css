@@ -2292,7 +2292,19 @@ nav#pdp-navigation .menuFollower {
   content: '';
   position: absolute;
 }
-/* line 55, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 54, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+#analyst-profile .introduction.analyst {
+  background-color: #ffd500;
+}
+/* line 57, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+#analyst-profile .introduction.consultant {
+  background-color: #ffea7f;
+}
+/* line 60, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+#analyst-profile .introduction.reporter {
+  background-color: #fff7cc;
+}
+/* line 64, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links {
   list-style-type: none;
   padding-left: 0;
@@ -2300,7 +2312,7 @@ nav#pdp-navigation .menuFollower {
   margin-top: 5px;
 }
 @media (min-width: 1142px) {
-  /* line 55, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 64, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .nav-links {
     position: absolute;
     top: 60px;
@@ -2308,7 +2320,7 @@ nav#pdp-navigation .menuFollower {
     transform: translate(-50%, 0);
   }
 }
-/* line 66, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 75, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -2322,7 +2334,7 @@ nav#pdp-navigation .menuFollower {
   text-align: center;
   position: relative;
 }
-/* line 76, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 85, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li a {
   vertical-align: middle;
   color: #fff;
@@ -2331,48 +2343,48 @@ nav#pdp-navigation .menuFollower {
   transform: translateY(-50%) translateX(-50%);
   left: 50%;
 }
-/* line 83, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 92, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li a:hover, #analyst-profile .nav-links li a:active {
   outline: 0;
   border: 0;
   text-decoration: initial;
 }
-/* line 89, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 98, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 94, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 103, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions {
   height: 100px;
   min-height: 100px;
   overflow: hidden;
   padding-right: 45px;
 }
-/* line 99, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 108, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content {
   height: auto;
 }
-/* line 103, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 112, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .show-options:after {
   content: '-';
 }
-/* line 107, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 116, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .more {
   display: none;
 }
-/* line 110, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 119, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .less {
   display: block;
 }
-/* line 115, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 124, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions .bold {
   margin-bottom: 10px;
 }
-/* line 119, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 128, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .btn-container {
   padding-right: 45px;
 }
-/* line 122, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 131, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options {
   min-width: 105px;
   padding: 5px 30px 5px 0;
@@ -2385,7 +2397,7 @@ nav#pdp-navigation .menuFollower {
   text-align: left;
   text-decoration: none;
 }
-/* line 133, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 142, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options:after {
   content: "+";
   position: absolute;
@@ -2402,53 +2414,53 @@ nav#pdp-navigation .menuFollower {
   font-size: 16px;
   padding: 0 6px;
 }
-/* line 147, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 156, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .more {
   display: block;
 }
-/* line 150, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 159, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .less {
   display: none;
 }
-/* line 154, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 163, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories {
   margin-top: 0;
 }
 @media (max-width: 767px) {
-  /* line 154, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 163, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 50px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 154, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 163, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 30px;
   }
 }
-/* line 162, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 171, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading {
   font-size: 18px;
 }
-/* line 165, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 174, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature {
   list-style-type: none;
   padding-left: 32px;
   margin-bottom: 40px;
 }
-/* line 169, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 178, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li {
   padding: 3px 0;
   position: relative;
 }
 @media (min-width: 1142px) {
-  /* line 169, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 178, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     width: 50%;
     float: left;
   }
 }
-/* line 176, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 185, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li:before {
   content: "\e914";
   font-family: 'InformaIcons';
@@ -2462,13 +2474,13 @@ nav#pdp-navigation .menuFollower {
   border-radius: 50%;
   font-weight: normal;
 }
-/* line 188, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 197, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature:after {
   content: '';
   clear: both;
   display: block;
 }
-/* line 196, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 205, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .place:before {
   width: 18px;
   height: 26px;
@@ -2476,7 +2488,7 @@ nav#pdp-navigation .menuFollower {
   left: 0;
   top: -5px;
 }
-/* line 203, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 212, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .experience:before {
   width: 20px;
   height: 28px;
@@ -2485,7 +2497,7 @@ nav#pdp-navigation .menuFollower {
   top: -5px;
 }
 
-/* line 211, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 220, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .bold {
   font-weight: bold;
 }
@@ -2822,7 +2834,7 @@ nav#pdp-navigation .menuFollower {
   padding: 20px;
   background-color: #ffd500;
   position: relative;
-  height: 130px;
+  height: 140px;
   -ms-transform: skewY(-4deg);
   -webkit-transform: skewY(-4deg);
   transform: skewY(-4deg);
