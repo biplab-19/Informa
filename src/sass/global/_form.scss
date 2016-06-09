@@ -14,7 +14,14 @@ select.form-control {
         padding: 5px 10px;
     }
 }
-
+select.chosen-select {
+    @include mobile {
+        width: 100%;
+        padding: 0 0 0 8px;
+        height: 35px;
+        border: 2px solid #aaa;
+    }
+}
 .load-spinner {
     background-color: rgba(0, 0, 0, .3);
     position: absolute;
