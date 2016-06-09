@@ -19,6 +19,7 @@
 	    min-height: 185px;
 	    position: relative;
 	    .container {
+	    	padding: 30px 0 0 0;
 	    	transform: skewY(2deg);
 	    }
 		.image {
@@ -60,7 +61,7 @@
 				position: absolute;
 				top: 60px;
 				left: 50%;
-				transform: translate(-50%, -50%);
+				transform: translate(-50%, 0);
 			}
 			li {
 				@include border-radius(50%);
@@ -94,6 +95,7 @@
 		height: 100px;
 		min-height: 100px;
 		overflow: hidden;
+		padding-right: 45px;
 		&.show-content {
 			height: auto;
 			+ .btn-container {
@@ -110,11 +112,17 @@
 				}
 			}
 		}
+		.bold {
+			margin-bottom: 10px;
+		}
+	}
+	.btn-container {
+		padding-right: 45px;
 	}
 	.show-options {
-		width: 105px;
-		padding: 5px 0;
-		height: 35px;
+		min-width: 105px;
+    	padding: 5px 30px 5px 0;
+   		height: 35px;
 		border-bottom: 2px solid $yellow;
 		display: inline-block;
 		position: relative;

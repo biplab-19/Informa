@@ -83,9 +83,9 @@
     .view-all-mobile-container {
         display: none;
     }
-    .show-more-btn-container {
+    .show-more-btn-container, .btn-container {
         .btn {
-            width: 20%;
+            padding-right: 40px;
         }
     }
     @include mobile {
@@ -125,12 +125,6 @@
         .btn-container {
             width: 100%;
             margin: 0 auto;
-        }
-    }
-    .btn-container {
-        .btn {
-            width: auto;
-            padding-right: 40px;
         }
     }
 }
