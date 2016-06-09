@@ -167,6 +167,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 if (ItemID === "sectors") {
                     FilterList.find(".SubSectors").remove();
                     SearchDropDown.val("");
+                    SubSecDropDown.parents("li.menu").addClass("disabled");
                     SearchDropDown.multiselect('rebuild');
                 }
                 if (ItemID === "subsectors") {

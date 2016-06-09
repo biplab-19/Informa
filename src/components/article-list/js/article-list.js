@@ -132,7 +132,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             equalHeights();
 
         },
-        CreateSlider = function(el) {
+        CreateSlider = function(el,mobileScroll) {
             var _listItemCounts = GetListCount(el),
                 Options = GetCarouselOptions(el);
 
@@ -159,8 +159,8 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                     }, {
                         breakpoint: 480,
                         settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
+                            slidesToShow: mobileScroll,
+                            slidesToScroll: mobileScroll
                         }
                     }
                     // You can unslick at a given breakpoint now by adding:
@@ -172,10 +172,10 @@ INFORMA.ArticleList = (function(window, $, namespace) {
 
     init = function() {
         if (_ArticleLists.length > 0) {
-            CreateSlider(_ArticleLists);
+            CreateSlider(_ArticleLists,1);
         }
         if (_HeadlinesLists.length > 0) {
-            CreateSlider(_HeadlinesLists);
+            CreateSlider(_HeadlinesLists,2);
         }
         if (FilterMenu) {
             $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
