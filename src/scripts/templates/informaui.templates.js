@@ -19,11 +19,11 @@ var INFORMA = window.INFORMA || {};
     '{{#each Articles}}'+
             '<li>'+
             '<div class="columns">'+
-                '<p class="category">{{ContentType.[0]}}'+
+                '<p class="category">'+
                   '<strong>{{SectorType}}</strong>'+
                 '</p>'+
-                '<img src="{{ContentType.[1]}}" alt="{{ContentType.[2]}}" />'+
                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
+                '<span class="content-type">{{ContentType}}</span>'+
                 '<p class="date">{{PublicationDate}}</p>'+
                 '<div class="list-content">'+
                     '{{#if Description}}'+
@@ -146,11 +146,11 @@ var INFORMA = window.INFORMA || {};
             '<ul class="list-container">'+
             '{{#each results}}'+
                 '<li class="col-xs-12 col-sm-6 col-md-4">'+
-                    '<p class="category">{{ContentType.[0]}}'+
+                    '<p class="category">'+
                       '<strong>{{SectorType}}</strong>'+
                     '</p>'+
-                    '<img src="{{ContentType.[1]}}" alt="{{ContentType.[2]}}" />'+
                     '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
+                    '<span class="content-type">{{ContentType}}</span>'+
                     '<p class="date">{{PublicationDate}}</p>'+
                     '<div class="list-content">'+
                         '{{#if Description}}'+
