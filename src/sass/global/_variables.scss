@@ -584,6 +584,11 @@ $desktop-width: 1142px;
         @content;
     }
 }
+@mixin not-desktop{
+     @media (max-width: #{$desktop-width - 1px}){
+        @content;
+    }	
+}
 // @mixin lgdesktop {
 //      @media (min-width: #{$lgdesktop-width}){
 //         @content;

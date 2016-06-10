@@ -19,7 +19,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitBtn = $(".product-finder li.button"),
         CustomSelect = $(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
-        SearchIcon = $(".navbar-default .search a"),
+        //SearchIcon = $(".navbar-default .search a"),
+        SearchIcon = $(".search:visible"),
         SearchPage = $("#search-page"),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
@@ -32,10 +33,13 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         ToggleProductFinder = function() {
             CloseIcon.on("click", function(e) {
                 e.preventDefault();
+                SearchIcon.toggleClass( "inactive" );
                 ProductFinderSection.slideUp("fast");
             });
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
+                if("#product-finder-section:hidden")
+                    SearchIcon.toggleClass( "inactive" );
                 ProductFinderSection.slideDown("slow");
             });
         },

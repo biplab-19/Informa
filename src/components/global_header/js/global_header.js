@@ -18,7 +18,8 @@
 var INFORMA = window.INFORMA || {};
 INFORMA.globalHeader = (function(window, $, namespace) {
     'use strict';
-    var _mainNavigation = $('#mainNavigation'),
+    var //_mainNavigation = $('#mainNavigation'),
+      _mainNavigation = $('.mainNavigation'),
       _navHeight = _mainNavigation.height(),
       _headerPos = 0,
       _fixed = 'navbar-fixed-top',
@@ -38,7 +39,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _pdpMenuleft = [],
 
       _arrayFlag = true,
-
+      _navlinks = $('.nav-links'),
+      _subnavclose = $('.subnav-close'),
       //functions
       init,
       _whenScrolling,
@@ -46,6 +48,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       //for sticky nav
       _initPdpMenuBarFollow,
       _activatePdpFixedHeader,
+      _bindNavigationEvents,
       _pdpNavigationScrollTo;
 
 
@@ -182,15 +185,30 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             })
       };
 
+      _bindNavigationEvents = function(){
+         _navlinks.on('click',function(){
+            var navId = $(this).find('a').data('subnav');
+            $('.subnav-container').hide();
+            _navlinks.removeClass('nav-active');
+            $(this).addClass('nav-active');
+            $('#' + navId).slideDown();
+         });
+         _subnavclose.on('click',function(){
+            $('.subnav-container').hide();
+            _navlinks.removeClass('nav-active');
+         });
+      };
+
       init = function() {
             //if(INFORMA.global.device.viewport!='mobile'){
                   if(_pdpNavigation.length > 0){
                         _initPdpMenuBarFollow();
                         _pdpNavigationScrollTo();
+
                   }
                   _whenScrolling();
             //}
-
+            _bindNavigationEvents();
             // hack for mobile viewport
             // most stupid hack ever, use bootstrap collapse
             // bootstrap collapse will disturb the offset().top, be careful
