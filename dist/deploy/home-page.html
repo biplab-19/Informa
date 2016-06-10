@@ -44,26 +44,29 @@
 
 <body class="agri-theme">
 
-
+<!--- The glorious header component with impeccable animations and awesome color shades making its revelation from the hands of greatest site developer ever. Thy may not be a magnum opus among his creations but will remain as the glorious component he created
+in the empire of Sapient. Har Har Mahadev !! --->
 
 <header id="informa-main-header">
     <section class="informa-header-copyright">
-        <div class="header-copyright">
-            <div class="header-copyright-inner">
-                <a href="#" class="toggle" onclick="this.parentNode.classList.toggle('open');return false">Informa</a>
-                <div class="header-copyright-content">
-                    <div class="container">
-                        <div class="row">
+
+
+                <div class="header-copyright">
+                    <div class="header-copyright-inner">
+                        <a href="#" class="toggle" onclick="this.parentNode.classList.toggle('open');return false">Informa</a>
+                        <div class="header-copyright-content">
+                          <div class="container">
+                              <div class="row">
                             <div class="col-md-6 header-copyright-text">
                                 <p>Agra is part of the Business Intelligence Division of Informa PLC </p>
-
-                                <ul>
-                                    <li><a href="http://www.informa.com/">Informa PLC </a></li>
-                                    <li><a href="#">ABOUT US</a></li>
-                                    <li><a href="#">investors relations</a></li>
-                                    <li><a href="#">TALENT</a></li>
-                                </ul>
-
+                                <div class="clearfix">
+                                    <p class="links pull-left"><a href="http://www.informa.com/">Informa PLC </a></p>
+                                    <ul>
+                                        <li><a href="#">ABOUT US</a></li>
+                                        <li><a href="#">investors relations</a></li>
+                                        <li><a href="#">TALENT</a></li>
+                                    </ul>
+                                </div>
                             </div>
                             <div class="col-md-6 header-copyright-text">
                                 <p>This site is operated by a business or businesses owned by Informa PLC and all copyright resides with them. Informa PLC's registered office is 5 Howick Place, London SW1P 1WG.</P>
@@ -77,44 +80,125 @@
         </div>
 
     </section>
-
-    <section class="logoSection">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="logo">
-                        <img src="cms-images/logo.png">
+    
+    <section class="informaNav">
+        <div class="navbar navbar-inverse nav-head" >
+            <div class="container" >
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" 
+                            data-toggle="collapse" 
+                            data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="action">
+                        <a href="#" class="search active"><span class="icon icon-search"></a>
+                        <a href="#" class="login">Log in<span class="icon icon-chevron-down"></a>
                     </div>
-                    <div class="login">
-                        Log in
+                </div>
+                <a class="navbar-brand" href="#">
+                    <img class="logo-img-small" src="cms-images/logo-partial.png">
+                    <img class="logo-img-big" src="cms-images/logo.png">
+                </a>
+            </div>
+        </div>
+        <div class="nav-main mainNavigation">   
+            <div class="container" >
+                <div class="row">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav nav-left">
+                        <li class="stick-img"><a href="javascript:void(0)"><img class="logo-img-small" src="cms-images/logo-partial.png"></a></li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="sectorsproducts">Sectors &amp; Products</a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="services">Services</a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="freecontent">Free Content</a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="aboutus">About Us</a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="support">Support</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="touch">
+                            <a href="#">
+                                <span class="hide-stick">Get in touch</span>
+                                <span class="icon icon-get-in-touch"></span>
+                            </a>
+                        </li>
+                        <li class="login"><a href="#">Log in</a></li>
+                        <li class="search active">
+                            <a href="#">
+                                <span class="hide-stick">Search</span>
+                                <span class="icon icon-search"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <!--
+    <section class="informaNav">
+        <div class="nav-bar">
+            
+            
+            <div class="nav-header row">
+                <div class="container">             
+                    <div class="col-xs-2 col-sm-2 toggle">
+                        <button type="button" class="navbar-toggle" 
+                              data-toggle="collapse" 
+                              data-target=".navbar-collapse">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="col-xs-8 col-sm-8 logo">
+                        <img class="logo-img-small" src="cms-images/logo-partial.png">
+                        <img class="logo-img-big" src="cms-images/logo.png">
+                    </div>
+                    <div class="col-xs-2 col-sm-2 action">
+                        <a href="#" class="search"><span class="icon icon-search"></a>
+                        <a href="#" class="login">Log in<span class="icon icon-chevron-down"></a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <nav id="mainNavigation" class="navbar-default">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-9 navigation-primary">
-                    <ul class="nav navbar-nav">
-                        <li class="current-active"><a href="#">Sectors & Products</a></li>
+
+            
+            <div class="nav-main row">
+              <div class="container collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                        <li><a href="#">Sectors &amp; Products</a></li>
                         <li><a href="#">Services</a></li>
                         <li><a href="#">Free Content</a></li>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Support Us</a></li>
-
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-md-3 hidden-sm mainCTA">
-                    <ul class="nav">
-                        <li class="touch"><a href="#">Get in touch</a></li>
+                        <li><a href="#">Support</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                        <li class="touch"><a href="#">Get in touch<span class="icon icon-get-in-touch"></a></li>
                         <li class="search"><a href="#">Search<span class="icon icon-search"></a></li>
-                    </ul>
-                </div>
+                        <li class="login"><a href="#">Log in<span class="icon icon-chevron-down"></a></li>
+                  </ul>
+              </div> 
             </div>
+
         </div>
-    </nav>
+    </section> -->
+
+
+     
+
 </header>
+
 <div id="product-finder-section" class="product-finder" data-product="true">
     <div class="container">
         <div class="row">
@@ -184,12 +268,10 @@
         </div>
     </div>
 </div>
+
 <div id="sub-nav">
     <div class="container">
-        <div class="subnav-container clearfix" data-nav="sectors-products">
-            <div class="topic hidden-md">
-                Sectors & Products
-            </div>
+        <div class="subnav-container clearfix" id="sectorsproducts">
             
                 <div class="content heading">
                     <p class="top"><a href="#">Sectors</a></p>
@@ -267,7 +349,106 @@
                     </ul>
                 </div>
             
+            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
         </div>
+        <div class="subnav-container clearfix" id="services" data-nav="services">
+            
+                <div class="content ">
+                    <p class="top"><a href="#">Learn about all services</a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">Insight and news</a></li>
+                        
+                            <li><a href="#">Forecast and analysis</a></li>
+                        
+                            <li><a href="#">Consultancy services</a></li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="content no-heading">
+                    <p class="top"><a href="#"></a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">Data services</a></li>
+                        
+                            <li><a href="#">Training &amp; events</a></li>
+                        
+                            <li><a href="#">Advertising</a></li>
+                        
+                    </ul>
+                </div>
+            
+            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
+        </div>        
+        <div class="subnav-container clearfix" id="freecontent" data-nav="free-content">
+            
+                <div class="content ">
+                    <p class="top"><a href="#">All free content</a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">News &amp; Analysis</a></li>
+                        
+                            <li><a href="#">Reports</a></li>
+                        
+                            <li><a href="#">Infographics</a></li>
+                        
+                            <li><a href="#">Training material</a></li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="content no-heading">
+                    <p class="top"><a href="#"></a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">Data</a></li>
+                        
+                            <li><a href="#">publications</a></li>
+                        
+                            <li><a href="#">Webinars</a></li>
+                        
+                            <li><a href="#">Videos</a></li>
+                        
+                    </ul>
+                </div>
+            
+            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
+        </div>        
+        <div class="subnav-container clearfix" id="aboutus" data-nav="about-us">
+            
+                <div class="content ">
+                    <p class="top"><a href="#">About Agribusiness Intelligence</a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">Meet Our Specialist</a></li>
+                        
+                            <li><a href="#">Case Studies</a></li>
+                        
+                    </ul>
+                </div>
+            
+            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
+        </div>        
+        <div class="subnav-container clearfix" id="support" data-nav="support">
+            
+                <div class="content empty-heading">
+                    <p class="top"><a href="#"></a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">New Customer Support</a></li>
+                        
+                            <li><a href="#">Existing Customer Support</a></li>
+                        
+                            <li><a href="#">Product Training</a></li>
+                        
+                            <li><a href="#">Contact Us</a></li>
+                        
+                    </ul>
+                </div>
+            
+            <div class="subnav-close"><a href="#" ><span class="icon-close"></span></a></div> 
+        </div>        
     </div>
 </div>
 
@@ -630,11 +811,11 @@
                     
                         <li>
                         <div class="columns">
-                                <p class="category">Issue Monitor
+                                <p class="category">
                                   <strong>Agriculture food policy &amp; reulations</strong>
                                 </p>
-                                <img src="/cms-images/article_list/policy.png" alt="Alt text here" />
                                 <h2 class="poduct-brand-subheading">Worldssss leaders hid wealth via shell companiessss</h2>
+                                <span class="content-type">Issue Monitor</span>
                                 <p class="date">30.03.2016</p>
                                 <div class="list-content">
                                     
@@ -656,11 +837,11 @@
                       
                         <li>
                         <div class="columns">
-                                <p class="category">Issue Monitor
+                                <p class="category">
                                   <strong>Agriculture food policy &amp; reulations</strong>
                                 </p>
-                                <img src="/cms-images/article_list/policy.png" alt="Alt text here" />
                                 <h2 class="poduct-brand-subheading">What we can learn from the US biodesiel output slumpsss</h2>
+                                <span class="content-type">Issue Monitor</span>
                                 <p class="date">30.03.2016</p>
                                 <div class="list-content">
                                     
@@ -683,11 +864,11 @@
                       
                         <li>
                         <div class="columns">
-                                <p class="category">Issue Monitor
+                                <p class="category">
                                   <strong>Commodities</strong>
                                 </p>
-                                <img src="/cms-images/article_list/policy.png" alt="Alt text here" />
                                 <h2 class="poduct-brand-subheading">World leaders hid wealth via shell companies</h2>
+                                <span class="content-type">Issue Monitor</span>
                                 <p class="date">30.03.2016</p>
                                 <div class="list-content">
                                     
@@ -709,11 +890,11 @@
                       
                         <li>
                         <div class="columns">
-                                <p class="category">Issue Monitor
+                                <p class="category">
                                   <strong>Agriculture food policy &amp; reulations</strong>
                                 </p>
-                                <img src="/cms-images/article_list/policy.png" alt="Alt text here" />
                                 <h2 class="poduct-brand-subheading">World leaders hid wealth via shell companies</h2>
+                                <span class="content-type">Issue Monitor</span>
                                 <p class="date">30.03.2016</p>
                                 <div class="list-content">
                                     
@@ -735,11 +916,11 @@
                       
                         <li>
                         <div class="columns">
-                                <p class="category">Issue Monitor
+                                <p class="category">
                                   <strong>Agriculture food policy &amp; reulations</strong>
                                 </p>
-                                <img src="/cms-images/article_list/policy.png" alt="Alt text here" />
                                 <h2 class="poduct-brand-subheading">What we can learn from the US biodesiel output slumps</h2>
+                                <span class="content-type">Issue Monitor,/cms-images/article_list/policy.png,Alt text here</span>
                                 <p class="date">30.03.2016</p>
                                 <div class="list-content">
                                     
@@ -762,11 +943,11 @@
                       
                         <li>
                         <div class="columns">
-                                <p class="category">Issue Monitor
+                                <p class="category">
                                   <strong>Commodities</strong>
                                 </p>
-                                <img src="/cms-images/article_list/policy.png" alt="Alt text here" />
                                 <h2 class="poduct-brand-subheading">World leaders hid wealth via shell companies</h2>
+                                <span class="content-type">Issue Monitor</span>
                                 <p class="date">30.03.2016</p>
                                 <div class="list-content">
                                     

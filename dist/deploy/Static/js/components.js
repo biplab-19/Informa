@@ -1,4 +1,4 @@
-/*! 2016-06-09 */_adjustHeigt = function(){
+/*! 2016-06-10 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -703,6 +703,47 @@ INFORMA.navbars = (function(window, $, namespace) {
 jQuery(INFORMA.navbars.init());
 
 /*
+ * Events Search.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-May-5
+ * @author:     Saurabh
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.EventsSearch = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var EventsLists = $('.events-search'),
+        Views = EventsLists.find('.views a'),
+
+        //methods
+        init, SwitchEvents;
+
+    SwitchEvents = function() {
+        Views.on('click', function() {
+            Views.removeClass('active');
+            jQuery(this).addClass('active');
+        })
+    }
+
+    init = function() {
+        if(EventsLists.length > 0) {
+            SwitchEvents();
+        }
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.EventsSearch.init());
+
+/*
  * feature-list.js
  *
  *
@@ -1194,7 +1235,8 @@ jQuery(INFORMA.globalFooter.init());
 var INFORMA = window.INFORMA || {};
 INFORMA.globalHeader = (function(window, $, namespace) {
     'use strict';
-    var _mainNavigation = $('#mainNavigation'),
+    var //_mainNavigation = $('#mainNavigation'),
+      _mainNavigation = $('.mainNavigation'),
       _navHeight = _mainNavigation.height(),
       _headerPos = 0,
       _fixed = 'navbar-fixed-top',
@@ -1214,7 +1256,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _pdpMenuleft = [],
 
       _arrayFlag = true,
-
+      _navlinks = $('.nav-links'),
+      _subnavclose = $('.subnav-close'),
       //functions
       init,
       _whenScrolling,
@@ -1222,6 +1265,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       //for sticky nav
       _initPdpMenuBarFollow,
       _activatePdpFixedHeader,
+      _bindNavigationEvents,
       _pdpNavigationScrollTo;
 
 
@@ -1358,15 +1402,30 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             })
       };
 
+      _bindNavigationEvents = function(){
+         _navlinks.on('click',function(){
+            var navId = $(this).find('a').data('subnav');
+            $('.subnav-container').hide();
+            _navlinks.removeClass('nav-active');
+            $(this).addClass('nav-active');
+            $('#' + navId).slideDown();
+         });
+         _subnavclose.on('click',function(){
+            $('.subnav-container').hide();
+            _navlinks.removeClass('nav-active');
+         });
+      };
+
       init = function() {
             //if(INFORMA.global.device.viewport!='mobile'){
                   if(_pdpNavigation.length > 0){
                         _initPdpMenuBarFollow();
                         _pdpNavigationScrollTo();
+
                   }
                   _whenScrolling();
             //}
-
+            _bindNavigationEvents();
             // hack for mobile viewport
             // most stupid hack ever, use bootstrap collapse
             // bootstrap collapse will disturb the offset().top, be careful
@@ -1433,6 +1492,14 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
         "/": lvalue / rvalue,
         "%": lvalue % rvalue
     }[operator];
+});
+
+Handlebars.registerHelper('toLowerCase', function(value) {
+    if(object) {
+        return new Handlebars.SafeString(value.toLowerCase());
+    } else {
+        return '';
+    }
 });
 
 /*
@@ -1731,7 +1798,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitBtn = $(".product-finder li.button"),
         CustomSelect = $(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
-        SearchIcon = $(".navbar-default .search a"),
+        //SearchIcon = $(".navbar-default .search a"),
+        SearchIcon = $(".search:visible"),
         SearchPage = $("#search-page"),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
@@ -1744,10 +1812,13 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         ToggleProductFinder = function() {
             CloseIcon.on("click", function(e) {
                 e.preventDefault();
+                SearchIcon.toggleClass( "inactive" );
                 ProductFinderSection.slideUp("fast");
             });
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
+                if("#product-finder-section:hidden")
+                    SearchIcon.toggleClass( "inactive" );
                 ProductFinderSection.slideDown("slow");
             });
         },
