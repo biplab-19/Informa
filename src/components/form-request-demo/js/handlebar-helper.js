@@ -45,3 +45,11 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
         "%": lvalue % rvalue
     }[operator];
 });
+
+Handlebars.registerHelper('toLowerCase', function(value) {
+    if(object) {
+        return new Handlebars.SafeString(value.toLowerCase());
+    } else {
+        return '';
+    }
+});

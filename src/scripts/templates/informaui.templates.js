@@ -182,13 +182,13 @@ var INFORMA = window.INFORMA || {};
                                 '<h2 class="header">{{results.header}}</h2>' +
                                 '<div class="row analyst-items">' +
                                     '{{#each results.ModelItem}}' +
-                                        '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{Type}}">' +
+                                        '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{#toLowerCase}}{{Type}}{{/toLowerCase}}">' +
                                             '<div class="meet-anlyst-section">' +
                                                 '<div class="anlyst-heading">' +
                                                     '<div class="analyst-heading-content">' +
                                                         '<div class="analyst-details">' +
                                                             '<h2>{{Name}}</h2>' +
-                                                            '<h3>{{Type}}</h3>' +
+                                                            '<h3>{{Type}}, {{JobTitle}}</h3>' +
                                                             '<p class="location">{{Country}}</p>' +
                                                         '</div>' +
                                                         '<div class="analyst-img">' +
@@ -221,8 +221,8 @@ var INFORMA = window.INFORMA || {};
                                                             '{{#compare LinkedinLink null operator="!="}}' +
                                                                 '<li><a href="{{LinkedinLink.Url}}" target="{{LinkedinLink.Target}}" class="icon-linked-in"></a></li>' +
                                                             '{{/compare}}' +
-                                                            '{{#compare FacebookLink null operator="!="}}' +
-                                                                '<li><a href="{{FacebookLink.Url}}" target="{{FacebookLink.Target}}" class="icon-facebook"></a></li>' +
+                                                            '{{#compare EmailAddress null operator="!="}}' +
+                                                                '<li><a href="mailto:{{EmailAddress}}" class="icon-email"></a></li>' +
                                                             '{{/compare}}' +
                                                         '</ul>' +
                                                         '<a href="#" class="btn btn-default pull-right">Full Profile</a>' +
@@ -234,20 +234,20 @@ var INFORMA = window.INFORMA || {};
                                 '</div>' +
                                 '{{#compare results.TotalCount 3 operator=">"}}' +
                                     '<div class="btn-container text-center">' +
-                                        '<a href="javascript:void(O)" data-fetch="{{results.SectorID}}" class="btn-plus">' +
+                                        '<a href="javascript:void(0)" data-fetch="{{results.SectorID}}" class="btn-plus">' +
                                         '<span class="more">See All {{results.TotalCount}} Analysts</span>' +
                                         '<span class="less">Hide Analysts</span></a>' +
                                     '</div>' +
                                 '{{/compare}}' +
                             '</div>' +
                         '</section>',
-        'AnalystListTemplate': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{results.Type}}">' +
+        'AnalystListTemplate': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{#toLowerCase}}{{results.Type}}{{/toLowerCase}}">' +
                                     '<div class="meet-anlyst-section">' +
                                         '<div class="anlyst-heading">' +
                                             '<div class="analyst-heading-content">' +
                                                 '<div class="analyst-details">' +
                                                     '<h2>{{results.Name}}</h2>' +
-                                                    '<h3>{{results.Type}}</h3>' +
+                                                    '<h3>{{results.Type}}, {{results.JobTitle}}</h3>' +
                                                     '<p class="location">{{results.Country}}</p>' +
                                                 '</div>' +
                                                 '<div class="analyst-img">' +
@@ -280,8 +280,8 @@ var INFORMA = window.INFORMA || {};
                                                     '{{#compare results.LinkedinLink null operator="!="}}' +
                                                         '<li><a href="{{results.LinkedinLink.Url}}" target="{{results.LinkedinLink.Target}}" class="icon-linked-in"></a></li>' +
                                                     '{{/compare}}' +
-                                                    '{{#compare results.FacebookLink null operator="!="}}' +
-                                                        '<li><a href="{{results.FacebookLink.Url}}" target="{{results.FacebookLink.Target}}" class="icon-facebook"></a></li>' +
+                                                    '{{#compare results.EmailAddress null operator="!="}}' +
+                                                        '<li><a href="mailto:{{results.EmailAddress}}" class="icon-email"></a></li>' +
                                                     '{{/compare}}' +
                                                 '</ul>' +
                                                 '<a href="#" class="btn btn-default pull-right">Full Profile</a>' +
