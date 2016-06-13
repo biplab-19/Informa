@@ -22,7 +22,8 @@ var INFORMA = window.INFORMA || {};
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/data/analyst-search.json",
             "AnalystSearchDropDown": "/data/analyst-search-dropdown.json",
-            "AnalystSearchAll": "/data/analyst-search-subsector.json"
+            "AnalystSearchAll": "/data/analyst-search-subsector.json",
+            "EventsSearch": "data/events-page.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",

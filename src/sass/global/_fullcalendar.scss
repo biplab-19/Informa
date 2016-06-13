@@ -1,0 +1,77 @@
+.fc-state-default.fc-corner-right {
+	background: $yellow;
+	color: $white;
+	border: 0;
+	border-radius: 0;
+
+}
+.fc-scroller {
+	height: auto !important;
+}
+.fc-ltr .fc-basic-view .fc-day-number { 
+	text-align: left;
+}
+.fc th,.fc-bg .fc td {
+	border: 5px solid #f3f3f3;
+}
+.fc th {
+	background: #f3f3f3;
+	text-align: left;
+	height: auto;
+}
+.fc-ltr .fc-basic-view .fc-day-number {
+	font-size: 40px;
+}
+.fc-event-container {
+	.events {
+		margin-bottom: 10px;
+		p {
+			margin-bottom: 0;
+			padding-left: 10px;
+			line-height: 1.2;
+			&.title {
+				position: relative;
+				a {
+					color: #6b7189;
+					font-family: 'FSMe-Bold';
+					text-decoration: underline;
+				}
+				&:before {
+					content: "";
+				    top: 0;
+				    width: 3px;
+				    height: 14px;
+				    position: absolute;
+				    left: 0;
+				    background: $yellow;
+				}
+			}
+		}
+		&.disabled {
+			p {
+				color: #bcbfc8;
+				&.title {
+					&:before {
+						background: #bcbfc8;
+					}
+				}
+				a {
+					color: #bcbfc8;
+					pointer-events: none;
+				}
+			}
+		}
+		&.current {
+			p {
+				&.title {
+					&:before {
+						background: #bcbfc8;
+					}
+				}
+			}
+		}
+	}
+}
+.fc-unthemed .fc-today {
+	background: $yellow;
+}
