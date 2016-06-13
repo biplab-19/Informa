@@ -1,4 +1,11 @@
 .support-page-tabs{
+.tab-content {
+  background-color: $white;
+  padding : 5px 15px;
+}
+ .nav-pills > li > a {
+  border-radius: 0;
+}
   margin-top: 20px;
   font-family: FSMe-bold;
   .first-list{
@@ -12,13 +19,9 @@
     @include mobile {
         margin-left: -10px;
     }
-
     li:hover{
       background-color: #e7e7e7 !important;
     }
-  }
-  .tab-pane{
-    background-color: $white;
   }
   .tabs-box{
     width: 160px;
@@ -32,16 +35,12 @@
         border-radius: 0px !important;
         border: 0px solid transparent;
         background-color: #e7e7e7;
+        padding: 13px 14px !important;
         @include mobile {
           margin-right: 0px !important;
           padding: 17px 14px !important;
+        }
+      }
 
-        }
-      }
-      li.active{
-        a{
-          border-right: 1px solid #eee !important;
-        }
-      }
   }
 }
