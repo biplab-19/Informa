@@ -1,0 +1,47 @@
+.support-page-tabs{
+  margin-top: 20px;
+  font-family: FSMe-bold;
+  .first-list{
+    margin-left: 30px !important;
+    @include mobile {
+      margin-left: 0px !important;
+    }
+  }
+  ul{
+    border-bottom: 1px solid #aaa !important;
+    @include mobile {
+        margin-left: -10px;
+    }
+
+    li:hover{
+      background-color: #e7e7e7 !important;
+    }
+  }
+  .tab-pane{
+    background-color: $white;
+  }
+  .tabs-box{
+    width: 160px;
+    margin-left: 10px;
+    @include mobile {
+      width: auto;
+      margin-left: 0px;
+    }
+      a{
+        color: $gray-dark-bg;
+        border-radius: 0px !important;
+        border: 0px solid transparent;
+        background-color: #e7e7e7;
+        @include mobile {
+          margin-right: 0px !important;
+          padding: 17px 14px !important;
+
+        }
+      }
+      li.active{
+        a{
+          border-right: 1px solid #eee !important;
+        }
+      }
+  }
+}
