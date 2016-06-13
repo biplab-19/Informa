@@ -1,4 +1,4 @@
-/*! 2016-06-10 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-06-13 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -5155,16 +5155,69 @@ section.articlepage-quote .container figure figcaption {
   margin-top: 30px;
 }
 
-/* line 2, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+/* line 1, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+.casestudy-Quote-Video {
+  margin-top: 20px;
+}
+/* line 3, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
 .casestudy-Quote-Video h3 {
   font-family: FSMe-bold;
   font-size: 40px;
   margin-bottom: 20px;
+  margin-left: 18px;
 }
-/* line 7, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
-.casestudy-Quote-Video .Quote-descrip {
+/* line 9, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+.casestudy-Quote-Video img {
+  padding: 5px;
+}
+/* line 13, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+.casestudy-Quote-Video .Quote-descrip-container {
+  padding-left: 36px;
+  position: relative;
+}
+@media (max-width: 767px) {
+  /* line 13, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+  .casestudy-Quote-Video .Quote-descrip-container {
+    padding-left: 10px;
+    margin-top: 50px;
+  }
+}
+/* line 20, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+.casestudy-Quote-Video .Quote-descrip-container .open-quote {
+  position: absolute;
+  top: -26px;
+  font-size: 100px;
+  color: #ffd500;
+}
+@media (max-width: 767px) {
+  /* line 20, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+  .casestudy-Quote-Video .Quote-descrip-container .open-quote {
+    top: -53px;
+    left: 16px;
+  }
+}
+/* line 30, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+.casestudy-Quote-Video .Quote-descrip-container .Quote-descrip {
   font-size: 24px;
-  padding-left: 20px;
+  color: #444957;
+  padding-left: 74px;
+  padding-right: 35px;
+  line-height: 35px;
+}
+/* line 36, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+.casestudy-Quote-Video .Quote-descrip-container .Quote-descrip .Quote-descrip-marg {
+  margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+  /* line 30, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+  .casestudy-Quote-Video .Quote-descrip-container .Quote-descrip {
+    padding-left: 10px;
+    margin-top: 15px;
+  }
+}
+/* line 43, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+.casestudy-Quote-Video .Quote-descrip-container .Quote-descrip .Small-text {
+  font-size: 14px;
 }
 
 /* line 1, ../../../src/components/events-page/sass/_events-page.scss */
@@ -5419,5 +5472,71 @@ section.articlepage-quote .container figure figcaption {
   /* line 56, ../../../src/components/events-search/sass/_events-search.scss */
   .events-search .views-section .views:first-child {
     margin-right: 10px;
+  }
+}
+
+/* line 1, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+.support-page-tabs {
+  margin-top: 20px;
+  font-family: FSMe-bold;
+}
+/* line 2, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+.support-page-tabs .tab-content {
+  background-color: #fff;
+  padding: 5px 15px;
+}
+/* line 6, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+.support-page-tabs .nav-pills > li > a {
+  border-radius: 0;
+}
+/* line 11, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+.support-page-tabs .first-list {
+  margin-left: 30px !important;
+}
+@media (max-width: 767px) {
+  /* line 11, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+  .support-page-tabs .first-list {
+    margin-left: 0px !important;
+  }
+}
+/* line 17, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+.support-page-tabs ul {
+  border-bottom: 1px solid #aaa !important;
+}
+@media (max-width: 767px) {
+  /* line 17, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+  .support-page-tabs ul {
+    margin-left: -10px;
+  }
+}
+/* line 22, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+.support-page-tabs ul li:hover {
+  background-color: #e7e7e7 !important;
+}
+/* line 26, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+.support-page-tabs .tabs-box {
+  width: 160px;
+  margin-left: 10px;
+}
+@media (max-width: 767px) {
+  /* line 26, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+  .support-page-tabs .tabs-box {
+    width: auto;
+    margin-left: 0px;
+  }
+}
+/* line 33, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+.support-page-tabs .tabs-box a {
+  color: #343742;
+  border-radius: 0px !important;
+  border: 0px solid transparent;
+  background-color: #e7e7e7;
+  padding: 13px 14px !important;
+}
+@media (max-width: 767px) {
+  /* line 33, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+  .support-page-tabs .tabs-box a {
+    margin-right: 0px !important;
+    padding: 17px 14px !important;
   }
 }

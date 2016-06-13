@@ -1,4 +1,4 @@
-/*! 2016-06-10 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-13 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -488,7 +488,7 @@ var INFORMA = window.INFORMA || {};
                                 '<h2 class="header">{{results.header}}</h2>' +
                                 '<div class="row analyst-items">' +
                                     '{{#each results.ModelItem}}' +
-                                        '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{Type}}">' +
+                                        '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{#toLowerCase}}{{Type}}{{/toLowerCase}}">' +
                                             '<div class="meet-anlyst-section">' +
                                                 '<div class="anlyst-heading">' +
                                                     '<div class="analyst-heading-content">' +
@@ -547,13 +547,13 @@ var INFORMA = window.INFORMA || {};
                                 '{{/compare}}' +
                             '</div>' +
                         '</section>',
-        'AnalystListTemplate': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{results.Type}}">' +
+        'AnalystListTemplate': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{#toLowerCase}}{{results.Type}}{{/toLowerCase}}">' +
                                     '<div class="meet-anlyst-section">' +
                                         '<div class="anlyst-heading">' +
                                             '<div class="analyst-heading-content">' +
                                                 '<div class="analyst-details">' +
                                                     '<h2>{{results.Name}}</h2>' +
-                                                    '<h3>{{results.Type}}</h3>' +
+                                                    '<h3>{{results.Type}}, {{results.JobTitle}}</h3>' +
                                                     '<p class="location">{{results.Country}}</p>' +
                                                 '</div>' +
                                                 '<div class="analyst-img">' +
