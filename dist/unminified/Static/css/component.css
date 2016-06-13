@@ -3397,15 +3397,23 @@ section#training-section .training-material .btn {
   margin-left: 32px;
   overflow: hidden;
 }
-/* line 36, ../../../src/components/training-material/sass/_training-material.scss */
+@media (max-width: 767px) {
+  /* line 32, ../../../src/components/training-material/sass/_training-material.scss */
+  section#training-section .training-material .btn {
+    width: 100%;
+    margin-left: 0px;
+    padding-left: 28px;
+  }
+}
+/* line 41, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .btn:after {
   color: #ffd600;
 }
-/* line 41, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 46, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists .slick-list {
   border-right: none;
 }
-/* line 44, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 49, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists .slick-arrow {
   height: 60px;
   width: 40px;
@@ -3414,7 +3422,7 @@ section#training-section .training-material .carousel-lists .slick-arrow {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 44, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 49, ../../../src/components/training-material/sass/_training-material.scss */
   section#training-section .training-material .carousel-lists .slick-arrow {
     height: 40px;
     width: 20px;
@@ -3423,7 +3431,7 @@ section#training-section .training-material .carousel-lists .slick-arrow {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 44, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 49, ../../../src/components/training-material/sass/_training-material.scss */
   section#training-section .training-material .carousel-lists .slick-arrow {
     height: 40px;
     width: 25px;
@@ -3431,7 +3439,7 @@ section#training-section .training-material .carousel-lists .slick-arrow {
     margin-left: -25px;
   }
 }
-/* line 62, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 67, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -3443,7 +3451,7 @@ section#training-section .training-material .carousel-lists .slick-arrow:before 
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 62, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 67, ../../../src/components/training-material/sass/_training-material.scss */
   section#training-section .training-material .carousel-lists .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -3451,45 +3459,45 @@ section#training-section .training-material .carousel-lists .slick-arrow:before 
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 62, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 67, ../../../src/components/training-material/sass/_training-material.scss */
   section#training-section .training-material .carousel-lists .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 83, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 88, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists .slick-next {
   left: 94%;
   margin-left: 0;
   top: 140px;
 }
-/* line 87, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 92, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists .slick-next:before {
   content: "\e902";
 }
-/* line 91, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 96, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists .slick-prev {
   left: 6%;
   top: 140px;
 }
 @media (max-width: 767px) {
-  /* line 91, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 96, ../../../src/components/training-material/sass/_training-material.scss */
   section#training-section .training-material .carousel-lists .slick-prev {
     margin-left: -20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 91, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 96, ../../../src/components/training-material/sass/_training-material.scss */
   section#training-section .training-material .carousel-lists .slick-prev {
     margin-left: -25px;
   }
 }
-/* line 100, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 105, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists .slick-prev:before {
   content: "\e903";
 }
-/* line 104, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 109, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists ul.slick-dots {
   text-align: center;
   width: 100%;
@@ -3498,7 +3506,7 @@ section#training-section .training-material .carousel-lists ul.slick-dots {
   z-index: 2;
   margin: 15px 0;
 }
-/* line 111, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 116, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists ul.slick-dots li {
   height: 10px;
   width: 10px;
@@ -3507,11 +3515,11 @@ section#training-section .training-material .carousel-lists ul.slick-dots li {
   background: #888e9f;
   padding: 0;
 }
-/* line 118, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 123, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 121, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 126, ../../../src/components/training-material/sass/_training-material.scss */
 section#training-section .training-material .carousel-lists ul.slick-dots li button {
   display: none;
 }

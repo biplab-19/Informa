@@ -33,6 +33,11 @@ section#training-section{
 		width: 80%;
 		margin-left: 32px;
 		overflow: hidden;
+		@include mobile {
+			width: 100%;
+			margin-left: 0px;
+			padding-left: 28px;
+		}
 			&:after{
 				    color: #ffd600;
 			}
