@@ -32,23 +32,30 @@ header {
             min-height: 36px;
             text-align: center;
             & .toggle {
-                color: $white;
+                color: #fff;
                 text-decoration: none;
                 position: absolute;
-                bottom: 9px;
+                bottom: 5px;
                 left: 50%;
                 transform: translate(-50%);
                 cursor: pointer;
-                font-size: 18px;
+                font-size: 20px;
+                text-transform: lowercase;
+                font-family: 'FSMe-Bold';
+                display: block;
+                padding-right: 20px;
                 &::after {
                     content: "";
                     display: inline-block;
                     width: 0;
                     height: 0;
                     border-style: solid;
-                    border-width: 7px 7px 0 7px;
+                    border-width: 5px 5px 0 5px;
                     border-color: $white transparent transparent transparent;
                     margin-left: 5px;
+                    position: absolute;
+                    top: 12px;
+                    right: 0;
                 }
             }
         }
@@ -69,14 +76,18 @@ header {
         }
         .header-copyright-inner.open {
             & .toggle::after {
-                border-width: 0 7px 7px 7px;
+                border-width: 0 5px 5px 5px;
                 margin-left: 5px;
                 border-color: transparent transparent $white transparent;
+                position: absolute;
+                top: 12px;
+                right: 0;
             }
             & .header-copyright-content {
-                max-height: 150px;
-                height: 150px;
+                max-height: 184px;
+                height: 220px;
                 opacity: 1;
+                padding-top: 48px;
                 filter: alpha(opacity=100);
                 @include mobile {
                   max-height: 180px;
@@ -87,16 +98,21 @@ header {
                   height: 180px;
                 }
                 & .header-copyright-text {
-                    max-height: 90px;
-                    height: 90px;
+                    &:last-child {
+                        border-left: 1px solid $white;
+                        padding-left: 26px;
+                        padding-top: 8px;
+                    }
                     & p {
                         word-wrap: break-word;
+                        margin-bottom: 0;
+                        font-size: 13px;
                     }
                     & .links{
                       margin-right: 10px;
                     }
                     & ul {
-
+                        padding-left: 0;
                         & li {
                             list-style: none;
                             display: inline;
@@ -120,15 +136,15 @@ header {
                       height: 60px;
                     }
                 }
-                & .header-copyright-text:first-child {
-                    border-right: solid 1px $white;
-                    @include mobile {
-                      border: none;
-                    }
-                    @include tablet {
-                      border: none;
-                    }
-                }
+                // & .header-copyright-text:first-child {
+                //     border-right: solid 1px $white;
+                //     @include mobile {
+                //       border: none;
+                //     }
+                //     @include tablet {
+                //       border: none;
+                //     }
+                // }
             }
         }
     }
