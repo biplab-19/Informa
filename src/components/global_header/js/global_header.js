@@ -21,6 +21,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     var //_mainNavigation = $('#mainNavigation'),
       _mainNavigation = $('.mainNavigation'),
       _mobileNavigation = $('.mobileNavigation'),
+      _mobileHeaderNavigation = $('#mobile-header-navigation'),
       _navHeight = _mainNavigation.height(),
       _headerPos = 0,
       _navHeightMobile = _mobileNavigation.height(),
@@ -116,15 +117,23 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       };
 
       _activateMobileFixedHeader = function(){
-          var _windowPosMobile = $(window).scrollTop();
+            var _windowPosMobile = $(window).scrollTop();
+
             if(_windowPosMobile > _headerPosMobile){
                   _mobileNavigation.addClass(_fixed);
                   $('body').css('padding-top',_navHeightMobile);
+                  _mobileHeaderNavigation.css({
+                     'z-index': '2000'
+                  });
             }
             else {
                   _mobileNavigation.removeClass(_fixed);
                   $('body').css('padding-top',0);
+                  _mobileHeaderNavigation.css({
+                     'z-index': '2'
+                  });
             }
+
       };
 
       _initPdpMenuBarFollow = function(){
