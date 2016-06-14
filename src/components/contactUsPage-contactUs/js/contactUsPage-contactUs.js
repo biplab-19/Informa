@@ -14,7 +14,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.navbars = (function(window, $, namespace) {
     'use strict';
     //variables
-    var Tabs = $('.tabs-row ul.nav li'),
+    var Tabs = $('.pos ul.nav li'),
       tabcontent = $('.tab-content .tab-pane'),
         init;
     init = function() {
