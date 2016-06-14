@@ -1,17 +1,5 @@
 .sector-list {
-    // @include desktop {
-    //     .col-lg-4:nth-child(3n+1),
-    //     .col-md-4:nth-child(3n+1) {
-    //         clear: left;
-    //     }
-    // }
-    // @include tablet {
-    //     .col-sm-6:nth-child(2n+1) {
-    //         clear: left;
-    //     }
-    // }
     .card-col {
-
       margin-top: 30px;
       margin-bottom: 30px;
       height: 400px;
@@ -74,6 +62,9 @@
         margin: 0;
         padding: 0;
         //  font-size: 18px;
+         a{
+           color: $font-color;
+         }
     }
     ul.sector-list-products li:after {
         content: "";
@@ -82,9 +73,7 @@
         border-left: 2px solid $font-color;
         margin: 0 0.625em;
     }
-    .col-lg-4:nth-child(3n+1) {
-        //  clear: left;
-    }
+
     ul.sector-list-products li:last-child:after {
         content: "";
         border-left: none;
@@ -95,7 +84,7 @@
     .btn-container {
         width: 80%;
         margin: 0 auto;
-        position: absolute;
+        //position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
