@@ -1,4 +1,4 @@
-/*! 2016-06-13 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-14 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -22,7 +22,8 @@
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/data/analyst-search.json",
             "AnalystSearchDropDown": "/data/analyst-search-dropdown.json",
-            "AnalystSearchAll": "/data/analyst-search-subsector.json"
+            "AnalystSearchAll": "/data/analyst-search-subsector.json",
+            "EventsSearch": "data/events-page.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",

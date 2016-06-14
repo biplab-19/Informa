@@ -1,4 +1,4 @@
-/*! 2016-06-13 */_adjustHeigt = function(){
+/*! 2016-06-14 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -686,13 +686,17 @@ var INFORMA = window.INFORMA || {};
 INFORMA.navbars = (function(window, $, namespace) {
     'use strict';
     //variables
-    var Tabs = $('.tabs-row ul.nav li'),
+    var Tabs = $('.pos ul.nav li'),
+      tabcontent = $('.tab-content .tab-pane'),
         init;
     init = function() {
         jQuery(Tabs[0]).addClass('active');
         Tabs.on('click', function() {
             Tabs.removeClass('active');
             jQuery(this).addClass('active');
+            var tabpane = jQuery(this).find('a').attr('href');
+            tabcontent.removeClass('active');
+            jQuery(tabpane).addClass('active');
         })
     };
 
@@ -701,6 +705,114 @@ INFORMA.navbars = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.navbars.init());
+
+/*
+ * Events Search.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-May-5
+ * @author:     Saurabh
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.EventsSearch = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var EventsLists = $('.events-search'),
+        Views = EventsLists.find('.views a'),
+        CalendarView = EventsLists.find('.views a.icon-calendar'),
+        Calendar = $('#events .container'),
+        MonthSelect = $('select[name="month"]'),
+        Urls = INFORMA.Configs.urls.webservices,
+        //methods
+        init, SwitchEvents, GetAjaxData, RenderMonthResults, SetCalendarEvents;
+
+    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.DataLoader.GetServiceData(url, {
+            method: method,
+            data: JSON.stringify({ data: data }),
+            success_callback: function (data) {
+                if (typeof SCallback === "function") {
+                    SCallback.call(this, data, SearchType);
+                }
+            },
+            error_callback: function () {
+                if (typeof Errcallback === "function") {
+                    Errcallback.call(this, data, SearchType);
+                }
+            }
+        });
+    },
+
+    SetCalendarEvents = function(eventList) {
+        Calendar.html("");
+        Calendar.fullCalendar({
+                header: {
+                    left: 'prev',
+                    center: 'title',
+                    right: 'next'
+                },
+                eventLimit: 2,
+                contentHeight: 1000,
+                eventRender: function(event, element, view) {
+                    var CurrentDate = new Date(),
+                        ItemDate = new Date(event.start._i);
+                    if(CurrentDate > ItemDate) {
+                        return $('<div class="events disabled"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
+                    } else if(CurrentDate == ItemDate) {
+                        return $('<div class="events current"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
+                    } else {
+                        return $('<div class="events"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
+                    }
+                },
+                events: eventList
+        });
+    },
+
+    RenderMonthResults = function(data){
+        var EventList = [];
+
+        for(var key in data) {
+            EventList.push({
+                "title": data[key].Title,
+                "start": data[key].EventStartDate,
+                "location": data[key].Location
+            })
+        }
+        // var Events = 
+        SetCalendarEvents(EventList);
+    },
+
+    SwitchEvents = function() {
+        Views.on('click', function() {
+            Views.removeClass('active');
+            jQuery(this).addClass('active');
+        })
+        CalendarView.on('click', function() {
+            Views.removeClass('active');
+            jQuery(this).addClass('active');
+            GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
+        })
+        MonthSelect.on('change', function() {
+            Calendar.fullCalendar('gotoDate', 2010, 6);
+        })
+    }
+
+    init = function() {
+        if(EventsLists.length > 0) {
+            SwitchEvents();
+        }
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.EventsSearch.init());
 
 /*
  * feature-list.js
@@ -1196,8 +1308,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     'use strict';
     var //_mainNavigation = $('#mainNavigation'),
       _mainNavigation = $('.mainNavigation'),
+      _mobileNavigation = $('.mobileNavigation'),
       _navHeight = _mainNavigation.height(),
       _headerPos = 0,
+      _navHeightMobile = _mobileNavigation.height(),
+      _headerPosMobile = 0,
       _fixed = 'navbar-fixed-top',
       _isHeaderFixed = false,
       // for sticky nav of pdp-navigation
@@ -1217,10 +1332,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _arrayFlag = true,
       _navlinks = $('.nav-links'),
       _subnavclose = $('.subnav-close'),
+      _navtoggle = $('.navbar-toggle'),
+      _navclose = $('.nav-close'),
+      _navback = $('.nav-back'),
       //functions
       init,
       _whenScrolling,
       _activateMainFixedHeader,
+      _activateMobileFixedHeader,
       //for sticky nav
       _initPdpMenuBarFollow,
       _activatePdpFixedHeader,
@@ -1239,17 +1358,26 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                            .css('left',$(_pdpLink[0]).offset().left)
                            .show(); 
       }
+
       if(_mainNavigation.length > 0) {
             _navHeight = _mainNavigation.height();
             _headerPos = _mainNavigation.offset().top;
       }
 
+      if(_mobileNavigation.length > 0) {
+            _navHeightMobile = _mobileNavigation.height();
+            _headerPosMobile = _mobileNavigation.offset().top;
+      }      
+
       // both pdp nav and main nav handled here
 
       _whenScrolling = function(){
          $(window).on('scroll',function(){
-               // little savings here, the first function will not be executed when pdp nav is sticky
-             if(!_pdpFixed && _mainNavigation.length >0 && !INFORMA.global.device.isMobile) _activateMainFixedHeader();
+             // little savings here, the first function will not be executed when pdp nav is sticky
+             if(!_pdpFixed && _mainNavigation.length > 0 && !INFORMA.global.device.isMobile)
+               _activateMainFixedHeader();
+             if(!_pdpFixed && _mobileNavigation.length > 0 && !INFORMA.global.device.isDesktop)
+               _activateMobileFixedHeader();
              if(_pdpNavigation.length > 0 && _pdpMenuActive) _activatePdpFixedHeader();
          });
       };
@@ -1263,6 +1391,18 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             }
             else {
                   _mainNavigation.removeClass(_fixed);
+                  $('body').css('padding-top',0);
+            }
+      };
+
+      _activateMobileFixedHeader = function(){
+          var _windowPosMobile = $(window).scrollTop();
+            if(_windowPosMobile > _headerPosMobile){
+                  _mobileNavigation.addClass(_fixed);
+                  $('body').css('padding-top',_navHeightMobile);
+            }
+            else {
+                  _mobileNavigation.removeClass(_fixed);
                   $('body').css('padding-top',0);
             }
       };
@@ -1361,18 +1501,67 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             })
       };
 
+/*
+      _setMainNavHeader = function(){
+         $('.nav-back').css('display','none');
+      };*/
+
       _bindNavigationEvents = function(){
-         _navlinks.on('click',function(){
-            var navId = $(this).find('a').data('subnav');
-            $('.subnav-container').hide();
-            _navlinks.removeClass('nav-active');
-            $(this).addClass('nav-active');
-            $('#' + navId).slideDown();
+
+         if(INFORMA.global.device.isDesktop){
+            _navlinks.on('click',function(e){
+               e.preventDefault();
+               var navId = $(this).find('a').data('subnav');
+               $('.subnav-container').hide();
+               _navlinks.removeClass('nav-active');
+               $(this).addClass('nav-active');
+               $('#' + navId).slideDown();
+            });
+            _subnavclose.on('click',function(e){
+               e.preventDefault();
+               $('.subnav-container').hide();
+               _navlinks.removeClass('nav-active');
+            });
+         }
+         else{
+            _navlinks.on('click',function(e){
+               e.preventDefault();
+               var navId = $(this).find('a').data('subnav');
+               var navText = $(this).find('a').text();
+               $('.subnav-container').hide();
+               $('.nav-main').css('left','-100%');
+               $('#sub-nav').css('left','0');
+               $('#' + navId).css('display','block');
+               $('.nav-subnav-heading').text(navText);
+               $('.nav-back').css('display','block');
+            });
+         }
+
+         //For mobile toggle navigations
+         _navtoggle.on('click',function(e){
+            e.preventDefault();
+            $('#mobile-header-navigation').css('left','0');
+            $('.nav-main').css('left','0');
+            $('body').css('overflow-y','hidden');
+            $('.nav-back').css('display','none');
          });
-         _subnavclose.on('click',function(){
-            $('.subnav-container').hide();
-            _navlinks.removeClass('nav-active');
+
+         _navclose.on('click',function(e){
+            $(".navbar-collapse").collapse('hide');
+            $('#mobile-header-navigation').css('left','-100%');
+            $('.nav-main').css('left','-100%');
+            $('#sub-nav').css('left','-100%');
+            $('body').css('overflow-y','scroll');
          });
+
+         _navback.on('click',function(e){
+            $('.nav-main').css('left','0');
+            $('#sub-nav').css('left','-100%');
+            $('.nav-subnav-heading').text('');
+            $('.nav-back').css('display','none');
+            $('body').css('overflow-y','hidden');
+         });
+
       };
 
       init = function() {
@@ -2485,7 +2674,7 @@ INFORMA.navtabs = (function(window, $, namespace) {
         tabcontent = $('.tab-content .tab-pane'),
         init;
     init = function() {
-        jQuery(Tabs[0]).addClass('active first-list');
+        jQuery(Tabs[0]).addClass('active');
         jQuery(tabcontent[0]).addClass('active');
         Tabs.on('click', function() {
         Tabs.removeClass('active');
