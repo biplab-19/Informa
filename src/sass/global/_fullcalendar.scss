@@ -3,7 +3,10 @@
 	color: $white;
 	border: 0;
 	border-radius: 0;
-
+	&.disabled {
+		background: grey;
+		pointer-events: none;
+	}
 }
 .fc-scroller {
 	height: auto !important;
@@ -18,9 +21,16 @@
 	background: #f3f3f3;
 	text-align: left;
 	height: auto;
+	@include mobile {
+		text-align: center;
+	}
 }
 .fc-ltr .fc-basic-view .fc-day-number {
 	font-size: 40px;
+	@include mobile {
+		font-size: 24px;
+		text-align: center;
+	}
 }
 .fc-event-container {
 	.events {
@@ -39,7 +49,7 @@
 				&:before {
 					content: "";
 				    top: 0;
-				    width: 3px;
+				    width: 4px;
 				    height: 14px;
 				    position: absolute;
 				    left: 0;
@@ -52,6 +62,7 @@
 				color: #bcbfc8;
 				&.title {
 					&:before {
+						width: 4px;
 						background: #bcbfc8;
 					}
 				}
@@ -74,4 +85,49 @@
 }
 .fc-unthemed .fc-today {
 	background: $yellow;
+}
+.fc-more-cell div {
+	position: relative;
+}
+.fc-more-cell a.fc-more {
+	color: $white;
+	&:before {
+		content: "\e901";
+		font-family: 'InformaIcons';
+		color: #6b7189;
+		position: absolute;
+		left: 44%;
+	}
+}
+.fc-unthemed .fc-popover {
+	width: 161px;
+	margin-top: 60px;
+	border-top: 0;
+	box-shadow: 0 5px 6px rgba(0,0,0,.15);
+}
+.fc-unthemed .fc-divider, .fc-unthemed .fc-popover .fc-header {
+	background: $white;
+	bottom: 0;
+    position: absolute;
+    width: 95%;
+}
+.fc-icon-x:after {
+	content: "\e901";
+	font-family: 'InformaIcons';
+	color: #6b7189;
+	transform: rotate(180deg);
+	position: absolute;
+	font-size: 14px;
+	left: 44%;
+}
+.fc-ltr .fc-popover .fc-header .fc-title {
+	color: $white;
+}
+.fc-more-popover .fc-event-container {
+	padding: 0 0 20px 0;
+}
+.fc-more-cell {
+	bottom: -48px;
+    position: absolute;
+    width: 160px;
 }
