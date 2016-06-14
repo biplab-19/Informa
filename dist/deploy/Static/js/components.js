@@ -1335,6 +1335,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _navtoggle = $('.navbar-toggle'),
       _navclose = $('.nav-close'),
       _navback = $('.nav-back'),
+      _stickAnimation = $('.hide-stick'),
       //functions
       init,
       _whenScrolling,
@@ -1374,7 +1375,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _whenScrolling = function(){
          $(window).on('scroll',function(){
              // little savings here, the first function will not be executed when pdp nav is sticky
-             if(!_pdpFixed && _mainNavigation.length > 0 && !INFORMA.global.device.isMobile)
+             if(!_pdpFixed && _mainNavigation.length > 0 && INFORMA.global.device.isDesktop)
                _activateMainFixedHeader();
              if(!_pdpFixed && _mobileNavigation.length > 0 && !INFORMA.global.device.isDesktop)
                _activateMobileFixedHeader();
@@ -1385,13 +1386,20 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _activateMainFixedHeader = function(){
           var _windowPos = $(window).scrollTop();
             if(_windowPos > _headerPos){
+               if(!_mainNavigation.hasClass(_fixed)){
                   _mainNavigation.addClass(_fixed);
+                  $(".hide-stick").fadeOut("5000","linear");
+                  $('.nav-left').animate({'left' : "0px"},1000);           
                   $('body').css('padding-top',_navHeight);
-                  //console.log('main');
+               }
             }
             else {
+               if(_mainNavigation.hasClass(_fixed)){
                   _mainNavigation.removeClass(_fixed);
+                  $(".hide-stick").fadeIn("5000","linear");
+                  $('.nav-left').animate({'left' : "0px"},1000);
                   $('body').css('padding-top',0);
+               }
             }
       };
 
@@ -1530,7 +1538,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                var navText = $(this).find('a').text();
                $('.subnav-container').hide();
                $('.nav-main').css('left','-100%');
-               $('#sub-nav').css('left','0');
+               //$('#sub-nav').css('right','0%');
                $('#' + navId).css('display','block');
                $('.nav-subnav-heading').text(navText);
                $('.nav-back').css('display','block');
@@ -1542,8 +1550,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             e.preventDefault();
             $('#mobile-header-navigation').css('left','0');
             $('.nav-main').css('left','0');
+            $('#sub-nav').css('left','0');
             $('body').css('overflow-y','hidden');
             $('.nav-back').css('display','none');
+            $('.nav-subnav-heading').text('');
          });
 
          _navclose.on('click',function(e){
@@ -1556,7 +1566,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
          _navback.on('click',function(e){
             $('.nav-main').css('left','0');
-            $('#sub-nav').css('left','-100%');
+            //$('#sub-nav').css('right','-100%');
             $('.nav-subnav-heading').text('');
             $('.nav-back').css('display','none');
             $('body').css('overflow-y','hidden');
@@ -1641,15 +1651,6 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
         "%": lvalue % rvalue
     }[operator];
 });
-
-Handlebars.registerHelper('toLowerCase', function(value) {
-    if(object) {
-        return new Handlebars.SafeString(value.toLowerCase());
-    } else {
-        return '';
-    }
-});
-
 /*
  * Hero Video.js
  *
