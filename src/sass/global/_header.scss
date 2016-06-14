@@ -169,6 +169,9 @@ header {
                 float: left;
                 margin-left: 15px;
             }
+            .navbar-toggle:hover{
+                background-color: none;
+            }
             .action{
                 float: right;
             }
@@ -322,9 +325,6 @@ header {
                             padding-bottom: 0;
                         }
                     }
-                    .hide-stick{
-                        display: none;
-                    }
                     .icon-search{
                         padding-left: 0;
                     }
@@ -334,6 +334,10 @@ header {
                     .search{
                         border-left: 1px solid $gray-header;
                         border-right: 1px solid $gray-header;
+                    }
+                    .nav-left{
+                        position: relative;
+                        left: -30px;
                     }
                 }
             }  
@@ -392,8 +396,13 @@ header {
                 height: 100%;
                 top: 90px;
                 display: block;
-                z-index: 2;
+                z-index: 3;
                 left: -100%;
+                transition: 1s;
+                -webkit-transition: 1s;
+                -moz-transition: 1s;
+                -ms-transition: 1s;
+                -o-transition: 1s;
             }
             .navbar-collapse {
                 border-top: none;
@@ -696,6 +705,11 @@ header {
     display: block;
     z-index: 2;
     left: -100%;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
     background-color: #4c5161;
     padding-left: 0;
     padding-right: 0;
@@ -885,6 +899,11 @@ header {
         z-index: 2;
         left: -100%;
         overflow-y: scroll;
+        transition: 1s;
+        -webkit-transition: 1s;
+        -moz-transition: 1s;
+        -ms-transition: 1s;
+        -o-transition: 1s;
         .nav-mobile-header{
             list-style-type: none;
             background-color: #4c5161;
