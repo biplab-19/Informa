@@ -18,7 +18,7 @@ INFORMA.navtabs = (function(window, $, namespace) {
         tabcontent = $('.tab-content .tab-pane'),
         init;
     init = function() {
-        jQuery(Tabs[0]).addClass('active first-list');
+        jQuery(Tabs[0]).addClass('active');
         jQuery(tabcontent[0]).addClass('active');
         Tabs.on('click', function() {
         Tabs.removeClass('active');
