@@ -15,12 +15,16 @@ INFORMA.navbars = (function(window, $, namespace) {
     'use strict';
     //variables
     var Tabs = $('.tabs-row ul.nav li'),
+      tabcontent = $('.tab-content .tab-pane'),
         init;
     init = function() {
         jQuery(Tabs[0]).addClass('active');
         Tabs.on('click', function() {
             Tabs.removeClass('active');
             jQuery(this).addClass('active');
+            var tabpane = jQuery(this).find('a').attr('href');
+            tabcontent.removeClass('active');
+            jQuery(tabpane).addClass('active');
         })
     };
 

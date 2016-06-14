@@ -26,14 +26,16 @@
   .pos{
     position: relative;
   }
-  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
       color: #fff;
       background: none !important;
+      border: none !important;
     }
   .nav > li > a {
   position: relative;
   display: block;
   padding: 15px 25px;
+  border: none !important;
     @include mobile {
       padding: 15px 7px;
     }
@@ -42,9 +44,10 @@
     content: " ";
     position: absolute;
     height: 5px;
-    width: 100%;
+    width: 78%;
     background: yellow;
     bottom: 0;
+    left: 18px;
   }
   .email-image-pos {
     color: $gray-lighter;
