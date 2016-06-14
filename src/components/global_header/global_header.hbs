@@ -36,12 +36,12 @@ in the empire of Sapient. Har Har Mahadev !! --->
     </section>
     
     <section class="informaNav">
-        <div class="navbar navbar-inverse nav-head" >
+        <div class="navbar navbar-inverse nav-head mobileNavigation" >
             <div class="container" >
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" 
                             data-toggle="collapse" 
-                            data-target=".navbar-collapse">
+                            data-target=".navbar-collapse" >
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -62,21 +62,35 @@ in the empire of Sapient. Har Har Mahadev !! --->
                 <div class="row">
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav nav-left">
-                        <li class="stick-img"><a href="javascript:void(0)"><img class="logo-img-small" src="cms-images/logo-partial.png"></a></li>
-                        <li class="nav-links">
-                            <a href="javascript:void(0)" data-subnav="sectorsproducts">Sectors &amp; Products</a>
+                        <li class="stick-img">
+                            <a href="javascript:void(0)">
+                                <img class="logo-img-small" src="cms-images/logo-partial.png">
+                            </a>
                         </li>
                         <li class="nav-links">
-                            <a href="javascript:void(0)" data-subnav="services">Services</a>
+                            <a href="javascript:void(0)" data-subnav="sectorsproducts">Sectors &amp; Products
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
                         </li>
                         <li class="nav-links">
-                            <a href="javascript:void(0)" data-subnav="freecontent">Free Content</a>
+                            <a href="javascript:void(0)" data-subnav="services">Services
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
                         </li>
                         <li class="nav-links">
-                            <a href="javascript:void(0)" data-subnav="aboutus">About Us</a>
+                            <a href="javascript:void(0)" data-subnav="freecontent">Free Content
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
                         </li>
                         <li class="nav-links">
-                            <a href="javascript:void(0)" data-subnav="support">Support</a>
+                            <a href="javascript:void(0)" data-subnav="aboutus">About Us
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="support">Support
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -86,7 +100,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                                 <span class="icon icon-get-in-touch"></span>
                             </a>
                         </li>
-                        <li class="login"><a href="#">Log in</a></li>
+                        <li class="login"><a href="#">Log in<span class="icon icon-chevron-down"></a></li>
                         <li class="search active">
                             <a href="#">
                                 <span class="hide-stick">Search</span>
@@ -98,94 +112,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                 </div>
             </div> 
         </div>
-    </section>
-
-    <!--
-    <section class="informaNav">
-        <div class="nav-bar">
-            
-            
-            <div class="nav-header row">
-                <div class="container">             
-                    <div class="col-xs-2 col-sm-2 toggle">
-                        <button type="button" class="navbar-toggle" 
-                              data-toggle="collapse" 
-                              data-target=".navbar-collapse">
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                          <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="col-xs-8 col-sm-8 logo">
-                        <img class="logo-img-small" src="cms-images/logo-partial.png">
-                        <img class="logo-img-big" src="cms-images/logo.png">
-                    </div>
-                    <div class="col-xs-2 col-sm-2 action">
-                        <a href="#" class="search"><span class="icon icon-search"></a>
-                        <a href="#" class="login">Log in<span class="icon icon-chevron-down"></a>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="nav-main row">
-              <div class="container collapse navbar-collapse">
-                  <ul class="nav navbar-nav">
-                        <li><a href="#">Sectors &amp; Products</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Free Content</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Support</a></li>
-                  </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                        <li class="touch"><a href="#">Get in touch<span class="icon icon-get-in-touch"></a></li>
-                        <li class="search"><a href="#">Search<span class="icon icon-search"></a></li>
-                        <li class="login"><a href="#">Log in<span class="icon icon-chevron-down"></a></li>
-                  </ul>
-              </div> 
-            </div>
-
-        </div>
-    </section> -->
-
-
-    {{!
-    <section class="logoSection">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="logo">
-                        <img src="cms-images/logo.png">
-                    </div>
-                    <div class="login">
-                        Log in
-                    </div>
-                </div>
-            </div>
-        </div>
     </section> 
-
-    <nav id="mainNavigation" class="navbar-default">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-9 navigation-primary">
-                    <ul class="nav navbar-nav">
-                        <li class="current-active"><a href="#">Sectors & Products</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Free Content</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Support Us</a></li>
-                    </ul>
-                </div>
-                <div class="col-xs-12 col-md-3 hidden-sm mainCTA">
-                    <ul class="nav">
-                        <li class="touch"><a href="#">Get in touch</a></li>
-                        <li class="search"><a href="#">Search<span class="icon icon-search"></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>}} 
 
 </header>
 
@@ -259,9 +186,25 @@ in the empire of Sapient. Har Har Mahadev !! --->
     </div>
 </div>
 
+<div id="mobile-header-navigation">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-2 nav-back">
+            <a href="#"><span class="icon-arrow-left"></span></a>
+        </div>
+        <div class="col-xs-8 nav-subnav-heading"> 
+        </div>
+        <div class="col-xs-2 nav-close">
+            <a href="javascript:void(0)" class=""><span class="icon icon-close"></a>
+        </div>                        
+    </div>
+    </div>
+</div>
+
 <div id="sub-nav">
     <div class="container">
         <div class="subnav-container clearfix" id="sectorsproducts">
+
             {{#each subnav.sectorsproducts}}
                 <div class="content {{type}}">
                     <p class="top"><a href="#">{{heading}}</a></p>
@@ -275,56 +218,73 @@ in the empire of Sapient. Har Har Mahadev !! --->
             <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
         </div>
         <div class="subnav-container clearfix" id="services" data-nav="services">
+            
             {{#each subnav.services}}
-                <div class="content {{type}}">
-                    <p class="top"><a href="#">{{heading}}</a></p>
-                    <ul class="labels">
-                        {{#each items}}
-                            <li><a href="#">{{this}}</a></li>
-                        {{/each}}
-                    </ul>
-                </div>
+            <div class="subnav-heading">
+                <a href="#">{{heading}}</a>
+                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
+            </div>
+            <div class="subnav-items">
+                <ul class="labels">
+                    {{#each items}}
+                        <li><a href="#">{{this}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
             {{/each}}
-            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
+
         </div>        
         <div class="subnav-container clearfix" id="freecontent" data-nav="free-content">
+            
             {{#each subnav.freecontent}}
-                <div class="content {{type}}">
-                    <p class="top"><a href="#">{{heading}}</a></p>
-                    <ul class="labels">
-                        {{#each items}}
-                            <li><a href="#">{{this}}</a></li>
-                        {{/each}}
-                    </ul>
-                </div>
+            <div class="subnav-heading">
+                <a href="#">{{heading}}</a>
+                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
+            </div>
+            <div class="subnav-items">
+                <ul class="labels">
+                    {{#each items}}
+                        <li><a href="#">{{this}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
             {{/each}}
-            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
+            
         </div>        
         <div class="subnav-container clearfix" id="aboutus" data-nav="about-us">
+            
             {{#each subnav.aboutus}}
-                <div class="content {{type}}">
-                    <p class="top"><a href="#">{{heading}}</a></p>
-                    <ul class="labels">
-                        {{#each items}}
-                            <li><a href="#">{{this}}</a></li>
-                        {{/each}}
-                    </ul>
-                </div>
+            <div class="subnav-heading">
+                <a href="#">{{heading}}</a>
+                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
+            </div>
+            <div class="subnav-items">
+                <ul class="labels">
+                    {{#each items}}
+                        <li><a href="#">{{this}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
             {{/each}}
-            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
+
         </div>        
         <div class="subnav-container clearfix" id="support" data-nav="support">
+            
             {{#each subnav.support}}
-                <div class="content {{type}}">
-                    <p class="top"><a href="#">{{heading}}</a></p>
-                    <ul class="labels">
-                        {{#each items}}
-                            <li><a href="#">{{this}}</a></li>
-                        {{/each}}
-                    </ul>
-                </div>
+            <div class="subnav-heading no-heading">
+                <a href="#">{{heading}}</a>
+                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
+            </div>
+            <div class="subnav-items no-heading">
+                <ul class="labels">
+                    {{#each items}}
+                        <li><a href="#">{{this}}</a></li>
+                    {{/each}}
+                </ul>
+            </div>
             {{/each}}
-            <div class="subnav-close"><a href="#" ><span class="icon-close"></span></a></div> 
+
         </div>        
     </div>
 </div>
+
