@@ -28,6 +28,18 @@ section {
         }
     }
 
+    h2.bolder {
+        font-family: FSMe-Bold;
+        font-size: 40px;
+        margin: 0 0 10px 0;
+        @include tablet {
+            font-size: 30px;
+        }
+        @include mobile {
+            font-size: 24px;
+        }
+    }
+
     h3 {
       font-size: 17px;
       &.light {
