@@ -42,7 +42,7 @@
 				}
 			}
 			&.next {
-				float: right;	
+				float: right;
 				&:before {
 					content: "\e902";
 				}
@@ -51,8 +51,12 @@
 	}
 	.events-section {
 		margin-top: 30px;
+		&:nth-child(n+7){
+			display: none;
+		}
 		.events-wrap {
 			background-color: #f3f3f3;
+			position: relative;
 			.header {
 				.date {
 					width: 55px;
@@ -70,7 +74,7 @@
 				}
 			}
 			.content-wrap {
-				padding: 15px;
+				padding: 15px 15px 90px;
 				.type {
 					padding: 3px;
 					background-color: #676c7a;
@@ -118,6 +122,9 @@
 			}
 			.footer {
 				padding: 15px;
+				position: absolute;
+    		bottom: 0;
+				width: 100%;
 				.btn {
 					padding-right: 40px;
 					&.register {
@@ -132,6 +139,79 @@
 					}
 				}
 			}
+		}
+	}//past event
+	.events-section.past-event{
+		color:#cbccd1;
+		.events-wrap .content-wrap .title{
+			color:#cbccd1;
+		}
+		.events-wrap .header .date{
+			background-color: #cbccd1;
+		}
+		.events-wrap .content-wrap .type{
+			background: #aeb2bd;
+		}
+		.events-wrap .footer .btn.register{
+			background: #e9e9e9;
+			border-width: 0;
+			&:after {
+				content: none;
+			}
+		}
+	}//current event
+	.events-section.current-event{
+	.events-wrap .header .date{
+			background-color:#fed501;;
+		}
+	}
+	.more-events{
+		width: 100%;
+    float: left;
+    text-align: center;
+		.btn-more-events{
+			min-width: 120px;
+			padding: 5px 30px 5px 0;
+			height: 35px;
+			border:none !Important;
+			border-bottom: 2px solid #ffd500  !Important;
+			display: inline-block;
+			position: relative;
+			color: #444957;
+			margin-top: 30px;
+			text-align: left;
+			text-decoration: none;
+			outline: none;
+			.more,.less{
+				&:after{
+					content: "+";
+					position: absolute;
+					right: 10px;
+					top: 2px;
+					width: 20px;
+					height: 20px;
+					background-color: #ffd500;
+					color: #fff;
+					font-weight: bold;
+					-webkit-border-radius: 50%;
+					-moz-border-radius: 50%;
+					border-radius: 50%;
+					font-size: 16px;
+					padding: 0 6px;
+				}
+			}
+			.less{
+				display: none;
+				&:after{
+					content: "-";
+				}
+			}
+		}
+		.btn-more-events.showLess .more{
+			display: none;
+		}
+		.btn-more-events.showLess .less{
+			display: block;
 		}
 	}
 }

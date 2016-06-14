@@ -6,23 +6,23 @@
 			<a href="javascript:void(0)" class="arrows next"></a>
 		</div>
 		<div class="events-container row">
-			<div class="col-xs-12 col-sm-6 col-md-4 events-section {{Type}}">
+			{{#each this}}
+			<div class="col-xs-12 col-sm-6 col-md-4 events-section current-event">
 				<div class="events-wrap">
 					<div class="header clearfix">
 						<div class="date">01</div>
-						<p class="country">Atlanta, <strong>USA</strong></p>
+						<p class="country">{{Location}}<strong>USA</strong></p>
 					</div>
 					<div class="content-wrap">
-						<p><span class="type">Training</span></p>
-						<h3 class="title">Events title dolor sit consectetur nibh ellentesque</h3>
+						<p><span class="type">{{EventType}}</span></p>
+						<h3 class="title">{{Title}}</h3>
 						<div class="content clearfix">
 							<div class="title-content">Presenter</div>
 							<div class="title-body">
 								<ul class="clearfix">
-									<li>Tore Alden</li>
-									<li>Eric Jessup</li>
-									<li>Alan Barrett</li>
-									<li>Chris Ferris and Wes Petkau Resources</li>
+									{{#each Presenters}}
+									<li>{{this}}</li>
+										{{/each}}
 								</ul>
 							</div>
 						</div>
@@ -30,12 +30,9 @@
 							<div class="title-content">Themes</div>
 							<div class="title-body">
 								<ul class="clearfix">
-									<li>Content</li>
-									<li>Data Sourcing</li>
-									<li>Commodities</li>
-									<li>Agribusiness</li>
-									<li>Business Intelligence</li>
-									<li>The Public Ledger</li>
+									{{#each Themes}}
+									<li>{{this}}</li>
+										{{/each}}
 								</ul>
 							</div>
 						</div>
@@ -46,6 +43,12 @@
 					</div>
 				</div>
 			</div>
+		{{/each}}
+		<div class="more-events">
+			<button class="btn btn-more-events">
+					<span class="more">More Events</span>
+					<span class="less">Less Events</span>
+		</button></div>
 		</div>
 	</div>
 </section>
