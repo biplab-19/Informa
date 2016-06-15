@@ -42,12 +42,14 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
     },
 
     SetCalendarEvents = function(eventList) {
-        var _contentheight = null;
+        var _contentheight = null, _dayView = [];
 
         if(INFORMA.global.device.viewportN === 2 ) {
-            _contentheight = 0;
+            _contentheight = 100;
+            _dayView = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
         } else {
             _contentheight = 1200;
+            _dayView = ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
         }
         Calendar.html("");
         Calendar.fullCalendar({
@@ -86,6 +88,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                     
                     // GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
                 },
+                dayNamesShort: _dayView,
                 dayClick: function(date, jsEvent, view) {
                     if(INFORMA.global.device.viewportN === 2) {
                         var selectedDate = date.format(),
@@ -94,7 +97,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                             ItemList = null;
 
                         $('.fc-widget-content').removeClass('open');
-                        $(this).toggleClass('open');
+                        $(this).addClass('open');
                         $('.events-wrap').remove();
                         $('.fc-day-number').css('color','#6a7285');
                         if($(this).hasClass('event-present')) {
@@ -108,23 +111,25 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
 
                         if($(this).hasClass('open')) {
                             $('.fc-day-number[data-date="'+DateAttr+'"]').css('color','#fff');
+                        } else {
+                            $(this).removeClass('open');
+                            $('.events-wrap').remove();
                         }
-                        // debugger;
+                        
                         ItemList = "";
-                        // ItemList.remove();
-                        // $('.events-wrap .event').show();
                         $('.events-wrap').hide().slideDown();
-                        // ItemList.remove();
                     }
 
                 },
                 eventAfterAllRender: function(view) {
                     if(INFORMA.global.device.viewportN === 2) {
+                        view.dayNamesShort= ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
                         var Events = $('.fc-event-container .events');
 
                         Events.each(function () {
                             var DateField = $(this).data('date');
-                            $('td.fc-day-number[data-date="'+DateField+'"]').css('font-weight', 'bold');
+                            $('td.fc-day-number[data-date="'+DateField+'"]').addClass('events-now');
                             $('td.fc-widget-content[data-date="'+DateField+'"]').addClass('event-present');
                         })
                     }
@@ -144,6 +149,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                 },
                 events: eventList
         });
+
     },
 
     RenderMonthResults = function(data){
@@ -168,13 +174,18 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
         CalendarView.on('click', function() {
             Views.removeClass('active');
             jQuery(this).addClass('active');
+            //pass current month
             GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
         })
         MonthSelect.on('change', function() {
             var value = jQuery(this).val();
 
+            var check = moment(value, 'YYYY/MM/DD');
 
-            Calendar.fullCalendar('gotoDate', 2010, 6);
+            var month = check.format('M');
+            var day   = check.format('D');
+            var year  = check.format('YYYY');
+            Calendar.fullCalendar('gotoDate', year, month);
         })
     }
 
