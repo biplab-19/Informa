@@ -28,6 +28,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _headerPosMobile = 0,
       _fixed = 'navbar-fixed-top',
       _isHeaderFixed = false,
+
       // for sticky nav of pdp-navigation
       _pdpNavigation = $('#pdp-navigation'),
       _pdpNavigationHeight = 0,
@@ -41,6 +42,26 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _pdpMenuPos = [],
       _pdpMenuWidth = [],
       _pdpMenuleft = [],
+
+
+
+      // for sticky nav of services-navigation
+      _servicesNavigation = $('#services-navigation'),
+      _servicesNavigationScrollTo,
+      _servicesNavigationHeight = 0,
+      _servicesNavigationPos = 0,
+      _servicesWrapper = $('.services-page'),
+      _servicesMenuFollower = $('#services-navigation .menuFollower'),
+      _servicesMenuActive = true,
+
+      _servicesLink = $('#services-navigation ul > li > a'),
+      _servicesFixed = false,
+      _servicesMenuPos = [],
+      _servicesMenuWidth = [],
+      _servicesMenuleft = [],
+
+      _initServicesMenuBarFollow,
+      _activateServicesFixedHeader,
 
       _arrayFlag = true,
       _navlinks = $('.nav-links'),
@@ -73,6 +94,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                            .show(); 
       }
 
+      if(_servicesNavigation.length > 0) {
+            _servicesNavigationHeight = _servicesNavigation.height();
+            _servicesNavigationPos = _servicesNavigation.offset().top;
+            // To show the menu follower with right width and position, todo: remove harcode
+            _servicesMenuFollower.css('width',$(_servicesLink[0]).width())
+                                 .css('left',$(_servicesLink[0]).offset().left)
+                                 .show(); 
+      }
+
       if(_mainNavigation.length > 0) {
             _navHeight = _mainNavigation.height();
             _headerPos = _mainNavigation.offset().top;
@@ -92,7 +122,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                _activateMainFixedHeader();
              if(!_pdpFixed && _mobileNavigation.length > 0 && !INFORMA.global.device.isDesktop)
                _activateMobileFixedHeader();
-             if(_pdpNavigation.length > 0 && _pdpMenuActive) _activatePdpFixedHeader();
+             if(_pdpNavigation.length > 0 && _pdpMenuActive) 
+               _activatePdpFixedHeader();
+             if(_servicesNavigation.length > 0 && _servicesMenuActive) 
+               _activateServicesFixedHeader();
          });
       };
 
@@ -162,7 +195,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                   // if there are pdp components, the li count will be 0
                   // if the li count is zero, then remove the whole nav
             }
-
       };
 
       _activatePdpFixedHeader = function(){
@@ -205,6 +237,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                }
             // todo: easily the worst code I have written, please optimize this
       };
+
       // when clicking the pdp-navigation
       _pdpNavigationScrollTo = function(){
             _pdpLink.on('click',function(e){
@@ -228,6 +261,105 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                   }
             })
+      };
+
+
+      _initServicesMenuBarFollow = function(){
+            for(var i=0;i<_servicesLink.length;i++){
+                  // id name comes as data attribute. construct the id
+                  var _sectionName = '#'+$(_servicesLink[i]).data('target');
+                  //console.log($(_sectionName))
+                  if($(_sectionName).length > 0){
+                        // all sections will be printed in navbar html, if the section
+                        // is not there, smack that
+                        // else push the offset value to array
+                        //_pdpMenuPos.push($(_sectionName).offset().top);
+                  }
+                  else {
+                        $(_servicesLink[i]).addClass('JustGonnaStayThereAndWatchMeBurn');
+                  }
+            }
+            $('.JustGonnaStayThereAndWatchMeBurn').parent().remove();
+            _servicesLink = $('#services-navigation ul > li > a');
+
+            if(_servicesLink.length == 0) {
+                  _servicesNavigation.remove();
+                  _servicesMenuActive = false;
+            }
+      };
+
+      _activateServicesFixedHeader = function(){
+             var _windowPos = $(window).scrollTop();
+               if(_windowPos > (_servicesNavigationPos - _navHeight)){
+                     _servicesNavigation.addClass(_fixed);
+                     _servicesNavigation.css('top',_navHeight+'px');
+                     _servicesWrapper.css('padding-top',_servicesNavigationHeight);
+                     _servicesFixed = true;
+                     if(_arrayFlag){
+                           for(var i=0;i<_servicesLink.length;i++){
+                                 var _sectionName = '#'+$(_servicesLink[i]).data('target');
+                                 _servicesMenuPos.push($(_sectionName).offset().top);
+                                 _servicesMenuWidth.push($(_servicesLink[i]).width());
+                                 _servicesMenuleft.push($(_servicesLink[i]).parent().offset().left);
+                           }
+
+                           // Ilaiyaraja rocks, fix the hard code later
+                           $('#services-navigation ul > li:first-child').addClass('selected');
+                           if(INFORMA.global.device.isMobile) _servicesNavigation.addClass('cont');
+                           _arrayFlag = false;
+                     }
+
+               }
+               else {
+                     _servicesNavigation.removeClass(_fixed);
+                     _servicesWrapper.css('padding-top',0);
+                     _servicesFixed = false;
+               }
+               // todo: should be moved to function, atleast for readability
+               // line follower robot is something i shud ve built during my college days.
+               var i= _servicesMenuPos.length - 1;
+               for(; i>=0;i--){
+                     if( _windowPos + 120 >= _servicesMenuPos[i]  ){
+                           _servicesMenuFollower.css('width',_servicesMenuWidth[i]);
+                           _servicesMenuFollower.css('left',_servicesMenuleft[i]);
+                              // .menuFollower { transform: translateX(100%)}
+                           i=-1;
+                     }
+               }
+            // todo: easily the worst code I have written, please optimize this
+      };
+
+      // when clicking the services-navigation
+      _servicesNavigationScrollTo = function(){
+         _servicesLink.on('click',function(e){
+            e.preventDefault();
+            _servicesNavigation.addClass('cont');
+            var _target = $(this).data('target');
+
+            // todo, remove hardcoding
+            $('#services-navigation li').removeClass('selected');
+
+            console.log($("#"+_target).offset().top);
+            console.log(_navHeight + _servicesNavigationHeight);
+            
+            var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight + _servicesNavigationHeight + 2);
+            console.log(_scrollTopPixels);
+
+            $('html, body').stop().animate({
+                  scrollTop: _scrollTopPixels
+            }, 1000);
+
+            if(INFORMA.global.device.isMobile) {
+               // lesson learnt, hack is wrong.
+               $(this).parent().addClass('selected');
+               setTimeout(function(){
+                  // i am sorry future Jack
+                  $('#services-navigation li:not(".selected")').slideUp();
+                  _servicesNavigation.addClass('cont');
+               },100)
+            }
+
+         })
       };
 
 /*
@@ -297,12 +429,17 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
       init = function() {
             //if(INFORMA.global.device.viewport!='mobile'){
-                  if(_pdpNavigation.length > 0){
-                        _initPdpMenuBarFollow();
-                        _pdpNavigationScrollTo();
+            if(_pdpNavigation.length > 0){
+               _initPdpMenuBarFollow();
+               _pdpNavigationScrollTo();
+            }
 
-                  }
-                  _whenScrolling();
+            if(_servicesNavigation.length > 0){
+               _initServicesMenuBarFollow();
+               _servicesNavigationScrollTo();
+            }
+
+            _whenScrolling();
             //}
             _bindNavigationEvents();
             // hack for mobile viewport

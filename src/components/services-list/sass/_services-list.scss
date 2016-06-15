@@ -1,0 +1,164 @@
+nav#services-navigation {
+      background: $yellow;
+      border-bottom: 2px solid #c0c1c2;
+      &.navbar-fixed-top {
+            position: fixed;
+            width: 100%;
+      }
+      ul {
+            margin: 0;
+            position: relative;
+            li {
+                  margin-right: 20px;
+                  a {
+                        font-size: 14px;
+                        color: $gray-dark-bg;
+                        padding: 15px 0px;
+                  }
+            }
+      }
+      .menuFollower {
+            background: $light;
+            height: 5px;
+            margin-top: -5px;
+            width: 150px;
+            position: absolute;
+            transition: .3s ease-in;
+            display: none;
+      }
+      @include mobile {
+            .menuFollower {
+                  display: none!important;
+            }
+            &.cont {
+                  li {
+                        pointer-events: none;
+                        // actually this is genius.
+                        // No.. Use bootstrap collapse. change html sumit
+                  }
+            }
+            ul {
+                  margin: 20px 0;
+                  border: 1px solid $light;
+
+                  li {
+                        width: 100%;
+                        display: none;
+                        &:first-child {
+                              display: block;
+                        }
+                        &.selected {
+                              display: block;
+                              a {
+                                    &:after{
+                                          content: '>';
+                                          position: absolute;
+                                          right: 10px;
+                                          transform: rotate(90Deg);
+                                          color: $light;
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+}
+section#services-list{
+	.container{
+		margin: 0;
+		width: 100%;
+		.row:nth-child(even){
+			background-color: #f5f6f8;
+			.image-thumbnail{
+				&:after {
+	                background-color: #f5f6f8;
+            	}
+			}
+		}
+		.row:nth-child(odd){
+			background-color: $white;
+			.image-thumbnail{
+				&:after {
+	                background-color: $white;
+            	}
+			}
+			.img{
+				float: right;
+			}
+		}
+		.row{
+			header{
+				color: $font-color;
+			}
+			.image-thumbnail{
+				overflow: hidden;
+				position: relative;
+				&:after {
+	                content: '';
+	                width: 110%;
+	                height: 100%;
+	                position: absolute;
+	                -ms-transform: rotate(-5deg); /* IE 9 */
+	                -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+	                transform: rotate(-5deg);
+	                top: calc(100% - 38px);
+	                left: 0;
+            	}
+			}
+			.btn-container{
+				margin-top: 20px;
+				.btn-primary{
+					width: initial;
+					padding-right: 40px;
+				}
+			}
+		}
+
+		@include desktop{
+			.row{
+				padding: 30px 104px;
+			}
+			.row [class*='col-'] {
+				padding-left: 0;
+			}
+			header{
+				font-size: 40px;
+				padding-bottom: 40px;
+				.img-icon{
+					width: 80px;
+					height: 80px;
+				}
+			}
+		}
+
+		@include tablet{
+			.row{
+				padding: 30px 0;
+			}
+			header{
+				font-size: 30px;
+				padding-left: 7.5px;
+				padding-right: 7.5px;
+				.img-icon{
+					width: 80px;
+					height: 80px;
+				}
+			}
+		}
+
+		@include mobile{
+			.row{
+				padding: 30px 0;
+			}
+			header{
+				font-size: 20px;
+				padding-left: 7.5px;
+				padding-right: 7.5px;
+				.img-icon{
+					width: 45px;
+					height: 45px;
+				}
+			}
+		}
+	}
+}
