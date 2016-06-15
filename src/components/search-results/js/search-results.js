@@ -20,7 +20,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SectorSelect = $("select.sector-list"),
         SubSectorSelect = $("select.sub-sector-list"),
         SubmitBtn = $(".product-finder .sector-search li.button"),
+        SearchSubmitBtn = $(".site-search li.button"),
+        SearchField = $(".site-search input"),
         SectorHidden = $("input.sector-list"),
+        SearchHidden = $("input.search-hidden"),
         SubSectorHidden = $("input.sub-sector-list"),
         FilterList = $(".search-filter .filter-list"),
         RefineContainer = $(".search-container .refine-result"),
@@ -33,9 +36,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         init,
         equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter,
         LoadProducts, CreateFilterList,
-        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected;
+        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected,GetSearchData;
 
-    equalHeight = function(container) {
+        equalHeight = function(container) {
             var ItemsList = container.find('.col-md-4'),
                 MaxHeight = 0,
                 Padding = 10;
@@ -63,6 +66,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 method:"Post",
                 success_callback: ParseSearchData
             });
+        },
+        GetSearchData = function(sVal){
+            if(sVal){
+                SearchField.val(sVal);
+                SearchField.parent().removeClass("disabled");
+                SearchSubmitBtn.trigger("click");
+            }
         },
         UpdateResultPage = function(SecValue, SubSecValue) {
 
@@ -217,7 +227,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
 
         init = function() {
-            var IsProductPage = (ProductFinder.data("product") === true) ? true : false;
+            var IsProductPage = (ProductFinder.data("product") === true) ? true : false,
+                IsSearchPage = (ProductFinder.data("search") === true) ? true : false
 
             if (IsProductPage && SectorHidden.length > 0) {
                 var SVal = SectorHidden.val(),
@@ -226,6 +237,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     UpdateResultPage(SVal, SubSecVal);
                 }else{
                     LoadProducts();
+                }
+            }
+            if(IsSearchPage && SearchHidden.length >0){
+                var SearchVal = SearchHidden.val();
+                if (SearchVal) {
+                    UpdateResultPage(SearchVal);
                 }
             }
 

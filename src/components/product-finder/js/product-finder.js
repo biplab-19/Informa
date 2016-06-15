@@ -19,6 +19,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitBtn = $(".product-finder li.button"),
         CustomSelect = $(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
+        SearchField	= $(".site-search input"),
+        SearchSubmitBtn = $(".site-search li.button"),
         //SearchIcon = $(".navbar-default .search a"),
         SearchIcon = $(".search:visible"),
         SearchPage = $("#search-page"),
@@ -33,9 +35,10 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         ToggleProductFinder = function() {
             CloseIcon.on("click", function(e) {
                 e.preventDefault();
-                SearchIcon.toggleClass( "inactive" );
+                SearchIcon.toggleClass("inactive");
                 ProductFinderSection.slideUp("fast");
             });
+
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
                 if("#product-finder-section:hidden")
@@ -75,8 +78,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 }
             });
         },
-        SubmitHandler = function(SearchType) {
-            SubmitBtn.on("click", ".btn", function(e) {
+        SubmitHandler = function(btn, SearchType) {
+            btn.on("click", ".btn", function(e) {
                 e.preventDefault();
                 var FieldArray = ProductFinderSection.find("form").serializeArray(),
                     GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
@@ -90,11 +93,19 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 IsSearchPage = (SearchPage.data("search") === true) ? true : false;
 
             if (IsProductPage) {
-                SubmitHandler("ProductSearch");
+                SubmitHandler(SubmitBtn,"ProductSearch");
             }
             if (IsSearchPage) {
-                SubmitHandler("SearchResult");
+                SubmitHandler(SearchSubmitBtn,"SearchResult");
             }
+            SearchField.on("keyup",function(e){
+            	if($(this).val()!==""){
+            		SearchSubmitBtn.removeClass("disabled");
+            	}
+            	else{
+            		SearchSubmitBtn.addClass("disabled");
+            	}
+            });
         },
         ShowHideSearch = function(ele) {
             var ShowOption = $(ele).data('show');
