@@ -1,4 +1,4 @@
-/*! 2016-06-14 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-15 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -496,7 +496,7 @@ var INFORMA = window.INFORMA || {};
                                                         '<div class="analyst-details">' +
                                                             '<h2>{{Name}}</h2>' +
                                                             '<h3>{{Type}}, {{JobTitle}}</h3>' +
-                                                            '<p class="location">{{Country}}</p>' +
+                                                            '<p class="location">{{State}}, {{Country}}</p>' +
                                                         '</div>' +
                                                         '<div class="analyst-img">' +
                                                             '<img src="{{ProfileImage}}" alt="{{image}}" />' +
@@ -555,7 +555,7 @@ var INFORMA = window.INFORMA || {};
                                                 '<div class="analyst-details">' +
                                                     '<h2>{{results.Name}}</h2>' +
                                                     '<h3>{{results.Type}}, {{results.JobTitle}}</h3>' +
-                                                    '<p class="location">{{results.Country}}</p>' +
+                                                    '<p class="location">{{results.State}}, {{results.Country}}</p>' +
                                                 '</div>' +
                                                 '<div class="analyst-img">' +
                                                     '<img src="{{results.ProfileImage}}" alt="{{results.image}}" />' +
