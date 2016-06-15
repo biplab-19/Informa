@@ -2,18 +2,17 @@
 	background-color: $white;
 	padding-bottom: 50px;
 	.header {
-	    font-family: FSMe-Bold;
-    	font-size: 40px;
+		font-family: FSMe-Bold;
+		font-size: 40px;
 	}
 	.analyst-list-container {
-		
 		&:nth-child(n+4) {
 			display: none;
 		}
 		@include mobile {
 			&:nth-child(n+2) {
 				display: none;
-			}	
+			}
 		}
 		@include tablet {
 			&:nth-child(n+3) {
@@ -28,25 +27,25 @@
 			.anlyst-heading {
 				padding: 20px;
 				background-color: $yellow;
-				position:relative;
-				height: 140px;
+				position: relative;
+				height: 170px;
 				-ms-transform: skewY(-4deg);
-			   	-webkit-transform: skewY(-4deg);
-			    transform: skewY(-4deg);
-			    position: relative;
-			    &:after {
-			    	content: '';
-			    	width:100%;
-			    	height: 100%;
-			    	background-color: $yellow;
-			    	position: absolute;
-			    	left: 0;
-			    	top: -90%;
-			    }
+				-webkit-transform: skewY(-4deg);
+				transform: skewY(-4deg);
+				position: relative;
+				&:after {
+					content: '';
+					width: 100%;
+					height: 100%;
+					background-color: $yellow;
+					position: absolute;
+					left: 0;
+					top: -97%;
+				}
 				.analyst-heading-content {
 					-ms-transform: skewY(4deg);
-				   	-webkit-transform: skewY(4deg);
-				    transform: skewY(4deg);
+					-webkit-transform: skewY(4deg);
+					transform: skewY(4deg);
 				}
 				.analyst-img {
 					width: 75px;
@@ -55,6 +54,7 @@
 					overflow: hidden;
 					@include border-radius(50%);
 					float: left;
+					top: 10px;
 					img {
 						width: 100%;
 						height: 100%;
@@ -63,14 +63,21 @@
 					}
 				}
 				.analyst-details {
+					.analyst-type {
+						color: $white;
+						background-color: $gray-box;
+						padding: 5px 10px;
+						display: inline-block;
+						margin-bottom: 10px;
+					}
 					width: calc(100% - 85px);
 					float: left;
 					margin-right: 10px;
 					h2 {
-					    font-size: 22px;
-					    margin-top: 0;
-					    font-weight: normal;
-					    font-family: 'FSMe-Bold';
+						font-size: 22px;
+						margin-top: 0;
+						font-weight: normal;
+						font-family: 'FSMe-Bold';
 					}
 					h3 {
 						color: #7f828c;
@@ -83,17 +90,17 @@
 						margin-top: 15px;
 						&:before {
 							content: '\e918';
-						    font-family: 'InformaIcons';
-						    position: absolute;
-						    left: 0;
-						    font-size: 20px;
-						    top: -5px;
+							font-family: 'InformaIcons';
+							position: absolute;
+							left: 0;
+							font-size: 20px;
+							top: -5px;
 						}
 					}
 				}
 			}
 			.analyst-description {
-				padding: 20px 20px 40px 20px;
+				padding: 20px 20px 40px;
 				background-color: $gray-lighter-bg;
 				.heading {
 					color: $text-gray;
@@ -106,21 +113,21 @@
 				position: relative;
 				&:before {
 					content: '\e919';
-				    position: absolute;
-				    left: 0;
-				    top: -4px;
-				    font-family: 'InformaIcons';
-				    color: #4d525f;
-				    font-size: 40px;
-				    font-weight: normal;
+					position: absolute;
+					left: 0;
+					top: -4px;
+					font-family: 'InformaIcons';
+					color: #4d525f;
+					font-size: 40px;
+					font-weight: normal;
 				}
 				li {
 					float: left;
 					&:after {
-						    content: '/';
-						    color: #444957;
-						    padding: 0 7px;
-						    font-weight: bold;
+						content: '/';
+						color: #444957;
+						padding: 0 7px;
+						font-weight: bold;
 					}
 					&:last-child {
 						&:after {
@@ -137,51 +144,54 @@
 				background-color: $gray-draker-bg;
 				position: relative;
 				-ms-transform: skewY(-2deg);
-			   	-webkit-transform: skewY(-2deg);
-			    transform: skewY(-2deg);
-			    position: relative;
-			    &:after {
-			    	content: '';
-			    	width:100%;
-			    	height: 100%;
-			    	background-color: $gray-draker-bg;
-			    	position: absolute;
-			    	left: 0;
-			    	top: 90%;
-			    }
+				-webkit-transform: skewY(-2deg);
+				transform: skewY(-2deg);
+				position: relative;
+				&:after {
+					content: '';
+					width: 100%;
+					height: 100%;
+					background-color: $gray-draker-bg;
+					position: absolute;
+					left: 0;
+					top: 90%;
+				}
 				.analyst-footer-content {
+					margin-top: 10px;
 					-ms-transform: skewY(2deg);
-				   	-webkit-transform: skewY(2deg);
-				    transform: skewY(2deg);
+					-webkit-transform: skewY(2deg);
+					transform: skewY(2deg);
 				}
 				.nav-links {
 					list-style-type: none;
 					padding-left: 0;
 					float: left;
-					margin-top: 5px;
+					margin-top: 10px;
 					li {
 						@include border-radius(50%);
 						display: inline-block;
 						font-size: 22px;
-					    background-color: #6a7287;
-					    margin-right: 5px;
-					    width: 35px;
-					    height: 35px;
-					    text-align: center;
-					    position: relative;
-					    a {
-					    	vertical-align: middle;
-					    	color: $white;
-					        position: absolute;
-    						top: 50%;
-		    				transform: translateY(-50%) translateX(-50%);
-		    				left: 50%;
-		    				&:hover, &:active {
-		    					outline: 0;
-		    					border: 0;
-		    					text-decoration: initial;
-		    				}
-					    }
+						background-color: #6a7287;
+						margin-right: 2px;
+						width: 30px;
+						height: 30px;
+						text-align: center;
+						position: relative;
+						a {
+							vertical-align: middle;
+							font-size: 16px;
+							color: $white;
+							position: absolute;
+							top: 50%;
+							transform: translateY(-50%) translateX(-50%);
+							left: 50%;
+							&:active,
+							&:hover {
+								outline: 0;
+								border: 0;
+								text-decoration: initial;
+							}
+						}
 						&:last-child {
 							margin-right: 0;
 						}
@@ -195,7 +205,6 @@
 				.btn {
 					width: 180px;
 					border-color: $btn-primay-default-bg;
-					border-width: 1px;
 					&:after {
 						color: $orange;
 					}
@@ -208,7 +217,8 @@
 				}
 			}
 		}
-		&.analyst, &.Analyst {
+		&.Analyst,
+		&.analyst {
 			.anlyst-heading {
 				background-color: $yellow;
 				&:after {
@@ -216,7 +226,8 @@
 				}
 			}
 		}
-		&.consultant, &.Consultant {
+		&.Consultant,
+		&.consultant {
 			.anlyst-heading {
 				background-color: #ffea7f;
 				&:after {
@@ -224,7 +235,8 @@
 				}
 			}
 		}
-		&.reporter, &.Reporter {
+		&.Reporter,
+		&.reporter {
 			.anlyst-heading {
 				background-color: #fff7cc;
 				&:after {
@@ -235,9 +247,7 @@
 	}
 	.btn-container {
 		margin-top: 30px;
-		.btn-show-plus {
-			
-		}
+		.btn-show-plus {}
 		.btn {
 			width: 260px;
 			span {
@@ -266,7 +276,6 @@
 		}
 	}
 }
-
 .author-bio {
 	.author-img {
 		width: 100px;

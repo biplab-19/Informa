@@ -187,6 +187,7 @@ var INFORMA = window.INFORMA || {};
                                                 '<div class="anlyst-heading">' +
                                                     '<div class="analyst-heading-content">' +
                                                         '<div class="analyst-details">' +
+                                                          '<span class="analyst-type">{{Type}}</span>' +
                                                             '<h2>{{Name}}</h2>' +
                                                             '<h3>{{Type}}, {{JobTitle}}</h3>' +
                                                             '<p class="location">{{State}}, {{Country}}</p>' +
@@ -246,6 +247,7 @@ var INFORMA = window.INFORMA || {};
                                         '<div class="anlyst-heading">' +
                                             '<div class="analyst-heading-content">' +
                                                 '<div class="analyst-details">' +
+                                                     '<span class="analyst-type">{{Type}}</span>' +
                                                     '<h2>{{results.Name}}</h2>' +
                                                     '<h3>{{results.Type}}, {{results.JobTitle}}</h3>' +
                                                     '<p class="location">{{results.State}}, {{results.Country}}</p>' +
