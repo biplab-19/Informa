@@ -35,6 +35,9 @@
 .fc-event-container {
 	.events {
 		margin-bottom: 10px;
+		@include mobile {
+			display: none;
+		}
 		p {
 			margin-bottom: 0;
 			padding-left: 10px;
@@ -130,4 +133,81 @@
 	bottom: -48px;
     position: absolute;
     width: 160px;
+}
+.fc-widget-content {
+	&.open {
+		background: #343642;
+		color: #fff;
+		&.event-present {
+			&:before {
+				background: #343642;
+			}
+		}
+	}
+}
+.events-wrap {
+	.events {
+		display: block;
+		margin-bottom: 10px;
+		p {
+			margin-bottom: 0;
+			padding-left: 10px;
+			line-height: 1.2;
+			&.title {
+				position: relative;
+				a {
+					color: #6b7189;
+					font-family: 'FSMe-Bold';
+					text-decoration: underline;
+				}
+				&:before {
+					content: "";
+				    top: 0;
+				    width: 4px;
+				    height: 14px;
+				    position: absolute;
+				    left: 0;
+				    background: $yellow;
+				}
+			}
+		}
+		&.disabled {
+			p {
+				color: #bcbfc8;
+				&.title {
+					&:before {
+						width: 4px;
+						background: #bcbfc8;
+					}
+				}
+				a {
+					color: #bcbfc8;
+					pointer-events: none;
+				}
+			}
+		}
+		&.current {
+			p {
+				&.title {
+					&:before {
+						background: #bcbfc8;
+					}
+				}
+			}
+		}
+	}
+}
+.event-present {
+	position: relative;
+	overflow: hidden;
+	&:before {
+	    content: '';
+	    width: 10px;
+	    position: absolute;
+	    top: -5px;
+	    right: -5px;
+	    background: #e0e4e7;
+	    height: 10px;
+	    transform: rotate(45deg);
+	}
 }

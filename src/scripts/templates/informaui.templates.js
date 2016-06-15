@@ -189,7 +189,7 @@ var INFORMA = window.INFORMA || {};
                                                         '<div class="analyst-details">' +
                                                             '<h2>{{Name}}</h2>' +
                                                             '<h3>{{Type}}, {{JobTitle}}</h3>' +
-                                                            '<p class="location">{{Country}}</p>' +
+                                                            '<p class="location">{{State}}, {{Country}}</p>' +
                                                         '</div>' +
                                                         '<div class="analyst-img">' +
                                                             '<img src="{{ProfileImage}}" alt="{{image}}" />' +
@@ -248,7 +248,7 @@ var INFORMA = window.INFORMA || {};
                                                 '<div class="analyst-details">' +
                                                     '<h2>{{results.Name}}</h2>' +
                                                     '<h3>{{results.Type}}, {{results.JobTitle}}</h3>' +
-                                                    '<p class="location">{{results.Country}}</p>' +
+                                                    '<p class="location">{{results.State}}, {{results.Country}}</p>' +
                                                 '</div>' +
                                                 '<div class="analyst-img">' +
                                                     '<img src="{{results.ProfileImage}}" alt="{{results.image}}" />' +
