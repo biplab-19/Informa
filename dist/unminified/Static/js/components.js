@@ -1,4 +1,4 @@
-/*! 2016-06-14 */_adjustHeigt = function(){
+/*! 2016-06-15 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -706,6 +706,45 @@ INFORMA.navbars = (function(window, $, namespace) {
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.navbars.init());
 
+var INFORMA = window.INFORMA || {};
+INFORMA.eventPage = (function(window, $, namespace) {
+    'use strict';
+    var init,
+       _equalheight,
+       _bindShowMoreEvents,
+       _eventList = $('#events');
+       _equalheight = function(){
+           var highestBox = 0;
+          $('.events-section .events-wrap').each(function(){
+                  if($(this).height() > highestBox){
+                  highestBox = $(this).height();
+                }
+          });
+          $('.events-section .events-wrap').height(highestBox);
+        }
+        _bindShowMoreEvents = function(container){
+            // if data-items, data-infinite is defined, used it
+            var _showMoreEvents = $('.btn-more-events');
+           var _limit = container.data(INFORMA.global.device.viewport) + 1;
+            _showMoreEvents.on('click',function(){
+                var _vp = INFORMA.global.device.viewport;
+                var _limit = container.data(INFORMA.global.device.viewport) + 1;
+                _eventList.find('.events-section:nth-child(n+7)').slideToggle();
+                $(this).toggleClass('showLess');
+            });
+        }
+        init = function() {
+              _equalheight();
+            if (_eventList.length > 0) {
+              _bindShowMoreEvents(_eventList);
+            }
+        };
+    return {
+        init: init
+    };
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.eventPage.init());
+
 /*
  * Events Search.js
  *
@@ -727,9 +766,10 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
         CalendarView = EventsLists.find('.views a.icon-calendar'),
         Calendar = $('#events .container'),
         MonthSelect = $('select[name="month"]'),
+        NextButton = $('.fc-next-button'),
         Urls = INFORMA.Configs.urls.webservices,
         //methods
-        init, SwitchEvents, GetAjaxData, RenderMonthResults, SetCalendarEvents;
+        init, SwitchEvents, GetAjaxData, RenderMonthResults, SetCalendarEvents, MobileEvents;
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.DataLoader.GetServiceData(url, {
@@ -749,6 +789,15 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
     },
 
     SetCalendarEvents = function(eventList) {
+        var _contentheight = null, _dayView = [];
+
+        if(INFORMA.global.device.viewportN === 2 ) {
+            _contentheight = 100;
+            _dayView = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+        } else {
+            _contentheight = 1200;
+            _dayView = ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
+        }
         Calendar.html("");
         Calendar.fullCalendar({
                 header: {
@@ -756,21 +805,98 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                     center: 'title',
                     right: 'next'
                 },
-                eventLimit: 2,
-                contentHeight: 1000,
+                eventLimit: true,
+                contentHeight: _contentheight,
+                viewRender: function(view) {
+                    var date = new Date(),
+                        momentdate = moment(date),
+                        currentMonth = date.getMonth(),
+                        currentYear = date.getYear(),
+                        viewDate = new Date(view.title),
+                        viewMonth = viewDate.getMonth(),
+                        viewYear = viewDate.getYear(),
+                        endDate = momentdate.add('months', 11).toDate(),
+                        endMonth = endDate.getMonth(),
+                        endYear = endDate.getYear(),
+                        nextMonth = moment(viewDate).add('months', 1).toDate(),
+                        nextDetails = moment(nextMonth).format('MMM-YYYY');
+
+                    if(currentMonth === viewMonth && currentYear === viewYear) {
+                        jQuery('.fc-prev-button').addClass('disabled');
+                    } else {
+                        jQuery('.fc-prev-button').removeClass('disabled');
+                    }
+                    
+                    if(viewMonth === endMonth) {
+                        jQuery('.fc-next-button').addClass('disabled');
+                    } else {
+                        jQuery('.fc-next-button').removeClass('disabled');
+                    }
+                    
+                    // GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
+                },
+                dayNamesShort: _dayView,
+                dayClick: function(date, jsEvent, view) {
+                    if(INFORMA.global.device.viewportN === 2) {
+                        var selectedDate = date.format(),
+                            parentNode = $(this).parents('.fc-row.fc-widget-content'),
+                            DateAttr = $(this).data('date'),
+                            ItemList = null;
+
+                        $('.fc-widget-content').removeClass('open');
+                        $(this).addClass('open');
+                        $('.events-wrap').remove();
+                        $('.fc-day-number').css('color','#6a7285');
+                        if($(this).hasClass('event-present')) {
+                            parentNode.after('<div class="events-wrap"></div>');
+                            ItemList = $('.events[data-date="'+DateAttr+'"]').clone();
+                            ItemList.addClass('cloned');
+                            $('.events-wrap').html(ItemList);
+                        } else {
+                            parentNode.after('');
+                        }
+
+                        if($(this).hasClass('open')) {
+                            $('.fc-day-number[data-date="'+DateAttr+'"]').css('color','#fff');
+                        } else {
+                            $(this).removeClass('open');
+                            $('.events-wrap').remove();
+                        }
+                        
+                        ItemList = "";
+                        $('.events-wrap').hide().slideDown();
+                    }
+
+                },
+                eventAfterAllRender: function(view) {
+                    if(INFORMA.global.device.viewportN === 2) {
+                        view.dayNamesShort= ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
+                        var Events = $('.fc-event-container .events');
+
+                        Events.each(function () {
+                            var DateField = $(this).data('date');
+                            $('td.fc-day-number[data-date="'+DateField+'"]').addClass('events-now');
+                            $('td.fc-widget-content[data-date="'+DateField+'"]').addClass('event-present');
+                        })
+                    }
+                },
                 eventRender: function(event, element, view) {
                     var CurrentDate = new Date(),
-                        ItemDate = new Date(event.start._i);
+                        ItemDate = new Date(event.start._i),
+                        DateAttr = moment(ItemDate).add('days',-1).format('YYYY-MM-DD');
+                        // debugger;
                     if(CurrentDate > ItemDate) {
-                        return $('<div class="events disabled"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
                     } else if(CurrentDate == ItemDate) {
-                        return $('<div class="events current"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
                     } else {
-                        return $('<div class="events"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
                     }
                 },
                 events: eventList
         });
+
     },
 
     RenderMonthResults = function(data){
@@ -795,12 +921,21 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
         CalendarView.on('click', function() {
             Views.removeClass('active');
             jQuery(this).addClass('active');
+            //pass current month
             GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
         })
         MonthSelect.on('change', function() {
-            Calendar.fullCalendar('gotoDate', 2010, 6);
+            var value = jQuery(this).val();
+
+            var check = moment(value, 'YYYY/MM/DD');
+
+            var month = check.format('M');
+            var day   = check.format('D');
+            var year  = check.format('YYYY');
+            Calendar.fullCalendar('gotoDate', year, month);
         })
     }
+
 
     init = function() {
         if(EventsLists.length > 0) {
@@ -1309,6 +1444,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     var //_mainNavigation = $('#mainNavigation'),
       _mainNavigation = $('.mainNavigation'),
       _mobileNavigation = $('.mobileNavigation'),
+      _mobileHeaderNavigation = $('#mobile-header-navigation'),
       _navHeight = _mainNavigation.height(),
       _headerPos = 0,
       _navHeightMobile = _mobileNavigation.height(),
@@ -1404,15 +1540,23 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       };
 
       _activateMobileFixedHeader = function(){
-          var _windowPosMobile = $(window).scrollTop();
+            var _windowPosMobile = $(window).scrollTop();
+
             if(_windowPosMobile > _headerPosMobile){
                   _mobileNavigation.addClass(_fixed);
                   $('body').css('padding-top',_navHeightMobile);
+                  _mobileHeaderNavigation.css({
+                     'z-index': '2000'
+                  });
             }
             else {
                   _mobileNavigation.removeClass(_fixed);
                   $('body').css('padding-top',0);
+                  _mobileHeaderNavigation.css({
+                     'z-index': '2'
+                  });
             }
+
       };
 
       _initPdpMenuBarFollow = function(){
