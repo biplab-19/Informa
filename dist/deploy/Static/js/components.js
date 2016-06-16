@@ -764,6 +764,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
     var EventsLists = $('.events-search'),
         Views = EventsLists.find('.views a'),
         CalendarView = EventsLists.find('.views a.icon-calendar'),
+        ListView = EventsLists.find('.views a.icon-list-view'),
         Calendar = $('section[data-view="calendar-view"] .container'),
         MonthSelect = $('select[name="month"]'),
         NextButton = $('.fc-next-button'),
@@ -790,7 +791,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
 
     RenderParticularMonth = function(date) {
         var NextMonth = moment(date).format('MMM-YYYY');
-        GetAjaxData(Urls.EventsSearch, "Post", NextMonth, RenderEvents, null, null);
+        GetAjaxData(Urls.EventsSearch, "Get", NextMonth, RenderEvents, null, null);
     },
 
     SetCalendarEvents = function(eventList) {
@@ -840,7 +841,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                     }
                     
 
-                    // GetAjaxData(Urls.EventsSearch, "Post", null, RenderMonthResults, null, null);
+                    // GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
                 },
                 dayNamesShort: _dayView,
                 dayClick: function(date, jsEvent, view) {
@@ -935,7 +936,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
         var date = new Date(),
             DatePass = moment(date).format('MMM-YYYY');
 
-        GetAjaxData(Urls.EventsSearch, "Post", DatePass, RenderMonthResults, null, null);
+        GetAjaxData(Urls.EventsSearch, "Get", DatePass, RenderMonthResults, null, null);
     },
 
     SwitchEvents = function() {
@@ -947,6 +948,16 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
             jQuery('.events-list').hide();
 
             jQuery('section[data-view="'+ViewMode+'"]').show();
+        })
+
+        CalendarView.on('click', function() {
+            jQuery('body').addClass('calendar-view');
+            jQuery('body').parents('.events-search').removeClass('list-view');
+        })
+
+        ListView.on('click', function() {
+            jQuery('body').parents('.events-search').addClass('list-view');
+            jQuery('body').parents('.events-search').removeClass('calendar-view');
         })
 
         MonthSelect.on('change', function() {
