@@ -1,17 +1,17 @@
 <section id="events" data-view="list-view" class="events-list">
 	<div class="container">
-		<div class="header clearfix">
-			<a href="javascript:void(0)" class="arrows previous"></a>
-			<h2>April 2016</h2>
+		<!-- <div class="header clearfix">
+			<a href="javascript:void(0)" class="arrows previous arrow-desabled"></a>
+			<h2>June 2016</h2>
 			<a href="javascript:void(0)" class="arrows next"></a>
 		</div>
 		<div class="events-container row">
-			{{#each this}}
+			{{#each SearchDictionary.jul-2016.ModelItem}}
 			<div class="col-xs-12 col-sm-6 col-md-4 events-section current-event">
 				<div class="events-wrap">
 					<div class="header clearfix">
 						<div class="date">01</div>
-						<p class="country">{{Location}}<strong>USA</strong></p>
+						<p class="country"><strong>{{Country}}</strong></p>
 					</div>
 					<div class="content-wrap">
 						<p><span class="type">{{EventType}}</span></p>
@@ -44,12 +44,14 @@
 				</div>
 			</div>
 		{{/each}}
-		<div class="more-events">
-			<button class="btn btn-more-events">
-					<span class="more">More Events</span>
-					<span class="less">Less Events</span>
-		</button></div>
-		</div>
+		{{#compare SearchDictionary.jul-2016.ModelItem.length 9 operator="=="}}
+			<div class="more-events">
+				<button class="btn btn-more-events">
+						<span class="more">More Events</span>
+						<span class="less">Less Events</span>
+			</button></div>
+			{{/compare}}
+		</div> -->
 	</div>
 </section>
 <section data-view="calendar-view" class="events-list">

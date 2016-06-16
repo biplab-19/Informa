@@ -47,6 +47,10 @@
 					content: "\e902";
 				}
 			}
+			&.arrow-desabled{
+					background-color: #f3f3f3;
+					cursor: default;
+			}
 		}
 	}
 	.events-section {
@@ -139,32 +143,32 @@
 					}
 				}
 			}
-		}
-	}//past event
-	.events-section.past-event{
-		color:#cbccd1;
-		.events-wrap .content-wrap .title{
+		}	//past event
+		&.past-event{
 			color:#cbccd1;
-		}
+			.events-wrap .content-wrap .title{
+				color:#cbccd1;
+			}
+			.events-wrap .header .date{
+				background-color: #cbccd1;
+			}
+			.events-wrap .content-wrap .type{
+				background: #aeb2bd;
+			}
+			.events-wrap .footer .btn.register{
+				background: #e9e9e9;
+				border-width: 0;
+				&:after {
+					content: none;
+				}
+			}
+		}//current event
+		&.current-event{
 		.events-wrap .header .date{
-			background-color: #cbccd1;
-		}
-		.events-wrap .content-wrap .type{
-			background: #aeb2bd;
-		}
-		.events-wrap .footer .btn.register{
-			background: #e9e9e9;
-			border-width: 0;
-			&:after {
-				content: none;
+				background-color:#fed501;;
 			}
 		}
-	}//current event
-	.events-section.current-event{
-	.events-wrap .header .date{
-			background-color:#fed501;;
-		}
-	}
+	}//more events button
 	.more-events{
 		width: 100%;
     float: left;

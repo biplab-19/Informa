@@ -140,7 +140,7 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '</div>'+
                     '</div>'+
-                '</div>'+  
+                '</div>'+
                 '{{/each}}',
     'Resources':
             '<ul class="list-container">'+
@@ -290,7 +290,57 @@ var INFORMA = window.INFORMA || {};
                                             '</div>' +
                                         '</div>' +
                                     '</div>' +
-                                '</div>'
+                                '</div>',
+    'EventpageListviewTemplate':'<div class="header clearfix">'+
+                                  '<a href="javascript:void(0)" class="arrows previous"></a>'+
+                                  '<h2>{{results.Month}}</h2>'+
+                                  '<a href="javascript:void(0)" class="arrows next"></a>'+
+                                '</div>'+
+                                '<div class="events-container row">'+
+                            			'{{#each results.ModelItem}}'+
+                            			'<div class="col-xs-12 col-sm-6 col-md-4 events-section current-event">'+
+                            				'<div class="events-wrap">'+
+                            					'<div class="header clearfix">'+
+                            						'<div class="date">{{DateField}}</div>'+
+                            						'<p class="country">{{Location}}<strong>USA</strong></p>'+
+                            					'</div>'+
+                            					'<div class="content-wrap">'+
+                            						'<p><span class="type">{{EventType}}</span></p>'+
+                            						'<h3 class="title">{{Title}}</h3>'+
+                            						'<div class="content clearfix">'+
+                            							'<div class="title-content">Presenter</div>'+
+                            							'<div class="title-body">'+
+                            								'<ul class="clearfix">'+
+                            									'{{#each Presenters}}'+
+                            									'<li>{{this}}</li>'+
+                            										'{{/each}}'+
+                            								'</ul>'+
+                            							'</div>'+
+                            						'</div>'+
+                            						'<div class="content clearfix">'+
+                            							'<div class="title-content">Themes</div>'+
+                            							'<div class="title-body">'+
+                            								'<ul class="clearfix">'+
+                            									'{{#each Themes}}'+
+                            									'<li>{{this}}</li>'+
+                            										'{{/each}}'+
+                            								'</ul>'+
+                            							'</div>'+
+                            						'</div>'+
+                            					'</div>'+
+                            					'<div class="footer clearfix">'+
+                            						'<a href="#" class="btn btn-default register">Register Now</a>'+
+                            						'<a href="#" class="btn btn-default full-detail">Full Detail View</a>'+
+                            					'</div>'+
+                            				'</div>'+
+                            			'</div>'+
+                            		'{{/each}}'+
+                            		'<div class="more-events">'+
+                            			'<button class="btn btn-more-events">'+
+                            					'<span class="more">More Events</span>'+
+                            					'<span class="less">Less Events</span>'+
+                            		'</button></div>'+
+                            		'</div>'
 
 }
 }(this, jQuery, 'INFORMA'));
