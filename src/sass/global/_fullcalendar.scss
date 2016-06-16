@@ -1,18 +1,24 @@
 .fc-state-default.fc-corner-right {
-	background: $yellow;
-	color: $white;
-	border: 0;
-	border-radius: 0;
+	width: 45px;
+    height: 67px;
+    display: block;
+    background: #ffd500;
+    border-radius: 0;
+    border: 0;
+    span {
+    	color: $white;
+    }
 	&.disabled {
 		background: grey;
 		pointer-events: none;
 	}
+	@include mobile {
+	    width: 30px;
+    	height: 50px;
+	}
 }
 .fc-scroller {
 	height: auto !important;
-}
-.fc-ltr .fc-basic-view .fc-day-number { 
-	text-align: left;
 }
 .fc th,.fc-bg .fc td {
 	border: 5px solid #f3f3f3;
@@ -27,9 +33,11 @@
 }
 .fc-ltr .fc-basic-view .fc-day-number {
 	font-size: 40px;
+	text-align: left;
 	@include mobile {
 		font-size: 24px;
 		text-align: center;
+		color: #6a7384;
 	}
 }
 .fc-event-container {
@@ -100,6 +108,9 @@
 		color: #6b7189;
 		position: absolute;
 		left: 44%;
+		@include tablet {
+			left: 30%;
+		}
 	}
 }
 .fc-unthemed .fc-popover {
@@ -107,6 +118,9 @@
 	margin-top: 60px;
 	border-top: 0;
 	box-shadow: 0 5px 6px rgba(0,0,0,.15);
+	@include tablet {
+		width: 100px;
+	}
 }
 .fc-unthemed .fc-divider, .fc-unthemed .fc-popover .fc-header {
 	background: $white;
@@ -128,6 +142,9 @@
 }
 .fc-more-popover .fc-event-container {
 	padding: 0 0 20px 0;
+	@include tablet {
+		padding: 0 0 40px 0;
+	}
 }
 .fc-more-cell {
 	bottom: -48px;
@@ -148,7 +165,7 @@
 .fc {
 	.events-wrap {
 		border: 1px solid;
-		padding: 20px 0 0 0;
+		padding: 20px 10px 0 10px;
 		.events {
 			display: block;
 			margin-bottom: 10px;
@@ -211,15 +228,85 @@
 	overflow: hidden;
 	&:before {
 	    content: '';
-	    width: 10px;
+	    width: 20px;
 	    position: absolute;
-	    top: -5px;
-	    right: -5px;
+	    top: -10px;
+	    right: -10px;
 	    background: #e0e4e7;
-	    height: 10px;
+	    height: 20px;
 	    transform: rotate(45deg);
 	}
 }
 .fc-basic-view .fc-body .fc-row {
 	min-height: 3em;
+}
+td.fc-day.fc-widget-content {
+    border-width: 5px;
+    border-color: #f3f3f3;
+    @include mobile {
+    	border-width: 1px;	
+    }
+}
+.fc-view, .fc-view > table {
+    border: 4px solid #f3f3f3;
+    @include mobile {
+    	border: 1px solid #f3f3f3;
+    }
+}
+.fc-past.fc-other-month, .fc-future.fc-other-month {
+	background-color: #f8f8f8;
+	color: #b8bbc0;
+}
+.fc-icon-left-single-arrow:after {
+	content: '\e903';
+	font-family: 'InformaIcons';
+    position: absolute;
+    font-size: 26px;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -13px;
+    @include mobile {
+    	font-size: 15px;
+    	margin-left: -7px;
+    }
+}
+.fc-icon-right-single-arrow:after {
+	content: '\e902';
+	font-family: 'InformaIcons';
+    position: absolute;
+    font-size: 26px;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -13px;
+    @include mobile {
+    	font-size: 15px;
+    	margin-left: -7px;
+    }
+}
+.fc button .fc-icon {
+	position: static;
+	height: auto;
+}
+.fc-toolbar h2 {
+    margin: 0;
+    font-size: 28px;
+    margin-top: 15px;
+    @include mobile {
+    	margin-top: 10px;
+    }
+}
+section[data-view="calendar-view"] .container {
+	@include mobile {
+		padding: 0;
+	}
+}
+.events-now {
+	font-family: 'FSMe-Bold';
+}
+.fc-day-grid .fc-row:last-child {
+	display: none;
 }

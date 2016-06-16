@@ -17,12 +17,12 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
     var EventsLists = $('.events-search'),
         Views = EventsLists.find('.views a'),
         CalendarView = EventsLists.find('.views a.icon-calendar'),
-        Calendar = $('#events .container'),
+        Calendar = $('section[data-view="calendar-view"] .container'),
         MonthSelect = $('select[name="month"]'),
         NextButton = $('.fc-next-button'),
         Urls = INFORMA.Configs.urls.webservices,
         //methods
-        init, SwitchEvents, GetAjaxData, RenderMonthResults, SetCalendarEvents, MobileEvents;
+        init, SwitchEvents, GetAjaxData, RenderMonthResults, SetCalendarEvents, MobileEvents, RenderCalendar, RenderEvents, RenderParticularMonth;
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.DataLoader.GetServiceData(url, {
@@ -39,6 +39,11 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                 }
             }
         });
+    },
+
+    RenderParticularMonth = function(date) {
+        var NextMonth = moment(date).format('MMM-YYYY');
+        GetAjaxData(Urls.EventsSearch, "Get", NextMonth, RenderEvents, null, null);
     },
 
     SetCalendarEvents = function(eventList) {
@@ -78,6 +83,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                         jQuery('.fc-prev-button').addClass('disabled');
                     } else {
                         jQuery('.fc-prev-button').removeClass('disabled');
+                        RenderParticularMonth(viewDate);
                     }
                     
                     if(viewMonth === endMonth) {
@@ -86,6 +92,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                         jQuery('.fc-next-button').removeClass('disabled');
                     }
                     
+
                     // GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
                 },
                 dayNamesShort: _dayView,
@@ -94,25 +101,26 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                         var selectedDate = date.format(),
                             parentNode = $(this).parents('.fc-row.fc-widget-content'),
                             DateAttr = $(this).data('date'),
+                            Container = $(this).parents('.fc-view-container'),
                             ItemList = null;
-
                         $('.fc-widget-content').removeClass('open');
-                        $(this).addClass('open');
+                        Container.toggleClass('open-event');
                         $('.events-wrap').remove();
                         $('.fc-day-number').css('color','#6a7285');
                         if($(this).hasClass('event-present')) {
-                            parentNode.after('<div class="events-wrap"></div>');
                             ItemList = $('.events[data-date="'+DateAttr+'"]').clone();
                             ItemList.addClass('cloned');
-                            $('.events-wrap').html(ItemList);
+                            parentNode.after('<div class="events-wrap"></div>');
                         } else {
                             parentNode.after('');
                         }
 
-                        if($(this).hasClass('open')) {
+                        if(Container.hasClass('open-event')) {
+                            $('.fc-widget-content[data-date="'+DateAttr+'"]').addClass('open');
                             $('.fc-day-number[data-date="'+DateAttr+'"]').css('color','#fff');
+                            $('.events-wrap').html(ItemList);
                         } else {
-                            $(this).removeClass('open');
+                            $('.fc-widget-content[data-date="'+DateAttr+'"]').removeClass('open');
                             $('.events-wrap').remove();
                         }
                         
@@ -146,46 +154,57 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                     } else {
                         return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
                     }
-                },
-                events: eventList
+                }
         });
+        RenderEvents(eventList);
 
     },
 
-    RenderMonthResults = function(data){
+    RenderEvents = function(list) {
         var EventList = [];
 
-        for(var key in data) {
+        for(var key in list) {
             EventList.push({
-                "title": data[key].Title,
-                "start": data[key].EventStartDate,
-                "location": data[key].Location
+                "title": list[key].Title,
+                "start": list[key].EventStartDate,
+                "location": list[key].Location
             })
         }
-        // var Events = 
-        SetCalendarEvents(EventList);
+        for(var key in EventList) {
+            Calendar.fullCalendar('renderEvent', EventList[key], true);
+        }
+    },
+
+    RenderMonthResults = function(data){
+        
+        SetCalendarEvents(data);
+    },
+
+    RenderCalendar = function() {
+        //Fetch Current Month
+        var date = new Date(),
+            DatePass = moment(date).format('MMM-YYYY');
+
+        GetAjaxData(Urls.EventsSearch, "Get", DatePass, RenderMonthResults, null, null);
     },
 
     SwitchEvents = function() {
         Views.on('click', function() {
+            var ViewMode = jQuery(this).data('view');
             Views.removeClass('active');
             jQuery(this).addClass('active');
+
+            jQuery('.events-list').hide();
+
+            jQuery('section[data-view="'+ViewMode+'"]').show();
         })
-        CalendarView.on('click', function() {
-            Views.removeClass('active');
-            jQuery(this).addClass('active');
-            //pass current month
-            GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
-        })
+
         MonthSelect.on('change', function() {
             var value = jQuery(this).val();
+            var check = moment(new Date(value));
+            Calendar.fullCalendar('gotoDate', check);
+            RenderParticularMonth(check);        
 
-            var check = moment(value, 'YYYY/MM/DD');
-
-            var month = check.format('M');
-            var day   = check.format('D');
-            var year  = check.format('YYYY');
-            Calendar.fullCalendar('gotoDate', year, month);
         })
     }
 
@@ -193,6 +212,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
     init = function() {
         if(EventsLists.length > 0) {
             SwitchEvents();
+            RenderCalendar();
         }
     };
 
