@@ -43,7 +43,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
 
     RenderParticularMonth = function(date) {
         var NextMonth = moment(date).format('MMM-YYYY');
-        GetAjaxData(Urls.EventsSearch, "Get", NextMonth, RenderEvents, null, null);
+        GetAjaxData(Urls.EventsSearch, "Post", NextMonth, RenderEvents, null, null);
     },
 
     SetCalendarEvents = function(eventList) {
@@ -93,7 +93,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                     }
                     
 
-                    // GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
+                    // GetAjaxData(Urls.EventsSearch, "Post", null, RenderMonthResults, null, null);
                 },
                 dayNamesShort: _dayView,
                 dayClick: function(date, jsEvent, view) {
@@ -188,7 +188,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
         var date = new Date(),
             DatePass = moment(date).format('MMM-YYYY');
 
-        GetAjaxData(Urls.EventsSearch, "Get", DatePass, RenderMonthResults, null, null);
+        GetAjaxData(Urls.EventsSearch, "Post", DatePass, RenderMonthResults, null, null);
     },
 
     SwitchEvents = function() {
