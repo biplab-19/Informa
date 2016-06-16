@@ -1,4 +1,4 @@
-/*! 2016-06-15 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-16 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -32,7 +32,9 @@
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",
-            "AnalystSearchAll": "/client/search/SeeAllSpecialists"
+            "AnalystSearchAll": "/client/search/SeeAllSpecialists",
+            "EventsSearch": "/client/search/GetEventList"
+            
         }
     };
 
@@ -494,6 +496,7 @@ var INFORMA = window.INFORMA || {};
                                                 '<div class="anlyst-heading">' +
                                                     '<div class="analyst-heading-content">' +
                                                         '<div class="analyst-details">' +
+                                                          '<span class="analyst-type">{{Type}}</span>' +
                                                             '<h2>{{Name}}</h2>' +
                                                             '<h3>{{Type}}, {{JobTitle}}</h3>' +
                                                             '<p class="location">{{State}}, {{Country}}</p>' +
@@ -553,6 +556,7 @@ var INFORMA = window.INFORMA || {};
                                         '<div class="anlyst-heading">' +
                                             '<div class="analyst-heading-content">' +
                                                 '<div class="analyst-details">' +
+                                                     '<span class="analyst-type">{{Type}}</span>' +
                                                     '<h2>{{results.Name}}</h2>' +
                                                     '<h3>{{results.Type}}, {{results.JobTitle}}</h3>' +
                                                     '<p class="location">{{results.State}}, {{results.Country}}</p>' +

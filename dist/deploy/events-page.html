@@ -436,90 +436,96 @@ in the empire of Sapient. Har Har Mahadev !! --->
 
 
 
-   <div class="container">
-    <section class="index-page">
-        <h1>Informa UI Oversight</h1>
-        <nav>
-            <!-- <h2 class="navigation-headline">Generic</h2>
-            <ul class="navigation-list">
-                <li class="navigation-list__item">
-                    <a href="doc/index.html" target="_blank" class="navigation-list__item__link">Documentation</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="styleguide.html" target="_blank" class="navigation-list__item__link">Styleguide</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="assets/images/preview.html" target="_blank" class="navigation-list__item__link">Icon Preview</a>
-                </li>
-            </ul> -->
-            <h2 class="navigation-headline">Pages</h2>
-            <ul class="navigation-list">
-                <li class="navigation-list__item">
-                    <a href="/home-page.html" target="_blank" class="navigation-list__item__link">Home</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/aboutus.html" target="_blank" class="navigation-list__item__link">About us</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/analyst-list.html" target="_blank" class="navigation-list__item__link">Analyst List</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/analyst-profile.html" target="_blank" class="navigation-list__item__link">Analyst Profile</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/brand-page.html" target="_blank" class="navigation-list__item__link">Brand Page</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/contact-us.html" target="_blank" class="navigation-list__item__link">Contactus</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/hero-banner.html" target="_blank" class="navigation-list__item__link">Hero Banner</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/help-support.html" target="_blank" class="navigation-list__item__link">Help Support</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/product-details.html" target="_blank" class="navigation-list__item__link">Product Details</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/product-listing.html" target="_blank" class="navigation-list__item__link">Product Listing</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/sectorpage.html" target="_blank" class="navigation-list__item__link">Sector Page</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/article-page.html" target="_blank" class="navigation-list__item__link">Article Page</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/hero-banner.html" target="_blank" class="navigation-list__item__link">All Hero Banners</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/events-page.html" target="_blank" class="navigation-list__item__link">Events Page</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/videos.html" target="_blank" class="navigation-list__item__link">Videos</a>
-                </li>
-            </ul>
-            <!-- <h2 class="navigation-headline">Components</h2>
-            <ul class="navigation-list">
-                <li class="navigation-list__item">
-                        <a href="/template-components.html" target="_blank" class="navigation-list__item__link">Carousel</a>
-                </li>
-            </ul>
+   <div class="events-page">
+	<section class="events-search">
+	<div class="container">
+		<div class="row">
+			<div class="select-section col-sm-9 col-md-6">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 form-group">
+						<label for="sector">View by sector</label>
+	                    <select class="chosen-select" name="sector">
+	                        <option value="All">All</option>
+	                        <option value="latest">latest</option>
+	                    </select>
+					</div>
+					<div class="col-xs-12 col-sm-6 form-group">
+						<label for="month">View by month</label>
+	                    <select class="chosen-select" name="month">
+	                        <option value="June-2016">All</option>
+	                        <option value="July-2016">latest</option>
+	                    </select>
+					</div>
+				</div>
+			</div>
+			<div class="views-section col-xs-12 col-sm-3 col-md-offset-3 col-md-3">
+				<div class="views">
+					<label>List View</label>
+					<a href="javscript:void(0);" data-view="list-view" class="icon-list-view active"></a>
+				</div>
+				<div class="views">
+					<label>Calendar View</label>
+					<a href="javscript:void(0);" data-view="calendar-view" class="icon-calendar"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+	<section id="events" data-view="list-view" class="events-list">
+	<div class="container">
+		<div class="header clearfix">
+			<a href="javascript:void(0)" class="arrows previous"></a>
+			<h2>April 2016</h2>
+			<a href="javascript:void(0)" class="arrows next"></a>
+		</div>
+		<div class="events-container row">
+			
+			<div class="col-xs-12 col-sm-6 col-md-4 events-section current-event">
+				<div class="events-wrap">
+					<div class="header clearfix">
+						<div class="date">01</div>
+						<p class="country"><strong>USA</strong></p>
+					</div>
+					<div class="content-wrap">
+						<p><span class="type"></span></p>
+						<h3 class="title"></h3>
+						<div class="content clearfix">
+							<div class="title-content">Presenter</div>
+							<div class="title-body">
+								<ul class="clearfix">
+									
+								</ul>
+							</div>
+						</div>
+						<div class="content clearfix">
+							<div class="title-content">Themes</div>
+							<div class="title-body">
+								<ul class="clearfix">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="footer clearfix">
+						<a href="#" class="btn btn-default register">Register Now</a>
+						<a href="#" class="btn btn-default full-detail">Full Detail View</a>
+					</div>
+				</div>
+			</div>
+		
+		<div class="more-events">
+			<button class="btn btn-more-events">
+					<span class="more">More Events</span>
+					<span class="less">Less Events</span>
+		</button></div>
+		</div>
+	</div>
+</section>
+<section data-view="calendar-view" class="events-list">
+	<div class="container"></div>
+</section>
 
-            <h2 class="navigation-headline">Forms</h2>
-            <ul class="navigation-list">
-                <li class="navigation-list__item">
-                    <a href="#" target="_blank" class="navigation-list__item__link">Login</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="#" target="_blank" class="navigation-list__item__link">Registration</a>
-                </li>
-            </ul> -->
-        </nav>
-    </section>
 </div>
-
 
 
 <!-- GLOBAL FOOTER -->

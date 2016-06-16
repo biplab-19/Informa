@@ -1,4 +1,4 @@
-/*! 2016-06-15 */_adjustHeigt = function(){
+/*! 2016-06-16 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -764,12 +764,12 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
     var EventsLists = $('.events-search'),
         Views = EventsLists.find('.views a'),
         CalendarView = EventsLists.find('.views a.icon-calendar'),
-        Calendar = $('#events .container'),
+        Calendar = $('section[data-view="calendar-view"] .container'),
         MonthSelect = $('select[name="month"]'),
         NextButton = $('.fc-next-button'),
         Urls = INFORMA.Configs.urls.webservices,
         //methods
-        init, SwitchEvents, GetAjaxData, RenderMonthResults, SetCalendarEvents, MobileEvents;
+        init, SwitchEvents, GetAjaxData, RenderMonthResults, SetCalendarEvents, MobileEvents, RenderCalendar, RenderEvents, RenderParticularMonth;
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.DataLoader.GetServiceData(url, {
@@ -786,6 +786,11 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                 }
             }
         });
+    },
+
+    RenderParticularMonth = function(date) {
+        var NextMonth = moment(date).format('MMM-YYYY');
+        GetAjaxData(Urls.EventsSearch, "Post", NextMonth, RenderEvents, null, null);
     },
 
     SetCalendarEvents = function(eventList) {
@@ -825,6 +830,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                         jQuery('.fc-prev-button').addClass('disabled');
                     } else {
                         jQuery('.fc-prev-button').removeClass('disabled');
+                        RenderParticularMonth(viewDate);
                     }
                     
                     if(viewMonth === endMonth) {
@@ -833,7 +839,8 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                         jQuery('.fc-next-button').removeClass('disabled');
                     }
                     
-                    // GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
+
+                    // GetAjaxData(Urls.EventsSearch, "Post", null, RenderMonthResults, null, null);
                 },
                 dayNamesShort: _dayView,
                 dayClick: function(date, jsEvent, view) {
@@ -841,25 +848,26 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                         var selectedDate = date.format(),
                             parentNode = $(this).parents('.fc-row.fc-widget-content'),
                             DateAttr = $(this).data('date'),
+                            Container = $(this).parents('.fc-view-container'),
                             ItemList = null;
-
                         $('.fc-widget-content').removeClass('open');
-                        $(this).addClass('open');
+                        Container.toggleClass('open-event');
                         $('.events-wrap').remove();
                         $('.fc-day-number').css('color','#6a7285');
                         if($(this).hasClass('event-present')) {
-                            parentNode.after('<div class="events-wrap"></div>');
                             ItemList = $('.events[data-date="'+DateAttr+'"]').clone();
                             ItemList.addClass('cloned');
-                            $('.events-wrap').html(ItemList);
+                            parentNode.after('<div class="events-wrap"></div>');
                         } else {
                             parentNode.after('');
                         }
 
-                        if($(this).hasClass('open')) {
+                        if(Container.hasClass('open-event')) {
+                            $('.fc-widget-content[data-date="'+DateAttr+'"]').addClass('open');
                             $('.fc-day-number[data-date="'+DateAttr+'"]').css('color','#fff');
+                            $('.events-wrap').html(ItemList);
                         } else {
-                            $(this).removeClass('open');
+                            $('.fc-widget-content[data-date="'+DateAttr+'"]').removeClass('open');
                             $('.events-wrap').remove();
                         }
                         
@@ -893,13 +901,16 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                     } else {
                         return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
                     }
-                },
-                events: eventList
+                }
         });
+        RenderEvents(eventList);
 
     },
 
-    RenderMonthResults = function(data){
+    RenderEvents = function(list) {
+        var Month = Object.keys(list.SearchDictionary)[0],
+            data = list.SearchDictionary[Month].ModelItem;
+
         var EventList = [];
 
         for(var key in data) {
@@ -909,30 +920,41 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                 "location": data[key].Location
             })
         }
-        // var Events = 
-        SetCalendarEvents(EventList);
+        for(var key in EventList) {
+            Calendar.fullCalendar('renderEvent', EventList[key], true);
+        }
+    },
+
+    RenderMonthResults = function(data){
+        
+        SetCalendarEvents(data);
+    },
+
+    RenderCalendar = function() {
+        //Fetch Current Month
+        var date = new Date(),
+            DatePass = moment(date).format('MMM-YYYY');
+
+        GetAjaxData(Urls.EventsSearch, "Post", DatePass, RenderMonthResults, null, null);
     },
 
     SwitchEvents = function() {
         Views.on('click', function() {
+            var ViewMode = jQuery(this).data('view');
             Views.removeClass('active');
             jQuery(this).addClass('active');
+
+            jQuery('.events-list').hide();
+
+            jQuery('section[data-view="'+ViewMode+'"]').show();
         })
-        CalendarView.on('click', function() {
-            Views.removeClass('active');
-            jQuery(this).addClass('active');
-            //pass current month
-            GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
-        })
+
         MonthSelect.on('change', function() {
             var value = jQuery(this).val();
+            var check = moment(new Date(value));
+            Calendar.fullCalendar('gotoDate', check);
+            RenderParticularMonth(check);        
 
-            var check = moment(value, 'YYYY/MM/DD');
-
-            var month = check.format('M');
-            var day   = check.format('D');
-            var year  = check.format('YYYY');
-            Calendar.fullCalendar('gotoDate', year, month);
         })
     }
 
@@ -940,6 +962,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
     init = function() {
         if(EventsLists.length > 0) {
             SwitchEvents();
+            RenderCalendar();
         }
     };
 
@@ -1451,6 +1474,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _headerPosMobile = 0,
       _fixed = 'navbar-fixed-top',
       _isHeaderFixed = false,
+
       // for sticky nav of pdp-navigation
       _pdpNavigation = $('#pdp-navigation'),
       _pdpNavigationHeight = 0,
@@ -1464,6 +1488,28 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _pdpMenuPos = [],
       _pdpMenuWidth = [],
       _pdpMenuleft = [],
+
+
+
+      // for sticky nav of services-navigation
+      _servicesNavigation = $('#services-navigation'),
+      _servicesNavigationScrollTo,
+      _servicesNavigationHeight = 0,
+      _servicesNavigationPos = 0,
+      _servicesWrapper = $('.services-page'),
+      _servicesMenuFollower = $('#services-navigation .menuFollower'),
+      _servicesMenuActive = true,
+
+      _servicesLink = $('#services-navigation ul > li > a'),
+      _servicesFixed = false,
+      _servicesMenuPos = [],
+      _servicesMenuWidth = [],
+      _servicesMenuleft = [],
+
+      _initServicesMenuBarFollow,
+      _activateServicesFixedHeader,
+      _arrayServicesFlag = true,
+
 
       _arrayFlag = true,
       _navlinks = $('.nav-links'),
@@ -1496,6 +1542,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                            .show(); 
       }
 
+      if(_servicesNavigation.length > 0) {
+            _servicesNavigationHeight = _servicesNavigation.height();
+            _servicesNavigationPos = _servicesNavigation.offset().top;
+            // To show the menu follower with right width and position, todo: remove harcode
+            _servicesMenuFollower.css('width',$(_servicesLink[0]).width())
+                                 .css('left',$(_servicesLink[0]).offset().left)
+                                 .show(); 
+      }
+
       if(_mainNavigation.length > 0) {
             _navHeight = _mainNavigation.height();
             _headerPos = _mainNavigation.offset().top;
@@ -1515,7 +1570,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                _activateMainFixedHeader();
              if(!_pdpFixed && _mobileNavigation.length > 0 && !INFORMA.global.device.isDesktop)
                _activateMobileFixedHeader();
-             if(_pdpNavigation.length > 0 && _pdpMenuActive) _activatePdpFixedHeader();
+             if(_pdpNavigation.length > 0 && _pdpMenuActive) 
+               _activatePdpFixedHeader();
+             if(_servicesNavigation.length > 0 && _servicesMenuActive) 
+               _activateServicesFixedHeader();
          });
       };
 
@@ -1585,7 +1643,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                   // if there are pdp components, the li count will be 0
                   // if the li count is zero, then remove the whole nav
             }
-
       };
 
       _activatePdpFixedHeader = function(){
@@ -1628,6 +1685,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                }
             // todo: easily the worst code I have written, please optimize this
       };
+
       // when clicking the pdp-navigation
       _pdpNavigationScrollTo = function(){
             _pdpLink.on('click',function(e){
@@ -1651,6 +1709,106 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                   }
             })
+      };
+
+
+      _initServicesMenuBarFollow = function(){
+            for(var i=0;i<_servicesLink.length;i++){
+                  // id name comes as data attribute. construct the id
+                  var _sectionName = '#'+$(_servicesLink[i]).data('target');
+                  //console.log($(_sectionName))
+                  if($(_sectionName).length > 0){
+                        // all sections will be printed in navbar html, if the section
+                        // is not there, smack that
+                        // else push the offset value to array
+                        //_pdpMenuPos.push($(_sectionName).offset().top);
+                  }
+                  else {
+                        $(_servicesLink[i]).addClass('JustGonnaStayThereAndWatchMeBurn');
+                  }
+            }
+            $('.JustGonnaStayThereAndWatchMeBurn').parent().remove();
+            _servicesLink = $('#services-navigation ul > li > a');
+
+            if(_servicesLink.length == 0) {
+                  _servicesNavigation.remove();
+                  _servicesMenuActive = false;
+            }
+      };
+
+      _activateServicesFixedHeader = function(){
+             var _windowPos = $(window).scrollTop();
+               if(_windowPos > (_servicesNavigationPos - _navHeight)){
+                     _servicesNavigation.addClass(_fixed);
+                     _servicesNavigation.css('top',_navHeight+'px');
+                     _servicesWrapper.css('padding-top',_servicesNavigationHeight);
+                     _servicesFixed = true;
+                     if(_arrayServicesFlag){
+                           for(var i=0;i<_servicesLink.length;i++){
+                                 var _sectionName = '#'+$(_servicesLink[i]).data('target');
+                                 _servicesMenuPos.push($(_sectionName).offset().top);
+                                 _servicesMenuWidth.push($(_servicesLink[i]).width());
+                                 _servicesMenuleft.push($(_servicesLink[i]).parent().offset().left);
+                           }
+
+                           // Ilaiyaraja rocks, fix the hard code later
+                           $('#services-navigation ul > li:first-child').addClass('selected');
+                           if(INFORMA.global.device.isMobile) _servicesNavigation.addClass('cont');
+                           _arrayServicesFlag = false;
+                     }
+
+               }
+               else {
+                     _servicesNavigation.removeClass(_fixed);
+                     _servicesWrapper.css('padding-top',0);
+                     _servicesFixed = false;
+               }
+               // todo: should be moved to function, atleast for readability
+               // line follower robot is something i shud ve built during my college days.
+               var i= _servicesMenuPos.length - 1;
+               for(; i>=0;i--){
+                     if( _windowPos + 120 >= _servicesMenuPos[i]  ){
+                           _servicesMenuFollower.css('width',_servicesMenuWidth[i]);
+                           _servicesMenuFollower.css('left',_servicesMenuleft[i]);
+                              // .menuFollower { transform: translateX(100%)}
+                           i=-1;
+                     }
+               }
+            // todo: easily the worst code I have written, please optimize this
+      };
+
+      // when clicking the services-navigation
+      _servicesNavigationScrollTo = function(){
+         _servicesLink.on('click',function(e){
+            //e.preventDefault();
+            //_servicesNavigation.addClass('cont');
+            var _target = $(this).data('target');
+
+            // todo, remove hardcoding
+            $('#services-navigation li').removeClass('selected');
+            $('#services-navigation li').addClass('select-options');
+/*
+            console.log($("#"+_target).offset().top);
+            console.log(_navHeight + _servicesNavigationHeight);
+            
+            var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight + _servicesNavigationHeight + 2);
+            console.log(_scrollTopPixels);
+
+            $('html, body').stop().animate({
+                  scrollTop: _scrollTopPixels
+            }, 1000);*/
+
+            if(INFORMA.global.device.isMobile) {
+               // lesson learnt, hack is wrong.
+               $(this).parent().addClass('selected');
+               /*setTimeout(function(){
+                  // i am sorry future Jack
+                  $('#services-navigation li:not(".selected")').slideUp();
+                  _servicesNavigation.addClass('cont');
+               },100)*/
+            }
+
+         })
       };
 
 /*
@@ -1720,12 +1878,17 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
       init = function() {
             //if(INFORMA.global.device.viewport!='mobile'){
-                  if(_pdpNavigation.length > 0){
-                        _initPdpMenuBarFollow();
-                        _pdpNavigationScrollTo();
+            if(_pdpNavigation.length > 0){
+               _initPdpMenuBarFollow();
+               _pdpNavigationScrollTo();
+            }
 
-                  }
-                  _whenScrolling();
+            if(_servicesNavigation.length > 0){
+               _initServicesMenuBarFollow();
+               _servicesNavigationScrollTo();
+            }
+
+            _whenScrolling();
             //}
             _bindNavigationEvents();
             // hack for mobile viewport
@@ -1733,12 +1896,20 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             // bootstrap collapse will disturb the offset().top, be careful
             //@eod, I think u r genius but code is so damned, clean it before review
             if(INFORMA.global.device.isMobile){
-                  $('#pdp-navigation ul').on('click',function(){
-                        //todo stop hardcoding
-                        $('#pdp-navigation li:not(".selected")').slideDown();
-                        _pdpNavigation.removeClass('cont');
-                  });
+               $('#pdp-navigation ul').on('click',function(){
+                  //todo stop hardcoding
+                  $('#pdp-navigation li:not(".selected")').slideDown();
+                  _pdpNavigation.removeClass('cont');
+               });
             }
+
+            if(INFORMA.global.device.isTablet){
+               $('#services-list .row').each(function(i, obj) {
+                  var _id = this.id;
+                  $("#" + _id + " .image-thumbnail").prependTo("#" + _id + " .content");
+               });
+            }
+
 
       };
 
@@ -2091,6 +2262,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitBtn = $(".product-finder li.button"),
         CustomSelect = $(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
+        SearchField	= $(".site-search input"),
+        SearchSubmitBtn = $(".site-search li.button"),
         //SearchIcon = $(".navbar-default .search a"),
         SearchIcon = $(".search:visible"),
         SearchPage = $("#search-page"),
@@ -2105,9 +2278,10 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         ToggleProductFinder = function() {
             CloseIcon.on("click", function(e) {
                 e.preventDefault();
-                SearchIcon.toggleClass( "inactive" );
+                SearchIcon.toggleClass("inactive");
                 ProductFinderSection.slideUp("fast");
             });
+
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
                 if("#product-finder-section:hidden")
@@ -2147,8 +2321,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 }
             });
         },
-        SubmitHandler = function(SearchType) {
-            SubmitBtn.on("click", ".btn", function(e) {
+        SubmitHandler = function(btn, SearchType) {
+            btn.on("click", ".btn", function(e) {
                 e.preventDefault();
                 var FieldArray = ProductFinderSection.find("form").serializeArray(),
                     GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
@@ -2162,11 +2336,19 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 IsSearchPage = (SearchPage.data("search") === true) ? true : false;
 
             if (IsProductPage) {
-                SubmitHandler("ProductSearch");
+                SubmitHandler(SubmitBtn,"ProductSearch");
             }
             if (IsSearchPage) {
-                SubmitHandler("SearchResult");
+                SubmitHandler(SearchSubmitBtn,"SearchResult");
             }
+            SearchField.on("keyup",function(e){
+            	if($(this).val()!==""){
+            		SearchSubmitBtn.removeClass("disabled");
+            	}
+            	else{
+            		SearchSubmitBtn.addClass("disabled");
+            	}
+            });
         },
         ShowHideSearch = function(ele) {
             var ShowOption = $(ele).data('show');
@@ -2463,7 +2645,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SectorSelect = $("select.sector-list"),
         SubSectorSelect = $("select.sub-sector-list"),
         SubmitBtn = $(".product-finder .sector-search li.button"),
+        SearchSubmitBtn = $(".site-search li.button"),
+        SearchField = $(".site-search input"),
         SectorHidden = $("input.sector-list"),
+        SearchHidden = $("input.search-hidden"),
         SubSectorHidden = $("input.sub-sector-list"),
         FilterList = $(".search-filter .filter-list"),
         RefineContainer = $(".search-container .refine-result"),
@@ -2476,9 +2661,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         init,
         equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter,
         LoadProducts, CreateFilterList,
-        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected;
+        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected,GetSearchData;
 
-    equalHeight = function(container) {
+        equalHeight = function(container) {
             var ItemsList = container.find('.col-md-4'),
                 MaxHeight = 0,
                 Padding = 10;
@@ -2506,6 +2691,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 method:"Post",
                 success_callback: ParseSearchData
             });
+        },
+        GetSearchData = function(sVal){
+            if(sVal){
+                SearchField.val(sVal);
+                SearchField.parent().removeClass("disabled");
+                SearchSubmitBtn.trigger("click");
+            }
         },
         UpdateResultPage = function(SecValue, SubSecValue) {
 
@@ -2660,7 +2852,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
 
         init = function() {
-            var IsProductPage = (ProductFinder.data("product") === true) ? true : false;
+            var IsProductPage = (ProductFinder.data("product") === true) ? true : false,
+                IsSearchPage = (ProductFinder.data("search") === true) ? true : false
 
             if (IsProductPage && SectorHidden.length > 0) {
                 var SVal = SectorHidden.val(),
@@ -2669,6 +2862,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     UpdateResultPage(SVal, SubSecVal);
                 }else{
                     LoadProducts();
+                }
+            }
+            if(IsSearchPage && SearchHidden.length >0){
+                var SearchVal = SearchHidden.val();
+                if (SearchVal) {
+                    UpdateResultPage(SearchVal);
                 }
             }
 
