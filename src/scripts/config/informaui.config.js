@@ -32,7 +32,9 @@ var INFORMA = window.INFORMA || {};
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",
-            "AnalystSearchAll": "/client/search/SeeAllSpecialists"
+            "AnalystSearchAll": "/client/search/SeeAllSpecialists",
+            "EventsSearch": "/client/search/GetEventList"
+            
         }
     };
 

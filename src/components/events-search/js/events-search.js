@@ -161,13 +161,16 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
     },
 
     RenderEvents = function(list) {
+        var Month = Object.keys(list.SearchDictionary)[0],
+            data = list.SearchDictionary[Month].ModelItem;
+
         var EventList = [];
 
-        for(var key in list) {
+        for(var key in data) {
             EventList.push({
-                "title": list[key].Title,
-                "start": list[key].EventStartDate,
-                "location": list[key].Location
+                "title": data[key].Title,
+                "start": data[key].EventStartDate,
+                "location": data[key].Location
             })
         }
         for(var key in EventList) {
