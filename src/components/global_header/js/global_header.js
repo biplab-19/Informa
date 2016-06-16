@@ -62,6 +62,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
       _initServicesMenuBarFollow,
       _activateServicesFixedHeader,
+      _arrayServicesFlag = true,
+
 
       _arrayFlag = true,
       _navlinks = $('.nav-links'),
@@ -295,7 +297,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                      _servicesNavigation.css('top',_navHeight+'px');
                      _servicesWrapper.css('padding-top',_servicesNavigationHeight);
                      _servicesFixed = true;
-                     if(_arrayFlag){
+                     if(_arrayServicesFlag){
                            for(var i=0;i<_servicesLink.length;i++){
                                  var _sectionName = '#'+$(_servicesLink[i]).data('target');
                                  _servicesMenuPos.push($(_sectionName).offset().top);
@@ -306,7 +308,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                            // Ilaiyaraja rocks, fix the hard code later
                            $('#services-navigation ul > li:first-child').addClass('selected');
                            if(INFORMA.global.device.isMobile) _servicesNavigation.addClass('cont');
-                           _arrayFlag = false;
+                           _arrayServicesFlag = false;
                      }
 
                }
@@ -332,13 +334,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       // when clicking the services-navigation
       _servicesNavigationScrollTo = function(){
          _servicesLink.on('click',function(e){
-            e.preventDefault();
-            _servicesNavigation.addClass('cont');
+            //e.preventDefault();
+            //_servicesNavigation.addClass('cont');
             var _target = $(this).data('target');
 
             // todo, remove hardcoding
             $('#services-navigation li').removeClass('selected');
-
+            $('#services-navigation li').addClass('select-options');
+/*
             console.log($("#"+_target).offset().top);
             console.log(_navHeight + _servicesNavigationHeight);
             
@@ -347,16 +350,16 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             $('html, body').stop().animate({
                   scrollTop: _scrollTopPixels
-            }, 1000);
+            }, 1000);*/
 
             if(INFORMA.global.device.isMobile) {
                // lesson learnt, hack is wrong.
                $(this).parent().addClass('selected');
-               setTimeout(function(){
+               /*setTimeout(function(){
                   // i am sorry future Jack
                   $('#services-navigation li:not(".selected")').slideUp();
                   _servicesNavigation.addClass('cont');
-               },100)
+               },100)*/
             }
 
          })
@@ -447,12 +450,20 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             // bootstrap collapse will disturb the offset().top, be careful
             //@eod, I think u r genius but code is so damned, clean it before review
             if(INFORMA.global.device.isMobile){
-                  $('#pdp-navigation ul').on('click',function(){
-                        //todo stop hardcoding
-                        $('#pdp-navigation li:not(".selected")').slideDown();
-                        _pdpNavigation.removeClass('cont');
-                  });
+               $('#pdp-navigation ul').on('click',function(){
+                  //todo stop hardcoding
+                  $('#pdp-navigation li:not(".selected")').slideDown();
+                  _pdpNavigation.removeClass('cont');
+               });
             }
+
+            if(INFORMA.global.device.isTablet){
+               $('#services-list .row').each(function(i, obj) {
+                  var _id = this.id;
+                  $("#" + _id + " .image-thumbnail").prependTo("#" + _id + " .content");
+               });
+            }
+
 
       };
 

@@ -28,7 +28,7 @@ nav#services-navigation {
       }
       @include mobile {
             .menuFollower {
-                  display: none!important;
+                display: none!important;
             }
             &.cont {
                   li {
@@ -38,28 +38,32 @@ nav#services-navigation {
                   }
             }
             ul {
-                  margin: 20px 0;
-                  border: 1px solid $light;
+                margin: 20px 0;
+                border: 1px solid $light;
 
-                  li {
-                        width: 100%;
-                        display: none;
-                        &:first-child {
-                              display: block;
+                li {
+                    width: 100%;
+                    display: none;
+                    
+                    &:first-child {
+                        display: block;
+                    }
+                    &.selected {
+                        display: block;
+                        a {
+                            &:after{
+                                content: '>';
+                                position: absolute;
+                                right: 10px;
+                                transform: rotate(90Deg);
+                                color: $light;
+                            }
                         }
-                        &.selected {
-                              display: block;
-                              a {
-                                    &:after{
-                                          content: '>';
-                                          position: absolute;
-                                          right: 10px;
-                                          transform: rotate(90Deg);
-                                          color: $light;
-                                    }
-                              }
-                        }
-                  }
+                    }
+                    &.select-options{
+                    	display: list-item;
+                    }
+                }
             }
       }
 }
@@ -134,11 +138,34 @@ section#services-list{
 		@include tablet{
 			.row{
 				padding: 30px 0;
+				.img{
+					display: none;
+				}
+				.image-thumbnail{
+					width: 50%;
+					height: 50%;
+				}
 			}
+
+			.row:nth-child(even){
+				.image-thumbnail{
+					float: left;
+					padding-right: 25px;
+				}
+			}
+			
+			.row:nth-child(odd){
+				.image-thumbnail{
+					float: right;
+					padding-left: 25px;
+				}
+			}
+
 			header{
 				font-size: 30px;
 				padding-left: 7.5px;
 				padding-right: 7.5px;
+				padding-bottom: 20px;
 				.img-icon{
 					width: 80px;
 					height: 80px;
