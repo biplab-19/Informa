@@ -458,7 +458,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             }
 
             if(INFORMA.global.device.isTablet){
-               $('#services-list .row').each(function(i, obj) {
+               $('#services-list section').each(function(i, obj) {
                   var _id = this.id;
                   $("#" + _id + " .image-thumbnail").prependTo("#" + _id + " .content");
                });

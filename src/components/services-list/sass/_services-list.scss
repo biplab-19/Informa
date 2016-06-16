@@ -68,136 +68,143 @@ nav#services-navigation {
       }
 }
 section#services-list{
-	.container{
-		margin: 0;
-		width: 100%;
-		.row:nth-child(even){
-			background-color: #f5f6f8;
-			.image-thumbnail{
-				&:after {
-	                background-color: #f5f6f8;
-            	}
-			}
-		}
-		.row:nth-child(odd){
-			background-color: $white;
-			.image-thumbnail{
-				&:after {
-	                background-color: $white;
-            	}
-			}
-			.img{
-				float: right;
-			}
-		}
-		.row{
-			header{
-				color: $font-color;
-			}
-			.image-thumbnail{
-				overflow: hidden;
-				position: relative;
-				&:after {
-	                content: '';
-	                width: 110%;
-	                height: 100%;
-	                position: absolute;
-	                -ms-transform: rotate(-5deg); /* IE 9 */
-	                -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
-	                transform: rotate(-5deg);
-	                top: calc(100% - 38px);
-	                left: 0;
-            	}
-			}
-			.btn-container{
-				margin-top: 20px;
-				.btn-primary{
-					width: initial;
-					padding-right: 40px;
-				}
-			}
-		}
 
-		@include desktop{
-			.row{
-				padding: 30px 104px;
-			}
-			.row [class*='col-'] {
-				padding-left: 0;
-			}
-			header{
-				font-size: 40px;
-				padding-bottom: 40px;
-				.img-icon{
-					width: 80px;
-					height: 80px;
-				}
-			}
+	section:nth-child(even){
+		background-color: #f5f6f8;
+		.image-thumbnail{
+			&:after {
+	            background-color: #f5f6f8;
+            }
 		}
-
-		@include tablet{
-			.row{
-				padding: 30px 0;
-				.img{
-					display: none;
-				}
-				.image-thumbnail{
-					width: 50%;
-					height: 50%;
-				}
-			}
-
-			.row:nth-child(even){
-				.image-thumbnail{
-					float: left;
-					padding-right: 25px;
-				}
-			}
-			
-			.row:nth-child(odd){
-				.image-thumbnail{
-					float: right;
-					padding-left: 25px;
-				}
-			}
-
-			header{
-				font-size: 30px;
-				padding-left: 7.5px;
-				padding-right: 7.5px;
-				padding-bottom: 20px;
-				.img-icon{
-					width: 80px;
-					height: 80px;
-				}
-			}
+	}
+	
+	section:nth-child(odd){
+		background-color: $white;
+		.image-thumbnail{
+			&:after {
+	            background-color: $white;
+           	}
 		}
-
-		@include mobile{
-			.row{
-				padding: 30px 0;
-				display:flex;
-          		flex-flow: column;
-                header{
-                	order:2;
-                }
-        		.img{
-        			order:1;
-        		}
-        		.content{
-        			order:3;
-        		}
-			}
-			header{
-				font-size: 20px;
-				padding-left: 7.5px;
-				padding-right: 7.5px;
-				padding-bottom: 20px;
-				.img-icon{
-					width: 45px;
-					height: 45px;
-				}
+		.img{
+			float: right;
+		}
+	}
+		
+	.row{
+		header{
+			color: $font-color;
+		}
+		.image-thumbnail{
+			overflow: hidden;
+			position: relative;
+			&:after {
+	            content: '';
+	            width: 110%;
+	            height: 100%;
+	            position: absolute;
+	            -ms-transform: rotate(-5deg); /* IE 9 */
+	            -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+	            transform: rotate(-5deg);
+	            top: calc(100% - 38px);
+	            left: 0;
+          	}
+		}
+		.btn-container{
+			.btn-primary{
+				width: initial;
+				padding-right: 40px;
 			}
 		}
 	}
+
+	@include desktop{
+		.row [class*='col-'] {
+			padding-left: 0;
+		}
+		header{
+			font-size: 40px;
+			padding-top: 30px;
+			padding-bottom: 40px;
+			.img-icon{
+				width: 80px;
+				height: 80px;
+			}
+		}
+		.btn-container{
+			margin-top: 50px;
+			margin-bottom: 50px;
+		}
+	}
+
+	@include tablet{
+		.row{
+			padding: 30px 0;
+			.img{
+				display: none;
+			}
+			.image-thumbnail{
+				width: 50%;
+				height: 50%;
+			}
+		}
+
+		section:nth-child(even){
+			.image-thumbnail{
+				float: left;
+				padding-right: 25px;
+			}
+		}
+			
+		section:nth-child(odd){
+			.image-thumbnail{
+				float: right;
+				padding-left: 25px;
+			}
+		}
+
+		header{
+			font-size: 30px;
+			padding-left: 7.5px;
+			padding-right: 7.5px;
+			padding-bottom: 20px;
+			.img-icon{
+				width: 80px;
+				height: 80px;
+			}
+		}
+		.btn-container{
+			margin-top: 40px;
+		}
+	}
+
+	@include mobile{
+		.row{
+			padding: 30px 0;
+			display:flex;
+       		flex-flow: column;
+            header{
+               	order:2;
+            }
+       		.img{
+       			order:1;
+       		}
+       		.content{
+       			order:3;
+       		}
+		}
+		header{
+			font-size: 20px;
+			padding-left: 7.5px;
+			padding-right: 7.5px;
+			padding-bottom: 20px;
+			.img-icon{
+				width: 45px;
+				height: 45px;
+			}
+		}
+		.btn-container{
+			margin-top: 20px;
+		}
+	}
+	
 }
