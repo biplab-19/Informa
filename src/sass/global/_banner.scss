@@ -97,7 +97,160 @@
 		background-color: $gray-light-bg;
 		color: $white;
 	}
+	&.dark-banner-subscribe{
+		height: 425px;
+		overflow: hidden;
+		background-color: $gray-light-bg;
+		color: $white;
+		@include mobile {
+				height: auto;
+		}
+		.cf-img {
+			position:absolute;
+			right: 0;
+			@include mobile {
+				display: none;
+			}
+		}
+		h1 {
+				font-family: FSMe-Bold;
+				font-size: 50px !important;
+				margin: 0 0 30px 0 !important;
+				padding-top: 48px !important;
+				@include mobile {
+						margin: 17px 0 7px 0;
+						font-size: 30px;
+				}
+				@include tablet {
+					margin: 0 0 10px 0;
+					padding-top: 25px;
+				}
+		}
+		.btn {
+				font-family: FSMe-Bold !important;
+        width: 110%;
+        color: $light;
+        padding: 10px !important;
+        @include mobile {
+            margin-bottom: 10px;
+            text-align: left;
+						width: 100%;
+        }
+			}
+			.btn:after{
+				font-family: "InformaIcons" !important;
+				content: "\e900";
+				right: 10px;
+			}
+		.subtext {
+        font-family: FSMe-Bold;
+        font-size: 14px;
+        padding-bottom: 24px;
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+    .description {
+        font-family: FSMe-Light;
+        font-size: 14px;
+        padding-bottom: 62px;
+        @include mobile {
+            padding-bottom: 25px;
+            font-size: 12px;
+        }
+        @include tablet {
+          padding-bottom: 30px;
+        }
+    }
+		ul{
+			padding-top: 127px;
+			list-style-type: none;
+			font-size: 20px;
+
+			li{
+				margin-bottom: 20px;
+				padding-left: 20px;
+				@include mobile {
+					padding-left: 44px;
+				}
+			}
+			li:before{
+				margin-right: 10px;
+				font-family: "InformaIcons" !important;
+				content: "\e914";
+				font-size: 25px;
+				color: #ffd500;
+				position: absolute;
+    		left: 35px;
+				@include mobile {
+					left: 28px;
+					padding-left: 0px;
+				}
+			}
+			@include mobile {
+				padding-top: 27px;
+				padding-left: 0px;
+			}
+		}
+		.priceCTA {
+				 padding: 0;
+				 font-size: 14px;
+				 color: $light;
+				 font-family: FSMe-Light;
+				 .priceDetails {
+							 span.price {
+										font-size: 24px;
+										font-family: FSMe-Bold;
+							}
+				 }
+				 .headline {
+							 font-family: FSMe-Bold;
+				 }
+				 @include tablet {
+					 margin-bottom: 10px;
+				 }
+	 }
+
+	 .cta1,.cta2 {
+			 font-size: 14px;
+			 font-family: FSMe-Bold;
+	 }
+	 .cta2 {
+			 font-family: FSMe;
+	 }
+	 .cta3 {
+			 font-family: FSMe-Light;
+			 font-size: 16px;
+			 color: $orange!important;
+			 @include mobile {
+					 font-size: 14px;
+			 }
+	 }
+	 .share{
+		 font-family: FSME-bold;
+		 text-align: center;
+		 padding-top: 10px;
+		 display: inline-block;
+		 padding-left: 20px;
+		 @include mobile {
+			 padding-left: 15px;
+		 }
+	 }
+	 .share:after{
+		 font-family: "InformaIcons" !important;
+		 content: "\e917";
+		 color: $white;
+		 font-size: 25px;
+		 position: absolute;
+		 top:4px;
+		 left: 83px;
+		 @include mobile {
+			 left: 68px;
+		 }
+	 }
+	}
 }
+
 .italics {
 	font-style: italic;
 }

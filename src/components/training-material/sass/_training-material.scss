@@ -1,7 +1,7 @@
-section#training-section{
+section.training-section{
 	background-color: white;
 	padding: 50px;
-	@include mobile{
+	@include mobile {
 		padding: 0px;
 	}
 	.training-material{
@@ -19,7 +19,7 @@ section#training-section{
 		.video-container{
 			padding: 10px;
 			img{
-				height: 210px;
+				height: 220px;
 			}
 			.video-wrap{
 				display: block;
@@ -29,19 +29,19 @@ section#training-section{
 				font-weight: bold;
 			}
 		}
-	.btn {
-		width: 80%;
-		margin-left: 32px;
-		overflow: hidden;
-		@include mobile {
-			width: 100%;
-			margin-left: 0px;
-			padding-left: 28px;
+		.btn{
+			width: 90%;
+			margin-left: 7px;
+			@include tablet {
+				margin-left: 17px;
+			}
+			@include mobile {
+				width: 100%;
+			}
 		}
-			&:after{
-				    color: #ffd600;
-			}
-			}
+		.btn-default::after{
+				color: #ffd500;
+		}
 			 .carousel-lists {
  			    .slick-list {
  			        border-right: none;
@@ -86,21 +86,35 @@ section#training-section{
  			        }
  			    }
  			    .slick-next {
- 			        left: 94%;
+ 			        left: 98%;
  			        margin-left: 0;
-							top: 140px;
+							top: 121px;
  			        &:before {
  			            content: "\e902";
  			        }
+							@include mobile {
+								left: 94%;
+	 			        margin-left: 0;
+								top: 140px
+							}
+							@include tablet {
+								left: 97%;
+								top: 145px;
+								//margin-left:-25px;
+							}
  			    }
  			    .slick-prev {
- 			        left: 6%;
-							top: 140px;
+						left: 2%;
+						top: 121px;
  			        @include mobile {
+								left: 6%;
+								top: 140px;
  			            margin-left:-20px;
  			        }
  			        @include tablet {
- 			            margin-left:-25px;
+								left: 3%;
+								top: 145px;
+ 			          //margin-left:-25px;
  			        }
  			        &:before {
  			            content: "\e903";

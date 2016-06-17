@@ -1,22 +1,74 @@
 section#hero-banner {
+    background-color: $gray-light-bg;
+    color: $white;
     position: relative;
     overflow: hidden;
     height: 425px;
-    color: $light;
+    @include mobile {
+      height: auto;
+    }
     h1 {
         font-family: FSMe-Bold;
-        font-size: 60px;
-        font-size: 50px; // really ?
-        margin: 0 0 35px 0;
+        //font-size: 60px;
+        font-size: 50px;
+        margin: 0 0 30px 0;
+        padding-top: 48px;
         @include mobile {
             margin: 17px 0 7px 0;
             font-size: 30px;
         }
+        @include tablet {
+          margin: 0 0 10px 0;
+          padding-top: 25px;
+        }
     }
+    .left-side-container{
+      //padding-right: 30px;
+    }
+    .right{
+      position: absolute;
+      top: 0 ;
+      right: 0;
+      width: 35%;
+      background-color: rgba(0,0,0,0.3);
+      height: 425px;
+      @include mobile {
+        width: 100%;
+        height: 515px;
+      }
+    }
+    .share{
+      text-align: center;
+      padding-top: 17px;
+      display: inline-block;
+    }
+    .right-side-container{
+      height: 425px;
+      padding-top: 135px;
+      padding-left: 55px;
+      ul{
+        list-style-image: url('cms-images/logo-partial.png');
+      }
+      @include mobile {
+        padding-top: 85px;
+        padding-left: 0px;
+      }
+      @include tablet {
+        padding-top: 90px;
+        padding-left: 20px;
+      }
+    }
+    .cf-img {
+  		position:absolute;
+  		right: 0;
+      @include mobile {
+        display: none;
+      }
+  	}
     .subtext {
         font-family: FSMe-Bold;
-        font-size: 18px;
-        padding-bottom: 15px;
+        font-size: 14px;
+        padding-bottom: 24px;
         @include mobile {
             font-size: 16px;
         }
@@ -24,14 +76,18 @@ section#hero-banner {
     .description {
         font-family: FSMe-Light;
         font-size: 14px;
-        padding-bottom: 40px;
+        padding-bottom: 62px;
         @include mobile {
             padding-bottom: 25px;
             font-size: 12px;
         }
+        @include tablet {
+          padding-bottom: 30px;
+        }
     }
     .btn {
-        width: 100%;
+        //width: 100%;
+        margin-left: 10px;
         color: $light;
         padding: 15px;
         @include mobile {
@@ -45,14 +101,20 @@ section#hero-banner {
              font-family: FSMe-Light;
              .priceDetails {
                    span.price {
-                        font-size: 26px;
+                        font-size: 24px;
                         font-family: FSMe-Bold;
                   }
              }
              .headline {
                    font-family: FSMe-Bold;
              }
+             @include tablet {
+               margin-bottom: 10px;
+             }
        }
+    }
+    .btn-margin{
+      margin-left: 10px;
     }
     .cta1,.cta2 {
         font-size: 14px;
