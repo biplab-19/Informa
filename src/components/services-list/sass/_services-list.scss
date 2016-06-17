@@ -1,42 +1,43 @@
 nav#services-navigation {
-      background: $yellow;
-      border-bottom: 2px solid #c0c1c2;
-      &.navbar-fixed-top {
-            position: fixed;
-            width: 100%;
-      }
-      ul {
-            margin: 0;
-            position: relative;
+    background: $yellow;
+    border-bottom: 2px solid #c0c1c2;
+    &.navbar-fixed-top {
+    	position: fixed;
+        width: 100%;
+    }
+    ul {
+        margin: 0;
+        position: relative;
+        li {
+            margin-right: 20px;
+            a {
+                font-size: 14px;
+                color: $gray-dark-bg;
+                padding: 15px 0px;
+            }
+        }
+    }
+    .menuFollower {
+        background: $light;
+        height: 5px;
+        margin-top: -5px;
+        width: 150px;
+        position: absolute;
+        transition: .3s ease-in;
+        display: none;
+    }
+    
+    @include mobile {
+        .menuFollower {
+            display: none!important;
+        }
+        &.cont {
             li {
-                  margin-right: 20px;
-                  a {
-                        font-size: 14px;
-                        color: $gray-dark-bg;
-                        padding: 15px 0px;
-                  }
-            }
-      }
-      .menuFollower {
-            background: $light;
-            height: 5px;
-            margin-top: -5px;
-            width: 150px;
-            position: absolute;
-            transition: .3s ease-in;
-            display: none;
-      }
-      @include mobile {
-            .menuFollower {
-                display: none!important;
-            }
-            &.cont {
-                  li {
                         pointer-events: none;
                         // actually this is genius.
                         // No.. Use bootstrap collapse. change html sumit
                   }
-            }
+        }
             ul {
                 margin: 20px 0;
                 border: 1px solid $light;
@@ -63,10 +64,11 @@ nav#services-navigation {
                     &.select-options{
                     	display: list-item;
                     }
-                }
             }
-      }
+        }
+    }
 }
+
 section#services-list{
 
 	section:nth-child(even){

@@ -63,7 +63,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _initServicesMenuBarFollow,
       _activateServicesFixedHeader,
       _arrayServicesFlag = true,
-
+      _servicesFirst = true,
+      _initialServicesHdrPos = 0,
 
       _arrayFlag = true,
       _navlinks = $('.nav-links'),
@@ -99,6 +100,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       if(_servicesNavigation.length > 0) {
             _servicesNavigationHeight = _servicesNavigation.height();
             _servicesNavigationPos = _servicesNavigation.offset().top;
+            
             // To show the menu follower with right width and position, todo: remove harcode
             _servicesMenuFollower.css('width',$(_servicesLink[0]).width())
                                  .css('left',$(_servicesLink[0]).offset().left)
@@ -119,36 +121,38 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
       _whenScrolling = function(){
          $(window).on('scroll',function(){
-             // little savings here, the first function will not be executed when pdp nav is sticky
-             if(!_pdpFixed && _mainNavigation.length > 0 && INFORMA.global.device.isDesktop)
-               _activateMainFixedHeader();
-             if(!_pdpFixed && _mobileNavigation.length > 0 && !INFORMA.global.device.isDesktop)
-               _activateMobileFixedHeader();
-             if(_pdpNavigation.length > 0 && _pdpMenuActive) 
-               _activatePdpFixedHeader();
-             if(_servicesNavigation.length > 0 && _servicesMenuActive) 
-               _activateServicesFixedHeader();
+
+            if(!_pdpFixed && _mainNavigation.length > 0 && INFORMA.global.device.isDesktop)
+                  _activateMainFixedHeader();
+            if(!_pdpFixed && _mobileNavigation.length > 0 && !INFORMA.global.device.isDesktop)
+                  _activateMobileFixedHeader();
+            if(_pdpNavigation.length > 0 && _pdpMenuActive) 
+                  _activatePdpFixedHeader();
+            if(_servicesNavigation.length > 0 && _servicesMenuActive) 
+                  _activateServicesFixedHeader();
+             
          });
       };
 
       _activateMainFixedHeader = function(){
-          var _windowPos = $(window).scrollTop();
-            if(_windowPos > _headerPos){
-               if(!_mainNavigation.hasClass(_fixed)){
+         var _windowPos = $(window).scrollTop();
+
+         if(_windowPos > _headerPos){
+            if(!_mainNavigation.hasClass(_fixed)){
                   _mainNavigation.addClass(_fixed);
                   $(".hide-stick").fadeOut("5000","linear");
                   $('.nav-left').animate({'left' : "0px"},1000);           
                   $('body').css('padding-top',_navHeight);
-               }
             }
-            else {
-               if(_mainNavigation.hasClass(_fixed)){
-                  _mainNavigation.removeClass(_fixed);
-                  $(".hide-stick").fadeIn("5000","linear");
-                  $('.nav-left').animate({'left' : "0px"},1000);
-                  $('body').css('padding-top',0);
-               }
+         }
+         else {
+            if(_mainNavigation.hasClass(_fixed)){
+               _mainNavigation.removeClass(_fixed);
+               $(".hide-stick").fadeIn("5000","linear");
+               $('.nav-left').animate({'left' : "0px"},1000);
+               $('body').css('padding-top',0);
             }
+         }
       };
 
       _activateMobileFixedHeader = function(){
@@ -291,66 +295,80 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       };
 
       _activateServicesFixedHeader = function(){
-             var _windowPos = $(window).scrollTop();
-               if(_windowPos > (_servicesNavigationPos - _navHeight)){
-                     _servicesNavigation.addClass(_fixed);
-                     _servicesNavigation.css('top',_navHeight+'px');
-                     _servicesWrapper.css('padding-top',_servicesNavigationHeight);
-                     _servicesFixed = true;
-                     if(_arrayServicesFlag){
-                           for(var i=0;i<_servicesLink.length;i++){
-                                 var _sectionName = '#'+$(_servicesLink[i]).data('target');
-                                 _servicesMenuPos.push($(_sectionName).offset().top);
-                                 _servicesMenuWidth.push($(_servicesLink[i]).width());
-                                 _servicesMenuleft.push($(_servicesLink[i]).parent().offset().left);
-                           }
+         var _windowPos = $(window).scrollTop();
 
-                           // Ilaiyaraja rocks, fix the hard code later
-                           $('#services-navigation ul > li:first-child').addClass('selected');
-                           if(INFORMA.global.device.isMobile) _servicesNavigation.addClass('cont');
-                           _arrayServicesFlag = false;
-                     }
+         if(_servicesFirst){
+            _initialServicesHdrPos = _servicesNavigation.offset().top;
+            _servicesFirst  = false;
+         }
 
+         if(_windowPos > (_initialServicesHdrPos - _navHeight)){
+            _servicesNavigation.addClass(_fixed);
+            _servicesNavigation.css('top',_navHeight+'px');
+            _servicesWrapper.css('padding-top',_servicesNavigationHeight);
+            _servicesFixed = true;
+
+            if(_arrayServicesFlag){
+               for(var i=0;i<_servicesLink.length;i++){
+                  var _sectionName = '#'+$(_servicesLink[i]).data('target');
+                  _servicesMenuPos.push($(_sectionName).offset().top);
+                  _servicesMenuWidth.push($(_servicesLink[i]).width());
+                  _servicesMenuleft.push($(_servicesLink[i]).parent().offset().left);
                }
-               else {
-                     _servicesNavigation.removeClass(_fixed);
-                     _servicesWrapper.css('padding-top',0);
-                     _servicesFixed = false;
-               }
-               // todo: should be moved to function, atleast for readability
-               // line follower robot is something i shud ve built during my college days.
-               var i= _servicesMenuPos.length - 1;
-               for(; i>=0;i--){
-                     if( _windowPos + 120 >= _servicesMenuPos[i]  ){
-                           _servicesMenuFollower.css('width',_servicesMenuWidth[i]);
-                           _servicesMenuFollower.css('left',_servicesMenuleft[i]);
-                              // .menuFollower { transform: translateX(100%)}
-                           i=-1;
-                     }
-               }
-            // todo: easily the worst code I have written, please optimize this
+
+               // Ilaiyaraja rocks, fix the hard code later
+               $('#services-navigation ul > li:first-child').addClass('selected');
+               if(INFORMA.global.device.isMobile) _servicesNavigation.addClass('cont');
+               _arrayServicesFlag = false;
+            }
+         }
+         else {
+            _servicesNavigation.removeClass(_fixed);
+            _servicesNavigation.css('top','0px');
+            _servicesWrapper.css('padding-top',0);
+            _servicesFixed = false;
+            _arrayServicesFlag = true;
+            _initialServicesHdrPos = _servicesNavigation.offset().top;
+         }
+
+         // todo: should be moved to function, atleast for readability
+         // line follower robot is something i shud ve built during my college days.
+         var i= _servicesMenuPos.length - 1;
+         for(; i>=0;i--){
+            if( _windowPos + 120 >= _servicesMenuPos[i]  ){
+               _servicesMenuFollower.css('width',_servicesMenuWidth[i]);
+               _servicesMenuFollower.css('left',_servicesMenuleft[i]);
+               // .menuFollower { transform: translateX(100%)}
+               i=-1;
+            }
+         }
+         // todo: easily the worst code I have written, please optimize this
       };
+
 
       // when clicking the services-navigation
       _servicesNavigationScrollTo = function(){
          _servicesLink.on('click',function(e){
-            //e.preventDefault();
+            e.preventDefault();
             //_servicesNavigation.addClass('cont');
             var _target = $(this).data('target');
 
             // todo, remove hardcoding
             $('#services-navigation li').removeClass('selected');
             $('#services-navigation li').addClass('select-options');
-/*
-            console.log($("#"+_target).offset().top);
-            console.log(_navHeight + _servicesNavigationHeight);
+            _servicesNavigationHeight = _servicesNavigation.height();
+
+            //console.log("Offset-top: " + $("#"+_target).offset().top);
+            //console.log("Main-nav height: " +_navHeight);
+            //console.log("Services-nav height: " + _servicesNavigationHeight);
             
-            var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight + _servicesNavigationHeight + 2);
-            console.log(_scrollTopPixels);
+            var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight + _servicesNavigationHeight);
+            //var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight);
+            //console.log("scrollTo: " + _scrollTopPixels);
 
             $('html, body').stop().animate({
                   scrollTop: _scrollTopPixels
-            }, 1000);*/
+            }, 1000);
 
             if(INFORMA.global.device.isMobile) {
                // lesson learnt, hack is wrong.
@@ -462,7 +480,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                   var _id = this.id;
                   $("#" + _id + " .image-thumbnail").prependTo("#" + _id + " .content");
                });
-            }
+            }        
 
 
       };
