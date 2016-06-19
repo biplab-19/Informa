@@ -10,22 +10,26 @@
 		margin-top: 20px;
 	}
 	.introduction {
+		padding: 30px 0 0 0;
 		margin-bottom: 20px;
 	    background-color: #ffea7f;
-	    padding: 48px 15px 10px;
 	    position: relative;
-	    transform: skewY(-2deg);
-	    margin-top: -35px;
-	    min-height: 185px;
-	    position: relative;
-	    .container {
-	    	padding: 30px 0 0 0;
-	    	transform: skewY(2deg);
+	    @include mobile {
+	        padding: 30px 0 25px 0;
+	        margin-bottom: 0;
+	    }
+	    @include tablet {
+	        padding: 30px 0 25px 0;
+	        margin-bottom: 0;
 	    }
 		.image {
-		    width: 100px;
-		    height: 100px;
+	        width: 115px;
+		    height: 115px;
 		    float: right;
+		    @include mobile {
+	    	    width: 60px;
+				height: 60px;
+	    	}
 		    img {
 		    	@include border-radius(50%);
 		    	width:  100%;
@@ -34,12 +38,18 @@
 		    }
 		}
 		.details {
-			width: calc(100% - 120px);
+			width: calc(100% - 140px);
 			float: left;
+			position: relative;
+			@include mobile {
+				width: calc(100% - 75px);
+			}
 			p {
 				margin-bottom: 25px;
+			    font-size: 16px;
+			    font-family: 'FSMe-Light';
 				@include mobile {
-					margin-bottom: 10px;
+					font-size: 13px;
 				}
 			}
 		}
@@ -67,10 +77,11 @@
 			float: left;
 			margin-top: 5px;
 			@include desktop {
-				position: absolute;
-				top: 60px;
-				left: 50%;
-				transform: translate(-50%, 0);
+			    position: absolute;
+			    top: 50%;
+			    right: 0;
+			    transform: translate(0, -50%);
+			    margin-top: 0;
 			}
 			li {
 				@include border-radius(50%);
@@ -127,6 +138,10 @@
 	}
 	.btn-container {
 		padding-right: 45px;
+		@include mobile {
+			text-align: center;
+			padding-right: 0;
+		}
 	}
 	.show-options {
 		min-width: 105px;
@@ -139,6 +154,10 @@
 		margin-top: 30px;
 		text-align: left;
 		text-decoration: none;
+		@include mobile {
+			padding: 0 0 45px 0;
+			text-align: center;
+		}
 		&:after {
 			content: "+";
 			position: absolute;
@@ -152,6 +171,11 @@
 			@include border-radius(50%);
 			font-size: 16px;
 			padding: 0 6px;
+			@include mobile {
+				top: 20px;
+				right: 50%;
+				margin-right: -10px;
+			}
 		}
 		.more {
 			display: block;
@@ -163,7 +187,7 @@
 	.more-stories {
 		margin-top: 0;
 		@include mobile {
-			margin-top: 50px;
+			margin-top: 35px;
 		}
 		@include tablet {
 			margin-top: 30px;
@@ -181,6 +205,9 @@
 				@include desktop {
 					width: 50%;
 					float: left;
+				}
+				@include mobile {
+					margin-bottom: 10px;
 				}
 				&:before {
 					content: "\e914";

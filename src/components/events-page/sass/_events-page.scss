@@ -17,6 +17,7 @@
 			display: block;
 			background-color: $yellow;
 			position: relative;
+			color: $white;
 			@include tablet {
 				width: 25px;
 				height: 35px;
@@ -48,8 +49,9 @@
 				}
 			}
 			&.arrow-desabled{
-					background-color: #f3f3f3;
+					background-color: grey;
 					cursor: default;
+					pointer-events: none;
 			}
 		}
 	}
@@ -78,7 +80,7 @@
 				}
 			}
 			.content-wrap {
-				padding: 15px 15px 90px;
+				padding: 15px;
 				.type {
 					padding: 3px;
 					background-color: #676c7a;
@@ -90,6 +92,7 @@
 					color: #6a7287;
 					font-family: 'FSMe-Bold';
 					margin: 0;
+					height: 80px;
 				}
 				.content {
 					margin-top: 35px;
@@ -126,8 +129,6 @@
 			}
 			.footer {
 				padding: 15px;
-				position: absolute;
-    		bottom: 0;
 				width: 100%;
 				.btn {
 					padding-right: 40px;
@@ -144,7 +145,7 @@
 				}
 			}
 		}	//past event
-		&.past-event{
+		&.PreviousDate{
 			color:#cbccd1;
 			.events-wrap .content-wrap .title{
 				color:#cbccd1;
@@ -163,7 +164,7 @@
 				}
 			}
 		}//current event
-		&.current-event{
+		&.CurrentDate{
 		.events-wrap .header .date{
 				background-color:#fed501;;
 			}
@@ -218,4 +219,7 @@
 			display: block;
 		}
 	}
+}
+.no-result {
+	background: $white;
 }
