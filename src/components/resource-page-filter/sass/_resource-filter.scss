@@ -3,7 +3,7 @@
 	@include mobile {
 		padding: 0;
 	}
-	li {
+	> li {
 		display: inline-block;
 		label {
 		    font-size: 12px;
@@ -37,22 +37,33 @@
 				padding-right: 7.5px;
 			}
 		}
-	}
-	.chosen-container-single .chosen-single {
-		height: 54px;
-	}
-	.chosen-container-single .chosen-single div {
-		@include rotate(90deg);
-	    top: 5px;
-    	right: 10px;
-		&:before {
-			content: '>';
+		.btn-group {
+			width: 100%;
+			.btn {
+				width: 100%;
+				background: $white;
+				border-color: $white;
+				box-shadow: none;
+				.caret {
+					display: none;
+				}
+				&:after {
+				    font: 400 15px 'InformaIcons';
+				    content: "\e901";
+				    color: #a7a9b6;
+				}
+			}
 		}
-	}
-	.chosen-container-single .chosen-single div b {
-		display: none;
-	}
-	.chosen-container-single .chosen-single span {
-		margin-top: 8px;
+		.multiselect-container {
+			width: 100%;
+			min-height: auto !important;
+			overflow: hidden !important;
+			border: none;
+			border-radius: 0;
+			input {
+				left: 37px;
+    			top: 1px;
+			}
+		}
 	}
 }

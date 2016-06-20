@@ -289,11 +289,15 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         DateAttr = moment(ItemDate).format('YYYY-MM-DD');
                         
                     if(moment(CurrentDate).format('DD MMM YYYY') > moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">' +event.State+ ', <strong>'+event.Country+'</strong></p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
                     } else if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">' +event.State+ ', <strong>'+event.Country+'</strong></p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
                     } else {
-                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">' +event.State+ ', <strong>'+event.Country+'</strong> </p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
+                    }
+
+                    if(event.Country != null) {
+                        jQuery('.events[data-date="'+DateAttr+'"]').append('<p class="country"><strong>' +event.Country+ '</strong></p>');
                     }
                 }
         });

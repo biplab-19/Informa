@@ -2,21 +2,23 @@
 	<div class="container">
 		<ul class="resource-search row col-sm-12 col-md-10">
 			<li class="col-xs-12 col-sm-4">
-				<label for="sector">By Sector</label>
-				<div class="sector">
-                  <select class="chosen-select" name="sector">
-                    <option value="All">All</option>
-                    <option value="latest">latest</option>
-                  </select>
+				<label for="sector-list" class="label-text">Sector:</label>
+                <div class="custom-multiselect">
+                    <select id="resource-sector" name="sectors" class="sector-list" multiple="multiple" data-placeholder="Please Select">
+                        <option value="sector1">Commodities</option>
+                        <option value="sector2">Crop protection</option>
+                        <option value="sector3">Diary Products</option>
+                    </select>
                 </div>
 			</li>
-			<li class="col-xs-12 col-sm-4">
-				<label for="sector">By Sub Sector</label>
-				<div class="sub-sector">
-                  <select class="chosen-select" name="sub-sector">
-                    <option value="All">All</option>
-                    <option value="latest">latest</option>
-                  </select>
+			<li class="col-xs-12 col-sm-4 hidden">
+				<label for="resource-sub-sector" class="label-text">Sub Sector:</label>
+                <div class="custom-multiselect">
+                    <select id="sub-sector-list" name="subsectors" class="sub-sector-list" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
+                        <option value="subsector1">Diary</option>
+                        <option value="subsector2">Meats</option>
+                        <option value="subsector3">Electronics</option>
+                    </select>
                 </div>
 			</li>
 			<li class="col-xs-12 col-sm-4">
