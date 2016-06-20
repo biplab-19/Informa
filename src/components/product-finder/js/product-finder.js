@@ -79,7 +79,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             });
         },
         SubmitHandler = function(btn, SearchType) {
-            btn.on("click", ".btn", function(e) {
+            btn.off().on("click", function(e) {
                 e.preventDefault();
                 var FieldArray = ProductFinderSection.find("form").serializeArray(),
                     GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
@@ -90,7 +90,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         BindAjaxHandler = function() {
 
             var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
-                IsSearchPage = (SearchPage.data("search") === true) ? true : false;
+                IsSearchPage = (SearchPage.data("search") === true) ? true : true;
 
             if (IsProductPage) {
                 SubmitHandler(SubmitBtn,"ProductSearch");

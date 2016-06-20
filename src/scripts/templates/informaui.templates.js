@@ -83,6 +83,16 @@ var INFORMA = window.INFORMA || {};
                     '{{/each}}'+
                 '</ul>'+
             '</div>',
+        'SearchTabs' :
+        '<div class="container clearfix">'+
+            '<ul class="tab-list">'+
+                '{{#each results}}'+
+                    '<li>'+
+                        '<a href="#{{}}" class="">{{}}</a>'+
+                    '</li>'+
+                '{{/each}}'+
+            '</ul>'+
+        '</div>',
         'ProductFilters':
             '<div class="{{results.FilterName}}">'+
                 '<p>{{results.FilterName}}:</p>'+

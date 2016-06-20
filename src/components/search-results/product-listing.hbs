@@ -1,14 +1,6 @@
-<section class="search-results search-container">
-<input type="hidden" class="search-hidden" value="Issue Index" />
-<div class="search-tabs">
-    <div class="container clearfix">
-        <ul class="tab-list">
-            <li class="selected"><a href="#results">All results</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#resources">Resources</a></li>
-        </ul>
-    </div>
-</div>
+<section class="product-finder-results search-container">
+<input type="hidden" class="sector-list" value="sector1,sector2,sector3" />
+<input type="hidden" class="sub-sector-list" value="" />
 <div class="search-filter">
 	<div class="container">
 		<p class="filter-text">You've searched for:</p>
@@ -33,7 +25,7 @@
 	</div>
 </div>
 <div class="container" id="results" style="display:none;"> 
-	<div class="search-results flip" id="products" name="products">
+	<div class="search-results flip" id="products">
         <p class="count"><strong></strong> Products found</p>
             <div class="row">
             </div>
@@ -44,7 +36,7 @@
                 </a>
             </div>
     </div>
-    <div class="search-results" id="resources" name="resources">
+    <div class="search-results" id="resources">
            <p class="count"><strong></strong> Resources found</p>
            	<div class="row article-list">
            	</div>

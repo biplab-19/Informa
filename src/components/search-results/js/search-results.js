@@ -70,14 +70,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         GetSearchData = function(sVal){
             if(sVal){
                 SearchField.val(sVal);
-                SearchField.parent().removeClass("disabled");
+                SearchSubmitBtn.removeClass("disabled");
                 SearchSubmitBtn.trigger("click");
             }
         },
         UpdateResultPage = function(SecValue, SubSecValue) {
 
             var SectorArray = SecValue.split(","),
-                SubSectors = SubSecValue.split(","),
+                SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
                 SectorIDs = 'SectorIDs=' + Utils.StrngToQryStrng(SecValue);
 
             if (SectorSelect.length && SectorArray) {
@@ -92,7 +92,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             MakeDropPreSelected(SubSectors, SubSectorSelect);
                         }
                         ProductFinder.slideDown();
-                        SubmitBtn.find("button").trigger("click");
+                        SubmitBtn.trigger("click");
                     },
                     error_callback: function() {
 
@@ -242,7 +242,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if(IsSearchPage && SearchHidden.length >0){
                 var SearchVal = SearchHidden.val();
                 if (SearchVal) {
-                    UpdateResultPage(SearchVal);
+                    GetSearchData(SearchVal);
                 }
             }
 
