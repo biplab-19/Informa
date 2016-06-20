@@ -6404,3 +6404,99 @@ section#services-list .row .btn-container .btn-primary {
   color: #fff;
   opacity: 2;
 }
+
+/* line 1, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search {
+  list-style-type: none;
+}
+@media (max-width: 767px) {
+  /* line 1, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+  .resource-search {
+    padding: 0;
+  }
+}
+/* line 6, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li {
+  display: inline-block;
+}
+/* line 8, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li label {
+  font-size: 12px;
+  font-family: 'FSMe-Bold';
+  margin-top: 23px;
+}
+/* line 13, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li .search {
+  border-color: #ef7c00;
+  width: 100%;
+  color: #fff;
+  margin-top: 45px;
+}
+/* line 18, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li .search:after {
+  color: #fff;
+}
+/* line 21, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li .search:hover {
+  color: #fff;
+}
+@media (max-width: 767px) {
+  /* line 13, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+  .resource-search > li .search {
+    margin-top: 20px;
+  }
+}
+/* line 28, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li:first-child {
+  padding-left: 0;
+}
+@media (max-width: 767px) {
+  /* line 28, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+  .resource-search > li:first-child {
+    padding-left: 7.5px;
+  }
+}
+/* line 34, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li:last-child {
+  padding-right: 0;
+}
+@media (max-width: 767px) {
+  /* line 34, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+  .resource-search > li:last-child {
+    padding-right: 7.5px;
+  }
+}
+/* line 40, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li .btn-group {
+  width: 100%;
+}
+/* line 42, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li .btn-group .btn {
+  width: 100%;
+  background: #fff;
+  border-color: #fff;
+  box-shadow: none;
+}
+/* line 47, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li .btn-group .btn .caret {
+  display: none;
+}
+/* line 50, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li .btn-group .btn:after {
+  font: 400 15px 'InformaIcons';
+  content: "\e901";
+  color: #a7a9b6;
+}
+/* line 57, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li .multiselect-container {
+  width: 100%;
+  min-height: auto !important;
+  overflow: hidden !important;
+  border: none;
+  border-radius: 0;
+}
+/* line 63, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-search > li .multiselect-container input {
+  left: 37px;
+  top: 1px;
+}

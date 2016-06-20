@@ -621,7 +621,8 @@ var INFORMA = window.INFORMA || {};
                                             '<div class="events-wrap">'+
                                                 '<div class="header clearfix">'+
                                                     '<div class="date">{{DateField}}</div>'+
-                                                    '<p class="country">{{State}} ,<strong>{{Country}}</strong></p>'+
+                                                    '<p class="country">'+
+                                                        '{{#compare State null operator="!="}}{{State}}{{/compare}} ,<strong>{{#compare Country null operator="!="}}{{Country}}{{/compare}}</strong></p>'+
                                                 '</div>'+
                                                 '<div class="content-wrap">'+
                                                     '<p><span class="type">{{EventType}}</span></p>'+

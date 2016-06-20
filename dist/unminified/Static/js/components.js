@@ -997,11 +997,15 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         DateAttr = moment(ItemDate).format('YYYY-MM-DD');
                         
                     if(moment(CurrentDate).format('DD MMM YYYY') > moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">' +event.State+ ', <strong>'+event.Country+'</strong></p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
                     } else if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">' +event.State+ ', <strong>'+event.Country+'</strong></p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
                     } else {
-                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">' +event.State+ ', <strong>'+event.Country+'</strong> </p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
+                    }
+
+                    if(event.Country != null) {
+                        jQuery('.events[data-date="'+DateAttr+'"]').append('<p class="country"><strong>' +event.Country+ '</strong></p>');
                     }
                 }
         });
@@ -2710,6 +2714,68 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.ProductFinder.init());
+
+// /*
+//  * Resource Filter.js
+//  *
+//  *
+//  * @project:    Informa
+//  * @date:       2016-April-25
+//  * @author:     Rajiv
+//  * @licensor:   SAPIENNITRO
+//  * @namespaces: INFORMA
+//  *
+//  */
+
+// var INFORMA = window.INFORMA || {};
+// INFORMA.ResourceFilter = (function(window, $, namespace) {
+//     'use strict';
+//     //variables
+//     var _contactUs = $('#contactus-section'),
+//         _accordianTile = _contactUs.find('.panel-default'),
+//         _eachTile = _contactUs.find('.panel-heading'),
+//     // methods
+//         init,
+//         _openAccordian;
+
+//     _openAccordian = function(container){
+//         if(INFORMA.global.device.viewportN === 2) {
+//             var _tiles = container.find('.panel-default');
+
+//             _tiles.each(function(key, value) {
+//                 if(key < 2) {
+//                     jQuery(this).find('.panel-heading').removeClass('collapsed');
+//                 } else {
+//                     jQuery(this).find('.collapse').collapse('hide');
+                    
+//                 }
+//             })
+//         }
+//     }
+
+//     _eachTile.on('click', function() {
+//         _eachTile.parent().find('.collapse').collapse('hide');
+//         _eachTile.not(jQuery(this)).addClass('collapsed');
+//         jQuery(this).parent().find('.collapse').collapse('hide');
+//         if(jQuery(this).hasClass('collapsed')) {
+//             jQuery(this).removeClass('collapsed');
+//         } else {
+//             jQuery(this).addClass('collapsed');
+//         }
+//     })
+    
+
+//     init = function() {
+//         if (_contactUs.length > 0) {
+//             _openAccordian(_contactUs);
+//         }
+//     };
+
+//     return {
+//         init: init
+//     };
+// }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+// jQuery(INFORMA.ResourceFilter.init());
 
 /*
  * Product Results.js
