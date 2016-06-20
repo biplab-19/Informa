@@ -4,34 +4,40 @@
 			<div class="col-xs-12 col-sm-3">
 				<h2 class="bolder">{{title}}</h2>
 				<div class="selectMenu">
-						<select id="helpFAQSelect" class="chosen-select"
-							{{#each OptionList}}
-								<option value="{{displayValue}}">{{displayText}}</option>
-							{{/each}} >
-						</select>
+					<select id="helpFAQSelect" class="help-faq-select chosen-select" data-target=".help-faq-wrapper" {{#each OptionList}} <option value="{{displayValue}}" data-show=".{{displayValue}}">{{displayText}}</option>
+						{{/each}} >
+					</select>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-8 col-sm-offset-1">
-				<div class="panel-group" id="faqs-accordion" role="tablist" aria-multiselectable="true">
-				  	{{#each accordian}}
-				  	<div class="panel panel-default">
-					    <div class="panel-heading" role="tab" id="{{id}}">
-					      <h4 class="panel-title">
+			<div class="help-faq-wrapper">
+				{{#each helpItems}}
+					<div class="{{accordianId}} col-xs-12 col-sm-8 col-sm-offset-1 ">
+						<div class="panel-group" id="faqs-accordion" role="tablist" aria-multiselectable="true">
+							{{#each accordian}}
+								<div class="panel panel-default">
+									<div class="panel-heading" role="tab" id="{{id}}">
+										<h4 class="panel-title">
 					        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#faqs-accordion" href="#{{collapsecontrol}}" aria-expanded="false" aria-controls="{{collapsecontrol}}">
 					          Collapsible Group Item #2
 					        </a>
 					      </h4>
-					    </div>
-					    <div id="{{collapsecontrol}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{id}}">
-					      <div class="panel-body">
-					        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-					      </div>
-					    </div>
-				  	</div>
-				  	{{/each}}
-				</div>
-				<a href="#" class="btn btn-default">See all questions</a>
+									</div>
+									<div id="{{collapsecontrol}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{id}}">
+										<div class="panel-body">
+											Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+											on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
+											raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+										</div>
+									</div>
+								</div>
+							{{/each}}
+						</div>
+						<a href="#" class="btn btn-default">See all questions</a>
+					</div>
+				{{/each}}
+
 			</div>
+
 		</div>
 	</div>
 </section>
