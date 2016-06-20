@@ -1,4 +1,4 @@
-/*! 2016-06-16 */_adjustHeigt = function(){
+/*! 2016-06-20 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -706,45 +706,6 @@ INFORMA.navbars = (function(window, $, namespace) {
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.navbars.init());
 
-var INFORMA = window.INFORMA || {};
-INFORMA.eventPage = (function(window, $, namespace) {
-    'use strict';
-    var init,
-       _equalheight,
-       _bindShowMoreEvents,
-       _eventList = $('#events');
-       _equalheight = function(){
-           var highestBox = 0;
-          $('.events-section .events-wrap').each(function(){
-                  if($(this).height() > highestBox){
-                  highestBox = $(this).height();
-                }
-          });
-          $('.events-section .events-wrap').height(highestBox);
-        }
-        _bindShowMoreEvents = function(container){
-            // if data-items, data-infinite is defined, used it
-            var _showMoreEvents = $('.btn-more-events');
-           var _limit = container.data(INFORMA.global.device.viewport) + 1;
-            _showMoreEvents.on('click',function(){
-                var _vp = INFORMA.global.device.viewport;
-                var _limit = container.data(INFORMA.global.device.viewport) + 1;
-                _eventList.find('.events-section:nth-child(n+7)').slideToggle();
-                $(this).toggleClass('showLess');
-            });
-        }
-        init = function() {
-              _equalheight();
-            if (_eventList.length > 0) {
-              _bindShowMoreEvents(_eventList);
-            }
-        };
-    return {
-        init: init
-    };
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.eventPage.init());
-
 /*
  * Events Search.js
  *
@@ -758,7 +719,7 @@ jQuery(INFORMA.eventPage.init());
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.EventsSearch = (function(window, $, namespace) {
+INFORMA.EventsViews = (function(window, $, namespace) {
     'use strict';
     //variables
     var EventsLists = $('.events-search'),
@@ -766,13 +727,60 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
         CalendarView = EventsLists.find('.views a.icon-calendar'),
         ListView = EventsLists.find('.views a.icon-list-view'),
         Calendar = $('section[data-view="calendar-view"] .container'),
+        List = $('section[data-view="list-view"] .container'),
         MonthSelect = $('select[name="month"]'),
+        SectorSelect = $('select[name="sector"]'),
         NextButton = $('.fc-next-button'),
+        MoreEvents = $('.btn-more-events'),
+       _Start = moment(new Date()).format('MMM YYYY'),
+       _end = moment(_Start).add('months', 11).format('MMM YYYY'),
         Urls = INFORMA.Configs.urls.webservices,
+        Templates = INFORMA.Templates,
+        _previousDate = null,
         //methods
-        init, SwitchEvents, GetAjaxData, RenderMonthResults, SetCalendarEvents, MobileEvents, RenderCalendar, RenderEvents, RenderParticularMonth;
+        init, RenderOnLoad, GetAjaxData, RenderResults, CalendarRender, ListRender, 
+        SetCalendarEvents, RenderEvents, RenderListClickEvents, RenderCalendarEvents, 
+        SwitchEvents, RenderChange, RenderChangeCalendar, RenderChangeList, RenderParticularMonth, MoreEventsList, NoEventsFound,
+        EqualHeight;
+        
+        EqualHeight = function(){ 
+           var highestBox = 0, 
+            EachItem = List.find(".content-wrap"),
+            padding = 30; 
+            
+            jQuery('section[data-view="list-view"]').show();
+          EachItem.each(function(){ 
+                  if(jQuery(this).height() > highestBox){ 
+                  highestBox = jQuery(this).height(); 
+                } 
+          }); 
+          if(jQuery('section[data-view="calendar-view"]:visible').length > 0) {
+              jQuery('section[data-view="list-view"]').hide();
+          }
+          EachItem.height(highestBox + padding); 
+        }
+
+        
+        MoreEventsList = function () {
+            var Count = List.data('count'),
+                Items = List.find('.events-section').length;
+                
+                if(Items > Count) {
+                    jQuery('.more-events').removeClass('hidden');
+                    List.find('.events-section:nth-child(n+'+(Count+1)+')').hide();
+                } else {
+                    jQuery('.more-events').addClass('hidden');
+                }
+                
+                
+                MoreEvents.on('click', function() {
+                    List.find('.events-section:nth-child(n+'+(Count+1)+')').slideToggle();
+                    jQuery(this).toggleClass('showLess');
+                });
+        }
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
             data: JSON.stringify({ data: data }),
@@ -789,10 +797,102 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
         });
     },
 
-    RenderParticularMonth = function(date) {
-        var NextMonth = moment(date).format('MMM-YYYY');
-        GetAjaxData(Urls.EventsSearch, "Get", NextMonth, RenderEvents, null, null);
+    RenderOnLoad = function () {
+
+        jQuery('body').addClass('list-view');
+        var date = new Date(),
+            DatePass = moment(date).format('MMM YYYY');
+        var obj = {
+            MonthYear: DatePass
+        }
+        _previousDate = DatePass;
+        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderResults, null, null);
     },
+
+    RenderResults = function(data) {
+        CalendarRender(data);
+        ListRender(data);
+    },
+
+    CalendarRender = function(data) {
+        SetCalendarEvents(data);
+    },
+
+    ListRender = function(data) {
+        var results = data.SearchDictionary,
+              html = "";
+
+          for (var key in results) {
+              if (results.hasOwnProperty(key)) {
+                  var Data = results[key],
+                      HeaderText = key,
+                      TemplateName = (Templates.EventpageListviewTemplate !== "undefined") ? Templates.EventpageListviewTemplate : "",
+                      ListTemplate = Handlebars.compile(TemplateName);
+                      
+                  Data.Month = HeaderText;
+                  html += ListTemplate({ results: Data });
+              }
+          }
+          // debugger;
+          List.html(html);
+            MoreEventsList();
+            NoEventsFound();
+            
+          var ViewDate = moment(results.Month).format('MMM YYYY'),
+                Count = List.data('count'); 
+                List.find('.events-section:nth-child(n+'+(Count+1)+')').hide(); 
+                jQuery('.btn-more-events').removeClass('showLess');
+
+          if(ViewDate == _Start) {
+            List.find('.previous').addClass('arrow-desabled');
+          } else {
+             List.find('.previous').removeClass('arrow-desabled');
+          }
+
+          if(ViewDate == _end) {
+            List.find('.next').addClass('arrow-desabled');
+          } else {
+             List.find('.next').removeClass('arrow-desabled');
+          }
+          RenderListClickEvents();
+    },
+
+    RenderListClickEvents = function() {
+        var NextBtn = List.find('.next'),
+              PreviousBtn =  List.find('.previous');
+
+    
+              $(document).on('click','.next', function () {
+                  
+                var DateText = jQuery('section[data-view="list-view"]').find('h2').text(),
+                    ViewDate = new Date(DateText),
+                    nextMonth = moment(ViewDate).add('months', 1).format('MMM YYYY');
+                    
+                    var obj = {
+                        MonthYear: nextMonth,
+                        SectorId: SectorSelect.val()
+                    }
+                    jQuery('section[data-view="calendar-view"]').show();
+                    Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', 1));
+                    jQuery('section[data-view="calendar-view"]').hide();
+                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+              })
+
+              $(document).on('click','.previous', function () {
+                var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
+                    ViewDate = new Date(DateText),
+                    prevMonth = moment(ViewDate).add('months', -1).format('MMM YYYY');
+                    
+                    var obj = {
+                        MonthYear: prevMonth,
+                        SectorId: SectorSelect.val()
+                    }
+                    jQuery('section[data-view="calendar-view"]').show();
+                    Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', -1));
+                    jQuery('section[data-view="calendar-view"]').hide();
+                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+              })
+    }
 
     SetCalendarEvents = function(eventList) {
         var _contentheight = null, _dayView = [];
@@ -801,7 +901,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
             _contentheight = 100;
             _dayView = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
         } else {
-            _contentheight = 1200;
+            _contentheight = 1700;
             _dayView = ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
         }
         Calendar.html("");
@@ -812,6 +912,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                     right: 'next'
                 },
                 eventLimit: true,
+                titleFormat: 'MMM YYYY',
                 contentHeight: _contentheight,
                 viewRender: function(view) {
                     var date = new Date(),
@@ -831,7 +932,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                         jQuery('.fc-prev-button').addClass('disabled');
                     } else {
                         jQuery('.fc-prev-button').removeClass('disabled');
-                        RenderParticularMonth(viewDate);
+                        
                     }
                     
                     if(viewMonth === endMonth) {
@@ -839,9 +940,18 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                     } else {
                         jQuery('.fc-next-button').removeClass('disabled');
                     }
+                    console.log(_previousDate);
+                    
+                        if(moment(_previousDate).format('MMM YYYY') != moment(viewDate).format('MMM YYYY')) {
+                            setTimeout(function() {
+                            
+                                RenderParticularMonth(viewDate);  
+                            }, 50);                             
+                        }
                     
 
-                    // GetAjaxData(Urls.EventsSearch, "Get", null, RenderMonthResults, null, null);
+                    _previousDate = null;
+                    
                 },
                 dayNamesShort: _dayView,
                 dayClick: function(date, jsEvent, view) {
@@ -893,32 +1003,45 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
                 eventRender: function(event, element, view) {
                     var CurrentDate = new Date(),
                         ItemDate = new Date(event.start._i),
-                        DateAttr = moment(ItemDate).add('days',-1).format('YYYY-MM-DD');
-                        // debugger;
-                    if(CurrentDate > ItemDate) {
-                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
-                    } else if(CurrentDate == ItemDate) {
-                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
+                        DateAttr = moment(ItemDate).format('YYYY-MM-DD');
+                        
+                    if(moment(CurrentDate).format('DD MMM YYYY') > moment(ItemDate).format('DD MMM YYYY')) {
+                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">' +event.State+ ', <strong>'+event.Country+'</strong></p></div>');
+                    } else if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
+                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">' +event.State+ ', <strong>'+event.Country+'</strong></p></div>');
                     } else {
-                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="#">' + event.title + '</a></p><p class="country">' +event.location+ '</p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">' +event.State+ ', <strong>'+event.Country+'</strong> </p></div>');
                     }
                 }
         });
-        RenderEvents(eventList);
-
+        RenderCalendarEvents(eventList);
+        jQuery('section[data-view="calendar-view"]').hide();
     },
+    
+    RenderParticularMonth = function(date) { 
+        var NextMonth = moment(date).format('MMM YYYY'); 
+                
+                var obj = { 
+                        MonthYear: NextMonth, 
+                        SectorId: SectorSelect.val() 
+                } 
+        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
+    },
 
-    RenderEvents = function(list) {
+    RenderCalendarEvents = function(list) {
+        //debugger;
+        Calendar.fullCalendar('removeEvents');
         var Month = Object.keys(list.SearchDictionary)[0],
             data = list.SearchDictionary[Month].ModelItem;
 
         var EventList = [];
-
+        
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
                 "start": data[key].EventStartDate,
-                "location": data[key].Location
+                "State": data[key].State,
+                "Country": data[key].Country
             })
         }
         for(var key in EventList) {
@@ -926,54 +1049,163 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
         }
     },
 
-    RenderMonthResults = function(data){
+    RenderChange = function(data) {
         
-        SetCalendarEvents(data);
+        RenderChangeCalendar(data);
+        RenderChangeList(data);
     },
 
-    RenderCalendar = function() {
-        //Fetch Current Month
-        var date = new Date(),
-            DatePass = moment(date).format('MMM-YYYY');
+    RenderChangeCalendar = function(list) {
+        Calendar.fullCalendar('removeEvents');
+        var Month = Object.keys(list.SearchDictionary)[0],
+            data = list.SearchDictionary[Month].ModelItem;
 
-        GetAjaxData(Urls.EventsSearch, "Get", DatePass, RenderMonthResults, null, null);
+        var EventList = [];
+        
+        for(var key in data) {
+            EventList.push({
+                "title": data[key].Title,
+                "start": data[key].EventStartDate,
+                "State": data[key].State,
+                "Country": data[key].Country
+            })
+        }
+        jQuery('section[data-view="calendar-view"]').show();
+        for(var key in EventList) {
+            Calendar.fullCalendar('renderEvent', EventList[key], true);
+        }
+        if(jQuery('body').hasClass('list-view')) {
+            jQuery('section[data-view="calendar-view"]').hide();
+        }
+    },
+    
+    NoEventsFound = function () {
+            var Count = List.data('count'),
+                Items = List.find('.events-section').length;
+                
+                //debugger;
+        if(jQuery('body').hasClass('list-view')) {
+                if (List.find('.events-section').length > 0) { 
+                        jQuery('.no-result').addClass('hidden'); 
+                        if(Count < Items) {
+                            jQuery('.btn-more-events').removeClass('hidden'); 
+                        }
+                        else{
+                            jQuery('.btn-more-events').addClass('hidden'); 
+                        }
+                    } else { 
+                        jQuery('.no-result').removeClass('hidden'); 
+                        jQuery('.btn-more-events').addClass('hidden'); 
+                    }
+        } else {
+            jQuery('.no-result').addClass('hidden'); 
+            if(Count < Items) {
+                jQuery('.btn-more-events').removeClass('hidden'); 
+            }
+            else{
+                jQuery('.btn-more-events').addClass('hidden'); 
+            }
+        }
+        setTimeout(function() {
+            EqualHeight();
+        }, 100);
+        
+    },
+
+    RenderChangeList = function(data) {
+        var results = data.SearchDictionary,
+              html = "";
+
+          for (var key in results) {
+              if (results.hasOwnProperty(key)) {
+                  var Data = results[key],
+                      HeaderText = key,
+                      TemplateName = (Templates.EventpageListviewTemplate !== "undefined") ? Templates.EventpageListviewTemplate : "",
+                      ListTemplate = Handlebars.compile(TemplateName);
+                  Data.Month = HeaderText;
+                  html += ListTemplate({ results: Data });
+              }
+          }
+          List.html(html);
+            NoEventsFound();
+            
+            var Count = List.data('count'); 
+                List.find('.events-section:nth-child(n+'+(Count+1)+')').hide(); 
+                jQuery('.btn-more-events').removeClass('showLess');
+            
+          var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
+                ViewDate = moment(new Date(ViewDateText)).format('MMM YYYY');
+            
+          if(ViewDate == _Start) {
+            List.find('.previous').addClass('arrow-desabled');
+          } else {
+             List.find('.previous').removeClass('arrow-desabled');
+          }
+
+          if(ViewDate == _end) {
+            List.find('.next').addClass('arrow-desabled');
+          } else {
+             List.find('.next').removeClass('arrow-desabled');
+          }
+
+          //RenderClickEvents();
     },
 
     SwitchEvents = function() {
         Views.on('click', function() {
-            var ViewMode = jQuery(this).data('view');
+            
+            var ViewMode = jQuery(this).data('viewport');
             Views.removeClass('active');
             jQuery(this).addClass('active');
-
+            jQuery('body').attr('class', 'agri-theme');
             jQuery('.events-list').hide();
-
+            jQuery('body').addClass(ViewMode);
             jQuery('section[data-view="'+ViewMode+'"]').show();
+            
+            NoEventsFound();
+            
         })
 
-        CalendarView.on('click', function() {
-            jQuery('body').addClass('calendar-view');
-            jQuery('body').parents('.events-search').removeClass('list-view');
-        })
-
-        ListView.on('click', function() {
-            jQuery('body').parents('.events-search').addClass('list-view');
-            jQuery('body').parents('.events-search').removeClass('calendar-view');
-        })
+         
 
         MonthSelect.on('change', function() {
             var value = jQuery(this).val();
             var check = moment(new Date(value));
+            jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
-            RenderParticularMonth(check);        
+            if(jQuery('body').hasClass('list-view')) {
+                jQuery('section[data-view="calendar-view"]').hide();
+            }
+            var obj = {
+                MonthYear: check.format('MMM YYYY'),
+                SectorId: SectorSelect.val()
+            }
+            
+            _previousDate = new Date(value);
 
+            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+
+            // NoEventsFound();
         })
-    }
+        
+        SectorSelect.on('change', function(){
+            var obj = {
+                MonthYear: MonthSelect.val(),
+                SectorId: jQuery(this).val()
+            }
 
+            _previousDate = new Date(MonthSelect.val());
+            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+
+            // NoEventsFound(); 
+        })
+
+    },
 
     init = function() {
         if(EventsLists.length > 0) {
             SwitchEvents();
-            RenderCalendar();
+            RenderOnLoad();
         }
     };
 
@@ -981,8 +1213,7 @@ INFORMA.EventsSearch = (function(window, $, namespace) {
         init: init
     };
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.EventsSearch.init());
-
+jQuery(INFORMA.EventsViews.init());
 /*
  * feature-list.js
  *
@@ -1520,7 +1751,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _initServicesMenuBarFollow,
       _activateServicesFixedHeader,
       _arrayServicesFlag = true,
-
+      _servicesFirst = true,
+      _initialServicesHdrPos = 0,
 
       _arrayFlag = true,
       _navlinks = $('.nav-links'),
@@ -1556,6 +1788,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       if(_servicesNavigation.length > 0) {
             _servicesNavigationHeight = _servicesNavigation.height();
             _servicesNavigationPos = _servicesNavigation.offset().top;
+            
             // To show the menu follower with right width and position, todo: remove harcode
             _servicesMenuFollower.css('width',$(_servicesLink[0]).width())
                                  .css('left',$(_servicesLink[0]).offset().left)
@@ -1576,36 +1809,38 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
       _whenScrolling = function(){
          $(window).on('scroll',function(){
-             // little savings here, the first function will not be executed when pdp nav is sticky
-             if(!_pdpFixed && _mainNavigation.length > 0 && INFORMA.global.device.isDesktop)
-               _activateMainFixedHeader();
-             if(!_pdpFixed && _mobileNavigation.length > 0 && !INFORMA.global.device.isDesktop)
-               _activateMobileFixedHeader();
-             if(_pdpNavigation.length > 0 && _pdpMenuActive) 
-               _activatePdpFixedHeader();
-             if(_servicesNavigation.length > 0 && _servicesMenuActive) 
-               _activateServicesFixedHeader();
+
+            if(!_pdpFixed && _mainNavigation.length > 0 && INFORMA.global.device.isDesktop)
+                  _activateMainFixedHeader();
+            if(!_pdpFixed && _mobileNavigation.length > 0 && !INFORMA.global.device.isDesktop)
+                  _activateMobileFixedHeader();
+            if(_pdpNavigation.length > 0 && _pdpMenuActive) 
+                  _activatePdpFixedHeader();
+            if(_servicesNavigation.length > 0 && _servicesMenuActive) 
+                  _activateServicesFixedHeader();
+             
          });
       };
 
       _activateMainFixedHeader = function(){
-          var _windowPos = $(window).scrollTop();
-            if(_windowPos > _headerPos){
-               if(!_mainNavigation.hasClass(_fixed)){
+         var _windowPos = $(window).scrollTop();
+
+         if(_windowPos > _headerPos){
+            if(!_mainNavigation.hasClass(_fixed)){
                   _mainNavigation.addClass(_fixed);
                   $(".hide-stick").fadeOut("5000","linear");
                   $('.nav-left').animate({'left' : "0px"},1000);           
                   $('body').css('padding-top',_navHeight);
-               }
             }
-            else {
-               if(_mainNavigation.hasClass(_fixed)){
-                  _mainNavigation.removeClass(_fixed);
-                  $(".hide-stick").fadeIn("5000","linear");
-                  $('.nav-left').animate({'left' : "0px"},1000);
-                  $('body').css('padding-top',0);
-               }
+         }
+         else {
+            if(_mainNavigation.hasClass(_fixed)){
+               _mainNavigation.removeClass(_fixed);
+               $(".hide-stick").fadeIn("5000","linear");
+               $('.nav-left').animate({'left' : "0px"},1000);
+               $('body').css('padding-top',0);
             }
+         }
       };
 
       _activateMobileFixedHeader = function(){
@@ -1748,66 +1983,80 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       };
 
       _activateServicesFixedHeader = function(){
-             var _windowPos = $(window).scrollTop();
-               if(_windowPos > (_servicesNavigationPos - _navHeight)){
-                     _servicesNavigation.addClass(_fixed);
-                     _servicesNavigation.css('top',_navHeight+'px');
-                     _servicesWrapper.css('padding-top',_servicesNavigationHeight);
-                     _servicesFixed = true;
-                     if(_arrayServicesFlag){
-                           for(var i=0;i<_servicesLink.length;i++){
-                                 var _sectionName = '#'+$(_servicesLink[i]).data('target');
-                                 _servicesMenuPos.push($(_sectionName).offset().top);
-                                 _servicesMenuWidth.push($(_servicesLink[i]).width());
-                                 _servicesMenuleft.push($(_servicesLink[i]).parent().offset().left);
-                           }
+         var _windowPos = $(window).scrollTop();
 
-                           // Ilaiyaraja rocks, fix the hard code later
-                           $('#services-navigation ul > li:first-child').addClass('selected');
-                           if(INFORMA.global.device.isMobile) _servicesNavigation.addClass('cont');
-                           _arrayServicesFlag = false;
-                     }
+         if(_servicesFirst){
+            _initialServicesHdrPos = _servicesNavigation.offset().top;
+            _servicesFirst  = false;
+         }
 
+         if(_windowPos > (_initialServicesHdrPos - _navHeight)){
+            _servicesNavigation.addClass(_fixed);
+            _servicesNavigation.css('top',_navHeight+'px');
+            _servicesWrapper.css('padding-top',_servicesNavigationHeight);
+            _servicesFixed = true;
+
+            if(_arrayServicesFlag){
+               for(var i=0;i<_servicesLink.length;i++){
+                  var _sectionName = '#'+$(_servicesLink[i]).data('target');
+                  _servicesMenuPos.push($(_sectionName).offset().top);
+                  _servicesMenuWidth.push($(_servicesLink[i]).width());
+                  _servicesMenuleft.push($(_servicesLink[i]).parent().offset().left);
                }
-               else {
-                     _servicesNavigation.removeClass(_fixed);
-                     _servicesWrapper.css('padding-top',0);
-                     _servicesFixed = false;
-               }
-               // todo: should be moved to function, atleast for readability
-               // line follower robot is something i shud ve built during my college days.
-               var i= _servicesMenuPos.length - 1;
-               for(; i>=0;i--){
-                     if( _windowPos + 120 >= _servicesMenuPos[i]  ){
-                           _servicesMenuFollower.css('width',_servicesMenuWidth[i]);
-                           _servicesMenuFollower.css('left',_servicesMenuleft[i]);
-                              // .menuFollower { transform: translateX(100%)}
-                           i=-1;
-                     }
-               }
-            // todo: easily the worst code I have written, please optimize this
+
+               // Ilaiyaraja rocks, fix the hard code later
+               $('#services-navigation ul > li:first-child').addClass('selected');
+               if(INFORMA.global.device.isMobile) _servicesNavigation.addClass('cont');
+               _arrayServicesFlag = false;
+            }
+         }
+         else {
+            _servicesNavigation.removeClass(_fixed);
+            _servicesNavigation.css('top','0px');
+            _servicesWrapper.css('padding-top',0);
+            _servicesFixed = false;
+            _arrayServicesFlag = true;
+            _initialServicesHdrPos = _servicesNavigation.offset().top;
+         }
+
+         // todo: should be moved to function, atleast for readability
+         // line follower robot is something i shud ve built during my college days.
+         var i= _servicesMenuPos.length - 1;
+         for(; i>=0;i--){
+            if( _windowPos + 120 >= _servicesMenuPos[i]  ){
+               _servicesMenuFollower.css('width',_servicesMenuWidth[i]);
+               _servicesMenuFollower.css('left',_servicesMenuleft[i]);
+               // .menuFollower { transform: translateX(100%)}
+               i=-1;
+            }
+         }
+         // todo: easily the worst code I have written, please optimize this
       };
+
 
       // when clicking the services-navigation
       _servicesNavigationScrollTo = function(){
          _servicesLink.on('click',function(e){
-            //e.preventDefault();
+            e.preventDefault();
             //_servicesNavigation.addClass('cont');
             var _target = $(this).data('target');
 
             // todo, remove hardcoding
             $('#services-navigation li').removeClass('selected');
             $('#services-navigation li').addClass('select-options');
-/*
-            console.log($("#"+_target).offset().top);
-            console.log(_navHeight + _servicesNavigationHeight);
+            _servicesNavigationHeight = _servicesNavigation.height();
+
+            //console.log("Offset-top: " + $("#"+_target).offset().top);
+            //console.log("Main-nav height: " +_navHeight);
+            //console.log("Services-nav height: " + _servicesNavigationHeight);
             
-            var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight + _servicesNavigationHeight + 2);
-            console.log(_scrollTopPixels);
+            var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight + _servicesNavigationHeight);
+            //var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight);
+            //console.log("scrollTo: " + _scrollTopPixels);
 
             $('html, body').stop().animate({
                   scrollTop: _scrollTopPixels
-            }, 1000);*/
+            }, 1000);
 
             if(INFORMA.global.device.isMobile) {
                // lesson learnt, hack is wrong.
@@ -1915,11 +2164,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             }
 
             if(INFORMA.global.device.isTablet){
-               $('#services-list .row').each(function(i, obj) {
+               $('#services-list section').each(function(i, obj) {
                   var _id = this.id;
                   $("#" + _id + " .image-thumbnail").prependTo("#" + _id + " .content");
                });
-            }
+            }        
 
 
       };
@@ -1977,6 +2226,37 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
         "%": lvalue % rvalue
     }[operator];
 });
+var INFORMA = window.INFORMA || {};
+INFORMA.helpfaq = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var _helpfaqSelect = $('.help-faq-select'),
+        _faqItemsWrapper = $('.help-faq-wrapper'),
+        // methods
+        init,
+        _showHideFaq;
+
+    _showHideFaq = function() {
+        _helpfaqSelect.change(function() {
+            var target = $(this).data('target');
+            $(target).children().removeClass('show').addClass('hide');
+            var show = $("option:selected", this).data('show');
+            $(show).removeClass('hide').addClass('show');
+        });
+    }
+
+    init = function() {
+        $('.help-faq-wrapper').children().first().addClass('show');
+        $('.help-faq-wrapper').children().not(':first').addClass('hide');
+        _showHideFaq();
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.helpfaq.init());
+
 /*
  * Hero Video.js
  *
@@ -2333,7 +2613,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             });
         },
         SubmitHandler = function(btn, SearchType) {
-            btn.on("click", ".btn", function(e) {
+            btn.off().on("click", function(e) {
                 e.preventDefault();
                 var FieldArray = ProductFinderSection.find("form").serializeArray(),
                     GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
@@ -2344,7 +2624,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         BindAjaxHandler = function() {
 
             var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
-                IsSearchPage = (SearchPage.data("search") === true) ? true : false;
+                IsSearchPage = (SearchPage.data("search") === true) ? true : true;
 
             if (IsProductPage) {
                 SubmitHandler(SubmitBtn,"ProductSearch");
@@ -2706,14 +2986,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         GetSearchData = function(sVal){
             if(sVal){
                 SearchField.val(sVal);
-                SearchField.parent().removeClass("disabled");
+                SearchSubmitBtn.removeClass("disabled");
                 SearchSubmitBtn.trigger("click");
             }
         },
         UpdateResultPage = function(SecValue, SubSecValue) {
 
             var SectorArray = SecValue.split(","),
-                SubSectors = SubSecValue.split(","),
+                SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
                 SectorIDs = 'SectorIDs=' + Utils.StrngToQryStrng(SecValue);
 
             if (SectorSelect.length && SectorArray) {
@@ -2728,7 +3008,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             MakeDropPreSelected(SubSectors, SubSectorSelect);
                         }
                         ProductFinder.slideDown();
-                        SubmitBtn.find("button").trigger("click");
+                        SubmitBtn.trigger("click");
                     },
                     error_callback: function() {
 
@@ -2878,7 +3158,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if(IsSearchPage && SearchHidden.length >0){
                 var SearchVal = SearchHidden.val();
                 if (SearchVal) {
-                    UpdateResultPage(SearchVal);
+                    GetSearchData(SearchVal);
                 }
             }
 
@@ -3094,30 +3374,20 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
             speed: _speed,
             dots: _dots,
             adaptiveHeight: true,
-            arrows: false,
+            arrows: true,
             responsive: [{
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
+                        slidesToShow: 2,
+                        slidesToScroll: 2
                     }
-                }, {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 3
+                },{
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
                     }
-                }, {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: true
-                    }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
             ]
         });
     }

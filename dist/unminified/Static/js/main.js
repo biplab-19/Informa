@@ -1,4 +1,4 @@
-/*! 2016-06-16 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-20 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -392,6 +392,16 @@ var INFORMA = window.INFORMA || {};
                     '{{/each}}'+
                 '</ul>'+
             '</div>',
+        'SearchTabs' :
+        '<div class="container clearfix">'+
+            '<ul class="tab-list">'+
+                '{{#each results}}'+
+                    '<li>'+
+                        '<a href="#{{}}" class="">{{}}</a>'+
+                    '</li>'+
+                '{{/each}}'+
+            '</ul>'+
+        '</div>',
         'ProductFilters':
             '<div class="{{results.FilterName}}">'+
                 '<p>{{results.FilterName}}:</p>'+
@@ -449,7 +459,7 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '</div>'+
                     '</div>'+
-                '</div>'+  
+                '</div>'+
                 '{{/each}}',
     'Resources':
             '<ul class="list-container">'+
@@ -599,7 +609,59 @@ var INFORMA = window.INFORMA || {};
                                             '</div>' +
                                         '</div>' +
                                     '</div>' +
-                                '</div>'
+                                '</div>',
+    'EventpageListviewTemplate':'<div class="header clearfix">'+
+                                  '<a href="javascript:void(0)" class="arrows previous"></a>'+
+                                  '<h2>{{results.Month}}</h2>'+
+                                  '<a href="javascript:void(0)" class="arrows next"></a>'+
+                                '</div>'+
+                                '<div class="events-container row">'+
+                                        '{{#each results.ModelItem}}'+
+                                        '<div class="col-xs-12 col-sm-6 col-md-4 events-section {{DateType}}">'+
+                                            '<div class="events-wrap">'+
+                                                '<div class="header clearfix">'+
+                                                    '<div class="date">{{DateField}}</div>'+
+                                                    '<p class="country">{{State}} ,<strong>{{Country}}</strong></p>'+
+                                                '</div>'+
+                                                '<div class="content-wrap">'+
+                                                    '<p><span class="type">{{EventType}}</span></p>'+
+                                                    '<h3 class="title">{{Title}}</h3>'+
+                                                    '{{#compare Presenters.length 0 operator=">"}}'+
+                                                    '<div class="content clearfix">'+
+                                                        '<div class="title-content">{{PresentersLabel}}</div>'+
+                                                        '<div class="title-body">'+
+                                                            '<ul class="clearfix">'+
+                                                                '{{#each Presenters}}'+
+                                                                '<li>{{this}}</li>'+
+                                                                    '{{/each}}'+
+                                                            '</ul>'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare Themes.length 0 operator=">"}}'+
+                                                    '<div class="content clearfix">'+
+                                                        '<div class="title-content">{{ThemeLabel}}</div>'+
+                                                        '<div class="title-body">'+
+                                                            '<ul class="clearfix">'+
+                                                                '{{#each Themes}}'+
+                                                                '<li>{{this}}</li>'+
+                                                                    '{{/each}}'+
+                                                            '</ul>'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '{{/compare}}'+
+                                                '</div>'+
+                                                '<div class="footer clearfix">'+
+                                                    '{{#compare Register null operator="!="}}' + 
+                                                       '<a href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{Register.LinkText}}</a>'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare FullDetail null operator="!="}}' +
+                                                      '<a href="{{FullDetail.Url}}" class="btn btn-default full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
+                                                    '{{/compare}}'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '{{/each}}'
 
 }
 }(this, jQuery, 'INFORMA'));
