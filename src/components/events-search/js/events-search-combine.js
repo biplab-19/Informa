@@ -65,7 +65,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         }
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
-
+        INFORMA.Spinner.Show($("body"));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
             data: JSON.stringify({ data: data }),
@@ -109,11 +109,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
           
 
           var ViewDate = moment(results.Month).format('MMM YYYY'),
-                Count = jQuery('section[data-view="list-view"]').data('count'),
+                Count = List.data('count'),
                 Items = jQuery('section[data-view="list-view"]').find('.events-section').length;
-                debugger;
+                
                 if(Count > Items) {
-                    
                     jQuery('.btn-more-events').addClass('hidden');
                 } else {
                     
@@ -286,18 +285,19 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 eventRender: function(event, element, view) {
                     var CurrentDate = new Date(),
                         ItemDate = new Date(event.start._i),
-                        DateAttr = moment(ItemDate).format('YYYY-MM-DD');
+                        DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
+                        CountryText = "";
+
+                        if(events.Country != null) {
+                            CountryText = events.Country;
+                        }
                         
                     if(moment(CurrentDate).format('DD MMM YYYY') > moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country"><strong>'+CountryText+'</strong></p></div>');
                     } else if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country"><strong>'+CountryText+'</strong></p></div>');
                     } else {
                         return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
-                    }
-
-                    if(event.Country != null) {
-                        jQuery('.events[data-date="'+DateAttr+'"]').append('<p class="country"><strong>' +event.Country+ '</strong></p>');
                     }
                 }
         });
@@ -316,7 +316,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
 
     RenderCalendarEvents = function(list) {
-        //debugger;
+        //
         Calendar.fullCalendar('removeEvents');
         var Month = Object.keys(list.SearchDictionary)[0],
             data = list.SearchDictionary[Month].ModelItem;
@@ -326,7 +326,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventStartDate,
+                "start": data[key].EventStartDate.substring(0, 10),
                 "State": data[key].State,
                 "Country": data[key].Country
             })
@@ -352,7 +352,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventStartDate,
+                "start": data[key].EventStartDate.substring(0, 10),
                 "State": data[key].State,
                 "Country": data[key].Country
             })
@@ -371,7 +371,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 Count = List.data('count'),
                 Items = List.find('.events-section').length;
                 
-                debugger;
+                
         if(jQuery('body').hasClass('list-view')) {
                 if (List.find('.events-section').length > 0) { 
                         jQuery('.no-result').addClass('hidden'); 
