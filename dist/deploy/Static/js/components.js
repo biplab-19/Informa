@@ -762,15 +762,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
         
         MoreEventsList = function () {
-            var Count = List.data('count'),
-                Items = List.find('.events-section').length;
-                
-                if(Items > Count) {
-                    jQuery('.more-events').removeClass('hidden');
-                    List.find('.events-section:nth-child(n+'+(Count+1)+')').hide();
-                } else {
-                    jQuery('.more-events').addClass('hidden');
-                }
+            var List = jQuery('section[data-view="list-view"]'),
+                Count = List.data('count');
                 
                 
                 MoreEvents.on('click', function() {
@@ -819,14 +812,27 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
 
     ListRender = function(data) {
-            
+            var results = data.SearchDictionary, 
+              html = ""; 
+          
+
           var ViewDate = moment(results.Month).format('MMM YYYY'),
-                Count = List.data('count'); 
-                List.find('.events-section:nth-child(n+'+(Count+1)+')').hide(); 
+                Count = jQuery('section[data-view="list-view"]').data('count'),
+                Items = jQuery('section[data-view="list-view"]').find('.events-section').length;
+                debugger;
+                if(Count > Items) {
+                    
+                    jQuery('.btn-more-events').addClass('hidden');
+                } else {
+                    
+                    jQuery('.btn-more-events').removeClass('hidden');
+                }
+                jQuery('section[data-view="list-view"]').find('.events-section:nth-child(n+'+(Count+1)+')').hide(); 
                 jQuery('.btn-more-events').removeClass('showLess');
 
          MoreEventsList();
         NoEventsFound();
+        EqualHeight();
 
           if(ViewDate == _Start) {
             List.find('.previous').addClass('arrow-desabled');
@@ -1065,10 +1071,11 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
     
     NoEventsFound = function () {
-            var Count = List.data('count'),
+            var List = jQuery('section[data-view="list-view"]'),
+                Count = List.data('count'),
                 Items = List.find('.events-section').length;
                 
-                //debugger;
+                debugger;
         if(jQuery('body').hasClass('list-view')) {
                 if (List.find('.events-section').length > 0) { 
                         jQuery('.no-result').addClass('hidden'); 
