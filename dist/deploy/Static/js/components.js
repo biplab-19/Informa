@@ -819,29 +819,14 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
 
     ListRender = function(data) {
-        var results = data.SearchDictionary,
-              html = "";
-
-          for (var key in results) {
-              if (results.hasOwnProperty(key)) {
-                  var Data = results[key],
-                      HeaderText = key,
-                      TemplateName = (Templates.EventpageListviewTemplate !== "undefined") ? Templates.EventpageListviewTemplate : "",
-                      ListTemplate = Handlebars.compile(TemplateName);
-                      
-                  Data.Month = HeaderText;
-                  html += ListTemplate({ results: Data });
-              }
-          }
-          // debugger;
-          List.html(html);
-            MoreEventsList();
-            NoEventsFound();
             
           var ViewDate = moment(results.Month).format('MMM YYYY'),
                 Count = List.data('count'); 
                 List.find('.events-section:nth-child(n+'+(Count+1)+')').hide(); 
                 jQuery('.btn-more-events').removeClass('showLess');
+
+         MoreEventsList();
+        NoEventsFound();
 
           if(ViewDate == _Start) {
             List.find('.previous').addClass('arrow-desabled');

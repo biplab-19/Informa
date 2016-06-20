@@ -72,6 +72,9 @@
 			p {
 				color: #bcbfc8;
 				&.title {
+					a {
+						text-decoration: none;
+					}
 					&:before {
 						width: 4px;
 						background: #bcbfc8;
@@ -86,8 +89,11 @@
 		&.current {
 			p {
 				&.title {
+					a {
+						color: #687083;
+					}
 					&:before {
-						background: #bcbfc8;
+						background: #6a7287;
 					}
 				}
 			}

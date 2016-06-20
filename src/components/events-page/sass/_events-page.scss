@@ -156,14 +156,23 @@
 			.events-wrap .footer .btn.register{
 				background: #e9e9e9;
 				border-width: 0;
+				pointer-events: none;
 				&:after {
 					content: none;
 				}
 			}
 		}//current event
 		&.CurrentDate{
-		.events-wrap .header .date{
+			.events-wrap .header .date{
 				background-color:#fed501;;
+			}
+		}
+		.events-wrap .footer .btn.register.FullyBooked{
+			background: #e9e9e9;
+			border-width: 0;
+			pointer-events: none;
+			&:after {
+				content: none;
 			}
 		}
 	}//more events button
