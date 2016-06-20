@@ -97,11 +97,15 @@
 .fc-unthemed .fc-today {
 	background: $yellow;
 }
+.fc-more-cell {
+	position: absolute;
+	top: 170px;
+}
 .fc-more-cell div {
 	position: relative;
 }
 .fc-more-cell a.fc-more {
-	color: $white;
+	color: transparent;
 	&:before {
 		content: "\e901";
 		font-family: 'InformaIcons';
@@ -215,7 +219,7 @@
 				p {
 					&.title {
 						&:before {
-							background: #bcbfc8;
+							background: $yellow;
 						}
 					}
 				}
