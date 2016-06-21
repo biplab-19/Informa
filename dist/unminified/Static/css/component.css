@@ -6578,6 +6578,45 @@ section#services-list .row .btn-container .btn-primary {
 .informa-full-video-component .embed-responsive.embed-responsive-16by9 {
   padding-bottom: 48.25%;
 }
+/* line 40, ../../../src/components/videos/sass/_video-full.scss */
+.informa-full-video-component .video-full-webinar {
+  padding: 10px 0;
+}
+/* line 42, ../../../src/components/videos/sass/_video-full.scss */
+.informa-full-video-component .video-full-webinar a {
+  color: #6a7287;
+  font-weight: bold;
+}
+/* line 46, ../../../src/components/videos/sass/_video-full.scss */
+.informa-full-video-component .video-full-webinar .download-btn {
+  font-size: 14px;
+  font-family: FSMe;
+  width: 30%;
+  margin-top: 10px;
+  border-color: #ffd600;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+/* line 55, ../../../src/components/videos/sass/_video-full.scss */
+.informa-full-video-component .video-full-webinar .download-btn:after {
+  content: "\e905";
+  font-family: 'InformaIcons';
+  right: 15px;
+  font-weight: bold;
+  position: absolute;
+  font-size: 16px;
+  color: #ffd600;
+}
+@media (max-width: 767px) {
+  /* line 46, ../../../src/components/videos/sass/_video-full.scss */
+  .informa-full-video-component .video-full-webinar .download-btn {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    margin-top: 20px;
+  }
+}
 
 /* line 1, ../../../src/components/article-terms/sass/article-terms.scss */
 .gray-bg {
