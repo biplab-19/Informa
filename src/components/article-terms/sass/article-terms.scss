@@ -1,28 +1,38 @@
-.article-terms{
-  background-color: $white;
     .gray-bg{
       background: #f0f1f3;
-    }
-    .small-content{
-      margin-top: 35px;
-      small{
-        font-size: 14px;
+      padding-top: 50px;
+      padding-bottom: 26px;
+      .main-title{
+        width: 80%;
+        margin: 0 auto;
       }
-      @include mobile {
-        margin-top: 5px;
+      .small-content{
+          font-size: 14px;
       }
     }
     .content-container{
-      width: 60%;
-      margin: 0 auto;
+      background-color: $white;
+      width: 100%;
+      padding-left: 273px;
+      padding-right: 235px;
       @include mobile {
         width: 100%;
         margin: 0 auto;
+        padding-left: 5px;
+        padding-right: 5px;
       }
-      h3{
+      @include tablet {
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+      .content-header{
         font-family: FSMe-bold;
         margin-bottom: 30px;
+        padding-top: 60px;
       }
-
+      p{
+        line-height: 20px;
+      }
     }
-}
