@@ -357,7 +357,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventStartDate,
+                "start": data[key].EventDate,
                 "State": data[key].State,
                 "Country": data[key].Country
             })
@@ -383,7 +383,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventStartDate,
+                "start": data[key].EventDate,
                 "State": data[key].State,
                 "Country": data[key].Country
             })
