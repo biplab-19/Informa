@@ -1,4 +1,4 @@
-/*! 2016-06-20 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-21 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",

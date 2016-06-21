@@ -1,4 +1,4 @@
-/*! 2016-06-20 */_adjustHeigt = function(){
+/*! 2016-06-21 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -773,7 +773,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         }
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
-
+        INFORMA.Spinner.Show($("body"));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
             data: JSON.stringify({ data: data }),
@@ -817,11 +817,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
           
 
           var ViewDate = moment(results.Month).format('MMM YYYY'),
-                Count = jQuery('section[data-view="list-view"]').data('count'),
+                Count = List.data('count'),
                 Items = jQuery('section[data-view="list-view"]').find('.events-section').length;
-                debugger;
+                
                 if(Count > Items) {
-                    
                     jQuery('.btn-more-events').addClass('hidden');
                 } else {
                     
@@ -994,18 +993,19 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 eventRender: function(event, element, view) {
                     var CurrentDate = new Date(),
                         ItemDate = new Date(event.start._i),
-                        DateAttr = moment(ItemDate).format('YYYY-MM-DD');
+                        DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
+                        CountryText = "";
+
+                        if(events.Country != null) {
+                            CountryText = events.Country;
+                        }
                         
                     if(moment(CurrentDate).format('DD MMM YYYY') > moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country"><strong>'+CountryText+'</strong></p></div>');
                     } else if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country"><strong>'+CountryText+'</strong></p></div>');
                     } else {
                         return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p></div>');
-                    }
-
-                    if(event.Country != null) {
-                        jQuery('.events[data-date="'+DateAttr+'"]').append('<p class="country"><strong>' +event.Country+ '</strong></p>');
                     }
                 }
         });
@@ -1024,7 +1024,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
 
     RenderCalendarEvents = function(list) {
-        //debugger;
+        //
         Calendar.fullCalendar('removeEvents');
         var Month = Object.keys(list.SearchDictionary)[0],
             data = list.SearchDictionary[Month].ModelItem;
@@ -1034,7 +1034,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventStartDate,
+                "start": data[key].EventStartDate.substring(0, 10),
                 "State": data[key].State,
                 "Country": data[key].Country
             })
@@ -1060,7 +1060,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventStartDate,
+                "start": data[key].EventStartDate.substring(0, 10),
                 "State": data[key].State,
                 "Country": data[key].Country
             })
@@ -1079,7 +1079,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 Count = List.data('count'),
                 Items = List.find('.events-section').length;
                 
-                debugger;
+                
         if(jQuery('body').hasClass('list-view')) {
                 if (List.find('.events-section').length > 0) { 
                         jQuery('.no-result').addClass('hidden'); 
@@ -2715,67 +2715,70 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.ProductFinder.init());
 
-// /*
-//  * Resource Filter.js
-//  *
-//  *
-//  * @project:    Informa
-//  * @date:       2016-April-25
-//  * @author:     Rajiv
-//  * @licensor:   SAPIENNITRO
-//  * @namespaces: INFORMA
-//  *
-//  */
+/*
+ * Resource Filter.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-April-25
+ * @author:     Rajiv
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
 
-// var INFORMA = window.INFORMA || {};
-// INFORMA.ResourceFilter = (function(window, $, namespace) {
-//     'use strict';
-//     //variables
-//     var _contactUs = $('#contactus-section'),
-//         _accordianTile = _contactUs.find('.panel-default'),
-//         _eachTile = _contactUs.find('.panel-heading'),
-//     // methods
-//         init,
-//         _openAccordian;
+var INFORMA = window.INFORMA || {};
+INFORMA.ResourceFilter = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var Templates = INFORMA.Templates,
+        ResourceContainer = $('.resource-filter'),
+        CustomSelect = ResourceContainer.find(".custom-multiselect select"),
+        SectorSelect = ResourceContainer.find("select.resource-sector"),
+        SubSectorSelect = ResourceContainer.find("select.resource-sub-sector"),
+    // methods
+        init,
+        BindDropDown;
 
-//     _openAccordian = function(container){
-//         if(INFORMA.global.device.viewportN === 2) {
-//             var _tiles = container.find('.panel-default');
-
-//             _tiles.each(function(key, value) {
-//                 if(key < 2) {
-//                     jQuery(this).find('.panel-heading').removeClass('collapsed');
-//                 } else {
-//                     jQuery(this).find('.collapse').collapse('hide');
-                    
-//                 }
-//             })
-//         }
-//     }
-
-//     _eachTile.on('click', function() {
-//         _eachTile.parent().find('.collapse').collapse('hide');
-//         _eachTile.not(jQuery(this)).addClass('collapsed');
-//         jQuery(this).parent().find('.collapse').collapse('hide');
-//         if(jQuery(this).hasClass('collapsed')) {
-//             jQuery(this).removeClass('collapsed');
-//         } else {
-//             jQuery(this).addClass('collapsed');
-//         }
-//     })
+    BindDropDown = function() {
+            CustomSelect.val("");
+            CustomSelect.multiselect({
+                maxHeight: 200,
+                buttonText: function(o, s) {
+                    if (o.length === 0) {
+                        return $(s).data('placeholder');
+                    } else {
+                        var labels = 1;
+                        o.each(function(i) {
+                            labels = parseInt(1 + i);
+                        });
+                        return '<strong>'+labels + '</strong> Selected';
+                    }
+                },
+                onChange: function(option, checked, select) {
+                    if ($(option).parent().hasClass("resource-sector") === true) {
+                        if (checked) {
+                            SubSectorSelect.parents('li').removeClass('hidden');
+                        } else {
+                            SubSectorSelect.parents('li').addClass('hidden');
+                        }
+                    }
+                }
+            });
+        };
     
 
-//     init = function() {
-//         if (_contactUs.length > 0) {
-//             _openAccordian(_contactUs);
-//         }
-//     };
+    init = function() {
+        if (ResourceContainer.length > 0) {
+            BindDropDown();
+        }
+    };
 
-//     return {
-//         init: init
-//     };
-// }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-// jQuery(INFORMA.ResourceFilter.init());
+    return {
+        init: init
+    };
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.ResourceFilter.init());
 
 /*
  * Product Results.js
