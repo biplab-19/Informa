@@ -996,8 +996,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
                         CountryText = "";
 
-                        if(events.Country != null) {
-                            CountryText = events.Country;
+                        if(event.Country != null) {
+                            CountryText = event.Country;
                         }
                         
                     if(moment(CurrentDate).format('DD MMM YYYY') > moment(ItemDate).format('DD MMM YYYY')) {
