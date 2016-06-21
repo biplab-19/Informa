@@ -1,0 +1,16 @@
+<div class="informa-full-video-component">
+  {{#each videos}}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <div class="video-full-container">
+                  <div class="embed-responsive embed-responsive-16by9" >
+                        <img src="cms-images/video-img/video-thumb.png" data-videotype="{{type}}" data-videourl="{{url}}" alt="{{details}}" width="100%" class="video-img img-responsive" />
+                        <span class="play-icon"></span>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
