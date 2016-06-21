@@ -112,8 +112,8 @@
 			}
 		}
 	.descriptions {
-		height: 100px;
-		min-height: 100px;
+		height: 106px;
+		min-height: 106px;
 		overflow: hidden;
 		padding-right: 45px;
 		&.show-content {
@@ -151,7 +151,7 @@
 		display: inline-block;
 		position: relative;
 		color: $text-gray-dark;
-		margin-top: 30px;
+		margin: 30px 0;
 		text-align: left;
 		text-decoration: none;
 		@include mobile {
@@ -194,6 +194,9 @@
 		}
 		.heading {
 			font-size: 18px;
+			i {
+				margin-right: 5px;
+			}
 		}
 		.feature {
 			list-style-type: none;

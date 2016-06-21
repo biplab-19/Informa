@@ -1,0 +1,93 @@
+.resource-list {
+    background-color: $white;
+    padding: 30px 0;
+	.list-container {
+        .list-item {
+            background-color: #f6f6f8;
+            padding: 15px;
+            margin-bottom: 30px;
+            .list-content {
+                min-height: 156px;
+            }
+            .category {
+                display: inline-block;
+                padding-bottom: 10px;
+                margin-right: 5%;
+                strong {
+                    display: block;
+                    padding:3px 8px;
+                    font-weight: 400;
+                    font-size: 0.9em;
+                    color: $gray-lighter-bg;
+                    background-color:$gray-light-bg;
+                }
+            }
+            .content-type{
+                font-weight:700;
+                font-size: 0.9em;
+            }
+            .poduct-brand-subheading {
+                font-size: $font-size-h2;
+                font-family: FSMe-Bold;
+            }
+            .description {
+                padding-bottom: 20px;
+            }
+            .video-container {
+                max-height: 156px;
+                overflow: hidden;
+                position: relative;
+                margin-bottom: 20px;
+                img {
+                    width: 100%;
+                    height: auto;
+                    max-width: 100%;
+                    float: none;
+                    display: block;
+                }
+                .play-icon {
+                    color: #fff;
+                    display: block;
+                    font-size: 5em;
+                    height: 30px;
+                    position: absolute;
+                    right: 50%;
+                    top: 25%;
+                    width: 30px;
+                }
+            }
+            .article-info {
+                display: block;
+                em {
+                    display: inline-block;
+                    min-width: 70px;
+                    font-style: normal;
+                }
+                strong {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: auto;
+                    @include mobile {
+                        width: 70%;
+                    }
+                }
+            }
+            .btn-container {
+                margin: 20px 0 10px 0;
+                min-width: 50%;
+                max-width: 60%;
+                a {
+                    display: block;
+                    &:after {
+                        color: $yellow;
+                    }
+                }
+            }
+        }
+        li.slick-slide {
+            &:nth-child(even) {
+                background-color: #f3f3f3;
+            }
+        }
+    }
+}

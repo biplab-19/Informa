@@ -1,4 +1,4 @@
-.fc-state-default.fc-corner-right {
+.fc-state-default.fc-corner-right, .fc-state-default.fc-corner-left {
 	width: 45px;
     height: 67px;
     display: block;
@@ -16,6 +16,16 @@
 	    width: 30px;
     	height: 50px;
 	}
+	@include tablet {
+	    width: 30px;
+    	height: 50px;
+	}
+}
+.fc-state-default.fc-corner-left { 
+	margin-right: 5px;
+	@include mobile {
+		margin-right: 0;
+	}
 }
 .fc-scroller {
 	height: auto !important;
@@ -30,6 +40,9 @@
 	@include mobile {
 		text-align: center;
 	}
+	@include tablet {
+		text-align: center;
+	}
 }
 .fc-ltr .fc-basic-view .fc-day-number {
 	font-size: 40px;
@@ -39,6 +52,18 @@
 		text-align: center;
 		color: #6a7384;
 	}
+	@include tablet {
+		font-size: 24px;
+		text-align: center;
+		color: #6a7384;
+		padding: 15px;
+		font-size: 30px;
+	}
+	sup {
+		font-size: 24px;
+	    top: -15px;
+	    left: 0;
+	}
 }
 .fc-event-container {
 	.events {
@@ -46,10 +71,14 @@
 		@include mobile {
 			display: none;
 		}
+		@include tablet {
+			display: none;
+		}
 		p {
 			margin-bottom: 0;
 			padding-left: 10px;
 			line-height: 1.2;
+		    font-family: 'FSMe-Light';
 			&.title {
 				position: relative;
 				a {
@@ -169,6 +198,7 @@
 			&:before {
 				background: #343642;
 			}
+
 		}
 	}
 }
@@ -246,9 +276,19 @@
 	    height: 20px;
 	    transform: rotate(45deg);
 	}
+	&.fc-today {
+		&:before {
+			background: #343742;
+		}
+	}
 }
 .fc-basic-view .fc-body .fc-row {
-	min-height: 3em;
+	@include mobile {
+		min-height: 3em;
+	}
+	@include tablet {
+		min-height: 6em;
+	}
 }
 td.fc-day.fc-widget-content {
     border-width: 5px;
@@ -256,10 +296,16 @@ td.fc-day.fc-widget-content {
     @include mobile {
     	border-width: 1px;	
     }
+    @include tablet {
+    	border-width: 1px;	
+    }
 }
 .fc-view, .fc-view > table {
-    border: 4px solid #f3f3f3;
+    border: 7px solid #f3f3f3;
     @include mobile {
+    	border: 1px solid #f3f3f3;
+    }
+    @include tablet {
     	border: 1px solid #f3f3f3;
     }
 }
@@ -281,6 +327,10 @@ td.fc-day.fc-widget-content {
     	font-size: 15px;
     	margin-left: -7px;
     }
+    @include tablet {
+    	font-size: 15px;
+    	margin-left: -7px;
+    }
 }
 .fc-icon-right-single-arrow:after {
 	content: '\e902';
@@ -296,6 +346,10 @@ td.fc-day.fc-widget-content {
     	font-size: 15px;
     	margin-left: -7px;
     }
+    @include tablet {
+    	font-size: 15px;
+    	margin-left: -7px;
+    }
 }
 .fc button .fc-icon {
 	position: static;
@@ -308,17 +362,20 @@ td.fc-day.fc-widget-content {
     @include mobile {
     	margin-top: 10px;
     }
+    @include tablet {
+    	margin-top: 10px;
+    }
 }
 section[data-view="calendar-view"] .container {
 	@include mobile {
 		padding: 0;
 	}
+	@include tablet {
+		padding: 0;
+	}
 }
 .events-now {
 	font-family: 'FSMe-Bold';
-}
-.fc-day-grid .fc-row:last-child {
-	display: none;
 }
 .fc td.fc-today {
     border-style: solid;

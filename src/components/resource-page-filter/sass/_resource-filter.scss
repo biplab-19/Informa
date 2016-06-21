@@ -1,68 +1,74 @@
-.resource-search {
-	list-style-type: none;
-	@include mobile {
-		padding: 0;
+.resource-filter {
+	padding: 30px 0;
+	h2 {
+		font-size: 30px;
 	}
-	> li {
-		display: inline-block;
-		label {
-		    font-size: 12px;
-    		font-family: 'FSMe-Bold';
-    		margin-top: 23px;
+	.resource-search {
+		list-style-type: none;
+		@include mobile {
+			padding: 0;
 		}
-		.search-resource {
-			border-color: #ef7c00;
-			width: 100%;
-			color: $white;
-			margin-top: 45px;
-			&:after {
-				color: $white;
+		> li {
+			display: inline-block;
+			label {
+			    font-size: 12px;
+	    		font-family: 'FSMe-Bold';
+	    		margin-top: 23px;
 			}
-			&:hover {
-				color: $white;
-			}
-			@include mobile {
-				margin-top: 20px;
-			}
-		}
-		&:first-child {
-			padding-left: 0;
-			@include mobile {
-				padding-left: 7.5px;
-			}
-		}
-		&:last-child {
-			padding-right: 0;
-			@include mobile {
-				padding-right: 7.5px;
-			}
-		}
-		.btn-group {
-			width: 100%;
-			.btn {
+			.search-resource {
+				border-color: #ef7c00;
 				width: 100%;
-				background: $white;
-				border-color: $white;
-				box-shadow: none;
-				.caret {
-					display: none;
-				}
+				color: $white;
+				margin-top: 45px;
 				&:after {
-				    font: 400 15px 'InformaIcons';
-				    content: "\e901";
-				    color: #a7a9b6;
+					color: $white;
+				}
+				&:hover {
+					color: $white;
+				}
+				@include mobile {
+					margin-top: 20px;
 				}
 			}
-		}
-		.multiselect-container {
-			width: 100%;
-			min-height: auto !important;
-			overflow: hidden !important;
-			border: none;
-			border-radius: 0;
-			input {
-				left: 37px;
-    			top: 1px;
+			&:first-child {
+				padding-left: 0;
+				@include mobile {
+					padding-left: 7.5px;
+				}
+			}
+			&:last-child {
+				padding-right: 0;
+				@include mobile {
+					padding-right: 7.5px;
+				}
+			}
+			.btn-group {
+				width: 100%;
+				.btn {
+					width: 100%;
+					background: $white;
+					border-color: $white;
+					box-shadow: none;
+					.caret {
+						display: none;
+					}
+					&:after {
+					    font: 400 15px 'InformaIcons';
+					    content: "\e901";
+					    color: #a7a9b6;
+					}
+				}
+			}
+			.multiselect-container {
+				width: 100%;
+				min-height: auto !important;
+				overflow: hidden !important;
+				border: none;
+				border-radius: 0;
+				input {
+					left: 37px;
+	    			top: 1px;
+				}
 			}
 		}
 	}
