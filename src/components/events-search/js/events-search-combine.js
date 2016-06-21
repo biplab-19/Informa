@@ -94,7 +94,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             MonthYear: DatePass
         }
         _previousDate = DatePass;
-        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderResults, null, null);
+        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderResults, null, null);
     },
 
     RenderResults = function(data) {
@@ -163,7 +163,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add(1, 'months'));
                     jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
+                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
               })
 
               $(document).on('click','.previous', function () {
@@ -178,7 +178,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add(-1, 'months'));
                     jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
+                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
               })
     }
 
@@ -343,7 +343,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         MonthYear: NextMonth, 
                         SectorId: SectorSelect.val() 
                 } 
-        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null); 
+        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
     },
 
     RenderCalendarEvents = function(list) {
@@ -502,7 +502,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             
             _previousDate = new Date(value);
 
-            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
+            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
             // NoEventsFound();
         })
@@ -514,7 +514,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             }
 
             _previousDate = new Date(MonthSelect.val());
-            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
+            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
             // NoEventsFound(); 
         })
