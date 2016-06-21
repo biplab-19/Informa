@@ -1,0 +1,28 @@
+.article-terms{
+  background-color: $white;
+    .row1{
+      background: #f0f1f3;
+    }
+    .small-content{
+      margin-top: 35px;
+      small{
+        font-size: 14px;
+      }
+      @include mobile {
+        margin-top: 5px;
+      }
+    }
+    .content-container{
+      width: 60%;
+      margin: 0 auto;
+      @include mobile {
+        width: 100%;
+        margin: 0 auto;
+      }
+      h3{
+        font-family: FSMe-bold;
+        margin-bottom: 30px;
+      }
+
+    }
+}
