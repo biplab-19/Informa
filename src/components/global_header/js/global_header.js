@@ -65,6 +65,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _arrayServicesFlag = true,
       _servicesFirst = true,
       _initialServicesHdrPos = 0,
+      _expandedServicesNav = false,
+
 
       _arrayFlag = true,
       _navlinks = $('.nav-links'),
@@ -302,22 +304,35 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _servicesFirst  = false;
          }
 
-         if(_windowPos > (_initialServicesHdrPos - _navHeight)){
+         var _fixedNavHeight;
+         if(INFORMA.global.device.isDesktop){
+            _fixedNavHeight = _navHeight;
+         }
+         else{
+            _fixedNavHeight = _navHeightMobile;
+         }
+         _servicesNavigationHeight = _servicesNavigation.height();
+
+         if(_windowPos > (_initialServicesHdrPos - _fixedNavHeight)){
             _servicesNavigation.addClass(_fixed);
-            _servicesNavigation.css('top',_navHeight+'px');
+            _servicesNavigation.css('top',_fixedNavHeight+'px');
             _servicesWrapper.css('padding-top',_servicesNavigationHeight);
             _servicesFixed = true;
 
             if(_arrayServicesFlag){
+               _servicesMenuPos = [];
+               _servicesMenuWidth = [];
+               _servicesMenuleft = [];
                for(var i=0;i<_servicesLink.length;i++){
                   var _sectionName = '#'+$(_servicesLink[i]).data('target');
+
                   _servicesMenuPos.push($(_sectionName).offset().top);
                   _servicesMenuWidth.push($(_servicesLink[i]).width());
                   _servicesMenuleft.push($(_servicesLink[i]).parent().offset().left);
                }
 
                // Ilaiyaraja rocks, fix the hard code later
-               $('#services-navigation ul > li:first-child').addClass('selected');
+               //$('#services-navigation ul > li:first-child').addClass('selected');
                if(INFORMA.global.device.isMobile) _servicesNavigation.addClass('cont');
                _arrayServicesFlag = false;
             }
@@ -350,35 +365,57 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       _servicesNavigationScrollTo = function(){
          _servicesLink.on('click',function(e){
             e.preventDefault();
-            //_servicesNavigation.addClass('cont');
-            var _target = $(this).data('target');
+            var _fixedNavHeight;
 
-            // todo, remove hardcoding
-            $('#services-navigation li').removeClass('selected');
-            $('#services-navigation li').addClass('select-options');
-            _servicesNavigationHeight = _servicesNavigation.height();
+            if(!INFORMA.global.device.isDesktop) {
+               
+               if(_expandedServicesNav)
+               {  
+                  var _target = $(this).data('target');
+                  
+                  $('#services-navigation li').removeClass('selected');
+                  $('#services-navigation li').removeClass('select-options');
+                  $('#services-navigation li:not(".selected")').slideUp();
+                  
+                  $(this).parent().addClass('selected');
 
-            //console.log("Offset-top: " + $("#"+_target).offset().top);
-            //console.log("Main-nav height: " +_navHeight);
-            //console.log("Services-nav height: " + _servicesNavigationHeight);
-            
-            var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight + _servicesNavigationHeight);
-            //var _scrollTopPixels = $("#"+_target).offset().top - (_navHeight);
-            //console.log("scrollTo: " + _scrollTopPixels);
+                  _servicesNavigationHeight = _servicesNavigation.height();
+                  _fixedNavHeight = _navHeightMobile;
 
-            $('html, body').stop().animate({
-                  scrollTop: _scrollTopPixels
-            }, 1000);
+                  var _scrollTopPixels = $("#"+_target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
+                  $('html, body').stop().animate({
+                        scrollTop: _scrollTopPixels
+                  }, 1000);
 
-            if(INFORMA.global.device.isMobile) {
-               // lesson learnt, hack is wrong.
-               $(this).parent().addClass('selected');
+                  
+                  _expandedServicesNav = false;
+               }
+               else{
+                  $('#services-navigation li').addClass('select-options');
+                  _expandedServicesNav = true;
+               }
+               //$('#services-navigation li:not(".selected")').slideUp();
                /*setTimeout(function(){
                   // i am sorry future Jack
                   $('#services-navigation li:not(".selected")').slideUp();
                   _servicesNavigation.addClass('cont');
                },100)*/
             }
+            else{
+
+               var _target = $(this).data('target');
+               $('#services-navigation li').removeClass('selected');
+               $('#services-navigation li').addClass('select-options');
+               _servicesNavigationHeight = _servicesNavigation.height();
+
+               _fixedNavHeight = _navHeight;
+
+               var _scrollTopPixels = $("#"+_target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
+               $('html, body').stop().animate({
+                     scrollTop: _scrollTopPixels
+               }, 1000);
+            }
+            
 
          })
       };
@@ -480,8 +517,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                   var _id = this.id;
                   $("#" + _id + " .image-thumbnail").prependTo("#" + _id + " .content");
                });
-            }        
+            }
 
+            if(!INFORMA.global.device.isDesktop){
+               $('#services-navigation ul > li:first-child').addClass('selected');
+               _expandedServicesNav = false;        
+            }
 
       };
 

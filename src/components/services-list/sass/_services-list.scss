@@ -2,7 +2,7 @@ nav#services-navigation {
     background: $yellow;
     border-bottom: 2px solid #c0c1c2;
     &.navbar-fixed-top {
-    	position: fixed;
+        position: fixed;
         width: 100%;
     }
     ul {
@@ -26,190 +26,200 @@ nav#services-navigation {
         transition: .3s ease-in;
         display: none;
     }
-    
-    @include mobile {
+    .nav-services-nondesktop{
+    	@include desktop{
+			display: none;
+    	}
+    	@include not-desktop{
+    		display: block;
+    		color: $gray-light-bg;
+            padding-top: 15px;
+    	}
+    	@include tablet{
+    		display: inline-block;
+            padding-top: 35px;
+    	}
+    }
+    @include not-desktop {
+    	.navbar-nav{
+    		background-color: $white;
+            width: 100%;
+    	}
         .menuFollower {
             display: none!important;
         }
         &.cont {
             li {
-                        pointer-events: none;
-                        // actually this is genius.
-                        // No.. Use bootstrap collapse. change html sumit
-                  }
+                //pointer-events: none;
+                // actually this is genius.
+                // No.. Use bootstrap collapse. change html sumit
+            }
         }
-            ul {
-                margin: 20px 0;
-                border: 1px solid $light;
-
-                li {
-                    width: 100%;
-                    display: none;
-                    
-                    &:first-child {
-                        display: block;
-                    }
-                    &.selected {
-                        display: block;
-                        a {
-                            &:after{
-                                content: '>';
-                                position: absolute;
-                                right: 10px;
-                                transform: rotate(90Deg);
-                                color: $light;
-                            }
+        ul {
+            margin: 20px 0;
+            border: 1px solid $light;
+            li {
+                width: 100%;
+                display: none;
+                &:first-child {
+                    display: block;
+                }
+                &.selected {
+                    display: block !important;
+                    a{
+                        &:after {
+                            content: '>';
+                            position: absolute;
+                            right: 20px;
+                            transform: rotate(90Deg);
+                            color: $info-icon-color;
                         }
                     }
-                    &.select-options{
-                    	display: list-item;
-                    }
+                }
+                &.select-options {
+                    display: list-item !important;
+                }
+                a{
+                    padding-left: 20px;
+                }
             }
         }
     }
 }
 
-section#services-list{
-
-	section:nth-child(even){
-		background-color: #f5f6f8;
-		.image-thumbnail{
-			&:after {
-	            background-color: #f5f6f8;
+section#services-list {
+    section:nth-child(even) {
+        background-color: #f5f6f8;
+        .image-thumbnail {
+            &:after {
+                background-color: #f5f6f8;
             }
-		}
-	}
-	
-	section:nth-child(odd){
-		background-color: $white;
-		.image-thumbnail{
-			&:after {
-	            background-color: $white;
-           	}
-		}
-		.img{
-			float: right;
-		}
-	}
-		
-	.row{
-		header{
-			color: $font-color;
-		}
-		.image-thumbnail{
-			overflow: hidden;
-			position: relative;
-			&:after {
-	            content: '';
-	            width: 110%;
-	            height: 100%;
-	            position: absolute;
-	            -ms-transform: rotate(-5deg); /* IE 9 */
-	            -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
-	            transform: rotate(-5deg);
-	            top: calc(100% - 38px);
-	            left: 0;
-          	}
-		}
-		.btn-container{
-			.btn-primary{
-				width: initial;
-				padding-right: 40px;
-			}
-		}
-	}
-
-	@include desktop{
-		.row{
-			padding-left: 15px;
-		}
-		.row [class*='col-'] {
-			padding-left: 0;
-		}
-		header{
-			font-size: 40px;
-			padding-top: 30px;
-			padding-bottom: 40px;
-			.img-icon{
-				width: 80px;
-				height: 80px;
-			}
-		}
-		.btn-container{
-			margin-top: 50px;
-			margin-bottom: 50px;
-		}
-	}
-
-	@include tablet{
-		.row{
-			padding: 30px 0;
-			.img{
-				display: none;
-			}
-			.image-thumbnail{
-				width: 50%;
-				height: 50%;
-			}
-		}
-
-		section:nth-child(even){
-			.image-thumbnail{
-				float: left;
-				padding-right: 25px;
-			}
-		}
-			
-		section:nth-child(odd){
-			.image-thumbnail{
-				float: right;
-				padding-left: 25px;
-			}
-		}
-
-		header{
-			font-size: 30px;
-			padding-left: 7.5px;
-			padding-right: 7.5px;
-			padding-bottom: 20px;
-			.img-icon{
-				width: 80px;
-				height: 80px;
-			}
-		}
-		.btn-container{
-			margin-top: 40px;
-		}
-	}
-
-	@include mobile{
-		.row{
-			padding: 30px 0;
-			display:flex;
-       		flex-flow: column;
-            header{
-               	order:2;
+        }
+    }
+    section:nth-child(odd) {
+        background-color: $white;
+        .image-thumbnail {
+            &:after {
+                background-color: $white;
             }
-       		.img{
-       			order:1;
-       		}
-       		.content{
-       			order:3;
-       		}
-		}
-		header{
-			font-size: 20px;
-			padding-left: 7.5px;
-			padding-right: 7.5px;
-			padding-bottom: 20px;
-			.img-icon{
-				width: 45px;
-				height: 45px;
-			}
-		}
-		.btn-container{
-			margin-top: 20px;
-		}
-	}
-	
+        }
+        .img {
+            float: right;
+        }
+    }
+    .row {
+        header {
+            color: $font-color;
+        }
+        .image-thumbnail {
+            overflow: hidden;
+            position: relative;
+            &:after {
+                content: '';
+                width: 110%;
+                height: 100%;
+                position: absolute;
+                -ms-transform: rotate(-5deg);
+                /* IE 9 */
+                -webkit-transform: rotate(-5deg);
+                /* Chrome, Safari, Opera */
+                transform: rotate(-5deg);
+                top: calc(100% - 38px);
+                left: 0;
+            }
+        }
+        .btn-container {
+            .btn-primary {
+                width: initial;
+                padding-right: 40px;
+            }
+        }
+    }
+    @include desktop {
+        .row {
+            padding-left: 15px;
+        }
+        .row [class*='col-'] {
+            padding-left: 0;
+        }
+        header {
+            font-size: 40px;
+            padding-top: 30px;
+            padding-bottom: 40px;
+            .img-icon {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        .btn-container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    }
+    @include tablet {
+        .row {
+            padding: 30px 0;
+            .img {
+                display: none;
+            }
+            .image-thumbnail {
+                width: 50%;
+                height: 50%;
+            }
+        }
+        section:nth-child(even) {
+            .image-thumbnail {
+                float: left;
+                padding-right: 25px;
+            }
+        }
+        section:nth-child(odd) {
+            .image-thumbnail {
+                float: right;
+                padding-left: 25px;
+            }
+        }
+        header {
+            font-size: 30px;
+            padding-left: 7.5px;
+            padding-right: 7.5px;
+            padding-bottom: 20px;
+            .img-icon {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        .btn-container {
+            margin-top: 40px;
+        }
+    }
+    @include mobile {
+        .row {
+            padding: 30px 0;
+            display: flex;
+            flex-flow: column;
+            header {
+                order: 2;
+            }
+            .img {
+                order: 1;
+            }
+            .content {
+                order: 3;
+            }
+        }
+        header {
+            font-size: 20px;
+            padding-left: 7.5px;
+            padding-right: 7.5px;
+            padding-bottom: 20px;
+            .img-icon {
+                width: 45px;
+                height: 45px;
+            }
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+    }
 }

@@ -791,12 +791,60 @@ header {
 
         .subnav-items{
             border-top: 1px solid #777b87;
+
             @include desktop{
-                width: 40%;
+                //width: 40%;
+                border-top: none;
                 ul li {
-                    float:left; width:50%;
+                    //float:left; width:50%;
                     padding-top: 10px;
                     padding-bottom: 10px;
+                }
+                ul{
+                    border-top: 1px solid #777b87;
+                    &.one{
+                        columns: 1;
+                        width: 40%;
+                    }
+                    &.two{
+                        columns: 2;
+                        width: 40%;
+                    }
+                    &.three{
+                        columns: 3;
+                        width: 80%;
+                        li{
+                            padding-right: 10px;
+                        }
+                    }
+                    &.four{
+                        columns: 4;
+                        width: 80%;
+                        li{
+                            padding-right: 10px;
+                        }
+                    }
+                    &.five{
+                        columns: 5;
+                        width: 90%;
+                        li{
+                            padding-right: 10px;
+                        }
+                    }
+                    &.six{
+                        columns: 6;
+                        width: 95%;
+                        li{
+                            padding-right: 10px;
+                        }
+                    }
+                    &.seven{
+                        columns: 7;
+                        width: 95%;
+                        li{
+                            padding-right: 10px;
+                        }
+                    }    
                 }
                 .labels{
                     padding-top: 10px;
