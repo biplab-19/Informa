@@ -48,22 +48,12 @@ nav#services-navigation {
         .menuFollower {
             display: none!important;
         }
-        &.cont {
-            li {
-                //pointer-events: none;
-                // actually this is genius.
-                // No.. Use bootstrap collapse. change html sumit
-            }
-        }
         ul {
             margin: 20px 0;
             border: 1px solid $light;
             li {
                 width: 100%;
                 display: none;
-                &:first-child {
-                    display: block;
-                }
                 &.selected {
                     display: block !important;
                     a{
@@ -72,7 +62,10 @@ nav#services-navigation {
                             position: absolute;
                             right: 20px;
                             transform: rotate(90Deg);
+                            -ms-transform: rotate(90Deg);
+                            -webkit-transform: rotate(90Deg);
                             color: $info-icon-color;
+                            font-size: x-large;
                         }
                     }
                 }
@@ -81,6 +74,7 @@ nav#services-navigation {
                 }
                 a{
                     padding-left: 20px;
+                    color: #5d616d;
                 }
             }
         }
@@ -120,9 +114,7 @@ section#services-list {
                 height: 100%;
                 position: absolute;
                 -ms-transform: rotate(-5deg);
-                /* IE 9 */
                 -webkit-transform: rotate(-5deg);
-                /* Chrome, Safari, Opera */
                 transform: rotate(-5deg);
                 top: calc(100% - 38px);
                 left: 0;
