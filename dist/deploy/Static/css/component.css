@@ -2027,7 +2027,7 @@ section#market-focus .market-list-wrapper .market-list .abs-image {
 /* line 1, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote {
   background: #ffd500;
-  padding: 40px 0 30px;
+  padding: 40px 0 0;
   position: relative;
   color: #434854;
   overflow: hidden;
@@ -6021,77 +6021,103 @@ nav#services-navigation .menuFollower {
   transition: .3s ease-in;
   display: none;
 }
-@media (max-width: 767px) {
-  /* line 31, ../../../src/components/services-list/sass/_services-list.scss */
+@media (min-width: 1142px) {
+  /* line 29, ../../../src/components/services-list/sass/_services-list.scss */
+  nav#services-navigation .nav-services-nondesktop {
+    display: none;
+  }
+}
+@media (max-width: 1141px) {
+  /* line 29, ../../../src/components/services-list/sass/_services-list.scss */
+  nav#services-navigation .nav-services-nondesktop {
+    display: block;
+    color: #444957;
+    padding-top: 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 29, ../../../src/components/services-list/sass/_services-list.scss */
+  nav#services-navigation .nav-services-nondesktop {
+    display: inline-block;
+    padding-top: 35px;
+  }
+}
+@media (max-width: 1141px) {
+  /* line 44, ../../../src/components/services-list/sass/_services-list.scss */
+  nav#services-navigation .navbar-nav {
+    background-color: #fff;
+    width: 100%;
+  }
+  /* line 48, ../../../src/components/services-list/sass/_services-list.scss */
   nav#services-navigation .menuFollower {
     display: none !important;
   }
-  /* line 35, ../../../src/components/services-list/sass/_services-list.scss */
-  nav#services-navigation.cont li {
-    pointer-events: none;
-  }
-  /* line 41, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 58, ../../../src/components/services-list/sass/_services-list.scss */
   nav#services-navigation ul {
     margin: 20px 0;
     border: 1px solid #fff;
   }
-  /* line 45, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 61, ../../../src/components/services-list/sass/_services-list.scss */
   nav#services-navigation ul li {
     width: 100%;
     display: none;
   }
-  /* line 49, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 64, ../../../src/components/services-list/sass/_services-list.scss */
   nav#services-navigation ul li:first-child {
     display: block;
   }
-  /* line 52, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 67, ../../../src/components/services-list/sass/_services-list.scss */
   nav#services-navigation ul li.selected {
-    display: block;
+    display: block !important;
   }
-  /* line 55, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 70, ../../../src/components/services-list/sass/_services-list.scss */
   nav#services-navigation ul li.selected a:after {
     content: '>';
     position: absolute;
-    right: 10px;
+    right: 20px;
     transform: rotate(90Deg);
-    color: #fff;
+    color: #a6aab6;
   }
-  /* line 64, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 79, ../../../src/components/services-list/sass/_services-list.scss */
   nav#services-navigation ul li.select-options {
-    display: list-item;
+    display: list-item !important;
+  }
+  /* line 82, ../../../src/components/services-list/sass/_services-list.scss */
+  nav#services-navigation ul li a {
+    padding-left: 20px;
   }
 }
 
-/* line 74, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 91, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list section:nth-child(even) {
   background-color: #f5f6f8;
 }
-/* line 77, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 94, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list section:nth-child(even) .image-thumbnail:after {
   background-color: #f5f6f8;
 }
-/* line 83, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 99, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list section:nth-child(odd) {
   background-color: #fff;
 }
-/* line 86, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 102, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list section:nth-child(odd) .image-thumbnail:after {
   background-color: #fff;
 }
-/* line 90, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 106, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list section:nth-child(odd) .img {
   float: right;
 }
-/* line 96, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 111, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list .row header {
   color: #6a7287;
 }
-/* line 99, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 114, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list .row .image-thumbnail {
   overflow: hidden;
   position: relative;
 }
-/* line 102, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 117, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list .row .image-thumbnail:after {
   content: '';
   width: 110%;
@@ -6105,110 +6131,110 @@ section#services-list .row .image-thumbnail:after {
   top: calc(100% - 38px);
   left: 0;
 }
-/* line 115, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 132, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list .row .btn-container .btn-primary {
   width: initial;
   padding-right: 40px;
 }
 @media (min-width: 1142px) {
-  /* line 123, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 139, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding-left: 15px;
   }
-  /* line 126, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 142, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row [class*='col-'] {
     padding-left: 0;
   }
-  /* line 129, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 145, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 40px;
     padding-top: 30px;
     padding-bottom: 40px;
   }
-  /* line 133, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 149, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 80px;
     height: 80px;
   }
-  /* line 138, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 154, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 50px;
     margin-bottom: 50px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 145, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 160, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding: 30px 0;
   }
-  /* line 147, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 162, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .img {
     display: none;
   }
-  /* line 150, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 165, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .image-thumbnail {
     width: 50%;
     height: 50%;
   }
-  /* line 157, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 171, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(even) .image-thumbnail {
     float: left;
     padding-right: 25px;
   }
-  /* line 164, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 177, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(odd) .image-thumbnail {
     float: right;
     padding-left: 25px;
   }
-  /* line 170, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 182, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 30px;
     padding-left: 7.5px;
     padding-right: 7.5px;
     padding-bottom: 20px;
   }
-  /* line 175, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 187, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 80px;
     height: 80px;
   }
-  /* line 180, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 192, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 40px;
   }
 }
 @media (max-width: 767px) {
-  /* line 186, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 197, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding: 30px 0;
     display: flex;
     flex-flow: column;
   }
-  /* line 190, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 201, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row header {
     order: 2;
   }
-  /* line 193, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 204, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .img {
     order: 1;
   }
-  /* line 196, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 207, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .content {
     order: 3;
   }
-  /* line 200, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 211, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 20px;
     padding-left: 7.5px;
     padding-right: 7.5px;
     padding-bottom: 20px;
   }
-  /* line 205, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 216, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 45px;
     height: 45px;
   }
-  /* line 210, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 221, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 20px;
   }
