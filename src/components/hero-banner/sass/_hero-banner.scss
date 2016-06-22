@@ -253,8 +253,9 @@ section#hero-banner {
         color: $light;
         @include mobile {
           padding: 10px;
+          height: 700px;
         }
-        .marg-top{
+        .main-heading{
           margin-top: 30px;
         }
         h1{
@@ -272,7 +273,9 @@ section#hero-banner {
            }
         }
        .span-arrow{
-           font-size: 250%;
+            font-family: "InformaIcons" !important;
+            font-size: 250%;
+            content: "\e902";
          @include mobile {
              display: none;
            }

@@ -29,7 +29,7 @@
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
-            "SearchResult": "/data/search-results.json",
+            "SearchResult": "/client/search/GetSearchResults",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",
             "AnalystSearchAll": "/client/search/SeeAllSpecialists",
@@ -522,6 +522,15 @@ var INFORMA = window.INFORMA || {};
                         '</li>'+
                     '{{/each}}'+
                     '</ul>',
+        'Others': '{{#each results}}' +
+                    '<div class="col-xs-12 search-others">'+
+                        '<h3>{{Title}}</h3>'+
+                        '<p>{{Description}}</p>'+
+                        '<div class="btn-container">'+
+                            '<a href="{{MoreLink}}" class="btn btn-default">{{MoreText}}</a>'+
+                        '</div>'+
+                    '</div>'+
+                  '{{/each}}',
         'AnalystList': '<section class="analyst-views">' +
                             '<div class="container">' +
                                 '<h2 class="header">{{results.header}}</h2>' +

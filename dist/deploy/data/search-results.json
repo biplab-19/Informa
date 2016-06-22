@@ -12,7 +12,7 @@
        "Key": "Products",
        "Value": "products"
         },
-                {
+        {
        "Key": "Resources",
        "Value": "resources"
         }
@@ -62,113 +62,144 @@
         }]
     },
     "Results": {
-        "Products": [{
-            "Image": "Static/images/video-thumb-sample.jpg",
-            "Title": "Informa Economics IEG",
-            "Description": "World leader since 1977 providing agricultural and commodity analysis, market research, evaluation and consulting.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at ex venenatis, aliquam eros non, bibendum velit. Sed nec eros eget arcu pretium pulvinar id ut augue.",
-            "SubSectors": ["Animal Health", "Biofuels", "Biotechnolgy markets", "Crops"],
-            "Benefits": ["Content categorisation", "Exclusive coverage", "Exclusive coverages", "Issue Index", "Market updates", "Political and regulatory issues", "State-level news", "Updates through the day", "access-to-informa-economics"],
-            "FreeTrialLink": null,
-            "MoreLink": "http://informa/en/sitecore/content/Informa Shop Window/Agri/home/products/sector-page/Product1",
-            "ProductCount" :3
-        }, {
-            "Image": "Static/images/video-thumb-sample.jpg",
-            "Title": "Informa Economics IEG",
-            "Description": "World leader since 1977 providing agricultural and commodity analysis, market research, evaluation and consulting.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at ex venenatis, aliquam eros non, bibendum velit. Sed nec eros eget arcu pretium pulvinar id ut augue.",
-            "SubSectors": ["Animal Health", "Biofuels", "Biotechnolgy markets", "Crops"],
-            "Benefits": ["Content categorisation", "Exclusive coverage", "Exclusive coverages", "Issue Index", "Market updates", "Political and regulatory issues", "State-level news", "Updates through the day", "access-to-informa-economics"],
-            "FreeTrialLink": null,
-            "MoreLink": "http://informa/en/sitecore/content/Informa Shop Window/Agri/home/products/sector-page/Product1",
-            "ProductCount" :3
-        }, {
-            "Image": "Static/images/video-thumb-sample.jpg",
-            "Title": "Informa Economics IEG",
-            "Description": "World leader since 1977 providing agricultural and commodity analysis, market research, evaluation and consulting.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at ex venenatis, aliquam eros non, bibendum velit. Sed nec eros eget arcu pretium pulvinar id ut augue.",
-            "SubSectors": ["Animal Health", "Biofuels", "Biotechnolgy markets", "Crops"],
-            "Benefits": ["Content categorisation", "Exclusive coverage", "Exclusive coverages", "Issue Index", "Market updates", "Political and regulatory issues", "State-level news", "Updates through the day", "access-to-informa-economics"],
-            "FreeTrialLink": null,
-            "MoreLink": "http://informa/en/sitecore/content/Informa Shop Window/Agri/home/products/sector-page/Product1",
-            "ProductCount" :3
-        }],
-        "Resources": [{
-            "Title": "Worldssss leaders hid wealth via shell companiessss",
-            "Description": "Leaked files from a Panama law firm that creates shell companies show that politicians.",
-            "SectorType": "Agriculture food policy & reulations",
-            "ContentType": ["Issue Monitor", "/cms-images/article_list/policy.png", "Alt text here"],
-            "Profiles": ["Tore-Alden", "jim-weisemeyer", "roger-bernard"],
-            "Topics": ["Natural Resources", "Organic", "Resources"],
-            "ResourceLink": {
-                "linkText": "Full article",
-                "url": "/url will be here",
-                "target": "_blank"
-            },
-            "ProductCount" :3
-        }, {
-            "Title": "What we can learn from the US biodesiel output slumpsss",
-            "Description": null,
-            "SectorType": "Agriculture food policy & reulations",
-            "ContentType": ["Issue Monitor", "/cms-images/article_list/policy.png", "Alt text here"],
-            "Video": {
-                "url": "http://www.dummyurl.com",
-                "ImageSrc": "/cms-images/video-thumb-sample.jpg",
-                "ImageAltText": "video description here"
-            },
-            "Profiles": ["Tore-Alden", "jim-weisemeyer", "roger-bernard"],
-            "Topics": ["Natural Resources", "Organic", "Resources"],
-            "ResourceLink": {
-                "linkText": "View Webinar",
-                "url": "/url will be here",
-                "target": "_blank"
-            },
-            "ProductCount" :3
-        }, {
-            "Title": "World leaders hid wealth via shell companies",
-            "Description": "the deadline for US goverment with a World Trade Orgnaization(WTO) decision about antidumping measures on Vietnamese shrimp has been extended to September 22.",
-            "SectorType": "Commodities",
-            "ContentType": ["Issue Monitor", "/cms-images/article_list/policy.png", "Alt text here"],
-            "Profiles": ["Tore-Alden", "jim-weisemeyer", "roger-bernard"],
-            "Topics": ["Natural Resources", "Organic", "Resources"],
-            "ResourceLink": {
-                "linkText": "Full article",
-                "url": "/url will be here",
-                "target": "_blank"
-            },
-            "ProductCount" :3
-        }],
-        "Events":[
-            {
-                "Type":"Webnair",
-                "Date" :"April 18,2016",
-                "Time" :"Time: 11:00 EDT",
-                "Description" :"Free Webnair - North America's Commodity Constraints",
-                "Presenters" :"Tore Alden",
-                "DetailsText":"Details",
-                "DetailsLink" :"Http://www.google.com",
-                "RegisterText" : "Register",
-                "RegisterLink" : "Http://www.google.com"
-            },
-            {
-                "Type":"Webnair",
-                "Date" :"April 18,2016",
-                "Time" :"Time: 11:00 EDT",
-                "Description" :"Free Webnair - North America's Commodity Constraints",
-                "Presenters" :"Tore Alden",
-                "DetailsText":"Details",
-                "DetailsLink" :"Http://www.google.com",
-                "RegisterText" : "Register",
-                "RegisterLink" : "Http://www.google.com"
-            },
-            {
-                "Type":"Webnair",
-                "Date" :"April 18,2016",
-                "Time" :"Time: 11:00 EDT",
-                "Description" :"Free Webnair - North America's Commodity Constraints",
-                "Presenters" :"Tore Alden",
-                "DetailsText":"Details",
-                "DetailsLink" :"Http://www.google.com",
-                "RegisterText" : "Register",
-                "RegisterLink" : "Http://www.google.com"
-            }
-        ]
+        "Products":{
+            "Count" : 3,
+            "RemainingCount" : 12,
+            "ProductsList": [{
+                "Image": "Static/images/video-thumb-sample.jpg",
+                "Title": "Informa Economics IEG",
+                "Description": "World leader since 1977 providing agricultural and commodity analysis, market research, evaluation and consulting.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at ex venenatis, aliquam eros non, bibendum velit. Sed nec eros eget arcu pretium pulvinar id ut augue.",
+                "SubSectors": ["Animal Health", "Biofuels", "Biotechnolgy markets", "Crops"],
+                "Benefits": ["Content categorisation", "Exclusive coverage", "Exclusive coverages", "Issue Index", "Market updates", "Political and regulatory issues", "State-level news", "Updates through the day", "access-to-informa-economics"],
+                "FreeTrialLink": null,
+                "MoreLink": "http://informa/en/sitecore/content/Informa Shop Window/Agri/home/products/sector-page/Product1"
+            }, {
+                "Image": "Static/images/video-thumb-sample.jpg",
+                "Title": "Informa Economics IEG",
+                "Description": "World leader since 1977 providing agricultural and commodity analysis, market research, evaluation and consulting.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at ex venenatis, aliquam eros non, bibendum velit. Sed nec eros eget arcu pretium pulvinar id ut augue.",
+                "SubSectors": ["Animal Health", "Biofuels", "Biotechnolgy markets", "Crops"],
+                "Benefits": ["Content categorisation", "Exclusive coverage", "Exclusive coverages", "Issue Index", "Market updates", "Political and regulatory issues", "State-level news", "Updates through the day", "access-to-informa-economics"],
+                "FreeTrialLink": null,
+                "MoreLink": "http://informa/en/sitecore/content/Informa Shop Window/Agri/home/products/sector-page/Product1"
+            }, {
+                "Image": "Static/images/video-thumb-sample.jpg",
+                "Title": "Informa Economics IEG",
+                "Description": "World leader since 1977 providing agricultural and commodity analysis, market research, evaluation and consulting.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at ex venenatis, aliquam eros non, bibendum velit. Sed nec eros eget arcu pretium pulvinar id ut augue.",
+                "SubSectors": ["Animal Health", "Biofuels", "Biotechnolgy markets", "Crops"],
+                "Benefits": ["Content categorisation", "Exclusive coverage", "Exclusive coverages", "Issue Index", "Market updates", "Political and regulatory issues", "State-level news", "Updates through the day", "access-to-informa-economics"],
+                "FreeTrialLink": null,
+                "MoreLink": "http://informa/en/sitecore/content/Informa Shop Window/Agri/home/products/sector-page/Product1"
+            }]
+        },
+        "Resources":{
+            "Count" : 3,
+            "RemainingCount" : 12,
+            "ResourcesList": [{
+                "Title": "Worldssss leaders hid wealth via shell companiessss",
+                "Description": "Leaked files from a Panama law firm that creates shell companies show that politicians.",
+                "SectorType": "Agriculture food policy & reulations",
+                "ContentType": ["Issue Monitor", "/cms-images/article_list/policy.png", "Alt text here"],
+                "Profiles": ["Tore-Alden", "jim-weisemeyer", "roger-bernard"],
+                "Topics": ["Natural Resources", "Organic", "Resources"],
+                "ResourceLink": {
+                    "linkText": "Full article",
+                    "url": "/url will be here",
+                    "target": "_blank"
+                }
+            }, {
+                "Title": "What we can learn from the US biodesiel output slumpsss",
+                "Description": null,
+                "SectorType": "Agriculture food policy & reulations",
+                "ContentType": ["Issue Monitor", "/cms-images/article_list/policy.png", "Alt text here"],
+                "Video": {
+                    "url": "http://www.dummyurl.com",
+                    "ImageSrc": "/cms-images/video-thumb-sample.jpg",
+                    "ImageAltText": "video description here"
+                },
+                "Profiles": ["Tore-Alden", "jim-weisemeyer", "roger-bernard"],
+                "Topics": ["Natural Resources", "Organic", "Resources"],
+                "ResourceLink": {
+                    "linkText": "View Webinar",
+                    "url": "/url will be here",
+                    "target": "_blank"
+                }
+            }, {
+                "Title": "World leaders hid wealth via shell companies",
+                "Description": "the deadline for US goverment with a World Trade Orgnaization(WTO) decision about antidumping measures on Vietnamese shrimp has been extended to September 22.",
+                "SectorType": "Commodities",
+                "ContentType": ["Issue Monitor", "/cms-images/article_list/policy.png", "Alt text here"],
+                "Profiles": ["Tore-Alden", "jim-weisemeyer", "roger-bernard"],
+                "Topics": ["Natural Resources", "Organic", "Resources"],
+                "ResourceLink": {
+                    "linkText": "Full article",
+                    "url": "/url will be here",
+                    "target": "_blank"
+                }
+            }]
+        },
+        "Events":{
+            "Count" : 3,
+            "RemainingCount" : 12,
+            "EventsList":[
+                {
+                    "Type":"Webnair",
+                    "Date" :"April 18,2016",
+                    "Time" :"Time: 11:00 EDT",
+                    "Description" :"Free Webnair - North America's Commodity Constraints",
+                    "Presenters" :"Tore Alden",
+                    "DetailsText":"Details",
+                    "DetailsLink" :"Http://www.google.com",
+                    "RegisterText" : "Register",
+                    "RegisterLink" : "Http://www.google.com"
+                },
+                {
+                    "Type":"Webnair",
+                    "Date" :"April 18,2016",
+                    "Time" :"Time: 11:00 EDT",
+                    "Description" :"Free Webnair - North America's Commodity Constraints",
+                    "Presenters" :"Tore Alden",
+                    "DetailsText":"Details",
+                    "DetailsLink" :"Http://www.google.com",
+                    "RegisterText" : "Register",
+                    "RegisterLink" : "Http://www.google.com"
+                },
+                {
+                    "Type":"Webnair",
+                    "Date" :"April 18,2016",
+                    "Time" :"Time: 11:00 EDT",
+                    "Description" :"Free Webnair - North America's Commodity Constraints",
+                    "Presenters" :"Tore Alden",
+                    "DetailsText":"Details",
+                    "DetailsLink" :"Http://www.google.com",
+                    "RegisterText" : "Register",
+                    "RegisterLink" : "Http://www.google.com"
+                }
+            ]
+        },
+        "Others" :{
+            "Count" : 3,
+            "RemainingCount" : 12,
+            "OthersList" :[
+                {
+                    "Title" :"Worldssss leaders hid wealth via shell",
+                    "Description" : "the deadline for US goverment with a World Trade Orgnaization(WTO) decision about antidumping measures on Vietnamese shrimp has been extended to September 22.",
+                    "MoreText" : "Read More",
+                    "MoreLink" :"#"
+                },
+                {
+                    "Title" :"Worldssss leaders hid wealth via shell",
+                    "Description" : "the deadline for US goverment with a World Trade Orgnaization(WTO) decision about antidumping measures on Vietnamese shrimp has been extended to September 22.",
+                    "MoreText" : "Read More",
+                    "MoreLink" :"#"
+                },
+                {
+                    "Title" :"Worldssss leaders hid wealth via shell",
+                    "Description" : "the deadline for US goverment with a World Trade Orgnaization(WTO) decision about antidumping measures on Vietnamese shrimp has been extended to September 22.",
+                    "MoreText" : "Read More",
+                    "MoreLink" :"#"
+                }
+
+            ]
+        }
     }
 }
