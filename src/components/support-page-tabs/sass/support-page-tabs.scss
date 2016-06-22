@@ -10,16 +10,14 @@
 .nav-tabs{
   border-bottom: none !important;
 }
-li.active a{
-  border: 1px solid #aaa !important;
-  border-bottom: none !important;
-  color: $black !important;
-}
   margin-top: 20px;
 
   ul{
     //border-bottom: 1px solid #aaa !important;
     font-family: FSMe-bold;
+    li{
+
+    }
     }
     @include mobile {
         margin-left: -10px;
@@ -38,7 +36,8 @@ li.active a{
       a{
         color: $black;
         border-radius: 0px !important;
-        border: 0px solid transparent;
+        border: 1px solid rgba(204, 204, 204,0.3);
+        border-bottom: 1px solid #aaa;
         background-color: #e7e7e7;
         padding: 13px 14px !important;
         @include mobile {
@@ -46,6 +45,12 @@ li.active a{
           padding: 17px 14px !important;
         }
       }
+      li.active a{
+        border: 1px solid #aaa !important;
+        border-bottom: none !important;
+        color: $black !important;
+      }
+
 
   }
 }
