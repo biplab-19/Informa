@@ -379,7 +379,41 @@ var INFORMA = window.INFORMA || {};
                                                 '</div>'+
                                             '</div>'+
                                         '</div>'+
-                                    '{{/each}}'
+                                    '{{/each}}',
+    'ResourceList': '<div class="col-xs-12 col-sm-6 col-md-4 list-item-container">'+
+                        '<div class="list-item">'+
+                            '<div class="columns">'+
+                                '<p class="category">'+
+                                  '<strong>{{SectorType}}</strong>'+
+                                '</p>'+
+                                '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
+                                '<span class="content-type">{{ContentType}}</span>'+
+                                '<p class="date">30.03.2016</p>'+
+                                '<div class="list-content">'+
+                                    '{{#if Description}}'+
+                                        '<p class="description">{{Description}}</p>'+
+                                        '<span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>'+
+                                            '<span class="article-info"><em>Topic:</em> '+
+                                                '<strong>{{Topics}}</strong>'+
+                                            '</span>'+
+                                    '{{/if}}'+
+                                    '{{#if Video}}'+
+                                        '<div class="video-container">'+
+                                            '<a href="{{Video.url}}" class="video-link">'+
+                                                '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
+                                                '<span class="play-icon icon-play"></span>'+
+                                            '</a>'+
+                                        '</div>'+
+                                    '{{/if}}'+
+                                '</div>'+
+                            '</div>'+
+                            '{{#if ResourceLink}}'+
+                                '<div class="btn-container">'+
+                                  '<a role="button" href="{{ResourceLink.url}}" class="btn btn-default" target="{{ResourceLink.target}}">{{ResourceLink.linkText}}</a>'+
+                                '</div>'+
+                            '{{/if}}'+
+                        '</div>'+
+                    '</div>'
 
 }
 }(this, jQuery, 'INFORMA'));

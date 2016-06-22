@@ -471,8 +471,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
 
     SwitchEvents = function() {
-        Views.on('click', function() {
-            
+        Views.on('click', function(e) {
+            e.preventDefault();
             var ViewMode = jQuery(this).data('viewport');
             Views.removeClass('active');
             jQuery(this).addClass('active');

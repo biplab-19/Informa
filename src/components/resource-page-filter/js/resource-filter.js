@@ -19,13 +19,19 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         CustomSelect = ResourceContainer.find("select"),
         SectorSelect = ResourceContainer.find("select.resource-sector"),
         SubSectorSelect = ResourceContainer.find("select.resource-sub-sector"),
+        BtnSubmit = ResourceContainer.find(".search-resource"),
         ResourceListContainer = $('.resource-list'),
         BtnMore = $('.btn-showMore'),
+        Urls = INFORMA.Configs.urls.webservices,
+        Templates = INFORMA.Templates,
     // methods
         init,
         BindDropDown,
         ResourceBindDropDown,
-        RenderOnLoad;
+        RenderResourceResult,
+        RenderOnLoad,
+        SubmitHandler,
+        GetAjaxData;
 
     ResourceBindDropDown = function() {
         CustomSelect.val("");
@@ -54,7 +60,53 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 }
             }
         });
-    };
+    },
+
+    RenderResourceResult = function(data) {
+        INFORMA.Spinner.Show($("body"));
+        var results = data.SearchDictionary,
+            html = "";
+
+        for (var key in results) {
+            if (results.hasOwnProperty(key)) {
+                var Data = results[key],
+                    HeaderText = key,
+                    TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                Data.header = HeaderText;
+                html += ListTemplate({ results: Data });
+
+            }
+        }
+    },
+
+    GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+        // INFORMA.Spinner.Show($("body"));
+        INFORMA.DataLoader.GetServiceData(url, {
+            method: method,
+            data: data,
+            success_callback: function(data) {
+                if (typeof SCallback === "function") {
+                    SCallback.call(this, data, SearchType);
+                }
+            },
+            error_callback: function() {
+                if (typeof Errcallback === "function") {
+                    Errcallback.call(this, data, SearchType);
+                }
+            }
+        });
+    },
+
+    SubmitHandler = function() {
+        BtnSubmit.on('click', function(e) {
+            e.preventDefault();
+            var FieldArray = ResourceContainer.find("form").serializeArray(),
+                GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
+                // debugger;
+            GetAjaxData(Urls.GetArticles, "Get", null, RenderResourceResult, null, null);
+        })
+    },
 
     RenderOnLoad = function() {
         ResourceListContainer.each(function() {
@@ -78,6 +130,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
                 jQuery(this).toggleClass('showLess');
         })
+
+        SubmitHandler();
     }
     
 
