@@ -2,30 +2,39 @@
 .accordian-structure {
 	padding: 30px 0;
 	.selectMenu {
+		padding: 0;
+		.chosen-select {
+			padding: 0 0 0 8px;
+			height: 45px;
+			border: 1px solid $blue-lighter-bg;
+			option {
+				font-size: 14px;
+				padding: 10px 6px;
+			}
+		}
 		.chosen-container,
 		.chosen-single {
-			height: 50px;
+			height: 45px;
 			border-radius: 0;
-			border: solid 2px $blue-lighter-bg;
+			border: solid 1px $blue-lighter-bg;
 			span {
 				margin-top: 6px;
 				font-size: 14px;
 			}
 		}
-
-		.chosen-container .chosen-drop{
-		border-radius: 0;
+		.chosen-container .chosen-drop {
+			border-radius: 0;
 			//background-color: transparent;
-				border: solid 2px $blue-lighter-bg;
+			border: solid 1px $blue-lighter-bg;
 			box-shadow: none;
 		}
 		.chosen-container-single .chosen-drop {
-
 			font-size: 14px;
 		}
 		.chosen-container .chosen-results {
 			border-radius: 0;
-			margin: 0px;
+			margin: 0;
+			padding: 0;
 		}
 		.chosen-container .chosen-results li.active-result {
 			font-size: 14px;
@@ -93,8 +102,8 @@
 							position: absolute;
 							right: 0;
 							top: 50%;
-							margin-top: -14px;
-							font-size: 28px;
+							margin-top: -20px;
+					    font-size: 35px;
 							font-family: 'InformaIcons';
 							font-style: normal;
 							color: #6a7287;

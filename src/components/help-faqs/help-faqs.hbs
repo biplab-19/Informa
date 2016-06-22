@@ -1,7 +1,7 @@
 <section id="helpFaqs" class="accordian-structure">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-3">
+			<div class="col-xs-12 col-sm-5 col-md-3">
 				<h2 class="bolder">{{title}}</h2>
 				<div class="selectMenu">
 					<select id="helpFAQSelect" class="help-faq-select chosen-select" data-target=".help-faq-wrapper" {{#each OptionList}} <option value="{{displayValue}}" data-show=".{{displayValue}}">{{displayText}}</option>
@@ -11,7 +11,7 @@
 			</div>
 			<div class="help-faq-wrapper">
 				{{#each helpItems}}
-					<div class="{{accordianId}} col-xs-12 col-sm-8 col-sm-offset-1 ">
+					<div class="{{accordianId}} col-xs-12 col-md-8 col-md-offset-1 ">
 						<div class="panel-group" id="faqs-accordion" role="tablist" aria-multiselectable="true">
 							{{#each accordian}}
 								<div class="panel panel-default">
