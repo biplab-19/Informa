@@ -187,6 +187,32 @@ var INFORMA = window.INFORMA || {};
                 '</li>'+
             '{{/each}}'+
         '</ul>',
+        'Events':
+            '<ul class="event-items">'+
+                '{{#each results}}'+
+                    '<li class="col-xs-12 col-sm-6 col-md-4">'+
+                        '<div class="event-container">'+
+                            '<div class="content">'+
+                                    '<div class="info">'+
+                                        '<p class="tag">{{Type}}</p>'+
+                                        '<span class="date"><span class="icon icon-calendar-day">'+
+                                        '</span>{{Date}}</span>'+
+                                        '<span class="time"><span class="icon icon-calendar-day">'+
+                                        '</span>{{Time}}</span>'+
+                                        '<h3>{{Description}}</h3>'+
+                                        '<p><strong>Presenters: </strong>{{Presenters}}</p>'+
+                                    '</div>'+
+                                    '<div class="parent">'+
+                                        '<div class="child clearfix">'+
+                                            '<a class="link" href="{{DetailsLink}}">{{DetailsText}}</a>'+
+                                            '<a class="btn btn-default" href="{{RegisterLink}}">{{RegisterText}}</a>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</li>'+
+                    '{{/each}}'+
+                    '</ul>',
         'AnalystList': '<section class="analyst-views">' +
                             '<div class="container">' +
                                 '<h2 class="header">{{results.header}}</h2>' +

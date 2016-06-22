@@ -1,4 +1,4 @@
-<section class="search-results search-container">
+<section class="search-results-content search-container">
 <input type="hidden" class="search-hidden" value="Issue Index" />
 <div class="search-tabs">
     <div class="container clearfix">
@@ -13,6 +13,24 @@
 	<div class="container">
 		<p class="filter-text">You've searched for:</p>
 		<div class="filter-list">
+            <div class="Sectors">
+                <p>Sectors:</p>
+                <ul data-filterid="Sectors">
+                    <li>Insight News 
+                        <a data-value="guid001" data-sector="" class="remove" href="#">x</a>
+                    </li>
+                    <li>Pricing Information
+                        <a data-value="guid001" data-sector="" class="remove" href="#">x</a>
+                    </li>
+                    <li>Trade flows
+                    <a data-value="guid001" data-sector="" class="remove" href="#">x</a>
+                    </li>
+                    <li>Feed
+                        <a data-value="guid001" data-sector="" class="remove" href="#">x</a>
+                    </li>
+                </ul>
+                <a data-filterid="Sectors" href="#" class="remove-all">Clear all x</a>
+            </div>
 		</div>
 	</div>
 </div>
@@ -25,35 +43,101 @@
 	</div>
 	<div class="container slider">
 		<div class="refine-result container clearfix">
-
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <p><strong>Sectors</strong></p>
+                <ul data-filterid="Sectors">
+                    <li><span class="custom-checkbox">
+                        <label for="Insight News" class="label">
+                            <input type="checkbox" name="Insight News" id="Insight News" value="guid001" data-value="guid001">
+                            <span>Insight News</span>
+                        </label>
+                        </span>
+                    </li>
+                    <li><span class="custom-checkbox">
+                        <label for="Pricing Information" class="label"><input type="checkbox" name="Pricing Information" id="Pricing Information" value="guid001" data-value="guid001">
+                        <span>Pricing Information</span>
+                        </label>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="custom-checkbox">
+                        <label for="Trade flows" class="label">
+                            <input type="checkbox" name="Trade flows" id="Trade flows" value="guid001" data-value="guid001">
+                            <span>Trade flows</span>
+                        </label>
+                        </span>
+                    </li>
+                    <li>
+                    <span class="custom-checkbox">
+                        <label for="Feed" class="label">
+                        <input type="checkbox" name="Feed" id="Feed" value="guid001" data-value="guid001">
+                        <span>Feed</span>
+                        </label>
+                    </span>
+                    </li>
+                </ul>
+            </div>
 		</div>
 		<div class="refine-button container">
 			<a href="#" class="btn btn-default">Refine</a>
 		</div>
 	</div>
 </div>
-<div class="container" id="results" style="display:none;"> 
-	<div class="search-results flip" id="products" name="products">
-        <p class="count"><strong></strong> Products found</p>
+<div class="container" id="results"> 
+	<div class="search-results flip" id="products">
+        <h2 class="count"><strong></strong> Products found</h2>
             <div class="row">
             </div>
             <div class="btn-container">
-                <a href="javascript:void(0)" class="btn-ShowMore">
+                <a href="#products" class="btn-ShowMore">
                     <span class="more">More Products</span>
-                    <span class="less">Less products</span>
                 </a>
             </div>
     </div>
-    <div class="search-results" id="resources" name="resources">
+    <div class="search-results" id="resources">
            <p class="count"><strong></strong> Resources found</p>
            	<div class="row article-list">
            	</div>
            	<div class="btn-container">
-                <a href="javascript:void(0)" class="btn-ShowMore">
+                <a href="#resources" class="btn-ShowMore">
                     <span class="more">More Products</span>
-                    <span class="less">Less products</span>
                 </a>
             </div>
+    </div>
+    <div class="search-results" id="events">
+       <h2 class="count"><strong></strong> Events found</h2>
+        <div class="row analyst-profile-events">
+        </div>
+        <div class="btn-container">
+            <a href="#events" class="btn-ShowMore">
+                <span class="more">More Products</span>
+            </a>
+        </div>
+    </div>
+    <div class="search-results others" id="others">
+           <h2 class="others">Other Results</h2>
+            <div class="row">
+                <div class="col-xs-12 search-others">
+                    <h3>Worldssss leaders hid wealth via shell </h3>
+                    <p>the deadline for US goverment with a World Trade Orgnaization(WTO) decision about antidumping measures on Vietnamese shrimp has been extended to September 22.</p>
+                    <div class="btn-container">
+                        <a href="#" class="btn btn-default">Read More</a>
+                    </div>
+                </div>
+                <div class="col-xs-12 search-others">
+                    <h3>Worldssss leaders hid wealth via shell </h3>
+                    <p>the deadline for US goverment with a World Trade Orgnaization(WTO) decision about antidumping measures on Vietnamese shrimp has been extended to September 22.</p>
+                    <div class="btn-container">
+                        <a href="#" class="btn btn-default">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container">
+                <a href="#others" class="btn-ShowMore">
+                    <span class="more">More results</span>
+                </a>
+            </div>
+    </div>
     </div>
 </div>
 </section>

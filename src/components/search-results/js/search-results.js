@@ -31,11 +31,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         Config = INFORMA.Configs,
         PageSize = parseInt(Config.searchResult.pageSize),
         Urls = INFORMA.Configs.urls.webservices,
-        Utils = INFORMA.Utils, 
+        Utils = INFORMA.Utils, SearchType = '',
         // methods
         init,
         equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter,
-        LoadProducts, CreateFilterList,
+        LoadProducts, CreateFilterList, BindPageLoadEvents, BindTabOpenEvents, OpenTab,
         ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected,GetSearchData;
 
         equalHeight = function(container) {
@@ -121,6 +121,23 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(Data), ParseSearchData, null);
             });
         },
+        BindTabOpenEvents = function(Object) {
+            Object.off('click').on("click", function(e) {
+                e.preventDefault();
+                var TabName = $(this).attr("href");
+                OpenTab(TabName);
+            });
+        },
+        OpenTab = function(TabName){
+            ResultContainer.find(".search-results").hide();
+            ResultContainer.find(TabName).fadeIn();
+            $(".tab-list li").removeClass("selected");
+            $(".tab-list li a").each(function(){
+                if($(this).attr("href")===TabName){
+                    $(this).parent().addClass("selected")
+                }
+            });
+        },
         ShowFilter = function(html, container,isDefaultShow) {
             if (html && container) {
                 container.html(html);
@@ -189,26 +206,36 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         BindTileEvents = function() {
             INFORMA.Utils.flipTile(ResultInner);
         },
+        BindPageLoadEvents = function(){
+            ResultInner = $(".search-results");
+            ResultInner.each(function() {
+                equalHeight($(this));
+            });
+            BindTileEvents();
+            var ShowMoreBtn = ResultContainer.find(".btn-ShowMore");
+
+            if(SearchType==='ProductSearch'){
+                BindPaginationEvents(ShowMoreBtn);
+            }
+            if(SearchType==='SearchResult'){
+                BindTabOpenEvents(ShowMoreBtn);
+            }
+        },
         UpdateHtmlView = function() {
             if (ResultContainer.length) {
                 ResultContainer
                     .hide()
                     .fadeIn(1000);
-                ResultInner = $(".search-results");
-                ResultInner.each(function() {
-                    equalHeight($(this));
-                });
-                BindTileEvents();
-                var ShowMoreBtn = ResultContainer.find(".btn-ShowMore");
-                BindPaginationEvents(ShowMoreBtn);
+                BindPageLoadEvents();
             }
         },
-        ParseSearchData = function(data) {
+        ParseSearchData = function(data, SearchType) {
             if (Object.keys(data).length) {
                 var Results = (data.Results !== undefined) ? data.Results : false,
                     Refine = (data.ProductFacets !== undefined) ? data.ProductFacets : false,
                     FilterLabels = (data.FilterLabels !== undefined) ? data.FilterLabels : false,
-                    ProductFilters = (data.ProductFilters !== undefined) ? data.ProductFilters : false;
+                    ProductFilters = (data.ProductFilters !== undefined) ? data.ProductFilters : false,
+                    SearchTabs = (data.Tabs !== undefined) ? data.Tabs : false;
                 if (ProductFilters) {
                     var html = CreateFilterList(ProductFilters,Templates.ProductFilters,FilterLabels);
                     ShowFilter(html, FilterList,true);
@@ -223,13 +250,22 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     CreateSearchResult(Results);
 
                 }
+                if(SearchTabs){
+                    var html = CreateFilterList(SearchTabs,Templates.SearchTabs);
+                }
             }
         },
 
         init = function() {
             var IsProductPage = (ProductFinder.data("product") === true) ? true : false,
-                IsSearchPage = (ProductFinder.data("search") === true) ? true : false
+                IsSearchPage = (ProductFinder.data("search") === true) ? true : false;
 
+            if (IsProductPage) {
+                SearchType = "ProductSearch";
+            }
+            if (IsSearchPage) {
+                SearchType = "SearchResult";
+            }
             if (IsProductPage && SectorHidden.length > 0) {
                 var SVal = SectorHidden.val(),
                     SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
@@ -239,6 +275,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     LoadProducts();
                 }
             }
+
             if(IsSearchPage && SearchHidden.length >0){
                 var SearchVal = SearchHidden.val();
                 if (SearchVal) {
@@ -246,7 +283,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
             }
 
-        };
+            if (ResultContainer.length > 0) {
+                BindPageLoadEvents();
+            }
+
+    };
     return {
         init: init,
         RenderSearchResults: ParseSearchData,
