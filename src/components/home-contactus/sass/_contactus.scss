@@ -196,6 +196,9 @@
     &.four {
         .contactus-list .panel-group .panel {
             width: 22.5%;
+            @include tablet {
+                width: 30.5%;
+            }
         }
     }
     @include mobile {

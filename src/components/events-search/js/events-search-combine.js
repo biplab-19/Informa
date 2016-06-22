@@ -24,8 +24,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SectorSelect = $('select[name="sector"]'),
         NextButton = $('.fc-next-button'),
         MoreEvents = $('.btn-more-events'),
-       _Start = moment(new Date()).format('MMM YYYY'),
-       _end = moment(_Start).add(11, 'months').format('MMM YYYY'),
+       _Start = moment(new Date()).format('MMMM YYYY'),
+       _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
         _previousDate = null,
@@ -89,12 +89,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
         jQuery('body').addClass('list-view');
         var date = new Date(),
-            DatePass = moment(date).format('MMM YYYY');
+            DatePass = moment(date).format('MMMM YYYY');
         var obj = {
             MonthYear: DatePass
         }
         _previousDate = DatePass;
-        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderResults, null, null);
+        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderResults, null, null);
     },
 
     RenderResults = function(data) {
@@ -108,10 +108,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
     ListRender = function(data) {
             var results = data.SearchDictionary, 
-              html = ""; 
-          
+              html = "";
+          debugger;
 
-          var ViewDate = moment(results.Month).format('MMM YYYY');
+          var ViewDate = moment(results.Month).format('MMMM YYYY');
 
                 List.each(function() {
                     var Count = List.data('count'),
@@ -154,7 +154,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                   
                 var DateText = jQuery('section[data-view="list-view"]').find('h2').text(),
                     ViewDate = new Date(DateText),
-                    nextMonth = moment(ViewDate).add(1, 'months').format('MMM YYYY');
+                    nextMonth = moment(ViewDate).add(1, 'months').format('MMMM YYYY');
                     
                     var obj = {
                         MonthYear: nextMonth,
@@ -163,13 +163,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add(1, 'months'));
                     jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
               })
 
               $(document).on('click','.previous', function () {
                 var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date(DateText),
-                    prevMonth = moment(ViewDate).add(-1, 'months').format('MMM YYYY');
+                    prevMonth = moment(ViewDate).add(-1, 'months').format('MMMM YYYY');
                     
                     var obj = {
                         MonthYear: prevMonth,
@@ -178,7 +178,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add(-1, 'months'));
                     jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
               })
     }
 
@@ -224,7 +224,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         endMonth = endDate.getMonth(),
                         endYear = endDate.getYear(),
                         nextMonth = moment(viewDate).add(1, 'months').toDate(),
-                        nextDetails = moment(nextMonth).format('MMM YYYY');
+                        nextDetails = moment(nextMonth).format('MMMM YYYY');
 
                     if(currentMonth === viewMonth && currentYear === viewYear) {
                         jQuery('.fc-prev-button').addClass('disabled');
@@ -240,7 +240,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     }
                     // console.log(_previousDate);
                     
-                        if(moment(_previousDate).format('MMM YYYY') != moment(viewDate).format('MMM YYYY')) {
+                        if(moment(_previousDate).format('MMMM YYYY') != moment(viewDate).format('MMMM YYYY')) {
                             setTimeout(function() {
                             
                                 RenderParticularMonth(viewDate);  
@@ -337,13 +337,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
     
     RenderParticularMonth = function(date) { 
-        var NextMonth = moment(date).format('MMM YYYY'); 
+        var NextMonth = moment(date).format('MMMM YYYY'); 
                 
                 var obj = { 
                         MonthYear: NextMonth, 
                         SectorId: SectorSelect.val() 
                 } 
-        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
+        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null); 
     },
 
     RenderCalendarEvents = function(list) {
@@ -353,11 +353,11 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             data = list.SearchDictionary[Month].ModelItem;
 
         var EventList = [];
-        
+        debugger;
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventDate,
+                "start": new Date(data[key].EventDate),
                 "State": data[key].State,
                 "Country": data[key].Country
             })
@@ -379,11 +379,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             data = list.SearchDictionary[Month].ModelItem;
 
         var EventList = [];
-        
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventDate,
+                "start": new Date(data[key].EventDate),
                 "State": data[key].State,
                 "Country": data[key].Country
             })
@@ -453,7 +452,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 jQuery('.btn-more-events').removeClass('showLess');
             
           var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
-                ViewDate = moment(new Date(ViewDateText)).format('MMM YYYY');
+                ViewDate = moment(new Date(ViewDateText)).format('MMMM YYYY');
             
           if(ViewDate == _Start) {
             List.find('.previous').addClass('arrow-desabled');
@@ -496,13 +495,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
             var obj = {
-                MonthYear: check.format('MMM YYYY'),
+                MonthYear: check.format('MMMM YYYY'),
                 SectorId: SectorSelect.val()
             }
             
             _previousDate = new Date(value);
 
-            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
 
             // NoEventsFound();
         })
@@ -514,7 +513,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             }
 
             _previousDate = new Date(MonthSelect.val());
-            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
 
             // NoEventsFound(); 
         })

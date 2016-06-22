@@ -5,17 +5,17 @@
     			<li class="col-xs-12 col-sm-4">
     				<label for="resource-sector" class="label-text">Sector:</label>
                     <div class="custom-multiselect">
-                        <select id="resource-sector" name="sectors" class="resource-sector" multiple="multiple" data-placeholder="Please Select">
+                        <select id="resource-sector" name="resource-sector" class="resource-sector" multiple="multiple" data-placeholder="Please Select">
                             <option value="sector1">Commodities</option>
                             <option value="sector2">Crop protection</option>
                             <option value="sector3">Diary Products</option>
                         </select>
                     </div>
     			</li>
-    			<li class="col-xs-12 col-sm-4 hidden">
+    			<li class="col-xs-12 col-sm-4 disabled">
     				<label for="resource-sub-sector" class="label-text">Sub Sector:</label>
                     <div class="custom-multiselect">
-                        <select id="resource-sub-sector" name="subsectors" class="resource-sub-sector" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
+                        <select id="resource-sub-sector" name="resource-sub-sector" class="resource-sub-sector" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
                             <option value="subsector1">Diary</option>
                             <option value="subsector2">Meats</option>
                             <option value="subsector3">Electronics</option>
@@ -25,6 +25,12 @@
     			<li class="col-xs-12 col-sm-4">
     				<a href="javascript:void(0)" class="btn btn-default orange search-resource">Search</a>
     			</li>
+                <li>
+                    <input type="hidden" name="content1" value="ABC"/>
+                </li>
+                <li>
+                    <input type="hidden" name="content2" value="PQR"/>
+                </li>
     		</ul>
         </form>
 	</div>	
