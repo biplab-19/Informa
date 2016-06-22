@@ -1,4 +1,4 @@
-/*! 2016-06-21 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-22 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -496,6 +496,32 @@ var INFORMA = window.INFORMA || {};
                 '</li>'+
             '{{/each}}'+
         '</ul>',
+        'Events':
+            '<ul class="event-items">'+
+                '{{#each results}}'+
+                    '<li class="col-xs-12 col-sm-6 col-md-4">'+
+                        '<div class="event-container">'+
+                            '<div class="content">'+
+                                    '<div class="info">'+
+                                        '<p class="tag">{{Type}}</p>'+
+                                        '<span class="date"><span class="icon icon-calendar-day">'+
+                                        '</span>{{Date}}</span>'+
+                                        '<span class="time"><span class="icon icon-calendar-day">'+
+                                        '</span>{{Time}}</span>'+
+                                        '<h3>{{Description}}</h3>'+
+                                        '<p><strong>Presenters: </strong>{{Presenters}}</p>'+
+                                    '</div>'+
+                                    '<div class="parent">'+
+                                        '<div class="child clearfix">'+
+                                            '<a class="link" href="{{DetailsLink}}">{{DetailsText}}</a>'+
+                                            '<a class="btn btn-default" href="{{RegisterLink}}">{{RegisterText}}</a>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</li>'+
+                    '{{/each}}'+
+                    '</ul>',
         'AnalystList': '<section class="analyst-views">' +
                             '<div class="container">' +
                                 '<h2 class="header">{{results.header}}</h2>' +
@@ -662,7 +688,41 @@ var INFORMA = window.INFORMA || {};
                                                 '</div>'+
                                             '</div>'+
                                         '</div>'+
-                                    '{{/each}}'
+                                    '{{/each}}',
+    'ResourceList': '<div class="col-xs-12 col-sm-6 col-md-4 list-item-container">'+
+                        '<div class="list-item">'+
+                            '<div class="columns">'+
+                                '<p class="category">'+
+                                  '<strong>{{SectorType}}</strong>'+
+                                '</p>'+
+                                '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
+                                '<span class="content-type">{{ContentType}}</span>'+
+                                '<p class="date">30.03.2016</p>'+
+                                '<div class="list-content">'+
+                                    '{{#if Description}}'+
+                                        '<p class="description">{{Description}}</p>'+
+                                        '<span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>'+
+                                            '<span class="article-info"><em>Topic:</em> '+
+                                                '<strong>{{Topics}}</strong>'+
+                                            '</span>'+
+                                    '{{/if}}'+
+                                    '{{#if Video}}'+
+                                        '<div class="video-container">'+
+                                            '<a href="{{Video.url}}" class="video-link">'+
+                                                '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
+                                                '<span class="play-icon icon-play"></span>'+
+                                            '</a>'+
+                                        '</div>'+
+                                    '{{/if}}'+
+                                '</div>'+
+                            '</div>'+
+                            '{{#if ResourceLink}}'+
+                                '<div class="btn-container">'+
+                                  '<a role="button" href="{{ResourceLink.url}}" class="btn btn-default" target="{{ResourceLink.target}}">{{ResourceLink.linkText}}</a>'+
+                                '</div>'+
+                            '{{/if}}'+
+                        '</div>'+
+                    '</div>'
 
 }
 }(this, jQuery, 'INFORMA'));
