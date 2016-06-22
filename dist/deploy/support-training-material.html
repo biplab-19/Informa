@@ -1,0 +1,632 @@
+
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js ie9"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main page</title>
+
+    <link rel="stylesheet" href="Static/css/global.css"/>
+
+    <link rel="stylesheet" href="Static/css/component.css"/>
+
+    <link rel="stylesheet" href="Static/css/agri-theme.css"/>
+
+    <style type="text/css">
+		body{
+			margin:0;
+		}
+    </style>
+    <script type="text/javascript">
+        INFORMA = {
+            initUI : {},
+            addModule : function(module, selector) {
+                this.initUI[selector] = module;
+            }
+        };
+
+    </script>
+
+    <script src="Static/js/vendor.js"></script>
+    <!--  only for local development-->
+    <script src="Static/js/components/handlebar-helper.js"></script>
+  <script> 
+        $INFORMA = jQuery.noConflict(); 
+  </script>
+
+</head>
+
+<body class="agri-theme">
+
+<!--- The glorious header component with impeccable animations and awesome color shades making its revelation from the hands of greatest site developer ever. Thy may not be a magnum opus among his creations but will remain as the glorious component he created
+in the empire of Sapient. Har Har Mahadev !! --->
+
+<header id="informa-main-header">
+    <section class="informa-header-copyright">
+
+
+                <div class="header-copyright">
+                    <div class="header-copyright-inner">
+                        <a href="#" class="toggle" onclick="this.parentNode.classList.toggle('open');return false">Informa</a>
+                        <div class="header-copyright-content">
+                          <div class="container">
+                              <div class="row">
+                            <div class="col-md-6 header-copyright-text">
+                                <p>Agra is part of the Business Intelligence Division of Informa PLC </p>
+                                <div class="clearfix">
+                                    <ul>
+                                        <li><a href="http://www.informa.com/">Informa PLC </a></li>
+                                        <li><a href="#">ABOUT US</a></li>
+                                        <li><a href="#">investors relations</a></li>
+                                        <li><a href="#">TALENT</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6 header-copyright-text">
+                                <p>This site is operated by a business or businesses owned by Informa PLC and all copyright resides with them. Informa PLC's registered office is 5 Howick Place, London SW1P 1WG.</P>
+                                <p>Registered in England and Wales. Number 8860726</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+    <section class="informaNav">
+        <div class="navbar navbar-inverse nav-head mobileNavigation" >
+            <div class="container" >
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" 
+                            data-toggle="collapse" 
+                            data-target=".navbar-collapse" >
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="action">
+                        <a href="#" class="search active"><span class="icon icon-search"></a>
+                        <a href="#" class="login">Log in<span class="icon icon-chevron-down"></a>
+                    </div>
+                </div>
+                <a class="navbar-brand" href="#">
+                    <img class="logo-img-small" src="cms-images/logo-partial.png">
+                    <img class="logo-img-big" src="cms-images/logo.png">
+                </a>
+            </div>
+        </div>
+        <div class="nav-main mainNavigation">   
+            <div class="container" >
+                <div class="row">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav nav-left">
+                        <li class="stick-img">
+                            <a href="javascript:void(0)">
+                                <img class="logo-img-small" src="cms-images/logo-partial.png">
+                            </a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="sectorsproducts">Sectors &amp; Products
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="services">Services
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="freecontent">Free Content
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="aboutus">About Us
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
+                        </li>
+                        <li class="nav-links">
+                            <a href="javascript:void(0)" data-subnav="support">Support
+                                <span class="icon icon-chevron-right"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="touch">
+                            <a href="#">
+                                <span class="hide-stick">Get in touch</span>
+                                <span class="icon icon-get-in-touch"></span>
+                            </a>
+                        </li>
+                        <li class="login"><a href="#">Log in<span class="icon icon-chevron-down"></a></li>
+                        <li class="search active">
+                            <a href="#">
+                                <span class="hide-stick">Search</span>
+                                <span class="icon icon-search"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            </div> 
+        </div>
+    </section> 
+
+</header>
+
+<div id="product-finder-section" class="product-finder" data-product="true">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form" method="post" action="#">
+                    <fieldset>
+                        <legend>Product Finder</legend>
+                        <ul class="search-options">
+                            <li>
+                                <span class="custom-radio">
+                                    <label for="ProductSearch" class="label">
+                                          <input type="radio" class="custom-radio" name="ProductFinder" id="ProductSearch" checked="checked" data-show="sector-search" value="productsearch" />
+                                          <span>Search for a product</span>
+                                </label>
+                                </span>
+                                <span class="custom-radio">
+                              <label for="SiteSearch" class="label">
+                                    <input type="radio" class="custom-radio" name="ProductFinder" id="SiteSearch" data-show="site-search" value="sitesearch" />
+                                    <span>Search site</span>
+                                </label>
+                                </span>
+                            </li>
+                            <li>
+                                <a href="#" class="close-finder"><span class="icon-close"></span></a>
+                            </li>
+                        </ul>
+                        <ul class="sector-search searchToggle">
+                            <li class="menu">
+                                <label for="sector-list" class="label-text">Sector:</label>
+                                <div class="custom-multiselect">
+                                    <select id="sector-list" name="sectors" class="sector-list" multiple="multiple" data-placeholder="Please Select">
+                                        <option value="sector1">Commodities</option>
+                                        <option value="sector2">Crop protection</option>
+                                        <option value="sector3">Diary Products</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="menu disabled">
+                                <label for="sub-sector-list" class="label-text">Sub Sector:</label>
+                                <div class="custom-multiselect">
+                                    <select id="sub-sector-list" name="subsectors" class="sub-sector-list" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
+                                        <option value="subsector1">Diary</option>
+                                        <option value="subsector2">Meats</option>
+                                        <option value="subsector3">Electronics</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="menu button disabled">
+                                <button type="submit" class="btn btn-default" data-submit="sector-search">Go</button>
+                            </li>
+                        </ul>
+                        <ul class="site-search searchToggle">
+                            <li class="menu">
+                                <div class="textbox">
+                                    <label for="searchField">
+                                        <input type="text" placeholder="Please Enter Search Text" id="searchField" name="searchtext" />
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="button disabled">
+                                <button type="submit" class="btn btn-default" data-submit="sector-search">Go</button>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mobile-header-navigation">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-2 nav-back">
+            <a href="#"><span class="icon-arrow-left"></span></a>
+        </div>
+        <div class="col-xs-8 nav-subnav-heading"> 
+        </div>
+        <div class="col-xs-2 nav-close">
+            <a href="javascript:void(0)" class=""><span class="icon icon-close"></a>
+        </div>                        
+    </div>
+    </div>
+</div>
+
+<div id="sub-nav">
+    <div class="container">
+        <div class="subnav-container clearfix" id="sectorsproducts">
+
+            
+                <div class="content heading">
+                    <p class="top"><a href="#">Sectors</a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">Products</a></li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="content ">
+                    <p class="top"><a href="#">Commodities</a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">F.O Litch</a></li>
+                        
+                            <li><a href="#">The public Ledger</a></li>
+                        
+                            <li><a href="#">Dairy Markets</a></li>
+                        
+                            <li><a href="#">Food News</a></li>
+                        
+                            <li><a href="#">Informa Economics IEG</a></li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="content ">
+                    <p class="top"><a href="#">Seed &amp; Crop Protection</a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">Agrow</a></li>
+                        
+                            <li><a href="#">Philips McDougal</a></li>
+                        
+                            <li><a href="#">Informa Economics IEG</a></li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="content ">
+                    <p class="top"><a href="#">Fertilisers</a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">Ferticon</a></li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="content ">
+                    <p class="top"><a href="#">Animal Pharmaceticlues</a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">Animal Pharm</a></li>
+                        
+                            <li><a href="#">Informa Economics IEG</a></li>
+                        
+                    </ul>
+                </div>
+            
+                <div class="content ">
+                    <p class="top"><a href="#">Policy &amp; Regulations</a></p>
+                    <ul class="labels">
+                        
+                            <li><a href="#">Agra Europe</a></li>
+                        
+                            <li><a href="#">Food Chemical Newss</a></li>
+                        
+                            <li><a href="#">EU Food Low</a></li>
+                        
+                            <li><a href="#">CEAS</a></li>
+                        
+                            <li><a href="#">IEG Issue Monitor</a></li>
+                        
+                    </ul>
+                </div>
+            
+            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
+        </div>
+        <div class="subnav-container clearfix" id="services" data-nav="services">
+            
+            
+            <div class="subnav-heading">
+                <a href="#">Learn about all services</a>
+                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
+            </div>
+            <div class="subnav-items">
+                <ul class="labels">
+                    
+                        <li><a href="#">Insight and news</a></li>
+                    
+                        <li><a href="#">Forecast and analysis</a></li>
+                    
+                        <li><a href="#">Consultancy services</a></li>
+                    
+                        <li><a href="#">Data services</a></li>
+                    
+                        <li><a href="#">Training &amp; events</a></li>
+                    
+                        <li><a href="#">Advertising</a></li>
+                    
+                </ul>
+            </div>
+            
+
+        </div>        
+        <div class="subnav-container clearfix" id="freecontent" data-nav="free-content">
+            
+            
+            <div class="subnav-heading">
+                <a href="#">All free content</a>
+                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
+            </div>
+            <div class="subnav-items">
+                <ul class="labels">
+                    
+                        <li><a href="#">News &amp; Analysis</a></li>
+                    
+                        <li><a href="#">Reports</a></li>
+                    
+                        <li><a href="#">Infographics</a></li>
+                    
+                        <li><a href="#">Training material</a></li>
+                    
+                        <li><a href="#">Data</a></li>
+                    
+                        <li><a href="#">publications</a></li>
+                    
+                        <li><a href="#">Webinars</a></li>
+                    
+                        <li><a href="#">Videos</a></li>
+                    
+                </ul>
+            </div>
+            
+            
+        </div>        
+        <div class="subnav-container clearfix" id="aboutus" data-nav="about-us">
+            
+            
+            <div class="subnav-heading">
+                <a href="#">About Agribusiness Intelligence</a>
+                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
+            </div>
+            <div class="subnav-items">
+                <ul class="labels">
+                    
+                        <li><a href="#">Meet Our Specialist</a></li>
+                    
+                        <li><a href="#">Case Studies</a></li>
+                    
+                </ul>
+            </div>
+            
+
+        </div>        
+        <div class="subnav-container clearfix" id="support" data-nav="support">
+            
+            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
+            
+            <div class="subnav-items no-heading">
+                
+                <ul class="labels">
+                    
+                        <li><a href="#">New Customer Support</a></li>
+                    
+                        <li><a href="#">Existing Customer Support</a></li>
+                    
+                        <li><a href="#">Product Training</a></li>
+                    
+                        <li><a href="#">Contact Us</a></li>
+                    
+                </ul>
+            </div>
+            
+
+        </div>        
+    </div>
+</div>
+
+
+
+   <section class="training-section">
+  <div class="training-material">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <h1>Support Training material</h1>
+              <div class="slick-carousel carousel-lists" data-itemsperframe="3" data-autorotate=true data-transitionspeed="400" data-slideduration="4000" data-pagination=true>
+                    <div class="video-container">
+                          <a href="#" class="video-wrap"><span class="play-icon"></span><img src="cms-images/product_brands/brand-1.png" alt="" class="img-responsive"/></a>
+                          <h3>Feedstuffs and Logistics</h3>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          </p>
+                    </div>
+                    <div class="video-container">
+                          <a href="#" class="video-wrap"><span class="play-icon"></span><img src="cms-images/product_brands/brand-2.png" alt="" class="img-responsive"/></a>
+                          <h3>Feedstuffs and Logistics</h3>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          </p>
+                    </div>
+                    <div class="video-container">
+                          <a href="#" class="video-wrap"><span class="play-icon"></span><img src="cms-images/product_brands/brand-3.png" alt="" class="img-responsive"/></a>
+                          <h3>Feedstuffs and Logistics</h3>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          </p>
+                    </div>
+                    <div class="video-container">
+                          <a href="#" class="video-wrap"><span class="play-icon"></span><img src="cms-images/product_brands/brand-4.png" alt="" class="img-responsive"/></a>
+                          <h3>Feedstuffs and Logistics</h3>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          </p>
+                    </div>
+                    <div class="video-container">
+                          <a href="#" class="video-wrap"><span class="play-icon"></span><img src="cms-images/product_brands/brand-5.png" alt="" class="img-responsive"/></a>
+                          <h3>Feedstuffs and Logistics</h3>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          </p>
+                    </div>
+                    <div class="video-container">
+                          <a href="#" class="video-wrap"><span class="play-icon"></span><img src="cms-images/product_brands/brand-2.png" alt="" class="img-responsive"/></a>
+                          <h3>Feedstuffs and Logistics</h3>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          </p>
+                    </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+              <div class="btn-container">
+                  <a class="btn btn-default" href="#" role="button">See all training materials</a>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- GLOBAL FOOTER -->
+
+<footer id="informa-footer">
+    <section id="customers_list">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 title_comp">
+                  <h3 class="gray">Our Business Intelligence Customers</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="customers_list_slider slider-component col-sm-12" data-itemsperframe="6" data-autorotate=0 data-transitionspeed="300" data-slideduration="4000">
+                      <div class="customer">
+                          <img src="cms-images/customers/pepsi.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/abbot.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/richs.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/pepsi.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/abbot.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/richs.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/pepsi.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/abbot.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/richs.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/pepsi.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/abbot.png" title="pepsico" alt="pepsico">
+                      </div>
+                      <div class="customer">
+                          <img src="cms-images/customers/richs.png" title="pepsico" alt="pepsico">
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- BI customers Ends -->
+    <section id="footer-links">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-6 links">
+              <nav class="footer-nav" role="navigation">
+                <h3 class="light">More from Informa</h3>
+                  <ul class="nav navbar-nav">
+                     <li class="pink"><a href="#">Pharma Intelligence</a></li>
+                     <li class="green"><a href="#">Financial Intelligence</a></li>
+                     <li class="red"><a href="#">TMT Intelligence</a></li>
+                  </ul>
+              </nav>
+            </div>
+            <!--  First column ends -->
+            <div class="col-md-4 col-sm-6 links">
+              <nav class="footer-nav" role="navigation">
+                <h3 class="light">&nbsp;</h3>
+                  <ul class="nav navbar-nav">
+                     <li class="blue"><a href="#">Pharma Intelligence</a></li>
+                     <li class="pink"><a href="#">Financial Intelligence</a></li>
+                  </ul>
+              </nav>
+            </div>
+            <!--  Second column ends -->
+            <div class="col-md-4 col-sm-12 social">
+              <nav class="footer-nav" role="navigation">
+                  <h3 class="light"> Social Networks</h3>
+                  <ul class="nav navbar-nav">
+                     <li class="facebook-white"><a href="#">Get the Latest</a></li>
+                     <li class="twitter-white"><a href="#">Follow Our Stories</a></li>
+                     <li class="linkedin-white"><a href="#">Connect With Us</a></li>
+                  </ul>
+              </nav>
+            </div>
+            <!-- Third column ends -->
+          </div>
+        </div>
+    </section>
+    <!-- footer link ends -->
+    <section id="privacy">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <nav class="footer-nav" role="navigation">
+              <ul class="nav navbar-nav">
+                 <li ><a href="#">Home</a></li>
+                 <li ><a href="#">Privacy</a></li>
+                 <li ><a href="#">Terms</a></li>
+                 <li ><a href="#">Site Map</a></li>
+                 <li ><a href="#">Cookies</a></li>
+                 <li ><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 col-xs-12 disclaimer-copyright">
+            <div class="disclaimer">Informa UK limited is a company registered in England and Wales with company number 58421</div>
+            <div class="copyright">Copyright &copy; 2016 Informa PLC</div>
+          </div>
+          <div class="col-md-4 col-xs-12 bottom-logo">
+            <img src="cms-images/logo.png" alt="logo" text="logo">
+          </div>
+        </div>
+      </div>
+    </section>
+</footer> <!-- /#ad-footer -->
+
+
+
+    <script src="Static/js/main.js"></script>
+
+    <script src="Static/js/components.js"></script>
+
+</body>
+</html>
+
