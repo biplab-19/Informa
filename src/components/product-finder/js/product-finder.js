@@ -16,8 +16,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
     //variables
     var ProductFinderSection = $('#product-finder-section'),
         SubSectorList = $(".sector-search .sub-sector-list"),
-        SubmitBtn = $(".product-finder li.button"),
-        CustomSelect = $(".custom-multiselect select"),
+        SubmitBtn = $(".sector-search li.button"),
+        CustomSelect = ProductFinderSection.find(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
         SearchField	= $(".site-search input"),
         SearchSubmitBtn = $(".site-search li.button"),
@@ -90,7 +90,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         BindAjaxHandler = function() {
 
             var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
-                IsSearchPage = (SearchPage.data("search") === true) ? true : true;
+                IsSearchPage = (ProductFinderSection.data("search") === true) ? true : false;
 
             if (IsProductPage) {
                 SubmitHandler(SubmitBtn,"ProductSearch");

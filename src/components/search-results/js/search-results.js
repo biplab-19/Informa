@@ -71,7 +71,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if(sVal){
                 SearchField.val(sVal);
                 SearchSubmitBtn.removeClass("disabled");
-                SearchSubmitBtn.trigger("click");
+                ProductFinder.find("input[type=radio]").eq(1).trigger("click");
+                //SearchSubmitBtn.trigger("click");
             }
         },
         UpdateResultPage = function(SecValue, SubSecValue) {
@@ -129,8 +130,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         },
         OpenTab = function(TabName){
-            ResultContainer.find(".search-results").hide();
-            ResultContainer.find(TabName).fadeIn();
+            var CurrentTab = ResultContainer.find(TabName), CurrentPos,
+                AllResults = ResultContainer.find(".search-results");
+
+            if(TabName==="#results"){
+                AllResults.show();
+                CurrentPos = ResultContainer.offset().top;
+            }else{
+                AllResults.hide();
+                ResultContainer.find(TabName).show();
+                CurrentPos = CurrentTab.offset().top;
+            }
+
+            $("html, body").animate({ scrollTop: CurrentPos });
             $(".tab-list li").removeClass("selected");
             $(".tab-list li a").each(function(){
                 if($(this).attr("href")===TabName){
@@ -149,7 +161,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         CreateSearchResult = function(DataObject) {
 
             for (var key in DataObject) {
-                if (DataObject.hasOwnProperty(key)) {
+                if (DataObject.hasOwnProperty(key) && DataObject[key]) {
                     var ResultName = key,
                         html = "",
                         Data = DataObject[key],
@@ -158,7 +170,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         ListTemplate = Handlebars.compile(TemplateName),
                         ContainerID = "#" + (ResultName).toLowerCase();
 
-                    html = ListTemplate({ results: Data });
+                    html = ListTemplate({ results: Data[ResultName+'List'] });
                     ShowMoreLink = $(ContainerID).find(".btn-container");
 
                     //Update Search Results
@@ -166,9 +178,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     ShowMoreLink.removeClass('hide');
 
                     //Update Record Counts
-                    if (Data.length > 0) {
-                        ResultCount = (Data[0].ProductCount) ? Data[0].ProductCount:0;
-                        RemainingCount = (Data[0].RemainingCount) ? Data[0].RemainingCount:0;
+                    if (Data) {
+                        ResultCount = (Data.Count) ? Data.Count:0;
+                        RemainingCount = (Data.RemainingCount) ? Data.RemainingCount:0;
 
                         $(ContainerID).find(".count strong").text(ResultCount);
 
@@ -218,7 +230,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 BindPaginationEvents(ShowMoreBtn);
             }
             if(SearchType==='SearchResult'){
+                var TabsLink = $(".tab-list a");
                 BindTabOpenEvents(ShowMoreBtn);
+                BindTabOpenEvents(TabsLink);
             }
         },
         UpdateHtmlView = function() {

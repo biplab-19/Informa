@@ -213,6 +213,15 @@ var INFORMA = window.INFORMA || {};
                         '</li>'+
                     '{{/each}}'+
                     '</ul>',
+        'Others': '{{#each results}}' +
+                    '<div class="col-xs-12 search-others">'+
+                        '<h3>{{Title}}</h3>'+
+                        '<p>{{Description}}</p>'+
+                        '<div class="btn-container">'+
+                            '<a href="{{MoreLink}}" class="btn btn-default">{{MoreText}}</a>'+
+                        '</div>'+
+                    '</div>'+
+                  '{{/each}}',
         'AnalystList': '<section class="analyst-views">' +
                             '<div class="container">' +
                                 '<h2 class="header">{{results.header}}</h2>' +
