@@ -69,12 +69,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
 
         _arrayFlag = true,
-        _navlinks = $('.nav-links'),
-        _subnavclose = $('.subnav-close'),
-        _navtoggle = $('.navbar-toggle'),
-        _navclose = $('.nav-close'),
-        _navback = $('.nav-back'),
-        _stickAnimation = $('.hide-stick'),
+        _navlinks = $('.informaNav .nav-links'),
+        _subnavclose = $('#sub-nav .subnav-close'),
+        _navtoggle = $('.informaNav .navbar-toggle'),
+        _navclose = $('#mobile-header-navigation .nav-close'),
+        _navback = $('#mobile-header-navigation .nav-back'),
+        _stickAnimation = $('.informaNav .hide-stick'),
         //functions
         init,
         _whenScrolling,
@@ -142,15 +142,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         if (_windowPos > _headerPos) {
             if (!_mainNavigation.hasClass(_fixed)) {
                 _mainNavigation.addClass(_fixed);
-                $(".hide-stick").fadeOut("5000", "linear");
-                $('.nav-left').animate({ 'left': "0px" }, 1000);
+                $(".informaNav .hide-stick").fadeOut("5000", "linear");
+                $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
                 $('body').css('padding-top', _navHeight);
             }
         } else {
             if (_mainNavigation.hasClass(_fixed)) {
                 _mainNavigation.removeClass(_fixed);
-                $(".hide-stick").fadeIn("5000", "linear");
-                $('.nav-left').animate({ 'left': "0px" }, 1000);
+                $(".informaNav .hide-stick").fadeIn("5000", "linear");
+                $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
                 $('body').css('padding-top', 0);
             }
         }
@@ -394,14 +394,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _navlinks.on('click', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
-                $('.subnav-container').hide();
+                $('#sub-nav .subnav-container').hide();
                 _navlinks.removeClass('nav-active');
                 $(this).addClass('nav-active');
                 $('#' + navId).slideDown();
             });
             _subnavclose.on('click', function(e) {
                 e.preventDefault();
-                $('.subnav-container').hide();
+                $('#sub-nav .subnav-container').hide();
                 _navlinks.removeClass('nav-active');
             });
         } else {
@@ -409,12 +409,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
                 var navText = $(this).find('a').text();
-                $('.subnav-container').hide();
-                $('.nav-main').css('left', '-100%');
-                //$('#sub-nav').css('right','0%');
+                $('#sub-nav .subnav-container').hide();
+                $('.informaNav .nav-main').css('left', '-100%');
                 $('#' + navId).css('display', 'block');
-                $('.nav-subnav-heading').text(navText);
-                $('.nav-back').css('display', 'block');
+                $('#mobile-header-navigation .nav-subnav-heading').text(navText);
+                $('#mobile-header-navigation .nav-back').css('display', 'block');
             });
         }
 
@@ -422,26 +421,25 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _navtoggle.on('click', function(e) {
             e.preventDefault();
             $('#mobile-header-navigation').css('left', '0');
-            $('.nav-main').css('left', '0');
+            $('.informaNav .nav-main').css('left', '0');
             $('#sub-nav').css('left', '0');
             $('body').css('overflow-y', 'hidden');
-            $('.nav-back').css('display', 'none');
-            $('.nav-subnav-heading').text('');
+            $('#mobile-header-navigation .nav-back').css('display', 'none');
+            $('#mobile-header-navigation .nav-subnav-heading').text('');
         });
 
         _navclose.on('click', function(e) {
             $(".navbar-collapse").collapse('hide');
             $('#mobile-header-navigation').css('left', '-100%');
-            $('.nav-main').css('left', '-100%');
+            $('.informaNav .nav-main').css('left', '-100%');
             $('#sub-nav').css('left', '-100%');
             $('body').css('overflow-y', 'scroll');
         });
 
         _navback.on('click', function(e) {
-            $('.nav-main').css('left', '0');
-            //$('#sub-nav').css('right','-100%');
-            $('.nav-subnav-heading').text('');
-            $('.nav-back').css('display', 'none');
+            $('.informaNav .nav-main').css('left', '0');
+            $('#mobile-header-navigation .nav-subnav-heading').text('');
+            $('#mobile-header-navigation .nav-back').css('display', 'none');
             $('body').css('overflow-y', 'hidden');
         });
 

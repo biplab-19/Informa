@@ -84,19 +84,9 @@ nav#services-navigation {
 section#services-list {
     section:nth-child(even) {
         background-color: #f5f6f8;
-        .image-thumbnail {
-            &:after {
-                background-color: #f5f6f8;
-            }
-        }
     }
     section:nth-child(odd) {
         background-color: $white;
-        .image-thumbnail {
-            &:after {
-                background-color: $white;
-            }
-        }
         .img {
             float: right;
         }
@@ -116,8 +106,9 @@ section#services-list {
                 -ms-transform: rotate(-5deg);
                 -webkit-transform: rotate(-5deg);
                 transform: rotate(-5deg);
-                top: calc(100% - 38px);
+                top: calc(100% - 27px);
                 left: 0;
+                background-color: $blue-light-bg;
             }
         }
         .btn-container {
