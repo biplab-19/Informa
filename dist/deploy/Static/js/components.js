@@ -732,8 +732,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SectorSelect = $('select[name="sector"]'),
         NextButton = $('.fc-next-button'),
         MoreEvents = $('.btn-more-events'),
-       _Start = moment(new Date()).format('MMM YYYY'),
-       _end = moment(_Start).add(11, 'months').format('MMM YYYY'),
+       _Start = moment(new Date()).format('MMMM YYYY'),
+       _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
         _previousDate = null,
@@ -797,12 +797,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
         jQuery('body').addClass('list-view');
         var date = new Date(),
-            DatePass = moment(date).format('MMM YYYY');
+            DatePass = moment(date).format('MMMM YYYY');
         var obj = {
             MonthYear: DatePass
         }
         _previousDate = DatePass;
-        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderResults, null, null);
+        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderResults, null, null);
     },
 
     RenderResults = function(data) {
@@ -816,10 +816,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
     ListRender = function(data) {
             var results = data.SearchDictionary, 
-              html = ""; 
-          
+              html = "";
+          debugger;
 
-          var ViewDate = moment(results.Month).format('MMM YYYY');
+          var ViewDate = moment(results.Month).format('MMMM YYYY');
 
                 List.each(function() {
                     var Count = List.data('count'),
@@ -862,7 +862,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                   
                 var DateText = jQuery('section[data-view="list-view"]').find('h2').text(),
                     ViewDate = new Date(DateText),
-                    nextMonth = moment(ViewDate).add(1, 'months').format('MMM YYYY');
+                    nextMonth = moment(ViewDate).add(1, 'months').format('MMMM YYYY');
                     
                     var obj = {
                         MonthYear: nextMonth,
@@ -871,13 +871,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add(1, 'months'));
                     jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
               })
 
               $(document).on('click','.previous', function () {
                 var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date(DateText),
-                    prevMonth = moment(ViewDate).add(-1, 'months').format('MMM YYYY');
+                    prevMonth = moment(ViewDate).add(-1, 'months').format('MMMM YYYY');
                     
                     var obj = {
                         MonthYear: prevMonth,
@@ -886,7 +886,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add(-1, 'months'));
                     jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
               })
     }
 
@@ -932,7 +932,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         endMonth = endDate.getMonth(),
                         endYear = endDate.getYear(),
                         nextMonth = moment(viewDate).add(1, 'months').toDate(),
-                        nextDetails = moment(nextMonth).format('MMM YYYY');
+                        nextDetails = moment(nextMonth).format('MMMM YYYY');
 
                     if(currentMonth === viewMonth && currentYear === viewYear) {
                         jQuery('.fc-prev-button').addClass('disabled');
@@ -948,7 +948,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     }
                     // console.log(_previousDate);
                     
-                        if(moment(_previousDate).format('MMM YYYY') != moment(viewDate).format('MMM YYYY')) {
+                        if(moment(_previousDate).format('MMMM YYYY') != moment(viewDate).format('MMMM YYYY')) {
                             setTimeout(function() {
                             
                                 RenderParticularMonth(viewDate);  
@@ -1045,13 +1045,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
     
     RenderParticularMonth = function(date) { 
-        var NextMonth = moment(date).format('MMM YYYY'); 
+        var NextMonth = moment(date).format('MMMM YYYY'); 
                 
                 var obj = { 
                         MonthYear: NextMonth, 
                         SectorId: SectorSelect.val() 
                 } 
-        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
+        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null); 
     },
 
     RenderCalendarEvents = function(list) {
@@ -1061,11 +1061,11 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             data = list.SearchDictionary[Month].ModelItem;
 
         var EventList = [];
-        
+        debugger;
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventDate,
+                "start": new Date(data[key].EventDate),
                 "State": data[key].State,
                 "Country": data[key].Country
             })
@@ -1087,11 +1087,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             data = list.SearchDictionary[Month].ModelItem;
 
         var EventList = [];
-        
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
-                "start": data[key].EventDate,
+                "start": new Date(data[key].EventDate),
                 "State": data[key].State,
                 "Country": data[key].Country
             })
@@ -1161,7 +1160,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 jQuery('.btn-more-events').removeClass('showLess');
             
           var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
-                ViewDate = moment(new Date(ViewDateText)).format('MMM YYYY');
+                ViewDate = moment(new Date(ViewDateText)).format('MMMM YYYY');
             
           if(ViewDate == _Start) {
             List.find('.previous').addClass('arrow-desabled');
@@ -1204,13 +1203,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
             var obj = {
-                MonthYear: check.format('MMM YYYY'),
+                MonthYear: check.format('MMMM YYYY'),
                 SectorId: SectorSelect.val()
             }
             
             _previousDate = new Date(value);
 
-            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
 
             // NoEventsFound();
         })
@@ -1222,7 +1221,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             }
 
             _previousDate = new Date(MonthSelect.val());
-            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
 
             // NoEventsFound(); 
         })
@@ -2767,7 +2766,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     //variables
     var Templates = INFORMA.Templates,
         ResourceContainer = $('.resource-filter'),
-        CustomSelect = ResourceContainer.find("select"),
+        CustomResourceSelect = ResourceContainer.find("select"),
         SectorSelect = ResourceContainer.find("select.resource-sector"),
         SubSectorSelect = ResourceContainer.find("select.resource-sub-sector"),
         BtnSubmit = ResourceContainer.find(".search-resource"),
@@ -2782,14 +2781,26 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         RenderResourceResult,
         RenderOnLoad,
         SubmitHandler,
-        GetAjaxData;
+        GetAjaxData,
+        equalHeights;
+
+    equalHeights = function() {
+        $('.list-container').each(function() {
+            var highestBox = 0;
+            $('.columns', this).each(function() {
+                if ($(this).height() > highestBox) {
+                    highestBox = $(this).height();
+                }
+            });
+            $('.columns', this).height(highestBox);
+        });
+    },
 
     ResourceBindDropDown = function() {
-        CustomSelect.val("");
-        CustomSelect.multiselect({
+        CustomResourceSelect.val("");
+        CustomResourceSelect.multiselect({
             maxHeight: 200,
             buttonText: function(o, s) {
-                debugger;
                 if (o.length === 0) {
                     return $(s).data('placeholder');
                 } else {
@@ -2797,16 +2808,19 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                     o.each(function(i) {
                         labels = parseInt(1 + i);
                     });
-                    return '<strong>'+labels + '</strong> Selected';
+                    return labels + ' Selected';
                 }
             },
             onChange: function(option, checked, select) {
-                 debugger;
                 if ($(option).parent().hasClass("resource-sector") === true) {
                     if (checked) {
-                        SubSectorSelect.parents('li').removeClass('hidden');
+                        SubSectorSelect.parents('li').removeClass('disabled');
+                        SubSectorSelect.removeAttr('disabled');
+                        SubSectorSelect.multiselect('rebuild');
                     } else {
-                        SubSectorSelect.parents('li').addClass('hidden');
+                        SubSectorSelect.parents('li').addClass('disabled');
+                        SubSectorSelect.attr('disabled', 'disabled');
+                        SubSectorSelect.multiselect();
                     }
                 }
             }
@@ -2815,20 +2829,23 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
     RenderResourceResult = function(data) {
         INFORMA.Spinner.Show($("body"));
-        var results = data.SearchDictionary,
+        
+        var results = data.Results,
             html = "";
 
         for (var key in results) {
-            if (results.hasOwnProperty(key)) {
+            if (key === "Articles") {
                 var Data = results[key],
-                    HeaderText = key,
-                    TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
+                    TemplateName = (Templates.articleListItems !== "undefined") ? Templates.articleListItems : "",
                     ListTemplate = Handlebars.compile(TemplateName);
-                Data.header = HeaderText;
-                html += ListTemplate({ results: Data });
 
+                html += ListTemplate({"Articles" : Data});
             }
         }
+        ResourceListContainer.find('ul').html(html);
+        RenderOnLoad();
+        equalHeights();
+
     },
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
@@ -2854,19 +2871,20 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             e.preventDefault();
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-                // debugger;
-            GetAjaxData(Urls.GetArticles, "Get", null, RenderResourceResult, null, null);
+              debugger;  
+            GetAjaxData(Urls.ResourceList, "Get", null, RenderResourceResult, null, null);
         })
     },
 
     RenderOnLoad = function() {
+        
         ResourceListContainer.each(function() {
             var oThis = jQuery(this),
                 Count = oThis.data('count'),
-                Items = oThis.find('.list-item-container').length;
+                Items = oThis.find('li').length;
 
             if(Items> Count) {
-                oThis.find('.list-item-container:nth-child('+ (Count + 1) +')').hide();
+                oThis.find('li:nth-child(n+'+ (Count+1) +')').hide();
                 oThis.find('.btn-showMore').show();
             } else {
                 oThis.find('.btn-showMore').hide();
@@ -2877,7 +2895,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         BtnMore.on('click', function() {
             var Parent = jQuery(this).parents('section'),
                 Count = Parent.data('count');
-                Parent.find('.list-item-container:nth-child('+ (Count + 1) +')').slideToggle();
+                Parent.find('li:nth-child(n+'+ (Count+1) +')').slideToggle();
 
                 jQuery(this).toggleClass('showLess');
         })
@@ -3640,11 +3658,11 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
 jQuery(INFORMA.trainingMaterial.init());
 
 var INFORMA = window.INFORMA || {};
-INFORMA.videos = (function(window, $, namespace) {
+INFORMA.videoFull = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _videoFullWrapper = $('.video-img'),
-        _videoPlayBtnWrapper = $('.play-icon'),
+    var _videoFullWrapper = $('.video-full-container .video-img'),
+        _videoPlayBtnWrapper = $('.video-full-container .play-icon'),
         video,
         // methods
         init,
@@ -3690,4 +3708,62 @@ INFORMA.videos = (function(window, $, namespace) {
         init: init
     };
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.videos.init());
+jQuery(INFORMA.videoFull.init());
+
+var INFORMA = window.INFORMA || {};
+INFORMA.videoMini = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var _videoMiniWrapper = $('.video-mini-container .video-img'),
+        _videoMiniPlayBtnWrapper = $('.video-mini-container .play-icon'),
+        _videoMiniPlayerModal = $('#videoMiniModal'),
+        video,
+        // methods
+        init,
+        _playVideoMiniWrapper,
+        _playVideoMiniBtnWrapper;
+
+    _playVideoMiniBtnWrapper = function() {
+        _videoMiniPlayBtnWrapper.click(function() {
+            var videoImg = $(this).parent().find('img');
+            if (videoImg.attr('data-videotype') == "youtube") {
+                video = '<iframe width="100%" src="' + videoImg.attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+            } else if (videoImg.attr('data-videotype') == "vimeo") {
+                video = '<iframe width="100%" src="' + videoImg.attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+            } else if (videoImg.attr('data-videotype') == "wistia") {
+                video = '<iframe width="100%" src="' + videoImg.attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+            }
+            _videoMiniPlayerModal.find('.modal-body .video-mini-player').html(video)
+            _videoMiniPlayerModal.modal('show');
+            _videoMiniPlayBtnWrapper.remove();
+        });
+    }
+
+    _playVideoMiniWrapper = function() {
+        _videoMiniWrapper.click(function() {
+            if ($(this).attr('data-videotype') == "youtube") {
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+            } else if ($(this).attr('data-videotype') == "vimeo") {
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+            } else if ($(this).attr('data-videotype') == "wistia") {
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+            }
+            _videoMiniPlayerModal.find('.modal-body .video-mini-player').html(video)
+            _videoMiniPlayerModal.modal('show');
+            // $(this).replaceWith(video);
+             _videoMiniPlayBtnWrapper.remove();
+        });
+    }
+
+    init = function() {
+        _playVideoMiniWrapper();
+        _playVideoMiniBtnWrapper();
+
+
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.videoMini.init());
