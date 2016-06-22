@@ -90,4 +90,51 @@
             }
         }
     }
+    .btn.btn-showMore {
+        background: none;
+        width: 260px;
+        padding: 15px 0;
+        margin: 0 auto;
+        text-align: left;
+        color: #444957;
+        border: none;
+        border-bottom: 2px solid #ffd500;
+        display: block;
+        @include mobile {
+            width: 180px;
+            text-align: center;
+            padding-bottom: 40px;
+        }
+        &:after {
+            content: '+';
+            right: 10px;
+            color: #fff;
+            background: #ffd500;
+            height: 30px;
+            width: 30px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 24px;
+            top: 9px;
+            @include mobile {
+                top: 35px;
+                right: 50%;
+                margin-right: -15px;
+            }
+        }
+        .more {
+            display: block;
+        }
+        .less {
+            display: none;
+        }
+        &.showLess {
+            .more {
+                display: none;
+            }
+            .less {
+                display: block;
+            }
+        }
+    }
 }

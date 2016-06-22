@@ -19,16 +19,20 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         CustomSelect = ResourceContainer.find("select"),
         SectorSelect = ResourceContainer.find("select.resource-sector"),
         SubSectorSelect = ResourceContainer.find("select.resource-sub-sector"),
+        ResourceListContainer = $('.resource-list'),
+        BtnMore = $('.btn-showMore'),
     // methods
         init,
         BindDropDown,
-        ResourceBindDropDown;
+        ResourceBindDropDown,
+        RenderOnLoad;
 
     ResourceBindDropDown = function() {
         CustomSelect.val("");
         CustomSelect.multiselect({
             maxHeight: 200,
             buttonText: function(o, s) {
+                debugger;
                 if (o.length === 0) {
                     return $(s).data('placeholder');
                 } else {
@@ -51,11 +55,36 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             }
         });
     };
+
+    RenderOnLoad = function() {
+        ResourceListContainer.each(function() {
+            var oThis = jQuery(this),
+                Count = oThis.data('count'),
+                Items = oThis.find('.list-item-container').length;
+
+            if(Items> Count) {
+                oThis.find('.list-item-container:nth-child('+ (Count + 1) +')').hide();
+                oThis.find('.btn-showMore').show();
+            } else {
+                oThis.find('.btn-showMore').hide();
+            }
+
+        })
+
+        BtnMore.on('click', function() {
+            var Parent = jQuery(this).parents('section'),
+                Count = Parent.data('count');
+                Parent.find('.list-item-container:nth-child('+ (Count + 1) +')').slideToggle();
+
+                jQuery(this).toggleClass('showLess');
+        })
+    }
     
 
     init = function() {
         if (ResourceContainer.length > 0) {
             ResourceBindDropDown();
+            RenderOnLoad();
         }
     };
 
