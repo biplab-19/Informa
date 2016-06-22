@@ -4,7 +4,7 @@
 //.panel-group
 
 /*=================================================
-	Video 
+	Video
 ==================================================*/
 .video-wrap {
 	position: relative;
@@ -20,6 +20,36 @@
 	    margin-left: -27px;
 	}
 }
+/*=================================================
+	Mini - Video modal
+==================================================*/
+.video-mini-modal {
+        .modal-dialog {
+            width: 60%;
+            margin: 0 auto;
+        }
+        .modal-body {
+            //  height: 300px;
+            //  padding: 15px 200px;
+            @include mobile {
+                //padding: 15px 30px;
+            }
+        }
+        .modal-content {
+            border-radius: 0;
+            background-color: $gray-light-bg;
+            color: $white;
+        }
+        .modal-header {
+            border-bottom: 0;
+            .close {
+                color: $white;
+                opacity: 2;
+            }
+        }
+
+}
+
 
 /*===================================================
 	Search Flip Tile

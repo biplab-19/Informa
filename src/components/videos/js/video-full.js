@@ -1,9 +1,9 @@
 var INFORMA = window.INFORMA || {};
-INFORMA.videos = (function(window, $, namespace) {
+INFORMA.videoFull = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _videoFullWrapper = $('.video-img'),
-        _videoPlayBtnWrapper = $('.play-icon'),
+    var _videoFullWrapper = $('.video-full-container .video-img'),
+        _videoPlayBtnWrapper = $('.video-full-container .play-icon'),
         video,
         // methods
         init,
@@ -49,4 +49,4 @@ INFORMA.videos = (function(window, $, namespace) {
         init: init
     };
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.videos.init());
+jQuery(INFORMA.videoFull.init());
