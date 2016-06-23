@@ -88,10 +88,16 @@ var INFORMA = window.INFORMA || {};
             '<ul class="tab-list">'+
                 '{{#each results}}'+
                     '<li>'+
-                        '<a href="#{{}}" class="">{{}}</a>'+
+                        '<a href="#{{Value}}" class="">{{Key}}</a>'+
                     '</li>'+
                 '{{/each}}'+
             '</ul>'+
+            '<div class="selectMenu">'+
+              '<select class="chosen-select">'+
+                '{{#each results}}'+
+                    '<option value="#{{Value}}">{{Key}}</option>'+
+              '</select>'+
+            '</div>'+
         '</div>',
         'ProductFilters':
             '<div class="{{results.FilterName}}">'+

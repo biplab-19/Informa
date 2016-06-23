@@ -143,8 +143,17 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         BindPaginationEvents = function(Object,url) {
             Object.off('click').on("click", function(e) {
                 e.preventDefault();
-                var Data = GetSearchArray();
+                var TabName, SearchTab, Data;
+
+                if(SearchType==='SearchResult'){
+                    TabName = $(this).attr("href");
+                    SearchTab = TabName.replace("#",'');
+                    SearchTabHidden.val(SearchTab);
+                    ResultContainer.addClass('ShowLoadBtn');
+                }
+                    Data = GetSearchArray();
                     PageSize+=6;
+
                 Data.pageSize =  PageSize;
                 GetPaginatedData(Urls[url], JSON.stringify(Data), ParseSearchData);
             });
@@ -275,7 +284,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     TabToClick = jQuery('.tab-list a[href="'+TabName+'"]');
                     if(TabToClick){
                         TabToClick.trigger("click");
-                        DropDwnValue = jQuery('.search-tabs select option[value="'+TabName+'"]').prop("selected",true);
+                        jQuery('.search-tabs select option[value="'+TabName+'"]').prop("selected",true);
                     }
                 });
 
@@ -307,7 +316,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     Refine = (data.ProductFacets !== undefined) ? data.ProductFacets : false,
                     FilterLabels = (data.FilterLabels !== undefined) ? data.FilterLabels : false,
                     ProductFilters = (data.ProductFilters !== undefined) ? data.ProductFilters : false,
-                    SearchTabs = (data.Tabs !== undefined) ? data.Tabs : false;
+                    SearchTabs = (data.SearchTabs !== undefined) ? data.SearchTabs : false;
                 if (ProductFilters) {
                     var html = CreateFilterList(ProductFilters,Templates.ProductFilters,FilterLabels);
                     ShowFilter(html, FilterList,true);
@@ -318,9 +327,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
                 }
+                if(SearchTabs){
+                    var html = CreateFilterList(ProductFilters,Templates.SearchTabs);
+                    $(".search-tabs").html(html);
+                }
                 if (Results && Object.keys(Results).length) {
                     AllResults.hide();
-                    ResultContainer.removeClass('ShowLoadBtn');
                     CreateSearchResult(Results);
                 }else{
                     AllResults.hide();

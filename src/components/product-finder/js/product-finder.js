@@ -90,6 +90,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
                 //Reset Pagination size to default value
                 INFORMA.SearchResults.ResetPageSize();
+                ResultContainer.removeClass('ShowLoadBtn');
             });
         },
         BindAjaxHandler = function() {
