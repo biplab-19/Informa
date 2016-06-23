@@ -20,6 +20,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         CustomSelect = ProductFinderSection.find(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
         SearchField	= $(".site-search input"),
+        SearchTabHidden = $(".site-search input.search-tab"),
         SearchSubmitBtn = $(".site-search li.button"),
         //SearchIcon = $(".navbar-default .search a"),
         SearchIcon = $(".search:visible"),
@@ -81,10 +82,14 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitHandler = function(btn, SearchType) {
             btn.off().on("click", function(e) {
                 e.preventDefault();
+                SearchTabHidden.val("allresults");
                 var FieldArray = ProductFinderSection.find("form").serializeArray(),
                     GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
                 INFORMA.Spinner.Show($("body"));
                 GetAjaxData(Urls[SearchType], "Post", GetSerializeData, RenderSearchResult, null, SearchType);
+
+                //Reset Pagination size to default value
+                INFORMA.SearchResults.ResetPageSize();
             });
         },
         BindAjaxHandler = function() {

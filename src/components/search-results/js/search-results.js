@@ -13,7 +13,7 @@
 var INFORMA = window.INFORMA || {};
 INFORMA.SearchResults = (function(window, $, namespace) {
     'use strict';
-    //variables
+    //Default variables and cached html elements
     var Templates = INFORMA.Templates,
         ResultContainer = $(".search-container #results"),
         AllResults = ResultContainer.find(".search-results"),
@@ -35,11 +35,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         Urls = INFORMA.Configs.urls.webservices,
         Utils = INFORMA.Utils, SearchType = '',
         // methods
-        init,
+        init, ResetPageSize,
         equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter, GetSearchPaginatedData,
         LoadProducts, CreateFilterList, BindPageLoadEvents, BindTabOpenEvents, OpenTab, GetSearchArray,
         ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected,SetSearchState;
-
+        ResetPageSize = function(){
+            PageSize = parseInt(Config.searchResult.pageSize);
+        },
         equalHeight = function(container) {
             var ItemsList = container.find('.col-md-4'),
                 MaxHeight = 0,
@@ -264,17 +266,29 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if(SearchType==='SearchResult'){
 
                 var TabsLink = $(".tab-list a"),
-                    OpenTabBtn = ResultContainer.find(".open-tab");
+                    OpenTabBtn = ResultContainer.find(".open-tab"),
+                    FilterMenu = $(".search-tabs select");
                 
-                    OpenTabBtn.off("click").on("click",function(e){
+                OpenTabBtn.off("click").on("click",function(e){
                     e.preventDefault();
                     var TabName = $(this).attr("href"),
-                        TabToClick = jQuery('.tab-list a[href="'+TabName+'"]');
+                    TabToClick = jQuery('.tab-list a[href="'+TabName+'"]');
                     if(TabToClick){
                         TabToClick.trigger("click");
+                        DropDwnValue = jQuery('.search-tabs select option[value="'+TabName+'"]').prop("selected",true);
                     }
-
                 });
+
+                if(FilterMenu){
+                    FilterMenu.off("change").on("change", function(e) {
+                        e.preventDefault();
+                        var SelectedFilter = FilterMenu.val(),
+                            TabToClick = jQuery('.tab-list a[href="'+SelectedFilter+'"]');
+                        if(TabToClick){
+                            TabToClick.trigger("click");
+                        }
+                    });
+                }
                 BindPaginationEvents(ShowMoreBtn,SearchType);
                 BindTabOpenEvents(TabsLink);
             }
@@ -320,7 +334,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
         init = function() {
             var IsProductPage = (ProductFinder.data("product") === true) ? true : false,
-                IsSearchPage = (ProductFinder.data("search") === true) ? true : true;
+                IsSearchPage = (ProductFinder.data("search") === true) ? true : false;
 
             if (IsProductPage) {
                 SearchType = "ProductSearch";
@@ -353,7 +367,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     return {
         init: init,
         RenderSearchResults: ParseSearchData,
-        UpdateResultPage: UpdateResultPage
+        UpdateResultPage: UpdateResultPage,
+        ResetPageSize:ResetPageSize
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
