@@ -6716,13 +6716,40 @@ section#services-list .row .btn-container .btn-primary {
 .gray-bg .main-title {
   width: 80%;
   margin: 0 auto;
+  font-size: 40px;
+  font-family: FSMe-bold;
 }
-/* line 9, ../../../src/components/article-terms/sass/article-terms.scss */
+@media (max-width: 767px) {
+  /* line 5, ../../../src/components/article-terms/sass/article-terms.scss */
+  .gray-bg .main-title {
+    font-size: 25px;
+  }
+}
+/* line 14, ../../../src/components/article-terms/sass/article-terms.scss */
 .gray-bg .small-content {
+  padding-left: 192px;
   font-size: 14px;
+  font-style: italic;
+  font-family: FSMe-light;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 14, ../../../src/components/article-terms/sass/article-terms.scss */
+  .gray-bg .small-content {
+    display: block;
+    padding-left: 0px;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 14, ../../../src/components/article-terms/sass/article-terms.scss */
+  .gray-bg .small-content {
+    display: block;
+    padding-left: 0px;
+    margin-top: 20px;
+  }
 }
 
-/* line 13, ../../../src/components/article-terms/sass/article-terms.scss */
+/* line 31, ../../../src/components/article-terms/sass/article-terms.scss */
 .content-container {
   background-color: #fff;
   width: 100%;
@@ -6730,7 +6757,7 @@ section#services-list .row .btn-container .btn-primary {
   padding-right: 235px;
 }
 @media (max-width: 767px) {
-  /* line 13, ../../../src/components/article-terms/sass/article-terms.scss */
+  /* line 31, ../../../src/components/article-terms/sass/article-terms.scss */
   .content-container {
     width: 100%;
     margin: 0 auto;
@@ -6739,7 +6766,7 @@ section#services-list .row .btn-container .btn-primary {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 13, ../../../src/components/article-terms/sass/article-terms.scss */
+  /* line 31, ../../../src/components/article-terms/sass/article-terms.scss */
   .content-container {
     width: 100%;
     margin: 0 auto;
@@ -6747,15 +6774,15 @@ section#services-list .row .btn-container .btn-primary {
     padding-right: 5px;
   }
 }
-/* line 30, ../../../src/components/article-terms/sass/article-terms.scss */
+/* line 48, ../../../src/components/article-terms/sass/article-terms.scss */
 .content-container .content-header {
   font-family: FSMe-bold;
   margin-bottom: 30px;
   padding-top: 60px;
 }
-/* line 35, ../../../src/components/article-terms/sass/article-terms.scss */
+/* line 53, ../../../src/components/article-terms/sass/article-terms.scss */
 .content-container p {
-  line-height: 20px;
+  line-height: 30px;
 }
 
 /* line 1, ../../../src/components/resource-list/sass/_resource-list.scss */
