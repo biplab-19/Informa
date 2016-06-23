@@ -250,7 +250,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         Data = DataObject[key],
                         ListTemplate = Handlebars.compile(Template);
                         if(Data.length > 0){
-                            Data.FilterName = labelsObject[ResultName];
+                            if(labelsObject){
+                                Data.FilterName = labelsObject[ResultName];
+                            }
                             Data.FilterID = ResultName;
                             html += ListTemplate({ results: Data });
                         }
@@ -328,8 +330,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                    INFORMA.SearchResultFilter.DoRefine();
                 }
                 if(SearchTabs){
-                    var html = CreateFilterList(ProductFilters,Templates.SearchTabs);
+                    var Data = {} , html;
+                        Data.SearchTabs = SearchTabs;
+                        html = CreateFilterList(Data,Templates.SearchTabs);
                     $(".search-tabs").html(html);
+                    $(".search-tabs li:first-child").addClass("selected");
                 }
                 if (Results && Object.keys(Results).length) {
                     AllResults.hide();
@@ -337,9 +342,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }else{
                     AllResults.hide();
                     $(".no-results").show();
-                }
-                if(SearchTabs){
-                    var html = CreateFilterList(SearchTabs,Templates.SearchTabs);
                 }
             }
         },

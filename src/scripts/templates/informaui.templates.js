@@ -96,6 +96,7 @@ var INFORMA = window.INFORMA || {};
               '<select class="chosen-select">'+
                 '{{#each results}}'+
                     '<option value="#{{Value}}">{{Key}}</option>'+
+                '{{/each}}'+
               '</select>'+
             '</div>'+
         '</div>',
