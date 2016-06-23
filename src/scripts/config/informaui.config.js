@@ -23,17 +23,19 @@ var INFORMA = window.INFORMA || {};
             "AnalystSearch": "/data/analyst-search.json",
             "AnalystSearchDropDown": "/data/analyst-search-dropdown.json",
             "AnalystSearchAll": "/data/analyst-search-subsector.json",
-            "EventsSearch": "data/events-page.json"
+            "EventsSearch": "data/events-page.json",
+            "ResourceList": "data/resource-list.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
-            "SearchResult": "/client/search/GetSearchResults",
+            "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",
             "AnalystSearchAll": "/client/search/SeeAllSpecialists",
-            "EventsSearch": "/client/search/GetEventList"
+            "EventsSearch": "/client/search/GetEventList",
+            "ResourceList": "/client/search/GetResourceListing"
             
         }
     };

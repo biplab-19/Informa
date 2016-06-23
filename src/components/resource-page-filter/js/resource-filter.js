@@ -122,7 +122,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
               debugger;  
-            GetAjaxData(Urls.ResourceList, "Get", null, RenderResourceResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Post", GetSerializeData, RenderResourceResult, null, null);
         })
     },
 
