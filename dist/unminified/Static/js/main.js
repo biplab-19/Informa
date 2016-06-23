@@ -30,7 +30,7 @@
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
-            "SearchResult": "/data/search-results.json",
+            "SearchResult": "/client/search/getsearchresults",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",
             "AnalystSearchAll": "/client/search/SeeAllSpecialists",
@@ -399,10 +399,16 @@ var INFORMA = window.INFORMA || {};
             '<ul class="tab-list">'+
                 '{{#each results}}'+
                     '<li>'+
-                        '<a href="#{{}}" class="">{{}}</a>'+
+                        '<a href="#{{Value}}" class="">{{Key}}</a>'+
                     '</li>'+
                 '{{/each}}'+
             '</ul>'+
+            '<div class="selectMenu">'+
+              '<select class="chosen-select">'+
+                '{{#each results}}'+
+                    '<option value="#{{Value}}">{{Key}}</option>'+
+              '</select>'+
+            '</div>'+
         '</div>',
         'ProductFilters':
             '<div class="{{results.FilterName}}">'+
