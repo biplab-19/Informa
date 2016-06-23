@@ -1,7 +1,13 @@
 .search-container {
     padding: 0;
     background-color: $white;
+    .no-results{
+        display: none;
+        padding:40px 0;
+        min-height: 100px;
+    }
     .search-results {
+        display: none;
         margin: 20px 0;
         .count {
             font-size: 22px;
@@ -64,6 +70,26 @@
                 }
             }
             @include mobile {
+                display: none;
+            }
+        }
+    }
+}
+.search-results-content{
+    .btn-container {
+        .btn-ShowMore {
+            display: none;
+        }
+        .open-tab{
+            display: inline-block;
+        }
+    }
+    .ShowLoadBtn{
+        .btn-container {
+            .btn-ShowMore {
+                display: inline-block;
+            }
+            .open-tab{
                 display: none;
             }
         }

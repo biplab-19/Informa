@@ -16,14 +16,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     //variables
     var Templates = INFORMA.Templates,
         ResultContainer = $(".search-container #results"),
+        AllResults = ResultContainer.find(".search-results"),
         ProductFinder = $('#product-finder-section'),
         SectorSelect = $("select.sector-list"),
         SubSectorSelect = $("select.sub-sector-list"),
         SubmitBtn = $(".product-finder .sector-search li.button"),
         SearchSubmitBtn = $(".site-search li.button"),
-        SearchField = $(".site-search input"),
+        SearchField = $(".site-search input[type=text]"),
         SectorHidden = $("input.sector-list"),
         SearchHidden = $("input.search-hidden"),
+        SearchTabHidden = $(".site-search input.search-tab"),
         SubSectorHidden = $("input.sub-sector-list"),
         FilterList = $(".search-filter .filter-list"),
         RefineContainer = $(".search-container .refine-result"),
@@ -34,9 +36,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         Utils = INFORMA.Utils, SearchType = '',
         // methods
         init,
-        equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter,
-        LoadProducts, CreateFilterList, BindPageLoadEvents, BindTabOpenEvents, OpenTab,
-        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected,GetSearchData;
+        equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter, GetSearchPaginatedData,
+        LoadProducts, CreateFilterList, BindPageLoadEvents, BindTabOpenEvents, OpenTab, GetSearchArray,
+        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected,SetSearchState;
 
         equalHeight = function(container) {
             var ItemsList = container.find('.col-md-4'),
@@ -67,13 +69,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 success_callback: ParseSearchData
             });
         },
-        GetSearchData = function(sVal){
+        SetSearchState = function(sVal){
             if(sVal){
                 SearchField.val(sVal);
                 SearchSubmitBtn.removeClass("disabled");
                 ProductFinder.find("input[type=radio]").eq(1).trigger("click");
                 //SearchSubmitBtn.trigger("click");
             }
+        },
+        GetSearchArray = function(){
+            var SerializeArrays = ProductFinder.find("form").serializeArray(),
+                Data = Utils.serializeObject(SerializeArrays);
+
+            return Data;
         },
         UpdateResultPage = function(SecValue, SubSecValue) {
 
@@ -101,53 +109,76 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 });
             }
         },
-        GetPaginatedData = function(Url, Method, Data, SCallBack, ErrCallack) {
+        GetPaginatedData = function(Url, Data, SCallBack, ErrCallack) {
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(Url, {
-                method: Method,
+                method: "Post",
                 data: Data,
                 success_callback: SCallBack,
                 error_callback: ErrCallack
             });
         },
-        BindPaginationEvents = function(Object) {
+        GetSearchPaginatedData = function(TabName){
+            var Data = GetSearchArray();
+            PageSize = parseInt(Config.searchResult.pageSize);
+            Data.pageSize =  PageSize;
+            INFORMA.Spinner.Show($("body"));
+            INFORMA.DataLoader.GetServiceData(Urls[SearchType], {
+                method: "Post",
+                data: JSON.stringify(Data),
+                success_callback: function(data){
+                    var results = {};
+                    results.Results = data["Results"];
+                    ParseSearchData(results);
+
+                    var UpdateTab = setTimeout(function() {
+                        clearTimeout(UpdateTab);
+                        OpenTab(TabName);
+                    }, 500);
+                }
+            });
+        },
+        BindPaginationEvents = function(Object,url) {
             Object.off('click').on("click", function(e) {
                 e.preventDefault();
-
-                var SerializeArrays = ProductFinder.find("form").serializeArray(),
-                    Data = Utils.serializeObject(SerializeArrays);
+                var Data = GetSearchArray();
                     PageSize+=6;
                 Data.pageSize =  PageSize;
-
-                GetPaginatedData(Urls.ProductSearch, "Post", JSON.stringify(Data), ParseSearchData, null);
+                GetPaginatedData(Urls[url], JSON.stringify(Data), ParseSearchData);
             });
         },
         BindTabOpenEvents = function(Object) {
             Object.off('click').on("click", function(e) {
                 e.preventDefault();
-                var TabName = $(this).attr("href");
-                OpenTab(TabName);
+                var TabName = $(this).attr("href"),
+                    SearchTab = TabName.replace("#",''), Data;
+            
+                if(!$(this).parent().hasClass("selected")){
+                    SearchTabHidden.val(SearchTab);
+                    GetSearchPaginatedData(TabName);
+                }
             });
         },
         OpenTab = function(TabName){
-            var CurrentTab = ResultContainer.find(TabName), CurrentPos,
-                AllResults = ResultContainer.find(".search-results");
+            var CurrentTab = ResultContainer.find(TabName),
+                CurrentPos;
 
-            if(TabName==="#results"){
+            if(TabName==="#allresults"){
+                ResultContainer.removeClass('ShowLoadBtn');
                 AllResults.show();
                 CurrentPos = ResultContainer.offset().top;
             }else{
                 AllResults.hide();
-                ResultContainer.find(TabName).show();
+                CurrentTab.show();
+                ResultContainer.addClass('ShowLoadBtn');
                 CurrentPos = CurrentTab.offset().top;
             }
-
             $("html, body").animate({ scrollTop: CurrentPos });
             $(".tab-list li").removeClass("selected");
-            $(".tab-list li a").each(function(){
-                if($(this).attr("href")===TabName){
-                    $(this).parent().addClass("selected")
-                }
+                $(".tab-list li a").each(function(){
+                    if($(this).attr("href")===TabName){
+                        $(this).parent().addClass("selected")
+                    }
             });
         },
         ShowFilter = function(html, container,isDefaultShow) {
@@ -175,6 +206,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
                     //Update Search Results
                     $(ContainerID).find(".row").html(html);
+                    $(ContainerID).show();
                     ShowMoreLink.removeClass('hide');
 
                     //Update Record Counts
@@ -227,11 +259,23 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             var ShowMoreBtn = ResultContainer.find(".btn-ShowMore");
 
             if(SearchType==='ProductSearch'){
-                BindPaginationEvents(ShowMoreBtn);
+                BindPaginationEvents(ShowMoreBtn,SearchType);
             }
             if(SearchType==='SearchResult'){
-                var TabsLink = $(".tab-list a");
-                BindTabOpenEvents(ShowMoreBtn);
+
+                var TabsLink = $(".tab-list a"),
+                    OpenTabBtn = ResultContainer.find(".open-tab");
+                
+                    OpenTabBtn.off("click").on("click",function(e){
+                    e.preventDefault();
+                    var TabName = $(this).attr("href"),
+                        TabToClick = jQuery('.tab-list a[href="'+TabName+'"]');
+                    if(TabToClick){
+                        TabToClick.trigger("click");
+                    }
+
+                });
+                BindPaginationEvents(ShowMoreBtn,SearchType);
                 BindTabOpenEvents(TabsLink);
             }
         },
@@ -260,9 +304,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
                 }
-                if (Results) {
+                if (Results && Object.keys(Results).length) {
+                    AllResults.hide();
+                    ResultContainer.removeClass('ShowLoadBtn');
                     CreateSearchResult(Results);
-
+                }else{
+                    AllResults.hide();
+                    $(".no-results").show();
                 }
                 if(SearchTabs){
                     var html = CreateFilterList(SearchTabs,Templates.SearchTabs);
@@ -272,7 +320,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
         init = function() {
             var IsProductPage = (ProductFinder.data("product") === true) ? true : false,
-                IsSearchPage = (ProductFinder.data("search") === true) ? true : false;
+                IsSearchPage = (ProductFinder.data("search") === true) ? true : true;
 
             if (IsProductPage) {
                 SearchType = "ProductSearch";
@@ -293,7 +341,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if(IsSearchPage && SearchHidden.length >0){
                 var SearchVal = SearchHidden.val();
                 if (SearchVal) {
-                    GetSearchData(SearchVal);
+                    SetSearchState(SearchVal);
                 }
             }
 

@@ -3,9 +3,11 @@
 <div class="search-tabs">
     <div class="container clearfix">
         <ul class="tab-list">
-            <li class="selected"><a href="#results">All results</a></li>
+            <li class="selected"><a href="#allresults">All results</a></li>
             <li><a href="#products">Products</a></li>
             <li><a href="#resources">Resources</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#others">Others</a></li>
         </ul>
     </div>
 </div>
@@ -83,12 +85,18 @@
 		</div>
 	</div>
 </div>
-<div class="container" id="results"> 
+<div class="container" id="results">
+    <div class="no-results">
+        <h2>No Search Result Found! Search Again</h2>
+    </div>
 	<div class="search-results flip" id="products">
         <h2 class="count"><strong></strong> Products found</h2>
             <div class="row">
             </div>
             <div class="btn-container">
+                <a href="#products" class="open-tab">
+                    <span class="more">Open Tabs</span>
+                </a>
                 <a href="#products" class="btn-ShowMore">
                     <span class="more">More Products</span>
                 </a>
@@ -99,6 +107,9 @@
            	<div class="row article-list">
            	</div>
            	<div class="btn-container">
+                <a href="#resources" class="open-tab">
+                    <span class="more">Open Tabs</span>
+                </a>
                 <a href="#resources" class="btn-ShowMore">
                     <span class="more">More Products</span>
                 </a>
@@ -109,6 +120,9 @@
         <div class="row analyst-profile-events">
         </div>
         <div class="btn-container">
+            <a href="#events" class="open-tab">
+                <span class="more">Open Tabs</span>
+            </a>
             <a href="#events" class="btn-ShowMore">
                 <span class="more">More Products</span>
             </a>
@@ -120,6 +134,9 @@
 
             </div>
             <div class="btn-container">
+                <a href="#others" class="open-tab">
+                    <span class="more">Open Tabs</span>
+                </a>
                 <a href="#others" class="btn-ShowMore">
                     <span class="more">More results</span>
                 </a>
