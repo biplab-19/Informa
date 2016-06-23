@@ -3,9 +3,14 @@
 	background-color: $white;
 	.header {
 		text-align: center;
+		@include mobile {
+			display: none;
+		}
 		h2 {
 			display: inline-block;
 			margin: 20px 0 10px 0;
+			font-size: 28px;
+			font-weight: 700;
 			@include mobile {
 				margin: 5px 0;
 				font-size: 20px;
@@ -77,7 +82,7 @@
 				}
 			}
 			.content-wrap {
-				padding: 15px;
+				padding: 15px 20px;
 				.type {
 					padding: 3px;
 					background-color: #676c7a;
@@ -89,10 +94,13 @@
 					color: #6a7287;
 					font-family: 'FSMe-Bold';
 					margin: 0;
-					height: 80px;
+					height:100px;
+					@include mobile {
+			    	height: auto;
+			    }
 				}
 				.content {
-					margin-top: 35px;
+					margin-top: 25px;
 					.title-content {
 						width: 90px;
 						padding-right: 10px;
@@ -123,12 +131,16 @@
 						}
 					}
 				}
+				@include mobile {
+					height: auto !important;
+				}
 			}
 			.footer {
 				padding: 15px;
 				width: 100%;
 				.btn {
 					padding-right: 40px;
+					font-weight: 700;
 					&.register {
 						float: left;
 					}
@@ -165,7 +177,8 @@
 		}//current event
 		&.CurrentDate{
 			.events-wrap .header .date{
-				background-color:#fed501;;
+				background-color:#fed501;
+				color: #6a7287;
 			}
 		}
 		.events-wrap .footer .btn.register.FullyBooked{
@@ -196,6 +209,12 @@
 			text-align: left;
 			text-decoration: none;
 			outline: none;
+			@include mobile {
+				padding: 0;
+		    text-align: center;
+		    margin-bottom: 30px;
+		    padding-bottom: 60px;
+			}
 			.more,.less{
 				&:after{
 					content: "+";
@@ -212,6 +231,11 @@
 					border-radius: 50%;
 					font-size: 16px;
 					padding: 0 6px;
+					@include mobile {
+						top: auto;
+						right: 47px;
+						bottom: 10px;
+					}
 				}
 			}
 			.less{
