@@ -24,6 +24,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         BtnMore = $('.btn-showMore'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
+        Config = INFORMA.Configs,
+        Count = ResourceListContainer.data('count'),
     // methods
         init,
         BindDropDown,
@@ -32,7 +34,9 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         RenderOnLoad,
         SubmitHandler,
         GetAjaxData,
-        equalHeights;
+        equalHeights,
+        GetResourceSubSectorList,
+        UpdateResourceSubSectorDropdown;
 
     equalHeights = function() {
         $('.list-container').each(function() {
@@ -46,7 +50,33 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         });
     },
 
+    GetResourceSubSectorList = function(arrayList) {
+        var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join("&");
+            //SectorIDs = 'SectorIDs='+SectorIDs;
+            
+            var obj = {
+                "SectorIDs": SectorIDs
+            }
+            GetAjaxData(Urls.ResourceSubSectorList, "Post", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
+    },
+
+    UpdateResourceSubSectorDropdown = function(data) {
+
+        if (data.SubSectors.length > 0) {
+            var ListTemplate = Handlebars.compile(Templates.SubSectorList),
+                html = ListTemplate({ SubSectors: data.SubSectors });
+
+
+            // $(".sector-search li").removeClass("disabled");
+            SubSectorSelect.removeAttr("disabled")
+                .removeProp("disabled")
+                .html(html);
+            SubSectorSelect.multiselect('rebuild');
+        }
+    },
+
     ResourceBindDropDown = function() {
+        var SectorList = [];
         CustomResourceSelect.val("");
         CustomResourceSelect.multiselect({
             maxHeight: 200,
@@ -64,16 +94,27 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             onChange: function(option, checked, select) {
                 if ($(option).parent().hasClass("resource-sector") === true) {
                     if (checked) {
+                        SectorList.push($(option).val());
                         SubSectorSelect.parents('li').removeClass('disabled');
                         SubSectorSelect.removeAttr('disabled');
                         SubSectorSelect.multiselect('rebuild');
                     } else {
+                        var index = SectorList.indexOf($(option).val());
+                        if (index >= 0) {
+                            SectorList.splice(index, 1);
+                        }
                         SubSectorSelect.parents('li').addClass('disabled');
                         SubSectorSelect.attr('disabled', 'disabled');
                         SubSectorSelect.multiselect();
                     }
                 }
+                if ($(option).parent().hasClass("resource-sector")) {
+                    if (SectorList.length > 0) {
+                        GetResourceSubSectorList(SectorList);
+                    }
+                }
             }
+
         });
     },
 
@@ -92,10 +133,17 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 html += ListTemplate({"Articles" : Data});
             }
         }
+        if(data.ResourceRemainingCount < 1) {
+            jQuery('.btn-showMore').hide();
+        } else {
+            jQuery('.btn-showMore').show();
+        }
         ResourceListContainer.find('ul').html(html);
+
+        ResourceListContainer.find('li:nth-child(n+'+(data.Results.Articles.length - data.ResourceRemainingCount + 1)+')').hide();
+        ResourceListContainer.find('li:nth-child(n+'+(data.Results.Articles.length - data.ResourceRemainingCount + 1)+')').slideDown();
         RenderOnLoad();
         equalHeights();
-
     },
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
@@ -104,11 +152,13 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             method: method,
             data: data,
             success_callback: function(data) {
+                debugger;
                 if (typeof SCallback === "function") {
                     SCallback.call(this, data, SearchType);
                 }
             },
             error_callback: function() {
+                debugger;
                 if (typeof Errcallback === "function") {
                     Errcallback.call(this, data, SearchType);
                 }
@@ -120,34 +170,34 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         BtnSubmit.on('click', function(e) {
             e.preventDefault();
             var FieldArray = ResourceContainer.find("form").serializeArray(),
-                GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-              debugger;  
-            GetAjaxData(Urls.ResourceList, "Post", GetSerializeData, RenderResourceResult, null, null);
+                Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
+                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid');
+
+            var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
+
+            MergeItems.ContainerGuid = Guid;
+            MergeItems.ContenttypeGuid = typeGuid;
+            debugger;
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
 
     RenderOnLoad = function() {
         
-        ResourceListContainer.each(function() {
-            var oThis = jQuery(this),
-                Count = oThis.data('count'),
-                Items = oThis.find('li').length;
-
-            if(Items> Count) {
-                oThis.find('li:nth-child(n+'+ (Count+1) +')').hide();
-                oThis.find('.btn-showMore').show();
-            } else {
-                oThis.find('.btn-showMore').hide();
-            }
-
-        })
 
         BtnMore.on('click', function() {
-            var Parent = jQuery(this).parents('section'),
-                Count = Parent.data('count');
-                Parent.find('li:nth-child(n+'+ (Count+1) +')').slideToggle();
+            var FieldArray = ResourceContainer.find("form").serializeArray(),
+                Guid = jQuery(this).attr('data-ContainerGuid'),
+                typeGuid = jQuery(this).attr('data-ContenttypeGuid');
 
-                jQuery(this).toggleClass('showLess');
+            var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
+
+            MergeItems.ContainerGuid = Guid;
+            MergeItems.ContenttypeGuid = typeGuid;
+            MergeItems.PageSize = Count * pageNumber;
+            pageNumber++;
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+
         })
 
         SubmitHandler();
