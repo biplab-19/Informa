@@ -1,4 +1,4 @@
-/*! 2016-06-22 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-23 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -23,17 +23,19 @@
             "AnalystSearch": "/data/analyst-search.json",
             "AnalystSearchDropDown": "/data/analyst-search-dropdown.json",
             "AnalystSearchAll": "/data/analyst-search-subsector.json",
-            "EventsSearch": "data/events-page.json"
+            "EventsSearch": "data/events-page.json",
+            "ResourceList": "data/resource-list.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList" : "/client/search/getsubsectors",
             "ProductSearch": "/client/search/getproducts",
-            "SearchResult": "/client/search/GetSearchResults",
+            "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",
             "AnalystSearchAll": "/client/search/SeeAllSpecialists",
-            "EventsSearch": "/client/search/GetEventList"
+            "EventsSearch": "/client/search/GetEventList",
+            "ResourceList": "/client/search/GetResourceListing"
             
         }
     };
