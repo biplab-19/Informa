@@ -98,17 +98,9 @@
 		color: $white;
 	}
 	&.dark-banner-subscribe{
-		//height: 425px;
-		overflow: hidden;
 		background-color: $gray-light-bg;
 		color: $white;
-		@include mobile {
-				height: auto;
-		}
-		@include tablet {
-				height: auto;
-				padding-bottom: 20px;
-		}
+		padding-bottom: 20px;
 		a{
 			text-decoration: none;
 		}
@@ -118,20 +110,6 @@
 			@include mobile {
 				display: none;
 			}
-		}
-		h1 {
-				font-family: FSMe-Bold;
-				margin: 0 0 30px 0 !important;
-				padding-top: 48px !important;
-				// @include mobile {
-				// 		margin: 17px 0 7px 0;
-				// 		font-size: 30px !important;
-				// }
-				// @include tablet {
-				// 	font-size: 40px !important;
-				// 	margin: 0 0 10px 0;
-				// 	padding-top: 25px;
-				// }
 		}
 		.btn {
 				font-family: FSMe-Bold !important;

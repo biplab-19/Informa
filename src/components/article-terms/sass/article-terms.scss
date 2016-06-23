@@ -5,9 +5,27 @@
       .main-title{
         width: 80%;
         margin: 0 auto;
+        font-size: 40px;
+        font-family: FSMe-bold;
+        @include mobile {
+          font-size: 25px;
+        }
       }
       .small-content{
+          padding-left: 280px;
           font-size: 14px;
+          font-style: italic;
+          font-family: FSMe-light;
+          @include tablet {
+            display: block;
+            padding-left: 0px;
+            margin-top: 20px;
+          }
+          @include mobile {
+            display: block;
+            padding-left: 0px;
+            margin-top: 20px;
+          }
       }
     }
     .content-container{
