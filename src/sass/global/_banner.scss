@@ -104,6 +104,9 @@
 		a{
 			text-decoration: none;
 		}
+		@include tablet {
+			height: auto;
+		}
 		.cf-img {
 			position:absolute;
 			right: 0;
@@ -235,37 +238,7 @@
 		 }
 	 }
 	 //  from here for sample insight banner
- 	 .date{
- 		 color: $light;
- 		 display: inline-block;
- 		 width: auto;
- 		 margin-right: 10px;
- 		 font-family: FSMe-light;
-		 font-size: 18px;
-		 @include mobile {
-				 font-size: 14px !important;
-		 }
-		 @include tablet {
-			 font-size: 15px !important;
-		 }
- 	 }
- 	 .h1-styles{
- 		 margin-bottom: 10px !important;
- 	 }
- 	 .by-whom{
- 		 display: inline-block;
- 		 width: auto;
- 		 font-family: FSMe-bold;
-		 font-size: 18px;
-		 @include mobile {
-				 font-size: 14px !important;
-		 }
-		 @include tablet {
-			 font-size: 15px !important;
-		 }
- 	 }
 	 .provided{
-		 font-size: 18px;
 		 padding-top: 20px;
      padding-bottom: 15px;
 		 @include tablet {
@@ -274,18 +247,10 @@
 		 @include mobile {
 			font-size: 14px !important;
 		 }
+		 span.subtext{
+			 text-decoration: underline;
+		 }
 	 }
- 	 span.by{
- 		 		color: $light;
- 		 		display: inline-block;
- 				font-family: FSMe-light;
- 	 }
- 	 span.publicledger{
- 		 display: inline-block;
- 		 font-family: FSMe-bold;
- 		 text-decoration: underline;
- 		 margin-left: 15px;
- 	 }
 }
 }
 .italics {
