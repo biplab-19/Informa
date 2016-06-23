@@ -396,7 +396,7 @@ header {
             .nav-main{
                 position: fixed;
                 width: 100%;
-                height: 100%;
+                height: calc(100% - 90px);
                 top: 90px;
                 display: block;
                 z-index: 3;
@@ -406,10 +406,20 @@ header {
                 -moz-transition: 1s;
                 -ms-transition: 1s;
                 -o-transition: 1s;
+                .container{
+                    padding-left: 0;
+                    padding-right: 0;
+                    .row{
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                }
             }
             .navbar-collapse {
                 border-top: none;
                 box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+                padding-left: 0;
+                padding-right: 0;
                 .nav-mobile-header{
                     list-style-type: none;
                     background-color: #4c5161;
@@ -440,6 +450,7 @@ header {
                     height: 80px;
                     background-color: #4c5161;
                     margin-bottom: 0;
+                    margin-right: 0;
                     position: fixed;
                     bottom: 0;
                     width: 100%;
@@ -490,6 +501,8 @@ header {
             .navbar-nav {
                 float: none!important;
                 margin-top: 7.5px;
+                margin-left: 0;
+                margin-right: 0;
             }
             .navbar-nav>li {
                 float: none;
@@ -856,6 +869,7 @@ header {
             border-top: none;
             .labels{
                 padding-top: 0;
+                border-top: none;
             }   
         }
 
@@ -878,6 +892,14 @@ header {
                     border-bottom: none;
                 }
             }
+            @include tablet {
+                float: none;
+                overflow: auto;
+                border-bottom: 1px solid #777b87;
+                &:last-child {
+                    border-bottom: none;
+                }
+            }            
         }
         .heading {
             .top {
@@ -905,6 +927,12 @@ header {
                 border-bottom: none;
                 padding: 20px 0;
             }
+            @include tablet {
+                width: 50%;
+                float: left;
+                border-bottom: none;
+                padding: 20px 0;
+            }
             &:after {
                 content: ">";
                 margin-left: 15px;
@@ -927,6 +955,10 @@ header {
                 width: 50%;
                 float: left;
             }
+            @include tablet {
+                width: 50%;
+                float: left;
+            }
         }
     }
     
@@ -944,7 +976,7 @@ header {
     @include not-desktop{
         position: fixed;
         width: 100%;
-        height: 100%;
+        height: calc(100% - 90px);
         top: 90px;
         display: block;
         z-index: 2;
