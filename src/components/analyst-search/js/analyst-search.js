@@ -50,7 +50,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             if (results.hasOwnProperty(key)) {
                 var Data = results[key],
                     HeaderText = key,
-                    TemplateName = (Templates.Analyst !== "undefined") ? Templates.Analyst : "",
+                    TemplateName = (Templates.Analysts !== "undefined") ? Templates.Analysts : "",
                     ListTemplate = Handlebars.compile(TemplateName);
                 Data.header = HeaderText;
                 html += ListTemplate({ results: Data });
