@@ -26,6 +26,35 @@ nav#pdp-navigation {
             transition: .3s ease-in;
             display: none;
       }
+
+      @include desktop{
+            .nav-services-nondesktop{
+                  display: none;
+            }
+            .pdp-sections{
+                  display: block;
+            }
+      }
+      
+      @include not-desktop{
+            .nav-services-nondesktop{
+                  display: block;
+                  &:after {
+                        content: '>';
+                        position: absolute;
+                        right: 20px;
+                        transform: rotate(90Deg);
+                        -ms-transform: rotate(90Deg);
+                        -webkit-transform: rotate(90Deg);
+                        color: $info-icon-color;
+                        font-size: x-large;                 
+                  }
+            }
+            .pdp-sections{
+                  display: none;
+            }
+      }
+      
       @include mobile {
             .menuFollower {
                   display: none!important;
