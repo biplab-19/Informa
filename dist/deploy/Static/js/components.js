@@ -1,4 +1,4 @@
-/*! 2016-06-23 */_adjustHeigt = function(){
+/*! 2016-06-24 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -706,540 +706,6 @@ INFORMA.navbars = (function(window, $, namespace) {
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.navbars.init());
 
-/*
- * Events Search.js
- *
- *
- * @project:    Informa
- * @date:       2016-May-5
- * @author:     Saurabh
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
-var INFORMA = window.INFORMA || {};
-INFORMA.EventsViews = (function(window, $, namespace) {
-    'use strict';
-    //variables
-    var EventsLists = $('.events-search'),
-        Views = EventsLists.find('.views a'),
-        CalendarView = EventsLists.find('.views a.icon-calendar'),
-        ListView = EventsLists.find('.views a.icon-list-view'),
-        Calendar = $('section[data-view="calendar-view"] .container'),
-        List = $('section[data-view="list-view"] .container'),
-        MonthSelect = $('select[name="month"]'),
-        SectorSelect = $('select[name="sector"]'),
-        NextButton = $('.fc-next-button'),
-        MoreEvents = $('.btn-more-events'),
-       _Start = moment(new Date()).format('MMMM YYYY'),
-       _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
-        Urls = INFORMA.Configs.urls.webservices,
-        Templates = INFORMA.Templates,
-        _previousDate = null,
-        //methods
-        init, RenderOnLoad, GetAjaxData, RenderResults, CalendarRender, ListRender, 
-        SetCalendarEvents, RenderEvents, RenderListClickEvents, RenderCalendarEvents, 
-        SwitchEvents, RenderChange, RenderChangeCalendar, RenderChangeList, RenderParticularMonth, MoreEventsList, NoEventsFound,
-        EqualHeight;
-        
-        EqualHeight = function(){ 
-           var highestBox = 0, 
-            EachItem = List.find(".content-wrap"),
-            padding = 30; 
-            
-            jQuery('section[data-view="list-view"]').show();
-          EachItem.each(function(){ 
-                  if(jQuery(this).height() > highestBox){ 
-                  highestBox = jQuery(this).height(); 
-                } 
-          }); 
-          if(jQuery('section[data-view="calendar-view"]:visible').length > 0) {
-              jQuery('section[data-view="list-view"]').hide();
-          }
-          EachItem.height(highestBox + padding); 
-        }
-
-        
-        MoreEventsList = function () {
-            var List = jQuery('section[data-view="list-view"]'),
-                Count = List.data('count');
-                
-                
-                MoreEvents.on('click', function() {
-                    var Parent = jQuery(this).parents('section[data-view="list-view"]').find('.container'),
-                        Count = Parent.data('count');
-
-                    Parent.find('.events-section:nth-child(n+'+(Count+1)+')').slideToggle();
-                    jQuery(this).toggleClass('showLess');
-                });
-        }
-
-    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
-        INFORMA.Spinner.Show($("body"));
-        INFORMA.DataLoader.GetServiceData(url, {
-            method: method,
-            data: JSON.stringify({ data: data }),
-            success_callback: function (data) {
-                if (typeof SCallback === "function") {
-                    SCallback.call(this, data, SearchType);
-                }
-            },
-            error_callback: function () {
-                if (typeof Errcallback === "function") {
-                    Errcallback.call(this, data, SearchType);
-                }
-            }
-        });
-    },
-
-    RenderOnLoad = function () {
-
-        jQuery('body').addClass('list-view');
-        var date = new Date(),
-            DatePass = moment(date).format('MMMM YYYY');
-        var obj = {
-            MonthYear: DatePass
-        }
-        _previousDate = DatePass;
-        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderResults, null, null);
-    },
-
-    RenderResults = function(data) {
-        CalendarRender(data);
-        ListRender(data);
-    },
-
-    CalendarRender = function(data) {
-        SetCalendarEvents(data);
-    },
-
-    ListRender = function(data) {
-            var results = data.SearchDictionary, 
-              html = "";
-          debugger;
-
-          var ViewDate = moment(results.Month).format('MMMM YYYY');
-
-                List.each(function() {
-                    var Count = List.data('count'),
-                    Items = jQuery(this).find('.events-section').length;
-                    
-                    if(Count > Items) {
-                        jQuery('.btn-more-events').addClass('hidden');
-                    } else {
-                        
-                        jQuery('.btn-more-events').removeClass('hidden');
-                    }
-                    jQuery(this).find('.events-section:nth-child(n+'+(Count+1)+')').hide(); 
-                    jQuery(this).find('.btn-more-events').removeClass('showLess');
-                })
-
-         MoreEventsList();
-        NoEventsFound();
-        EqualHeight();
-
-          if(ViewDate == _Start) {
-            List.find('.previous').addClass('arrow-desabled');
-          } else {
-             List.find('.previous').removeClass('arrow-desabled');
-          }
-
-          if(ViewDate == _end) {
-            List.find('.next').addClass('arrow-desabled');
-          } else {
-             List.find('.next').removeClass('arrow-desabled');
-          }
-          RenderListClickEvents();
-    },
-
-    RenderListClickEvents = function() {
-        var NextBtn = List.find('.next'),
-              PreviousBtn =  List.find('.previous');
-
-    
-              $(document).on('click','.next', function () {
-                  
-                var DateText = jQuery('section[data-view="list-view"]').find('h2').text(),
-                    ViewDate = new Date(DateText),
-                    nextMonth = moment(ViewDate).add(1, 'months').format('MMMM YYYY');
-                    
-                    var obj = {
-                        MonthYear: nextMonth,
-                        SectorId: SectorSelect.val()
-                    }
-                    jQuery('section[data-view="calendar-view"]').show();
-                    Calendar.fullCalendar('gotoDate', moment(ViewDate).add(1, 'months'));
-                    jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
-              })
-
-              $(document).on('click','.previous', function () {
-                var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
-                    ViewDate = new Date(DateText),
-                    prevMonth = moment(ViewDate).add(-1, 'months').format('MMMM YYYY');
-                    
-                    var obj = {
-                        MonthYear: prevMonth,
-                        SectorId: SectorSelect.val()
-                    }
-                    jQuery('section[data-view="calendar-view"]').show();
-                    Calendar.fullCalendar('gotoDate', moment(ViewDate).add(-1, 'months'));
-                    jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
-              })
-    }
-
-    SetCalendarEvents = function(eventList) {
-        var _contentheight = null, _dayView = [],
-            _vp = INFORMA.global.device.viewportN,
-            header = null;
-
-        if(_vp === 2 || _vp === 1) {
-            _contentheight = 100;
-            _dayView = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-        } else {
-            _contentheight = 1700;
-            _dayView = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        }
-
-        if(_vp === 1 || _vp === 0) {
-            header = {
-                left: 'title',
-                right: 'prev,next'
-            }
-        } else {
-            header = {
-                left: 'prev',
-                center: 'title',
-                right: 'next'
-            }
-        }
-        Calendar.html("");
-        Calendar.fullCalendar({
-                header: header,
-                eventLimit: true,
-                contentHeight: _contentheight,
-                viewRender: function(view) {
-                    var date = new Date(),
-                        momentdate = moment(date),
-                        currentMonth = date.getMonth(),
-                        currentYear = date.getYear(),
-                        viewDate = new Date(view.title),
-                        viewMonth = viewDate.getMonth(),
-                        viewYear = viewDate.getYear(),
-                        endDate = momentdate.add(11, 'months').toDate(),
-                        endMonth = endDate.getMonth(),
-                        endYear = endDate.getYear(),
-                        nextMonth = moment(viewDate).add(1, 'months').toDate(),
-                        nextDetails = moment(nextMonth).format('MMMM YYYY');
-
-                    if(currentMonth === viewMonth && currentYear === viewYear) {
-                        jQuery('.fc-prev-button').addClass('disabled');
-                    } else {
-                        jQuery('.fc-prev-button').removeClass('disabled');
-                        
-                    }
-                    
-                    if(viewMonth === endMonth) {
-                        jQuery('.fc-next-button').addClass('disabled');
-                    } else {
-                        jQuery('.fc-next-button').removeClass('disabled');
-                    }
-                    // console.log(_previousDate);
-                    
-                        if(moment(_previousDate).format('MMMM YYYY') != moment(viewDate).format('MMMM YYYY')) {
-                            setTimeout(function() {
-                            
-                                RenderParticularMonth(viewDate);  
-                            }, 50);                             
-                        }
-                    
-
-                    _previousDate = null;
-                    
-                },
-                dayNamesShort: _dayView,
-                dayClick: function(date, jsEvent, view) {
-                    var _vp = INFORMA.global.device.viewportN;
-
-                    if(_vp === 2 || _vp === 1) {
-                        var selectedDate = date.format(),
-                            parentNode = $(this).parents('.fc-row.fc-widget-content'),
-                            DateAttr = $(this).data('date'),
-                            Container = $(this).parents('.fc-view-container'),
-                            ItemList = null;
-                        Container.find('.fc-widget-content').removeClass('open');
-                        Container.toggleClass('open-event');
-                        Container.find('.events-wrap').remove();
-                        Container.find('.fc-day-number').css('color','#6a7285');
-                        if($(this).hasClass('event-present')) {
-                            ItemList = Container.find('.events[data-date="'+DateAttr+'"]').clone();
-                            ItemList.addClass('cloned');
-                            parentNode.after('<div class="events-wrap"></div>');
-                        } else {
-                            parentNode.after('');
-                        }
-
-                        if(Container.hasClass('open-event')) {
-                            Container.find('.fc-widget-content[data-date="'+DateAttr+'"]').addClass('open');
-                            Container.find('.fc-day-number[data-date="'+DateAttr+'"]').css('color','#fff');
-                            Container.find('.events-wrap').html(ItemList);
-                        } else {
-                            Container.find('.fc-widget-content[data-date="'+DateAttr+'"]').removeClass('open');
-                            Container.find('.events-wrap').remove();
-                        }
-                        
-                        ItemList = "";
-                        Container.find('.events-wrap').hide().slideDown();
-                    }
-
-                },
-                eventAfterAllRender: function(view) {
-                    var _vp = INFORMA.global.device.viewportN;
-                    if(_vp === 2 || _vp === 1) {
-
-                        var Events = $('.fc-event-container .events');
-
-                        Events.each(function () {
-                            var DateField = $(this).data('date');
-                            $('td.fc-day-number[data-date="'+DateField+'"]').addClass('events-now');
-                            $('td.fc-widget-content[data-date="'+DateField+'"]').addClass('event-present');
-                        })
-                    }
-
-                    if(_vp === 0) {
-                        var OtherMonths = $('.fc-day-number.fc-other-month');
-
-                        OtherMonths.each(function() {
-                            var DateView = $(this).data('date'),
-                                Month = moment(new Date(DateView)).format('MMM'),
-                                Dates = moment(new Date(DateView)).format('DD');
-                                
-                            $(this).html(Dates + '<sup>\/' +Month+ '</sup>');
-                        })
-                    }
-                },
-                eventRender: function(event, element, view) {
-                    var CurrentDate = new Date(),
-                        ItemDate = new Date(event.start._i),
-                        DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
-                        CountryText = "",
-                        Container = jQuery(element).parents('.container');
-
-                        if(event.Country != null) {
-                            CountryText = event.Country;
-                        }
-                        
-                    if(moment(CurrentDate).format('DD MMM YYYY') > moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
-                    } else if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
-                    } else {
-                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
-                    }
-                }
-        });
-        RenderCalendarEvents(eventList);
-        jQuery('section[data-view="calendar-view"]').hide();
-    },
-    
-    RenderParticularMonth = function(date) { 
-        var NextMonth = moment(date).format('MMMM YYYY'); 
-                
-                var obj = { 
-                        MonthYear: NextMonth, 
-                        SectorId: SectorSelect.val() 
-                } 
-        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null); 
-    },
-
-    RenderCalendarEvents = function(list) {
-        //
-        Calendar.fullCalendar('removeEvents');
-        var Month = Object.keys(list.SearchDictionary)[0],
-            data = list.SearchDictionary[Month].ModelItem;
-
-        var EventList = [];
-        debugger;
-        for(var key in data) {
-            EventList.push({
-                "title": data[key].Title,
-                "start": new Date(data[key].EventDate),
-                "State": data[key].State,
-                "Country": data[key].Country
-            })
-        }
-        for(var key in EventList) {
-            Calendar.fullCalendar('renderEvent', EventList[key], true);
-        }
-    },
-
-    RenderChange = function(data) {
-        
-        RenderChangeCalendar(data);
-        RenderChangeList(data);
-    },
-
-    RenderChangeCalendar = function(list) {
-        Calendar.fullCalendar('removeEvents');
-        var Month = Object.keys(list.SearchDictionary)[0],
-            data = list.SearchDictionary[Month].ModelItem;
-
-        var EventList = [];
-        for(var key in data) {
-            EventList.push({
-                "title": data[key].Title,
-                "start": new Date(data[key].EventDate),
-                "State": data[key].State,
-                "Country": data[key].Country
-            })
-        }
-        jQuery('section[data-view="calendar-view"]').show();
-        for(var key in EventList) {
-            Calendar.fullCalendar('renderEvent', EventList[key], true);
-        }
-        if(jQuery('body').hasClass('list-view')) {
-            jQuery('section[data-view="calendar-view"]').hide();
-        }
-    },
-    
-    NoEventsFound = function () {
-            var List = jQuery('section[data-view="list-view"]'),
-                Count = List.data('count'),
-                Items = List.find('.events-section').length;
-                
-                
-        if(jQuery('body').hasClass('list-view')) {
-                if (List.find('.events-section').length > 0) { 
-                        jQuery('.no-result').addClass('hidden'); 
-                        if(Count < Items) {
-                            jQuery('.btn-more-events').removeClass('hidden'); 
-                        }
-                        else{
-                            jQuery('.btn-more-events').addClass('hidden'); 
-                        }
-                    } else { 
-                        jQuery('.no-result').removeClass('hidden'); 
-                        jQuery('.btn-more-events').addClass('hidden'); 
-                    }
-        } else {
-            jQuery('.no-result').addClass('hidden'); 
-            if(Count < Items) {
-                jQuery('.btn-more-events').removeClass('hidden'); 
-            }
-            else{
-                jQuery('.btn-more-events').addClass('hidden'); 
-            }
-        }
-        setTimeout(function() {
-            EqualHeight();
-        }, 100);
-        
-    },
-
-    RenderChangeList = function(data) {
-        var results = data.SearchDictionary,
-              html = "";
-
-          for (var key in results) {
-              if (results.hasOwnProperty(key)) {
-                  var Data = results[key],
-                      HeaderText = key,
-                      TemplateName = (Templates.EventpageListviewTemplate !== "undefined") ? Templates.EventpageListviewTemplate : "",
-                      ListTemplate = Handlebars.compile(TemplateName);
-                  Data.Month = HeaderText;
-                  html += ListTemplate({ results: Data });
-              }
-          }
-          List.html(html);
-            NoEventsFound();
-            
-            var Count = List.data('count'); 
-                List.find('.events-section:nth-child(n+'+(Count+1)+')').hide(); 
-                jQuery('.btn-more-events').removeClass('showLess');
-            
-          var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
-                ViewDate = moment(new Date(ViewDateText)).format('MMMM YYYY');
-            
-          if(ViewDate == _Start) {
-            List.find('.previous').addClass('arrow-desabled');
-          } else {
-             List.find('.previous').removeClass('arrow-desabled');
-          }
-
-          if(ViewDate == _end) {
-            List.find('.next').addClass('arrow-desabled');
-          } else {
-             List.find('.next').removeClass('arrow-desabled');
-          }
-
-          //RenderClickEvents();
-    },
-
-    SwitchEvents = function() {
-        Views.on('click', function(e) {
-            e.preventDefault();
-            var ViewMode = jQuery(this).data('viewport');
-            Views.removeClass('active');
-            jQuery(this).addClass('active');
-            jQuery('body').attr('class', 'agri-theme');
-            jQuery('.events-list').hide();
-            jQuery('body').addClass(ViewMode);
-            jQuery('section[data-view="'+ViewMode+'"]').show();
-            
-            NoEventsFound();
-            
-        })
-
-         
-
-        MonthSelect.on('change', function() {
-            var value = jQuery(this).val();
-            var check = moment(new Date(value));
-            jQuery('section[data-view="calendar-view"]').show();
-            Calendar.fullCalendar('gotoDate', check);
-            if(jQuery('body').hasClass('list-view')) {
-                jQuery('section[data-view="calendar-view"]').hide();
-            }
-            var obj = {
-                MonthYear: check.format('MMMM YYYY'),
-                SectorId: SectorSelect.val()
-            }
-            
-            _previousDate = new Date(value);
-
-            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
-
-            // NoEventsFound();
-        })
-        
-        SectorSelect.on('change', function(){
-            var obj = {
-                MonthYear: MonthSelect.val(),
-                SectorId: jQuery(this).val()
-            }
-
-            _previousDate = new Date(MonthSelect.val());
-            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
-
-            // NoEventsFound(); 
-        })
-
-    },
-
-    init = function() {
-        if(EventsLists.length > 0) {
-            SwitchEvents();
-            RenderOnLoad();
-        }
-    };
-
-    return {
-        init: init
-    };
-}(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.EventsViews.init());
 /*
  * feature-list.js
  *
@@ -2779,6 +2245,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         BtnMore = $('.btn-showMore'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
+        Config = INFORMA.Configs,
+        Count = ResourceListContainer.data('count'),
     // methods
         init,
         BindDropDown,
@@ -2787,7 +2255,9 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         RenderOnLoad,
         SubmitHandler,
         GetAjaxData,
-        equalHeights;
+        equalHeights,
+        GetResourceSubSectorList,
+        UpdateResourceSubSectorDropdown;
 
     equalHeights = function() {
         $('.list-container').each(function() {
@@ -2801,7 +2271,33 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         });
     },
 
+    GetResourceSubSectorList = function(arrayList) {
+        var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join("&");
+            //SectorIDs = 'SectorIDs='+SectorIDs;
+            
+            var obj = {
+                "SectorIDs": SectorIDs
+            }
+            GetAjaxData(Urls.ResourceSubSectorList, "Post", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
+    },
+
+    UpdateResourceSubSectorDropdown = function(data) {
+
+        if (data.SubSectors.length > 0) {
+            var ListTemplate = Handlebars.compile(Templates.SubSectorList),
+                html = ListTemplate({ SubSectors: data.SubSectors });
+
+
+            // $(".sector-search li").removeClass("disabled");
+            SubSectorSelect.removeAttr("disabled")
+                .removeProp("disabled")
+                .html(html);
+            SubSectorSelect.multiselect('rebuild');
+        }
+    },
+
     ResourceBindDropDown = function() {
+        var SectorList = [];
         CustomResourceSelect.val("");
         CustomResourceSelect.multiselect({
             maxHeight: 200,
@@ -2819,16 +2315,27 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             onChange: function(option, checked, select) {
                 if ($(option).parent().hasClass("resource-sector") === true) {
                     if (checked) {
+                        SectorList.push($(option).val());
                         SubSectorSelect.parents('li').removeClass('disabled');
                         SubSectorSelect.removeAttr('disabled');
                         SubSectorSelect.multiselect('rebuild');
                     } else {
+                        var index = SectorList.indexOf($(option).val());
+                        if (index >= 0) {
+                            SectorList.splice(index, 1);
+                        }
                         SubSectorSelect.parents('li').addClass('disabled');
                         SubSectorSelect.attr('disabled', 'disabled');
                         SubSectorSelect.multiselect();
                     }
                 }
+                if ($(option).parent().hasClass("resource-sector")) {
+                    if (SectorList.length > 0) {
+                        GetResourceSubSectorList(SectorList);
+                    }
+                }
             }
+
         });
     },
 
@@ -2847,10 +2354,17 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 html += ListTemplate({"Articles" : Data});
             }
         }
+        if(data.ResourceRemainingCount < 1) {
+            jQuery('.btn-showMore').hide();
+        } else {
+            jQuery('.btn-showMore').show();
+        }
         ResourceListContainer.find('ul').html(html);
+
+        ResourceListContainer.find('li:nth-child(n+'+(data.Results.Articles.length - data.ResourceRemainingCount + 1)+')').hide();
+        ResourceListContainer.find('li:nth-child(n+'+(data.Results.Articles.length - data.ResourceRemainingCount + 1)+')').slideDown();
         RenderOnLoad();
         equalHeights();
-
     },
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
@@ -2859,11 +2373,13 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             method: method,
             data: data,
             success_callback: function(data) {
+                debugger;
                 if (typeof SCallback === "function") {
                     SCallback.call(this, data, SearchType);
                 }
             },
             error_callback: function() {
+                debugger;
                 if (typeof Errcallback === "function") {
                     Errcallback.call(this, data, SearchType);
                 }
@@ -2875,34 +2391,34 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         BtnSubmit.on('click', function(e) {
             e.preventDefault();
             var FieldArray = ResourceContainer.find("form").serializeArray(),
-                GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-              debugger;  
-            GetAjaxData(Urls.ResourceList, "Post", GetSerializeData, RenderResourceResult, null, null);
+                Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
+                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid');
+
+            var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
+
+            MergeItems.ContainerGuid = Guid;
+            MergeItems.ContenttypeGuid = typeGuid;
+            debugger;
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
 
     RenderOnLoad = function() {
         
-        ResourceListContainer.each(function() {
-            var oThis = jQuery(this),
-                Count = oThis.data('count'),
-                Items = oThis.find('li').length;
-
-            if(Items> Count) {
-                oThis.find('li:nth-child(n+'+ (Count+1) +')').hide();
-                oThis.find('.btn-showMore').show();
-            } else {
-                oThis.find('.btn-showMore').hide();
-            }
-
-        })
 
         BtnMore.on('click', function() {
-            var Parent = jQuery(this).parents('section'),
-                Count = Parent.data('count');
-                Parent.find('li:nth-child(n+'+ (Count+1) +')').slideToggle();
+            var FieldArray = ResourceContainer.find("form").serializeArray(),
+                Guid = jQuery(this).attr('data-ContainerGuid'),
+                typeGuid = jQuery(this).attr('data-ContenttypeGuid');
 
-                jQuery(this).toggleClass('showLess');
+            var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
+
+            MergeItems.ContainerGuid = Guid;
+            MergeItems.ContenttypeGuid = typeGuid;
+            MergeItems.PageSize = Count * pageNumber;
+            pageNumber++;
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+
         })
 
         SubmitHandler();
@@ -2921,7 +2437,6 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.ResourceFilter.init());
-
 /*
  * Product Results.js
  *
@@ -3369,7 +2884,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         Data = DataObject[key],
                         ListTemplate = Handlebars.compile(Template);
                         if(Data.length > 0){
-                            Data.FilterName = labelsObject[ResultName];
+                            if(labelsObject){
+                                Data.FilterName = labelsObject[ResultName];
+                            }
                             Data.FilterID = ResultName;
                             html += ListTemplate({ results: Data });
                         }
@@ -3447,8 +2964,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                    INFORMA.SearchResultFilter.DoRefine();
                 }
                 if(SearchTabs){
-                    var html = CreateFilterList(ProductFilters,Templates.SearchTabs);
+                    var Data = {} , html;
+                        Data.SearchTabs = SearchTabs;
+                        html = CreateFilterList(Data,Templates.SearchTabs);
                     $(".search-tabs").html(html);
+                    $(".search-tabs li:first-child").addClass("selected");
                 }
                 if (Results && Object.keys(Results).length) {
                     AllResults.hide();
@@ -3456,9 +2976,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }else{
                     AllResults.hide();
                     $(".no-results").show();
-                }
-                if(SearchTabs){
-                    var html = CreateFilterList(SearchTabs,Templates.SearchTabs);
                 }
             }
         },
@@ -3741,27 +3258,97 @@ var INFORMA = window.INFORMA || {};
 INFORMA.videoBackground = (function(window, $, namespace) {
     'use strict';
 
-    var _iFrameElement = $('.hero-banner .videoBG iframe'),
+    var _iFrameElement = $('.hero-banner .videoBG'),
         init,
         _urlType,
         _urlSrc,
         _urlSrcOptions,
+        _youTubeId,
+        _wistiaId,
+        _vimeoId,
+        _wistiaUrl,
+        _vimeoUrl,
+        ytPlayer,
         _addOptions;
 
     _addOptions = function() {
         _iFrameElement.each(function(i, e) {
             _urlType = $(this).attr('data-videotype');
-            _urlSrc = $(this).attr('src');
+
             if (_urlType == "youtube") {
-                _urlSrcOptions = _urlSrc + "?autoplay=1&loop=1&controls=0&showinfo=0";
+
+                _youTubeId = $(this).attr('data-videoid');
+
+                var playerYTElement = document.createElement('div');
+                playerYTElement.id = "youtubePlayer";
+                $(this).append(playerYTElement);
+
+
             } else if (_urlType == "vimeo") {
-                _urlSrcOptions = _urlSrc + "?autoplay=1&loop=true";
+
+                _vimeoUrl = $(this).attr('data-videourl')
+                _vimeoId = $(this).attr('data-videoid');
+
+                var playerVMElement = document.createElement('div');
+                playerVMElement.id = "vimeoPlayer";
+                $(this).append(playerVMElement);
+
+                var options = {
+                  id: _vimeoId,
+                  autoplay: true,
+                  loop: true
+                };
+
+                var vimeoPlayer = new Vimeo.Player('vimeoPlayer', options);
+                vimeoPlayer.setVolume(0);
+
             } else if (_urlType == "wistia") {
-                _urlSrcOptions = _urlSrc + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop";
+
+                _wistiaUrl = $(this).attr('data-videourl')
+                _wistiaId = $(this).attr('data-videoid');
+
+                var iframeWSElement = document.createElement('iframe');
+                iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=0";
+                $(this).append(iframeWSElement);
+
             }
-            $(this).attr('src', _urlSrcOptions);
+            /*_urlSrc = $(this).attr('src');
+            _urlSrcOptions = _urlSrc;
+
+            if (_urlType == "youtube") {
+                _urlSrcOptions = _urlSrc + "?autoplay=1&loop=1&controls=0&showinfo=0&enablejsapi=1";
+            } else if (_urlType == "vimeo") {
+                _urlSrcOptions = _urlSrc + "?autoplay=1&loop=true&setVolume=0";
+            } else if (_urlType == "wistia") {
+                _urlSrcOptions = _urlSrc + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=0";
+            }
+
+            $(this).attr('src', _urlSrcOptions);*/
         });
 
+    }
+
+    window.onYouTubeIframeAPIReady = function() {
+        ytPlayer = new YT.Player('youtubePlayer', {
+            videoId: _youTubeId,
+            playerVars: {
+                'modestbranding': 1,
+                'autoplay': 1,
+                'controls': 0,
+                'loop': 1,
+                'playlist': _youTubeId,
+                'showinfo': 0
+            },
+
+            events: {
+                'onReady': onYTPlayerReady
+            }
+        });
+    };
+
+    function onYTPlayerReady(event) {
+        event.target.playVideo();
+        event.target.setVolume(0);
     }
 
     init = function() {

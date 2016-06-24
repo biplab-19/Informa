@@ -1,4 +1,4 @@
-/*! 2016-06-23 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-24 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -407,6 +407,7 @@ var INFORMA = window.INFORMA || {};
               '<select class="chosen-select">'+
                 '{{#each results}}'+
                     '<option value="#{{Value}}">{{Key}}</option>'+
+                '{{/each}}'+
               '</select>'+
             '</div>'+
         '</div>',

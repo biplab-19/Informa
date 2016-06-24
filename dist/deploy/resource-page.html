@@ -37,6 +37,7 @@
     <script src="Static/js/vendor.js"></script>
     <!--  only for local development-->
     <script src="Static/js/components/handlebar-helper.js"></script>
+
   <script> 
         $INFORMA = jQuery.noConflict(); 
   </script>
@@ -453,21 +454,13 @@ in the empire of Sapient. Har Har Mahadev !! --->
     				<label for="resource-sub-sector" class="label-text">Sub Sector:</label>
                     <div class="custom-multiselect">
                         <select id="resource-sub-sector" name="resource-sub-sector" class="resource-sub-sector" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
-                            <option value="subsector1">Diary</option>
-                            <option value="subsector2">Meats</option>
-                            <option value="subsector3">Electronics</option>
+                           
                         </select>
                     </div>
     			</li>
     			<li class="col-xs-12 col-sm-4">
     				<a href="javascript:void(0)" class="btn btn-default orange search-resource">Search</a>
     			</li>
-                <li>
-                    <input type="hidden" name="content1" value="ABC"/>
-                </li>
-                <li>
-                    <input type="hidden" name="content2" value="PQR"/>
-                </li>
     		</ul>
         </form>
 	</div>	
@@ -481,7 +474,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
 					
 				</ul>
 			</div>
-			<button class="btn btn-showMore">
+			<button class="btn btn-showMore" data-ContainerGuid="Abc" data-ContenttypeGuid="Pqr">
 				<span class="more">More</span>
 				<span class="less">Less</span>
 			</button>
