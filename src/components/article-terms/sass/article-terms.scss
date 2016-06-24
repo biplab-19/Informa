@@ -8,7 +8,13 @@
         font-size: 40px;
         font-family: FSMe-bold;
         @include mobile {
-          font-size: 25px;
+          width: 100%;
+          font-size: 30px;
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+        @include tablet {
+          width: 100%;
         }
       }
       .small-content{
@@ -30,27 +36,44 @@
     }
     .content-container{
       background-color: $white;
-      width: 100%;
+      //width: 100%;
       padding-left: 273px;
       padding-right: 235px;
       @include mobile {
         width: 100%;
         margin: 0 auto;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
       }
       @include tablet {
         width: 100%;
         margin: 0 auto;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 8px;
+        padding-right: 8px;
       }
       .content-header{
+        font-size: 18px;
         font-family: FSMe-bold;
-        margin-bottom: 30px;
-        padding-top: 60px;
+        margin-bottom: 43px;
+        padding-top: 65px;
+        @include mobile {
+          padding-top: 42px;
+          font-size: 14px;
+        }
       }
       p{
-        line-height: 30px;
+        line-height: 25px;
+        @include mobile {
+          font-size: 12px;
+          line-height: 17px;
+        }
+      }
+      .content-align{
+        width: 100%;
+        margin: 0 auto;
+        @include tablet {
+          width: 80%;
+          margin: 0 auto;
+        }
       }
     }
