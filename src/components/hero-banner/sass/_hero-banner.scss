@@ -65,6 +65,16 @@ section#hero-banner {
         display: none;
       }
   	}
+    .bg-img {
+  		position:absolute;
+  		left: -43px;
+      @include mobile {
+        left: -60px;
+      }
+      @include tablet {
+        left: -430px;
+      }
+  	}
     .subtext {
         font-family: FSMe-Bold;
         font-size: 14px;
@@ -209,24 +219,6 @@ section#hero-banner {
     h1 {
       width: auto;
     }
-      .abs-image {
-          display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        -ms-transform: translateX(0%);
-        -webkit-transform: translateX(0%);
-        transform: translateX(0%);
-        @include tablet {
-            -ms-transform: translateX(20%);
-            -webkit-transform: translateX(20%);
-            transform: translateX(20%);        }
-        @include mobile {
-            -ms-transform: translateX(22%);
-            -webkit-transform: translateX(22%);
-            transform: translateX(22%);
-        }
-      }
       .splash {
         > div {
           width: 70%;
@@ -250,46 +242,45 @@ section#hero-banner {
         height: 650px;
         overflow: hidden;
         padding-bottom: 20px;
-        color: $light;
         @include mobile {
           padding: 10px;
           height: 700px;
         }
-        .main-heading{
-          margin-top: 30px;
-        }
         h1{
-          font-size: 50px;
-           margin-bottom: 0px;
-
+          padding-top: 60px;
+          font-size: 60px;
+          padding-bottom: 42px;
+          color: #444957;
            @include mobile {
-               margin: 17px 0 7px 0;
-               font-size: 35px;
+               padding-top: 19px;
+               padding-bottom: 27px;
+               font-size: 30px;
                text-align: left;
            }
            @include tablet {
                font-size: 40px;
-               margin-top: 0px;
            }
         }
-       .span-arrow{
-            font-family: "InformaIcons" !important;
-            font-size: 250%;
-            content: "\e902";
-         @include mobile {
-             display: none;
-           }
-       }
+        .rotate-icon{
+          padding-top: 10px;
+          padding-bottom: 10px;
+          font-size: 35px;
+          -ms-transform: rotate(88deg);
+          -webkit-transform: rotate(88deg);
+          transform: rotate(88deg);
+          @include mobile {
+              display: none;
+          }
+        }
        .subtext {
            font-family: FSMe-light;
-           font-size: 30px;
+           font-size: 40px;
            color: #444957;
-           margin-top: 30px;
            padding-bottom: 0px;
            @include mobile {
                font-size: 24px;
                letter-spacing: normal;
-               margin: 10px 0px 30px 0px;
+               padding-bottom: 30px;
                text-align: left;
            }
            @include tablet {
@@ -304,10 +295,12 @@ section#hero-banner {
          }
          .color-subtext{
            color: #444957;
+           line-height: 22px;
+           font-family: FSMe-light;
            @include mobile {
              text-align: left;
              line-height: 20px;
-             height: 135px;
+             height: 145px;
              overflow: hidden;
            }
          }
@@ -334,12 +327,16 @@ section#hero-banner {
            margin-right: 65px;
            @include mobile {
              margin-right: 0px;
-              margin-top: 20px;
+             margin-top: 21px;
+             margin-left: -17px;
+           }
+           @include tablet {
+              margin-left: 0px;
            }
          }
          @media only screen and (min-width : 1024px) and (max-device-width : 1224px) {
            .image-margin{
-             margin-right: 130px;
+             margin-left: -24px;
            }
          }
       }

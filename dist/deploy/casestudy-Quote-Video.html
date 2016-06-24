@@ -443,10 +443,12 @@ in the empire of Sapient. Har Har Mahadev !! --->
     </div>
       <div class="row">
           <div class="col-xs-12 col-sm-5 col-md-4">
-            <div class="video-wrap">
-                <span class="play-icon"></span><img src="cms-images/video-thumb-sample.jpg" alt="" class="img-responsive"/>
+            <div class="video-mini-container">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <img src="cms-images/video-img/video-thumb.png" data-videotype="youtube" data-videourl="https://www.youtube.com/embed/kRfliH2SGIY?autoplay=1" alt="video-youtube" width="100%" class="video-img img-responsive" />
+                    <span class="play-icon"></span>
+                </div>
             </div>
-
           </div>
           <div class="col-xs-12 col-sm-7 col-md-8 Quote-descrip-container">
             <div class="open-quote">&ldquo;</div>
@@ -588,6 +590,23 @@ in the empire of Sapient. Har Har Mahadev !! --->
       </div>
     </section>
 </footer> <!-- /#ad-footer -->
+<div class="video-mini-modal modal fade" id="videoMiniModal" tabindex="-1" role="dialog" aria-labelledby="videoMiniModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close video-mini-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+              <div class="video-mini-player embed-responsive embed-responsive-16by9">
+
+              </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 
 
