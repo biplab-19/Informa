@@ -146,7 +146,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 var TabName, SearchTab, Data;
 
                 if(SearchType==='SearchResult'){
-                    TabName = $(this).attr("href");
+                    TabName = ($(this).attr("href")).toLowerCase();
                     SearchTab = TabName.replace("#",'');
                     SearchTabHidden.val(SearchTab);
                     ResultContainer.addClass('ShowLoadBtn');
@@ -161,7 +161,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         BindTabOpenEvents = function(Object) {
             Object.off('click').on("click", function(e) {
                 e.preventDefault();
-                var TabName = $(this).attr("href"),
+                var TabName = ($(this).attr("href")).toLowerCase(),
                     SearchTab = TabName.replace("#",''), Data;
             
                 if(!$(this).parent().hasClass("selected")){
@@ -172,9 +172,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         OpenTab = function(TabName){
             var CurrentTab = ResultContainer.find(TabName),
+                AllResultTab = ($(".tab-list li:first-child a").attr("href")).toLowerCase(),
                 CurrentPos;
 
-            if(TabName==="#allresults"){
+            if(TabName===AllResultTab){
                 ResultContainer.removeClass('ShowLoadBtn');
                 AllResults.show();
                 CurrentPos = ResultContainer.offset().top;
@@ -187,7 +188,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             $("html, body").animate({ scrollTop: CurrentPos });
             $(".tab-list li").removeClass("selected");
                 $(".tab-list li a").each(function(){
-                    if($(this).attr("href")===TabName){
+                    var TabLink = ($(this).attr("href")).toLowerCase();
+                    if(TabLink===TabName){
                         $(this).parent().addClass("selected")
                     }
             });
@@ -208,7 +210,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         html = "",
                         Data = DataObject[key],
                         ResultCount, ShowMoreLink, RemainingCount,
-                        TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
+                        TemplateName = (Templates[ResultName]) ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName),
                         ContainerID = "#" + (ResultName).toLowerCase();
 
@@ -282,7 +284,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 
                 OpenTabBtn.off("click").on("click",function(e){
                     e.preventDefault();
-                    var TabName = $(this).attr("href"),
+                    var TabName = ($(this).attr("href")).toLowerCase(),
                     TabToClick = jQuery('.tab-list a[href="'+TabName+'"]');
                     if(TabToClick){
                         TabToClick.trigger("click");
