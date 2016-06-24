@@ -51,11 +51,19 @@
         padding-left: 8px;
         padding-right: 8px;
       }
-      .content-header{
+      h3{
         font-size: 18px;
         font-family: FSMe-bold;
         margin-bottom: 43px;
         padding-top: 65px;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 43px;
+        @include tablet {
+          width: 80%;
+          margin: 0 auto;
+          margin-bottom: 43px;
+        }
         @include mobile {
           padding-top: 42px;
           font-size: 14px;
@@ -66,6 +74,12 @@
         @include mobile {
           font-size: 12px;
           line-height: 17px;
+        }
+        width: 100%;
+        margin: 0 auto;
+        @include tablet {
+          width: 80%;
+          margin: 0 auto;
         }
       }
       .content-align{

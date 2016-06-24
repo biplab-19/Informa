@@ -6881,37 +6881,57 @@ section#services-list .row .btn-container .btn-primary {
   }
 }
 /* line 54, ../../../src/components/article-terms/sass/article-terms.scss */
-.content-container .content-header {
+.content-container h3 {
   font-size: 18px;
   font-family: FSMe-bold;
   margin-bottom: 43px;
   padding-top: 65px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 43px;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 54, ../../../src/components/article-terms/sass/article-terms.scss */
+  .content-container h3 {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 43px;
+  }
 }
 @media (max-width: 767px) {
   /* line 54, ../../../src/components/article-terms/sass/article-terms.scss */
-  .content-container .content-header {
+  .content-container h3 {
     padding-top: 42px;
     font-size: 14px;
   }
 }
-/* line 64, ../../../src/components/article-terms/sass/article-terms.scss */
+/* line 72, ../../../src/components/article-terms/sass/article-terms.scss */
 .content-container p {
   line-height: 25px;
+  width: 100%;
+  margin: 0 auto;
 }
 @media (max-width: 767px) {
-  /* line 64, ../../../src/components/article-terms/sass/article-terms.scss */
+  /* line 72, ../../../src/components/article-terms/sass/article-terms.scss */
   .content-container p {
     font-size: 12px;
     line-height: 17px;
   }
 }
-/* line 71, ../../../src/components/article-terms/sass/article-terms.scss */
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 72, ../../../src/components/article-terms/sass/article-terms.scss */
+  .content-container p {
+    width: 80%;
+    margin: 0 auto;
+  }
+}
+/* line 85, ../../../src/components/article-terms/sass/article-terms.scss */
 .content-container .content-align {
   width: 100%;
   margin: 0 auto;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 71, ../../../src/components/article-terms/sass/article-terms.scss */
+  /* line 85, ../../../src/components/article-terms/sass/article-terms.scss */
   .content-container .content-align {
     width: 80%;
     margin: 0 auto;
