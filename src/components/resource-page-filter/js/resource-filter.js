@@ -24,8 +24,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         BtnMore = $('.btn-showMore'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
-        Config = INFORMA.Configs,
-        Count = ResourceListContainer.data('count'),
+        pageNumber = 2,
     // methods
         init,
         BindDropDown,
@@ -57,7 +56,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var obj = {
                 "SectorIDs": SectorIDs
             }
-            GetAjaxData(Urls.ResourceSubSectorList, "Post", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
+            GetAjaxData(Urls.ResourceSubSectorList, "Get", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
     },
 
     UpdateResourceSubSectorDropdown = function(data) {
@@ -121,10 +120,11 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     RenderResourceResult = function(data) {
         INFORMA.Spinner.Show($("body"));
         
-        var results = data.Results,
+        var results = data.Resources,
             html = "";
 
         for (var key in results) {
+            debugger;
             if (key === "Articles") {
                 var Data = results[key],
                     TemplateName = (Templates.articleListItems !== "undefined") ? Templates.articleListItems : "",
@@ -138,10 +138,10 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         } else {
             jQuery('.btn-showMore').show();
         }
-        ResourceListContainer.find('ul').html(html);
+        ResourceListContainer.find('ul').append(html);
 
-        ResourceListContainer.find('li:nth-child(n+'+(data.Results.Articles.length - data.ResourceRemainingCount + 1)+')').hide();
-        ResourceListContainer.find('li:nth-child(n+'+(data.Results.Articles.length - data.ResourceRemainingCount + 1)+')').slideDown();
+        ResourceListContainer.find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').hide();
+        ResourceListContainer.find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').slideDown();
         RenderOnLoad();
         equalHeights();
     },
@@ -152,13 +152,11 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             method: method,
             data: data,
             success_callback: function(data) {
-                debugger;
                 if (typeof SCallback === "function") {
                     SCallback.call(this, data, SearchType);
                 }
             },
             error_callback: function() {
-                debugger;
                 if (typeof Errcallback === "function") {
                     Errcallback.call(this, data, SearchType);
                 }
@@ -176,9 +174,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
 
             MergeItems.ContainerGuid = Guid;
-            MergeItems.ContenttypeGuid = typeGuid;
-            debugger;
-            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+            MergeItems.ContenttypeGuid = typeGuid
+            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
 
@@ -188,15 +185,16 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         BtnMore.on('click', function() {
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery(this).attr('data-ContainerGuid'),
-                typeGuid = jQuery(this).attr('data-ContenttypeGuid');
+                typeGuid = jQuery(this).attr('data-ContenttypeGuid'),
+                Count = ResourceListContainer.data('count');
 
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid;
-            MergeItems.PageSize = Count * pageNumber;
+            MergeItems.PageSize = pageNumber;
             pageNumber++;
-            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceResult, null, null);
 
         })
 
