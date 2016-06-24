@@ -2,14 +2,16 @@ var INFORMA = window.INFORMA || {};
 INFORMA.videoMini = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _videoMiniWrapper = $('.video-mini-container .video-img'),
+    var _videoMiniImgWrapper = $('.video-mini-container .video-img'),
         _videoMiniPlayBtnWrapper = $('.video-mini-container .play-icon'),
         _videoMiniPlayerModal = $('#videoMiniModal'),
+        _videoMiniModalClose = $('.video-mini-close'),
         video,
         // methods
         init,
-        _playVideoMiniWrapper,
-        _playVideoMiniBtnWrapper;
+        _playVideoMiniImgWrapper,
+        _playVideoMiniBtnWrapper,
+        _videoMiniShowPlayIcon;
 
     _playVideoMiniBtnWrapper = function() {
         _videoMiniPlayBtnWrapper.click(function() {
@@ -23,12 +25,14 @@ INFORMA.videoMini = (function(window, $, namespace) {
             }
             _videoMiniPlayerModal.find('.modal-body .video-mini-player').html(video)
             _videoMiniPlayerModal.modal('show');
-            _videoMiniPlayBtnWrapper.remove();
+            $(this).parents('.video-mini-container').find('.play-icon').hide();
+          //  imgContainer.find(_videoMiniPlayBtnWrapper).hide();
+
         });
     }
 
-    _playVideoMiniWrapper = function() {
-        _videoMiniWrapper.click(function() {
+    _playVideoMiniImgWrapper = function() {
+        _videoMiniImgWrapper.click(function() {
             if ($(this).attr('data-videotype') == "youtube") {
                 video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "vimeo") {
@@ -38,16 +42,20 @@ INFORMA.videoMini = (function(window, $, namespace) {
             }
             _videoMiniPlayerModal.find('.modal-body .video-mini-player').html(video)
             _videoMiniPlayerModal.modal('show');
-            // $(this).replaceWith(video);
-             _videoMiniPlayBtnWrapper.remove();
+            _videoMiniPlayBtnWrapper.hide();
+        });
+    }
+    _videoMiniShowPlayIcon = function() {
+        _videoMiniModalClose.click(function() {
+            _videoMiniPlayBtnWrapper.show();
+            $(this).parents('.video-mini-modal').find('iframe').remove();
         });
     }
 
     init = function() {
-        _playVideoMiniWrapper();
+        _playVideoMiniImgWrapper();
         _playVideoMiniBtnWrapper();
-
-
+        _videoMiniShowPlayIcon();
     };
 
     return {

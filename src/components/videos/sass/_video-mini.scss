@@ -1,40 +1,43 @@
-.informa-video-mini-component {
-    margin-top: 20px;
-    .video-mini-container {
-        //max-height: 750px;
-        cursor: pointer;
-        overflow: hidden;
-        position: relative;
-        margin-bottom: 20px;
-        img {
-            width: 100%;
-            max-width: 100%;
-            float: none;
-            display: block;
+.video-mini-container {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    img {
+        width: 100%;
+        max-width: 100%;
+        float: none;
+        display: block;
+    }
+    .video-img {
+        height: auto;
+    }
+    .play-icon {
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        background: url("/Static/images/video-icon.png") no-repeat;
+        top: 50%;
+        left: 50%;
+        margin-top: -27px;
+        margin-left: -27px;
+        @include tablet {
+            width: 80px;
+            height: 80px;
         }
-        .video-img {
-            height: auto;
-        }
-        .play-icon {
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            background: url("/Static/images/video-icon.png") no-repeat;
-            top: 50%;
-            left: 50%;
-            margin-top: -27px;
-            margin-left: -27px;
-            @include tablet {
-                width: 80px;
-                height: 80px;
-            }
-            @include mobile {
-                width: 55px;
-                height: 55px;
-            }
+        @include mobile {
+            width: 55px;
+            height: 55px;
         }
     }
     .embed-responsive.embed-responsive-16by9 {
         padding-bottom: 48.25%;
+    }
+}
+.video-mini-modal {
+    .modal-dialog {
+        @include mobile {
+            width: 100%;
+        }
     }
 }
