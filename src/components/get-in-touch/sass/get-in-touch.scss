@@ -1,0 +1,57 @@
+.getInTouch{
+  background-color: #434854;
+  color: $white;
+  padding-left: 20em;
+  padding-right: 20em;
+  @include mobile {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  h1{
+    font-family: FSMe-bold;
+  }
+  legend{
+    color: $blue-light-bg;
+    border-bottom: none !important;
+  }
+  .input-width{
+    width: 40%;
+    float: left;
+    display: inline-block;
+    margin-right: 10px;
+    //font-family: FSMe-light;
+  }
+  :not(.lt-ie9) {
+      /* HTML5 Boilerplate accessible hidden styles */
+      .custom-checkbox input,
+      .custom-radio input {
+          border: 0;
+          clip: rect(0 0 0 0);
+          height: 1px;
+          margin: -1px;
+          overflow: hidden;
+          padding: 0;
+          position: absolute;
+          width: 1px;
+      }
+      /* the basic, unchecked style */
+      .custom-radio input + span::before {
+          content: '';
+          display: inline-block;
+          width: 1em;
+          height: 1em;
+          vertical-align: -0.25em;
+          border-radius: 1em;
+          border: 0.225em solid #fff;
+          margin-right: 0.75em;
+          background: $white;
+          transition: 0.5s ease all;
+          position: relative;
+          top: -2px;
+      }
+      /* the checked style using the :checked pseudo class */
+      .custom-radio input:checked + span::before {
+          background: $input-orange;
+      }
+  }
+}
