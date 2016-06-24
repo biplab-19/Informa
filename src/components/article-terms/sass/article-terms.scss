@@ -2,7 +2,7 @@
       background: #f0f1f3;
       padding-top: 50px;
       padding-bottom: 26px;
-      .main-title{
+      h1{
         width: 80%;
         margin: 0 auto;
         font-size: 40px;
@@ -18,10 +18,13 @@
         }
       }
       .small-content{
-          padding-left: 192px;
-          font-size: 14px;
+          padding-left: 180px;
+          font-size: 18px;
           font-style: italic;
           font-family: FSMe-light;
+          strong{
+            font-family: FSMe-bold;
+          }
           @include tablet {
             display: block;
             padding-left: 0px;
