@@ -2,23 +2,21 @@
       background: #f0f1f3;
       padding-top: 50px;
       padding-bottom: 26px;
-      h1{
-        width: 80%;
-        margin: 0 auto;
-        font-size: 40px;
-        font-family: FSMe-bold;
-        @include mobile {
-          width: 100%;
+      padding-left: 149px;
+      font-size: 40px;
+      font-family: FSMe-bold;
+      @include mobile {
           font-size: 30px;
           padding-left: 8px;
           padding-right: 8px;
         }
         @include tablet {
-          width: 100%;
+          padding-left: 8px;
+          padding-right: 8px;
         }
-      }
+
       .small-content{
-          padding-left: 180px;
+          padding-left: 170px;
           font-size: 18px;
           font-style: italic;
           font-family: FSMe-light;
