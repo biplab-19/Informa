@@ -37,21 +37,41 @@ nav#pdp-navigation {
       }
       
       @include not-desktop{
-            .nav-services-nondesktop{
-                  display: block;
-                  &:after {
-                        content: '>';
-                        position: absolute;
-                        right: 20px;
-                        transform: rotate(90Deg);
-                        -ms-transform: rotate(90Deg);
-                        -webkit-transform: rotate(90Deg);
-                        color: $info-icon-color;
-                        font-size: x-large;                 
+            
+            .container{
+                  margin-left: -25px;
+                  .row{
+                        .nav-services-nondesktop{
+                              display: block;
+                              height: 50px;
+                              text-align: center;
+                              padding: 15px 0;
+                              a{
+                                    position: relative;
+                                    color: $text-gray-dark;
+                                    &:after {
+                                          content: '>';
+                                          color: #343742;
+                                          position: absolute;
+                                          transform: rotate(90Deg);
+                                          -ms-transform: rotate(90Deg);
+                                          -webkit-transform: rotate(90Deg);
+                                          font-size: large;
+                                          top: -3px;
+                                          right: -20px;                 
+                                    }
+                                    &:hover{
+                                          text-decoration: none;
+                                    }
+                                    &:focus{
+                                          text-decoration: none;
+                                    }
+                              }
+                        }
+                        .pdp-sections{
+                              display: none;
+                        }    
                   }
-            }
-            .pdp-sections{
-                  display: none;
             }
       }
       
