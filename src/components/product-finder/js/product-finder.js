@@ -19,7 +19,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitBtn = $(".sector-search li.button"),
         CustomSelect = ProductFinderSection.find(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
-        SearchField	= $(".site-search input"),
+        SearchField = $(".site-search input"),
         ResultContainer = $(".search-container #results"),
         SearchTabHidden = $(".site-search input.search-tab"),
         SearchSubmitBtn = $(".site-search li.button"),
@@ -43,7 +43,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
-                if("#product-finder-section:hidden")
+                if($("#product-finder-section:hidden").length)
                     SearchIcon.toggleClass( "inactive" );
                 ProductFinderSection.slideDown("slow");
             });
@@ -106,12 +106,12 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 SubmitHandler(SearchSubmitBtn,"SearchResult");
             }
             SearchField.on("keyup",function(e){
-            	if($(this).val()!==""){
-            		SearchSubmitBtn.removeClass("disabled");
-            	}
-            	else{
-            		SearchSubmitBtn.addClass("disabled");
-            	}
+                if($(this).val()!==""){
+                    SearchSubmitBtn.removeClass("disabled");
+                }
+                else{
+                    SearchSubmitBtn.addClass("disabled");
+                }
             });
         },
         ShowHideSearch = function(ele) {

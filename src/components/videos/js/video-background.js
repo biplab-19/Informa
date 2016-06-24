@@ -27,6 +27,11 @@ INFORMA.videoBackground = (function(window, $, namespace) {
                 playerYTElement.id = "youtubePlayer";
                 $(this).append(playerYTElement);
 
+                var scriptTag = document.createElement('script');
+                scriptTag.src = "https://www.youtube.com/iframe_api";
+
+                var ytTag = document.getElementById('youtubePlayer');
+                ytTag.parentNode.insertBefore(scriptTag, ytTag.nextSibling);
 
             } else if (_urlType == "vimeo") {
 
@@ -91,6 +96,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
     };
 
     function onYTPlayerReady(event) {
+        console.log("Youtube player is ready");
         event.target.playVideo();
         event.target.setVolume(0);
     }
