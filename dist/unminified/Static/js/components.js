@@ -2046,7 +2046,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitBtn = $(".sector-search li.button"),
         CustomSelect = ProductFinderSection.find(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
-        SearchField	= $(".site-search input"),
+        SearchField = $(".site-search input"),
         ResultContainer = $(".search-container #results"),
         SearchTabHidden = $(".site-search input.search-tab"),
         SearchSubmitBtn = $(".site-search li.button"),
@@ -2070,7 +2070,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
-                if("#product-finder-section:hidden")
+                if($("#product-finder-section:hidden").length)
                     SearchIcon.toggleClass( "inactive" );
                 ProductFinderSection.slideDown("slow");
             });
@@ -2133,12 +2133,12 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 SubmitHandler(SearchSubmitBtn,"SearchResult");
             }
             SearchField.on("keyup",function(e){
-            	if($(this).val()!==""){
-            		SearchSubmitBtn.removeClass("disabled");
-            	}
-            	else{
-            		SearchSubmitBtn.addClass("disabled");
-            	}
+                if($(this).val()!==""){
+                    SearchSubmitBtn.removeClass("disabled");
+                }
+                else{
+                    SearchSubmitBtn.addClass("disabled");
+                }
             });
         },
         ShowHideSearch = function(ele) {
@@ -3283,6 +3283,11 @@ INFORMA.videoBackground = (function(window, $, namespace) {
                 playerYTElement.id = "youtubePlayer";
                 $(this).append(playerYTElement);
 
+                var scriptTag = document.createElement('script');
+                scriptTag.src = "https://www.youtube.com/iframe_api";
+
+                var ytTag = document.getElementById('youtubePlayer');
+                ytTag.parentNode.insertBefore(scriptTag, ytTag.nextSibling);
 
             } else if (_urlType == "vimeo") {
 
@@ -3347,6 +3352,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
     };
 
     function onYTPlayerReady(event) {
+        console.log("Youtube player is ready");
         event.target.playVideo();
         event.target.setVolume(0);
     }
@@ -3418,14 +3424,16 @@ var INFORMA = window.INFORMA || {};
 INFORMA.videoMini = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _videoMiniWrapper = $('.video-mini-container .video-img'),
+    var _videoMiniImgWrapper = $('.video-mini-container .video-img'),
         _videoMiniPlayBtnWrapper = $('.video-mini-container .play-icon'),
         _videoMiniPlayerModal = $('#videoMiniModal'),
+        _videoMiniModalClose = $('.video-mini-close'),
         video,
         // methods
         init,
-        _playVideoMiniWrapper,
-        _playVideoMiniBtnWrapper;
+        _playVideoMiniImgWrapper,
+        _playVideoMiniBtnWrapper,
+        _videoMiniShowPlayIcon;
 
     _playVideoMiniBtnWrapper = function() {
         _videoMiniPlayBtnWrapper.click(function() {
@@ -3439,12 +3447,14 @@ INFORMA.videoMini = (function(window, $, namespace) {
             }
             _videoMiniPlayerModal.find('.modal-body .video-mini-player').html(video)
             _videoMiniPlayerModal.modal('show');
-            _videoMiniPlayBtnWrapper.remove();
+            $(this).parents('.video-mini-container').find('.play-icon').hide();
+          //  imgContainer.find(_videoMiniPlayBtnWrapper).hide();
+
         });
     }
 
-    _playVideoMiniWrapper = function() {
-        _videoMiniWrapper.click(function() {
+    _playVideoMiniImgWrapper = function() {
+        _videoMiniImgWrapper.click(function() {
             if ($(this).attr('data-videotype') == "youtube") {
                 video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "vimeo") {
@@ -3454,16 +3464,20 @@ INFORMA.videoMini = (function(window, $, namespace) {
             }
             _videoMiniPlayerModal.find('.modal-body .video-mini-player').html(video)
             _videoMiniPlayerModal.modal('show');
-            // $(this).replaceWith(video);
-             _videoMiniPlayBtnWrapper.remove();
+            _videoMiniPlayBtnWrapper.hide();
+        });
+    }
+    _videoMiniShowPlayIcon = function() {
+        _videoMiniModalClose.click(function() {
+            _videoMiniPlayBtnWrapper.show();
+            $(this).parents('.video-mini-modal').find('iframe').remove();
         });
     }
 
     init = function() {
-        _playVideoMiniWrapper();
+        _playVideoMiniImgWrapper();
         _playVideoMiniBtnWrapper();
-
-
+        _videoMiniShowPlayIcon();
     };
 
     return {
