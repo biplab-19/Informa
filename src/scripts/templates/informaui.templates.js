@@ -294,7 +294,7 @@ var INFORMA = window.INFORMA || {};
                                 '{{/compare}}' +
                             '</div>' +
                         '</section>',
-        'AnalystListTemplate': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{results.Type}}">' +
+        'Analyst': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{results.Type}}">' +
                                     '<div class="meet-anlyst-section">' +
                                         '<div class="anlyst-heading">' +
                                             '<div class="analyst-heading-content">' +
