@@ -1,57 +1,176 @@
 .getInTouch{
   background-color: #434854;
   color: $white;
-  padding-left: 20em;
-  padding-right: 20em;
+
+   padding-left: 25em;
+   padding-right: 25em;
   @include mobile {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  @include tablet {
     padding-left: 8px;
     padding-right: 8px;
+  }
+  .form-control{
+    border-radius: 0px !important;
+    width: 90% !important;
+    @include mobile {
+      width: 100% !important;
+    }
+  }
+  .form-submit-border{
+    padding-top: 56px;
+    position: relative;
+    padding-bottom: 20px;
+    .btn{
+      background-color: #ef7c00;
+      border: 0 !important;
+      color: $white;
+      position: absolute;
+      font-family: FSMe-bold !important;
+      right: 50px;
+      bottom: 15px;
+      width: 13%;
+      @include mobile {
+        right: 0;
+      }
+      @include tablet {
+        right: 90px;
+      }
+    }
+    .btn:after{
+      font-family: "InformaIcons" !important;
+      content: "\e900";
+      right: 10px;
+      color: $white;
+    }
+  }
+  .form-group{
+    width: 47% !important;
+    float: left;
+    @include mobile {
+      width: 100% !important;
+    }
+  }
+  .radio-width{
+    width: 109% !important;
+    @include mobile {
+      width: 100% !important;
+    }
+  }
+  .text-width{
+    width: 100% !important;
+    @include mobile {
+      width: 100% !important;
+    }
   }
   h1{
     font-family: FSMe-bold;
   }
+  textarea{
+    border-radius: 0 !important;
+    height: 230px;
+    width: 75% !important;
+    @media (max-width: 1023px) and (min-width: 768px){
+        width: 75% !important;
+    }
+  }
   legend{
     color: $blue-light-bg;
+    font-size: 20px;
     border-bottom: none !important;
   }
-  .input-width{
-    width: 40%;
+  .radio{
+    width: 47%;
     float: left;
     display: inline-block;
     margin-right: 10px;
+    margin-top: 18px;
+    position: relative;
+    @include mobile {
+      width: 100%;
+    }
+
+    .radio input[type="radio"]:before {
+        content: '|';
+        display: block;
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.25em;
+        border-radius: 1em;
+        border: 0.225em solid #fff;
+        margin-right: 0.75em;
+        background: $white;
+        transition: 0.5s ease all;
+        position: relative;
+        top: -2px;
+        color: white;
+    }
+    input[type="submit"]{
+      float: right;
+    }
+
+     label{
+       display: block;
+       //margin-left: 10px;
+     }
+    //  label:before{
+    //    margin-right: 10px;
+    //    font-family: "InformaIcons" !important;
+    //    content: "\e914";
+    //    font-size: 25px;
+    //    color: white;
+    //    position: absolute;
+    //    left: 35px;
+    //  }
+    //  input[type="radio"]{
+    //    position: absolute;
+    //    left: 17px;
+    //    display: block;
+    //  }
+
+    //  input[type="radio"]:before{
+    //    margin-right: 10px;
+    //    height: 10px;
+    //    color: white;
+    //    position: absolute;
+    //    left: 5px;
+    //  }
     //font-family: FSMe-light;
   }
-  :not(.lt-ie9) {
-      /* HTML5 Boilerplate accessible hidden styles */
-      .custom-checkbox input,
-      .custom-radio input {
-          border: 0;
-          clip: rect(0 0 0 0);
-          height: 1px;
-          margin: -1px;
-          overflow: hidden;
-          padding: 0;
-          position: absolute;
-          width: 1px;
-      }
-      /* the basic, unchecked style */
-      .custom-radio input + span::before {
-          content: '';
-          display: inline-block;
-          width: 1em;
-          height: 1em;
-          vertical-align: -0.25em;
-          border-radius: 1em;
-          border: 0.225em solid #fff;
-          margin-right: 0.75em;
-          background: $white;
-          transition: 0.5s ease all;
-          position: relative;
-          top: -2px;
-      }
-      /* the checked style using the :checked pseudo class */
-      .custom-radio input:checked + span::before {
-          background: $input-orange;
-      }
-  }
+  // :not(.lt-ie9) {
+  //     /* HTML5 Boilerplate accessible hidden styles */
+  //     .custom-checkbox input,
+  //     .custom-radio input {
+  //         border: 0;
+  //         clip: rect(0 0 0 0);
+  //         height: 1px;
+  //         margin: -1px;
+  //         overflow: hidden;
+  //         padding: 0;
+  //         position: absolute;
+  //         width: 1px;
+  //     }
+  //     /* the basic, unchecked style */
+  //     .custom-radio input + span::before {
+  //         content: '';
+  //         display: inline-block;
+  //         width: 1em;
+  //         height: 1em;
+  //         vertical-align: -0.25em;
+  //         border-radius: 1em;
+  //         border: 0.225em solid #fff;
+  //         margin-right: 0.75em;
+  //         background: $white;
+  //         transition: 0.5s ease all;
+  //         position: relative;
+  //         top: -2px;
+  //         left: -12px;
+  //     }
+  //     /* the checked style using the :checked pseudo class */
+  //     .custom-radio input:checked + span::before {
+  //         background: $input-orange;
+  //     }
+  // }
 }
