@@ -2370,7 +2370,6 @@ section.customer-quote .slick-initialized .slick-prev:before {
 /* line 1, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation {
   background: #ffd500;
-  border-bottom: 2px solid #c0c1c2;
 }
 /* line 4, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation.navbar-fixed-top {
@@ -2404,33 +2403,29 @@ nav#pdp-navigation .menuFollower {
 }
 @media (min-width: 1142px) {
   /* line 31, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .nav-services-nondesktop {
+  nav#pdp-navigation .nav-pdp-nondesktop {
     display: none;
   }
   /* line 34, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .pdp-sections {
+  nav#pdp-navigation #pdp-sections {
     display: block;
   }
 }
 @media (max-width: 1141px) {
-  /* line 41, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container {
-    margin-left: -25px;
-  }
-  /* line 44, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container .row .nav-services-nondesktop {
+  /* line 43, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop {
     display: block;
     height: 50px;
     text-align: center;
     padding: 15px 0;
   }
-  /* line 49, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container .row .nav-services-nondesktop a {
+  /* line 48, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop a {
     position: relative;
     color: #444957;
   }
-  /* line 52, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container .row .nav-services-nondesktop a:after {
+  /* line 51, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop a:after {
     content: '>';
     color: #343742;
     position: absolute;
@@ -2441,53 +2436,31 @@ nav#pdp-navigation .menuFollower {
     top: -3px;
     right: -20px;
   }
-  /* line 63, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container .row .nav-services-nondesktop a:hover {
+  /* line 62, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop a:hover {
     text-decoration: none;
   }
-  /* line 66, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container .row .nav-services-nondesktop a:focus {
+  /* line 65, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop a:focus {
     text-decoration: none;
   }
-  /* line 71, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container .row .pdp-sections {
+  /* line 70, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row #pdp-sections {
     display: none;
   }
-}
-@media (max-width: 767px) {
-  /* line 79, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 72, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row #pdp-sections ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  /* line 75, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row #pdp-sections ul li {
+    width: 100%;
+    display: block;
+  }
+  /* line 84, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .menuFollower {
     display: none !important;
-  }
-  /* line 83, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation.cont li {
-    pointer-events: none;
-  }
-  /* line 89, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation ul {
-    margin: 20px 0;
-    border: 1px solid #fff;
-  }
-  /* line 93, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation ul li {
-    width: 100%;
-    display: none;
-  }
-  /* line 96, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation ul li:first-child {
-    display: block;
-  }
-  /* line 99, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation ul li.selected {
-    display: block;
-  }
-  /* line 102, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation ul li.selected a:after {
-    content: '>';
-    position: absolute;
-    right: 10px;
-    transform: rotate(90Deg);
-    color: #fff;
   }
 }
 
@@ -7392,54 +7365,142 @@ section#services-list .row .btn-container .btn-primary {
 .getInTouch {
   background-color: #434854;
   color: #fff;
-  padding-left: 20em;
-  padding-right: 20em;
+  padding-left: 25em;
+  padding-right: 25em;
 }
 @media (max-width: 767px) {
+  /* line 1, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+  .getInTouch {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
   /* line 1, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
   .getInTouch {
     padding-left: 8px;
     padding-right: 8px;
   }
 }
-/* line 10, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+/* line 15, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .form-control {
+  border-radius: 0px !important;
+  width: 90% !important;
+}
+@media (max-width: 767px) {
+  /* line 15, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+  .getInTouch .form-control {
+    width: 100% !important;
+  }
+}
+/* line 22, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .form-submit-border {
+  padding-top: 56px;
+  position: relative;
+  padding-bottom: 20px;
+}
+/* line 26, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .form-submit-border .btn {
+  background-color: #ef7c00;
+  border: 0 !important;
+  color: #fff;
+  position: absolute;
+  font-family: FSMe-bold !important;
+  right: 50px;
+  bottom: 15px;
+  width: 13%;
+}
+@media (max-width: 767px) {
+  /* line 26, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+  .getInTouch .form-submit-border .btn {
+    right: 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 26, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+  .getInTouch .form-submit-border .btn {
+    right: 90px;
+  }
+}
+/* line 42, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .form-submit-border .btn:after {
+  font-family: "InformaIcons" !important;
+  content: "\e900";
+  right: 10px;
+  color: #fff;
+}
+/* line 49, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .form-group {
+  width: 47% !important;
+  float: left;
+}
+@media (max-width: 767px) {
+  /* line 49, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+  .getInTouch .form-group {
+    width: 100% !important;
+  }
+}
+/* line 56, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .radio-width {
+  width: 109% !important;
+}
+@media (max-width: 767px) {
+  /* line 56, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+  .getInTouch .radio-width {
+    width: 100% !important;
+  }
+}
+/* line 62, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .text-width {
+  width: 100% !important;
+}
+@media (max-width: 767px) {
+  /* line 62, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+  .getInTouch .text-width {
+    width: 100% !important;
+  }
+}
+/* line 68, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
 .getInTouch h1 {
   font-family: FSMe-bold;
 }
-/* line 13, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+/* line 71, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch textarea {
+  border-radius: 0 !important;
+  height: 230px;
+  width: 75% !important;
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  /* line 71, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+  .getInTouch textarea {
+    width: 75% !important;
+  }
+}
+/* line 79, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
 .getInTouch legend {
   color: #e1e2e7;
+  font-size: 20px;
   border-bottom: none !important;
 }
-/* line 17, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
-.getInTouch .input-width {
-  width: 40%;
+/* line 84, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .radio {
+  width: 47%;
   float: left;
   display: inline-block;
   margin-right: 10px;
+  margin-top: 18px;
+  position: relative;
 }
-/* line 24, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
-.getInTouch :not(.lt-ie9) {
-  /* HTML5 Boilerplate accessible hidden styles */
-  /* the basic, unchecked style */
-  /* the checked style using the :checked pseudo class */
+@media (max-width: 767px) {
+  /* line 84, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+  .getInTouch .radio {
+    width: 100%;
+  }
 }
-/* line 26, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
-.getInTouch :not(.lt-ie9) .custom-checkbox input,
-.getInTouch :not(.lt-ie9) .custom-radio input {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-/* line 38, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
-.getInTouch :not(.lt-ie9) .custom-radio input + span::before {
-  content: '';
-  display: inline-block;
+/* line 95, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .radio .radio input[type="radio"]:before {
+  content: '|';
+  display: block;
   width: 1em;
   height: 1em;
   vertical-align: -0.25em;
@@ -7450,8 +7511,13 @@ section#services-list .row .btn-container .btn-primary {
   transition: 0.5s ease all;
   position: relative;
   top: -2px;
+  color: white;
 }
-/* line 53, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
-.getInTouch :not(.lt-ie9) .custom-radio input:checked + span::before {
-  background: #f07d00;
+/* line 110, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .radio input[type="submit"] {
+  float: right;
+}
+/* line 114, ../../../src/components/get-in-touch/sass/get-in-touch.scss */
+.getInTouch .radio label {
+  display: block;
 }

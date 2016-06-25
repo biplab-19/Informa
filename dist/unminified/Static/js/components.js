@@ -168,7 +168,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             if (results.hasOwnProperty(key)) {
                 var Data = results[key],
                     HeaderText = key,
-                    TemplateName = (Templates.Analysts !== "undefined") ? Templates.Analysts : "",
+                    TemplateName = (Templates.AnalystTemplate !== "undefined") ? Templates.AnalystsTemplate : "",
                     ListTemplate = Handlebars.compile(TemplateName);
                 Data.header = HeaderText;
                 html += ListTemplate({ results: Data });
@@ -1702,10 +1702,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         // for sticky nav of pdp-navigation
         _pdpNavigation = $('#pdp-navigation'),
         _pdpNavigationScrollTo,
+        _pdpSectionActions,
         _pdpNavigationHeight = 0,
         _pdpNavigationPos = 0,
+        _pdpSectionsHeight = 0,
         _pdpWrapper = $('.product-detail-page'),
         _pdpMenuFollower = $('#pdp-navigation .menuFollower'),
+        _pdpSectionsButton = $('#pdp-navigation .nav-pdp-nondesktop'),
         _pdpMenuActive = true,
 
         _pdpLink = $('#pdp-navigation ul > li > a'),
@@ -1852,6 +1855,17 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     };
 
+    _pdpSectionActions = function(){
+        _pdpSectionsButton.on('click', function(e) {
+            e.preventDefault();
+            console.log("Sections button clicked");
+            if($("#pdp-sections:visible").length)
+                $('#pdp-sections').slideUp();
+            else
+                $('#pdp-sections').slideDown();
+        })
+    };
+
     _initPdpMenuBarFollow = function() {
         _pdpLink = $('#pdp-navigation ul > li > a');
         
@@ -1873,10 +1887,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         var _fixedNavHeight;
         if (INFORMA.global.device.isDesktop) {
             _fixedNavHeight = _navHeight;
+            _pdpNavigationHeight = $('#pdp-navigation').height();
         } else {
             _fixedNavHeight = _navHeightMobile;
+            _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
         }
-        _pdpNavigationHeight = _pdpNavigation.height();
+
+        
 
         if (_windowPos > (_initialPdpHdrPos - _fixedNavHeight)) {
             _pdpNavigation.addClass(_fixed);
@@ -1906,8 +1923,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _arrayFlag = true;
             _initialPdpHdrPos = _pdpNavigation.offset().top;
         }
-
-        var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 7;
+        
+        var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
 
         var i = _pdpMenuPos.length - 1;
         for (; i >= 0; i--) {
@@ -1916,11 +1933,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 if (INFORMA.global.device.isDesktop) {
                     _pdpMenuFollower.css('width', _pdpMenuWidth[i]);
                     _pdpMenuFollower.css('left', _pdpMenuleft[i]);
-                } else {
-                    $('#pdp-navigation li').removeClass('selected');
-                    $('#pdp-navigation li').removeClass('select-options');
-                    $($('#pdp-navigation li')[i]).addClass('selected');
-                }
+                } 
                 i = -1;
             }
         }
@@ -1934,29 +1947,23 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             if (!INFORMA.global.device.isDesktop) {
 
-                if (_expandedPdpNav) {
                     var _target = $(this).data('target');
 
-                    $('#pdp-navigation li').removeClass('selected');
-                    $('#pdp-navigation li').removeClass('select-options');
-                    $('#pdp-navigation li:not(".selected")').slideUp();
+                    $('#pdp-sections').slideUp();
+                    _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
 
-                    $(this).parent().addClass('selected');
+                    if(!_pdpFixed)
+                        _pdpSectionsHeight = $('#pdp-sections').height();
+                    else
+                        _pdpSectionsHeight = 0;
 
-                    _pdpNavigationHeight = _pdpNavigation.height();
                     _fixedNavHeight = _navHeightMobile;
-
-                    var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
-
+                    var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
+                    
                     $('html, body').stop().animate({
                         scrollTop: _scrollTopPixels
                     }, 1000);
 
-                    _expandedPdpNav = false;
-                }else{
-                    $('#pdp-navigation li').addClass('select-options');
-                    _expandedPdpNav = true;
-                }
             }else{
                 var _target = $(this).data('target');
                 $('#pdp-navigation li').removeClass('selected');
@@ -2156,6 +2163,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         if (_pdpNavigation.length > 0) {
             _initPdpMenuBarFollow();
             _pdpNavigationScrollTo();
+            _pdpSectionActions();
         }
 
         if (_servicesNavigation.length > 0) {
@@ -2187,7 +2195,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('#services-navigation ul > li:first-child').addClass('selected');
             _expandedServicesNav = false;
 
-            $('#pdp-navigation ul > li:first-child').addClass('selected');
+            //$('#pdp-navigation ul > li:first-child').addClass('selected');
             _expandedPdpNav = false;
 
         }
@@ -3310,11 +3318,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     SearchTabHidden.val(SearchTab);
                     ResultContainer.addClass('ShowLoadBtn');
                 }
-                    Data = GetSearchArray();
-                    PageSize+=6;
 
+                Data = GetSearchArray();
+                PageSize+=6;
                 Data.pageSize =  PageSize;
-                GetPaginatedData(Urls[url], JSON.stringify(Data), ParseSearchData);
+                GetPaginatedData(Urls[url], JSON.stringify(Data), function(data){
+                    if(SearchType ==='SearchResult'){
+                        var results = {};
+                        results.Results = data["Results"];
+                        ParseSearchData(results);
+                    }else{
+                        ParseSearchData(data);
+                    }
+                });
             });
         },
         BindTabOpenEvents = function(Object) {
@@ -3336,7 +3352,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if(TabName===AllResultTab){
                 ResultContainer.removeClass('ShowLoadBtn');
-                AllResults.show();
                 CurrentPos = ResultContainer.offset().top;
             }else{
                 AllResults.hide();
@@ -3398,6 +3413,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         $(ContainerID).find(".count strong").text("0");
                         ShowMoreLink.addClass('hide');
                     }
+                }else{
+                    var ResultName = key,
+                        ContainerID = "#" + (ResultName).toLowerCase();
+                    $(ContainerID).find(".row").html('');
                 }
             }
             var UpddateHeight = setTimeout(function() {
