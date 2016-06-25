@@ -1,4 +1,4 @@
-/*! 2016-06-24 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-25 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -28,15 +28,15 @@
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
-            "GetSubSectorList" : "/client/search/getsubsectors",
+            "GetSubSectorList": "/client/search/GetSubSectors",
             "ProductSearch": "/client/search/getproducts",
-            "SearchResult": "/client/search/getsearchresults",
+            "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",
             "AnalystSearchAll": "/client/search/SeeAllSpecialists",
             "EventsSearch": "/client/search/GetEventList",
-            "ResourceList": "/client/search/GetResourceListing"
-            
+            "ResourceList": "/client/search/GetResourceListing",
+            "ResourceSubSectorList": "/client/search/GetSubSectors"
         }
     };
 
@@ -734,9 +734,9 @@ var INFORMA = window.INFORMA || {};
                                     '{{/if}}'+
                                 '</div>'+
                             '</div>'+
-                            '{{#if ResourceLink}}'+
+                            '{{#if PageUrl}}'+
                                 '<div class="btn-container">'+
-                                  '<a role="button" href="{{ResourceLink.url}}" class="btn btn-default" target="{{ResourceLink.target}}">{{ResourceLink.linkText}}</a>'+
+                                  '<a role="button" href="{{PageUrl.url}}" class="btn btn-default" target="{{PageUrl.target}}">{{PageUrl.linkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                         '</div>'+

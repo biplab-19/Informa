@@ -461,7 +461,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
 	<div class="container">
         <form>
     		<ul class="resource-search row col-sm-12 col-md-10">
-    			<li class="col-xs-12 col-sm-4">
+    			<li class="col-xs-12 col-sm-4 form">
     				<label for="resource-sector" class="label-text">Sector:</label>
                     <div class="custom-multiselect">
                         <select id="resource-sector" name="resource-sector" class="resource-sector" multiple="multiple" data-placeholder="Please Select">
@@ -471,7 +471,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                         </select>
                     </div>
     			</li>
-    			<li class="col-xs-12 col-sm-4 disabled">
+    			<li class="col-xs-12 col-sm-4 form disabled">
     				<label for="resource-sub-sector" class="label-text">Sub Sector:</label>
                     <div class="custom-multiselect">
                         <select id="resource-sub-sector" name="resource-sub-sector" class="resource-sub-sector" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
@@ -484,7 +484,59 @@ in the empire of Sapient. Har Har Mahadev !! --->
     			</li>
     		</ul>
         </form>
-	</div>	
+	</div>
+    <div class="container">
+        <div class="tags-display"></div>
+    </div>
+    <div class="refine-list form">
+        <div class="container">
+            <p class="header">
+                <a href="#" class="refine">Refine results <span class="icon-chevron-down"></span></a>
+                <a href="#" class="close-filter"><span class="icon-close"></span></a>
+            </p>
+        </div>
+        <div class="container slider">
+            <div class="refine-result container clearfix">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <p><strong>Sectors</strong></p>
+                    <ul data-filterid="Sectors">
+                        <li><span class="custom-checkbox">
+                            <label for="Insight News" class="label">
+                                <input type="checkbox" name="Insight News" id="Insight News" value="guid001" data-value="guid001">
+                                <span>Insight News</span>
+                            </label>
+                            </span>
+                        </li>
+                        <li><span class="custom-checkbox">
+                            <label for="Pricing Information" class="label"><input type="checkbox" name="Pricing Information" id="Pricing Information" value="guid001" data-value="guid001">
+                            <span>Pricing Information</span>
+                            </label>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="custom-checkbox">
+                            <label for="Trade flows" class="label">
+                                <input type="checkbox" name="Trade flows" id="Trade flows" value="guid001" data-value="guid001">
+                                <span>Trade flows</span>
+                            </label>
+                            </span>
+                        </li>
+                        <li>
+                        <span class="custom-checkbox">
+                            <label for="Feed" class="label">
+                            <input type="checkbox" name="Feed" id="Feed" value="guid001" data-value="guid001">
+                            <span>Feed</span>
+                            </label>
+                        </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="refine-button container">
+                <a href="#" class="btn btn-default">Refine</a>
+            </div>
+        </div>
+    </div>
 </section>
 <section class="resource-list" data-count="4">
 	<div class="container">

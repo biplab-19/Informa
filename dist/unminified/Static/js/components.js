@@ -1,4 +1,4 @@
-/*! 2016-06-24 */_adjustHeigt = function(){
+/*! 2016-06-25 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -748,7 +748,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
         
-        INFORMA.Spinner.Show($('body'));
+        //INFORMA.Spinner.Show($('body'));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
             data: data,
@@ -2805,7 +2805,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var obj = {
                 "SectorIDs": SectorIDs
             }
-            GetAjaxData(Urls.ResourceSubSectorList, "Get", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
+            GetAjaxData(Urls.ResourceSubSectorList, "Post", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
     },
 
     UpdateResourceSubSectorDropdown = function(data) {
@@ -2873,7 +2873,6 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             html = "";
 
         for (var key in results) {
-            debugger;
             if (key === "Articles") {
                 var Data = results[key],
                     TemplateName = (Templates.articleListItems !== "undefined") ? Templates.articleListItems : "",
@@ -2887,10 +2886,10 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         } else {
             jQuery('.btn-showMore').show();
         }
-        ResourceListContainer.find('ul').append(html);
+        ResourceListContainer.find('ul').html(html);
 
-        ResourceListContainer.find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').hide();
-        ResourceListContainer.find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').slideDown();
+        //ResourceListContainer.find('ul').find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').hide();
+        //ResourceListContainer.find('ul').find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').slideDown();
         RenderOnLoad();
         equalHeights();
     },
@@ -2924,7 +2923,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid
-            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
 
@@ -2941,9 +2940,9 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid;
-            MergeItems.PageSize = pageNumber;
+            MergeItems.PageSize = Count * pageNumber;
             pageNumber++;
-            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
 
         })
 
@@ -3128,7 +3127,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     ItemID = $(this).data("filterid").toLowerCase();
                
                 ClearAllFilter(Parent);
-               
+               debugger;
                 if (ItemID === "sectors") {
                     FilterList.find(".SubSectors").remove();
                     SearchDropDown.val("");
