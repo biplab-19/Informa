@@ -225,7 +225,7 @@ var INFORMA = window.INFORMA || {};
                         '<h3>{{Title}}</h3>'+
                         '<p>{{Description}}</p>'+
                         '<div class="btn-container">'+
-                            '<a href="{{MoreLink}}" class="btn btn-default">{{MoreText}}</a>'+
+                            '<a href="{{ReadMoreLink}}" class="btn btn-default">{{ReadMoreText}}</a>'+
                         '</div>'+
                     '</div>'+
                   '{{/each}}',
