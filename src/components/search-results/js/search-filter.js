@@ -163,7 +163,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     ItemID = $(this).data("filterid").toLowerCase();
                
                 ClearAllFilter(Parent);
-               
+               debugger;
                 if (ItemID === "sectors") {
                     FilterList.find(".SubSectors").remove();
                     SearchDropDown.val("");

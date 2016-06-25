@@ -56,7 +56,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var obj = {
                 "SectorIDs": SectorIDs
             }
-            GetAjaxData(Urls.ResourceSubSectorList, "Get", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
+            GetAjaxData(Urls.ResourceSubSectorList, "Post", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
     },
 
     UpdateResourceSubSectorDropdown = function(data) {
@@ -124,7 +124,6 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             html = "";
 
         for (var key in results) {
-            debugger;
             if (key === "Articles") {
                 var Data = results[key],
                     TemplateName = (Templates.articleListItems !== "undefined") ? Templates.articleListItems : "",
@@ -138,10 +137,10 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         } else {
             jQuery('.btn-showMore').show();
         }
-        ResourceListContainer.find('ul').append(html);
+        ResourceListContainer.find('ul').html(html);
 
-        ResourceListContainer.find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').hide();
-        ResourceListContainer.find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').slideDown();
+        //ResourceListContainer.find('ul').find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').hide();
+        //ResourceListContainer.find('ul').find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').slideDown();
         RenderOnLoad();
         equalHeights();
     },
@@ -175,7 +174,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid
-            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
 
@@ -192,9 +191,9 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid;
-            MergeItems.PageSize = pageNumber;
+            MergeItems.PageSize = Count * pageNumber;
             pageNumber++;
-            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
 
         })
 
