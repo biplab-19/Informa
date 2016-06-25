@@ -33,6 +33,20 @@ nav#pdp-navigation {
             }
             #pdp-sections{
                   display: block;
+                  .nav-pdp-desktop-sticky{
+                        float: right;
+                        a{
+                              height: 30px;
+                              padding: 5px;
+                              margin-top: 10px;
+                              margin-bottom: 10px;
+                              margin-left: 10px;
+                        }
+                  }
+                  #pdp-sections-heading{
+                        color: $gray-dark-bg;
+                        font-size: 18px;
+                  }
             }
       }
       
@@ -41,11 +55,20 @@ nav#pdp-navigation {
             .container{
                   .row{
                         .nav-pdp-nondesktop{
-                              display: block;
+                              display: inline-block;
                               height: 50px;
                               text-align: center;
                               padding: 15px 0;
-                              a{
+                              width: 100%;
+                              padding-left: 0;
+                              &.move-left{
+                                    width: inherit;
+                                    padding-left: 7.5px;
+                                    @include tablet{
+                                          padding-left: 15px;
+                                    }
+                              }
+                              >a{
                                     position: relative;
                                     color: $text-gray-dark;
                                     &:after {
@@ -67,6 +90,17 @@ nav#pdp-navigation {
                                     }
                               }
                         }
+                        .nav-pdp-nondesktop-sticky{
+                              display: inline-block;
+                              float: right;
+                              a{
+                                    height: 30px;
+                                    padding: 5px;
+                                    margin-top: 10px;
+                                    margin-bottom: 10px;
+                                    margin-right: 10px;
+                              }
+                        }
                         #pdp-sections{
                               display: none;
                               ul{
@@ -76,7 +110,12 @@ nav#pdp-navigation {
                                           width: 100%;
                                           display: block;   
                                     }
-                              }     
+                              }
+                              #pdp-sections-heading{
+                                    text-align: center;
+                                    color: $gray-dark-bg;
+                                    font-size: 18px;
+                              }
                         }    
                   }
             }

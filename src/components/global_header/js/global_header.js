@@ -28,6 +28,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _headerPosMobile = 0,
         _fixed = 'navbar-fixed-top',
         _isHeaderFixed = false,
+        _heroBannerHeading = $('#hero-banner h1').text(),
 
 
         // for sticky nav of pdp-navigation
@@ -52,6 +53,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _activatePdpFixedHeader,
         _arrayFlag = true,
         _pdpFirst = true,
+        _pdpStickyMobileFlag = false,
+        _pdpStickyIconDesktopFlag = false,
+        _pdpStickyHeadingDesktopFlag = false,
         _initialPdpHdrPos = 0,
         _expandedPdpNav = false,
 
@@ -78,6 +82,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _servicesFirst = true,
         _initialServicesHdrPos = 0,
         _expandedServicesNav = false,
+
+
+        _tryStick = $('#hero-banner .try-stick'),
+        _subscribeStick = $('#hero-banner .subscribe-stick'),
+        _headingStick = $('#hero-banner h1'),
+        _tryStickPosition = 0,
+        _headingStickPosition = 0,
 
 
         _navlinks = $('.informaNav .nav-links'),
@@ -224,13 +235,52 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
         }
 
+
+        if (INFORMA.global.device.isDesktop){
+
+            _tryStickPosition = _tryStick.offset().top;
+            if (_windowPos > (_tryStickPosition - _fixedNavHeight)) {
+                if (!_pdpStickyIconDesktopFlag) {
+                    _tryStick.clone(true).appendTo('.nav-pdp-desktop-sticky');
+                    _subscribeStick.clone(true).appendTo('.nav-pdp-desktop-sticky');
+                    _pdpStickyIconDesktopFlag = true;
+                }
+            }
+            else{
+                _pdpStickyIconDesktopFlag = false;
+                $('.nav-pdp-desktop-sticky').empty();
+            }
+
+            _headingStickPosition = _headingStick.offset().top;
+            if (_windowPos > (_headingStickPosition - _fixedNavHeight)) {
+                if (!_pdpStickyHeadingDesktopFlag) {
+                    $('#pdp-sections').prepend('<div id="pdp-sections-heading">'+ _heroBannerHeading +'</div>');
+                    _pdpStickyHeadingDesktopFlag = true;
+                }
+            }
+            else{
+                $('#pdp-sections-heading').remove();
+                _pdpStickyHeadingDesktopFlag = false;
+            }
+            
+        }
         
 
+        //For fixing the Product Detail Header: Desktop + Tablet + Mobile
         if (_windowPos > (_initialPdpHdrPos - _fixedNavHeight)) {
             _pdpNavigation.addClass(_fixed);
             _pdpNavigation.css('top', _fixedNavHeight + 'px');
             _pdpWrapper.css('padding-top', _pdpNavigationHeight);
             _pdpFixed = true;
+
+            $('.nav-pdp-nondesktop').addClass('move-left');
+
+            if (!INFORMA.global.device.isDesktop && !_pdpStickyMobileFlag) {
+                _tryStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
+                _subscribeStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
+                _pdpStickyMobileFlag = true;
+                $('#pdp-sections').prepend('<div id="pdp-sections-heading">'+ _heroBannerHeading +'</div>');
+            }
 
             if (_arrayFlag) {
                 _pdpMenuPos = [];
@@ -253,10 +303,17 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _pdpFixed = false;
             _arrayFlag = true;
             _initialPdpHdrPos = _pdpNavigation.offset().top;
+
+            if (!INFORMA.global.device.isDesktop){
+                _pdpStickyMobileFlag = false;
+                $('.nav-pdp-nondesktop-sticky').empty();
+                $('#pdp-sections-heading').remove();
+                $('.nav-pdp-nondesktop').removeClass('move-left');
+            }
+
         }
         
         var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
-
         var i = _pdpMenuPos.length - 1;
         for (; i >= 0; i--) {
             if (_windowPos + _fixedHeights >= _pdpMenuPos[i]) {
@@ -338,6 +395,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _servicesNavigationHeight = _servicesNavigation.height();
 
         if (_windowPos > (_initialServicesHdrPos - _fixedNavHeight)) {
+
             _servicesNavigation.addClass(_fixed);
             _servicesNavigation.css('top', _fixedNavHeight + 'px');
             _servicesWrapper.css('padding-top', _servicesNavigationHeight);
