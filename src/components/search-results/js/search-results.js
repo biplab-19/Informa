@@ -185,7 +185,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if(TabName===AllResultTab){
                 ResultContainer.removeClass('ShowLoadBtn');
-                AllResults.show();
                 CurrentPos = ResultContainer.offset().top;
             }else{
                 AllResults.hide();
@@ -247,6 +246,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         $(ContainerID).find(".count strong").text("0");
                         ShowMoreLink.addClass('hide');
                     }
+                }else{
+                    var ResultName = key,
+                        ContainerID = "#" + (ResultName).toLowerCase();
+                    $(ContainerID).find(".row").html('');
                 }
             }
             var UpddateHeight = setTimeout(function() {
