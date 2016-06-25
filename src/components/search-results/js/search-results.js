@@ -151,11 +151,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     SearchTabHidden.val(SearchTab);
                     ResultContainer.addClass('ShowLoadBtn');
                 }
-                    Data = GetSearchArray();
-                    PageSize+=6;
 
+                Data = GetSearchArray();
+                PageSize+=6;
                 Data.pageSize =  PageSize;
-                GetPaginatedData(Urls[url], JSON.stringify(Data), ParseSearchData);
+                GetPaginatedData(Urls[url], JSON.stringify(Data), function(data){
+                    if(SearchType ==='SearchResult'){
+                        var results = {};
+                        results.Results = data["Results"];
+                        ParseSearchData(results);
+                    }else{
+                        ParseSearchData(data);
+                    }
+                });
             });
         },
         BindTabOpenEvents = function(Object) {
