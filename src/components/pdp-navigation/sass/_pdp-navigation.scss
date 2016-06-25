@@ -1,6 +1,6 @@
 nav#pdp-navigation {
       background: $yellow;
-      border-bottom: 2px solid #c0c1c2;
+      
       &.navbar-fixed-top {
             position: fixed;
             width: 100%;
@@ -28,10 +28,10 @@ nav#pdp-navigation {
       }
 
       @include desktop{
-            .nav-services-nondesktop{
+            .nav-pdp-nondesktop{
                   display: none;
             }
-            .pdp-sections{
+            #pdp-sections{
                   display: block;
             }
       }
@@ -39,9 +39,8 @@ nav#pdp-navigation {
       @include not-desktop{
             
             .container{
-                  margin-left: -25px;
                   .row{
-                        .nav-services-nondesktop{
+                        .nav-pdp-nondesktop{
                               display: block;
                               height: 50px;
                               text-align: center;
@@ -68,47 +67,23 @@ nav#pdp-navigation {
                                     }
                               }
                         }
-                        .pdp-sections{
+                        #pdp-sections{
                               display: none;
+                              ul{
+                                    margin-top: 0;
+                                    margin-bottom: 0;
+                                    li {
+                                          width: 100%;
+                                          display: block;   
+                                    }
+                              }     
                         }    
                   }
             }
-      }
-      
-      @include mobile {
+
             .menuFollower {
                   display: none!important;
             }
-            &.cont {
-                  li {
-                        pointer-events: none;
-                        // actually this is genius.
-                        // No.. Use bootstrap collapse. change html sumit
-                  }
-            }
-            ul {
-                  margin: 20px 0;
-                  border: 1px solid $light;
-
-                  li {
-                        width: 100%;
-                        display: none;
-                        &:first-child {
-                              display: block;
-                        }
-                        &.selected {
-                              display: block;
-                              a {
-                                    &:after{
-                                          content: '>';
-                                          position: absolute;
-                                          right: 10px;
-                                          transform: rotate(90Deg);
-                                          color: $light;
-                                    }
-                              }
-                        }
-                  }
-            }
       }
+      
 }
