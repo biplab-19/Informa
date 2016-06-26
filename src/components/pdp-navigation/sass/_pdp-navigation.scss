@@ -35,6 +35,7 @@ nav#pdp-navigation {
                   display: block;
                   .nav-pdp-desktop-sticky{
                         float: right;
+                        opacity: 0;
                         a{
                               height: 30px;
                               padding: 5px;
@@ -42,10 +43,19 @@ nav#pdp-navigation {
                               margin-bottom: 10px;
                               margin-left: 10px;
                         }
+                        &.move-left{
+                              opacity: 1;
+                              transition: opacity 2s ease-in;
+                        }
                   }
                   #pdp-sections-heading{
                         color: $gray-dark-bg;
                         font-size: 18px;
+                        opacity: 0;
+                        &.move-left{
+                              opacity: 1;
+                              transition: opacity 2s ease-in;
+                        }
                   }
             }
       }
@@ -54,17 +64,20 @@ nav#pdp-navigation {
             
             .container{
                   .row{
+                        position: relative;
                         .nav-pdp-nondesktop{
                               display: inline-block;
                               height: 50px;
                               text-align: center;
                               padding: 15px 0;
-                              width: 100%;
+                              width: 95%;
                               padding-left: 0;
+                              transition: width 2s, left 2s;
                               &.move-left{
-                                    width: inherit;
+                                    width: 20%;
                                     padding-left: 7.5px;
                                     @include tablet{
+                                          width: 5%;
                                           padding-left: 15px;
                                     }
                               }
@@ -91,14 +104,21 @@ nav#pdp-navigation {
                               }
                         }
                         .nav-pdp-nondesktop-sticky{
-                              display: inline-block;
-                              float: right;
+                              position: absolute;
+                              top: 0;
+                              right: 0;
+                              opacity: 0;
+
                               a{
                                     height: 30px;
                                     padding: 5px;
                                     margin-top: 10px;
                                     margin-bottom: 10px;
                                     margin-right: 10px;
+                              }
+                              &.move-left{
+                                    opacity: 1;
+                                    transition: opacity 2s ease-in;
                               }
                         }
                         #pdp-sections{
