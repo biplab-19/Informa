@@ -21,6 +21,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         SubSectorSelect = ResourceContainer.find("select.resource-sub-sector"),
         BtnSubmit = ResourceContainer.find(".search-resource"),
         ResourceListContainer = $('.resource-list'),
+        TagsContainer = ResourceContainer.find('.tags-display'),
+        RefineContainer = ResourceContainer.find('.refine-list'),
         BtnMore = $('.btn-showMore'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
@@ -34,8 +36,10 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         SubmitHandler,
         GetAjaxData,
         equalHeights,
-        GetResourceSubSectorList,
-        UpdateResourceSubSectorDropdown;
+        GetResourceSubSectorList, 
+        UpdateResourceSubSectorDropdown, RenderResourceTilesResult,updateResourcesRefine,
+        CreateTags, UpdateSearchResult, ClearAllResourceFilter, MakeRefineSelected,GetRefineData,
+        BindRefineEvents, BindFilterEvents, RemoveResourceFilter, MakeDropUnSelected, GetFilterData;
 
     equalHeights = function() {
         $('.list-container').each(function() {
@@ -49,6 +53,19 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         });
     },
 
+    UpdateSearchResult = function(filterData) {
+        INFORMA.Spinner.Show($("body"));
+        var Guid = BtnMore.attr('data-ContainerGuid'),
+            typeGuid = BtnMore.attr('data-Contenttypeguid');
+
+        filterData.ContainerGuid = Guid;
+        filterData.ContenttypeGuid = typeGuid;
+        INFORMA.DataLoader.GetServiceData(Urls.ResourceList, {
+            method: "Get",
+            data: JSON.stringify(filterData),
+            success_callback: RenderResourceResult
+        });
+    },
     GetResourceSubSectorList = function(arrayList) {
         var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join("&");
             //SectorIDs = 'SectorIDs='+SectorIDs;
@@ -56,7 +73,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var obj = {
                 "SectorIDs": SectorIDs
             }
-            GetAjaxData(Urls.ResourceSubSectorList, "Post", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
+            GetAjaxData(Urls.ResourceSubSectorList, "Get", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
     },
 
     UpdateResourceSubSectorDropdown = function(data) {
@@ -139,10 +156,202 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         }
         ResourceListContainer.find('ul').html(html);
 
-        //ResourceListContainer.find('ul').find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').hide();
-        //ResourceListContainer.find('ul').find('li:nth-child(n+'+(data.Resources.Articles.length - data.ResourceRemainingCount + 1)+')').slideDown();
         RenderOnLoad();
         equalHeights();
+        CreateTags(data);
+        updateResourcesRefine(data);
+    },
+
+    updateResourcesRefine = function(data) {
+        var AllFacets = data.ProductFacets,
+            AllLabels = data.FilterLabels,
+            Html = "";
+            debugger;
+        for(var key in AllFacets) {
+            var Result = AllFacets[key];
+                        
+                Result.FilterName = AllLabels[key];
+                Result.FilterID = key;
+            var TemplateName = (Templates.ProductFacets !== "undefined") ? Templates.ProductFacets : "",
+                ListTemplate = Handlebars.compile(TemplateName);
+
+                if(Result.length > 0)
+                Html += ListTemplate({"results" : Result});
+        }
+        jQuery('.resource-filter-wrap').find('.slider').find('.refine-data').html(Html);
+    }
+
+    CreateTags = function(data) {
+        var AllTags = data.ProductFilters,
+            AllLabels = data.FilterLabels,
+            Htmltags = "",
+            HtmlRefine = "";
+
+        if(AllTags !== null) {
+            for(var key in AllTags) {
+                 var Result = AllTags[key];
+                     if(Result.length > 0) {   
+                        Result.FilterName = AllLabels[key];
+                        Result.FilterID = key;
+                       var TemplateName = (Templates.ProductFilters !== "undefined") ? Templates.ProductFilters : "",
+                            ListTemplate = Handlebars.compile(TemplateName);
+                        Htmltags += ListTemplate({"results" : Result});
+                    }
+            }
+            TagsContainer.html(Htmltags);
+            RefineContainer.find('.refine-result').html(HtmlRefine);
+            BindFilterEvents();
+        }
+    },
+
+    BindRefineEvents = function() {
+            var RefineCloseBtn = $(".refine-list .close-filter"),
+                RefineContainer = $(".search-container .slider"),
+                RefineBtn = $(".refine-list .btn");
+
+            RefineCloseBtn.off("click").on("click", function(e) {
+                e.preventDefault();
+                jQuery(this).parents('.refine-list').find('.slider').slideUp();
+                jQuery(this).hide();
+            });
+
+            $(".resource-filter .refine-list").off("click").on("click", "a.refine", function(e) {
+                e.preventDefault();
+                jQuery(this).parents('.refine-list').find('.slider').slideDown();
+                RefineCloseBtn.show();
+            });
+            RefineBtn.off("click").on("click", function(e) {
+                e.preventDefault();
+                jQuery(this).parents('.refine-list').find('.slider').fadeOut();
+                RefineCloseBtn.hide();
+                var getFilterData = GetRefineData();
+                
+                UpdateSearchResult(getFilterData);
+            });
+            //MakeRefineSelected(TagsContainer);
+    },
+
+    GetRefineData = function() {
+        var AllFilterData = {},
+            FilterData = GetFilterData(TagsContainer),
+            RefineData = GetFilterData(jQuery('.resource-filter-wrap .refine-data'));
+        $.extend(AllFilterData, FilterData,RefineData);
+        alert();
+        debugger;
+        return AllFilterData;
+    },
+
+    MakeRefineSelected = function(FilterContainer) {
+        var Filters = FilterContainer.find("ul"),
+            RefineItems = RefineList.find("li input"),
+            FilterData = {},
+            FilterValue = [];
+
+        $.each(Filters, function() {
+            var FilterID = $(this).data("filterid").toLowerCase(),
+                ListItem = $(this).find("li a");
+            $.each(ListItem, function() {
+                if (FilterID !== "sectors" && FilterID !== "subsectors") {
+                    FilterValue.push($(this).data("value"));
+                }
+            });
+        });
+        $.each(RefineItems, function(i, v) {
+            if (($.inArray($(this).data("value"), FilterValue)) > -1) {
+                $(this).parent().trigger("click");
+            }
+        });
+    },
+
+    GetFilterData = function(FilterContainer) {
+        var Filters = FilterContainer.find("ul"),
+            FilterData = {};
+        $.each(Filters, function() {
+            var FilterID = $(this).data("filterid").toLowerCase(),
+                ListItem = ($(this).find("li a").length) ? $(this).find("li a") : $(this).find("li input:checked"),
+                FilterValue = [];
+
+            $.each(ListItem, function() {
+                FilterValue.push($(this).data("value"));
+            });
+
+            FilterData[FilterID] = FilterValue;
+        });
+        return FilterData;
+    },
+
+    RemoveResourceFilter = function(item, parent) {
+        item.fadeOut("fast", function() {
+            item.remove();
+            var FilterLength = parent.find("li").size(),
+                NoFilter = TagsContainer.find("li"),
+                FilterData = GetFilterData(TagsContainer);
+            if (FilterLength < 1) {
+                parent.parent('div').hide();
+            }
+            if (!NoFilter.length) {
+                SearchFilter.slideUp();
+            }
+            UpdateSearchResult(FilterData);
+        });
+    },
+    MakeDropUnSelected = function(Arr, DrpDwn) {
+        $.each(Arr, function(i, e) {
+            DrpDwn.find("option[value='" + e + "']").prop("selected", false);
+        });
+        DrpDwn.multiselect('rebuild');
+    },
+    BindFilterEvents = function() {
+            var RemoveLink = TagsContainer.find("a.remove"),
+                ClearAll = TagsContainer.find("a.remove-all");
+
+            RemoveLink.on("click", function(e) {
+                e.preventDefault();
+                var Parent = $(this).parents("ul").eq(0),
+                    ItemValue = $(this).data("value"),
+                    FilterID = Parent.data("filterid").toLowerCase();
+
+                RemoveResourceFilter($(this).parent(), Parent);
+
+                if (FilterID === "sectors") {
+                    MakeDropUnSelected([ItemValue], $("select[name='resource-sector']"));
+                }
+                if (FilterID === "subsectors") {
+                    MakeDropUnSelected([ItemValue], $("select[name='resource-sub-sector']"));
+                }
+
+            });
+
+            ClearAll.on("click", function(e) {
+                e.preventDefault();
+                var Parent = $(this).parent(),
+                    ItemID = $(this).data("filterid").toLowerCase();
+               
+                ClearAllResourceFilter(Parent);
+                if (ItemID === "sectors") {
+                    TagsContainer.find(".SubSectors").remove();
+                    CustomResourceSelect.val("");
+                    SubSectorSelect.parents("li.menu").addClass("disabled");
+                    SubSectorSelect.multiselect('rebuild');
+                }
+                if (ItemID === "subsectors") {
+                    SubSectorSelect.val("");
+                    SubSectorSelect.multiselect('rebuild');
+                }
+            });
+
+    },
+
+    ClearAllResourceFilter = function(Parent) {
+        Parent.fadeOut("fast", function() {
+            Parent.remove();
+            var FilterData = GetFilterData(TagsContainer),
+                NoFilter = TagsContainer.find("li");
+            if (!NoFilter.length) {
+                SearchFilter.slideUp();
+            }
+            UpdateSearchResult(FilterData);
+        });
     },
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
@@ -169,18 +378,40 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
                 typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid');
-
+                pageNumber = 2;
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid
-            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
+    },
+
+    RenderResourceTilesResult = function(data) {
+        INFORMA.Spinner.Show($("body"));
+        
+        var results = data.Resources,
+            html = "";
+
+        for (var key in results) {
+            if (key === "Articles") {
+                var Data = results[key],
+                    TemplateName = (Templates.articleListItems !== "undefined") ? Templates.articleListItems : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+
+                html += ListTemplate({"Articles" : Data});
+            }
+        }
+        if(data.ResourceRemainingCount < 1) {
+            jQuery('.btn-showMore').hide();
+        } else {
+            jQuery('.btn-showMore').show();
+        }
+        ResourceListContainer.find('ul').append(html);
     },
 
     RenderOnLoad = function() {
         
-
         BtnMore.on('click', function() {
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery(this).attr('data-ContainerGuid'),
@@ -191,9 +422,9 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid;
-            MergeItems.PageSize = Count * pageNumber;
+            MergeItems.PageNo = pageNumber;
             pageNumber++;
-            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
         })
 
@@ -205,6 +436,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         if (ResourceContainer.length > 0) {
             ResourceBindDropDown();
             RenderOnLoad();
+            BindRefineEvents();
         }
     };
 

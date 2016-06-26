@@ -45,14 +45,19 @@ INFORMA.analystList = (function(window, $, namespace) {
         var _analystDescription = items.find('.analyst-description'),
             _docWidth = jQuery(document).width(),
             _eachItemWidth = jQuery(items.find('.analyst-description')[0]).width(),
-            _maxHeight = 0;
+            _maxHeight = 0,
+            _vp = INFORMA.global.device.viewportN;;
             _analystDescription.each(function() {
                 var _currentHeight = jQuery(this).height();
                 if(_currentHeight > _maxHeight) {
                     _maxHeight = _currentHeight;
                 }
             });
-            _analystDescription.css('height',_maxHeight+50);
+            if(_vp == 2) {
+                _analystDescription.css('height',"auto");
+            } else {
+                _analystDescription.css('height',_maxHeight+50);
+            }
 
     }
 

@@ -106,7 +106,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         UpdateSearchResult = function(filterData) {
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
-                method: "Post",
+                method: "Get",
                 data: JSON.stringify(filterData),
                 success_callback: INFORMA.SearchResults.RenderSearchResults
             });
@@ -163,7 +163,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     ItemID = $(this).data("filterid").toLowerCase();
                
                 ClearAllFilter(Parent);
-               debugger;
+               
                 if (ItemID === "sectors") {
                     FilterList.find(".SubSectors").remove();
                     SearchDropDown.val("");

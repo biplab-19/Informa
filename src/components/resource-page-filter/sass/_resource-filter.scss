@@ -78,7 +78,12 @@
 					}
 				}
 			}
+
 		}
+		.form .custom-multiselect .btn-group .dropdown-menu label:before {
+				top: 3px;
+				left: 10px;
+			}
 	}
 	.refine-list {
 		  background-color: #e1e2e7;
@@ -111,10 +116,9 @@
 		      position:absolute;
 		      left:0;
 		      z-index: 9999;
-		      background-color: #e1e2e7;
 		      width: 100%;
 		      display: none;
-		      .refine-result {
+		      .refine-data {
 		          padding: 0;
 		          p {
 		              font-size: 18px;
@@ -188,5 +192,14 @@
         .remove-all {
             color: $orange;
         }
+    }
+    &.resource-filter-wrap {
+    	padding:0 0 20px 0;
+    	.refine-list {
+    		background-color: transparent;
+    		.container {
+	    		background-color: #e1e2e7;
+	    	}
+    	}
     }
 }

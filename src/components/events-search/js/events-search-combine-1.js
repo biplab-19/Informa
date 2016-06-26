@@ -95,7 +95,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
               }
           }
           List.html(html);
-           // NoEventsFound();
+           NoEventsFound();
            EqualHeight();
             
           CheckCount();
@@ -125,9 +125,9 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
             if(Items > Count) {
                 jQuery(this).find('.events-section:nth-child(n+'+(Count+1)+')').hide();
-                jQuery(this).next('.more-events').show();
+                jQuery(this).next('.more-events').find('.btn-more-events').removeClass('hidden');
             } else {
-                jQuery(this).next('.more-events').hide();
+                jQuery(this).next('.more-events').find('.btn-more-events').addClass('hidden');
             }
         })
     },
@@ -173,7 +173,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         }
 
         List.find('.previous').addClass('arrow-desabled');
-        //NoEventsFound(data);
+        NoEventsFound();
         Calendar.html("");
         Calendar.fullCalendar({
                 header: header,
@@ -281,8 +281,9 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     var CurrentDate = new Date(),
                         ItemDate = new Date(event.start._i),
                         DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
-                        CountryText = "";
-
+                        CountryText = "",
+                        ViewDate = view;
+                        debugger;
                         if(event.Country != null) {
                             CountryText = event.Country;
                         }
@@ -362,7 +363,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             jQuery('body').addClass(ViewMode);
             jQuery('section[data-view="'+ViewMode+'"]').show();
             
-            //NoEventsFound();
+            NoEventsFound();
             
         })
 
@@ -385,7 +386,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-            // NoEventsFound();
+            NoEventsFound();
         })
         Country.on('change', function() {
             var value = jQuery(this).val();
@@ -405,7 +406,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-            // NoEventsFound();
+            NoEventsFound();
         })
 
         
@@ -419,11 +420,21 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             _previousDate = new Date(MonthSelect.val());
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-            // NoEventsFound(); 
+            NoEventsFound(); 
         })
 
     },
+    NoEventsFound = function() {
+        
+        var Container = jQuery('.events-container'),
+            Items = Container.find('.events-section');
 
+            if(Items.length > 0) {
+                jQuery('.no-result').addClass('hidden');
+            } else {
+                jQuery('.no-result').removeClass('hidden');
+            }
+    },
     MoreEventsFunc = function() {
         MoreEvents.on('click', function() {
             var Parent = jQuery(this).parents('section'),
