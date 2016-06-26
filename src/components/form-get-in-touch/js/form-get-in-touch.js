@@ -2,20 +2,22 @@ var INFORMA = window.INFORMA || {};
 INFORMA.formGetInTouch = (function(window, $, namespace) {
     'use strict';
     var _toolTip = $('.hasToolTip .icon.icon-info'),
-    _formModalBtn = $('.form-modal-btn'),
-    _formInlineContiner = $('.form-inline-container'),
-    _formModal = $('.form-modal'),
+        _formModalBtn = $('.form-modal-btn'),
+        _formInlineContiner = $('.form-inline-container'),
+        _formModal = $('.form-modal'),
         //functions
         init,
         _bindToolTip,
         _showOverlay,
-        _attachInlineForm;
+        _attachInlineForm,
+        _validateGetInTouchForm;
 
     _showOverlay = function(container) {
         _formModalBtn.click(function() {
             var formHTML = _formInlineContiner.html();
             _formModal.find('.modal-body .form-popup-container').html(formHTML);
             _formInlineContiner.find('form').remove();
+            _validateGetInTouchForm();
             $('.form-popup-container form').css('display', 'block');
             _formModal.modal({
                 show: true,
@@ -30,16 +32,22 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             var formHTML = _formModal.find('.modal-body .form-popup-container').html();
             _formInlineContiner.html(formHTML);
             $('.form-inline-container form').css('display', 'none');
+            _validateGetInTouchForm();
             $('.form-popup-container').find('form').remove();
         });
     }
 
+    _validateGetInTouchForm = function() {
+        var validateForm = $('#wffmf08f51d884c44844af6fa7f4b7395985').validate();
+        validateForm.reset();
+    }
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _showOverlay();
         _bindToolTip();
         _attachInlineForm();
+        _validateGetInTouchForm();
     };
 
     _bindToolTip = function() {
