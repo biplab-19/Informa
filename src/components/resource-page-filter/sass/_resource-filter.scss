@@ -118,8 +118,12 @@
 		      z-index: 9999;
 		      width: 100%;
 		      display: none;
+		      @include mobile {
+		      	padding: 0;
+		      }
 		      .refine-data {
 		          padding: 0;
+		          background-color: #e1e2e7;
 		          p {
 		              font-size: 18px;
 		              border-top: 1px solid #c3c6d0;
@@ -141,6 +145,8 @@
 		      .refine-button{
 		        display: block;
 		        text-align: right;
+		        background-color: #e1e2e7;
+		        padding: 15px 20px;
 		        a{
 		          min-width: 160px;
 		          border-color:$orange;
@@ -198,7 +204,13 @@
     	.refine-list {
     		background-color: transparent;
     		.container {
-	    		background-color: #e1e2e7;
+	    		padding: 0 15px;
+	    		.header {
+	    			background-color: #e1e2e7;
+	    			padding: 20px 15px;
+	    			overflow: auto;
+	    			border-top: 1px solid #c3c6d0;
+	    		}
 	    	}
     	}
     }

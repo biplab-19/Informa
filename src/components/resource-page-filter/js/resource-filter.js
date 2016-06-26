@@ -61,7 +61,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         filterData.ContainerGuid = Guid;
         filterData.ContenttypeGuid = typeGuid;
         INFORMA.DataLoader.GetServiceData(Urls.ResourceList, {
-            method: "Get",
+            method: "Post",
             data: JSON.stringify(filterData),
             success_callback: RenderResourceResult
         });
@@ -73,7 +73,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var obj = {
                 "SectorIDs": SectorIDs
             }
-            GetAjaxData(Urls.ResourceSubSectorList, "Get", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
+            GetAjaxData(Urls.ResourceSubSectorList, "Post", JSON.stringify(obj), UpdateResourceSubSectorDropdown, null, null);
     },
 
     UpdateResourceSubSectorDropdown = function(data) {
@@ -166,7 +166,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         var AllFacets = data.ProductFacets,
             AllLabels = data.FilterLabels,
             Html = "";
-            debugger;
+
         for(var key in AllFacets) {
             var Result = AllFacets[key];
                         
@@ -236,8 +236,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             FilterData = GetFilterData(TagsContainer),
             RefineData = GetFilterData(jQuery('.resource-filter-wrap .refine-data'));
         $.extend(AllFilterData, FilterData,RefineData);
-        alert();
-        debugger;
+        
         return AllFilterData;
     },
 
@@ -320,6 +319,10 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                     MakeDropUnSelected([ItemValue], $("select[name='resource-sub-sector']"));
                 }
 
+                if(Parent.find('li').length === 0) {
+                    Parent.remove();
+                }
+
             });
 
             ClearAll.on("click", function(e) {
@@ -383,7 +386,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid
-            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
 
@@ -424,7 +427,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             MergeItems.ContenttypeGuid = typeGuid;
             MergeItems.PageNo = pageNumber;
             pageNumber++;
-            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
         })
 
