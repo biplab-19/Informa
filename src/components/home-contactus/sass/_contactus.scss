@@ -8,6 +8,9 @@
                 margin: 0;
                 position: relative;
                 padding-left: 40px;
+                @include tablet {
+                  font-size: 22px;
+                }
                 img {
                   margin-top: -6px;
                   margin-right: 10px;
@@ -33,6 +36,9 @@
             //  margin-bottom: 20px;
             font-size: 14px;
             margin: 0 0 20px 1.8%;
+            @include tablet {
+              width: 30.5%;
+            }
         }
         .panel-group .panel-heading + .panel-collapse > .panel-body {
             border: none;
@@ -94,6 +100,9 @@
                 a {
                     font-size: 28px;
                     text-decoration: none;
+                    @include tablet {
+                        font-size: 26px;
+                    }
                 }
                 @include mobile {
                     padding-top: 0;
@@ -164,7 +173,7 @@
                 }
                 &:last-child {
                     width: 100%;
-                    padding: 20px;
+                    padding: 15px;
                     position: absolute;
                     bottom: 0;
                     left: 0;

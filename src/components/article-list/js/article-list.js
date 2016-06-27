@@ -133,7 +133,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             equalHeights();
 
         },
-        CreateSlider = function(el,mobileScroll) {
+        CreateSlider = function(el,mobileScroll,ipadScroll) {
             var _listItemCounts = GetListCount(el),
                 Options = GetCarouselOptions(el);
 
@@ -154,8 +154,8 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                     }, {
                         breakpoint: 600,
                         settings: {
-                            slidesToShow: (_listItemCounts >= 2) ? 2 : _listItemCounts,
-                            slidesToScroll: 2
+                            slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
+                            slidesToScroll: ipadScroll
                         }
                     }, {
                         breakpoint: 480,
@@ -173,10 +173,10 @@ INFORMA.ArticleList = (function(window, $, namespace) {
 
     init = function() {
         if (_ArticleLists.length > 0) {
-            CreateSlider(_ArticleLists,1);
+            CreateSlider(_ArticleLists,1,2);
         }
         if (_HeadlinesLists.length > 0) {
-            CreateSlider(_HeadlinesLists,2);
+            CreateSlider(_HeadlinesLists,2,4);
         }
         if (FilterMenu && !isExperienceMode) {
             $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
