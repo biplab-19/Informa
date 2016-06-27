@@ -44,13 +44,15 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
 
     RenderAllSubSectorResults = function (data, sectorId) {
         var results = data,
-            html = "";
+            html = "",
+            Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views');
 
         for (var key in results) {
             if (results.hasOwnProperty(key)) {
+                debugger;
                 var Data = results[key],
                     HeaderText = key,
-                    TemplateName = (Templates.AnalystTemplate !== "undefined") ? Templates.AnalystsTemplate : "",
+                    TemplateName = (Templates.Analysts !== "undefined") ? Templates.Analysts : "",
                     ListTemplate = Handlebars.compile(TemplateName);
                 Data.header = HeaderText;
                 html += ListTemplate({ results: Data });
@@ -58,14 +60,10 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             }
         }
 
-        jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').find('.row').html(html);
+        Parent.find('.row').html(html);
         equalHeight();
-       
-
-        jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').addClass('showLess');
-
-        
-        jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').slideToggle();
+        Parent.parents('.analyst-views').addClass('showLess');
+        Parent.parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').slideToggle();
         return html;
     }
 
@@ -99,7 +97,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 SubSector.parents('.form-group').find('label').html('By ' + _text);
             }
 
-            GetAjaxData(Urls.AnalystSearchDropDown, "Post", _value, RenderChangeResult, null, null);
+            GetAjaxData(Urls.AnalystSearchDropDown, "Get", _value, RenderChangeResult, null, null);
             INFORMA.Spinner.Show(SubSector);
             SubSector.trigger("chosen:updated");
 
@@ -113,7 +111,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 }
             }
             var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-            GetAjaxData(Urls.AnalystSearch, "Post", GetSerializeData, RenderSearchResult, null, null);
+            GetAjaxData(Urls.AnalystSearch, "Get", GetSerializeData, RenderSearchResult, null, null);
         })
     }
 
@@ -180,19 +178,20 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             var sectorId = jQuery(this).data('fetch');
             var FieldArray = AnalystSearch.find("form").serializeArray(),
                 GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray)),
-                _Object = JSON.parse(GetSerializeData);
+                _Object = JSON.parse(GetSerializeData),
+                Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views');
             _Object.SectorID = sectorId;
             for (var key in _Object) {
                 if (_Object[key] == "default") {
                     _Object[key] = null;
                 }
             }
-            if (!jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').hasClass('showLess')) {
-                GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
+            if (!Parent.hasClass('showLess')) {
+                GetAjaxData(Urls.AnalystSearchAll, "Get", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
             } else {
-                jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').slideUp();
-                jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').remove();
-                jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views').removeClass('showLess');
+                Parent.find('.analyst-list-container:nth-child(n+4)').slideUp();
+                Parent.find('.analyst-list-container:nth-child(n+4)').remove();
+                Parent.removeClass('showLess');
             }
 
 

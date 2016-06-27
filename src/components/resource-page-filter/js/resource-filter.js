@@ -56,10 +56,16 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     UpdateSearchResult = function(filterData) {
         INFORMA.Spinner.Show($("body"));
         var Guid = BtnMore.attr('data-ContainerGuid'),
-            typeGuid = BtnMore.attr('data-Contenttypeguid');
+            typeGuid = BtnMore.attr('data-Contenttypeguid'),
+                InformationType = BtnMore.attr('data-InformationType'),
+                Role = BtnMore.attr('data-Role'),
+                Brand = BtnMore.attr('data-Brand');
 
         filterData.ContainerGuid = Guid;
         filterData.ContenttypeGuid = typeGuid;
+        filterData.InformationType = InformationType;
+        filterData.Role = Role;
+        filterData.Brand = Brand;
         INFORMA.DataLoader.GetServiceData(Urls.ResourceList, {
             method: "Post",
             data: JSON.stringify(filterData),
@@ -178,7 +184,9 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 if(Result.length > 0)
                 Html += ListTemplate({"results" : Result});
         }
+        var RefineData = GetFilterData(jQuery('.resource-filter-wrap .refine-data'));
         jQuery('.resource-filter-wrap').find('.slider').find('.refine-data').html(Html);
+        MakeRefineSelected(jQuery('.resource-filter-wrap .refine-data'), RefineData);
     }
 
     CreateTags = function(data) {
@@ -240,24 +248,35 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         return AllFilterData;
     },
 
-    MakeRefineSelected = function(FilterContainer) {
+    MakeRefineSelected = function(FilterContainer, data) {
+        debugger;
         var Filters = FilterContainer.find("ul"),
-            RefineItems = RefineList.find("li input"),
+            RefineItems = jQuery(".resource-filter-wrap .refine-data").find("input"),
             FilterData = {},
             FilterValue = [];
-
+        
+        for(var key in data) {
+            var Results = data[key];
+            
+            for(var i in Results) {
+                FilterValue.push(Results[i]);
+            }
+        }
+        
         $.each(Filters, function() {
             var FilterID = $(this).data("filterid").toLowerCase(),
-                ListItem = $(this).find("li a");
+                ListItem = $(this).find("li").find("input:checked");
+                //debugger;
             $.each(ListItem, function() {
                 if (FilterID !== "sectors" && FilterID !== "subsectors") {
                     FilterValue.push($(this).data("value"));
                 }
             });
         });
+        //debugger;
         $.each(RefineItems, function(i, v) {
             if (($.inArray($(this).data("value"), FilterValue)) > -1) {
-                $(this).parent().trigger("click");
+                $(this).prop('checked', true);
             }
         });
     },
@@ -289,7 +308,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 parent.parent('div').hide();
             }
             if (!NoFilter.length) {
-                SearchFilter.slideUp();
+                jQuery('.resource-filter-wrap .refine-data').slideUp();
             }
             UpdateSearchResult(FilterData);
         });
@@ -313,10 +332,10 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 RemoveResourceFilter($(this).parent(), Parent);
 
                 if (FilterID === "sectors") {
-                    MakeDropUnSelected([ItemValue], $("select[name='resource-sector']"));
+                    MakeDropUnSelected([ItemValue], jQuery("select[name='resourceSectors']"));
                 }
                 if (FilterID === "subsectors") {
-                    MakeDropUnSelected([ItemValue], $("select[name='resource-sub-sector']"));
+                    MakeDropUnSelected([ItemValue], jQuery("select[name='resourceSubSectors']"));
                 }
 
                 if(Parent.find('li').length === 0) {
@@ -328,17 +347,26 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             ClearAll.on("click", function(e) {
                 e.preventDefault();
                 var Parent = $(this).parent(),
-                    ItemID = $(this).data("filterid").toLowerCase();
+                    ItemID = $(this).data("filterid").toLowerCase(),
+                    AllIds = Parent.find('a.remove'),
+                    DrpItems = [];
+                    
+                for(var x in AllIds) {
+                    DrpItems.push(AllIds.attr('data-value'));
+                }
                
                 ClearAllResourceFilter(Parent);
+                
                 if (ItemID === "sectors") {
                     TagsContainer.find(".SubSectors").remove();
                     CustomResourceSelect.val("");
                     SubSectorSelect.parents("li.menu").addClass("disabled");
                     SubSectorSelect.multiselect('rebuild');
+                    MakeDropUnSelected(DrpItems, jQuery('select[name="resourceSectors"]'));
                 }
                 if (ItemID === "subsectors") {
                     SubSectorSelect.val("");
+                    MakeDropUnSelected(DrpItems, jQuery('select[name="resourceSubSectors"]'));
                     SubSectorSelect.multiselect('rebuild');
                 }
             });
@@ -351,7 +379,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var FilterData = GetFilterData(TagsContainer),
                 NoFilter = TagsContainer.find("li");
             if (!NoFilter.length) {
-                SearchFilter.slideUp();
+                $(".refine-filter-wrap .refine-data").slideUp();
             }
             UpdateSearchResult(FilterData);
         });
@@ -380,19 +408,25 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             e.preventDefault();
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
-                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid');
+                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
+                InformationType = jQuery('.btn-showMore').attr('data-InformationType'),
+                Role = jQuery('.btn-showMore').attr('data-Role'),
+                Brand = jQuery('.btn-showMore').attr('data-Brand'),
                 pageNumber = 2;
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
 
             MergeItems.ContainerGuid = Guid;
-            MergeItems.ContenttypeGuid = typeGuid
+            MergeItems.ContenttypeGuid = typeGuid;
+            MergeItems.InformationType = InformationType;
+            MergeItems.Role = Role;
+            MergeItems.Brand = Brand;
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
 
     RenderResourceTilesResult = function(data) {
         INFORMA.Spinner.Show($("body"));
-        
+        pageNumber++;
         var results = data.Resources,
             html = "";
 
@@ -419,14 +453,20 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery(this).attr('data-ContainerGuid'),
                 typeGuid = jQuery(this).attr('data-ContenttypeGuid'),
-                Count = ResourceListContainer.data('count');
+                Count = ResourceListContainer.data('count'),
+                InformationType = jQuery(this).attr('data-InformationType'),
+                Role = jQuery(this).attr('data-Role'),
+                Brand = jQuery(this).attr('data-Brand');
 
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
-
+            
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid;
             MergeItems.PageNo = pageNumber;
-            pageNumber++;
+            MergeItems.InformationType = InformationType;
+            MergeItems.Role = Role;
+            MergeItems.Brand = Brand;
+            
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
         })
