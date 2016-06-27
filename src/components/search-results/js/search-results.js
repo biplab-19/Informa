@@ -146,22 +146,30 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 var TabName, SearchTab, Data;
 
                 if(SearchType==='SearchResult'){
-                    TabName = $(this).attr("href");
+                    TabName = ($(this).attr("href")).toLowerCase();
                     SearchTab = TabName.replace("#",'');
                     SearchTabHidden.val(SearchTab);
                     ResultContainer.addClass('ShowLoadBtn');
                 }
-                    Data = GetSearchArray();
-                    PageSize+=6;
 
+                Data = GetSearchArray();
+                PageSize+=6;
                 Data.pageSize =  PageSize;
-                GetPaginatedData(Urls[url], JSON.stringify(Data), ParseSearchData);
+                GetPaginatedData(Urls[url], JSON.stringify(Data), function(data){
+                    if(SearchType ==='SearchResult'){
+                        var results = {};
+                        results.Results = data["Results"];
+                        ParseSearchData(results);
+                    }else{
+                        ParseSearchData(data);
+                    }
+                });
             });
         },
         BindTabOpenEvents = function(Object) {
             Object.off('click').on("click", function(e) {
                 e.preventDefault();
-                var TabName = $(this).attr("href"),
+                var TabName = ($(this).attr("href")).toLowerCase(),
                     SearchTab = TabName.replace("#",''), Data;
             
                 if(!$(this).parent().hasClass("selected")){
@@ -172,11 +180,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         OpenTab = function(TabName){
             var CurrentTab = ResultContainer.find(TabName),
+                AllResultTab = ($(".tab-list li:first-child a").attr("href")).toLowerCase(),
                 CurrentPos;
 
-            if(TabName==="#allresults"){
+            if(TabName===AllResultTab){
                 ResultContainer.removeClass('ShowLoadBtn');
-                AllResults.show();
                 CurrentPos = ResultContainer.offset().top;
             }else{
                 AllResults.hide();
@@ -187,7 +195,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             $("html, body").animate({ scrollTop: CurrentPos });
             $(".tab-list li").removeClass("selected");
                 $(".tab-list li a").each(function(){
-                    if($(this).attr("href")===TabName){
+                    var TabLink = ($(this).attr("href")).toLowerCase();
+                    if(TabLink===TabName){
                         $(this).parent().addClass("selected")
                     }
             });
@@ -208,17 +217,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         html = "",
                         Data = DataObject[key],
                         ResultCount, ShowMoreLink, RemainingCount,
-                        TemplateName = (Templates[ResultName] !== "undefined") ? Templates[ResultName] : "",
+                        TemplateName = (Templates[ResultName]) ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName),
                         ContainerID = "#" + (ResultName).toLowerCase();
+                        
+                    if((Templates[ResultName]) && (Data[ResultName+'List'])){
+                        html = ListTemplate({ results: Data[ResultName+'List'] });
+                        ShowMoreLink = $(ContainerID).find(".btn-container");
 
-                    html = ListTemplate({ results: Data[ResultName+'List'] });
-                    ShowMoreLink = $(ContainerID).find(".btn-container");
-
-                    //Update Search Results
-                    $(ContainerID).find(".row").html(html);
-                    $(ContainerID).show();
-                    ShowMoreLink.removeClass('hide');
+                        //Update Search Results
+                        $(ContainerID).find(".row").html(html);
+                        $(ContainerID).show();
+                        ShowMoreLink.removeClass('hide');
+                    }
 
                     //Update Record Counts
                     if (Data) {
@@ -235,6 +246,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         $(ContainerID).find(".count strong").text("0");
                         ShowMoreLink.addClass('hide');
                     }
+                }else{
+                    var ResultName = key,
+                        ContainerID = "#" + (ResultName).toLowerCase();
+                    $(ContainerID).find(".row").html('');
                 }
             }
             var UpddateHeight = setTimeout(function() {
@@ -249,7 +264,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     var ResultName = key,
                         Data = DataObject[key],
                         ListTemplate = Handlebars.compile(Template);
-                        if(Data.length > 0){
+                        if(Data && Data.length > 0){
                             if(labelsObject){
                                 Data.FilterName = labelsObject[ResultName];
                             }
@@ -282,7 +297,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 
                 OpenTabBtn.off("click").on("click",function(e){
                     e.preventDefault();
-                    var TabName = $(this).attr("href"),
+                    var TabName = ($(this).attr("href")).toLowerCase(),
                     TabToClick = jQuery('.tab-list a[href="'+TabName+'"]');
                     if(TabToClick){
                         TabToClick.trigger("click");

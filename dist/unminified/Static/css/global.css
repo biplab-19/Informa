@@ -1,4 +1,4 @@
-/*! 2016-06-24 */@charset "UTF-8";
+/*! 2016-06-27 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -11461,17 +11461,17 @@ footer ul.slick-dots li.slick-active {
 /*=================================================
 	Video
 ==================================================*/
-/* line 9, ../../../src/sass/global/_common-components.scss */
+/* line 8, ../../../src/sass/global/_common-components.scss */
 .video-wrap {
   position: relative;
   display: inline-block;
 }
-/* line 12, ../../../src/sass/global/_common-components.scss */
+/* line 11, ../../../src/sass/global/_common-components.scss */
 .video-wrap .play-icon {
   position: absolute;
   width: 54px;
   height: 54px;
-  background: url(/Static/images/video-icon.png) no-repeat;
+  background: url("/Static/images/video-icon.png") no-repeat;
   top: 50%;
   left: 50%;
   margin-top: -27px;
@@ -11481,22 +11481,71 @@ footer ul.slick-dots li.slick-active {
 /*=================================================
 	Mini - Video modal
 ==================================================*/
-/* line 27, ../../../src/sass/global/_common-components.scss */
+/* line 25, ../../../src/sass/global/_common-components.scss */
+.video-mini-modal.modal.fade .modal-dialog {
+  -webkit-transform: scale(0.1);
+  -moz-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  top: 300px;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* line 36, ../../../src/sass/global/_common-components.scss */
+.video-mini-modal.modal.fade.in .modal-dialog {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transform: translate3d(0, -300px, 0);
+  transform: translate3d(0, -300px, 0);
+  opacity: 1;
+}
+
+/* line 46, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal .modal-dialog {
   width: 60%;
   margin: 0 auto;
 }
-/* line 38, ../../../src/sass/global/_common-components.scss */
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 46, ../../../src/sass/global/_common-components.scss */
+  .video-mini-modal .modal-dialog {
+    width: 85%;
+  }
+}
+@media (max-width: 767px) {
+  /* line 46, ../../../src/sass/global/_common-components.scss */
+  .video-mini-modal .modal-dialog {
+    width: 100%;
+  }
+}
+/* line 56, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #fff;
+  margin-top: 20%;
 }
-/* line 43, ../../../src/sass/global/_common-components.scss */
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 56, ../../../src/sass/global/_common-components.scss */
+  .video-mini-modal .modal-content {
+    margin-top: 20%;
+  }
+}
+@media (max-width: 767px) {
+  /* line 56, ../../../src/sass/global/_common-components.scss */
+  .video-mini-modal .modal-content {
+    margin-top: 10%;
+  }
+}
+/* line 68, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal .modal-header {
   border-bottom: 0;
 }
-/* line 45, ../../../src/sass/global/_common-components.scss */
+/* line 70, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal .modal-header .close {
   color: #fff;
   opacity: 2;
@@ -11505,7 +11554,7 @@ footer ul.slick-dots li.slick-active {
 /*===================================================
 	Search Flip Tile
 ====================================================*/
-/* line 59, ../../../src/sass/global/_common-components.scss */
+/* line 80, ../../../src/sass/global/_common-components.scss */
 .flip .tile {
   height: 100%;
   position: relative;
@@ -11513,15 +11562,15 @@ footer ul.slick-dots li.slick-active {
   transition: transform 0.3s;
   overflow: hidden;
 }
-/* line 66, ../../../src/sass/global/_common-components.scss */
+/* line 87, ../../../src/sass/global/_common-components.scss */
 .flip .tile.flip .front {
   transform: perspective(800px) rotateY(-180deg);
 }
-/* line 69, ../../../src/sass/global/_common-components.scss */
+/* line 90, ../../../src/sass/global/_common-components.scss */
 .flip .tile.flip .back {
   transform: perspective(800px) rotateY(0deg);
 }
-/* line 73, ../../../src/sass/global/_common-components.scss */
+/* line 94, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front {
   background-color: #f0f1f3;
   height: 100%;
@@ -11529,19 +11578,19 @@ footer ul.slick-dots li.slick-active {
   -webkit-backface-visibility: hidden;
   /* Chrome, Safari, Opera */
   backface-visibility: hidden;
-  transition: transform .2s linear 0s;
+  transition: transform 0.2s linear 0s;
   position: relative;
 }
-/* line 81, ../../../src/sass/global/_common-components.scss */
+/* line 103, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .header {
   position: relative;
   overflow: hidden;
 }
-/* line 84, ../../../src/sass/global/_common-components.scss */
+/* line 106, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .header img {
   width: 100%;
 }
-/* line 87, ../../../src/sass/global/_common-components.scss */
+/* line 109, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .header:after {
   content: "";
   position: absolute;
@@ -11552,11 +11601,11 @@ footer ul.slick-dots li.slick-active {
   top: calc(100% - 20px);
   left: 4px;
 }
-/* line 98, ../../../src/sass/global/_common-components.scss */
+/* line 120, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content {
   padding: 10px 10px 20px;
 }
-/* line 100, ../../../src/sass/global/_common-components.scss */
+/* line 122, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content:after {
   content: '+';
   border: 2px solid #ef7c00;
@@ -11572,11 +11621,11 @@ footer ul.slick-dots li.slick-active {
   right: 15px;
   bottom: 35px;
 }
-/* line 115, ../../../src/sass/global/_common-components.scss */
+/* line 137, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content p {
   padding-right: 20px;
 }
-/* line 119, ../../../src/sass/global/_common-components.scss */
+/* line 141, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer {
   padding-top: 5%;
   position: absolute;
@@ -11584,7 +11633,7 @@ footer ul.slick-dots li.slick-active {
   bottom: 0;
   width: 100%;
 }
-/* line 125, ../../../src/sass/global/_common-components.scss */
+/* line 147, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer:before {
   content: "";
   position: absolute;
@@ -11595,7 +11644,7 @@ footer ul.slick-dots li.slick-active {
   top: 50%;
   left: 0;
 }
-/* line 137, ../../../src/sass/global/_common-components.scss */
+/* line 159, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back {
   background-color: #343742;
   height: 100%;
@@ -11603,13 +11652,13 @@ footer ul.slick-dots li.slick-active {
   -webkit-backface-visibility: hidden;
   /* Chrome, Safari, Opera */
   backface-visibility: hidden;
-  transition: transform .2s linear 0s;
+  transition: transform 0.2s linear 0s;
   position: absolute;
   width: 100%;
   top: 0;
   overflow: hidden;
 }
-/* line 148, ../../../src/sass/global/_common-components.scss */
+/* line 171, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .header {
   background-color: #434854;
   -ms-transform: rotate(-3deg);
@@ -11619,7 +11668,7 @@ footer ul.slick-dots li.slick-active {
   transform: rotate(-3deg);
   padding-bottom: 10px;
 }
-/* line 154, ../../../src/sass/global/_common-components.scss */
+/* line 179, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .header .header-content {
   background-color: #434854;
   padding: 20px;
@@ -11629,29 +11678,29 @@ footer ul.slick-dots li.slick-active {
   /* Chrome, Safari, Opera */
   transform: rotate(3deg);
 }
-/* line 160, ../../../src/sass/global/_common-components.scss */
+/* line 187, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .header .header-content h4 {
   font-size: 18px;
   color: #fff;
 }
-/* line 166, ../../../src/sass/global/_common-components.scss */
+/* line 193, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content {
   padding: 40px 0;
 }
-/* line 168, ../../../src/sass/global/_common-components.scss */
+/* line 195, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content ul {
   list-style-type: none;
 }
-/* line 170, ../../../src/sass/global/_common-components.scss */
+/* line 197, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content ul li {
   padding: 10px;
   position: relative;
 }
-/* line 173, ../../../src/sass/global/_common-components.scss */
+/* line 200, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content ul li a {
   font-size: 16px;
 }
-/* line 175, ../../../src/sass/global/_common-components.scss */
+/* line 202, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content ul li a:before {
   content: "\e914";
   font-family: "InformaIcons";
@@ -11661,7 +11710,7 @@ footer ul.slick-dots li.slick-active {
   font-size: 20px;
   color: #ffd500;
 }
-/* line 188, ../../../src/sass/global/_common-components.scss */
+/* line 215, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer {
   -ms-transform: rotate(-3deg);
   /* IE 9 */
@@ -11674,7 +11723,7 @@ footer ul.slick-dots li.slick-active {
   width: 100%;
   top: calc(100% - 80px);
 }
-/* line 197, ../../../src/sass/global/_common-components.scss */
+/* line 226, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content {
   -ms-transform: rotate(3deg);
   /* IE 9 */
@@ -11683,25 +11732,25 @@ footer ul.slick-dots li.slick-active {
   transform: rotate(3deg);
   background-color: #434854;
 }
-/* line 202, ../../../src/sass/global/_common-components.scss */
+/* line 233, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content .btn {
   width: 100%;
   display: block;
   color: #fff;
 }
-/* line 206, ../../../src/sass/global/_common-components.scss */
+/* line 237, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content .btn.free-trial {
   border-color: #ef7c00;
 }
-/* line 208, ../../../src/sass/global/_common-components.scss */
+/* line 239, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content .btn.free-trial:after {
   color: #ef7c00;
 }
-/* line 212, ../../../src/sass/global/_common-components.scss */
+/* line 243, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer .footer-content .btn.more {
   border-color: #ef7c00;
 }
-/* line 220, ../../../src/sass/global/_common-components.scss */
+/* line 251, ../../../src/sass/global/_common-components.scss */
 .flip .pin {
   cursor: pointer;
   width: 70px;
@@ -11717,31 +11766,31 @@ footer ul.slick-dots li.slick-active {
   transform: rotate(45deg);
   z-index: 2;
 }
-/* line 232, ../../../src/sass/global/_common-components.scss */
+/* line 265, ../../../src/sass/global/_common-components.scss */
 .flip .pin:before {
   content: '';
   width: 20px;
   height: 20px;
-  background-image: url(../images/pin-sprite.png);
+  background-image: url("../images/pin-sprite.png");
   position: absolute;
   left: 30%;
   top: 60%;
   transform: rotate(-35deg);
   background-position: 0 0;
 }
-/* line 246, ../../../src/sass/global/_common-components.scss */
+/* line 279, ../../../src/sass/global/_common-components.scss */
 .flip .un-pinned .pin:before {
   background-position: 0 25px;
 }
 
-/* line 254, ../../../src/sass/global/_common-components.scss */
+/* line 286, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container {
   margin: 20px 0 0;
   text-align: center;
 }
-/* line 257, ../../../src/sass/global/_common-components.scss */
-.search-container .btn-container .open-tab,
-.search-container .btn-container .btn-ShowMore {
+/* line 289, ../../../src/sass/global/_common-components.scss */
+.search-container .btn-container .btn-ShowMore,
+.search-container .btn-container .open-tab {
   color: #444957;
   padding: 20px 0;
   width: 150px;
@@ -11750,27 +11799,27 @@ footer ul.slick-dots li.slick-active {
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 257, ../../../src/sass/global/_common-components.scss */
-  .search-container .btn-container .open-tab,
-  .search-container .btn-container .btn-ShowMore {
-    padding: 20px 0 40px 0;
+  /* line 289, ../../../src/sass/global/_common-components.scss */
+  .search-container .btn-container .btn-ShowMore,
+  .search-container .btn-container .open-tab {
+    padding: 20px 0 40px;
   }
 }
-/* line 268, ../../../src/sass/global/_common-components.scss */
-.search-container .btn-container .open-tab span,
-.search-container .btn-container .btn-ShowMore span {
+/* line 300, ../../../src/sass/global/_common-components.scss */
+.search-container .btn-container .btn-ShowMore span,
+.search-container .btn-container .open-tab span {
   float: left;
 }
 @media (max-width: 767px) {
-  /* line 268, ../../../src/sass/global/_common-components.scss */
-  .search-container .btn-container .open-tab span,
-  .search-container .btn-container .btn-ShowMore span {
+  /* line 300, ../../../src/sass/global/_common-components.scss */
+  .search-container .btn-container .btn-ShowMore span,
+  .search-container .btn-container .open-tab span {
     float: none;
   }
 }
-/* line 273, ../../../src/sass/global/_common-components.scss */
-.search-container .btn-container .open-tab span:before,
-.search-container .btn-container .btn-ShowMore span:before {
+/* line 305, ../../../src/sass/global/_common-components.scss */
+.search-container .btn-container .btn-ShowMore span:before,
+.search-container .btn-container .open-tab span:before {
   content: "\e912";
   position: absolute;
   right: 0;
@@ -11780,38 +11829,38 @@ footer ul.slick-dots li.slick-active {
   color: #ffd500;
 }
 @media (max-width: 767px) {
-  /* line 273, ../../../src/sass/global/_common-components.scss */
-  .search-container .btn-container .open-tab span:before,
-  .search-container .btn-container .btn-ShowMore span:before {
+  /* line 305, ../../../src/sass/global/_common-components.scss */
+  .search-container .btn-container .btn-ShowMore span:before,
+  .search-container .btn-container .open-tab span:before {
     right: 50%;
     margin-right: -13px;
     top: 35px;
   }
 }
-/* line 288, ../../../src/sass/global/_common-components.scss */
-.search-container .btn-container .open-tab span.less:before,
-.search-container .btn-container .btn-ShowMore span.less:before {
+/* line 320, ../../../src/sass/global/_common-components.scss */
+.search-container .btn-container .btn-ShowMore span.less:before,
+.search-container .btn-container .open-tab span.less:before {
   content: "\e913";
 }
-/* line 293, ../../../src/sass/global/_common-components.scss */
-.search-container .btn-container .open-tab:hover, .search-container .btn-container .open-tab:focus,
-.search-container .btn-container .btn-ShowMore:hover,
-.search-container .btn-container .btn-ShowMore:focus {
+/* line 325, ../../../src/sass/global/_common-components.scss */
+.search-container .btn-container .btn-ShowMore:focus, .search-container .btn-container .btn-ShowMore:hover,
+.search-container .btn-container .open-tab:focus,
+.search-container .btn-container .open-tab:hover {
   text-decoration: none;
 }
-/* line 298, ../../../src/sass/global/_common-components.scss */
+/* line 331, ../../../src/sass/global/_common-components.scss */
 .search-container .more {
   display: block;
 }
-/* line 301, ../../../src/sass/global/_common-components.scss */
+/* line 334, ../../../src/sass/global/_common-components.scss */
 .search-container .less {
   display: none;
 }
-/* line 305, ../../../src/sass/global/_common-components.scss */
+/* line 338, ../../../src/sass/global/_common-components.scss */
 .search-container.all-shown .more {
   display: none;
 }
-/* line 308, ../../../src/sass/global/_common-components.scss */
+/* line 341, ../../../src/sass/global/_common-components.scss */
 .search-container.all-shown .less {
   display: block;
 }
@@ -11822,7 +11871,7 @@ footer ul.slick-dots li.slick-active {
 /*===================================================
 	Image Fit to screen
 ====================================================*/
-/* line 321, ../../../src/sass/global/_common-components.scss */
+/* line 352, ../../../src/sass/global/_common-components.scss */
 .img-fit {
   max-width: 100%;
 }

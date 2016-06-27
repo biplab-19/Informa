@@ -1,4 +1,4 @@
-/*! 2016-06-24 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-27 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -28,15 +28,15 @@
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
-            "GetSubSectorList" : "/client/search/getsubsectors",
+            "GetSubSectorList": "/client/search/GetSubSectors",
             "ProductSearch": "/client/search/getproducts",
-            "SearchResult": "/client/search/getsearchresults",
+            "SearchResult": "/client/search/GetSearchResults",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",
             "AnalystSearchAll": "/client/search/SeeAllSpecialists",
             "EventsSearch": "/client/search/GetEventList",
-            "ResourceList": "/client/search/GetResourceListing"
-            
+            "ResourceList": "/client/search/GetResourceListing",
+            "ResourceSubSectorList": "/client/search/GetSubSectors"
         }
     };
 
@@ -536,7 +536,7 @@ var INFORMA = window.INFORMA || {};
                         '<h3>{{Title}}</h3>'+
                         '<p>{{Description}}</p>'+
                         '<div class="btn-container">'+
-                            '<a href="{{MoreLink}}" class="btn btn-default">{{MoreText}}</a>'+
+                            '<a href="{{ReadMoreLink}}" class="btn btn-default">{{ReadMoreText}}</a>'+
                         '</div>'+
                     '</div>'+
                   '{{/each}}',
@@ -605,7 +605,59 @@ var INFORMA = window.INFORMA || {};
                                 '{{/compare}}' +
                             '</div>' +
                         '</section>',
-        'AnalystListTemplate': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{results.Type}}">' +
+                'Analysts': 
+                '{{#each results}}' +
+                                '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{Type}}">' +
+                                    '<div class="meet-anlyst-section">' +
+                                        '<div class="anlyst-heading">' +
+                                            '<div class="analyst-heading-content">' +
+                                                '<div class="analyst-details">' +
+                                                     '<span class="analyst-type">{{Type}}</span>' +
+                                                    '<h2>{{Name}}</h2>' +
+                                                    '<h3>{{Type}}, {{JobTitle}}</h3>' +
+                                                    '<p class="location">{{State}}, {{Country}}</p>' +
+                                                '</div>' +
+                                                '<div class="analyst-img">' +
+                                                    '<img src="{{ProfileImage}}" alt="{{image}}" />' +
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        '<div class="analyst-description">' +
+                                            '<p class="heading"><i>{{FirstName}}</i> {{SpecializationText}}</p>' +
+                                            '<ul class="yellow-bullets">' +
+                                                '{{#each Specialization}}' +
+                                                    '<li>{{this}}</li>' +
+                                                '{{/each}}' +
+                                            '</ul>' +
+                                            '<p class="heading">+{{YearsOfExperience}} {{ExperienceText}}</p>' +
+                                            '{{#compare MultipleProducts "0" operator=">"}}' +
+                                                '<ul class="track-analyst clearfix">' +
+                                                    '{{#each MultipleProducts}}' +
+                                                        '<li><a href="#">{{this}}</a></li>' +
+                                                    '{{/each}}' +
+                                                '</ul>' +
+                                            '{{/compare}}' +
+                                        '</div>' +
+                                        '<div class="analyst-footer">' +
+                                            '<div class="analyst-footer-content clearfix">' +
+                                                '<ul class="nav-links">' +
+                                                    '{{#compare TwitterLink null operator="!="}}' +
+                                                        '<li><a href="{{TwitterLink.Url}}" target="{{TwitterLink.Target}}" class="icon-twitter"></a></li>' +
+                                                    '{{/compare}}' +
+                                                    '{{#compare LinkedinLink null operator="!="}}' +
+                                                        '<li><a href="{{LinkedinLink.Url}}" target="{{LinkedinLink.Target}}" class="icon-linked-in"></a></li>' +
+                                                    '{{/compare}}' +
+                                                    '{{#compare EmailAddress null operator="!="}}' +
+                                                        '<li><a href="mailto:{{EmailAddress}}" class="icon-email"></a></li>' +
+                                                    '{{/compare}}' +
+                                                '</ul>' +
+                                                '<a href="#" class="btn btn-default pull-right">Full Profile</a>' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>'+
+                    '{{/each}}',
+        'AnalystTemplate': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{results.Type}}">' +
                                     '<div class="meet-anlyst-section">' +
                                         '<div class="anlyst-heading">' +
                                             '<div class="analyst-heading-content">' +
@@ -734,11 +786,11 @@ var INFORMA = window.INFORMA || {};
                                     '{{/if}}'+
                                 '</div>'+
                             '</div>'+
-                            '{{#if ResourceLink}}'+
-                                '<div class="btn-container">'+
-                                  '<a role="button" href="{{ResourceLink.url}}" class="btn btn-default" target="{{ResourceLink.target}}">{{ResourceLink.linkText}}</a>'+
-                                '</div>'+
-                            '{{/if}}'+
+                            '{{#if PageURL}}' +
+                                '<div class="btn-container">' +
+                                  '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>' +
+                                '</div>' +
+                            '{{/if}}' +
                         '</div>'+
                     '</div>'
 

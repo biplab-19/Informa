@@ -106,7 +106,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         UpdateSearchResult = function(filterData) {
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
-                method: "Post",
+                method: "Get",
                 data: JSON.stringify(filterData),
                 success_callback: INFORMA.SearchResults.RenderSearchResults
             });

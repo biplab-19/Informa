@@ -1,0 +1,255 @@
+form.get-in-touch-popup {
+   display: none;
+}
+.form-btn-container {
+    width: 20%;
+    margin: 10px auto;
+}
+form.get-in-touch {
+    background-color: $gray-light-bg;
+    color: $white;
+    padding-left: 25%;
+    padding-right: 25%;
+    @include mobile {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    @include tablet {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .form-control {
+        border-radius: 0 !important;
+        width: 90% !important;
+        @include mobile {
+            width: 100% !important;
+        }
+    }
+    input.form-control {
+        border-radius: 0;
+        height: 50px;
+        background-color: $blue-lighter-bg;
+    }
+    textarea.form-control {
+        border-radius: 0;
+        background-color: $blue-lighter-bg;
+    }
+    input:focus,
+    textarea:focus {
+        outline: none !important;
+        border: 2px solid $brand-secondary;
+    }
+    label.error {
+        color: $brand-secondary !important;
+        font-size: 14px;
+        padding-top: 5px;
+    }
+    .form-submit-border {
+        padding-top: 56px;
+        position: relative;
+        padding-bottom: 20px;
+        .btn {
+            background-color: #ef7c00;
+            border: 0 !important;
+            color: $white;
+            position: absolute;
+            font-family: FSMe-bold !important;
+            right: 50px;
+            bottom: 15px;
+            width: 13%;
+            @include mobile {
+                right: 0;
+            }
+            @include tablet {
+                right: 90px;
+            }
+        }
+        .btn:after {
+            font-family: "InformaIcons" !important;
+            content: "\e900";
+            right: 10px;
+            color: $white;
+        }
+    }
+    .form-group {
+        width: 47% !important;
+        float: left;
+        @include mobile {
+            width: 100% !important;
+        }
+    }
+    .radio-width {
+        width: 109% !important;
+        @include mobile {
+            width: 100% !important;
+        }
+    }
+    .text-width {
+        width: 100% !important;
+        @include mobile {
+            width: 100% !important;
+        }
+    }
+    h1 {
+        font-family: FSMe-bold;
+    }
+    textarea {
+        border-radius: 0 !important;
+        height: 230px;
+        width: 75% !important;
+        @media (max-width: 1023px) and (min-width: 768px) {
+            width: 75% !important;
+        }
+    }
+    legend {
+        color: $blue-light-bg;
+        font-size: 20px;
+        border-bottom: none !important;
+    }
+    .radio {
+        width: 47%;
+        float: left;
+        display: inline-block;
+        margin-right: 10px;
+        margin-top: 18px;
+        position: relative;
+        @include mobile {
+            width: 100%;
+        }
+        .radio input[type="radio"]:before {
+            content: '|';
+            display: block;
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.25em;
+            border-radius: 1em;
+            border: 0.225em solid #fff;
+            margin-right: 0.75em;
+            background: $white;
+            transition: 0.5s ease all;
+            position: relative;
+            top: -2px;
+            color: white;
+        }
+        input[type="submit"] {
+            float: right;
+        }
+        label {
+            display: block;
+            //margin-left: 10px;
+        }
+        label.control-label {
+            font-family: FSMe-Light;
+            font-weight: normal;
+        }
+
+
+        //  label:before{
+        //    margin-right: 10px;
+        //    font-family: "InformaIcons" !important;
+        //    content: "\e914";
+        //    font-size: 25px;
+        //    color: white;
+        //    position: absolute;
+        //    left: 35px;
+        //  }
+        //  input[type="radio"]{
+        //    position: absolute;
+        //    left: 17px;
+        //    display: block;
+        //  }
+        //  input[type="radio"]:before{
+        //    margin-right: 10px;
+        //    height: 10px;
+        //    color: white;
+        //    position: absolute;
+        //    left: 5px;
+        //  }
+        //font-family: FSMe-light;
+    }
+    // :not(.lt-ie9) {
+    //     /* HTML5 Boilerplate accessible hidden styles */
+    //     .custom-checkbox input,
+    //     .custom-radio input {
+    //         border: 0;
+    //         clip: rect(0 0 0 0);
+    //         height: 1px;
+    //         margin: -1px;
+    //         overflow: hidden;
+    //         padding: 0;
+    //         position: absolute;
+    //         width: 1px;
+    //     }
+    //     /* the basic, unchecked style */
+    //     .custom-radio input + span::before {
+    //         content: '';
+    //         display: inline-block;
+    //         width: 1em;
+    //         height: 1em;
+    //         vertical-align: -0.25em;
+    //         border-radius: 1em;
+    //         border: 0.225em solid #fff;
+    //         margin-right: 0.75em;
+    //         background: $white;
+    //         transition: 0.5s ease all;
+    //         position: relative;
+    //         top: -2px;
+    //         left: -12px;
+    //     }
+    //     /* the checked style using the :checked pseudo class */
+    //     .custom-radio input:checked + span::before {
+    //         background: $input-orange;
+    //     }
+    // }
+}
+.form-modal.modal.fade .modal-dialog {
+    -webkit-transform: scale(0.1);
+    -moz-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    transform: scale(0.1);
+    top: 300px;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.form-modal.modal.fade.in .modal-dialog {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform: translate3d(0, -300px, 0);
+    transform: translate3d(0, -300px, 0);
+    opacity: 1;
+}
+.form-modal {
+    .modal-dialog {
+        width: 80%;
+        margin: 0 auto;
+        @include tablet {
+            width: 85%;
+        }
+        @include mobile {
+            width: 100%;
+        }
+    }
+    .modal-content {
+        border-radius: 0;
+        background-color: $gray-light-bg;
+        color: $white;
+        //margin-top: 20%;
+        @include tablet {
+            //  margin-top: 20%;
+        }
+        @include mobile {
+            //margin-top: 10%;
+        }
+    }
+    .modal-header {
+        border-bottom: 0;
+        .close {
+            color: $white;
+            opacity: 2;
+        }
+    }
+}

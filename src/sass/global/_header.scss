@@ -16,14 +16,16 @@ header {
             //  border-bottom: 1px solid $white;
             overflow: hidden;
             position: absolute;
-            z-index: 1;
+            z-index: 999;
             left: 0;
             right: 0;
             @include tablet {
               font-size: 13px;
+              z-index: 999;
             }
             @include mobile {
               font-size: 12px;
+              z-index: 999;
             }
         }
         .header-copyright-inner {
@@ -72,7 +74,12 @@ header {
             -ms-transition: all 0.2s;
             -o-transition: all 0.2s;
             transition: all 0.2s;
-
+            @include mobile {
+              padding-top: 5px;
+            }
+            @include tablet {
+              padding-top: 5px;
+            }
         }
         .header-copyright-inner.open {
             & .toggle::after {
@@ -84,24 +91,37 @@ header {
                 right: 0;
             }
             & .header-copyright-content {
-                max-height: 184px;
-                height: 220px;
+                max-height: 160px;
+                height: 160px;
                 opacity: 1;
-                padding-top: 48px;
+                padding-top: 20px;
                 filter: alpha(opacity=100);
                 @include mobile {
-                  max-height: 180px;
-                  height: 180px;
+                  max-height: 190px;
+                  height: 190px;
+                  padding-top: 20px;
                 }
                 @include tablet {
                   max-height: 180px;
                   height: 180px;
+                  padding-top: 15px;
                 }
                 & .header-copyright-text {
                     &:last-child {
                         border-left: 1px solid $white;
                         padding-left: 26px;
                         padding-top: 8px;
+                        @include mobile {
+                          padding-left: 5px;
+                          border-left: none;
+                          margin: 0 auto;
+                          padding-top: 0px;
+                        }
+                        @include tablet {
+                          padding-left: 15px;
+                          border-left: none;
+                          margin: 0 auto;
+                        }
                     }
                     & p {
                         word-wrap: break-word;
@@ -120,6 +140,9 @@ header {
                             &:after {
                                 content: "|";
                                 padding: 0 0.5em;
+                                @include mobile {
+	                                 padding: 0 0.3em;
+                                 }
                             }
                         }
                         & li:last-child:after {
@@ -492,7 +515,7 @@ header {
                         height: 100%;
                         .icon-chevron-down{
                             position: relative;
-                            top: 2px;
+                            top: 4px;
                             font-size: large;
                             padding-left: 15px; 
                         }
@@ -924,10 +947,25 @@ header {
                 &:last-child {
                     border-bottom: none;
                 }
+            }
+            @include desktop{
+                &:nth-last-child(2){
+        
+                    .top{
+                        padding-right: 0 !important;
+                    }
+                    li{
+                        padding-right: 0 !important;
+                    }
+                }
             }            
         }
         .heading {
             .top {
+                @include not-desktop{
+                    padding: 30px 0;
+                }
+
                 a {
                     color: $info-icon-color;
                     font-family: 'FSMe-light';
@@ -943,14 +981,20 @@ header {
                 @include mobile{
                     li{
                         padding: 30px 0;
-                        margin-bottom: 10px;
                     }
                 }
                 @include tablet{
                     li{
-                        padding: 35px 0;
-                        margin-bottom: 10px;
+                        padding: 30px 0;
                     }
+                }
+            }
+            p{
+                @include mobile{
+                    margin-bottom: 0;
+                }
+                @include tablet{
+                    margin-bottom: 0;
                 }
             }
         }
@@ -964,17 +1008,17 @@ header {
                 width: 50%;
                 float: left;
                 border-bottom: none;
-                padding: 30px 0;
+                padding: 20px 0;
             }
             @include tablet {
                 width: 50%;
                 float: left;
                 border-bottom: none;
-                padding: 35px 0;
+                padding: 20px 0;
             }
             &:after {
                 content: ">";
-                margin-left: 15px;
+                margin-left: 5px;
                 color: #a2a5ad;
             }
         }

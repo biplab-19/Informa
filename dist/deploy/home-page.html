@@ -13,11 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page</title>
 
-    <link rel="stylesheet" href="Static/css/global.css"/>
+    <!-- build:css(.tmp) Static/css/global.css -->
+    <link rel="stylesheet" href="Static/css/global.css">
+    <!-- endbuild -->
 
-    <link rel="stylesheet" href="Static/css/component.css"/>
+    <!-- build:css(.tmp) Static/css/component.css -->
+    <link rel="stylesheet" href="Static/css/component.css">
+    <!-- endbuild -->
 
-    <link rel="stylesheet" href="Static/css/agri-theme.css"/>
+    <!-- build:css(.tmp) Static/css/agri-theme.css -->
+    <link rel="stylesheet" href="Static/css/agri-theme.css">
+    <!-- endbuild -->
 
     <style type="text/css">
         body{
@@ -34,7 +40,22 @@
 
     </script>
 
-    <script src="Static/js/vendor.js"></script>
+    <!-- build:js Static/js/vendor.js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="bower_components/chosen/chosen.jquery.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+    <script src="bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <!--<script src="bower_components/vimeo-player-js/dist/player.min.js"></script>-->
+    <!--<script src="https://www.youtube.com/iframe_api"></script>-->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+    <script src="http://fast.wistia.com/static/concat/E-v1.js"></script>
+    <!-- endbuild -->
     <!--  only for local development-->
     <script src="Static/js/components/handlebar-helper.js"></script>
 
@@ -1780,14 +1801,13 @@ in the empire of Sapient. Har Har Mahadev !! --->
     </section>
 </footer> <!-- /#ad-footer -->
 <div class="video-mini-modal modal fade" id="videoMiniModal" tabindex="-1" role="dialog" aria-labelledby="videoMiniModalLabel">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="video">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close video-mini-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
               <div class="video-mini-player embed-responsive embed-responsive-16by9">
-
               </div>
             </div>
         </div>
@@ -1799,9 +1819,50 @@ in the empire of Sapient. Har Har Mahadev !! --->
 
 
 
-<script src="Static/js/main.js"></script>
+<!-- build:js Static/js/main.js -->
+<script src="Static/js/informaui.config.js"></script>
+<script src="Static/js/informaui.global.js"></script>
+<script src="Static/js/informaui.utils.js"></script>
+<script src="Static/js/informaui.data-loader.js"></script>
+<script src="Static/js/informaui.spinner.js"></script>
+<script src="Static/js/informaui.templates.js"></script>
+<script src="Static/js/informaui.int.js"></script>
+<!-- endbuild -->
 
-<script src="Static/js/components.js"></script>
+<!-- build:js Static/js/components.js -->
+<script src="Static/js/components/global_header.js"></script>
+<script src="Static/js/components/feature-list.js"></script>
+<script src="Static/js/components/sector-list.js"></script>
+<script src="Static/js/components/article-list.js"></script>
+<script src="Static/js/components/analyst-profile-events.js"></script>
+<script src="Static/js/components/global_footer.js"></script>
+<script src="Static/js/components/global.js"></script>
+<script src="Static/js/components/brand-list.js"></script>
+<script src="Static/js/components/brand-list.js"></script>
+<script src="Static/js/components/home_social.js"></script>
+<script src="Static/js/components/pdp-analyst.js"></script>
+<script src="Static/js/components/hero-banner.js"></script>
+<script src="Static/js/components/training-material.js"></script>
+<script src="Static/js/components/product-finder.js"></script>
+<script src="Static/js/components/search-filter.js"></script>
+<script src="Static/js/components/search-results.js"></script>
+<script src="Static/js/components/form-components.js"></script>
+<script src="Static/js/components/form-calendar.js"></script>
+<script src="Static/js/components/sectorpage-strengths.js"></script>
+<script src="Static/js/components/analyst-search.js"></script>
+<script src="Static/js/components/contact-us.js"></script>
+<script src="Static/js/components/contactUsPage-contactUs.js"></script>
+<script src="Static/js/components/analyst-profile.js"></script>
+
+<script src="Static/js/components/support-page-tabs.js"></script>
+<script src="Static/js/components/help-faq.js"></script>
+<script src="Static/js/components/resource-filter.js"></script>
+<script src="Static/js/components/video-full.js"></script>
+<script src="Static/js/components/video-mini.js"></script>
+<script src="Static/js/components/video-background.js"></script>
+<script src="Static/js/components/events-search-combine-1.js"></script>
+<script src="Static/js/components/form-get-in-touch.js"></script>
+<!-- endbuild -->
 
 </body>
 

@@ -24,8 +24,8 @@
 			position: relative;
 			color: $white;
 			@include tablet {
-				width: 25px;
-				height: 35px;
+				width: 35px;
+				height: 60px;
 			}
 			&:before {
 				position: absolute;
@@ -66,6 +66,7 @@
 			background-color: #f3f3f3;
 			position: relative;
 			.header {
+				display: block;
 				.date {
 					width: 55px;
 					height: 55px;

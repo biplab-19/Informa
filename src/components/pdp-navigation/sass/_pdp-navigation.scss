@@ -1,6 +1,6 @@
 nav#pdp-navigation {
       background: $yellow;
-      border-bottom: 2px solid #c0c1c2;
+      
       &.navbar-fixed-top {
             position: fixed;
             width: 100%;
@@ -26,40 +26,123 @@ nav#pdp-navigation {
             transition: .3s ease-in;
             display: none;
       }
-      @include mobile {
-            .menuFollower {
-                  display: none!important;
-            }
-            &.cont {
-                  li {
-                        pointer-events: none;
-                        // actually this is genius.
-                        // No.. Use bootstrap collapse. change html sumit
-                  }
-            }
-            ul {
-                  margin: 20px 0;
-                  border: 1px solid $light;
 
-                  li {
-                        width: 100%;
-                        display: none;
-                        &:first-child {
-                              display: block;
+      @include desktop{
+            .nav-pdp-nondesktop{
+                  display: none;
+            }
+            #pdp-sections{
+                  display: block;
+                  .nav-pdp-desktop-sticky{
+                        float: right;
+                        opacity: 0;
+                        a{
+                              height: 30px;
+                              padding: 5px;
+                              margin-top: 10px;
+                              margin-bottom: 10px;
+                              margin-left: 10px;
                         }
-                        &.selected {
-                              display: block;
-                              a {
-                                    &:after{
-                                          content: '>';
-                                          position: absolute;
-                                          right: 10px;
-                                          transform: rotate(90Deg);
-                                          color: $light;
-                                    }
-                              }
+                        &.move-left{
+                              opacity: 1;
+                              transition: opacity 2s ease-in;
+                        }
+                  }
+                  #pdp-sections-heading{
+                        color: $gray-dark-bg;
+                        font-size: 18px;
+                        opacity: 0;
+                        &.move-left{
+                              opacity: 1;
+                              transition: opacity 2s ease-in;
                         }
                   }
             }
       }
+      
+      @include not-desktop{
+            
+            .container{
+                  .row{
+                        position: relative;
+                        .nav-pdp-nondesktop{
+                              display: inline-block;
+                              height: 50px;
+                              text-align: center;
+                              padding: 15px 0;
+                              width: 95%;
+                              padding-left: 0;
+                              transition: width 2s, left 2s;
+                              &.move-left{
+                                    width: 20%;
+                                    padding-left: 7.5px;
+                                    @include tablet{
+                                          width: 5%;
+                                          padding-left: 15px;
+                                    }
+                              }
+                              >a{
+                                    position: relative;
+                                    color: $text-gray-dark;
+                                    &:after {
+                                          content: '>';
+                                          color: #343742;
+                                          position: absolute;
+                                          transform: rotate(90Deg);
+                                          -ms-transform: rotate(90Deg);
+                                          -webkit-transform: rotate(90Deg);
+                                          font-size: large;
+                                          top: -3px;
+                                          right: -20px;                 
+                                    }
+                                    &:hover{
+                                          text-decoration: none;
+                                    }
+                                    &:focus{
+                                          text-decoration: none;
+                                    }
+                              }
+                        }
+                        .nav-pdp-nondesktop-sticky{
+                              position: absolute;
+                              top: 0;
+                              right: 0;
+                              opacity: 0;
+
+                              a{
+                                    height: 30px;
+                                    padding: 5px;
+                                    margin-top: 10px;
+                                    margin-bottom: 10px;
+                                    margin-right: 10px;
+                              }
+                              &.move-left{
+                                    opacity: 1;
+                                    transition: opacity 2s ease-in;
+                              }
+                        }
+                        #pdp-sections{
+                              display: none;
+                              ul{
+                                    margin-top: 0;
+                                    margin-bottom: 0;
+                                    li {
+                                          width: 100%;
+                                          display: block;   
+                                    }
+                              }
+                              #pdp-sections-heading{
+                                    text-align: center;
+                                    color: $gray-dark-bg;
+                                    font-size: 18px;
+                              }
+                        }    
+                  }
+            }
+
+            .menuFollower {
+                  display: none!important;
+            }
+      }
+      
 }

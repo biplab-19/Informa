@@ -40,7 +40,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
         
-        INFORMA.Spinner.Show($('body'));
+        //INFORMA.Spinner.Show($('body'));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
             data: data,
@@ -95,7 +95,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
               }
           }
           List.html(html);
-           // NoEventsFound();
+           NoEventsFound();
            EqualHeight();
             
           CheckCount();
@@ -125,9 +125,9 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
             if(Items > Count) {
                 jQuery(this).find('.events-section:nth-child(n+'+(Count+1)+')').hide();
-                jQuery(this).next('.more-events').show();
+                jQuery(this).next('.more-events').find('.btn-more-events').removeClass('hidden');
             } else {
-                jQuery(this).next('.more-events').hide();
+                jQuery(this).next('.more-events').find('.btn-more-events').addClass('hidden');
             }
         })
     },
@@ -137,10 +137,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             DatePass = moment(date).format('MMMM YYYY');
             EqualHeight();
         var obj = {
-            MonthYear: DatePass
+            data:JSON.stringify({MonthYear: DatePass})
         }
         _previousDate = date;
-        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderLoadEvents, null, null);
+        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderLoadEvents, null, null);
         CheckCount();
     },
 
@@ -173,7 +173,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         }
 
         List.find('.previous').addClass('arrow-desabled');
-        //NoEventsFound(data);
+        NoEventsFound();
         Calendar.html("");
         Calendar.fullCalendar({
                 header: header,
@@ -281,13 +281,14 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     var CurrentDate = new Date(),
                         ItemDate = new Date(event.start._i),
                         DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
-                        CountryText = "";
-
+                        CountryText = "",
+                        ViewDate = view;
+                        debugger;
                         if(event.Country != null) {
                             CountryText = event.Country;
                         }
                         
-                    if(moment(CurrentDate).format('DD MMM YYYY') > moment(ItemDate).format('DD MMM YYYY')) {
+                    if(moment(CurrentDate) > moment(ItemDate)) {
                         return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                     } else if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
                         return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
@@ -303,10 +304,11 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         var NextMonth = moment(date).format('MMMM YYYY'); 
                 
                 var obj = { 
-                        MonthYear: NextMonth, 
-                        SectorId: SectorSelect.val() 
+                     data:JSON.stringify({MonthYear: NextMonth, 
+                        SectorId: SectorSelect.val()})
                 } 
-        GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null); 
+        
+        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
 
     },
 
@@ -361,7 +363,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             jQuery('body').addClass(ViewMode);
             jQuery('section[data-view="'+ViewMode+'"]').show();
             
-            //NoEventsFound();
+            NoEventsFound();
             
         })
 
@@ -376,54 +378,63 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
             var obj = {
-                MonthYear: check.format('MMMM YYYY'),
+              data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
                 SectorId: SectorSelect.val(),
-                Country: Country.val()
-            }
-            
+              Country: Country.val()})
+            } 
             _previousDate = new Date(value);
 
-            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
+            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-            // NoEventsFound();
+            NoEventsFound();
         })
         Country.on('change', function() {
             var value = jQuery(this).val();
-            var check = moment(new Date(value));
+            var check = moment(new Date(MonthSelect.val()));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
             var obj = {
-                MonthYear: check.format('MMMM YYYY'),
+               data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
                 SectorId: SectorSelect.val(),
-                Country: jQuery(this).val()
+               Country: jQuery(this).val()})
             }
             
             _previousDate = new Date(value);
 
-            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
+            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-            // NoEventsFound();
+            NoEventsFound();
         })
 
         
         SectorSelect.on('change', function(){
             var obj = {
-                MonthYear: MonthSelect.val(),
+              data:JSON.stringify({  MonthYear: MonthSelect.val(),
                 SectorId: jQuery(this).val(),
-                Country: Country.val()
+              Country: Country.val()})
             }
 
             _previousDate = new Date(MonthSelect.val());
-            GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
+            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-            // NoEventsFound(); 
+            NoEventsFound(); 
         })
 
     },
+    NoEventsFound = function() {
+        
+        var Container = jQuery('.events-container'),
+            Items = Container.find('.events-section');
 
+            if(Items.length > 0) {
+                jQuery('.no-result').addClass('hidden');
+            } else {
+                jQuery('.no-result').removeClass('hidden');
+            }
+    },
     MoreEventsFunc = function() {
         MoreEvents.on('click', function() {
             var Parent = jQuery(this).parents('section'),
@@ -438,37 +449,37 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         $(document).on('click', 'section[data-view="list-view"] .next', function() {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date(DateText),
-                    prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
+                    prevMonth = moment(ViewDate).add('months', 1).format('MMMM YYYY');
                     
                     var obj = {
-                        MonthYear: prevMonth,
+                       data:JSON.stringify({  MonthYear: prevMonth,
                         SectorId: SectorSelect.val(),
-                        Country: Country.val()
+                       Country: Country.val()})
                     }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', 1));
                     jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
+                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
         })
         $(document).on('click','.fc-next-button, .fc-prev-button', function(){
-            var currentMonth = jQuery(this).parents('.fc-toolbar').find('h2');
+            var currentMonth = jQuery(this).parents('.fc-toolbar').find('h2').text();
             RenderParticularMonth(currentMonth);
         })
         $(document).on('click', 'section[data-view="list-view"] .previous', function() {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date(DateText),
-                    prevMonth = moment(ViewDate).add('months', 1).format('MMMM YYYY');
+                    prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
                     
                     var obj = {
-                        MonthYear: prevMonth,
+                      data:JSON.stringify({   MonthYear: prevMonth,
                         SectorId: SectorSelect.val(),
-                        Country: Country.val()
+                      Country: Country.val()})
                     }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', -1));
                     jQuery('section[data-view="calendar-view"]').hide();
-                    GetAjaxData(Urls.EventsSearch, "Get", JSON.stringify(obj), RenderChange, null, null);
+                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
         })
     }
