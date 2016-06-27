@@ -28,7 +28,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _headerPosMobile = 0,
         _fixed = 'navbar-fixed-top',
         _isHeaderFixed = false,
-        _heroBannerHeading = $('#hero-banner h1').text(),
+        _heroBannerHeading = $('#banner h1').text(),
 
 
         // for sticky nav of pdp-navigation
@@ -84,9 +84,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _expandedServicesNav = false,
 
 
-        _tryStick = $('#hero-banner .try-stick'),
-        _subscribeStick = $('#hero-banner .subscribe-stick'),
-        _headingStick = $('#hero-banner h1'),
+        _tryStick = $('#banner .try-stick'),
+        _subscribeStick = $('#banner .subscribe-stick'),
+        _headingStick = $('#banner h1'),
         _tryStickPosition = 0,
         _headingStickPosition = 0,
 
