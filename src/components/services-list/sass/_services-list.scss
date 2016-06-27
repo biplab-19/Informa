@@ -99,6 +99,9 @@ section#services-list {
         .image-thumbnail {
             overflow: hidden;
             position: relative;
+            .image-resp{
+                width: 100%;
+            }
             &:after {
                 content: '';
                 width: 110%;
@@ -107,7 +110,7 @@ section#services-list {
                 -ms-transform: rotate(-5deg);
                 -webkit-transform: rotate(-5deg);
                 transform: rotate(-5deg);
-                top: calc(100% - 27px);
+                top: calc(100% - 20px);
                 left: 0;
                 background-color: $blue-light-bg;
             }
@@ -122,6 +125,12 @@ section#services-list {
     @include desktop {
         .row {
             padding-left: 15px;
+            .image-thumbnail {
+                margin-bottom: 25px;
+                &:after {
+                    top: calc(100% - 27px);
+                }
+            }
         }
         .row [class*='col-'] {
             padding-left: 0;
@@ -149,18 +158,19 @@ section#services-list {
             .image-thumbnail {
                 width: 50%;
                 height: 50%;
+                margin-bottom: 25px;
             }
         }
         section:nth-child(even) {
             .image-thumbnail {
                 float: left;
-                padding-right: 25px;
+                margin-right: 25px;
             }
         }
         section:nth-child(odd) {
             .image-thumbnail {
                 float: right;
-                padding-left: 25px;
+                margin-left: 25px;
             }
         }
         header {
