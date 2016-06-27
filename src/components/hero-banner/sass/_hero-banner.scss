@@ -67,12 +67,9 @@ section#hero-banner {
   	}
     .bg-img {
   		position:absolute;
-  		left: -43px;
-      @include mobile {
-        left: -60px;
-      }
-      @include tablet {
-        left: -430px;
+  		left: 0;
+      img{
+        width: 112%;
       }
   	}
     .subtext {
@@ -239,6 +236,7 @@ section#hero-banner {
       //adding styles for anlayst
      //  for 3 images
       &.analyst{
+        background-color: #ffd80f;
         height: 650px;
         overflow: hidden;
         padding-bottom: 20px;
