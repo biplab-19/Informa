@@ -14,27 +14,40 @@ var INFORMA = window.INFORMA || {};
 INFORMA.featureList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _featureList = $('#feature-list'),
-    // methods
+    var _featureList = $('.feature-list'),
+        _featureListSection = $('.feature-list-section'),
+        // methods
         init,
+        _hideList,
         _bindShowMore;
 
-    _bindShowMore = function(container){
+    _bindShowMore = function() {
         // if data-items, data-infinite is defined, used it
-        var _showMore = $('.btn-showMore',container);
-       var _limit = container.data(INFORMA.global.device.viewport) + 1;
-        $('.feature-list-container:nth-child(n+'+_limit+')').hide();
-        _showMore.on('click',function(){
-            var _vp = INFORMA.global.device.viewport;
-            var _limit = container.data(INFORMA.global.device.viewport) + 1;
-            _featureList.children().find('.feature-list-container:nth-child(n+'+_limit+')').slideToggle();
-            $(this).toggleClass('showLess');
+        var _showMore = jQuery('.btn-showMore');
+        _showMore.on('click', function() {
+            var _vp = INFORMA.global.device.viewport,
+                _limit = jQuery(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1,
+                moreItems = jQuery(this).parents('.feature-list-section').find('.feature-list-container:nth-child(n+' + _limit + ')');
+            if (jQuery(this).parents('.feature-list-section').find('.feature-list:visible').length > _limit) {
+                jQuery(this).addClass('showLess');
+                moreItems.slideUp();
+            } else {
+                moreItems.slideDown();
+                jQuery(this).removeClass('showLess');
+            }
         });
     }
+    _hideList = function(ListItems) {
+        ListItems.each(function() {
+            var _limit = jQuery(this).data(INFORMA.global.device.viewport) + 1;
+            jQuery(this).find('.feature-list-container:nth-child(n+' + _limit + ')').hide();
 
+        });
+    }
     init = function() {
-        if (_featureList.length > 0) {
-            _bindShowMore(_featureList);
+        if (_featureListSection.length > 0) {
+            _hideList(_featureListSection);
+            _bindShowMore();
         }
     };
 

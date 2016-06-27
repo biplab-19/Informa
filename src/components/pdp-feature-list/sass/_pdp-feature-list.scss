@@ -1,8 +1,8 @@
-section#feature-list{
+section#feature-list, section.feature-list-section {
     background: $light;
     padding: 20px 0;
     @include mobile {
-        padding:5px 0 25px;
+        padding: 5px 0 25px;
         h1 {
             font-size: 24px;
         }
@@ -12,7 +12,9 @@ section#feature-list{
         width: 25%;
         padding: 40px 40px 20px;
         @include limitHeight(257px); // 1 headlne, 4 copy text
-        .feature-image, .headText, p {
+        .feature-image,
+        .headText,
+        p {
             text-align: center;
         }
         .headText {
@@ -30,7 +32,7 @@ section#feature-list{
              width: 33.3333%;
              padding: 40px 35px 20px;
        }
-        @include mobile{
+        @include mobile {
             width: 100%;
             padding: 30px 40px;
             .headText {
@@ -43,28 +45,39 @@ section#feature-list{
     }
     .btn-showMore {
         background: none;
-        width: 260px;
-        padding: 15px 0;
+        width: 160px;
+        padding: 10px 0;
         margin: 0 auto;
         text-align: left;
         color: $text-gray-dark;
         border: none;
         border-bottom: 2px solid $yellow;
         display: block;
+        cursor: pointer;
         @include mobile {
-            width: 100%;
+            width: 50%;
+            padding-bottom: 35px;
+            text-align: center;
         }
         &:after {
-            content: '+';
-            right: 10px;
-            color: #fff;
-            background: #ffd500;
+            font-family: 'InformaIcons';
+            content: '\e912';
+            color: $brand-secondary;
+            right: 0;
             height: 30px;
             width: 30px;
             text-align: center;
             border-radius: 14px;
-            font-size: 24px;
-            top: 9px;
+            font-size: 30px;
+            top: -2px;
+            @include mobile {
+                right: 50%;
+                margin-right: -15px;
+                top: 25px;
+            }
+        }
+        &:focus {
+            outline: 0;
         }
         span.more {
             display: block;
@@ -80,7 +93,9 @@ section#feature-list{
                 display: block;
             }
             &:after {
-                content: '-';
+                font-family: 'InformaIcons';
+                content: '\e913';
+                color: $brand-secondary;
             }
         }
     }
