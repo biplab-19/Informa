@@ -1,4 +1,4 @@
-/*! 2016-06-25 */var INFORMA = window.INFORMA || {};
+/*! 2016-06-27 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
@@ -786,11 +786,11 @@ var INFORMA = window.INFORMA || {};
                                     '{{/if}}'+
                                 '</div>'+
                             '</div>'+
-                            '{{#if PageUrl}}'+
-                                '<div class="btn-container">'+
-                                  '<a role="button" href="{{PageUrl.url}}" class="btn btn-default" target="{{PageUrl.target}}">{{PageUrl.linkText}}</a>'+
-                                '</div>'+
-                            '{{/if}}'+
+                            '{{#if PageURL}}' +
+                                '<div class="btn-container">' +
+                                  '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>' +
+                                '</div>' +
+                            '{{/if}}' +
                         '</div>'+
                     '</div>'
 
