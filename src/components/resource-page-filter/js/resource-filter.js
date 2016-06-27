@@ -1,15 +1,3 @@
-/*
- * Resource Filter.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Rajiv
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
 var INFORMA = window.INFORMA || {};
 INFORMA.ResourceFilter = (function(window, $, namespace) {
     'use strict';
@@ -56,10 +44,16 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     UpdateSearchResult = function(filterData) {
         INFORMA.Spinner.Show($("body"));
         var Guid = BtnMore.attr('data-ContainerGuid'),
-            typeGuid = BtnMore.attr('data-Contenttypeguid');
+            typeGuid = BtnMore.attr('data-Contenttypeguid'),
+            InformationType = jQuery(this).attr('data-InformationType'),
+                Role = jQuery(this).attr('data-Role'),
+                Brand = jQuery(this).attr('data-Brand');
 
         filterData.ContainerGuid = Guid;
         filterData.ContenttypeGuid = typeGuid;
+        filterData.InformationType = InformationType;
+        filterData.Role = Role;
+        filterData.Brand = Brand;
         INFORMA.DataLoader.GetServiceData(Urls.ResourceList, {
             method: "Post",
             data: JSON.stringify(filterData),
@@ -402,12 +396,19 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             e.preventDefault();
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
+                InformationType = jQuery(this).attr('data-InformationType'),
+                Role = jQuery(this).attr('data-Role'),
+                Brand = jQuery(this).attr('data-Brand'),
                 typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid');
                 pageNumber = 2;
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
 
             MergeItems.ContainerGuid = Guid;
-            MergeItems.ContenttypeGuid = typeGuid
+            MergeItems.ContenttypeGuid = typeGuid;
+            MergeItems.InformationType = InformationType;
+            MergeItems.Role = Role;
+            MergeItems.Brand = Brand;
+
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
@@ -441,14 +442,20 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery(this).attr('data-ContainerGuid'),
                 typeGuid = jQuery(this).attr('data-ContenttypeGuid'),
+                Role = jQuery(this).attr('data-Role'),
+                InformationType = jQuery(this).attr('data-InformationType'),
+                Brand = jQuery(this).attr('data-Brand'),
                 Count = ResourceListContainer.data('count');
 
-            var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
-            
+            var MergeItems = GetFilterData();
+
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid;
             MergeItems.PageNo = pageNumber;
-            
+            MergeItems.Role = Role;
+            MergeItems.Brand = Brand;
+            MergeItems.InformationType = InformationType;
+            pageNumber++;
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
         })
