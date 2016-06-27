@@ -38,8 +38,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
 
     _validateGetInTouchForm = function() {
-        var validateForm = $('#wffmf08f51d884c44844af6fa7f4b7395985').validate();
-        validateForm.reset();
+        $('#wffmf08f51d884c44844af6fa7f4b7395985').validate();
     }
 
     init = function() {
