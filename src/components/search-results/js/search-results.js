@@ -353,6 +353,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
                 if (Results && Object.keys(Results).length) {
                     AllResults.hide();
+                    $(".no-results").hide();
                     CreateSearchResult(Results);
                 }else{
                     AllResults.hide();
