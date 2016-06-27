@@ -492,7 +492,7 @@ header {
                         height: 100%;
                         .icon-chevron-down{
                             position: relative;
-                            top: 2px;
+                            top: 4px;
                             font-size: large;
                             padding-left: 15px; 
                         }
@@ -924,6 +924,17 @@ header {
                 &:last-child {
                     border-bottom: none;
                 }
+            }
+            @include desktop{
+                &:nth-last-child(2){
+        
+                    .top{
+                        padding-right: 0 !important;
+                    }
+                    li{
+                        padding-right: 0 !important;
+                    }
+                }
             }            
         }
         .heading {
@@ -943,14 +954,20 @@ header {
                 @include mobile{
                     li{
                         padding: 30px 0;
-                        margin-bottom: 10px;
                     }
                 }
                 @include tablet{
                     li{
-                        padding: 35px 0;
-                        margin-bottom: 10px;
+                        padding: 30px 0;
                     }
+                }
+            }
+            p{
+                @include mobile{
+                    margin-bottom: 0;
+                }
+                @include tablet{
+                    margin-bottom: 0;
                 }
             }
         }
@@ -970,7 +987,7 @@ header {
                 width: 50%;
                 float: left;
                 border-bottom: none;
-                padding: 35px 0;
+                padding: 30px 0;
             }
             &:after {
                 content: ">";
