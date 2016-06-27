@@ -734,8 +734,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
 
         MoreEvents = $('.btn-more-events'),
-       _Start = moment(new Date()).format('MMMM YYYY'),
-       _end = moment(_Start).add('months', 11).format('MMMM YYYY'),
+       _Start = moment(new Date(), 'MMMM YYYY'),
+       _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
         _previousDate = null,
@@ -808,9 +808,9 @@ INFORMA.EventsViews = (function(window, $, namespace) {
           CheckCount();
             
           var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
-                ViewDate = moment(new Date(ViewDateText)).format('MMMM YYYY');
+                ViewDate = moment(new Date(ViewDateText), 'MMMM YYYY');
                 
-          if(moment(ViewDate).format('MMMM YYYY') == _Start) {
+          if(moment(ViewDate, 'MMMM YYYY') == _Start) {
             List.find('.previous').addClass('arrow-desabled');
           } else {
              List.find('.previous').removeClass('arrow-desabled');
@@ -841,7 +841,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     RenderOnLoad = function() {
         jQuery('body').addClass('list-view');
         var date = new Date(),
-            DatePass = moment(date).format('MMMM YYYY');
+            DatePass = moment(date, 'MMMM YYYY');
             EqualHeight();
         var obj = {
             data:JSON.stringify({MonthYear: DatePass})
@@ -898,7 +898,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         endMonth = endDate.getMonth(),
                         endYear = endDate.getYear(),
                         nextMonth = moment(viewDate).add('months', 1).toDate(),
-                        nextDetails = moment(nextMonth).format('MMM-YYYY');
+                        nextDetails = moment(nextMonth, 'MMM-YYYY');
 
                     if(currentMonth === viewMonth && currentYear === viewYear) {
                         jQuery('.fc-prev-button').addClass('disabled');
@@ -977,8 +977,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
                         OtherMonths.each(function() {
                             var DateView = $(this).data('date'),
-                                Month = moment(new Date(DateView)).format('MMM'),
-                                Dates = moment(new Date(DateView)).format('DD');
+                                Month = moment(new Date(DateView), 'MMM'),
+                                Dates = moment(new Date(DateView), 'DD');
                                 
                             $(this).html(Dates + '<sup>\/' +Month+ '</sup>');
                         })
@@ -987,7 +987,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 eventRender: function(event, element, view) {
                     var CurrentDate = new Date(),
                         ItemDate = new Date(event.start._i),
-                        DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
+                        DateAttr = moment(ItemDate, 'YYYY-MM-DD'),
                         CountryText = "",
                         ViewDate = view;
                         debugger;
@@ -2964,13 +2964,15 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             typeGuid = BtnMore.attr('data-Contenttypeguid'),
             InformationType = jQuery(this).attr('data-InformationType'),
                 Role = jQuery(this).attr('data-Role'),
-                Brand = jQuery(this).attr('data-Brand');
+                Brand = jQuery(this).attr('data-Brand'),
+                Count = jQuery('section.resource-list').attr('data-count');
 
         filterData.ContainerGuid = Guid;
         filterData.ContenttypeGuid = typeGuid;
         filterData.InformationType = InformationType;
         filterData.Role = Role;
         filterData.Brand = Brand;
+        filterData.PageSize = Count;
         INFORMA.DataLoader.GetServiceData(Urls.ResourceList, {
             method: "Post",
             data: JSON.stringify(filterData),
@@ -3313,10 +3315,11 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             e.preventDefault();
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
-                InformationType = jQuery(this).attr('data-InformationType'),
-                Role = jQuery(this).attr('data-Role'),
-                Brand = jQuery(this).attr('data-Brand'),
-                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid');
+                InformationType = jQuery('.btn-showMore').attr('data-InformationType'),
+                Role = jQuery('.btn-showMore').attr('data-Role'),
+                Brand = jQuery('.btn-showMore').attr('data-Brand'),
+                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
+                Count = jQuery('section.resource-list').attr('data-count');
                 pageNumber = 2;
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
 
@@ -3325,7 +3328,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             MergeItems.InformationType = InformationType;
             MergeItems.Role = Role;
             MergeItems.Brand = Brand;
-
+            MergeItems.PageSize = Count;
+            debugger;
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
@@ -3364,7 +3368,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 Brand = jQuery(this).attr('data-Brand'),
                 Count = ResourceListContainer.data('count');
 
-            var MergeItems = GetFilterData();
+            var MergeItems = GetRefineData();
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid;
@@ -3372,7 +3376,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             MergeItems.Role = Role;
             MergeItems.Brand = Brand;
             MergeItems.InformationType = InformationType;
-            pageNumber++;
+            MergeItems.PageSize = Count;
+
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
         })
