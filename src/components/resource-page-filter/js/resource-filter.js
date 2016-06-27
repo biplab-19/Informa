@@ -47,13 +47,15 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             typeGuid = BtnMore.attr('data-Contenttypeguid'),
             InformationType = jQuery(this).attr('data-InformationType'),
                 Role = jQuery(this).attr('data-Role'),
-                Brand = jQuery(this).attr('data-Brand');
+                Brand = jQuery(this).attr('data-Brand'),
+                Count = jQuery('section.resource-list').attr('data-count');
 
         filterData.ContainerGuid = Guid;
         filterData.ContenttypeGuid = typeGuid;
         filterData.InformationType = InformationType;
         filterData.Role = Role;
         filterData.Brand = Brand;
+        filterData.PageSize = Count;
         INFORMA.DataLoader.GetServiceData(Urls.ResourceList, {
             method: "Post",
             data: JSON.stringify(filterData),
@@ -396,10 +398,11 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             e.preventDefault();
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
-                InformationType = jQuery(this).attr('data-InformationType'),
-                Role = jQuery(this).attr('data-Role'),
-                Brand = jQuery(this).attr('data-Brand'),
-                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid');
+                InformationType = jQuery('.btn-showMore').attr('data-InformationType'),
+                Role = jQuery('.btn-showMore').attr('data-Role'),
+                Brand = jQuery('.btn-showMore').attr('data-Brand'),
+                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
+                Count = jQuery('section.resource-list').attr('data-count');
                 pageNumber = 2;
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
 
@@ -408,7 +411,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             MergeItems.InformationType = InformationType;
             MergeItems.Role = Role;
             MergeItems.Brand = Brand;
-
+            MergeItems.PageSize = Count;
+            debugger;
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
@@ -447,7 +451,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 Brand = jQuery(this).attr('data-Brand'),
                 Count = ResourceListContainer.data('count');
 
-            var MergeItems = GetFilterData();
+            var MergeItems = GetRefineData();
 
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid;
@@ -455,7 +459,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             MergeItems.Role = Role;
             MergeItems.Brand = Brand;
             MergeItems.InformationType = InformationType;
-            pageNumber++;
+            MergeItems.PageSize = Count;
+
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
         })
