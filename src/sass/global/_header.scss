@@ -16,14 +16,16 @@ header {
             //  border-bottom: 1px solid $white;
             overflow: hidden;
             position: absolute;
-            z-index: 1;
+            z-index: 999;
             left: 0;
             right: 0;
             @include tablet {
               font-size: 13px;
+              z-index: 999;
             }
             @include mobile {
               font-size: 12px;
+              z-index: 999;
             }
         }
         .header-copyright-inner {
@@ -72,7 +74,12 @@ header {
             -ms-transition: all 0.2s;
             -o-transition: all 0.2s;
             transition: all 0.2s;
-
+            @include mobile {
+              padding-top: 5px;
+            }
+            @include tablet {
+              padding-top: 5px;
+            }
         }
         .header-copyright-inner.open {
             & .toggle::after {
@@ -84,24 +91,37 @@ header {
                 right: 0;
             }
             & .header-copyright-content {
-                max-height: 184px;
-                height: 220px;
+                max-height: 160px;
+                height: 160px;
                 opacity: 1;
-                padding-top: 48px;
+                padding-top: 20px;
                 filter: alpha(opacity=100);
                 @include mobile {
-                  max-height: 180px;
-                  height: 180px;
+                  max-height: 190px;
+                  height: 190px;
+                  padding-top: 20px;
                 }
                 @include tablet {
                   max-height: 180px;
                   height: 180px;
+                  padding-top: 15px;
                 }
                 & .header-copyright-text {
                     &:last-child {
                         border-left: 1px solid $white;
                         padding-left: 26px;
                         padding-top: 8px;
+                        @include mobile {
+                          padding-left: 5px;
+                          border-left: none;
+                          margin: 0 auto;
+                          padding-top: 0px;
+                        }
+                        @include tablet {
+                          padding-left: 15px;
+                          border-left: none;
+                          margin: 0 auto;
+                        }
                     }
                     & p {
                         word-wrap: break-word;
@@ -120,6 +140,9 @@ header {
                             &:after {
                                 content: "|";
                                 padding: 0 0.5em;
+                                @include mobile {
+	                                 padding: 0 0.3em;
+                                 }
                             }
                         }
                         & li:last-child:after {
