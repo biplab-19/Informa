@@ -264,7 +264,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     var ResultName = key,
                         Data = DataObject[key],
                         ListTemplate = Handlebars.compile(Template);
-                        if(Data.length > 0){
+                        if(Data && Data.length > 0){
                             if(labelsObject){
                                 Data.FilterName = labelsObject[ResultName];
                             }
