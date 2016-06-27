@@ -295,9 +295,9 @@ header {
                         }
                     }
                     .navbar-right{
-                        border-left: 1px solid $gray-header;
                         margin-right: 15px;
                         .touch{
+                            border-left: 1px solid $gray-header;
                             height: inherit;
                             a{
                                 height: 50px;
@@ -1003,7 +1003,7 @@ header {
         }
         
         .top {
-            padding: 0 40px 10px 0;
+            padding: 0 50px 10px 0;
             color: $white;
             border-bottom: 1px solid #777b87;
             font-family: 'FSMe-bold';
@@ -1029,7 +1029,7 @@ header {
             list-style-type: none;
             padding: 0;
             li {
-                padding: 5px 40px 5px 0;
+                padding: 5px 50px 5px 0;
                 @include mobile {
                     padding: 20px 0;
                 }
