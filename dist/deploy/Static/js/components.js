@@ -482,7 +482,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             equalHeights();
 
         },
-        CreateSlider = function(el,mobileScroll) {
+        CreateSlider = function(el,mobileScroll,ipadScroll) {
             var _listItemCounts = GetListCount(el),
                 Options = GetCarouselOptions(el);
 
@@ -503,8 +503,8 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                     }, {
                         breakpoint: 600,
                         settings: {
-                            slidesToShow: (_listItemCounts >= 2) ? 2 : _listItemCounts,
-                            slidesToScroll: 2
+                            slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
+                            slidesToScroll: ipadScroll
                         }
                     }, {
                         breakpoint: 480,
@@ -522,10 +522,10 @@ INFORMA.ArticleList = (function(window, $, namespace) {
 
     init = function() {
         if (_ArticleLists.length > 0) {
-            CreateSlider(_ArticleLists,1);
+            CreateSlider(_ArticleLists,1,2);
         }
         if (_HeadlinesLists.length > 0) {
-            CreateSlider(_HeadlinesLists,2);
+            CreateSlider(_HeadlinesLists,2,4);
         }
         if (FilterMenu && !isExperienceMode) {
             $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
@@ -1786,7 +1786,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _headerPosMobile = 0,
         _fixed = 'navbar-fixed-top',
         _isHeaderFixed = false,
-        _heroBannerHeading = $('#hero-banner h1').text(),
+        _heroBannerHeading = $('#banner h1').text(),
 
 
         // for sticky nav of pdp-navigation
@@ -1842,9 +1842,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _expandedServicesNav = false,
 
 
-        _tryStick = $('#hero-banner .try-stick'),
-        _subscribeStick = $('#hero-banner .subscribe-stick'),
-        _headingStick = $('#hero-banner h1'),
+        _tryStick = $('#banner .try-stick'),
+        _subscribeStick = $('#banner .subscribe-stick'),
+        _headingStick = $('#banner h1'),
         _tryStickPosition = 0,
         _headingStickPosition = 0,
 
@@ -2973,16 +2973,10 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     UpdateSearchResult = function(filterData) {
         INFORMA.Spinner.Show($("body"));
         var Guid = BtnMore.attr('data-ContainerGuid'),
-            typeGuid = BtnMore.attr('data-Contenttypeguid'),
-                InformationType = BtnMore.attr('data-InformationType'),
-                Role = BtnMore.attr('data-Role'),
-                Brand = BtnMore.attr('data-Brand');
+            typeGuid = BtnMore.attr('data-Contenttypeguid');
 
         filterData.ContainerGuid = Guid;
         filterData.ContenttypeGuid = typeGuid;
-        filterData.InformationType = InformationType;
-        filterData.Role = Role;
-        filterData.Brand = Brand;
         INFORMA.DataLoader.GetServiceData(Urls.ResourceList, {
             method: "Post",
             data: JSON.stringify(filterData),
@@ -3325,18 +3319,12 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             e.preventDefault();
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
-                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
-                InformationType = jQuery('.btn-showMore').attr('data-InformationType'),
-                Role = jQuery('.btn-showMore').attr('data-Role'),
-                Brand = jQuery('.btn-showMore').attr('data-Brand'),
+                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid');
                 pageNumber = 2;
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
 
             MergeItems.ContainerGuid = Guid;
-            MergeItems.ContenttypeGuid = typeGuid;
-            MergeItems.InformationType = InformationType;
-            MergeItems.Role = Role;
-            MergeItems.Brand = Brand;
+            MergeItems.ContenttypeGuid = typeGuid
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
@@ -3370,19 +3358,13 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery(this).attr('data-ContainerGuid'),
                 typeGuid = jQuery(this).attr('data-ContenttypeGuid'),
-                Count = ResourceListContainer.data('count'),
-                InformationType = jQuery(this).attr('data-InformationType'),
-                Role = jQuery(this).attr('data-Role'),
-                Brand = jQuery(this).attr('data-Brand');
+                Count = ResourceListContainer.data('count');
 
             var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
             
             MergeItems.ContainerGuid = Guid;
             MergeItems.ContenttypeGuid = typeGuid;
             MergeItems.PageNo = pageNumber;
-            MergeItems.InformationType = InformationType;
-            MergeItems.Role = Role;
-            MergeItems.Brand = Brand;
             
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
