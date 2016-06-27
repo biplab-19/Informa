@@ -863,6 +863,7 @@ header {
                 }
                 ul{
                     border-top: 1px solid #777b87;
+                    width: 40%;
                     &.one{
                         columns: 1;
                         width: 40%;
@@ -939,6 +940,9 @@ header {
                 &:last-child {
                     border-bottom: none;
                 }
+                .labels{
+                    padding-left: 20px;
+                }
             }
             @include tablet {
                 float: none;
@@ -950,7 +954,6 @@ header {
             }
             @include desktop{
                 &:nth-last-child(2){
-        
                     .top{
                         padding-right: 0 !important;
                     }
@@ -1005,7 +1008,7 @@ header {
             border-bottom: 1px solid #777b87;
             font-family: 'FSMe-bold';
             @include mobile {
-                width: 50%;
+                width: 40%;
                 float: left;
                 border-bottom: none;
                 padding: 20px 0;
@@ -1083,4 +1086,5 @@ header {
         
     }
 }
+
 
