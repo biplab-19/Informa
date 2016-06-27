@@ -16,16 +16,16 @@ header {
             //  border-bottom: 1px solid $white;
             overflow: hidden;
             position: absolute;
-            z-index: 999;
+            z-index: 2;
             left: 0;
             right: 0;
             @include tablet {
               font-size: 13px;
-              z-index: 999;
+              z-index: 2;
             }
             @include mobile {
               font-size: 12px;
-              z-index: 999;
+              z-index: 2;
             }
         }
         .header-copyright-inner {
@@ -277,6 +277,7 @@ header {
                 .navbar-collapse{
                     padding-left: 0;
                     padding-right: 0;
+                    z-index: 0;
                     ul{
                         height: inherit;
                     }
