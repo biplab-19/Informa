@@ -4328,7 +4328,6 @@ INFORMA.videoBackground = (function(window, $, namespace) {
     };
 
     function onYTPlayerReady(event) {
-        console.log("Youtube player is ready");
         event.target.playVideo();
         event.target.setVolume(_youTubeSound);
     }
