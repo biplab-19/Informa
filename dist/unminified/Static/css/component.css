@@ -1,4 +1,4 @@
-/*! 2016-06-27 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-06-28 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -1291,65 +1291,70 @@ section#agri-report .agri-report-wrapper .download-report:after {
   }
 }
 /* line 111, ../../../src/components/home-contactus/sass/_contactus.scss */
+.contactus-list .panel .panel-body a {
+  font-size: 28px;
+  text-decoration: none;
+}
+/* line 115, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-number {
   font-size: 18px;
   min-height: 149px;
 }
 @media (max-width: 767px) {
-  /* line 111, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 115, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-number {
     display: none;
   }
 }
-/* line 118, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 122, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-cta {
   min-height: 120px;
 }
 @media (max-width: 767px) {
-  /* line 118, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 122, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-cta {
     min-height: auto;
     margin-bottom: 15px;
   }
 }
-/* line 125, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 129, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .subscribe-link {
   width: 100%;
   background: #ef7c00 url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
   border: none;
   padding-left: 45px;
 }
-/* line 131, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 135, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with {
   padding: 10px 0;
   font-size: 12px;
 }
-/* line 134, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 138, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with .copy {
   vertical-align: top;
   padding-top: 10px;
   display: inline-block;
 }
-/* line 139, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 143, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment {
   padding-right: 10px;
   height: 34px;
   width: 34px;
   display: inline-block;
 }
-/* line 145, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 149, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.amex {
   background: url(/Static/images/subscribe/amex.png);
 }
-/* line 148, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 152, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.visa {
   background: url(/Static/images/subscribe/visa.png);
 }
-/* line 151, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 155, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.mastercard {
   background: url(/Static/images/subscribe/mastercard.png);
 }
-/* line 159, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 163, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container select.subscribe-options {
   width: 100%;
   font-size: 13px;
@@ -1361,7 +1366,7 @@ section#agri-report .agri-report-wrapper .download-report:after {
   -o-appearance: none;
   background: #e1e3e7 url(/Static/images/subscribe/drop-down.png) no-repeat 95% 50%;
 }
-/* line 170, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 174, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container:last-child {
   width: 100%;
   padding: 15px;
@@ -1370,48 +1375,48 @@ section#agri-report .agri-report-wrapper .download-report:after {
   left: 0;
 }
 @media (max-width: 767px) {
-  /* line 170, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 174, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container:last-child {
     position: static;
     padding: 20px 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 157, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 161, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container {
     position: relative;
     padding: 0px;
   }
 }
-/* line 187, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 191, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .icon {
   padding-right: 8px;
 }
 
-/* line 194, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 198, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a {
   color: #ef7c00;
 }
-/* line 196, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 200, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a.btn {
   color: #fff;
 }
-/* line 201, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 205, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.three .contactus-list .panel-group .panel {
   width: 30.5%;
 }
-/* line 206, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 210, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.four .contactus-list .panel-group .panel {
   width: 22.5%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 206, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 210, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.four .contactus-list .panel-group .panel {
     width: 30.5%;
   }
 }
 @media (max-width: 767px) {
-  /* line 215, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 219, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.three .contactus-list .panel-group .panel, #contactus-section.four .contactus-list .panel-group .panel {
     width: 100%;
   }
@@ -5560,7 +5565,7 @@ section#casestudy-infograph .challenge-container .info-img:after, section#casest
   content: "";
   height: 1px;
   top: 50%;
-  border: 3px dashed #fff;
+  border: 2px dashed #fff;
   position: absolute;
   z-index: -1;
 }

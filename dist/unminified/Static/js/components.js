@@ -1,4 +1,4 @@
-/*! 2016-06-27 */_adjustHeigt = function(){
+/*! 2016-06-28 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -2326,6 +2326,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _servicesNavigationScrollTo();
         }
 
+        $('[data-toggle="popover"]').popover(); 
+        
         _whenScrolling();
         //}
         _bindNavigationEvents();
@@ -4247,6 +4249,9 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         _wistiaUrl,
         _vimeoUrl,
         ytPlayer,
+        _youTubeSound,
+        _wistiaSound,
+        _vimeoSound,
         _addOptions;
 
     _addOptions = function() {
@@ -4256,6 +4261,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
             if (_urlType == "youtube") {
 
                 _youTubeId = $(this).attr('data-videoid');
+                _youTubeSound = $(this).attr('data-videosound');
 
                 var playerYTElement = document.createElement('div');
                 playerYTElement.id = "youtubePlayer";
@@ -4271,6 +4277,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
                 _vimeoUrl = $(this).attr('data-videourl')
                 _vimeoId = $(this).attr('data-videoid');
+                _vimeoSound = $(this).attr('data-videosound');
 
                 var playerVMElement = document.createElement('div');
                 playerVMElement.id = "vimeoPlayer";
@@ -4283,30 +4290,20 @@ INFORMA.videoBackground = (function(window, $, namespace) {
                 };
 
                 var vimeoPlayer = new Vimeo.Player('vimeoPlayer', options);
-                vimeoPlayer.setVolume(0);
+                vimeoPlayer.setVolume(_vimeoSound);
 
             } else if (_urlType == "wistia") {
 
                 _wistiaUrl = $(this).attr('data-videourl')
                 _wistiaId = $(this).attr('data-videoid');
+                _wistiaSound = $(this).attr('data-videosound');
 
                 var iframeWSElement = document.createElement('iframe');
-                iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=0";
+                iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
                 $(this).append(iframeWSElement);
 
             }
-            /*_urlSrc = $(this).attr('src');
-            _urlSrcOptions = _urlSrc;
-
-            if (_urlType == "youtube") {
-                _urlSrcOptions = _urlSrc + "?autoplay=1&loop=1&controls=0&showinfo=0&enablejsapi=1";
-            } else if (_urlType == "vimeo") {
-                _urlSrcOptions = _urlSrc + "?autoplay=1&loop=true&setVolume=0";
-            } else if (_urlType == "wistia") {
-                _urlSrcOptions = _urlSrc + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=0";
-            }
-
-            $(this).attr('src', _urlSrcOptions);*/
+            
         });
 
     }
@@ -4332,7 +4329,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
     function onYTPlayerReady(event) {
         console.log("Youtube player is ready");
         event.target.playVideo();
-        event.target.setVolume(0);
+        event.target.setVolume(_youTubeSound);
     }
 
     init = function() {
