@@ -302,9 +302,6 @@ td.fc-day.fc-widget-content {
     @include mobile {
     	border: 1px solid #f3f3f3;
     }
-    @include tablet {
-    	border: 1px solid #f3f3f3;
-    }
 }
 .fc-past.fc-other-month, .fc-future.fc-other-month {
 	background-color: #f8f8f8;
@@ -377,4 +374,14 @@ section[data-view="calendar-view"] .container {
 .fc-more-cell {
 	position: absolute;
 	top: 250px;
+}
+.fc td, .fc th {
+	@include mobile {
+		border-width: 0;
+	}
+}
+.fc th {
+	@include mobile {
+		padding: 3px 0;
+	}
 }

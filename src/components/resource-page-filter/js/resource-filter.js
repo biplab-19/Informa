@@ -24,7 +24,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         SubmitHandler,
         GetAjaxData,
         equalHeights,
-        GetResourceSubSectorList, 
+        GetResourceSubSectorList, MakeRefineCheckBoxUnchecked,
         UpdateResourceSubSectorDropdown, RenderResourceTilesResult,updateResourcesRefine,
         CreateTags, UpdateSearchResult, ClearAllResourceFilter, MakeRefineSelected,GetRefineData,
         BindRefineEvents, BindFilterEvents, RemoveResourceFilter, MakeDropUnSelected, GetFilterData;
@@ -267,6 +267,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         $.each(RefineItems, function(i, v) {
             if (($.inArray($(this).data("value"), FilterValue)) > -1) {
                 $(this).prop('checked', true);
+            } else {
+                $(this).prop('checked', false);
             }
         });
     },
@@ -309,6 +311,12 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         });
         DrpDwn.multiselect('rebuild');
     },
+    MakeRefineCheckBoxUnchecked = function (arr, Container) {
+        for(var key in arr) {
+            var ID = arr[key];
+            Container.find('input[data-value="'+ID+'"]').prop('checked', false);
+        }
+    },
     BindFilterEvents = function() {
             var RemoveLink = TagsContainer.find("a.remove"),
                 ClearAll = TagsContainer.find("a.remove-all");
@@ -326,6 +334,9 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 }
                 if (FilterID === "subsectors") {
                     MakeDropUnSelected([ItemValue], jQuery("select[name='resourceSubSectors']"));
+                }
+                if(FilterID === "roles" || FilterID === "informationtypes" || FilterID === "brands") {
+                    MakeRefineCheckBoxUnchecked([ItemValue], jQuery('.resource-filter-wrap .refine-data'));
                 }
 
                 if(Parent.find('li').length === 0) {
@@ -359,6 +370,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                     MakeDropUnSelected(DrpItems, jQuery('select[name="resourceSubSectors"]'));
                     SubSectorSelect.multiselect('rebuild');
                 }
+                
             });
 
     },

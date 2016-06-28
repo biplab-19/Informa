@@ -451,9 +451,11 @@ var INFORMA = window.INFORMA || {};
     'ResourceList': '<div class="col-xs-12 col-sm-6 col-md-4 list-item-container">'+
                         '<div class="list-item">'+
                             '<div class="columns">'+
+                                '{{#if SectorType}}'+
                                 '<p class="category">'+
                                   '<strong>{{SectorType}}</strong>'+
                                 '</p>'+
+                                '{{/if}}'+
                                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
                                 '<span class="content-type">{{ContentType}}</span>'+
                                 '<p class="date">30.03.2016</p>'+
