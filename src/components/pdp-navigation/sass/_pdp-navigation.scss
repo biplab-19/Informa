@@ -37,15 +37,35 @@ nav#pdp-navigation {
                         float: right;
                         opacity: 0;
                         a{
-                              height: 30px;
-                              padding: 5px;
-                              margin-top: 10px;
+                              margin-top: -10px;
                               margin-bottom: 10px;
                               margin-left: 10px;
+                              padding-top: 10px;
+                              padding-bottom: 10px;
+                              padding-right: 25px;
+                              &:after{
+                                    position: absolute;
+                                    right: 5px;
+                                    content: "\e900";
+                                    font-family: "InformaIcons" !important;
+                              }
                         }
                         &.move-left{
                               opacity: 1;
                               transition: opacity 2s ease-in;
+                        }
+                        .try-stick{
+                              &.btn{
+                                    color: $white;
+                                    background: $orange !important;
+                              }
+                        }
+                        .subscribe-stick{
+                              &.btn{
+                                    color: $gray-dark-bg;
+                                    background: none !important;
+                              }
+
                         }
                   }
                   #pdp-sections-heading{
