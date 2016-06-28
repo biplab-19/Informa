@@ -2272,6 +2272,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.informaNav .nav-main').css('left', '0');
             $('#sub-nav').css('left', '0');
             $('body').css('overflow-y', 'hidden');
+            $('body').css('height', 'auto');
             $('#mobile-header-navigation .nav-back').css('display', 'none');
             $('#mobile-header-navigation .nav-subnav-heading').text('');
         });
@@ -2282,6 +2283,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.informaNav .nav-main').css('left', '-100%');
             $('#sub-nav').css('left', '-100%');
             $('body').css('overflow-y', 'scroll');
+            $('body').css('height', '100%');
         });
 
         _navback.on('click', function(e) {
@@ -2289,6 +2291,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('#mobile-header-navigation .nav-subnav-heading').text('');
             $('#mobile-header-navigation .nav-back').css('display', 'none');
             $('body').css('overflow-y', 'hidden');
+            $('body').css('height', 'auto');
         });
 
     };
