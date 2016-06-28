@@ -841,7 +841,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     RenderOnLoad = function() {
         jQuery('body').addClass('list-view');
         var date = new Date(),
-            DatePass = moment(date, 'MMMM YYYY');
+            DatePass = moment(date).format('MMMM YYYY');
             EqualHeight();
         var obj = {
             data:JSON.stringify({MonthYear: DatePass})
@@ -990,7 +990,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SetCalendarEvents(data);
     },
     RenderParticularMonth = function(date) { 
-        var NextMonth = moment(date).format('MMMM YYYY'); 
+        var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY'); 
                 
                 var obj = { 
                      data:JSON.stringify({MonthYear: NextMonth, 
@@ -1135,7 +1135,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     ListChangeEvents = function() {
         $(document).on('click', 'section[data-view="list-view"] .next', function() {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
-                    ViewDate = new Date(DateText),
+                    ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', 1).format('MMMM YYYY');
                     
                     var obj = {
@@ -1155,7 +1155,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         })
         $(document).on('click', 'section[data-view="list-view"] .previous', function() {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
-                    ViewDate = new Date(DateText),
+                    ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
                     
                     var obj = {
