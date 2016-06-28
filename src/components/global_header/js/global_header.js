@@ -1,5 +1,5 @@
 /*
- * global-header.js
+ * global-header.js - 1
  * pdp-navigation.js
  * Because I dont want to create two on('scroll')
  * Update : Bad idea Man, move pdp nav to new file
@@ -568,6 +568,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _servicesNavigationScrollTo();
         }
 
+        $('[data-toggle="popover"]').popover(); 
+        
         _whenScrolling();
         //}
         _bindNavigationEvents();
