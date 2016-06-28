@@ -97,7 +97,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 SubSector.parents('.form-group').find('label').html('By ' + _text);
             }
 
-            GetAjaxData(Urls.AnalystSearchDropDown, "Get", _value, RenderChangeResult, null, null);
+            GetAjaxData(Urls.AnalystSearchDropDown, "Post", _value, RenderChangeResult, null, null);
             INFORMA.Spinner.Show(SubSector);
             SubSector.trigger("chosen:updated");
 
@@ -111,7 +111,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 }
             }
             var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
-            GetAjaxData(Urls.AnalystSearch, "Get", GetSerializeData, RenderSearchResult, null, null);
+            GetAjaxData(Urls.AnalystSearch, "Post", GetSerializeData, RenderSearchResult, null, null);
         })
     }
 
@@ -187,7 +187,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 }
             }
             if (!Parent.hasClass('showLess')) {
-                GetAjaxData(Urls.AnalystSearchAll, "Get", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
+                GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
             } else {
                 Parent.find('.analyst-list-container:nth-child(n+4)').slideUp();
                 Parent.find('.analyst-list-container:nth-child(n+4)').remove();
