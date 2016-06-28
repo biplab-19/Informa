@@ -430,6 +430,7 @@ header {
                 -moz-transition: 1s;
                 -ms-transition: 1s;
                 -o-transition: 1s;
+                -webkit-backface-visibility: hidden;
                 .container{
                     padding-left: 0;
                     padding-right: 0;
@@ -484,6 +485,7 @@ header {
                     margin-right: 0;
                     position: fixed;
                     bottom: 0;
+                    -webkit-backface-visibility: hidden;
                     width: 100%;
                     li{
                         display: inline-block;
@@ -760,6 +762,7 @@ header {
     background-color: #4c5161;
     padding-left: 0;
     padding-right: 0;
+    -webkit-backface-visibility: hidden;
     
     .container{
         padding: 0;
@@ -1145,6 +1148,7 @@ header {
         -moz-transition: 1s;
         -ms-transition: 1s;
         -o-transition: 1s;
+        -webkit-backface-visibility: hidden;
         .nav-mobile-header{
             list-style-type: none;
             background-color: #4c5161;
