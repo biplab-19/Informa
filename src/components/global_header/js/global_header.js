@@ -568,6 +568,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _servicesNavigationScrollTo();
         }
 
+        $('[data-toggle="popover"]').popover(); 
+        
         _whenScrolling();
         //}
         _bindNavigationEvents();

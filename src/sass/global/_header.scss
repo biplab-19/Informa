@@ -978,6 +978,7 @@ header {
                 }
             }            
         }
+        
         .heading {
             .top {
                 @include not-desktop{
@@ -990,6 +991,31 @@ header {
                 }
                 &:after {
                     content: initial;
+                }
+                @include desktop{
+                    position: relative;
+                    .circle{
+                        position: absolute;
+                        top: 0;
+                        right: 10px;
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 50%;
+                        border: 5px solid #6C6845;
+                        background: $yellow;
+                    }
+                    .popover{
+                        background: $yellow;
+                        width: 175px;
+                        top: -36px;
+                        .popover-content{
+                            color: #424953;
+                            font-family: 'FSMe-bold';
+                        }
+                        &.right .arrow:after {
+                            border-right-color: $yellow;
+                        }
+                    }
                 }
             }
             .labels { 
@@ -1004,6 +1030,31 @@ header {
                 @include tablet{
                     li{
                         padding: 30px 0;
+                    }
+                }
+                @include desktop{
+                    position: relative;
+                    .circle{
+                        position: absolute;
+                        top: 0;
+                        right: 10px;
+                        width: 25px;
+                        height: 25px;
+                        border-radius: 50%;
+                        border: 5px solid #6C6845;
+                        background: $yellow;
+                    }
+                    .popover{
+                        background: $yellow;
+                        width: 175px;
+                        top: -36px;
+                        .popover-content{
+                            color: #424953;
+                            font-family: 'FSMe-bold';
+                        }
+                        &.right .arrow:after {
+                            border-right-color: $yellow;
+                        }
                     }
                 }
             }
@@ -1040,6 +1091,7 @@ header {
                 color: #a2a5ad;
             }
         }
+        
         .labels {
             list-style-type: none;
             padding: 0;
