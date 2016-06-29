@@ -163,6 +163,7 @@ var INFORMA = window.INFORMA || {};
             '<ul class="list-container">'+
             '{{#each results}}'+
                 '<li class="col-xs-12 col-sm-6 col-md-4">'+
+                    '<div class="columns">'+
                     '<p class="category">'+
                       '<strong>{{SectorType}}</strong>'+
                     '</p>'+
@@ -185,6 +186,7 @@ var INFORMA = window.INFORMA || {};
                                 '<span class="play-icon"></span>'+
                             '</div>'+
                         '{{/if}}'+
+                    '</div>'+
                     '</div>'+
                     '{{#if PageURL}}' +
                         '<div class="btn-container">' +

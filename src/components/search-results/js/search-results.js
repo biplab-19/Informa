@@ -47,6 +47,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 MaxHeight = 0,
                 Padding = 10;
 
+            if(container.attr("id")==="resources"){
+                ItemsList = container.find('.columns');
+                
+            }else if(container.attr("id")==="analysts"){
+                ItemsList = container.find('.analyst-description');
+            }
+
             ItemsList.each(function() {
                 var currentHeight = jQuery(this).height();
                 if (currentHeight > MaxHeight) {
