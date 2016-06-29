@@ -14,11 +14,11 @@ var INFORMA = window.INFORMA || {};
 INFORMA.ArticleList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _ArticleLists = $('.article-list .list-container'),
-        _HeadlinesLists = $('.headline-list .list-container'),
+    var _ArticleLists = $('#article-list-section .list-container'),
+        _HeadlinesLists = $('section .headline-list .list-container'),
         FilterMenu = $(".category-filter-list .categoryFilter"),
-        ArticleCont = $(".article-list"),
-        HeadlineCont = $(".headline-list"),
+        ArticleCont = $("section .article-list"),
+        HeadlineCont = $("section .headline-list"),
         Templates = INFORMA.Templates,
         isExperienceMode = INFORMA.global.siteCore.isExperience,
         Urls = INFORMA.Configs.urls.webservices,

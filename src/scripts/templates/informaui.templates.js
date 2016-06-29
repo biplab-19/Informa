@@ -186,11 +186,11 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '{{/if}}'+
                     '</div>'+
-                    '{{#if Link}}'+
-                        '<div class="btn-container">'+
-                          '<a role="button" href="{{Link.Url}}" class="btn btn-default" target="{{Link.Target}}">{{Link.LinkText}}</a>'+
-                        '</div>'+
-                    '{{/if}}'+
+                    '{{#if PageURL}}' +
+                        '<div class="btn-container">' +
+                          '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>' +
+                        '</div>' +
+                    '{{/if}}' +
                 '</li>'+
             '{{/each}}'+
         '</ul>',
