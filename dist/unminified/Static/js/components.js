@@ -3285,7 +3285,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                     MakeDropUnSelected(DrpItems, jQuery('select[name="resourceSubSectors"]'));
                     SubSectorSelect.multiselect('rebuild');
                 }
-                MakeRefineCheckBoxUnchecked([ItemValue], jQuery('.resource-filter-wrap .refine-data'));
+                MakeRefineCheckBoxUnchecked([DrpItems], jQuery('.resource-filter-wrap .refine-data'));
                 
             });
 
@@ -3366,6 +3366,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             jQuery('.btn-showMore').show();
         }
         ResourceListContainer.find('ul').append(html);
+        equalHeights();
     },
 
     RenderOnLoad = function() {
