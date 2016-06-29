@@ -39,7 +39,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
-        
+
         //INFORMA.Spinner.Show($('body'));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
@@ -57,21 +57,21 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         });
     },
 
-    EqualHeight = function(){ 
-           var highestBox = 0, 
+    EqualHeight = function(){
+           var highestBox = 0,
             EachItem = List.find(".content-wrap"),
-            padding = 0; 
-            
+            padding = 0;
+
             jQuery('section[data-view="list-view"]').show();
-          EachItem.each(function(){ 
-                  if(jQuery(this).height() > highestBox){ 
-                  highestBox = jQuery(this).height(); 
-                } 
-          }); 
+          EachItem.each(function(){
+                  if(jQuery(this).height() > highestBox){
+                  highestBox = jQuery(this).height();
+                }
+          });
           if(jQuery('body').hasClass('calendar-view')) {
               jQuery('section[data-view="list-view"]').hide();
           }
-          EachItem.height(highestBox + padding); 
+          EachItem.height(highestBox + padding);
     },
 
     RenderChange = function(data) {
@@ -97,12 +97,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
           List.html(html);
            NoEventsFound();
            EqualHeight();
-            
+
           CheckCount();
-            
+
           var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
                 ViewDate = moment(new Date('1 '+ViewDateText), 'MMMM YYYY');
-                
+
           if(moment(ViewDate, 'MMMM YYYY') == _Start) {
             List.find('.previous').addClass('arrow-desabled');
           } else {
@@ -119,7 +119,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
     CheckCount = function() {
         List.each(function() {
-            
+
             var Count = jQuery(this).data('count'),
                 Items = List.find('.events-section').length;
 
@@ -147,7 +147,11 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     RenderLoadEvents = function(data) {
         var _contentheight = null, _dayView = [],
             _vp = INFORMA.global.device.viewportN,
-            header = null;
+            header = {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            };
 
         if(_vp === 2) {
             _contentheight = 100;
@@ -159,18 +163,18 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             _dayView = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         }
 
-        if(_vp === 1 || _vp === 0) {
-            header = {
-                left: 'title',
-                right: 'prev,next'
-            }
-        } else {
-            header = {
-                left: 'prev',
-                center: 'title',
-                right: 'next'
-            }
-        }
+        // if(_vp === 1 || _vp === 0) {
+        //     header = {
+        //         left: 'title',
+        //         right: 'prev,next'
+        //     }
+        // } else {
+        //     header = {
+        //         left: 'prev',
+        //         center: 'title',
+        //         right: 'next'
+        //     }
+        // }
 
         List.find('.previous').addClass('arrow-desabled');
         NoEventsFound();
@@ -185,12 +189,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     var Current = moment(new Date()).format('MMMM YYYY'),
                         ViewDate = moment(view.title).format('MMMM YYYY'),
                         End = moment(new Date()).add(11, 'months').format('MMMM YYYY');
-                        // 
+                        //
                     if(view.title == Current) {
                         jQuery('.fc-prev-button').addClass('disabled');
                     } else {
                         jQuery('.fc-prev-button').removeClass('disabled');
-                        
+
                     }
                     if(view.title === End) {
                         jQuery('.fc-next-button').addClass('disabled');
@@ -228,7 +232,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                             Container.find('.fc-widget-content[data-date="'+DateAttr+'"]').removeClass('open');
                             Container.find('.events-wrap').remove();
                         }
-                        
+
                         ItemList = "";
                         Container.find('.events-wrap').hide().slideDown();
                     }
@@ -254,7 +258,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                             var DateView = $(this).data('date'),
                                 Month = moment(new Date(DateView)).format('MMM'),
                                 Dates = moment(new Date(DateView)).format('DD');
-                                
+
                             $(this).html(Dates + '<sup>\/' +Month+ '</sup>');
                         })
                     }
@@ -262,14 +266,14 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 eventRender: function(event, element, view) {
                     var CurrentDate = new Date(),
                         ItemDate = new Date(event.start._i),
-                        DateAttr = moment(ItemDate, 'YYYY-MM-DD'),
+                        DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
                         CountryText = "",
                         ViewDate = view;
-                        debugger;
+
                         if(event.Country != null) {
                             CountryText = event.Country;
                         }
-                        
+
                     if(moment(CurrentDate) > moment(ItemDate)) {
                         return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                     } else if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
@@ -289,13 +293,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                      data:JSON.stringify({MonthYear: NextMonth, 
                         SectorId: SectorSelect.val()})
                 } 
-        
+
         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
 
     },
 
     CheckEvents = function(data) {
-            
+
         var results = data.SearchDictionary,
             List = [];
 
@@ -316,7 +320,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             data = list.SearchDictionary[Month].ModelItem;
 
         var EventList = [];
-        
+
         for(var key in data) {
             EventList.push({
                 "title": data[key].Title,
@@ -344,12 +348,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             jQuery('.events-list').hide();
             jQuery('body').addClass(ViewMode);
             jQuery('section[data-view="'+ViewMode+'"]').show();
-            
+
             NoEventsFound();
-            
+
         })
 
-         
+
 
         MonthSelect.on('change', function() {
             var value = jQuery(this).val();
@@ -382,14 +386,14 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 SectorId: SectorSelect.val(),
                Country: jQuery(this).val()})
             }
-            
+
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
             NoEventsFound();
         })
 
-        
+
         SectorSelect.on('change', function(){
             var obj = {
               data:JSON.stringify({  MonthYear: MonthSelect.val(),
@@ -400,12 +404,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             _previousDate = new Date(MonthSelect.val());
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-            NoEventsFound(); 
+            NoEventsFound();
         })
 
     },
     NoEventsFound = function() {
-        
+
         var Container = jQuery('.events-container'),
             Items = Container.find('.events-section');
 
@@ -419,7 +423,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         MoreEvents.on('click', function() {
             var Parent = jQuery(this).parents('section'),
                 Count = Parent.find('.container').data('count');
-                // 
+                //
             Parent.find('.events-container').find('.events-section:nth-child(n+' + (Count + 1) + ')').slideToggle();
             jQuery(this).toggleClass('showLess');
         });
@@ -430,7 +434,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', 1).format('MMMM YYYY');
-                    
+
                     var obj = {
                        data:JSON.stringify({  MonthYear: prevMonth,
                         SectorId: SectorSelect.val(),
@@ -450,7 +454,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
-                    
+
                     var obj = {
                       data:JSON.stringify({   MonthYear: prevMonth,
                         SectorId: SectorSelect.val(),
