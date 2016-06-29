@@ -20,7 +20,7 @@ INFORMA.helpfaq = (function(window, $, namespace) {
     init = function() {
         $('.help-faq-wrapper').children().first().addClass('show');
         $('.help-faq-wrapper').children().not(':first').addClass('hide');
-        $('#tabs-2 .accordian-structure .help-faq-wrapper div.col-md-offset-1').first().addClass('show');
+        $('#tabs-2 .accordian-structure .help-faq-wrapper div.col-md-offset-1').first().removeClass('hide').addClass('show');
         _showHideFaq();
     };
 
