@@ -370,8 +370,11 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                     MakeDropUnSelected(DrpItems, jQuery('select[name="resourceSubSectors"]'));
                     SubSectorSelect.multiselect('rebuild');
                 }
-                MakeRefineCheckBoxUnchecked([DrpItems], jQuery('.resource-filter-wrap .refine-data'));
-                
+              var Items = jQuery('.refine-data ul[data-filterid="'+$(this).data("filterid")+'"] li'); 
+                    Items.each(function () { 
+                    var Checkbox = jQuery(this).find('input');  
+                    Checkbox.prop('checked', false); 
+                });
             });
 
     },
