@@ -51,6 +51,12 @@ form.get-in-touch {
         font-size: 14px;
         padding-top: 5px;
     }
+    .page-header{
+      border-bottom: none !important;
+    }
+    .has-error{
+      display: none;
+    }
     .form-submit-border {
         padding-top: 56px;
         position: relative;
@@ -61,21 +67,17 @@ form.get-in-touch {
             color: $white;
             position: absolute;
             font-family: FSMe-bold !important;
-            right: 50px;
+            right: 0;
             bottom: 15px;
-            //width: 13%;
-            @include mobile {
-                right: 0;
-            }
-            // @include tablet {
-            //     right: 90px;
-            // }
+            width: 121px;
         }
-        .btn:after {
-            font-family: "InformaIcons" !important;
-            content: "\e900";
-            right: 10px;
-            color: $white;
+        &::after{
+          position: absolute;
+          font-family: 'InformaIcons';
+          content: "\e900";
+          top: 27px;
+          right: 6px;
+          font-weight: bold;    
         }
     }
     .form-group {
