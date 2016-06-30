@@ -15,8 +15,8 @@ form.get-in-touch {
         padding-right: 5px;
     }
     @include tablet {
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: 18px;
+        padding-right: 18px;
     }
     .form-control {
         border-radius: 0 !important;
@@ -31,14 +31,15 @@ form.get-in-touch {
     }
     input.form-control {
         border-radius: 0;
-        height: 56px;
+        height: 54px;
         background-color: $blue-lighter-bg;
+        //width: 94%;
     }
     textarea.form-control {
         border-radius: 0;
         background-color: $blue-lighter-bg;
         height: 227px;
-        width: 100%;
+        //width: 94%;
     }
     input:focus,
     textarea:focus {
@@ -83,17 +84,17 @@ form.get-in-touch {
             width: 100% !important;
         }
     }
-    .radio-width {
-        width: 109% !important;
-        @include mobile {
-            width: 100% !important;
-        }
-    }
-    .text-width {
-        width: 100% !important;
-        @include mobile {
-            width: 100% !important;
-        }
+    .half-width-text-box{
+      display: table;
+      width: 100%;
+      .required-field{
+        display: table-cell;
+        width: 48%;
+        float: left;
+      }
+      .required-field:nth-child(odd){
+        margin-right: 4%;
+      }
     }
     h1 {
         font-family: FSMe-bold;
@@ -107,107 +108,53 @@ form.get-in-touch {
     .hide-title{
       label.control-label {
           display: none;
+          clear: both;
       }
-
     }
-
     .scfSectionBorder{
       p{
         display: none;
       }
     }
     .radio{
-      width: 40%;
-      display: inline-block;
-      float: left;
+      input[type=radio] {
+        display: none;
     }
-
-    // .radio {
-    //     width: 47%;
-    //     float: left;
-    //     display: inline-block;
-    //     margin-right: 10px;
-    //     margin-top: 18px;
-    //     position: relative;
-    //     @include mobile {
-    //         width: 100%;
-    //     }
-    //     // .radio input[type="radio"]:before {
-    //     //     content: '|';
-    //     //     display: block;
-    //     //     width: 1em;
-    //     //     height: 1em;
-    //     //     vertical-align: -0.25em;
-    //     //     border-radius: 1em;
-    //     //     border: 0.225em solid #fff;
-    //     //     margin-right: 0.75em;
-    //     //     background: $white;
-    //     //     transition: 0.5s ease all;
-    //     //     position: relative;
-    //     //     top: -2px;
-    //     //     color: white;
-    //     // }
-    //     // input[type="submit"] {
-    //     //     float: right;
-    //     // }
-    //
-    //     //  label:before{
-    //     //    margin-right: 10px;
-    //     //    font-family: "InformaIcons" !important;
-    //     //    content: "\e914";
-    //     //    font-size: 25px;
-    //     //    color: white;
-    //     //    position: absolute;
-    //     //    left: 35px;
-    //     //  }
-    //     //  input[type="radio"]{
-    //     //    position: absolute;
-    //     //    left: 17px;
-    //     //    display: block;
-    //     //  }
-    //     //  input[type="radio"]:before{
-    //     //    margin-right: 10px;
-    //     //    height: 10px;
-    //     //    color: white;
-    //     //    position: absolute;
-    //     //    left: 5px;
-    //     //  }
-    //     //font-family: FSMe-light;
-    // }
-    // :not(.lt-ie9) {
-    //     /* HTML5 Boilerplate accessible hidden styles */
-    //     .custom-checkbox input,
-    //     .custom-radio input {
-    //         border: 0;
-    //         clip: rect(0 0 0 0);
-    //         height: 1px;
-    //         margin: -1px;
-    //         overflow: hidden;
-    //         padding: 0;
-    //         position: absolute;
-    //         width: 1px;
-    //     }
-    //     /* the basic, unchecked style */
-    //     .custom-radio input + span::before {
-    //         content: '';
-    //         display: inline-block;
-    //         width: 1em;
-    //         height: 1em;
-    //         vertical-align: -0.25em;
-    //         border-radius: 1em;
-    //         border: 0.225em solid #fff;
-    //         margin-right: 0.75em;
-    //         background: $white;
-    //         transition: 0.5s ease all;
-    //         position: relative;
-    //         top: -2px;
-    //         left: -12px;
-    //     }
-    //     /* the checked style using the :checked pseudo class */
-    //     .custom-radio input:checked + span::before {
-    //         background: $input-orange;
-    //     }
-    // }
+      // input{
+      //     border: 0;
+      //   clip: rect(0 0 0 0);
+      //   height: 1px;
+      //   margin: -1px;
+      //   overflow: hidden;
+      //   padding: 0;
+      //   position: absolute;
+      //   width: 1px;
+      // }
+      width: 45%;
+      display: inline-block;
+      box-sizing: border-box;
+      vertical-align: top;
+      margin: 10px;
+      @include tablet {
+        width: 46%;
+      }
+      @include mobile {
+        width: 100%;
+      }
+      label:before{
+        content: "";
+        height: 1em;
+        width: 1em;
+        border: 0.225em solid $white;
+        border-radius: 100%;
+        background-color: $white;
+        position: absolute;
+        left: 0;
+      }
+      input[type=radio]:checked + label:before {
+          background-color: $input-orange;
+      }
+    }
 }
 .form-modal.modal.fade .modal-dialog {
     -webkit-transform: scale(0.1);
