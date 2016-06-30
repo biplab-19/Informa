@@ -29,7 +29,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _fixed = 'navbar-fixed-top',
         _isHeaderFixed = false,
         _heroBannerHeading = $('#banner h1').text(),
-
+        _marketingClose = $('.marketing-banner .close a'),
 
         // for sticky nav of pdp-navigation
         _pdpNavigation = $('#pdp-navigation'),
@@ -105,6 +105,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _activateMainFixedHeader,
         _activateMobileFixedHeader,
 
+        _bindClickEvents,
         _bindNavigationEvents;
         
 
@@ -502,6 +503,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         })
     };
 
+    _bindClickEvents = function(){
+        _marketingClose.on('click', function(e) {
+            e.preventDefault();
+            $(this).closest('section').hide();
+        });
+    };
 
     _bindNavigationEvents = function() {
 
@@ -584,7 +591,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _whenScrolling();
         //}
         _bindNavigationEvents();
-
+        _bindClickEvents();
 
         /*if (INFORMA.global.device.isMobile) {
             $('#pdp-navigation ul').on('click', function() {

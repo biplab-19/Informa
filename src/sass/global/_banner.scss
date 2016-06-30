@@ -1,279 +1,393 @@
 .hero-banner {
-	height: 450px;
-	overflow:hidden;
-	position: relative;
-	@include tablet {
-		height: 350px;
-	}
-	.cf-img {
-		position:absolute;
-		width: 100%;
-		height: 100%;
-		> img {
-			position: absolute;
-		    top: 0;
-		    left: 50%;
-		    transform: translate(-50%, 0);
-		}
-	}
-	.vertical-align {
-		color: $white;
-		width: 100%;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		p {
-			line-height: 1.7;
-		}
-	}
-	.content {
-		width:50%;
-		@include mobile {
-			width: 100%;
-		}
-	}
-	&.tall-hero {
-		@include tablet {
-			height: 350px;
-		}
-		@include mobile {
-			height: 275px;
-		}
-	}
-	&.slim-banner {
-		@include tablet {
-			height: 350px;
-		}
-		@include mobile {
-			height: 250px;
-		}
-	}
-	&.texture {
-		.cf-img {
-			position: absolute;
-			right: 0;
-			width: auto;
-		}
-	}
-
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    @include tablet {
+        height: 350px;
+    }
+    .cf-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        > img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    }
+    .vertical-align {
+        color: $white;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        p {
+            line-height: 1.7;
+        }
+    }
+    .content {
+        width: 50%;
+        @include mobile {
+            width: 100%;
+        }
+    }
+    &.tall-hero {
+        @include tablet {
+            height: 350px;
+        }
+        @include mobile {
+            height: 275px;
+        }
+    }
+    &.slim-banner {
+        @include tablet {
+            height: 350px;
+        }
+        @include mobile {
+            height: 250px;
+        }
+    }
+    &.texture {
+        .cf-img {
+            position: absolute;
+            right: 0;
+            width: auto;
+        }
+    }
 }
 
 .hero-banner-texture {
-	position: relative;
-	overflow: hidden;
-	height: 330px;
-	@include tablet {
-		height: 230px;
-	}
-	@include mobile {
-		height: 225px;
-		.cf-img {
-			position: absolute;
-		    right: 0;
-		    transform: translateX(15%);
-		}
-	}
-	.cf-img {
-		position:absolute;
-		right: 0;
-	}
-	.vertical-align {
-		width: 100%;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		p {
-			line-height: 1.7;
-		}
-		.content {
-			width: 50%;
-		}
-	}
-	&.bright-banner {
-		background-color: $yellow;
-		color: $text-gray;
-	}
-	&.dark-banner {
-		background-color: $gray-light-bg;
-		color: $white;
-	}
-	&.dark-banner-subscribe{
-		background-color: $gray-light-bg;
-		color: $white;
-		height: auto;
-		padding-bottom: 20px;
-		a{
-			text-decoration: none;
-		}
-		@include tablet {
-			height: auto;
-		}
-		.cf-img {
-			position:absolute;
-			right: 0;
-			@include mobile {
-				display: none;
-			}
-		}
-		.btn {
-				font-family: FSMe-Bold !important;
-        width: 110%;
-        color: $light;
-        padding: 10px !important;
-        @include mobile {
-            margin-bottom: 10px;
-            text-align: left;
-						width: 100%;
-        }
-			}
-			.btn:after{
-				font-family: "InformaIcons" !important;
-				content: "\e900";
-				right: 10px;
-			}
-		.subtext {
-        font-family: FSMe-Bold;
-        font-size: 14px;
-        padding-bottom: 24px;
-        @include mobile {
-            font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    height: 330px;
+    @include tablet {
+        height: 230px;
+    }
+    @include mobile {
+        height: 225px;
+        .cf-img {
+            position: absolute;
+            right: 0;
+            transform: translateX(15%);
         }
     }
-    .description {
-        font-family: FSMe-Light;
-        font-size: 14px;
-        padding-bottom: 30px;
-        @include mobile {
-            padding-bottom: 25px;
-            font-size: 12px;
+    .cf-img {
+        position: absolute;
+        right: 0;
+    }
+    .vertical-align {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        p {
+            line-height: 1.7;
+        }
+        .content {
+            width: 50%;
+        }
+    }
+    &.bright-banner {
+        background-color: $yellow;
+        color: $text-gray;
+    }
+    &.dark-banner {
+        background-color: $gray-light-bg;
+        color: $white;
+    }
+    &.dark-banner-subscribe {
+        background-color: $gray-light-bg;
+        color: $white;
+        height: auto;
+        padding-bottom: 20px;
+        a {
+            text-decoration: none;
         }
         @include tablet {
-          padding-bottom: 30px;
+            height: auto;
+        }
+        .cf-img {
+            position: absolute;
+            right: 0;
+            @include mobile {
+                display: none;
+            }
+        }
+        .btn {
+            font-family: FSMe-Bold !important;
+            width: 110%;
+            color: $light;
+            padding: 10px !important;
+            @include mobile {
+                margin-bottom: 10px;
+                text-align: left;
+                width: 100%;
+            }
+        }
+        .btn:after {
+            font-family: "InformaIcons" !important;
+            content: "\e900";
+            right: 10px;
+        }
+        .subtext {
+            font-family: FSMe-Bold;
+            font-size: 14px;
+            padding-bottom: 24px;
+            @include mobile {
+                font-size: 16px;
+            }
+        }
+        .description {
+            font-family: FSMe-Light;
+            font-size: 14px;
+            padding-bottom: 30px;
+            @include mobile {
+                padding-bottom: 25px;
+                font-size: 12px;
+            }
+            @include tablet {
+                padding-bottom: 30px;
+            }
+        }
+        ul {
+            padding-top: 73px;
+            list-style-type: none;
+            font-size: 20px;
+            li {
+                margin-bottom: 20px;
+                padding-left: 20px;
+                @include mobile {
+                    padding-left: 44px;
+                }
+            }
+            li:before {
+                margin-right: 10px;
+                font-family: "InformaIcons" !important;
+                content: "\e914";
+                font-size: 25px;
+                color: #ffd500;
+                position: absolute;
+                left: 35px;
+                @include mobile {
+                    left: 28px;
+                    padding-left: 0px;
+                }
+            }
+            @include mobile {
+                padding-top: 27px;
+                padding-left: 0px;
+            }
+        }
+        .priceCTA {
+            padding: 0;
+            font-size: 14px;
+            color: $light;
+            font-family: FSMe-Light;
+            .priceDetails {
+                span.price {
+                    font-size: 24px;
+                    font-family: FSMe-Bold;
+                }
+            }
+            .headline {
+                font-family: FSMe-Bold;
+            }
+            @include tablet {
+                margin-bottom: 10px;
+            }
+        }
+        .cta1,
+        .cta2 {
+            font-size: 14px;
+            font-family: FSMe-Bold;
+        }
+        .cta2 {
+            font-family: FSMe;
+        }
+        .cta3 {
+            font-family: FSMe-Light;
+            font-size: 16px;
+            color: $orange!important;
+            @include mobile {
+                font-size: 14px;
+            }
+        }
+        .share {
+            font-family: FSME-bold;
+            text-align: center;
+            padding-top: 10px;
+            display: inline-block;
+            padding-left: 20px;
+            @include mobile {
+                padding-left: 15px;
+                padding-bottom: 10px;
+            }
+        }
+        .share:after {
+            font-family: "InformaIcons" !important;
+            content: "\e917";
+            color: $white;
+            font-size: 25px;
+            position: absolute;
+            top: 4px;
+            left: 83px;
+            @include mobile {
+                left: 68px;
+            }
+        }
+        //  from here for sample insight banner
+        .provided {
+            padding-top: 20px;
+            padding-bottom: 15px;
+            @include tablet {
+                font-size: 15px !important;
+            }
+            @include mobile {
+                font-size: 14px !important;
+            }
+            span.subtext {
+                text-decoration: underline;
+            }
         }
     }
-		ul{
-			padding-top: 73px;
-			list-style-type: none;
-			font-size: 20px;
-
-			li{
-				margin-bottom: 20px;
-				padding-left: 20px;
-				@include mobile {
-					padding-left: 44px;
-				}
-			}
-			li:before{
-				margin-right: 10px;
-				font-family: "InformaIcons" !important;
-				content: "\e914";
-				font-size: 25px;
-				color: #ffd500;
-				position: absolute;
-    		left: 35px;
-				@include mobile {
-					left: 28px;
-					padding-left: 0px;
-				}
-			}
-			@include mobile {
-				padding-top: 27px;
-				padding-left: 0px;
-			}
-		}
-		.priceCTA {
-				 padding: 0;
-				 font-size: 14px;
-				 color: $light;
-				 font-family: FSMe-Light;
-				 .priceDetails {
-							 span.price {
-										font-size: 24px;
-										font-family: FSMe-Bold;
-							}
-				 }
-				 .headline {
-							 font-family: FSMe-Bold;
-				 }
-				 @include tablet {
-					 margin-bottom: 10px;
-				 }
-	 }
-
-	 .cta1,.cta2 {
-			 font-size: 14px;
-			 font-family: FSMe-Bold;
-	 }
-	 .cta2 {
-			 font-family: FSMe;
-	 }
-	 .cta3 {
-			 font-family: FSMe-Light;
-			 font-size: 16px;
-			 color: $orange!important;
-			 @include mobile {
-					 font-size: 14px;
-			 }
-	 }
-	 .share{
-		 font-family: FSME-bold;
-		 text-align: center;
-		 padding-top: 10px;
-		 display: inline-block;
-		 padding-left: 20px;
-		 @include mobile {
-			 padding-left: 15px;
-			 padding-bottom: 10px;
-		 }
-	 }
-	 .share:after{
-		 font-family: "InformaIcons" !important;
-		 content: "\e917";
-		 color: $white;
-		 font-size: 25px;
-		 position: absolute;
-		 top:4px;
-		 left: 83px;
-		 @include mobile {
-			 left: 68px;
-		 }
-	 }
-	 //  from here for sample insight banner
-	 .provided{
-		 padding-top: 20px;
-     padding-bottom: 15px;
-		 @include tablet {
-			 font-size: 15px !important;
-		 }
-		 @include mobile {
-			font-size: 14px !important;
-		 }
-		 span.subtext{
-			 text-decoration: underline;
-		 }
-	 }
 }
-}
+
 .italics {
-	font-style: italic;
+    font-style: italic;
 }
+
 .provided-by {
-	p {
-		margin-bottom: 0;
+    p {
+        margin-bottom: 0;
+    }
+    .heading {
+        width: 100px;
+        float: left;
+        color: #80838c;
+    }
+    .content {
+        width: calc(100% - 100px);
+        float: left;
+    }
+    a {
+        color: $white;
+        font-family: 'FSMe-Bold';
+        display: inline-block;
+        text-decoration: underline;
+    }
+}
+
+.marketing-banner {
+    position: relative;
+    overflow: hidden;
+    color: $white;
+	
+	@include desktop{
+		height: 550px;
 	}
-	.heading {
-		width: 100px;
-		float: left;
-		color: #80838c;
+    @include tablet {
+        //height: 500px;
+    }
+    @include mobile {
+        //height: 500px;
+        /*.cf-img {
+            position: absolute;
+            right: 0;
+            transform: translateX(15%);
+        }*/
+    }
+    a:hover{
+    	text-decoration: none;
+    }
+    a:focus{
+    	text-decoration: none;
+    }
+	.close{
+		position: absolute;
+		top: 10px;
+		right: 5px;
+		float: right;
+		z-index: 1;
+		opacity: 1;
 	}
-	.content {
-		width: calc(100% - 100px);
-		float: left;
-	}
-	a {
-		color: $white;
-		font-family: 'FSMe-Bold';
-		display: inline-block;
-    	text-decoration: underline;
-	}
+    .cf-img {
+        position: absolute;
+        right: 0;
+        width: 45%;
+        height: 100%;
+    }
+    .row{
+    	@include desktop{
+    		padding: 80px;
+    		.image{
+	        	img{
+	        		max-width: 650px;
+	        		max-height: 400px;
+	        	}
+        	}
+    	}
+    	@include mobile{
+			padding: 15px;
+			.content{
+				margin-bottom: 15px;
+				padding-right: 25px;
+			}
+    	}
+    	@include tablet{
+			padding: 20px;
+			.content{
+				margin-bottom: 20px;
+				padding-right: 50px;
+			}
+    	}
+    	.content{
+	    	h1{
+	    		margin-top: 0;
+	    		margin-bottom: 0;
+	    	}
+	    	h2{
+	    		margin-top: 0;
+	    		margin-bottom: 0;
+	    	}
+	    	h3{
+	    		margin-top: 40px;
+	    	}
+	    	.btn{
+	    		color: $white;
+	    		padding-right: 40px;
+	    	}
+	    	.btn:after {
+		        font-family: "InformaIcons" !important;
+		        content: "\e904";
+		        right: 10px;
+        	}
+	    }
+	    
+    }
+    
+    &.variant-1 {
+        background-color: $orange-dark;
+        
+        .image{
+        	img{
+        		border: 5px solid $white;
+        	}
+        }
+        .description{
+	    		font-size: $font-size-large;
+				padding: 40px 0;
+	    }
+        .btn{
+	    	border-color: $yellow !important;
+	    }
+	    
+    }
+    &.variant-2 {
+        background-color: $text-gray-dark;
+        .description{
+	    	font-size: $font-size-base;
+			padding: 20px 0 40px 0;
+	    }
+    }
 }
