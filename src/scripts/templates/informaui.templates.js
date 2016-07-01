@@ -205,7 +205,7 @@ var INFORMA = window.INFORMA || {};
                                     '<div class="info">'+
                                         '<p class="tag">{{Type}}</p>'+
                                         '<span class="date"><span class="icon icon-calendar-day">'+
-                                        '</span>{{Date}}</span>'+
+                                        '</span>{{EventDate}}</span>'+
                                         '<span class="time"><span class="icon icon-calendar-day">'+
                                         '</span>{{Time}}</span>'+
                                         '<h3>{{Description}}</h3>'+
