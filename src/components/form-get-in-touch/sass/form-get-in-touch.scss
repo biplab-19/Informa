@@ -25,9 +25,9 @@ form.get-in-touch {
             width: 100% !important;
         }
     }
-    label.control-label{
-      font-family: FSMe-light !important;
-      font-weight: normal !important;
+    label.control-label {
+        font-family: FSMe-light !important;
+        font-weight: normal !important;
     }
     input.form-control {
         border-radius: 0;
@@ -51,11 +51,11 @@ form.get-in-touch {
         font-size: 14px;
         padding-top: 5px;
     }
-    .page-header{
-      border-bottom: none !important;
+    .page-header {
+        border-bottom: none !important;
     }
-    .has-error{
-      display: none;
+    .has-error {
+        display: none;
     }
     .form-submit-border {
         padding-top: 56px;
@@ -71,13 +71,13 @@ form.get-in-touch {
             bottom: 15px;
             width: 121px;
         }
-        &::after{
-          position: absolute;
-          font-family: 'InformaIcons';
-          content: "\e900";
-          top: 27px;
-          right: 6px;
-          font-weight: bold;
+        &::after {
+            position: absolute;
+            font-family: 'InformaIcons';
+            content: "\e900";
+            top: 27px;
+            right: 6px;
+            font-weight: bold;
         }
     }
     .form-group {
@@ -86,76 +86,75 @@ form.get-in-touch {
             width: 100% !important;
         }
     }
-    .half-width-text-box{
-      display: table;
-      width: 100%;
-      .required-field{
-        display: table-cell;
-        width: 48%;
-        float: left;
-      }
-      .required-field:nth-child(odd){
-        margin-right: 4%;
-      }
+    .half-width-text-box {
+        display: table;
+        width: 100%;
+        .required-field {
+            display: table-cell;
+            width: 48%;
+            float: left;
+        }
+        .required-field:nth-child(odd) {
+            margin-right: 4%;
+        }
     }
     h1 {
         font-family: FSMe-bold;
     }
-
     legend {
         color: $blue-light-bg;
         font-size: 20px;
         border-bottom: none !important;
     }
-    .hide-title{
-      label.control-label {
-          display: none;
-          clear: both;
-      }
+    .hide-title {
+        label.control-label {
+            display: none;
+            clear: both;
+        }
     }
-    .scfSectionBorder{
-      p{
-        display: none;
-      }
+    .scfSectionBorder {
+        p {
+            display: none;
+        }
     }
-    .radio{
-      input[type=radio] {
-        display: none;
-    }
-      // input{
-      //     border: 0;
-      //   clip: rect(0 0 0 0);
-      //   height: 1px;
-      //   margin: -1px;
-      //   overflow: hidden;
-      //   padding: 0;
-      //   position: absolute;
-      //   width: 1px;
-      // }
-      width: 45%;
-      display: inline-block;
-      box-sizing: border-box;
-      vertical-align: top;
-      margin: 10px;
-      @include tablet {
-        width: 46%;
-      }
-      @include mobile {
-        width: 100%;
-      }
-      label:before{
-        content: "";
-        height: 1em;
-        width: 1em;
-        border: 0.225em solid $white;
-        border-radius: 100%;
-        background-color: $white;
-        position: absolute;
-        left: 0;
-      }
-      input[type=radio]:checked + label:before {
-          background-color: $input-orange;
-      }
+    .radio {
+        input[type=radio] {
+            display: none;
+        }
+        // input{
+        //     border: 0;
+        //   clip: rect(0 0 0 0);
+        //   height: 1px;
+        //   margin: -1px;
+        //   overflow: hidden;
+        //   padding: 0;
+        //   position: absolute;
+        //   width: 1px;
+        // }
+        width: 45%;
+        display: inline-block;
+        box-sizing: border-box;
+        vertical-align: top;
+        margin: 10px;
+        @include tablet {
+            width: 46%;
+        }
+        @include mobile {
+            width: 100%;
+        }
+        label:before {
+            content: "";
+            height: 1em;
+            width: 1em;
+            border: 0.225em solid $white;
+            border-radius: 100%;
+            background-color: $white;
+            position: absolute;
+            left: 0;
+        }
+        input[type=radio]:checked + label:before {
+            background-color: $input-orange;
+        }
     }
 }
 .form-modal.modal.fade .modal-dialog {
@@ -201,6 +200,22 @@ form.get-in-touch {
             //margin-top: 10%;
         }
     }
+    .submit-response {
+        font-family: "FSMe-Light";
+        display: none;
+        font-size: 24px;
+        padding-left: 25%;
+        padding-right: 25%;
+        &::before {
+            content: "\e914";
+            visibility: visible;
+            font-family: 'InformaIcons';
+            color: $brand-secondary;
+            font-size: 24px;
+            margin-top: 15px;
+            margin-left: -5px;
+        }
+    }
     .modal-header {
         border-bottom: 0;
         .close {
@@ -208,13 +223,13 @@ form.get-in-touch {
             opacity: 2;
         }
         .form-modal-close-icon:after {
-          content: "\e906";
-          visibility: visible;
-          font-family: 'InformaIcons';
-          color: $white;
-          font-size: 24px;
-          margin-top: 15px;
-          margin-left: -5px;
+            content: "\e906";
+            visibility: visible;
+            font-family: 'InformaIcons';
+            color: $white;
+            font-size: 24px;
+            margin-top: 15px;
+            margin-left: -5px;
         }
     }
 }
