@@ -1,4 +1,4 @@
-/*! 2016-06-30 */_adjustHeigt = function(){
+/*! 2016-07-01 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1539,7 +1539,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
 
     _validateGetInTouchForm = function() {
-        $('#wffmf08f51d884c44844af6fa7f4b7395985').validate();
+        $('form.get-in-touch').validate();
     }
 
     init = function() {
