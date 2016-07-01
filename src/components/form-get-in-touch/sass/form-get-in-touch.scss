@@ -5,6 +5,22 @@ form.get-in-touch-popup {
     width: 20%;
     margin: 10px auto;
 }
+.submit-response {
+    font-family: "FSMe-Light";
+    display: none;
+    font-size: 24px;
+    padding-left: 25%;
+    padding-right: 25%;
+    &::before {
+        content: "\e914";
+        visibility: visible;
+        font-family: 'InformaIcons';
+        color: $brand-secondary;
+        font-size: 24px;
+        margin-top: 15px;
+        margin-left: -5px;
+    }
+}
 form.get-in-touch {
     background-color: $gray-light-bg;
     color: $white;
@@ -200,22 +216,7 @@ form.get-in-touch {
             //margin-top: 10%;
         }
     }
-    .submit-response {
-        font-family: "FSMe-Light";
-        display: none;
-        font-size: 24px;
-        padding-left: 25%;
-        padding-right: 25%;
-        &::before {
-            content: "\e914";
-            visibility: visible;
-            font-family: 'InformaIcons';
-            color: $brand-secondary;
-            font-size: 24px;
-            margin-top: 15px;
-            margin-left: -5px;
-        }
-    }
+
     .modal-header {
         border-bottom: 0;
         .close {
