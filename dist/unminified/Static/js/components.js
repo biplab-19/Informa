@@ -1547,7 +1547,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _showOverlay();
         _bindToolTip();
         _attachInlineForm();
-        _validateGetInTouchForm();
+      //  _validateGetInTouchForm();
     };
 
     _bindToolTip = function() {
