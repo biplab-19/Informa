@@ -227,12 +227,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         TemplateName = (Templates[ResultName]) ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName),
                         ContainerID = "#" + (ResultName).toLowerCase();
-                        
-                    if((Templates[ResultName]) && (Data[ResultName+'List'])){
-                        html = ListTemplate({ results: Data[ResultName+'List'] });
                         ShowMoreLink = $(ContainerID).find(".btn-container");
-
-                        //Update Search Results
+    
+                    if((Templates[ResultName]) && (Data[ResultName+'List'])){
+                        html = ListTemplate({ results: Data[ResultName+'List'] });                        //Update Search Results
                         $(ContainerID).find(".row").html(html);
                         $(ContainerID).show();
                         ShowMoreLink.removeClass('hide');
