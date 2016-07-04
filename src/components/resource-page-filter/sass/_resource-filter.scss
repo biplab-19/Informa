@@ -121,6 +121,9 @@
 		      top: 64px;
 		      .container {
 		      	padding: 0;
+		      	@include tablet {
+			      	padding: 0;
+			    }
 		      }
 		      @include mobile {
 		      	padding: 0;
@@ -217,5 +220,10 @@
 	    		}
 	    	}
     	}
+		.slider {
+			.container {
+				padding: 0;
+			}
+		}
     }
 }
