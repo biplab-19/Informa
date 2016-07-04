@@ -163,6 +163,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 Html += ListTemplate({"results" : Result});
         }
         var RefineData = GetFilterData(jQuery('.resource-filter-wrap .refine-data'));
+        
         jQuery('.resource-filter-wrap').find('.slider').find('.refine-data').html(Html);
         MakeRefineSelected(jQuery('.resource-filter-wrap .refine-data'), RefineData);
     }
@@ -288,7 +289,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 parent.parent('div').hide();
             }
             if (!NoFilter.length) {
-                jQuery('.resource-filter-wrap .refine-data').slideUp();
+                jQuery('.resource-filter-wrap .slider').slideUp();
             }
             UpdateSearchResult(FilterData);
         });
@@ -316,6 +317,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                     FilterID = Parent.data("filterid").toLowerCase();
 
                 RemoveResourceFilter($(this).parent(), Parent);
+                
+                pageNumber = 2;
 
                 if (FilterID === "sectors") {
                     MakeDropUnSelected([ItemValue], jQuery("select[name='resourceSectors']"));
@@ -343,7 +346,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 for(var x in AllIds) {
                     DrpItems.push(AllIds.attr('data-value'));
                 }
-               
+                pageNumber = 2;
                 ClearAllResourceFilter(Parent);
                 
                 if (ItemID === "sectors") {
@@ -399,7 +402,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     GetAllData = function () {
         var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
-                InformationType = jQuery('.btn-showMore').attr('data-ChosenInformatioType'),
+                InformationType = jQuery('.btn-showMore').attr('data-ChosenInformationType'),
                 Role = jQuery('.btn-showMore').attr('data-ChosenRole'),
                 Brand = jQuery('.btn-showMore').attr('data-ChosenBrand'),
                 typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
@@ -412,13 +415,13 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             //debugger;
             Items.ContainerGuid = Guid;
             Items.ContenttypeGuid = typeGuid;
-            Items.ChosenInformatioType = InformationType;
+            Items.ChosenInformationType = InformationType;
             Items.ChosenRole = Role;
             Items.ChosenBrand = Brand;
             Items.ChosenSampleContent = SampleContent;
             Items.PageSize = Count;
-            Items.ResourceSector = FieldItems["ResourceSector"];
-            Items.ResourceSubSector = FieldItems["ResourceSubSector"];
+            Items.resourceSectors = FieldItems["resourceSectors"];
+            Items.resourceSubSectors = FieldItems["resourceSubSectors"];
 
             return Items
             
@@ -461,6 +464,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         
         BtnMore.on('click', function() {
             var MergeItems = GetAllData();
+            
+            MergeItems.PageNo = pageNumber;
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
         })
