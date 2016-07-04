@@ -517,17 +517,15 @@ var INFORMA = window.INFORMA || {};
                                         '<p class="tag">{{EventType}}</p>'+
                                         '<span class="date"><span class="icon icon-calendar-day">'+
                                         '</span>{{EventDate}}</span>'+
-                                        '{{#if Time}}'+
-                                            '<span class="time"><span class="icon icon-calendar-day">'+
-                                            '</span>{{Time}}</span>'+
-                                        '{{/if}}'+
+                                        '<span class="time"><span class="icon icon-calendar-day">'+
+                                        '</span>{{Time}}</span>'+
                                         '<h3>{{Title}}</h3>'+
                                         '<p><strong>{{DescriptionLabel}}: </strong>{{Description}}</p>'+
                                     '</div>'+
                                     '<div class="parent">'+
                                         '<div class="child clearfix">'+
-                                            '{{#if FullDetail}}<a class="link" href="{{FullDetail.Url}}" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>{{/if}}'+
-                                            '{{#if Register}}<a class="btn btn-default" href="{{Register.Url}}" target="{{Register.Target}}">{{Register.LinkText}}</a>{{/if}}'+
+                                            '<a class="link" href="{{FullDetail.Url}}" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
+                                            '<a class="btn btn-default" href="{{Register.Url}}" target="{{Register.Target}}">{{Register.LinkText}}</a>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
