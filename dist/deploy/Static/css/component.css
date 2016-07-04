@@ -6946,69 +6946,75 @@ section#services-list .row .btn-container .btn-primary {
 .resource-filter .refine-list .slider .container {
   padding: 0;
 }
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 122, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+  .resource-filter .refine-list .slider .container {
+    padding: 0;
+  }
+}
 @media (max-width: 767px) {
   /* line 114, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
   .resource-filter .refine-list .slider {
     padding: 0;
   }
 }
-/* line 128, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 131, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .refine-list .slider .refine-data {
   padding: 20px 0;
   background-color: #e1e2e7;
 }
-/* line 131, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 134, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .refine-list .slider .refine-data p {
   font-size: 18px;
   border-top: 1px solid #c3c6d0;
   padding: 25px 0;
   margin: 0;
 }
-/* line 137, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 140, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .refine-list .slider .refine-data ul {
   padding: 0 0 25px;
   margin: 0;
 }
-/* line 140, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 143, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .refine-list .slider .refine-data ul li {
   list-style-type: none;
   margin-bottom: 10px;
 }
-/* line 143, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 146, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .refine-list .slider .refine-data ul li label {
   color: #444957;
 }
-/* line 149, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 152, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .refine-list .slider .refine-button {
   display: block;
   text-align: right;
   background-color: #e1e2e7;
   padding: 15px 20px;
 }
-/* line 154, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 157, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .refine-list .slider .refine-button a {
   min-width: 160px;
   border-color: #ef7c00;
 }
-/* line 157, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 160, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .refine-list .slider .refine-button a:after {
   color: #ef7c00;
 }
-/* line 166, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 169, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .tags-display > div {
   margin-bottom: 25px;
 }
-/* line 169, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 172, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .tags-display p {
   padding-right: 15px;
 }
 @media (max-width: 767px) {
-  /* line 169, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+  /* line 172, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
   .resource-filter .tags-display p {
     display: block;
   }
 }
-/* line 175, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 178, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .tags-display ul {
   margin: 0;
   padding: 0;
@@ -7016,12 +7022,12 @@ section#services-list .row .btn-container .btn-primary {
   display: inline-block;
 }
 @media (max-width: 767px) {
-  /* line 175, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+  /* line 178, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
   .resource-filter .tags-display ul {
     display: block;
   }
 }
-/* line 183, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 186, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .tags-display ul li {
   display: inline-block;
   padding: 5px;
@@ -7032,40 +7038,44 @@ section#services-list .row .btn-container .btn-primary {
   margin-right: 10px;
 }
 @media (max-width: 767px) {
-  /* line 183, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+  /* line 186, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
   .resource-filter .tags-display ul li {
     margin-bottom: 10px;
   }
 }
-/* line 194, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 197, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .tags-display ul li a.remove {
   border-left: 1px solid #e2e3e8;
   padding: 0 5px 0 10px;
   margin-left: 10px;
 }
-/* line 201, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 204, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter .tags-display .remove-all {
   color: #ef7c00;
 }
-/* line 205, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 208, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter.resource-filter-wrap {
   padding: 0 0 20px 0;
 }
-/* line 207, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 210, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter.resource-filter-wrap .refine-list {
   background-color: transparent;
 }
-/* line 209, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 212, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter.resource-filter-wrap .refine-list .container {
   padding: 0 15px;
 }
-/* line 211, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+/* line 214, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
 .resource-filter.resource-filter-wrap .refine-list .container .header {
   background-color: #e1e2e7;
   padding: 20px 15px;
   overflow: auto;
   border-top: 1px solid #c3c6d0;
   border-bottom: 1px solid #c3c6d0;
+}
+/* line 224, ../../../src/components/resource-page-filter/sass/_resource-filter.scss */
+.resource-filter.resource-filter-wrap .slider .container {
+  padding: 0;
 }
 
 /* line 1, ../../../src/components/videos/sass/_video-full.scss */
