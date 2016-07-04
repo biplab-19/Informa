@@ -281,7 +281,6 @@
 .marketing-banner {
     position: relative;
     overflow: hidden;
-    color: $white;
 	
 	@include desktop{
 		height: 550px;
@@ -307,8 +306,13 @@
     .cf-img {
         position: absolute;
         right: 0;
-        width: 45%;
-        height: 100%;
+        bottom: 0;
+        @include mobile {
+            right: -115px;
+        }
+        @include tablet {
+            right: -115px;
+        }
     }
     .row{
     	@include desktop{
@@ -317,15 +321,19 @@
 	        	img{
 	        		max-width: 650px;
 	        		max-height: 400px;
+                    width: 100%;
 	        	}
         	}
     	}
     	@include mobile{
-			padding: 15px;
+			padding: 50px 15px;
 			.content{
 				margin-bottom: 15px;
 				padding-right: 25px;
 			}
+            .image{ 
+                margin-bottom: 30px;
+            }
     	}
     	@include tablet{
 			padding: 20px;
@@ -333,6 +341,9 @@
 				margin-bottom: 20px;
 				padding-right: 50px;
 			}
+            .image{ 
+                margin-bottom: 30px;
+            }
     	}
     	.content{
 	    	h1{
@@ -345,23 +356,39 @@
 	    	}
 	    	h3{
 	    		margin-top: 40px;
+                font-family: 'FSMe-Bold';
+                @include mobile {
+                    margin-top: 15px;
+                }
+                @include tablet {
+                    margin-top: 15px;
+                }
 	    	}
 	    	.btn{
-	    		color: $white;
 	    		padding-right: 40px;
+                font-family: 'FSMe-Bold';
+                min-width: 275px;
 	    	}
 	    	.btn:after {
 		        font-family: "InformaIcons" !important;
 		        content: "\e904";
 		        right: 10px;
+                top: 50%;
+                margin-top: -12px;
+                font-size: 16px;
         	}
 	    }
 	    
     }
     
-    &.variant-1 {
-        background-color: $orange-dark;
-        
+    &.Variation1 {
+        background-color: $yellow;
+        .Variant1-description {
+            display: block;
+        }
+        .Variant2-description {
+            display: none;
+        }
         .image{
         	img{
         		border: 5px solid $white;
@@ -372,15 +399,32 @@
 				padding: 40px 0;
 	    }
         .btn{
-	    	border-color: $yellow !important;
+	    	border-color: $orange !important;
+            &:after {
+                color: $orange;
+            }
 	    }
 	    
     }
-    &.variant-2 {
+    &.Variation2 {
         background-color: $text-gray-dark;
+        color: $white;
+        .Variant2-description {
+            display: block;
+        }
+        .Variant1-description {
+            display: none;
+        }
+        h2 {
+            font-size: 30px;
+        }
         .description{
 	    	font-size: $font-size-base;
 			padding: 20px 0 40px 0;
 	    }
+        .btn {
+            background: $orange !important;
+            color: $white;
+        }
     }
 }

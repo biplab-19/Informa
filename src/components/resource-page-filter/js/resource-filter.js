@@ -24,7 +24,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         SubmitHandler,
         GetAjaxData,
         equalHeights,
-        GetResourceSubSectorList, MakeRefineCheckBoxUnchecked,
+        GetResourceSubSectorList, MakeRefineCheckBoxUnchecked, GetAllData,
         UpdateResourceSubSectorDropdown, RenderResourceTilesResult,updateResourcesRefine,
         CreateTags, UpdateSearchResult, ClearAllResourceFilter, MakeRefineSelected,GetRefineData,
         BindRefineEvents, BindFilterEvents, RemoveResourceFilter, MakeDropUnSelected, GetFilterData;
@@ -43,19 +43,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
     UpdateSearchResult = function(filterData) {
         INFORMA.Spinner.Show($("body"));
-        var Guid = BtnMore.attr('data-ContainerGuid'),
-            typeGuid = BtnMore.attr('data-Contenttypeguid'),
-            InformationType = jQuery(this).attr('data-InformationType'),
-                Role = jQuery(this).attr('data-Role'),
-                Brand = jQuery(this).attr('data-Brand'),
-                Count = jQuery('section.resource-list').attr('data-count');
-
-        filterData.ContainerGuid = Guid;
-        filterData.ContenttypeGuid = typeGuid;
-        filterData.InformationType = InformationType;
-        filterData.Role = Role;
-        filterData.Brand = Brand;
-        filterData.PageSize = Count;
+        var filterData = GetAllData();
         INFORMA.DataLoader.GetServiceData(Urls.ResourceList, {
             method: "Post",
             data: JSON.stringify(filterData),
@@ -222,8 +210,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 e.preventDefault();
                 jQuery(this).parents('.refine-list').find('.slider').fadeOut();
                 RefineCloseBtn.hide();
-                var getFilterData = GetRefineData();
-                
+                var getFilterData = GetAllData();
+                pageNumber = 2;
                 UpdateSearchResult(getFilterData);
             });
             //MakeRefineSelected(TagsContainer);
@@ -239,7 +227,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     },
 
     MakeRefineSelected = function(FilterContainer, data) {
-        debugger;
+
         var Filters = FilterContainer.find("ul"),
             RefineItems = jQuery(".resource-filter-wrap .refine-data").find("input"),
             FilterData = {},
@@ -408,27 +396,39 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             }
         });
     },
+    GetAllData = function () {
+        var FieldArray = ResourceContainer.find("form").serializeArray(),
+                Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
+                InformationType = jQuery('.btn-showMore').attr('data-ChosenInformatioType'),
+                Role = jQuery('.btn-showMore').attr('data-ChosenRole'),
+                Brand = jQuery('.btn-showMore').attr('data-ChosenBrand'),
+                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
+                SampleContent = jQuery('.btn-showMore').attr('data-ChosenSampleContent'),
+                Count = jQuery('section.resource-list').attr('data-count'),
+                Items = GetRefineData();
+                
+
+            var FieldItems = INFORMA.Utils.serializeObject(FieldArray);
+            //debugger;
+            Items.ContainerGuid = Guid;
+            Items.ContenttypeGuid = typeGuid;
+            Items.ChosenInformatioType = InformationType;
+            Items.ChosenRole = Role;
+            Items.ChosenBrand = Brand;
+            Items.ChosenSampleContent = SampleContent;
+            Items.PageSize = Count;
+            Items.ResourceSector = FieldItems["ResourceSector"];
+            Items.ResourceSubSector = FieldItems["ResourceSubSector"];
+
+            return Items
+            
+    },
 
     SubmitHandler = function() {
         BtnSubmit.on('click', function(e) {
             e.preventDefault();
-            var FieldArray = ResourceContainer.find("form").serializeArray(),
-                Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
-                InformationType = jQuery('.btn-showMore').attr('data-InformationType'),
-                Role = jQuery('.btn-showMore').attr('data-Role'),
-                Brand = jQuery('.btn-showMore').attr('data-Brand'),
-                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
-                Count = jQuery('section.resource-list').attr('data-count');
-                pageNumber = 2;
-            var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
-
-            MergeItems.ContainerGuid = Guid;
-            MergeItems.ContenttypeGuid = typeGuid;
-            MergeItems.InformationType = InformationType;
-            MergeItems.Role = Role;
-            MergeItems.Brand = Brand;
-            MergeItems.PageSize = Count;
-            debugger;
+            var MergeItems = GetAllData();
+            pageNumber = 2;
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
@@ -460,24 +460,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     RenderOnLoad = function() {
         
         BtnMore.on('click', function() {
-            var FieldArray = ResourceContainer.find("form").serializeArray(),
-                Guid = jQuery(this).attr('data-ContainerGuid'),
-                typeGuid = jQuery(this).attr('data-ContenttypeGuid'),
-                Role = jQuery(this).attr('data-Role'),
-                InformationType = jQuery(this).attr('data-InformationType'),
-                Brand = jQuery(this).attr('data-Brand'),
-                Count = ResourceListContainer.data('count');
-
-            var MergeItems = GetRefineData();
-
-            MergeItems.ContainerGuid = Guid;
-            MergeItems.ContenttypeGuid = typeGuid;
-            MergeItems.PageNo = pageNumber;
-            MergeItems.Role = Role;
-            MergeItems.Brand = Brand;
-            MergeItems.InformationType = InformationType;
-            MergeItems.PageSize = Count;
-
+            var MergeItems = GetAllData();
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
         })
