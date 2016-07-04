@@ -1,7 +1,7 @@
 var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
-    var env = (window.location.href.indexOf("agrihub") > -1) ? "dev" : "local",
+    var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
         endPoints;
     INFORMA.getCookie = function(cname) {
         var name = cname + "=";
