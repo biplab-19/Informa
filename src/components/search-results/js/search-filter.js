@@ -22,7 +22,8 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         Utils = INFORMA.Utils,
         Urls = INFORMA.Configs.urls.webservices,
         SubmitBtn = $(".product-finder .sector-search li.button"),
-        RefineList = $(".search-container .refine-result"),
+         ProductFinder = $('#product-finder-section'),
+        RefineList = $(".search-container .refine-result"), SearchType ='',
         // methods
         init, ReturnAllSelectVal, GetFilterData, ClearAllFilter, BindRefineEvents, MakeRefineSelected,
         MakeDropUnSelected, BindFilterEvents, UpdateSearchResult, RemoveFilter, GetRefineData;
@@ -105,7 +106,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         },
         UpdateSearchResult = function(filterData) {
             INFORMA.Spinner.Show($("body"));
-            INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
+            if(SearchType === "SearchResult"){
+                filterData.searchText = $(".site-search #searchField").val();
+                filterData.searchTab = $(".site-search .search-tab").val();
+            }
+            INFORMA.DataLoader.GetServiceData(Urls[SearchType], {
                 method: "Post",
                 data: JSON.stringify(filterData),
                 success_callback: INFORMA.SearchResults.RenderSearchResults
@@ -183,7 +188,17 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             });
             DrpDwn.multiselect('rebuild');
         },
-        init = function() {};
+        init = function() {
+            var IsProductPage = (ProductFinder.data("product") === true) ? true : false,
+                IsSearchPage = (ProductFinder.data("search") === true) ? true : false;
+
+            if (IsProductPage) {
+                SearchType = "ProductSearch";
+            }
+            if (IsSearchPage) {
+                SearchType = "SearchResult";
+            }
+        };
     return {
         init: init,
         DoFilter: BindFilterEvents,

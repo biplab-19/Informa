@@ -53,7 +53,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }else if(container.attr("id")==="analysts"){
                 ItemsList = container.find('.analyst-description');
             }
-
             ItemsList.each(function() {
                 var currentHeight = jQuery(this).height();
                 if (currentHeight > MaxHeight) {
@@ -342,12 +341,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (ProductFilters) {
                     var html = CreateFilterList(ProductFilters,Templates.ProductFilters,FilterLabels);
                     ShowFilter(html, FilterList,true);
-                    INFORMA.SearchResultFilter.DoFilter();
+                    INFORMA.SearchResultFilter.DoFilter(SearchType);
                 }
                 if (Refine) { 
                    var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
                    ShowFilter(html, RefineContainer ,false);
-                   INFORMA.SearchResultFilter.DoRefine();
+                   INFORMA.SearchResultFilter.DoRefine(SearchType);
                 }
                 if(SearchTabs){
                     var Data = {} , html;
