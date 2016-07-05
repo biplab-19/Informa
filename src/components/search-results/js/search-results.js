@@ -341,12 +341,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (ProductFilters) {
                     var html = CreateFilterList(ProductFilters,Templates.ProductFilters,FilterLabels);
                     ShowFilter(html, FilterList,true);
-                    INFORMA.SearchResultFilter.DoFilter(SearchType);
+                    INFORMA.SearchResultFilter.DoFilter();
+                }else{
+                    RefineContainer.hide();
+                    RefineContainer.html("");
+                    $(".refine-list .btn").off("click");
                 }
                 if (Refine) { 
                    var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
                    ShowFilter(html, RefineContainer ,false);
-                   INFORMA.SearchResultFilter.DoRefine(SearchType);
+                   INFORMA.SearchResultFilter.DoRefine();
                 }
                 if(SearchTabs){
                     var Data = {} , html;
@@ -395,6 +399,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if (ResultContainer.length > 0) {
                 BindPageLoadEvents();
+                if(RefineContainer.find(".col-xs-12").length){
+                    INFORMA.SearchResultFilter.DoRefine();
+                }
             }
 
     };
