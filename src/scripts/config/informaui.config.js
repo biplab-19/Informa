@@ -36,7 +36,8 @@ var INFORMA = window.INFORMA || {};
             "AnalystSearchAll": "/client/search/SeeAllSpecialists",
             "EventsSearch": "/client/search/GetEventList",
             "ResourceList": "/client/search/GetResourceListing",
-            "ResourceSubSectorList": "/client/search/GetSubSectors"
+            "ResourceSubSectorList": "/client/search/GetSubSectors",
+            "GetFAQs": "/client/search/GetFAQs"
         }
     };
 

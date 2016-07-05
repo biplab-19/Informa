@@ -27,7 +27,10 @@ INFORMA.analystList = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.btn-showMore');
         _showMore.on('click',function(){
-            var _vp = INFORMA.global.device.viewportN;
+            
+            var _vp = INFORMA.global.device.viewportN,
+                VisibleItem = $(this).parents('section').find('.analyst-list-container:visible');
+            
             if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
                 _vp = 2; //to emulate nth-child(n+3)
             } else if(_vp == 3) {
@@ -36,8 +39,8 @@ INFORMA.analystList = (function(window, $, namespace) {
             else {
                 _vp = 4; // or (n+9)
             }
-            _analystList.find('.analyst-list-container:nth-child(n+'+_vp+')').slideToggle();
-            $(this).toggleClass('showLess');
+            $(this).parents('.analyst-views').find('.analyst-list-container:nth-child(n+'+_vp+')').slideToggle();
+            $(this).parents('.analyst-views').toggleClass('showLess');
         });
     }
 

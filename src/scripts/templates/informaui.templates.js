@@ -487,6 +487,20 @@ var INFORMA = window.INFORMA || {};
                                 '</div>' +
                             '{{/if}}' +
                         '</div>'+
+                    '</div>',
+        'AccordianTemplate': '<div class="panel panel-default">'+
+                        '<div class="panel-heading" role="tab">'+
+                          '<h4 class="panel-title">'+
+                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#faqs-accordion" href="#{{collapsecontrol}}" aria-expanded="false" aria-controls="{{collapsecontrol}}">'+
+                              '{{heading}}'+
+                            '</a>'+
+                          '</h4>'+
+                        '</div>'+
+                        '<div id="{{collapsecontrol}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{id}}">'+
+                          '<div class="panel-body">'+
+                            '{{body}}'+
+                          '</div>'+
+                        '</div>'+
                     '</div>'
 
 }

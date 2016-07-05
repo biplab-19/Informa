@@ -1,6 +1,21 @@
 .analyst-views {
 	background-color: $white;
 	padding-bottom: 50px;
+	&.showLess {
+		.btn-container {
+			.btn-showMore {
+		    	.less {
+			    	display: block;
+			    }
+			    .more {
+			    	display: none;
+			    }
+			    &:after {
+			    	content: '\e913';
+			    }
+			}
+		}
+    }
 	.header {
 		font-family: FSMe-Bold;
 		font-size: 40px;
@@ -247,32 +262,47 @@
 	}
 	.btn-container {
 		margin-top: 30px;
-		.btn-show-plus {}
-		.btn {
-			width: 260px;
-			span {
-				line-height: 1;
-			}
-			@include mobile {
-				width: 100%;
-			}
-			.more {
-				display: block;
-			}
-			.less {
-				display: none;
-			}
-			&.showLess {
-				.more {
-					display: none;
-				}
-				.less {
-					display: block;
-				}
-			}
-			&:after {
-				top: 14px;
-			}
+		.btn-showMore {
+		    background: none;
+		    min-width: 160px;
+		    width: auto;
+		    padding: 10px 0;
+		    padding-right: 40px;
+		    margin: 0 auto;
+		    text-align: left;
+		    color: #444957;
+		    border: none;
+		    border-bottom: 2px solid #ffd500;
+		    cursor: pointer;
+		    &:after {
+		        font-family: 'InformaIcons';
+			    content: '\e912';
+			    color: #ffd600;
+			    right: 0;
+			    height: 30px;
+			    width: 30px;
+			    text-align: center;
+			    border-radius: 14px;
+			    font-size: 30px;
+			    top: -2px;
+			    @include mobile {
+			        right: 50%;
+				    margin-right: -15px;
+				    top: 25px;
+			    }
+		    }
+		    @include mobile {
+		    	width: 50%;
+			    padding-bottom: 35px;
+			    padding-right: 0;
+			    text-align: center;
+		    }
+		    .less {
+		    	display: none;
+		    }
+		    .more {
+		    	display: block;
+		    }
 		}
 	}
 }

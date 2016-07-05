@@ -50,16 +50,41 @@
 	    	}
 		}
 	}
-	.btn {
-		width: 260px;
-		margin: 15px 50px;
-		@include mobile {
-			margin: 0;
-			width: 100%;
-		}
-		&:after {
-			color: $yellow;
-		}
+	.btn-faq-more {
+		background: none;
+	    min-width: 160px;
+	    width: auto;
+	    padding: 10px 0;
+	    padding-right: 40px;
+	    margin: 0 auto;
+	    text-align: left;
+	    color: #444957;
+	    border: none;
+	    border-bottom: 2px solid #ffd500;
+	    cursor: pointer;
+	    margin: 20px 50px;
+	    &:after {
+	        font-family: 'InformaIcons';
+		    content: '\e912';
+		    color: #ffd600;
+		    right: 0;
+		    height: 30px;
+		    width: 30px;
+		    text-align: center;
+		    border-radius: 14px;
+		    font-size: 30px;
+		    top: -2px;
+		    @include mobile {
+		        right: 50%;
+			    margin-right: -15px;
+			    top: 25px;
+		    }
+	    }
+	    @include mobile {
+	    	margin: 0;
+	    	text-align: center;
+	    	padding-right: 0;
+	    }
 	}
 }
 /*Experience Mode FAQs*/
