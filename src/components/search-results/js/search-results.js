@@ -342,15 +342,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     var html = CreateFilterList(ProductFilters,Templates.ProductFilters,FilterLabels);
                     ShowFilter(html, FilterList,true);
                     INFORMA.SearchResultFilter.DoFilter();
-                }else{
-                    RefineContainer.hide();
-                    RefineContainer.html("");
-                    $(".refine-list .btn").off("click");
                 }
                 if (Refine) { 
                    var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
+                }else{
+                    RefineContainer.hide();
+                    RefineContainer.html("");
+                    $(".refine-list .btn").off("click");
                 }
                 if(SearchTabs){
                     var Data = {} , html;
