@@ -3,7 +3,7 @@ section#agri-report {
     padding: 40px 0;
     position: relative;
     @include mobile {
-        padding: 10px 0 20px;
+        padding: 10px 15px 35px;
     }
     h1 {
         @include tablet {
@@ -11,6 +11,7 @@ section#agri-report {
         }
         @include mobile {
             font-size: 24px;
+            margin-bottom: 25px;
         }
     }
     .agri-report-wrapper {
@@ -19,7 +20,7 @@ section#agri-report {
         font-family: FSMe-Light;
         font-size: 18px;
         @include mobile {
-            font-size: 12px;
+            font-size: 14px;
         }
         .headline {
             font-family: FSMe-Bold;
@@ -43,6 +44,7 @@ section#agri-report {
                 right: 85px;
                 position: static;
                 margin-top: 35px;
+                margin-bottom: 10px;
                 & > img {
                     width: 160px;
                     display: block;
