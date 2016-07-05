@@ -1,4 +1,4 @@
-/*! 2016-07-04 */_adjustHeigt = function(){
+/*! 2016-07-05 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1503,28 +1503,39 @@ var INFORMA = window.INFORMA || {};
 INFORMA.formGetInTouch = (function(window, $, namespace) {
     'use strict';
     var _toolTip = $('.hasToolTip .icon.icon-info'),
-        _formModalBtn = $('.form-modal-btn'),
-        _formInlineContiner = $('.form-inline-container'),
         _formModal = $('.form-modal'),
+        _formModalBtn = $('.form-btn-container .form-modal-btn'),
+        _formInlineContiner,
+        
+        
         //functions
         init,
         _bindToolTip,
+        _bindCalendar,
         _showOverlay,
         _attachInlineForm,
-        _validateGetInTouchForm;
+        _validateAllForms;
 
     _showOverlay = function(container) {
         _formModalBtn.click(function() {
+
+            var _formName = $(this).data('form');
+            _formInlineContiner = $('.' + _formName).parent();
+
             var formHTML = _formInlineContiner.html();
             _formModal.find('.modal-body .form-popup-container').html(formHTML);
             _formInlineContiner.find('form').remove();
-            _validateGetInTouchForm();
+
+            _validateAllForms();
+            _bindToolTip();
+            _bindCalendar();
             $('.form-popup-container form').css('display', 'block');
             _formModal.modal({
                 show: true,
                 keyboard: false,
                 backdrop: "static"
             });
+
         })
     }
 
@@ -1533,35 +1544,44 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             var formHTML = _formModal.find('.modal-body .form-popup-container').html();
             _formInlineContiner.html(formHTML);
             $('.form-inline-container form').css('display', 'none');
-            _validateGetInTouchForm();
+            _validateAllForms();
             $('.form-popup-container').find('form').remove();
         });
     }
 
-    _validateGetInTouchForm = function() {
+    _validateAllForms = function() {
         $('form.get-in-touch').validate();
+        $('form.request-a-demo').validate();
+    }
+
+    _bindToolTip = function() {        
+        $('.form-modal legend').on("click", function(e){
+                if (e.offsetX > $(this).outerWidth() + 15) {
+                    $(this).toggleClass('active');
+                    $(this).parent().children('p').slideToggle();
+                } else {
+                    console.log('C2');
+                } 
+        });
+    }
+
+    _bindCalendar = function(){
+        $('.three-column input:text').wrap("<div class='right-inner'></div>");
+        $( ".three-column .right-inner" ).prepend("<i class='icon-calender'></i>");
     }
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _showOverlay();
-        _bindToolTip();
+        //_bindToolTip();
         _attachInlineForm();
       //  _validateGetInTouchForm();
     };
 
-    _bindToolTip = function() {
-        _toolTip.on('click', function() {
-            $(this).toggleClass('active');
-            $(this).parent().parent() // .hasToolTip
-                .children('.tooltip-placeholder').slideToggle();
-        })
-    }
-
-
     return {
         init: init
     };
+
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.formGetInTouch.init());
 
@@ -2947,7 +2967,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         SubmitHandler,
         GetAjaxData,
         equalHeights,
-        GetResourceSubSectorList, MakeRefineCheckBoxUnchecked,
+        GetResourceSubSectorList, MakeRefineCheckBoxUnchecked, GetAllData,
         UpdateResourceSubSectorDropdown, RenderResourceTilesResult,updateResourcesRefine,
         CreateTags, UpdateSearchResult, ClearAllResourceFilter, MakeRefineSelected,GetRefineData,
         BindRefineEvents, BindFilterEvents, RemoveResourceFilter, MakeDropUnSelected, GetFilterData;
@@ -2966,19 +2986,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
     UpdateSearchResult = function(filterData) {
         INFORMA.Spinner.Show($("body"));
-        var Guid = BtnMore.attr('data-ContainerGuid'),
-            typeGuid = BtnMore.attr('data-Contenttypeguid'),
-            InformationType = jQuery(this).attr('data-InformationType'),
-                Role = jQuery(this).attr('data-Role'),
-                Brand = jQuery(this).attr('data-Brand'),
-                Count = jQuery('section.resource-list').attr('data-count');
-
-        filterData.ContainerGuid = Guid;
-        filterData.ContenttypeGuid = typeGuid;
-        filterData.InformationType = InformationType;
-        filterData.Role = Role;
-        filterData.Brand = Brand;
-        filterData.PageSize = Count;
+        var filterData = GetAllData();
         INFORMA.DataLoader.GetServiceData(Urls.ResourceList, {
             method: "Post",
             data: JSON.stringify(filterData),
@@ -3098,6 +3106,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 Html += ListTemplate({"results" : Result});
         }
         var RefineData = GetFilterData(jQuery('.resource-filter-wrap .refine-data'));
+        
         jQuery('.resource-filter-wrap').find('.slider').find('.refine-data').html(Html);
         MakeRefineSelected(jQuery('.resource-filter-wrap .refine-data'), RefineData);
     }
@@ -3145,8 +3154,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 e.preventDefault();
                 jQuery(this).parents('.refine-list').find('.slider').fadeOut();
                 RefineCloseBtn.hide();
-                var getFilterData = GetRefineData();
-                
+                var getFilterData = GetAllData();
+                pageNumber = 2;
                 UpdateSearchResult(getFilterData);
             });
             //MakeRefineSelected(TagsContainer);
@@ -3162,7 +3171,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     },
 
     MakeRefineSelected = function(FilterContainer, data) {
-        debugger;
+
         var Filters = FilterContainer.find("ul"),
             RefineItems = jQuery(".resource-filter-wrap .refine-data").find("input"),
             FilterData = {},
@@ -3223,7 +3232,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 parent.parent('div').hide();
             }
             if (!NoFilter.length) {
-                jQuery('.resource-filter-wrap .refine-data').slideUp();
+                jQuery('.resource-filter-wrap .slider').slideUp();
             }
             UpdateSearchResult(FilterData);
         });
@@ -3251,6 +3260,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                     FilterID = Parent.data("filterid").toLowerCase();
 
                 RemoveResourceFilter($(this).parent(), Parent);
+                
+                pageNumber = 2;
 
                 if (FilterID === "sectors") {
                     MakeDropUnSelected([ItemValue], jQuery("select[name='resourceSectors']"));
@@ -3278,7 +3289,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 for(var x in AllIds) {
                     DrpItems.push(AllIds.attr('data-value'));
                 }
-               
+                pageNumber = 2;
                 ClearAllResourceFilter(Parent);
                 
                 if (ItemID === "sectors") {
@@ -3331,27 +3342,39 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             }
         });
     },
+    GetAllData = function () {
+        var FieldArray = ResourceContainer.find("form").serializeArray(),
+                Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
+                InformationType = jQuery('.btn-showMore').attr('data-ChosenInformationType'),
+                Role = jQuery('.btn-showMore').attr('data-ChosenRole'),
+                Brand = jQuery('.btn-showMore').attr('data-ChosenBrand'),
+                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
+                SampleContent = jQuery('.btn-showMore').attr('data-ChosenSampleContent'),
+                Count = jQuery('section.resource-list').attr('data-count'),
+                Items = GetRefineData();
+                
+
+            var FieldItems = INFORMA.Utils.serializeObject(FieldArray);
+            //debugger;
+            Items.ContainerGuid = Guid;
+            Items.ContenttypeGuid = typeGuid;
+            Items.ChosenInformationType = InformationType;
+            Items.ChosenRole = Role;
+            Items.ChosenBrand = Brand;
+            Items.ChosenSampleContent = SampleContent;
+            Items.PageSize = Count;
+            Items.resourceSectors = FieldItems["resourceSectors"];
+            Items.resourceSubSectors = FieldItems["resourceSubSectors"];
+
+            return Items
+            
+    },
 
     SubmitHandler = function() {
         BtnSubmit.on('click', function(e) {
             e.preventDefault();
-            var FieldArray = ResourceContainer.find("form").serializeArray(),
-                Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
-                InformationType = jQuery('.btn-showMore').attr('data-InformationType'),
-                Role = jQuery('.btn-showMore').attr('data-Role'),
-                Brand = jQuery('.btn-showMore').attr('data-Brand'),
-                typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
-                Count = jQuery('section.resource-list').attr('data-count');
-                pageNumber = 2;
-            var MergeItems = INFORMA.Utils.serializeObject(FieldArray);
-
-            MergeItems.ContainerGuid = Guid;
-            MergeItems.ContenttypeGuid = typeGuid;
-            MergeItems.InformationType = InformationType;
-            MergeItems.Role = Role;
-            MergeItems.Brand = Brand;
-            MergeItems.PageSize = Count;
-            debugger;
+            var MergeItems = GetAllData();
+            pageNumber = 2;
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceResult, null, null);
         })
     },
@@ -3383,24 +3406,9 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     RenderOnLoad = function() {
         
         BtnMore.on('click', function() {
-            var FieldArray = ResourceContainer.find("form").serializeArray(),
-                Guid = jQuery(this).attr('data-ContainerGuid'),
-                typeGuid = jQuery(this).attr('data-ContenttypeGuid'),
-                Role = jQuery(this).attr('data-Role'),
-                InformationType = jQuery(this).attr('data-InformationType'),
-                Brand = jQuery(this).attr('data-Brand'),
-                Count = ResourceListContainer.data('count');
-
-            var MergeItems = GetRefineData();
-
-            MergeItems.ContainerGuid = Guid;
-            MergeItems.ContenttypeGuid = typeGuid;
+            var MergeItems = GetAllData();
+            
             MergeItems.PageNo = pageNumber;
-            MergeItems.Role = Role;
-            MergeItems.Brand = Brand;
-            MergeItems.InformationType = InformationType;
-            MergeItems.PageSize = Count;
-
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(MergeItems), RenderResourceTilesResult, null, null);
 
         })
@@ -3846,12 +3854,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         TemplateName = (Templates[ResultName]) ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName),
                         ContainerID = "#" + (ResultName).toLowerCase();
-                        
-                    if((Templates[ResultName]) && (Data[ResultName+'List'])){
-                        html = ListTemplate({ results: Data[ResultName+'List'] });
                         ShowMoreLink = $(ContainerID).find(".btn-container");
-
-                        //Update Search Results
+    
+                    if((Templates[ResultName]) && (Data[ResultName+'List'])){
+                        html = ListTemplate({ results: Data[ResultName+'List'] });                        //Update Search Results
                         $(ContainerID).find(".row").html(html);
                         $(ContainerID).show();
                         ShowMoreLink.removeClass('hide');
