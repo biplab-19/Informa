@@ -281,7 +281,7 @@
 .marketing-banner {
     position: relative;
     overflow: hidden;
-	
+
 	@include desktop{
 		height: 550px;
 	}
@@ -331,7 +331,7 @@
 				margin-bottom: 15px;
 				padding-right: 25px;
 			}
-            .image{ 
+            .image{
                 margin-bottom: 30px;
             }
     	}
@@ -341,7 +341,7 @@
 				margin-bottom: 20px;
 				padding-right: 50px;
 			}
-            .image{ 
+            .image{
                 margin-bottom: 30px;
             }
     	}
@@ -378,9 +378,9 @@
                 font-size: 16px;
         	}
 	    }
-	    
+
     }
-    
+
     &.Variation1 {
         background-color: $yellow;
         .Variant1-description {
@@ -404,7 +404,7 @@
                 color: $orange;
             }
 	    }
-	    
+
     }
     &.Variation2 {
         background-color: $text-gray-dark;
@@ -427,4 +427,21 @@
             color: $white;
         }
     }
+}
+div.addthis_sharing_toolbox{
+   a.at-share-btn{
+     max-width: 10pc !important;
+     max-height: 10pc !important;
+     span.at-icon-wrapper{
+       background-color: $social-icon-back !important;
+       border-radius: 100% !important;
+       height: 40px !important;
+       width: 40px !important;
+       padding: 5px;
+     }
+   }
+}
+
+div.at4-share-outer {
+  display: none !important;
 }
