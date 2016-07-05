@@ -15,7 +15,6 @@ form.request-a-demo {
         padding-left: 18px;
         padding-right: 18px;
     }
-    
     .form-btn-container {
         float: right;
         .btn {
@@ -24,7 +23,6 @@ form.request-a-demo {
             border: none;
         }
     }
-    
     p {
         position: relative;
         display: none;
@@ -37,7 +35,7 @@ form.request-a-demo {
         padding: 10px;
         margin-top: 15px;
         color: $font-color;
-        &:after{
+        &:after {
             content: '';
             position: absolute;
             bottom: 100%;
@@ -49,7 +47,6 @@ form.request-a-demo {
             border-top: 10px solid transparent;
         }
     }
-    
     .form-control {
         border-radius: 0 !important;
         //width: 90% !important;
@@ -126,8 +123,7 @@ form.request-a-demo {
         font-size: 20px;
         width: initial;
         border-bottom: none !important;
-        
-        &::after{
+        &::after {
             position: absolute;
             font-family: 'InformaIcons';
             content: '\e915';
@@ -141,7 +137,6 @@ form.request-a-demo {
             }
         }
     }
-
     .hide-title {
         p {
             display: none;
@@ -153,9 +148,33 @@ form.request-a-demo {
         .required-field {
             .checkbox {
                 display: table-cell;
-                width: 30%;
                 float: left;
                 margin-top: -5px;
+                height: 70px;
+                input {
+                    margin-left: 0;
+                    right: 20px;
+                    bottom: 5px;
+                }
+                @include mobile {
+                    width: 50%;
+                }
+                @include desktop {
+                    width: 30%;
+                }
+                label {
+                    height: inherit;
+                    margin: 0;
+                    padding-left: 0;
+                    background-color: $body-bg;
+                    color: $gray-light-bg;
+                    @include mobile {
+                        width: 90%;
+                    }
+                    @include desktop {
+                        width: 160px;
+                    }
+                }
             }
         }
     }
