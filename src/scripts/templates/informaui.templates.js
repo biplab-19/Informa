@@ -115,30 +115,12 @@ var INFORMA = window.INFORMA || {};
                 '<div class="col-xs-12 col-sm-6 col-md-4 search-tile">'+
                     '<div class="tile un-pinned">'+
                         '<div class="front">'+
-                            '<div class="pin"></div>'+
                             '<div class="header">'+
                                 '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
                             '</div>'+
                             '<div class="content">'+
+                                '<span class="tag">{{Tag}}</span>'+
                                 '<h2>{{Title}}</h2>'+
-                                '<p>{{Description}}</p>'+
-                                '<ul class="gray-bullets">'+
-                                    '{{#each SubSectors}}'+
-                                        '<li>{{this}}</li>'+
-                                    '{{/each}}'+
-                                '</ul>'+
-                            '</div>'+
-                            '<div class="footer">'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="back">'+
-                            '<div class="header">'+
-                                '<div class="header-content">'+
-                                    '<div class="pin"></div>'+
-                                    '<h4>{{Title}}</h4>'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="content">'+
                                 '<ul>'+
                                     '{{#each Benefits}}'+
                                         '<li><a href="#">{{this}}</a></li>'+
@@ -154,6 +136,23 @@ var INFORMA = window.INFORMA || {};
                                         '<a href="{{MoreLink}}" class="btn btn-default orange more">More</a>'+
                                     '</div>'+
                                 '</div>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="back">'+
+                            '<div class="header">'+
+                                '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
+                            '</div>'+
+                            '<div class="content">'+
+                                '<span class="tag">{{Tag}}</span>'+
+                                '<h2>{{Title}}</h2>'+
+                                '<p>{{Description}}</p>'+
+                                '<ul class="gray-bullets">'+
+                                    '{{#each SubSectors}}'+
+                                        '<li>{{this}}</li>'+
+                                    '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                            '<div class="footer">'+
                             '</div>'+
                         '</div>'+
                     '</div>'+
