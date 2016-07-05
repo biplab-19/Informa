@@ -492,7 +492,7 @@ var INFORMA = window.INFORMA || {};
                         '<div class="panel-heading" role="tab">'+
                           '<h4 class="panel-title">'+
                             '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#faqs-accordion" href="#{{collapsecontrol}}" aria-expanded="false" aria-controls="{{collapsecontrol}}">'+
-                              '{{heading}}'+
+                              '{{Title}}'+
                             '</a>'+
                           '</h4>'+
                         '</div>'+
