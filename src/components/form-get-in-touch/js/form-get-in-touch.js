@@ -36,6 +36,13 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
                 backdrop: "static"
             });
 
+            // $('.modal-body form').submit(function(ev) {
+            //     //ev.preventDefault(); // to stop the form from submitting
+            //      Validations go here 
+            //     console.log("Form submitted");
+            //     this.submit(); // If all the validations succeeded
+            // });
+
         })
     }
 
@@ -50,7 +57,17 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
 
     _validateAllForms = function() {
-        $('form.get-in-touch').validate();
+        // $('form.get-in-touch').validate({
+        //     submitHandler: function() { 
+        //         alert("submitted!"); 
+        //     }, 
+        //     failure: function() {
+        //         console.log("Failure");
+        //     },
+        //     success: function() {
+        //         console.log("Success");
+        //     }
+        // });
         $('form.request-a-demo').validate();
     }
 
