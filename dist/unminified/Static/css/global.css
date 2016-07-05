@@ -12604,12 +12604,29 @@ footer ul.slick-dots li.slick-active {
   color: #fff;
 }
 
-/* line 432, ../../../src/sass/global/_banner.scss */
+/* line 431, ../../../src/sass/global/_banner.scss */
+div.addthis_sharing_toolbox {
+  display: inline-block;
+  margin-left: -65px;
+}
+@media (max-width: 767px) {
+  /* line 431, ../../../src/sass/global/_banner.scss */
+  div.addthis_sharing_toolbox {
+    margin-left: 0px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 431, ../../../src/sass/global/_banner.scss */
+  div.addthis_sharing_toolbox {
+    margin-left: 0px;
+  }
+}
+/* line 440, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox a.at-share-btn {
   max-width: 10pc !important;
   max-height: 10pc !important;
 }
-/* line 435, ../../../src/sass/global/_banner.scss */
+/* line 443, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox a.at-share-btn span.at-icon-wrapper {
   background-color: #4a4f5e !important;
   border-radius: 100% !important;
@@ -12618,7 +12635,7 @@ div.addthis_sharing_toolbox a.at-share-btn span.at-icon-wrapper {
   padding: 5px;
 }
 
-/* line 445, ../../../src/sass/global/_banner.scss */
+/* line 453, ../../../src/sass/global/_banner.scss */
 div.at4-share-outer {
   display: none !important;
 }

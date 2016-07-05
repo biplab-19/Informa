@@ -1191,6 +1191,104 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 jQuery(INFORMA.EventsViews.init());
 
 /*
+ * global-footer.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-May-5
+ * @author:     Rajiv Aggarwal
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.FAQs = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var FaqMoreBtn = $('.btn-faq-more'),
+        pageNo = 2,
+        AccordianWrapper = $('.accordian-structure'),
+        Urls = INFORMA.Configs.urls.webservices,
+    //methods
+        init, BindMore, ResetAccordian, GetAjaxData, GetFaqIds, RenderFaqs;
+
+    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.DataLoader.GetServiceData(url, {
+            method: method,
+            data: JSON.stringify({ data: data }),
+            success_callback: function (data) {
+                if (typeof SCallback === "function") {
+                    SCallback.call(this, data, SearchType);
+                }
+            },
+            error_callback: function () {
+                if (typeof Errcallback === "function") {
+                    Errcallback.call(this, data, SearchType);
+                }
+            }
+        });
+    },
+
+    RenderFaqs = function (data) {
+        //var Results = data.
+    },
+
+    GetFaqIds = function (Parent) {
+        var panels = Parent.find('.panel-collapse'),
+            ids = [];
+
+            panels.each(function () {
+                var Current = $(this).attr('id');
+                ids.push(Current);
+            })
+
+            return ids.join(',');
+    },
+
+    ResetAccordian = function () {
+        AccordianWrapper.each(function () {
+            $(this).attr('data-pageno', pageNo);
+        });
+    },
+
+    BindMore = function () {
+        FaqMoreBtn.on('click', function () {
+            var Parent = $(this).parents('.accordian-structure'),
+                CurrentPage = Parent.attr('data-pageno'),
+                HelpDropdown = Parent.find('.help-faq-select'),
+                Count = Parent.attr('data-count'),
+                CurrentPageItemGuid = Parent.attr('data-CurrentPageItemGuid'),
+                _Object = {
+                    PageNo: CurrentPage,
+                    PageSize: Count,
+                    CurrentPageItemGuid: CurrentPageItemGuid
+                };
+
+                _Object.ExcludedFAQItemIds = GetFaqIds(Parent);
+
+                if(HelpDropdown.length > 0) {
+                    _Object.FAQTypeItemGuid = HelpDropdown.val();
+                }
+
+                GetAjaxData(Urls.GetFAQs, "Post", JSON.stringify(_Object), RenderFaqs, null, null);
+        })
+    },
+
+    init = function () {
+        if(FaqMoreBtn.length > 0) {
+            ResetAccordian();
+            BindMore();
+        }
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.FAQs.init());
+
+/*
  * feature-list.js
  *
  *
@@ -1248,6 +1346,190 @@ INFORMA.featureList = (function(window, $, namespace) {
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.featureList.init());
+
+
+(function ($) {
+	/* "YYYY-MM[-DD]" => Date */
+	function strToDate(str) {
+		try {
+			var array = str.split('-');
+			var year = parseInt(array[0]);
+			var month = parseInt(array[1]);
+			var day = array.length > 2? parseInt(array[2]): 1 ;
+			if (year > 0 && month >= 0) {
+				return new Date(year, month - 1, day);
+			} else {
+				return null;
+			}
+		} catch (err) {}; // just throw any illegal format
+	};
+
+	/* Date => "YYYY-MM-DD" */
+	function dateToStr(d) {
+		/* fix month zero base */
+		var year = d.getFullYear();
+		var month = d.getMonth();
+		return year + "-" + (month + 1) + "-" + d.getDate();
+	};
+
+	$.fn.calendar = function (options) {
+		var _this = this;
+		var opts = $.extend({}, $.fn.calendar.defaults, options);
+		var week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+		var tHead = week.map(function (day) {
+			return "<th>" + day + "</th>";
+		}).join("");
+
+		_this.init = function () {
+			var tpl = '<table class="cal">' +
+			'<caption>' +
+			'	<span class="prev"><a href="javascript:void(0);">&lt;</a></span>' +
+			'	<span class="next"><a href="javascript:void(0);">&gt;</a></span>' +
+			'	<span class="month"><span>' +
+			"</caption>" +
+			"<thead><tr>" +
+			tHead +
+			"</tr></thead>" +
+			"<tbody>" +
+			"</tbody>" + "</table>";
+			var html = $(tpl);
+			_this.append(html);
+		};
+
+		function daysInMonth(d) {
+			var newDate = new Date(d);
+			newDate.setMonth(newDate.getMonth() + 1);
+			newDate.setDate(0);
+			return newDate.getDate();
+		}
+
+		_this.update = function (date) {
+			var mDate = new Date(date);
+			mDate.setDate(1); /* start of the month */
+			var day = mDate.getDay(); /* value 0~6: 0 -- Sunday, 6 -- Saturday */
+			mDate.setDate(mDate.getDate() - day) /* now mDate is the start day of the table */
+
+			function dateToTag(d) {
+				var tag = $('<td><a href="javascript:void(0);"></a></td>');
+				var a = tag.find('a');
+				a.text(d.getDate());
+				a.data('date', dateToStr(d));
+				if (date.getMonth() != d.getMonth()) { // the bounday month
+					tag.addClass('off');
+				} else if (_this.data('date') == a.data('date')) { // the select day
+					tag.addClass('active');
+					_this.data('date', dateToStr(d));
+				}
+				return tag;
+			};
+
+			var tBody = _this.find('tbody');
+			tBody.empty(); /* clear previous first */
+			var cols = Math.ceil((day + daysInMonth(date))/7);
+			for (var i = 0; i < cols; i++) {
+				var tr = $('<tr></tr>');
+				for (var j = 0; j < 7; j++, mDate.setDate(mDate.getDate() + 1)) {
+					tr.append(dateToTag(mDate));
+				}
+				tBody.append(tr);
+			}
+
+			/* set month head */
+			var monthStr = dateToStr(date).replace(/-\d+$/, '');
+			_this.find('.month').text(monthStr)
+		};
+
+		_this.getCurrentDate = function () {
+			return _this.data('date');
+		}
+
+		_this.init();
+		/* in date picker mode, and input date is empty,
+		 * should not update 'data-date' field (no selected).
+		 */
+		var initDate = opts.date? opts.date: new Date();
+		if (opts.date || !opts.picker) {
+			_this.data('date', dateToStr(initDate));
+		}
+		_this.update(initDate);
+
+		/* event binding */
+		_this.delegate('tbody td', 'click', function () {
+			var $this = $(this);
+			_this.find('.active').removeClass('active');
+			$this.addClass('active');
+			_this.data('date', $this.find('a').data('date'));
+			/* if the 'off' tag become selected, switch to that month */
+			if ($this.hasClass('off')) {
+				_this.update(strToDate(_this.data('date')));
+			}
+			if (opts.picker) {  /* in picker mode, when date selected, panel hide */
+				_this.hide();
+			}
+		});
+
+		function updateTable(monthOffset) {
+			var date = strToDate(_this.find('.month').text());
+			date.setMonth(date.getMonth() + monthOffset);
+			_this.update(date);
+		};
+
+		_this.find('.next').click(function () {
+			updateTable(1);
+
+		});
+
+		_this.find('.prev').click(function () {
+			updateTable(-1);
+		});
+
+		return this;
+	};
+
+	$.fn.calendar.defaults = {
+		date: new Date(),
+		picker: false,
+	};
+
+	$.fn.datePicker = function () {
+		var _this = this;
+		var picker = $('<div></div>')
+			.addClass('picker-container')
+			.hide()
+			.calendar({'date': strToDate(_this.val()), 'picker': true});
+
+		_this.after(picker);
+
+		/* event binding */
+		// click outside area, make calendar disappear
+		$('body').click(function () {
+			picker.hide();
+		});
+
+		// click input should make calendar appear
+		_this.click(function () {
+			picker.show();
+			return false; // stop sending event to docment
+		});
+
+		// click on calender, update input
+		picker.click(function () {
+			_this.val(picker.getCurrentDate());
+			return false;
+		});
+
+		return this;
+	};
+
+	$(window).load(function () {
+		$('.jquery-calendar').each(function () {
+			$(this).calendar();
+		});
+		$('.date-picker:text').each(function () {
+			$(this).datePicker();
+		});
+	});
+}(jQuery));
 
 
 (function ($) {
@@ -1502,12 +1784,13 @@ jQuery(INFORMA.formComponents.init());
 var INFORMA = window.INFORMA || {};
 INFORMA.formGetInTouch = (function(window, $, namespace) {
     'use strict';
-    var _toolTip = $('.hasToolTip .icon.icon-info'),
-        _formModal = $('.form-modal'),
+    var _formModal = $('.form-modal'),
         _formModalBtn = $('.form-btn-container .form-modal-btn'),
         _formInlineContiner,
-        
-        
+        months = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"],
+        monthName = '',
+        monthNbr = '',
+
         //functions
         init,
         _bindToolTip,
@@ -1536,6 +1819,13 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
                 backdrop: "static"
             });
 
+            // $('.modal-body form').submit(function(ev) {
+            //     //ev.preventDefault(); // to stop the form from submitting
+            //      Validations go here 
+            //     console.log("Form submitted");
+            //     this.submit(); // If all the validations succeeded
+            // });
+
         })
     }
 
@@ -1550,7 +1840,17 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
 
     _validateAllForms = function() {
-        $('form.get-in-touch').validate();
+        // $('form.get-in-touch').validate({
+        //     submitHandler: function() { 
+        //         alert("submitted!"); 
+        //     }, 
+        //     failure: function() {
+        //         console.log("Failure");
+        //     },
+        //     success: function() {
+        //         console.log("Success");
+        //     }
+        // });
         $('form.request-a-demo').validate();
     }
 
@@ -1565,9 +1865,192 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         });
     }
 
+
+    function strToDate(str) {
+        try {
+            var array = str.split('-');
+            var year = parseInt(array[0]);
+            var month = parseInt(array[1]);
+            var day = array.length > 2? parseInt(array[2]): 1 ;
+            if (year > 0 && month >= 0) {
+                return new Date(year, month - 1, day);
+            } else {
+                return null;
+            }
+        } catch (err) {}; // just throw any illegal format
+    };
+
+    /* Date => "YYYY-MM-DD" */
+    function dateToStr(d) {
+        /* fix month zero base */
+        var year = d.getFullYear();
+        var month = d.getMonth();
+        return year + "-" + (month + 1) + "-" + d.getDate();
+    };
+
+    $.fn.calendar = function (options) {
+        var _this = this;
+        var opts = $.extend({}, $.fn.calendar.defaults, options);
+        var week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        var tHead = week.map(function (day) {
+            return "<th>" + day + "</th>";
+        }).join("");
+
+        _this.init = function () {
+            var tpl = '<table class="cal">' +
+            '<caption>' +
+            '   <span class="prev"><a href="javascript:void(0);">&lt;</a></span>' +
+            '   <span class="next"><a href="javascript:void(0);">&gt;</a></span>' +
+            '   <span class="month" data-date=""><span>' +
+            "</caption>" +
+            "<thead><tr>" +
+            tHead +
+            "</tr></thead>" +
+            "<tbody>" +
+            "</tbody>" + "</table>";
+            var html = $(tpl);
+            _this.append(html);
+        };
+
+        function daysInMonth(d) {
+            var newDate = new Date(d);
+            newDate.setMonth(newDate.getMonth() + 1);
+            newDate.setDate(0);
+            return newDate.getDate();
+        }
+
+        _this.update = function (date) {
+            var mDate = new Date(date);
+            mDate.setDate(1); /* start of the month */
+    
+            var day = mDate.getDay(); /* value 0~6: 0 -- Sunday, 6 -- Saturday */
+            mDate.setDate(mDate.getDate() - day) /* now mDate is the start day of the table */
+
+            function dateToTag(d) {
+                var tag = $('<td><a href="javascript:void(0);"></a></td>');
+                var a = tag.find('a');
+                a.text(d.getDate());
+                a.data('date', dateToStr(d));
+                if (date.getMonth() != d.getMonth()) { // the bounday month
+                    tag.addClass('off');
+                } else if (_this.data('date') == a.data('date')) { // the select day
+                    tag.addClass('active');
+                    _this.data('date', dateToStr(d));
+                }
+                else if(d.toDateString() == date.toDateString()){
+                    tag.addClass('active');
+                }
+                return tag;
+            };
+
+            var tBody = _this.find('tbody');
+            tBody.empty(); /* clear previous first */
+            var cols = Math.ceil((day + daysInMonth(date))/7);
+            for (var i = 0; i < cols; i++) {
+                var tr = $('<tr></tr>');
+                for (var j = 0; j < 7; j++, mDate.setDate(mDate.getDate() + 1)) {
+                    tr.append(dateToTag(mDate));
+                }
+                tBody.append(tr);
+            }
+
+            /* set month head */
+            var monthStr = dateToStr(date).replace(/-\d+$/, '');
+            monthNbr = date.getMonth();
+            monthName = months[monthNbr];
+            _this.find('.month').text(monthName);
+            _this.find('.month').data("date", monthStr);
+        };
+
+        _this.getCurrentDate = function () {
+            return _this.data('date');
+        }
+
+        _this.init();
+        /* in date picker mode, and input date is empty,
+         * should not update 'data-date' field (no selected).
+         */
+        var initDate = opts.date? opts.date: new Date();
+        if (opts.date || !opts.picker) {
+            _this.data('date', dateToStr(initDate));
+        }
+        _this.update(initDate);
+
+        /* event binding */
+        _this.delegate('tbody td', 'click', function () {
+            var $this = $(this);
+            _this.find('.active').removeClass('active');
+            $this.addClass('active');
+            _this.data('date', $this.find('a').data('date'));
+            /* if the 'off' tag become selected, switch to that month */
+            if ($this.hasClass('off')) {
+                _this.update(strToDate(_this.data('date')));
+            }
+            if (opts.picker) {  /* in picker mode, when date selected, panel hide */
+                _this.hide();
+            }
+        });
+
+        function updateTable(monthOffset) {
+            var date = strToDate(_this.find('.month').data('date'));
+            date.setMonth(date.getMonth() + monthOffset);
+            _this.update(date);
+        };
+
+        _this.find('.next').click(function () {
+            updateTable(1);
+        });
+
+        _this.find('.prev').click(function () {
+            updateTable(-1);
+        });
+
+        return this;
+    };
+
+    $.fn.calendar.defaults = {
+        date: new Date(),
+        picker: false,
+    };
+
+    $.fn.datePicker = function () {
+        var _this = this;
+        var picker = $('<div></div>')
+            .addClass('picker-container')
+            .hide()
+            .calendar({'date': strToDate(_this.val()), 'picker': true});
+
+        _this.after(picker);
+
+        /* event binding */
+        // click outside area, make calendar disappear
+        $('body').click(function () {
+            picker.hide();
+        });
+
+        // click input should make calendar appear
+        _this.click(function () {
+            picker.show();
+            return false; // stop sending event to docment
+        });
+
+        // click on calender, update input
+        picker.click(function () {
+            _this.val(moment(picker.getCurrentDate()).format('DD/MMM/YYYY'));
+            return false;
+        });
+
+        return this;
+    };
+
     _bindCalendar = function(){
-        $('.three-column input:text').wrap("<div class='right-inner'></div>");
-        $( ".three-column .right-inner" ).prepend("<i class='icon-calender'></i>");
+        $(".modal-body .three-column input:text").addClass('date-picker');
+        $(".modal-body .three-column input:text").wrap("<div class='right-inner'></div>");
+        $(".modal-body .three-column .right-inner" ).prepend("<i class='icon-calender'></i>");
+
+        $('.modal-body .date-picker:text').each(function () {
+            $(this).datePicker({dateFormat: "dd-mm-yy"});
+        });
     }
 
     init = function() {
@@ -2618,7 +3101,10 @@ INFORMA.analystList = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.btn-showMore');
         _showMore.on('click',function(){
-            var _vp = INFORMA.global.device.viewportN;
+            
+            var _vp = INFORMA.global.device.viewportN,
+                VisibleItem = $(this).parents('section').find('.analyst-list-container:visible');
+            
             if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
                 _vp = 2; //to emulate nth-child(n+3)
             } else if(_vp == 3) {
@@ -2627,8 +3113,8 @@ INFORMA.analystList = (function(window, $, namespace) {
             else {
                 _vp = 4; // or (n+9)
             }
-            _analystList.find('.analyst-list-container:nth-child(n+'+_vp+')').slideToggle();
-            $(this).toggleClass('showLess');
+            $(this).parents('.analyst-views').find('.analyst-list-container:nth-child(n+'+_vp+')').slideToggle();
+            $(this).parents('.analyst-views').toggleClass('showLess');
         });
     }
 
@@ -3454,7 +3940,8 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         Utils = INFORMA.Utils,
         Urls = INFORMA.Configs.urls.webservices,
         SubmitBtn = $(".product-finder .sector-search li.button"),
-        RefineList = $(".search-container .refine-result"),
+         ProductFinder = $('#product-finder-section'),
+        RefineList = $(".search-container .refine-result"), SearchType ='',
         // methods
         init, ReturnAllSelectVal, GetFilterData, ClearAllFilter, BindRefineEvents, MakeRefineSelected,
         MakeDropUnSelected, BindFilterEvents, UpdateSearchResult, RemoveFilter, GetRefineData;
@@ -3537,7 +4024,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         },
         UpdateSearchResult = function(filterData) {
             INFORMA.Spinner.Show($("body"));
-            INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
+            if(SearchType === "SearchResult"){
+                filterData.searchText = $(".site-search #searchField").val();
+                filterData.searchTab = $(".site-search .search-tab").val();
+            }
+            INFORMA.DataLoader.GetServiceData(Urls[SearchType], {
                 method: "Post",
                 data: JSON.stringify(filterData),
                 success_callback: INFORMA.SearchResults.RenderSearchResults
@@ -3615,7 +4106,17 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             });
             DrpDwn.multiselect('rebuild');
         },
-        init = function() {};
+        init = function() {
+            var IsProductPage = (ProductFinder.data("product") === true) ? true : false,
+                IsSearchPage = (ProductFinder.data("search") === true) ? true : false;
+
+            if (IsProductPage) {
+                SearchType = "ProductSearch";
+            }
+            if (IsSearchPage) {
+                SearchType = "SearchResult";
+            }
+        };
     return {
         init: init,
         DoFilter: BindFilterEvents,
@@ -3680,7 +4181,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }else if(container.attr("id")==="analysts"){
                 ItemsList = container.find('.analyst-description');
             }
-
             ItemsList.each(function() {
                 var currentHeight = jQuery(this).height();
                 if (currentHeight > MaxHeight) {
@@ -3975,6 +4475,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                    var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
+                }else{
+                    RefineContainer.html("");
+                    $(".refine-list").off("click");
                 }
                 if(SearchTabs){
                     var Data = {} , html;
@@ -4023,6 +4526,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if (ResultContainer.length > 0) {
                 BindPageLoadEvents();
+                if(RefineContainer.find(".col-xs-12").length){
+                    INFORMA.SearchResultFilter.DoRefine();
+                }
             }
 
     };
