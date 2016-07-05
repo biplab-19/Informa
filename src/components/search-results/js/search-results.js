@@ -348,9 +348,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
                 }else{
-                    RefineContainer.hide();
                     RefineContainer.html("");
-                    $(".refine-list .btn").off("click");
+                    $(".refine-list").off("click");
                 }
                 if(SearchTabs){
                     var Data = {} , html;

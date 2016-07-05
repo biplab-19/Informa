@@ -11,15 +11,19 @@ form.get-in-touch-popup {
     font-size: 24px;
     padding-left: 25%;
     padding-right: 25%;
-    &::before {
-        content: "\e914";
-        visibility: visible;
-        font-family: 'InformaIcons';
-        color: $brand-secondary;
-        font-size: 24px;
-        margin-top: 15px;
-        margin-left: -5px;
+    h1{
+        display: inline-block;
+        &::before {
+            content: "\e914";
+            visibility: visible;
+            font-family: 'InformaIcons';
+            color: $brand-secondary;
+            font-size: 24px;
+            margin-top: 15px;
+            margin-left: -25px;
+        }
     }
+    
 }
 form.get-in-touch {
     background-color: $gray-light-bg;
