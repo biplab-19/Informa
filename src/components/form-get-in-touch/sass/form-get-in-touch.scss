@@ -43,6 +43,51 @@ form.request-a-demo {
         outline: none !important;
         border: 2px solid $brand-secondary;
     }
+    .chosen-container,
+    .chosen-single {
+        height: 50px;
+        border-radius: 0;
+        background-color: $blue-lighter-bg;
+        span {
+            margin-top: 6px;
+            font-size: 14px;
+        }
+    }
+    .chosen-container-single .chosen-drop {
+        background-color: $blue-lighter-bg;
+        font-size: 14px;
+    }
+    .chosen-container .chosen-results {
+        border-radius: 0;
+    }
+    .chosen-container .chosen-results li.active-result {
+        font-size: 14px;
+    }
+    .chosen-drop {
+        border-radius: none;
+    }
+    .chosen-single {
+        border: none;
+    }
+    .chosen-container-single .chosen-single div b {
+        display: none;
+    }
+    .chosen-container-single .chosen-single div:after {
+        top: 50%;
+        margin-top: -20px;
+        content: '\e901';
+        position: absolute;
+        font-family: "InformaIcons";
+        margin-left: -10px;
+        font-size: 16px;
+    }
+    .chosen-container .chosen-results li {
+        padding: 10px 6px;
+    }
+    .chosen-container .chosen-results li.highlighted {
+        background-color: $brand-secondary;
+        color: $font-color;
+    }
     label.error {
         color: $brand-secondary !important;
         font-size: 14px;
@@ -104,7 +149,7 @@ form.request-a-demo {
         font-size: 20px;
         border-bottom: none !important;
         width: initial;
-        
+
         &.active {
             margin-bottom: 10px !important;
             &::after {
