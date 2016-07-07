@@ -8,14 +8,14 @@ form.get-in-touch-popup {
 .submit-response {
     position: relative;
     font-family: "FSMe-Light";
-    display: none;
+    display: block;
     font-size: $line-height-computed;
     padding-left: 25%;
     padding-right: 25%;
-    
+
     h1{
-        display: inline-block;
-        margin-bottom: 40px;
+      display: inline-block;
+      margin-bottom: 20px;
     }
     &::before {
         position: absolute;
@@ -23,16 +23,16 @@ form.get-in-touch-popup {
         visibility: visible;
         font-family: 'InformaIcons';
         color: $brand-secondary;
-        
-        @include desktop{
-            font-size: 25px;
-            top: 12%;
-            left: 20%;
+
+        @include desktop {
+          font-size: 40px;
+          top: 8%;
+          left: 20%;
         }
-        @include mobile{
+        @include mobile {
             font-size: 50px;
             top: 5%;
-            right: 10%;
+            right: 15%;
         }
     }
 }
