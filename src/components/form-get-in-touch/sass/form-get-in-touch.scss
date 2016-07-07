@@ -12,7 +12,7 @@ form.get-in-touch-popup {
     font-family: "FSMe-Light";
     display: block;
     font-size: $line-height-computed;
-    @include desktop {
+    @include not-mobile {
         padding-left: 25%;
         padding-right: 25%;
     }
@@ -32,7 +32,7 @@ form.get-in-touch-popup {
         visibility: visible;
         font-family: 'InformaIcons';
         color: $brand-secondary;
-        @include desktop {
+        @include not-mobile {
             font-size: 40px;
             top: 3%;
             left: 20%;
@@ -258,7 +258,7 @@ form.get-in-touch {
         font-family: FSMe-bold !important;
         right: 0;
         bottom: 15px;
-        @include desktop {
+        @include not-mobile {
             width: 121px;
         }
         @include mobile {

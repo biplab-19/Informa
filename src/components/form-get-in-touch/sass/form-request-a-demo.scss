@@ -182,7 +182,7 @@ form.request-a-demo {
                 @include mobile {
                     width: 48%;
                 }
-                @include desktop {
+                @include not-mobile {
                     width: 30%;
                 }
                 label {
@@ -193,7 +193,7 @@ form.request-a-demo {
                         padding: 5px;
                         width: 100%;
                     }
-                    @include desktop {
+                    @include not-mobile {
                         width: 100%;
                         padding: 10px;
                     }
@@ -214,7 +214,7 @@ form.request-a-demo {
                     }
                 }
             }
-            @include desktop {
+            @include not-mobile {
                 .checkbox:nth-child(3n-2) {
                     margin-left: 5%;
                     margin-right: 5%;
@@ -253,7 +253,7 @@ form.request-a-demo {
             width: 30%;
             float: left;
         }
-        @include desktop {
+        @include not-mobile {
             .required-field:nth-child(even) {
                 margin-left: 5%;
                 margin-right: 5%;
