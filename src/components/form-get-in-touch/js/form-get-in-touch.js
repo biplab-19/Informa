@@ -27,7 +27,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             _formModal.find('.modal-body .form-popup-container').html(formHTML);
             _formInlineContiner.find('form').remove();
 
-            _validateAllForms();
+            //_validateAllForms();
             _bindToolTip();
             _bindCalendar();
             _bindSelectOptions();
@@ -80,6 +80,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         $('.form-modal .hide-title .checkbox input').change(function(e){
             $(this).parent().parent().toggleClass('active'); 
         });
+        $(".form-modal .modal-body .form-group select").wrap("<div class='select-wrapper'></div>");
     }
 
     function strToDate(str) {

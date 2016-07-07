@@ -58,7 +58,7 @@ form.request-a-demo {
         font-family: FSMe-light !important;
         font-weight: normal !important;
     }
-    select.form-control{
+    select.form-control {
         height: 54px;
     }
     input.form-control {
@@ -117,6 +117,22 @@ form.request-a-demo {
         @include mobile {
             width: 100% !important;
         }
+        select{
+            padding-right: 25px;
+        }
+        .select-wrapper{
+            position: relative;
+        }
+        .select-wrapper:after {
+            content: "\e901";
+            visibility: visible;
+            font-family: 'InformaIcons';
+            color: $font-color;
+            position: absolute;
+            top: 18px;
+            right: 10px;
+            pointer-events: none;
+        }
     }
     h1 {
         font-family: FSMe-bold;
@@ -157,17 +173,14 @@ form.request-a-demo {
                 height: 70px;
                 background-color: $body-bg;
                 color: $gray-light-bg;
-
                 input {
                     margin-left: 0;
                     right: 5px;
                     bottom: 5px;
                     display: none;
                 }
-                
                 @include mobile {
                     width: 48%;
-
                 }
                 @include desktop {
                     width: 30%;
@@ -175,9 +188,7 @@ form.request-a-demo {
                 label {
                     height: inherit;
                     margin: 0;
-                    
                     font-size: $font-size-base;
-                    
                     @include mobile {
                         padding: 5px;
                         width: 100%;
@@ -187,7 +198,7 @@ form.request-a-demo {
                         padding: 10px;
                     }
                 }
-                &.active{
+                &.active {
                     background-color: inherit;
                     color: $body-bg;
                     border: 3px solid $yellow;
@@ -203,13 +214,13 @@ form.request-a-demo {
                     }
                 }
             }
-            @include desktop{
+            @include desktop {
                 .checkbox:nth-child(3n-2) {
                     margin-left: 5%;
                     margin-right: 5%;
                 }
             }
-            @include mobile{
+            @include mobile {
                 .checkbox:nth-child(even) {
                     margin-left: 4%;
                 }
@@ -242,30 +253,20 @@ form.request-a-demo {
             width: 30%;
             float: left;
         }
-        @include desktop{
+        @include desktop {
             .required-field:nth-child(even) {
                 margin-left: 5%;
                 margin-right: 5%;
             }
         }
     }
-    .picker-container{
+    .picker-container {
         position: static;
     }
     .radio {
         input[type=radio] {
             display: none;
         }
-        // input{
-        //     border: 0;
-        //   clip: rect(0 0 0 0);
-        //   height: 1px;
-        //   margin: -1px;
-        //   overflow: hidden;
-        //   padding: 0;
-        //   position: absolute;
-        //   width: 1px;
-        // }
         width: 45%;
         display: inline-block;
         box-sizing: border-box;
