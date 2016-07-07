@@ -1,17 +1,5 @@
-/*
- * global-footer.js
- *
- *
- * @project:    Informa
- * @date:       2016-May-5
- * @author:     Rajiv Aggarwal
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
 var INFORMA = window.INFORMA || {};
-INFORMA.FAQs = (function(window, $, namespace) {
+INFORMA.FAQs = (function (window, $, namespace) {
     'use strict';
     //variables
     var FaqMoreBtn = $('.btn-faq-more'),
@@ -26,7 +14,7 @@ INFORMA.FAQs = (function(window, $, namespace) {
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
-            data: JSON.stringify({ data: data }),
+            data: JSON.stringify(data),
             success_callback: function (data) {
                 if (typeof SCallback === "function") {
                     SCallback.call(this, data, SearchType);
@@ -41,13 +29,13 @@ INFORMA.FAQs = (function(window, $, namespace) {
     },
 
     RenderFaqs = function (data) {
-        
+
         var Results = data,
             List = Results.FaqList,
             AccordianId = Results.FaqAccordionId,
             Html = "";
 
-        for(var key in List) {
+        for (var key in List) {
             var Data = List[key],
             TemplateName = (Templates.AccordianTemplate !== "undefined") ? Templates.AccordianTemplate : "",
             ListTemplate = Handlebars.compile(TemplateName);
@@ -55,7 +43,7 @@ INFORMA.FAQs = (function(window, $, namespace) {
             Html += ListTemplate({ results: Data });
         }
 
-        $('.panel-group#'+AccordianId).append(Html);
+        $('.panel-group#' + AccordianId).append(Html);
 
         if (Results.FaqRemainingCount < 1) {
             FaqMoreBtn.hide();
@@ -68,12 +56,12 @@ INFORMA.FAQs = (function(window, $, namespace) {
         var panels = Parent.find('.panel-collapse'),
             ids = [];
 
-            panels.each(function () {
-                var Current = $(this).attr('id');
-                ids.push(Current);
-            })
+        panels.each(function () {
+            var Current = $(this).attr('id');
+            ids.push(Current);
+        })
 
-            return ids.join(',');
+        return ids;
     },
 
     ResetAccordian = function () {
@@ -89,27 +77,29 @@ INFORMA.FAQs = (function(window, $, namespace) {
             var Parent = $(this).parents('.accordian-wrap'),
                 CurrentPage = Parent.find('.panel-group').attr('data-pageno'),
                 HelpDropdown = Parent.find('.help-faq-select'),
-                Count = Parent.find('.panel-group').attr('data-count'),
-                CurrentPageItemGuid = Parent.attr('data-CurrentPageItemGuid'),
+                Count = Parent.parents('.accordian-structure').attr('data-count'),
+                CurrentPageItemGuid = Parent.parents('.accordian-structure').attr('data-CurrentPageItemGuid'),
                 _Object = {
                     PageNo: CurrentPage,
                     PageSize: Count,
                     CurrentPageItemGuid: CurrentPageItemGuid
                 };
 
-                _Object.ExcludedFAQItemIds = GetFaqIds(Parent);
+            _Object.ExcludedFAQItemIds = GetFaqIds(Parent);
 
-                if(HelpDropdown.length > 0) {
-                    _Object.FAQTypeItemGuid = HelpDropdown.val();
-                }
-                Parent.find('.panel-group').attr('data-pageno', (parseInt(CurrentPage)+1));
-                
-                GetAjaxData(Urls.GetFAQs, "Post", JSON.stringify(_Object), RenderFaqs, null, null);
+            if (HelpDropdown.length > 0) {
+                _Object.FAQTypeItemGuid = HelpDropdown.val();
+            } else {
+                _Object.FAQTypeItemGuid = null;
+            }
+            Parent.find('.panel-group').attr('data-pageno', (parseInt(CurrentPage) + 1));
+
+            GetAjaxData(Urls.GetFAQs, "Post", _Object, RenderFaqs, null, null);
         })
     },
 
     init = function () {
-        if(FaqMoreBtn.length > 0) {
+        if (FaqMoreBtn.length > 0) {
             ResetAccordian();
             BindMore();
         }
