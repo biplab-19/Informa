@@ -272,16 +272,6 @@ form.request-a-demo {
         input[type=radio] {
             display: none;
         }
-        // input{
-        //     border: 0;
-        //   clip: rect(0 0 0 0);
-        //   height: 1px;
-        //   margin: -1px;
-        //   overflow: hidden;
-        //   padding: 0;
-        //   position: absolute;
-        //   width: 1px;
-        // }
         width: 45%;
         display: inline-block;
         box-sizing: border-box;
@@ -293,15 +283,20 @@ form.request-a-demo {
         @include mobile {
             width: 100%;
         }
+        label{
+          padding-left: 30px;
+        }
         label:before {
             content: "";
-            height: 1em;
-            width: 1em;
+            height: 16px;
+            width: 16px;
             border: 0.225em solid $white;
             border-radius: 100%;
             background-color: $white;
             position: absolute;
             left: 0;
+            top: 3px;
+
         }
         input[type=radio]:checked + label:before {
             background-color: $input-orange;
