@@ -491,14 +491,14 @@ var INFORMA = window.INFORMA || {};
         'AccordianTemplate': '<div class="panel panel-default">'+
                         '<div class="panel-heading" role="tab">'+
                           '<h4 class="panel-title">'+
-                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#faqs-accordion" href="#{{collapsecontrol}}" aria-expanded="false" aria-controls="{{collapsecontrol}}">'+
-                              '{{Title}}'+
+                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#{{results.FaqAccordionId}}" href="#{{results.Id}}" aria-expanded="false" aria-controls="{{results.Id}}">'+
+                              '{{results.Title}}'+
                             '</a>'+
                           '</h4>'+
                         '</div>'+
-                        '<div id="{{collapsecontrol}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{id}}">'+
+                        '<div id="{{results.Id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{results.Id}}">'+
                           '<div class="panel-body">'+
-                            '{{body}}'+
+                            '{{results.Description}}'+
                           '</div>'+
                         '</div>'+
                     '</div>'

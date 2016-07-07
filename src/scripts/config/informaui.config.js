@@ -24,7 +24,8 @@ var INFORMA = window.INFORMA || {};
             "AnalystSearchDropDown": "/data/analyst-search-dropdown.json",
             "AnalystSearchAll": "/data/analyst-search-subsector.json",
             "EventsSearch": "data/events-page.json",
-            "ResourceList": "data/resource-list.json"
+            "ResourceList": "data/resource-list.json",
+            "GetFAQs": "data/faqs.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
