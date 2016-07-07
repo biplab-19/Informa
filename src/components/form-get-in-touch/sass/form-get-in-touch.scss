@@ -320,6 +320,16 @@ form.request-a-demo {
             margin-right: 4%;
         }
     }
+    .contact-details{
+        .required-field:not(:first-child){
+            display: table-cell;
+            width: 48%;
+            float: left;
+        }
+        .required-field:nth-child(2) {
+            margin-right: 4%;
+        }
+    }
     .three-column {
         display: table;
         width: 100%;
