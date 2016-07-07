@@ -358,9 +358,13 @@ form.request-a-demo-popup {
     font-family: "FSMe-Light";
     display: block;
     font-size: $line-height-computed;
-    @include not-mobile {
+    @include desktop {
         padding-left: 25%;
         padding-right: 25%;
+    }
+    @include tablet {
+        padding-left: 10%;
+        padding-right: 10%;
     }
     @include mobile {
         padding-right: 10%;
@@ -378,10 +382,15 @@ form.request-a-demo-popup {
         visibility: visible;
         font-family: 'InformaIcons';
         color: $brand-secondary;
-        @include not-mobile {
+        @include desktop {
             font-size: 40px;
             top: 3%;
             left: 20%;
+        }
+        @include tablet{
+            font-size: 40px;
+            top: 3%;
+            left: 0;
         }
         @include mobile {
             font-size: 50px;
