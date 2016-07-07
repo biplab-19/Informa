@@ -4,38 +4,25 @@
 
             DoFlip = function(obj, className) {
                     var Container = obj.parents('.tile');
-                    if (Container.hasClass('un-pinned')) {
-                        if (className === "flip") {
-                            Container.addClass('flip');
-                        } else {
-                            Container.removeClass('flip');
-                        }
+                    if (className === "flip") {
+                        Container.addClass('flip');
+                    } else {
+                        Container.removeClass('flip');
                     }
                 },
                 this.flipTile = function(Object) {
-                    var TileFront = Object.find('.front .header'),
-                        TileBack = Object.find('.back'),
-                        CompleteTile = Object.find('.front .header, .back'),
-                        Pins = Object.find('.pin');
+                    var TileFront = Object.find('.front .triangle'),
+                        TileBack  = Object.find('.back .triangle');
 
                     if (INFORMA.global.device.viewportN === 0) {
-                        TileFront.mouseenter(function() {
+                        TileFront.on("click",function() {
                             DoFlip($(this), 'flip');
                         });
 
-                        TileBack.mouseleave(function() {
+                        TileBack.on("click",function() {
                             DoFlip($(this), 'unflip');
                         });
-                    } else {
-                        CompleteTile.hover(function() {
-                            DoFlip($(this), 'flip');
-                        }, function() {
-                            DoFlip($(this), 'unflip');
-                        });
-                    }
-                    Pins.click(function() {
-                        jQuery(this).parents('.tile').toggleClass('un-pinned');
-                    })
+                    } 
                 },
                 this.getUniqueArray = function(arrayList) {
                     var uniqueArray = [];

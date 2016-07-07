@@ -12,6 +12,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         init,
         _bindToolTip,
         _bindCalendar,
+        _bindSelectOptions,
         _showOverlay,
         _attachInlineForm,
         _validateAllForms;
@@ -29,19 +30,14 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             _validateAllForms();
             _bindToolTip();
             _bindCalendar();
+            _bindSelectOptions();
+
             $('.form-popup-container form').css('display', 'block');
             _formModal.modal({
                 show: true,
                 keyboard: false,
                 backdrop: "static"
             });
-
-            // $('.modal-body form').submit(function(ev) {
-            //     //ev.preventDefault(); // to stop the form from submitting
-            //      Validations go here 
-            //     console.log("Form submitted");
-            //     this.submit(); // If all the validations succeeded
-            // });
 
         })
     }
@@ -57,31 +53,34 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
 
     _validateAllForms = function() {
-        // $('form.get-in-touch').validate({
-        //     submitHandler: function() { 
-        //         alert("submitted!"); 
-        //     }, 
-        //     failure: function() {
-        //         console.log("Failure");
-        //     },
-        //     success: function() {
-        //         console.log("Success");
-        //     }
-        // });
+        $('form.get-in-touch').validate({
+            submitHandler: function() { 
+                alert("submitted!"); 
+            }, 
+            failure: function() {
+                console.log("Failure");
+            },
+            success: function() {
+                console.log("Success");
+            }
+        });
         $('form.request-a-demo').validate();
     }
 
     _bindToolTip = function() {        
         $('.form-modal legend').on("click", function(e){
-                if (e.offsetX > $(this).outerWidth() + 15) {
-                    $(this).toggleClass('active');
-                    $(this).parent().children('p').slideToggle();
-                } else {
-                    console.log('C2');
-                } 
+            if (e.offsetX > $(this).outerWidth() + 15) {
+                $(this).toggleClass('active');
+                $(this).parent().children('p').slideToggle();
+            } 
         });
     }
 
+    _bindSelectOptions = function(){
+        $('.form-modal .hide-title .checkbox input').change(function(e){
+            $(this).parent().parent().toggleClass('active'); 
+        });
+    }
 
     function strToDate(str) {
         try {

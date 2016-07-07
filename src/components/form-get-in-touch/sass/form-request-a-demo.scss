@@ -58,6 +58,9 @@ form.request-a-demo {
         font-family: FSMe-light !important;
         font-weight: normal !important;
     }
+    select.form-control{
+        height: 54px;
+    }
     input.form-control {
         border-radius: 0;
         height: 54px;
@@ -151,11 +154,16 @@ form.request-a-demo {
                 float: left;
                 margin-top: -5px;
                 height: 70px;
+                background-color: $body-bg;
+                color: $gray-light-bg;
+
                 input {
                     margin-left: 0;
-                    right: 20px;
+                    right: 5px;
                     bottom: 5px;
+                    display: none;
                 }
+                
                 @include mobile {
                     width: 50%;
                 }
@@ -165,16 +173,34 @@ form.request-a-demo {
                 label {
                     height: inherit;
                     margin: 0;
-                    padding-left: 0;
-                    background-color: $body-bg;
-                    color: $gray-light-bg;
+                    padding: 10px;
+                    
                     @include mobile {
                         width: 90%;
                     }
                     @include desktop {
-                        width: 160px;
+                        width: 100%;
                     }
                 }
+                &.active{
+                    background-color: inherit;
+                    color: $body-bg;
+                    border: 3px solid $yellow;
+                    &::after {
+                        content: "\e914";
+                        visibility: visible;
+                        font-family: 'InformaIcons';
+                        color: $brand-secondary;
+                        position: absolute;
+                        font-size: 20px;
+                        right: 5px;
+                        bottom: 5px;
+                    }
+                }
+            }
+            .checkbox:nth-child(3n-2) {
+                margin-left: 5%;
+                margin-right: 5%;
             }
         }
     }
@@ -204,9 +230,13 @@ form.request-a-demo {
             width: 30%;
             float: left;
         }
-        .required-field:nth-child(odd) {
-            margin-right: 4%;
+        .required-field:nth-child(even) {
+            margin-left: 5%;
+            margin-right: 5%;
         }
+    }
+    .picker-container{
+        position: static;
     }
     .radio {
         input[type=radio] {
