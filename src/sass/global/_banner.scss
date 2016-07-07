@@ -392,6 +392,9 @@
         .image{
         	img{
         		border: 5px solid $white;
+                @include tablet {
+                    margin: 0 auto;
+                }
         	}
         }
         .description{
@@ -417,6 +420,13 @@
         }
         h2 {
             font-size: 30px;
+        }
+        .image{
+            img{
+                @include tablet {
+                    margin: 0 auto;
+                }
+            }
         }
         .description{
 	    	font-size: $font-size-base;
