@@ -1,21 +1,30 @@
 form.get-in-touch-popup {
     display: none;
 }
+
 .form-btn-container {
     width: 20%;
     margin: 10px auto;
 }
+
 .submit-response {
     position: relative;
     font-family: "FSMe-Light";
     display: block;
     font-size: $line-height-computed;
-    padding-left: 25%;
-    padding-right: 25%;
-
-    h1{
-      display: inline-block;
-      margin-bottom: 20px;
+    @include desktop {
+        padding-left: 25%;
+        padding-right: 25%;
+    }
+    @include mobile {
+        padding-right: 10%;
+    }
+    h1 {
+        display: inline-block;
+        margin-bottom: 25px;
+    }
+    p {
+        margin-bottom: 25px;
     }
     &::before {
         position: absolute;
@@ -23,19 +32,19 @@ form.get-in-touch-popup {
         visibility: visible;
         font-family: 'InformaIcons';
         color: $brand-secondary;
-
         @include desktop {
-          font-size: 40px;
-          top: 8%;
-          left: 20%;
+            font-size: 40px;
+            top: 3%;
+            left: 20%;
         }
         @include mobile {
             font-size: 50px;
             top: 5%;
-            right: 15%;
+            right: 0;
         }
     }
 }
+
 form.get-in-touch {
     background-color: $gray-light-bg;
     color: $white;
@@ -83,9 +92,9 @@ form.get-in-touch {
         padding-top: 5px;
     }
     .field-validation-error {
-      color: $brand-secondary !important;
-      font-size: 14px;
-      padding-top: 5px;
+        color: $brand-secondary !important;
+        font-size: 14px;
+        padding-top: 5px;
     }
     .page-header {
         border-bottom: none !important;
@@ -94,30 +103,7 @@ form.get-in-touch {
         display: none;
     }
     .has-error .bg-warning {
-      display: block;
-    }
-    .form-submit-border {
-        padding-top: 56px;
-        position: relative;
-        padding-bottom: 20px;
-        .btn {
-            background-color: #ef7c00;
-            border: 0 !important;
-            color: $white;
-            position: absolute;
-            font-family: FSMe-bold !important;
-            right: 0;
-            bottom: 15px;
-            width: 121px;
-        }
-        &::after {
-            position: absolute;
-            font-family: 'InformaIcons';
-            content: "\e900";
-            top: 27px;
-            right: 6px;
-            font-weight: bold;
-        }
+        display: block;
     }
     .form-group {
         width: 100%;
@@ -196,6 +182,7 @@ form.get-in-touch {
         }
     }
 }
+
 .form-modal.modal.fade .modal-dialog {
     -webkit-transform: scale(0.1);
     -moz-transform: scale(0.1);
@@ -207,6 +194,7 @@ form.get-in-touch {
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+
 .form-modal.modal.fade.in .modal-dialog {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -216,6 +204,7 @@ form.get-in-touch {
     transform: translate3d(0, -300px, 0);
     opacity: 1;
 }
+
 .form-modal {
     .modal-dialog {
         width: 80%;
@@ -239,7 +228,6 @@ form.get-in-touch {
             //margin-top: 10%;
         }
     }
-
     .modal-header {
         border-bottom: 0;
         .close {
@@ -255,5 +243,34 @@ form.get-in-touch {
             margin-top: 15px;
             margin-left: -5px;
         }
+    }
+}
+
+.form-submit-border {
+    padding-top: 56px;
+    position: relative;
+    padding-bottom: 20px;
+    .btn {
+        background-color: #ef7c00;
+        border: 0 !important;
+        color: $white;
+        position: absolute;
+        font-family: FSMe-bold !important;
+        right: 0;
+        bottom: 15px;
+        @include desktop {
+            width: 121px;
+        }
+        @include mobile {
+            width: 100% !important;
+        }
+    }
+    &::after {
+        position: absolute;
+        font-family: 'InformaIcons';
+        content: "\e900";
+        top: 27px;
+        right: 6px;
+        font-weight: bold;
     }
 }
