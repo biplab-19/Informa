@@ -161,7 +161,9 @@ form.request-a-demo {
                     margin-left: 0;
                     right: 5px;
                     bottom: 5px;
+                    display: none;
                 }
+                
                 @include mobile {
                     width: 50%;
                 }
@@ -184,6 +186,16 @@ form.request-a-demo {
                     background-color: inherit;
                     color: $body-bg;
                     border: 3px solid $yellow;
+                    &::after {
+                        content: "\e914";
+                        visibility: visible;
+                        font-family: 'InformaIcons';
+                        color: $brand-secondary;
+                        position: absolute;
+                        font-size: 20px;
+                        right: 5px;
+                        bottom: 5px;
+                    }
                 }
             }
             .checkbox:nth-child(3n-2) {
