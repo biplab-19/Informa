@@ -6,24 +6,35 @@ form.get-in-touch-popup {
     margin: 10px auto;
 }
 .submit-response {
+    position: relative;
     font-family: "FSMe-Light";
     display: none;
-    font-size: 24px;
+    font-size: $line-height-computed;
     padding-left: 25%;
     padding-right: 25%;
+    
     h1{
         display: inline-block;
-        &::before {
-            content: "\e914";
-            visibility: visible;
-            font-family: 'InformaIcons';
-            color: $brand-secondary;
-            font-size: 24px;
-            margin-top: 15px;
-            margin-left: -25px;
+        margin-bottom: 40px;
+    }
+    &::before {
+        position: absolute;
+        content: "\e914";
+        visibility: visible;
+        font-family: 'InformaIcons';
+        color: $brand-secondary;
+        
+        @include desktop{
+            font-size: 25px;
+            top: 12%;
+            left: 20%;
+        }
+        @include mobile{
+            font-size: 50px;
+            top: 5%;
+            right: 10%;
         }
     }
-    
 }
 form.get-in-touch {
     background-color: $gray-light-bg;
