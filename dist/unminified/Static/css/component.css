@@ -8048,63 +8048,69 @@ form.request-a-demo .radio input[type=radio] {
     width: 100%;
   }
 }
-/* line 296, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 286, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+form.get-in-touch .radio label,
+form.request-a-demo .radio label {
+  padding-left: 30px;
+}
+/* line 289, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .radio label:before,
 form.request-a-demo .radio label:before {
   content: "";
-  height: 1em;
-  width: 1em;
+  height: 16px;
+  width: 16px;
   border: 0.225em solid #fff;
   border-radius: 100%;
   background-color: #fff;
   position: absolute;
   left: 0;
+  top: 3px;
 }
-/* line 306, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 301, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .radio input[type=radio]:checked + label:before,
 form.request-a-demo .radio input[type=radio]:checked + label:before {
   background-color: #f07d00;
 }
-/* line 310, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 305, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .picker-container,
 form.request-a-demo .picker-container {
   position: static;
 }
-/* line 313, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 308, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .two-column,
 form.request-a-demo .two-column {
   display: table;
   width: 100%;
 }
-/* line 316, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 311, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .two-column p,
 form.request-a-demo .two-column p {
   display: none;
 }
-/* line 319, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 314, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .two-column .required-field,
 form.request-a-demo .two-column .required-field {
   display: table-cell;
   width: 48%;
   float: left;
 }
-/* line 324, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 319, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .two-column .required-field:nth-child(odd),
 form.request-a-demo .two-column .required-field:nth-child(odd) {
   margin-right: 4%;
 }
-/* line 328, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 323, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .three-column,
 form.request-a-demo .three-column {
   display: table;
   width: 100%;
 }
-/* line 331, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 326, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .three-column p,
 form.request-a-demo .three-column p {
   display: none;
 }
-/* line 334, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 329, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch .three-column .required-field,
 form.request-a-demo .three-column .required-field {
   display: table-cell;
@@ -8112,7 +8118,7 @@ form.request-a-demo .three-column .required-field {
   float: left;
 }
 @media (min-width: 768px) {
-  /* line 340, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+  /* line 335, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
   form.get-in-touch .three-column .required-field:nth-child(even),
   form.request-a-demo .three-column .required-field:nth-child(even) {
     margin-left: 5%;
@@ -8120,23 +8126,23 @@ form.request-a-demo .three-column .required-field {
   }
 }
 
-/* line 348, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 343, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.get-in-touch-popup {
   display: none;
 }
 
-/* line 352, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 347, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 form.request-a-demo-popup {
   display: none;
 }
 
-/* line 356, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 351, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-btn-container {
   width: 20%;
   margin: 10px auto;
 }
 
-/* line 361, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 356, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .submit-response {
   position: relative;
   font-family: "FSMe-Light";
@@ -8144,28 +8150,28 @@ form.request-a-demo-popup {
   font-size: 20px;
 }
 @media (min-width: 768px) {
-  /* line 361, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+  /* line 356, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
   .submit-response {
     padding-left: 25%;
     padding-right: 25%;
   }
 }
 @media (max-width: 767px) {
-  /* line 361, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+  /* line 356, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
   .submit-response {
     padding-right: 10%;
   }
 }
-/* line 373, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 368, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .submit-response h1 {
   display: inline-block;
   margin-bottom: 25px;
 }
-/* line 377, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 372, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .submit-response p {
   margin-bottom: 25px;
 }
-/* line 380, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 375, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .submit-response::before {
   position: absolute;
   content: "\e914";
@@ -8174,7 +8180,7 @@ form.request-a-demo-popup {
   color: #ffd600;
 }
 @media (min-width: 768px) {
-  /* line 380, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+  /* line 375, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
   .submit-response::before {
     font-size: 40px;
     top: 3%;
@@ -8182,7 +8188,7 @@ form.request-a-demo-popup {
   }
 }
 @media (max-width: 767px) {
-  /* line 380, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+  /* line 375, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
   .submit-response::before {
     font-size: 50px;
     top: 5%;
@@ -8190,7 +8196,7 @@ form.request-a-demo-popup {
   }
 }
 
-/* line 399, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 394, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-modal.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
   -moz-transform: scale(0.1);
@@ -8203,7 +8209,7 @@ form.request-a-demo-popup {
   transition: all 0.3s;
 }
 
-/* line 411, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 406, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-modal.modal.fade.in .modal-dialog {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -8214,39 +8220,39 @@ form.request-a-demo-popup {
   opacity: 1;
 }
 
-/* line 422, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 417, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-modal .modal-dialog {
   width: 80%;
   margin: 0 auto;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 422, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+  /* line 417, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
   .form-modal .modal-dialog {
     width: 85%;
   }
 }
 @media (max-width: 767px) {
-  /* line 422, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+  /* line 417, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
   .form-modal .modal-dialog {
     width: 100%;
   }
 }
-/* line 432, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 427, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #fff;
 }
-/* line 444, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 439, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-modal .modal-header {
   border-bottom: 0;
 }
-/* line 446, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 441, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-modal .modal-header .close {
   color: #fff;
   opacity: 2;
 }
-/* line 450, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 445, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-modal .modal-header .form-modal-close-icon:after {
   content: "\e906";
   visibility: visible;
@@ -8257,13 +8263,13 @@ form.request-a-demo-popup {
   margin-left: -5px;
 }
 
-/* line 462, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 457, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-submit-border {
   padding-top: 56px;
   position: relative;
   padding-bottom: 20px;
 }
-/* line 466, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 461, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-submit-border .btn {
   background-color: #ef7c00 !important;
   border: 0 !important;
@@ -8274,18 +8280,18 @@ form.request-a-demo-popup {
   bottom: 15px;
 }
 @media (min-width: 768px) {
-  /* line 466, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+  /* line 461, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
   .form-submit-border .btn {
     width: 121px;
   }
 }
 @media (max-width: 767px) {
-  /* line 466, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+  /* line 461, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
   .form-submit-border .btn {
     width: 100% !important;
   }
 }
-/* line 481, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
+/* line 476, ../../../src/components/form-get-in-touch/sass/form-get-in-touch.scss */
 .form-submit-border::after {
   position: absolute;
   font-family: 'InformaIcons';
