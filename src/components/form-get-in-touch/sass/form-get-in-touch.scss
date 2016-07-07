@@ -157,6 +157,16 @@ form.request-a-demo {
                 margin-bottom: 10px !important;
             }
         }
+
+        &.tool_tip {
+            &::after {
+                position: absolute;
+                font-family: 'InformaIcons';
+                content: '\e915';
+                padding-left: 15px;
+            }
+        }
+
     }
     p {
         position: relative;

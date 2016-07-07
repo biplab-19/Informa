@@ -74,6 +74,11 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
                 $(this).parent().children('p').slideToggle();
             } 
         });
+
+        $('.form-modal legend').each(function () {
+            if($(this).next().is('p'))
+                $(this).addClass('tool_tip');
+        });
     }
 
     _bindSelectOptions = function(){
