@@ -53,7 +53,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 var FilterID = $(this).data("filterid").toLowerCase(),
                     ListItem = $(this).find("li a");
                 $.each(ListItem, function() {
-                    if (FilterID !== "sectors" && FilterID !== "subsectors") {
+                    if (FilterID !== "sectors" && FilterID !== "subsectors" || (SearchType === "SearchResult")) {
                         FilterValue.push($(this).data("value"));
                     }
                 });
