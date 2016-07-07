@@ -153,6 +153,7 @@ form.request-a-demo {
                 display: table-cell;
                 float: left;
                 margin-top: -5px;
+                margin-bottom: 15px;
                 height: 70px;
                 background-color: $body-bg;
                 color: $gray-light-bg;
@@ -165,7 +166,8 @@ form.request-a-demo {
                 }
                 
                 @include mobile {
-                    width: 50%;
+                    width: 48%;
+
                 }
                 @include desktop {
                     width: 30%;
@@ -173,13 +175,16 @@ form.request-a-demo {
                 label {
                     height: inherit;
                     margin: 0;
-                    padding: 10px;
+                    
+                    font-size: $font-size-base;
                     
                     @include mobile {
-                        width: 90%;
+                        padding: 5px;
+                        width: 100%;
                     }
                     @include desktop {
                         width: 100%;
+                        padding: 10px;
                     }
                 }
                 &.active{
@@ -198,9 +203,16 @@ form.request-a-demo {
                     }
                 }
             }
-            .checkbox:nth-child(3n-2) {
-                margin-left: 5%;
-                margin-right: 5%;
+            @include desktop{
+                .checkbox:nth-child(3n-2) {
+                    margin-left: 5%;
+                    margin-right: 5%;
+                }
+            }
+            @include mobile{
+                .checkbox:nth-child(even) {
+                    margin-left: 4%;
+                }
             }
         }
     }
@@ -230,9 +242,11 @@ form.request-a-demo {
             width: 30%;
             float: left;
         }
-        .required-field:nth-child(even) {
-            margin-left: 5%;
-            margin-right: 5%;
+        @include desktop{
+            .required-field:nth-child(even) {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
         }
     }
     .picker-container{
