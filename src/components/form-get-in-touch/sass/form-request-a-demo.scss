@@ -89,29 +89,6 @@ form.request-a-demo {
     .has-error {
         display: none;
     }
-    .form-submit-border {
-        padding-top: 56px;
-        position: relative;
-        padding-bottom: 20px;
-        .btn {
-            background-color: #ef7c00;
-            border: 0 !important;
-            color: $white;
-            position: absolute;
-            font-family: FSMe-bold !important;
-            right: 0;
-            bottom: 15px;
-            width: 121px;
-        }
-        &::after {
-            position: absolute;
-            font-family: 'InformaIcons';
-            content: "\e900";
-            top: 27px;
-            right: 6px;
-            font-weight: bold;
-        }
-    }
     .form-group {
         width: 100%;
         @include mobile {
