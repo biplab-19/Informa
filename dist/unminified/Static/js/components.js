@@ -1,4 +1,4 @@
-/*! 2016-07-05 */_adjustHeigt = function(){
+/*! 2016-07-07 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1207,9 +1207,11 @@ INFORMA.FAQs = (function(window, $, namespace) {
     'use strict';
     //variables
     var FaqMoreBtn = $('.btn-faq-more'),
-        pageNo = 2,
+        pageNo = 1,
         AccordianWrapper = $('.accordian-structure'),
+        PanelWrapper = AccordianWrapper.find('.panel-group'),
         Urls = INFORMA.Configs.urls.webservices,
+        Templates = INFORMA.Templates,
     //methods
         init, BindMore, ResetAccordian, GetAjaxData, GetFaqIds, RenderFaqs;
 
@@ -1231,7 +1233,27 @@ INFORMA.FAQs = (function(window, $, namespace) {
     },
 
     RenderFaqs = function (data) {
-        //var Results = data.
+        
+        var Results = data,
+            List = Results.FaqList,
+            AccordianId = Results.FaqAccordionId,
+            Html = "";
+
+        for(var key in List) {
+            var Data = List[key],
+            TemplateName = (Templates.AccordianTemplate !== "undefined") ? Templates.AccordianTemplate : "",
+            ListTemplate = Handlebars.compile(TemplateName);
+            Data.FaqAccordionId = AccordianId;
+            Html += ListTemplate({ results: Data });
+        }
+
+        $('.panel-group#'+AccordianId).append(Html);
+
+        if (Results.FaqRemainingCount < 1) {
+            FaqMoreBtn.hide();
+        } else {
+            FaqMoreBtn.show();
+        }
     },
 
     GetFaqIds = function (Parent) {
@@ -1247,17 +1269,19 @@ INFORMA.FAQs = (function(window, $, namespace) {
     },
 
     ResetAccordian = function () {
-        AccordianWrapper.each(function () {
+        var Items = AccordianWrapper.find('.panel-group');
+        Items.each(function () {
             $(this).attr('data-pageno', pageNo);
         });
     },
 
     BindMore = function () {
-        FaqMoreBtn.on('click', function () {
-            var Parent = $(this).parents('.accordian-structure'),
-                CurrentPage = Parent.attr('data-pageno'),
+        FaqMoreBtn.on('click', function (e) {
+            e.preventDefault();
+            var Parent = $(this).parents('.accordian-wrap'),
+                CurrentPage = Parent.find('.panel-group').attr('data-pageno'),
                 HelpDropdown = Parent.find('.help-faq-select'),
-                Count = Parent.attr('data-count'),
+                Count = Parent.find('.panel-group').attr('data-count'),
                 CurrentPageItemGuid = Parent.attr('data-CurrentPageItemGuid'),
                 _Object = {
                     PageNo: CurrentPage,
@@ -1270,7 +1294,8 @@ INFORMA.FAQs = (function(window, $, namespace) {
                 if(HelpDropdown.length > 0) {
                     _Object.FAQTypeItemGuid = HelpDropdown.val();
                 }
-
+                Parent.find('.panel-group').attr('data-pageno', (parseInt(CurrentPage)+1));
+                
                 GetAjaxData(Urls.GetFAQs, "Post", JSON.stringify(_Object), RenderFaqs, null, null);
         })
     },
@@ -1795,6 +1820,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         init,
         _bindToolTip,
         _bindCalendar,
+        _bindSelectOptions,
         _showOverlay,
         _attachInlineForm,
         _validateAllForms;
@@ -1809,22 +1835,17 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             _formModal.find('.modal-body .form-popup-container').html(formHTML);
             _formInlineContiner.find('form').remove();
 
-            _validateAllForms();
+            //_validateAllForms();
             _bindToolTip();
             _bindCalendar();
+            _bindSelectOptions();
+
             $('.form-popup-container form').css('display', 'block');
             _formModal.modal({
                 show: true,
                 keyboard: false,
                 backdrop: "static"
             });
-
-            // $('.modal-body form').submit(function(ev) {
-            //     //ev.preventDefault(); // to stop the form from submitting
-            //      Validations go here 
-            //     console.log("Form submitted");
-            //     this.submit(); // If all the validations succeeded
-            // });
 
         })
     }
@@ -1840,31 +1861,35 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
 
     _validateAllForms = function() {
-        // $('form.get-in-touch').validate({
-        //     submitHandler: function() { 
-        //         alert("submitted!"); 
-        //     }, 
-        //     failure: function() {
-        //         console.log("Failure");
-        //     },
-        //     success: function() {
-        //         console.log("Success");
-        //     }
-        // });
+        $('form.get-in-touch').validate({
+            submitHandler: function() { 
+                alert("submitted!"); 
+            }, 
+            failure: function() {
+                console.log("Failure");
+            },
+            success: function() {
+                console.log("Success");
+            }
+        });
         $('form.request-a-demo').validate();
     }
 
     _bindToolTip = function() {        
         $('.form-modal legend').on("click", function(e){
-                if (e.offsetX > $(this).outerWidth() + 15) {
-                    $(this).toggleClass('active');
-                    $(this).parent().children('p').slideToggle();
-                } else {
-                    console.log('C2');
-                } 
+            if (e.offsetX > $(this).outerWidth() + 15) {
+                $(this).toggleClass('active');
+                $(this).parent().children('p').slideToggle();
+            } 
         });
     }
 
+    _bindSelectOptions = function(){
+        $('.form-modal .hide-title .checkbox input').change(function(e){
+            $(this).parent().parent().toggleClass('active'); 
+        });
+        $(".form-modal .modal-body .form-group select").wrap("<div class='select-wrapper'></div>");
+    }
 
     function strToDate(str) {
         try {
@@ -3971,7 +3996,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 var FilterID = $(this).data("filterid").toLowerCase(),
                     ListItem = $(this).find("li a");
                 $.each(ListItem, function() {
-                    if (FilterID !== "sectors" && FilterID !== "subsectors") {
+                    if (FilterID !== "sectors" && FilterID !== "subsectors" || (SearchType === "SearchResult")) {
                         FilterValue.push($(this).data("value"));
                     }
                 });

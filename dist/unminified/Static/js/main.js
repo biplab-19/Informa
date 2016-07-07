@@ -1,4 +1,4 @@
-/*! 2016-07-05 */var INFORMA = window.INFORMA || {};
+/*! 2016-07-07 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -24,7 +24,8 @@
             "AnalystSearchDropDown": "/data/analyst-search-dropdown.json",
             "AnalystSearchAll": "/data/analyst-search-subsector.json",
             "EventsSearch": "data/events-page.json",
-            "ResourceList": "data/resource-list.json"
+            "ResourceList": "data/resource-list.json",
+            "GetFAQs": "data/faqs.json"
         },
         "dev":{
             "GetArticles": "/client/search/getarticles",
@@ -803,14 +804,14 @@ var INFORMA = window.INFORMA || {};
         'AccordianTemplate': '<div class="panel panel-default">'+
                         '<div class="panel-heading" role="tab">'+
                           '<h4 class="panel-title">'+
-                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#faqs-accordion" href="#{{collapsecontrol}}" aria-expanded="false" aria-controls="{{collapsecontrol}}">'+
-                              '{{Title}}'+
+                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#{{results.FaqAccordionId}}" href="#{{results.Id}}" aria-expanded="false" aria-controls="{{results.Id}}">'+
+                              '{{results.Title}}'+
                             '</a>'+
                           '</h4>'+
                         '</div>'+
-                        '<div id="{{collapsecontrol}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{id}}">'+
+                        '<div id="{{results.Id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{results.Id}}">'+
                           '<div class="panel-body">'+
-                            '{{body}}'+
+                            '{{results.Description}}'+
                           '</div>'+
                         '</div>'+
                     '</div>'
@@ -824,38 +825,25 @@ var INFORMA = window.INFORMA || {};
 
             DoFlip = function(obj, className) {
                     var Container = obj.parents('.tile');
-                    if (Container.hasClass('un-pinned')) {
-                        if (className === "flip") {
-                            Container.addClass('flip');
-                        } else {
-                            Container.removeClass('flip');
-                        }
+                    if (className === "flip") {
+                        Container.addClass('flip');
+                    } else {
+                        Container.removeClass('flip');
                     }
                 },
                 this.flipTile = function(Object) {
-                    var TileFront = Object.find('.front .header'),
-                        TileBack = Object.find('.back'),
-                        CompleteTile = Object.find('.front .header, .back'),
-                        Pins = Object.find('.pin');
+                    var TileFront = Object.find('.front .triangle'),
+                        TileBack  = Object.find('.back .triangle');
 
                     if (INFORMA.global.device.viewportN === 0) {
-                        TileFront.mouseenter(function() {
+                        TileFront.on("click",function() {
                             DoFlip($(this), 'flip');
                         });
 
-                        TileBack.mouseleave(function() {
+                        TileBack.on("click",function() {
                             DoFlip($(this), 'unflip');
                         });
-                    } else {
-                        CompleteTile.hover(function() {
-                            DoFlip($(this), 'flip');
-                        }, function() {
-                            DoFlip($(this), 'unflip');
-                        });
-                    }
-                    Pins.click(function() {
-                        jQuery(this).parents('.tile').toggleClass('un-pinned');
-                    })
+                    } 
                 },
                 this.getUniqueArray = function(arrayList) {
                     var uniqueArray = [];
