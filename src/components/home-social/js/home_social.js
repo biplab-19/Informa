@@ -18,7 +18,25 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
     // methods
         init,
         _dots,
-        _createSlider;
+        _createSlider,
+        _equalHeight;
+
+    _equalHeight = function () {
+        var items = _twitterList.find('.feed'),
+            _vp = INFORMA.global.device.viewportN,
+            maxHeight = 0;
+
+            if(_vp === 0 || _vp === 1) {
+                items.each(function () {
+                    var Height = $(this).height();
+                    if(Height > maxHeight) {
+                        maxHeight = Height;
+                    }
+                })
+                items.css('height', maxHeight);
+            }
+
+    }
 
     _createSlider = function(container){
         // if data-items, data-infinite is defined, used it
@@ -73,6 +91,7 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
     init = function() {
         if (_twitterList.length > 0) {
             _createSlider(_twitterList);
+            _equalHeight();
         }
     };
 
