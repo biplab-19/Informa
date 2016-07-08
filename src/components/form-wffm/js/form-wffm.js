@@ -104,8 +104,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         $('.modal-body form .contact-details .scfEmailBorder').each(function() {
             $(this).blur(function() {
                 if (!validateEmail($(this).val()))
-                    console.log("Valid email: " + $(this).val());
-                    console.log($(this).next().prepend( "<span class='field-validation-error'>E-mail is not in the valid domain list</span>" ));
+                    $(this).next().prepend( "<span class='field-validation-error'>E-mail is not in the valid domain list</span>" );
             });
         });
 
