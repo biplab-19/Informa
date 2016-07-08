@@ -46,9 +46,9 @@ INFORMA.FAQs = (function (window, $, namespace) {
         $('.panel-group#' + AccordianId).append(Html);
 
         if (Results.FaqRemainingCount < 1) {
-            FaqMoreBtn.hide();
+            $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').hide();
         } else {
-            FaqMoreBtn.show();
+            $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').show();
         }
     },
 
