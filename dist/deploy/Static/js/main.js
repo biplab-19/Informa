@@ -823,7 +823,7 @@ var INFORMA = window.INFORMA || {};
     INFORMA.Utils = (function() {
         function _utils() {
 
-            DoFlip = function(obj, className) {
+                DoFlip = function(obj, className) {
                     var Container = obj.parents('.tile');
                     if (className === "flip") {
                         Container.addClass('flip');
