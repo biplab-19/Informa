@@ -400,6 +400,9 @@
         .description{
 	    		font-size: $font-size-large;
 				padding: 40px 0;
+                @include mobile {
+                    padding: 15px 0;
+                }
 	    }
         .btn{
 	    	border-color: $orange !important;
