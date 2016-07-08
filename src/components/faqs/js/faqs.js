@@ -76,7 +76,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
             e.preventDefault();
             var Parent = $(this).parents('.accordian-wrap'),
                 CurrentPage = Parent.find('.panel-group').attr('data-pageno'),
-                HelpDropdown = Parent.find('.help-faq-select'),
+                HelpDropdown = Parent.parents('.accordian-structure').find('.help-faq-select'),
                 Count = Parent.parents('.accordian-structure').attr('data-count'),
                 CurrentPageItemGuid = Parent.parents('.accordian-structure').attr('data-CurrentPageItemGuid'),
                 _Object = {
