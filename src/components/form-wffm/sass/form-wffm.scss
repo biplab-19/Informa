@@ -149,7 +149,6 @@ form.request-a-demo {
         font-size: 20px;
         border-bottom: none !important;
         width: initial;
-
         &.active {
             margin-bottom: 10px !important;
             &::after {
@@ -157,7 +156,6 @@ form.request-a-demo {
                 margin-bottom: 10px !important;
             }
         }
-
         &.tool_tip {
             &::after {
                 position: absolute;
@@ -166,7 +164,6 @@ form.request-a-demo {
                 padding-left: 15px;
             }
         }
-
     }
     p {
         position: relative;
@@ -283,8 +280,8 @@ form.request-a-demo {
         @include mobile {
             width: 100%;
         }
-        label{
-          padding-left: 30px;
+        label {
+            padding-left: 30px;
         }
         label:before {
             content: "";
@@ -296,7 +293,6 @@ form.request-a-demo {
             position: absolute;
             left: 0;
             top: 3px;
-
         }
         input[type=radio]:checked + label:before {
             background-color: $input-orange;
@@ -320,8 +316,8 @@ form.request-a-demo {
             margin-right: 4%;
         }
     }
-    .contact-details{
-        .required-field:not(:first-child){
+    .contact-details {
+        .required-field:not(:first-child) {
             display: table-cell;
             width: 48%;
             float: left;
@@ -348,21 +344,23 @@ form.request-a-demo {
             }
         }
     }
+    .icon-calender:before {
+        font-family: 'InformaIcons';
+        position: absolute;
+        font-size: 30px;
+        content: "\e920";
+        color: $brand-primary;
+    }
+    .normal-checkbox label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+    }
 }
-
-form.get-in-touch-popup {
-    display: none;
-}
-
-form.request-a-demo-popup {
-    display: none;
-}
-
 .form-btn-container {
     width: 20%;
     margin: 10px auto;
 }
-
 .submit-response {
     position: relative;
     font-family: "FSMe-Light";
@@ -397,7 +395,7 @@ form.request-a-demo-popup {
             top: 3%;
             left: 20%;
         }
-        @include tablet{
+        @include tablet {
             font-size: 40px;
             top: 3%;
             left: 0;
@@ -409,7 +407,6 @@ form.request-a-demo-popup {
         }
     }
 }
-
 .form-modal.modal.fade .modal-dialog {
     -webkit-transform: scale(0.1);
     -moz-transform: scale(0.1);
@@ -421,7 +418,6 @@ form.request-a-demo-popup {
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
-
 .form-modal.modal.fade.in .modal-dialog {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -431,7 +427,6 @@ form.request-a-demo-popup {
     transform: translate3d(0, -300px, 0);
     opacity: 1;
 }
-
 .form-modal {
     .modal-dialog {
         width: 80%;
@@ -472,7 +467,6 @@ form.request-a-demo-popup {
         }
     }
 }
-
 .form-submit-border {
     padding-top: 56px;
     position: relative;
