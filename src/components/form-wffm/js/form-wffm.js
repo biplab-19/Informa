@@ -279,7 +279,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         //todo: No null check, dont execute these bindings if forms are not there
         _showOverlay();
         //_bindToolTip();
-        _attachInlineForm();
+        //_attachInlineForm();
       //  _validateGetInTouchForm();
     };
 
