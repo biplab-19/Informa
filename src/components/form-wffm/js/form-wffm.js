@@ -18,7 +18,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _validateAllForms;
 
     _showOverlay = function(container) {
-        _formModalBtn.click(function() {
+        /*_formModalBtn.click(function() {
 
             var _formName = $(this).data('form');
             _formInlineContiner = $('.' + _formName).parent();
@@ -27,10 +27,6 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             _formModal.find('.modal-body .form-popup-container').html(formHTML);
             _formInlineContiner.find('form').remove();
 
-            //_validateAllForms();
-            _bindToolTip();
-            _bindCalendar();
-            _bindSelectOptions();
 
             $('.form-popup-container form').css('display', 'block');
             _formModal.modal({
@@ -39,7 +35,11 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
                 backdrop: "static"
             });
 
-        })
+        })*/
+        //_validateAllForms();
+        _bindToolTip();
+        _bindCalendar();
+        _bindSelectOptions();
     }
 
     _attachInlineForm = function() {
@@ -54,9 +54,9 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
 
     _validateAllForms = function() {
         $('form.get-in-touch').validate({
-            submitHandler: function() { 
-                alert("submitted!"); 
-            }, 
+            submitHandler: function() {
+                alert("submitted!");
+            },
             failure: function() {
                 console.log("Failure");
             },
@@ -67,12 +67,12 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         $('form.request-a-demo').validate();
     }
 
-    _bindToolTip = function() {        
+    _bindToolTip = function() {
         $('.form-modal legend').on("click", function(e){
             if (e.offsetX > $(this).outerWidth() + 15) {
                 $(this).toggleClass('active');
                 $(this).parent().children('p').slideToggle();
-            } 
+            }
         });
 
         $('.form-modal legend').each(function () {
@@ -83,7 +83,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
 
     _bindSelectOptions = function(){
         $('.form-modal .hide-title .checkbox input').change(function(e){
-            $(this).parent().parent().toggleClass('active'); 
+            $(this).parent().parent().toggleClass('active');
         });
         $(".form-modal .modal-body .form-group select").wrap("<div class='select-wrapper'></div>");
     }
@@ -144,7 +144,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _this.update = function (date) {
             var mDate = new Date(date);
             mDate.setDate(1); /* start of the month */
-    
+
             var day = mDate.getDay(); /* value 0~6: 0 -- Sunday, 6 -- Saturday */
             mDate.setDate(mDate.getDate() - day) /* now mDate is the start day of the table */
 
@@ -266,8 +266,8 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     };
 
     _bindCalendar = function(){
-        $(".modal-body .three-column input:text").addClass('date-picker');
-        $(".modal-body .three-column input:text").wrap("<div class='right-inner'></div>");
+      //  $(".modal-body .three-column input:text").addClass('date-picker');
+        $(".modal-body .three-column .date-picker").wrap("<div class='right-inner'></div>");
         $(".modal-body .three-column .right-inner" ).prepend("<i class='icon-calender'></i>");
 
         $('.modal-body .date-picker:text').each(function () {
