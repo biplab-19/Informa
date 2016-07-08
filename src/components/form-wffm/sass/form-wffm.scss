@@ -21,6 +21,7 @@ form.request-a-demo {
     }
     select.form-control {
         height: 54px;
+        background-color: $blue-lighter-bg;
     }
     label.control-label {
         font-family: FSMe-light !important;
@@ -344,9 +345,9 @@ form.request-a-demo {
             }
         }
     }
-    .terms-and-conditions{
+    .terms-and-conditions {
         margin-top: 10px;
-        legend{
+        legend {
             display: none;
         }
     }
@@ -356,11 +357,11 @@ form.request-a-demo {
         margin-bottom: 5px;
         font-weight: normal;
     }
-    .right-inner{
+    .right-inner {
         position: relative;
-        .icon-calender{
+        .icon-calender {
             pointer-events: none;
-            &:before{
+            &:before {
                 font-family: 'InformaIcons';
                 position: absolute;
                 font-size: 30px;
@@ -371,57 +372,68 @@ form.request-a-demo {
             }
         }
     }
+    .submit-response {
+        position: relative;
+        font-family: "FSMe-Light";
+        display: block;
+        font-size: $line-height-computed;
+        h1 {
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+        p {
+            margin-bottom: 25px;
+            margin-top: 0;
+            position: static;
+            display: block;
+            width: 100%;
+            color: $white;
+            background-color: inherit;
+            height: initial;
+            text-align: left;
+            border-radius: 0;
+            padding: 0;
+
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: 100%;
+                left: 0;
+                width: 0;
+                height: 0;
+                border: 0;
+            }
+        }
+        &::before {
+            position: absolute;
+            content: "\e914";
+            visibility: visible;
+            font-family: 'InformaIcons';
+            color: $brand-secondary;
+            @include desktop {
+                font-size: 40px;
+                top: 3%;
+                left: -10%;
+            }
+            @include tablet {
+                font-size: 40px;
+                top: 3%;
+                left: 0;
+            }
+            @include mobile {
+                font-size: 50px;
+                top: 5%;
+                right: 0;
+            }
+        }
+    }
 }
+
 .form-btn-container {
     width: 20%;
     margin: 10px auto;
 }
-.submit-response {
-    position: relative;
-    font-family: "FSMe-Light";
-    display: block;
-    font-size: $line-height-computed;
-    @include desktop {
-        padding-left: 25%;
-        padding-right: 25%;
-    }
-    @include tablet {
-        padding-left: 10%;
-        padding-right: 10%;
-    }
-    @include mobile {
-        padding-right: 10%;
-    }
-    h1 {
-        display: inline-block;
-        margin-bottom: 25px;
-    }
-    p {
-        margin-bottom: 25px;
-    }
-    &::before {
-        position: absolute;
-        content: "\e914";
-        visibility: visible;
-        font-family: 'InformaIcons';
-        color: $brand-secondary;
-        @include desktop {
-            font-size: 40px;
-            top: 3%;
-            left: 20%;
-        }
-        @include tablet {
-            font-size: 40px;
-            top: 3%;
-            left: 0;
-        }
-        @include mobile {
-            font-size: 50px;
-            top: 5%;
-            right: 0;
-        }
-    }
-}
+
 .form-modal.modal.fade .modal-dialog {
     -webkit-transform: scale(0.1);
     -moz-transform: scale(0.1);
@@ -433,6 +445,7 @@ form.request-a-demo {
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+
 .form-modal.modal.fade.in .modal-dialog {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -442,6 +455,7 @@ form.request-a-demo {
     transform: translate3d(0, -300px, 0);
     opacity: 1;
 }
+
 .form-modal {
     .modal-dialog {
         width: 80%;
@@ -482,6 +496,7 @@ form.request-a-demo {
         }
     }
 }
+
 .form-submit-border {
     padding-top: 56px;
     position: relative;
