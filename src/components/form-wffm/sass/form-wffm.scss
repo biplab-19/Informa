@@ -129,6 +129,12 @@ form.request-a-demo {
             right: 10px;
             pointer-events: none;
         }
+        .has-error .bg-warning {
+            display: block;
+        }
+        .has-error .has-feedback .bg-warning {
+            display: block;
+        }
     }
     .half-width-text-box {
         display: table;
