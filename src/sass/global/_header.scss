@@ -1,5 +1,16 @@
 header {
     color: $light;
+    .cookieBanner{
+        display: none;
+        background-color:$blue-light-bg;
+        padding:20px;
+        color:$gray-light-bg;
+        .icon-close{
+            text-align: right;
+            float: right;
+            color:#000;
+        }
+    }
     section.informa-header-copyright {
         background: $gray-header;
         .informa-select {
