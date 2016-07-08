@@ -10,9 +10,11 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
 
         //functions
         init,
+        validateEmail,
         _bindToolTip,
         _bindCalendar,
         _bindSelectOptions,
+        _bindValidationLogic,
         _showOverlay,
         _attachInlineForm,
         _validateAllForms;
@@ -40,6 +42,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _bindToolTip();
         _bindCalendar();
         _bindSelectOptions();
+        _bindValidationLogic();
     }
 
     _attachInlineForm = function() {
@@ -68,24 +71,44 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
 
     _bindToolTip = function() {
-        $('.form-modal legend').on("click", function(e){
+        $('.form-modal legend').on("click", function(e) {
             if (e.offsetX > $(this).outerWidth() + 15) {
                 $(this).toggleClass('active');
                 $(this).parent().children('p').slideToggle();
             }
         });
 
-        $('.form-modal legend').each(function () {
-            if($(this).next().is('p'))
+        $('.form-modal legend').each(function() {
+            if ($(this).next().is('p'))
                 $(this).addClass('tool_tip');
         });
     }
 
-    _bindSelectOptions = function(){
-        $('.form-modal .hide-title .checkbox input').change(function(e){
+    _bindSelectOptions = function() {
+        $('.form-modal .hide-title .checkbox input').change(function(e) {
             $(this).parent().parent().toggleClass('active');
         });
         $(".form-modal .modal-body .form-group select").wrap("<div class='select-wrapper'></div>");
+    }
+
+    validateEmail = function(email) {
+        var domain = email.substring(email.lastIndexOf("@") + 1);
+        if (INFORMA.validDomains.indexOf(domain) < 0)
+            return false;
+        return true;
+    }
+
+    _bindValidationLogic = function() {
+
+        //Email validation logic
+        $('.modal-body form .contact-details .scfEmailBorder').each(function() {
+            $(this).blur(function() {
+                if (!validateEmail($(this).val()))
+                    console.log("Valid email: " + $(this).val());
+                    console.log($(this).next().prepend( "<span class='field-validation-error'>E-mail is not in the valid domain list</span>" ));
+            });
+        });
+
     }
 
     function strToDate(str) {
@@ -93,7 +116,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             var array = str.split('-');
             var year = parseInt(array[0]);
             var month = parseInt(array[1]);
-            var day = array.length > 2? parseInt(array[2]): 1 ;
+            var day = array.length > 2 ? parseInt(array[2]) : 1;
             if (year > 0 && month >= 0) {
                 return new Date(year, month - 1, day);
             } else {
@@ -110,26 +133,26 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         return year + "-" + (month + 1) + "-" + d.getDate();
     };
 
-    $.fn.calendar = function (options) {
+    $.fn.calendar = function(options) {
         var _this = this;
         var opts = $.extend({}, $.fn.calendar.defaults, options);
         var week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        var tHead = week.map(function (day) {
+        var tHead = week.map(function(day) {
             return "<th>" + day + "</th>";
         }).join("");
 
-        _this.init = function () {
+        _this.init = function() {
             var tpl = '<table class="cal">' +
-            '<caption>' +
-            '   <span class="prev"><a href="javascript:void(0);">&lt;</a></span>' +
-            '   <span class="next"><a href="javascript:void(0);">&gt;</a></span>' +
-            '   <span class="month" data-date=""><span>' +
-            "</caption>" +
-            "<thead><tr>" +
-            tHead +
-            "</tr></thead>" +
-            "<tbody>" +
-            "</tbody>" + "</table>";
+                '<caption>' +
+                '   <span class="prev"><a href="javascript:void(0);">&lt;</a></span>' +
+                '   <span class="next"><a href="javascript:void(0);">&gt;</a></span>' +
+                '   <span class="month" data-date=""><span>' +
+                "</caption>" +
+                "<thead><tr>" +
+                tHead +
+                "</tr></thead>" +
+                "<tbody>" +
+                "</tbody>" + "</table>";
             var html = $(tpl);
             _this.append(html);
         };
@@ -141,7 +164,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             return newDate.getDate();
         }
 
-        _this.update = function (date) {
+        _this.update = function(date) {
             var mDate = new Date(date);
             mDate.setDate(1); /* start of the month */
 
@@ -158,8 +181,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
                 } else if (_this.data('date') == a.data('date')) { // the select day
                     tag.addClass('active');
                     _this.data('date', dateToStr(d));
-                }
-                else if(d.toDateString() == date.toDateString()){
+                } else if (d.toDateString() == date.toDateString()) {
                     tag.addClass('active');
                 }
                 return tag;
@@ -167,7 +189,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
 
             var tBody = _this.find('tbody');
             tBody.empty(); /* clear previous first */
-            var cols = Math.ceil((day + daysInMonth(date))/7);
+            var cols = Math.ceil((day + daysInMonth(date)) / 7);
             for (var i = 0; i < cols; i++) {
                 var tr = $('<tr></tr>');
                 for (var j = 0; j < 7; j++, mDate.setDate(mDate.getDate() + 1)) {
@@ -184,7 +206,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             _this.find('.month').data("date", monthStr);
         };
 
-        _this.getCurrentDate = function () {
+        _this.getCurrentDate = function() {
             return _this.data('date');
         }
 
@@ -192,14 +214,14 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         /* in date picker mode, and input date is empty,
          * should not update 'data-date' field (no selected).
          */
-        var initDate = opts.date? opts.date: new Date();
+        var initDate = opts.date ? opts.date : new Date();
         if (opts.date || !opts.picker) {
             _this.data('date', dateToStr(initDate));
         }
         _this.update(initDate);
 
         /* event binding */
-        _this.delegate('tbody td', 'click', function () {
+        _this.delegate('tbody td', 'click', function() {
             var $this = $(this);
             _this.find('.active').removeClass('active');
             $this.addClass('active');
@@ -208,7 +230,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             if ($this.hasClass('off')) {
                 _this.update(strToDate(_this.data('date')));
             }
-            if (opts.picker) {  /* in picker mode, when date selected, panel hide */
+            if (opts.picker) { /* in picker mode, when date selected, panel hide */
                 _this.hide();
             }
         });
@@ -219,11 +241,11 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             _this.update(date);
         };
 
-        _this.find('.next').click(function () {
+        _this.find('.next').click(function() {
             updateTable(1);
         });
 
-        _this.find('.prev').click(function () {
+        _this.find('.prev').click(function() {
             updateTable(-1);
         });
 
@@ -235,29 +257,29 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         picker: false,
     };
 
-    $.fn.datePicker = function () {
+    $.fn.datePicker = function() {
         var _this = this;
         var picker = $('<div></div>')
             .addClass('picker-container')
             .hide()
-            .calendar({'date': strToDate(_this.val()), 'picker': true});
+            .calendar({ 'date': strToDate(_this.val()), 'picker': true });
 
         _this.after(picker);
 
         /* event binding */
         // click outside area, make calendar disappear
-        $('body').click(function () {
+        $('body').click(function() {
             picker.hide();
         });
 
         // click input should make calendar appear
-        _this.click(function () {
+        _this.click(function() {
             picker.show();
             return false; // stop sending event to docment
         });
 
         // click on calender, update input
-        picker.click(function () {
+        picker.click(function() {
             _this.val(moment(picker.getCurrentDate()).format('DD/MMM/YYYY'));
             return false;
         });
@@ -265,13 +287,13 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         return this;
     };
 
-    _bindCalendar = function(){
-      //  $(".modal-body .three-column input:text").addClass('date-picker');
+    _bindCalendar = function() {
+        //  $(".modal-body .three-column input:text").addClass('date-picker');
         $(".modal-body .three-column .date-picker").wrap("<div class='right-inner'></div>");
-        $(".modal-body .three-column .right-inner" ).prepend("<i class='icon-calender'></i>");
+        $(".modal-body .three-column .right-inner").prepend("<i class='icon-calender'></i>");
 
-        $('.modal-body .date-picker:text').each(function () {
-            $(this).datePicker({dateFormat: "dd-mm-yy"});
+        $('.modal-body .date-picker:text').each(function() {
+            $(this).datePicker({ dateFormat: "dd-mm-yy" });
         });
     }
 
@@ -280,7 +302,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _showOverlay();
         //_bindToolTip();
         //_attachInlineForm();
-      //  _validateGetInTouchForm();
+        //  _validateGetInTouchForm();
     };
 
     return {
