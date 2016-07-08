@@ -12639,71 +12639,77 @@ footer ul.slick-dots li.slick-active {
   font-size: 18px;
   padding: 40px 0;
 }
-/* line 404, ../../../src/sass/global/_banner.scss */
+@media (max-width: 767px) {
+  /* line 400, ../../../src/sass/global/_banner.scss */
+  .marketing-banner.Variation1 .description {
+    padding: 15px 0;
+  }
+}
+/* line 407, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation1 .btn {
   border-color: #ef7c00 !important;
 }
-/* line 406, ../../../src/sass/global/_banner.scss */
+/* line 409, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation1 .btn:after {
   color: #ef7c00;
 }
-/* line 412, ../../../src/sass/global/_banner.scss */
+/* line 415, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 {
   background-color: #444957;
   color: #fff;
 }
-/* line 415, ../../../src/sass/global/_banner.scss */
+/* line 418, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .Variant2-description {
   display: block;
 }
-/* line 418, ../../../src/sass/global/_banner.scss */
+/* line 421, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .Variant1-description {
   display: none;
 }
-/* line 421, ../../../src/sass/global/_banner.scss */
+/* line 424, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 h2 {
   font-size: 30px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 425, ../../../src/sass/global/_banner.scss */
+  /* line 428, ../../../src/sass/global/_banner.scss */
   .marketing-banner.Variation2 .image img {
     margin: 0 auto;
   }
 }
-/* line 431, ../../../src/sass/global/_banner.scss */
+/* line 434, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .description {
   font-size: 14px;
   padding: 20px 0 40px 0;
 }
-/* line 435, ../../../src/sass/global/_banner.scss */
+/* line 438, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .btn {
   background: #ef7c00 !important;
   color: #fff;
 }
 
-/* line 441, ../../../src/sass/global/_banner.scss */
+/* line 444, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox {
   display: inline-block;
   margin-left: -65px;
 }
 @media (max-width: 767px) {
-  /* line 441, ../../../src/sass/global/_banner.scss */
+  /* line 444, ../../../src/sass/global/_banner.scss */
   div.addthis_sharing_toolbox {
     margin-left: 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 441, ../../../src/sass/global/_banner.scss */
+  /* line 444, ../../../src/sass/global/_banner.scss */
   div.addthis_sharing_toolbox {
     margin-left: 0px;
   }
 }
-/* line 450, ../../../src/sass/global/_banner.scss */
+/* line 453, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox a.at-share-btn {
   max-width: 10pc !important;
   max-height: 10pc !important;
 }
-/* line 453, ../../../src/sass/global/_banner.scss */
+/* line 456, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox a.at-share-btn span.at-icon-wrapper {
   background-color: #4a4f5e !important;
   border-radius: 100% !important;
@@ -12712,7 +12718,7 @@ div.addthis_sharing_toolbox a.at-share-btn span.at-icon-wrapper {
   padding: 5px;
 }
 
-/* line 463, ../../../src/sass/global/_banner.scss */
+/* line 466, ../../../src/sass/global/_banner.scss */
 div.at4-share-outer {
   display: none !important;
 }
