@@ -12,6 +12,7 @@ header {
         }
     }
     section.informa-header-copyright {
+        font-family: Arial;
         background: $gray-header;
         .informa-select {
             font-size: 18px;
@@ -23,7 +24,7 @@ header {
         }
         .header-copyright {
             color: $white;
-            background-color: $gray-header;
+            background-color: $copyright-gray-header;
             //  border-bottom: 1px solid $white;
             overflow: hidden;
             position: absolute;
@@ -63,11 +64,11 @@ header {
                     width: 0;
                     height: 0;
                     border-style: solid;
-                    border-width: 5px 5px 0 5px;
+                    border-width: 6px 6px 0 6px;
                     border-color: $white transparent transparent transparent;
-                    margin-left: 5px;
+                    margin-left: 8px;
                     position: absolute;
-                    top: 12px;
+                    top: 16px;
                     right: auto;
                 }
                 img{
@@ -97,18 +98,18 @@ header {
         }
         .header-copyright-inner.open {
             & .toggle::after {
-                border-width: 0 5px 5px 5px;
-                margin-left: 5px;
+                border-width: 0 6px 6px 6px;
+                margin-left: 8px;
                 border-color: transparent transparent $white transparent;
                 position: absolute;
-                top: 12px;
+                top: 16px;
                 right: auto;
             }
             & .header-copyright-content {
                 max-height: 160px;
                 height: 160px;
                 opacity: 1;
-                padding-top: 20px;
+                padding-top: 30px;
                 filter: alpha(opacity=100);
                 @include mobile {
                   max-height: 190px;
@@ -121,10 +122,10 @@ header {
                   padding-top: 15px;
                 }
                 & .header-copyright-text {
+                    padding-top: 10px;
                     &:last-child {
-                        border-left: 1px solid $white;
+                        border-left: 1px solid $copyright-gray-border;
                         padding-left: 26px;
-                        padding-top: 8px;
                         @include mobile {
                           padding-left: 5px;
                           border-left: none;
@@ -140,7 +141,8 @@ header {
                     & p {
                         word-wrap: break-word;
                         margin-bottom: 0;
-                        font-size: 13px;
+                        font-size: 12px;
+                        font-family: Arial;
                     }
                     & .links{
                       margin-right: 10px;
@@ -151,6 +153,8 @@ header {
                             list-style: none;
                             display: inline;
                             text-transform: uppercase;
+                            font-family: Arial;
+                            font-size: 12px;
                             &:after {
                                 content: "|";
                                 padding: 0 0.5em;
@@ -188,7 +192,7 @@ header {
 
     section.informaNav{
         padding-top: 36px;
-        
+
         a{
             text-decoration: none !important;
         }
@@ -198,7 +202,7 @@ header {
             border-radius: 0;
             margin-bottom: 0;
         }
-        
+
         .nav-head{
             background-color: $gray-light-bg;
 
@@ -229,7 +233,7 @@ header {
                 text-align: center;
                 margin: auto;
             }
-            
+
             .logo-img-small{
                 width: 35px;
                 height: 32px;
@@ -264,7 +268,7 @@ header {
                 }
             }
         }
-        
+
         @include desktop{
             .navbar{
                 padding-top: 15px;
@@ -381,7 +385,7 @@ header {
                         left: -30px;
                     }
                 }
-            }  
+            }
         }
 
         @include not-desktop {
@@ -484,11 +488,11 @@ header {
                         display: block;
                         float: right;
                     }
-                    
+
                     @media screen and (max-height: 450px) and (orientation:landscape) {
                         padding-top: 0;
                     }
-                    
+
                 }
                 .nav-left{
                     @include tablet{
@@ -541,7 +545,7 @@ header {
                             position: relative;
                             top: 4px;
                             font-size: large;
-                            padding-left: 15px; 
+                            padding-left: 15px;
                         }
                     }
                     @media screen and (max-height: 450px) and (orientation:landscape) {
@@ -578,11 +582,11 @@ header {
             }
             .collapse.in{
                 display:block !important;
-            }                                                            
+            }
         }
 
     }
-       
+
 }
 
 .product-finder {
@@ -795,7 +799,7 @@ header {
     padding-left: 0;
     padding-right: 0;
     -webkit-backface-visibility: hidden;
-    
+
     .container{
         padding: 0;
     }
@@ -857,7 +861,7 @@ header {
 
         .subnav-heading{
             color: $white;
-            
+
             font-family: 'FSMe-bold';
             &:after {
                 content: ">";
@@ -882,7 +886,7 @@ header {
             padding-bottom: 0;
             &:after {
                 content: "";
-            }   
+            }
         }
 
         .subnav-items{
@@ -955,7 +959,7 @@ header {
                         li{
                             padding-right: 10px;
                         }
-                    }    
+                    }
                 }
                 .labels{
                     padding-top: 10px;
@@ -968,7 +972,7 @@ header {
             .labels{
                 padding-top: 0;
                 border-top: none;
-            }   
+            }
         }
 
         @include desktop{
@@ -1010,9 +1014,9 @@ header {
                         padding-right: 15px !important;
                     }
                 }
-            }            
+            }
         }
-        
+
         .heading {
             .top {
                 @include not-desktop{
@@ -1061,7 +1065,7 @@ header {
                     }
                 }
             }
-            .labels { 
+            .labels {
                 li a {
                     color: $info-icon-color;
                 }
@@ -1110,13 +1114,13 @@ header {
                 }
             }
         }
-        
+
         .top {
             padding: 0 50px 10px 0;
             color: $white;
             border-bottom: 1px solid #777b87;
             font-family: 'FSMe-bold';
-            
+
             @include mobile {
                 width: 40%;
                 float: left;
@@ -1139,7 +1143,7 @@ header {
                 }
             }
         }
-        
+
         .labels {
             list-style-type: none;
             padding: 0;
@@ -1162,7 +1166,7 @@ header {
             }
         }
     }
-    
+
     .subnav-close{
         float: right;
         a{
@@ -1173,7 +1177,7 @@ header {
             display: none;
         }
     }
-    
+
     @include mobile{
         .container{
             padding-left: 15px !important;
@@ -1199,7 +1203,7 @@ header {
             list-style-type: none;
             background-color: #4c5161;
         }
-        
+
     }
 }
 
