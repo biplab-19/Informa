@@ -1,4 +1,4 @@
-/*! 2016-07-07 */_adjustHeigt = function(){
+/*! 2016-07-08 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1268,7 +1268,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
             e.preventDefault();
             var Parent = $(this).parents('.accordian-wrap'),
                 CurrentPage = Parent.find('.panel-group').attr('data-pageno'),
-                HelpDropdown = Parent.find('.help-faq-select'),
+                HelpDropdown = Parent.parents('.accordian-structure').find('.help-faq-select'),
                 Count = Parent.parents('.accordian-structure').attr('data-count'),
                 CurrentPageItemGuid = Parent.parents('.accordian-structure').attr('data-CurrentPageItemGuid'),
                 _Object = {
