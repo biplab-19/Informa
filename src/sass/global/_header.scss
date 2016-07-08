@@ -473,6 +473,11 @@ header {
                         display: block;
                         float: right;
                     }
+                    
+                    @media screen and (max-height: 400px) and (orientation:landscape) {
+                        padding-top: 0;
+                    }
+                    
                 }
                 .nav-left{
                     @include tablet{
@@ -525,6 +530,9 @@ header {
                             padding-left: 15px; 
                         }
                     }
+                    @media screen and (max-height: 320px), screen and (orientation:landscape) {
+                        height: initial;
+                    }
                 }
             }
             .navbar-fixed-top {
@@ -546,6 +554,13 @@ header {
             .navbar-nav>li>a {
                 padding-top: 10px;
                 padding-bottom: 10px;
+                @media screen and (max-height: 400px), screen and (orientation:landscape) {
+                    padding-bottom: 0;
+                }
+                @media screen and (max-height: 320px), screen and (orientation:landscape) {
+                    padding-top: 5px;
+                    padding-bottom: 0;
+                }
             }
             .collapse.in{
                 display:block !important;
