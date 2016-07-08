@@ -344,13 +344,6 @@ form.request-a-demo {
             }
         }
     }
-    .icon-calender:before {
-        font-family: 'InformaIcons';
-        position: absolute;
-        font-size: 30px;
-        content: "\e920";
-        color: $brand-primary;
-    }
     .normal-checkbox label {
         display: inline-block;
         max-width: 100%;
@@ -358,9 +351,17 @@ form.request-a-demo {
     }
     .right-inner{
         position: relative;
-        .icon-calender:before{
-            top: 10px;
-            right: 5px;
+        .icon-calender{
+            pointer-events: none;
+            &:before{
+                font-family: 'InformaIcons';
+                position: absolute;
+                font-size: 30px;
+                content: "\e920";
+                color: $brand-primary;
+                top: 10px;
+                right: 5px;
+            }
         }
     }
 }
