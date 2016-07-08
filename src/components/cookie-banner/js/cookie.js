@@ -16,8 +16,8 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
     //variables
     var dropCookie = true,                 // false disables the Cookie, allowing you to style the banner
         cookieDuration = 365,              // Number of days before the cookie expires, banner reappears
-        cookieName = 'cookiepolicy',       // Name of our cookie
-        cookieValue = 'on',               // Value of cookie
+        cookieName = 'cookieaccepeted',       // Name of our cookie
+        cookieValue = 'yes',               // Value of cookie
         // methods
         init,
         ShowBanner,CreateCookie,CheckCookie,EraseCookie,RemoveMe;
@@ -26,8 +26,8 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
         ShowBanner = function(name,value,days) {
                 $("body").find("#cookieBanner").show();
                 $("#cookieBanner a.close").on("click",function(e){
-                    alert("sfsf");
-                    createCookie(cookieName,cookieValue, cookieDuration); 
+                    RemoveMe();
+                    CreateCookie(cookieName,cookieValue, cookieDuration); 
                 });
         },
         CreateCookie = function(name,value,days) {
@@ -62,7 +62,7 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
                 if(CheckCookie(cookieName) !== cookieValue){
                     ShowBanner(); 
                 }
-            }
+            };
         }
 
     return {
