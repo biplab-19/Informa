@@ -1,0 +1,46 @@
+section#sitemap{
+  margin-top: 30px;
+  .main-nav{
+      padding-right: 0px !important;
+      @media (max-width: 1023px) and (min-width: 768px){
+          padding-right: 15px !important;
+      }
+      @include mobile {
+        padding-right: 7.5px !important;
+      }
+  }
+  .sub-nav{
+      padding-left: 0px !important;
+      @media (max-width: 1023px) and (min-width: 768px){
+          padding-left: 15px !important;
+      }
+      @include mobile {
+        padding-left: 7.5px !important;
+      }
+  }
+    .level-one{
+      background-color: $sitemap-main-gray;
+      padding: 10px;
+    }
+    ul.level-two{
+      list-style-type: none;
+      padding-left: 0px;
+      dl{
+        margin-bottom: 0px !important;
+      }
+      dt{
+        background-color: $sitemap-sub-gray;
+        padding: 10px;
+      }
+      dd.level2-sub{
+        background: $blue-light-bg;
+        padding: 10px;
+        border-bottom: 1px solid $sitemap-border;
+      }
+      dd.sub-sub-nav{
+        background-color: $sitemap-light-gray !important;
+        padding: 10px;
+        border-bottom: 1px solid $sitemap-border;
+      }
+    }
+}
