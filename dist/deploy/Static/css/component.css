@@ -3080,64 +3080,69 @@ nav#pdp-navigation .menuFollower {
 #social-section .twitter-carousel .panel .feed .twit-img {
   margin-top: 12px;
   margin-bottom: 20px;
+  width: calc(100% - 25px);
 }
-/* line 112, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 111, ../../../src/components/home-social/sass/_home-social.scss */
+#social-section .twitter-carousel .panel .feed .twit-img img {
+  width: 100%;
+}
+/* line 116, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twittedby:before {
   content: '@';
 }
-/* line 116, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 120, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .video-wrap {
   display: inline-block;
   position: relative;
 }
-/* line 120, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 124, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .feed-heading {
   margin-bottom: 10px;
 }
-/* line 122, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 126, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .feed-heading span {
   margin-right: 10px;
   font-size: 14px;
   color: #8f939e;
 }
-/* line 128, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 132, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed a {
   color: #ef7c00;
 }
-/* line 132, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 136, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .message {
   color: #e1e2e7;
   font-size: 18px;
 }
-/* line 137, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 141, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots {
   text-align: center;
   width: 100%;
   bottom: -40px;
 }
 @media (max-width: 767px) {
-  /* line 137, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 141, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel ul.slick-dots {
     position: static;
     margin: 10px 0 20px 0;
   }
 }
-/* line 145, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 149, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background: #6a7285;
 }
-/* line 150, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 154, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li button:before {
   content: '';
 }
-/* line 153, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 157, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 158, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 162, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow {
   height: 60px;
   width: 40px;
@@ -3146,7 +3151,7 @@ nav#pdp-navigation .menuFollower {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 158, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 162, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 20px;
@@ -3155,7 +3160,7 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 158, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 162, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 25px;
@@ -3163,7 +3168,7 @@ nav#pdp-navigation .menuFollower {
     margin-left: -25px;
   }
 }
-/* line 176, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 180, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -3175,7 +3180,7 @@ nav#pdp-navigation .menuFollower {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 176, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 180, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -3183,52 +3188,52 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 176, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 180, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 197, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 201, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next {
   left: 100%;
   margin-left: 0;
 }
 @media (max-width: 767px) {
-  /* line 197, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 201, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-next {
     left: calc(100% - 10px);
   }
 }
-/* line 203, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 207, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next:before {
   content: "\e902";
 }
-/* line 207, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 211, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev {
   left: 0%;
   margin-left: -40px;
 }
 @media (max-width: 767px) {
-  /* line 207, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 211, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     left: 10px;
   }
 }
 @media (max-width: 767px) {
-  /* line 207, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 211, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 207, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 211, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -25px;
   }
 }
-/* line 219, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 223, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev:before {
   content: "\e903";
 }
@@ -3833,19 +3838,40 @@ nav#pdp-navigation .menuFollower {
     top: 25px;
   }
 }
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 53, ../../../src/components/faqs/sass/faqs.scss */
+  #faqs .btn-faq-more, .accordian-structure .btn-faq-more {
+    position: relative;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    /* IE 9 */
+    -webkit-transform: translateX(-50%);
+    /* Safari */
+    transform: translateX(-50%);
+  }
+}
 @media (max-width: 767px) {
   /* line 53, ../../../src/components/faqs/sass/faqs.scss */
   #faqs .btn-faq-more, .accordian-structure .btn-faq-more {
     margin: 0;
     text-align: center;
     padding-right: 0;
+    padding-bottom: 35px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
 /*Experience Mode FAQs*/
-/* line 93, ../../../src/components/faqs/sass/faqs.scss */
+/* line 104, ../../../src/components/faqs/sass/faqs.scss */
 .experience-mode #faqs .collapse {
   display: block !important;
+}
+/* line 108, ../../../src/components/faqs/sass/faqs.scss */
+.experience-mode .accordian-structure .panel-group .panel .panel-heading .panel-title a:after {
+  content: "\e913";
+  color: #6a7287;
 }
 
 /* line 1, ../../../src/components/training-material/sass/_training-material.scss */
