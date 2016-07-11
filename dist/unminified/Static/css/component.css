@@ -1,4 +1,4 @@
-/*! 2016-07-08 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-07-11 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -7530,57 +7530,6 @@ form.get-in-touch .scfSectionBorder p,
 form.request-a-demo .scfSectionBorder p {
   display: none;
 }
-/* line 275, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .radio,
-form.request-a-demo .radio {
-  width: 45%;
-  display: inline-block;
-  box-sizing: border-box;
-  vertical-align: top;
-  margin: 10px;
-}
-/* line 276, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .radio input[type=radio],
-form.request-a-demo .radio input[type=radio] {
-  display: none;
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 275, ../../../src/components/form-wffm/sass/form-wffm.scss */
-  form.get-in-touch .radio,
-  form.request-a-demo .radio {
-    width: 46%;
-  }
-}
-@media (max-width: 767px) {
-  /* line 275, ../../../src/components/form-wffm/sass/form-wffm.scss */
-  form.get-in-touch .radio,
-  form.request-a-demo .radio {
-    width: 100%;
-  }
-}
-/* line 290, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .radio label,
-form.request-a-demo .radio label {
-  padding-left: 30px;
-}
-/* line 293, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .radio label:before,
-form.request-a-demo .radio label:before {
-  content: "";
-  height: 16px;
-  width: 16px;
-  border: 0.225em solid #fff;
-  border-radius: 100%;
-  background-color: #fff;
-  position: absolute;
-  left: 0;
-  top: 3px;
-}
-/* line 304, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .radio input[type=radio]:checked + label:before,
-form.request-a-demo .radio input[type=radio]:checked + label:before {
-  background-color: #f07d00;
-}
 /* line 308, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .picker-container,
 form.request-a-demo .picker-container {
@@ -7687,6 +7636,103 @@ form.request-a-demo .right-inner .icon-calender:before {
   right: 5px;
 }
 /* line 381, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .radio-custom,
+form.request-a-demo .radio-custom {
+  width: 45%;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  margin: 10px;
+  position: relative;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 381, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  form.get-in-touch .radio-custom,
+  form.request-a-demo .radio-custom {
+    width: 46%;
+  }
+}
+@media (max-width: 767px) {
+  /* line 381, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  form.get-in-touch .radio-custom,
+  form.request-a-demo .radio-custom {
+    width: 100%;
+  }
+}
+/* line 395, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .radio-custom label,
+form.request-a-demo .radio-custom label {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+}
+/* line 401, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .radio-custom label::before,
+form.request-a-demo .radio-custom label::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out;
+}
+/* line 416, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .radio-custom label::after,
+form.request-a-demo .radio-custom label::after {
+  display: inline-block;
+  position: absolute;
+  content: " ";
+  width: 11px;
+  height: 11px;
+  left: 3px;
+  top: 3px;
+  margin-left: -20px;
+  border-radius: 50%;
+  background-color: #ef7c00;
+  -webkit-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+}
+/* line 436, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .radio-custom input[type="radio"],
+form.request-a-demo .radio-custom input[type="radio"] {
+  opacity: 0;
+  z-index: 1;
+  left: -15px;
+  position: absolute;
+}
+/* line 447, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .radio-custom input[type="radio"]:checked + label::after,
+form.request-a-demo .radio-custom input[type="radio"]:checked + label::after {
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+/* line 453, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .radio-custom input[type="radio"]:disabled + label,
+form.request-a-demo .radio-custom input[type="radio"]:disabled + label {
+  opacity: 0.65;
+}
+/* line 456, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .radio-custom input[type="radio"]:disabled + label::before,
+form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
+  cursor: not-allowed;
+}
+/* line 459, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response,
 form.request-a-demo .submit-response {
   position: relative;
@@ -7694,13 +7740,13 @@ form.request-a-demo .submit-response {
   display: block;
   font-size: 20px;
 }
-/* line 386, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 464, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response h1,
 form.request-a-demo .submit-response h1 {
   display: inline-block;
   margin-bottom: 25px;
 }
-/* line 390, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 468, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response p,
 form.request-a-demo .submit-response p {
   margin-bottom: 25px;
@@ -7715,7 +7761,7 @@ form.request-a-demo .submit-response p {
   border-radius: 0;
   padding: 0;
 }
-/* line 403, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 481, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response p:after,
 form.request-a-demo .submit-response p:after {
   content: '';
@@ -7726,7 +7772,7 @@ form.request-a-demo .submit-response p:after {
   height: 0;
   border: 0;
 }
-/* line 413, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 491, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response::before,
 form.request-a-demo .submit-response::before {
   position: absolute;
@@ -7736,7 +7782,7 @@ form.request-a-demo .submit-response::before {
   color: #ffd600;
 }
 @media (min-width: 1142px) {
-  /* line 413, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 491, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 40px;
@@ -7745,7 +7791,7 @@ form.request-a-demo .submit-response::before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 413, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 491, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 40px;
@@ -7754,7 +7800,7 @@ form.request-a-demo .submit-response::before {
   }
 }
 @media (max-width: 767px) {
-  /* line 413, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 491, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 50px;
@@ -7763,13 +7809,13 @@ form.request-a-demo .submit-response::before {
   }
 }
 
-/* line 438, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 516, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-btn-container {
   width: 20%;
   margin: 10px auto;
 }
 
-/* line 443, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 521, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
   -moz-transform: scale(0.1);
@@ -7782,7 +7828,7 @@ form.request-a-demo .submit-response::before {
   transition: all 0.3s;
 }
 
-/* line 455, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 533, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade.in .modal-dialog {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -7793,39 +7839,39 @@ form.request-a-demo .submit-response::before {
   opacity: 1;
 }
 
-/* line 466, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 544, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-dialog {
   width: 80%;
   margin: 0 auto;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 466, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 544, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 85%;
   }
 }
 @media (max-width: 767px) {
-  /* line 466, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 544, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 100%;
   }
 }
-/* line 476, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 554, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #fff;
 }
-/* line 488, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 566, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header {
   border-bottom: 0;
 }
-/* line 490, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 568, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .close {
   color: #fff;
   opacity: 2;
 }
-/* line 494, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 572, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .form-modal-close-icon:after {
   content: "\e906";
   visibility: visible;
@@ -7836,13 +7882,13 @@ form.request-a-demo .submit-response::before {
   margin-left: -5px;
 }
 
-/* line 506, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 584, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border {
   padding-top: 56px;
   position: relative;
   padding-bottom: 20px;
 }
-/* line 510, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 588, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border .btn {
   background-color: #ef7c00 !important;
   border: 0 !important;
@@ -7853,18 +7899,18 @@ form.request-a-demo .submit-response::before {
   bottom: 15px;
 }
 @media (min-width: 768px) {
-  /* line 510, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 588, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 121px;
   }
 }
 @media (max-width: 767px) {
-  /* line 510, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 588, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 100% !important;
   }
 }
-/* line 525, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 603, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border::after {
   position: absolute;
   font-family: 'InformaIcons';
