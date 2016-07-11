@@ -139,7 +139,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     var results = {};
                     results.Results = data["Results"],
                     results.ProductFacets = data["ProductFacets"];
-                    RefineContainer.hide();
+                    RefineContainer.parent().hide();
                     ParseSearchData(results);
 
                     var UpdateTab = setTimeout(function() {
@@ -353,13 +353,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
                 if (Refine) { 
                    var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
-                   //RefineContainer.show();
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
                 }else{
                     RefineContainer.html("");
-                    RefineContainer.hide();
                     $(".refine-list").off("click");
+                    RefineContainer.parent().parent().hide();
                 }
                 if(SearchTabs){
                     var Data = {} , html;
