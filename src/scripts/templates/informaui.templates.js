@@ -111,37 +111,22 @@ var INFORMA = window.INFORMA || {};
                 '<a class="remove-all" href="#" data-filterid="{{results.FilterID}}">Clear all x</a>'+
             '</div>',
         'Products' :
-                '{{#each results}}'+
+        '{{#each results}}'+
                 '<div class="col-xs-12 col-sm-6 col-md-4 search-tile">'+
                     '<div class="tile un-pinned">'+
                         '<div class="front">'+
-                            '<div class="pin"></div>'+
+                            '<div class="triangle">'+
+                                '<span class="icon-arrow-right"></span>'+
+                            '</div>'+
                             '<div class="header">'+
                                 '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
                             '</div>'+
                             '<div class="content">'+
-                                '<h2>{{Title}}</h2>'+
-                                '<p>{{Description}}</p>'+
-                                '<ul class="gray-bullets">'+
-                                    '{{#each SubSectors}}'+
-                                        '<li>{{this}}</li>'+
-                                    '{{/each}}'+
-                                '</ul>'+
-                            '</div>'+
-                            '<div class="footer">'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="back">'+
-                            '<div class="header">'+
-                                '<div class="header-content">'+
-                                    '<div class="pin"></div>'+
-                                    '<h4>{{Title}}</h4>'+
-                                '</div>'+
-                            '</div>'+
-                            '<div class="content">'+
+                                '{{#if ProductSectors}}<span class="tag">{{ProductSectors}}</span>{{/if}}'+
+                                '<a href="{{MoreLink}}" target="_blank"><h2>{{Title}}</h2></a>'+
                                 '<ul>'+
                                     '{{#each Benefits}}'+
-                                        '<li><a href="#">{{this}}</a></li>'+
+                                        '<li>{{this}}</li>'+
                                     '{{/each}}'+
                                 '</ul>'+
                             '</div>'+
@@ -154,6 +139,26 @@ var INFORMA = window.INFORMA || {};
                                         '<a href="{{MoreLink}}" class="btn btn-default orange more">More</a>'+
                                     '</div>'+
                                 '</div>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="back">'+
+                            '<div class="header">'+
+                                '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
+                            '</div>'+
+                            '<div class="content">'+
+                                '{{#if Tag}}<span class="tag">{{Tag}}</span>{{/if}}'+
+                                '<h2>{{Title}}</h2>'+
+                                '<p>{{Description}}</p>'+
+                                '<ul class="gray-bullets">'+
+                                    '{{#each SubSectors}}'+
+                                        '<li>{{this}}</li>'+
+                                    '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                            '<div class="footer">'+
+                            '</div>'+
+                            '<div class="triangle">'+
+                                '<span class="icon-arrow-right"></span>'+
                             '</div>'+
                         '</div>'+
                     '</div>'+
