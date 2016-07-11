@@ -4265,11 +4265,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     FilterList.parent().parent().show();
                     INFORMA.SearchResultFilter.DoFilter();
                 }else{
+                    FilterList.html("");
                     FilterList.parent().parent().hide();
                 }
                 if (Refine) { 
                    var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
-                   RefineContainer.show();
+                   //RefineContainer.show();
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
                 }else{
