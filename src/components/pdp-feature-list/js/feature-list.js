@@ -23,24 +23,18 @@ INFORMA.featureList = (function(window, $, namespace) {
 
     _bindShowMore = function() {
         // if data-items, data-infinite is defined, used it
-        var _showMore = jQuery('.btn-showMore');
+        var _showMore = $('.btn-showMore');
         _showMore.on('click', function() {
             var _vp = INFORMA.global.device.viewport,
-                _limit = jQuery(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1,
-                moreItems = jQuery(this).parents('.feature-list-section').find('.feature-list-container:nth-child(n+' + _limit + ')');
-            if (jQuery(this).parents('.feature-list-section').find('.feature-list:visible').length > _limit) {
-                jQuery(this).addClass('showLess');
-                moreItems.slideUp();
-            } else {
-                moreItems.slideDown();
-                jQuery(this).removeClass('showLess');
-            }
+                _limit = $(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1;
+                 $(this).parents('.feature-list-section').find('.feature-list-container:nth-child(n+' + _limit + ')').slideToggle();
+                 $(this).parents('.feature-list-section').toggleClass('showLess');
         });
     }
     _hideList = function(ListItems) {
         ListItems.each(function() {
-            var _limit = jQuery(this).data(INFORMA.global.device.viewport) + 1;
-            jQuery(this).find('.feature-list-container:nth-child(n+' + _limit + ')').hide();
+            var _limit = $(this).data(INFORMA.global.device.viewport) + 1;
+            $(this).find('.feature-list-container:nth-child(n+' + _limit + ')').hide();
 
         });
     }
