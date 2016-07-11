@@ -1570,17 +1570,28 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _bindSelectOptions,
         _bindValidationLogic,
         _showOverlay,
+        _showOverlayQueryString,
         _attachInlineForm,
         _validateAllForms;
 
+    _showOverlayQueryString = function(container) {
+        var url = window.location.href;
+        if (url.indexOf('?ResponseStatus=Success') != -1 || url.IndexOf('/ResponseStatus/Success') != -1) {
+            _formModal.modal({
+                show: true,
+                keyboard: false,
+                backdrop: "static"
+            });
+        }
+    }
     _showOverlay = function(container) {
-      if($('.submit-response').length > 0 ){
-        _formModal.modal({
-            show: true,
-            keyboard: false,
-            backdrop: "static"
-        });
-      }
+        if ($('.submit-response').length > 0) {
+            _formModal.modal({
+                show: true,
+                keyboard: false,
+                backdrop: "static"
+            });
+        }
         /*_formModalBtn.click(function() {
 
             var _formName = $(this).data('form');
@@ -1599,11 +1610,6 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             });
 
         })*/
-        //_validateAllForms();
-        _bindToolTip();
-        _bindCalendar();
-        _bindSelectOptions();
-        _bindValidationLogic();
     }
 
     _attachInlineForm = function() {
@@ -1665,8 +1671,8 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         $('.modal-body form .contact-details .scfEmailBorder').each(function() {
             $(this).blur(function() {
                 if (validateEmail($(this).val()))
-                    if($(this).next().children().length == 0)
-                        $(this).next().prepend( "<span class='field-validation-error'>E-mail is not in the valid domain list</span>" );
+                    if ($(this).next().children().length == 0)
+                        $(this).next().prepend("<span class='field-validation-error'>E-mail is not in the valid domain list</span>");
             });
         });
 
@@ -1823,7 +1829,10 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         var picker = $('<div></div>')
             .addClass('picker-container')
             .hide()
-            .calendar({ 'date': strToDate(_this.val()), 'picker': true });
+            .calendar({
+                'date': strToDate(_this.val()),
+                'picker': true
+            });
 
         _this.after(picker);
 
@@ -1854,16 +1863,21 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         $(".modal-body .three-column .right-inner").prepend("<i class='icon-calender'></i>");
 
         $('.modal-body .date-picker:text').each(function() {
-            $(this).datePicker({ dateFormat: "dd-mm-yy" });
+            $(this).datePicker({
+                dateFormat: "dd-mm-yy"
+            });
         });
     }
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _showOverlay();
-        //_bindToolTip();
-        //_attachInlineForm();
-        //  _validateGetInTouchForm();
+        _showOverlayQueryString()
+        //_validateAllForms();
+        _bindToolTip();
+        _bindCalendar();
+        _bindSelectOptions();
+        _bindValidationLogic();
     };
 
     return {
