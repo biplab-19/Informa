@@ -147,7 +147,7 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                             '<div class="content">'+
                                 '{{#if Tag}}<span class="tag">{{Tag}}</span>{{/if}}'+
-                                '<h2>{{Title}}</h2>'+
+                                '<a href="{{MoreLink}}" target="_blank"><h2>{{Title}}</h2></a>'+
                                 '<p>{{Description}}</p>'+
                                 '<ul class="gray-bullets">'+
                                     '{{#each SubSectors}}'+
