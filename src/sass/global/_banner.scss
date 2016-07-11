@@ -66,15 +66,16 @@
     }
     @include mobile {
         height: 225px;
-        .cf-img {
-            position: absolute;
-            right: 0;
-            transform: translateX(15%);
-        }
     }
     .cf-img {
         position: absolute;
         right: 0;
+        @include mobile{
+            transform: translateX(25%);
+        }
+        @include not-mobile{
+            bottom: 0;
+        }
     }
     .vertical-align {
         width: 100%;
@@ -86,6 +87,12 @@
         }
         .content {
             width: 50%;
+            @include mobile{
+                width: 80%;
+            }
+            @include tablet{
+                width: 70%;
+            }
         }
     }
     &.bright-banner {
