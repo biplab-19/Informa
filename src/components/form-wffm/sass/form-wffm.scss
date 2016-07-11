@@ -19,6 +19,9 @@ form.request-a-demo {
             width: 100% !important;
         }
     }
+    select::-ms-expand {
+        display: none;
+    }
     select.form-control {
         height: 54px;
         background-color: $blue-lighter-bg;
@@ -26,6 +29,9 @@ form.request-a-demo {
     label.control-label {
         font-family: FSMe-light !important;
         font-weight: normal !important;
+    }
+    input::-ms-clear {
+        display: none;
     }
     input.form-control {
         border-radius: 0;
