@@ -1731,7 +1731,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
                 var tag = $('<td><a href="javascript:void(0);"></a></td>');
                 var a = tag.find('a');
                 a.text(d.getDate());
-                a.data('date', dateToStr(d));
+                a.data('date', moment(d).format('YYYY-MM-DD'));
                 if (date.getMonth() != d.getMonth()) { // the bounday month
                     tag.addClass('off');
                 } else if (_this.data('date') == a.data('date')) { // the select day

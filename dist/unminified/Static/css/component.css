@@ -7157,32 +7157,42 @@ form.request-a-demo .form-control {
   }
 }
 /* line 22, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch select::-ms-expand,
+form.request-a-demo select::-ms-expand {
+  display: none;
+}
+/* line 25, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch select.form-control,
 form.request-a-demo select.form-control {
   height: 54px;
   background-color: #e1e3e7;
 }
-/* line 26, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 29, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch label.control-label,
 form.request-a-demo label.control-label {
   font-family: FSMe-light !important;
   font-weight: normal !important;
 }
-/* line 30, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 33, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch input::-ms-clear,
+form.request-a-demo input::-ms-clear {
+  display: none;
+}
+/* line 36, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch input.form-control,
 form.request-a-demo input.form-control {
   border-radius: 0;
   height: 54px;
   background-color: #e1e3e7;
 }
-/* line 36, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 42, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch textarea.form-control,
 form.request-a-demo textarea.form-control {
   border-radius: 0;
   background-color: #e1e3e7;
   height: 227px;
 }
-/* line 42, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 48, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch input:focus,
 form.get-in-touch textarea:focus,
 form.request-a-demo input:focus,
@@ -7190,7 +7200,7 @@ form.request-a-demo textarea:focus {
   outline: none !important;
   border: 2px solid #ffd600;
 }
-/* line 47, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 53, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-container,
 form.get-in-touch .chosen-single,
 form.request-a-demo .chosen-container,
@@ -7199,7 +7209,7 @@ form.request-a-demo .chosen-single {
   border-radius: 0;
   background-color: #e1e3e7;
 }
-/* line 52, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 58, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-container span,
 form.get-in-touch .chosen-single span,
 form.request-a-demo .chosen-container span,
@@ -7207,38 +7217,38 @@ form.request-a-demo .chosen-single span {
   margin-top: 6px;
   font-size: 14px;
 }
-/* line 57, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 63, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-container-single .chosen-drop,
 form.request-a-demo .chosen-container-single .chosen-drop {
   background-color: #e1e3e7;
   font-size: 14px;
 }
-/* line 61, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 67, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-container .chosen-results,
 form.request-a-demo .chosen-container .chosen-results {
   border-radius: 0;
 }
-/* line 64, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 70, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-container .chosen-results li.active-result,
 form.request-a-demo .chosen-container .chosen-results li.active-result {
   font-size: 14px;
 }
-/* line 67, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 73, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-drop,
 form.request-a-demo .chosen-drop {
   border-radius: none;
 }
-/* line 70, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 76, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-single,
 form.request-a-demo .chosen-single {
   border: none;
 }
-/* line 73, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 79, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-container-single .chosen-single div b,
 form.request-a-demo .chosen-container-single .chosen-single div b {
   display: none;
 }
-/* line 76, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 82, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-container-single .chosen-single div:after,
 form.request-a-demo .chosen-container-single .chosen-single div:after {
   top: 50%;
@@ -7249,69 +7259,69 @@ form.request-a-demo .chosen-container-single .chosen-single div:after {
   margin-left: -10px;
   font-size: 16px;
 }
-/* line 85, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 91, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-container .chosen-results li,
 form.request-a-demo .chosen-container .chosen-results li {
   padding: 10px 6px;
 }
-/* line 88, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 94, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .chosen-container .chosen-results li.highlighted,
 form.request-a-demo .chosen-container .chosen-results li.highlighted {
   background-color: #ffd600;
   color: #6a7287;
 }
-/* line 92, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 98, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch label.error,
 form.request-a-demo label.error {
   color: #ffd600 !important;
   font-size: 14px;
   padding-top: 5px;
 }
-/* line 97, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 103, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .field-validation-error,
 form.request-a-demo .field-validation-error {
   color: #ffd600 !important;
   font-size: 14px;
   padding-top: 5px;
 }
-/* line 102, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 108, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .page-header,
 form.request-a-demo .page-header {
   border-bottom: none !important;
 }
-/* line 105, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 111, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .has-error,
 form.request-a-demo .has-error {
   display: none;
 }
-/* line 108, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 114, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .has-error .bg-warning,
 form.request-a-demo .has-error .bg-warning {
   display: block;
 }
-/* line 111, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 117, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .form-group,
 form.request-a-demo .form-group {
   width: 100%;
 }
 @media (max-width: 767px) {
-  /* line 111, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 117, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .form-group,
   form.request-a-demo .form-group {
     width: 100% !important;
   }
 }
-/* line 116, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 122, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .form-group select,
 form.request-a-demo .form-group select {
   padding-right: 25px;
 }
-/* line 119, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 125, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .form-group .select-wrapper,
 form.request-a-demo .form-group .select-wrapper {
   position: relative;
 }
-/* line 122, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 128, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .form-group .select-wrapper:after,
 form.request-a-demo .form-group .select-wrapper:after {
   content: "\e901";
@@ -7323,40 +7333,40 @@ form.request-a-demo .form-group .select-wrapper:after {
   right: 10px;
   pointer-events: none;
 }
-/* line 132, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 138, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .form-group .has-error .bg-warning,
 form.request-a-demo .form-group .has-error .bg-warning {
   display: block;
 }
-/* line 135, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 141, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .form-group .has-error .has-feedback .bg-warning,
 form.request-a-demo .form-group .has-error .has-feedback .bg-warning {
   display: block;
 }
-/* line 139, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 145, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .half-width-text-box,
 form.request-a-demo .half-width-text-box {
   display: table;
   width: 100%;
 }
-/* line 142, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 148, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .half-width-text-box .required-field,
 form.request-a-demo .half-width-text-box .required-field {
   display: table-cell;
   width: 48%;
   float: left;
 }
-/* line 147, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 153, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .half-width-text-box .required-field:nth-child(odd),
 form.request-a-demo .half-width-text-box .required-field:nth-child(odd) {
   margin-right: 4%;
 }
-/* line 151, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 157, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch h1,
 form.request-a-demo h1 {
   font-family: FSMe-bold;
 }
-/* line 154, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 160, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch legend,
 form.request-a-demo legend {
   color: #e1e2e7;
@@ -7364,18 +7374,18 @@ form.request-a-demo legend {
   border-bottom: none !important;
   width: initial;
 }
-/* line 159, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 165, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch legend.active,
 form.request-a-demo legend.active {
   margin-bottom: 10px !important;
 }
-/* line 161, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 167, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch legend.active::after,
 form.request-a-demo legend.active::after {
   color: #ffd500;
   margin-bottom: 10px !important;
 }
-/* line 167, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 173, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch legend.tool_tip::after,
 form.request-a-demo legend.tool_tip::after {
   position: absolute;
@@ -7383,7 +7393,7 @@ form.request-a-demo legend.tool_tip::after {
   content: '\e915';
   padding-left: 15px;
 }
-/* line 175, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 181, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch p,
 form.request-a-demo p {
   position: relative;
@@ -7398,7 +7408,7 @@ form.request-a-demo p {
   margin-top: 15px;
   color: #6a7287;
 }
-/* line 187, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 193, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch p:after,
 form.request-a-demo p:after {
   content: '';
@@ -7411,18 +7421,18 @@ form.request-a-demo p:after {
   border-left: 10px solid #ffd500;
   border-top: 10px solid transparent;
 }
-/* line 200, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 206, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .hide-title p,
 form.request-a-demo .hide-title p {
   display: none;
 }
-/* line 203, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 209, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .hide-title label.control-label,
 form.request-a-demo .hide-title label.control-label {
   display: none;
   clear: both;
 }
-/* line 208, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 214, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .hide-title .required-field .checkbox,
 form.request-a-demo .hide-title .required-field .checkbox {
   display: table-cell;
@@ -7433,7 +7443,7 @@ form.request-a-demo .hide-title .required-field .checkbox {
   background-color: #f0f1f3;
   color: #444957;
 }
-/* line 216, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 222, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .hide-title .required-field .checkbox input,
 form.request-a-demo .hide-title .required-field .checkbox input {
   margin-left: 0;
@@ -7442,20 +7452,20 @@ form.request-a-demo .hide-title .required-field .checkbox input {
   display: none;
 }
 @media (max-width: 767px) {
-  /* line 208, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 214, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .hide-title .required-field .checkbox,
   form.request-a-demo .hide-title .required-field .checkbox {
     width: 48%;
   }
 }
 @media (min-width: 768px) {
-  /* line 208, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 214, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .hide-title .required-field .checkbox,
   form.request-a-demo .hide-title .required-field .checkbox {
     width: 30%;
   }
 }
-/* line 228, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 234, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .hide-title .required-field .checkbox label,
 form.request-a-demo .hide-title .required-field .checkbox label {
   height: inherit;
@@ -7463,7 +7473,7 @@ form.request-a-demo .hide-title .required-field .checkbox label {
   font-size: 14px;
 }
 @media (max-width: 767px) {
-  /* line 228, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 234, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .hide-title .required-field .checkbox label,
   form.request-a-demo .hide-title .required-field .checkbox label {
     padding: 5px;
@@ -7471,21 +7481,21 @@ form.request-a-demo .hide-title .required-field .checkbox label {
   }
 }
 @media (min-width: 768px) {
-  /* line 228, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 234, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .hide-title .required-field .checkbox label,
   form.request-a-demo .hide-title .required-field .checkbox label {
     width: 100%;
     padding: 10px;
   }
 }
-/* line 241, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 247, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .hide-title .required-field .checkbox.active,
 form.request-a-demo .hide-title .required-field .checkbox.active {
   background-color: inherit;
   color: #f0f1f3;
   border: 3px solid #ffd500;
 }
-/* line 245, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 251, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .hide-title .required-field .checkbox.active::after,
 form.request-a-demo .hide-title .required-field .checkbox.active::after {
   content: "\e914";
@@ -7498,7 +7508,7 @@ form.request-a-demo .hide-title .required-field .checkbox.active::after {
   bottom: 5px;
 }
 @media (min-width: 768px) {
-  /* line 258, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 264, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .hide-title .required-field .checkbox:nth-child(3n-2),
   form.request-a-demo .hide-title .required-field .checkbox:nth-child(3n-2) {
     margin-left: 5%;
@@ -7506,69 +7516,69 @@ form.request-a-demo .hide-title .required-field .checkbox.active::after {
   }
 }
 @media (max-width: 767px) {
-  /* line 264, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 270, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .hide-title .required-field .checkbox:nth-child(even),
   form.request-a-demo .hide-title .required-field .checkbox:nth-child(even) {
     margin-left: 4%;
   }
 }
-/* line 271, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 277, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .scfSectionBorder p,
 form.request-a-demo .scfSectionBorder p {
   display: none;
 }
-/* line 308, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 314, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .picker-container,
 form.request-a-demo .picker-container {
   position: static;
 }
-/* line 311, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 317, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .two-column,
 form.request-a-demo .two-column {
   display: table;
   width: 100%;
 }
-/* line 314, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 320, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .two-column p,
 form.request-a-demo .two-column p {
   display: none;
 }
-/* line 317, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 323, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .two-column .required-field,
 form.request-a-demo .two-column .required-field {
   display: table-cell;
   width: 48%;
   float: left;
 }
-/* line 322, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 328, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .two-column .required-field:nth-child(odd),
 form.request-a-demo .two-column .required-field:nth-child(odd) {
   margin-right: 4%;
 }
-/* line 327, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 333, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .contact-details .required-field:not(:first-child),
 form.request-a-demo .contact-details .required-field:not(:first-child) {
   display: table-cell;
   width: 48%;
   float: left;
 }
-/* line 332, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 338, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .contact-details .required-field:nth-child(2),
 form.request-a-demo .contact-details .required-field:nth-child(2) {
   margin-right: 4%;
 }
-/* line 336, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 342, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .three-column,
 form.request-a-demo .three-column {
   display: table;
   width: 100%;
 }
-/* line 339, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 345, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .three-column p,
 form.request-a-demo .three-column p {
   display: none;
 }
-/* line 342, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 348, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .three-column .required-field,
 form.request-a-demo .three-column .required-field {
   display: table-cell;
@@ -7576,24 +7586,24 @@ form.request-a-demo .three-column .required-field {
   float: left;
 }
 @media (min-width: 768px) {
-  /* line 348, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 354, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .three-column .required-field:nth-child(even),
   form.request-a-demo .three-column .required-field:nth-child(even) {
     margin-left: 5%;
     margin-right: 5%;
   }
 }
-/* line 354, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 360, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .terms-and-conditions,
 form.request-a-demo .terms-and-conditions {
   margin-top: 10px;
 }
-/* line 356, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 362, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .terms-and-conditions legend,
 form.request-a-demo .terms-and-conditions legend {
   display: none;
 }
-/* line 360, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 366, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .normal-checkbox label,
 form.request-a-demo .normal-checkbox label {
   display: inline-block;
@@ -7601,17 +7611,17 @@ form.request-a-demo .normal-checkbox label {
   margin-bottom: 5px;
   font-weight: normal;
 }
-/* line 366, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 372, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .right-inner,
 form.request-a-demo .right-inner {
   position: relative;
 }
-/* line 368, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 374, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .right-inner .icon-calender,
 form.request-a-demo .right-inner .icon-calender {
   pointer-events: none;
 }
-/* line 370, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 376, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .right-inner .icon-calender:before,
 form.request-a-demo .right-inner .icon-calender:before {
   font-family: 'InformaIcons';
@@ -7622,7 +7632,7 @@ form.request-a-demo .right-inner .icon-calender:before {
   top: 10px;
   right: 5px;
 }
-/* line 381, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 387, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom,
 form.request-a-demo .radio-custom {
   width: 45%;
@@ -7633,20 +7643,20 @@ form.request-a-demo .radio-custom {
   position: relative;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 381, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 387, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .radio-custom,
   form.request-a-demo .radio-custom {
     width: 46%;
   }
 }
 @media (max-width: 767px) {
-  /* line 381, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 387, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .radio-custom,
   form.request-a-demo .radio-custom {
     width: 100%;
   }
 }
-/* line 395, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 401, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom label,
 form.request-a-demo .radio-custom label {
   display: inline-block;
@@ -7654,7 +7664,7 @@ form.request-a-demo .radio-custom label {
   position: relative;
   padding-left: 5px;
 }
-/* line 401, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 407, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom label::before,
 form.request-a-demo .radio-custom label::before {
   content: "";
@@ -7671,7 +7681,7 @@ form.request-a-demo .radio-custom label::before {
   -o-transition: border 0.15s ease-in-out;
   transition: border 0.15s ease-in-out;
 }
-/* line 416, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 422, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom label::after,
 form.request-a-demo .radio-custom label::after {
   display: inline-block;
@@ -7693,7 +7703,7 @@ form.request-a-demo .radio-custom label::after {
   -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
 }
-/* line 436, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 442, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"],
 form.request-a-demo .radio-custom input[type="radio"] {
   opacity: 0;
@@ -7701,7 +7711,7 @@ form.request-a-demo .radio-custom input[type="radio"] {
   left: -15px;
   position: absolute;
 }
-/* line 447, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 453, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"]:checked + label::after,
 form.request-a-demo .radio-custom input[type="radio"]:checked + label::after {
   -webkit-transform: scale(1, 1);
@@ -7709,17 +7719,17 @@ form.request-a-demo .radio-custom input[type="radio"]:checked + label::after {
   -o-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 453, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 459, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"]:disabled + label,
 form.request-a-demo .radio-custom input[type="radio"]:disabled + label {
   opacity: 0.65;
 }
-/* line 456, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 462, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"]:disabled + label::before,
 form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   cursor: not-allowed;
 }
-/* line 459, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 465, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response,
 form.request-a-demo .submit-response {
   position: relative;
@@ -7727,13 +7737,13 @@ form.request-a-demo .submit-response {
   display: block;
   font-size: 20px;
 }
-/* line 464, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 470, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response h1,
 form.request-a-demo .submit-response h1 {
   display: inline-block;
   margin-bottom: 25px;
 }
-/* line 468, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 474, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response p,
 form.request-a-demo .submit-response p {
   margin-bottom: 25px;
@@ -7748,7 +7758,7 @@ form.request-a-demo .submit-response p {
   border-radius: 0;
   padding: 0;
 }
-/* line 481, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 487, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response p:after,
 form.request-a-demo .submit-response p:after {
   content: '';
@@ -7759,7 +7769,7 @@ form.request-a-demo .submit-response p:after {
   height: 0;
   border: 0;
 }
-/* line 491, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 497, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response::before,
 form.request-a-demo .submit-response::before {
   position: absolute;
@@ -7769,7 +7779,7 @@ form.request-a-demo .submit-response::before {
   color: #ffd600;
 }
 @media (min-width: 1142px) {
-  /* line 491, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 497, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 40px;
@@ -7778,7 +7788,7 @@ form.request-a-demo .submit-response::before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 491, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 497, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 40px;
@@ -7787,7 +7797,7 @@ form.request-a-demo .submit-response::before {
   }
 }
 @media (max-width: 767px) {
-  /* line 491, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 497, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 50px;
@@ -7796,13 +7806,13 @@ form.request-a-demo .submit-response::before {
   }
 }
 
-/* line 516, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 522, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-btn-container {
   width: 20%;
   margin: 10px auto;
 }
 
-/* line 521, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 527, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
   -moz-transform: scale(0.1);
@@ -7815,7 +7825,7 @@ form.request-a-demo .submit-response::before {
   transition: all 0.3s;
 }
 
-/* line 533, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 539, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade.in .modal-dialog {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -7826,39 +7836,39 @@ form.request-a-demo .submit-response::before {
   opacity: 1;
 }
 
-/* line 544, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 550, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-dialog {
   width: 80%;
   margin: 0 auto;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 544, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 550, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 85%;
   }
 }
 @media (max-width: 767px) {
-  /* line 544, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 550, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 100%;
   }
 }
-/* line 554, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 560, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #fff;
 }
-/* line 566, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 572, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header {
   border-bottom: 0;
 }
-/* line 568, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 574, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .close {
   color: #fff;
   opacity: 2;
 }
-/* line 572, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 578, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .form-modal-close-icon:after {
   content: "\e906";
   visibility: visible;
@@ -7869,13 +7879,13 @@ form.request-a-demo .submit-response::before {
   margin-left: -5px;
 }
 
-/* line 584, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 590, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border {
   padding-top: 56px;
   position: relative;
   padding-bottom: 20px;
 }
-/* line 588, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 594, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border .btn {
   background-color: #ef7c00 !important;
   border: 0 !important;
@@ -7886,18 +7896,18 @@ form.request-a-demo .submit-response::before {
   bottom: 15px;
 }
 @media (min-width: 768px) {
-  /* line 588, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 594, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 121px;
   }
 }
 @media (max-width: 767px) {
-  /* line 588, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 594, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 100% !important;
   }
 }
-/* line 603, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 609, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border::after {
   position: absolute;
   font-family: 'InformaIcons';
