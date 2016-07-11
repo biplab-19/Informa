@@ -353,7 +353,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
                 if (Refine) { 
                    var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
-                   RefineContainer.show();
+                   //RefineContainer.show();
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
                 }else{
