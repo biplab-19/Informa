@@ -52,8 +52,8 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 debugger;
                 var Data = results[key],
                     HeaderText = key,
-                    TemplateName = (Templates.Analysts !== "undefined") ? Templates.AnalystsTemplate : "",
-                    ListTemplate = Handlebars.compile(Templates.AnalystTemplate);
+                    TemplateName = (Templates.Analysts !== "undefined") ? Templates.Analysts : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
                 Data.header = HeaderText;
                 html += ListTemplate({ results: Data });
 

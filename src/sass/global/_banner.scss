@@ -314,6 +314,7 @@
 		height: 550px;
 	}
     @include tablet {
+        padding: 0 30px;
     }
     @include mobile {
     }
@@ -422,6 +423,7 @@
         		border: 5px solid $white;
                 @include tablet {
                     margin: 0 auto;
+                    width: 100%;
                 }
         	}
         }
@@ -456,6 +458,7 @@
             img{
                 @include tablet {
                     margin: 0 auto;
+                    width: 100%;
                 }
             }
         }
