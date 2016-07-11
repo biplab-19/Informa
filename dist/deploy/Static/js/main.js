@@ -4057,7 +4057,9 @@ var INFORMA = window.INFORMA || {};
                                 '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
                             '</div>'+
                             '<div class="content">'+
-                                '{{#if ProductSectors}}<span class="tag">{{ProductSectors}}</span>{{/if}}'+
+                                '{{#each ProductSectors}}'+
+                                    '<span class="tag">{{this}}</span>'+
+                                '{{/each}}'+
                                 '<a href="{{MoreLink}}" target="_blank"><h2>{{Title}}</h2></a>'+
                                 '<ul>'+
                                     '{{#each Benefits}}'+
@@ -4081,7 +4083,9 @@ var INFORMA = window.INFORMA || {};
                                 '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
                             '</div>'+
                             '<div class="content">'+
-                                '{{#if Tag}}<span class="tag">{{Tag}}</span>{{/if}}'+
+                                '{{#each ProductSectors}}'+
+                                    '<span class="tag">{{this}}</span>'+
+                                '{{/each}}'+
                                 '<a href="{{MoreLink}}" target="_blank"><h2>{{Title}}</h2></a>'+
                                 '<p>{{Description}}</p>'+
                                 '<ul class="gray-bullets">'+
