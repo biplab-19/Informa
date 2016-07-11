@@ -348,6 +348,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     FilterList.parent().parent().show();
                     INFORMA.SearchResultFilter.DoFilter();
                 }else{
+                    FilterList.html("");
                     FilterList.parent().parent().hide();
                 }
                 if (Refine) { 
