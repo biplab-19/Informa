@@ -14,7 +14,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.pdp_customer_quote = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _customersList = $('#customer-quote-slider'),
+    var _customersList = $('.customer-quote .slider-component'),
     // methods
         init,
         _createSlider;
@@ -29,7 +29,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            _infinite = true,
            _dots = Boolean(container.data('dots')),
            _rtl;
-          
+
           if(container.data('rtl') != undefined) {
               _rtl = container.data('rtl');
           }

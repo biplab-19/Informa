@@ -118,7 +118,7 @@ section {
 .staticDa {
       position: static!important;
       @include mobile {
-            position: initial!Important;
+            position: relative !important;
       }
 }
 // for local navigation
@@ -136,8 +136,8 @@ ul.navigation-list {
             overflow: initial;
       }
 }
-a:focus { 
-    outline: none; 
+a:focus {
+    outline: none;
 }
 a{
     outline: none;
