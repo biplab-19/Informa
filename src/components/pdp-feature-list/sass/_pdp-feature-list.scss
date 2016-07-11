@@ -85,18 +85,21 @@ section#feature-list, section.feature-list-section {
         span.less {
             display: none;
         }
-        &.showLess {
-            span.more {
-                display: none;
-            }
-            span.less {
-                display: block;
-            }
-            &:after {
-                font-family: 'InformaIcons';
-                content: '\e913';
-                color: $brand-secondary;
-            }
+
+    }
+    &.showLess {
+      .btn-showMore {
+        span.more {
+            display: none;
+        }
+        span.less {
+            display: block;
+        }
+        &:after {
+            font-family: 'InformaIcons';
+            content: '\e913';
+            color: $brand-secondary;
         }
     }
+  }
 }

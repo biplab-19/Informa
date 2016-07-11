@@ -88,6 +88,12 @@ section {
         border:1px solid $orange;
 
     }
+    .active, &:active {
+      outline: 0;
+      background-image: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
 }
 
 
