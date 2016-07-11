@@ -71,9 +71,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
             DrpDwn.multiselect('rebuild');
         },
-        LoadProducts = function(){
+        LoadProducts = function(data){
             INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
                 method:"Post",
+                data:data,
                 success_callback: ParseSearchData
             });
         },
@@ -136,7 +137,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 data: JSON.stringify(Data),
                 success_callback: function(data){
                     var results = {};
-                    results.Results = data["Results"];
+                    results.Results = data["Results"],
+                    results.ProductFacets = data["ProductFacets"];
+                    RefineContainer.hide();
                     ParseSearchData(results);
 
                     var UpdateTab = setTimeout(function() {
@@ -160,11 +163,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
                 Data = GetSearchArray();
                 PageSize+=6;
-                Data.pageSize =  PageSize;
+                Data.pageSize =  PageSize;  
                 GetPaginatedData(Urls[url], JSON.stringify(Data), function(data){
                     if(SearchType ==='SearchResult'){
                         var results = {};
-                        results.Results = data["Results"];
+                        results.Results = data["Results"],
+                        results.ProductFacets = data["ProductFacets"];
                         ParseSearchData(results);
                     }else{
                         ParseSearchData(data);
@@ -345,10 +349,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
                 if (Refine) { 
                    var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
+                   RefineContainer.show();
                    ShowFilter(html, RefineContainer ,false);
                    INFORMA.SearchResultFilter.DoRefine();
                 }else{
                     RefineContainer.html("");
+                    RefineContainer.hide();
                     $(".refine-list").off("click");
                 }
                 if(SearchTabs){
@@ -385,7 +391,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (SVal) {
                     UpdateResultPage(SVal, SubSecVal);
                 }else{
-                    LoadProducts();
+                    var informationTypes = ($("input.informationtypes").val() || ''),
+                        role = ($("input.roles").val() || ''),
+                        brand = ($("input.brands").val() || ''),
+                        data = {"informationtypes":informationTypes,"roles":role,"brands":brand};
+                    LoadProducts(JSON.stringify(data));
                 }
             }
 
