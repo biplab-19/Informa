@@ -17,7 +17,7 @@
 
       .small-content{
           padding-left: 170px;
-          font-size: 18px;
+          font-size: 15px;
           font-style: italic;
           font-family: FSMe-light;
           strong{
@@ -43,8 +43,8 @@
       @include mobile {
         width: 100%;
         margin: 0 auto;
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: 10px;
+        padding-right: 10px;
       }
       @include tablet {
         width: 100%;
@@ -60,35 +60,18 @@
         width: 100%;
         margin: 0 auto;
         margin-bottom: 43px;
-        @include tablet {
-          width: 80%;
-          margin: 0 auto;
-          margin-bottom: 43px;
-        }
         @include mobile {
           padding-top: 42px;
           font-size: 14px;
         }
       }
       p{
+        width: 100%;
+        margin: 0 auto;
         line-height: 25px;
         @include mobile {
           font-size: 12px;
           line-height: 17px;
-        }
-        width: 100%;
-        margin: 0 auto;
-        @include tablet {
-          width: 80%;
-          margin: 0 auto;
-        }
-      }
-      .content-align{
-        width: 100%;
-        margin: 0 auto;
-        @include tablet {
-          width: 80%;
-          margin: 0 auto;
         }
       }
     }

@@ -1,8 +1,16 @@
 .infograph{
   margin-top: 30px;
+  @include mobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  @include tablet {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
   .container-bg{
     background-color: #3C404C;
-    padding: 30px;
+    padding: 30px 15px;
     position: relative;
     min-height: 138px;
   }
