@@ -20,6 +20,13 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _validateAllForms;
 
     _showOverlay = function(container) {
+      if($('.submit-response').length > 0 ){
+        _formModal.modal({
+            show: true,
+            keyboard: false,
+            backdrop: "static"
+        });
+      }
         /*_formModalBtn.click(function() {
 
             var _formName = $(this).data('form');
