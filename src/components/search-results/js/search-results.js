@@ -345,6 +345,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (ProductFilters) {
                     var html = CreateFilterList(ProductFilters,Templates.ProductFilters,FilterLabels);
                     ShowFilter(html, FilterList,true);
+                    FilterList.parent().parent().show();
                     INFORMA.SearchResultFilter.DoFilter();
                 }else{
                     FilterList.parent().parent().hide();

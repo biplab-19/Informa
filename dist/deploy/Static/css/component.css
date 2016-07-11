@@ -1986,16 +1986,16 @@ section#feature-list .btn-showMore span.more, section.feature-list-section .btn-
 section#feature-list .btn-showMore span.less, section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 89, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-showMore.showLess span.more, section.feature-list-section .btn-showMore.showLess span.more {
+/* line 92, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list.showLess .btn-showMore span.more, section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 92, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-showMore.showLess span.less, section.feature-list-section .btn-showMore.showLess span.less {
+/* line 95, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list.showLess .btn-showMore span.less, section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 95, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-showMore.showLess:after, section.feature-list-section .btn-showMore.showLess:after {
+/* line 98, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list.showLess .btn-showMore:after, section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e913';
   color: #ffd600;
