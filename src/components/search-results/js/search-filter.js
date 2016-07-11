@@ -71,6 +71,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     NoFilter = FilterList.find("li");
                 if (!NoFilter.length) {
                     SearchFilter.slideUp();
+                    $(".site-search .search-tab").val("allresults");
                 }
                 UpdateSearchResult(FilterData);
             });
