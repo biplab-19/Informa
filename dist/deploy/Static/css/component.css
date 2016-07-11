@@ -2133,12 +2133,12 @@ section.customer-quote .quote:before {
   /* line 30, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .quote {
     padding-left: 0;
-    padding-top: 30px;
+    padding-top: 40px;
   }
   /* line 47, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .quote:before {
     left: 30px;
-    top: 40px;
+    top: 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
@@ -5354,18 +5354,22 @@ section.articlepage-quote .container figure figcaption {
   padding: 5px;
 }
 /* line 13, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+.casestudy-Quote-Video .embed-responsive.embed-responsive-16by9 {
+  padding-bottom: 56.25% !important;
+}
+/* line 16, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
 .casestudy-Quote-Video .Quote-descrip-container {
   padding-left: 36px;
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 13, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+  /* line 16, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
   .casestudy-Quote-Video .Quote-descrip-container {
     padding-left: 10px;
     margin-top: 50px;
   }
 }
-/* line 20, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+/* line 23, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
 .casestudy-Quote-Video .Quote-descrip-container .open-quote {
   position: absolute;
   top: -26px;
@@ -5373,13 +5377,13 @@ section.articlepage-quote .container figure figcaption {
   color: #ffd500;
 }
 @media (max-width: 767px) {
-  /* line 20, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+  /* line 23, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
   .casestudy-Quote-Video .Quote-descrip-container .open-quote {
     top: -53px;
     left: 16px;
   }
 }
-/* line 30, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+/* line 33, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
 .casestudy-Quote-Video .Quote-descrip-container .Quote-descrip {
   font-size: 24px;
   color: #444957;
@@ -5387,18 +5391,18 @@ section.articlepage-quote .container figure figcaption {
   padding-right: 35px;
   line-height: 35px;
 }
-/* line 36, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+/* line 39, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
 .casestudy-Quote-Video .Quote-descrip-container .Quote-descrip .Quote-descrip-marg {
   margin-bottom: 15px;
 }
 @media (max-width: 767px) {
-  /* line 30, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+  /* line 33, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
   .casestudy-Quote-Video .Quote-descrip-container .Quote-descrip {
     padding-left: 10px;
     margin-top: 15px;
   }
 }
-/* line 43, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
+/* line 46, ../../../src/components/casestudy-Quote-Video/sass/casestudy-Quote-Video.scss */
 .casestudy-Quote-Video .Quote-descrip-container .Quote-descrip .Small-text {
   font-size: 14px;
 }
