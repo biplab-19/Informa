@@ -187,19 +187,16 @@
 			}
 			.footer {
 				-ms-transform: rotate(-3deg);
-				/* IE 9 */
 				-webkit-transform: rotate(-3deg);
-				/* Chrome, Safari, Opera */
 				transform: rotate(-3deg);
 				background-color: #434854;
 				padding: 20px 0;
-				position: relative;
+				position: fixed;
 				width: 101%;
-				/*top: calc(100% - 95px);*/
-				top:auto;
+				top: auto;
 				left: -1px;
-				height: 20%;
-				bottom:0;
+				height: 15%;
+				bottom: -10px;
 				.footer-content {
 					-ms-transform: rotate(3deg);
 					/* IE 9 */
@@ -207,6 +204,7 @@
 					/* Chrome, Safari, Opera */
 					transform: rotate(3deg);
 					background-color: #434854;
+					    padding: 0 0 10px 0;
 					.btn {
 						width: 100%;
 						display: block;
