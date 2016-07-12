@@ -203,7 +203,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
     return {
         init: init,
         DoFilter: BindFilterEvents,
-        DoRefine: BindRefineEvents
+        DoRefine: BindRefineEvents,
+        GetFilterData : GetFilterData
+
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));

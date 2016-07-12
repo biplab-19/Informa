@@ -88,9 +88,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         GetSearchArray = function(){
             var SerializeArrays = ProductFinder.find("form").serializeArray(),
-                Data = Utils.serializeObject(SerializeArrays);
+                Data = Utils.serializeObject(SerializeArrays),
+                FilterData = INFORMA.SearchResultFilter.GetFilterData(FilterList), AllResults={};
+                $.extend(AllResults, FilterData,Data);
 
-            return Data;
+            return AllResults;
         },
         UpdateResultPage = function(SecValue, SubSecValue) {
 
@@ -136,11 +138,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 method: "Post",
                 data: JSON.stringify(Data),
                 success_callback: function(data){
-                    var results = {};
-                    results.Results = data["Results"],
-                    results.ProductFacets = data["ProductFacets"];
                     RefineContainer.parent().hide();
-                    ParseSearchData(results);
+                    ParseSearchData(data);
 
                     var UpdateTab = setTimeout(function() {
                         clearTimeout(UpdateTab);
@@ -165,14 +164,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 PageSize+=6;
                 Data.pageSize =  PageSize;  
                 GetPaginatedData(Urls[url], JSON.stringify(Data), function(data){
-                    if(SearchType ==='SearchResult'){
-                        var results = {};
-                        results.Results = data["Results"],
-                        results.ProductFacets = data["ProductFacets"];
-                        ParseSearchData(results);
-                    }else{
-                        ParseSearchData(data);
-                    }
+                    ParseSearchData(data);
                 });
             });
         },
@@ -361,11 +353,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     RefineContainer.parent().parent().hide();
                 }
                 if(SearchTabs){
-                    var Data = {} , html;
+                    var Data = {} , html,TabName;
                         Data.SearchTabs = SearchTabs;
                         html = CreateFilterList(Data,Templates.SearchTabs);
+                        TabName = SearchTabHidden.val();
                     $(".search-tabs").html(html);
-                    $(".search-tabs li:first-child").addClass("selected");
+                    //$(".search-tabs li:first-child").addClass("selected");
+                    $(".tab-list li").removeClass("selected");
+                    $(".tab-list li a").each(function(){
+                        var TabLink = (($(this).attr("href")).toLowerCase()).replace("#",'');
+                        if(TabLink===TabName){
+                            $(this).parent().addClass("selected")
+                        }
+                    });
                 }
                 if (Results && Object.keys(Results).length) {
                     AllResults.hide();
@@ -394,11 +394,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (SVal) {
                     UpdateResultPage(SVal, SubSecVal);
                 }else{
-                    var informationTypes = ($("input.informationtypes").val() || ''),
-                        role = ($("input.roles").val() || ''),
-                        brand = ($("input.brands").val() || ''),
-                        data = {"informationtypes":informationTypes,"roles":role,"brands":brand};
-                    LoadProducts(JSON.stringify(data));
+                    LoadProducts();
                 }
             }
 
