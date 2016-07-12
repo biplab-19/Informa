@@ -93,7 +93,8 @@ var INFORMA = window.INFORMA || {};
 INFORMA.analystProfile = (function(window, $, namespace) {
     'use strict';
      var init,
-        _bindShowMore;
+        _bindShowMore,
+        _checkButton;
 
     _bindShowMore = function(container){
         
@@ -104,9 +105,20 @@ INFORMA.analystProfile = (function(window, $, namespace) {
         });
     }
 
+    _checkButton = function () {
+        var ContentHeight = $('.descriptions').height(),
+            TotalHeight = $('.descriptions').addClass('show-content').height();
+            debugger;
+        if(TotalHeight <= ContentHeight) {
+            jQuery('.show-options').addClass('hidden');
+        }
+        $('.descriptions').removeClass('show-content');
+    }
+
     init = function() {
         //if (_analystList.length > 0) {
             _bindShowMore();
+            _checkButton();
         //}
     };
 
