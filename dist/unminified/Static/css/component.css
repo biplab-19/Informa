@@ -1759,6 +1759,19 @@ section#pdp-hero .cta3 {
 .carousel-lists ul.slick-dots li button {
   display: none;
 }
+/* line 197, ../../../src/components/article-list/sass/_article-list.scss */
+.carousel-lists.no-carousel .list-container li {
+  width: 33% !important;
+  margin-bottom: 20px;
+}
+/* line 200, ../../../src/components/article-list/sass/_article-list.scss */
+.carousel-lists.no-carousel .list-container li:last-child {
+  border-right: 1px solid #c3c6d0;
+}
+/* line 204, ../../../src/components/article-list/sass/_article-list.scss */
+.carousel-lists.no-carousel .slick-list {
+  border: none;
+}
 
 /* line 1, ../../../src/components/category-filter/sass/_category-filter.scss */
 .category-filter-list {
