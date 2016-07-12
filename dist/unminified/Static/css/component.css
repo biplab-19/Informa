@@ -7833,9 +7833,9 @@ form.request-a-demo .submit-response::before {
   /* line 467, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
-    font-size: 40px;
-    top: 3%;
-    left: 0;
+    font-size: 25px;
+    top: 5%;
+    left: -5%;
   }
 }
 @media (max-width: 767px) {
@@ -7843,7 +7843,7 @@ form.request-a-demo .submit-response::before {
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 50px;
-    top: 5%;
+    top: 0;
     right: 0;
   }
 }
@@ -8174,7 +8174,27 @@ section#sitemap ul.level-two dd.sub-sub-nav {
 
 /* line 1, ../../../src/components/samplecontent-freearticle/sass/_samplecontent-freearticle.scss */
 section.samplecontent-freearticle {
-  background-color: #ffd500;
+  background-color: #fff;
+}
+/* line 6, ../../../src/components/samplecontent-freearticle/sass/_samplecontent-freearticle.scss */
+section.samplecontent-freearticle .article-sidebar {
+  float: right;
+  width: 50%;
+  background-color: #f1f2f2;
+  border-top: 4px solid #be1e2d;
+  padding: 10px;
+}
+/* line 12, ../../../src/components/samplecontent-freearticle/sass/_samplecontent-freearticle.scss */
+section.samplecontent-freearticle .article-sidebar .article-sidebar_readmore {
+  float: right;
+  color: #be1e2d;
+}
+/* line 15, ../../../src/components/samplecontent-freearticle/sass/_samplecontent-freearticle.scss */
+section.samplecontent-freearticle .article-sidebar .article-sidebar_readmore:after {
+  content: "\e900";
+  font-family: 'InformaIcons';
+  font-size: 10px;
+  display: inline-block;
 }
 
 /* line 1, ../../../src/components/rte-custom-table/sass/rte-table.scss */
