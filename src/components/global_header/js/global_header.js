@@ -44,6 +44,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpMenuActive = true,
 
         _pdpLink = $('#pdp-navigation ul > li > a'),
+        _pdpLinkSpan = $('#pdp-navigation ul > li > a > span'),
         _pdpFixed = false,
         _pdpMenuPos = [],
         _pdpMenuWidth = [],
@@ -71,6 +72,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _servicesMenuActive = true,
 
         _servicesLink = $('#services-navigation ul > li > a'),
+        _servicesLinkSpan = $('#services-navigation ul > li > a > span'),
         _servicesFixed = false,
         _servicesMenuPos = [],
         _servicesMenuWidth = [],
@@ -117,8 +119,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpNavigationHeight = _pdpNavigation.height(),
         _pdpNavigationPos = _pdpNavigation.offset().top;
         
-        _pdpMenuFollower.css('width', $(_pdpLink[0]).width())
-                        .css('left', $(_pdpLink[0]).offset().left)
+        _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
+                        .css('left', $(_pdpLinkSpan[0]).offset().left)
                         .show();
     }
 
@@ -127,8 +129,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _servicesNavigationPos = _servicesNavigation.offset().top;
 
         // To show the menu follower with right width and position, todo: remove harcode
-        _servicesMenuFollower.css('width', $(_servicesLink[0]).width())
-                             .css('left', $(_servicesLink[0]).offset().left)
+        _servicesMenuFollower.css('width', $(_servicesLinkSpan[0]).width())
+                             .css('left', $(_servicesLinkSpan[0]).offset().left)
                              .show();
     }
 
@@ -301,8 +303,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     var _sectionName = '#' + $(_pdpLink[i]).data('target');
 
                     _pdpMenuPos.push($(_sectionName).offset().top);
-                    _pdpMenuWidth.push($(_pdpLink[i]).width());
-                    _pdpMenuleft.push($(_pdpLink[i]).parent().offset().left);
+                    _pdpMenuWidth.push($(_pdpLinkSpan[i]).width());
+                    _pdpMenuleft.push($(_pdpLinkSpan[i]).offset().left);
                 }
                 _arrayFlag = false;
             }
@@ -423,8 +425,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     var _sectionName = '#' + $(_servicesLink[i]).data('target');
 
                     _servicesMenuPos.push($(_sectionName).offset().top);
-                    _servicesMenuWidth.push($(_servicesLink[i]).width());
-                    _servicesMenuleft.push($(_servicesLink[i]).parent().offset().left);
+                    _servicesMenuWidth.push($(_servicesLinkSpan[i]).width());
+                    _servicesMenuleft.push($(_servicesLinkSpan[i]).offset().left);
                 }
                 _arrayServicesFlag = false;
             }

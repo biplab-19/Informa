@@ -77,6 +77,16 @@ nav#pdp-navigation {
                               transition: opacity 2s ease-in;
                         }
                   }
+                  .navbar-nav {
+                        display: table;
+                        width: 75%;
+                        margin: 0;
+                  }
+                  .navbar-nav > li {
+                        float: none;
+                        display: table-cell;
+                        text-align: center;
+                  }
             }
       }
       
