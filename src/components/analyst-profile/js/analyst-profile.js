@@ -29,7 +29,7 @@ INFORMA.analystProfile = (function(window, $, namespace) {
     _checkButton = function () {
         var ContentHeight = $('.descriptions').height(),
             TotalHeight = $('.descriptions').addClass('show-content').height();
-            debugger;
+
         if(TotalHeight <= ContentHeight) {
             jQuery('.show-options').addClass('hidden');
         }
