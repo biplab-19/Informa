@@ -1,3 +1,24 @@
 section.samplecontent-freearticle {
-    background-color: $yellow;
+    background-color: $white;
+    .article-paragraph{
+
+    }
+    .article-sidebar{
+    	float: right;
+    	width: 50%;
+    	background-color: #f1f2f2;
+    	border-top: 4px solid #be1e2d;
+    	padding: 10px;
+    	.article-sidebar_readmore{
+			float: right;
+			color: #be1e2d;
+			&:after{
+				content: "\e900";
+    			font-family: 'InformaIcons';
+				font-size: 10px;
+				display: inline-block;
+			}
+    	}
+    }
+    
 }
