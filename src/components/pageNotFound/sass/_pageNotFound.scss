@@ -1,0 +1,39 @@
+.pageNotFound{
+  .logo{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 30%;
+    margin: 0 auto;
+    @include mobile {
+      width: 92%;
+    }
+  }
+  .error-msg{
+    h2{
+      color: $gray-light-bg;
+      font-family: FSMe-bold;
+    }
+    .sub-text{
+      color: $gray-light-bg;
+    }
+  }
+  .go-to-home{
+    width: 19%;
+    font-family: FSMe-bold;
+    a{
+      width: 173px;
+      color: $white !important;
+      @include mobile {
+        width: 100%;
+      }
+    }
+    .btn:after {
+        font-family: "InformaIcons" !important;
+        content: "\e900";
+        right: 10px;
+    }
+    @include mobile {
+      width: 92%;
+    }
+  }
+}
