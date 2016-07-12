@@ -22,7 +22,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
 
     _showOverlayQueryString = function(container) {
         var url = window.location.href;
-        if (url.indexOf('?ResponseStatus=Success') != -1 || url.IndexOf('/ResponseStatus/Success') != -1) {
+        if (url.indexOf('?ResponseStatus=Success') != -1 || url.indexOf('/ResponseStatus/Success') != -1) {
             _formModal.modal({
                 show: true,
                 keyboard: false,
