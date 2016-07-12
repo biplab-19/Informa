@@ -254,7 +254,7 @@
             text-align: center;
             padding-top: 10px;
             display: inline-block;
-            padding-left: 20px;
+            //padding-left: 20px;
             @include mobile {
                 padding-left: 15px;
                 padding-bottom: 10px;
@@ -266,19 +266,16 @@
             color: $white;
             font-size: 20px;
             position: absolute;
-            top: 4px;
-            left: 83px;
-            @include mobile {
-                left: 68px;
-            }
+            top: 6px;
+            left: 57px;
+            // @include mobile {
+            //     left: 68px;
+            // }
         }
         //  from here for sample insight banner
         .provided {
             padding-top: 20px;
             padding-bottom: 15px;
-            @include tablet {
-                font-size: 15px !important;
-            }
             @include mobile {
                 font-size: 14px !important;
                 padding-top: 0px;

@@ -235,6 +235,7 @@ form.request-a-demo {
                     height: inherit;
                     margin: 0;
                     font-size: $font-size-base;
+                    font-weight: normal !important;
                     @include mobile {
                         padding: 5px;
                         width: 100%;
@@ -278,39 +279,7 @@ form.request-a-demo {
             display: none;
         }
     }
-    // .radio {
-    //     input[type=radio] {
-    //         display: none;
-    //     }
-    //     width: 45%;
-    //     display: inline-block;
-    //     box-sizing: border-box;
-    //     vertical-align: top;
-    //     margin: 10px;
-    //     @include tablet {
-    //         width: 46%;
-    //     }
-    //     @include mobile {
-    //         width: 100%;
-    //     }
-    //     label {
-    //         padding-left: 30px;
-    //     }
-    //     label:before {
-    //         content: "";
-    //         height: 16px;
-    //         width: 16px;
-    //         border: 0.225em solid $white;
-    //         border-radius: 100%;
-    //         background-color: $white;
-    //         position: absolute;
-    //         left: 0;
-    //         top: 3px;
-    //     }
-    //     input[type=radio]:checked + label:before {
-    //         background-color: $input-orange;
-    //     }
-    // }
+
     .picker-container {
         position: static;
     }
@@ -403,6 +372,7 @@ form.request-a-demo {
         vertical-align: middle;
         position: relative;
         padding-left: 12px;
+        font-weight: normal !important;
     }
     .radio-custom label::before {
         content: "";
