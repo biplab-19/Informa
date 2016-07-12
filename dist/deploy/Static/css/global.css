@@ -8297,7 +8297,6 @@ button.close {
 .slick-slider {
   position: relative;
   display: block;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -8310,7 +8309,7 @@ button.close {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* line 18, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 17, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list {
   position: relative;
   overflow: hidden;
@@ -8318,17 +8317,17 @@ button.close {
   margin: 0;
   padding: 0;
 }
-/* line 25, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 24, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list:focus {
   outline: none;
 }
-/* line 29, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 28, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list.dragging {
   cursor: pointer;
   cursor: hand;
 }
 
-/* line 34, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 33, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slider .slick-track,
 .slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
@@ -8338,72 +8337,72 @@ button.close {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 43, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 42, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track {
   position: relative;
   left: 0;
   top: 0;
   display: block;
 }
-/* line 49, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 48, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:before, .slick-track:after {
   content: "";
   display: table;
 }
-/* line 55, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 54, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:after {
   clear: both;
 }
-/* line 59, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 58, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-track {
   visibility: hidden;
 }
 
-/* line 63, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 62, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide {
   float: left;
   height: 100%;
   min-height: 1px;
   display: none;
 }
-/* line 67, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 66, ../../../bower_components/slick-carousel/slick/slick.scss */
 [dir="rtl"] .slick-slide {
   float: right;
 }
-/* line 70, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 69, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide img {
   display: block;
 }
-/* line 73, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 72, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.slick-loading img {
   display: none;
 }
-/* line 79, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 78, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.dragging img {
   pointer-events: none;
 }
-/* line 83, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 82, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-initialized .slick-slide {
   display: block;
 }
-/* line 87, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 86, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-slide {
   visibility: hidden;
 }
-/* line 91, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 90, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-vertical .slick-slide {
   display: block;
   height: auto;
   border: 1px solid transparent;
 }
 
-/* line 97, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 96, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-arrow.slick-hidden {
   display: none;
 }
 
 /* Slider */
-/* line 40, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 45, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-loading .slick-list {
   background: #fff url('/images/ajax-loader.gif') center center no-repeat;
 }
@@ -8417,7 +8416,7 @@ button.close {
   font-style: normal;
 }
 /* Arrows */
-/* line 58, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 63, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev,
 .slick-next {
   position: absolute;
@@ -8430,8 +8429,6 @@ button.close {
   background: transparent;
   color: transparent;
   top: 50%;
-  margin-top: -10px\9;
-  /*lte IE 8*/
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
@@ -8439,7 +8436,7 @@ button.close {
   border: none;
   outline: none;
 }
-/* line 77, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 81, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev:hover, .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus {
@@ -8447,20 +8444,20 @@ button.close {
   background: transparent;
   color: transparent;
 }
-/* line 81, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 85, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev:hover:before, .slick-prev:focus:before,
 .slick-next:hover:before,
 .slick-next:focus:before {
   opacity: 1;
 }
-/* line 85, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 89, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before {
   opacity: 0.25;
 }
-
-/* line 90, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-prev:before, .slick-next:before {
+/* line 92, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-prev:before,
+.slick-next:before {
   font-family: "slick";
   font-size: 20px;
   line-height: 1;
@@ -8470,59 +8467,60 @@ button.close {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 100, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 103, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev {
   left: -25px;
 }
-/* line 102, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 105, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-prev {
   left: auto;
   right: -25px;
 }
-/* line 106, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 109, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev:before {
   content: "←";
 }
-/* line 108, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 111, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-prev:before {
   content: "→";
 }
 
-/* line 114, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 117, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-next {
   right: -25px;
 }
-/* line 116, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 119, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-next {
   left: -25px;
   right: auto;
 }
-/* line 120, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 123, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-next:before {
   content: "→";
 }
-/* line 122, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 125, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-next:before {
   content: "←";
 }
 
 /* Dots */
-/* line 130, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-slider {
+/* line 133, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-dotted.slick-slider {
   margin-bottom: 30px;
 }
 
-/* line 134, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 137, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots {
   position: absolute;
-  bottom: -45px;
+  bottom: -25px;
   list-style: none;
   display: block;
   text-align: center;
   padding: 0;
+  margin: 0;
   width: 100%;
 }
-/* line 142, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 146, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li {
   position: relative;
   display: inline-block;
@@ -8532,7 +8530,7 @@ button.close {
   padding: 0;
   cursor: pointer;
 }
-/* line 150, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 154, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button {
   border: 0;
   background: transparent;
@@ -8546,15 +8544,15 @@ button.close {
   padding: 5px;
   cursor: pointer;
 }
-/* line 162, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 166, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button:hover, .slick-dots li button:focus {
   outline: none;
 }
-/* line 164, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 168, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
   opacity: 1;
 }
-/* line 168, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 172, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button:before {
   position: absolute;
   top: 0;
@@ -8571,7 +8569,7 @@ button.close {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 185, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 189, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li.slick-active button:before {
   color: black;
   opacity: 0.75;
@@ -11932,21 +11930,18 @@ footer ul.slick-dots li.slick-active {
 /* line 188, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer {
   -ms-transform: rotate(-3deg);
-  /* IE 9 */
   -webkit-transform: rotate(-3deg);
-  /* Chrome, Safari, Opera */
   transform: rotate(-3deg);
   background-color: #434854;
   padding: 20px 0;
-  position: relative;
+  position: fixed;
   width: 101%;
-  /*top: calc(100% - 95px);*/
   top: auto;
   left: -1px;
-  height: 20%;
-  bottom: 0;
+  height: 15%;
+  bottom: -10px;
 }
-/* line 203, ../../../src/sass/global/_common-components.scss */
+/* line 200, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content {
   -ms-transform: rotate(3deg);
   /* IE 9 */
@@ -11954,26 +11949,27 @@ footer ul.slick-dots li.slick-active {
   /* Chrome, Safari, Opera */
   transform: rotate(3deg);
   background-color: #434854;
+  padding: 0 0 10px 0;
 }
-/* line 210, ../../../src/sass/global/_common-components.scss */
+/* line 208, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content .btn {
   width: 100%;
   display: block;
   color: #fff;
 }
-/* line 214, ../../../src/sass/global/_common-components.scss */
+/* line 212, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content .btn.free-trial {
   border-color: #ef7c00;
 }
-/* line 216, ../../../src/sass/global/_common-components.scss */
+/* line 214, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content .btn.free-trial:after {
   color: #ef7c00;
 }
-/* line 220, ../../../src/sass/global/_common-components.scss */
+/* line 218, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content .btn.more {
   border-color: #ef7c00;
 }
-/* line 228, ../../../src/sass/global/_common-components.scss */
+/* line 226, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back {
   background-color: #f0f1f3;
   height: 100%;
@@ -11987,7 +11983,7 @@ footer ul.slick-dots li.slick-active {
   top: 0;
   overflow: hidden;
 }
-/* line 240, ../../../src/sass/global/_common-components.scss */
+/* line 238, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .triangle {
   background: #fff;
   border-top: 50px solid #ef7c00;
@@ -11996,36 +11992,36 @@ footer ul.slick-dots li.slick-active {
   bottom: 0;
   right: 0;
 }
-/* line 247, ../../../src/sass/global/_common-components.scss */
+/* line 245, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .triangle .icon-arrow-right {
   bottom: 30px;
   left: 10px;
   top: auto;
   transform: rotate(41deg);
 }
-/* line 255, ../../../src/sass/global/_common-components.scss */
+/* line 253, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .header:after {
   background-color: #f0f1f3;
 }
-/* line 259, ../../../src/sass/global/_common-components.scss */
+/* line 257, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content {
   min-height: 100px;
   padding: 20px;
 }
-/* line 262, ../../../src/sass/global/_common-components.scss */
+/* line 260, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content a {
   text-decoration: none;
   color: #6a7285;
 }
-/* line 266, ../../../src/sass/global/_common-components.scss */
+/* line 264, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content h2 {
   color: #6a7285;
 }
-/* line 269, ../../../src/sass/global/_common-components.scss */
+/* line 267, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content p {
   padding-right: 20px;
 }
-/* line 273, ../../../src/sass/global/_common-components.scss */
+/* line 271, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer {
   padding-top: 5%;
   position: absolute;
@@ -12033,7 +12029,7 @@ footer ul.slick-dots li.slick-active {
   bottom: 0;
   width: 100%;
 }
-/* line 279, ../../../src/sass/global/_common-components.scss */
+/* line 277, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer:before {
   content: "";
   position: absolute;
@@ -12045,12 +12041,12 @@ footer ul.slick-dots li.slick-active {
   left: 0;
 }
 
-/* line 295, ../../../src/sass/global/_common-components.scss */
+/* line 293, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container {
   margin: 20px 0 0;
   text-align: center;
 }
-/* line 298, ../../../src/sass/global/_common-components.scss */
+/* line 296, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore,
 .search-container .btn-container .open-tab {
   color: #444957;
@@ -12061,25 +12057,25 @@ footer ul.slick-dots li.slick-active {
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 298, ../../../src/sass/global/_common-components.scss */
+  /* line 296, ../../../src/sass/global/_common-components.scss */
   .search-container .btn-container .btn-ShowMore,
   .search-container .btn-container .open-tab {
     padding: 20px 0 40px;
   }
 }
-/* line 309, ../../../src/sass/global/_common-components.scss */
+/* line 307, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore span,
 .search-container .btn-container .open-tab span {
   float: left;
 }
 @media (max-width: 767px) {
-  /* line 309, ../../../src/sass/global/_common-components.scss */
+  /* line 307, ../../../src/sass/global/_common-components.scss */
   .search-container .btn-container .btn-ShowMore span,
   .search-container .btn-container .open-tab span {
     float: none;
   }
 }
-/* line 314, ../../../src/sass/global/_common-components.scss */
+/* line 312, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore span:before,
 .search-container .btn-container .open-tab span:before {
   content: "\e912";
@@ -12091,7 +12087,7 @@ footer ul.slick-dots li.slick-active {
   color: #ffd500;
 }
 @media (max-width: 767px) {
-  /* line 314, ../../../src/sass/global/_common-components.scss */
+  /* line 312, ../../../src/sass/global/_common-components.scss */
   .search-container .btn-container .btn-ShowMore span:before,
   .search-container .btn-container .open-tab span:before {
     right: 50%;
@@ -12099,30 +12095,30 @@ footer ul.slick-dots li.slick-active {
     top: 35px;
   }
 }
-/* line 329, ../../../src/sass/global/_common-components.scss */
+/* line 327, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore span.less:before,
 .search-container .btn-container .open-tab span.less:before {
   content: "\e913";
 }
-/* line 334, ../../../src/sass/global/_common-components.scss */
+/* line 332, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore:focus, .search-container .btn-container .btn-ShowMore:hover,
 .search-container .btn-container .open-tab:focus,
 .search-container .btn-container .open-tab:hover {
   text-decoration: none;
 }
-/* line 340, ../../../src/sass/global/_common-components.scss */
+/* line 338, ../../../src/sass/global/_common-components.scss */
 .search-container .more {
   display: block;
 }
-/* line 343, ../../../src/sass/global/_common-components.scss */
+/* line 341, ../../../src/sass/global/_common-components.scss */
 .search-container .less {
   display: none;
 }
-/* line 347, ../../../src/sass/global/_common-components.scss */
+/* line 345, ../../../src/sass/global/_common-components.scss */
 .search-container.all-shown .more {
   display: none;
 }
-/* line 350, ../../../src/sass/global/_common-components.scss */
+/* line 348, ../../../src/sass/global/_common-components.scss */
 .search-container.all-shown .less {
   display: block;
 }
@@ -12133,7 +12129,7 @@ footer ul.slick-dots li.slick-active {
 /*===================================================
 	Image Fit to screen
 ====================================================*/
-/* line 361, ../../../src/sass/global/_common-components.scss */
+/* line 359, ../../../src/sass/global/_common-components.scss */
 .img-fit {
   max-width: 100%;
 }
