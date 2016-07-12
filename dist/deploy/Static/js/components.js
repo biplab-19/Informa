@@ -1284,7 +1284,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
     'use strict';
     //variables
     var FaqMoreBtn = $('.btn-faq-more'),
-        pageNo = 1,
+        pageNo = 0,
         AccordianWrapper = $('.accordian-structure'),
         PanelWrapper = AccordianWrapper.find('.panel-group'),
         Urls = INFORMA.Configs.urls.webservices,
@@ -1365,7 +1365,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
                 Count = Parent.parents('.accordian-structure').attr('data-count'),
                 CurrentPageItemGuid = Parent.parents('.accordian-structure').attr('data-CurrentPageItemGuid'),
                 _Object = {
-                    PageNo: CurrentPage,
+                    PageNo: 0,
                     PageSize: Count,
                     CurrentPageItemGuid: CurrentPageItemGuid
                 };
@@ -1379,7 +1379,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
             }
             Parent.find('.panel-group').attr('data-pageno', (parseInt(CurrentPage) + 1));
 
-            GetAjaxData(Urls.GetFAQs, "Post", _Object, RenderFaqs, null, null);
+            GetAjaxData(Urls.GetFAQs, "Get", _Object, RenderFaqs, null, null);
         })
     },
 
