@@ -3100,7 +3100,7 @@ nav#pdp-navigation .menuFollower {
 }
 /* line 115, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twittedby {
-  color: #ef7c00;
+  color: #ef7c00 !important;
 }
 /* line 117, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twittedby:before {
@@ -3832,8 +3832,9 @@ nav#pdp-navigation .menuFollower {
   border-bottom: 2px solid #ffd500;
   cursor: pointer;
   margin: 20px 50px;
+  border-color: #ffd500 !important;
 }
-/* line 66, ../../../src/components/faqs/sass/faqs.scss */
+/* line 67, ../../../src/components/faqs/sass/faqs.scss */
 #faqs .btn-faq-more:after, .accordian-structure .btn-faq-more:after {
   font-family: 'InformaIcons';
   content: '\e912';
@@ -3847,7 +3848,7 @@ nav#pdp-navigation .menuFollower {
   top: -2px;
 }
 @media (max-width: 767px) {
-  /* line 66, ../../../src/components/faqs/sass/faqs.scss */
+  /* line 67, ../../../src/components/faqs/sass/faqs.scss */
   #faqs .btn-faq-more:after, .accordian-structure .btn-faq-more:after {
     right: 50%;
     margin-right: -15px;
@@ -3880,11 +3881,11 @@ nav#pdp-navigation .menuFollower {
 }
 
 /*Experience Mode FAQs*/
-/* line 104, ../../../src/components/faqs/sass/faqs.scss */
+/* line 105, ../../../src/components/faqs/sass/faqs.scss */
 .experience-mode #faqs .collapse {
   display: block !important;
 }
-/* line 108, ../../../src/components/faqs/sass/faqs.scss */
+/* line 109, ../../../src/components/faqs/sass/faqs.scss */
 .experience-mode .accordian-structure .panel-group .panel .panel-heading .panel-title a:after {
   content: "\e913";
   color: #6a7287;
