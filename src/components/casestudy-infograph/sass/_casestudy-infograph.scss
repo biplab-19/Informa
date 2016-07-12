@@ -1,9 +1,9 @@
 section#casestudy-infograph {
     position: relative;
-    background-color: #f7f7f7;
+    background-color: $gray-lightest-bg;
     .container{
         >.row{
-            background-color: #eff0f3;
+            background-color: $gray-bright-bg;
         }
     }
     .challenge-container, .solution-container, .achieved-container{
@@ -62,7 +62,7 @@ section#casestudy-infograph {
     }
     
     .challenge-container, .achieved-container {
-        background-color: #eff0f3;
+        background-color: $gray-bright-bg;
         color: $text-gray;
         overflow: hidden;
         position: relative;
@@ -84,7 +84,7 @@ section#casestudy-infograph {
         }
         
         .productdetails {
-            background-color: #c3c6d0;
+            background-color: $gray-darkest-bg;
             min-height: 90px;
             overflow: hidden;
             position:relative;
