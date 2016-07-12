@@ -4466,7 +4466,6 @@ var INFORMA = window.INFORMA || {};
                     var TileFront = Object.find('.front .triangle'),
                         TileBack  = Object.find('.back .triangle');
 
-                    if (INFORMA.global.device.viewportN === 0) {
                         TileFront.on("click",function() {
                             DoFlip($(this), 'flip');
                         });
@@ -4474,7 +4473,6 @@ var INFORMA = window.INFORMA || {};
                         TileBack.on("click",function() {
                             DoFlip($(this), 'unflip');
                         });
-                    } 
                 },
                 this.getUniqueArray = function(arrayList) {
                     var uniqueArray = [];
