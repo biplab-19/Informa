@@ -104,7 +104,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         //functions
         init,
         _whenScrolling,
-        show_modal,
         _activateMainFixedHeader,
         _activateMobileFixedHeader,
 
@@ -115,13 +114,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     // if header or pdp is present then only we calc the values.
     // so that even if the elements are not present, the calc will happen
-    show_modal = function(el) 
-    { 
-        var btn = jQuery(el).data('target'); 
-        jQuery(btn).modal({ 
-            show : 'true' 
-        })
-    };
      
     if (_pdpNavigation.length > 0) {
         _pdpNavigationHeight = _pdpNavigation.height(),

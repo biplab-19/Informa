@@ -1945,6 +1945,14 @@ INFORMA.global = (function(window, $, namespace) {
 		siteCore = {},
 		_html = $('html');
 
+	var show_modal = function(el) 
+    { 
+        var btn = jQuery(el).data('target'); 
+        jQuery(btn).modal({ 
+            show : 'true' 
+        })
+    };
+
 	var init = function(){
 		// viewport properties
 		var _viewportWidth = $(window).width();
@@ -1977,7 +1985,8 @@ INFORMA.global = (function(window, $, namespace) {
 	return {
 		init: init,
 		device: device,
-		siteCore: siteCore
+		siteCore: siteCore,
+		show_modal: show_modal
 	};
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.global.init());
@@ -2157,7 +2166,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         //functions
         init,
         _whenScrolling,
-        show_modal,
         _activateMainFixedHeader,
         _activateMobileFixedHeader,
 
@@ -2168,12 +2176,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     // if header or pdp is present then only we calc the values.
     // so that even if the elements are not present, the calc will happen
-    show_modal = function(modalId) 
-    { 
-        jQuery(modalId).modal({ 
-            show : 'true' 
-        })
-    };
      
     if (_pdpNavigation.length > 0) {
         _pdpNavigationHeight = _pdpNavigation.height(),
