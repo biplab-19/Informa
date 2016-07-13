@@ -240,5 +240,16 @@
         </div>
     </div>
 </div>
+<script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
+<script>
+var onloadCallback = function() {
+        
+        jQuery('.g-recaptcha').each(function(index, el) {
+            grecaptcha.render(el, {'sitekey' : jQuery(el).data('sitekey')});
+        });
+
+    };
+</script>
+
 <div class="form-inline-container">
 </div>
