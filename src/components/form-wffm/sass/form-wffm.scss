@@ -441,6 +441,10 @@ form.request-a-demo {
         h1 {
             display: inline-block;
             margin-bottom: 25px;
+            @include mobile{
+                padding-right: 20px;
+                margin-right: 20px;
+            }
         }
         p {
             margin-bottom: 25px;
@@ -478,13 +482,13 @@ form.request-a-demo {
             }
             @include tablet {
                 font-size: 25px;
-                top: 5%;
+                top: 15%;
                 left: -5%;
             }
             @include mobile {
                 font-size: 50px;
-                top: 0;
-                right: 0;
+                top: 10%;
+                right: -3%;
             }
         }
     }
