@@ -1,5 +1,15 @@
 section#sitemap{
-  margin-top: 30px;
+  .map-list{
+    padding-top: 40px;
+  }
+  .title{
+    background-color: $white;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+  a{
+    color: $sitemap-main-gray;
+  }
   .main-nav{
       padding-right: 0px !important;
       @media (max-width: 1023px) and (min-width: 768px){
@@ -21,6 +31,7 @@ section#sitemap{
     .level-one{
       background-color: $sitemap-main-gray;
       padding: 10px;
+      color: $white;
     }
     ul.level-two{
       list-style-type: none;
@@ -31,6 +42,7 @@ section#sitemap{
       dt{
         background-color: $sitemap-sub-gray;
         padding: 10px;
+        font-family: FSMe-light;
       }
       dd.level2-sub{
         background: $blue-light-bg;
