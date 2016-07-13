@@ -66,9 +66,9 @@ INFORMA.FAQs = (function (window, $, namespace) {
 
     ResetAccordian = function () {
         var Items = AccordianWrapper.find('.panel-group');
-        if($('.nav-tabs').length > 0) {
-            $('.tab-pane .accordian-wrap').addClass('hide');
-            $('.tab-pane .accordian-wrap:first-child').removeClass('hide').addClass('show');
+        if($('.help-faq-wrapper').length > 0) {
+            $('.help-faq-wrapper .accordian-wrap').addClass('hide');
+            $('.help-faq-wrapper .accordian-wrap:first-child').removeClass('hide').addClass('show');
         }
         Items.each(function () {
             $(this).attr('data-pageno', pageNo);
