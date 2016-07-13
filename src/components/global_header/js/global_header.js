@@ -115,9 +115,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     // if header or pdp is present then only we calc the values.
     // so that even if the elements are not present, the calc will happen
-    show_modal = function(modalId) 
+    show_modal = function(el) 
     { 
-        jQuery(modalId).modal({ 
+        var btn = jQuery(el).data('target'); 
+        jQuery(btn).modal({ 
             show : 'true' 
         })
     };
