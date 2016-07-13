@@ -241,13 +241,19 @@
     </div>
 </div>
 <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
-<script>
-var onloadCallback = function() {
-        
+<script type="text/javascript">
+    var onloadCallback = function() {
         jQuery('.g-recaptcha').each(function(index, el) {
-            grecaptcha.render(el, {'sitekey' : jQuery(el).data('sitekey')});
+            grecaptcha.render(el, {
+                'sitekey': jQuery(el).data('sitekey'),
+                'theme': 'dark',
+                'callback': function(response) {
+                    if (response.length > 0) {
+                        jQuery(el).parents('form').find('.captcha-wrapper .field-validation-error').css('display', 'none');
+                    }
+                }
+            });
         });
-
     };
 </script>
 
