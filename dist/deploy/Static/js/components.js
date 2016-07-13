@@ -1587,11 +1587,11 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _attachInlineForm,
         _validateAllForms,
         _reCaptchaHandler;
-
+        
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo").submit(function() {
-            var captchaMsgContainer = $('#captcha-error-msg-container');
-            var captcha_response = grecaptcha.getResponse();
+            var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-error'),
+                captcha_response = grecaptcha.getResponse();
             if (captcha_response.length == 0) {
                 // Captcha failed
                 var captchaErrorMsg = captchaMsgContainer.data('recaptcha-error-text');
@@ -1599,7 +1599,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
                 return false;
             } else {
                 // Captcha is Passed
-                captchaMsgContainer.css('display', 'none').html('');
+                captchaMsgContainer.css('display', 'none');
                 return true;
             }
         });
@@ -1646,7 +1646,9 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             })
         }
     }
-
+    $("form.get-in-touch").on( 'change', 'input, textarea, select, button, a', function() {
+       $('form.get-in-touch').find('.form-submit-border .btn').removeAttr('disabled');
+    });
     _attachInlineForm = function() {
         $('.form-modal-close').click(function() {
             var formHTML = _formModal.find('.modal-body .form-popup-container').html();
@@ -2155,6 +2157,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         //functions
         init,
         _whenScrolling,
+        show_modal,
         _activateMainFixedHeader,
         _activateMobileFixedHeader,
 
@@ -2165,7 +2168,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     // if header or pdp is present then only we calc the values.
     // so that even if the elements are not present, the calc will happen
-
+    show_modal = function(modalId) 
+    { 
+        jQuery(modalId).modal({ 
+            show : 'true' 
+        })
+    };
+     
     if (_pdpNavigation.length > 0) {
         _pdpNavigationHeight = _pdpNavigation.height(),
         _pdpNavigationPos = _pdpNavigation.offset().top;
