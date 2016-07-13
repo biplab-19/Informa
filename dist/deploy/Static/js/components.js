@@ -1,4 +1,4 @@
-/*! 2016-07-12 */_adjustHeigt = function(){
+/*! 2016-07-13 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1379,7 +1379,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
             }
             Parent.find('.panel-group').attr('data-pageno', (parseInt(CurrentPage) + 1));
 
-            GetAjaxData(Urls.GetFAQs, "Get", _Object, RenderFaqs, null, null);
+            GetAjaxData(Urls.GetFAQs, "Post", _Object, RenderFaqs, null, null);
         })
     },
 
