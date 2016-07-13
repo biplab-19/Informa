@@ -98,7 +98,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
             }
             Parent.find('.panel-group').attr('data-pageno', (parseInt(CurrentPage) + 1));
 
-            GetAjaxData(Urls.GetFAQs, "Get", _Object, RenderFaqs, null, null);
+            GetAjaxData(Urls.GetFAQs, "Post", _Object, RenderFaqs, null, null);
         })
     },
 
