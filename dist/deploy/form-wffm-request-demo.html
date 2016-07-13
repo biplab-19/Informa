@@ -699,7 +699,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                                 </div>
                             </div>
                         </fieldset>
-                        <div class="g-recaptcha" data-sitekey="6LezlCQTAAAAALwyoWgTPjpFlBYTWy7pfSAXbPfn"></div>
+                        <div class="g-recaptcha" data-sitekey="6LezlCQTAAAAALwyoWgTPjpFlBYTWy7pfSAXbPfn" data-theme="dark"></div>
                         <div class="captcha-wrapper">
                           <div id="captcha-error-msg-container" class="field-validation-error" data-recaptcha-error-text="Validate Captcha"></div>
                           <input type="hidden" class="hiddenRecaptcha" name="hiddenRecaptcha" id="hiddenRecaptcha">
@@ -723,6 +723,17 @@ in the empire of Sapient. Har Har Mahadev !! --->
         </div>
     </div>
 </div>
+<script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
+<script>
+var onloadCallback = function() {
+        
+        jQuery('.g-recaptcha').each(function(index, el) {
+            grecaptcha.render(el, {'sitekey' : jQuery(el).data('sitekey')});
+        });
+
+    };
+</script>
+
 <div class="form-inline-container">
 </div>
 
