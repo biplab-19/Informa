@@ -80,7 +80,9 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             })
         }
     }
-
+    $("form.get-in-touch").on( 'change', 'input, textarea, select, button, a', function() {
+       $('form.get-in-touch').find('.form-submit-border .btn').removeAttr('disabled');
+    });
     _attachInlineForm = function() {
         $('.form-modal-close').click(function() {
             var formHTML = _formModal.find('.modal-body .form-popup-container').html();
