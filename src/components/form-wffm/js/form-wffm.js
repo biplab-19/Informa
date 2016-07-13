@@ -21,11 +21,11 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _attachInlineForm,
         _validateAllForms,
         _reCaptchaHandler;
-
+        
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo").submit(function() {
-            var captchaMsgContainer = $('#captcha-error-msg-container');
-            var captcha_response = grecaptcha.getResponse();
+            var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-error'),
+                captcha_response = grecaptcha.getResponse();
             if (captcha_response.length == 0) {
                 // Captcha failed
                 var captchaErrorMsg = captchaMsgContainer.data('recaptcha-error-text');
@@ -33,7 +33,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
                 return false;
             } else {
                 // Captcha is Passed
-                captchaMsgContainer.css('display', 'none').html('');
+                captchaMsgContainer.css('display', 'none');
                 return true;
             }
         });
