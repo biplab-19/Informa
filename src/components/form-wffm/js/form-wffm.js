@@ -21,7 +21,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _attachInlineForm,
         _validateAllForms,
         _reCaptchaHandler;
-        
+
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo").submit(function() {
             var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-error'),
@@ -80,8 +80,8 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             })
         }
     }
-    $("form.get-in-touch").on( 'change', 'input, textarea, select, button, a', function() {
-       $('form.get-in-touch').find('.form-submit-border .btn').removeAttr('disabled');
+    $("form.get-in-touch, form.request-a-demo").on( 'change', 'input, textarea, select, button, a', function() {
+       $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn').removeAttr('disabled');
     });
     _attachInlineForm = function() {
         $('.form-modal-close').click(function() {
