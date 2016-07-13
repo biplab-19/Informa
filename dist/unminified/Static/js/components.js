@@ -4405,7 +4405,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (SVal) {
                     UpdateResultPage(SVal, SubSecVal);
                 }else{
-                    LoadProducts();
+
+                    var Information = $('input[name="informationtypes"].filter-fields').val() || null,
+                        Roles = $('input[name="roles"].filter-fields').val() || null,
+                        Brands = $('input[name="brands"].filter-fields').val() || null, Data;
+                        
+                        Data = {"informationtypes":Information,"roles":Roles,"brands":Brands};
+
+                    LoadProducts(JSON.stringify(Data));
                 }
             }
 
