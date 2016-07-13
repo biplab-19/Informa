@@ -263,6 +263,15 @@
             position: absolute;
             top: 9px;
             left: 58px;
+            @media (max-width: 1023px) and (min-width: 768px){
+              top: 19px;
+            }
+        }
+        .share-tab{
+          @media (max-width: 1023px) and (min-width: 768px){
+            padding-top: 10px;
+          }
+
         }
         //  from here for sample insight banner
         .provided {
