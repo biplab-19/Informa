@@ -20,7 +20,7 @@ INFORMA.global = (function(window, $, namespace) {
 
 	var show_modal = function(el) 
     { 
-        var btn = jQuery(el).data('target'); 
+        var btn = jQuery(el).data('modal'); 
         jQuery(btn).modal({ 
             show : 'true' 
         })
