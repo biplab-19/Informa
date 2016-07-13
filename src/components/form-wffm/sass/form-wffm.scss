@@ -39,6 +39,11 @@ form.request-a-demo {
         background-color: $blue-lighter-bg;
         //width: 94%;
     }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
     textarea.form-control {
         border-radius: 0;
         background-color: $blue-lighter-bg;
@@ -279,7 +284,6 @@ form.request-a-demo {
             display: none;
         }
     }
-
     .picker-container {
         position: static;
     }
@@ -299,7 +303,7 @@ form.request-a-demo {
         }
     }
     .contact-details {
-        .required-field:not(:first-child) {
+        .required-field:not(: first-child) {
             display: table-cell;
             width: 48%;
             float: left;
@@ -354,18 +358,18 @@ form.request-a-demo {
         }
     }
     .radio-custom {
-            width: 45%;
-            display: inline-block;
-            box-sizing: border-box;
-            vertical-align: top;
-            margin: 10px;
-            position: relative;
-            @include tablet {
-                width: 46%;
-            }
-            @include mobile {
-                width: 100%;
-            }
+        width: 45%;
+        display: inline-block;
+        box-sizing: border-box;
+        vertical-align: top;
+        margin: 10px;
+        position: relative;
+        @include tablet {
+            width: 46%;
+        }
+        @include mobile {
+            width: 100%;
+        }
     }
     .radio-custom label {
         display: inline-block;
@@ -410,11 +414,11 @@ form.request-a-demo {
         transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
     }
     .radio-custom input[type="radio"] {
-      opacity: 0;
-      z-index: 1;
-      left: -8px;
-      top: -1px;
-      position: absolute;
+        opacity: 0;
+        z-index: 1;
+        left: -8px;
+        top: -1px;
+        position: absolute;
     }
     .radio-custom input[type="radio"]:focus + label::before {
         // outline: thin dotted;
@@ -441,7 +445,7 @@ form.request-a-demo {
         h1 {
             display: inline-block;
             margin-bottom: 25px;
-            @include mobile{
+            @include mobile {
                 padding-right: 20px;
                 margin-right: 20px;
             }
@@ -458,7 +462,6 @@ form.request-a-demo {
             text-align: left;
             border-radius: 0;
             padding: 0;
-
             &:after {
                 content: '';
                 position: absolute;
