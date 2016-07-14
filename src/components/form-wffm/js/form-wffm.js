@@ -18,7 +18,6 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _bindValidationLogic,
         _showOverlay,
         _showOverlayQueryString,
-        _attachInlineForm,
         _validateAllForms,
         _reCaptchaHandler,
         _disableSubmit;
