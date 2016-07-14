@@ -4074,6 +4074,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     MaxHeight = currentHeight;
                 }
             })
+            if($('.search-results .tile').length > 0) {
+                Padding = 100;
+            }
             ItemsList.css('height', MaxHeight + Padding);
             if (INFORMA.global.device.viewportN === 2) {
                 ItemsList.css('height', 'auto');
