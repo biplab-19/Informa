@@ -25,12 +25,11 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
 
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo").submit(function() {
-            var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-error'),
+            var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid'),
                 captcha_response = grecaptcha.getResponse();
             if (captcha_response.length == 0) {
                 // Captcha failed
-                //var captchaErrorMsg = captchaMsgContainer.data('recaptcha-error-text');
-                captchaMsgContainer.css('display', 'block');
+                captchaMsgContainer.css('display', 'block').html('The captcha field is required.').addClass('field-validation-error');
                 return false;
             } else {
                 // Captcha is Passed
