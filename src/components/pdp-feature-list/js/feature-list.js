@@ -26,9 +26,11 @@ INFORMA.featureList = (function(window, $, namespace) {
         var _showMore = $('.btn-showMore');
         _showMore.on('click', function() {
             var _vp = INFORMA.global.device.viewport,
-                _limit = $(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1;
-                 $(this).parents('.feature-list-section').find('.feature-list-container:nth-child(n+' + _limit + ')').slideToggle();
-                 $(this).parents('.feature-list-section').toggleClass('showLess');
+                _limit = $(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1,
+                Parent = $(this).parents('.feature-list-section'),
+                Children = Parent.find('.feature-list-container');
+                $(Children.slice((_limit-1), Children.length)).slideToggle();
+                Parent.toggleClass('showLess');
         });
     }
     _hideList = function(ListItems) {
