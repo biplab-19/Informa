@@ -7889,6 +7889,11 @@ form.request-a-demo .submit-response h1 {
   }
 }
 /* line 485, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .submit-response img,
+form.request-a-demo .submit-response img {
+  opacity: 0.5;
+}
+/* line 488, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response p,
 form.request-a-demo .submit-response p {
   margin-bottom: 25px;
@@ -7903,7 +7908,7 @@ form.request-a-demo .submit-response p {
   border-radius: 0;
   padding: 0;
 }
-/* line 497, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 500, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response p:after,
 form.request-a-demo .submit-response p:after {
   content: '';
@@ -7914,7 +7919,7 @@ form.request-a-demo .submit-response p:after {
   height: 0;
   border: 0;
 }
-/* line 507, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 510, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .submit-response::before,
 form.request-a-demo .submit-response::before {
   position: absolute;
@@ -7924,7 +7929,7 @@ form.request-a-demo .submit-response::before {
   color: #ffd600;
 }
 @media (min-width: 1142px) {
-  /* line 507, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 510, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 30px;
@@ -7933,7 +7938,7 @@ form.request-a-demo .submit-response::before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 507, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 510, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 30px;
@@ -7942,7 +7947,7 @@ form.request-a-demo .submit-response::before {
   }
 }
 @media (max-width: 767px) {
-  /* line 507, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 510, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .submit-response::before,
   form.request-a-demo .submit-response::before {
     font-size: 50px;
@@ -7951,13 +7956,13 @@ form.request-a-demo .submit-response::before {
   }
 }
 
-/* line 531, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 534, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-btn-container {
   width: 20%;
   margin: 10px auto;
 }
 
-/* line 535, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 538, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
   -moz-transform: scale(0.1);
@@ -7970,7 +7975,7 @@ form.request-a-demo .submit-response::before {
   transition: all 0.3s;
 }
 
-/* line 546, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 549, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade.in .modal-dialog {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -7981,39 +7986,39 @@ form.request-a-demo .submit-response::before {
   opacity: 1;
 }
 
-/* line 556, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 559, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-dialog {
   width: 80%;
   margin: 0 auto;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 556, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 559, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 85%;
   }
 }
 @media (max-width: 767px) {
-  /* line 556, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 559, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 100%;
   }
 }
-/* line 566, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 569, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #fff;
 }
-/* line 578, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 581, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header {
   border-bottom: 0;
 }
-/* line 580, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 583, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .close {
   color: #fff;
   opacity: 2;
 }
-/* line 584, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 587, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .form-modal-close-icon:after {
   content: "\e906";
   visibility: visible;
@@ -8024,13 +8029,13 @@ form.request-a-demo .submit-response::before {
   margin-left: -5px;
 }
 
-/* line 595, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 598, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border {
   padding-top: 56px;
   position: relative;
   padding-bottom: 20px;
 }
-/* line 599, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 602, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border .btn {
   background-color: #ef7c00 !important;
   border: 0 !important;
@@ -8041,18 +8046,18 @@ form.request-a-demo .submit-response::before {
   bottom: 15px;
 }
 @media (min-width: 768px) {
-  /* line 599, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 602, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 121px;
   }
 }
 @media (max-width: 767px) {
-  /* line 599, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 602, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 100% !important;
   }
 }
-/* line 614, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 617, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border::after {
   position: absolute;
   font-family: 'InformaIcons';
