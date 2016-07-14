@@ -125,7 +125,9 @@ section.customer-quote {
                 .description {
                     font-family: FSMe-Light;
                     text-transform: uppercase;
-                    display: block;
+                    @include mobile {                      
+                      display: block;
+                    }
                 }
             }
         }
@@ -138,8 +140,8 @@ section.customer-quote {
         right: -70px;
         pointer-events: none;
         @include tablet {
-          top: -85px;
-          right: 10px;
+          top: -40px;
+          right: -28px;
         }
         @include mobile {
             display: none;
