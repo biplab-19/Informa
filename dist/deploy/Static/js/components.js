@@ -1640,13 +1640,19 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
     _showOverlay = function() {
         if (_formSubmitStatus.length > 0) {
-            var formSubmitHTML = _formSubmitStatus.parents('.form-modal:first');
-            formSubmitHTML.find('.page-header').addClass('hide');
-            formSubmitHTML.modal({
-                show: true,
-                keyboard: false,
-                backdrop: "static"
-            })
+            var formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+            if (formSubmitResponseModal.length > 0) {
+                formSubmitResponseModal.find('.page-header').addClass('hide');
+                formSubmitResponseModal.modal({
+                    show: true,
+                    keyboard: false,
+                    backdrop: "static"
+                })
+            }
+            var formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
+            if (formSubmitResponseHTML.length > 0) {
+                formSubmitResponseHTML.find('.page-header').addClass('hide');
+            }
         }
     }
 
