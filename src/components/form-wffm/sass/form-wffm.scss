@@ -1,13 +1,21 @@
-form.get-in-touch,
-form.request-a-demo {
-  .row {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-    @include mobile {
-      margin-left: 7.5px !important;
-      margin-right: 7.5px !important;
+.tab-pane {
+    form.get-in-touch,
+    form.request-a-demo {
+        padding-left: 10% !important;
+        padding-right: 10% !important;
     }
 }
+
+form.get-in-touch,
+form.request-a-demo {
+    .row {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        @include mobile {
+            margin-left: 7.5px !important;
+            margin-right: 7.5px !important;
+        }
+    }
     background-color: $gray-light-bg;
     color: $white;
     padding-left: 25%;
@@ -498,7 +506,7 @@ form.request-a-demo {
                 left: -5%;
             }
             @include mobile {
-                font-size: 50px;
+                font-size: 40px;
                 top: 10%;
                 right: -3%;
             }
