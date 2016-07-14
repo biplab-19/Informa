@@ -81,15 +81,6 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             })
         }
     }
-    _attachInlineForm = function() {
-        $('.form-modal-close').click(function() {
-            var formHTML = _formModal.find('.modal-body .form-popup-container').html();
-            _formInlineContiner.html(formHTML);
-            $('.form-inline-container form').css('display', 'none');
-            _validateAllForms();
-            $('.form-popup-container').find('form').remove();
-        });
-    }
 
     _validateAllForms = function() {
         $('form.get-in-touch').validate({
