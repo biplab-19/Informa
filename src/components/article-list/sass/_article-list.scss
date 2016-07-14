@@ -200,6 +200,10 @@
             &:last-child {
                 border-right: 1px solid #c3c6d0;
             }
+            @include tablet {
+                width: 50%;
+                float: left;
+            }
         }
         .slick-list {
             border: none;
