@@ -4,6 +4,14 @@
         padding-left: 10% !important;
         padding-right: 10% !important;
     }
+    @include mobile {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    @include tablet {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
 }
 
 form.get-in-touch,
