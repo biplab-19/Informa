@@ -184,7 +184,10 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 BindFilterEvents();
             }
         }
-        equalHeights();
+        $(document).ready(function () {
+            equalHeights();
+        })
+        
         $(window).on("orientationchange", function() {
             equalHeights();
         });
