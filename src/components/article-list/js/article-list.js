@@ -172,19 +172,22 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         }
 
     init = function() {
-        if (_ArticleLists.length > 0) {
-            CreateSlider(_ArticleLists,1,2);
-        }
-        if (_HeadlinesLists.length > 0) {
-            CreateSlider(_HeadlinesLists,2,4);
-        }
-        if (FilterMenu && !isExperienceMode) {
-            $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
-            BindFilterEvents();
+        if(!$('.article-list').hasClass('no-carousel')) {
+            if (_ArticleLists.length > 0) {
+                CreateSlider(_ArticleLists,1,2);
+            }
+            if (_HeadlinesLists.length > 0) {
+                CreateSlider(_HeadlinesLists,2,4);
+            }
+            if (FilterMenu && !isExperienceMode) {
+                $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
+                BindFilterEvents();
+            }
         }
         $(window).on("orientationchange", function() {
             equalHeights();
         });
+
     };
 
     return {
