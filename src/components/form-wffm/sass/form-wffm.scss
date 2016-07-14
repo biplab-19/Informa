@@ -69,10 +69,12 @@ form.request-a-demo {
         //width: 94%;
     }
     input:focus,
-    textarea:focus {
+    textarea:focus,
+    select:focus {
         outline: none !important;
         border: 2px solid $brand-secondary;
     }
+    
     .chosen-container,
     .chosen-single {
         height: 50px;
@@ -506,7 +508,7 @@ form.request-a-demo {
             color: $brand-secondary;
             @include desktop {
                 font-size: 40px;
-                top: 10%;
+                top: 3%;
                 left: -10%;
             }
             @include tablet {
