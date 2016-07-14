@@ -1596,8 +1596,8 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
                 captcha_response = grecaptcha.getResponse();
             if (captcha_response.length == 0) {
                 // Captcha failed
-                var captchaErrorMsg = captchaMsgContainer.data('recaptcha-error-text');
-                captchaMsgContainer.css('display', 'block').html(captchaErrorMsg);
+                //var captchaErrorMsg = captchaMsgContainer.data('recaptcha-error-text');
+                captchaMsgContainer.css('display', 'block');
                 return false;
             } else {
                 // Captcha is Passed
@@ -1640,8 +1640,10 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         }
     }
     _showOverlay = function() {
-        if (_formSubmitStatus) {
-            _formSubmitStatus.parents('.form-modal:first').modal({
+        if (_formSubmitStatus.length > 0) {
+          var formSubmitHTML = _formSubmitStatus.parents('.form-modal:first');
+            formSubmitHTML.find('.page-header').addClass('hide');
+            formSubmitHTML.modal({
                 show: true,
                 keyboard: false,
                 backdrop: "static"

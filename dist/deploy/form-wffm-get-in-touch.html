@@ -694,8 +694,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                         </fieldset>
                         <div class="g-recaptcha" data-sitekey="6LezlCQTAAAAALwyoWgTPjpFlBYTWy7pfSAXbPfn" data-theme="dark"></div>
                         <div class="captcha-wrapper">
-                            <div id="captcha-error-msg-container" class="field-validation-error" data-recaptcha-error-text="Validate Captcha"></div>
-                            <input type="hidden" class="hiddenRecaptcha" name="hiddenRecaptcha" id="hiddenRecaptcha">
+                          <span class="field-validation-error help-block" data-valmsg-for="wffm27fd13d7302f40c6843220636a95d844.Sections[7].Fields[0].Value" data-valmsg-replace="true">Invalid captcha text!</span>
                         </div>
                         <div class="form-submit-border">
                             <input class="btn  btn-default" type="submit" value="Submit" disabled>
@@ -710,6 +709,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
 <script type="text/javascript">
     var onloadCallback = function() {
         jQuery('.g-recaptcha').each(function(index, el) {
+            jQuery(el).parents('form').find('.captcha-wrapper .field-validation-error').css('display', 'none');
             grecaptcha.render(el, {
                 'sitekey': jQuery(el).data('sitekey'),
                 'theme': 'dark',
