@@ -103,7 +103,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
     },
 
     init = function () {
-        if (FaqMoreBtn.length > 0) {
+        if (AccordianWrapper.length > 0) {
             ResetAccordian();
             BindMore();
         }
