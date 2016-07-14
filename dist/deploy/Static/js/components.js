@@ -1588,7 +1588,8 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _showOverlayQueryString,
         _attachInlineForm,
         _validateAllForms,
-        _reCaptchaHandler;
+        _reCaptchaHandler,
+        _disableSubmit;
 
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo").submit(function() {
@@ -1650,9 +1651,6 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             })
         }
     }
-    $("form.get-in-touch, form.request-a-demo").on( 'change', 'input, textarea, select, button, a', function() {
-       $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn').removeAttr('disabled');
-    });
     _attachInlineForm = function() {
         $('.form-modal-close').click(function() {
             var formHTML = _formModal.find('.modal-body .form-popup-container').html();
@@ -1909,6 +1907,12 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             });
         });
     }
+_disableSubmit = function(){
+  $("form.get-in-touch .form-submit-border .btn, form.request-a-demo .form-submit-border .btn").attr('disabled',true);
+  $("form.get-in-touch, form.request-a-demo").on( 'change', 'input, textarea, select, button, a', function() {
+     $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn').removeAttr('disabled');
+  });
+}
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
@@ -1920,6 +1924,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _bindCalendar();
         _bindSelectOptions();
         _bindValidationLogic();
+        _disableSubmit();
     };
 
     return {
