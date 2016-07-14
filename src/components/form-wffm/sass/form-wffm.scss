@@ -6,12 +6,12 @@
             padding-right: 10% !important;
         }
         @include mobile {
-            padding-left: 5px;
-            padding-right: 5px;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
         }
         @include tablet {
-            padding-left: 18px;
-            padding-right: 18px;
+            padding-left: 50px !important;
+            padding-right: 50px !important;
         }
     }
 }
@@ -35,8 +35,8 @@ form.request-a-demo {
         padding-right: 5px;
     }
     @include tablet {
-        padding-left: 18px;
-        padding-right: 18px;
+        padding-left: 30px;
+        padding-right: 30px;
     }
     .form-control {
         border-radius: 0 !important;
@@ -507,12 +507,12 @@ form.request-a-demo {
             color: $brand-secondary;
             @include desktop {
                 font-size: 40px;
-                top: 3%;
+                top: 10%;
                 left: -10%;
             }
             @include tablet {
                 font-size: 25px;
-                top: 15%;
+                top: 18%;
                 left: -5%;
             }
             @include mobile {
