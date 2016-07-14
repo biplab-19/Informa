@@ -1586,7 +1586,6 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _bindValidationLogic,
         _showOverlay,
         _showOverlayQueryString,
-        _attachInlineForm,
         _validateAllForms,
         _reCaptchaHandler,
         _disableSubmit;
@@ -1641,7 +1640,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
     _showOverlay = function() {
         if (_formSubmitStatus.length > 0) {
-          var formSubmitHTML = _formSubmitStatus.parents('.form-modal:first');
+            var formSubmitHTML = _formSubmitStatus.parents('.form-modal:first');
             formSubmitHTML.find('.page-header').addClass('hide');
             formSubmitHTML.modal({
                 show: true,
@@ -1906,12 +1905,12 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
             });
         });
     }
-_disableSubmit = function(){
-  $("form.get-in-touch .form-submit-border .btn, form.request-a-demo .form-submit-border .btn").attr('disabled',true);
-  $("form.get-in-touch, form.request-a-demo").on( 'change', 'input, textarea, select, button, a', function() {
-     $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn').removeAttr('disabled');
-  });
-}
+    _disableSubmit = function() {
+        $("form.get-in-touch .form-submit-border .btn, form.request-a-demo .form-submit-border .btn").attr('disabled', true);
+        $("form.get-in-touch, form.request-a-demo").on('change', 'input, textarea, select, button, a', function() {
+            $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn').removeAttr('disabled');
+        });
+    }
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
