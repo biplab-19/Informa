@@ -52,6 +52,10 @@ form.request-a-demo {
             margin-right: 7.5px !important;
         }
     }
+    .row [class*='col-']{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
     .form-control {
         border-radius: 0 !important;
         //width: 90% !important;
@@ -651,8 +655,14 @@ form.request-a-demo {
         position: absolute;
         font-family: 'InformaIcons';
         content: "\e900";
-        top: 27px;
+        top: 25px;
         right: 6px;
         font-weight: bold;
     }
+}
+.form-submit-border.disabled{
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: .65;
+    box-shadow: none;
 }
