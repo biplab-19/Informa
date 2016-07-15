@@ -23,10 +23,6 @@
         .row {
             margin-left: 0 !important;
             margin-right: 0 !important;
-            @include mobile {
-                margin-left: 7.5px !important;
-                margin-right: 7.5px !important;
-            }
         }
     }
 }
@@ -47,10 +43,6 @@ form.request-a-demo {
     .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
-        @include mobile {
-            margin-left: 7.5px !important;
-            margin-right: 7.5px !important;
-        }
     }
     .row [class*='col-']{
         padding-left: 0 !important;
@@ -665,4 +657,7 @@ form.request-a-demo {
     pointer-events: none;
     opacity: .65;
     box-shadow: none;
+}
+.form-horizontal .form-group{
+    margin-left: 0 !important;
 }
