@@ -44,6 +44,14 @@ form.request-a-demo {
         padding-left: 30px;
         padding-right: 30px;
     }
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        @include mobile {
+            margin-left: 7.5px !important;
+            margin-right: 7.5px !important;
+        }
+    }
     .form-control {
         border-radius: 0 !important;
         //width: 90% !important;
