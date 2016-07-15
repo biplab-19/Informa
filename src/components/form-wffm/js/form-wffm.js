@@ -329,16 +329,16 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         $(".modal-body .three-column .right-inner").prepend("<i class='icon-calender'></i>");
 
         $('.modal-body .date-picker:text').each(function() {
-            $(this).datePicker({
+           $(this).datePicker({
                 dateFormat: "dd-mm-yy"
             });
         });
     }
     _disableSubmit = function() {
-        $("form.get-in-touch .form-submit-border, form.request-a-demo .form-submit-border ").addClass('disabled');
+        $("form.get-in-touch .form-submit-border .btn, form.request-a-demo .form-submit-border .btn").attr('disabled', true);
 
         $("form.get-in-touch, form.request-a-demo").on('change', 'input, textarea, select, button, a', function() {
-            $('form.get-in-touch, form.request-a-demo').find('.form-submit-border').removeClass('disabled');
+            $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn').removeAttr('disabled');
         });
     }
 
