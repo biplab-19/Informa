@@ -6969,6 +6969,35 @@ section#services-list .row .btn-container .btn-primary {
   }
 }
 
+/* line 79, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle {
+  background-color: #fff;
+}
+/* line 82, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle .container {
+  width: 65%;
+}
+/* line 84, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle .container p {
+  line-height: 1.7;
+}
+@media (max-width: 767px) {
+  /* line 82, ../../../src/components/article-terms/sass/article-terms.scss */
+  section.articlepage-freearticle .container {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 82, ../../../src/components/article-terms/sass/article-terms.scss */
+  section.articlepage-freearticle .container {
+    width: 100%;
+  }
+}
+/* line 94, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle .container img {
+  width: 100%;
+}
+
 /* line 1, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list {
   background-color: #fff;
@@ -8040,35 +8069,44 @@ form.request-a-demo .submit-response::before {
 /* line 584, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container {
   margin-top: 10%;
+  margin-bottom: 10%;
 }
 @media (max-width: 767px) {
   /* line 584, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container {
     margin-top: 4%;
+    margin-bottom: 4%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 584, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container {
     margin-top: 6%;
+    margin-bottom: 6%;
   }
 }
-/* line 594, ../../../src/components/form-wffm/sass/form-wffm.scss */
+@media (min-width: 1142px) {
+  /* line 596, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  .form-modal .modal-body .submit-response {
+    padding-bottom: 30px;
+  }
+}
+/* line 602, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #fff;
 }
-/* line 606, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 614, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header {
   border-bottom: 0;
 }
-/* line 608, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 616, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .close {
   color: #fff;
   opacity: 2;
 }
-/* line 612, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 620, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .form-modal-close-icon:after {
   content: "\e906";
   visibility: visible;
@@ -8079,13 +8117,13 @@ form.request-a-demo .submit-response::before {
   margin-left: -5px;
 }
 
-/* line 623, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 631, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border {
   padding-top: 56px;
   position: relative;
   padding-bottom: 20px;
 }
-/* line 627, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 635, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border .btn {
   background-color: #ef7c00 !important;
   border: 0 !important;
@@ -8096,18 +8134,18 @@ form.request-a-demo .submit-response::before {
   bottom: 15px;
 }
 @media (min-width: 768px) {
-  /* line 627, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 635, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 121px;
   }
 }
 @media (max-width: 767px) {
-  /* line 627, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 635, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 100% !important;
   }
 }
-/* line 642, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 650, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border::after {
   position: absolute;
   font-family: 'InformaIcons';
@@ -8117,7 +8155,7 @@ form.request-a-demo .submit-response::before {
   font-weight: bold;
 }
 
-/* line 651, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 659, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border.disabled {
   cursor: not-allowed;
   pointer-events: none;
@@ -8125,7 +8163,7 @@ form.request-a-demo .submit-response::before {
   box-shadow: none;
 }
 
-/* line 657, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 665, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-horizontal .form-group {
   margin-left: 0 !important;
 }
