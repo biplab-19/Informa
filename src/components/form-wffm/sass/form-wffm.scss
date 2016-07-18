@@ -583,11 +583,19 @@ form.request-a-demo {
     .modal-body {
         .form-inline-container {
             margin-top: 10%;
+            margin-bottom: 10%;
             @include mobile {
                 margin-top: 4%;
+                margin-bottom: 4%;
             }
             @include tablet {
                 margin-top: 6%;
+                margin-bottom: 6%;
+            }
+        }
+        .submit-response{
+            @include desktop{
+                padding-bottom: 30px;
             }
         }
     }
