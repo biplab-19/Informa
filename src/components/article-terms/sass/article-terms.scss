@@ -75,3 +75,25 @@
         }
       }
     }
+
+section.articlepage-freearticle {
+  background-color: $white;
+  
+  .container{
+    width: 65%;
+    p {
+      line-height: 1.7;
+    }
+    @include mobile {
+      width: 100%;
+    }
+
+    @include tablet {
+      width: 100%;
+    }
+    img{
+      width: 100%;
+    }
+  }
+
+}
