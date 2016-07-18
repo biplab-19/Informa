@@ -1,4 +1,4 @@
-/*! 2016-07-15 */_adjustHeigt = function(){
+/*! 2016-07-18 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1678,24 +1678,24 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     }
 
     _bindToolTip = function() {
-        $('.form-modal legend').on("click", function(e) {
+        $('form.get-in-touch legend, form.request-a-demo legend').on("click", function(e) {
             if (e.offsetX > $(this).outerWidth() + 15) {
                 $(this).toggleClass('active');
                 $(this).parent().children('p').slideToggle();
             }
         });
 
-        $('.form-modal legend').each(function() {
+        $('form.get-in-touch legend, form.request-a-demo legend').each(function() {
             if ($(this).next().is('p'))
                 $(this).addClass('tool_tip');
         });
     }
 
     _bindSelectOptions = function() {
-        $('.form-modal .hide-title .checkbox input').change(function(e) {
+        $('form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input').change(function(e) {
             $(this).parent().parent().toggleClass('active');
         });
-        $(".form-modal .modal-body .form-group select").wrap("<div class='select-wrapper'></div>");
+        $("form.get-in-touch .form-group select, form.request-a-demo .form-group select").wrap("<div class='select-wrapper'></div>");
     }
 
     validateEmail = function(email) {
@@ -1708,7 +1708,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     _bindValidationLogic = function() {
 
         //Email validation logic
-        $('.modal-body form .contact-details .scfEmailBorder').each(function() {
+        $('form.get-in-touch .contact-details .scfEmailBorder, form.request-a-demo .contact-details .scfEmailBorder').each(function() {
             $(this).blur(function() {
                 if (validateEmail($(this).val()))
                     if ($(this).next().children().length == 0)
@@ -1898,16 +1898,16 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     };
 
     _bindCalendar = function() {
-        //  $(".modal-body .three-column input:text").addClass('date-picker');
-        $(".modal-body .three-column .date-picker").wrap("<div class='right-inner'></div>");
-        $(".modal-body .three-column .right-inner").prepend("<i class='icon-calender'></i>");
+        $("form.request-a-demo .three-column .date-picker").wrap("<div class='right-inner'></div>");
+        $("form.request-a-demo .three-column .right-inner").prepend("<i class='icon-calender'></i>");
 
-        $('.modal-body .date-picker:text').each(function() {
-           $(this).datePicker({
+        $('form.request-a-demo .date-picker:text').each(function() {
+            $(this).datePicker({
                 dateFormat: "dd-mm-yy"
             });
         });
     }
+    
     _disableSubmit = function() {
         $("form.get-in-touch .form-submit-border .btn, form.request-a-demo .form-submit-border .btn").attr('disabled', true);
 
