@@ -2,38 +2,25 @@ var INFORMA = window.INFORMA || {};
 INFORMA.RTETable = (function(window, $, namespace) {
     'use strict';
     //variables
-    var titles = [],
-        tablevalues = [],
-        count, i,
-        rteTable = $('.rte-custom-table table.table'),
-        rteTableLength = rteTable.find("tr:first-child").children('td').length,
+    var titles = [],i,init, _RTEOnLoad,
         responsiveContainer = $(".rte-custom-table .responsiveTable"),
-        init, _RTEOnLoad;
+        Clonedtable = $(".rte-custom-table .table-responsive .table").clone(true);
 
     _RTEOnLoad = function() {
-        for (count = 2; count <= rteTableLength; count++) {
-            $(".rte-custom-table .table tr td:nth-child(" + count + ")").each(function() {
-                tablevalues.push("<tr><td>" + $(this).html() + "</td></tr>");
-            });
-            responsiveContainer.append('<table class="mobileTable">' + tablevalues.join(' ') + '</table>');
-            tablevalues.length = 0;
-        }
-        $(".rte-custom-table .table tr td:nth-child(1)").each(function() {
-            titles.push("<td>" + $(this).html() + "</td>");
+        Clonedtable.appendTo(responsiveContainer);
+        $('.rte-custom-table .table tr:first-child td').each(function() {
+            titles.push('<div class="rteTitles">'+$(this).html()+'</div>');
         });
-        $(".rte-custom-table .mobileTable").each(function() {
-            for (i = 0; i <= titles.length; i++) {
-                $(this).find('tr').eq(i).prepend(titles[i]);
+        responsiveContainer.find('table.table tr').each(function() {
+            for (i = 1; i <= titles.length; i++) {
+                $(this).find('td').eq(i).prepend(titles[i]);
             }
         });
-        $(".rte-custom-table .mobileTable tr:first-child td:first-child").remove();
-        $(".rte-custom-table .mobileTable tr:first-child td").attr('colspan', '2');
+        responsiveContainer.find('table.table tr:first-child').remove();
     }
-
     init = function() {
         _RTEOnLoad();
     };
-
     return {
         init: init
     };
