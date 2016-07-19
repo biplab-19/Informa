@@ -11,41 +11,42 @@
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.EventList = (function(window, $, namespace) {
+INFORMA.AnalystEventList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _EventLists = $('.analyst-profile-events .event-items'),
+    var _AnalystEventLists = $('.analyst-profile-events'),
+        List = _AnalystEventLists.find('.events-section'),
+        ShowMoreBtn = _AnalystEventLists.find('.btn-more-events'),
         // methods
         init,
-        SliderOption = {
-            "autoplay": false,
-            "autoplaySpeed": 4000,
-            "sliderDots": true,
-            "sliderInfinite": true,
-            "slidesScroll": 1,
-            "slidesShow": 1,
-            "speed": 400
+        EqualHeight,
+        ShowMore;
+
+        EqualHeight = function(){
+               var highestBox = 0,
+                EachItem = List.find(".content-wrap"),
+                padding = 0;
+
+                jQuery('section[data-view="list-view"]').show();
+              EachItem.each(function(){
+                      if(jQuery(this).height() > highestBox){
+                      highestBox = jQuery(this).height();
+                    }
+              });
+              EachItem.height(highestBox + padding);
         },
-        CreateSlider;
 
-        CreateSlider = function(el) {
-
-            el.slick({
-                dots: SliderOption.sliderDots,
-                infinite: SliderOption.sliderInfinite,
-                speed: SliderOption.speed,
-                autoplay: SliderOption.autoplay,
-                autoplaySpeed: SliderOption.autoplaySpeed,
-                slidesToShow: SliderOption.slidesShow,
-                slidesToScroll: SliderOption.slidesScroll
-            });
-        }
+        ShowMore = function () {
+            ShowMoreBtn.on('click', function () {
+                $(this).toggleClass('showLess');
+                $('.analyst-profile-events .events-section:nth-child(n+2)').slideToggle();
+            })
+        },
 
     init = function() {
-        if (_EventLists.length > 0) {
-            if(INFORMA.global.device.isMobile){
-                CreateSlider(_EventLists);
-            }
+        if (_AnalystEventLists.length > 0) {
+            EqualHeight();
+            ShowMore();
         }
     };
 
@@ -53,4 +54,4 @@ INFORMA.EventList = (function(window, $, namespace) {
         init: init
     };
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.EventList.init());
+jQuery(INFORMA.AnalystEventList.init());

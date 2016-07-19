@@ -27,7 +27,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
 
         MoreEvents = $('.btn-more-events'),
-       _Start = moment(new Date(), 'MMMM YYYY'),
+       _Start = moment(new Date()).format('MMMM YYYY'),
        _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
@@ -103,13 +103,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
           var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
                 ViewDate = moment(new Date('1 '+ViewDateText), 'MMMM YYYY');
 
-          if(moment(ViewDate, 'MMMM YYYY') == _Start) {
+          if(moment(ViewDate).format('MMMM YYYY') == _Start) {
             List.find('.previous').addClass('arrow-desabled');
           } else {
              List.find('.previous').removeClass('arrow-desabled');
           }
 
-          if(ViewDate == _end) {
+          if(moment(ViewDate).format('MMMM YYYY') == _end) {
             List.find('.next').addClass('arrow-desabled');
           } else {
              List.find('.next').removeClass('arrow-desabled');

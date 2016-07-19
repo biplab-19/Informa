@@ -1,96 +1,52 @@
-<section id="analyst-profile-events-section">
-    <div class="analyst-profile-events carousel-lists" id="ap-events">
-        <div class="container">
-        			<h2>Events</h2>
-        		<div class="row">
-                    <ul class="event-items" data-slider-dots="true" data-slider-infinite="true" data-slides-show="3" data-slides-scroll="3" data-speed="400" 
-                    data-autoplay-speed="4000" data-autoplay="false">
-                    	<li class="col-xs-12 col-sm-6 col-md-4">
-                    		<div class="event-container">
-                    			<div class="content">
-	                    			<div class="info">
-		                    			<p class="tag">Webnair</p>
-		                    			<span class="date"><span class="icon icon-calendar-day">
-		                    			</span>April 18, 2016</span>
-		                    			<span class="time"><span class="icon icon-calendar-day">
-		                    			</span>Time:11:00 EDT</span>
-		                    			<h3>Free Webinar - North America's Commodity Constraints</h3>
-		                    			<p><strong>Presenters: </strong>Tore Alden, Eric Jessup, Alan Barrett, Chris Ferris and Wes Petkau</p>
-	                    			</div>
-	                    			<div class="parent">
-						                <div class="child clearfix">
-						                	<a class="link">Details</a>
-	                    					<a class="btn btn-default">Register</a>
-						                </div>
-									</div>
-								</div>
-                    		</div>
-                    	</li>
-                    	<li class="col-xs-12 col-sm-6 col-md-4">
-                    		<div class="event-container">
-                    			<div class="content">
-	                    			<div class="info">
-		                    			<p class="tag">Webnair</p>
-		                    			<span class="date"><span class="icon icon-calendar-day">
-		                    			</span>April 18, 2016</span>
-		                    			<span class="time"><span class="icon icon-calendar-day">
-		                    			</span>Time:11:00 EDT</span>
-		                    			<h3>Free Webinar - North America's Commodity Constraints</h3>
-		                    			<p><strong>Presenters: </strong>Tore Alden, Eric Jessup, Alan Barrett, Chris Ferris and Wes Petkau</p>
-	                    			</div>
-	                    			<div class="parent">
-						                <div class="child clearfix">
-						                	<a class="link">Details</a>
-	                    					<a class="btn btn-default">Register</a>
-						                </div>
-									</div>
-								</div>
-                    		</div>
-                    	</li>
-                    	<li class="col-xs-12 col-sm-6 col-md-4">
-                    		<div class="event-container">
-                    			<div class="content">
-	                    			<div class="info">
-		                    			<p class="tag">Webnair</p>
-		                    			<span class="date"><span class="icon icon-calendar-day">
-		                    			</span>April 18, 2016</span>
-		                    			<span class="time"><span class="icon icon-calendar-day">
-		                    			</span>Time:11:00 EDT</span>
-		                    			<h3>Free Webinar - North America's Commodity Constraints</h3>
-		                    			<p><strong>Presenters: </strong>Tore Alden, Eric Jessup, Alan Barrett, Chris Ferris and Wes Petkau</p>
-	                    			</div>
-	                    			<div class="parent">
-						                <div class="child clearfix">
-						                	<a class="link">Details</a>
-	                    					<a class="btn btn-default">Register</a>
-						                </div>
-									</div>
-								</div>
-                    		</div>
-                    	</li>
-                    	<li class="col-xs-12 col-sm-6 col-md-4">
-                    		<div class="event-container">
-                    			<div class="content">
-	                    			<div class="info">
-		                    			<p class="tag">Webnair</p>
-		                    			<span class="date"><span class="icon icon-calendar-day">
-		                    			</span>April 18, 2016</span>
-		                    			<span class="time"><span class="icon icon-calendar-day">
-		                    			</span>Time:11:00 EDT</span>
-		                    			<h3>Free Webinar - North America's Commodity Constraints</h3>
-		                    			<p><strong>Presenters: </strong>Tore Alden, Eric Jessup, Alan Barrett, Chris Ferris and Wes Petkau</p>
-	                    			</div>
-	                    			<div class="parent">
-						                <div class="child clearfix">
-						                	<a class="link">Details</a>
-	                    					<a class="btn btn-default">Register</a>
-						                </div>
-									</div>
-								</div>
-                    		</div>
-                    	</li>
-                    </ul>
-                </div>
-        </div>
-    </div>
+<section class="events-list analyst-profile-events">
+	<div class="container" data-count="3">
+		<h2>Events</h2>
+		<div class="events-container row">
+			{{#each SearchDictionary.june-2016.ModelItem}}
+			<div class="col-xs-12 col-sm-6 col-md-4 events-section">
+				<div class="events-wrap">
+					<div class="header clearfix">
+						<p class="date-field">dd/mm/yyyy</p>
+						<p class="country"><strong>{{Country}}</strong></p>
+					</div>
+					<div class="content-wrap">
+						<p><span class="type">{{EventType}}</span></p>
+						<h3 class="title">{{Title}}</h3>
+						<div class="content clearfix">
+							<div class="title-content">Presenter</div>
+							<div class="title-body">
+								<ul class="clearfix">
+									{{#each Presenters}}
+									<li>{{this}}</li>
+										{{/each}}
+								</ul>
+							</div>
+						</div>
+						<div class="content clearfix">
+							<div class="title-content">Themes</div>
+							<div class="title-body">
+								<ul class="clearfix">
+									{{#each Themes}}
+									<li>{{this}}</li>
+										{{/each}}
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="footer clearfix">
+						<a href="#" class="btn btn-default register">Register Now</a>
+						<a href="#" class="btn btn-default full-detail">Full Detail View</a>
+					</div>
+				</div>
+			</div>
+		{{/each}}
+			
+		</div>
+	</div>
+	<div class="more-events visible-xs">
+		<button class="btn btn-more-events">
+					<span class="more">More Events</span>
+					<span class="less">Less Events</span>
+		</button>
+	</div>
 </section>
