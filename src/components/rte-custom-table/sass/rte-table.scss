@@ -1,5 +1,6 @@
 .rte-custom-table {
 	padding: 40px 0 100px;
+	background-color: $light;
 	@include mobile {
 		padding: 20px 0 60px;
 	}
@@ -99,26 +100,35 @@
 		@include mobile {
 			display: block;
 		}
-		.mobileTable {
-			background-color: $sitemap-light-gray;
-			border-bottom: 1px solid $rte-b-btm-gray-light;
-			width: 100%;
-			margin-bottom: 20px;
-			tr:first-child td {
-				background: $rte-thead-blue-draker;
-				color: $light;
-				font-size: 16px;
-			}
-			td {
-				line-height: 30px;
-				color: $sitemap-main-gray;
-				padding: 14px 10px;
-				font-size: 14px;
-				.rteTable-rightText {
-					display: inline-block;
-					width: 50%;
-					float: right;
+		table.table {
+				tr{
+				background-color: $sitemap-light-gray;
+				border-bottom: 1px solid $rte-b-btm-gray-light;
+				width: 100%;
+				margin-bottom: 25px;
+    		display: block;
+				td {
+					color: $sitemap-main-gray;
+					padding: 12px 10px;
 					font-size: 14px;
+					background-color: $sitemap-light-gray;
+					border-top: none;
+					display: block;
+					&:first-child{
+						font-weight: 700;
+						background: $rte-thead-blue-draker;
+						color: $light;
+						font-size: 16px;
+					}
+					.rteTitles {
+				    width: 50%;
+				    display: inline-block;
+					}
+					.rteTable-rightText {
+						display: inline-block;
+						margin-left: 30px;
+						font-size: 14px;
+					}
 				}
 			}
 		}
