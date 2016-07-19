@@ -1,4 +1,4 @@
-/*! 2016-07-18 */_adjustHeigt = function(){
+/*! 2016-07-19 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -33,41 +33,42 @@
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.EventList = (function(window, $, namespace) {
+INFORMA.AnalystEventList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _EventLists = $('.analyst-profile-events .event-items'),
+    var _AnalystEventLists = $('.analyst-profile-events'),
+        List = _AnalystEventLists.find('.events-section'),
+        ShowMoreBtn = _AnalystEventLists.find('.btn-more-events'),
         // methods
         init,
-        SliderOption = {
-            "autoplay": false,
-            "autoplaySpeed": 4000,
-            "sliderDots": true,
-            "sliderInfinite": true,
-            "slidesScroll": 1,
-            "slidesShow": 1,
-            "speed": 400
+        EqualHeight,
+        ShowMore;
+
+        EqualHeight = function(){
+               var highestBox = 0,
+                EachItem = List.find(".content-wrap"),
+                padding = 0;
+
+                jQuery('section[data-view="list-view"]').show();
+              EachItem.each(function(){
+                      if(jQuery(this).height() > highestBox){
+                      highestBox = jQuery(this).height();
+                    }
+              });
+              EachItem.height(highestBox + padding);
         },
-        CreateSlider;
 
-        CreateSlider = function(el) {
-
-            el.slick({
-                dots: SliderOption.sliderDots,
-                infinite: SliderOption.sliderInfinite,
-                speed: SliderOption.speed,
-                autoplay: SliderOption.autoplay,
-                autoplaySpeed: SliderOption.autoplaySpeed,
-                slidesToShow: SliderOption.slidesShow,
-                slidesToScroll: SliderOption.slidesScroll
-            });
-        }
+        ShowMore = function () {
+            ShowMoreBtn.on('click', function () {
+                $(this).toggleClass('showLess');
+                $('.analyst-profile-events .events-section:nth-child(n+2)').slideToggle();
+            })
+        },
 
     init = function() {
-        if (_EventLists.length > 0) {
-            if(INFORMA.global.device.isMobile){
-                CreateSlider(_EventLists);
-            }
+        if (_AnalystEventLists.length > 0) {
+            EqualHeight();
+            ShowMore();
         }
     };
 
@@ -75,7 +76,7 @@ INFORMA.EventList = (function(window, $, namespace) {
         init: init
     };
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.EventList.init());
+jQuery(INFORMA.AnalystEventList.init());
 
 /*
  * analyst-list.js
@@ -829,7 +830,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
 
         MoreEvents = $('.btn-more-events'),
-       _Start = moment(new Date(), 'MMMM YYYY'),
+       _Start = moment(new Date()).format('MMMM YYYY'),
        _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
@@ -905,13 +906,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
           var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
                 ViewDate = moment(new Date('1 '+ViewDateText), 'MMMM YYYY');
 
-          if(moment(ViewDate, 'MMMM YYYY') == _Start) {
+          if(moment(ViewDate).format('MMMM YYYY') == _Start) {
             List.find('.previous').addClass('arrow-desabled');
           } else {
              List.find('.previous').removeClass('arrow-desabled');
           }
 
-          if(ViewDate == _end) {
+          if(moment(ViewDate).format('MMMM YYYY') == _end) {
             List.find('.next').addClass('arrow-desabled');
           } else {
              List.find('.next').removeClass('arrow-desabled');
@@ -2140,7 +2141,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _servicesNavigationScrollTo,
         _servicesNavigationHeight = 0,
         _servicesNavigationPos = 0,
-        _servicesWrapper = $('.services-page'),
+        //_servicesWrapper = $('.services-page'),
         _servicesMenuFollower = $('#services-navigation .menuFollower'),
         _servicesMenuActive = true,
 
@@ -2468,8 +2469,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     };
 
     _activateServicesFixedHeader = function() {
-        var _windowPos = $(window).scrollTop();
-
+        var _windowPos = $(window).scrollTop(),
+        _servicesWrapper = $('#services-list').parent();
         if (_servicesFirst) {
             _initialServicesHdrPos = _servicesNavigation.offset().top;
             _servicesFirst = false;
@@ -3004,6 +3005,7 @@ INFORMA.analystList = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.analystList.init());
+
 
 /*
  * global-footer.js

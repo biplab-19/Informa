@@ -1,4 +1,4 @@
-/*! 2016-07-18 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-07-19 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -3679,126 +3679,22 @@ nav#pdp-navigation .menuFollower {
   padding-top: 20px;
 }
 
-/* line 1, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events {
-  background-color: #fff;
-  position: relative;
-}
-/* line 4, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events h2 {
-  margin: 20px 0;
-}
-@media (max-width: 767px) {
-  /* line 7, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-  .analyst-profile-events .container {
-    padding: 0 25px;
-  }
-}
-/* line 12, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items {
-  padding: 0;
-  margin: 0;
-}
-/* line 15, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li {
-  list-style-type: none;
-  margin: 0 0 20px 0;
-}
-@media (max-width: 767px) {
-  /* line 15, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-  .analyst-profile-events .event-items li {
-    padding: 0;
-    margin: 0;
-  }
-}
-/* line 22, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container {
-  overflow: hidden;
-}
-/* line 24, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content {
-  background-color: #f6f6f8;
-}
-/* line 26, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .info {
-  min-height: 250px;
-  padding: 15px;
-  overflow: hidden;
-}
-/* line 30, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .info .tag {
-  color: #ef7d01;
-  font-weight: 700;
-}
-/* line 34, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .info h3 {
-  font-size: 24px;
-  font-family: FSMe-Bold;
-  color: #444957;
-}
-/* line 39, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .info p {
-  color: #444957;
-}
-/* line 42, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .info .icon {
-  color: #444957;
-  font-size: 1.5em;
-  color: #a6aab6;
-  margin-right: 3px;
-}
-/* line 48, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .info .date {
-  margin-right: 20px;
-  display: inline-block;
-}
-/* line 53, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .parent {
-  position: relative;
-  -ms-transform: skewY(-2deg);
-  -webkit-transform: skewY(-2deg);
-  transform: skewY(-2deg);
-  background-color: #e2e3e8;
-  padding: 10px 20px;
-  position: relative;
-}
-/* line 61, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .parent:after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  background-color: #e2e3e8;
-  position: absolute;
-  left: 0;
-  top: 98%;
-}
-/* line 70, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .parent .child {
-  -ms-transform: skewY(2deg);
-  -webkit-transform: skewY(2deg);
-  transform: skewY(2deg);
-}
-/* line 74, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .parent .child a.link {
-  color: #ef7c00;
+/* line 2, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .date-field {
   float: left;
-  margin-top: 15px;
-  text-decoration: underline;
+  margin: 15px;
 }
-/* line 80, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .parent .child a.btn {
-  float: right;
-  min-width: 50%;
-  border-color: #ef7d00;
-  font-weight: 700;
+@media (max-width: 767px) {
+  /* line 8, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+  .analyst-profile-events .events-section:nth-child(n+2) {
+    display: none;
+  }
 }
-/* line 85, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items li .event-container .content .parent .child a.btn:after {
-  color: #ef7d00;
-}
-/* line 94, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .event-items .slick-dots li {
-  margin: 0 5px;
+/* line 13, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events h2 {
+  font-family: 'FSMe-Bold';
+  margin: 0;
+  font-size: 32px;
 }
 
 /* line 1, ../../../src/components/faqs/sass/faqs.scss */
@@ -6996,6 +6892,11 @@ section.articlepage-freearticle .container p {
 /* line 94, ../../../src/components/article-terms/sass/article-terms.scss */
 section.articlepage-freearticle .container img {
   width: 100%;
+}
+/* line 97, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle .container .adjust-image {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* line 1, ../../../src/components/resource-list/sass/_resource-list.scss */
