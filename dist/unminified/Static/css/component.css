@@ -4904,15 +4904,19 @@ section#about-us-hero .transparent-bg-content .description {
 .product-analyst-results .less {
   display: none;
 }
-/* line 83, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 82, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.product-analyst-results .analyst-list-container {
+  display: block;
+}
+/* line 86, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .more {
   display: none;
 }
-/* line 86, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 89, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .less {
   display: block;
 }
-/* line 88, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 91, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .less:before {
   content: "\e913";
 }
@@ -8639,29 +8643,29 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   font-family: FSMe-bold;
 }
 /* line 12, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
-.pdp-brochure .copy-text {
+.pdp-brochure p {
   padding-top: 29px;
   padding-bottom: 26px;
   font-size: 18px;
   font-family: FSMe-light;
+  color: #ccc;
 }
 @media (max-width: 767px) {
   /* line 12, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
-  .pdp-brochure .copy-text {
+  .pdp-brochure p {
     font-size: 14px;
     padding-top: 15px;
     padding-bottom: 15px;
   }
 }
-/* line 24, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
-.pdp-brochure .list-heading {
-  font-size: 20px;
-  padding-top: 129px;
+/* line 25, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+.pdp-brochure h3 {
+  padding-top: 108px;
   padding-left: 23px;
 }
 @media (max-width: 767px) {
-  /* line 24, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
-  .pdp-brochure .list-heading {
+  /* line 25, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  .pdp-brochure h3 {
     padding-top: 12px;
     padding-left: 0px;
   }
@@ -8710,6 +8714,7 @@ section.samplecontent-freearticle .quick-facts ul li:before {
 }
 /* line 64, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure ul li {
+  color: #ccc;
   margin-bottom: 10px;
   font-size: 18px;
   padding-left: 20px;
@@ -8720,7 +8725,7 @@ section.samplecontent-freearticle .quick-facts ul li:before {
     padding-left: 44px;
   }
 }
-/* line 72, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 73, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure ul li:before {
   margin-right: 10px;
   font-family: "InformaIcons" !important;
@@ -8731,7 +8736,7 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   left: 35px;
 }
 @media (max-width: 767px) {
-  /* line 72, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 73, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure ul li:before {
     left: 28px;
     padding-left: 0px;
