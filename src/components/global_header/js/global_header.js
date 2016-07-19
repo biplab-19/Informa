@@ -67,7 +67,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _servicesNavigationScrollTo,
         _servicesNavigationHeight = 0,
         _servicesNavigationPos = 0,
-        _servicesWrapper = $('.services-page'),
+        //_servicesWrapper = $('.services-page'),
         _servicesMenuFollower = $('#services-navigation .menuFollower'),
         _servicesMenuActive = true,
 
@@ -395,8 +395,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     };
 
     _activateServicesFixedHeader = function() {
-        var _windowPos = $(window).scrollTop();
-
+        var _windowPos = $(window).scrollTop(),
+        _servicesWrapper = $('#services-list').parent();
         if (_servicesFirst) {
             _initialServicesHdrPos = _servicesNavigation.offset().top;
             _servicesFirst = false;
