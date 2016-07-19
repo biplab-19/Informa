@@ -8,12 +8,17 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         months = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"],
         monthName = '',
         monthNbr = '',
+        Urls = INFORMA.Configs.urls.webservices,
+        formHeading,
 
         //functions
         init,
         validateEmail,
+        GetAjaxData,
+        ParseResults,
         _bindToolTip,
         _bindCalendar,
+        _bindAjaxData,
         _bindSelectOptions,
         _bindValidationLogic,
         _showOverlay,
@@ -117,8 +122,68 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         });
     }
 
+    ParseResults = function (data) {
+        var results = data,
+            _inputId = $('form.request-a-demo .area-interests input').first().attr("id"),
+            _inputName = $('form.request-a-demo .area-interests input').first().attr("name"),
+            _interestValue = '',
+            _interestText = '',
+            _tmpElement;
+
+        _inputId = _inputId.replace("Id","Value");
+        _inputName = _inputName.replace("Id","Value");
+        $("form.request-a-demo .area-interests .form-group .checkbox").remove();
+
+        formHeading = results.Title;
+        $('form.request-a-demo .page-header h1').text(formHeading);
+
+
+        for (var key in results.Items) {
+            if (results.Items.hasOwnProperty(key)) {
+                _interestText = results.Items[key].Text;
+                _interestValue = results.Items[key].Value;
+
+                _tmpElement = $('<input>').attr({
+                        type: 'checkbox',
+                        value: _interestValue,
+                        id: _inputId,
+                        name: _inputName
+                    });
+            
+                $('form.request-a-demo .area-interests .form-group').append(_tmpElement);
+                $('form.request-a-demo .area-interests .form-group input[type=checkbox]').last().wrap('<div class="checkbox"></div>').wrap('<label>' + _interestText + '</label>');
+            }
+        }
+        
+    }
+
+
+    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.DataLoader.GetServiceData(url, {
+            method: method,
+            data: JSON.stringify({ data: data }),
+            success_callback: function (data) {
+                if (typeof SCallback === "function") {
+                    SCallback.call(this, data, SearchType);
+                }
+            },
+            error_callback: function () {
+                if (typeof Errcallback === "function") {
+                    Errcallback.call(this, data, SearchType);
+                }
+            }
+        });
+    },
+
+    _bindAjaxData = function(){
+        var productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
+
+        GetAjaxData(Urls.GetFormItems, "Get", productId, ParseResults, null, null);
+        
+    }
+
     _bindSelectOptions = function() {
-        $('form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input').change(function(e) {
+        $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function(e) {
             $(this).parent().parent().toggleClass('active');
         });
         $("form.get-in-touch .form-group select, form.request-a-demo .form-group select").wrap("<div class='select-wrapper'></div>");
@@ -351,6 +416,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _bindToolTip();
         _bindCalendar();
         _bindSelectOptions();
+        _bindAjaxData();
         _bindValidationLogic();
         _disableSubmit();
     };
