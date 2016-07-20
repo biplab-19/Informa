@@ -18,13 +18,14 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
         Sector = AnalystSearch.find('.sector select'),
         SubSector = AnalystSearch.find('.sub-sector select'),
         submitBtn = AnalystSearch.find('.submit-btn'),
+        resetBtn = AnalystSearch.find('.btn-reset'),
         txtField = AnalystSearch.find('#name'),
         productAnalystResults = $('.product-analyst-results'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
         _template = "",
     //methods
-    init, GetAjaxData, RenderSearchResult, EventsFunctions, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults;
+    init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults;
 
     equalHeight = function () {
         var EachView = jQuery('.analyst-views');
@@ -42,14 +43,32 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
         })
     }
 
+    checkButtonMore = function () {
+        var _vp = INFORMA.global.device.viewport,
+            _limit = productAnalystResults.data(_vp),
+            Items = productAnalystResults.find('.analyst-views');
+
+            Items.each(function () {
+                var Data = $(this).find('.btn-plus').attr('data-count');
+
+                if(Data <= _limit) {
+                    $(this).find('.btn-plus').addClass('hidden');
+                }
+            })
+
+
+    }
+
     RenderAllSubSectorResults = function (data, sectorId) {
         var results = data,
             html = "",
-            Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views');
+            Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views'),
+            _vp = INFORMA.global.device.viewport,
+            _limit = productAnalystResults.data(_vp) + 1;
 
         for (var key in results) {
             if (results.hasOwnProperty(key)) {
-                debugger;
+                
                 var Data = results[key],
                     HeaderText = key,
                     TemplateName = (Templates.AnalystTemplate !== "undefined") ? Templates.AnalystTemplate : "",
@@ -62,8 +81,8 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
 
         Parent.find('.row').html(html);
         equalHeight();
-        Parent.parents('.analyst-views').addClass('showLess');
-        Parent.parents('.analyst-views').find('.analyst-list-container:nth-child(n+4)').slideToggle();
+        Parent.addClass('showLess');
+        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideToggle();
         return html;
     }
 
@@ -113,6 +132,15 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
             GetAjaxData(Urls.AnalystSearch, "Post", GetSerializeData, RenderSearchResult, null, null);
         })
+
+        resetBtn.on('click', function (e) {
+            e.preventDefault();
+            var _Object = {
+                "Name": null,
+                "Sector": null
+            }
+            GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
+        })
     }
 
     RenderChangeResult = function (data) {
@@ -145,7 +173,13 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
 
             }
         }
+        if(Object.getOwnPropertyNames(results).length === 0) {
+            $('.NoRecords').removeClass('hidden');
+        } else {
+            $('.NoRecords').addClass('hidden');
+        }
         productAnalystResults.html(html);
+        checkButtonMore();
         equalHeight();
         ajaxCallonSector();
         return html;
@@ -179,7 +213,10 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             var FieldArray = AnalystSearch.find("form").serializeArray(),
                 GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray)),
                 _Object = JSON.parse(GetSerializeData),
-                Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views');
+                Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views'),
+                _vp = INFORMA.global.device.viewport,
+                _limit = productAnalystResults.data(_vp);
+
             _Object.SectorID = sectorId;
             for (var key in _Object) {
                 if (_Object[key] == "default") {
@@ -189,8 +226,8 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             if (!Parent.hasClass('showLess')) {
                 GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
             } else {
-                Parent.find('.analyst-list-container:nth-child(n+4)').slideUp();
-                Parent.find('.analyst-list-container:nth-child(n+4)').remove();
+                Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
+                Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').remove();
                 Parent.removeClass('showLess');
             }
 
@@ -220,6 +257,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
         if (AnalystSearch.length > 0) {
             EventsFunctions();
             ajaxCallonSector();
+            checkButtonMore();
         }
     };
 

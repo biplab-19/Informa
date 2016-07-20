@@ -250,3 +250,24 @@
 .bold {
 	font-weight: bold;
 }
+.btn-reset {
+	display: inline-block;
+    padding: 5px;
+    background-color: #6a7285;
+    border: 1px solid #e2e3e8;
+    color: #e2e3e8;
+    font-size: 12px;
+    margin: 0 10px 10px 0;
+    color: $white;
+    padding-right: 40px;
+    position: relative;
+    &:after {
+        content: 'x';
+	    position: absolute;
+	    right: 0;
+	    font-size: 14px;
+	    top: 3px;
+	    border-left: 1px solid #fff;
+	    padding: 0 6px;
+    }
+}
