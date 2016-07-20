@@ -1,4 +1,4 @@
-/*! 2016-07-19 */_adjustHeigt = function(){
+/*! 2016-07-20 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1574,7 +1574,7 @@ INFORMA.formRequestForDemo = (function(window, $, namespace) {
 jQuery(INFORMA.formRequestForDemo.init());
 
 var INFORMA = window.INFORMA || {};
-INFORMA.formGetInTouch = (function(window, $, namespace) {
+INFORMA.forms = (function(window, $, namespace) {
     'use strict';
     var _formModal = $('.form-modal'),
         _formModalBtn = $('.form-btn-container .form-modal-btn'),
@@ -1583,12 +1583,18 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         months = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"],
         monthName = '',
         monthNbr = '',
+        Urls = INFORMA.Configs.urls.webservices,
+        formHeading,
 
         //functions
         init,
         validateEmail,
+        show_modal,
+        GetAjaxData,
+        ParseResults,
         _bindToolTip,
         _bindCalendar,
+        _bindAjaxData,
         _bindSelectOptions,
         _bindValidationLogic,
         _showOverlay,
@@ -1692,8 +1698,68 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         });
     }
 
+    ParseResults = function (data) {
+        var results = data,
+            _inputId = $('form.request-a-demo .area-interests input').first().attr("id"),
+            _inputName = $('form.request-a-demo .area-interests input').first().attr("name"),
+            _interestValue = '',
+            _interestText = '',
+            _tmpElement;
+
+        _inputId = _inputId.replace("Id","Value");
+        _inputName = _inputName.replace("Id","Value");
+        $("form.request-a-demo .area-interests .form-group .checkbox").remove();
+
+        formHeading = results.Title;
+        $('form.request-a-demo .page-header h1').text(formHeading);
+
+
+        for (var key in results.Items) {
+            if (results.Items.hasOwnProperty(key)) {
+                _interestText = results.Items[key].Text;
+                _interestValue = results.Items[key].Value;
+
+                _tmpElement = $('<input>').attr({
+                        type: 'checkbox',
+                        value: _interestValue,
+                        id: _inputId,
+                        name: _inputName
+                    });
+            
+                $('form.request-a-demo .area-interests .form-group').append(_tmpElement);
+                $('form.request-a-demo .area-interests .form-group input[type=checkbox]').last().wrap('<div class="checkbox"></div>').wrap('<label>' + _interestText + '</label>');
+            }
+        }
+        
+    }
+
+
+    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.DataLoader.GetServiceData(url, {
+            method: method,
+            data: JSON.stringify({ data: data }),
+            success_callback: function (data) {
+                if (typeof SCallback === "function") {
+                    SCallback.call(this, data, SearchType);
+                }
+            },
+            error_callback: function () {
+                if (typeof Errcallback === "function") {
+                    Errcallback.call(this, data, SearchType);
+                }
+            }
+        });
+    },
+
+    _bindAjaxData = function(){
+        var productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
+
+        GetAjaxData(Urls.GetFormItems, "Get", productId, ParseResults, null, null);
+        
+    }
+
     _bindSelectOptions = function() {
-        $('form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input').change(function(e) {
+        $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function(e) {
             $(this).parent().parent().toggleClass('active');
         });
         $("form.get-in-touch .form-group select, form.request-a-demo .form-group select").wrap("<div class='select-wrapper'></div>");
@@ -1917,6 +1983,15 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         });
     }
 
+    show_modal = function(el) 
+    { 
+        var btn = jQuery(el).data('modal');
+        _bindAjaxData();
+        jQuery(btn).modal({ 
+            show : 'true' 
+        })
+    };
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _showOverlay();
@@ -1931,11 +2006,12 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
     };
 
     return {
-        init: init
+        init: init,
+        show_modal: show_modal
     };
 
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.formGetInTouch.init());
+jQuery(INFORMA.forms.init());
 
 /*
  * global.js
@@ -1957,13 +2033,6 @@ INFORMA.global = (function(window, $, namespace) {
 		siteCore = {},
 		_html = $('html');
 
-	var show_modal = function(el) 
-    { 
-        var btn = jQuery(el).data('modal'); 
-        jQuery(btn).modal({ 
-            show : 'true' 
-        })
-    };
 
 	var init = function(){
 		// viewport properties
@@ -1997,8 +2066,7 @@ INFORMA.global = (function(window, $, namespace) {
 	return {
 		init: init,
 		device: device,
-		siteCore: siteCore,
-		show_modal: show_modal
+		siteCore: siteCore
 	};
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.global.init());

@@ -1,4 +1,4 @@
-/*! 2016-07-19 */var INFORMA = window.INFORMA || {};
+/*! 2016-07-20 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -25,7 +25,8 @@
             "AnalystSearchAll": "/data/analyst-search-subsector.json",
             "EventsSearch": "data/events-page.json",
             "ResourceList": "data/resource-list.json",
-            "GetFAQs": "/client/search/GetFAQList"
+            "GetFAQs": "/client/search/GetFAQList",
+            "GetFormItems": "/data/form-data.json"
         },
         "dev": {
             "GetArticles": "/client/search/getarticles",
@@ -38,7 +39,8 @@
             "EventsSearch": "/client/search/GetEventList",
             "ResourceList": "/client/search/GetResourceListing",
             "ResourceSubSectorList": "/client/search/GetSubSectors",
-            "GetFAQs": "/client/search/GetFAQList"
+            "GetFAQs": "/client/search/GetFAQList",
+            "GetFormItems": "client/WffmForm/GetModifiedWffmFormItems"
         }
     };
 

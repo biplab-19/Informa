@@ -1,4 +1,4 @@
-/*! 2016-07-19 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-07-20 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -6902,6 +6902,11 @@ section.articlepage-freearticle .container .adjust-image {
   width: 100% !important;
   height: 100% !important;
 }
+/* line 101, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle .container .mini-video {
+  float: right;
+  width: 50%;
+}
 
 /* line 1, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list {
@@ -7612,8 +7617,8 @@ form.request-a-demo .hide-title .required-field .checkbox.active::after {
 }
 @media (min-width: 768px) {
   /* line 316, ../../../src/components/form-wffm/sass/form-wffm.scss */
-  form.get-in-touch .hide-title .required-field .checkbox:nth-child(3n-2),
-  form.request-a-demo .hide-title .required-field .checkbox:nth-child(3n-2) {
+  form.get-in-touch .hide-title .required-field .checkbox:nth-child(3n-1),
+  form.request-a-demo .hide-title .required-field .checkbox:nth-child(3n-1) {
     margin-left: 5%;
     margin-right: 5%;
   }
