@@ -150,13 +150,15 @@
         .date {
             font-family: FSMe-Light;
             font-size: 14px;
-            padding-bottom: 30px;
+            //padding-bottom: 30px;
+            float: left;
+            min-width: 100px;
             @include mobile {
                 //padding-bottom: 25px;
                 font-size: 13px;
             }
             @include tablet {
-                padding-bottom: 30px;
+               // padding-bottom: 30px;
             }
         }
         .by{
@@ -273,8 +275,11 @@
           }
 
         }
+        .topic{
+            padding-bottom :0 !important;
+        }
         //  from here for sample insight banner
-        .provided {
+        .provided{
             padding-top: 20px;
             padding-bottom: 15px;
             @include mobile {
