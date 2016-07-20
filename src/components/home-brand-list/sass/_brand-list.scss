@@ -128,3 +128,45 @@
         }
     }
 }
+.related-products{
+    background: $white;
+    .card {
+        background:$gray-bright-bg;
+        .image-thumbnail {
+            &:after {
+                background-color: $gray-bright-bg;
+            }
+        }
+        .showmore {
+            &:before {
+                background-color:$gray-bright-bg ;
+            }
+        }
+        .caption {
+            h2::after {
+                content:'';
+            }
+        }
+    }
+    .productfinder-link{
+        margin:30px auto 0;
+        text-align: center;
+        width: 100%;
+        p{
+            font-size:19px;
+            a{
+                color:$orange;
+                font-weight:700;
+                 &:after{
+                     content: "\e900";
+                     font-family: 'InformaIcons';
+                     right: 15px;
+                     font-weight: bold;
+                     position:relative;
+                     top:3px;
+                     left:3px;
+                   }
+            }
+        }
+    }
+}
