@@ -1738,7 +1738,7 @@ INFORMA.forms = (function(window, $, namespace) {
     _getAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
-            data: JSON.stringify({ data: data }),
+            data: data,
             success_callback: function (data) {
                 if (typeof SCallback === "function") {
                     SCallback.call(this, data, SearchType);
@@ -1979,12 +1979,12 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _showModal = function(el) 
     { 
-        var btn = jQuery(el).data('modal');
-        productId = jQuery(el).data('productid');
+        var btn = $(el).data('modal');
+        productId = { 'guid' : $(el).data('productid') };
 
         //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
         _getAjaxData(Urls.GetFormItems, "Get", productId, _parseResults, null, null);
-        jQuery(btn).modal({ 
+        $(btn).modal({ 
             show : 'true' 
         })
     };
