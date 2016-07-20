@@ -1,0 +1,32 @@
+--- component: pdp-feature-list ---
+<section id="feature-list" class="feature-list-section remove-showmore" data-desktop=8 data-tablet=8 data-mobile=2>
+    <div class="container">
+        <div class="row headline">
+            <div class="col-xs-12">
+                <h1 class="dark">Features</h1>
+            </div>
+        </div>
+        <div class="row">
+            {{#each this}}
+                <div class="feature-list-container">
+                    <div class="feature-list">
+                        <div class="feature-image">
+                            <img src="cms-images/feature-list/{{image}}">
+                        </div>
+                        <div class="headText">
+                            {{title}}
+                        </div>
+                        <p>{{description}}</p>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class="row">
+             <div class="col-xs-12">
+                  <div class="btn-container btn-see-all-features">
+                      <a class="btn btn-primary" href="#" role="button">More</a>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>

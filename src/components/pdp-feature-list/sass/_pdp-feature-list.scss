@@ -1,10 +1,21 @@
-section#feature-list, section.feature-list-section {
+section#feature-list,
+section.feature-list-section {
     background: $light;
     padding: 20px 0;
     @include mobile {
         padding: 5px 0 25px;
         h1 {
             font-size: 24px;
+        }
+    }
+    .btn-see-all-features {
+        width: 20%;
+        margin: 0 auto;
+        @include mobile {
+          width: 90%;
+        }
+        @include tablet {
+          width: 30%;
         }
     }
     .feature-list-container {
@@ -29,9 +40,9 @@ section#feature-list, section.feature-list-section {
             color: $black;
         }
         @include tablet {
-             width: 33.3333%;
-             padding: 40px 35px 20px;
-       }
+            width: 33.3333%;
+            padding: 40px 35px 20px;
+        }
         @include mobile {
             width: 100%;
             padding: 30px 40px;
@@ -85,21 +96,20 @@ section#feature-list, section.feature-list-section {
         span.less {
             display: none;
         }
-
     }
     &.showLess {
-      .btn-showMore {
-        span.more {
-            display: none;
-        }
-        span.less {
-            display: block;
-        }
-        &:after {
-            font-family: 'InformaIcons';
-            content: '\e913';
-            color: $brand-secondary;
+        .btn-showMore {
+            span.more {
+                display: none;
+            }
+            span.less {
+                display: block;
+            }
+            &:after {
+                font-family: 'InformaIcons';
+                content: '\e913';
+                color: $brand-secondary;
+            }
         }
     }
-  }
 }
