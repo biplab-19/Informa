@@ -14,10 +14,10 @@ INFORMA.forms = (function(window, $, namespace) {
 
         //functions
         init,
-        validateEmail,
-        show_modal,
-        GetAjaxData,
-        ParseResults,
+        _validateEmail,
+        _showModal,
+        _getAjaxData,
+        _parseResults,
         _bindProductId,
         _bindToolTip,
         _bindCalendar,
@@ -124,7 +124,7 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
-    ParseResults = function (data) {
+    _parseResults = function (data) {
         var results = data,
             _inputId = $('form.request-a-demo .area-interests input').first().attr("id"),
             _inputName = $('form.request-a-demo .area-interests input').first().attr("name"),
@@ -160,7 +160,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
 
-    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+    _getAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
             data: JSON.stringify({ data: data }),
@@ -184,7 +184,7 @@ INFORMA.forms = (function(window, $, namespace) {
         $("form.get-in-touch .form-group select, form.request-a-demo .form-group select").wrap("<div class='select-wrapper'></div>");
     }
 
-    validateEmail = function(email) {
+    _validateEmail = function(email) {
         var domain = email.substring(email.lastIndexOf("@") + 1);
         if (INFORMA.validDomains.indexOf(domain) < 0)
             return false;
@@ -196,7 +196,7 @@ INFORMA.forms = (function(window, $, namespace) {
         //Email validation logic
         $('form.get-in-touch .contact-details .scfEmailBorder, form.request-a-demo .contact-details .scfEmailBorder').each(function() {
             $(this).blur(function() {
-                if (validateEmail($(this).val()))
+                if (_validateEmail($(this).val()))
                     if ($(this).next().children().length == 0)
                         $(this).next().prepend("<span class='field-validation-error'>E-mail is not in the valid domain list</span>");
             });
@@ -402,13 +402,13 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
-    show_modal = function(el) 
+    _showModal = function(el) 
     { 
         var btn = jQuery(el).data('modal');
         productId = jQuery(el).data('productid');
 
         //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
-        GetAjaxData(Urls.GetFormItems, "Get", productId, ParseResults, null, null);
+        _getAjaxData(Urls.GetFormItems, "Get", productId, _parseResults, null, null);
         jQuery(btn).modal({ 
             show : 'true' 
         })
@@ -416,7 +416,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _bindProductId = function(){
         $("[data-productid]").bind("click", function(){
-            show_modal(this);
+            _showModal(this);
         });
     }
 
