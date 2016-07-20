@@ -1,5 +1,5 @@
 var INFORMA = window.INFORMA || {};
-INFORMA.formGetInTouch = (function(window, $, namespace) {
+INFORMA.forms = (function(window, $, namespace) {
     'use strict';
     var _formModal = $('.form-modal'),
         _formModalBtn = $('.form-btn-container .form-modal-btn'),
@@ -14,6 +14,7 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         //functions
         init,
         validateEmail,
+        show_modal,
         GetAjaxData,
         ParseResults,
         _bindToolTip,
@@ -407,6 +408,15 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         });
     }
 
+    show_modal = function(el) 
+    { 
+        var btn = jQuery(el).data('modal');
+        _bindAjaxData();
+        jQuery(btn).modal({ 
+            show : 'true' 
+        })
+    };
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _showOverlay();
@@ -416,14 +426,14 @@ INFORMA.formGetInTouch = (function(window, $, namespace) {
         _bindToolTip();
         _bindCalendar();
         _bindSelectOptions();
-        _bindAjaxData();
         _bindValidationLogic();
         _disableSubmit();
     };
 
     return {
-        init: init
+        init: init,
+        show_modal: show_modal
     };
 
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.formGetInTouch.init());
+jQuery(INFORMA.forms.init());

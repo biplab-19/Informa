@@ -18,13 +18,6 @@ INFORMA.global = (function(window, $, namespace) {
 		siteCore = {},
 		_html = $('html');
 
-	var show_modal = function(el) 
-    { 
-        var btn = jQuery(el).data('modal'); 
-        jQuery(btn).modal({ 
-            show : 'true' 
-        })
-    };
 
 	var init = function(){
 		// viewport properties
@@ -58,8 +51,7 @@ INFORMA.global = (function(window, $, namespace) {
 	return {
 		init: init,
 		device: device,
-		siteCore: siteCore,
-		show_modal: show_modal
+		siteCore: siteCore
 	};
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.global.init());
