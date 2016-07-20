@@ -10,6 +10,7 @@ INFORMA.forms = (function(window, $, namespace) {
         monthNbr = '',
         Urls = INFORMA.Configs.urls.webservices,
         formHeading,
+        productId,
 
         //functions
         init,
@@ -19,7 +20,6 @@ INFORMA.forms = (function(window, $, namespace) {
         ParseResults,
         _bindToolTip,
         _bindCalendar,
-        _bindAjaxData,
         _bindSelectOptions,
         _bindValidationLogic,
         _showOverlay,
@@ -175,13 +175,6 @@ INFORMA.forms = (function(window, $, namespace) {
             }
         });
     },
-
-    _bindAjaxData = function(){
-        var productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
-
-        GetAjaxData(Urls.GetFormItems, "Get", productId, ParseResults, null, null);
-        
-    }
 
     _bindSelectOptions = function() {
         $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function(e) {
@@ -411,7 +404,10 @@ INFORMA.forms = (function(window, $, namespace) {
     show_modal = function(el) 
     { 
         var btn = jQuery(el).data('modal');
-        _bindAjaxData();
+        productId = jQuery(el).data('product');
+
+        //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
+        GetAjaxData(Urls.GetFormItems, "Get", productId, ParseResults, null, null);
         jQuery(btn).modal({ 
             show : 'true' 
         })
