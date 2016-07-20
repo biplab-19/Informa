@@ -1008,6 +1008,52 @@ section#hero-banner .analyst-single-image .image-margin {
   }
 }
 
+/* line 131, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.related-products {
+  background: #fff;
+}
+/* line 133, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.related-products .card {
+  background: #eff0f3;
+}
+/* line 136, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.related-products .card .image-thumbnail:after {
+  background-color: #eff0f3;
+}
+/* line 141, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.related-products .card .showmore:before {
+  background-color: #eff0f3;
+}
+/* line 146, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.related-products .card .caption h2::after {
+  content: '';
+}
+/* line 151, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.related-products .productfinder-link {
+  margin: 30px auto 0;
+  text-align: center;
+  width: 100%;
+}
+/* line 155, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.related-products .productfinder-link p {
+  font-size: 19px;
+}
+/* line 157, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.related-products .productfinder-link p a {
+  color: #ef7c00;
+  font-weight: 700;
+}
+/* line 160, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.related-products .productfinder-link p a:after {
+  content: "\e900";
+  font-family: 'InformaIcons';
+  right: 15px;
+  font-weight: bold;
+  position: relative;
+  top: 3px;
+  left: 3px;
+}
+
 /* line 1, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report {
   padding: 40px 0;
@@ -2990,6 +3036,30 @@ nav#pdp-navigation .menuFollower {
 /* line 250, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .bold {
   font-weight: bold;
+}
+
+/* line 253, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+.btn-reset {
+  display: inline-block;
+  padding: 5px;
+  background-color: #6a7285;
+  border: 1px solid #e2e3e8;
+  color: #e2e3e8;
+  font-size: 12px;
+  margin: 0 10px 10px 0;
+  color: #fff;
+  padding-right: 40px;
+  position: relative;
+}
+/* line 264, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+.btn-reset:after {
+  content: 'x';
+  position: absolute;
+  right: 0;
+  font-size: 14px;
+  top: 3px;
+  border-left: 1px solid #fff;
+  padding: 0 6px;
 }
 
 /* line 1, ../../../src/components/home-social/sass/_home-social.scss */
