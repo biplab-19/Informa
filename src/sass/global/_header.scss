@@ -595,9 +595,12 @@ header {
 .product-finder {
     padding: 15px 0;
     background-color: $gray-header;
-    display: block;
-    @include mobile {
+    display: none;
+    &.active{
         display: block;
+    }
+    &.inactive{
+        display: none;
     }
     .container {
         @include mobile {
