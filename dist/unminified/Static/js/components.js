@@ -1593,6 +1593,7 @@ INFORMA.forms = (function(window, $, namespace) {
         show_modal,
         GetAjaxData,
         ParseResults,
+        _bindProductId,
         _bindToolTip,
         _bindCalendar,
         _bindSelectOptions,
@@ -1979,7 +1980,7 @@ INFORMA.forms = (function(window, $, namespace) {
     show_modal = function(el) 
     { 
         var btn = jQuery(el).data('modal');
-        productId = jQuery(el).data('product');
+        productId = jQuery(el).data('productid');
 
         //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
         GetAjaxData(Urls.GetFormItems, "Get", productId, ParseResults, null, null);
@@ -1988,22 +1989,31 @@ INFORMA.forms = (function(window, $, namespace) {
         })
     };
 
+    _bindProductId = function(){
+        $("[data-productid]").bind("click", function(){
+            show_modal(this);
+        });
+    }
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
+        
         _showOverlay();
         _showOverlayQueryString()
         _reCaptchaHandler();
         //_validateAllForms();
         _bindToolTip();
         _bindCalendar();
+
+        _bindProductId();
+
         _bindSelectOptions();
         _bindValidationLogic();
         _disableSubmit();
     };
 
     return {
-        init: init,
-        show_modal: show_modal
+        init: init
     };
 
 }(this, jQuery, 'INFORMA'));
