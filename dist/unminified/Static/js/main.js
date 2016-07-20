@@ -40,7 +40,7 @@
             "ResourceList": "/client/search/GetResourceListing",
             "ResourceSubSectorList": "/client/search/GetSubSectors",
             "GetFAQs": "/client/search/GetFAQList",
-            "GetFormItems": "client/WffmForm/GetModifiedWffmFormItems"
+            "GetFormItems": "client/ajax/GetModifiedWffmFormItems"
         }
     };
 
@@ -4072,7 +4072,7 @@ var INFORMA = window.INFORMA || {};
                             '<div class="footer">'+
                                 '<div class="footer-content clearfix">'+
                                     '<div class="col-xs-6">'+
-                                        '<a href="{{FreeTrialLink}}" class="btn btn-default free-trial">Free Trial</a>'+
+                                        '<a href="javascript:void(0)" onclick="INFORMA.global.show_modal(this)"  data-toggle="modal" data-modal="#{{CTAType}}" data-product="{{ProductGuid}}" class="btn btn-default free-trial">Free Trial</a>'+
                                     '</div>'+
                                     '<div class="col-xs-6">'+
                                         '<a href="{{MoreLink}}" class="btn btn-default orange more">More</a>'+
