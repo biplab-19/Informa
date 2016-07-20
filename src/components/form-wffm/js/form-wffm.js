@@ -11,6 +11,7 @@ INFORMA.forms = (function(window, $, namespace) {
         Urls = INFORMA.Configs.urls.webservices,
         formHeading,
         productId,
+        _formId,
 
         //functions
         init,
@@ -126,19 +127,20 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _parseResults = function (data) {
         var results = data,
-            _inputId = $('form.request-a-demo .area-interests input').first().attr("id"),
-            _inputName = $('form.request-a-demo .area-interests input').first().attr("name"),
+            _inputId = $(_formId + ' .area-interests input').first().attr("id"),
+            _inputName = $(_formId + ' .area-interests input').first().attr("name"),
             _interestValue = '',
             _interestText = '',
+            _presentHeading,
             _tmpElement;
 
         _inputId = _inputId.replace("Id","Value");
         _inputName = _inputName.replace("Id","Value");
-        $("form.request-a-demo .area-interests .form-group .checkbox").remove();
+        _presentHeading = $(_formId + ' .page-header h1').text();
+        $(_formId + " .area-interests .form-group .checkbox").remove();
 
-        formHeading = results.Title;
-        $('form.request-a-demo .page-header h1').text(formHeading);
-
+        formHeading = _presentHeading.replace('#',results.Title);
+        $(_formId + ' .page-header h1').text(formHeading);
 
         for (var key in results.Items) {
             if (results.Items.hasOwnProperty(key)) {
@@ -152,13 +154,12 @@ INFORMA.forms = (function(window, $, namespace) {
                         name: _inputName
                     });
             
-                $('form.request-a-demo .area-interests .form-group').append(_tmpElement);
-                $('form.request-a-demo .area-interests .form-group input[type=checkbox]').last().wrap('<div class="checkbox"></div>').wrap('<label>' + _interestText + '</label>');
+                $(_formId + ' .area-interests .form-group').append(_tmpElement);
+                $(_formId + ' .area-interests .form-group input[type=checkbox]').last().wrap('<div class="checkbox"></div>').wrap('<label>' + _interestText + '</label>');
             }
         }
         
     }
-
 
     _getAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.DataLoader.GetServiceData(url, {
@@ -192,6 +193,14 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _bindValidationLogic = function() {
+        //Email message 
+        var emailvalidator = $('form').find('.email-validation-error'); 
+        
+        if (emailvalidator.length > 0) { 
+           $.extend($.validator.messages, { 
+                  email: emailvalidator.html() 
+           }); 
+        }
 
         //Email validation logic
         $('form.get-in-touch .contact-details .scfEmailBorder, form.request-a-demo .contact-details .scfEmailBorder').each(function() {
@@ -404,12 +413,12 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _showModal = function(el) 
     { 
-        var btn = $(el).data('modal');
+        _formId = $(el).data('modal');
         productId = { 'guid' : $(el).data('productid') };
 
         //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
         _getAjaxData(Urls.GetFormItems, "Get", productId, _parseResults, null, null);
-        $(btn).modal({ 
+        $(_formId).modal({ 
             show : 'true' 
         })
     };
