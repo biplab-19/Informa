@@ -20,20 +20,7 @@
                 margin-top: 0 !important;
             }
         }
-        .hide-title {
-            .required-field{
-                @include not-mobile {
-                    .checkbox:nth-child(3n-2) {
-                        margin-left: 5%;
-                        margin-right: 5%;
-                    }
-                    .checkbox:nth-child(3n-1) {
-                        margin-left: 0;
-                        margin-right: 0;
-                    }
-                }
-            }
-        }
+        
     }
 }
 form.get-in-touch,
@@ -333,7 +320,7 @@ form.request-a-demo {
                 }
             }
             @include not-mobile {
-                .checkbox:nth-child(3n-1) {
+                .checkbox:nth-child(3n-2) {
                     margin-left: 5%;
                     margin-right: 5%;
                 }
@@ -344,6 +331,18 @@ form.request-a-demo {
                 }
             }
         }
+    }
+    .dynamic-interests{
+        @include not-mobile {
+                .checkbox:nth-child(3n-1) {
+                    margin-left: 5%;
+                    margin-right: 5%;
+                }
+                .checkbox:nth-child(3n-2) {
+                    margin-left: 0 !important;
+                    margin-right: 0 !important;
+                }
+            }
     }
     .scfSectionBorder {
         p {

@@ -138,6 +138,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _inputName = _inputName.replace("Id","Value");
         _presentHeading = $(_formId + ' .page-header h1').text();
         $(_formId + " .area-interests .form-group .checkbox").remove();
+        $(_formId + " .area-interests").addClass('dynamic-interests');
 
         formHeading = _presentHeading.replace('#',results.Title);
         $(_formId + ' .page-header h1').text(formHeading);
