@@ -6907,26 +6907,27 @@ section.articlepage-freearticle .container .mini-video {
   float: right;
   width: 50%;
 }
-/* line 105, ../../../src/components/article-terms/sass/article-terms.scss */
-section.articlepage-freearticle .container .video-full-container {
+
+/* line 111, ../../../src/components/article-terms/sass/article-terms.scss */
+.video-full-container {
   cursor: pointer;
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
 }
-/* line 111, ../../../src/components/article-terms/sass/article-terms.scss */
-section.articlepage-freearticle .container .video-full-container img {
+/* line 117, ../../../src/components/article-terms/sass/article-terms.scss */
+.video-full-container img {
   width: 100%;
   max-width: 100%;
   float: none;
   display: block;
 }
-/* line 117, ../../../src/components/article-terms/sass/article-terms.scss */
-section.articlepage-freearticle .container .video-full-container .video-img {
+/* line 123, ../../../src/components/article-terms/sass/article-terms.scss */
+.video-full-container .video-img {
   height: auto;
 }
-/* line 120, ../../../src/components/article-terms/sass/article-terms.scss */
-section.articlepage-freearticle .container .video-full-container .play-icon {
+/* line 126, ../../../src/components/article-terms/sass/article-terms.scss */
+.video-full-container .play-icon {
   position: absolute;
   width: 90px;
   height: 90px;
@@ -6937,15 +6938,15 @@ section.articlepage-freearticle .container .video-full-container .play-icon {
   margin-left: -27px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 120, ../../../src/components/article-terms/sass/article-terms.scss */
-  section.articlepage-freearticle .container .video-full-container .play-icon {
+  /* line 126, ../../../src/components/article-terms/sass/article-terms.scss */
+  .video-full-container .play-icon {
     width: 80px;
     height: 80px;
   }
 }
 @media (max-width: 767px) {
-  /* line 120, ../../../src/components/article-terms/sass/article-terms.scss */
-  section.articlepage-freearticle .container .video-full-container .play-icon {
+  /* line 126, ../../../src/components/article-terms/sass/article-terms.scss */
+  .video-full-container .play-icon {
     width: 55px;
     height: 55px;
   }
