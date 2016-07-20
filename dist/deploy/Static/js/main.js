@@ -4235,7 +4235,7 @@ var INFORMA = window.INFORMA || {};
                                         '</div>' +
                                     '{{/each}}' +
                                 '</div>' +
-                                '{{#compare results.TotalCount "3" operator=">"}}' +
+                                '{{#compare results.TotalCount 3 operator=">"}}' +
                                     '<div class="btn-container text-center">' +
                                         '<a href="javascript:void(0)" data-fetch="{{results.SectorID}}" class="btn-plus">' +
                                         '<span class="more">See All {{results.TotalCount}} Analysts</span>' +
@@ -4301,17 +4301,13 @@ var INFORMA = window.INFORMA || {};
                                         '<div class="anlyst-heading">' +
                                             '<div class="analyst-heading-content">' +
                                                 '<div class="analyst-details">' +
-                                                     '<span class="analyst-type">{{results.Type}}</span>' +
+                                                     '<span class="analyst-type">{{Type}}</span>' +
                                                     '<h2>{{results.Name}}</h2>' +
                                                     '<h3>{{results.Type}}, {{results.JobTitle}}</h3>' +
-                                                    '{{#if results.Country}}'+
-                                                        '<p class="location">{{results.State}}, {{results.Country}}</p>' +
-                                                    '{{/if}}'+
+                                                    '<p class="location">{{results.State}}, {{results.Country}}</p>' +
                                                 '</div>' +
                                                 '<div class="analyst-img">' +
-                                                    '{{#if results.ProfileImage}}'+
-                                                        '<img src="{{results.ProfileImage}}" alt="{{results.image}}" />' +
-                                                    '{{/if}}'+
+                                                    '<img src="{{results.ProfileImage}}" alt="{{results.image}}" />' +
                                                 '</div>' +
                                             '</div>' +
                                         '</div>' +
@@ -4344,7 +4340,7 @@ var INFORMA = window.INFORMA || {};
                                                         '<li><a href="mailto:{{results.EmailAddress}}" class="icon-email"></a></li>' +
                                                     '{{/compare}}' +
                                                 '</ul>' +
-                                                '<a href="#" class="btn btn-default pull-right">{{results.SeeFullProfileLabel}}</a>' +
+                                                '<a href="#" class="btn btn-default pull-right">Full Profile</a>' +
                                             '</div>' +
                                         '</div>' +
                                     '</div>' +
