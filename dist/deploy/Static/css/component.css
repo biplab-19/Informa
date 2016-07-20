@@ -6907,6 +6907,49 @@ section.articlepage-freearticle .container .mini-video {
   float: right;
   width: 50%;
 }
+/* line 105, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle .container .video-full-container {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+}
+/* line 111, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle .container .video-full-container img {
+  width: 100%;
+  max-width: 100%;
+  float: none;
+  display: block;
+}
+/* line 117, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle .container .video-full-container .video-img {
+  height: auto;
+}
+/* line 120, ../../../src/components/article-terms/sass/article-terms.scss */
+section.articlepage-freearticle .container .video-full-container .play-icon {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: url("/Static/images/video-icon.png") no-repeat;
+  top: 50%;
+  left: 50%;
+  margin-top: -27px;
+  margin-left: -27px;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 120, ../../../src/components/article-terms/sass/article-terms.scss */
+  section.articlepage-freearticle .container .video-full-container .play-icon {
+    width: 80px;
+    height: 80px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 120, ../../../src/components/article-terms/sass/article-terms.scss */
+  section.articlepage-freearticle .container .video-full-container .play-icon {
+    width: 55px;
+    height: 55px;
+  }
+}
 
 /* line 1, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list {
