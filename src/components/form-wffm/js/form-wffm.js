@@ -81,7 +81,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _resetForm = function($form) {
-        $form.find('input, select, textarea').val('');
+        $form.find('input:text, input:password, input:number, input:email, select, textarea').val('');
         $form.find('input:radio, input:checkbox')
              .removeAttr('checked').removeAttr('selected');
     }
@@ -463,6 +463,7 @@ INFORMA.forms = (function(window, $, namespace) {
         $(_formId).modal({ 
             show : 'true' 
         })
+        _showOverlay();
     };
 
     _bindProductId = function(){
