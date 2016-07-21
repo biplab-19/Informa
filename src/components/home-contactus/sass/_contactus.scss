@@ -32,7 +32,7 @@
             overflow: hidden;
             float: left;
             width: 22.5%;
-            height: 330px;
+            height: 370px;
             //  margin-bottom: 20px;
             font-size: 14px;
             margin: 0 0 20px 1.8%;
@@ -95,10 +95,20 @@
         }
         .panel-body {
             padding: 20px;
+            .phone-number:nth-of-type(1) {
+              padding-top: 0px !important;
+            }
             .phone-number {
-                padding-top: 20px;
+                padding-top: 13px;
+                p{
+                  font-size: 17px;
+                  margin-bottom: 0px !important;
+                  // strong{
+                  //   font-size: 16px;
+                  // }
+                }
                 a {
-                    font-size: 28px;
+                    font-size: 20px;
                     text-decoration: none;
                     @include tablet {
                         font-size: 26px;
@@ -108,13 +118,14 @@
                     padding-top: 0;
                 }
             }
+
             a {
                 font-size: 14px;
                 text-decoration: none;
             }
             .content-wrapper-number {
                 font-size: 18px;
-                min-height: 149px;
+                //min-height: 149px;
                 @include mobile {
                     display: none;
                 }
