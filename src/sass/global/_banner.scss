@@ -506,3 +506,28 @@ div.addthis_sharing_toolbox{
 div.at4-share-outer {
   display: none !important;
 }
+
+.follow-button{
+    display: inline-block;
+    a{  
+        text-transform: none;
+        transition: all 0.2s ease-in-out 0s;
+        transform: translateY(0px);
+        display: inline-block;
+        .at-icon-wrapper{
+            width: 40px!important;
+            height:39px!important;
+            line-height: 62px!important;
+            border-radius:100%;
+            background-color: $social-icon-back !important;
+            .at-icon{
+                width: 40px!important;
+                height: 32px!important;
+            }
+        }
+        &:hover{
+            outline-offset: -1px;
+            transform: translateY(-4px);
+        }
+    }
+}
