@@ -1,4 +1,4 @@
-/*! 2016-07-20 */_adjustHeigt = function(){
+/*! 2016-07-21 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -746,14 +746,24 @@ INFORMA.navbars = (function(window, $, namespace) {
       tabcontent = $('.tab-content .tab-pane'),
         init;
     init = function() {
-        jQuery(Tabs[0]).addClass('active');
-        Tabs.on('click', function() {
-            Tabs.removeClass('active');
-            jQuery(this).addClass('active');
-            var tabpane = jQuery(this).find('a').attr('href');
-            tabcontent.removeClass('active');
-            jQuery(tabpane).addClass('active');
-        })
+        // jQuery(Tabs[0]).addClass('active');
+        // Tabs.on('click', function() {
+        //     Tabs.removeClass('active');
+        //     jQuery(this).addClass('active');
+        //     var tabpane = jQuery(this).find('a').attr('href');
+        //     tabcontent.removeClass('active');
+        //     jQuery(tabpane).addClass('active');
+        // })
+        $('.contactUsPage-contactUs a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+            localStorage.setItem('activeTab', $(e.target).attr('href'));
+        });
+        var activeTab = localStorage.getItem('activeTab');
+        if (activeTab) {
+            $('.contactUsPage-contactUs a[data-toggle="tab"]').removeClass('active');
+            $('.contactUsPage-contactUs a[href="' + activeTab + '"]').tab('show').addClass('active');
+        }else{
+          $('.contactUsPage-contactUs a[data-toggle="tab"]:first').tab('show').addClass('active');
+        }
     };
 
     return {
@@ -1767,12 +1777,12 @@ INFORMA.forms = (function(window, $, namespace) {
                         id: _inputId,
                         name: _inputName
                     });
-            
+
                 $(_formId + ' .area-interests .form-group').append(_tmpElement);
                 $(_formId + ' .area-interests .form-group input[type=checkbox]').last().wrap('<div class="checkbox"></div>').wrap('<label>' + _interestText + '</label>');
             }
         }
-        
+
     }
 
     _getAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
@@ -1807,7 +1817,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _bindValidationLogic = function() {
-        //Email message 
+        //Email message
         var emailvalidator = $('form').find('.email-validation-error'); 
         
         if (emailvalidator.length > 0) { 
@@ -2016,12 +2026,18 @@ INFORMA.forms = (function(window, $, namespace) {
             });
         });
     }
-    
-    _disableSubmit = function() {
-        $("form.get-in-touch .form-submit-border .btn, form.request-a-demo .form-submit-border .btn").attr('disabled', true);
 
-        $("form.get-in-touch, form.request-a-demo").on('change', 'input, textarea, select, button, a', function() {
-            $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn').removeAttr('disabled');
+    _disableSubmit = function() {
+        var formDOM = $("form.get-in-touch, form.request-a-demo"),
+            formSubmitBtn = $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn');
+            formSubmitBtn.attr('disabled', true);
+            formDOM.on('change', 'input, textarea, select', function() {
+            formSubmitBtn.removeAttr('disabled');
+            // if ($('.field-validation-error').length == 0 && $('.captcha-wrapper .field-validation-error').css('display') == "none" && $('.captcha-wrapper .field-validation-valid').html() == "") {
+            //     formSubmitBtn.removeAttr('disabled');
+            // } else {
+            //     formSubmitBtn.attr('disabled', true);
+            // }
         });
     }
 
@@ -2045,7 +2061,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
-        
+
         _showOverlay();
         _showOverlayQueryString()
         _reCaptchaHandler();
@@ -3961,7 +3977,7 @@ INFORMA.RTETable = (function(window, $, namespace) {
         });
         responsiveContainer.find('table.table tr').each(function() {
             for (i = 1; i <= titles.length; i++) {
-                $(this).find('td').eq(i).prepend(titles[i]);
+                $(this).find('td').eq(i).wrapInner('<div class="rteValues" />').prepend(titles[i]);
             }
         });
         responsiveContainer.find('table.table tr:first-child').remove();
@@ -4757,7 +4773,7 @@ INFORMA.navtabs = (function(window, $, namespace) {
     'use strict';
     //variables
     var Tabs = $('.support-page-tabs ul.nav li'),
-        tabcontent = $('.tab-content .tab-pane'),
+        tabcontent = $('.support-page-tabs .tab-content .tab-pane'),
         init;
     init = function() {
         jQuery(Tabs[0]).addClass('active');
