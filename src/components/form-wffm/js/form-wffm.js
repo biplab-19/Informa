@@ -3,7 +3,7 @@ INFORMA.forms = (function(window, $, namespace) {
     'use strict';
     var _formModal = $('.form-modal'),
         _formModalBtn = $('.form-btn-container .form-modal-btn'),
-        _formSubmitStatus = $('.form-status[data-successsubmit=True]'),
+        _formSubmitStatus = $('.submit-status'),
         _formInlineContiner,
         months = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"],
         monthName = '',
@@ -79,19 +79,44 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
     _showOverlay = function() {
-        if (_formSubmitStatus.length > 0) {
-            var formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+        var formSubmitResponseModal, 
+            formSubmitResponseHTML;
+
+        if (_formSubmitStatus.attr('data-status') == "") {
+            formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
             if (formSubmitResponseModal.length > 0) {
-                formSubmitResponseModal.find('.page-header').addClass('hide');
+
+                formSubmitResponseModal.find('form').removeClass('hide');
+                /*formSubmitResponseModal.modal({
+                    show: true,
+                    keyboard: false,
+                    backdrop: "static"
+                })*/
+            }
+            formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
+            if (formSubmitResponseHTML.length > 0) {
+               formSubmitResponseHTML.find('form').removeClass('hide');
+            }
+        }else if(_formSubmitStatus.attr('data-status') > ""){
+            formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+            if (formSubmitResponseModal.length > 0) {
+
+                formSubmitResponseModal.find('form').addClass('hide');
+                formSubmitResponseModal.find('form').trigger('reset');
                 formSubmitResponseModal.modal({
                     show: true,
                     keyboard: false,
                     backdrop: "static"
                 })
+
+                formSubmitResponseModal.find('.form-modal-close').on("click",function(){
+                    _formSubmitStatus.attr("data-status","");
+                })
             }
-            var formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
+            formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
             if (formSubmitResponseHTML.length > 0) {
-                formSubmitResponseHTML.find('.page-header').addClass('hide');
+               formSubmitResponseHTML.find('form').addClass('hide');
+               formSubmitResponseHTML.find('form').trigger('reset');
             }
         }
     }
