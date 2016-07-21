@@ -18,14 +18,24 @@ INFORMA.navbars = (function(window, $, namespace) {
       tabcontent = $('.tab-content .tab-pane'),
         init;
     init = function() {
-        jQuery(Tabs[0]).addClass('active');
-        Tabs.on('click', function() {
-            Tabs.removeClass('active');
-            jQuery(this).addClass('active');
-            var tabpane = jQuery(this).find('a').attr('href');
-            tabcontent.removeClass('active');
-            jQuery(tabpane).addClass('active');
-        })
+        // jQuery(Tabs[0]).addClass('active');
+        // Tabs.on('click', function() {
+        //     Tabs.removeClass('active');
+        //     jQuery(this).addClass('active');
+        //     var tabpane = jQuery(this).find('a').attr('href');
+        //     tabcontent.removeClass('active');
+        //     jQuery(tabpane).addClass('active');
+        // })
+        $('.contactUsPage-contactUs a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+            localStorage.setItem('activeTab', $(e.target).attr('href'));
+        });
+        var activeTab = localStorage.getItem('activeTab');
+        if (activeTab) {
+            $('.contactUsPage-contactUs a[data-toggle="tab"]').removeClass('active');
+            $('.contactUsPage-contactUs a[href="' + activeTab + '"]').tab('show').addClass('active');
+        }else{
+          $('.contactUsPage-contactUs a[data-toggle="tab"]:first').tab('show').addClass('active');
+        }
     };
 
     return {

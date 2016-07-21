@@ -15,7 +15,7 @@ INFORMA.navtabs = (function(window, $, namespace) {
     'use strict';
     //variables
     var Tabs = $('.support-page-tabs ul.nav li'),
-        tabcontent = $('.tab-content .tab-pane'),
+        tabcontent = $('.support-page-tabs .tab-content .tab-pane'),
         init;
     init = function() {
         jQuery(Tabs[0]).addClass('active');
