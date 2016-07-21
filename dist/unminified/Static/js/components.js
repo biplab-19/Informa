@@ -1,4 +1,4 @@
-/*! 2016-07-21 */_adjustHeigt = function(){
+/*! 2016-07-20 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1767,12 +1767,12 @@ INFORMA.forms = (function(window, $, namespace) {
                         id: _inputId,
                         name: _inputName
                     });
-
+            
                 $(_formId + ' .area-interests .form-group').append(_tmpElement);
                 $(_formId + ' .area-interests .form-group input[type=checkbox]').last().wrap('<div class="checkbox"></div>').wrap('<label>' + _interestText + '</label>');
             }
         }
-
+        
     }
 
     _getAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
@@ -1807,7 +1807,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _bindValidationLogic = function() {
-        //Email message
+        //Email message 
         var emailvalidator = $('form').find('.email-validation-error'); 
         
         if (emailvalidator.length > 0) { 
@@ -2016,18 +2016,12 @@ INFORMA.forms = (function(window, $, namespace) {
             });
         });
     }
-
+    
     _disableSubmit = function() {
-        var formDOM = $("form.get-in-touch, form.request-a-demo"),
-            formSubmitBtn = $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn');
-            formSubmitBtn.attr('disabled', true);
-            formDOM.on('change', 'input, textarea, select', function() {
-            formSubmitBtn.removeAttr('disabled');
-            // if ($('.field-validation-error').length == 0 && $('.captcha-wrapper .field-validation-error').css('display') == "none" && $('.captcha-wrapper .field-validation-valid').html() == "") {
-            //     formSubmitBtn.removeAttr('disabled');
-            // } else {
-            //     formSubmitBtn.attr('disabled', true);
-            // }
+        $("form.get-in-touch .form-submit-border .btn, form.request-a-demo .form-submit-border .btn").attr('disabled', true);
+
+        $("form.get-in-touch, form.request-a-demo").on('change', 'input, textarea, select, button, a', function() {
+            $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn').removeAttr('disabled');
         });
     }
 
@@ -2051,7 +2045,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
-
+        
         _showOverlay();
         _showOverlayQueryString()
         _reCaptchaHandler();

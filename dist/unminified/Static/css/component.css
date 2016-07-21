@@ -1,4 +1,4 @@
-/*! 2016-07-21 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-07-20 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -1926,46 +1926,22 @@ section#pdp-hero .cta3 {
 }
 
 /* line 1, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list,
-section.feature-list-section {
+section#feature-list, section.feature-list-section {
   background: #fff;
   padding: 20px 0;
 }
 @media (max-width: 767px) {
   /* line 1, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list,
-  section.feature-list-section {
+  section#feature-list, section.feature-list-section {
     padding: 5px 0 25px;
   }
-  /* line 7, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list h1,
-  section.feature-list-section h1 {
+  /* line 6, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list h1, section.feature-list-section h1 {
     font-size: 24px;
   }
 }
-/* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-see-all-features,
-section.feature-list-section .btn-see-all-features {
-  width: 20%;
-  margin: 0 auto;
-}
-@media (max-width: 767px) {
-  /* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .btn-see-all-features,
-  section.feature-list-section .btn-see-all-features {
-    width: 90%;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .btn-see-all-features,
-  section.feature-list-section .btn-see-all-features {
-    width: 30%;
-  }
-}
-/* line 21, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .feature-list-container,
-section.feature-list-section .feature-list-container {
+/* line 10, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .feature-list-container, section.feature-list-section .feature-list-container {
   float: left;
   width: 25%;
   padding: 40px 40px 20px;
@@ -1973,66 +1949,57 @@ section.feature-list-section .feature-list-container {
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 21, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-container,
-  section.feature-list-section .feature-list-container {
+  /* line 10, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .feature-list-container, section.feature-list-section .feature-list-container {
     height: auto;
     overflow: initial;
   }
 }
-/* line 26, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 15, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
-section#feature-list .feature-list-container p,
-section.feature-list-section .feature-list-container .feature-image,
+section#feature-list .feature-list-container p, section.feature-list-section .feature-list-container .feature-image,
 section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 31, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .feature-list-container .headText,
-section.feature-list-section .feature-list-container .headText {
+/* line 20, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .feature-list-container .headText, section.feature-list-section .feature-list-container .headText {
   font-family: FSMe-Bold;
   font-size: 16px;
   color: #444957;
   padding: 12px 0 6px;
 }
-/* line 37, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .feature-list-container p,
-section.feature-list-section .feature-list-container p {
+/* line 26, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .feature-list-container p, section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
   font-size: 14px;
   color: #000;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 21, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-container,
-  section.feature-list-section .feature-list-container {
+  /* line 10, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .feature-list-container, section.feature-list-section .feature-list-container {
     width: 33.3333%;
     padding: 40px 35px 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 21, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-container,
-  section.feature-list-section .feature-list-container {
+  /* line 10, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .feature-list-container, section.feature-list-section .feature-list-container {
     width: 100%;
     padding: 30px 40px;
   }
-  /* line 49, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-container .headText,
-  section.feature-list-section .feature-list-container .headText {
+  /* line 38, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .feature-list-container .headText, section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 52, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-container p,
-  section.feature-list-section .feature-list-container p {
+  /* line 41, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .feature-list-container p, section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 57, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-showMore,
-section.feature-list-section .btn-showMore {
+/* line 46, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .btn-showMore, section.feature-list-section .btn-showMore {
   background: none;
   width: 160px;
   padding: 10px 0;
@@ -2045,17 +2012,15 @@ section.feature-list-section .btn-showMore {
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  /* line 57, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .btn-showMore,
-  section.feature-list-section .btn-showMore {
+  /* line 46, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .btn-showMore, section.feature-list-section .btn-showMore {
     width: 50%;
     padding-bottom: 35px;
     text-align: center;
   }
 }
-/* line 73, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-showMore:after,
-section.feature-list-section .btn-showMore:after {
+/* line 62, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .btn-showMore:after, section.feature-list-section .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e912';
   color: #ffd600;
@@ -2068,42 +2033,35 @@ section.feature-list-section .btn-showMore:after {
   top: -2px;
 }
 @media (max-width: 767px) {
-  /* line 73, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .btn-showMore:after,
-  section.feature-list-section .btn-showMore:after {
+  /* line 62, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .btn-showMore:after, section.feature-list-section .btn-showMore:after {
     right: 50%;
     margin-right: -15px;
     top: 25px;
   }
 }
-/* line 90, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-showMore:focus,
-section.feature-list-section .btn-showMore:focus {
+/* line 79, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .btn-showMore:focus, section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 93, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-showMore span.more,
-section.feature-list-section .btn-showMore span.more {
+/* line 82, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .btn-showMore span.more, section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 96, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-showMore span.less,
-section.feature-list-section .btn-showMore span.less {
+/* line 85, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .btn-showMore span.less, section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 102, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list.showLess .btn-showMore span.more,
-section.feature-list-section.showLess .btn-showMore span.more {
+/* line 92, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list.showLess .btn-showMore span.more, section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 105, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list.showLess .btn-showMore span.less,
-section.feature-list-section.showLess .btn-showMore span.less {
+/* line 95, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list.showLess .btn-showMore span.less, section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 108, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list.showLess .btn-showMore:after,
-section.feature-list-section.showLess .btn-showMore:after {
+/* line 98, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list.showLess .btn-showMore:after, section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e913';
   color: #ffd600;
@@ -7286,7 +7244,7 @@ section.hero-banner .videoBG {
   height: 0;
   padding-bottom: 56.25%;
   /* 16:9 */
-  opacity: 0.5;
+  opacity: 1;
 }
 /* line 29, ../../../src/components/videos/sass/_video-background.scss */
 section.hero-banner .videoBG iframe {
