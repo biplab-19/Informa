@@ -81,8 +81,8 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _resetForm = function($form) {
-        $form.find('input:text, input:password, input:number, input:email, select, textarea').val('');
-        $form.find('input:radio, input:checkbox')
+        $form.find('input[type=text], input[type=password], input[type=number], input[type=email], select, textarea').val('');
+        $form.find('input[type=radio], input[type=checkbox]')
              .removeAttr('checked').removeAttr('selected');
     }
 
