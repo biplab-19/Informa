@@ -34,7 +34,7 @@
 			}
 			tr:first-child td:first-child {
 				font-weight: 700;
-				color: $sitemap-main-gray;
+				color: $rte-h1-gray-draker;
 			}
 			tr:first-child td {
 				background: $rte-thead-blue-draker;
@@ -64,6 +64,8 @@
 				border-bottom: 1px solid $rte-b-btm-gray-light;
 				padding: 10px;
 				font-size: 14px;
+				vertical-align: middle;
+				color: $gray-darker;
 				.rteTable-rightText {
 					display: block;
 					width: 75%;
@@ -84,6 +86,7 @@
 				}
 				&:first-child {
 					font-weight: 700;
+					color: $sitemap-main-gray;
 				}
 				&:first-child:before {
 					display: none;
@@ -107,21 +110,32 @@
 				margin-bottom: 25px;
     		display: block;
 				td {
-					color: $sitemap-main-gray;
+					color: $gray-darker;
 					padding: 12px 10px;
 					font-size: 14px;
 					background-color: $sitemap-light-gray;
 					border-top: none;
 					display: block;
+					vertical-align: middle;
 					&:first-child{
 						font-weight: 700;
 						background: $rte-thead-blue-draker;
 						color: $light;
 						font-size: 16px;
 					}
+					.rteValues{
+						width: 50%;
+				    display: inline-block;
+						vertical-align: middle;
+						color: $gray-darker;
+					}
 					.rteTitles {
 				    width: 50%;
 				    display: inline-block;
+						color: $gray-darker;
+						.rteValues{
+							width: 100%;
+						}
 					}
 					.rteTable-rightText {
 						display: inline-block;

@@ -13,7 +13,7 @@ INFORMA.RTETable = (function(window, $, namespace) {
         });
         responsiveContainer.find('table.table tr').each(function() {
             for (i = 1; i <= titles.length; i++) {
-                $(this).find('td').eq(i).prepend(titles[i]);
+                $(this).find('td').eq(i).wrapInner('<div class="rteValues" />').prepend(titles[i]);
             }
         });
         responsiveContainer.find('table.table tr:first-child').remove();
