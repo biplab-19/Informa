@@ -17,6 +17,7 @@ INFORMA.forms = (function(window, $, namespace) {
         init,
         _validateEmail,
         _showModal,
+        _resetForm,
         _getAjaxData,
         _parseResults,
         _bindProductId,
@@ -78,6 +79,13 @@ INFORMA.forms = (function(window, $, namespace) {
             });
         }
     }
+
+    _resetForm = function($form) {
+        $form.find('input, select, textarea').val('');
+        $form.find('input:radio, input:checkbox')
+             .removeAttr('checked').removeAttr('selected');
+    }
+
     _showOverlay = function() {
         var formSubmitResponseModal, 
             formSubmitResponseHTML;
@@ -87,6 +95,7 @@ INFORMA.forms = (function(window, $, namespace) {
             if (formSubmitResponseModal.length > 0) {
 
                 formSubmitResponseModal.find('form').removeClass('hide');
+                formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
                 /*formSubmitResponseModal.modal({
                     show: true,
                     keyboard: false,
@@ -102,7 +111,8 @@ INFORMA.forms = (function(window, $, namespace) {
             if (formSubmitResponseModal.length > 0) {
 
                 formSubmitResponseModal.find('form').addClass('hide');
-                formSubmitResponseModal.find('form').trigger('reset');
+                formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
+                _resetForm(formSubmitResponseModal.find('form'));
                 formSubmitResponseModal.modal({
                     show: true,
                     keyboard: false,
@@ -116,7 +126,7 @@ INFORMA.forms = (function(window, $, namespace) {
             formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
             if (formSubmitResponseHTML.length > 0) {
                formSubmitResponseHTML.find('form').addClass('hide');
-               formSubmitResponseHTML.find('form').trigger('reset');
+               _resetForm(formSubmitResponseHTML.find('form'));
             }
         }
     }
