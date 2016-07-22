@@ -2094,7 +2094,7 @@ INFORMA.forms = (function(window, $, namespace) {
     };
 
     _bindProductId = function(){
-        $(document).on('click', '.wffm-elq-form-btn', function(){
+        $("[data-productid]").on("click", function(){
             _showModal(this);
         });
     }
@@ -2983,7 +2983,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         var videoUrl = _videoElem.data('video');
         _videoElem.parent().html('<iframe width="100%" height="auto" src="'+videoUrl+'" frameborder="0" allowfullscreen volume="0"></iframe>');
     };
-
+    
     init = function() {
         if (_videoElem.length > 0) {
            _bindIframe();
@@ -3892,6 +3892,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         });
     },
     GetAllData = function () {
+        //debugger;
         var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
                 InformationType = jQuery('.btn-showMore').attr('data-ChosenInformationType'),
@@ -3900,7 +3901,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
                 SampleContent = jQuery('.btn-showMore').attr('data-ChosenSampleContent'),
                 Count = jQuery('section.resource-list').attr('data-count'),
-                Items = GetRefineData();
+                Items = GetRefineData(),
+                Topic = $('.resource-topic').val();
                 
 
             var FieldItems = INFORMA.Utils.serializeObject(FieldArray);
@@ -3914,12 +3916,14 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             Items.PageSize = Count;
             Items.resourceSectors = FieldItems["resourceSectors"];
             Items.resourceSubSectors = FieldItems["resourceSubSectors"];
-
+            if(Topic.length > 0){
+                Items.topicid = Topic;
+            }
             return Items
-            
     },
 
     SubmitHandler = function() {
+        debugger
         BtnSubmit.on('click', function(e) {
             e.preventDefault();
             var MergeItems = GetAllData();
