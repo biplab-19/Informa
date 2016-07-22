@@ -1,4 +1,4 @@
-/*! 2016-07-21 */_adjustHeigt = function(){
+/*! 2016-07-22 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -270,6 +270,10 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 "Name": null,
                 "Sector": null
             }
+            AnalystSearch.find('#name').val('');
+            $('select[name="Sector"]').prop('selectedIndex',0);
+            
+            $('select[name="SubSector"]').prop('selectedIndex',0);
             GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
         })
     }
@@ -2090,7 +2094,7 @@ INFORMA.forms = (function(window, $, namespace) {
     };
 
     _bindProductId = function(){
-        $("[data-productid]").bind("click", function(){
+        $("[data-productid]").on("click", function(){
             _showModal(this);
         });
     }
