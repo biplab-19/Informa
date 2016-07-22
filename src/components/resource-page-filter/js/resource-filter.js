@@ -400,6 +400,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         });
     },
     GetAllData = function () {
+        //debugger;
         var FieldArray = ResourceContainer.find("form").serializeArray(),
                 Guid = jQuery('.btn-showMore').attr('data-ContainerGuid'),
                 InformationType = jQuery('.btn-showMore').attr('data-ChosenInformationType'),
@@ -408,7 +409,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 typeGuid = jQuery('.btn-showMore').attr('data-ContenttypeGuid'),
                 SampleContent = jQuery('.btn-showMore').attr('data-ChosenSampleContent'),
                 Count = jQuery('section.resource-list').attr('data-count'),
-                Items = GetRefineData();
+                Items = GetRefineData(),
+                Topic = $('.resource-topic').val();
                 
 
             var FieldItems = INFORMA.Utils.serializeObject(FieldArray);
@@ -422,9 +424,10 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             Items.PageSize = Count;
             Items.resourceSectors = FieldItems["resourceSectors"];
             Items.resourceSubSectors = FieldItems["resourceSubSectors"];
-
+            if(Topic.length > 0){
+                Items.topicid = Topic;
+            }
             return Items
-            
     },
 
     SubmitHandler = function() {
