@@ -1,6 +1,10 @@
 .events-list {
 	padding: 30px 0;
 	background-color: $white;
+	&:after {
+		content: " ";
+    	display: table;
+	}
 	.header {
 		text-align: center;
 		@include mobile {
