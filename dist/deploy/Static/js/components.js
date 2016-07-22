@@ -2094,7 +2094,7 @@ INFORMA.forms = (function(window, $, namespace) {
     };
 
     _bindProductId = function(){
-        $("[data-productid]").on("click", function(){
+        $(document).on('click', '.wffm-elq-form-btn', function(){
             _showModal(this);
         });
     }
@@ -2983,7 +2983,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         var videoUrl = _videoElem.data('video');
         _videoElem.parent().html('<iframe width="100%" height="auto" src="'+videoUrl+'" frameborder="0" allowfullscreen volume="0"></iframe>');
     };
-    
+
     init = function() {
         if (_videoElem.length > 0) {
            _bindIframe();
@@ -3923,7 +3923,6 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     },
 
     SubmitHandler = function() {
-        debugger
         BtnSubmit.on('click', function(e) {
             e.preventDefault();
             var MergeItems = GetAllData();
