@@ -255,10 +255,14 @@ var INFORMA = window.INFORMA || {};
                                                           '<span class="analyst-type">{{Type}}</span>' +
                                                             '<h2>{{Name}}</h2>' +
                                                             '<h3>{{Type}}, {{JobTitle}}</h3>' +
+                                                            '{{#if Country}}'+
                                                             '<p class="location">{{State}}, {{Country}}</p>' +
+                                                            '{{/if}}'+
                                                         '</div>' +
                                                         '<div class="analyst-img">' +
+                                                            '{{#if ProfileImage}}'+
                                                             '<img src="{{ProfileImage}}" alt="{{image}}" />' +
+                                                            '{{/if}}'+
                                                         '</div>' +
                                                     '</div>' +
                                                 '</div>' +
@@ -287,8 +291,8 @@ var INFORMA = window.INFORMA || {};
                                                             '{{#compare LinkedinLink null operator="!="}}' +
                                                                 '<li><a href="{{LinkedinLink.Url}}" target="{{LinkedinLink.Target}}" class="icon-linked-in"></a></li>' +
                                                             '{{/compare}}' +
-                                                            '{{#compare EmailAddress null operator="!="}}' +
-                                                                '<li><a href="mailto:{{EmailAddress}}" class="icon-email"></a></li>' +
+                                                            '{{#compare EmailAddressLink null operator="!="}}' +
+                                                                '<li><a href="mailto:{{EmailAddressLink}}" class="icon-email"></a></li>' +
                                                             '{{/compare}}' +
                                                         '</ul>' +
                                                         '<a href="#" class="btn btn-default pull-right">Full Profile</a>' +
@@ -403,8 +407,8 @@ var INFORMA = window.INFORMA || {};
                                                     '{{#compare results.LinkedinLink null operator="!="}}' +
                                                         '<li><a href="{{results.LinkedinLink.Url}}" target="{{results.LinkedinLink.Target}}" class="icon-linked-in"></a></li>' +
                                                     '{{/compare}}' +
-                                                    '{{#compare results.EmailAddress null operator="!="}}' +
-                                                        '<li><a href="mailto:{{results.EmailAddress}}" class="icon-email"></a></li>' +
+                                                    '{{#compare results.EmailAddressLink null operator="!="}}' +
+                                                        '<li><a href="mailto:{{results.EmailAddressLink}}" class="icon-email"></a></li>' +
                                                     '{{/compare}}' +
                                                 '</ul>' +
                                                 '<a href="#" class="btn btn-default pull-right">{{results.SeeFullProfileLabel}}</a>' +
