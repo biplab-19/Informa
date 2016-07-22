@@ -467,7 +467,7 @@ INFORMA.forms = (function(window, $, namespace) {
     };
 
     _bindProductId = function(){
-        $("[data-productid]").bind("click", function(){
+        $("[data-productid]").on("click", function(){
             _showModal(this);
         });
     }
