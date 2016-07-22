@@ -40,7 +40,7 @@ var INFORMA = window.INFORMA || {};
             "ResourceList": "/client/search/GetResourceListing",
             "ResourceSubSectorList": "/client/search/GetSubSectors",
             "GetFAQs": "/client/search/GetFAQList",
-            "GetFormItems": "client/ajax/GetModifiedWffmFormItems"
+            "GetFormItems": "/client/ajax/GetModifiedWffmFormItems"
         }
     };
 
