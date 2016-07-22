@@ -107,7 +107,7 @@ INFORMA.forms = (function(window, $, namespace) {
                formSubmitResponseHTML.find('form').removeClass('hide');
             }
         }else if(_formSubmitStatus.attr('data-status') > ""){
-            formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+            formSubmitResponseModal = _formSubmitStatus.parents('.form-inline-container');
             if (formSubmitResponseModal.length > 0) {
 
                 formSubmitResponseModal.find('form').addClass('hide');
@@ -129,7 +129,58 @@ INFORMA.forms = (function(window, $, namespace) {
                _resetForm(formSubmitResponseHTML.find('form'));
             }
         }
+
+        if(_formSubmitStatus.parents('.tab-pane').length > 0) {
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+        }
+
     }
+    
+    // _showOverlay = function() {
+    //     var formSubmitResponseModal, 
+    //         formSubmitResponseHTML;
+
+    //     if (_formSubmitStatus.attr('data-status') == "") {
+    //         formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+    //         if (formSubmitResponseModal.length > 0) {
+
+    //             formSubmitResponseModal.find('form').removeClass('hide');
+    //             formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
+    //             /*formSubmitResponseModal.modal({
+    //                 show: true,
+    //                 keyboard: false,
+    //                 backdrop: "static"
+    //             })*/
+    //         }
+    //         formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
+    //         if (formSubmitResponseHTML.length > 0) {
+    //            formSubmitResponseHTML.find('form').removeClass('hide');
+    //         }
+    //     }else if(_formSubmitStatus.attr('data-status') > ""){
+    //         formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+    //         if (formSubmitResponseModal.length > 0) {
+
+    //             formSubmitResponseModal.find('form').addClass('hide');
+    //             formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
+    //             _resetForm(formSubmitResponseModal.find('form'));
+    //             formSubmitResponseModal.modal({
+    //                 show: true,
+    //                 keyboard: false,
+    //                 backdrop: "static"
+    //             })
+
+    //             formSubmitResponseModal.find('.form-modal-close').on("click",function(){
+    //                 _formSubmitStatus.attr("data-status","");
+    //             })
+    //         }
+    //         formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
+    //         if (formSubmitResponseHTML.length > 0) {
+    //            formSubmitResponseHTML.find('form').addClass('hide');
+    //            _resetForm(formSubmitResponseHTML.find('form'));
+    //         }
+    //     }
+    // }
 
     _validateAllForms = function() {
         $('form.get-in-touch').validate({
