@@ -467,7 +467,7 @@ INFORMA.forms = (function(window, $, namespace) {
     };
 
     _bindProductId = function(){
-        $("[data-productid]").on("click", function(){
+        $(document).on('click', '.wffm-elq-form-btn', function(){
             _showModal(this);
         });
     }
