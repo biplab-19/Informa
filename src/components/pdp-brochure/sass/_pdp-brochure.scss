@@ -3,12 +3,24 @@
   color: $white;
   height: auto;
   padding-bottom: 20px;
-  a {
-      text-decoration: none;
-      padding: 10px;
-      color: $white !important;
-      font-family: FSMe-bold;
+  @include mobile {
+    padding-left: 25px;
+    padding-right: 25px;
   }
+    .brochure-btn{
+      a {
+          text-decoration: none;
+          padding: 10px;
+          padding-left: 15px;
+          padding-right: 15px;
+          color: $white !important;
+          font-family: FSMe-bold;
+          @include mobile {
+            width: 100%;
+          }
+      }
+    }
+
   p{
     padding-top: 29px;
     padding-bottom: 26px;
@@ -67,7 +79,7 @@
           font-size: 18px;
           padding-left: 20px;
           @include mobile {
-              padding-left: 44px;
+              padding-left: 32px;
           }
       }
       li:before {
@@ -77,9 +89,9 @@
           font-size: 20px;
           color: #ffd500;
           position: absolute;
-          left: 35px;
+          left: 39px;
           @include mobile {
-              left: 28px;
+              left: 7px;
               padding-left: 0px;
           }
       }
