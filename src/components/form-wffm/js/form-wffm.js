@@ -29,7 +29,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _showOverlayQueryString,
         _validateAllForms,
         _reCaptchaHandler,
-        _disableSubmit;
+        _disableSubmit,
+        _showHideInlineForm;
 
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo").submit(function() {
@@ -86,8 +87,20 @@ INFORMA.forms = (function(window, $, namespace) {
              .removeAttr('checked').removeAttr('selected');
     }
 
+    _showHideInlineForm = function(){
+      var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active');
+      if(formInlineActiveTab.length > 0){
+        var formInlineError = formInlineActiveTab.find('.error-response'), formInlineSucess = formInlineActiveTab.find('.success-response');
+        if(formInlineError.length > 0 || formInlineSucess.length > 0 ){
+          formInlineActiveTab.find('form').addClass('hide');
+        }else{
+          formInlineActiveTab.find('form').removeClass('hide');
+        }
+      }
+    }
+
     _showOverlay = function() {
-        var formSubmitResponseModal, 
+        var formSubmitResponseModal,
             formSubmitResponseHTML;
 
         if (_formSubmitStatus.attr('data-status') == "") {
@@ -136,9 +149,9 @@ INFORMA.forms = (function(window, $, namespace) {
         }
 
     }
-    
+
     // _showOverlay = function() {
-    //     var formSubmitResponseModal, 
+    //     var formSubmitResponseModal,
     //         formSubmitResponseHTML;
 
     //     if (_formSubmitStatus.attr('data-status') == "") {
@@ -183,18 +196,18 @@ INFORMA.forms = (function(window, $, namespace) {
     // }
 
     _validateAllForms = function() {
-        $('form.get-in-touch').validate({
-            submitHandler: function() {
-                alert("submitted!");
-            },
-            failure: function() {
-                console.log("Failure");
-            },
-            success: function() {
-                console.log("Success");
-            }
-        });
-        $('form.request-a-demo').validate();
+        // $('form.get-in-touch').validate({
+        //     submitHandler: function() {
+        //         console.log("submitted!");
+        //     },
+        //     failure: function() {
+        //         console.log("Failure");
+        //     },
+        //     success: function() {
+        //         console.log("Success");
+        //     }
+        // });
+        // $('form.request-a-demo').validate();
     }
 
     _bindToolTip = function() {
@@ -538,6 +551,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _bindSelectOptions();
         _bindValidationLogic();
         _disableSubmit();
+        _showHideInlineForm();
     };
 
     return {
