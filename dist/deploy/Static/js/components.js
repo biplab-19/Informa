@@ -1740,21 +1740,28 @@ INFORMA.forms = (function(window, $, namespace) {
              .removeAttr('checked').removeAttr('selected');
     }
 
-    _showHideInlineForm = function(){
-      var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active');
-      if(formInlineActiveTab.length > 0){
-        var formInlineError = formInlineActiveTab.find('.error-response'), formInlineSucess = formInlineActiveTab.find('.submit-response');
-        if(formInlineError.length > 0 || formInlineSucess.length > 0 ){
-          formInlineActiveTab.find('form').addClass('hide');
-        }else{
-          formInlineActiveTab.find('form').removeClass('hide');
+    _showHideInlineForm = function() {
+        var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane');
+        if (formInlineActiveTab.length > 0) {
+            var inlineTabError = formInlineActiveTab.find('.error-response'),
+                inlineTabErrorForm = inlineTabError.parents('.tab-pane').find('form');
+            if (inlineTabError.length > 0) {
+                inlineTabErrorForm.addClass('hide');
+            } else {
+                inlineTabErrorForm.removeClass('hide');
+            }
+            var inlineTabSucess = formInlineActiveTab.find('.submit-response'),
+                inlineTabSucessForm = inlineTabSucess.parents('.tab-pane').find('form');
+            if (inlineTabSucess.length > 0) {
+                inlineTabSucessForm.addClass('hide');
+            } else {
+                inlineTabSucessForm.removeClass('hide');
+            }
         }
-      }
     }
 
     _showOverlay = function() {
-        var formSubmitResponseModal,
-            formSubmitResponseHTML;
+        var formSubmitResponseModal;
 
         if (_formSubmitStatus.attr('data-status') == "") {
             formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
@@ -1767,10 +1774,10 @@ INFORMA.forms = (function(window, $, namespace) {
                     backdrop: "static"
                 })*/
             }
-            formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
-            if (formSubmitResponseHTML.length > 0) {
-               formSubmitResponseHTML.find('form').removeClass('hide');
-            }
+            // formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
+            // if (formSubmitResponseHTML.length > 0) {
+            //    formSubmitResponseHTML.find('form').removeClass('hide');
+            // }
         }else if(_formSubmitStatus.attr('data-status') > ""){
             formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
             if (formSubmitResponseModal.length > 0) {
@@ -1788,11 +1795,11 @@ INFORMA.forms = (function(window, $, namespace) {
                     _formSubmitStatus.attr("data-status","");
                 })
             }
-            formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
-            if (formSubmitResponseHTML.length > 0) {
-               formSubmitResponseHTML.find('form').addClass('hide');
-               _resetForm(formSubmitResponseHTML.find('form'));
-            }
+            // formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
+            // if (formSubmitResponseHTML.length > 0) {
+            //    formSubmitResponseHTML.find('form').addClass('hide');
+            //    _resetForm(formSubmitResponseHTML.find('form'));
+            // }
         }
 
     }
