@@ -176,9 +176,22 @@
         .topic-name{
             padding:0 10px;
             margin-left:0 !important;
+            @include mobile{
+                padding:0;
+            }
+        }
+        .topic-pipe{
+            @include mobile{
+                padding:0 10px;
+            }
         }
         .topic-pipe:last-of-type{
             display:none;
+        }
+        .topic-mob{
+            @include mobile{
+                display:-webkit-box;
+            }
         }
         span.by{
           text-decoration: underline;
@@ -284,6 +297,9 @@
         }
         .topic{
             padding-top :15px;
+            @include mobile{
+                padding-bottom:5px !important;
+            }
         }
         //  from here for sample insight banner
         .provided{
