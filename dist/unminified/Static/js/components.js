@@ -1,4 +1,4 @@
-/*! 2016-07-22 */_adjustHeigt = function(){
+/*! 2016-07-25 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -644,13 +644,14 @@ INFORMA.brandList = (function(window, $, namespace) {
 
     _bindShowMore = function(container){
         // if data-items, data-infinite is defined, used it
-        var _showMore = $('.show-more-brands ');
+        var _showMore = $('.product-brands-list .view-all-mobile-container');
         _showMore.on('click',function(){
             var _vp = INFORMA.global.device.viewportN;
             if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
 
-              $('.product-brands-list .container > .row > .card-col:nth-child(n+4), .card-col-heading').show();
-              $('.product-brands-list .view-all-mobile-container').hide();
+              //$('.product-brands-list .container > .row > .card-col:nth-child(n+4), .card-col-heading').show();
+              $(this).prev().find(".col-xs-12 ").show();
+              $(this).hide();
             }
         });
     }
@@ -1656,7 +1657,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _showOverlayQueryString,
         _validateAllForms,
         _reCaptchaHandler,
-        _disableSubmit;
+        _disableSubmit,
+        _showHideInlineForm;
 
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo").submit(function() {
@@ -1713,8 +1715,20 @@ INFORMA.forms = (function(window, $, namespace) {
              .removeAttr('checked').removeAttr('selected');
     }
 
+    _showHideInlineForm = function(){
+      var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active');
+      if(formInlineActiveTab.length > 0){
+        var formInlineError = formInlineActiveTab.find('.error-response'), formInlineSucess = formInlineActiveTab.find('.success-response');
+        if(formInlineError.length > 0 || formInlineSucess.length > 0 ){
+          formInlineActiveTab.find('form').addClass('hide');
+        }else{
+          formInlineActiveTab.find('form').removeClass('hide');
+        }
+      }
+    }
+
     _showOverlay = function() {
-        var formSubmitResponseModal, 
+        var formSubmitResponseModal,
             formSubmitResponseHTML;
 
         if (_formSubmitStatus.attr('data-status') == "") {
@@ -1763,9 +1777,9 @@ INFORMA.forms = (function(window, $, namespace) {
         }
 
     }
-    
+
     // _showOverlay = function() {
-    //     var formSubmitResponseModal, 
+    //     var formSubmitResponseModal,
     //         formSubmitResponseHTML;
 
     //     if (_formSubmitStatus.attr('data-status') == "") {
@@ -1810,18 +1824,18 @@ INFORMA.forms = (function(window, $, namespace) {
     // }
 
     _validateAllForms = function() {
-        $('form.get-in-touch').validate({
-            submitHandler: function() {
-                alert("submitted!");
-            },
-            failure: function() {
-                console.log("Failure");
-            },
-            success: function() {
-                console.log("Success");
-            }
-        });
-        $('form.request-a-demo').validate();
+        // $('form.get-in-touch').validate({
+        //     submitHandler: function() {
+        //         console.log("submitted!");
+        //     },
+        //     failure: function() {
+        //         console.log("Failure");
+        //     },
+        //     success: function() {
+        //         console.log("Success");
+        //     }
+        // });
+        // $('form.request-a-demo').validate();
     }
 
     _bindToolTip = function() {
@@ -2165,6 +2179,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _bindSelectOptions();
         _bindValidationLogic();
         _disableSubmit();
+        _showHideInlineForm();
     };
 
     return {
