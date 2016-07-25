@@ -1978,12 +1978,16 @@ section#feature-list .btn-see-all-features,
 section.feature-list-section .btn-see-all-features {
   width: 20%;
   margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 5px;
 }
 @media (max-width: 767px) {
   /* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-see-all-features,
   section.feature-list-section .btn-see-all-features {
     width: 90%;
+    padding-top: 5px;
+    padding-bottom: 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
@@ -1991,9 +1995,11 @@ section.feature-list-section .btn-see-all-features {
   section#feature-list .btn-see-all-features,
   section.feature-list-section .btn-see-all-features {
     width: 30%;
+    padding-top: 10px;
+    padding-bottom: 5px;
   }
 }
-/* line 21, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 27, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container,
 section.feature-list-section .feature-list-container {
   float: left;
@@ -2003,14 +2009,14 @@ section.feature-list-section .feature-list-container {
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 21, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 27, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     height: auto;
     overflow: initial;
   }
 }
-/* line 26, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 32, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
 section#feature-list .feature-list-container p,
@@ -2019,7 +2025,7 @@ section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 31, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 37, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .headText,
 section.feature-list-section .feature-list-container .headText {
   font-family: FSMe-Bold;
@@ -2027,7 +2033,7 @@ section.feature-list-section .feature-list-container .headText {
   color: #444957;
   padding: 12px 0 6px;
 }
-/* line 37, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 43, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container p,
 section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
@@ -2035,7 +2041,7 @@ section.feature-list-section .feature-list-container p {
   color: #000;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 21, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 27, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 33.3333%;
@@ -2043,24 +2049,24 @@ section.feature-list-section .feature-list-container p {
   }
 }
 @media (max-width: 767px) {
-  /* line 21, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 27, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 100%;
     padding: 30px 40px;
   }
-  /* line 49, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 55, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .headText,
   section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 52, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 58, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container p,
   section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 57, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 63, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore,
 section.feature-list-section .btn-showMore {
   background: none;
@@ -2075,7 +2081,7 @@ section.feature-list-section .btn-showMore {
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  /* line 57, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 63, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-showMore,
   section.feature-list-section .btn-showMore {
     width: 50%;
@@ -2083,7 +2089,7 @@ section.feature-list-section .btn-showMore {
     text-align: center;
   }
 }
-/* line 73, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 79, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:after,
 section.feature-list-section .btn-showMore:after {
   font-family: 'InformaIcons';
@@ -2098,7 +2104,7 @@ section.feature-list-section .btn-showMore:after {
   top: -2px;
 }
 @media (max-width: 767px) {
-  /* line 73, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 79, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-showMore:after,
   section.feature-list-section .btn-showMore:after {
     right: 50%;
@@ -2106,32 +2112,32 @@ section.feature-list-section .btn-showMore:after {
     top: 25px;
   }
 }
-/* line 90, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 96, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:focus,
 section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 93, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 99, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.more,
 section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 96, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 102, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.less,
 section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 102, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 108, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.more,
 section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 105, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 111, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.less,
 section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 108, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 114, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore:after,
 section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
@@ -7710,8 +7716,8 @@ form.request-a-demo .hide-title label.control-label {
   clear: both;
 }
 /* line 255, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .hide-title .required-field .checkbox,
-form.request-a-demo .hide-title .required-field .checkbox {
+form.get-in-touch .hide-title .checkbox,
+form.request-a-demo .hide-title .checkbox {
   display: table-cell;
   float: left;
   margin-top: -5px;
@@ -7721,8 +7727,8 @@ form.request-a-demo .hide-title .required-field .checkbox {
   color: #444957;
 }
 /* line 263, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .hide-title .required-field .checkbox input,
-form.request-a-demo .hide-title .required-field .checkbox input {
+form.get-in-touch .hide-title .checkbox input,
+form.request-a-demo .hide-title .checkbox input {
   margin-left: 0;
   right: 5px;
   bottom: 5px;
@@ -7730,21 +7736,21 @@ form.request-a-demo .hide-title .required-field .checkbox input {
 }
 @media (max-width: 767px) {
   /* line 255, ../../../src/components/form-wffm/sass/form-wffm.scss */
-  form.get-in-touch .hide-title .required-field .checkbox,
-  form.request-a-demo .hide-title .required-field .checkbox {
+  form.get-in-touch .hide-title .checkbox,
+  form.request-a-demo .hide-title .checkbox {
     width: 48%;
   }
 }
 @media (min-width: 768px) {
   /* line 255, ../../../src/components/form-wffm/sass/form-wffm.scss */
-  form.get-in-touch .hide-title .required-field .checkbox,
-  form.request-a-demo .hide-title .required-field .checkbox {
+  form.get-in-touch .hide-title .checkbox,
+  form.request-a-demo .hide-title .checkbox {
     width: 30%;
   }
 }
 /* line 275, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .hide-title .required-field .checkbox label,
-form.request-a-demo .hide-title .required-field .checkbox label {
+form.get-in-touch .hide-title .checkbox label,
+form.request-a-demo .hide-title .checkbox label {
   height: inherit;
   margin: 0;
   font-size: 14px;
@@ -7752,30 +7758,30 @@ form.request-a-demo .hide-title .required-field .checkbox label {
 }
 @media (max-width: 767px) {
   /* line 275, ../../../src/components/form-wffm/sass/form-wffm.scss */
-  form.get-in-touch .hide-title .required-field .checkbox label,
-  form.request-a-demo .hide-title .required-field .checkbox label {
+  form.get-in-touch .hide-title .checkbox label,
+  form.request-a-demo .hide-title .checkbox label {
     padding: 5px;
     width: 100%;
   }
 }
 @media (min-width: 768px) {
   /* line 275, ../../../src/components/form-wffm/sass/form-wffm.scss */
-  form.get-in-touch .hide-title .required-field .checkbox label,
-  form.request-a-demo .hide-title .required-field .checkbox label {
+  form.get-in-touch .hide-title .checkbox label,
+  form.request-a-demo .hide-title .checkbox label {
     width: 100%;
     padding: 10px;
   }
 }
 /* line 289, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .hide-title .required-field .checkbox.active,
-form.request-a-demo .hide-title .required-field .checkbox.active {
+form.get-in-touch .hide-title .checkbox.active,
+form.request-a-demo .hide-title .checkbox.active {
   background-color: inherit;
   color: #f0f1f3;
   border: 3px solid #ffd500;
 }
 /* line 293, ../../../src/components/form-wffm/sass/form-wffm.scss */
-form.get-in-touch .hide-title .required-field .checkbox.active::after,
-form.request-a-demo .hide-title .required-field .checkbox.active::after {
+form.get-in-touch .hide-title .checkbox.active::after,
+form.request-a-demo .hide-title .checkbox.active::after {
   content: "\e914";
   visibility: visible;
   font-family: 'InformaIcons';
@@ -7787,16 +7793,16 @@ form.request-a-demo .hide-title .required-field .checkbox.active::after {
 }
 @media (min-width: 768px) {
   /* line 306, ../../../src/components/form-wffm/sass/form-wffm.scss */
-  form.get-in-touch .hide-title .required-field .checkbox:nth-child(3n-2),
-  form.request-a-demo .hide-title .required-field .checkbox:nth-child(3n-2) {
+  form.get-in-touch .hide-title .checkbox:nth-child(3n-2),
+  form.request-a-demo .hide-title .checkbox:nth-child(3n-2) {
     margin-left: 5%;
     margin-right: 5%;
   }
 }
 @media (max-width: 767px) {
   /* line 312, ../../../src/components/form-wffm/sass/form-wffm.scss */
-  form.get-in-touch .hide-title .required-field .checkbox:nth-child(even),
-  form.request-a-demo .hide-title .required-field .checkbox:nth-child(even) {
+  form.get-in-touch .hide-title .checkbox:nth-child(even),
+  form.request-a-demo .hide-title .checkbox:nth-child(even) {
     margin-left: 4%;
   }
 }
