@@ -521,10 +521,11 @@ INFORMA.forms = (function(window, $, namespace) {
     _showModal = function(el) 
     { 
         _formId = $(el).data('modal');
-        productId = { 'guid' : $(el).attr('data-productid') };
-
-        //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
-        _getAjaxData(Urls.GetFormItems, "Get", productId, _parseResults, null, null);
+        if($(el).attr('data-productid')){
+          productId = { 'guid' : $(el).attr('data-productid') };
+          //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
+            _getAjaxData(Urls.GetFormItems, "Get", productId, _parseResults, null, null);
+        }
         $(_formId).modal({ 
             show : 'true' 
         })
