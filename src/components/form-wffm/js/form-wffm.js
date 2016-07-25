@@ -90,7 +90,7 @@ INFORMA.forms = (function(window, $, namespace) {
     _showHideInlineForm = function(){
       var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active');
       if(formInlineActiveTab.length > 0){
-        var formInlineError = formInlineActiveTab.find('.error-response'), formInlineSucess = formInlineActiveTab.find('.success-response');
+        var formInlineError = formInlineActiveTab.find('.error-response'), formInlineSucess = formInlineActiveTab.find('.submit-response');
         if(formInlineError.length > 0 || formInlineSucess.length > 0 ){
           formInlineActiveTab.find('form').addClass('hide');
         }else{
@@ -106,7 +106,6 @@ INFORMA.forms = (function(window, $, namespace) {
         if (_formSubmitStatus.attr('data-status') == "") {
             formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
             if (formSubmitResponseModal.length > 0) {
-
                 formSubmitResponseModal.find('form').removeClass('hide');
                 formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
                 /*formSubmitResponseModal.modal({
