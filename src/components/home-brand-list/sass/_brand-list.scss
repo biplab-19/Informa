@@ -148,6 +148,18 @@
             }
         }
     }
+    .view-all-mobile-container {
+            display: none;
+            color: $text-gray;
+    }
+    @include mobile {
+        .container > .row > .card-col:nth-child(n+4) {
+            display: none;
+        }
+        .view-all-mobile-container {
+            display: block;
+        }
+    }
     .productfinder-link{
         margin:30px auto 0;
         text-align: center;
