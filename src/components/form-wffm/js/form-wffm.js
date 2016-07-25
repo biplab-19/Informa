@@ -226,7 +226,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _parseResults = function(data) {
-        if (!$('fieldset').hasClass('.area-interests')) {
+        if (!$(_formId + ' fieldset').hasClass('.area-interests')) {
             return false;
         }
         var results = data,
