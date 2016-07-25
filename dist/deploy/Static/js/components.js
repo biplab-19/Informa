@@ -1718,7 +1718,7 @@ INFORMA.forms = (function(window, $, namespace) {
     _showHideInlineForm = function(){
       var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active');
       if(formInlineActiveTab.length > 0){
-        var formInlineError = formInlineActiveTab.find('.error-response'), formInlineSucess = formInlineActiveTab.find('.success-response');
+        var formInlineError = formInlineActiveTab.find('.error-response'), formInlineSucess = formInlineActiveTab.find('.submit-response');
         if(formInlineError.length > 0 || formInlineSucess.length > 0 ){
           formInlineActiveTab.find('form').addClass('hide');
         }else{
@@ -1734,7 +1734,6 @@ INFORMA.forms = (function(window, $, namespace) {
         if (_formSubmitStatus.attr('data-status') == "") {
             formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
             if (formSubmitResponseModal.length > 0) {
-
                 formSubmitResponseModal.find('form').removeClass('hide');
                 formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
                 /*formSubmitResponseModal.modal({
@@ -4325,13 +4324,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         Config = INFORMA.Configs,
         PageSize = parseInt(Config.searchResult.pageSize),
         Urls = INFORMA.Configs.urls.webservices,
-        Utils = INFORMA.Utils, SearchType = '',
+        Utils = INFORMA.Utils,
+        SearchType = '',
         // methods
         init, ResetPageSize,
         equalHeight, BindPaginationEvents, GetPaginatedData, UpdateHtmlView, ShowFilter, GetSearchPaginatedData,
         LoadProducts, CreateFilterList, BindPageLoadEvents, BindTabOpenEvents, OpenTab, GetSearchArray,
-        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected,SetSearchState;
-        ResetPageSize = function(){
+        ParseSearchData, BindTileEvents, CreateSearchResult, UpdateResultPage, MakeDropPreSelected, SetSearchState;
+    ResetPageSize = function() {
             PageSize = parseInt(Config.searchResult.pageSize);
         },
         equalHeight = function(container) {
@@ -4339,10 +4339,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 MaxHeight = 0,
                 Padding = 10;
 
-            if(container.attr("id")==="resources"){
+            if (container.attr("id") === "resources") {
                 ItemsList = container.find('.columns');
-                
-            }else if(container.attr("id")==="analysts"){
+
+            } else if (container.attr("id") === "analysts") {
                 ItemsList = container.find('.analyst-description');
             }
             ItemsList.each(function() {
@@ -4351,11 +4351,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     MaxHeight = currentHeight;
                 }
             })
-            if($('.search-results .tile').length > 0) {
+            if ($('.search-results .tile').length > 0) {
                 Padding = 100;
             }
             ItemsList.css('height', MaxHeight + Padding);
-            if (INFORMA.global.device.viewportN === 2) {
+            if (INFORMA.global.device.viewportN === 2 && container.attr("id") !== "products") {
                 ItemsList.css('height', 'auto');
             }
         },
@@ -4366,26 +4366,27 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
             DrpDwn.multiselect('rebuild');
         },
-        LoadProducts = function(data){
+        LoadProducts = function(data) {
             INFORMA.DataLoader.GetServiceData(Urls.ProductSearch, {
-                method:"Post",
-                data:data,
+                method: "Post",
+                data: data,
                 success_callback: ParseSearchData
             });
         },
-        SetSearchState = function(sVal){
-            if(sVal){
+        SetSearchState = function(sVal) {
+            if (sVal) {
                 SearchField.val(sVal);
                 SearchSubmitBtn.removeClass("disabled");
                 ProductFinder.find("input[type=radio]").eq(1).trigger("click");
                 //SearchSubmitBtn.trigger("click");
             }
         },
-        GetSearchArray = function(){
+        GetSearchArray = function() {
             var SerializeArrays = ProductFinder.find("form").serializeArray(),
                 Data = Utils.serializeObject(SerializeArrays),
-                FilterData = INFORMA.SearchResultFilter.GetFilterData(FilterList), AllResults={};
-                $.extend(AllResults, FilterData,Data);
+                FilterData = INFORMA.SearchResultFilter.GetFilterData(FilterList),
+                AllResults = {};
+            $.extend(AllResults, FilterData, Data);
 
             return AllResults;
         },
@@ -4424,15 +4425,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 error_callback: ErrCallack
             });
         },
-        GetSearchPaginatedData = function(TabName){
+        GetSearchPaginatedData = function(TabName) {
             var Data = GetSearchArray();
             PageSize = parseInt(Config.searchResult.pageSize);
-            Data.pageSize =  PageSize;
+            Data.pageSize = PageSize;
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(Urls[SearchType], {
                 method: "Post",
                 data: JSON.stringify(Data),
-                success_callback: function(data){
+                success_callback: function(data) {
                     RefineContainer.parent().hide();
                     ParseSearchData(data);
 
@@ -4443,22 +4444,22 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
             });
         },
-        BindPaginationEvents = function(Object,url) {
+        BindPaginationEvents = function(Object, url) {
             Object.off('click').on("click", function(e) {
                 e.preventDefault();
                 var TabName, SearchTab, Data;
 
-                if(SearchType==='SearchResult'){
+                if (SearchType === 'SearchResult') {
                     TabName = ($(this).attr("href")).toLowerCase();
-                    SearchTab = TabName.replace("#",'');
+                    SearchTab = TabName.replace("#", '');
                     SearchTabHidden.val(SearchTab);
                     ResultContainer.addClass('ShowLoadBtn');
                 }
 
                 Data = GetSearchArray();
-                PageSize+=6;
-                Data.pageSize =  PageSize;  
-                GetPaginatedData(Urls[url], JSON.stringify(Data), function(data){
+                PageSize += 6;
+                Data.pageSize = PageSize;
+                GetPaginatedData(Urls[url], JSON.stringify(Data), function(data) {
                     ParseSearchData(data);
                 });
             });
@@ -4467,23 +4468,24 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             Object.off('click').on("click", function(e) {
                 e.preventDefault();
                 var TabName = ($(this).attr("href")).toLowerCase(),
-                    SearchTab = TabName.replace("#",''), Data;
-            
-                if(!$(this).parent().hasClass("selected")){
+                    SearchTab = TabName.replace("#", ''),
+                    Data;
+
+                if (!$(this).parent().hasClass("selected")) {
                     SearchTabHidden.val(SearchTab);
                     GetSearchPaginatedData(TabName);
                 }
             });
         },
-        OpenTab = function(TabName){
+        OpenTab = function(TabName) {
             var CurrentTab = ResultContainer.find(TabName),
                 AllResultTab = ($(".tab-list li:first-child a").attr("href")).toLowerCase(),
                 CurrentPos;
 
-            if(TabName===AllResultTab){
+            if (TabName === AllResultTab) {
                 ResultContainer.removeClass('ShowLoadBtn');
                 CurrentPos = ResultContainer.offset().top;
-            }else{
+            } else {
                 AllResults.hide();
                 CurrentTab.show();
                 ResultContainer.addClass('ShowLoadBtn');
@@ -4491,17 +4493,17 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             $("html, body").animate({ scrollTop: CurrentPos });
             $(".tab-list li").removeClass("selected");
-                $(".tab-list li a").each(function(){
-                    var TabLink = ($(this).attr("href")).toLowerCase();
-                    if(TabLink===TabName){
-                        $(this).parent().addClass("selected")
-                    }
+            $(".tab-list li a").each(function() {
+                var TabLink = ($(this).attr("href")).toLowerCase();
+                if (TabLink === TabName) {
+                    $(this).parent().addClass("selected")
+                }
             });
         },
-        ShowFilter = function(html, container,isDefaultShow) {
+        ShowFilter = function(html, container, isDefaultShow) {
             if (html && container) {
                 container.html(html);
-                if(isDefaultShow){
+                if (isDefaultShow) {
                     container.parent().parent().delay(600).slideDown();
                 }
             }
@@ -4517,10 +4519,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         TemplateName = (Templates[ResultName]) ? Templates[ResultName] : "",
                         ListTemplate = Handlebars.compile(TemplateName),
                         ContainerID = "#" + (ResultName).toLowerCase();
-                        ShowMoreLink = $(ContainerID).find(".btn-container");
-    
-                    if((Templates[ResultName]) && (Data[ResultName+'List'])){
-                        html = ListTemplate({ results: Data[ResultName+'List'] });                        //Update Search Results
+                    ShowMoreLink = $(ContainerID).find(".btn-container");
+
+                    if ((Templates[ResultName]) && (Data[ResultName + 'List'])) {
+                        html = ListTemplate({ results: Data[ResultName + 'List'] }); //Update Search Results
                         $(ContainerID).find(".row").html(html);
                         $(ContainerID).show();
                         ShowMoreLink.removeClass('hide');
@@ -4528,12 +4530,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
                     //Update Record Counts
                     if (Data) {
-                        ResultCount = (Data.Count) ? Data.Count:0;
-                        RemainingCount = (Data.RemainingCount) ? Data.RemainingCount:0;
+                        ResultCount = (Data.Count) ? Data.Count : 0;
+                        RemainingCount = (Data.RemainingCount) ? Data.RemainingCount : 0;
 
                         $(ContainerID).find(".count strong").text(ResultCount);
 
-                        if(RemainingCount<1){
+                        if (RemainingCount < 1) {
                             ShowMoreLink.addClass('hide');
                         }
 
@@ -4541,7 +4543,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         $(ContainerID).find(".count strong").text("0");
                         ShowMoreLink.addClass('hide');
                     }
-                }else{
+                } else {
                     var ResultName = key,
                         ContainerID = "#" + (ResultName).toLowerCase();
                     $(ContainerID).find(".row").html('');
@@ -4552,20 +4554,20 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 UpdateHtmlView();
             }, 500);
         },
-        CreateFilterList = function(DataObject,Template,labelsObject) {
+        CreateFilterList = function(DataObject, Template, labelsObject) {
             var html = "";
             for (var key in DataObject) {
                 if (DataObject.hasOwnProperty(key)) {
                     var ResultName = key,
                         Data = DataObject[key],
                         ListTemplate = Handlebars.compile(Template);
-                        if(Data && Data.length > 0){
-                            if(labelsObject){
-                                Data.FilterName = labelsObject[ResultName];
-                            }
-                            Data.FilterID = ResultName;
-                            html += ListTemplate({ results: Data });
+                    if (Data && Data.length > 0) {
+                        if (labelsObject) {
+                            Data.FilterName = labelsObject[ResultName];
                         }
+                        Data.FilterID = ResultName;
+                        html += ListTemplate({ results: Data });
+                    }
                 }
             }
             return html;
@@ -4573,7 +4575,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         BindTileEvents = function() {
             INFORMA.Utils.flipTile(ResultInner);
         },
-        BindPageLoadEvents = function(){
+        BindPageLoadEvents = function() {
             ResultInner = $(".search-results");
             ResultInner.each(function() {
                 equalHeight($(this));
@@ -4581,36 +4583,36 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             BindTileEvents();
             var ShowMoreBtn = ResultContainer.find(".btn-ShowMore");
 
-            if(SearchType==='ProductSearch'){
-                BindPaginationEvents(ShowMoreBtn,SearchType);
+            if (SearchType === 'ProductSearch') {
+                BindPaginationEvents(ShowMoreBtn, SearchType);
             }
-            if(SearchType==='SearchResult'){
+            if (SearchType === 'SearchResult') {
 
                 var TabsLink = $(".tab-list a"),
                     OpenTabBtn = ResultContainer.find(".open-tab"),
                     FilterMenu = $(".search-tabs select");
-                
-                OpenTabBtn.off("click").on("click",function(e){
+
+                OpenTabBtn.off("click").on("click", function(e) {
                     e.preventDefault();
                     var TabName = ($(this).attr("href")).toLowerCase(),
-                    TabToClick = jQuery('.tab-list a[href="'+TabName+'"]');
-                    if(TabToClick){
+                        TabToClick = jQuery('.tab-list a[href="' + TabName + '"]');
+                    if (TabToClick) {
                         TabToClick.trigger("click");
-                        jQuery('.search-tabs select option[value="'+TabName+'"]').prop("selected",true);
+                        jQuery('.search-tabs select option[value="' + TabName + '"]').prop("selected", true);
                     }
                 });
 
-                if(FilterMenu){
+                if (FilterMenu) {
                     FilterMenu.off("change").on("change", function(e) {
                         e.preventDefault();
                         var SelectedFilter = FilterMenu.val(),
-                            TabToClick = jQuery('.tab-list a[href="'+SelectedFilter+'"]');
-                        if(TabToClick){
+                            TabToClick = jQuery('.tab-list a[href="' + SelectedFilter + '"]');
+                        if (TabToClick) {
                             TabToClick.trigger("click");
                         }
                     });
                 }
-                BindPaginationEvents(ShowMoreBtn,SearchType);
+                BindPaginationEvents(ShowMoreBtn, SearchType);
                 BindTabOpenEvents(TabsLink);
             }
         },
@@ -4630,34 +4632,35 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     ProductFilters = (data.ProductFilters !== undefined) ? data.ProductFilters : false,
                     SearchTabs = (data.SearchTabs !== undefined) ? data.SearchTabs : false;
                 if (ProductFilters) {
-                    var html = CreateFilterList(ProductFilters,Templates.ProductFilters,FilterLabels);
-                    ShowFilter(html, FilterList,true);
+                    var html = CreateFilterList(ProductFilters, Templates.ProductFilters, FilterLabels);
+                    ShowFilter(html, FilterList, true);
                     FilterList.parent().parent().show();
                     INFORMA.SearchResultFilter.DoFilter();
-                }else{
+                } else {
                     FilterList.html("");
                     FilterList.parent().parent().hide();
                 }
-                if (Refine) { 
-                   var html = CreateFilterList(Refine,Templates.ProductFacets,FilterLabels);
-                   ShowFilter(html, RefineContainer ,false);
-                   INFORMA.SearchResultFilter.DoRefine();
-                }else{
+                if (Refine) {
+                    var html = CreateFilterList(Refine, Templates.ProductFacets, FilterLabels);
+                    ShowFilter(html, RefineContainer, false);
+                    INFORMA.SearchResultFilter.DoRefine();
+                } else {
                     RefineContainer.html("");
                     $(".refine-list").off("click");
                     RefineContainer.parent().parent().hide();
                 }
-                if(SearchTabs){
-                    var Data = {} , html,TabName;
-                        Data.SearchTabs = SearchTabs;
-                        html = CreateFilterList(Data,Templates.SearchTabs);
-                        TabName = SearchTabHidden.val();
+                if (SearchTabs) {
+                    var Data = {},
+                        html, TabName;
+                    Data.SearchTabs = SearchTabs;
+                    html = CreateFilterList(Data, Templates.SearchTabs);
+                    TabName = SearchTabHidden.val();
                     $(".search-tabs").html(html);
                     //$(".search-tabs li:first-child").addClass("selected");
                     $(".tab-list li").removeClass("selected");
-                    $(".tab-list li a").each(function(){
-                        var TabLink = (($(this).attr("href")).toLowerCase()).replace("#",'');
-                        if(TabLink===TabName){
+                    $(".tab-list li a").each(function() {
+                        var TabLink = (($(this).attr("href")).toLowerCase()).replace("#", '');
+                        if (TabLink === TabName) {
                             $(this).parent().addClass("selected")
                         }
                     });
@@ -4666,7 +4669,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     AllResults.hide();
                     $(".no-results").hide();
                     CreateSearchResult(Results);
-                }else{
+                } else {
                     AllResults.hide();
                     $(".no-results").show();
                 }
@@ -4688,19 +4691,20 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
                 if (SVal) {
                     UpdateResultPage(SVal, SubSecVal);
-                }else{
+                } else {
 
                     var Information = $('input[name="informationtypes"].filter-fields').val() || null,
                         Roles = $('input[name="roles"].filter-fields').val() || null,
-                        Brands = $('input[name="brands"].filter-fields').val() || null, Data;
-                        
-                        Data = {"informationtypes":Information,"roles":Roles,"brands":Brands};
+                        Brands = $('input[name="brands"].filter-fields').val() || null,
+                        Data;
+
+                    Data = { "informationtypes": Information, "roles": Roles, "brands": Brands };
 
                     LoadProducts(JSON.stringify(Data));
                 }
             }
 
-            if(IsSearchPage && SearchHidden.length >0){
+            if (IsSearchPage && SearchHidden.length > 0) {
                 var SearchVal = SearchHidden.val();
                 if (SearchVal) {
                     SetSearchState(SearchVal);
@@ -4709,17 +4713,17 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if (ResultContainer.length > 0) {
                 BindPageLoadEvents();
-                if(RefineContainer.find(".col-xs-12").length){
+                if (RefineContainer.find(".col-xs-12").length) {
                     INFORMA.SearchResultFilter.DoRefine();
                 }
             }
 
-    };
+        };
     return {
         init: init,
         RenderSearchResults: ParseSearchData,
         UpdateResultPage: UpdateResultPage,
-        ResetPageSize:ResetPageSize
+        ResetPageSize: ResetPageSize
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
