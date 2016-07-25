@@ -879,6 +879,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         MonthSelect = $('select[name="month"]'),
         SectorSelect = $('select[name="sector"]'),
         Country = $('select[name="country"]'),
+        Type = $('select[name="eventType"]'),
         NextButton = $('.fc-next-button'),
 
 
@@ -1222,6 +1223,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var obj = {
               data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
                 SectorId: SectorSelect.val(),
+                eventType: Type.val(),
               Country: Country.val()})
             } 
 
@@ -1240,7 +1242,29 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var obj = {
                data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
                 SectorId: SectorSelect.val(),
+                eventType: Type.val(),
                Country: jQuery(this).val()})
+            }
+
+
+            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+
+            NoEventsFound();
+        })
+
+        Type.on('change', function() {
+            var value = jQuery(this).val();
+            var check = moment(new Date('1 '+MonthSelect.val()));
+            jQuery('section[data-view="calendar-view"]').show();
+            Calendar.fullCalendar('gotoDate', check);
+            if(jQuery('body').hasClass('list-view')) {
+                jQuery('section[data-view="calendar-view"]').hide();
+            }
+            var obj = {
+               data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
+                SectorId: SectorSelect.val(),
+                eventType: jQuery(this).val(),
+               Country: Country.val()})
             }
 
 
@@ -1254,6 +1278,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var obj = {
               data:JSON.stringify({  MonthYear: MonthSelect.val(),
                 SectorId: jQuery(this).val(),
+                eventType: Type.val(),
               Country: Country.val()})
             }
 
@@ -1747,7 +1772,7 @@ INFORMA.forms = (function(window, $, namespace) {
                formSubmitResponseHTML.find('form').removeClass('hide');
             }
         }else if(_formSubmitStatus.attr('data-status') > ""){
-            formSubmitResponseModal = _formSubmitStatus.parents('.form-inline-container');
+            formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
             if (formSubmitResponseModal.length > 0) {
 
                 formSubmitResponseModal.find('form').addClass('hide');
@@ -1768,11 +1793,6 @@ INFORMA.forms = (function(window, $, namespace) {
                formSubmitResponseHTML.find('form').addClass('hide');
                _resetForm(formSubmitResponseHTML.find('form'));
             }
-        }
-
-        if(_formSubmitStatus.parents('.tab-pane').length > 0) {
-            $('.modal-backdrop').remove();
-            $('body').removeClass('modal-open');
         }
 
     }
@@ -3268,13 +3288,14 @@ INFORMA.pdpBrochure = (function(window, $, namespace) {
    var downloadBrochure = $('.pdp-brochure'),
        submitResponse = $('.submit-response'),
        _formSubmitStatus = $('.form-status[data-successsubmit=True]'),
+       Url = downloadBrochure.data('url'),
     //methods
         init;
 
     init = function() {
 
       if(submitResponse.length > 0){
-        window.open("https://www.agra-net.com/agra/foodnews/pdf-archive/market-reviews/article511004.ece/BINARY/FN-Juice-2016.pdf", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,left=100,width=1000,height=600");
+        window.open(Url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,left=100,width=1000,height=600");
       }
 
     }
