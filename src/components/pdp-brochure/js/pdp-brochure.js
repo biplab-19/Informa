@@ -17,13 +17,14 @@ INFORMA.pdpBrochure = (function(window, $, namespace) {
    var downloadBrochure = $('.pdp-brochure'),
        submitResponse = $('.submit-response'),
        _formSubmitStatus = $('.form-status[data-successsubmit=True]'),
+       Url = downloadBrochure.data('url'),
     //methods
         init;
 
     init = function() {
 
       if(submitResponse.length > 0){
-        window.open("https://www.agra-net.com/agra/foodnews/pdf-archive/market-reviews/article511004.ece/BINARY/FN-Juice-2016.pdf", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,left=100,width=1000,height=600");
+        window.open(Url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,left=100,width=1000,height=600");
       }
 
     }

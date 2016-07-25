@@ -1,6 +1,9 @@
 .events-search {
 	background-color: #676c7a;
 	padding: 30px 0;
+	.container {
+		position: relative;
+	}
 	.chosen-container-single .chosen-single {
 		height: 50px;
 		span {
@@ -30,16 +33,19 @@
 	}
 	.views-section {
 		text-align: right;
+		position: absolute;
+		top: calc(100% + 55px);
+		right: 0;
+		width: auto;
 		@include mobile {
 			text-align: left;
 		}
 		.views {
-			display: inline-block;
+			float: left;
 			a {
 				display: block;
 			    width: 60px;
 			    height: 51px;
-			    background-color: #343742;
 			    color: #6a7287;
 			    font-size: 28px;
 			    position: relative;
@@ -51,12 +57,6 @@
 				}
 				&.active {
 					background-color: #e2e4e9;
-				}
-			}
-			&:first-child {
-				margin-right: 15px;
-				@include tablet {
-					margin-right: 10px;
 				}
 			}
 		}

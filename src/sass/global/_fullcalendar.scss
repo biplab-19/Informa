@@ -349,6 +349,12 @@ td.fc-day.fc-widget-content {
 	position: static;
 	height: auto;
 }
+.fc-toolbar {
+	width: 40%;
+	@include mobile {
+		width: 100%;
+	}
+}
 .fc-toolbar h2 {
     margin: 0;
     font-size: 28px;

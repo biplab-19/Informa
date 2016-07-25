@@ -119,7 +119,7 @@ INFORMA.forms = (function(window, $, namespace) {
                formSubmitResponseHTML.find('form').removeClass('hide');
             }
         }else if(_formSubmitStatus.attr('data-status') > ""){
-            formSubmitResponseModal = _formSubmitStatus.parents('.form-inline-container');
+            formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
             if (formSubmitResponseModal.length > 0) {
 
                 formSubmitResponseModal.find('form').addClass('hide');
@@ -140,11 +140,6 @@ INFORMA.forms = (function(window, $, namespace) {
                formSubmitResponseHTML.find('form').addClass('hide');
                _resetForm(formSubmitResponseHTML.find('form'));
             }
-        }
-
-        if(_formSubmitStatus.parents('.tab-pane').length > 0) {
-            $('.modal-backdrop').remove();
-            $('body').removeClass('modal-open');
         }
 
     }
