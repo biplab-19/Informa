@@ -150,15 +150,15 @@
         .date {
             font-family: FSMe-Light;
             font-size: 14px;
-            //padding-bottom: 30px;
-            float: left;
-            min-width: 100px;
+            padding-bottom: 30px;
+            //float: left;
+            //min-width: 100px;
             @include mobile {
                 //padding-bottom: 25px;
                 font-size: 13px;
             }
             @include tablet {
-               // padding-bottom: 30px;
+               padding-bottom: 30px;
             }
         }
         .by{
@@ -172,6 +172,13 @@
               margin-left: 0px;
               padding-bottom: 5px;
           }
+        }
+        .topic-name{
+            padding:0 10px;
+            margin-left:0 !important;
+        }
+        .topic-pipe:last-of-type{
+            display:none;
         }
         span.by{
           text-decoration: underline;
@@ -276,11 +283,11 @@
 
         }
         .topic{
-            padding-bottom :0 !important;
+            padding-top :15px;
         }
         //  from here for sample insight banner
         .provided{
-            padding-top: 20px;
+            //padding-top: 20px;
             padding-bottom: 15px;
             @include mobile {
                 font-size: 14px !important;
