@@ -524,7 +524,7 @@ form.request-a-demo {
         padding-right: 5px;
     }
     @include tablet {
-        padding-left: 30px;
+        padding-left: 85px;
         padding-right: 30px;
     }
     //position: relative;
@@ -535,6 +535,7 @@ form.request-a-demo {
         display: inline-block;
         margin-bottom: 25px;
         position: relative;
+        font-size: 40px;
         @include mobile {
             padding-right: 20px;
             margin-right: 20px;
@@ -544,13 +545,13 @@ form.request-a-demo {
             visibility: visible;
             font-family: 'InformaIcons';
             @include desktop {
-                font-size: 30px;
-                margin-top: 5px;
+                font-size: 35px;
                 left: -10%;
+                top: 0;
             }
             @include tablet {
-                font-size: 30px;
-                margin-top: 5px;
+                font-size: 35px;
+                top: 0;
                 left: -8%;
             }
             @include mobile {
@@ -722,4 +723,7 @@ form.request-a-demo {
 
 .form-horizontal .form-group {
     margin-left: 0 !important;
+}
+.form-modal.modal.fade.in.centreAlign .modal-dialog {
+    transform: translate3d(0,-50%,0);
 }
