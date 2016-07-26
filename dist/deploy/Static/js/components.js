@@ -3302,8 +3302,7 @@ INFORMA.pdpBrochure = (function(window, $, namespace) {
     'use strict';
     //variables
    var downloadBrochure = $('.pdp-brochure'),
-       submitResponse = $('.submit-response'),
-       _formSubmitStatus = $('.form-status[data-successsubmit=True]'),
+       submitResponse = $('#formSendBrochure .submit-response'),
        Url = downloadBrochure.data('url'),
     //methods
         init;
