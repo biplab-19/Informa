@@ -264,3 +264,8 @@
 .no-result {
 	background: $white;
 }
+section[data-view="list-view"], section[data-view="calendar-view"] {
+	@include mobile {
+		padding-top: 70px;
+	}
+}
