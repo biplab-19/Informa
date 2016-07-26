@@ -140,15 +140,15 @@
 			/* Chrome, Safari, Opera */
 			backface-visibility: hidden;
 			transition: transform 0.2s linear 0s;
-			position: relative;	
+			position: relative;
 			.triangle {
-				border-bottom: 50px solid #a6aab6; 
-				border-left: 50px solid transparent; 
+				border-bottom: 50px solid #a6aab6;
+				border-left: 50px solid transparent;
 				.icon-arrow-right{
 				    left: -21px;
 				    top: 29px;
 				}
-			}		
+			}
 			.content {
 				min-height: 100px;
 				padding:20px;
@@ -237,8 +237,8 @@
 			overflow: hidden;
 			.triangle {
 				background:$white;
-				border-top: 50px solid $orange; 
-				border-right: 50px solid transparent; 
+				border-top: 50px solid $orange;
+				border-right: 50px solid transparent;
 				top:auto;
 				bottom:0;
 				right: 0;
@@ -288,7 +288,7 @@
 
 		}
 	}
-}	
+}
 .search-container {
 	.btn-container {
 		margin: 20px 0 0;
@@ -358,4 +358,15 @@
 ====================================================*/
 .img-fit {
 	max-width: 100%;
+}
+
+/* ===============================================
+Turn Off Number Input Spinners
+==================================================
+*/
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
