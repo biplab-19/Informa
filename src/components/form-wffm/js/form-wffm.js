@@ -144,6 +144,16 @@ INFORMA.forms = (function(window, $, namespace) {
                     _formSubmitStatus.attr("data-status", "");
                 })
             }
+
+            //Checking The status and Displaying that section
+
+            if(_formSubmitStatus.attr('data-status') == 'success') {
+                $('.submit-response').removeClass('hidden');
+                $('.error-response').addClass('hidden');
+            } else {
+                $('.error-response').removeClass('hidden');
+                $('.submit-response').addClass('hidden');
+            }
             // formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
             // if (formSubmitResponseHTML.length > 0) {
             //    formSubmitResponseHTML.find('form').addClass('hide');
