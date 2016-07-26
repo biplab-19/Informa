@@ -1768,6 +1768,7 @@ INFORMA.forms = (function(window, $, namespace) {
             if (formSubmitResponseModal.length > 0) {
                 formSubmitResponseModal.find('form').removeClass('hide');
                 formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
+                formSubmitResponseModal.removeClass('centreAlign');
                 /*formSubmitResponseModal.modal({
                     show: true,
                     keyboard: false,
@@ -1778,12 +1779,13 @@ INFORMA.forms = (function(window, $, namespace) {
             // if (formSubmitResponseHTML.length > 0) {
             //    formSubmitResponseHTML.find('form').removeClass('hide');
             // }
-        } else if (_formSubmitStatus.attr('data-status') > "") {
+        } else if (_formSubmitStatus.attr('data-status').length > 0) {
             formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
             if (formSubmitResponseModal.length > 0) {
 
                 formSubmitResponseModal.find('form').addClass('hide');
                 formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
+                formSubmitResponseModal.addClass('centreAlign');
                 _resetForm(formSubmitResponseModal.find('form'));
                 formSubmitResponseModal.modal({
                     show: true,
