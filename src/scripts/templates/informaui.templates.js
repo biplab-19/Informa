@@ -20,7 +20,12 @@ var INFORMA = window.INFORMA || {};
             '<li>'+
             '<div class="columns">'+
                 '<p class="category">'+
-                  '<strong>{{SectorType}}</strong>'+
+                    '{{#if BrandType}}'+
+                        '<span class="brand-type">{{BrandType}}</span>' +
+                    '{{/if}}' +
+                    '{{#if SectorType}}'+
+                      '<strong>{{SectorType}}</strong>' +
+                    '{{/#if}}'+
                 '</p>'+
                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
                 '<span class="content-type">{{ContentType}}</span>'+

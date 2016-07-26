@@ -1,4 +1,4 @@
-/*! 2016-07-25 */var INFORMA = window.INFORMA || {};
+/*! 2016-07-26 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3957,7 +3957,12 @@ var INFORMA = window.INFORMA || {};
             '<li>'+
             '<div class="columns">'+
                 '<p class="category">'+
-                  '<strong>{{SectorType}}</strong>'+
+                    '{{#if BrandType}}'+
+                        '<span class="brand-type">{{BrandType}}</span>' +
+                    '{{/if}}' +
+                    '{{#if SectorType}}'+
+                      '<strong>{{SectorType}}</strong>' +
+                    '{{/#if}}'+
                 '</p>'+
                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
                 '<span class="content-type">{{ContentType}}</span>'+
