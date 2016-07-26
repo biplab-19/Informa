@@ -25,7 +25,7 @@ var INFORMA = window.INFORMA || {};
                     '{{/if}}' +
                     '{{#if SectorType}}'+
                       '<strong>{{SectorType}}</strong>' +
-                    '{{/#if}}'+
+                    '{{/if}}'+
                 '</p>'+
                 '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
                 '<span class="content-type">{{ContentType}}</span>'+
