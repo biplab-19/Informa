@@ -7142,12 +7142,19 @@ section.articlepage-freearticle .container .mini-video {
   min-height: 156px;
 }
 /* line 27, ../../../src/components/resource-list/sass/_resource-list.scss */
+.resource-list .list-container ul.resource-list li .brand-type {
+  font-weight: 700;
+  font-size: 0.9em;
+  display: block;
+  padding-bottom: 10px;
+}
+/* line 33, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .category {
   display: inline-block;
   padding-bottom: 10px;
   margin-right: 5%;
 }
-/* line 31, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 37, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .category strong {
   display: block;
   padding: 3px 8px;
@@ -7156,28 +7163,28 @@ section.articlepage-freearticle .container .mini-video {
   color: #f1f1f3;
   background-color: #444957;
 }
-/* line 40, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 46, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .content-type {
   font-weight: 700;
   font-size: 0.9em;
 }
-/* line 44, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 50, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .poduct-brand-subheading {
   font-size: 30px;
   font-family: FSMe-Bold;
 }
-/* line 48, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 54, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .description {
   padding-bottom: 20px;
 }
-/* line 51, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 57, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .video-container {
   max-height: 156px;
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
 }
-/* line 56, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 62, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .video-container img {
   width: 100%;
   height: auto;
@@ -7185,7 +7192,7 @@ section.articlepage-freearticle .container .mini-video {
   float: none;
   display: block;
 }
-/* line 63, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 69, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .video-container .play-icon {
   color: #fff;
   display: block;
@@ -7196,45 +7203,45 @@ section.articlepage-freearticle .container .mini-video {
   top: 25%;
   width: 30px;
 }
-/* line 74, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 80, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .article-info {
   display: block;
 }
-/* line 76, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 82, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .article-info em {
   display: inline-block;
   min-width: 70px;
   font-style: normal;
 }
-/* line 81, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 87, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .article-info strong {
   display: inline-block;
   vertical-align: top;
   width: auto;
 }
 @media (max-width: 767px) {
-  /* line 81, ../../../src/components/resource-list/sass/_resource-list.scss */
+  /* line 87, ../../../src/components/resource-list/sass/_resource-list.scss */
   .resource-list .list-container ul.resource-list li .article-info strong {
     width: 70%;
   }
 }
-/* line 90, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 96, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .btn-container {
   background-color: #f6f6f8;
   padding: 15px;
   width: 100%;
 }
-/* line 94, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 100, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .btn-container a {
   min-width: 50%;
   max-width: 60%;
   display: block;
 }
-/* line 98, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 104, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .btn-container a:after {
   color: #ffd500;
 }
-/* line 106, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 112, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .btn.btn-showMore {
   background: none;
   width: 260px;
@@ -7247,14 +7254,14 @@ section.articlepage-freearticle .container .mini-video {
   display: block;
 }
 @media (max-width: 767px) {
-  /* line 106, ../../../src/components/resource-list/sass/_resource-list.scss */
+  /* line 112, ../../../src/components/resource-list/sass/_resource-list.scss */
   .resource-list .btn.btn-showMore {
     width: 180px;
     text-align: center;
     padding-bottom: 40px;
   }
 }
-/* line 121, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 127, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .btn.btn-showMore:after {
   content: '+';
   right: 10px;
@@ -7268,30 +7275,30 @@ section.articlepage-freearticle .container .mini-video {
   top: 9px;
 }
 @media (max-width: 767px) {
-  /* line 121, ../../../src/components/resource-list/sass/_resource-list.scss */
+  /* line 127, ../../../src/components/resource-list/sass/_resource-list.scss */
   .resource-list .btn.btn-showMore:after {
     top: 35px;
     right: 50%;
     margin-right: -15px;
   }
 }
-/* line 138, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 144, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .btn.btn-showMore .more {
   display: block;
 }
-/* line 141, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 147, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .btn.btn-showMore .less {
   display: none;
 }
-/* line 145, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 151, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .btn.btn-showMore.showLess:after {
   content: '-';
 }
-/* line 148, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 154, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .btn.btn-showMore.showLess .more {
   display: none;
 }
-/* line 151, ../../../src/components/resource-list/sass/_resource-list.scss */
+/* line 157, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .btn.btn-showMore.showLess .less {
   display: block;
 }
