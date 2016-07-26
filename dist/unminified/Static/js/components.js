@@ -3311,7 +3311,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.pdpBrochure = (function(window, $, namespace) {
     'use strict';
     //variables
-   var downloadBrochure = $('.pdp-brochure'),
+   var downloadBrochure = $('.pdp-brochure, #agri-report'),
        submitResponse = $('#formSendBrochure .submit-response'),
        Url = downloadBrochure.data('url'),
     //methods
