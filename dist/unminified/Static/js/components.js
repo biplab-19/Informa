@@ -1798,6 +1798,8 @@ INFORMA.forms = (function(window, $, namespace) {
                 })
             }
 
+            //Checking The status and Displaying that section
+
             if(_formSubmitStatus.attr('data-status') == 'success') {
                 $('.submit-response').removeClass('hidden');
                 $('.error-response').addClass('hidden');
