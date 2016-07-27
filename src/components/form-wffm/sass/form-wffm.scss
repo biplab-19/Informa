@@ -727,3 +727,14 @@ form.request-a-demo {
 .form-modal.modal.fade.in.centreAlign .modal-dialog {
     transform: translate3d(0,-50%,0);
 }
+.tab-pane {
+    .submit-response, .error-response {
+        padding-left: 75px;
+        padding-right: 30px;
+        padding-bottom: 20px;
+        @include mobile {
+            padding-left: 7px;
+            padding-right: 5px;
+        }
+    }
+}
