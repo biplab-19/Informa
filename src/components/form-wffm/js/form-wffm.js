@@ -160,6 +160,20 @@ INFORMA.forms = (function(window, $, namespace) {
                 //    _resetForm(formSubmitResponseHTML.find('form'));
                 // }
             }
+
+            if($('#formRequestATrial').length > 0) {
+                if($('#formRequestATrial .submit-status').data('status').length > 0) {
+                    $('#formRequestATrial form').addClass('hide');
+                    $('#formRequestATrial .submit-status').addClass('show');
+
+                    $('#formRequestATrial').modal({
+                        show: true,
+                        keyboard: false,
+                        backdrop: "static"
+                    })
+
+                }        
+            }
         }
 
     }
