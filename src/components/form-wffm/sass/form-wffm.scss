@@ -729,12 +729,18 @@ form.request-a-demo {
 }
 .tab-pane {
     .submit-response, .error-response {
-        padding-left: 75px;
+        padding-left: 85px;
         padding-right: 30px;
         padding-bottom: 20px;
         @include mobile {
             padding-left: 7px;
             padding-right: 5px;
+        }
+        h1 {
+            font-size: 36px;
+            &:before {
+                left: -60px;
+            }
         }
     }
 }
