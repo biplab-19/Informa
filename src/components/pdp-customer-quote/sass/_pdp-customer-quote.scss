@@ -28,7 +28,7 @@ section.customer-quote {
         }
     }
     .quote {
-        padding-left: 65px;
+        padding-left: 115px;
         &:before {
             padding-left: 10px;
             content: ',,';
@@ -39,7 +39,7 @@ section.customer-quote {
             top: 55px;
             transform: rotate(180Deg);
             color: $quote-color;
-            left: 15px;
+            left: 50px;
         }
         @include mobile {
             padding-left: 0;
@@ -51,10 +51,10 @@ section.customer-quote {
             }
         }
         @include tablet {
-            padding-left: 65px;
+            padding-left: 130px;
             //  padding-left: 30px;
             &:before {
-                left:5%;
+                left:13%;
                 top: 40px;
             }
         }
@@ -125,7 +125,7 @@ section.customer-quote {
                 .description {
                     font-family: FSMe-Light;
                     text-transform: uppercase;
-                    @include mobile {                      
+                    @include mobile {
                       display: block;
                     }
                 }
@@ -136,8 +136,8 @@ section.customer-quote {
         position: absolute;
         width: auto;
         height: 500px;
-        top: -70px;
-        right: -70px;
+        top: -100px;
+       right: -105px;
         pointer-events: none;
         @include tablet {
           top: -40px;
@@ -157,8 +157,8 @@ section.customer-quote {
             }
         }
         &.two {
-            top: 130px;
-            right: -150px;
+          top: 50px;
+          right: -75px;
             @include tablet {
               top: 48px;
               right:30px;
@@ -246,7 +246,8 @@ section.customer-quote {
             }
         }
         .slick-next {
-            left: 100%;
+          left: 105%;
+          top: 45%;
             margin-left: 0;
             @include mobile {
                 left: calc(100% - 30px);
@@ -262,6 +263,7 @@ section.customer-quote {
         }
         .slick-prev {
             left: 0;
+            top: 45%;
             margin-left: -40px;
             @include mobile {
                 margin-left: 0;
