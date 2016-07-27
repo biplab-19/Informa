@@ -109,56 +109,57 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _showOverlay = function() {
         var formSubmitResponseModal;
+        if(_formSubmitStatus.length > 0) {
+            if (_formSubmitStatus.attr('data-status') == "") {
+                formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+                if (formSubmitResponseModal.length > 0) {
+                    formSubmitResponseModal.find('form').removeClass('hide');
+                    formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
+                    formSubmitResponseModal.removeClass('centreAlign');
+                    /*formSubmitResponseModal.modal({
+                        show: true,
+                        keyboard: false,
+                        backdrop: "static"
+                    })*/
+                }
+                // formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
+                // if (formSubmitResponseHTML.length > 0) {
+                //    formSubmitResponseHTML.find('form').removeClass('hide');
+                // }
+            } else if (_formSubmitStatus.attr('data-status').length > 0) {
+                formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+                if (formSubmitResponseModal.length > 0) {
 
-        if (_formSubmitStatus.attr('data-status') == "") {
-            formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
-            if (formSubmitResponseModal.length > 0) {
-                formSubmitResponseModal.find('form').removeClass('hide');
-                formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
-                formSubmitResponseModal.removeClass('centreAlign');
-                /*formSubmitResponseModal.modal({
-                    show: true,
-                    keyboard: false,
-                    backdrop: "static"
-                })*/
+                    formSubmitResponseModal.find('form').addClass('hide');
+                    formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
+                    formSubmitResponseModal.addClass('centreAlign');
+                    _resetForm(formSubmitResponseModal.find('form'));
+                    formSubmitResponseModal.modal({
+                        show: true,
+                        keyboard: false,
+                        backdrop: "static"
+                    })
+
+                    formSubmitResponseModal.find('.form-modal-close').on("click", function() {
+                        _formSubmitStatus.attr("data-status", "");
+                    })
+                }
+
+                //Checking The status and Displaying that section
+
+                if(_formSubmitStatus.attr('data-status') == 'success') {
+                    $('.submit-response').removeClass('hidden');
+                    $('.error-response').addClass('hidden');
+                } else {
+                    $('.error-response').removeClass('hidden');
+                    $('.submit-response').addClass('hidden');
+                }
+                // formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
+                // if (formSubmitResponseHTML.length > 0) {
+                //    formSubmitResponseHTML.find('form').addClass('hide');
+                //    _resetForm(formSubmitResponseHTML.find('form'));
+                // }
             }
-            // formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
-            // if (formSubmitResponseHTML.length > 0) {
-            //    formSubmitResponseHTML.find('form').removeClass('hide');
-            // }
-        } else if (_formSubmitStatus.attr('data-status').length > 0) {
-            formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
-            if (formSubmitResponseModal.length > 0) {
-
-                formSubmitResponseModal.find('form').addClass('hide');
-                formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
-                formSubmitResponseModal.addClass('centreAlign');
-                _resetForm(formSubmitResponseModal.find('form'));
-                formSubmitResponseModal.modal({
-                    show: true,
-                    keyboard: false,
-                    backdrop: "static"
-                })
-
-                formSubmitResponseModal.find('.form-modal-close').on("click", function() {
-                    _formSubmitStatus.attr("data-status", "");
-                })
-            }
-
-            //Checking The status and Displaying that section
-
-            if(_formSubmitStatus.attr('data-status') == 'success') {
-                $('.submit-response').removeClass('hidden');
-                $('.error-response').addClass('hidden');
-            } else {
-                $('.error-response').removeClass('hidden');
-                $('.submit-response').addClass('hidden');
-            }
-            // formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
-            // if (formSubmitResponseHTML.length > 0) {
-            //    formSubmitResponseHTML.find('form').addClass('hide');
-            //    _resetForm(formSubmitResponseHTML.find('form'));
-            // }
         }
 
     }

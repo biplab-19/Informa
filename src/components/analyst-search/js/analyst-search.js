@@ -219,7 +219,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 _Object = JSON.parse(GetSerializeData),
                 Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views'),
                 _vp = INFORMA.global.device.viewport,
-                _limit = productAnalystResults.data(_vp);
+                _limit = parseInt(productAnalystResults.data(_vp)) + 1;
 
             _Object.SectorID = sectorId;
             for (var key in _Object) {
