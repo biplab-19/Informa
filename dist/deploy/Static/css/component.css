@@ -1,4 +1,4 @@
-/*! 2016-07-26 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-07-27 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -8358,6 +8358,20 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
 /* line 727, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade.in.centreAlign .modal-dialog {
   transform: translate3d(0, -50%, 0);
+}
+
+/* line 731, ../../../src/components/form-wffm/sass/form-wffm.scss */
+.tab-pane .submit-response, .tab-pane .error-response {
+  padding-left: 75px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+@media (max-width: 767px) {
+  /* line 731, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  .tab-pane .submit-response, .tab-pane .error-response {
+    padding-left: 7px;
+    padding-right: 5px;
+  }
 }
 
 /* calendar style here */
