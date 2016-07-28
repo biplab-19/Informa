@@ -22,7 +22,6 @@
         }
     }
 }
-
 form.get-in-touch,
 form.request-a-demo {
     background-color: $gray-light-bg;
@@ -79,10 +78,13 @@ form.request-a-demo {
         background-color: $blue-lighter-bg;
         //width: 94%;
     }
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+    input[type=number].form-control::-webkit-inner-spin-button,
+    input[type=number].form-control::-webkit-outer-spin-button {
+        -webkit-appearance: none !important;
+        margin: 0 !important;
+    }
+    input[type=number] {
+        -moz-appearance: textfield;
     }
     textarea.form-control {
         border-radius: 0;
@@ -251,69 +253,67 @@ form.request-a-demo {
             display: none;
             clear: both;
         }
-
-            .checkbox {
-                display: table-cell;
-                float: left;
-                margin-top: -5px;
-                margin-bottom: 15px;
-                height: 70px;
-                background-color: $body-bg;
-                color: $gray-light-bg;
-                input {
-                    margin-left: 0;
-                    right: 5px;
-                    bottom: 5px;
-                    display: none;
-                }
-                @include mobile {
-                    width: 48%;
-                }
-                @include not-mobile {
-                    width: 30%;
-                }
-                label {
-                    height: inherit;
-                    margin: 0;
-                    font-size: $font-size-base;
-                    font-weight: normal !important;
-                    @include mobile {
-                        padding: 5px;
-                        width: 100%;
-                    }
-                    @include not-mobile {
-                        width: 100%;
-                        padding: 10px;
-                    }
-                }
-                &.active {
-                    background-color: inherit;
-                    color: $body-bg;
-                    border: 3px solid $yellow;
-                    &::after {
-                        content: "\e914";
-                        visibility: visible;
-                        font-family: 'InformaIcons';
-                        color: $brand-secondary;
-                        position: absolute;
-                        font-size: 20px;
-                        right: 5px;
-                        bottom: 5px;
-                    }
-                }
-            }
-            @include not-mobile {
-                .checkbox:nth-child(3n-2) {
-                    margin-left: 5%;
-                    margin-right: 5%;
-                }
+        .checkbox {
+            display: table-cell;
+            float: left;
+            margin-top: -5px;
+            margin-bottom: 15px;
+            height: 70px;
+            background-color: $body-bg;
+            color: $gray-light-bg;
+            input {
+                margin-left: 0;
+                right: 5px;
+                bottom: 5px;
+                display: none;
             }
             @include mobile {
-                .checkbox:nth-child(odd) {
-                    margin-left: 4%;
+                width: 48%;
+            }
+            @include not-mobile {
+                width: 30%;
+            }
+            label {
+                height: inherit;
+                margin: 0;
+                font-size: $font-size-base;
+                font-weight: normal !important;
+                @include mobile {
+                    padding: 5px;
+                    width: 100%;
+                }
+                @include not-mobile {
+                    width: 100%;
+                    padding: 10px;
                 }
             }
-
+            &.active {
+                background-color: inherit;
+                color: $body-bg;
+                border: 3px solid $yellow;
+                &::after {
+                    content: "\e914";
+                    visibility: visible;
+                    font-family: 'InformaIcons';
+                    color: $brand-secondary;
+                    position: absolute;
+                    font-size: 20px;
+                    right: 5px;
+                    bottom: 5px;
+                }
+            }
+        }
+        @include not-mobile {
+            .checkbox:nth-child(3n-2) {
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+        }
+        @include mobile {
+            .checkbox:nth-child(odd) {
+                margin-left: 4%;
+            }
+        }
     }
     .dynamic-interests {
         @include not-mobile {
@@ -383,7 +383,7 @@ form.request-a-demo {
         legend {
             display: none;
         }
-        span.help-block{
+        span.help-block {
             color: inherit;
         }
     }
@@ -489,15 +489,12 @@ form.request-a-demo {
         cursor: not-allowed;
     }
 }
-
 .has-error {
     display: none;
 }
-
 .has-error .bg-warning {
     display: block;
 }
-
 .bg-warning {
     display: block !important;
     background-color: initial !important;
@@ -512,9 +509,8 @@ form.request-a-demo {
         color: inherit !important;
     }
 }
-
-.submit-response,
-.error-response {
+.error-response,
+.submit-response {
     background-color: $gray-light-bg;
     color: $white;
     padding-left: 25%;
@@ -587,22 +583,18 @@ form.request-a-demo {
         }
     }
 }
-
 .submit-response h1::before {
     content: "\e914";
     color: $brand-secondary;
 }
-
 .error-response h1::before {
     content: "\e916";
     color: $error-orange;
 }
-
 .form-btn-container {
     width: 20%;
     margin: 10px auto;
 }
-
 .form-modal.modal.fade .modal-dialog {
     -webkit-transform: scale(0.1);
     -moz-transform: scale(0.1);
@@ -614,7 +606,6 @@ form.request-a-demo {
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
-
 .form-modal.modal.fade.in .modal-dialog {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -624,7 +615,6 @@ form.request-a-demo {
     transform: translate3d(0, -300px, 0);
     opacity: 1;
 }
-
 .form-modal {
     .modal-dialog {
         width: 80%;
@@ -684,7 +674,6 @@ form.request-a-demo {
         }
     }
 }
-
 .form-submit-border {
     padding-top: 56px;
     position: relative;
@@ -713,14 +702,12 @@ form.request-a-demo {
         font-weight: bold;
     }
 }
-
 .form-submit-border.disabled {
     cursor: not-allowed;
     pointer-events: none;
-    opacity: .65;
+    opacity: 0.65;
     box-shadow: none;
 }
-
 .form-horizontal .form-group {
     margin-left: 0 !important;
 }
@@ -728,7 +715,8 @@ form.request-a-demo {
     transform: translate3d(0,-50%,0);
 }
 .tab-pane {
-    .submit-response, .error-response {
+    .error-response,
+    .submit-response {
         padding-left: 85px;
         padding-right: 30px;
         padding-bottom: 20px;
