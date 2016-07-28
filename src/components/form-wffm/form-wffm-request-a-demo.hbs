@@ -84,7 +84,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                        
+
                         <fieldset class="contact-details">
                             <legend>Your contact details</legend>
                             <p>Please enter contact details</p>
@@ -237,27 +237,4 @@
             </div>
         </div>
     </div>
-</div>
-<script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
-<script type="text/javascript">
-    var onloadCallback = function() {
-        jQuery('.g-recaptcha').each(function(index, el) {
-            grecaptcha.render(el, {
-                'sitekey': jQuery(el).data('sitekey'),
-                'theme': 'dark',
-                'callback': function(response) {
-                    if (response.length > 0) {
-                        jQuery(el).parents('form').find('.captcha-wrapper .field-validation-error').css('display', 'none');
-                    }
-                }
-            });
-        });
-    };
-</script>
-
-<div class="form-inline-container">
-</div>
-
-<div class="tab-pane">
-
 </div>

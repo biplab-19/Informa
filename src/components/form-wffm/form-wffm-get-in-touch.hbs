@@ -17,7 +17,7 @@
                 <div class="form-popup-container">
 
 
-                    <form action="/?sc_itemid=%7B9E424C19-6AD0-4D10-B823-946BF6FC0CC2%7D&amp;sc_mode=preview&amp;sc_lang=en-US&amp;sc_site=website" class="get-in-touch get-in-touch-popup text-left" data-wffm="{41850C79-F113-4AEC-98D3-1A9CBF00C411}" data-wffm-ajax="True"
+                    <form action="/?sc_itemid=%7B9E424C19-6AD0-4D10-B823-946BF6FC0CC2%7D&amp;sc_mode=preview&amp;sc_lang=en-US&amp;sc_site=website" class="wffm-form get-in-touch get-in-touch-popup text-left" data-wffm="{41850C79-F113-4AEC-98D3-1A9CBF00C411}" data-wffm-ajax="True"
                         enctype="multipart/form-data" id="wffm215f4bae9018467d90bc0ae3983d7f74" method="post" role="form" novalidate="novalidate">
                         <input name="__RequestVerificationToken" type="hidden" value="VvJry8Y029sv3Rzx3tW3ovNQjoX9EbRxw4RRpLTwyeYbeJa_Siier99dcuRu6CzJ5eQaklptWCt4Fsc2l23euLML7k4bBA7vuy-z1vs45aXdtqTWy-Ub8GDLA4RwOiug0">
                         <input id="wffm215f4bae9018467d90bc0ae3983d7f74_Id" name="wffm215f4bae9018467d90bc0ae3983d7f74.Id" type="hidden" value="215f4bae-9018-467d-90bc-0ae3983d7f74">
@@ -208,19 +208,3 @@
         </div>
     </div>
 </div>
-<script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' async defer></script>
-<script type="text/javascript">
-    var onloadCallback = function() {
-        jQuery('.g-recaptcha').each(function(index, el) {
-            grecaptcha.render(el, {
-                'sitekey': jQuery(el).data('sitekey'),
-                'theme': 'dark',
-                'callback': function(response) {
-                    if (response.length > 0) {
-                        jQuery(el).parents('form').find('.captcha-wrapper .field-validation-error').css('display', 'none');
-                    }
-                }
-            });
-        });
-    };
-</script>
