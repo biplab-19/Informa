@@ -108,6 +108,19 @@
         color: $white;
         height: auto;
         padding-bottom: 20px;
+        .from{
+          width: auto;
+          display: inline-block;
+          float: left;
+        }
+        .follow-row{
+          margin-top: 15px;
+        }
+        .follow{
+          width: 10%;
+          display: inline-block;
+          float: left;
+        }
         a {
             text-decoration: none;
         }
@@ -276,6 +289,7 @@
             text-align: center;
             padding-top: 13px;
             display: inline-block;
+            position: relative;
         }
         .share:after {
             font-family: "InformaIcons" !important;
@@ -284,7 +298,7 @@
             font-size: 20px;
             position: absolute;
             top: 9px;
-            left: 58px;
+            left: 44px;
             @media (max-width: 1023px) and (min-width: 768px){
               top: 19px;
             }
@@ -532,7 +546,7 @@ div.at4-share-outer {
 .details .social-links,
 .follow-button{
     display: inline-block;
-    a{  
+    a{
         text-transform: none;
         transition: all 0.2s ease-in-out 0s;
         transform: translateY(0px);
