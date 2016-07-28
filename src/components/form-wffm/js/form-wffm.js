@@ -30,8 +30,19 @@ INFORMA.forms = (function(window, $, namespace) {
         _validateAllForms,
         _reCaptchaHandler,
         _disableSubmit,
-        _showHideInlineForm;
+        _showHideInlineForm,
+        _HideOverlay;
 
+
+    _HideOverlay = function () {
+        $('.form-modal').on('hidden.bs.modal', function () {
+            var Parent = $(this),
+                Status = Parent.find('.submit-status');
+
+                Status.attr('data-status', '');
+        })
+    }
+    
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo").submit(function() {
             var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid'),
@@ -140,9 +151,6 @@ INFORMA.forms = (function(window, $, namespace) {
                         backdrop: "static"
                     })
 
-                    formSubmitResponseModal.find('.form-modal-close').on("click", function() {
-                        _formSubmitStatus.attr("data-status", "");
-                    })
                 }
 
                 //Checking The status and Displaying that section
@@ -161,19 +169,27 @@ INFORMA.forms = (function(window, $, namespace) {
                 // }
             }
 
-            if($('#formRequestATrial').length > 0) {
-                if($('#formRequestATrial .submit-status').data('status').length > 0) {
-                    $('#formRequestATrial form').addClass('hide');
-                    $('#formRequestATrial .submit-status').addClass('show');
+            _formSubmitStatus.each(function () {
+                var Status = $(this).attr('data-status'),
+                    Parent = $(this).parents('.modal');
+                if(Status.length > 0) {
+                    Parent.find('form').addClass('hide');
+                    Parent.modal({
+                        show: true,
+                        backdrop: "static"
+                    })
 
-                    $('#formRequestATrial').modal({
-                        show: true,
-                        keyboard: false,
-                        backdrop: "static"
-                    })
+                    if(Status == 'success') {
+                        Parent.find('.submit-response').removeClass('hidden');
+                        Parent.find('.error-response').addClass('hidden');
+                    } else {
+                        Parent.find('.error-response').removeClass('hidden');
+                        Parent.find('.submit-response').addClass('hidden');
+                    }
+                    
+                }
+            })
 
-                }        
-            }
         }
 
     }
@@ -587,6 +603,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _bindValidationLogic();
         _disableSubmit();
         _showHideInlineForm();
+        _HideOverlay();
     };
 
     return {
