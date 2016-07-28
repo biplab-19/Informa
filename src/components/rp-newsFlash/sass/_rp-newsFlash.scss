@@ -1,0 +1,135 @@
+section.newsFlash{
+  height: 200px;
+  position: relative;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  background: $yellow;
+  overflow: hidden;
+    .news-title{
+      font-size: $padding-base-horizontal;
+      strong{
+        color: $black;
+      }
+    }
+    .news-desc{
+        padding-top: 10px;
+        font-family: FSMe-normal;
+        padding-right: 220px;
+        @include mobile {
+          padding-right: 20px;
+        }
+        @include tablet {
+          padding-right: 20px;
+        }
+    }
+    .read{
+      color: $black;
+      font-family: FSMe-bold;
+      padding-top: 10px;
+      display: inline-block;
+      position: relative;
+    }
+    .read:after {
+        font-family: "InformaIcons" !important;
+        content: "\e900";
+        color: $black;
+        font-size: 20px;
+        position: absolute;
+        font-size: 11px;
+        top: 13px;
+        right: -11px;
+    }
+  .cross{
+    color: $white;
+    font-size: 20px;
+    position: absolute;
+    font-size: 16px;
+    top: 13px;
+    right: 14px;
+    z-index: 2;
+  }
+  .cross:after{
+    font-family: "InformaIcons" !important;
+    content: "\e906";
+  }
+  .news-carousel {
+    z-index: 1;
+     .slick-list {
+         border-right: none;
+     }
+     .slick-arrow {
+         height: 60px;
+         width: 40px;
+         z-index: 1;
+         background-color: $yellow;
+         top: 50%;
+         @include mobile {
+             height: 40px;
+             width: 20px;
+             margin-top: -20px;
+             margin-left: -20px;
+         }
+         @include tablet {
+             height: 40px;
+             width: 25px;
+             margin-top: -20px;
+             margin-left: -25px;
+         }
+         &:before {
+             font-family: 'InformaIcons';
+             position: absolute;
+             font-size: 20px;
+             opacity: 1;
+             top: 50%;
+             left: 50%;
+             margin-top: -13px;
+             margin-left: -13px;
+             @include mobile {
+                 font-size: 14px;
+                 margin-top: -7px;
+                 margin-left: -7px;
+             }
+             @include tablet {
+                 font-size: 16px;
+                 margin-top: -8px;
+                 margin-left: -8px;
+             }
+         }
+     }
+     .slick-next {
+         left: 95%;
+         margin-left: 0;
+         top: 126px;
+         &:before {
+             content: "\e902";
+         }
+         @include mobile {
+           left: 94%;
+           margin-left: 0;
+           top: 189px;
+         }
+         @include tablet {
+           left: 97%;
+           top: 166px;
+           //margin-left:-25px;
+         }
+     }
+     .slick-prev {
+       left: 95%;
+       top: 126px;
+         @include mobile {
+           left: 94%;
+           top: 189px;
+             margin-left:-20px;
+         }
+         @include tablet {
+           left: 96%;
+           top: 166px;
+           //margin-left:-25px;
+         }
+         &:before {
+             content: "\e903";
+         }
+     }
+   }
+}
