@@ -102,15 +102,15 @@ INFORMA.EventsViews = (function(window, $, namespace) {
           CheckCount();
 
           var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
-                ViewDate = moment(new Date('1 '+ViewDateText), 'MMMM YYYY');
+                ViewDate = moment(new Date('1 '+ViewDateText));
 
-          if(moment(ViewDate).format('MMMM YYYY') == _Start) {
+          if(ViewDate.format('MMMM YYYY') == _Start) {
             List.find('.previous').addClass('arrow-desabled');
           } else {
              List.find('.previous').removeClass('arrow-desabled');
           }
 
-          if(moment(ViewDate).format('MMMM YYYY') == _end) {
+          if(ViewDate.format('MMMM YYYY') == _end) {
             List.find('.next').addClass('arrow-desabled');
           } else {
              List.find('.next').removeClass('arrow-desabled');
@@ -440,8 +440,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
             if(Items.length > 0) {
                 jQuery('.no-result').addClass('hidden');
+                $('.fc-view-container').removeClass('hidden');
             } else {
                 jQuery('.no-result').removeClass('hidden');
+                $('.fc-view-container').addClass('hidden');
             }
     },
     MoreEventsFunc = function() {

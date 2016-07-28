@@ -9,7 +9,7 @@
 		text-align: center;
 		width: 40%;
 		@include mobile {
-			display: none;
+			width: 100%;
 		}
 		h2 {
 			display: inline-block;
@@ -216,7 +216,7 @@
 			display: inline-block;
 			position: relative;
 			color: #444957;
-			margin-top: 30px;
+			margin: 30px 0;
 			text-align: left;
 			text-decoration: none;
 			outline: none;
@@ -269,6 +269,6 @@
 }
 section[data-view="list-view"], section[data-view="calendar-view"] {
 	@include mobile {
-		padding-top: 70px;
+		padding-top: 95px;
 	}
 }
