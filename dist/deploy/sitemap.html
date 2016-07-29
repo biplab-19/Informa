@@ -728,6 +728,39 @@ in the empire of Sapient. Har Har Mahadev !! --->
 <script src="Static/js/components/pdp-brochure.js"></script>
 <script src="Static/js/components/rp-newsFlash.js"></script>
 
+
+<script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&amp;render=explicit"></script>
+<script>
+    window.gRecaptchaWidget = [];
+    var loadCaptcha = function() {
+        //rendering google recapthca
+        jQuery('.wffm-form').each(function(i, element) {
+            var recaptchaElementId = jQuery(element).find('.g-recaptcha').attr('id');
+            var widgetId = null;
+            widgetId = grecaptcha.render(recaptchaElementId, {
+                'sitekey': jQuery('#' + recaptchaElementId).data('sitekey'),
+                'theme': 'dark',
+                'callback': function(response) {
+                    if (response.length > 0) {
+                        var validationField = jQuery(element).siblings('.captcha-wrapper').find('span'); // get only current form captcha validation element
+                        if (response.length > 0) {
+                            validationField.css('display', 'none')
+                                .removeClass('field-validation-error')
+                                .addClass('field-validation-valid');
+                        } else {
+                            validationField.css('display', 'block').html('The captcha field is required.')                                .removeClass('field-validation-valid')
+                                .addClass('field-validation-error');
+
+                        }
+                    }
+                }
+            });
+            window.gRecaptchaWidget.push({captchaElementId: recaptchaElementId, captchaWidgetId: widgetId});
+        })
+    };
+</script>
+
+
 <!-- endbuild -->
 
 </body>
