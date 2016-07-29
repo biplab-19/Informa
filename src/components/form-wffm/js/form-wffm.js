@@ -34,19 +34,27 @@ INFORMA.forms = (function(window, $, namespace) {
         _HideOverlay;
 
 
-    _HideOverlay = function () {
-        $('.form-modal').on('hidden.bs.modal', function () {
+    _HideOverlay = function() {
+        $('.form-modal').on('hidden.bs.modal', function() {
             var Parent = $(this),
                 Status = Parent.find('.submit-status');
 
-                Status.attr('data-status', '');
+            Status.attr('data-status', '');
         })
     }
-    
+
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo").submit(function() {
-            var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid'),
-                captcha_response = grecaptcha.getResponse();
+            var widgetId, captcha_response, g_captchaId = $(this).find('.g-recaptcha').attr('id');
+            if(window.gRecaptchaWidget){
+                widgetId = $.grep(window.gRecaptchaWidget, function(obj) {
+                  return obj.captchaElementId === g_captchaId;
+              })
+            }
+            if(widgetId){
+                captcha_response = grecaptcha.getResponse(widgetId[0].captchaWidgetId);
+            }
+            var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid');
             if (captcha_response.length == 0) {
                 // Captcha failed
                 captchaMsgContainer.css('display', 'block').html('The captcha field is required.').addClass('field-validation-error');
@@ -120,7 +128,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _showOverlay = function() {
         var formSubmitResponseModal;
-        if(_formSubmitStatus.length > 0) {
+        if (_formSubmitStatus.length > 0) {
             if (_formSubmitStatus.attr('data-status') == "") {
                 formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
                 if (formSubmitResponseModal.length > 0) {
@@ -155,7 +163,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
                 //Checking The status and Displaying that section
 
-                if(_formSubmitStatus.attr('data-status') == 'success') {
+                if (_formSubmitStatus.attr('data-status') == 'success') {
                     $('.submit-response').removeClass('hidden');
                     $('.error-response').addClass('hidden');
                 } else {
@@ -169,24 +177,24 @@ INFORMA.forms = (function(window, $, namespace) {
                 // }
             }
 
-            _formSubmitStatus.each(function () {
+            _formSubmitStatus.each(function() {
                 var Status = $(this).attr('data-status'),
                     Parent = $(this).parents('.modal');
-                if(Status.length > 0) {
+                if (Status.length > 0) {
                     Parent.find('form').addClass('hide');
                     Parent.modal({
                         show: true,
                         backdrop: "static"
                     })
 
-                    if(Status == 'success') {
+                    if (Status == 'success') {
                         Parent.find('.submit-response').removeClass('hidden');
                         Parent.find('.error-response').addClass('hidden');
                     } else {
                         Parent.find('.error-response').removeClass('hidden');
                         Parent.find('.submit-response').addClass('hidden');
                     }
-                    
+
                 }
             })
 
