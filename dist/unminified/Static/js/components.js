@@ -3253,6 +3253,78 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
 jQuery(INFORMA.twitterFeed.init());
 
 /*
+ * newsletter.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-April-25
+ * @author:     Nupur Goyal
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.newsletter = (function(window, $, namespace) {
+    'use strict';
+    //variables
+   var _newsletter = $('#newsletter-form'),
+       _submitResponse = $('#newsletter-submit'),
+       _email = $('input[name="email"]'),
+       Urls = INFORMA.Configs.urls.webservices,
+      //methods 
+      init,GetAjaxData,RenderNewsLetter,_isValidEmailAddress;
+
+    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.DataLoader.GetServiceData(url, {
+            method: method,
+            data: JSON.stringify(data),
+            success_callback: function (data) {
+                $( "<div>Email has been successfully sent to"+ email+"</div>" ).insertAfter( ".get-in-touch" );
+                if (typeof SCallback === "function") {
+                    SCallback.call(this, data, SearchType);
+                }
+            },
+            error_callback: function () {
+                if (typeof Errcallback === "function") {
+                    Errcallback.call(this, data, SearchType);
+                }
+            }
+        });
+    },
+      
+    _isValidEmailAddress = function(value){
+      _submitResponse.attr('disabled', true);   
+      _newsletter.on('change', 'input', function() {
+        _submitResponse.removeAttr('disabled');
+      });
+    },
+
+    RenderNewsLetter = function (data) {
+        debugger
+
+    },
+
+    _submitResponse.click(function(e){   
+       var email = _email.val();
+        e.preventDefault();
+        var _Object = {
+          "email": email
+        }
+        GetAjaxData(Urls.GetFAQs, "Post", JSON.stringify(_Object), RenderNewsLetter, null, null);
+    });
+
+    init = function() {
+       var value = _email.val();
+        _isValidEmailAddress(value);      
+    }
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.newsletter.init());
+
+/*
  * analyst-list.js
  *
  *
@@ -5027,8 +5099,8 @@ var INFORMA = window.INFORMA || {};
 INFORMA.navtabs = (function(window, $, namespace) {
     'use strict';
     //variables
-    var Tabs = $('.support-page-tabs ul.nav li'),
-        tabcontent = $('.support-page-tabs .tab-content .tab-pane'),
+    var Tabs = $('.support-page-tabs,.profile-page-tabs ul.nav li'),
+        tabcontent = $('.support-page-tabs,.profile-page-tabs .tab-content .tab-pane'),
         init;
     init = function() {
         jQuery(Tabs[0]).addClass('active');
