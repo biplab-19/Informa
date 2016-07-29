@@ -44,6 +44,11 @@ form.request-a-demo {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
+    @include mobile{
+        .area-interests .row [class*='col-'] {
+            margin-left: -8px;
+        }
+    }
     .form-control {
         border-radius: 0 !important;
         //width: 90% !important;
@@ -259,7 +264,6 @@ form.request-a-demo {
             margin-top: -5px;
             margin-bottom: 15px;
             height: 70px;
-            background-color: $body-bg;
             color: $gray-light-bg;
             input {
                 margin-left: 0;
@@ -267,8 +271,9 @@ form.request-a-demo {
                 bottom: 5px;
                 display: none;
             }
-            @include mobile {
-                width: 48%;
+             @include mobile {
+                width: 50%;
+                padding: 0 5px;
             }
             @include not-mobile {
                 width: 30%;
@@ -278,9 +283,11 @@ form.request-a-demo {
                 margin: 0;
                 font-size: $font-size-base;
                 font-weight: normal !important;
+                background-color: $body-bg;
                 @include mobile {
                     padding: 5px;
                     width: 100%;
+                    margin: 0 4px;
                 }
                 @include not-mobile {
                     width: 100%;
@@ -288,9 +295,11 @@ form.request-a-demo {
                 }
             }
             &.active {
-                background-color: inherit;
                 color: $body-bg;
-                border: 3px solid $yellow;
+                label{
+                    border: 3px solid $yellow;
+                    background-color: inherit;
+                }
                 &::after {
                     content: "\e914";
                     visibility: visible;
@@ -301,17 +310,19 @@ form.request-a-demo {
                     right: 5px;
                     bottom: 5px;
                 }
+                @include mobile {
+                    &::after{
+                        right: 8px;
+                        bottom: 8px;
+                    }
+                        
+                }
             }
         }
         @include not-mobile {
             .checkbox:nth-child(3n-2) {
                 margin-left: 5%;
                 margin-right: 5%;
-            }
-        }
-        @include mobile {
-            .checkbox:nth-child(odd) {
-                margin-left: 4%;
             }
         }
     }
