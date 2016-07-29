@@ -34,12 +34,16 @@ INFORMA.forms = (function(window, $, namespace) {
         _HideOverlay;
 
 
-    _HideOverlay = function() {
-        $('.form-modal').on('hidden.bs.modal', function() {
+    _HideOverlay = function () {
+        $('.form-modal').on('hidden.bs.modal', function () {
             var Parent = $(this),
                 Status = Parent.find('.submit-status');
 
-            Status.attr('data-status', '');
+                Status.attr('data-status', '');
+
+                Parent.find('.submit-response').addClass('hide');
+
+                Parent.find('form').removeClass('hide');
         })
     }
 
@@ -576,6 +580,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _showModal = function(el)  {         
         _formId = $(el).data('modal');
+        _resetForm($(_formId).find('form'));
         if ($(el).attr('data-productid')) {
             productId = {
                 'guid': $(el).attr('data-productid')

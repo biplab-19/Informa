@@ -5968,40 +5968,10 @@ section.articlepage-quote .container figure figcaption {
   }
 }
 /* line 10, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
-.support-page-tabs a {
-  width: 128px;
-  height: 35px;
-  background-color: #fff;
-  position: relative;
-}
-/* line 17, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
-.support-page-tabs a:before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 126px;
-  width: 0;
-  height: 0;
-  border: 18px solid transparent;
-  border-left: 15px solid #fff;
-}
-/* line 27, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
-.support-page-tabs li.active a:before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 126px;
-  width: 0;
-  height: 0;
-  border: 18px solid transparent;
-  border-left: 15px solid yellow;
-  z-index: 1000;
-}
-/* line 38, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
 .support-page-tabs .nav-tabs {
   border-bottom: none !important;
 }
-/* line 43, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+/* line 15, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
 .support-page-tabs ul {
   font-family: FSMe-bold;
 }
@@ -6011,36 +5981,43 @@ section.articlepage-quote .container figure figcaption {
     margin-left: -10px;
   }
 }
-/* line 57, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+/* line 25, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+.support-page-tabs li:hover {
+  background-color: #e7e7e7 !important;
+}
+/* line 29, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
 .support-page-tabs .tabs-box {
-  width: 128px;
+  width: 160px;
+  margin-right: 10px;
 }
 @media (max-width: 767px) {
-  /* line 57, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+  /* line 29, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
   .support-page-tabs .tabs-box {
     width: auto;
     margin-left: 0px;
   }
 }
-/* line 64, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+/* line 36, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
 .support-page-tabs .tabs-box a {
   color: #000;
   border-radius: 0px !important;
-  padding: 8px 14px !important;
+  border: 1px solid rgba(204, 204, 204, 0.3);
+  border-bottom: 1px solid #aaa;
+  background-color: #e7e7e7;
+  padding: 13px 14px !important;
 }
 @media (max-width: 767px) {
-  /* line 64, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+  /* line 36, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
   .support-page-tabs .tabs-box a {
     margin-right: 0px !important;
     padding: 17px 14px !important;
   }
 }
-/* line 76, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
+/* line 48, ../../../src/components/support-page-tabs/sass/support-page-tabs.scss */
 .support-page-tabs .tabs-box li.active a {
   border: 1px solid #aaa !important;
   border-bottom: none !important;
   color: #000 !important;
-  background: #fff !important;
 }
 
 /* line 1, ../../../src/components/services-list/sass/_services-list.scss */
@@ -9319,175 +9296,4 @@ section.newsFlash .news-carousel .slick-prev {
 /* line 130, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-prev:before {
   content: "\e903";
-}
-
-/* line 1, ../../../src/components/newsletter/sass/_newsletter.scss */
-.newsletter {
-  background-color: #444957;
-  color: #fff;
-  height: auto;
-  padding-bottom: 20px;
-}
-@media (max-width: 767px) {
-  /* line 1, ../../../src/components/newsletter/sass/_newsletter.scss */
-  .newsletter {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-}
-/* line 10, ../../../src/components/newsletter/sass/_newsletter.scss */
-.newsletter .get-in-touch {
-  padding-left: 0px !important;
-}
-/* line 12, ../../../src/components/newsletter/sass/_newsletter.scss */
-.newsletter .get-in-touch .form-submit-border {
-  padding-top: 44px !important;
-}
-/* line 14, ../../../src/components/newsletter/sass/_newsletter.scss */
-.newsletter .get-in-touch .form-submit-border .btn {
-  width: auto;
-}
-/* line 18, ../../../src/components/newsletter/sass/_newsletter.scss */
-.newsletter .get-in-touch .form-submit-border::after {
-  content: "";
-}
-/* line 24, ../../../src/components/newsletter/sass/_newsletter.scss */
-.newsletter p {
-  padding-top: 29px;
-  padding-bottom: 26px;
-  font-size: 18px;
-  font-family: FSMe-light;
-  color: #f1f1f3;
-}
-@media (max-width: 767px) {
-  /* line 24, ../../../src/components/newsletter/sass/_newsletter.scss */
-  .newsletter p {
-    font-size: 14px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-}
-/* line 37, ../../../src/components/newsletter/sass/_newsletter.scss */
-.newsletter h2 {
-  font-family: FSMe-light;
-  font-size: 30px;
-  padding-top: 54px;
-}
-@media (max-width: 767px) {
-  /* line 37, ../../../src/components/newsletter/sass/_newsletter.scss */
-  .newsletter h2 {
-    font-size: 18px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 1, ../../../src/components/newsletter/sass/_newsletter.scss */
-  .newsletter {
-    height: auto;
-  }
-}
-/* line 48, ../../../src/components/newsletter/sass/_newsletter.scss */
-.newsletter .form-control {
-  background: #444957 !important;
-  height: 49px !important;
-  color: #fff;
-}
-/* line 53, ../../../src/components/newsletter/sass/_newsletter.scss */
-.newsletter input[type="email"].form-control::-webkit-input-placeholder {
-  color: #fff;
-}
-
-/* line 1, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs {
-  margin-top: 20px;
-}
-/* line 2, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs .tab-content {
-  background-color: #fff;
-  padding: 5px 15px;
-  border-top: 1px solid #aaa;
-}
-@media (max-width: 767px) {
-  /* line 2, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-  .profile-page-tabs .tab-content {
-    margin-left: -10px;
-  }
-}
-/* line 10, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs a {
-  width: 128px;
-  height: 35px;
-  background-color: #fff;
-  position: relative;
-}
-/* line 16, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs a:before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 126px;
-  width: 0;
-  height: 0;
-  border: 17px solid transparent;
-  border-left: 15px solid #fff;
-  z-index: 1000;
-}
-/* line 27, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs li.active a:before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  left: 126px;
-  width: 0;
-  height: 0;
-  border: 18px solid transparent;
-  border-left: 15px solid yellow;
-  z-index: 1000;
-}
-/* line 38, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs li.active > a {
-  background: yellow !important;
-  border: 1px solid transparent !important;
-}
-/* line 42, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs .nav-tabs {
-  border-bottom: none !important;
-}
-/* line 47, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs ul {
-  font-family: FSMe-bold;
-}
-@media (max-width: 767px) {
-  /* line 1, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-  .profile-page-tabs {
-    margin-left: -10px;
-  }
-}
-/* line 53, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs .tabs-box {
-  width: 128px;
-}
-@media (max-width: 767px) {
-  /* line 53, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-  .profile-page-tabs .tabs-box {
-    width: auto;
-    margin-left: 0px;
-  }
-}
-/* line 59, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs .tabs-box a {
-  color: #000;
-  border-radius: 0px !important;
-  padding: 8px 14px !important;
-}
-@media (max-width: 767px) {
-  /* line 59, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-  .profile-page-tabs .tabs-box a {
-    margin-right: 0px !important;
-  }
-}
-/* line 67, ../../../src/components/profile-tab/sass/_profile-tab.scss */
-.profile-page-tabs .tabs-box li.active a {
-  border: 1px solid #aaa !important;
-  border-bottom: none !important;
-  color: #000 !important;
 }
