@@ -1,4 +1,4 @@
-/*! 2016-07-29 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-08-01 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -1321,6 +1321,8 @@ section#agri-report .agri-report-wrapper .download-report:after {
 .contactus-list .panel .panel-heading {
   padding: 25px;
   background-color: #e1e3e7;
+  color: #6a7285;
+  display: block;
 }
 @media (max-width: 767px) {
   /* line 89, ../../../src/components/home-contactus/sass/_contactus.scss */
@@ -1328,104 +1330,104 @@ section#agri-report .agri-report-wrapper .download-report:after {
     padding: 20px 20px 10px 20px;
   }
 }
-/* line 96, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 98, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body {
   padding: 20px;
 }
-/* line 98, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 100, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number:nth-of-type(1) {
   padding-top: 0px !important;
 }
-/* line 101, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 103, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number {
   padding-top: 13px;
 }
-/* line 103, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 105, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number p {
   font-size: 17px;
   margin-bottom: 0px !important;
 }
-/* line 110, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 112, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number a {
   font-size: 20px;
   text-decoration: none;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 110, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 112, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .phone-number a {
     font-size: 26px;
   }
 }
 @media (max-width: 767px) {
-  /* line 101, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 103, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .phone-number {
     padding-top: 0;
   }
 }
-/* line 122, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 124, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body a {
   font-size: 14px;
   text-decoration: none;
 }
-/* line 126, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 128, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-number {
   font-size: 18px;
 }
 @media (max-width: 767px) {
-  /* line 126, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 128, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-number {
     display: none;
   }
 }
-/* line 133, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 135, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-cta {
   min-height: 120px;
 }
 @media (max-width: 767px) {
-  /* line 133, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 135, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-cta {
     min-height: auto;
     margin-bottom: 15px;
   }
 }
-/* line 140, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 142, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .subscribe-link {
   width: 100%;
   background: #ef7c00 url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
   border: none;
   padding-left: 45px;
 }
-/* line 146, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 148, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with {
   padding: 10px 0;
   font-size: 12px;
 }
-/* line 149, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 151, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with .copy {
   vertical-align: top;
   padding-top: 10px;
   display: inline-block;
 }
-/* line 154, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 156, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment {
   padding-right: 10px;
   height: 34px;
   width: 34px;
   display: inline-block;
 }
-/* line 160, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 162, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.amex {
   background: url(/Static/images/subscribe/amex.png);
 }
-/* line 163, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 165, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.visa {
   background: url(/Static/images/subscribe/visa.png);
 }
-/* line 166, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 168, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.mastercard {
   background: url(/Static/images/subscribe/mastercard.png);
 }
-/* line 174, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 176, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container select.subscribe-options {
   width: 100%;
   font-size: 13px;
@@ -1437,7 +1439,7 @@ section#agri-report .agri-report-wrapper .download-report:after {
   -o-appearance: none;
   background: #e1e3e7 url(/Static/images/subscribe/drop-down.png) no-repeat 95% 50%;
 }
-/* line 185, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 187, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container:last-child {
   width: 100%;
   padding: 15px;
@@ -1446,48 +1448,48 @@ section#agri-report .agri-report-wrapper .download-report:after {
   left: 0;
 }
 @media (max-width: 767px) {
-  /* line 185, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 187, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container:last-child {
     position: static;
     padding: 20px 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 172, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 174, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container {
     position: relative;
     padding: 0px;
   }
 }
-/* line 202, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 204, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .icon {
   padding-right: 8px;
 }
 
-/* line 209, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 211, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a {
   color: #ef7c00;
 }
-/* line 211, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 213, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a.btn {
   color: #fff;
 }
-/* line 216, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 218, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.three .contactus-list .panel-group .panel {
   width: 30.5%;
 }
-/* line 221, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 223, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.four .contactus-list .panel-group .panel {
   width: 22.5%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 221, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 223, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.four .contactus-list .panel-group .panel {
     width: 30.5%;
   }
 }
 @media (max-width: 767px) {
-  /* line 230, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 232, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.three .contactus-list .panel-group .panel, #contactus-section.four .contactus-list .panel-group .panel {
     width: 100%;
   }
