@@ -304,6 +304,11 @@ INFORMA.forms = (function(window, $, namespace) {
         formHeading = _presentHeading.replace('#', results.Title);
         $(_formId + ' .page-header h1').text(formHeading);
 
+        var hiddenProdcutName = $(_formId + " .form-additional-fields .product-name-field");
+        if(hiddenProdcutName.length > 0){
+            hiddenProdcutName.val(results.Title);
+        }
+
         for (var key in results.Items) {
             if (results.Items.hasOwnProperty(key)) {
                 _interestText = results.Items[key].Text;
