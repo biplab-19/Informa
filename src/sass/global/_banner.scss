@@ -226,10 +226,11 @@
             list-style-type: none;
             font-size: 20px;
             li {
+                position: relative;
                 margin-bottom: 20px;
                 padding-left: 20px;
                 @include mobile {
-                    padding-left: 44px;
+                    padding-left: 35px;
                 }
             }
             li:before {
@@ -239,9 +240,10 @@
                 font-size: 25px;
                 color: #ffd500;
                 position: absolute;
-                left: 35px;
+                left: -13px;
+                top: -3px;
                 @include mobile {
-                    left: 28px;
+                    left: -1px;
                     padding-left: 0px;
                 }
             }
@@ -300,7 +302,7 @@
             top: 9px;
             left: 44px;
             @media (max-width: 1023px) and (min-width: 768px){
-              top: 19px;
+              top: 9px;
             }
         }
         .share-tab{

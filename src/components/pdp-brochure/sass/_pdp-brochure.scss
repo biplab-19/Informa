@@ -78,6 +78,7 @@
           margin-bottom: 10px;
           font-size: 18px;
           padding-left: 20px;
+          position: relative;
           @include mobile {
               padding-left: 32px;
           }
@@ -89,9 +90,10 @@
           font-size: 20px;
           color: #ffd500;
           position: absolute;
-          left: 39px;
+          left: -13px;
+          top: -3px;
           @include mobile {
-              left: 7px;
+              left: 0px;
               padding-left: 0px;
           }
       }
