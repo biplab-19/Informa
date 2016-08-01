@@ -14,10 +14,10 @@ var INFORMA = window.INFORMA || {};
 
 INFORMA.Analytics = (function(window, $, namespace) {
     'use strict';
-    var init,LoadAdobeAnalytics , LoadGoogleAnalytics;
+    var init,LoadAdobeAnalytics , LoadGoogleAnalytics, Config;
 
-    LoadAdobeAnalytics = function(){
-      var s=s_gi("informashopwindowpharmadev");
+    LoadAdobeAnalytics = function(c){
+      var s=s_gi(c.AdobeUserKey);
       s.trackDownloadLinks=true
       s.trackExternalLinks=true
       s.trackInlineStats=true
@@ -26,14 +26,14 @@ INFORMA.Analytics = (function(window, $, namespace) {
       s.linkLeaveQueryString=false
       s.linkTrackVars="None"
       s.linkTrackEvents="None"
-      s.pageName="Test"
+      s.pageName=document.title
       s.server= window.location.host
-      s.channel="Agri"
+      s.channel=c.Channel
       s.pageType="Main"
     },
-    LoadGoogleAnalytics = function(){
+    LoadGoogleAnalytics = function(key){
         var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-81001424-2']);
+        _gaq.push(['_setAccount', key]);
         _gaq.push(['_trackPageview']);
 
         var ga = document.createElement('script'); 
@@ -43,8 +43,14 @@ INFORMA.Analytics = (function(window, $, namespace) {
         s.parentNode.insertBefore(ga, s);
     },
     init = function() {
-        LoadAdobeAnalytics();
-        LoadGoogleAnalytics();
+        Config = AnalyticsSettings;
+        if(Config.GAEnabled){
+            LoadGoogleAnalytics(Config.GAProfileKey);
+        }
+        if(Config.AdobeEnabled){
+          LoadAdobeAnalytics(Config);
+        }
+
     };
 
     return {
