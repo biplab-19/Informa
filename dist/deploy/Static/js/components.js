@@ -1959,6 +1959,11 @@ INFORMA.forms = (function(window, $, namespace) {
         formHeading = _presentHeading.replace('#', results.Title);
         $(_formId + ' .page-header h1').text(formHeading);
 
+        var hiddenProdcutName = $(_formId + " .form-additional-fields .product-name-field");
+        if(hiddenProdcutName.length > 0){
+            hiddenProdcutName.val(results.Title);
+        }
+
         for (var key in results.Items) {
             if (results.Items.hasOwnProperty(key)) {
                 _interestText = results.Items[key].Text;
@@ -5374,10 +5379,10 @@ var INFORMA = window.INFORMA || {};
 
 INFORMA.Analytics = (function(window, $, namespace) {
     'use strict';
-    var init,LoadAdobeAnalytics , LoadGoogleAnalytics;
+    var init,LoadAdobeAnalytics , LoadGoogleAnalytics, Config;
 
-    LoadAdobeAnalytics = function(){
-      var s=s_gi("informashopwindowpharmadev");
+    LoadAdobeAnalytics = function(c){
+      var s=s_gi(c.AdobeUserKey);
       s.trackDownloadLinks=true
       s.trackExternalLinks=true
       s.trackInlineStats=true
@@ -5386,14 +5391,14 @@ INFORMA.Analytics = (function(window, $, namespace) {
       s.linkLeaveQueryString=false
       s.linkTrackVars="None"
       s.linkTrackEvents="None"
-      s.pageName="Test"
+      s.pageName=document.title
       s.server= window.location.host
-      s.channel="Agri"
+      s.channel=c.Channel
       s.pageType="Main"
     },
-    LoadGoogleAnalytics = function(){
+    LoadGoogleAnalytics = function(key){
         var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-81001424-2']);
+        _gaq.push(['_setAccount', key]);
         _gaq.push(['_trackPageview']);
 
         var ga = document.createElement('script'); 
@@ -5403,8 +5408,14 @@ INFORMA.Analytics = (function(window, $, namespace) {
         s.parentNode.insertBefore(ga, s);
     },
     init = function() {
-        LoadAdobeAnalytics();
-        LoadGoogleAnalytics();
+        Config = AnalyticsSettings;
+        if(Config.GAEnabled){
+            LoadGoogleAnalytics(Config.GAProfileKey);
+        }
+        if(Config.AdobeEnabled){
+          LoadAdobeAnalytics(Config);
+        }
+
     };
 
     return {
