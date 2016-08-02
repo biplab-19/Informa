@@ -1,4 +1,4 @@
-/*! 2016-08-01 */@charset "UTF-8";
+/*! 2016-08-02 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -12844,6 +12844,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* line 524, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox {
+  margin-left: 15px;
   display: inline-block;
 }
 @media (max-width: 767px) {
@@ -12858,12 +12859,13 @@ div.addthis_sharing_toolbox {
     margin-left: 8px;
   }
 }
-/* line 532, ../../../src/sass/global/_banner.scss */
+/* line 533, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox a.at-share-btn {
+  padding-right: 5px;
   max-width: 10pc !important;
   max-height: 10pc !important;
 }
-/* line 535, ../../../src/sass/global/_banner.scss */
+/* line 537, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox a.at-share-btn span.at-icon-wrapper {
   background-color: #4a4f5e !important;
   border-radius: 100% !important;
@@ -12872,17 +12874,17 @@ div.addthis_sharing_toolbox a.at-share-btn span.at-icon-wrapper {
   padding: 5px;
 }
 
-/* line 545, ../../../src/sass/global/_banner.scss */
+/* line 547, ../../../src/sass/global/_banner.scss */
 div.at4-share-outer {
   display: none !important;
 }
 
-/* line 548, ../../../src/sass/global/_banner.scss */
+/* line 550, ../../../src/sass/global/_banner.scss */
 .details .social-links,
 .follow-button {
   display: inline-block;
 }
-/* line 551, ../../../src/sass/global/_banner.scss */
+/* line 553, ../../../src/sass/global/_banner.scss */
 .details .social-links a,
 .follow-button a {
   text-transform: none;
@@ -12890,7 +12892,7 @@ div.at4-share-outer {
   transform: translateY(0px);
   display: inline-block;
 }
-/* line 556, ../../../src/sass/global/_banner.scss */
+/* line 558, ../../../src/sass/global/_banner.scss */
 .details .social-links a .at-icon-wrapper,
 .follow-button a .at-icon-wrapper {
   width: 40px !important;
@@ -12899,13 +12901,13 @@ div.at4-share-outer {
   border-radius: 100%;
   background-color: #4a4f5e !important;
 }
-/* line 562, ../../../src/sass/global/_banner.scss */
+/* line 564, ../../../src/sass/global/_banner.scss */
 .details .social-links a .at-icon-wrapper .at-icon,
 .follow-button a .at-icon-wrapper .at-icon {
   width: 40px !important;
   height: 32px !important;
 }
-/* line 567, ../../../src/sass/global/_banner.scss */
+/* line 569, ../../../src/sass/global/_banner.scss */
 .details .social-links a:hover,
 .follow-button a:hover {
   outline-offset: -1px;

@@ -1,4 +1,4 @@
-/*! 2016-08-01 */_adjustHeigt = function(){
+/*! 2016-08-02 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1686,7 +1686,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _reCaptchaHandler,
         _disableSubmit,
         _showHideInlineForm,
-        _HideOverlay;
+        _HideOverlay,
+        _showFormIntro;
 
 
     _HideOverlay = function () {
@@ -2260,6 +2261,16 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
+    _showFormIntro = function(){
+       var contactUsGetinTouchForm =  $('.contactUsPage-contactUs .get-in-touch'),
+        formIntroText = contactUsGetinTouchForm.find('.form-introduction'),
+        formHeaderText = contactUsGetinTouchForm.find('.page-header');
+       if(formIntroText.length > 0 ){
+          formIntroText.addClass('show');
+          formHeaderText.addClass('hide')
+       }
+    }
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
 
@@ -2277,6 +2288,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _disableSubmit();
         _showHideInlineForm();
         _HideOverlay();
+        _showFormIntro();
     };
 
     return {
