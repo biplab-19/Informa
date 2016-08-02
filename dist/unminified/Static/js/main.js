@@ -178,13 +178,15 @@ INFORMA.Analytics = (function(window, $, namespace) {
         s.parentNode.insertBefore(ga, s);
     },
     init = function() {
-        Config = AnalyticsSettings;
-        if(Config.GAEnabled){
-            LoadGoogleAnalytics(Config.GAProfileKey);
-        }
-        if(Config.AdobeEnabled){
-          LoadAdobeAnalytics(Config);
-        }
+      if(AnalyticsSettings){
+          Config = AnalyticsSettings;
+          if(Config.GAEnabled){
+              LoadGoogleAnalytics(Config.GAProfileKey);
+          }
+          if(Config.AdobeEnabled){
+            LoadAdobeAnalytics(Config);
+          }
+      }
 
     };
 

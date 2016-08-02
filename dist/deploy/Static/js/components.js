@@ -2728,8 +2728,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpMenuleft = [];
                 for (var i = 0; i < _pdpLink.length; i++) {
                     var _sectionName = '#' + $(_pdpLink[i]).data('target');
-
-                    _pdpMenuPos.push($(_sectionName).offset().top);
+                    if(_sectionName){
+                        _pdpMenuPos.push($(_sectionName).offset().top);
+                    }else{
+                        _pdpMenuPos.push(0);
+                    }
                     _pdpMenuWidth.push($(_pdpLinkSpan[i]).width());
                     _pdpMenuleft.push($(_pdpLinkSpan[i]).offset().left);
                 }
@@ -5420,13 +5423,15 @@ INFORMA.Analytics = (function(window, $, namespace) {
         s.parentNode.insertBefore(ga, s);
     },
     init = function() {
-        Config = AnalyticsSettings;
-        if(Config.GAEnabled){
-            LoadGoogleAnalytics(Config.GAProfileKey);
-        }
-        if(Config.AdobeEnabled){
-          LoadAdobeAnalytics(Config);
-        }
+      if(AnalyticsSettings){
+          Config = AnalyticsSettings;
+          if(Config.GAEnabled){
+              LoadGoogleAnalytics(Config.GAProfileKey);
+          }
+          if(Config.AdobeEnabled){
+            LoadAdobeAnalytics(Config);
+          }
+      }
 
     };
 
