@@ -1697,7 +1697,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
                 Status.attr('data-status', '');
 
-                Parent.find('.submit-response').addClass('hide');
+                Parent.find('.submit-response, .error-response').addClass('hide');
 
                 Parent.find('form').removeClass('hide');
         })
