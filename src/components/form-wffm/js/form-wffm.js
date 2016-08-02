@@ -31,7 +31,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _reCaptchaHandler,
         _disableSubmit,
         _showHideInlineForm,
-        _HideOverlay;
+        _HideOverlay,
+        _showFormIntro;
 
 
     _HideOverlay = function () {
@@ -605,6 +606,16 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
+    _showFormIntro = function(){
+       var contactUsGetinTouchForm =  $('.contactUsPage-contactUs .get-in-touch'),
+        formIntroText = contactUsGetinTouchForm.find('.form-introduction'),
+        formHeaderText = contactUsGetinTouchForm.find('.page-header');
+       if(formIntroText.length > 0 ){
+          formIntroText.addClass('show');
+          formHeaderText.addClass('hide')
+       }
+    }
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
 
@@ -622,6 +633,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _disableSubmit();
         _showHideInlineForm();
         _HideOverlay();
+        _showFormIntro();
     };
 
     return {
