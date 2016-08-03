@@ -5088,7 +5088,7 @@ section#about-us-hero .transparent-bg-content .description {
 /* line 1, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs {
   height: 100%;
-  padding-top: 30px;
+  padding: 30px 0;
   background: #fff;
 }
 /* line 5, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
@@ -9275,7 +9275,7 @@ section.newsFlash .news-carousel .slick-arrow:before {
 section.newsFlash .news-carousel .slick-next {
   left: 95%;
   margin-left: 0;
-  top: 126px;
+  top: 50%;
 }
 /* line 103, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-next:before {
@@ -9286,37 +9286,179 @@ section.newsFlash .news-carousel .slick-next:before {
   section.newsFlash .news-carousel .slick-next {
     left: 94%;
     margin-left: 0;
-    top: 189px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 99, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-next {
     left: 97%;
-    top: 166px;
   }
 }
-/* line 117, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 114, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-prev {
   left: 92%;
-  top: 126px;
+  top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 117, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 114, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-prev {
     left: 94%;
-    top: 189px;
     margin-left: -20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 117, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 114, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-prev {
     left: 96%;
-    top: 166px;
   }
 }
-/* line 130, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 124, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-prev:before {
+  content: "\e903";
+}
+
+/* line 1, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts {
+  background-color: #3C404C;
+  color: #fff;
+}
+/* line 4, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts h1 {
+  margin-bottom: 20px;
+}
+/* line 7, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .product-item {
+  padding-left: 40px;
+  padding-right: 15px;
+  position: relative;
+}
+/* line 11, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .product-item img {
+  display: inline-block;
+}
+/* line 15, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .product-item:after {
+  content: '';
+  border-left: 1px solid #666666;
+  height: 50%;
+  position: absolute;
+  top: 8px;
+  right: 0px;
+}
+@media (max-width: 767px) {
+  /* line 15, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  section#Pharma-ourproducts .product-item:after {
+    display: none;
+  }
+}
+/* line 28, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .product-item:last-child:after {
+  border-left: none;
+}
+/* line 33, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .products-carousel {
+  z-index: 1;
+}
+/* line 35, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .products-carousel .slick-list {
+  border-right: none;
+}
+/* line 38, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .products-carousel .slick-arrow {
+  height: 60px;
+  width: 40px;
+  z-index: 1;
+  background-color: #ffd500;
+  top: 50%;
+}
+@media (max-width: 767px) {
+  /* line 38, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  section#Pharma-ourproducts .products-carousel .slick-arrow {
+    height: 40px;
+    width: 20px;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 38, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  section#Pharma-ourproducts .products-carousel .slick-arrow {
+    height: 40px;
+    width: 25px;
+    margin-top: -20px;
+    margin-left: -25px;
+  }
+}
+/* line 56, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .products-carousel .slick-arrow:before {
+  font-family: 'InformaIcons';
+  position: absolute;
+  font-size: 20px;
+  opacity: 1;
+  top: 50%;
+  left: 50%;
+  margin-top: -13px;
+  margin-left: -13px;
+}
+@media (max-width: 767px) {
+  /* line 56, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  section#Pharma-ourproducts .products-carousel .slick-arrow:before {
+    font-size: 14px;
+    margin-top: -7px;
+    margin-left: -7px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 56, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  section#Pharma-ourproducts .products-carousel .slick-arrow:before {
+    font-size: 16px;
+    margin-top: -8px;
+    margin-left: -8px;
+  }
+}
+/* line 77, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .products-carousel .slick-next {
+  right: -25px;
+  top: 50%;
+}
+/* line 80, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .products-carousel .slick-next:before {
+  content: "\e902";
+}
+@media (max-width: 767px) {
+  /* line 77, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  section#Pharma-ourproducts .products-carousel .slick-next {
+    right: -3px;
+    top: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 77, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  section#Pharma-ourproducts .products-carousel .slick-next {
+    right: -5px;
+    top: 100%;
+  }
+}
+/* line 92, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .products-carousel .slick-prev {
+  left: -25px;
+  top: 50%;
+}
+@media (max-width: 767px) {
+  /* line 92, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  section#Pharma-ourproducts .products-carousel .slick-prev {
+    left: 12px;
+    top: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 92, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  section#Pharma-ourproducts .products-carousel .slick-prev {
+    left: 10px;
+    top: 100%;
+  }
+}
+/* line 103, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+section#Pharma-ourproducts .products-carousel .slick-prev:before {
   content: "\e903";
 }

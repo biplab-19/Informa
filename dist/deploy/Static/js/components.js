@@ -505,25 +505,28 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         },
         equalHeights = function() {
             // Select and loop the container element of the elements you want to equalise
-            $('.list-container').each(function() {
+            $(window).on('load', function () {
+                $('.list-container').each(function() {
 
-                // Cache the highest
-                var highestBox = 0;
+                    // Cache the highest
+                    var highestBox = 0;
 
-                // Select and loop the elements you want to equalise
-                $('.columns', this).each(function() {
+                    // Select and loop the elements you want to equalise
+                    $('.columns', this).each(function() {
 
-                    // If this box is higher than the cached highest then store it
-                    if ($(this).height() > highestBox) {
-                        highestBox = $(this).height();
-                    }
+                        // If this box is higher than the cached highest then store it
+                        if ($(this).height() > highestBox) {
+                            highestBox = $(this).height();
+                        }
+
+                    });
+
+                    // Set the height of all those children to whichever was highest
+                    $('.columns', this).height(highestBox);
 
                 });
+            })
 
-                // Set the height of all those children to whichever was highest
-                $('.columns', this).height(highestBox);
-
-            });
         },
         BindFilterEvents = function() {
             //Filter menu present then bind filter event to dropdown
@@ -1953,11 +1956,11 @@ INFORMA.forms = (function(window, $, namespace) {
         if (_inputName) {
             _inputName = _inputName.replace("Id", "Value");
         }
-        _presentHeading = $(_formId + ' .page-header h1').text();
+
         $(_formId + " .area-interests .form-group .checkbox").remove();
         $(_formId + " .area-interests").addClass('dynamic-interests');
+        $(_formId + ' .page-header h1').find('.product-name').text(results.Title);
 
-        formHeading = _presentHeading.replace('#', results.Title);
         $(_formId + ' .page-header h1').text(formHeading);
 
         var hiddenProdcutName = $(_formId + " .form-additional-fields .product-name-field");
@@ -3474,6 +3477,86 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
 jQuery(INFORMA.pdp_customer_quote.init());
 
 /*
+ * pharma-home-ourProductsl.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-Aug-3
+ * @author:     Tejaswi
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+
+
+ var INFORMA = window.INFORMA || {};
+ INFORMA.pharma_home_products = (function(window, $, namespace) {
+     'use strict';
+     //variables
+     var _pharma_home_products = $('#Pharma-ourproducts'),
+         _productsList = _pharma_home_products.find('.products-carousel'),
+     // methods
+         init,
+         _closeNews,
+         _createSlider;
+         _createSlider = function(container){
+             // if data-items, data-infinite is defined, used it
+             var _slideCount = container.data('itemsperframe'),
+                 _autoplay = container.data('autorotate'),
+                 _speed = container.data('transitionspeed'), // speed of transition
+                 _duration = container.data('slideduration'), // how long the slider will be displayed
+                 _infinite = true,
+                 _dots = Boolean(container.data('pagination'));
+                 //chk for sitecore preview
+                 if (INFORMA.global.siteCore.isPreview) {
+                     _autoplay = true;
+                 }
+                 if (INFORMA.global.siteCore.isExperience) {
+                     _autoplay = false;
+                     _infinite = false;
+                 }
+
+             container.slick({
+                 infinite: _infinite,
+                 autoplay: _autoplay,
+                 autoplaySpeed: _duration,
+                 slidesToShow: _slideCount,
+                 slidesToScroll: _slideCount,
+                 speed: _speed,
+                 dots: _dots,
+                 adaptiveHeight: true,
+                 arrows: true,
+                 responsive: [{
+                         breakpoint: 1024,
+                         settings: {
+                             slidesToShow: 3,
+                             slidesToScroll: 3
+                         }
+                     },{
+                             breakpoint: 480,
+                             settings: {
+                                 slidesToShow: 1,
+                                 slidesToScroll: 1
+                             }
+                         }
+                 ]
+             });
+         }
+
+     init = function() {
+         if (_productsList.length > 0) {
+             _createSlider(_productsList);
+         }
+     }
+
+     return {
+         init: init
+     }
+ }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+ jQuery(INFORMA.pharma_home_products.init());
+
+/*
  * analyst-list.js
  *
  *
@@ -3858,6 +3941,12 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             TagsContainer.html(Htmltags);
             RefineContainer.find('.refine-result').html(HtmlRefine);
             BindFilterEvents();
+        }
+        if(AllTags.Sectors.length == 0) {
+            // debugger;
+            SubSectorSelect.parents('.custom-multiselect').find('button.multiselect').addClass('disabled');
+        } else {
+            SubSectorSelect.parents('.custom-multiselect').find('button.multiselect').removeClass('disabled');
         }
     },
 
