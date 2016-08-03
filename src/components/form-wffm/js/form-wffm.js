@@ -298,11 +298,11 @@ INFORMA.forms = (function(window, $, namespace) {
         if (_inputName) {
             _inputName = _inputName.replace("Id", "Value");
         }
-        _presentHeading = $(_formId + ' .page-header h1').text();
+
         $(_formId + " .area-interests .form-group .checkbox").remove();
         $(_formId + " .area-interests").addClass('dynamic-interests');
+        $(_formId + ' .page-header h1').find('.product-name').text(results.Title);
 
-        formHeading = _presentHeading.replace('#', results.Title);
         $(_formId + ' .page-header h1').text(formHeading);
 
         var hiddenProdcutName = $(_formId + " .form-additional-fields .product-name-field");

@@ -189,6 +189,12 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
             RefineContainer.find('.refine-result').html(HtmlRefine);
             BindFilterEvents();
         }
+        if(AllTags.Sectors.length == 0) {
+            // debugger;
+            SubSectorSelect.parents('.custom-multiselect').find('button.multiselect').addClass('disabled');
+        } else {
+            SubSectorSelect.parents('.custom-multiselect').find('button.multiselect').removeClass('disabled');
+        }
     },
 
     BindRefineEvents = function() {
