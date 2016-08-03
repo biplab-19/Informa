@@ -534,6 +534,9 @@ div.addthis_sharing_toolbox{
     padding-right: 5px;
      max-width: 10pc !important;
      max-height: 10pc !important;
+     @include mobile {
+       padding-right: 0px;
+     }
      span.at-icon-wrapper{
        background-color: $social-icon-back !important;
        border-radius: 100% !important;
