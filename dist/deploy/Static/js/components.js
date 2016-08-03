@@ -1,4 +1,4 @@
-/*! 2016-08-02 */_adjustHeigt = function(){
+/*! 2016-08-03 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1396,7 +1396,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
         });
     },
 
-    RenderFaqs = function (data) {
+    RenderFaqs = function (data, Button) {
 
         var Results = data,
             List = Results.FaqList,
@@ -1411,7 +1411,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
             Html += ListTemplate({ results: Data });
         }
 
-        $('.panel-group#' + AccordianId).append(Html);
+        Button.parents('.panel-group[data-fetch="'+AccordianId+'"]').append(Html);
 
         if (Results.FaqRemainingCount < 1) {
             $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').hide();
@@ -1425,7 +1425,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
             ids = [];
 
         panels.each(function () {
-            var Current = $(this).attr('id');
+            var Current = $(this).attr('data-fetch');
             ids.push(Current);
         })
 
@@ -1466,7 +1466,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
             }
             Parent.find('.panel-group').attr('data-pageno', (parseInt(CurrentPage) + 1));
 
-            GetAjaxData(Urls.GetFAQs, "Post", _Object, RenderFaqs, null, null);
+            GetAjaxData(Urls.GetFAQs, "Post", _Object, RenderFaqs, null, $(this));
         })
     },
 
