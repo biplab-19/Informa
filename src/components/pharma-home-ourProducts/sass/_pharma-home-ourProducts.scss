@@ -1,58 +1,36 @@
-section.newsFlash{
-  height: 200px;
-  position: relative;
-  padding-top: 2%;
-  padding-bottom: 1%;
-  background: $yellow;
-  overflow: hidden;
-    .news-title{
-      font-size: $padding-base-horizontal;
-      strong{
-        color: $black;
-      }
-    }
-    .news-desc{
-        padding-top: 10px;
-        font-family: FSMe-normal;
-        padding-right: 220px;
-        @include mobile {
-          padding-right: 20px;
-        }
-        @include tablet {
-          padding-right: 20px;
-        }
-    }
-    .read{
-      color: $black;
-      font-family: FSMe-bold;
-      padding-top: 10px;
-      display: inline-block;
+section#Pharma-ourproducts{
+  background-color: $footer-top-gray;
+  color: $white;
+  h1 {
+		margin-bottom: 20px;
+	}
+  .product-item{
+      padding-left: 40px;
+      padding-right: 15px;
       position: relative;
-    }
-    .read:after {
-        font-family: "InformaIcons" !important;
-        content: "\e900";
-        color: $black;
-        font-size: 20px;
+      img{
+        display: inline-block;
+        //width: 100px;
+      }
+      &:after {
+        content: '';
+        border-left: 1px solid #666666;
+        height: 50%;
         position: absolute;
-        font-size: 11px;
-        top: 13px;
-        right: -11px;
-    }
-  .cross{
-    color: $white;
-    font-size: 20px;
-    position: absolute;
-    font-size: 16px;
-    top: 13px;
-    right: 14px;
-    z-index: 2;
+        top: 8px;
+        right: 0px;
+        @include mobile {
+          display: none;
+        }
+      
+      }
+      &:last-child {
+        &:after {
+            border-left: none;
+        }
+      }
   }
-  .cross:after{
-    font-family: "InformaIcons" !important;
-    content: "\e906";
-  }
-  .news-carousel {
+  .products-carousel {
     z-index: 1;
      .slick-list {
          border-right: none;
@@ -97,29 +75,30 @@ section.newsFlash{
          }
      }
      .slick-next {
-         left: 95%;
-         margin-left: 0;
+         right: -25px;
          top: 50%;
          &:before {
              content: "\e902";
          }
          @include mobile {
-           left: 94%;
-           margin-left: 0;
+           right: -3px;
+           top: 100%;
          }
          @include tablet {
-           left: 97%;
+           right: -5px;
+           top: 100%;
          }
      }
      .slick-prev {
-       left: 92%;
+       left: -25px;
        top: 50%;
          @include mobile {
-           left: 94%;
-           margin-left:-20px;
+              left: 12px;
+              top: 100%;
          }
          @include tablet {
-           left: 96%;
+             left: 10px;
+             top: 100%;
          }
          &:before {
              content: "\e903";
