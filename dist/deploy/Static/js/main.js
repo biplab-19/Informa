@@ -83,6 +83,7 @@ k.MouseEvent)&&(a.xa=1,a.useForcedLinkTracking=1,a.b.addEventListener("click",a.
 function s_gi(a){var k,q=window.s_c_il,r,n,t=a.split(","),u,s,x=0;if(q)for(r=0;!x&&r<q.length;){k=q[r];if("s_c"==k._c&&(k.account||k.oun))if(k.account&&k.account==a)x=1;else for(n=k.account?k.account:k.oun,n=k.allAccounts?k.allAccounts:n.split(","),u=0;u<t.length;u++)for(s=0;s<n.length;s++)t[u]==n[s]&&(x=1);r++}x||(k=new AppMeasurement);k.setAccount?k.setAccount(a):k.sa&&k.sa(a);return k}AppMeasurement.getInstance=s_gi;window.s_objectID||(window.s_objectID=0);
 function s_pgicq(){var a=window,k=a.s_giq,q,r,n;if(k)for(q=0;q<k.length;q++)r=k[q],n=s_gi(r.oun),n.setAccount(r.un),n.setTagContainer(r.tagContainerName);a.s_giq=0}s_pgicq();
 
+
 /*
  ============== DO NOT ALTER ANYTHING BELOW THIS LINE ! ============
 
@@ -133,68 +134,6 @@ typeof setTimeout.toString?-1<setTimeout.toString().indexOf("[native code]")?0:1
 (a[E]=t[E]);a.idSyncContainerID=a.idSyncContainerID||0;a.f();K=a.a(I);E=Math.ceil((new Date).getTime()/w.aa);!a.idSyncDisableSyncs&&v.Sa(K,E)&&(a.m(r,-1),a.c(I,E));a.getMarketingCloudVisitorID();a.getAudienceManagerLocationHint();a.getAudienceManagerBlob()}if(!a.idSyncDisableSyncs){v.Ta();J.na(window,"load",function(){i.Z=k;n.Y=n.o();n.mb();var a=v;a.Aa()&&a.Q()});try{a.ma.V(function(a){v.V(a.data)},v.S)}catch(L){}}}
 Visitor.getInstance=function(o,t){var a,m=window.s_c_il,i;0>o.indexOf("@")&&(o+="@AdobeOrg");if(m)for(i=0;i<m.length;i++)if((a=m[i])&&"Visitor"==a._c&&a.marketingCloudOrgID==o)return a;return new Visitor(o,t)};(function(){function o(){t.Z=a}var t=window.Visitor,a=t.Ia,m=t.Ga;a||(a=A);m||(m=B);window.addEventListener?window.addEventListener("load",o):window.attachEvent&&window.attachEvent("onload",o);t.Va=(new Date).getTime()})();
 
-    /*
- * global.js
- *
- *
- * @project:   Informa
- * @date:      2016-April-25
- * @author:    Santosh
- * @licensor:  SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
-
-var INFORMA = window.INFORMA || {};
-
-INFORMA.Analytics = (function(window, $, namespace) {
-    'use strict';
-    var init,LoadAdobeAnalytics , LoadGoogleAnalytics, Config;
-
-    LoadAdobeAnalytics = function(c){
-      var s=s_gi(c.AdobeUserKey);
-      s.trackDownloadLinks=true
-      s.trackExternalLinks=true
-      s.trackInlineStats=true
-      s.linkDownloadFileTypes="exe,zip,wav,mp3,mov,mpg,avi,wmv,pdf,doc,docx,xls,xlsx,ppt,pptx"
-      s.linkInternalFilters="javascript:" //optional: add your internal domain here
-      s.linkLeaveQueryString=false
-      s.linkTrackVars="None"
-      s.linkTrackEvents="None"
-      s.pageName=document.title
-      s.server= window.location.host
-      s.channel=c.Channel
-      s.pageType="Main"
-    },
-    LoadGoogleAnalytics = function(key){
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', key]);
-        _gaq.push(['_trackPageview']);
-
-        var ga = document.createElement('script'); 
-        ga.type = 'text/javascript'; ga.async = true;
-        ga.src = 'https://ssl.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; 
-        s.parentNode.insertBefore(ga, s);
-    },
-    init = function() {
-      if(AnalyticsSettings){
-          Config = AnalyticsSettings;
-          if(Config.GAEnabled){
-              LoadGoogleAnalytics(Config.GAProfileKey);
-          }
-          if(Config.AdobeEnabled){
-            LoadAdobeAnalytics(Config);
-          }
-      }
-
-    };
-
-    return {
-        init: init
-    };
-}(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.Analytics.init());
 
 var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
