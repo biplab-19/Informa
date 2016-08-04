@@ -154,14 +154,15 @@ h3 {
       }
       li {
             padding:0 0 6px  60px;
+            background: url(/Static/images/spritesheet.png) no-repeat;
             &.facebook-white {
-                  background: url(/Static/images/social/fb.png) no-repeat;
+                  background-position: -5px -5px;
             }
             &.twitter-white {
-                  background: url(/Static/images/social/tw.png) no-repeat;
+                  background-position: -5px -57px;
             }
             &.linkedin-white {
-                  background: url(/Static/images/social/in.png) no-repeat;
+                   background-position: -5px -108px;
             }
             @include tablet {
                   display: inline-block;

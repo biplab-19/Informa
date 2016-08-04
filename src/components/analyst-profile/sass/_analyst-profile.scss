@@ -235,16 +235,18 @@
 	.place:before {
 		width: 18px;
 	    height: 26px;
-	    background-image: url("../../Static/images/place.png");
+	    background: url(/Static/images/spritesheet.png) no-repeat;
 	    left: 0;
 	    top: -5px;
+	    background-position: -5px -196px;
 	}
 	.experience:before {
 		width: 20px;
 		height: 28px;
-		background-image: url('../../Static/images/experience.png');
+		background: url(/Static/images/spritesheet.png) no-repeat;
 		left: 0;
 	    top: -5px;
+	    background-position: -5px -158px;
 	}
 }
 .bold {
