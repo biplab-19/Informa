@@ -1,5 +1,5 @@
 section.newsFlash{
-  height: 200px;
+  //height: 200px;
   position: relative;
   padding-top: 2%;
   padding-bottom: 1%;
@@ -58,29 +58,14 @@ section.newsFlash{
          border-right: none;
      }
      .slick-arrow {
-         height: 60px;
-         width: 40px;
-         z-index: 1;
-         background-color: $yellow;
-         top: 50%;
-         @include mobile {
-             height: 40px;
-             width: 20px;
-             margin-top: -20px;
-             margin-left: -20px;
-         }
-         @include tablet {
-             height: 40px;
-             width: 25px;
-             margin-top: -20px;
-             margin-left: -25px;
-         }
+         top: 100%;
+         
          &:before {
              font-family: 'InformaIcons';
              position: absolute;
              font-size: 20px;
              opacity: 1;
-             top: 50%;
+             top: 0%;
              left: 50%;
              margin-top: -13px;
              margin-left: -13px;
@@ -99,7 +84,6 @@ section.newsFlash{
      .slick-next {
          left: 95%;
          margin-left: 0;
-         top: 50%;
          &:before {
              content: "\e902";
          }
@@ -113,13 +97,12 @@ section.newsFlash{
      }
      .slick-prev {
        left: 92%;
-       top: 50%;
          @include mobile {
            left: 94%;
            margin-left:-20px;
          }
          @include tablet {
-           left: 96%;
+           left: 93%;
          }
          &:before {
              content: "\e903";
