@@ -260,14 +260,19 @@ section#hero-banner {
            }
         }
         .rotate-icon{
+          width: auto;
           padding-top: 10px;
           padding-bottom: 10px;
           font-size: 35px;
+          left: 47%;
           -ms-transform: rotate(88deg);
           -webkit-transform: rotate(88deg);
           transform: rotate(88deg);
           @include mobile {
               display: none;
+          }
+          @media only screen and (min-width : 768px) and (max-device-width : 1023px) {
+            left: 46%;
           }
         }
        .subtext {

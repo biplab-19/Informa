@@ -11586,18 +11586,19 @@ footer section#footer-links .social {
 /* line 155, ../../../src/sass/global/_footer.scss */
 footer section#footer-links .social li {
   padding: 0 0 6px  60px;
+  background: url(/Static/images/spritesheet.png) no-repeat;
 }
-/* line 157, ../../../src/sass/global/_footer.scss */
+/* line 158, ../../../src/sass/global/_footer.scss */
 footer section#footer-links .social li.facebook-white {
-  background: url(/Static/images/social/fb.png) no-repeat;
+  background-position: -5px -5px;
 }
-/* line 160, ../../../src/sass/global/_footer.scss */
+/* line 161, ../../../src/sass/global/_footer.scss */
 footer section#footer-links .social li.twitter-white {
-  background: url(/Static/images/social/tw.png) no-repeat;
+  background-position: -5px -57px;
 }
-/* line 163, ../../../src/sass/global/_footer.scss */
+/* line 164, ../../../src/sass/global/_footer.scss */
 footer section#footer-links .social li.linkedin-white {
-  background: url(/Static/images/social/in.png) no-repeat;
+  background-position: -5px -108px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 155, ../../../src/sass/global/_footer.scss */
@@ -11614,91 +11615,91 @@ footer section#footer-links .social li.linkedin-white {
     height: 45px;
     padding: 0;
   }
-  /* line 175, ../../../src/sass/global/_footer.scss */
+  /* line 176, ../../../src/sass/global/_footer.scss */
   footer section#footer-links .social li a {
     opacity: 0;
   }
 }
-/* line 184, ../../../src/sass/global/_footer.scss */
+/* line 185, ../../../src/sass/global/_footer.scss */
 footer section#privacy {
   background: #424A57;
   padding: 35px 0;
   color: #fff;
 }
 @media (max-width: 767px) {
-  /* line 188, ../../../src/sass/global/_footer.scss */
+  /* line 189, ../../../src/sass/global/_footer.scss */
   footer section#privacy ul {
     text-align: center;
   }
 }
-/* line 192, ../../../src/sass/global/_footer.scss */
+/* line 193, ../../../src/sass/global/_footer.scss */
 footer section#privacy ul li {
   margin-right: 35px;
   display: inline-block;
 }
-/* line 196, ../../../src/sass/global/_footer.scss */
+/* line 197, ../../../src/sass/global/_footer.scss */
 footer section#privacy ul a {
   color: #fff;
   padding: 0;
   text-decoration: underline;
   font-family: FSMe-Light;
 }
-/* line 201, ../../../src/sass/global/_footer.scss */
+/* line 202, ../../../src/sass/global/_footer.scss */
 footer section#privacy ul a:Hover {
   background: none;
 }
-/* line 206, ../../../src/sass/global/_footer.scss */
+/* line 207, ../../../src/sass/global/_footer.scss */
 footer section#privacy .disclaimer-copyright {
   font-size: 13px;
   margin: 30px 0 0;
 }
 @media (max-width: 767px) {
-  /* line 206, ../../../src/sass/global/_footer.scss */
+  /* line 207, ../../../src/sass/global/_footer.scss */
   footer section#privacy .disclaimer-copyright {
     padding: 0 42px;
     text-align: center;
   }
 }
-/* line 213, ../../../src/sass/global/_footer.scss */
+/* line 214, ../../../src/sass/global/_footer.scss */
 footer section#privacy .disclaimer-copyright + .bottom-logo {
   padding: 25px 0 0;
 }
-/* line 215, ../../../src/sass/global/_footer.scss */
+/* line 216, ../../../src/sass/global/_footer.scss */
 footer section#privacy .disclaimer-copyright + .bottom-logo img {
   display: block;
   float: right;
 }
 @media (max-width: 767px) {
-  /* line 215, ../../../src/sass/global/_footer.scss */
+  /* line 216, ../../../src/sass/global/_footer.scss */
   footer section#privacy .disclaimer-copyright + .bottom-logo img {
     float: none;
     margin: 0 auto;
   }
 }
-/* line 226, ../../../src/sass/global/_footer.scss */
+/* line 227, ../../../src/sass/global/_footer.scss */
 footer ul.slick-dots {
   text-align: center;
   width: 100%;
   bottom: -27px;
 }
 @media (max-width: 767px) {
-  /* line 226, ../../../src/sass/global/_footer.scss */
+  /* line 227, ../../../src/sass/global/_footer.scss */
   footer ul.slick-dots {
     bottom: -40px;
   }
 }
-/* line 233, ../../../src/sass/global/_footer.scss */
+/* line 234, ../../../src/sass/global/_footer.scss */
 footer ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background: #6a7285;
 }
-/* line 238, ../../../src/sass/global/_footer.scss */
+/* line 239, ../../../src/sass/global/_footer.scss */
 footer ul.slick-dots li button:before {
   content: '';
 }
-/* line 241, ../../../src/sass/global/_footer.scss */
+/* line 242, ../../../src/sass/global/_footer.scss */
 footer ul.slick-dots li.slick-active {
   background: #ef7c00;
 }
