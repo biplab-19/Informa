@@ -9329,15 +9329,18 @@ section#Pharma-ourproducts h1 {
 }
 /* line 8, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .product-item {
+  display: block;
+  text-decoration: none;
   color: #f1f1f3;
   font-size: 24px;
   padding-left: 40px;
   padding-right: 15px;
   position: relative;
 }
-/* line 14, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 16, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .product-item img {
   display: inline-block;
+  padding-bottom: 20px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 8, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
@@ -9345,7 +9348,7 @@ section#Pharma-ourproducts .product-item img {
     font-size: 18px;
   }
 }
-/* line 22, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 25, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .product-item:after {
   content: '';
   border-left: 1px solid #666666;
@@ -9354,52 +9357,52 @@ section#Pharma-ourproducts .product-item:after {
   right: 0px;
 }
 @media (max-width: 767px) {
-  /* line 22, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 25, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .product-item:after {
     display: none;
   }
 }
-/* line 35, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 38, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .product-item:last-child:after {
   border-left: none;
 }
-/* line 40, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 43, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel {
   z-index: 1;
 }
-/* line 42, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 45, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel .slick-list {
   border-right: none;
 }
-/* line 45, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 48, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel ul.slick-dots {
   text-align: center;
   width: 100%;
   bottom: -50px;
 }
 @media (max-width: 767px) {
-  /* line 45, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 48, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .products-carousel ul.slick-dots {
     position: static;
     margin: 10px 0 20px 0;
   }
 }
-/* line 53, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 56, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background: #6a7285;
 }
-/* line 58, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 61, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel ul.slick-dots li button:before {
   content: '';
 }
-/* line 61, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 64, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 66, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 69, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel .slick-arrow {
   height: 60px;
   width: 40px;
@@ -9408,7 +9411,7 @@ section#Pharma-ourproducts .products-carousel .slick-arrow {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 66, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 69, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .products-carousel .slick-arrow {
     height: 40px;
     width: 20px;
@@ -9417,7 +9420,7 @@ section#Pharma-ourproducts .products-carousel .slick-arrow {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 66, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 69, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .products-carousel .slick-arrow {
     height: 40px;
     width: 25px;
@@ -9425,7 +9428,7 @@ section#Pharma-ourproducts .products-carousel .slick-arrow {
     margin-left: -25px;
   }
 }
-/* line 84, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 87, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -9437,7 +9440,7 @@ section#Pharma-ourproducts .products-carousel .slick-arrow:before {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 84, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 87, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .products-carousel .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -9445,56 +9448,56 @@ section#Pharma-ourproducts .products-carousel .slick-arrow:before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 84, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 87, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .products-carousel .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 105, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 108, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel .slick-next {
   right: -25px;
   top: 50%;
 }
-/* line 108, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 111, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel .slick-next:before {
   content: "\e902";
 }
 @media (max-width: 767px) {
-  /* line 105, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 108, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .products-carousel .slick-next {
     right: -3px;
     top: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 105, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 108, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .products-carousel .slick-next {
     right: -5px;
     top: 100%;
   }
 }
-/* line 120, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 123, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel .slick-prev {
   left: -25px;
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 120, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 123, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .products-carousel .slick-prev {
     left: 12px;
     top: 100%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 120, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+  /* line 123, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
   section#Pharma-ourproducts .products-carousel .slick-prev {
     left: 10px;
     top: 100%;
   }
 }
-/* line 131, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
+/* line 134, ../../../src/components/pharma-home-ourProducts/sass/_pharma-home-ourProducts.scss */
 section#Pharma-ourproducts .products-carousel .slick-prev:before {
   content: "\e903";
 }
