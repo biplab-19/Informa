@@ -1,4 +1,4 @@
-/*! 2016-08-03 */_adjustHeigt = function(){
+/*! 2016-08-04 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
