@@ -13,17 +13,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Main page</title>
 
-    <!-- build:css(.tmp) Static/css/global.css -->
-    <link rel="stylesheet" href="Static/css/global.css">
-    <!-- endbuild -->
+    <link rel="stylesheet" href="Static/css/global.css"/>
 
-    <!-- build:css(.tmp) Static/css/component.css -->
-    <link rel="stylesheet" href="Static/css/component.css">
-    <!-- endbuild -->
+    <link rel="stylesheet" href="Static/css/component.css"/>
 
-    <!-- build:css(.tmp) Static/css/agri-theme.css -->
-    <link rel="stylesheet" href="Static/css/agri-theme.css">
-    <!-- endbuild -->
+    <link rel="stylesheet" href="Static/css/agri-theme.css"/>
 
     <style type="text/css">
         body{
@@ -48,22 +42,7 @@
 
     </script>
 
-    <!-- build:js Static/js/vendor.js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/handlebars/handlebars.js"></script>
-    <script src="bower_components/slick-carousel/slick/slick.js"></script>
-    <script src="bower_components/chosen/chosen.jquery.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
-    <script src="bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script src="bower_components/moment/min/moment.min.js"></script>
-    <script src="bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    <!--<script src="bower_components/vimeo-player-js/dist/player.min.js"></script>-->
-    <!--<script src="https://www.youtube.com/iframe_api"></script>-->
-    <!--<script src="https://player.vimeo.com/api/player.js"></script>
-    <script src="http://fast.wistia.com/static/concat/E-v1.js"></script>-->
-    <!-- endbuild -->
+    <script src="Static/js/vendor.js"></script>
     <!--  only for local development-->
     <script src="Static/js/components/handlebar-helper.js"></script>
 
@@ -504,125 +483,191 @@ in the empire of Sapient. Har Har Mahadev !! --->
 
 </header>
 
-   <div class="container">
-    <section class="index-page">
-        <h1>Informa UI Oversight</h1>
-        <nav>
-            <!-- <h2 class="navigation-headline">Generic</h2>
-            <ul class="navigation-list">
-                <li class="navigation-list__item">
-                    <a href="doc/index.html" target="_blank" class="navigation-list__item__link">Documentation</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="styleguide.html" target="_blank" class="navigation-list__item__link">Styleguide</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="assets/images/preview.html" target="_blank" class="navigation-list__item__link">Icon Preview</a>
-                </li>
-            </ul> -->
-            <h2 class="navigation-headline">Pages</h2>
-            <ul class="navigation-list">
-                <li class="navigation-list__item">
-                    <a href="/home-page.html" target="_blank" class="navigation-list__item__link">Home</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/aboutus.html" target="_blank" class="navigation-list__item__link">About us</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/analyst-list.html" target="_blank" class="navigation-list__item__link">Analyst List</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/analyst-profile.html" target="_blank" class="navigation-list__item__link">Analyst Profile</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/brand-page.html" target="_blank" class="navigation-list__item__link">Brand Page</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/casestudy.html" target="_blank" class="navigation-list__item__link">Case Study</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/contact-us.html" target="_blank" class="navigation-list__item__link">Contactus</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/hero-banner.html" target="_blank" class="navigation-list__item__link">Hero Banner</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/help-support.html" target="_blank" class="navigation-list__item__link">Help Support</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/search-results.html" target="_blank" class="navigation-list__item__link">Search Results</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/product-details.html" target="_blank" class="navigation-list__item__link">Product Details</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/product-listing.html" target="_blank" class="navigation-list__item__link">Product Listing</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/sectorpage.html" target="_blank" class="navigation-list__item__link">Sector Page</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/article-page.html" target="_blank" class="navigation-list__item__link">Article Page</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/hero-banner.html" target="_blank" class="navigation-list__item__link">All Hero Banners</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/events-page.html" target="_blank" class="navigation-list__item__link">Events Page</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/resource-page.html" target="_blank" class="navigation-list__item__link">Resource Page</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/video-mini.html" target="_blank" class="navigation-list__item__link">Video Mini</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/video-full.html" target="_blank" class="navigation-list__item__link">Video Full</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="/video-full-webinar.html" target="_blank" class="navigation-list__item__link">Video Full Webinar</a>
-                </li>
+   <!doctype html>
+<html>
 
-                <li class="navigation-list__item">
-                    <a href="/form-wffm-get-in-touch.html" target="_blank" class="navigation-list__item__link">Form Get In Touch</a>
-                </li>
+<head>
+    <meta charset="utf-8">
+    <title>Informa - Email template</title>
+    <style>
+        @media screen and ( max-width: 360px) {
+            img.logo {
+                width: 90%;
+                height: auto;
+            }
+            .email-header {
+                font-size: 18px !important;
+            }
+            .email-notes {
+                font-size: 18px !important;
+            }
+        }
+    </style>
 
-                <li class="navigation-list__item">
-                    <a href="/form-wffm-request-demo.html" target="_blank" class="navigation-list__item__link">Form Request Demo</a>
-                </li>
+</head>
 
-                <li class="navigation-list__item">
-                    <a href="/rte-table.html" target="_blank" class="navigation-list__item__link">RTE Table</a>
-                </li>
+<body>
+    <table border="0" align="center" cellpadding="0" cellspacing="0" style="width:100%; margin:0 auto;  font-family: Calibri, Candara, Segoe, " Segoe UI ", Optima, Arial, sans-serif; color:#6a7086; font-size:14px;">
+        <tr>
+            <td bgcolor="#434957">
+                <table border="0" align="center" width="98%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td height="100" bgcolor="#434957"><img src="/Static/images/email-templates/email-logo.jpg" class="logo" width="300" height="54">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" align="center" style="width:98%;" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td height="70">
+                            <h1 class=email-header style="font-weight:bold; font-size:30px;">Informa insight platform notification  - Scrip</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#e1e2e7">
+                            <table width="94%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="100%" height="20" colspan="2" valign="bottom">
+                                        <h4 style="font-weight:normal; @media (max-width:460px){ width:50vw; }">Amgen files osteoporosis drug in US ahead of Rival Merck</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="30" colspan="2" valign="top" style="line-height:10px; font-size:12px; "> Scheduled publish date : 7/22/2016 7:08:11PM</td>
+                                </tr>
+                                <tr>
+                                    <td height="60" colspan="2" valign="top">
+                                        <a href="#">
+                                            <table style=" float:left; border-collapse: collapse; text-align:center; height:40px; border:1px solid #f07d00; @media (max-width:460px){ width:50vw; }">
+                                                <tr>
+                                                    <td height="30" bgcolor="#f07d00" style="color:#fff; padding:0 20px 0 15px;">Preview in Browser</td>
+                                                    <td width="19" align="left" bgcolor="#f07d00" style="color:#fff;"><img src="/Static/images/email-templates/email-arrow.jpg" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="25" style="padding-left:15px;">Authors : <strong>Ellis, Lucie,</strong>
+                <br>
+            </td>
+        </tr>
+        <tr>
+            <td height="25" style="padding-left:15px;">Publication : <strong>Scrip</strong>
+            </td>
+        </tr>
+        <tr>
+            <td height="10">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="border-bottom:#e1e2e7 1px solid;"></td>
+        </tr>
 
-                <li class="navigation-list__item">
-                    <a href="/email-template-workflow.html" target="_blank" class="navigation-list__item__link">Email Template Workflow</a>
-                </li>
+        <tr>
+            <td height="20" valign="top" style="padding-left:15px;">
+                <h2 class="email-notes" style="font-weight:400; font-size:24px; @media (max-width:460px){ width:50vw; }">Notes</h2>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom:#e1e2e7 1px solid; padding-bottom:20px">
+                    <tr>
+                        <td width="82%" style="padding-left:15px;">
+                            <table border="0" style=" float:left; border-collapse: collapse; text-align:center; height:40px; " cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="30" width:50%; align="left"><span style="@media (max-width:460px){ width:40vw; }; font-size:13px; padding-right:15px"> Previous workflow state:</span> </td>
+                                    <td height="30" colspan="2" align="left" style="color:#6a7086; font-size:13px; padding-right:5px">Current workflow state:</td>
+                                </tr>
+                                <tr>
+                                    <td width="118" height="40" align="left" bgcolor="#e1e2e7" style="padding-left:10px;  width:50%;  "><a href="#" style="text-decoration:none; color:#6b7285; display:block; line-height:40px; font-size:13px; padding-right:5px "> Awaiting sign off </a>
+                                    </td>
+                                    <td width="164" align="left" bgcolor="#444854" style="color:#fff; padding-left:10px">
+                                        <table>
+                                            <tr>
+                                                <td style="padding-right: 10px; vertical-align: middle;">
+                                                    <img src="/Static/images/email-templates/email-icon.jpg" width="22" height="22">
+                                                </td>
+                                                <td>
+                                                    <a href="#" style="text-decoration:none; color:#fff; display:block; line-height:40px ">Sign off </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:15px;">By: <strong>Mary Jo Laffler</strong> 7.22.2016 7:08:19 PM</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="20"></td>
+        </tr>
 
-                <li class="navigation-list__item">
-                    <a href="/home-template.html" target="_blank" class="navigation-list__item__link">Pharma Home Template</a>
-                </li>
+        <tr>
+            <td style="padding-left:15px;">
+                <h3 style="font-size:24px;">Prior workflow history:</h3>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left:15px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                    <tr style="color:#000;">
+                        <td width="23%" height="35" align="left">To State</td>
+                        <td width="21%" height="35" align="left">By...</td>
+                        <td width="56%" height="35" align="left">At...</td>
+                    </tr>
+                    <tr>
+                        <td height="35">Authoring</td>
+                        <td height="35">sitecore\ellsl</td>
+                        <td height="35">sitecore\ellsl</td>
+                    </tr>
+                    <tr>
+                        <td height="35">Editing</td>
+                        <td height="35">sitecore\ellsl</td>
+                        <td height="35">sitecore\ellsl</td>
+                    </tr>
+                    <tr>
+                        <td height="35">Awaiting sign off
+                            <br>
+                        </td>
+                        <td height="35">sitecore\ellsl</td>
+                        <td height="35">sitecore\ellsl</td>
+                    </tr>
+                    <tr>
+                        <td height="35">Ready for Production</td>
+                        <td height="35">sitecore\ellsl</td>
+                        <td height="35">sitecore\ellsl</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+</body>
+</html>
 
-            </ul>
-            <!-- <h2 class="navigation-headline">Components</h2>
-            <ul class="navigation-list">
-                <li class="navigation-list__item">
-                        <a href="/template-components.html" target="_blank" class="navigation-list__item__link">Carousel</a>
-                </li>
-            </ul>
-
-            <h2 class="navigation-headline">Forms</h2>
-            <ul class="navigation-list">
-                <li class="navigation-list__item">
-                    <a href="#" target="_blank" class="navigation-list__item__link">Login</a>
-                </li>
-                <li class="navigation-list__item">
-                    <a href="#" target="_blank" class="navigation-list__item__link">Registration</a>
-                </li>
-            </ul> -->
-        </nav>
-    </section>
-</div>
 
 
 
@@ -765,92 +810,9 @@ in the empire of Sapient. Har Har Mahadev !! --->
 
 
 
-<!-- build:js Static/js/main.js -->
-<script src="Static/js/informaui.config.js"></script>
-<script src="Static/js/informaui.global.js"></script>
-<script src="Static/js/informaui.utils.js"></script>
-<script src="Static/js/informaui.data-loader.js"></script>
-<script src="Static/js/informaui.spinner.js"></script>
-<script src="Static/js/informaui.templates.js"></script>
-<script src="Static/js/informaui.int.js"></script>
-<!-- endbuild -->
+<script src="Static/js/main.js"></script>
 
-<!-- build:js Static/js/components.js -->
-<script src="Static/js/components/cookie.js"></script>
-<script src="Static/js/components/global_header.js"></script>
-<script src="Static/js/components/feature-list.js"></script>
-<script src="Static/js/components/sector-list.js"></script>
-<script src="Static/js/components/article-list.js"></script>
-<script src="Static/js/components/analyst-profile-events.js"></script>
-<script src="Static/js/components/global_footer.js"></script>
-<script src="Static/js/components/global.js"></script>
-<script src="Static/js/components/brand-list.js"></script>
-<script src="Static/js/components/brand-list.js"></script>
-<script src="Static/js/components/home_social.js"></script>
-<script src="Static/js/components/pdp-analyst.js"></script>
-<script src="Static/js/components/pdp-customer-quote.js"></script>
-<script src="Static/js/components/hero-banner.js"></script>
-<script src="Static/js/components/training-material.js"></script>
-<script src="Static/js/components/product-finder.js"></script>
-<script src="Static/js/components/search-filter.js"></script>
-<script src="Static/js/components/search-results.js"></script>
-<script src="Static/js/components/sectorpage-strengths.js"></script>
-<script src="Static/js/components/analyst-search.js"></script>
-<script src="Static/js/components/contact-us.js"></script>
-<script src="Static/js/components/contactUsPage-contactUs.js"></script>
-<script src="Static/js/components/analyst-profile.js"></script>
-
-<script src="Static/js/components/support-page-tabs.js"></script>
-<script src="Static/js/components/help-faq.js"></script>
-<script src="Static/js/components/resource-filter.js"></script>
-<script src="Static/js/components/video-full.js"></script>
-<script src="Static/js/components/video-mini.js"></script>
-<script src="Static/js/components/video-background.js"></script>
-<script src="Static/js/components/events-search-combine-1.js"></script>
-<script src="Static/js/components/form-wffm.js"></script>
-<script src="Static/js/components/pharma-home-ourProducts.js"></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5788f7305e83d71c"></script>
-
-<script src="Static/js/components/faqs.js"></script>
-<script src="Static/js/components/rte-table.js"></script>
-<script src="Static/js/components/pdp-brochure.js"></script>
-<script src="Static/js/components/rp-newsFlash.js"></script>
-
-
-<script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&amp;render=explicit"></script>
-<script>
-    window.gRecaptchaWidget = [];
-    var loadCaptcha = function() {
-        //rendering google recapthca
-        jQuery('.wffm-form').each(function(i, element) {
-            var recaptchaElementId = jQuery(element).find('.g-recaptcha').attr('id');
-            var widgetId = null;
-            widgetId = grecaptcha.render(recaptchaElementId, {
-                'sitekey': jQuery('#' + recaptchaElementId).data('sitekey'),
-                'theme': 'dark',
-                'callback': function(response) {
-                    if (response.length > 0) {
-                        var validationField = jQuery(element).siblings('.captcha-wrapper').find('span'); // get only current form captcha validation element
-                        if (response.length > 0) {
-                            validationField.css('display', 'none')
-                                .removeClass('field-validation-error')
-                                .addClass('field-validation-valid');
-                        } else {
-                            validationField.css('display', 'block').html('The captcha field is required.')                                .removeClass('field-validation-valid')
-                                .addClass('field-validation-error');
-
-                        }
-                    }
-                }
-            });
-            window.gRecaptchaWidget.push({captchaElementId: recaptchaElementId, captchaWidgetId: widgetId});
-        })
-    };
-</script>
-
-
-<!-- endbuild -->
+<script src="Static/js/components.js"></script>
 
 </body>
 
