@@ -281,15 +281,30 @@ header {
                     .search{
                         display: none;
                     }
-                    .login{
-                        cursor: pointer;
-                        float: right;
-                        cursor: pointer;
-                        border: 2px solid $gray-header;
-                        padding: 10px 20px;
-                        .icon-chevron-down{
-                            padding-left: 23px;
-                        }
+                    // .login{
+                    //     cursor: pointer;
+                    //     float: right;
+                    //     cursor: pointer;
+                    //     border: 2px solid $gray-header;
+                    //     padding: 10px 20px;
+                    //     .icon-chevron-down{
+                    //         padding-left: 23px;
+                    //     }
+                    // }
+                    .recommendation{
+                      padding: 10px 20px;
+                      position: relative;
+                      &:after{
+                        content: '';
+                        border-left: 2px solid #666666;
+                        height: 45%;
+                        position: absolute;
+                        top: 10px;
+                        right: 0px;
+                      }
+                    }
+                    .Product-login{
+                        padding: 10px 5px 10px 20px;
                     }
                 }
             }

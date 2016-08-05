@@ -41,13 +41,13 @@ in the empire of Sapient. Har Har Mahadev !! --->
         </div>
 
     </section>
-    
+
     <section class="informaNav">
         <div class="navbar navbar-inverse nav-head mobileNavigation" >
             <div class="container" >
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" 
-                            data-toggle="collapse" 
+                    <button type="button" class="navbar-toggle"
+                            data-toggle="collapse"
                             data-target=".navbar-collapse" >
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -55,7 +55,10 @@ in the empire of Sapient. Har Har Mahadev !! --->
                     </button>
                     <div class="action">
                         <a href="#" class="search active"><span class="icon icon-search"></a>
-                        <a href="#" class="login">Log in<span class="icon icon-chevron-down"></a>
+                        <!-- <a href="#" class="login">Log in<span class="icon icon-chevron-down"></a> -->
+                        <a href="#" class="recommendation">My Recommendation</a>
+                        <a href="#" class="Product-login">Product Login</a>
+                        <a href="#"><img class="" src="cms-images/logo-partial.png"></a>
                     </div>
                 </div>
                 <a class="navbar-brand" href="#">
@@ -64,7 +67,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                 </a>
             </div>
         </div>
-        <div class="nav-main mainNavigation">   
+        <div class="nav-main mainNavigation">
             <div class="container" >
                 <div class="row">
                 <div class="collapse navbar-collapse">
@@ -108,6 +111,11 @@ in the empire of Sapient. Har Har Mahadev !! --->
                             </a>
                         </li>
                         <li class="login"><a href="#">Log in<span class="icon icon-chevron-down"></a></li>
+                        <!-- <li>
+                          <a href="#" class="recommendation">My Recommendation</a>
+                          <a href="#" class="Product-login">Product Login</a>
+                          <a href="#"><img class="" src="cms-images/logo-partial.png"></a>
+                        </li> -->
                         <li class="search active">
                             <a href="#">
                                 <span class="hide-stick">Search</span>
@@ -117,9 +125,9 @@ in the empire of Sapient. Har Har Mahadev !! --->
                     </ul>
                 </div>
                 </div>
-            </div> 
+            </div>
         </div>
-    </section> 
+    </section>
 
 
 
@@ -200,11 +208,11 @@ in the empire of Sapient. Har Har Mahadev !! --->
         <div class="col-xs-2 nav-back">
             <a href="#"><span class="icon-arrow-left"></span></a>
         </div>
-        <div class="col-xs-8 nav-subnav-heading"> 
+        <div class="col-xs-8 nav-subnav-heading">
         </div>
         <div class="col-xs-2 nav-close">
             <a href="javascript:void(0)" class=""><span class="icon icon-close"></span></a>
-        </div>                        
+        </div>
     </div>
     </div>
 </div>
@@ -219,7 +227,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                         <a href="#" class="head">{{heading}}</a>
                         <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
                     </p>
-                    
+
                     <ul class="labels">
                         {{#each items}}
                             <li><a href="#">{{this}}</a></li>
@@ -229,11 +237,11 @@ in the empire of Sapient. Har Har Mahadev !! --->
                 </div>
             {{/each}}
 
-            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div> 
+            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
         </div>
 
         <div class="subnav-container clearfix" id="services" data-nav="services">
-            
+
             {{#each subnav.services}}
             <div class="subnav-heading">
                 <a href="#">{{heading}}</a>
@@ -248,9 +256,9 @@ in the empire of Sapient. Har Har Mahadev !! --->
             </div>
             {{/each}}
 
-        </div>        
+        </div>
         <div class="subnav-container clearfix" id="freecontent" data-nav="free-content">
-            
+
             {{#each subnav.freecontent}}
             <div class="subnav-heading">
                 <a href="#">{{heading}}</a>
@@ -264,10 +272,10 @@ in the empire of Sapient. Har Har Mahadev !! --->
                 </ul>
             </div>
             {{/each}}
-            
-        </div>        
+
+        </div>
         <div class="subnav-container clearfix" id="aboutus" data-nav="about-us">
-            
+
             {{#each subnav.aboutus}}
             <div class="subnav-heading">
                 <a href="#">{{heading}}</a>
@@ -282,13 +290,13 @@ in the empire of Sapient. Har Har Mahadev !! --->
             </div>
             {{/each}}
 
-        </div>        
+        </div>
         <div class="subnav-container clearfix" id="support" data-nav="support">
-            
+
             <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
             {{#each subnav.support}}
             <div class="subnav-items no-heading">
-                
+
                 <ul class="labels">
                     {{#each items}}
                         <li><a href="#">{{this}}</a></li>
@@ -297,7 +305,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
             </div>
             {{/each}}
 
-        </div>        
+        </div>
     </div>
 </div>
 
