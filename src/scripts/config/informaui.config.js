@@ -26,7 +26,8 @@ var INFORMA = window.INFORMA || {};
             "EventsSearch": "data/events-page.json",
             "ResourceList": "data/resource-list.json",
             "GetFAQs": "/client/search/GetFAQList",
-            "GetFormItems": "/data/form-data.json"
+            "GetFormItems": "/data/form-data.json",
+            "GetRecomendedItems": "/data/recomended-content.json"
         },
         "dev": {
             "GetArticles": "/client/search/getarticles",
@@ -40,7 +41,8 @@ var INFORMA = window.INFORMA || {};
             "ResourceList": "/client/search/GetResourceListing",
             "ResourceSubSectorList": "/client/search/GetSubSectors",
             "GetFAQs": "/client/search/GetFAQList",
-            "GetFormItems": "/client/ajax/GetModifiedWffmFormItems"
+            "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
+            "GetRecomendedItems": "/client/search/GetRemainingContent"
         }
     };
 

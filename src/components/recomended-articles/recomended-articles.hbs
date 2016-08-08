@@ -1,0 +1,147 @@
+<section class="recomended-content" data-count="5">
+	<div class="container">
+		<h2>Recommended Content</h2>
+		<div class="row">
+				{{#each Articles}}
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="recomended-wrapper" data-fetch="{{Id}}">
+							<div class="content">
+								{{#compare SectorType.length 0 operator=">"}}
+									<p class="category">
+										{{#each SectorType}}
+				                      	<strong>{{this}}</strong>
+										{{/each}}
+				                    </p>
+				                {{/compare}}
+				                {{#compare BrandType.length 0 operator=">"}}
+				                    <span class="type">
+				                    	{{#each BrandType}}
+				                    	<span>{{this}}</span>
+				                    	{{/each}}
+				                    </span>
+			                    {{/compare}}
+			                    <h4>{{Title}}</h4>
+			                    <p class="publish">By: <strong>{{Profile}}</strong>{{PublicationDate}}</p>
+		                    	{{#compare Description null operator="!="}}
+		                    		<p class="description">{{Description}}</p>
+		                    	{{/compare}}
+		                    	{{#compare Video null operator="!="}}
+			                    	<div class="video-container">
+		                                <a href="{{Video.Url}}" class="video-link" tabindex="0">
+		                                    <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
+		                                    <span class="play-icon icon-play"></span>
+		                                </a>
+		                            </div>
+		                        {{/compare}}
+							</div>
+							<div class="footer">
+								{{#compare Topic.length 0 operator=">"}}
+									<p class="topics">Topics: 
+										{{#each Topic}}
+											<strong>{{this}}</strong>
+										{{/each}}
+									</p>
+								{{/compare}}
+								<div class="btn-container text-right">
+									<a href="#" class="btn btn-default download">{{Linktext}}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{{/each}}
+				{{!-- <div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="recomended-wrapper" data-fetch="{{IdtoBeSent}}">
+						<div class="content">
+							<p class="category">
+		                      <strong>Agriculture food policy &amp; reulations</strong>
+		                    </p>
+		                    <span class="type">Brand1</span>
+		                    <h4>Recomended Articles Bla Bla Bla</h4>
+		                    <span class="content-type">Issue Monitor</span>
+		                    <p class="date">dd/mm/yyyy</p>
+		                    	<p class="description">Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+		                    	<div class="video-container">
+	                                <a href="http://www.dummyurl.com" class="video-link" tabindex="0">
+	                                    <img src="/cms-images/video-thumb-sample.jpg" alt="video description here">
+	                                    <span class="play-icon icon-play"></span>
+	                                </a>
+	                            </div>
+		                    
+						</div>
+						<div class="footer">
+							<p class="topics">Topics: <strong>Lorem</strong> <strong>Lorem</strong></p>
+							<div class="btn-container text-right">
+								<a href="#" class="btn btn-default download">Full Article</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="recomended-wrapper" data-fetch="{{IdtoBeSent}}">
+						<div class="content">
+							<p class="category">
+		                      <strong>Agriculture food policy &amp; reulations</strong>
+		                    </p>
+		                    <span class="type">Brand1</span>
+		                    <h4>Recomended Articles Bla Bla Bla</h4>
+		                    <span class="content-type">Issue Monitor</span>
+		                    <p class="date">dd/mm/yyyy</p>
+		                    
+		                    	<p class="description">Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+		                    
+		                    
+		                    	<div class="video-container">
+	                                <a href="http://www.dummyurl.com" class="video-link" tabindex="0">
+	                                    <img src="/cms-images/video-thumb-sample.jpg" alt="video description here">
+	                                    <span class="play-icon icon-play"></span>
+	                                </a>
+	                            </div>
+		                    
+						</div>
+						<div class="footer">
+							<p class="topics">Topics: <strong>Lorem</strong> <strong>Lorem</strong></p>
+							<div class="btn-container text-right">
+								<a href="#" class="btn btn-default download">Full Article</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="recomended-wrapper" data-fetch="{{IdtoBeSent}}">
+						<div class="content">
+							<p class="category">
+		                      <strong>Agriculture food policy &amp; reulations</strong>
+		                    </p>
+		                    <span class="type">Brand1</span>
+		                    <h4>Recomended Articles Bla Bla Bla</h4>
+		                    <span class="content-type">Issue Monitor</span>
+		                    <p class="date">dd/mm/yyyy</p>
+		                    
+		                    	<p class="description">Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
+		                    
+		                    
+		                    	<div class="video-container">
+	                                <a href="http://www.dummyurl.com" class="video-link" tabindex="0">
+	                                    <img src="/cms-images/video-thumb-sample.jpg" alt="video description here">
+	                                    <span class="play-icon icon-play"></span>
+	                                </a>
+	                            </div>
+		                    
+						</div>
+						<div class="footer">
+							<p class="topics">Topics: <strong>Lorem</strong> <strong>Lorem</strong></p>
+							<div class="btn-container text-right">
+								<a href="#" class="btn btn-default download">Full Article</a>
+							</div>
+						</div>
+					</div>
+				</div> --}}
+			{{!-- {{/each}} --}}
+		</div>
+		<div class="text-center">
+			<a href="#" class="btn-showMore">
+				<span>More</span>
+			</a>
+		</div>
+	</div>
+</section>

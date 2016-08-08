@@ -45,8 +45,11 @@ INFORMA.FAQs = (function (window, $, namespace) {
         
             Html += ListTemplate({ results: Data });
         }
-
-        Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId+'"]').append(Html);
+        if($('.help-faq-wrapper').length > 0) {
+            Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId+'"]').append(Html);
+        } else {
+            Button.parents('.accordian-wrap').find('.panel-group[data-panel="'+AccordianId+'"]').append(Html);
+        }
 
         if (Results.FaqRemainingCount < 1) {
             $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').hide();
