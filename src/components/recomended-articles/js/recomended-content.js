@@ -85,7 +85,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     PageSize: Count
                 };
 
-            GetAjaxData(Urls.GetRecomendedItems, "Get", _Object, RenderRecomendResult, null, null);
+            GetAjaxData(Urls.GetRecomendedItems, "Post", _Object, RenderRecomendResult, null, null);
         })
     }
 
