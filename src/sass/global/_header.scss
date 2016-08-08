@@ -349,9 +349,13 @@ header {
                         .login{
                            display: none;
                         }
+                        .disp{
+                          display: none;
+                        }
+
                         .search{
                             height: inherit;
-                            background-color: $gray-header;
+                            background-color: $orange;
                             a{
                                 height: 50px;
                                 padding-top: 12px;
@@ -363,7 +367,7 @@ header {
                             }
                         }
                         .search.inactive{
-                            background-color: $orange;
+                            background-color: $gray-header;
                         }
                     }
                     .nav-links.nav-active{
@@ -432,8 +436,20 @@ header {
                             .login{
                                 display: none;
                             }
+                            .disp{
+                              display: none;
+                            }
+                            // .recommendation{
+                            //   display: none;
+                            // }
+                            // .Product-login{
+                            //   display: none;
+                            // }
+                            // .user-icon{
+                            //   display: none;
+                            // }
                             .search{
-                                background-color: $gray-header;
+                                background-color: $orange;
                                 height: inherit;
                                 cursor: pointer;
                                 padding: 12px 20px;
@@ -443,7 +459,7 @@ header {
                                 }
                             }
                             .search.inactive{
-                                background-color: $orange;
+                                background-color: $gray-header;
                             }
                         }
                     }
@@ -523,7 +539,7 @@ header {
                     }
                 }
                 .navbar-right{
-                    height: 80px;
+                    //height: 80px;
                     background-color: #4c5161;
                     margin-bottom: 0;
                     margin-right: 0;
@@ -535,17 +551,17 @@ header {
                         display: inline-block;
                         a{
                             height: 100%;
-                            padding-top: 20px;
-                            padding-bottom: 20px;
-                            text-align: center;
+                            // padding-top: 20px;
+                            // padding-bottom: 20px;
+                            // text-align: center;
                         }
                     }
                     .search{
                         display: none;
                     }
                     .touch{
-                        float: left;
-                        width: 50%;
+                        //float: left;
+                        width: 49%;
                         height: 100%;
                         border-right: 1px solid #636a7d;
                         .icon-get-in-touch{

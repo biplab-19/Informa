@@ -1,4 +1,4 @@
-/*! 2016-08-05 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-08-08 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* To use media queries we just have to say @include tablet{font-size:14px} */
 /* If you have a theme for yourself which you need to follow this then extend this agri-theme to that class and make
 appropriate style change */
@@ -140,15 +140,10 @@ appropriate style change */
   background: #e1e3e7;
 }
 /* line 133, ../../../src/sass/agri-theme.scss */
-.agri-theme .bg-gray-dark h1,
-.agri-theme .bg-gray-dark h2 {
+.agri-theme .bg-gray-dark h2, .agri-theme .bg-gray-dark h3 {
   color: #fff;
 }
-/* line 137, ../../../src/sass/agri-theme.scss */
-.agri-theme .bg-gray-dark h2 {
-  font-size: 26px;
-}
-/* line 140, ../../../src/sass/agri-theme.scss */
+/* line 136, ../../../src/sass/agri-theme.scss */
 .agri-theme .bg-gray-dark .btn {
   color: #fff;
 }

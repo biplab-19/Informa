@@ -1,4 +1,4 @@
-/*! 2016-08-05 */_adjustHeigt = function(){
+/*! 2016-08-08 */_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -1411,10 +1411,13 @@ INFORMA.FAQs = (function (window, $, namespace) {
             TemplateName = (Templates.AccordianTemplate !== "undefined") ? Templates.AccordianTemplate : "",
             ListTemplate = Handlebars.compile(TemplateName);
             Data.FaqAccordionId = AccordianId;
+            if(Button.parents('.accordian-structure').attr('data-tabs'))
+            Data.Tabs = Button.parents('.accordian-structure').attr('data-tabs');
+        
             Html += ListTemplate({ results: Data });
         }
 
-        Button.parents('.panel-group[data-fetch="'+AccordianId+'"]').append(Html);
+        Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId+'"]').append(Html);
 
         if (Results.FaqRemainingCount < 1) {
             $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').hide();
@@ -3163,6 +3166,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
     _bindIframe = function(){
         var videoUrl = _videoElem.data('video');
         _videoElem.parent().html('<iframe width="100%" height="auto" src="'+videoUrl+'" frameborder="0" allowfullscreen volume="0"></iframe>');
+        debugger;
     };
 
     init = function() {
@@ -5386,8 +5390,15 @@ INFORMA.videoFull = (function(window, $, namespace) {
                 video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
             }
             $(this).replaceWith(video);
+            function onYouTubePlayerAPIReady() {
+                player = new YT.Player('video', {
+                  autoplay: 1
+                });
+            }
             $('.play-icon').remove();
         });
+
+
     }
 
     init = function() {
@@ -5400,7 +5411,6 @@ INFORMA.videoFull = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.videoFull.init());
-
 var INFORMA = window.INFORMA || {};
 INFORMA.videoMini = (function(window, $, namespace) {
     'use strict';
