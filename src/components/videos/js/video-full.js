@@ -36,8 +36,15 @@ INFORMA.videoFull = (function(window, $, namespace) {
                 video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
             }
             $(this).replaceWith(video);
+            function onYouTubePlayerAPIReady() {
+                player = new YT.Player('video', {
+                  autoplay: 1
+                });
+            }
             $('.play-icon').remove();
         });
+
+
     }
 
     init = function() {

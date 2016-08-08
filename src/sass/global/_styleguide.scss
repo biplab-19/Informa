@@ -20,11 +20,20 @@ section {
     }
     // light font which comes after h1
     h2 {
-        font-family: FSMe-Light;
-        font-size: 24px;
-        margin: 0 0 10px 0;
+        font-family: FSMe-Bold;
+        font-size: 50px;
+        margin: 50px 0;
+        line-height: 36px;
+        color: $grey-color2;
+        @include tablet {
+            font-size: 30px;
+            line-height: 36px;
+            margin: 40px 0;
+        }
         @include mobile {
-            font-size: 18px;
+            font-size: 24px;
+            line-height: 30px;
+            margin: 30px 0;
         }
     }
 
@@ -34,6 +43,7 @@ section {
         margin: 0 0 10px 0;
         @include tablet {
             font-size: 30px;
+            line-height: 36px;
         }
         @include mobile {
             font-size: 24px;
@@ -48,6 +58,20 @@ section {
       &.gray {
         color: $gray-dark;
       }
+    }
+
+    h4 {
+        font-size: 24px;
+        font-family: FSMe-Regular;
+        margin: 24px 0;
+        @include tablet {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        @include mobile {
+            font-size: 18px;
+            margin: 20px 0;
+        }
     }
 }
 

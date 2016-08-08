@@ -40,10 +40,13 @@ INFORMA.FAQs = (function (window, $, namespace) {
             TemplateName = (Templates.AccordianTemplate !== "undefined") ? Templates.AccordianTemplate : "",
             ListTemplate = Handlebars.compile(TemplateName);
             Data.FaqAccordionId = AccordianId;
+            if(Button.parents('.accordian-structure').attr('data-tabs'))
+            Data.Tabs = Button.parents('.accordian-structure').attr('data-tabs');
+        
             Html += ListTemplate({ results: Data });
         }
 
-        Button.parents('.panel-group[data-fetch="'+AccordianId+'"]').append(Html);
+        Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId+'"]').append(Html);
 
         if (Results.FaqRemainingCount < 1) {
             $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').hide();

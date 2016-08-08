@@ -7,12 +7,18 @@
         height: auto;
       }
     }
-    h2 {
+    h3 {
         word-wrap: break-word;
-        height: 75px;
+        height: 55px;
         overflow: hidden;
-        line-height: 1.6em;
+        font-size: 24px;
+        font-family: FSMe-Light;
+        color: $text-gray;
+        @include tablet {
+            font-size: 18px;
+        }
         @include mobile {
+            font-size: 18px;
             height: auto;
         }
     }

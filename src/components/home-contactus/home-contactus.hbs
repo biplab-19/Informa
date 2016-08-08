@@ -3,17 +3,17 @@
       <div class="container">
          <div class="row row-eq-height">
            <div class="col-xs-12">
-           <h1 class="white-color contactus-header" >Have any questions? <span class="white-color contactus-header-normal">Speak to a specialist</span></h1>
+           <h2 class="white-color contactus-header" >Have any questions? <span class="white-color contactus-header-normal">Speak to a specialist</span></h2>
            <P class="white-color contactus-header-desc"> description </p>
-            <h2 class="white-color contactus-sub-header">Subscribe and use today.</h2>
+            {{!-- <h2 class="white-color contactus-sub-header">Subscribe and use today.</h2> --}}
             <div class="panel-group equal-height" id="contact-us-accordion">
                {{#each this}}
                <div class="panel panel-default {{mobileopen}}">
                   <div class="panel-heading accordion-toggle collapsed" data-toggle="collapse" data-parent="#contact-us-accordion" href="#collapse{{id}}">
                   <div class="contactus-heading">
-                    <h2>
+                    <h4>
                         <img src="{{icon}}" height="30" width="30"> {{heading}}
-                     </h2>
+                     </h4>
                    </div>
                   </div>
                   <div id="collapse{{id}}" class="panel-collapse collapse in">

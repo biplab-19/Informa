@@ -22,6 +22,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
     _bindIframe = function(){
         var videoUrl = _videoElem.data('video');
         _videoElem.parent().html('<iframe width="100%" height="auto" src="'+videoUrl+'" frameborder="0" allowfullscreen volume="0"></iframe>');
+        debugger;
     };
 
     init = function() {

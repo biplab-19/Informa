@@ -130,12 +130,8 @@ appropriate style change */
         }
     }
     .bg-gray-dark {
-        h1,
-        h2 {
-            @include header-color( 'bg-gray-dark');
-        }
-        h2 {
-            font-size: 26px;
+        h2, h3 {
+            color: $white;
         }
         .btn {
             color: $white;
