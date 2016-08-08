@@ -163,7 +163,8 @@ var INFORMA = window.INFORMA || {};
             "EventsSearch": "data/events-page.json",
             "ResourceList": "data/resource-list.json",
             "GetFAQs": "/client/search/GetFAQList",
-            "GetFormItems": "/data/form-data.json"
+            "GetFormItems": "/data/form-data.json",
+            "GetRecomendedItems": "/data/recomended-content.json"
         },
         "dev": {
             "GetArticles": "/client/search/getarticles",
@@ -177,7 +178,8 @@ var INFORMA = window.INFORMA || {};
             "ResourceList": "/client/search/GetResourceListing",
             "ResourceSubSectorList": "/client/search/GetSubSectors",
             "GetFAQs": "/client/search/GetFAQList",
-            "GetFormItems": "/client/ajax/GetModifiedWffmFormItems"
+            "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
+            "GetRecomendedItems": "/client/search/GetRemainingContent"
         }
     };
 
@@ -4596,6 +4598,52 @@ var INFORMA = window.INFORMA || {};
                           '<div class="panel-body">'+
                             '{{results.Description}}'+
                           '</div>'+
+                        '</div>'+
+                    '</div>',
+        'RecomendedContent': '<div class="col-md-4 col-sm-6 col-xs-12">'+
+                        '<div class="recomended-wrapper" data-fetch="{{results.Id}}">'+
+                            '<div class="content">'+
+                                '{{#compare results.SectorType.length 0 operator=">"}}'+
+                                    '<p class="category">'+
+                                        '{{#each results.SectorType}}'+
+                                        '<strong>{{this}}</strong>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                                '{{/compare}}'+
+                                '{{#compare results.BrandType.length 0 operator=">"}}'+
+                                    '<span class="type">'+
+                                        '{{#each results.BrandType}}'+
+                                        '<span>{{this}}</span>'+
+                                        '{{/each}}'+
+                                    '</span>'+
+                                '{{/compare}}'+
+                                '<h4>{{results.Title}}</h4>'+
+                                '<p class="publish">By: <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
+                                '{{#compare results.Description null operator="!="}}'+
+                                    '<p class="description">{{results.Description}}</p>'+
+                                '{{/compare}}'+
+                                '{{#compare results.Video null operator="!="}}'+
+                                    '<div class="video-container">'+
+                                        '<a href="{{results.Video.Url}}" class="video-link" tabindex="0">'+
+                                            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                            '<span class="play-icon icon-play"></span>'+
+                                        '</a>'+
+                                    '</div>'+
+                                '{{/compare}}'+
+                            '</div>'+
+                            '<div class="footer">'+
+                                '{{#compare results.Topic.length 0 operator=">"}}'+
+                                    '<p class="topics">'+
+                                        'Topics: '+
+                                        '{{#each results.Topic}}'+
+                                            '<strong>{{this}}</strong>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                                '{{/compare}}'+
+                                '<div class="btn-container text-right">'+
+                                    '<a href="#" class="btn btn-default download">{{results.Linktext}}</a>'+
+                                '</div>'+
+                            '</div>'+
                         '</div>'+
                     '</div>'
 
