@@ -1,4 +1,5 @@
-/*! 2016-08-09 */_adjustHeigt = function(){
+/*! 2016-08-09 */
+_adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
   }).get());
@@ -3800,25 +3801,30 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
     },
 
     RenderRecomendResult = function (data) {
-        var results = data,
-            html = "",
-            Articles = results.Articles;
 
-            for(var key in Articles) {
-                var Data = Articles[key],
-                    TemplateName = (Templates.RecomendedContent !== "undefined") ? Templates.RecomendedContent : "",
-                    ListTemplate = Handlebars.compile(TemplateName);
-                html += ListTemplate({ results: Data });
+        if(data != null) {
+            var results = data,
+                html = "",
+                Articles = results.Articles;
+
+                for(var key in Articles) {
+                    var Data = Articles[key],
+                        TemplateName = (Templates.RecomendedContent !== "undefined") ? Templates.RecomendedContent : "",
+                        ListTemplate = Handlebars.compile(TemplateName);
+                    html += ListTemplate({ results: Data });
+                }
+
+            RecomendedWrapper.find('.row').append(html);
+
+            equalHeight(RecomendedWrapper);
+
+            if(results.ArticleRemainingCount < 1) {
+                BtnMore.addClass('hidden');
+            } else {
+                BtnMore.removeClass('hidden');
             }
-
-        RecomendedWrapper.find('.row').append(html);
-
-        equalHeight(RecomendedWrapper);
-
-        if(results.ArticleRemainingCount < 1) {
-            BtnMore.addClass('hidden');
         } else {
-            BtnMore.removeClass('hidden');
+            BtnMore.addClass('hidden');
         }
     },
 
@@ -3876,6 +3882,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.RecomendedContent.init());
+
 
 var INFORMA = window.INFORMA || {};
 INFORMA.ResourceFilter = (function(window, $, namespace) {

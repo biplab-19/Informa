@@ -40,25 +40,30 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
     },
 
     RenderRecomendResult = function (data) {
-        var results = data,
-            html = "",
-            Articles = results.Articles;
 
-            for(var key in Articles) {
-                var Data = Articles[key],
-                    TemplateName = (Templates.RecomendedContent !== "undefined") ? Templates.RecomendedContent : "",
-                    ListTemplate = Handlebars.compile(TemplateName);
-                html += ListTemplate({ results: Data });
+        if(data != null) {
+            var results = data,
+                html = "",
+                Articles = results.Articles;
+
+                for(var key in Articles) {
+                    var Data = Articles[key],
+                        TemplateName = (Templates.RecomendedContent !== "undefined") ? Templates.RecomendedContent : "",
+                        ListTemplate = Handlebars.compile(TemplateName);
+                    html += ListTemplate({ results: Data });
+                }
+
+            RecomendedWrapper.find('.row').append(html);
+
+            equalHeight(RecomendedWrapper);
+
+            if(results.ArticleRemainingCount < 1) {
+                BtnMore.addClass('hidden');
+            } else {
+                BtnMore.removeClass('hidden');
             }
-
-        RecomendedWrapper.find('.row').append(html);
-
-        equalHeight(RecomendedWrapper);
-
-        if(results.ArticleRemainingCount < 1) {
-            BtnMore.addClass('hidden');
         } else {
-            BtnMore.removeClass('hidden');
+            BtnMore.addClass('hidden');
         }
     },
 
