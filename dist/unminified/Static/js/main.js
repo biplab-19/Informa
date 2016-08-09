@@ -1,4 +1,4 @@
-/*! 2016-08-08 */var INFORMA = window.INFORMA || {};
+/*! 2016-08-09 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -42,7 +42,7 @@
             "ResourceSubSectorList": "/client/search/GetSubSectors",
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
-            "GetRecomendedItems": "/client/search/GetRemainingContent"
+            "GetRecomendedItems": "/client/Account/GetRemainingContent"
         }
     };
 

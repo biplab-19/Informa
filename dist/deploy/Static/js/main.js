@@ -1,4 +1,4 @@
-/*! 2016-08-08 *//*
+/*! 2016-08-09 *//*
  Start ActivityMap Module
 
  The following module enables ActivityMap tracking in Adobe Analytics. ActivityMap
@@ -179,7 +179,7 @@ var INFORMA = window.INFORMA || {};
             "ResourceSubSectorList": "/client/search/GetSubSectors",
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
-            "GetRecomendedItems": "/client/search/GetRemainingContent"
+            "GetRecomendedItems": "/client/Account/GetRemainingContent"
         }
     };
 
