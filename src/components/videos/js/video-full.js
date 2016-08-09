@@ -14,11 +14,11 @@ INFORMA.videoFull = (function(window, $, namespace) {
         _videoPlayBtnWrapper.click(function() {
             var videoImg = $(this).parent().find('img');
             if (videoImg.attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if (videoImg .attr('data-videotype') == "vimeo") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if (videoImg.attr('data-videotype') == "wistia") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
             }
             videoImg.replaceWith(video);
             $(this).remove();
@@ -29,11 +29,11 @@ INFORMA.videoFull = (function(window, $, namespace) {
         _videoFullWrapper.click(function() {
 
             if ($(this).attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1&autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "vimeo") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "wistia") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
             }
             $(this).replaceWith(video);
             function onYouTubePlayerAPIReady() {
