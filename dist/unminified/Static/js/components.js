@@ -465,9 +465,9 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 html = ListTemplate(DataObject);
             return html;
         },
-        RenderCarousel = function(xhtml, ele) {
+        RenderCarousel = function(xhtml, ele,m,i) {
             ele.empty().html(xhtml);
-            CreateSlider(ele);
+            CreateSlider(ele,m,i);
             ele.show();
             var updateCarouselHeight = setTimeout(function(){
                 clearTimeout(updateCarouselHeight);
@@ -485,7 +485,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
-                        RenderCarousel(html, _ArticleLists);
+                        RenderCarousel(html, _ArticleLists,1,2);
                     }else{
                         ArticleCont.hide();
                     }
@@ -493,7 +493,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
                         HeadlineCont.show();
-                        RenderCarousel(html, _HeadlinesLists);
+                        RenderCarousel(html, _HeadlinesLists,2,4);
                     }else{
                         HeadlineCont.hide();
                     }
@@ -3838,7 +3838,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         BtnMore.on('click', function (e) {
             e.preventDefault();
             var Parent = $(this).parents('.recomended-content'),
-                Count = Parent.attr('data-count'),
+                ViewPort = INFORMA.global.device.viewport,
+                Count = Parent.attr('data-' + ViewPort),
                 Ids = GetIds(Parent),
                 _Object = {
                     ExcludeContentGuids: Ids,
@@ -5489,11 +5490,11 @@ INFORMA.videoFull = (function(window, $, namespace) {
         _videoPlayBtnWrapper.click(function() {
             var videoImg = $(this).parent().find('img');
             if (videoImg.attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if (videoImg .attr('data-videotype') == "vimeo") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if (videoImg.attr('data-videotype') == "wistia") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
             }
             videoImg.replaceWith(video);
             $(this).remove();
@@ -5504,11 +5505,11 @@ INFORMA.videoFull = (function(window, $, namespace) {
         _videoFullWrapper.click(function() {
 
             if ($(this).attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1&autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "vimeo") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "wistia") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoPlay=true" frameborder="0" allowfullscreen></iframe>';
             }
             $(this).replaceWith(video);
             function onYouTubePlayerAPIReady() {
@@ -5532,6 +5533,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.videoFull.init());
+
 var INFORMA = window.INFORMA || {};
 INFORMA.videoMini = (function(window, $, namespace) {
     'use strict';

@@ -9740,3 +9740,84 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
     text-align: center;
   }
 }
+
+/* line 1, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard {
+  background-color: #444957;
+  padding: 30px 0;
+}
+/* line 4, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard h2 {
+  color: #fff;
+}
+/* line 7, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel-group {
+  margin-top: 50px;
+}
+/* line 10, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel {
+  background-color: transparent;
+  border: none;
+  border-top: 1px solid #6a7185;
+  box-shadow: none;
+  margin-top: 0;
+}
+/* line 17, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel .panel-collapse .panel-body {
+  border: none;
+  padding: 0 0 30px;
+}
+/* line 20, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel .panel-collapse .panel-body ul {
+  padding: 0;
+  margin: 0;
+}
+/* line 23, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel .panel-collapse .panel-body ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin-bottom: 10px;
+  width: 350px;
+}
+/* line 32, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel .panel-heading {
+  position: relative;
+  background-color: transparent;
+  padding: 30px 0;
+}
+/* line 36, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel .panel-heading h3 {
+  font-size: 18px;
+  font-family: FSMe-Light;
+}
+/* line 40, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel .panel-heading a {
+  color: #eff0f3;
+  text-decoration: none;
+}
+/* line 43, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel .panel-heading a:before {
+  font-weight: normal;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  display: block;
+  border-radius: 100%;
+  content: "\e913";
+  color: #eff0f3;
+  font-size: 23px;
+  font-family: "InformaIcons" !important;
+  display: inline;
+  position: absolute;
+  right: 0px;
+}
+/* line 59, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel .panel-heading a.collapsed:before {
+  content: "\e912";
+  color: #ffd500;
+  display: inline;
+}
+/* line 69, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+.dashboard .panel-group .panel + .panel {
+  margin-top: 0;
+}
