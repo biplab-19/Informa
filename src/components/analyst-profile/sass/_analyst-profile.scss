@@ -109,10 +109,14 @@
 			}
 		}
 	.descriptions {
-		height: 170px;
+		height: 184px;
 		min-height: 106px;
 		overflow: hidden;
 		padding-right: 45px;
+		@include mobile {
+			height: 260px;
+			padding-right: 0;
+		}
 		p{
 			margin: 0;
 		}

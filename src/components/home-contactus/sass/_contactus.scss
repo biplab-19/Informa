@@ -72,13 +72,13 @@
         position: absolute;
         font-size: 35px;
         right: 30px;
-        top: 10px;
+        top: 50%;
         color: #fff;
+        transform: translateY(-50%);
     }
     .accordion-toggle.collapsed:after {
         content: "\e081";
         right: 30px;
-          top: 10px;
         font-size: 35px;
         color: $default-dots-color;
     }

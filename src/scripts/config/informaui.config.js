@@ -42,7 +42,7 @@ var INFORMA = window.INFORMA || {};
             "ResourceSubSectorList": "/client/search/GetSubSectors",
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
-            "GetRecomendedItems": "/client/search/GetRemainingContent"
+            "GetRecomendedItems": "/client/Account/GetRemainingContent"
         }
     };
 
