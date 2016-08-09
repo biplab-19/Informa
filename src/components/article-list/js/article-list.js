@@ -61,9 +61,9 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 html = ListTemplate(DataObject);
             return html;
         },
-        RenderCarousel = function(xhtml, ele) {
+        RenderCarousel = function(xhtml, ele,m,i) {
             ele.empty().html(xhtml);
-            CreateSlider(ele);
+            CreateSlider(ele,m,i);
             ele.show();
             var updateCarouselHeight = setTimeout(function(){
                 clearTimeout(updateCarouselHeight);
@@ -81,7 +81,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
-                        RenderCarousel(html, _ArticleLists);
+                        RenderCarousel(html, _ArticleLists,1,2);
                     }else{
                         ArticleCont.hide();
                     }
@@ -89,7 +89,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
                         HeadlineCont.show();
-                        RenderCarousel(html, _HeadlinesLists);
+                        RenderCarousel(html, _HeadlinesLists,2,4);
                     }else{
                         HeadlineCont.hide();
                     }
