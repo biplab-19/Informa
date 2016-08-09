@@ -1,0 +1,72 @@
+.dashboard {
+    background-color: $gray-light-bg;
+    padding: 30px 0;
+    h2 {
+        color: $white;
+    }
+    .panel-group{
+        margin-top:50px;
+    }
+    .panel {
+        background-color: transparent;
+        border:none;
+        border-top:1px solid $gray-box;
+        box-shadow:none;
+        margin-top: 0;
+        .panel-collapse{
+            .panel-body{
+                border:none;
+                padding:0 0 30px; 
+                ul{
+                    padding:0;
+                    margin:0;
+                    li{
+                        list-style-type:none;
+                        display: inline-block;
+                        margin-bottom: 10px;
+                        width: 350px;
+                    }
+                }
+            }
+        }
+        .panel-heading {    
+            position: relative;
+            background-color: transparent;
+            padding: 30px 0;
+            h3{
+                font-size:18px;
+                font-family: FSMe-Light;
+            }
+            a {
+                color:$gray-bright-bg;
+                text-decoration: none;
+                &:before {
+                    font-weight: normal;
+                    text-align: center;
+                    width: 25px;
+                    height: 25px;
+                    display: block;
+                    border-radius: 100%;
+                    content: "\e913";
+                    color:$gray-bright-bg;
+                    font-size: 23px;
+                    font-family: "InformaIcons" !important;
+                    display: inline;
+                    position: absolute;
+                    right: 0px;
+                }
+                &.collapsed {
+                    &:before {
+                        content: "\e912";
+                        color: $yellow;
+                        display: inline;
+                        
+                    }
+                }
+            }
+        }
+    }
+    .panel-group .panel + .panel{
+        margin-top: 0;
+    }
+}
