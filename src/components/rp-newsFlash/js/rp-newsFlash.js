@@ -1,8 +1,3 @@
-// $(document).ready(function(c) {
-// 	$('.alert-close').on('click', function(){
-// 	 $('.message').hide('slow')
-// 	});
-// });
 /*
  * News Flash
  *

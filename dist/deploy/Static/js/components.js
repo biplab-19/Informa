@@ -1,4 +1,43 @@
 /*! 2016-08-09 */
+/*
+ * welcome-description
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-july-28th
+ * @author:     Tejaswi chennupati
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.welcome_description= (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var _welcomedescription = $('.welcome-description'),
+        // _tooltip = _welcomedescription.find('.anonymous,.registered'),
+    // methods
+        init,
+        _closeTip,
+        _closeTip = function(){
+          var closetip = $('#closetip');
+           $('#closetip').on('click', function(){
+		            $('.tool').remove();
+		        });
+        }
+
+
+    init = function() {
+        _closeTip();
+    }
+
+    return {
+        init: init
+    }
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.welcome_description.init());
+
 _adjustHeigt = function(){
   var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
       return $(this).height();
@@ -3883,7 +3922,6 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.RecomendedContent.init());
 
-
 var INFORMA = window.INFORMA || {};
 INFORMA.ResourceFilter = (function(window, $, namespace) {
     'use strict';
@@ -4382,11 +4420,6 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.ResourceFilter.init());
-// $(document).ready(function(c) {
-// 	$('.alert-close').on('click', function(){
-// 	 $('.message').hide('slow')
-// 	});
-// });
 /*
  * News Flash
  *

@@ -9821,3 +9821,118 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 .dashboard .panel-group .panel + .panel {
   margin-top: 0;
 }
+
+/* line 1, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description {
+  padding-top: 20px;
+  font-family: FSMe-light;
+}
+@media (max-width: 767px) {
+  /* line 1, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  section.welcome-description {
+    padding-top: 50px;
+  }
+}
+/* line 7, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description h2 {
+  font-size: 40px;
+  margin: 0;
+  margin-bottom: 20px;
+}
+/* line 13, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .anonymous p {
+  padding-bottom: 30px;
+}
+/* line 16, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .anonymous span.title {
+  font-family: FSMe-light;
+  display: inline-block;
+  font-size: 30px;
+}
+/* line 23, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .registered .reg-title {
+  position: relative;
+  font-size: 40px;
+  font-family: FSMe-light;
+}
+/* line 27, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .registered .reg-title:before {
+  position: absolute;
+  font-family: "InformaIcons" !important;
+  content: "\e91a";
+  font-family: FSMe-bold;
+  color: #000;
+}
+@media (max-width: 767px) {
+  /* line 27, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  section.welcome-description .registered .reg-title:before {
+    top: -50px;
+  }
+}
+/* line 37, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .registered .reg-title strong.wel-text {
+  display: inline-block;
+  padding-left: 50px;
+  font-family: FSMe-bold;
+}
+@media (max-width: 767px) {
+  /* line 37, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  section.welcome-description .registered .reg-title strong.wel-text {
+    padding-left: 0px;
+  }
+}
+/* line 45, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .registered .reg-title span {
+  display: inline-block;
+  font-size: 30px;
+}
+/* line 51, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .tip {
+  background: #ffd500;
+  padding: 15px 30px;
+}
+/* line 54, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .tip:before {
+  position: absolute;
+  font-family: "InformaIcons" !important;
+  content: "\e916";
+  font-size: 20px;
+  top: 10px;
+  font-family: FSMe-bold;
+  color: #000;
+}
+/* line 66, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .tip a {
+  position: relative;
+  color: #000;
+  display: inline-block;
+  padding-left: 20px;
+  font-family: FSMe-bold;
+}
+/* line 72, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .tip a:after {
+  font-family: "InformaIcons" !important;
+  content: "\e900";
+  position: absolute;
+  right: -17px;
+}
+/* line 79, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .tip span {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+}
+/* line 86, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .cross {
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  top: 13px;
+  right: 20px;
+  z-index: 2;
+}
+/* line 94, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description .cross:after {
+  font-family: "InformaIcons" !important;
+  content: "\e906";
+}
