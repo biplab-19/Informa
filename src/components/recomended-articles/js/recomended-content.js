@@ -78,7 +78,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         BtnMore.on('click', function (e) {
             e.preventDefault();
             var Parent = $(this).parents('.recomended-content'),
-                Count = Parent.attr('data-count'),
+                ViewPort = INFORMA.global.device.viewport,
+                Count = Parent.attr('data-' + ViewPort),
                 Ids = GetIds(Parent),
                 _Object = {
                     ExcludeContentGuids: Ids,
