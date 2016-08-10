@@ -9888,31 +9888,32 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 
 /* line 1, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard {
-  background-color: #444957;
-  padding: 30px 0;
+  background: url("/Static/images/pattern.png") no-repeat right 132% #444957;
+  background-size: 20%;
+  padding: 30px 0 100px;
 }
 @media (max-width: 767px) {
-  /* line 4, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+  /* line 5, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
   .dashboard .container {
     padding: 0;
   }
 }
-/* line 9, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 10, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard h2 {
   color: #ffffff;
 }
 @media (max-width: 767px) {
-  /* line 9, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+  /* line 10, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
   .dashboard h2 {
     padding: 0 15px;
   }
 }
-/* line 15, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 16, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel-group {
   margin-top: 50px;
   border-bottom: 1px solid #6a7185;
 }
-/* line 19, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 20, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel {
   background-color: transparent;
   border: none;
@@ -9921,45 +9922,45 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   margin-top: 0;
 }
 @media (max-width: 767px) {
-  /* line 19, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+  /* line 20, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
   .dashboard .panel {
     padding: 0 15px;
   }
 }
-/* line 29, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 30, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel .panel-collapse .panel-body {
   border: none;
   padding: 0 0 30px;
 }
-/* line 32, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 33, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel .panel-collapse .panel-body ul {
   padding: 0;
   margin: 0;
 }
-/* line 35, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 36, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel .panel-collapse .panel-body ul li {
   list-style-type: none;
   display: inline-block;
   margin-bottom: 10px;
   width: 350px;
 }
-/* line 44, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 45, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel .panel-heading {
   position: relative;
   background-color: transparent;
   padding: 30px 0;
 }
-/* line 48, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 49, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel .panel-heading h3 {
   font-size: 18px;
   font-family: FSMe-Light;
 }
-/* line 52, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 53, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel .panel-heading a {
   color: #eff0f3;
   text-decoration: none;
 }
-/* line 55, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 56, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel .panel-heading a:before {
   font-weight: normal;
   text-align: center;
@@ -9975,13 +9976,13 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   position: absolute;
   right: 0px;
 }
-/* line 71, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 72, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel .panel-heading a.collapsed:before {
   content: "\e912";
   color: #ffd500;
   display: inline;
 }
-/* line 81, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
+/* line 82, ../../../src/components/dashboard-preference/sass/_dashboard-preference.scss */
 .dashboard .panel-group .panel + .panel {
   margin-top: 0;
 }
@@ -10185,4 +10186,92 @@ section.welcome-description .cross:after {
 /* line 60, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul li:last-child:after {
   background-color: #ffffff;
+}
+
+/* line 2, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login p {
+  width: 60%;
+}
+/* line 5, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .inner-wrapper {
+  padding: 30px 50px;
+}
+/* line 8, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .create-profile {
+  padding: 10px;
+  background-color: #565c6b;
+  width: 100%;
+  float: left;
+  margin-top: 80px;
+  color: #ffffff;
+  opacity: 0.8;
+}
+/* line 16, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .create-profile a {
+  color: #ef7c00;
+}
+/* line 19, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .create-profile p {
+  width: 50%;
+  margin: 0 auto;
+}
+@media (max-width: 767px) {
+  /* line 19, ../../../src/components/product-login/sass/_product-login.scss */
+  .product-login .create-profile p {
+    width: 100%;
+  }
+}
+/* line 27, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .login-links {
+  margin: 0 auto;
+  background: url("/Static/images/pattern.png") no-repeat bottom right #444957;
+  background-size: 20%;
+}
+/* line 31, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .login-links h2 {
+  color: #ffffff;
+  font: 400 30px 'FSMe-light';
+  margin: 0 0 20px;
+}
+/* line 36, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .login-links h3 {
+  font: 400 20px 'FSMe-bold';
+  color: #ffffff;
+}
+/* line 40, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .login-links .col-left {
+  float: left;
+  width: 40%;
+  margin-left: 70px;
+}
+/* line 45, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .login-links .list {
+  border-bottom: 1px solid #6a7185;
+  margin: 60px 0 0 0;
+}
+/* line 48, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .login-links .list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 30px 0 0;
+  position: relative;
+}
+/* line 53, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .login-links .list ul li {
+  border-top: 1px solid #6a7185;
+  padding: 15px 0;
+  font-size: 18px;
+  font-family: 'InformaIcons';
+}
+/* line 58, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .login-links .list ul li:after {
+  content: "\e904";
+  position: absolute;
+  color: #ef7c00;
+  right: 0;
+  font-size: 15px;
+}
+/* line 65, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .login-links .list ul li a {
+  font-family: 'FSMe';
 }
