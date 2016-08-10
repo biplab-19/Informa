@@ -1,3 +1,8 @@
+$max-width: 1400px;
+$min-width: 320px; // define breakpoints
+$tablet-width: 768px;
+$desktop-width: 1142px;
+
 @mixin border-radius($radius) {
 	-webkit-border-radius: $radius;
 	-moz-border-radius: $radius;
@@ -16,4 +21,33 @@
             height: auto;
             overflow: initial;
       }
+}
+
+/*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+
+@mixin not-mobile {
+     @media (min-width: #{$tablet-width}){
+        @content;
+    }
+}
+
+@mixin mobile {
+     @media (max-width: #{$tablet-width - 1px}){
+        @content;
+    }
+}
+@mixin tablet {
+     @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}){
+        @content;
+    }
+}
+@mixin desktop {
+     @media (min-width: #{$desktop-width}){
+        @content;
+    }
+}
+@mixin not-desktop{
+     @media (max-width: #{$desktop-width - 1px}){
+        @content;
+    }
 }

@@ -579,46 +579,5 @@ $hr-border: $gray-lighter; // define variables for spacings
 $gutterwidth: 30px;
 $gutterside: $gutterwidth/2;
 $mobilegutter: $gutterwidth/4;
-$max-width: 1400px;
-$min-width: 320px; // define breakpoints
-// ==========================================================================
-$tablet-width: 768px;
-$desktop-width: 1142px;
-/*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 
-@mixin not-mobile {
-     @media (min-width: #{$tablet-width}){
-        @content;
-    }
-}
 
-@mixin mobile {
-     @media (max-width: #{$tablet-width - 1px}){
-        @content;
-    }
-}
-@mixin tablet {
-     @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}){
-        @content;
-    }
-}
-@mixin desktop {
-     @media (min-width: #{$desktop-width}){
-        @content;
-    }
-}
-@mixin not-desktop{
-     @media (max-width: #{$desktop-width - 1px}){
-        @content;
-    }
-}
-// @mixin lgdesktop {
-//      @media (min-width: #{$lgdesktop-width}){
-//         @content;
-//     }
-// }
-/* To use media queries we just have to say @include tablet{font-size:14px} */
-//Setting container width to all view ports if required
-// $container-tablet: 768px;
-// $container-desktop: 1170px;
-// $container-mobile: 320px;
