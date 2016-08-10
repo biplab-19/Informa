@@ -12,15 +12,15 @@
                 },
                 this.flipTile = function(Object) {
                     var TileFront = Object.find('.front .triangle'),
-                        TileBack  = Object.find('.back .triangle');
+                        TileBack = Object.find('.back .triangle');
 
-                        TileFront.on("click",function() {
-                            DoFlip($(this), 'flip');
-                        });
+                    TileFront.on("click", function() {
+                        DoFlip($(this), 'flip');
+                    });
 
-                        TileBack.on("click",function() {
-                            DoFlip($(this), 'unflip');
-                        });
+                    TileBack.on("click", function() {
+                        DoFlip($(this), 'unflip');
+                    });
                 },
                 this.getUniqueArray = function(arrayList) {
                     var uniqueArray = [];
@@ -31,18 +31,29 @@
                     });
                     return uniqueArray;
                 }
-            this.RemoveArrayItem = function(Arry) {
-                var what, a = arguments,
-                    L = a.length,
-                    ax;
-                while (L > 1 && Arry.length) {
-                    what = a[--L];
-                    while ((ax = Arry.indexOf(what)) !== -1) {
-                        Arry.splice(ax, 1);
+                this.RemoveArrayItem = function(Arry) {
+                    var what, a = arguments,
+                        L = a.length,
+                        ax;
+                    while (L > 1 && Arry.length) {
+                        what = a[--L];
+                        while ((ax = Arry.indexOf(what)) !== -1) {
+                            Arry.splice(ax, 1);
+                        }
                     }
+                    return Arry;
                 }
-                return Arry;
-            }
+                this.ArrayUnique = function (array) {
+                    var a = array.concat();
+                    for (var i = 0; i < a.length; ++i) {
+                        for (var j = i + 1; j < a.length; ++j) {
+                            if (a[i] === a[j])
+                                a.splice(j--, 1);
+                        }
+                    }
+
+                    return a;
+                }
             this.StrngToQryStrng = function(strng) {
                 if ((typeof strng === "object" || typeof strng === "string") && strng) {
                     var Arry = strng.toString().split(","),
