@@ -1,0 +1,52 @@
+.recommendation-tabs {
+	background-color: $white;
+	border: 1px solid #d1d3da;
+	ul {
+		list-style-type: none;
+		padding: 0;
+		li {
+			float: left;
+			width: 25%;
+			position: relative;
+			a {
+				display: block;
+				padding: 20px 0;
+				color: $grey-color1;
+				font-size: 14px;
+				text-align: center;
+				padding-left: 36px;
+				&.active {
+					background-color: $grey-color1;
+					color: $white;
+				}
+			}
+			&:after {
+				content: '';
+				width: 1px;
+				height: 30px;
+				background-color: #e5e7ef;
+				position: absolute;
+				top: 15px;
+				right: 0;
+			}
+			&:last-child {
+				&:after {
+					background-color: $white;
+				}
+			}
+		}
+	}
+	@include mobile {
+		ul {
+			li {
+				width: 100%;
+				&:after {
+					background-color: $white;
+				}
+				a {
+					text-align: left;
+				}
+			}
+		}
+	}
+}

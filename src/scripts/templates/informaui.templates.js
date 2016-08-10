@@ -528,19 +528,17 @@ var INFORMA = window.INFORMA || {};
                         '<div class="recomended-wrapper" data-fetch="{{results.Id}}">'+
                             '<div class="content">'+
                                 '{{#compare results.SectorType.length 0 operator=">"}}'+
-                                    '<p class="category">'+
+                                    '<p>'+
                                         '{{#each results.SectorType}}'+
-                                        '<strong>{{this}}</strong>'+
+                                            '<span class="category">'+
+                                                '<strong>{{this}}</strong>'+
+                                            '</span>'+
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
-                                '{{#compare results.BrandType.length 0 operator=">"}}'+
-                                    '<span class="type">'+
-                                        '{{#each results.BrandType}}'+
-                                        '<span>{{this}}</span>'+
-                                        '{{/each}}'+
-                                    '</span>'+
-                                '{{/compare}}'+
+                                '<p class="type">'+
+                                    '<span>{{results.Product}}</span>'+
+                                '</p>'+
                                 '<h4>{{results.Title}}</h4>'+
                                 '<p class="publish">By: <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
                                 '{{#compare results.Description null operator="!="}}'+
@@ -554,8 +552,6 @@ var INFORMA = window.INFORMA || {};
                                         '</a>'+
                                     '</div>'+
                                 '{{/compare}}'+
-                            '</div>'+
-                            '<div class="footer">'+
                                 '{{#compare results.Topic.length 0 operator=">"}}'+
                                     '<p class="topics">'+
                                         'Topics: '+
@@ -564,8 +560,11 @@ var INFORMA = window.INFORMA || {};
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
+                            '</div>'+
+                            '<div class="footer">'+
+                                
                                 '<div class="btn-container text-right">'+
-                                    '<a href="#" class="btn btn-default download">{{results.Linktext}}</a>'+
+                                    '<a href="{{results.PageURL}}" class="btn btn-default">{{results.ContentType}}</a>'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
