@@ -1,66 +1,122 @@
-section.recommendation-register-banner{
-  color: $white;
-.gray-dark-container{
-  background: $grey-color1;
-}
+section.recommendation-register-banner {
+    color: $white;
 
-.gray-light-container{
-  background: $gray-header;
-}
-
-.create-profile-container{
-      padding: 20px;
-      h2{
-        color: $white;
-        span{
-          color: $white;
+    .create-profile-container-white {
+    //  background: $grey-color1;
+        padding-bottom: 40px;
+        h2 {
+            color: $font-color;
+            span {
+                color: $font-color;
+            }
+            @include mobile {
+                padding-left: 10px;
+            }
         }
-      }
-}
-  .signup-container{
-    padding: 15px;
-    height: 150px;
-  }
-  .create-profile-btn-container {
-    width: 20%;
-  text-align: center;
-  margin: 0 auto;
-  padding-top: 30px;
-  }
-
-.tick-icon:before{
-  margin-right: 10px;
-  font-family: "InformaIcons" !important;
-  content: "\e914";
-  font-size: 25px;
-  color: $yellow;
-  top: -3px;
-}
-
-
-
-  .existing-customer-container{
-    text-align: center;
-    margin: 0 auto;
-    padding: 15px;
-        height: 100px;
-  }
-  .steps-tips{
-    @include mobile {
-      margin-bottom: 20px;
+        @include mobile {
+            padding-bottom: 20px;
+        }
+        @include tablet {
+            padding-bottom: 30px;
+        }
+        .desc{
+          color: $font-color;
+        }
     }
-    .desc{
-          word-wrap: break-word;
-      padding-top: 24px;
-      font-size: 24px;
-      @include tablet {
-        padding-top: 2px;
-        font-size: 15px;
-      }
-      @include mobile {
-        padding-top: 0px;
-        font-size: 20px;
-      }
+
+    .create-profile-container-dark {
+      background: $grey-color1;
+        padding-bottom: 40px;
+        h2 {
+            color: $white;
+            span {
+                color: $white;
+            }
+            @include mobile {
+                padding-left: 10px;
+            }
+        }
+        @include mobile {
+            padding-bottom: 20px;
+        }
+        @include tablet {
+            padding-bottom: 30px;
+        }
     }
-  }
+    .signup-container {
+        padding: 15px;
+        background: $gray-header;
+    }
+    .create-profile-btn-container {
+        width: 20%;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 30px;
+        @include mobile {
+            width: 90%;
+        }
+    }
+    .tick-icon:before {
+        margin-right: 10px;
+        font-family: "InformaIcons" !important;
+        content: "\e914";
+        font-size: 25px;
+        color: $yellow;
+        top: -3px;
+    }
+    .existing-customer-container {
+        background: $grey-color1;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        @include mobile {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    }
+    .steps-tips {
+        @include mobile {
+            margin-bottom: 20px;
+        }
+        .steps-item {
+            @include mobile {
+                position: relative;
+            }
+        }
+        .desc {
+            word-wrap: break-word;
+            padding-top: 24px;
+            font-size: 20px;
+            @include tablet {
+                padding-top: 2px;
+                font-size: 15px;
+            }
+            @include mobile {
+                padding-top: 0px;
+                font-size: 15px;
+                position: absolute;
+                left: 80px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+    .exsting-customer {
+        @include mobile {
+            display: block;
+            text-align: left;
+        }
+    }
+    .goto-product {
+        color: $orange;
+        cursor: pointer;
+        @include mobile {
+            display: block;
+            text-align: left;
+        }
+    }
+    .light-font {
+        font-family: FSMe-Light;
+    }
 }
