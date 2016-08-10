@@ -301,9 +301,9 @@ INFORMA.forms = (function(window, $, namespace) {
 
         $(_formId + " .area-interests .form-group .checkbox").remove();
         $(_formId + " .area-interests").addClass('dynamic-interests');
-        $(_formId + ' .page-header h1').find('.product-name').text(results.Title);
+        $(_formId + ' .page-header h2').find('.product-name').text(results.Title);
 
-        $(_formId + ' .page-header h1').text(formHeading);
+        $(_formId + ' .page-header h2').text(formHeading);
 
         var hiddenProdcutName = $(_formId + " .form-additional-fields .product-name-field");
         if(hiddenProdcutName.length > 0){
