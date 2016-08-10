@@ -1,6 +1,23 @@
 .recommendation-tabs {
 	background-color: $white;
-	border: 1px solid #d1d3da;
+	border-bottom: 1px solid #d1d3da;
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a:focus,
+	.nav-tabs > li.active > a:hover {
+			background: none !important;
+			border: none !important;
+			color: $white;
+	}
+	.tab-content{
+		background-color: $grey-color1;
+		.tab-pane{
+			padding: 10px;
+		}
+	}
+
+	.nav-tabs{
+		border-bottom: none;
+	}
 	ul {
 		list-style-type: none;
 		padding: 0;
@@ -8,6 +25,18 @@
 			float: left;
 			width: 25%;
 			position: relative;
+			&.active{
+					background-color: $grey-color1;
+					border-bottom: 1px solid $grey-color1;
+					&:after {
+						background-color: $grey-color1;
+					}
+					&:last-child {
+						&:after {
+							background-color: $grey-color1;
+						}
+					}
+			}
 			a {
 				display: block;
 				padding: 20px 0;
@@ -15,19 +44,17 @@
 				font-size: 14px;
 				text-align: center;
 				padding-left: 36px;
-				&.active {
-					background-color: $grey-color1;
-					color: $white;
-				}
 			}
+
 			&:after {
 				content: '';
-				width: 1px;
+				width: 2px;
 				height: 30px;
 				background-color: #e5e7ef;
 				position: absolute;
 				top: 15px;
 				right: 0;
+
 			}
 			&:last-child {
 				&:after {
@@ -36,17 +63,5 @@
 			}
 		}
 	}
-	@include mobile {
-		ul {
-			li {
-				width: 100%;
-				&:after {
-					background-color: $white;
-				}
-				a {
-					text-align: left;
-				}
-			}
-		}
-	}
+
 }

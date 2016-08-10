@@ -56,12 +56,12 @@ section.welcome-description{
          font-family: "InformaIcons" !important;
          content: "\e916";
          font-size: 20px;
-         top: 10px;
+         top: 50%;
          font-family: FSMe-bold;
          color: $black;
-        //  @include mobile {
-        //    top: -50px;
-        //  }
+         @include mobile {
+           top: 32%;
+         }
        }
        a{
          position: relative;
@@ -80,14 +80,17 @@ section.welcome-description{
          display: inline-block;
          position: relative;
          padding-left: 30px;
-
+         @include mobile {
+           padding-left: 0px;
+           padding-top: 15px;
+         }
        }
      }
      .cross{
        color: $white;
-       font-size: 16px;
+       font-size: 14px;
        position: absolute;
-       top: 13px;
+       top: 60%;
        right: 20px;
        z-index: 2;
      }

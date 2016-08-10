@@ -9201,77 +9201,77 @@ section.samplecontent-freearticle .quick-facts ul li:before {
 section.recommendation-register-banner {
   color: #ffffff;
 }
-/* line 4, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 3, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .create-profile-container-white {
   padding-bottom: 40px;
 }
-/* line 7, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 6, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .create-profile-container-white h2 {
   color: #6a7287;
 }
-/* line 9, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 8, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .create-profile-container-white h2 span {
   color: #6a7287;
 }
 @media (max-width: 767px) {
-  /* line 7, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 6, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .create-profile-container-white h2 {
     padding-left: 10px;
   }
 }
 @media (max-width: 767px) {
-  /* line 4, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 3, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .create-profile-container-white {
     padding-bottom: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 4, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 3, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .create-profile-container-white {
     padding-bottom: 30px;
   }
 }
-/* line 22, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 21, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .create-profile-container-white .desc {
   color: #6a7287;
 }
-/* line 27, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 25, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .create-profile-container-dark {
   background: #444957;
   padding-bottom: 40px;
 }
-/* line 30, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 28, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .create-profile-container-dark h2 {
   color: #ffffff;
 }
-/* line 32, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 30, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .create-profile-container-dark h2 span {
   color: #ffffff;
 }
 @media (max-width: 767px) {
-  /* line 30, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 28, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .create-profile-container-dark h2 {
     padding-left: 10px;
   }
 }
 @media (max-width: 767px) {
-  /* line 27, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 25, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .create-profile-container-dark {
     padding-bottom: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 27, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 25, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .create-profile-container-dark {
     padding-bottom: 30px;
   }
 }
-/* line 46, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 44, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .signup-container {
   padding: 15px;
   background: #565c6b;
 }
-/* line 50, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 48, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .create-profile-btn-container {
   width: 20%;
   text-align: center;
@@ -9279,21 +9279,27 @@ section.recommendation-register-banner .create-profile-btn-container {
   padding-top: 30px;
 }
 @media (max-width: 767px) {
-  /* line 50, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 48, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .create-profile-btn-container {
     width: 90%;
   }
 }
-/* line 59, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 57, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+section.recommendation-register-banner .tick-icon {
+  position: relative;
+}
+/* line 60, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .tick-icon:before {
   margin-right: 10px;
   font-family: "InformaIcons" !important;
   content: "\e914";
-  font-size: 25px;
+  font-size: 20px;
   color: #ffd500;
-  top: -3px;
+  position: absolute;
+  left: -22px;
+  top: -8px;
 }
-/* line 67, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 70, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .existing-customer-container {
   background: #444957;
   text-align: center;
@@ -9302,39 +9308,39 @@ section.recommendation-register-banner .existing-customer-container {
   padding-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 67, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 70, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .existing-customer-container {
     padding-top: 20px;
     padding-bottom: 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 78, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 81, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .steps-tips {
     margin-bottom: 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 82, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 85, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .steps-tips .steps-item {
     position: relative;
   }
 }
-/* line 87, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 90, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .steps-tips .desc {
   word-wrap: break-word;
   padding-top: 24px;
   font-size: 20px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 87, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 90, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .steps-tips .desc {
     padding-top: 2px;
     font-size: 15px;
   }
 }
 @media (max-width: 767px) {
-  /* line 87, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 90, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .steps-tips .desc {
     padding-top: 0px;
     font-size: 15px;
@@ -9345,25 +9351,25 @@ section.recommendation-register-banner .steps-tips .desc {
   }
 }
 @media (max-width: 767px) {
-  /* line 105, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 108, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .exsting-customer {
     display: block;
     text-align: left;
   }
 }
-/* line 111, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 114, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .goto-product {
   color: #ef7c00;
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  /* line 111, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 114, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .goto-product {
     display: block;
     text-align: left;
   }
 }
-/* line 119, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 122, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .light-font {
   font-family: FSMe-Light;
 }
@@ -10055,9 +10061,15 @@ section.welcome-description .tip:before {
   font-family: "InformaIcons" !important;
   content: "\e916";
   font-size: 20px;
-  top: 10px;
+  top: 50%;
   font-family: FSMe-bold;
   color: #000;
+}
+@media (max-width: 767px) {
+  /* line 54, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  section.welcome-description .tip:before {
+    top: 32%;
+  }
 }
 /* line 66, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip a {
@@ -10080,17 +10092,97 @@ section.welcome-description .tip span {
   position: relative;
   padding-left: 30px;
 }
-/* line 86, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+@media (max-width: 767px) {
+  /* line 79, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  section.welcome-description .tip span {
+    padding-left: 0px;
+    padding-top: 15px;
+  }
+}
+/* line 89, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 14px;
   position: absolute;
-  top: 13px;
+  top: 60%;
   right: 20px;
   z-index: 2;
 }
-/* line 94, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 97, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross:after {
   font-family: "InformaIcons" !important;
   content: "\e906";
+}
+
+/* line 1, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs {
+  background-color: #ffffff;
+  border-bottom: 1px solid #d1d3da;
+}
+/* line 4, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .nav-tabs > li.active > a,
+.recommendation-tabs .nav-tabs > li.active > a:focus,
+.recommendation-tabs .nav-tabs > li.active > a:hover {
+  background: none !important;
+  border: none !important;
+  color: #ffffff;
+}
+/* line 11, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .tab-content {
+  background-color: #444957;
+}
+/* line 13, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .tab-content .tab-pane {
+  padding: 10px;
+}
+/* line 18, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .nav-tabs {
+  border-bottom: none;
+}
+/* line 21, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul {
+  list-style-type: none;
+  padding: 0;
+}
+/* line 24, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul li {
+  float: left;
+  width: 25%;
+  position: relative;
+}
+/* line 28, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul li.active {
+  background-color: #444957;
+  border-bottom: 1px solid #444957;
+}
+/* line 31, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul li.active:after {
+  background-color: #444957;
+}
+/* line 35, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul li.active:last-child:after {
+  background-color: #444957;
+}
+/* line 40, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul li a {
+  display: block;
+  padding: 20px 0;
+  color: #444957;
+  font-size: 14px;
+  text-align: center;
+  padding-left: 36px;
+}
+/* line 49, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul li:after {
+  content: '';
+  width: 2px;
+  height: 30px;
+  background-color: #e5e7ef;
+  position: absolute;
+  top: 15px;
+  right: 0;
+}
+/* line 60, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul li:last-child:after {
+  background-color: #ffffff;
 }
