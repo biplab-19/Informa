@@ -1,0 +1,36 @@
+section.recommendation-register-banner{
+
+  .signup-container{
+    padding: 15px;
+    height: 150px;
+  }
+  .create-profile-btn-container {
+    width: 20%;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 30px;
+  }
+
+  .existing-customer-container{
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+  }
+  .steps-tips{
+    @include mobile {
+      margin-bottom: 20px;
+    }
+    .desc{
+      padding-top: 24px;
+      font-size: 24px;
+      @include tablet {
+        padding-top: 2px;
+        font-size: 15px;
+      }
+      @include mobile {
+        padding-top: 0px;
+        font-size: 20px;
+      }
+    }
+  }
+}
