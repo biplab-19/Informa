@@ -540,7 +540,7 @@ var INFORMA = window.INFORMA || {};
                                     '<span>{{results.Product}}</span>'+
                                 '</p>'+
                                 '<h4>{{results.Title}}</h4>'+
-                                '<p class="publish">By: <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
+                                '<p class="publish">{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
                                 '{{#compare results.Description null operator="!="}}'+
                                     '<p class="description">{{results.Description}}</p>'+
                                 '{{/compare}}'+
@@ -552,19 +552,18 @@ var INFORMA = window.INFORMA || {};
                                         '</a>'+
                                     '</div>'+
                                 '{{/compare}}'+
+                            '</div>'+
+                            '<div class="footer">'+
                                 '{{#compare results.Topic.length 0 operator=">"}}'+
                                     '<p class="topics">'+
-                                        'Topics: '+
+                                        '{{results.TopicKeyword}} '+
                                         '{{#each results.Topic}}'+
                                             '<strong>{{this}}</strong>'+
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
-                            '</div>'+
-                            '<div class="footer">'+
-                                
                                 '<div class="btn-container text-right">'+
-                                    '<a href="{{results.PageURL}}" class="btn btn-default">{{results.ContentType}}</a>'+
+                                    '<a href="{{results.PageURL}}" class="btn btn-default">{{results.LinkText}}</a>'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+

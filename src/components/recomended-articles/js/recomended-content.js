@@ -97,16 +97,21 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 
     equalHeight = function (Parent) {
         var Items = Parent.find('.recomended-wrapper'),
-            MaxHeight = 0;
+            MaxHeight = 0,
+            MaxFooterHeight = 0;
 
         Items.each(function () {
-            var ContentHeight = $(this).find('.content').height();
+            var ContentHeight = $(this).find('.content').height(),
+                FooterHeight = $(this).find('.footer').height();
             if(ContentHeight > MaxHeight) {
                 MaxHeight = ContentHeight;
             }
+            if(FooterHeight > MaxFooterHeight) {
+                MaxFooterHeight = FooterHeight;
+            }
         })
         Items.find('.content').height(MaxHeight);
-
+        Items.find('.footer').height(MaxFooterHeight);
     }
 
     init = function () {

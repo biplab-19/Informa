@@ -14,7 +14,7 @@ INFORMA.RelevantProducts = (function(window, $, namespace) {
     'use strict';
     //variables
     var _RelevantProductsWrapper = $('#relevant-products'),
-        ShowMoreBtn = _RelevantProductsWrapper.find('.btn-showMore'),
+        ShowMoreBtn = _RelevantProductsWrapper.find('.btn-ShowMore'),
         TriangleBtn = _RelevantProductsWrapper.find('.triangle'),
         // methods
         init,
@@ -25,7 +25,8 @@ INFORMA.RelevantProducts = (function(window, $, namespace) {
 
         EqualHeight = function (Parent) {
             var Items = Parent.find('.search-tile'),
-                MaxHeight = 0;
+                MaxHeight = 0,
+                Padding = 90;
             Items.each(function () {
                 var Height = $(this).height();
                 
@@ -33,7 +34,7 @@ INFORMA.RelevantProducts = (function(window, $, namespace) {
                     MaxHeight = Height;
                 }
             })
-            Items.height(MaxHeight);
+            Items.height(MaxHeight + Padding);
 
         },
         FlipItems = function (This) {
@@ -46,7 +47,7 @@ INFORMA.RelevantProducts = (function(window, $, namespace) {
             var Viewport = INFORMA.global.device.viewport,
                 Count = Parent.attr('data-'+Viewport);
 
-            Parent.find('.search-tile:nth-child(n+' + (Count + 1 )+ ')').hide();
+            Parent.find('.search-tile:nth-child(n+' + (parseInt(Count) + 1 )+ ')').hide();
         },
 
         ShowMore = function () {
@@ -55,7 +56,7 @@ INFORMA.RelevantProducts = (function(window, $, namespace) {
                     Viewport = INFORMA.global.device.viewport,
                     Count = Parent.attr('data-'+Viewport);
 
-                Parent.find('.search-tile:nth-child(n+' + (Count + 1 )+ ')').slideToggle();
+                Parent.find('.search-tile:nth-child(n+' + (parseInt(Count) + 1 )+ ')').slideToggle();
                 Parent.toggleClass('showLess');
             })
         },
@@ -64,6 +65,7 @@ INFORMA.RelevantProducts = (function(window, $, namespace) {
         if (_RelevantProductsWrapper.length > 0) {
             HideItems(_RelevantProductsWrapper);
             ShowMore();
+            FlipItems();
             EqualHeight(_RelevantProductsWrapper);
         }
     };

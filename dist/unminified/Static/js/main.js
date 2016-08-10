@@ -1,4 +1,4 @@
-/*! 2016-08-09 */var INFORMA = window.INFORMA || {};
+/*! 2016-08-10 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4467,21 +4467,19 @@ var INFORMA = window.INFORMA || {};
                         '<div class="recomended-wrapper" data-fetch="{{results.Id}}">'+
                             '<div class="content">'+
                                 '{{#compare results.SectorType.length 0 operator=">"}}'+
-                                    '<p class="category">'+
+                                    '<p>'+
                                         '{{#each results.SectorType}}'+
-                                        '<strong>{{this}}</strong>'+
+                                            '<span class="category">'+
+                                                '<strong>{{this}}</strong>'+
+                                            '</span>'+
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
-                                '{{#compare results.BrandType.length 0 operator=">"}}'+
-                                    '<span class="type">'+
-                                        '{{#each results.BrandType}}'+
-                                        '<span>{{this}}</span>'+
-                                        '{{/each}}'+
-                                    '</span>'+
-                                '{{/compare}}'+
+                                '<p class="type">'+
+                                    '<span>{{results.Product}}</span>'+
+                                '</p>'+
                                 '<h4>{{results.Title}}</h4>'+
-                                '<p class="publish">By: <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
+                                '<p class="publish">{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
                                 '{{#compare results.Description null operator="!="}}'+
                                     '<p class="description">{{results.Description}}</p>'+
                                 '{{/compare}}'+
@@ -4497,14 +4495,14 @@ var INFORMA = window.INFORMA || {};
                             '<div class="footer">'+
                                 '{{#compare results.Topic.length 0 operator=">"}}'+
                                     '<p class="topics">'+
-                                        'Topics: '+
+                                        '{{results.TopicKeyword}} '+
                                         '{{#each results.Topic}}'+
                                             '<strong>{{this}}</strong>'+
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
                                 '<div class="btn-container text-right">'+
-                                    '<a href="#" class="btn btn-default download">{{results.Linktext}}</a>'+
+                                    '<a href="{{results.PageURL}}" class="btn btn-default">{{results.LinkText}}</a>'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
@@ -4527,15 +4525,15 @@ var INFORMA = window.INFORMA || {};
                 },
                 this.flipTile = function(Object) {
                     var TileFront = Object.find('.front .triangle'),
-                        TileBack  = Object.find('.back .triangle');
+                        TileBack = Object.find('.back .triangle');
 
-                        TileFront.on("click",function() {
-                            DoFlip($(this), 'flip');
-                        });
+                    TileFront.on("click", function() {
+                        DoFlip($(this), 'flip');
+                    });
 
-                        TileBack.on("click",function() {
-                            DoFlip($(this), 'unflip');
-                        });
+                    TileBack.on("click", function() {
+                        DoFlip($(this), 'unflip');
+                    });
                 },
                 this.getUniqueArray = function(arrayList) {
                     var uniqueArray = [];
@@ -4546,18 +4544,29 @@ var INFORMA = window.INFORMA || {};
                     });
                     return uniqueArray;
                 }
-            this.RemoveArrayItem = function(Arry) {
-                var what, a = arguments,
-                    L = a.length,
-                    ax;
-                while (L > 1 && Arry.length) {
-                    what = a[--L];
-                    while ((ax = Arry.indexOf(what)) !== -1) {
-                        Arry.splice(ax, 1);
+                this.RemoveArrayItem = function(Arry) {
+                    var what, a = arguments,
+                        L = a.length,
+                        ax;
+                    while (L > 1 && Arry.length) {
+                        what = a[--L];
+                        while ((ax = Arry.indexOf(what)) !== -1) {
+                            Arry.splice(ax, 1);
+                        }
                     }
+                    return Arry;
                 }
-                return Arry;
-            }
+                this.ArrayUnique = function (array) {
+                    var a = array.concat();
+                    for (var i = 0; i < a.length; ++i) {
+                        for (var j = i + 1; j < a.length; ++j) {
+                            if (a[i] === a[j])
+                                a.splice(j--, 1);
+                        }
+                    }
+
+                    return a;
+                }
             this.StrngToQryStrng = function(strng) {
                 if ((typeof strng === "object" || typeof strng === "string") && strng) {
                     var Arry = strng.toString().split(","),

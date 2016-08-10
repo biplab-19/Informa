@@ -97,6 +97,7 @@
             }
 		}
 		.footer {
+			height: 100px;
 			.topics {
 				strong {
 					&:after {
@@ -151,4 +152,17 @@
 				    text-align: center;
 			    }
 		}
+}
+#relevant-products {
+	.search-tile {
+		margin-bottom: 15px;
+	}
+	&.showLess {
+		.more {
+			display: none;
+		}
+		.less {
+			display: block;	
+		}
+	}
 }
