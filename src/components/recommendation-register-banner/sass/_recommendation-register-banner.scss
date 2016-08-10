@@ -1,8 +1,7 @@
 section.recommendation-register-banner {
     color: $white;
-
     .create-profile-container-white {
-    //  background: $grey-color1;
+        //  background: $grey-color1;
         padding-bottom: 40px;
         h2 {
             color: $font-color;
@@ -19,13 +18,12 @@ section.recommendation-register-banner {
         @include tablet {
             padding-bottom: 30px;
         }
-        .desc{
-          color: $font-color;
+        .desc {
+            color: $font-color;
         }
     }
-
     .create-profile-container-dark {
-      background: $grey-color1;
+        background: $grey-color1;
         padding-bottom: 40px;
         h2 {
             color: $white;
@@ -56,13 +54,18 @@ section.recommendation-register-banner {
             width: 90%;
         }
     }
+    .tick-icon {
+        position: relative;
+    }
     .tick-icon:before {
         margin-right: 10px;
         font-family: "InformaIcons" !important;
         content: "\e914";
-        font-size: 25px;
-        color: $yellow;
-        top: -3px;
+        font-size: 20px;
+        color: #ffd500;
+        position: absolute;
+        left: -22px;
+        top: -8px;
     }
     .existing-customer-container {
         background: $grey-color1;
