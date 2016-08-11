@@ -10177,6 +10177,35 @@ section.welcome-description .cross:after {
 .recommendation-tabs ul.nav-tabs li:last-child:after {
   background-color: #ffffff;
 }
+/* line 66, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .chosen-select {
+  border: none;
+  width: 100%;
+  padding: 15px;
+  height: auto;
+}
+/* line 73, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .mobile-tabs {
+  padding: 15px;
+  background-color: #444957;
+  position: relative;
+}
+/* line 77, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .mobile-tabs .title {
+  padding-bottom: 10px;
+  font-size: 16px;
+  color: #c3c7cf;
+}
+/* line 82, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .mobile-tabs:after {
+  position: absolute;
+  font-family: "InformaIcons" !important;
+  content: "\e901";
+  top: 54%;
+  right: 15px;
+  color: #c3c7cf;
+  font-size: 16px;
+}
 
 /* line 2, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login p {

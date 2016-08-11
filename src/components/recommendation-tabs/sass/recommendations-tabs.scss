@@ -63,5 +63,30 @@
 			}
 		}
 	}
+	.chosen-select{
+		border: none;
+		width: 100%;
+    padding: 15px;
+    height: auto;
+	}
 
+.mobile-tabs{
+		padding: 15px;
+		background-color: $grey-color1;
+		position: relative;
+	.title{
+		padding-bottom: 10px;
+		font-size: 16px;
+		color: $grey-color5;
+	}
+	&:after{
+		position: absolute;
+		font-family: "InformaIcons" !important;
+		content: "\e901";
+		top: 54%;
+		right: 15px;
+		color: $grey-color5;
+		font-size: 16px;
+	}
+}
 }
