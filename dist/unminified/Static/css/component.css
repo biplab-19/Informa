@@ -1,4 +1,4 @@
-/*! 2016-08-10 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-08-11 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
   background-color: #444957;
@@ -10141,31 +10141,31 @@ section.welcome-description .cross:after {
   border-bottom: none;
 }
 /* line 21, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul {
+.recommendation-tabs ul.nav-tabs {
   list-style-type: none;
   padding: 0;
 }
 /* line 24, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul li {
+.recommendation-tabs ul.nav-tabs li {
   float: left;
   width: 25%;
   position: relative;
 }
 /* line 28, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul li.active {
+.recommendation-tabs ul.nav-tabs li.active {
   background-color: #444957;
   border-bottom: 1px solid #444957;
 }
 /* line 31, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul li.active:after {
+.recommendation-tabs ul.nav-tabs li.active:after {
   background-color: #444957;
 }
 /* line 35, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul li.active:last-child:after {
+.recommendation-tabs ul.nav-tabs li.active:last-child:after {
   background-color: #444957;
 }
 /* line 40, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul li a {
+.recommendation-tabs ul.nav-tabs li a {
   display: block;
   padding: 20px 0;
   color: #444957;
@@ -10174,7 +10174,7 @@ section.welcome-description .cross:after {
   padding-left: 36px;
 }
 /* line 49, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul li:after {
+.recommendation-tabs ul.nav-tabs li:after {
   content: '';
   width: 2px;
   height: 30px;
@@ -10184,7 +10184,7 @@ section.welcome-description .cross:after {
   right: 0;
 }
 /* line 60, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul li:last-child:after {
+.recommendation-tabs ul.nav-tabs li:last-child:after {
   background-color: #ffffff;
 }
 

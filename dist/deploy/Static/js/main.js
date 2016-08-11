@@ -1,4 +1,4 @@
-/*! 2016-08-10 *//*
+/*! 2016-08-11 *//*
  Start ActivityMap Module
 
  The following module enables ActivityMap tracking in Adobe Analytics. ActivityMap
