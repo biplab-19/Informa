@@ -2,9 +2,9 @@ section.welcome-description{
   padding-top: 20px;
   font-family: FSMe-light;
   margin-bottom: 20px;
-  @include mobile {
-    padding-top: 50px;
-  }
+  // @include mobile {
+  //   padding-top: 50px;
+  // }
       h2{
         font-size: 40px;
         margin: 0;
@@ -25,19 +25,19 @@ section.welcome-description{
            position: relative;
            font-size: 40px;
            font-family: FSMe-light;
-           &:before{
-             position: absolute;
-             font-family: "InformaIcons" !important;
-             content: "\e91a";
-             font-family: FSMe-bold;
-             color: $black;
-             @include mobile {
-               top: -50px;
-             }
-           }
+          //  &:before{
+          //    position: absolute;
+          //    font-family: "InformaIcons" !important;
+          //    content: "\e91a";
+          //    font-family: FSMe-bold;
+          //    color: $black;
+          //    @include mobile {
+          //      top: -50px;
+          //    }
+          //  }
            strong.wel-text{
              display: inline-block;
-             padding-left: 50px;
+             //padding-left: 50px;
              font-family: FSMe-bold;
              @include mobile {
                padding-left: 0px;
