@@ -14,8 +14,9 @@ var INFORMA = window.INFORMA || {};
 INFORMA.PreferenceTab = (function(window, $, namespace) {
     'use strict';
     //variables
-    var PreferenceCheckbox = $(".preference li .custom-checkbox"),
-        CheckBoxs = $(".preference .custom-checkbox input"),
+    var PreferenceCheckbox = $(".preference .panel-body li .custom-checkbox"),
+        CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
+        SelectAll = $(".preference .panel-heading .custom-checkbox input"),
         init, BindCheckboxes,ReadCookies,BakeCookies, CookieValue = {},Count=0,
     
 
@@ -36,36 +37,44 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     },
 
     BindCheckboxes = function(ele) {
-        CheckBoxs.on("click",function(e){
+        SelectAll.on("click",function(e){
+            var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input");
+            jQuery.each(CurrentCheckBoxs, function(e){
+                $(this).trigger("click");
+            });   
+        });
+        CheckBoxes.on("click",function(e){
             e.stopPropagation();
             e.stopImmediatePropagation();
             var getCookie = ReadCookies("USR_DETAIL"),
-                CheckBoxVal = $(this).val(), MergedJson,
-                ExistingInterest = (getCookie.AreaOfInterest) ? getCookie.AreaOfInterest : [],
-                ParentEle = $(this).parents(".panel-default").eq(0),
-                CountSpan = ParentEle.find("span.count"),
-                SelectedCount = ParentEle.find("input[type=checkbox]:checked"),
-                UserInterest = []; 
+                CheckBoxVal = $(this).val();
 
-            if($(this).prop("checked")){
-                UserInterest.push(CheckBoxVal);
-                MergedJson = INFORMA.Utils.ArrayUnique(UserInterest.concat(ExistingInterest));
-            }else{
-                var tempArray = (ExistingInterest).split(',');
-                MergedJson = INFORMA.Utils.RemoveArrayItem(tempArray,CheckBoxVal);
-            }
+
+                var ExistingInterest = (getCookie!==null && getCookie.AreaOfInterest) ? getCookie.AreaOfInterest : [],
+                    ParentEle = $(this).parents(".panel-default").eq(0),
+                    CountSpan = ParentEle.find("span.count"),
+                    SelectedCount = ParentEle.find(".panel-body input[type=checkbox]:checked"),
+                    UserInterest = [] , MergedJson; 
+
+                if($(this).prop("checked")){
+                    UserInterest.push(CheckBoxVal);
+                    MergedJson = INFORMA.Utils.ArrayUnique(UserInterest.concat(ExistingInterest));
+                }else{
+                    var tempArray = (ExistingInterest.length) ? (ExistingInterest).split(','):[];
+                    MergedJson = INFORMA.Utils.RemoveArrayItem(tempArray,CheckBoxVal);
+                }
                 
-
-
-            if(MergedJson){
-                getCookie.AreaOfInterest = MergedJson.join(',');
-                console.log("sssss",getCookie.AreaOfInterest);
-                BakeCookies("USR_DETAIL", getCookie);
-            }
-            if(SelectedCount){
-                Count = SelectedCount.length;
-                CountSpan.text(Count);
-            }
+                if(MergedJson && getCookie!==null){
+                    getCookie.AreaOfInterest = MergedJson.join(',');
+                    BakeCookies("USR_DETAIL", getCookie);
+                }else{
+                    CookieValue.AreaOfInterest = MergedJson.join(',');
+                    BakeCookies("USR_DETAIL", CookieValue);
+                }
+                if(SelectedCount){
+                    Count = SelectedCount.length;
+                    CountSpan.text(Count);
+                }
             
         });
     },

@@ -46,6 +46,14 @@
             position: relative;
             background-color: transparent;
             padding: 30px 0;
+            .custom-checkbox{
+                top:1px;
+                span{
+                    text-indent:-9999px;
+                    position:absolute;
+                    left:0;
+                }
+            }
             h3{
                 font-size:18px;
                 font-family: FSMe-Light;
