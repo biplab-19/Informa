@@ -4255,33 +4255,52 @@ var INFORMA = window.INFORMA || {};
             '{{/each}}'+
         '</ul>',
         'Events':
-            '<ul class="event-items">'+
-                '{{#each results}}'+
-                    '<li class="col-xs-12 col-sm-6 col-md-4">'+
-                        '<div class="event-container">'+
-                            '<div class="content">'+
-                                    '<div class="info">'+
-                                        '<p class="tag">{{EventType}}</p>'+
-                                        '<span class="date"><span class="icon icon-calendar-day">'+
-                                        '</span>{{EventDate}}</span>'+
-                                        '{{#if Time}}'+
-                                            '<span class="time"><span class="icon icon-calendar-day">'+
-                                            '</span>{{Time}}</span>'+
-                                        '{{/if}}'+
-                                        '<h3>{{Title}}</h3>'+
-                                        '<p><strong>{{DescriptionLabel}}: </strong>{{Description}}</p>'+
+            '<section class="events-list analyst-profile-events event-profile-container">'+
+                '<div class="container" data-count="3">'+
+                    '<div class="events-container row">'+
+                        '{{#each results}}'+
+                            '<div class="col-xs-12 col-sm-6 col-md-4 events-section">'+
+                                '<div class="events-wrap">'+
+                                    '<div class="header clearfix">'+
+                                        '<p class="date-field">'+
+                                            '{{#compare EventDate null operator="!="}}<span class="bold">{{EventDate}}</span>{{/compare}}{{#if EventDate}}{{#if Time}}, {{/if}}{{/if}}{{#compare Time null operator="!="}}<span>{{Time}}</span>{{/compare}}</p>'+
+                                        '<p class="country">'+
+                                            '{{#compare State null operator="!="}}<span>{{State}}</span>{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}}{{#compare Country null operator="!="}}<span class="bold">{{Country}}</span>{{/compare}}</p>'+
                                     '</div>'+
-                                    '<div class="parent">'+
-                                        '<div class="child clearfix">'+
-                                            '{{#if FullDetail}}<a class="link" href="{{FullDetail.Url}}" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>{{/if}}'+
-                                            '{{#if Register}}<a class="btn btn-default" href="{{Register.Url}}" target="{{Register.Target}}">{{Register.LinkText}}</a>{{/if}}'+
+                                    '<div class="content-wrap">'+
+                                        '<p><span class="type">{{EventType}}</span></p>'+
+                                        '<h3 class="title">{{Title}}</h3>'+
+                                        '<div class="content clearfix">'+
+                                            '<div class="title-content">Presenter:</div>'+
+                                            '<div class="title-body">'+
+                                                '<ul class="clearfix">'+
+                                                    '{{#each Presenters}}'+
+                                                    '<li>{{this}}</li>'+
+                                                        '{{/each}}'+
+                                                '</ul>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="content clearfix">'+
+                                            '<div class="title-content">Themes:</div>'+
+                                            '<div class="title-body">'+
+                                                '<ul class="clearfix">'+
+                                                    '{{#each Themes}}'+
+                                                    '<li>{{this}}</li>'+
+                                                        '{{/each}}'+
+                                                '</ul>'+
+                                            '</div>'+
                                         '</div>'+
                                     '</div>'+
+                                '<div class="footer clearfix">'+
+                                    '{{#if Register}}<a  href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{Register.LinkText}}</a>{{/if}}'+
+                                    '{{#if FullDetail}}<a href="{{FullDetail.Url}}" class="btn btn-default full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>{{/if}}'+
                                 '</div>'+
                             '</div>'+
-                        '</li>'+
+                        '</div>'+
                     '{{/each}}'+
-                    '</ul>',
+                    '</div>'+
+                '</div>'+
+            '</section>',
         'Others': '{{#each results}}' +
                     '<div class="col-xs-12 search-others">'+
                         '<h3>{{Title}}</h3>'+
