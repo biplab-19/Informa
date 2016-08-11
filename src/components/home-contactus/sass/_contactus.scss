@@ -1,21 +1,37 @@
 .contactus-list {
+    .panel-heading {
+        img {
+            @include mobile {
+                float: left;
+                margin-right: 10px;
+            }
+        }
+        h4 {
+            @include mobile {
+                position: relative;
+                top: 5px;
+                left: 5px;
+            }
+        }
+    }
     @include not-mobile {
         .panel-heading {
             pointer-events: none;
+            img {
+                margin-top: -6px;
+                margin-right: 10px;
+                float: left;
+                left: 0;
+                top: 2px;
+            }
             h4 {
                 color: $text-gray-dark;
                 margin: 0;
                 position: relative;
-                padding-left: 40px;
+                left: 0;
+                top: -3px;
                 @include tablet {
-                  font-size: 22px;
-                }
-                img {
-                  margin-top: -6px;
-                  margin-right: 10px;
-                  position: absolute;
-                  left: 0;
-                  top: 2px;
+                    font-size: 22px;
                 }
             }
         }
@@ -36,7 +52,7 @@
             font-size: 14px;
             margin: 0 0 20px 1.8%;
             @include tablet {
-              width: 30.5%;
+                width: 30.5%;
             }
         }
         .panel-group .panel-heading + .panel-collapse > .panel-body {
@@ -51,16 +67,16 @@
         color: $white;
     }
     .contactus-header {
-      padding-bottom: 20px;
+        padding-bottom: 20px;
     }
     .contactus-sub-header {
         padding-bottom: 20px;
     }
     .contactus-header-desc {
-      padding-bottom: 20px;
+        padding-bottom: 20px;
     }
-    .contactus-header-normal{
-      font-family: "Fsme";
+    .contactus-header-normal {
+        font-family: "Fsme";
     }
     .accordion-toggle {
         position: relative;
@@ -91,22 +107,22 @@
             color: #6a7285;
             display: block;
             @include mobile {
-                padding: 20px 20px 10px 20px;
+                padding: 10px 20px 10px 20px;
             }
         }
         .panel-body {
             padding: 20px;
-            .phone-number:nth-of-type(1) {
-              padding-top: 0px !important;
+            .phone-number: nth-of-type(1) {
+                padding-top: 0px !important;
             }
             .phone-number {
                 padding-top: 13px;
-                p{
-                  font-size: 17px;
-                  margin-bottom: 0px !important;
-                  // strong{
-                  //   font-size: 16px;
-                  // }
+                p {
+                    font-size: 17px;
+                    margin-bottom: 0px !important;
+                    // strong{
+                    //   font-size: 16px;
+                    // }
                 }
                 a {
                     font-size: 20px;
@@ -119,7 +135,6 @@
                     padding-top: 0;
                 }
             }
-
             a {
                 font-size: 14px;
                 text-decoration: none;
@@ -139,49 +154,46 @@
                 }
             }
             .subscribe-link {
-                  width: 100%;
-                  background: $orange url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
-                  border: none;
-                  padding-left: 45px;
+                width: 100%;
+                background: $orange url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
+                border: none;
+                padding-left: 45px;
             }
             .pay-with {
-                  padding: 10px 0;
-                  font-size: 12px;
-                  .copy {
-                        vertical-align: top;
-                        padding-top: 10px;
-                        display: inline-block;
-                  }
-                  span.payment{
-                        padding-right: 10px;
-                        height: 34px;
-                        width: 34px;
-                        display: inline-block;
-
-                        &.amex {
-                              background:url(/Static/images/subscribe/amex.png);
-                        }
-                        &.visa {
-                              background:url(/Static/images/subscribe/visa.png);
-                        }
-                        &.mastercard {
-                              background:url(/Static/images/subscribe/mastercard.png);
-
-                        }
-                  }
+                padding: 10px 0;
+                font-size: 12px;
+                .copy {
+                    vertical-align: top;
+                    padding-top: 10px;
+                    display: inline-block;
+                }
+                span.payment {
+                    padding-right: 10px;
+                    height: 34px;
+                    width: 34px;
+                    display: inline-block;
+                    &.amex {
+                        background: url(/Static/images/subscribe/amex.png);
+                    }
+                    &.visa {
+                        background: url(/Static/images/subscribe/visa.png);
+                    }
+                    &.mastercard {
+                        background: url(/Static/images/subscribe/mastercard.png);
+                    }
+                }
             }
             .btn-container {
-
                 select.subscribe-options {
-                      width: 100%;
-                      font-size: 13px;
-                      font-family: FSMe-Light;
-                      padding: 12px;
-                      border: none;
-                      -webkit-appearance: none;
-                      -moz-appearance: none;
-                      -o-appearance: none;
-                      background:$blue-lighter-bg url(/Static/images/subscribe/drop-down.png) no-repeat 95% 50%;
+                    width: 100%;
+                    font-size: 13px;
+                    font-family: FSMe-Light;
+                    padding: 12px;
+                    border: none;
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    -o-appearance: none;
+                    background: $blue-lighter-bg url(/Static/images/subscribe/drop-down.png) no-repeat 95% 50%;
                 }
                 &:last-child {
                     width: 100%;
@@ -205,7 +217,6 @@
         }
     }
 }
-
 #contactus-section {
     a {
         color: $orange;
@@ -227,10 +238,10 @@
         }
     }
     @include mobile {
-          &.three, &.four {
-             .contactus-list .panel-group .panel {
-                 width: 100%
-             }
-         }
-   }
+        &.three, &.four {
+            .contactus-list .panel-group .panel {
+                width: 100%
+            }
+        }
+    }
 }
