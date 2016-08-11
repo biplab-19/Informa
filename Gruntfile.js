@@ -316,7 +316,6 @@ module.exports = function(grunt) {
                 files: {
                     '<%= config.dist %>/minified/Static/js/components.js':['<%= config.tmp %>/Static/js/components/*.js'],
                     '<%= config.dist %>/minified/Static/js/main.js':['<%= config.tmp %>/Static/js/*.js','!<%= config.tmp %>/Static/js/analytics.js'],
-                    '<%= config.dist %>/minified/Static/js/analytics.js':['<%= config.tmp %>/Static/js/analytics.js'],
                     '<%= config.dist %>/minified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js', 'bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js']
                 }
             }
