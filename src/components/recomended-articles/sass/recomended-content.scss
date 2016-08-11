@@ -60,7 +60,7 @@
 	    			&:last-child {
 	    				&:after {
 		    				content: '';
-		    			}	
+		    			}
 	    			}
 	    		}
 			}
@@ -110,7 +110,11 @@
 					}
 				}
 			}
-		}	    
+			.btn-container{
+				position: relative;
+				bottom: -40px;
+			}
+		}
 	}
 	.btn-showMore {
 			    background: none;
@@ -162,7 +166,7 @@
 			display: none;
 		}
 		.less {
-			display: block;	
+			display: block;
 		}
 	}
 }
