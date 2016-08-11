@@ -116,6 +116,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 
     init = function () {
         if(RecomendedWrapper.length > 0) {
+            $('#Dashboard').addClass('active');
             equalHeight(RecomendedWrapper);
             ShowMore();
         }
