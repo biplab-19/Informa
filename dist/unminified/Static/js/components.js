@@ -1,4 +1,4 @@
-/*! 2016-08-11 */
+/*! 2016-08-12 */
 /*
  * welcome-description
  *
@@ -914,8 +914,8 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     'use strict';
     //variables
     var PreferenceCheckbox = $(".preference .panel-body li .custom-checkbox"),
-        CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
-        SelectAll = $(".preference .panel-heading .custom-checkbox input"),
+         CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
+         SelectAll = $(".preference .panel-heading .custom-checkbox input"),
         init, BindCheckboxes,ReadCookies,BakeCookies, CookieValue = {},Count=0,
     
 
@@ -938,18 +938,24 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     BindCheckboxes = function(ele) {
         SelectAll.on("click",function(e){
             var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input");
-            jQuery.each(CurrentCheckBoxs, function(e){
-                $(this).trigger("click");
-            });   
+            if($(this).prop("checked")===true){
+                jQuery.each(CurrentCheckBoxs, function(e){
+                    if($(this).prop("checked")!==true){
+                       $(this).trigger("click");
+                    }
+                }); 
+            } else{
+                jQuery.each(CurrentCheckBoxs, function(e){
+                       $(this).trigger("click");
+                }); 
+            }
         });
         CheckBoxes.on("click",function(e){
             e.stopPropagation();
             e.stopImmediatePropagation();
-            var getCookie = ReadCookies("USR_DETAIL"),
-                CheckBoxVal = $(this).val();
-
-
-                var ExistingInterest = (getCookie!==null && getCookie.AreaOfInterest) ? getCookie.AreaOfInterest : [],
+                var getCookie = ReadCookies("USR_DETAIL"),
+                    CheckBoxVal = $(this).val(),
+                    ExistingInterest = (getCookie!==null && getCookie.AreaOfInterest) ? getCookie.AreaOfInterest : [],
                     ParentEle = $(this).parents(".panel-default").eq(0),
                     CountSpan = ParentEle.find("span.count"),
                     SelectedCount = ParentEle.find(".panel-body input[type=checkbox]:checked"),
@@ -961,6 +967,8 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
                 }else{
                     var tempArray = (ExistingInterest.length) ? (ExistingInterest).split(','):[];
                     MergedJson = INFORMA.Utils.RemoveArrayItem(tempArray,CheckBoxVal);
+                    $(this).parents(".panel").eq(0).find(".panel-heading input").prop("checked",false);
+
                 }
                 
                 if(MergedJson && getCookie!==null){
