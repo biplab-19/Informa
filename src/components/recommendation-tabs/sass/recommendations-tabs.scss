@@ -14,7 +14,21 @@
 			padding: 10px;
 		}
 	}
-
+	.chosen-container-single {
+		&:after{
+			position: absolute;
+			font-family: "InformaIcons" !important;
+			content: "\e901";
+			top: 50%;
+			transform: translateY(-50%);
+			right: 15px;
+			color: $grey-color3;
+			font-size: 16px;
+		}
+	}
+	.chosen-container-single .chosen-single div {
+		display: none;
+	}
 	.nav-tabs{
 		border-bottom: none;
 	}
@@ -79,14 +93,6 @@
 		font-size: 16px;
 		color: $grey-color5;
 	}
-	&:after{
-		position: absolute;
-		font-family: "InformaIcons" !important;
-		content: "\e901";
-		top: 54%;
-		right: 15px;
-		color: $grey-color5;
-		font-size: 16px;
-	}
+	
 }
 }

@@ -86,6 +86,14 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                 ViewPort = INFORMA.global.device.viewport,
                 Count = Parent.attr('data-' + ViewPort),
                 Ids = GetIds(Parent),
+                ItemDisplayed = Parent.find('.recomended-wrapper').length,
+                MaximumCount = Parent.attr('data-MaximumNumberOfArticles'),
+                _Object = null;
+
+                if((MaximumCount - ItemDisplayed) <= Count) {
+                    Count = (MaximumCount - ItemDisplayed);
+                }
+
                 _Object = {
                     ExcludeContentGuids: Ids,
                     PageSize: Count
@@ -98,21 +106,24 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
     equalHeight = function (Parent) {
         var Items = Parent.find('.recomended-wrapper'),
             MaxHeight = 0,
-            MaxFooterHeight = 0,
+            MaxWrapperHeight = 0,
             Padding = 20;
 
         Items.each(function () {
-            var ContentHeight = $(this).find('.content').height(),
-                FooterHeight = $(this).find('.footer').height();
+            var WrapperHeight = $(this).find('.recomend-content').height(),
+                ContentHeight = $(this).find('.content').height();
+
+            if(WrapperHeight > MaxWrapperHeight) {
+                MaxWrapperHeight = WrapperHeight;
+            }
+
             if(ContentHeight > MaxHeight) {
                 MaxHeight = ContentHeight;
             }
-            if(FooterHeight > MaxFooterHeight) {
-                MaxFooterHeight = FooterHeight;
-            }
+            
         })
-        Items.find('.content').height(MaxHeight + MaxFooterHeight + Padding);
-        Items.find('.footer').height(MaxFooterHeight + Padding);
+        Items.find('.content').height(MaxHeight);
+        Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
     }
 
     init = function () {
