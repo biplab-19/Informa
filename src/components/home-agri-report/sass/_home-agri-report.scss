@@ -68,20 +68,25 @@ section#agri-report {
                 font-family: FSMe-Bold;
             }
         }
-        .download-report {
-            font-size: 14px;
-            font-family: FSMe;
-            width: 100%;
-            margin-top: 60px;
-            border-color: $brand-secondary;
-            &:after {
-                content: "\e905";
-                font-family: 'InformaIcons';
-                right: 15px;
-                font-weight: bold;
-                position: absolute;
-                font-size: 16px;
-                color: $brand-secondary;
+        .orange-bd {
+             font-size: 14px;
+             font-family: FSMe;
+             /* width: 100%; */
+             float: left;
+             margin-right: 10px;
+             margin-top: 60px;
+             min-width: 160px;
+             border-color: #ffd600;
+            &.download-report {
+                &:after {
+                    content: "\e905";
+                    font-family: 'InformaIcons';
+                    right: 15px;
+                    font-weight: bold;
+                    position: absolute;
+                    font-size: 16px;
+                    color: $brand-secondary;
+                }
             }
             @include mobile {
                 margin: 0 auto;
