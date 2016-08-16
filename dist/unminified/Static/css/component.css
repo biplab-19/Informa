@@ -7045,7 +7045,7 @@ section#services-list .row .btn-container .btn-primary {
   background: #f0f1f3;
   padding-top: 50px;
   padding-bottom: 26px;
-  padding-left: 149px;
+  padding-left: 104px;
   font-size: 40px;
   font-family: FSMe-bold;
 }
@@ -9753,42 +9753,48 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   content: "\e905";
 }
 /* line 14, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+.recomended-content .recomend-content {
+  float: left;
+  width: 100%;
+}
+/* line 18, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper {
   background-color: #ffffff;
   padding: 15px;
   margin-bottom: 15px;
   position: relative;
+  overflow: auto;
 }
-/* line 19, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 24, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content {
   margin-bottom: 10px;
 }
-/* line 21, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 26, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content h4 {
   font-size: 30px;
   font-family: FSMe-Bold;
 }
-/* line 25, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 30, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .type {
   font-weight: 700;
   font-size: 0.9em;
   display: block;
 }
-/* line 30, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 35, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .type span:after {
   content: ',';
 }
-/* line 34, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 39, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .type span:last-child:after {
   content: '';
 }
-/* line 42, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 47, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .publish strong:after {
   content: '|';
   margin: 0 5px;
   font-weight: normal;
 }
-/* line 49, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 54, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .category {
   display: inline-block;
   padding: 3px 8px;
@@ -9796,34 +9802,35 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   font-size: 0.9em;
   color: #f1f1f3;
   margin-right: 5px;
+  margin-bottom: 5px;
   background-color: #444957;
 }
-/* line 58, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 64, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .category strong:after {
   content: ',';
 }
-/* line 62, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 68, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .category strong:last-child:after {
   content: '';
 }
-/* line 68, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 74, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .description {
   margin: 0;
   padding-bottom: 10px;
 }
-/* line 72, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 78, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .content-type {
   font-weight: 700;
   font-size: 0.9em;
 }
-/* line 76, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 82, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .video-container {
   max-height: 156px;
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
 }
-/* line 81, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 87, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .video-container img {
   width: 100%;
   height: auto;
@@ -9831,7 +9838,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   float: none;
   display: block;
 }
-/* line 88, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 94, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .video-container .play-icon {
   color: #fff;
   display: block;
@@ -9842,19 +9849,19 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   top: 25%;
   width: 30px;
 }
-/* line 100, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 106, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .footer {
   padding: 0 15px;
 }
-/* line 104, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 110, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .footer .topics strong:after {
   content: ',';
 }
-/* line 108, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 114, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .footer .topics strong:last-child:after {
   content: '';
 }
-/* line 116, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 122, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .btn-showMore {
   background: none;
   min-width: 180px;
@@ -9871,7 +9878,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   margin: 20px 0;
   display: inline-block;
 }
-/* line 131, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 137, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e912';
@@ -9886,7 +9893,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   position: absolute;
 }
 @media (max-width: 767px) {
-  /* line 131, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+  /* line 137, ../../../src/components/recomended-articles/sass/recomended-content.scss */
   .recomended-content .btn-showMore:after {
     right: 50%;
     margin-right: -15px;
@@ -9894,7 +9901,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   }
 }
 @media (max-width: 767px) {
-  /* line 116, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+  /* line 122, ../../../src/components/recomended-articles/sass/recomended-content.scss */
   .recomended-content .btn-showMore {
     width: 50%;
     padding-bottom: 35px;
@@ -9903,15 +9910,15 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   }
 }
 
-/* line 158, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 164, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .search-tile {
   margin-bottom: 15px;
 }
-/* line 162, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 168, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .more {
   display: none;
 }
-/* line 165, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 171, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .less {
   display: block;
 }
@@ -10034,49 +10041,53 @@ section.welcome-description {
   margin-bottom: 20px;
 }
 /* line 8, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+section.welcome-description a.orange-link {
+  color: #ef7c00;
+}
+/* line 11, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description h2 {
   font-size: 40px;
   margin: 0;
   margin-bottom: 20px;
 }
-/* line 14, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 17, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .anonymous p {
   padding-bottom: 30px;
 }
-/* line 17, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 20, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .anonymous span.title {
   font-family: FSMe-light;
   display: inline-block;
   font-size: 30px;
 }
-/* line 24, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 27, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .registered .reg-title {
   position: relative;
   font-size: 40px;
   font-family: FSMe-light;
 }
-/* line 38, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 41, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .registered .reg-title strong.wel-text {
   display: inline-block;
   font-family: FSMe-bold;
 }
 @media (max-width: 767px) {
-  /* line 38, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 41, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .registered .reg-title strong.wel-text {
     padding-left: 0px;
   }
 }
-/* line 46, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 49, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .registered .reg-title span {
   display: inline-block;
   font-size: 30px;
 }
-/* line 52, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 55, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip {
   background: #ffd500;
   padding: 15px 30px;
 }
-/* line 55, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 58, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip:before {
   position: absolute;
   font-family: "InformaIcons" !important;
@@ -10087,12 +10098,12 @@ section.welcome-description .tip:before {
   color: #000;
 }
 @media (max-width: 767px) {
-  /* line 55, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 58, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .tip:before {
     top: 32%;
   }
 }
-/* line 67, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 70, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip a {
   position: relative;
   color: #000;
@@ -10100,27 +10111,27 @@ section.welcome-description .tip a {
   padding-left: 20px;
   font-family: FSMe-bold;
 }
-/* line 73, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 76, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip a:after {
   font-family: "InformaIcons" !important;
   content: "\e900";
   position: absolute;
   right: -17px;
 }
-/* line 80, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 83, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip span {
   display: inline-block;
   position: relative;
   padding-left: 30px;
 }
 @media (max-width: 767px) {
-  /* line 80, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 83, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .tip span {
     padding-left: 0px;
     padding-top: 15px;
   }
 }
-/* line 90, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 93, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross {
   color: #ffffff;
   font-size: 14px;
@@ -10129,7 +10140,7 @@ section.welcome-description .cross {
   right: 20px;
   z-index: 2;
 }
-/* line 98, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 101, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross:after {
   font-family: "InformaIcons" !important;
   content: "\e906";
