@@ -129,6 +129,17 @@ INFORMA.forms = (function(window, $, namespace) {
                 inlineTabSucessForm.removeClass('hide');
             }
         }
+
+      var formInlineContainer =  $('.form-inline-container');
+        if(formInlineContainer.length > 0 ){
+          if(formInlineContainer.find('.submit-response').length > 0){
+                formInlineContainer.find('form').addClass('hide');
+          }else{
+            formInlineContainer.find('form').removeClass('hide');
+          }
+        }
+
+
     }
 
     _showOverlay = function() {
