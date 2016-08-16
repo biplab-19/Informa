@@ -50,6 +50,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
                        $(this).trigger("click");
                 }); 
             }
+            BakeCookies("PrefernceUpdated", true);
         });
         CheckBoxes.on("click",function(e){
             e.stopPropagation();
@@ -83,7 +84,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
                     Count = SelectedCount.length;
                     CountSpan.text(Count);
                 }
-            
+            BakeCookies("PrefernceUpdated", true);
         });
     },
 

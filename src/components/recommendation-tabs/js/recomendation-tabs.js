@@ -41,20 +41,17 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
     GetItemsDefault = function (target) {
         console.log('hi');
         var object = null,
-            DefaultCount = RecomendedResults.find('.recomended-content');
-        if(target === '#Dashboard') {
-            debugger;
-            object = {
-                defaultCount: DefaultCount
-            }
+            DefaultCount = $('.recomended-content').attr('data-defaultCount');
 
-            GetAjaxData(Urls.GetRecomendedItems, "Post", object, RenderItems, null, null);
+        if(target === '#Dashboard' && document.cookie.indexOf("PrefernceUpdated=true") > 0) {
+            
+            object = {
+                PageSize: DefaultCount
+            }
+            
+            GetAjaxData(Urls.GetRecomendedItems, "Post", object, INFORMA.RecomendedContent.RenderRecomendResult, null, "PreferenceUpdate");
         }
     },
-
-    RenderItems = function (data) {
-        // body...
-    }
 
     SmallDeviceFunction = function (Parent) {
         var Select = Parent.find('select[name="RecommendTabs"]'),

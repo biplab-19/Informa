@@ -39,7 +39,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         });
     },
 
-    RenderRecomendResult = function (data) {
+    RenderRecomendResult = function (data, SearchType) {
 
         if(data != null) {
             var results = data,
@@ -53,9 +53,19 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     html += ListTemplate({ results: Data });
                 }
 
-            RecomendedWrapper.find('.row').append(html);
+            if(SearchType == null) {
+                RecomendedWrapper.find('.row').append(html);
+            } else {
+                RecomendedWrapper.find('.row').html(html);
+                equalHeight(RecomendedWrapper);
+                var name = "PrefernceUpdated";
+                var cookie = name+"="+false+'; path=/';
+                document.cookie = cookie;
+            }
 
             equalHeight(RecomendedWrapper);
+
+
 
             if(results.ArticleRemainingCount < 1) {
                 BtnMore.addClass('hidden');
@@ -134,7 +144,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         }
     }
     return {
-        init: init
+        init: init,
+        RenderRecomendResult: RenderRecomendResult
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
