@@ -1,4 +1,4 @@
-/*! 2016-08-12 */
+/*! 2016-08-16 */
 /*
  * welcome-description
  *
@@ -1077,7 +1077,11 @@ INFORMA.EventsViews = (function(window, $, namespace) {
           if(jQuery('body').hasClass('calendar-view')) {
               jQuery('section[data-view="list-view"]').hide();
           }
+
           EachItem.height(highestBox + padding);
+          if(INFORMA.global.device.viewportN == 2) {
+            EachItem.height("auto");
+          }
     },
 
     RenderChange = function(data) {
@@ -3921,8 +3925,46 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
     'use strict';
     var RecomendedTab = $('.recommendation-tabs'),
         RecomendedResults = $('.recommended-results'),
+        Tabs = RecomendedTab.find('a[data-toggle="tab"]'),
+        Urls = INFORMA.Configs.urls.webservices,
         //methods
-        init, LargeDeviceFunction, SmallDeviceFunction;
+        init, LargeDeviceFunction, SmallDeviceFunction, GetAjaxData, GetItemsDefault, RenderItems;
+
+    GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+
+        //INFORMA.Spinner.Show($('body'));
+        INFORMA.DataLoader.GetServiceData(url, {
+            method: method,
+            data: data,
+            success_callback: function(data) {
+                if (typeof SCallback === "function") {
+                    SCallback.call(this, data, SearchType);
+                }
+            },
+            error_callback: function() {
+                if (typeof Errcallback === "function") {
+                    Errcallback.call(this, data, SearchType);
+                }
+            }
+        });
+    },
+    GetItemsDefault = function (target) {
+        console.log('hi');
+        var object = null,
+            DefaultCount = RecomendedResults.find('.recomended-content');
+        if(target === '#Dashboard') {
+            debugger;
+            object = {
+                defaultCount: DefaultCount
+            }
+
+            GetAjaxData(Urls.GetRecomendedItems, "Post", object, RenderItems, null, null);
+        }
+    },
+
+    RenderItems = function (data) {
+        // body...
+    }
 
     SmallDeviceFunction = function (Parent) {
         var Select = Parent.find('select[name="RecommendTabs"]'),
@@ -3935,11 +3977,19 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
             RecomendedResults.find('.tab-pane').removeClass('active');
 
             $(Value).addClass('active');
+
+            GetItemsDefault(Value);
         })
     }
 
     LargeDeviceFunction = function (Parent) {
         Parent.find('.nav-tabs li:first-child a').trigger('click');
+
+        Tabs.on('shown.bs.tab', function (e) {
+            var target = $(e.target).attr("href");
+
+            GetItemsDefault(target);
+        });
     },
 
     init = function () {
@@ -4048,6 +4098,14 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                 ViewPort = INFORMA.global.device.viewport,
                 Count = Parent.attr('data-' + ViewPort),
                 Ids = GetIds(Parent),
+                ItemDisplayed = Parent.find('.recomended-wrapper').length,
+                MaximumCount = Parent.attr('data-MaximumNumberOfArticles'),
+                _Object = null;
+
+                if((MaximumCount - ItemDisplayed) <= Count) {
+                    Count = (MaximumCount - ItemDisplayed);
+                }
+
                 _Object = {
                     ExcludeContentGuids: Ids,
                     PageSize: Count
@@ -4060,20 +4118,24 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
     equalHeight = function (Parent) {
         var Items = Parent.find('.recomended-wrapper'),
             MaxHeight = 0,
-            MaxFooterHeight = 0;
+            MaxWrapperHeight = 0,
+            Padding = 20;
 
         Items.each(function () {
-            var ContentHeight = $(this).find('.content').height(),
-                FooterHeight = $(this).find('.footer').height();
+            var WrapperHeight = $(this).find('.recomend-content').height(),
+                ContentHeight = $(this).find('.content').height();
+
+            if(WrapperHeight > MaxWrapperHeight) {
+                MaxWrapperHeight = WrapperHeight;
+            }
+
             if(ContentHeight > MaxHeight) {
                 MaxHeight = ContentHeight;
             }
-            if(FooterHeight > MaxFooterHeight) {
-                MaxFooterHeight = FooterHeight;
-            }
+            
         })
         Items.find('.content').height(MaxHeight);
-        Items.find('.footer').height(MaxFooterHeight);
+        Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
     }
 
     init = function () {

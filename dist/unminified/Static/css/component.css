@@ -1,4 +1,4 @@
-/*! 2016-08-12 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-08-16 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
   background-color: #444957;
@@ -3200,7 +3200,7 @@ nav#pdp-navigation .menuFollower {
 }
 /* line 281, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset .details .social-links .at-icon-wrapper {
-  line-height: 56px !important;
+  line-height: 56px;
 }
 
 /* line 1, ../../../src/components/home-social/sass/_home-social.scss */
@@ -3527,7 +3527,7 @@ nav#pdp-navigation .menuFollower {
 }
 /* line 19, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views a.btn-default {
-  padding-right: 140px !important;
+  min-width: 230px;
 }
 /* line 22, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .header {
@@ -3981,7 +3981,7 @@ nav#pdp-navigation .menuFollower {
 #faqs .btn-faq-more, .accordian-structure .btn-faq-more {
   background: none;
   min-width: 160px;
-  width: auto !important;
+  width: auto;
   padding: 10px 0;
   padding-right: 40px;
   margin: 0 auto;
@@ -3991,9 +3991,8 @@ nav#pdp-navigation .menuFollower {
   border-bottom: 2px solid #ffd500;
   cursor: pointer;
   margin: 20px 50px;
-  border-color: #ffd500 !important;
 }
-/* line 67, ../../../src/components/faqs/sass/faqs.scss */
+/* line 66, ../../../src/components/faqs/sass/faqs.scss */
 #faqs .btn-faq-more:after, .accordian-structure .btn-faq-more:after {
   font-family: 'InformaIcons';
   content: '\e912';
@@ -4007,7 +4006,7 @@ nav#pdp-navigation .menuFollower {
   top: -2px;
 }
 @media (max-width: 767px) {
-  /* line 67, ../../../src/components/faqs/sass/faqs.scss */
+  /* line 66, ../../../src/components/faqs/sass/faqs.scss */
   #faqs .btn-faq-more:after, .accordian-structure .btn-faq-more:after {
     right: 50%;
     margin-right: -15px;
@@ -4040,11 +4039,11 @@ nav#pdp-navigation .menuFollower {
 }
 
 /*Experience Mode FAQs*/
-/* line 105, ../../../src/components/faqs/sass/faqs.scss */
+/* line 104, ../../../src/components/faqs/sass/faqs.scss */
 .experience-mode #faqs .collapse {
   display: block !important;
 }
-/* line 109, ../../../src/components/faqs/sass/faqs.scss */
+/* line 108, ../../../src/components/faqs/sass/faqs.scss */
 .experience-mode .accordian-structure .panel-group .panel .panel-heading .panel-title a:after {
   content: "\e913";
   color: #6a7287;
@@ -9756,37 +9755,38 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   background-color: #ffffff;
   padding: 15px;
   margin-bottom: 15px;
+  position: relative;
 }
-/* line 18, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 19, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content {
   margin-bottom: 10px;
 }
-/* line 20, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 21, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content h4 {
   font-size: 30px;
   font-family: FSMe-Bold;
 }
-/* line 24, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 25, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .type {
   font-weight: 700;
   font-size: 0.9em;
   display: block;
 }
-/* line 29, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 30, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .type span:after {
   content: ',';
 }
-/* line 33, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 34, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .type span:last-child:after {
   content: '';
 }
-/* line 41, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 42, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .publish strong:after {
   content: '|';
   margin: 0 5px;
   font-weight: normal;
 }
-/* line 48, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 49, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .category {
   display: inline-block;
   padding: 3px 8px;
@@ -9796,32 +9796,32 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   margin-right: 5px;
   background-color: #444957;
 }
-/* line 57, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 58, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .category strong:after {
   content: ',';
 }
-/* line 61, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 62, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .category strong:last-child:after {
   content: '';
 }
-/* line 67, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 68, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .description {
   margin: 0;
   padding-bottom: 10px;
 }
-/* line 71, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 72, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .content-type {
   font-weight: 700;
   font-size: 0.9em;
 }
-/* line 75, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 76, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .video-container {
   max-height: 156px;
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
 }
-/* line 80, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 81, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .video-container img {
   width: 100%;
   height: auto;
@@ -9829,7 +9829,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   float: none;
   display: block;
 }
-/* line 87, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 88, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .content .video-container .play-icon {
   color: #fff;
   display: block;
@@ -9840,24 +9840,19 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   top: 25%;
   width: 30px;
 }
-/* line 99, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 100, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .footer {
-  height: 100px;
+  padding: 0 15px;
 }
-/* line 103, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 104, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .footer .topics strong:after {
   content: ',';
 }
-/* line 107, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 108, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .recomended-wrapper .footer .topics strong:last-child:after {
   content: '';
 }
-/* line 113, ../../../src/components/recomended-articles/sass/recomended-content.scss */
-.recomended-content .recomended-wrapper .footer .btn-container {
-  position: relative;
-  bottom: -40px;
-}
-/* line 119, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 116, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .btn-showMore {
   background: none;
   min-width: 180px;
@@ -9874,7 +9869,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   margin: 20px 0;
   display: inline-block;
 }
-/* line 134, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 131, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-content .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e912';
@@ -9889,7 +9884,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   position: absolute;
 }
 @media (max-width: 767px) {
-  /* line 134, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+  /* line 131, ../../../src/components/recomended-articles/sass/recomended-content.scss */
   .recomended-content .btn-showMore:after {
     right: 50%;
     margin-right: -15px;
@@ -9897,7 +9892,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   }
 }
 @media (max-width: 767px) {
-  /* line 119, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+  /* line 116, ../../../src/components/recomended-articles/sass/recomended-content.scss */
   .recomended-content .btn-showMore {
     width: 50%;
     padding-bottom: 35px;
@@ -9906,15 +9901,15 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   }
 }
 
-/* line 161, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 158, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .search-tile {
   margin-bottom: 15px;
 }
-/* line 165, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 162, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .more {
   display: none;
 }
-/* line 168, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 165, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .less {
   display: block;
 }
@@ -10160,34 +10155,49 @@ section.welcome-description .cross:after {
   padding: 10px;
 }
 /* line 18, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .chosen-container-single:after {
+  position: absolute;
+  font-family: "InformaIcons" !important;
+  content: "\e901";
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  color: #888e9e;
+  font-size: 16px;
+}
+/* line 29, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs .chosen-container-single .chosen-single div {
+  display: none;
+}
+/* line 32, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .nav-tabs {
   border-bottom: none;
 }
-/* line 21, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 35, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs {
   list-style-type: none;
   padding: 0;
 }
-/* line 24, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 38, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li {
   float: left;
   width: 25%;
   position: relative;
 }
-/* line 28, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 42, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li.active {
   background-color: #444957;
   border-bottom: 1px solid #444957;
 }
-/* line 31, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 45, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li.active:after {
   background-color: #444957;
 }
-/* line 35, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 49, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li.active:last-child:after {
   background-color: #444957;
 }
-/* line 40, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 54, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li a {
   display: block;
   padding: 20px 0;
@@ -10196,7 +10206,7 @@ section.welcome-description .cross:after {
   text-align: center;
   padding-left: 36px;
 }
-/* line 49, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 63, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li:after {
   content: '';
   width: 2px;
@@ -10206,38 +10216,28 @@ section.welcome-description .cross:after {
   top: 15px;
   right: 0;
 }
-/* line 60, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 74, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li:last-child:after {
   background-color: #ffffff;
 }
-/* line 66, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 80, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .chosen-select {
   border: none;
   width: 100%;
   padding: 15px;
   height: auto;
 }
-/* line 73, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 87, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .mobile-tabs {
   padding: 15px;
   background-color: #444957;
   position: relative;
 }
-/* line 77, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 91, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .mobile-tabs .title {
   padding-bottom: 10px;
   font-size: 16px;
   color: #c3c7cf;
-}
-/* line 82, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs .mobile-tabs:after {
-  position: absolute;
-  font-family: "InformaIcons" !important;
-  content: "\e901";
-  top: 54%;
-  right: 15px;
-  color: #c3c7cf;
-  font-size: 16px;
 }
 
 /* line 2, ../../../src/components/product-login/sass/_product-login.scss */

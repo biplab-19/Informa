@@ -1,4 +1,4 @@
-/*! 2016-08-12 */s = new AppMeasurement()
+/*! 2016-08-16 */s = new AppMeasurement()
 s.account="informashopwindowpharmadev"
 //var s_account="informashopwindowpharmadev"
 //var s=s_gi(s_account)
