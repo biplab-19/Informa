@@ -1,14 +1,14 @@
 /*
- * Product Results.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Rajiv Aggarwal
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
+* Product Results.js
+*
+*
+* @project:    Informa
+* @date:       2016-April-25
+* @author:     Rajiv Aggarwal
+* @licensor:   SAPIENNITRO
+* @namespaces: INFORMA
+*
+*/
 
 var INFORMA = window.INFORMA || {};
 INFORMA.RecomendedContent = (function(window, $, namespace) {
@@ -138,7 +138,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 
     init = function () {
         if(RecomendedWrapper.length > 0) {
-            $('#Dashboard').addClass('active');
+            $('#tabs-1').addClass('active');
             equalHeight(RecomendedWrapper);
             ShowMore();
         }

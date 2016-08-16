@@ -1,14 +1,14 @@
 /*
- * Product Results.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Tejaswi
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
+* Product Results.js
+*
+*
+* @project:    Informa
+* @date:       2016-April-25
+* @author:     Tejaswi
+* @licensor:   SAPIENNITRO
+* @namespaces: INFORMA
+*
+*/
 
 var INFORMA = window.INFORMA || {};
 INFORMA.RecomendedTabs = (function(window, $, namespace) {
@@ -20,18 +20,17 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         //methods
         init, LargeDeviceFunction, SmallDeviceFunction, GetAjaxData, GetItemsDefault, RenderItems;
 
-    GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
-
-        //INFORMA.Spinner.Show($('body'));
+    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.Spinner.Show($("body"));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
-            data: data,
-            success_callback: function(data) {
+            data: JSON.stringify({ data: data }),
+            success_callback: function (data) {
                 if (typeof SCallback === "function") {
                     SCallback.call(this, data, SearchType);
                 }
             },
-            error_callback: function() {
+            error_callback: function () {
                 if (typeof Errcallback === "function") {
                     Errcallback.call(this, data, SearchType);
                 }
@@ -40,13 +39,14 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
     },
     GetItemsDefault = function (target) {
         console.log('hi');
-        var object = null,
-            DefaultCount = $('.recomended-content').attr('data-defaultCount');
+        var object = null;
+         var   DefaultCount = $('.recomended-content').attr('data-defaultCount');
 
-        if(target === '#Dashboard' && document.cookie.indexOf("PrefernceUpdated=true") > 0) {
+        if(target === '#tabs-1' && document.cookie.indexOf("PrefernceUpdated=true") > 0) {
             
             object = {
-                PageSize: DefaultCount
+                PageSize: DefaultCount,
+                GetContentBasedOnContentType:true
             }
             
             GetAjaxData(Urls.GetRecomendedItems, "Post", object, INFORMA.RecomendedContent.RenderRecomendResult, null, "PreferenceUpdate");
@@ -57,7 +57,7 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         var Select = Parent.find('select[name="RecommendTabs"]'),
             SelectFirst = $(Select.find('option')[0]);
 
-        Select.val('#Dashboard').trigger('change');
+        Select.val('#tabs-1').trigger('change');
 
         Select.on('change', function () {
             var Value = $(this).val();
