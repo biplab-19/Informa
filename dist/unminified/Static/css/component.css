@@ -1,4 +1,5 @@
-/*! 2016-08-16 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-08-16 */@charset "UTF-8";
+/*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
   background-color: #444957;
@@ -1214,15 +1215,17 @@ section#agri-report .agri-report-wrapper .description strong {
   font-family: FSMe-Bold;
 }
 /* line 71, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
-section#agri-report .agri-report-wrapper .download-report {
-  font-size: 14px;
-  font-family: FSMe;
-  width: 100%;
-  margin-top: 60px;
-  border-color: #ffd600;
+section#agri-report .agri-report-wrapper .orange-bd {
+  font-size: ┬á14px;
+  ┬áfont-family: ┬áFSMe;
+  ┬áfloat: ┬áleft;
+  ┬ámargin-right: ┬á10px;
+  ┬ámargin-top: ┬á60px;
+  ┬ámin-width: ┬á160px;
+  ┬áborder-color: ┬á #ffd600;
 }
-/* line 77, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
-section#agri-report .agri-report-wrapper .download-report:after {
+/* line 80, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+section#agri-report .agri-report-wrapper .orange-bd.download-report┬á:after {
   content: "\e905";
   font-family: 'InformaIcons';
   right: 15px;
@@ -1233,7 +1236,7 @@ section#agri-report .agri-report-wrapper .download-report:after {
 }
 @media (max-width: 767px) {
   /* line 71, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
-  section#agri-report .agri-report-wrapper .download-report {
+  section#agri-report .agri-report-wrapper .orange-bd {
     margin: 0 auto;
     display: block;
     width: 80%;
