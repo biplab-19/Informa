@@ -1,5 +1,5 @@
 header {
-  .anonymus-user{
+  .greyed-out{
     color: $grey-color4 !important;
   }
     color: $light;
@@ -294,7 +294,9 @@ header {
                     //         padding-left: 23px;
                     //     }
                     // }
-                    .recommendation{
+                    .header-links{
+                      display: inline-block !important;
+                      box-sizing: border-box;
                       padding: 10px 20px;
                       position: relative;
                       &:after{
@@ -304,8 +306,17 @@ header {
                         position: absolute;
                         top: 10px;
                         right: 0px;
-                      }
+                        }
+                      &:last-child{
+                        &:after{
+                                display: none;
+                              }
+                        }
+                        .icon{
+                          padding-left: 15px;
+                         }
                     }
+
                     // .Product-login{
                     //     padding: 10px 5px 10px 20px;
                     // }
@@ -565,27 +576,53 @@ header {
                     .touch{
                         //float: left;
                         display: inline-block !important;
-                        width: 49%;
-                        height: 100%;
-                        border-right: 1px solid #636a7d;
+                        //width: 49%;
+                        background-color: $grey-color1;
+                        border-right: 1px solid $grey-color5;
                         .icon-get-in-touch{
                             position: relative;
                             top: 2px;
                             font-size: large;
                             padding-left: 15px;
                         }
+
+
                     }
-                    .login{
-                        float: left;
-                        width: 50%;
-                        height: 100%;
-                        .icon-chevron-down{
-                            position: relative;
-                            top: 4px;
-                            font-size: large;
-                            padding-left: 15px;
+                    .header-links{
+                       display: inline-block !important;
+                       box-sizing: border-box;
+                       position: relative;
+                       &:nth-child(odd){
+                         :after{
+                         content: '';
+                         border-left: 2px solid #666666;
+                         height: 45%;
+                         position: absolute;
+                         top: 10px;
+                         right: 0px;
                         }
-                    }
+                       }
+                       &:last-child{
+                         &:after{
+                             display: none;
+                           }
+                         }
+                         .icon{
+                           padding-left: 15px;
+                          }
+                      }
+
+                    // .login{
+                    //     float: left;
+                    //     width: 50%;
+                    //     height: 100%;
+                    //     .icon-chevron-down{
+                    //         position: relative;
+                    //         top: 4px;
+                    //         font-size: large;
+                    //         padding-left: 15px;
+                    //     }
+                    // }
                     @media screen and (max-height: 450px) and (orientation:landscape) {
                         height: initial;
                     }

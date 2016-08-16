@@ -59,14 +59,14 @@ section.newsFlash{
      }
      .slick-arrow {
          top: 100%;
-         
+
          &:before {
              font-family: 'InformaIcons';
              position: absolute;
              font-size: 20px;
              opacity: 1;
-             top: 0%;
-             left: 50%;
+             top: 33%;
+             left: 57%;
              margin-top: -13px;
              margin-left: -13px;
              @include mobile {
@@ -96,9 +96,10 @@ section.newsFlash{
          }
      }
      .slick-prev {
+       z-index: 2;
        left: 92%;
          @include mobile {
-           left: 94%;
+           left: 92%;
            margin-left:-20px;
          }
          @include tablet {
