@@ -76,6 +76,20 @@ section {
             margin: 20px 0;
         }
     }
+
+    p {
+        font-family: FSMe-Light;
+        line-height: 22px;
+        font-size: 14px;
+        @include tablet {
+          line-height: 21px;
+          font-size: 13px;
+        }
+        @include mobile {
+          line-height: 20px;
+          font-size: 12px;
+        }
+    }
 }
 
 

@@ -1,8 +1,7 @@
 .sector-list {
     .card-col {
-      margin-top: 30px;
-      margin-bottom: 30px;
-      height: 400px;
+      margin-top: 15px;
+      margin-bottom: 15px;
       @include mobile {
         height: auto;
       }
@@ -27,12 +26,12 @@
         //  height: 112px;
         overflow: hidden;
         min-height: 75px;
-        P {
-            line-height: 1.6em;
-            //max-height: 100px;
-            //max-height: 312px;
-            overflow: hidden;
-        }
+        // P {
+        //     line-height: 1.6em;
+        //     //max-height: 100px;
+        //     //max-height: 312px;
+        //     overflow: hidden;
+        // }
     }
     .icon {
         width: 100px;
@@ -87,21 +86,11 @@
     .view-all-sectors-btn-container {
         display: none;
     }
-    .btn-container {
-        width: 80%;
-        margin: 0 auto;
-        //position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        a:after {
-              color: $brand-secondary;
-        }
-        @include mobile {
-            position: static;
-        }
-    }
+
     .sector-card {
+      padding: 30px;
+      //height: 400px;
+      background: $blue-light-bg;
         // word-wrap: break-word;
         // padding: 25px 0;
         // position: relative;
@@ -109,6 +98,28 @@
         //     //  min-height: 60px;
         //     overflow: hidden;
         // }
+
+        .btn-container {
+            width: 60%;
+            margin: 0 auto;
+            //position: absolute;
+            padding-top: 10px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            a:after {
+                  color: $brand-secondary;
+            }
+            @include mobile {
+                position: static;
+            }
+            .btn-default {
+              border-color: $brand-primary;
+              &:after {
+                color: $brand-primary;
+              }
+            }
+        }
     }
     @include mobile {
         .container > .row + .row > .text-center:nth-child(n+3) {
