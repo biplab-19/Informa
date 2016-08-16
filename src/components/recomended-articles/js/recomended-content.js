@@ -67,10 +67,10 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 
 
 
-            if(results.ArticleRemainingCount < 1) {
-                BtnMore.addClass('hidden');
-            } else {
+            if(results.ArticleRemainingCount > 0 && RecomendedWrapper.find('.recomended-wrapper').length < 30) {
                 BtnMore.removeClass('hidden');
+            } else {
+                BtnMore.addClass('hidden');
             }
         } else {
             BtnMore.addClass('hidden');

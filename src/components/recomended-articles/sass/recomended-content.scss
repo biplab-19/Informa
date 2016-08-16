@@ -11,11 +11,16 @@
 			}
 		}
 	}
+	.recomend-content {
+		float: left;
+		width: 100%;
+	}
 	.recomended-wrapper {
 		background-color: $white;
 		padding: 15px;
 		margin-bottom: 15px;
 		position: relative;
+		overflow: auto;
 		.content {
 			margin-bottom: 10px;
 			h4 {
@@ -53,6 +58,7 @@
 	    		font-size: 0.9em;
 	    		color: #f1f1f3;
 	    		margin-right: 5px;
+	    		margin-bottom: 5px;
 	    		background-color: #444957;
 	    		strong {
 	    			&:after {
