@@ -1,6 +1,6 @@
 nav#pdp-navigation {
       background: $yellow;
-      
+
       &.navbar-fixed-top {
             position: fixed;
             width: 100%;
@@ -85,13 +85,13 @@ nav#pdp-navigation {
                   .navbar-nav > li {
                         float: none;
                         display: table-cell;
-                        text-align: center;
+                        text-align: left;
                   }
             }
       }
-      
+
       @include not-desktop{
-            
+
             .container{
                   .row{
                         position: relative;
@@ -123,7 +123,7 @@ nav#pdp-navigation {
                                           -webkit-transform: rotate(90Deg);
                                           font-size: large;
                                           top: -3px;
-                                          right: -20px;                 
+                                          right: -20px;
                                     }
                                     &:hover{
                                           text-decoration: none;
@@ -158,7 +158,7 @@ nav#pdp-navigation {
                                     margin-bottom: 0;
                                     li {
                                           width: 100%;
-                                          display: block;   
+                                          display: block;
                                     }
                               }
                               #pdp-sections-heading{
@@ -166,7 +166,7 @@ nav#pdp-navigation {
                                     color: $gray-dark-bg;
                                     font-size: 18px;
                               }
-                        }    
+                        }
                   }
             }
 
@@ -174,5 +174,5 @@ nav#pdp-navigation {
                   display: none!important;
             }
       }
-      
+
 }
