@@ -949,6 +949,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
                        $(this).trigger("click");
                 }); 
             }
+            BakeCookies("PrefernceUpdated", true);
         });
         CheckBoxes.on("click",function(e){
             e.stopPropagation();
@@ -982,7 +983,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
                     Count = SelectedCount.length;
                     CountSpan.text(Count);
                 }
-            
+            BakeCookies("PrefernceUpdated", true);
         });
     },
 
@@ -1943,6 +1944,17 @@ INFORMA.forms = (function(window, $, namespace) {
                 inlineTabSucessForm.removeClass('hide');
             }
         }
+
+      var formInlineContainer =  $('.form-inline-container');
+        if(formInlineContainer.length > 0 ){
+          if(formInlineContainer.find('.submit-response').length > 0){
+                formInlineContainer.find('form').addClass('hide');
+          }else{
+            formInlineContainer.find('form').removeClass('hide');
+          }
+        }
+
+
     }
 
     _showOverlay = function() {
@@ -3909,16 +3921,16 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 jQuery(INFORMA.ProductFinder.init());
 
 /*
- * Product Results.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Tejaswi
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
+* Product Results.js
+*
+*
+* @project:    Informa
+* @date:       2016-April-25
+* @author:     Tejaswi
+* @licensor:   SAPIENNITRO
+* @namespaces: INFORMA
+*
+*/
 
 var INFORMA = window.INFORMA || {};
 INFORMA.RecomendedTabs = (function(window, $, namespace) {
@@ -3930,18 +3942,17 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         //methods
         init, LargeDeviceFunction, SmallDeviceFunction, GetAjaxData, GetItemsDefault, RenderItems;
 
-    GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
-
-        //INFORMA.Spinner.Show($('body'));
+    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.Spinner.Show($("body"));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
-            data: data,
-            success_callback: function(data) {
+            data: JSON.stringify({ data: data }),
+            success_callback: function (data) {
                 if (typeof SCallback === "function") {
                     SCallback.call(this, data, SearchType);
                 }
             },
-            error_callback: function() {
+            error_callback: function () {
                 if (typeof Errcallback === "function") {
                     Errcallback.call(this, data, SearchType);
                 }
@@ -3950,27 +3961,25 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
     },
     GetItemsDefault = function (target) {
         console.log('hi');
-        var object = null,
-            DefaultCount = RecomendedResults.find('.recomended-content');
-        if(target === '#Dashboard') {
-            debugger;
-            object = {
-                defaultCount: DefaultCount
-            }
+        var object = null;
+         var   DefaultCount = $('.recomended-content').attr('data-defaultCount');
 
-            GetAjaxData(Urls.GetRecomendedItems, "Post", object, RenderItems, null, null);
+        if(target === '#tabs-1' && document.cookie.indexOf("PrefernceUpdated=true") > 0) {
+            
+            object = {
+                PageSize: DefaultCount,
+                GetContentBasedOnContentType:true
+            }
+            
+            GetAjaxData(Urls.GetRecomendedItems, "Post", object, INFORMA.RecomendedContent.RenderRecomendResult, null, "PreferenceUpdate");
         }
     },
-
-    RenderItems = function (data) {
-        // body...
-    }
 
     SmallDeviceFunction = function (Parent) {
         var Select = Parent.find('select[name="RecommendTabs"]'),
             SelectFirst = $(Select.find('option')[0]);
 
-        Select.val('#Dashboard').trigger('change');
+        Select.val('#tabs-1').trigger('change');
 
         Select.on('change', function () {
             var Value = $(this).val();
@@ -4009,18 +4018,17 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.RecomendedTabs.init());
-
 /*
- * Product Results.js
- *
- *
- * @project:    Informa
- * @date:       2016-April-25
- * @author:     Rajiv Aggarwal
- * @licensor:   SAPIENNITRO
- * @namespaces: INFORMA
- *
- */
+* Product Results.js
+*
+*
+* @project:    Informa
+* @date:       2016-April-25
+* @author:     Rajiv Aggarwal
+* @licensor:   SAPIENNITRO
+* @namespaces: INFORMA
+*
+*/
 
 var INFORMA = window.INFORMA || {};
 INFORMA.RecomendedContent = (function(window, $, namespace) {
@@ -4051,7 +4059,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         });
     },
 
-    RenderRecomendResult = function (data) {
+    RenderRecomendResult = function (data, SearchType) {
 
         if(data != null) {
             var results = data,
@@ -4065,9 +4073,19 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     html += ListTemplate({ results: Data });
                 }
 
-            RecomendedWrapper.find('.row').append(html);
+            if(SearchType == null) {
+                RecomendedWrapper.find('.row').append(html);
+            } else {
+                RecomendedWrapper.find('.row').html(html);
+                equalHeight(RecomendedWrapper);
+                var name = "PrefernceUpdated";
+                var cookie = name+"="+false+'; path=/';
+                document.cookie = cookie;
+            }
 
             equalHeight(RecomendedWrapper);
+
+
 
             if(results.ArticleRemainingCount < 1) {
                 BtnMore.addClass('hidden');
@@ -4140,18 +4158,18 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 
     init = function () {
         if(RecomendedWrapper.length > 0) {
-            $('#Dashboard').addClass('active');
+            $('#tabs-1').addClass('active');
             equalHeight(RecomendedWrapper);
             ShowMore();
         }
     }
     return {
-        init: init
+        init: init,
+        RenderRecomendResult: RenderRecomendResult
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.RecomendedContent.init());
-
 /*
  * global-footer.js
  *

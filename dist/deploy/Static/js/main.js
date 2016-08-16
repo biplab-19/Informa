@@ -4616,15 +4616,15 @@ var INFORMA = window.INFORMA || {};
                                             '</a>'+
                                         '</div>'+
                                     '{{/compare}}'+
-                                    '{{#compare results.Topic.length 0 operator=">"}}'+
-                                        '<p class="topics">'+
-                                            '{{results.TopicKeyword}} '+
-                                            '{{#each results.Topic}}'+
-                                                '<strong>{{this}}</strong>'+
-                                            '{{/each}}'+
-                                        '</p>'+
-                                    '{{/compare}}'+
                                 '</div>'+
+                                '{{#compare results.Topic.length 0 operator=">"}}'+
+                                    '<p class="topics">'+
+                                        '{{results.TopicKeyword}} '+
+                                        '{{#each results.Topic}}'+
+                                            '<strong>{{this}}</strong>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                                '{{/compare}}'+
                             '</div>'+
                             '<div class="footer">'+
                                 '<div class="btn-container text-right">'+

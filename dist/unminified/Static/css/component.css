@@ -712,9 +712,8 @@ section#hero-banner .analyst-single-image .image-margin {
 
 /* line 2, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .card-col {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  height: 400px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 @media (max-width: 767px) {
   /* line 2, ../../../src/components/home-sector-list/sass/_sector-list.scss */
@@ -722,7 +721,7 @@ section#hero-banner .analyst-single-image .image-margin {
     height: auto;
   }
 }
-/* line 10, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 9, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list h3 {
   word-wrap: break-word;
   height: 55px;
@@ -732,67 +731,62 @@ section#hero-banner .analyst-single-image .image-margin {
   color: #434854;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 10, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 9, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list h3 {
     font-size: 18px;
   }
 }
 @media (max-width: 767px) {
-  /* line 10, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 9, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list h3 {
     font-size: 18px;
     height: auto;
   }
 }
-/* line 25, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 24, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .content {
   line-height: 1.6em;
   overflow: hidden;
   min-height: 75px;
 }
-/* line 30, ../../../src/components/home-sector-list/sass/_sector-list.scss */
-.sector-list .content P {
-  line-height: 1.6em;
-  overflow: hidden;
-}
-/* line 37, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 36, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .icon {
   width: 100px;
   height: 100px;
   margin: 0 auto;
 }
 @media (max-width: 767px) {
-  /* line 37, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 36, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .icon {
     width: 15%;
     height: 15%;
   }
 }
-/* line 45, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 44, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .icon img {
   padding-bottom: 20px;
 }
 @media (max-width: 767px) {
-  /* line 45, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 44, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .icon img {
     width: 100%;
     height: 100%;
   }
 }
-/* line 53, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 52, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products {
   height: 90px;
   padding: 15px 0 25px;
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 53, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 52, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list ul.sector-list-products {
     position: static;
     height: auto;
   }
 }
-/* line 62, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 61, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li {
   font-family: FSMe-Bold;
   display: inline;
@@ -802,11 +796,11 @@ section#hero-banner .analyst-single-image .image-margin {
   margin: 0;
   padding: 0;
 }
-/* line 71, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 70, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li a {
   color: #6a7287;
 }
-/* line 75, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 74, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li:after {
   content: "";
   width: 0.7px;
@@ -814,39 +808,53 @@ section#hero-banner .analyst-single-image .image-margin {
   border-left: 2px solid #6a7287;
   margin: 0 0.625em;
 }
-/* line 83, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 82, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li:last-child:after {
   content: "";
   border-left: none;
 }
-/* line 87, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 86, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .view-all-sectors-btn-container {
   display: none;
 }
 /* line 90, ../../../src/components/home-sector-list/sass/_sector-list.scss */
-.sector-list .btn-container {
-  width: 80%;
+.sector-list .sector-card {
+  padding: 30px;
+  background: #e1e2e7;
+}
+/* line 102, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+.sector-list .sector-card .btn-container {
+  width: 60%;
   margin: 0 auto;
+  padding-top: 10px;
   bottom: 0;
   left: 0;
   right: 0;
 }
-/* line 97, ../../../src/components/home-sector-list/sass/_sector-list.scss */
-.sector-list .btn-container a:after {
+/* line 110, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+.sector-list .sector-card .btn-container a:after {
   color: #ffd600;
 }
 @media (max-width: 767px) {
-  /* line 90, ../../../src/components/home-sector-list/sass/_sector-list.scss */
-  .sector-list .btn-container {
+  /* line 102, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  .sector-list .sector-card .btn-container {
     position: static;
   }
 }
+/* line 116, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+.sector-list .sector-card .btn-container .btn-default {
+  border-color: #ef7c00;
+}
+/* line 118, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+.sector-list .sector-card .btn-container .btn-default:after {
+  color: #ef7c00;
+}
 @media (max-width: 767px) {
-  /* line 114, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 125, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .container > .row + .row > .text-center:nth-child(n+3) {
     display: none;
   }
-  /* line 118, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 129, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .view-all-sectors-btn-container {
     display: block;
     border-bottom: solid 1px #ffd600;
@@ -856,12 +864,12 @@ section#hero-banner .analyst-single-image .image-margin {
     cursor: pointer;
     margin-bottom: 15px;
   }
-  /* line 127, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 138, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .informa-icon {
     font-size: 30px;
     color: #ffd600;
   }
-  /* line 131, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 142, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .btn-container {
     width: 92%;
     margin: 0 auto;
@@ -9487,8 +9495,8 @@ section.newsFlash .news-carousel .slick-arrow:before {
   position: absolute;
   font-size: 20px;
   opacity: 1;
-  top: 0%;
-  left: 50%;
+  top: 33%;
+  left: 57%;
   margin-top: -13px;
   margin-left: -13px;
 }
@@ -9532,12 +9540,13 @@ section.newsFlash .news-carousel .slick-next:before {
 }
 /* line 98, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-prev {
+  z-index: 2;
   left: 92%;
 }
 @media (max-width: 767px) {
   /* line 98, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-prev {
-    left: 94%;
+    left: 92%;
     margin-left: -20px;
   }
 }
@@ -9547,7 +9556,7 @@ section.newsFlash .news-carousel .slick-prev {
     left: 93%;
   }
 }
-/* line 107, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 108, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-prev:before {
   content: "\e903";
 }
