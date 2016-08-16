@@ -10215,7 +10215,14 @@ section.welcome-description .cross:after {
   text-align: center;
   padding-left: 36px;
 }
-/* line 63, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 61, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul.nav-tabs li a span {
+  font-size: 20px;
+  position: absolute;
+  left: 85px;
+  top: 18px;
+}
+/* line 69, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li:after {
   content: '';
   width: 2px;
@@ -10225,24 +10232,24 @@ section.welcome-description .cross:after {
   top: 15px;
   right: 0;
 }
-/* line 74, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 80, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li:last-child:after {
   background-color: #ffffff;
 }
-/* line 80, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 86, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .chosen-select {
   border: none;
   width: 100%;
   padding: 15px;
   height: auto;
 }
-/* line 87, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 93, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .mobile-tabs {
   padding: 15px;
   background-color: #444957;
   position: relative;
 }
-/* line 91, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 97, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .mobile-tabs .title {
   padding-bottom: 10px;
   font-size: 16px;
