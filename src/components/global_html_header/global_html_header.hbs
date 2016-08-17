@@ -72,7 +72,17 @@ component: global_html_header
   <script> 
         $INFORMA = jQuery.noConflict(); 
   </script>
-
 </head>
-
-<body class="agri-theme">
+<body>
+  <script> 
+        var theme= "agri-theme";
+        if(window.location.href.indexOf("agri") > -1) {
+              theme="agri-theme";
+              jQuery('body').addClass(theme);
+        }else if(window.location.href.indexOf("pharma") > -1) {
+              theme="pharma-theme";
+              jQuery('body').addClass(theme);
+        }else {
+              jQuery('body').addClass(theme);
+        }
+  </script>
