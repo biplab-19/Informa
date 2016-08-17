@@ -19,7 +19,8 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
         _eachTile = _contactUs.find('.panel-heading'),
     // methods
         init,
-        _openAccordian;
+        _openAccordian,
+        _equalHeight;
 
     _openAccordian = function(container){
         if(INFORMA.global.device.viewportN === 2) {
@@ -47,10 +48,25 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
         }
     })
     
+    _equalHeight = function () {
+        var EachView = jQuery('#contactus-section');
+        EachView.each(function () {
+            var Items = jQuery(this).find('.panel-default'),
+                _maxHeight = 0;
+            Items.each(function () {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeight) {
+                    _maxHeight = Height;
+                }
+            })
+            Items.css('height', _maxHeight);
+        })
+    }
 
     init = function() {
         if (_contactUs.length > 0) {
             _openAccordian(_contactUs);
+             _equalHeight();
         }
     };
 
