@@ -97,7 +97,7 @@ module.exports = function(grunt) {
                     partials: ['<%= config.src %>/components/**/*.hbs']
                 },
                 files: {
-                    '<%= config.tmp %>/': ['<%= config.src %>/templates/pages/*.hbs']
+                    '<%= config.tmp %>/': ['<%= config.src %>/templates/pages/**/*.hbs']
                 }
             },
             prod : {
