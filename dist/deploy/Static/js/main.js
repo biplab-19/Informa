@@ -1,9 +1,11 @@
-/*! 2016-08-16 */s = new AppMeasurement()
-s.account="informashopwindowpharmadev"
-//var s_account="informashopwindowpharmadev"
-//var s=s_gi(s_account)
+/*! 2016-08-17 */s = new AppMeasurement()
+//s.account="informashopwindowpharmadev" // QA
+s.account="informashopwindowpharmapreprod" // UAT
+//s.account="informashopwindowpharmaprod" // Prod
 
-s.trackingServer="informa.122.2o7.net"
+
+s.trackingServer="informa.122.2o7.net" // Non Secure
+//s.trackingServerSecure ="informa.122.2o7.net" // Secure 
 
 /************************** CONFIG SECTION **************************/
 /* You may add or alter any code config here. */
