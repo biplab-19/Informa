@@ -20,7 +20,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
     // methods
         init,
         _bindShowMore,
-        _adjustHeigt, _checkElemnt;
+        _adjustHeigt, _checkElemnt , equalHeight;
 
 
     _checkElemnt = function () {
@@ -59,10 +59,27 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         });
     }
 
+    equalHeight = function () {
+        var EachView = jQuery('.sectorpage-strengths');
+        EachView.each(function () {
+            var Items = jQuery(this).find('.sector-responisve-img,.yellow-container'),
+                _maxHeight = 0,
+                _padding = 90;
+            Items.each(function () {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeight) {
+                    _maxHeight = Height;
+                }
+            })
+            Items.css('height', _maxHeight + _padding);
+        })
+    }
+
     init = function() {
         if (_sectorPageStrengths.length > 0) {
             _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
+            equalHeight();
         }
     };
 

@@ -1,79 +1,3 @@
-@mixin theme($name, $primarycolor, $secondarycolordark, $secondarycolorlight) {
-  $primary: $primarycolor;
-  $secondarycolordark: $secondarycolordark;
-  $secondarycolorlight: $secondarycolorlight;
-  $secondarycolorlight80: rgba($secondarycolorlight, 0.8);
-  $secondarycolorlight60: rgba($secondarycolorlight, 0.6);
-  $secondarycolorlight40: rgba($secondarycolorlight, 0.4);
-  $secondarycolorlight20: rgba($secondarycolorlight, 0.2);
-
-
-  .#{$name} {
-
-    //All common CSS which are themeable can be written here
-    .demo-item {
-      height: 100px;
-      background-color: $secondarycolorlight80;
-    }
-
-    //Buttons
-    .btn {
-        min-width: 180px;
-        padding: 15px;
-        position: relative;
-         &:after{
-           content: "\e900";
-           font-family: 'InformaIcons';
-           right: 15px;
-           font-weight: bold;
-           position: absolute;
-           top: 50%;
-           transform: translateY(-50%);
-         }
-        &.btn-primary {
-            color: $white;
-            background-color: $primary;
-            &:hover, &:active {
-                background-color: $secondarycolorlight;
-            }
-            &:after {
-                color: $white;
-            }
-            &.disable {
-                background-color: $grey-color7;
-            }
-        }
-        &.btn-secondary {
-            color: #6a7285; //To Be Changed Based On typo
-            border: 1px solid $primary;
-            &:hover, &:active {
-                border: 1px solid $secondarycolorlight;
-            }
-            &:after {
-                color: $primary;
-            }
-            &.disable {
-                border: 1px solid $grey-color7;
-            }
-        }
-    }
-
-
-    a {
-      color: $secondarycolorlight;
-      text-decoration: underline;
-      &:hover, &:active {
-        color: $secondarycolordark;
-        text-decoration: underline;
-      }
-      &:visited {
-        color: $secondarycolorlight;
-        text-decoration: none;
-      }
-    }
-  }
-}
-
 //parameters have to be sent accordingly
 /* 1. Body Class Name
    2. Primary Color
@@ -82,19 +6,19 @@
 */
 
 //Agri Theme
-@include theme(agri-theme, #EF7C00, #9e3005, #ffd600);
+@include theme(agri-theme, $agriprimarycolor, $agrisecondrydarkcolor, $agrisecondarylightcolor);
 
 //Pharma Theme
-@include theme(pharma-theme, #D1497C, #381e56, #63428c);
+@include theme(pharma-theme, $pharmaprimarycolor, $pharmasecondrydarkcolor, $pharmasecondarylightcolor);
 
 //Business Theme
-@include theme(business-theme, #DE4361, #91211E, #b0173d);
+@include theme(business-theme, $businessprimarycolor, $businesssecondrydarkcolor, $businesssecondarylightcolor);
 
 //Finance Theme
-@include theme(finance-theme, #5AB031, #004f21, #00703d);
+@include theme(finance-theme, $financeprimarycolor, $financesecondrydarkcolor, $financesecondarylightcolor);
 
 //TMT Theme
-@include theme(tmt-theme, #DB0A35, #8c073d, #ba1156);
+@include theme(tmt-theme, $tmtprimarycolor, $tmtsecondrydarkcolor, $tmtsecondarylightcolor);
 
 //Maritime
-@include theme(maritime-theme, #1191D1, #002d4f, #0f5487);
+@include theme(maritime-theme, $maritimeprimarycolor, $marisecondrydarkcolor, $maritimesecondarylightcolor);

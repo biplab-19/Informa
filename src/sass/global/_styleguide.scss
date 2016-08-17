@@ -5,90 +5,55 @@ body {
 section {
     // Grey heading only.. Rest should be overriden on component level
     h1 {
-        font-family: FSMe-Bold;
-        font-size: 60px;
-        @include mobile {
-            margin: 17px 0 7px 0;
-            font-size: 30px;
-        }
-        @include tablet {
-            font-size: 40px;
-        }
-        &.dark {
-            color: $text-gray;
-        }
-        &.light {
-            color: $light;
-        }
+        @include family-style(FSMe-Bold , $white);
+        @include heading-font-size(60px,40px,30px);
+        @include heading-line-height(70px,50px,36px);
+        @include margin-reset;
     }
     // light font which comes after h1
     h2 {
-        font-family: FSMe-Bold;
-        font-size: 40px;
-        margin: 50px 0;
-        line-height: 36px;
-        color: $grey-color2;
-        @include tablet {
-            font-size: 30px;
-            line-height: 36px;
-            margin: 40px 0;
-        }
-        @include mobile {
-            font-size: 24px;
-            line-height: 30px;
-            margin: 30px 0;
-        }
-    }
-
-    h2.bolder {
-        font-family: FSMe-Bold;
-        font-size: 40px;
-        margin: 0 0 10px 0;
-        @include tablet {
-            font-size: 30px;
-            line-height: 36px;
-        }
-        @include mobile {
-            font-size: 24px;
-        }
+        @include family-style(FSMe-Bold , $gray-dark);
+        @include heading-font-size(40px,30px,24px);
+        @include heading-line-height(50px,36px,30px);
+        @include heading-padding((50px 0),(40px 0),(30px 0));
+        @include margin-reset;
     }
 
     h3 {
-      font-size: 17px;
-      &.light {
-        color: #fff;
-      }
-      &.gray {
-        color: $gray-dark;
-      }
+        @include family-style(FSMe-Light ,$gray-dark);
+        @include heading-font-size(30px,24px,22px);
+        @include heading-line-height(36px,30px,30px);
+        @include margin-reset;
+        &.light {
+            @include family-style(FSMe-Light ,$gray-light-bg);
+        }
     }
 
     h4 {
-        font-size: 24px;
-        font-family: FSMe;
-        margin: 24px 0;
-        @include tablet {
-            font-size: 18px;
-            margin: 20px 0;
-        }
-        @include mobile {
-            font-size: 18px;
-            margin: 20px 0;
+        @include family-style(FSMe ,$gray-dark);
+        @include heading-font-size(24px,18px,18px);
+        @include heading-line-height(30px,26px,26px);
+        &.light {
+           @include family-style(FSMe-Light ,$gray-light-bg);
         }
     }
 
-    p {
-        font-family: FSMe-Light;
-        line-height: 22px;
-        font-size: 14px;
-        @include tablet {
-          line-height: 21px;
-          font-size: 13px;
-        }
-        @include mobile {
-          line-height: 20px;
-          font-size: 12px;
-        }
+    h5{
+        @include family-style(FSMe-Light ,$gray-dark);
+        @include heading-font-size(18px,16px,16px);
+        @include heading-line-height(26px,24px,24px);
+    }
+
+    h6 {
+        @include family-style(FSMe-Light ,$gray-light-bg);
+        @include heading-font-size(16px,14px,14px);
+        @include heading-line-height(24px,22px,22px);
+    }
+
+    p{
+        @include family-style(FSMe-Light ,$gray-dark);
+        @include heading-font-size(14px,13px,12px);
+        @include heading-line-height(22px,21px,20px);
     }
 }
 
