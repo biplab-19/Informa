@@ -114,68 +114,176 @@ $desktop-width: 1142px;
 
 
   .#{$name} {
+    color: $gray-darker;
+    a {
+        color: $light;
+    }
+    .feature li{
+       &:before {
+          content: "\e914";
+          font-family: 'InformaIcons';
+          position: absolute;
+          left: -32px;
+          top: 0;
+          font-size: 16px;
+          color: $secondarycolorlight;
+          @include border-radius(50%);
+          font-weight: normal;
+       }
+       a{
+          color: $primary !important;
+       }
+    }
+    .btn {
+        width: 180px;
+        background: transparent;
+        color: $btn-default-color;
+        border-color: $primary;
+        border-radius: $border-radius-base;
+        border-width: 2px;
+        &:hover {
+            background: transparent;
+            color: $primary;
+        }
+        &:next {}
+    }
+    .btn-showMore {
+        background: none;
+        width: 160px;
+        padding: 10px 0;
+        margin: 0 auto;
+        text-align: left;
+        color: $grey-color1;
+        border: none;
+        border-bottom: 2px solid $secondarycolorlight;
+        display: block;
+        cursor: pointer;
+        @include mobile {
+            width: 50%;
+            padding-bottom: 35px;
+            text-align: center;
+        }
+        &:after {
+            font-family: 'InformaIcons';
+            content: '\e912';
+            color: $secondarycolorlight;
+            right: 0;
+            height: 30px;
+            width: 30px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 30px;
+            top: -2px;
+            @include mobile {
+                right: 50%;
+                margin-right: -15px;
+                top: 25px;
+            }
+        }
+        &:focus {
+            outline: 0;
+        }
+        span.more {
+            display: block;
+        }
+        span.less {
+            display: none;
+        }
+    }
+    .btn-default{
+       text-align: left;
+       padding-top: 15px;
+       padding-bottom: 15px;
+       border-color: $primary;
+       position: relative;
+       &:after{
+         content: "\e900";
+         font-family: 'InformaIcons';
+         right: 15px;
+         font-weight: bold;
+         position: absolute;
+         color:$primary !important;
+       }
+    }
 
+    .btn-primary{
+       text-align: left;
+       width:100%;
+       padding-top: 15px;
+       padding-bottom: 15px;
+       border-color: $primary;
+       background-color: $primary;
+       color: $white;
+       position: relative;
+       &:after{
+         content: "\e900";
+         font-family: 'InformaIcons';
+         right: 15px;
+         font-weight: bold;
+         position: absolute;
+       }
+       &:hover{
+        background-color: $brand-secondary;
+        border-color: $brand-secondary;
+        color: $white;
+       }
+    }
+    .component {
+        padding: 0;
+        color: $text-color;
+        .component-content {
+            padding: 0;
+            display: block;
+            height: 100%;
+            background-color: transparent;
+        }
+        &.boxed {
+            .component-content {
+                padding: $gutterside;
+                background-color: $btn-default-color;
+            }
+        }
+        a {
+            color: $btn-default-color;
+            &:hover {
+                color: $btn-default-color;
+            }
+        }
+        h1 {
+            font-weight: bold;
+        }
+        h1,
+        h2,
+        h3 {
+            margin-top: 0;
+        }
+        .btn {
+            color: $btn-default-color;
+            &:hover {
+                color: $btn-default-color;
+            }
+        }
+    }
+    ul.slick-dots {
+      li.slick-active{
+        background: $primary !important;
+      }
+    }
+    .card-container {
+        padding-top: $gutterside;
+        .component {
+            padding: 0 $gutterside $gutterside 0;
+        }
+        & > .container {
+            padding-right: 0;
+        }
+    }
     //All common CSS which are themeable can be written here
     .demo-item {
       height: 100px;
       background-color: $secondarycolorlight80;
     }
-
-    //Buttons
-    .btn {
-        min-width: 180px;
-        padding: 15px;
-        position: relative;
-         &:after{
-           content: "\e900";
-           font-family: 'InformaIcons';
-           right: 15px;
-           font-weight: bold;
-           position: absolute;
-           top: 50%;
-           transform: translateY(-50%);
-         }
-        &.btn-primary {
-            color: $white;
-            background-color: $primary;
-            &:hover, &:active {
-                background-color: $secondarycolorlight;
-            }
-            &:after {
-                color: $white;
-            }
-            &.disable {
-                background-color: $grey-color7;
-            }
-        }
-        &.btn-secondary {
-            color: #6a7285; //To Be Changed Based On typo
-            border: 1px solid $primary;
-            &:hover, &:active {
-                border: 1px solid $secondarycolorlight;
-            }
-            &:after {
-                color: $primary;
-            }
-            &.disable {
-                border: 1px solid $grey-color7;
-            }
-        }
-    }
-
-
-    a {
-      color: $secondarycolorlight;
-      text-decoration: underline;
-      &:hover, &:active {
-        color: $secondarycolordark;
-        text-decoration: underline;
-      }
-      &:visited {
-        color: $secondarycolorlight;
-        text-decoration: none;
-      }
-    }
+   
   }
 }
 

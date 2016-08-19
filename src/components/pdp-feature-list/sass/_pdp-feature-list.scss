@@ -70,38 +70,6 @@ section.feature-list-section {
         }
     }
     .btn-showMore {
-        background: none;
-        width: 160px;
-        padding: 10px 0;
-        margin: 0 auto;
-        text-align: left;
-        color: $text-gray-dark;
-        border: none;
-        border-bottom: 2px solid $yellow;
-        display: block;
-        cursor: pointer;
-        @include mobile {
-            width: 50%;
-            padding-bottom: 35px;
-            text-align: center;
-        }
-        &:after {
-            font-family: 'InformaIcons';
-            content: '\e912';
-            color: $brand-secondary;
-            right: 0;
-            height: 30px;
-            width: 30px;
-            text-align: center;
-            border-radius: 14px;
-            font-size: 30px;
-            top: -2px;
-            @include mobile {
-                right: 50%;
-                margin-right: -15px;
-                top: 25px;
-            }
-        }
         &:focus {
             outline: 0;
         }

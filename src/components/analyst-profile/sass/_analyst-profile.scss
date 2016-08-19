@@ -216,17 +216,6 @@
 				@include mobile {
 					margin-bottom: 10px;
 				}
-				&:before {
-					content: "\e914";
-				    font-family: 'InformaIcons';
-				    position: absolute;
-				    left: -32px;
-				    top: 0;
-				    font-size: 16px;
-				    color: $yellow;
-				    @include border-radius(50%);
-				    font-weight: normal;
-				}
 			}
 			&:after {
 				content: '';

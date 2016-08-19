@@ -25,7 +25,8 @@ section {
         @include heading-line-height(36px,30px,30px);
         @include margin-reset;
         &.light {
-            @include family-style(FSMe-Light ,$gray-light-bg);
+            //@include family-style(FSMe-Light ,$gray-light-bg);
+            @include family-style(FSMe-Light ,$light);
         }
     }
 
