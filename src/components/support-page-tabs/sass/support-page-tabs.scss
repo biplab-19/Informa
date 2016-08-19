@@ -8,12 +8,12 @@
   }
 }
 .nav-tabs{
-  border-bottom: none !important;
+  border-bottom: none;
 }
   margin-top: 20px;
 
   ul{
-    //border-bottom: 1px solid #aaa !important;
+    //border-bottom: 1px solid #aaa;
     font-family: FSMe-bold;
     li{
 
@@ -23,7 +23,7 @@
         margin-left: -10px;
     }
     li:hover{
-      background-color: #e7e7e7 !important;
+      background-color: #e7e7e7;
     }
 
   .tabs-box{
@@ -35,20 +35,20 @@
     }
       a{
         color: $black;
-        border-radius: 0px !important;
+        border-radius: 0px;
         border: 1px solid rgba(204, 204, 204,0.3);
         border-bottom: 1px solid #aaa;
         background-color: #e7e7e7;
-        padding: 13px 14px !important;
+        padding: 13px 14px;
         @include mobile {
-          margin-right: 0px !important;
-          padding: 17px 14px !important;
+          margin-right: 0px;
+          padding: 17px 14px;
         }
       }
       li.active a{
-        border: 1px solid #aaa !important;
-        border-bottom: none !important;
-        color: $black !important;
+        border: 1px solid #aaa;
+        border-bottom: none;
+        color: $black;
       }
 
 

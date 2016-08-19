@@ -1,0 +1,33 @@
+section.recommended-tips{
+  padding-top: 40px;
+  background: $grey-color1;
+  color: $grey-color6;
+  .tips-title{
+      color: $grey-color7;
+      padding-bottom: 10px;
+      @include mobile {
+        padding-left: 32px;
+      }
+      @include tablet {
+        padding-left: 32px;
+      }
+      &:before{
+        font-family: "InformaIcons" !important;
+        content: "\e915";
+        position: absolute;
+        color: $grey-color4;
+        top: -34px;
+        font-size: 28px;
+        @include mobile {
+          top: 8px;
+          left: 10px;
+          color: $grey-color2;
+        }
+        @include tablet {
+          top: 8px;
+          left: 10px;
+          color: $grey-color4;
+        }
+      }
+  }
+}

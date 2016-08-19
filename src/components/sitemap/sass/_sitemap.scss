@@ -9,21 +9,21 @@ section#sitemap{
     color: $sitemap-main-gray;
   }
   .main-nav{
-      padding-right: 0px !important;
+      padding-right: 0px;
       @media (max-width: 1023px) and (min-width: 768px){
-          padding-right: 15px !important;
+          padding-right: 15px;
       }
       @include mobile {
-        padding-right: 7.5px !important;
+        padding-right: 7.5px;
       }
   }
   .sub-nav{
-      padding-left: 0px !important;
+      padding-left: 0px;
       @media (max-width: 1023px) and (min-width: 768px){
-          padding-left: 15px !important;
+          padding-left: 15px;
       }
       @include mobile {
-        padding-left: 7.5px !important;
+        padding-left: 7.5px;
       }
   }
     .level-one{
@@ -35,7 +35,7 @@ section#sitemap{
       list-style-type: none;
       padding-left: 0px;
       dl{
-        margin-bottom: 0px !important;
+        margin-bottom: 0px;
       }
       dt{
         background-color: $sitemap-sub-gray;
@@ -48,7 +48,7 @@ section#sitemap{
         border-bottom: 1px solid $sitemap-border;
       }
       dd.sub-sub-nav{
-        background-color: $sitemap-light-gray !important;
+        background-color: $sitemap-light-gray;
         padding: 15px;
         border-bottom: 1px solid $sitemap-border;
       }
