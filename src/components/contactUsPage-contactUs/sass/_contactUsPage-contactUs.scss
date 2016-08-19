@@ -21,7 +21,7 @@
         }
     }
     .nav-tabs {
-        border-bottom: none !important;
+        border-bottom: none;
     }
     .pos {
         position: relative;
@@ -31,14 +31,14 @@
     .nav-tabs > li.active > a:focus,
     .nav-tabs > li.active > a:hover {
         color: #fff;
-        background: none !important;
-        border: none !important;
+        background: none;
+        border: none;
     }
     .nav > li > a {
         position: relative;
         display: block;
         padding: 15px 25px;
-        border: none !important;
+        border: none;
         @include mobile {
             padding: 15px 7px;
         }
