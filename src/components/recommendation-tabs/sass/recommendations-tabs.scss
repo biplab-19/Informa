@@ -57,12 +57,17 @@
 				color: $grey-color1;
 				font-size: 14px;
 				text-align: center;
-				padding-left: 36px;
+				text-decoration: none;
 				span {
-					font-size: 20px;
-				    position: absolute;
-				    left: 65px;
-				    top: 18px;
+					font-size: 14px;
+					font-family: 'FSMe' !important;
+					position: relative;
+					&:before {
+						position: absolute;
+					    left: -30px;
+					    top: -2px;
+						font-size: 20px;
+					}
 				}
 			}
 

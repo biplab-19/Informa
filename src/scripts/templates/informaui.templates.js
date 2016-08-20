@@ -277,8 +277,8 @@ var INFORMA = window.INFORMA || {};
                                                     '<div class="analyst-heading-content">' +
                                                         '<div class="analyst-details">' +
                                                           '<span class="analyst-type">{{Type}}</span>' +
-                                                            '<h2>{{Name}}</h2>' +
-                                                            '<h3>{{Type}}, {{JobTitle}}</h3>' +
+                                                            '<h4>{{Name}}</h4>' +
+                                                            '<h5>{{Type}}, {{JobTitle}}</h5>' +
                                                             '{{#if Country}}'+
                                                             '<p class="location">{{State}}, {{Country}}</p>' +
                                                             '{{/if}}'+
@@ -291,7 +291,7 @@ var INFORMA = window.INFORMA || {};
                                                     '</div>' +
                                                 '</div>' +
                                                 '<div class="analyst-description">' +
-                                                    '<p class="heading"><i>{{FirstName}}</i> {{SpecializationText}}</p>' +
+                                                    '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
                                                     '<ul class="yellow-bullets">' +
                                                         '{{#each Specialization}}' +
                                                             '<li>{{this}}</li>' +
@@ -343,8 +343,8 @@ var INFORMA = window.INFORMA || {};
                                             '<div class="analyst-heading-content">' +
                                                 '<div class="analyst-details">' +
                                                      '<span class="analyst-type">{{Type}}</span>' +
-                                                    '<h2>{{Name}}</h2>' +
-                                                    '<h3>{{Type}}, {{JobTitle}}</h3>' +
+                                                    '<h4>{{Name}}</h4>' +
+                                                    '<h5>{{Type}}, {{JobTitle}}</h5>' +
                                                     '<p class="location">{{State}}, {{Country}}</p>' +
                                                 '</div>' +
                                                 '<div class="analyst-img">' +
@@ -353,7 +353,7 @@ var INFORMA = window.INFORMA || {};
                                             '</div>' +
                                         '</div>' +
                                         '<div class="analyst-description">' +
-                                            '<p class="heading"><i>{{FirstName}}</i> {{SpecializationText}}</p>' +
+                                            '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
                                             '<ul class="yellow-bullets">' +
                                                 '{{#each Specialization}}' +
                                                     '<li>{{this}}</li>' +
@@ -407,7 +407,7 @@ var INFORMA = window.INFORMA || {};
                                             '</div>' +
                                         '</div>' +
                                         '<div class="analyst-description">' +
-                                            '<p class="heading"><i>{{results.FirstName}}</i> {{results.SpecializationText}}</p>' +
+                                            '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>' +
                                             '<ul class="yellow-bullets">' +
                                                 '{{#each results.Specialization}}' +
                                                     '<li>{{this}}</li>' +

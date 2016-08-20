@@ -51,6 +51,11 @@ $desktop-width: 1142px;
         @content;
     }
 }
+@mixin greater-desktop{
+     @media (min-width: 1400px){
+        @content;
+    }
+}
 @mixin heading-font-size($fontdesktop,$fonttablet,$fontmobile){
     @include desktop{
         font-size: $fontdesktop;

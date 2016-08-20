@@ -99,7 +99,6 @@ INFORMA.forms = (function(window, $, namespace) {
         if (url.indexOf('?ResponseStatus=Success') != -1 || url.indexOf('/ResponseStatus/Success') != -1) {
             _formModal.modal({
                 show: true,
-                keyboard: false,
                 backdrop: "static"
             });
         }
@@ -170,9 +169,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     formSubmitResponseModal.addClass('centreAlign');
                     _resetForm(formSubmitResponseModal.find('form'));
                     formSubmitResponseModal.modal({
-                        show: true,
-                        keyboard: false,
-                        backdrop: "static"
+                        show: true
                     })
 
                 }
