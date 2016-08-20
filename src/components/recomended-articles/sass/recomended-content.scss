@@ -15,110 +15,6 @@
 		float: left;
 		width: 100%;
 	}
-	.recomended-wrapper {
-		background-color: $white;
-		padding: 15px;
-		margin-bottom: 15px;
-		position: relative;
-		overflow: auto;
-		.content {
-			margin-bottom: 10px;
-			h4 {
-			    font-size: 30px;
-	    		font-family: FSMe-Bold;
-			}
-			.type {
-			    font-weight: 700;
-			    font-size: 0.9em;
-			    display: block;
-			    span {
-			    	&:after {
-			    		content: ',';
-			    	}
-			    	&:last-child {
-			    		&:after {
-				    		content: '';
-				    	}
-			    	}
-			    }
-			}
-			.publish {
-				strong {
-					&:after {
-						content: '|';
-						margin: 0 5px;
-						font-weight: normal;
-					}
-				}
-			}
-			.category {
-			    display: inline-block;
-		   		padding: 3px 8px;
-	    		font-weight: 400;
-	    		font-size: 0.9em;
-	    		color: #f1f1f3;
-	    		margin-right: 5px;
-	    		margin-bottom: 5px;
-	    		background-color: #444957;
-	    		strong {
-	    			&:after {
-	    				content: ',';
-	    			}
-	    			&:last-child {
-	    				&:after {
-		    				content: '';
-		    			}
-	    			}
-	    		}
-			}
-			.description {
-				margin: 0;
-				padding-bottom: 10px;
-			}
-			.content-type {
-			    font-weight: 700;
-    			font-size: 0.9em;
-			}
-			.video-container {
-                max-height: 156px;
-                overflow: hidden;
-                position: relative;
-                margin-bottom: 20px;
-                img {
-                    width: 100%;
-                    height: auto;
-                    max-width: 100%;
-                    float: none;
-                    display: block;
-                }
-                .play-icon {
-                    color: #fff;
-                    display: block;
-                    font-size: 5em;
-                    height: 30px;
-                    position: absolute;
-                    right: 50%;
-                    top: 25%;
-                    width: 30px;
-                }
-            }
-		}
-		.footer {
-		    padding: 0 15px;
-			.topics {
-				strong {
-					&:after {
-						content: ',';
-					}
-					&:last-child {
-						&:after {
-							content: '';
-						}
-					}
-				}
-			}
-		}
-	}
 	.btn-showMore {
 			    background: none;
 			    min-width: 180px;
@@ -159,6 +55,112 @@
 				    text-align: center;
 			    }
 		}
+}
+.recomended-wrapper {
+	background-color: $white;
+	padding: 15px;
+	margin-bottom: 15px;
+	position: relative;
+	overflow: auto;
+	.content {
+		margin-bottom: 10px;
+		h4 {
+		    font-size: 30px;
+    		font-family: FSMe-Bold;
+		}
+		.type {
+		    font-weight: 700;
+		    font-size: 0.9em;
+		    display: block;
+		    span {
+		    	&:after {
+		    		content: ',';
+		    	}
+		    	&:last-child {
+		    		&:after {
+			    		content: '';
+			    	}
+		    	}
+		    }
+		}
+		.publish {
+			strong {
+				&:after {
+					content: '|';
+					margin: 0 5px;
+					font-weight: normal;
+				}
+			}
+		}
+		.category {
+		    display: inline-block;
+	   		padding: 3px 8px;
+    		font-weight: 400;
+    		font-size: 0.9em;
+    		color: #f1f1f3;
+    		margin-right: 5px;
+    		margin-bottom: 5px;
+    		background-color: $grey-color2;
+    		strong {
+    			&:after {
+    				content: ',';
+    			}
+    			&:last-child {
+    				&:after {
+	    				content: '';
+	    			}
+    			}
+    		}
+		}
+		.description {
+			margin: 0;
+			padding-bottom: 10px;
+		}
+		.content-type {
+		    font-weight: 700;
+			font-size: 0.9em;
+		}
+		.video-container {
+            max-height: 156px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+            img {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+                float: none;
+                display: block;
+            }
+            .play-icon {
+                color: #fff;
+                display: block;
+                font-size: 5em;
+                height: 30px;
+                position: absolute;
+                right: 50%;
+                top: 25%;
+                width: 30px;
+            }
+        }
+	}
+	.topics {
+		strong {
+			display: inline-block;
+			&:after {
+				content: ',';
+				margin-right: 5px;
+			}
+			&:last-child {
+				&:after {
+					content: '';
+				}
+			}
+		}
+	}
+	.footer {
+	    padding: 0 15px;
+	}
 }
 #relevant-products {
 	.search-tile {

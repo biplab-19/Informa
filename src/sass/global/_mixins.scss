@@ -163,6 +163,7 @@ $desktop-width: 1142px;
         border-bottom: 2px solid $secondarycolorlight;
         display: block;
         cursor: pointer;
+        position: relative;
         @include mobile {
             width: 50%;
             padding-bottom: 35px;
@@ -171,6 +172,7 @@ $desktop-width: 1142px;
         &:after {
             font-family: 'InformaIcons';
             content: '\e912';
+            position: absolute;
             color: $secondarycolorlight;
             right: 0;
             height: 30px;
@@ -213,9 +215,9 @@ $desktop-width: 1142px;
     }
     .btn-container{
       .btn-default{
-         border: 2px solid $secondarycolorlight; 
+         border: 2px solid $primary; 
          &:after {
-            color: $secondarycolorlight;
+            color: $primary;
          }
       }
     }
