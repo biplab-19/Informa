@@ -196,6 +196,7 @@ $desktop-width: 1142px;
         }
     }
     .btn-default{
+        min-width: 230px;
        text-align: left;
        padding-top: 15px;
        padding-bottom: 15px;
@@ -207,10 +208,17 @@ $desktop-width: 1142px;
          right: 15px;
          font-weight: bold;
          position: absolute;
-         color:$primary !important;
+         color:$primary;
        }
     }
-
+    .btn-container{
+      .btn-default{
+         border: 2px solid $secondarycolorlight; 
+         &:after {
+            color: $secondarycolorlight;
+         }
+      }
+    }
     .btn-primary{
        text-align: left;
        width:100%;
