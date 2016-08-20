@@ -2,26 +2,6 @@
     INFORMA.Utils = (function() {
         function _utils() {
 
-                DoFlip = function(obj, className) {
-                    var Container = obj.parents('.tile');
-                    if (className === "flip") {
-                        Container.addClass('flip');
-                    } else {
-                        Container.removeClass('flip');
-                    }
-                },
-                this.flipTile = function(Object) {
-                    var TileFront = Object.find('.front .triangle'),
-                        TileBack = Object.find('.back .triangle');
-
-                    TileFront.on("click", function() {
-                        DoFlip($(this), 'flip');
-                    });
-
-                    TileBack.on("click", function() {
-                        DoFlip($(this), 'unflip');
-                    });
-                },
                 this.getUniqueArray = function(arrayList) {
                     var uniqueArray = [];
                     $.each(arrayList, function(i, el) {
