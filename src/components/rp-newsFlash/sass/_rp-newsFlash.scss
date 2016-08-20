@@ -53,6 +53,9 @@ section.newsFlash{
     content: "\e906";
   }
   .news-carousel {
+    @include desktop{
+      height: 146px;
+    }
     z-index: 1;
      .slick-list {
          border-right: none;

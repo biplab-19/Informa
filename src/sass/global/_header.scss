@@ -253,7 +253,7 @@ header {
             }
 
             .logo-img-big{
-                width: 300px;
+                min-width: 268px;
                 height: 45px;
                 position: absolute;
                 top: 3px;
@@ -884,6 +884,9 @@ header {
                     background-color: $orange;
                     border: none;
                     width: 100%;
+                    &:after{
+                        color: $light !important;
+                    }
                 }
             }
         }
