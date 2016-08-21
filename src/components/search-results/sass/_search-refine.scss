@@ -1,13 +1,108 @@
-.refine-container{
-  width: 30%;
-  float: left;
-  background-color: $white;
-  @include tablet{
-    width: 100%;
-    float: none;
-  }
-  @include mobile{
-    width: 100%;
-    float: none;
-  }
+.refine-container {
+    width: 25%;
+    float: left;
+    padding: 35px 20px 0 100px;
+    @include tablet {
+        width: 100%;
+        float: none;
+        padding: 35px 15px 0;
+    }
+    @include mobile {
+        width: 100%;
+        float: none;
+        padding: 35px 15px 0;
+    }
+    .heading {
+        font-family: FSMe-Light;
+        font-size: 16px;
+    }
+    .panel-group {
+        margin-bottom: 0;
+    }
+    .panel {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid $grey-color5;
+        box-shadow: none;
+        margin-top: 0;
+        @include mobile {
+            padding: 0;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        @include tablet {
+            padding: 0;
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+        .panel-collapse {
+            .panel-body {
+                border: none;
+                padding: 0;
+                ul {
+                    padding: 10px 0;
+                    margin: 0;
+                    li {
+                        list-style-type: none;
+                        margin-bottom: 10px;
+                        label {
+                            color: #6a7285;
+                            font-size: 12px;
+                        }
+                    }
+                }
+                .show-more {
+                    color: $orange;
+                    display: inline-block;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .panel-heading {
+            position: relative;
+            background-color: transparent;
+            padding: 15px 0;
+            .custom-checkbox {
+                top: 4px;
+                span {
+                    text-indent: -9999px;
+                    position: absolute;
+                    left: 0;
+                }
+            }
+            h3 {
+                font-size: 16px;
+                font-family: FSMe-Light;
+                line-height: 22px;
+            }
+            a {
+                color: $grey-color2;
+                text-decoration: none;
+                &:before {
+                    font-weight: normal;
+                    text-align: center;
+                    width: 25px;
+                    height: 25px;
+                    display: block;
+                    border-radius: 100%;
+                    content: "\e913";
+                    color: $grey-color4;
+                    font-size: 23px;
+                    font-family: "InformaIcons" !important;
+                    display: inline;
+                    position: absolute;
+                    right: 0px;
+                }
+                &.collapsed {
+                    &:before {
+                        content: "\e912";
+                        color: $grey-color4;
+                        display: inline;
+                    }
+                }
+            }
+        }
+    }
 }
