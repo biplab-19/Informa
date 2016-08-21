@@ -21,7 +21,21 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         Utils = INFORMA.Utils,
         SearchType = '',
         // methods
-        init , CreateSearchResult , ParseSearchData;
+        init , CreateSearchResult , ParseSearchData, ToggleView;
+        ToggleView  = function(){
+            var toggleButtons = $(".search-container .view-mode li");
+            toggleButtons.on("click", function(e){
+                e.preventDefault();
+                var currentView = $(this).data("view"),
+                    parentEle = $(this).parents(".search-container").eq(0);
+                if(currentView){
+                    toggleButtons.removeClass("selected");
+                    $(this).addClass("selected");
+                    parentEle.removeClass("tileView listView");
+                    parentEle.addClass(currentView);
+                }
+            });
+        },
         CreateSearchResult = function(DataObject) {
 
             for (var key in DataObject) {
@@ -81,7 +95,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
         },
         init = function() {
-
+            ToggleView();
         };
      return {
         init: init,
