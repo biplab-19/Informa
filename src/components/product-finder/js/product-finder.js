@@ -83,7 +83,6 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitHandler = function(btn, SearchType) {
             btn.off().on("click", function(e) {
                 e.preventDefault();
-                SearchTabHidden.val("allresults");
                 var FieldArray = ProductFinderSection.find("form").serializeArray(),
                     GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
                 INFORMA.Spinner.Show($("body"));
@@ -91,8 +90,6 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
                 //Reset Pagination size to default value
                 INFORMA.SearchResults.ResetPageSize();
-                ResultContainer.removeClass('ShowLoadBtn');
-                ProductFinderSection.find(".filter-fields").val(null);
             });
         },
         BindAjaxHandler = function() {
