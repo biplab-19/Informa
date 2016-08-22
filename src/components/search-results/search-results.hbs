@@ -1,219 +1,216 @@
-<section class="search-results-content search-container">
-<input type="hidden" class="search-hidden" value="Issue Index" />
-<div class="search-tabs">
-    <div class="container clearfix">
-        <ul class="tab-list">
-            <li class="selected"><a href="#allresults">All results</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#others">Others</a></li>
-        </ul>
-        <div class="selectMenu">
-          <select class="chosen-select">
-            <option value="#allresults">All results</option>
-            <option value="#products">Products</option>
-            <option value="#resources">Resources</option>
-            <option value="#events">Events</option>
-            <option value="#others">Others</option>
-          </select>
+<section class="search-container" data-desktop="3" data-tablet="2" data-mobile="1">
+    <div class="container">
+        <div class="view-toggle clearfix">
+            <div class="results-found">
+                <p class="results"><strong>28</strong> Products Found</p>
+                <ul class="items-found">
+                    <li><strong>8</strong> Resources</li>
+                    <li><strong>8</strong> Case Studies</li>
+                    <li><strong>12</strong> Products</li>
+                </ul>
+            </div>
+            <div class="view-by">
+                <label>View By:</label>
+                <select class="chosen-select" name="sector" style="display: none;">
+                    <option value="All">All</option>
+                    <option value="latest">latest</option>
+                </select>
+            </div>
+            <ul class="view-mode hidden-xs">
+                <li data-view="listView" class="selected">
+                    <a href="#" class="icon-list-view"></a>
+                </li>
+                <li data-view="tileView">
+                    <a href="#" class="icon-list-view"></a>
+                </li>
+            </ul>
         </div>
-    </div>
-</div>
-<div class="search-filter">
-	<div class="container">
-		<p class="filter-text">You've searched for:</p>
-		<div class="filter-list">
-            <div class="Sectors">
-                <p>Sectors:</p>
-                <ul data-filterid="Sectors">
-                    <li>Insight News 
-                        <a data-value="guid001" data-sector="" class="remove" href="#">x</a>
-                    </li>
-                    <li>Pricing Information
-                        <a data-value="guid001" data-sector="" class="remove" href="#">x</a>
-                    </li>
-                    <li>Trade flows
-                    <a data-value="guid001" data-sector="" class="remove" href="#">x</a>
-                    </li>
-                    <li>Feed
-                        <a data-value="guid001" data-sector="" class="remove" href="#">x</a>
-                    </li>
-                </ul>
-                <a data-filterid="Sectors" href="#" class="remove-all">Clear all x</a>
-            </div>
-		</div>
-	</div>
-</div>
-<div class="refine-list form">
-	<div class="container">
-		<p class="header">
-			<a href="#" class="refine">Refine results <span class="icon-chevron-down"></span></a>
-			<a href="#" class="close-filter"><span class="icon-close"></span></a>
-		</p>
-	</div>
-	<div class="container slider">
-		<div class="refine-result container clearfix">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <p><strong>Sectors</strong></p>
-                <ul data-filterid="Sectors">
-                    <li><span class="custom-checkbox">
-                        <label for="Insight News" class="label">
-                            <input type="checkbox" name="Insight News" id="Insight News" value="guid001" data-value="guid001">
-                            <span>Insight News</span>
-                        </label>
-                        </span>
-                    </li>
-                    <li><span class="custom-checkbox">
-                        <label for="Pricing Information" class="label"><input type="checkbox" name="Pricing Information" id="Pricing Information" value="guid001" data-value="guid001">
-                        <span>Pricing Information</span>
-                        </label>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="custom-checkbox">
-                        <label for="Trade flows" class="label">
-                            <input type="checkbox" name="Trade flows" id="Trade flows" value="guid001" data-value="guid001">
-                            <span>Trade flows</span>
-                        </label>
-                        </span>
-                    </li>
-                    <li>
-                    <span class="custom-checkbox">
-                        <label for="Feed" class="label">
-                        <input type="checkbox" name="Feed" id="Feed" value="guid001" data-value="guid001">
-                        <span>Feed</span>
-                        </label>
-                    </span>
-                    </li>
-                </ul>
-            </div>
-		</div>
-		<div class="refine-button container">
-			<a href="#" class="btn btn-default">Refine</a>
-		</div>
-	</div>
-</div>
-<div class="container" id="results">
-    <div class="no-results">
-        <h2>No Search Result Found! Search Again</h2>
-    </div>
-	<div class="search-results flip" id="products" style="display:block!important">
-        <h2 class="count"><strong></strong> Products found</h2>
-            <div class="row">
-                <!--- comment start -->
-                <div class="col-xs-12 col-sm-6 col-md-4 search-tile">
-                    <div class="tile un-pinned">
-                        <div class="front">
-                            <div class="triangle">
-                                <span class="icon-arrow-right"></span>
-                            </div>
-                            <div class="header"><img alt="" src="Static/images/video-thumb-sample.jpg"></div>
-                            <div class="content">
-                                <span class="tag">Commodities</span>
-                                <a href='#'><h2>Informa Economics IEG</h2></a>
-                                <ul>
-                                    <li>Content categorisation</li>
-                                    <li>Exclusive coverage</li>
-                                    <li>Exclusive coverages</li>
-                                    <li>Issue Index</li>
-                                </ul>
-                            </div>
-                            <div class="footer">
-                                <div class="footer-content clearfix">
-                                    <div class="col-xs-6"><a class="btn btn-default free-trial" href="">Free Trial</a></div>
-                                    <div class="col-xs-6"><a class="btn btn-default orange more" href="http://informa/en/sitecore/content/Informa Shop Window/Agri/home/products/sector-page/Product1">More</a></div>
-                                </div>
+        <div class="product-results">
+            <h2>From: <strong>Biomedtracker</strong></h2>
+            <div class="row list">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="list-items products">
+                        <div class="heading">
+                            <div class="heading-content">
+                                <p class="category">
+                                    {{!-- {{#each SectorType}} --}}
+                                    <strong>Sector Name</strong>
+                                    {{!-- {{/each}} --}}
+                                </p>
+                                <h4>Biomedtracker <span class="pharma-icon brand-icon"></span></h4>
                             </div>
                         </div>
-                        <div class="back">
-                            <div class="header">
-                                <img alt="" src="Static/images/video-thumb-sample.jpg">
-                            </div>
-                            <div class="content">
-                                <span class="tag">Commodities</span>
-                                <a href='#'><h2>Informa Economics IEG</h2></a>
-                                <p>World leader since 1977 providing agricultural and commodity analysis, market research, evaluation and consulting.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at ex venenatis, aliquam eros non, bibendum velit. Sed nec eros eget arcu pretium pulvinar id ut augue.</p>
-                                <ul class="gray-bullets">
-                                    <li>Animal Health</li>
-                                    <li>Biofuels</li>
-                                    <li>Biotechnolgy markets</li>
-                                    <li>Crops</li>
-                                </ul>
-                            </div>
-                            <div class="footer">
-                            </div>
-                            <div class="triangle">
-                                <span class="icon-arrow-right"></span>
+                        <div class="body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <ul>
+                                <li class="icon-tick">Helps identify market trends</li>
+                                <li class="icon-tick">Reduces risk by evaluating volatility</li>
+                                <li class="icon-tick">Saves time and money</li>
+                            </ul>
+                            <div class="button-links">
+                                <div class="button-links-wrap row">
+                                    <div class="col-xs-6">
+                                        <a href="#" class="btn btn-default">Details</a>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="#" class="btn btn-primary">Free Trial</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Comment end -->
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="list-items recomended-wrapper" data-fetch="{{Id}}">
+                        <div class="recomend-content">
+                            <div class="content">
+                                {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
+                                    <p class="category">
+                                        {{!-- {{#each SectorType}} --}}
+                                        <strong>Sector Name</strong>
+                                        {{!-- {{/each}} --}}
+                                    </p>
+                                {{!-- {{/compare}} --}}
+                                {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
+                                    <span class="type">
+                                        {{!-- {{#each BrandType}} --}}
+                                        <span>Biomedtracker</span>
+                                        {{!-- {{/each}} --}}
+                                    </span>
+                                {{!-- {{/compare}} --}}
+                                <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                {{!-- {{#compare Description null operator="!="}} --}}
+                                    <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
+                                {{!-- {{/compare}} --}}
+                                {{!-- {{#compare Video null operator="!="}} --}}
+                                    {{!-- <div class="video-container">
+                                        <a href="{{Video.Url}}" class="video-link" tabindex="0">
+                                            <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
+                                            <span class="play-icon icon-play"></span>
+                                        </a>
+                                    </div> --}}
+                                {{!-- {{/compare}} --}}
+                            </div>
+                            {{!-- {{#compare Topic.length 0 operator=">"}} --}}
+                                <p class="topics">Topics:
+                                    {{!-- {{#each Topic}} --}}
+                                        <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                    {{!-- {{/each}} --}}
+                                </p>
+                            {{!-- {{/compare}} --}}
+                        </div>
+                        <div class="footer">
+                            <div class="btn-container text-right">
+                                <a href="#" class="btn btn-default">Full Article</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="list-items recomended-wrapper">
+                        <div class="recomend-content">
+                            <div class="content">
+                                {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
+                                    <p class="category">
+                                        {{!-- {{#each SectorType}} --}}
+                                        <strong>Sector Name</strong>
+                                        {{!-- {{/each}} --}}
+                                    </p>
+                                {{!-- {{/compare}} --}}
+                                {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
+                                    <span class="type">
+                                        {{!-- {{#each BrandType}} --}}
+                                        <span>Biomedtracker</span>
+                                        {{!-- {{/each}} --}}
+                                    </span>
+                                {{!-- {{/compare}} --}}
+                                <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                {{!-- {{#compare Description null operator="!="}} --}}
+                                    <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
+                                {{!-- {{/compare}} --}}
+                                {{!-- {{#compare Video null operator="!="}} --}}
+                                    {{!-- <div class="video-container">
+                                        <a href="{{Video.Url}}" class="video-link" tabindex="0">
+                                            <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
+                                            <span class="play-icon icon-play"></span>
+                                        </a>
+                                    </div> --}}
+                                {{!-- {{/compare}} --}}
+                            </div>
+                            {{!-- {{#compare Topic.length 0 operator=">"}} --}}
+                                <p class="topics">Topics:
+                                    {{!-- {{#each Topic}} --}}
+                                        <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                    {{!-- {{/each}} --}}
+                                </p>
+                            {{!-- {{/compare}} --}}
+                        </div>
+                        <div class="footer">
+                            <div class="btn-container text-right">
+                                <a href="#" class="btn btn-default">Full Article</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="meet-anlyst-section">
+                        <div class="anlyst-heading">
+                            <div class="analyst-heading-content">
+                                <div class="analyst-details">
+                                    <span class="analyst-type">Analyst</span>
+                                    <h4>Jim Wiesemeyer</h4>
+                                    <h3>Washington DC Insider</h3>
+                                    <p class="location">Washington DC, United States</p>
+                                </div>
+                                <div class="analyst-img">
+                                    <img src="cms-images/analyst-1.png" alt="cms-images/analyst-1.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analyst-description">
+                            <p class="heading">What does Jim specialise in?</p>
+                            <ul class="yellow-bullets">
+                                
+                                    <li>Current Farm Policy Situation</li>
+                                
+                                    <li>Understanding Agriculture's Power</li>
+                                
+                                    <li>Crop Products</li>
+                                
+                            </ul>
+                            <p class="heading">+10 years experience</p>
+                            <ul class="track-analyst clearfix">
+                                
+                                    <li><a href="#">Food News</a></li>
+                                
+                                    <li><a href="#">Issue Monitor</a></li>
+                                
+                                    <li><a href="#">International Sugar Journal</a></li>
+                                
+                                    <li><a href="#">Sugar Journal</a></li>
+                                
+                                    <li><a href="#">Cottonseed Digest</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="analyst-footer">
+                            <div class="analyst-footer-content clearfix">
+                                <ul class="nav-links">
+                                    <li><a href="#" class="icon-twitter"></a></li>
+                                    <li><a href="#" class="icon-linked-in"></a></li>
+                                    <li><a href="#" class="icon-facebook"></a></li>
+                                </ul>
+                                <a href="#" class="btn btn-default pull-right">Full Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="btn-container">
-                <a href="#products" class="open-tab">
-                    <span class="more">Open Tabs</span>
-                </a>
-                <a href="#products" class="btn-ShowMore">
-                    <span class="more">More Products</span>
-                </a>
+            <div class="text-center">
+                <a href="#" class="btn-showMore">Show More</a>
             </div>
-    </div>
-    <div class="search-results" id="resources">
-           <p class="count"><strong></strong> Resources found</p>
-           	<div class="row article-list">
-           	</div>
-           	<div class="btn-container">
-                <a href="#resources" class="open-tab">
-                    <span class="more">Open Tabs</span>
-                </a>
-                <a href="#resources" class="btn-ShowMore">
-                    <span class="more">More Products</span>
-                </a>
-            </div>
-    </div>
-    <div class="search-results" id="events">
-       <h2 class="count"><strong></strong> Events found</h2>
-        <div class="row analyst-profile-events">
         </div>
-        <div class="btn-container">
-            <a href="#events" class="open-tab">
-                <span class="more">Open Tabs</span>
-            </a>
-            <a href="#events" class="btn-ShowMore">
-                <span class="more">More Products</span>
-            </a>
-        </div>
     </div>
-    <div class="search-results analyst-views" id="analysts">
-           <h2 class="count"><strong></strong> Analyst found</h2>
-            <div class="row">
-
-            </div>
-            <div class="btn-container">
-                <a href="#others" class="open-tab">
-                    <span class="more">Open Tabs</span>
-                </a>
-                <a href="#others" class="btn-ShowMore">
-                    <span class="more">More results</span>
-                </a>
-            </div>
-    </div>
-    <div class="search-results others" id="others">
-           <h2 class="others">Other Results</h2>
-            <div class="row">
-
-            </div>
-            <div class="btn-container">
-                <a href="#others" class="open-tab">
-                    <span class="more">Open Tabs</span>
-                </a>
-                <a href="#others" class="btn-ShowMore">
-                    <span class="more">More results</span>
-                </a>
-            </div>
-    </div>
-    </div>
-</div>
 </section>

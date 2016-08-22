@@ -35,199 +35,6 @@
 				display: none;
 			}
 		}
-		.meet-anlyst-section {
-			overflow: hidden;
-			margin-bottom: 10px;
-			background-color: $gray-lighter-bg;
-			margin-top: 20px;
-			.anlyst-heading {
-				padding: 20px;
-				background-color: $yellow;
-				position: relative;
-				height: 170px;
-				-ms-transform: skewY(-4deg);
-				-webkit-transform: skewY(-4deg);
-				transform: skewY(-4deg);
-				position: relative;
-				&:after {
-					content: '';
-					width: 100%;
-					height: 100%;
-					background-color: $yellow;
-					position: absolute;
-					left: 0;
-					top: -97%;
-				}
-				.analyst-heading-content {
-					-ms-transform: skewY(4deg);
-					-webkit-transform: skewY(4deg);
-					transform: skewY(4deg);
-				}
-				.analyst-img {
-					width: 75px;
-					height: 75px;
-					position: relative;
-					overflow: hidden;
-					@include border-radius(50%);
-					float: left;
-					top: 10px;
-					img {
-						width: 100%;
-						height: 100%;
-						border: 2px solid $white;
-						@include border-radius(50%);
-					}
-				}
-				.analyst-details {
-					.analyst-type {
-						color: $white;
-						background-color: $gray-box;
-						padding: 5px 10px;
-						display: inline-block;
-						margin-bottom: 10px;
-					}
-					width: calc(100% - 85px);
-					float: left;
-					margin-right: 10px;
-					h4 {
-						font-size: 22px;
-						margin: 0 0 5px 0;
-						font-weight: normal;
-						font-family: 'FSMe-Bold';
-					}
-					h3 {
-						color: #7f828c;
-						font-size: 16px;
-						margin-top: 0;
-					}
-					.location {
-						padding-left: 20px;
-						position: relative;
-						margin-top: 15px;
-						&:before {
-							content: '\e918';
-							font-family: 'InformaIcons';
-							position: absolute;
-							left: 0;
-							font-size: 20px;
-							top: -5px;
-						}
-					}
-				}
-			}
-			.analyst-description {
-				padding: 20px 20px 40px;
-				background-color: $gray-lighter-bg;
-				.heading {
-					color: $text-gray;
-					font-weight: bold;
-				}
-			}
-			.track-analyst {
-				list-style-type: none;
-				margin-top: 10px;
-				position: relative;
-				&:before {
-					content: '\e919';
-					position: absolute;
-					left: 0;
-					top: -4px;
-					font-family: 'InformaIcons';
-					color: #4d525f;
-					font-size: 40px;
-					font-weight: normal;
-				}
-				li {
-					float: left;
-					&:after {
-						content: '/';
-						color: #444957;
-						padding: 0 7px;
-						font-weight: bold;
-					}
-					&:last-child {
-						&:after {
-							content: '';
-						}
-					}
-					a {
-						color: $text-gray;
-					}
-				}
-			}
-			.analyst-footer {
-				padding: 15px;
-				background-color: $gray-draker-bg;
-				position: relative;
-				-ms-transform: skewY(-2deg);
-				-webkit-transform: skewY(-2deg);
-				transform: skewY(-2deg);
-				position: relative;
-				&:after {
-					content: '';
-					width: 100%;
-					height: 100%;
-					background-color: $gray-draker-bg;
-					position: absolute;
-					left: 0;
-					top: 90%;
-				}
-				.analyst-footer-content {
-					margin-top: 10px;
-					-ms-transform: skewY(2deg);
-					-webkit-transform: skewY(2deg);
-					transform: skewY(2deg);
-				}
-				.nav-links {
-					list-style-type: none;
-					padding-left: 0;
-					float: left;
-					margin-top: 10px;
-					li {
-						@include border-radius(50%);
-						display: inline-block;
-						font-size: 22px;
-						background-color: #6a7287;
-						margin-right: 2px;
-						width: 30px;
-						height: 30px;
-						text-align: center;
-						position: relative;
-						a {
-							vertical-align: middle;
-							font-size: 16px;
-							color: $white;
-							position: absolute;
-							top: 50%;
-							transform: translateY(-50%) translateX(-50%);
-							left: 50%;
-							&:active,
-							&:hover {
-								outline: 0;
-								border: 0;
-								text-decoration: initial;
-							}
-						}
-						&:last-child {
-							margin-right: 0;
-						}
-					}
-				}
-				.full-profile {
-					float: right;
-					font-size: 16px;
-					color: $yellow;
-				}
-				.btn {
-					@include mobile {
-						width: 60%;
-					}
-					@include tablet {
-						width: 60%;
-					}
-				}
-			}
-		}
 		&.Analyst,
 		&.analyst {
 			.anlyst-heading {
@@ -289,4 +96,203 @@
 	  .content{
 			padding-top: 20px;
 		}
+}
+.meet-anlyst-section {
+	overflow: hidden;
+	margin-bottom: 10px;
+	background-color: $gray-lighter-bg;
+	margin-top: 20px;
+	.anlyst-heading {
+		padding: 20px;
+		background-color: $yellow;
+		position: relative;
+		height: 170px;
+		-ms-transform: skewY(-4deg);
+		-webkit-transform: skewY(-4deg);
+		transform: skewY(-4deg);
+		position: relative;
+		&:after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			background-color: $yellow;
+			position: absolute;
+			left: 0;
+			top: -97%;
+		}
+		.analyst-heading-content {
+			-ms-transform: skewY(4deg);
+			-webkit-transform: skewY(4deg);
+			transform: skewY(4deg);
+		}
+		.analyst-img {
+			width: 75px;
+			height: 75px;
+			position: relative;
+			overflow: hidden;
+			@include border-radius(50%);
+			float: left;
+			top: 10px;
+			img {
+				width: 100%;
+				height: 100%;
+				border: 2px solid $white;
+				@include border-radius(50%);
+			}
+		}
+		.analyst-details {
+			.analyst-type {
+				display: inline-block;
+			    padding: 3px 8px;
+			    font-weight: 400;
+			    font-size: 0.9em;
+			    color: #f1f1f3;
+			    margin-right: 5px;
+			    margin-bottom: 5px;
+			    background-color: #6a7285;
+			}
+			width: calc(100% - 85px);
+			float: left;
+			margin-right: 10px;
+			h4 {
+				font-size: 22px;
+				margin: 0 0 5px 0;
+				font-weight: normal;
+				font-family: 'FSMe-Bold';
+			}
+			h3 {
+				color: #7f828c;
+				font-size: 16px;
+				margin-top: 0;
+				line-height: 15px;
+			}
+			.location {
+				padding-left: 20px;
+				position: relative;
+				margin-top: 15px;
+				&:before {
+					content: '\e918';
+					font-family: 'InformaIcons';
+					position: absolute;
+					left: 0;
+					font-size: 20px;
+					top: -5px;
+				}
+			}
+		}
+	}
+	.analyst-description {
+		padding: 20px 20px 40px;
+		background-color: $gray-lighter-bg;
+		.heading {
+			color: $text-gray;
+			font-weight: bold;
+		}
+	}
+	.track-analyst {
+		list-style-type: none;
+		margin-top: 10px;
+		position: relative;
+		&:before {
+			content: '\e919';
+			position: absolute;
+			left: 0;
+			top: -4px;
+			font-family: 'InformaIcons';
+			color: #4d525f;
+			font-size: 40px;
+			font-weight: normal;
+		}
+		li {
+			float: left;
+			&:after {
+				content: '/';
+				color: #444957;
+				padding: 0 7px;
+				font-weight: bold;
+			}
+			&:last-child {
+				&:after {
+					content: '';
+				}
+			}
+			a {
+				color: $text-gray;
+			}
+		}
+	}
+	.analyst-footer {
+		padding: 15px;
+		background-color: $gray-draker-bg;
+		position: relative;
+		-ms-transform: skewY(-2deg);
+		-webkit-transform: skewY(-2deg);
+		transform: skewY(-2deg);
+		position: relative;
+		&:after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			background-color: $gray-draker-bg;
+			position: absolute;
+			left: 0;
+			top: 90%;
+		}
+		.analyst-footer-content {
+			margin-top: 10px;
+			-ms-transform: skewY(2deg);
+			-webkit-transform: skewY(2deg);
+			transform: skewY(2deg);
+		}
+		.nav-links {
+			list-style-type: none;
+			padding-left: 0;
+			float: left;
+			margin-top: 10px;
+			li {
+				@include border-radius(50%);
+				display: inline-block;
+				font-size: 22px;
+				background-color: #6a7287;
+				margin-right: 2px;
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				position: relative;
+				a {
+					vertical-align: middle;
+					font-size: 16px;
+					color: $white;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%) translateX(-50%);
+					left: 50%;
+					&:active,
+					&:hover {
+						outline: 0;
+						border: 0;
+						text-decoration: initial;
+					}
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+		.full-profile {
+			float: right;
+			font-size: 16px;
+			color: $yellow;
+		}
+		.btn {
+			min-width: 50%;
+			width: auto;
+			@include mobile {
+				width: 60%;
+			}
+			@include tablet {
+				width: 60%;
+			}
+		}
+	}
 }
