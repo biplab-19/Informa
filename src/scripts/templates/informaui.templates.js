@@ -481,7 +481,37 @@ var INFORMA = window.INFORMA || {};
                                 '</div>'+
                             '</div>'+
                         '</div>'+
-                    '</div>'
+                    '</div>',
+            'Products': '<div class="list-items products">'+
+                            '<div class="heading">'+
+                                '<div class="heading-content">'+
+                                    '<p class="category">'+
+                                        '{{#each Sector}}'+
+                                            '<strong>{{this}}</strong>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                                    '<h4>{{Title}}</h4>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="body">'+
+                                '<p>{{description}}</p>'+
+                                '<ul>'+
+                                    '{{#each InformationType}}'+
+                                    '<li class="icon-tick">{{this}}</li>'+
+                                    '{{/each}}'+
+                                '</ul>'+
+                                '<div class="button-links">'+
+                                    '<div class="button-links-wrap row">'+
+                                        '<div class="col-xs-6">'+
+                                            '<a href="#" class="btn btn-default">{{DetailsLink}}</a>'+
+                                        '</div>'+
+                                        '<div class="col-xs-6">'+
+                                            '<a href="#" class="btn btn-primary">{{CTALink}}</a>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'
 
 }
 }(this, jQuery, 'INFORMA'));
