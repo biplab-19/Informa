@@ -70,10 +70,20 @@
   <script> 
         $INFORMA = jQuery.noConflict(); 
   </script>
-
 </head>
-
-<body class="agri-theme">
+<body>
+  <script> 
+        var theme= "agri-theme";
+        if(window.location.href.indexOf("agri") > -1) {
+              theme="agri-theme";
+              jQuery('body').addClass(theme);
+        }else if(window.location.href.indexOf("pharma") > -1) {
+              theme="pharma-theme";
+              jQuery('body').addClass(theme);
+        }else {
+              jQuery('body').addClass(theme);
+        }
+  </script>
 
 <!--- The glorious header component with impeccable animations and awesome color shades making its revelation from the hands of greatest site developer ever. Thy may not be a magnum opus among his creations but will remain as the glorious component he created
 in the empire of Sapient. Har Har Mahadev !! --->
@@ -222,20 +232,33 @@ in the empire of Sapient. Har Har Mahadev !! --->
                         <ul class="search-options">
                             <li>
                                 <span class="custom-radio">
-                                    <label for="ProductSearch" class="label">
-                                          <input type="radio" class="custom-radio" name="ProductFinder" id="ProductSearch" checked="checked" data-show="sector-search" value="productsearch" />
-                                          <span>Search for a product</span>
-                                </label>
+                                    <label for="SiteSearch" class="label">
+                                        <input type="radio" class="custom-radio" checked="checked" name="ProductFinder" id="SiteSearch" data-show="site-search" value="sitesearch" />
+                                        <span>Search site</span>
+                                    </label>
                                 </span>
                                 <span class="custom-radio">
-                              <label for="SiteSearch" class="label">
-                                    <input type="radio" class="custom-radio" name="ProductFinder" id="SiteSearch" data-show="site-search" value="sitesearch" />
-                                    <span>Search site</span>
-                                </label>
+                                    <label for="ProductSearch" class="label">
+                                              <input type="radio" class="custom-radio" name="ProductFinder" id="ProductSearch" data-show="sector-search" value="productsearch" />
+                                              <span>Find Product &amp; services</span>
+                                    </label>
                                 </span>
                             </li>
                             <li>
                                 <a href="#" class="close-finder"><span class="icon-close"></span></a>
+                            </li>
+                        </ul>
+                        <ul class="site-search searchToggle">
+                            <li class="menu">
+                                <div class="textbox">
+                                    <label for="searchField">
+                                        <input type="text" placeholder="Enter keyword" id="searchField" name="searchtext" />
+                                        <input type="hidden" name="searchtab" class="search-tab" value="allresults" />
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="button disabled">
+                                <button type="submit" class="btn btn-primary" data-submit="sector-search">Go</button>
                             </li>
                         </ul>
                         <ul class="sector-search searchToggle">
@@ -250,7 +273,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                                 </div>
                             </li>
                             <li class="menu disabled">
-                                <label for="sub-sector-list" class="label-text">Sub Sector:</label>
+                                <label for="sub-sector-list" class="label-text">Needs:</label>
                                 <div class="custom-multiselect">
                                     <select id="sub-sector-list" name="subsectors" class="sub-sector-list" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
                                         <option value="subsector1">Diary</option>
@@ -259,21 +282,8 @@ in the empire of Sapient. Har Har Mahadev !! --->
                                     </select>
                                 </div>
                             </li>
-                            <li class="menu button disabled">
-                                <button type="submit" class="btn btn-default" data-submit="sector-search">Go</button>
-                            </li>
-                        </ul>
-                        <ul class="site-search searchToggle">
-                            <li class="menu">
-                                <div class="textbox">
-                                    <label for="searchField">
-                                        <input type="text" placeholder="Please Enter Search Text" id="searchField" name="searchtext" />
-                                        <input type="hidden" name="searchtab" class="search-tab" value="allresults" />
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="button disabled">
-                                <button type="submit" class="btn btn-default" data-submit="sector-search">Go</button>
+                            <li class="menu button">
+                                <button type="submit" class="btn btn-primary" data-submit="sector-search">Go</button>
                             </li>
                         </ul>
                     </fieldset>
@@ -295,222 +305,6 @@ in the empire of Sapient. Har Har Mahadev !! --->
             <a href="javascript:void(0)" class=""><span class="icon icon-close"></span></a>
         </div>
     </div>
-    </div>
-</div>
-
-<div id="sub-nav">
-    <div class="container">
-        <div class="subnav-container clearfix" id="sectorsproducts">
-
-            
-                <div class="content heading">
-                    <p class="top">
-                        <a href="#" class="head">Sectors</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Products</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Commodities</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">F.O Litch</a></li>
-                        
-                            <li><a href="#">The public Ledger</a></li>
-                        
-                            <li><a href="#">Dairy Markets</a></li>
-                        
-                            <li><a href="#">Food News</a></li>
-                        
-                            <li><a href="#">Informa Economics IEG</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Seed &amp; Crop Protection</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Agrow</a></li>
-                        
-                            <li><a href="#">Philips McDougal</a></li>
-                        
-                            <li><a href="#">Informa Economics IEG</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Fertilisers</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Ferticon</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Animal Pharmaceticlues</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Animal Pharm</a></li>
-                        
-                            <li><a href="#">Informa Economics IEG</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Policy &amp; Regulations</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Agra Europe</a></li>
-                        
-                            <li><a href="#">Food Chemical Newss</a></li>
-                        
-                            <li><a href="#">EU Food Low</a></li>
-                        
-                            <li><a href="#">CEAS</a></li>
-                        
-                            <li><a href="#">IEG Issue Monitor</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-
-            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-        </div>
-
-        <div class="subnav-container clearfix" id="services" data-nav="services">
-
-            
-            <div class="subnav-heading">
-                <a href="#">Learn about all services</a>
-                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-            </div>
-            <div class="subnav-items">
-                <ul class="labels">
-                    
-                        <li><a href="#">Insight and news</a></li>
-                    
-                        <li><a href="#">Forecast and analysis</a></li>
-                    
-                        <li><a href="#">Consultancy services</a></li>
-                    
-                        <li><a href="#">Data services</a></li>
-                    
-                        <li><a href="#">Training &amp; events</a></li>
-                    
-                        <li><a href="#">Advertising</a></li>
-                    
-                </ul>
-            </div>
-            
-
-        </div>
-        <div class="subnav-container clearfix" id="freecontent" data-nav="free-content">
-
-            
-            <div class="subnav-heading">
-                <a href="#">All free content</a>
-                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-            </div>
-            <div class="subnav-items">
-                <ul class="labels">
-                    
-                        <li><a href="#">News &amp; Analysis</a></li>
-                    
-                        <li><a href="#">Reports</a></li>
-                    
-                        <li><a href="#">Infographics</a></li>
-                    
-                        <li><a href="#">Training material</a></li>
-                    
-                        <li><a href="#">Data</a></li>
-                    
-                        <li><a href="#">publications</a></li>
-                    
-                        <li><a href="#">Webinars</a></li>
-                    
-                        <li><a href="#">Videos</a></li>
-                    
-                </ul>
-            </div>
-            
-
-        </div>
-        <div class="subnav-container clearfix" id="aboutus" data-nav="about-us">
-
-            
-            <div class="subnav-heading">
-                <a href="#">About Agribusiness Intelligence</a>
-                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-            </div>
-            <div class="subnav-items">
-                <ul class="labels">
-                    
-                        <li><a href="#">Meet Our Specialist</a></li>
-                    
-                        <li><a href="#">Case Studies</a></li>
-                    
-                </ul>
-            </div>
-            
-
-        </div>
-        <div class="subnav-container clearfix" id="support" data-nav="support">
-
-            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-            
-            <div class="subnav-items no-heading">
-
-                <ul class="labels">
-                    
-                        <li><a href="#">New Customer Support</a></li>
-                    
-                        <li><a href="#">Existing Customer Support</a></li>
-                    
-                        <li><a href="#">Product Training</a></li>
-                    
-                        <li><a href="#">Contact Us</a></li>
-                    
-                </ul>
-            </div>
-            
-
-        </div>
     </div>
 </div>
 
@@ -770,6 +564,8 @@ in the empire of Sapient. Har Har Mahadev !! --->
 <script src="Static/js/components/recomendation-tabs.js"></script>
 <script src="Static/js/components/recomended-content.js"></script>
 <script src="Static/js/components/relevant-products.js"></script>
+<script src="Static/js/components/recom-products.js"></script>
+
 
 <script src="Static/js/components/Welcome-description.js"></script>
 

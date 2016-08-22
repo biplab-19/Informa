@@ -70,10 +70,20 @@
   <script> 
         $INFORMA = jQuery.noConflict(); 
   </script>
-
 </head>
-
-<body class="agri-theme">
+<body>
+  <script> 
+        var theme= "agri-theme";
+        if(window.location.href.indexOf("agri") > -1) {
+              theme="agri-theme";
+              jQuery('body').addClass(theme);
+        }else if(window.location.href.indexOf("pharma") > -1) {
+              theme="pharma-theme";
+              jQuery('body').addClass(theme);
+        }else {
+              jQuery('body').addClass(theme);
+        }
+  </script>
 
 <!--- The glorious header component with impeccable animations and awesome color shades making its revelation from the hands of greatest site developer ever. Thy may not be a magnum opus among his creations but will remain as the glorious component he created
 in the empire of Sapient. Har Har Mahadev !! --->
@@ -222,20 +232,33 @@ in the empire of Sapient. Har Har Mahadev !! --->
                         <ul class="search-options">
                             <li>
                                 <span class="custom-radio">
-                                    <label for="ProductSearch" class="label">
-                                          <input type="radio" class="custom-radio" name="ProductFinder" id="ProductSearch" checked="checked" data-show="sector-search" value="productsearch" />
-                                          <span>Search for a product</span>
-                                </label>
+                                    <label for="SiteSearch" class="label">
+                                        <input type="radio" class="custom-radio" checked="checked" name="ProductFinder" id="SiteSearch" data-show="site-search" value="sitesearch" />
+                                        <span>Search site</span>
+                                    </label>
                                 </span>
                                 <span class="custom-radio">
-                              <label for="SiteSearch" class="label">
-                                    <input type="radio" class="custom-radio" name="ProductFinder" id="SiteSearch" data-show="site-search" value="sitesearch" />
-                                    <span>Search site</span>
-                                </label>
+                                    <label for="ProductSearch" class="label">
+                                              <input type="radio" class="custom-radio" name="ProductFinder" id="ProductSearch" data-show="sector-search" value="productsearch" />
+                                              <span>Find Product &amp; services</span>
+                                    </label>
                                 </span>
                             </li>
                             <li>
                                 <a href="#" class="close-finder"><span class="icon-close"></span></a>
+                            </li>
+                        </ul>
+                        <ul class="site-search searchToggle">
+                            <li class="menu">
+                                <div class="textbox">
+                                    <label for="searchField">
+                                        <input type="text" placeholder="Enter keyword" id="searchField" name="searchtext" />
+                                        <input type="hidden" name="searchtab" class="search-tab" value="allresults" />
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="button disabled">
+                                <button type="submit" class="btn btn-primary" data-submit="sector-search">Go</button>
                             </li>
                         </ul>
                         <ul class="sector-search searchToggle">
@@ -250,7 +273,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                                 </div>
                             </li>
                             <li class="menu disabled">
-                                <label for="sub-sector-list" class="label-text">Sub Sector:</label>
+                                <label for="sub-sector-list" class="label-text">Needs:</label>
                                 <div class="custom-multiselect">
                                     <select id="sub-sector-list" name="subsectors" class="sub-sector-list" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
                                         <option value="subsector1">Diary</option>
@@ -259,21 +282,8 @@ in the empire of Sapient. Har Har Mahadev !! --->
                                     </select>
                                 </div>
                             </li>
-                            <li class="menu button disabled">
-                                <button type="submit" class="btn btn-default" data-submit="sector-search">Go</button>
-                            </li>
-                        </ul>
-                        <ul class="site-search searchToggle">
-                            <li class="menu">
-                                <div class="textbox">
-                                    <label for="searchField">
-                                        <input type="text" placeholder="Please Enter Search Text" id="searchField" name="searchtext" />
-                                        <input type="hidden" name="searchtab" class="search-tab" value="allresults" />
-                                    </label>
-                                </div>
-                            </li>
-                            <li class="button disabled">
-                                <button type="submit" class="btn btn-default" data-submit="sector-search">Go</button>
+                            <li class="menu button">
+                                <button type="submit" class="btn btn-primary" data-submit="sector-search">Go</button>
                             </li>
                         </ul>
                     </fieldset>
@@ -298,277 +308,604 @@ in the empire of Sapient. Har Har Mahadev !! --->
     </div>
 </div>
 
-<div id="sub-nav">
-    <div class="container">
-        <div class="subnav-container clearfix" id="sectorsproducts">
-
-            
-                <div class="content heading">
-                    <p class="top">
-                        <a href="#" class="head">Sectors</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Products</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Commodities</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">F.O Litch</a></li>
-                        
-                            <li><a href="#">The public Ledger</a></li>
-                        
-                            <li><a href="#">Dairy Markets</a></li>
-                        
-                            <li><a href="#">Food News</a></li>
-                        
-                            <li><a href="#">Informa Economics IEG</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Seed &amp; Crop Protection</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Agrow</a></li>
-                        
-                            <li><a href="#">Philips McDougal</a></li>
-                        
-                            <li><a href="#">Informa Economics IEG</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Fertilisers</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Ferticon</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Animal Pharmaceticlues</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Animal Pharm</a></li>
-                        
-                            <li><a href="#">Informa Economics IEG</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-                <div class="content ">
-                    <p class="top">
-                        <a href="#" class="head">Policy &amp; Regulations</a>
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Jump straight into products if you already know what product fits"></a>
-                    </p>
-
-                    <ul class="labels">
-                        
-                            <li><a href="#">Agra Europe</a></li>
-                        
-                            <li><a href="#">Food Chemical Newss</a></li>
-                        
-                            <li><a href="#">EU Food Low</a></li>
-                        
-                            <li><a href="#">CEAS</a></li>
-                        
-                            <li><a href="#">IEG Issue Monitor</a></li>
-                        
-                        <a href="#" class="circle" data-toggle="popover" data-placement="right" data-trigger="focus" data-content="Unsure what product you need? Explore our sectors to identify products"></a>
-                    </ul>
-                </div>
-            
-
-            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-        </div>
-
-        <div class="subnav-container clearfix" id="services" data-nav="services">
-
-            
-            <div class="subnav-heading">
-                <a href="#">Learn about all services</a>
-                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-            </div>
-            <div class="subnav-items">
-                <ul class="labels">
-                    
-                        <li><a href="#">Insight and news</a></li>
-                    
-                        <li><a href="#">Forecast and analysis</a></li>
-                    
-                        <li><a href="#">Consultancy services</a></li>
-                    
-                        <li><a href="#">Data services</a></li>
-                    
-                        <li><a href="#">Training &amp; events</a></li>
-                    
-                        <li><a href="#">Advertising</a></li>
-                    
-                </ul>
-            </div>
-            
-
-        </div>
-        <div class="subnav-container clearfix" id="freecontent" data-nav="free-content">
-
-            
-            <div class="subnav-heading">
-                <a href="#">All free content</a>
-                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-            </div>
-            <div class="subnav-items">
-                <ul class="labels">
-                    
-                        <li><a href="#">News &amp; Analysis</a></li>
-                    
-                        <li><a href="#">Reports</a></li>
-                    
-                        <li><a href="#">Infographics</a></li>
-                    
-                        <li><a href="#">Training material</a></li>
-                    
-                        <li><a href="#">Data</a></li>
-                    
-                        <li><a href="#">publications</a></li>
-                    
-                        <li><a href="#">Webinars</a></li>
-                    
-                        <li><a href="#">Videos</a></li>
-                    
-                </ul>
-            </div>
-            
-
-        </div>
-        <div class="subnav-container clearfix" id="aboutus" data-nav="about-us">
-
-            
-            <div class="subnav-heading">
-                <a href="#">About Agribusiness Intelligence</a>
-                <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-            </div>
-            <div class="subnav-items">
-                <ul class="labels">
-                    
-                        <li><a href="#">Meet Our Specialist</a></li>
-                    
-                        <li><a href="#">Case Studies</a></li>
-                    
-                </ul>
-            </div>
-            
-
-        </div>
-        <div class="subnav-container clearfix" id="support" data-nav="support">
-
-            <div class="subnav-close"><a href="#"><span class="icon-close"></span></a></div>
-            
-            <div class="subnav-items no-heading">
-
-                <ul class="labels">
-                    
-                        <li><a href="#">New Customer Support</a></li>
-                    
-                        <li><a href="#">Existing Customer Support</a></li>
-                    
-                        <li><a href="#">Product Training</a></li>
-                    
-                        <li><a href="#">Contact Us</a></li>
-                    
-                </ul>
-            </div>
-            
-
-        </div>
-    </div>
-</div>
-
 </header>
 
 
-   <div class="product-finder-section">
-	<section class="product-finder-results search-container">
-<input type="hidden" class="sector-list" value="sector1,sector2,sector3" />
-<input type="hidden" class="sub-sector-list" value="" />
-<div class="search-filter">
-	<div class="container">
-		<p class="filter-text">You've searched for:</p>
-		<div class="filter-list">
-		</div>
-	</div>
-</div>
-<div class="refine-list form">
-	<div class="container">
-		<p class="header">
-			<a href="#" class="refine">Refine results <span class="icon-chevron-down"></span></a>
-			<a href="#" class="close-filter"><span class="icon-close"></span></a>
-		</p>
-	</div>
-	<div class="container slider">
-		<div class="refine-result container clearfix">
-
-		</div>
-		<div class="refine-button container">
-			<a href="#" class="btn btn-default">Refine</a>
-		</div>
-	</div>
-</div>
-<div class="container" id="results"> 
-	<div class="search-results flip" id="products">
-        <p class="count"><strong></strong> Products found</p>
-            <div class="row">
-            </div>
-            <div class="btn-container">
-                <a href="javascript:void(0)" class="btn-ShowMore">
-                    <span class="more">More Products</span>
-                    <span class="less">Less products</span>
-                </a>
-            </div>
-    </div>
-    <div class="search-results" id="resources">
-           <p class="count"><strong></strong> Resources found</p>
-           	<div class="row article-list">
-           	</div>
-           	<div class="btn-container">
-                <a href="javascript:void(0)" class="btn-ShowMore">
-                    <span class="more">More Products</span>
-                    <span class="less">Less products</span>
-                </a>
-            </div>
-    </div>
-</div>
+   <div class="product-finder-results clearfix">
+	<section class="refine-container">
+      <form class="form">
+        <p class="heading">Refine results</p>
+     <div class="panel-group" id="refine-list">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="custom-checkbox">
+                <label for="selectAll1" class="label">
+                    <input type="checkbox" name="selectAll1" id="selectAll1" value="">
+                    <span>Select All</span>
+                </label>
+            </span>
+            <a data-toggle="collapse" data-parent="#preference" href="#collapse1">
+            Commodities <strong></strong></a>
+          </h3>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in">
+          <div class="panel-body">
+              <ul>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="grains" class="label">
+                        <input type="checkbox" name="grains" id="grains" value="guid001">
+                        <span>Grains</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="softs" class="label">
+                        <input type="checkbox" name="softs" id="softs" value="guid002">
+                        <span>Softs</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="livestock" class="label">
+                        <input type="checkbox" name="livestock" id="livestock" value="guid003">
+                        <span>Livestock</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="commodities" class="label">
+                        <input type="checkbox" name="commodities" id="commodities" value="guid004">
+                        <span>Commodities</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="agri" class="label">
+                        <input type="checkbox" name="agri" id="agri" value="guid005">
+                        <span>Agri</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="games" class="label">
+                        <input type="checkbox" name="games" id="games" value="guid006">
+                        <span>Games</span>
+                    </label>
+                </span>
+                </li>
+              </ul>
+              <a href="#" class="show-more">Show more...</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="custom-checkbox">
+                <label for="selectAll2" class="label">
+                    <input type="checkbox" name="selectAll2" id="selectAll2" value="">
+                    <span>Select All</span>
+                </label>
+            </span>
+            <a data-toggle="collapse" data-parent="#preference" href="#collapse2" class="collapsed">
+            Policy and Regulation</strong></a>
+          </h3>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="pharma" class="label">
+                        <input type="checkbox" name="pharma" id="pharma" value="guid007">
+                        <span>Pharma</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="article" class="label">
+                        <input type="checkbox" name="article" id="article" value="guid008">
+                        <span>Article</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="sectors" class="label">
+                        <input type="checkbox" name="sectors" id="sectors" value="guid009">
+                        <span>Sectors</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="commodities1" class="label">
+                        <input type="checkbox" name="commodities1" id="commodities1" value="guid010">
+                        <span>Commodities</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="agri1" class="label">
+                        <input type="checkbox" name="agri1" id="agri1" value="guid011">
+                        <span>Agri</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="games1" class="label">
+                        <input type="checkbox" name="games1" id="games1" value="guid012">
+                        <span>Games</span>
+                    </label>
+                </span>
+                </li>
+              </ul>
+              <a href="#" class="show-more">Show more...</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <a data-toggle="collapse" data-parent="#preference" href="#collapse3" class="collapsed">
+            Seed & Crop Protections</a>
+          </h3>
+        </div>
+        <div id="collapse3" class="panel-collapse collapse">
+          <div class="panel-body">
+          	<ul>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="pharma" class="label">
+                        <input type="checkbox" name="pharma" id="pharma" value="guid007">
+                        <span>Pharma</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="article" class="label">
+                        <input type="checkbox" name="article" id="article" value="guid008">
+                        <span>Article</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="sectors" class="label">
+                        <input type="checkbox" name="sectors" id="sectors" value="guid009">
+                        <span>Sectors</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="commodities1" class="label">
+                        <input type="checkbox" name="commodities1" id="commodities1" value="guid010">
+                        <span>Commodities</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="agri1" class="label">
+                        <input type="checkbox" name="agri1" id="agri1" value="guid011">
+                        <span>Agri</span>
+                    </label>
+                </span>
+                </li>
+                <li>
+                <span class="custom-checkbox">
+                    <label for="games1" class="label">
+                        <input type="checkbox" name="games1" id="games1" value="guid012">
+                        <span>Games</span>
+                    </label>
+                </span>
+                </li>
+              </ul>
+              <a href="#" class="show-more">Show more...</a>
+          </div>
+        </div>
 </section>
+	<section class="search-container"  data-desktop="3" data-tablet="2" data-mobile="1">
+    <div class="container">
+            <div class="view-toggle clearfix">
+                <p class="results"><strong>28</strong> Products Found</p>
+                <ul class="view-mode hidden-xs">
+                    <li data-view="listView" class="selected">
+                        <a href="#" class="icon-list-view"></a>
+                    </li>
+                    <li data-view="tileView">
+                        <a href="#" class="icon-list-view"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-results">
+                <h2>From: <strong>Biomedtracker</strong></h2>
+                <div class="row list">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="list-items products">
+                            <div class="heading">
+                                <div class="heading-content">
+                                    <p class="category">
+                                        
+                                        <strong>Sector Name</strong>
+                                        
+                                    </p>
+                                    <h4>Biomedtracker <span class="pharma-icon brand-icon"></span></h4>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <ul>
+                                    <li class="icon-tick">Helps identify market trends</li>
+                                    <li class="icon-tick">Reduces risk by evaluating volatility</li>
+                                    <li class="icon-tick">Saves time and money</li>
+                                </ul>
+                                <div class="button-links">
+                                    <div class="button-links-wrap row">
+                                        <div class="col-xs-6">
+                                            <a href="#" class="btn btn-default">Details</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a href="#" class="btn btn-primary">Free Trial</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="list-items recomended-wrapper" data-fetch="">
+                            <div class="recomend-content">
+                                <div class="content">
+                                    
+                                        <p class="category">
+                                            
+                                            <strong>Sector Name</strong>
+                                            
+                                        </p>
+                                    
+                                    
+                                        <span class="type">
+                                            
+                                            <span>Biomedtracker</span>
+                                            
+                                        </span>
+                                    
+                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                    
+                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
+                                    
+                                    
+                                        
+                                    
+                                </div>
+                                
+                                    <p class="topics">Topics:
+                                        
+                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                        
+                                    </p>
+                                
+                            </div>
+                            <div class="footer">
+                                <div class="btn-container text-right">
+                                    <a href="#" class="btn btn-default">Full Article</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="list-items recomended-wrapper" data-fetch="">
+                            <div class="recomend-content">
+                                <div class="content">
+                                    
+                                        <p class="category">
+                                            
+                                            <strong>Sector Name</strong>
+                                            
+                                        </p>
+                                    
+                                    
+                                        <span class="type">
+                                            
+                                            <span>Biomedtracker</span>
+                                            
+                                        </span>
+                                    
+                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                    
+                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
+                                    
+                                    
+                                        
+                                    
+                                </div>
+                                
+                                    <p class="topics">Topics:
+                                        
+                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                        
+                                    </p>
+                                
+                            </div>
+                            <div class="footer">
+                                <div class="btn-container text-right">
+                                    <a href="#" class="btn btn-default">Full Article</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn-showMore">Show More</a>
+                </div>
+            </div>
+            <div class="product-results" data-desktop="3" data-tablet="2" data-mobile="1">
+                <h2>From: <strong>Biomedtracker</strong></h2>
+                <div class="row list">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="list-items products">
+                            <div class="heading">
+                                <div class="heading-content">
+                                    <p class="category">
+                                        
+                                        <strong>Sector Name</strong>
+                                        
+                                    </p>
+                                    <h4>Biomedtracker <span class="pharma-icon brand-icon"></span></h4>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <ul>
+                                    <li class="icon-tick">Helps identify market trends</li>
+                                    <li class="icon-tick">Reduces risk by evaluating volatility</li>
+                                    <li class="icon-tick">Saves time and money</li>
+                                </ul>
+                                <div class="button-links">
+                                    <div class="button-links-wrap row">
+                                        <div class="col-xs-6">
+                                            <a href="#" class="btn btn-default">Details</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a href="#" class="btn btn-primary">Free Trial</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="list-items recomended-wrapper" data-fetch="">
+                            <div class="recomend-content">
+                                <div class="content">
+                                    
+                                        <p class="category">
+                                            
+                                            <strong>Sector Name</strong>
+                                            
+                                        </p>
+                                    
+                                    
+                                        <span class="type">
+                                            
+                                            <span>Biomedtracker</span>
+                                            
+                                        </span>
+                                    
+                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                    
+                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
+                                    
+                                    
+                                        
+                                    
+                                </div>
+                                
+                                    <p class="topics">Topics:
+                                        
+                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                        
+                                    </p>
+                                
+                            </div>
+                            <div class="footer">
+                                <div class="btn-container text-right">
+                                    <a href="#" class="btn btn-default">Full Article</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="list-items recomended-wrapper" data-fetch="">
+                            <div class="recomend-content">
+                                <div class="content">
+                                    
+                                        <p class="category">
+                                            
+                                            <strong>Sector Name</strong>
+                                            
+                                        </p>
+                                    
+                                    
+                                        <span class="type">
+                                            
+                                            <span>Biomedtracker</span>
+                                            
+                                        </span>
+                                    
+                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                    
+                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
+                                    
+                                    
+                                        
+                                    
+                                </div>
+                                
+                                    <p class="topics">Topics:
+                                        
+                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                        
+                                    </p>
+                                
+                            </div>
+                            <div class="footer">
+                                <div class="btn-container text-right">
+                                    <a href="#" class="btn btn-default">Full Article</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn-showMore">Show More</a>
+                </div>
+            </div>
+            <div class="product-results" data-desktop="3" data-tablet="2" data-mobile="1">
+                <h2>From: <strong>Biomedtracker</strong></h2>
+                <div class="row list">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="list-items products">
+                            <div class="heading">
+                                <div class="heading-content">
+                                    <p class="category">
+                                        
+                                        <strong>Sector Name</strong>
+                                        
+                                    </p>
+                                    <h4>Biomedtracker <span class="pharma-icon brand-icon"></span></h4>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <ul>
+                                    <li class="icon-tick">Helps identify market trends</li>
+                                    <li class="icon-tick">Reduces risk by evaluating volatility</li>
+                                    <li class="icon-tick">Saves time and money</li>
+                                </ul>
+                                <div class="button-links">
+                                    <div class="button-links-wrap row">
+                                        <div class="col-xs-6">
+                                            <a href="#" class="btn btn-default">Details</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a href="#" class="btn btn-primary">Free Trial</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="list-items recomended-wrapper" data-fetch="">
+                            <div class="recomend-content">
+                                <div class="content">
+                                    
+                                        <p class="category">
+                                            
+                                            <strong>Sector Name</strong>
+                                            
+                                        </p>
+                                    
+                                    
+                                        <span class="type">
+                                            
+                                            <span>Biomedtracker</span>
+                                            
+                                        </span>
+                                    
+                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                    
+                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
+                                    
+                                    
+                                        
+                                    
+                                </div>
+                                
+                                    <p class="topics">Topics:
+                                        
+                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                        
+                                    </p>
+                                
+                            </div>
+                            <div class="footer">
+                                <div class="btn-container text-right">
+                                    <a href="#" class="btn btn-default">Full Article</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="list-items recomended-wrapper" data-fetch="">
+                            <div class="recomend-content">
+                                <div class="content">
+                                    
+                                        <p class="category">
+                                            
+                                            <strong>Sector Name</strong>
+                                            
+                                        </p>
+                                    
+                                    
+                                        <span class="type">
+                                            
+                                            <span>Biomedtracker</span>
+                                            
+                                        </span>
+                                    
+                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                    
+                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
+                                    
+                                    
+                                        
+                                    
+                                </div>
+                                
+                                    <p class="topics">Topics:
+                                        
+                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                        
+                                    </p>
+                                
+                            </div>
+                            <div class="footer">
+                                <div class="btn-container text-right">
+                                    <a href="#" class="btn btn-default">Full Article</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn-showMore">Show More</a>
+                </div>
+            </div>
+    </div>
+</section>
+
+
 </div>
 
 
@@ -768,6 +1105,8 @@ in the empire of Sapient. Har Har Mahadev !! --->
 <script src="Static/js/components/recomendation-tabs.js"></script>
 <script src="Static/js/components/recomended-content.js"></script>
 <script src="Static/js/components/relevant-products.js"></script>
+<script src="Static/js/components/recom-products.js"></script>
+
 
 <script src="Static/js/components/Welcome-description.js"></script>
 
