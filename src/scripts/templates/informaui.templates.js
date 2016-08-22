@@ -583,6 +583,9 @@ var INFORMA = window.INFORMA || {};
                                 '{{/compare}}'+
                             '</div>'+
                             '<div class="footer">'+
+                                '{{#compare results.Price null operator="!="}}'+
+                                        '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
+                                '{{/compare}}'+
                                 '<div class="btn-container text-right">'+
                                     '<a href="{{results.PageURL}}" class="btn btn-default">{{results.LinkText}}</a>'+
                                 '</div>'+

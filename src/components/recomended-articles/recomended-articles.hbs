@@ -7,33 +7,33 @@
 						<div class="recomended-wrapper" data-fetch="{{Id}}">
 							<div class="recomend-content">
 								<div class="content">
-									{{#compare SectorType.length 0 operator=">"}}
+									{{!--{{#compare SectorType.length 0 operator=">"}}--}}
 										<p class="category">
 											{{#each SectorType}}
 					                      	<strong>{{this}}</strong>
 											{{/each}}
 					                    </p>
-					                {{/compare}}
-					                {{#compare BrandType.length 0 operator=">"}}
+					                {{!--{{/compare}}--}}
+					                {{!--{{#compare BrandType.length 0 operator=">"}}--}}
 					                    <span class="type">
 					                    	{{#each BrandType}}
 					                    	<span>{{this}}</span>
 					                    	{{/each}}
 					                    </span>
-				                    {{/compare}}
+				                    {{!--{{/compare}}--}}
 				                    <h4>{{Title}}</h4>
 				                    <p class="publish">By: <strong>{{Profile}}</strong>{{PublicationDate}}</p>
-			                    	{{#compare Description null operator="!="}}
+			                    	{{!--{{#compare Description null operator="!="}}--}}
 			                    		<p class="description">{{Description}}</p>
-			                    	{{/compare}}
-			                    	{{#compare Video null operator="!="}}
+			                    	{{!--{{/compare}}--}}
+			                    	{{!--{{#compare Video null operator="!="}}--}}
 				                    	<div class="video-container">
 			                                <a href="{{Video.Url}}" class="video-link" tabindex="0">
 			                                    <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
 			                                    <span class="play-icon icon-play"></span>
 			                                </a>
 			                            </div>
-			                        {{/compare}}
+			                       {{!-- {{/compare}} --}}
 								</div>
 								{{!-- {{#compare Topic.length 0 operator=">"}} --}}
 									<p class="topics">Topics: <strong>A</strong><strong>A</strong><strong>A</strong><strong>A</strong>
@@ -44,10 +44,11 @@
 								{{!-- {{/compare}} --}}
 							</div>
 							<div class="footer">
+								<div class="recomended-currency"><strong>50</strong></div>
 								<div class="btn-container text-right">
 									<a href="#" class="btn btn-default download">{{Linktext}}</a>
 								</div>
-							</div>
+							</div>	
 						</div>
 					</div>
 				{{/each}}
@@ -72,8 +73,11 @@
 						</div>
 						<div class="footer">
 							<p class="topics">Topics: <strong>Lorem</strong> <strong>Lorem</strong></p>
-							<div class="btn-container text-right">
-								<a href="#" class="btn btn-default download">Full Article</a>
+							<div>
+								<div><span></span><span>50</span></div>
+								<div class="btn-container text-right">
+									<a href="#" class="btn btn-default download">Full Article</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -102,8 +106,11 @@
 						</div>
 						<div class="footer">
 							<p class="topics">Topics: <strong>Lorem</strong> <strong>Lorem</strong></p>
-							<div class="btn-container text-right">
-								<a href="#" class="btn btn-default download">Full Article</a>
+							<div>
+								<div><span></span><span>50</span></div>
+								<div class="btn-container text-right">
+									<a href="#" class="btn btn-default download">Full Article</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -132,9 +139,13 @@
 						</div>
 						<div class="footer">
 							<p class="topics">Topics: <strong>Lorem</strong> <strong>Lorem</strong></p>
-							<div class="btn-container text-right">
-								<a href="#" class="btn btn-default download">Full Article</a>
+							<div>
+								<div><span></span><span>50</span></div>
+								<div class="btn-container text-right">
+									<a href="#" class="btn btn-default download">Full Article</a>
+								</div>
 							</div>
+							
 						</div>
 					</div>
 				</div> --}}

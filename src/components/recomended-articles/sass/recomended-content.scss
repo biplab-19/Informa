@@ -1,7 +1,16 @@
 .recomended-content {
+	.recomended-currency{
+		position: absolute;
+		bottom: 26px;
+		left: 15px;
+		display: -webkit-box;
+		&:before{
+			content:"\20AC";
+			font-weight: bold;
+		}
+	}
 	.btn.btn-default {
-		padding-right: 40px;
-		border-color: $orange;
+		min-width:auto;
 		&:after {
 			color: $orange;
 		}
@@ -146,7 +155,7 @@
 	}
 	.topics {
 		strong {
-			display: inline-block;
+			//display: inline-block;
 			&:after {
 				content: ',';
 				margin-right: 5px;
