@@ -2,9 +2,136 @@
 	.product-refine-results {
 		width: 345px;
 		float: left;
+		@include mobile {
+			width: 100%;
+		}
+		@include tablet {
+			width: 100%;
+		}
 	}
-	.product-finder-results {
+	.search-container {
 		width: calc(100% - 345px);
 		float: left;
+		@include mobile {
+			width: 100%;
+		}
+		@include tablet {
+			width: 100%;
+		}
+	}
+}
+.product-refine-results {
+	padding: 20px 0;
+	@include mobile {
+		padding: 20px;
+	}
+	@include tablet {
+		padding: 20px;
+	}
+	.refine-heading {
+		cursor: pointer;
+		font-size: 16px;
+		position: relative;
+		&:after {
+			@include not-desktop {
+				content: '\e912';
+				font-family: "InformaIcons";
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				right: 0;
+				font-size: 30px;
+			}
+		}
+		&.open {
+			&:after {
+				@include not-desktop {
+					content: '\e906';
+					font-size: 25px;
+				}
+			}
+		}
+	}
+	.accordian-container {
+		@include not-desktop {
+			display: none;
+		    position: absolute;
+		    z-index: 9999;
+		    width: calc(100% + 40px);
+		    left: -20px;
+		    padding: 15px 35px 15px 15px;
+		    background-color: $grey-color7;
+		}
+	}
+	.refine-wrapper {
+		width: 265px;
+		float: right;
+		padding-right: 15px;
+		.clear-all {
+			&:after {
+				content: 'x';
+				margin-left: 10px;
+			}
+		}
+		@include not-desktop {
+			width: 100%;
+			float: none;
+			position: relative;
+		}
+		ul {
+			padding-left: 25px;	
+		}
+		.refine-accordian {
+			border-bottom: 1px solid $grey-color6;
+			margin-top: 15px;
+			.title {
+				display: block;
+				color: $font-color;
+				padding: 10px 0;
+				position: relative;
+				&:after {
+					content: '\e912';
+					font-family: "InformaIcons";
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					right: 0;
+					font-size: 20px;
+				}
+			}
+			.content {
+				display: block;
+				-webkit-transition: all 1s; /* Safari */
+    			transition: all 1s;
+    			overflow: hidden;
+    			label {
+    				font-weight: normal;
+    			}
+    			.see-all {
+    				display: inline-block;
+    				margin-bottom: 10px;
+    			}
+			}
+			&.open {
+				.title {
+					&:after {
+						content: '\e913';
+					}
+				}
+			}
+		}
+	}
+	.checkbox {
+		position: relative;
+		&:before {
+		    background: #fff none repeat scroll 0 0;
+		    content: "";
+		    height: 16px;
+		    position: absolute;
+		    top: 2px;
+		    left: -22px;
+		    width: 16px;
+		    z-index: 2;
+		}
 	}
 }

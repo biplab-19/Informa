@@ -1,3 +1,26 @@
 <section class="product-refine-results">
-	Refine Results
+	<div class="refine-wrapper">
+		<p class="refine-heading">Refine Results</p>
+		<a href="#" class="clear-all visible-md">Clear All</a>
+		<div class="accordian-container">
+			{{#each FacetSections}}
+				<div class="refine-accordian open">
+					<a href="#" class="title">{{FacetTitle}}</a>
+					<div class="content">
+						<ul>
+							{{#each FacetItem}}
+								<li>
+									<label class="checkbox" for="{{Value}}"><input id="{{Value}}" disabled="{{Disabled}}" type="checkbox" value="{{Value}}"> {{Text}}</label>
+								</li>
+							{{/each}}
+						</ul>
+						<a href="#" class="see-all">See All Results</a>
+					</div>
+				</div>
+			{{/each}}
+			<div class="hidden-md">
+				<a href="#" class="clear-all">Clear All</a>
+			</div>
+		</div>
+	</div>
 </section>

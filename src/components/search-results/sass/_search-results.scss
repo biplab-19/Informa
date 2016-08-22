@@ -1,4 +1,4 @@
-.product-finder-results {
+.product-finder-section {
     .search-container {
         padding: 20px 95px 20px 15px;
         background-color: $white;
@@ -15,7 +15,14 @@
             padding: 20px 0;
         }
         .container {
-            width: 100%;
+            width: 900px;
+            float: left;
+            @include mobile {
+                width: 100%;
+            }
+            @include tablet {
+                width: 100%;
+            }
         }
         .view-toggle {
             padding: 20px 0;
@@ -66,6 +73,9 @@
         padding: 10px 0 15px 0;
         font-size: 30px;
     }
+    .btn-showMore {
+        margin-bottom: 25px;
+    }
     .list-items {
         background-color: #f0f1f3;
         margin-bottom: 15px;
@@ -86,7 +96,7 @@
             .heading {
                 background-color: $grey-color1;
                 @include rotate(-5deg);
-                padding-bottom: 15px;
+                padding-bottom: 20px;
                 margin-left: -10px;
                 .heading-content {
                     padding: 15px;
@@ -96,9 +106,18 @@
                 }
             }
             .body {
-                padding: 15px;
+                padding: 30px 15px;
                 li {
                     list-style-type: none;
+                    padding-bottom: 20px;
+                    position: relative;
+                    font-family: 'FSMe-Bold' !important;
+                    &:before {
+                        position: absolute;
+                        left: -28px;
+                        font-size: 20px;
+                        top: -5px;
+                    }
                 }
             }
             .button-links {
@@ -110,15 +129,18 @@
             .button-links {
                 background-color: $grey-color6;
                 @include rotate(-5deg);
-                padding-top: 15px;
+                padding-top: 20px;
                 margin: 10px 0 -20px -10px;
                 width: 118%;
                 padding-right: 8%;
+                @include mobile {
+                    margin: 10px 0 -30px -20px;
+                }
                 .button-links-wrap {
-                    padding: 15px;
                     background-color: $grey-color6;
                     @include rotate(5deg);
                     margin-top: -5px;
+                    padding: 15px 10px;
                 }
             }
             .category {
@@ -140,6 +162,100 @@
                         }
                     }
                 }
+            }
+        }
+        &.recomended-wrapper {
+            .footer {
+                padding: 0;
+                .btn-container {
+                    text-align: right;
+                    .btn {
+                        width: 150px;
+                        min-width: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+.listView {
+    .product-results {
+        h2 {
+            border-bottom: 1px solid $grey-color6;
+        }
+        .btn-showMore {
+            margin-top: 30px;
+        }
+    }
+    .col-md-4, .col-sm-6 {
+        width: 100%;
+        @include tablet {
+            border-bottom: none;
+        }
+        .list-items {
+            background-color: $white;
+            padding: 20px 0;
+            border-bottom: 1px solid $grey-color6;
+            @include tablet {
+                padding-bottom: 20px;
+            }
+            h4 {
+                font-size: 18px;
+            }
+            &.products {
+                .heading, .button-links {
+                    background-color: transparent;
+                    width: 100%;
+                    @include rotate(0deg);
+                    margin: 0;
+                    padding: 0;
+                    .heading-content, .button-links-wrap {
+                        background-color: transparent;
+                        @include rotate(0deg);
+                        margin: 0;
+                        padding: 0;
+                        h4 {
+                            color: $grey-color2;
+                            &:after {
+                                display: none;
+                            }
+                        }
+                    }
+                    .button-links-wrap { 
+                        margin: 0 -15px;
+                    }
+                    .heading-content {
+                        padding-bottom: 0;
+                    }
+                }
+                .body {
+                    padding: 0;
+                    li {
+                        display: inline-block;
+                        margin-right: 45px;
+                    }
+                }
+                .col-xs-6 {
+                    width: 200px;
+                }
+            }
+        }
+        .recomended-wrapper {
+            padding: 20px 0 20px 0;
+            .content {
+                .type {
+                    display: inline-block;
+                }
+                .video-container {
+                    width: 290px;
+                    /* float: right; */
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+            .footer .btn-container {
+                text-align: left;
             }
         }
     }
