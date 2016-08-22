@@ -146,11 +146,6 @@ $desktop-width: 1142px;
         border-color: $primary;
         border-radius: $border-radius-base;
         border-width: 2px;
-        &:hover {
-            background: transparent;
-            color: $primary;
-        }
-        &:next {}
     }
     .btn-showMore {
         background: none;
@@ -187,6 +182,9 @@ $desktop-width: 1142px;
                 top: 25px;
             }
         }
+        &:hover{
+          border-bottom: 2px solid $primarycolor;
+        }
         &:focus {
             outline: 0;
         }
@@ -212,13 +210,19 @@ $desktop-width: 1142px;
          position: absolute;
          color:$primary;
        }
+       &:hover{
+          border-color: $secondarycolordark;
+       }
     }
     .btn-container{
       .btn-default{
-         border: 2px solid $primary; 
-         &:after {
+          border: 2px solid $primary; 
+          &:after {
             color: $primary;
-         }
+          }
+          &:hover{
+            border: 2px solid $secondarycolordark;
+          }
       }
     }
     .btn-primary{
