@@ -482,7 +482,8 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '</div>'+
                     '</div>',
-            'Products': '<div class="list-items products">'+
+            'Products': '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                        '<div class="list-items products">'+
                             '<div class="heading">'+
                                 '<div class="heading-content">'+
                                     '<p class="category">'+
@@ -511,7 +512,8 @@ var INFORMA = window.INFORMA || {};
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
-                        '</div>'
+                        '</div>'+
+                    '</div>'
 
 }
 }(this, jQuery, 'INFORMA'));
