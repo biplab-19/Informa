@@ -72,107 +72,6 @@ var INFORMA = window.INFORMA || {};
             '{{#each SubSectors}}'+
                 '<option value="{{SubSectorID}}">{{SubSectorName}}</option>'+
             '{{/each}}',
-        'ProductFacets' :
-            '<div class="col-xs-12 col-sm-6 col-md-4">'+
-                '<p><strong>{{results.FilterName}}</strong></p>'+
-                '<ul data-filterid="{{results.FilterID}}">'+
-                    '{{#each results}}'+
-                    '<li>'+
-                        '<span class="custom-checkbox">'+
-                            '<label class="label" for="{{Key}}">'+
-                              '<input type="checkbox" data-value={{Value}} value="{{Value}}" id="{{Key}}" name="{{Key}}" />'+
-                              '<span>{{Key}}</span>'+
-                            '</label>'+
-                        '</span>'+
-                    '</li>'+
-                    '{{/each}}'+
-                '</ul>'+
-            '</div>',
-        'SearchTabs' :
-        '<div class="container clearfix">'+
-            '<ul class="tab-list">'+
-                '{{#each results}}'+
-                    '<li>'+
-                        '<a href="#{{Value}}" class="">{{Key}}</a>'+
-                    '</li>'+
-                '{{/each}}'+
-            '</ul>'+
-            '<div class="selectMenu">'+
-              '<select class="chosen-select">'+
-                '{{#each results}}'+
-                    '<option value="#{{Value}}">{{Key}}</option>'+
-                '{{/each}}'+
-              '</select>'+
-            '</div>'+
-        '</div>',
-        'ProductFilters':
-            '<div class="{{results.FilterName}}">'+
-                '<p>{{results.FilterName}}:</p>'+
-                '<ul data-filterid="{{results.FilterID}}">'+
-                    '{{#each results}}'+
-                        '<li>{{Key}}<a href="#" class="remove" data-sector="{{Sector}}" data-value="{{Value}}">x</a></li>'+
-                    '{{/each}}'+
-                '</ul>'+
-                '<a class="remove-all" href="#" data-filterid="{{results.FilterID}}">Clear all x</a>'+
-            '</div>',
-        'Products' :
-        '{{#each results}}'+
-                '<div class="col-xs-12 col-sm-6 col-md-4 search-tile">'+
-                    '<div class="tile un-pinned">'+
-                        '<div class="front">'+
-                            '<div class="triangle">'+
-                                '<span class="icon-arrow-right"></span>'+
-                            '</div>'+
-                            '<div class="header">'+
-                                '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
-                            '</div>'+
-                            '<div class="content">'+
-                                '{{#each ProductSectors}}'+
-                                    '<span class="tag">{{this}}</span>'+
-                                '{{/each}}'+
-                                '<a href="{{MoreLink}}" target="_blank"><h2>{{Title}}</h2></a>'+
-                                '<ul>'+
-                                    '{{#each Benefits}}'+
-                                        '<li>{{this}}</li>'+
-                                    '{{/each}}'+
-                                '</ul>'+
-                            '</div>'+
-                            '<div class="footer">'+
-                                '<div class="footer-content clearfix">'+
-                                    '<div class="col-xs-6">'+
-                                        '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{FreeTrialLink.CTAType}}" data-productid="{{FreeTrialLink.ProductGuid}}" class="btn btn-default free-trial wffm-elq-form-btn">Free Trial</a>'+
-                                    '</div>'+
-                                    '<div class="col-xs-6">'+
-                                        '<a href="{{MoreLink}}" class="btn btn-default orange more">More</a>'+
-                                    '</div>'+
-                                '</div>'+
-                            '</div>'+
-                        '</div>'+
-                        '<div class="back">'+
-                            '<div class="header">'+
-                                '<img src="{{Image}}" alt="{{ImageAlt}}" />'+
-                            '</div>'+
-                            '<div class="content">'+
-                                '{{#each ProductSectors}}'+
-                                    '<span class="tag">{{this}}</span>'+
-                                '{{/each}}'+
-                                '<a href="{{MoreLink}}" target="_blank"><h2>{{Title}}</h2></a>'+
-                                '<p>{{Description}}</p>'+
-                                '<ul class="gray-bullets">'+
-                                    '{{#each SubSectors}}'+
-                                        '<li>{{this}}</li>'+
-                                    '{{/each}}'+
-                                '</ul>'+
-                            '</div>'+
-                            '<div class="footer">'+
-                            '</div>'+
-                            '<div class="triangle">'+
-                                '<span class="icon-arrow-right"></span>'+
-                            '</div>'+
-                        '</div>'+
-                    '</div>'+
-                '</div>'+
-                '{{/each}}',
     'Resources':
             '<ul class="list-container">'+
             '{{#each results}}'+
@@ -257,15 +156,6 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                 '</div>'+
             '</section>',
-        'Others': '{{#each results}}' +
-                    '<div class="col-xs-12 search-others">'+
-                        '<h3>{{Title}}</h3>'+
-                        '<p>{{Description}}</p>'+
-                        '<div class="btn-container">'+
-                            '<a href="{{ReadMoreLink}}" class="btn btn-default">{{ReadMoreText}}</a>'+
-                        '</div>'+
-                    '</div>'+
-                  '{{/each}}',
         'AnalystList': '<section class="analyst-views">' +
                             '<div class="container">' +
                                 '<h2 class="header">{{results.header}}</h2>' +
