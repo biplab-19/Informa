@@ -20,6 +20,7 @@
 			margin: 20px 0 10px 0;
 			font-size: 28px;
 			font-weight: 700;
+			padding: 0;
 			@include mobile {
 				margin: 5px 0;
 				font-size: 20px;
@@ -71,104 +72,7 @@
 	}
 	.events-section {
 		margin-top: 30px;
-		.events-wrap {
-			background-color: #f3f3f3;
-			position: relative;
-			.header {
-				display: block;
-				.date {
-					width: 55px;
-					height: 55px;
-					background-color: #878e9e;
-					font-size: 30px;
-					text-align: center;
-					color: $white;
-					padding-top: 5px;
-					float: left;
-				}
-				.country {
-					float: right;
-					margin: 15px;
-					position: absolute;
-					right: 0;
-					span {
-						float: left;
-					}
-				}
-			}
-			.content-wrap {
-				padding: 15px 20px;
-				.type {
-					padding: 3px;
-					background-color: #676c7a;
-					color: $white;
-					font-size: 12px;
-				}
-				.title {
-					font-size: 30px;
-					color: #6a7287;
-					font-family: 'FSMe-Bold';
-					margin: 0;
-					height:100px;
-					@include mobile {
-			    	height: auto;
-			    }
-				}
-				.content {
-					margin-top: 25px;
-					.title-content {
-						width: 90px;
-						padding-right: 10px;
-						float: left;
-						// &:after {
-						// 	content: ":";
-						// }
-					}
-					.title-body {
-						width: calc(100% - 90px);
-						float: left;
-						font-family: 'FSMe-Bold';
-						ul {
-							padding: 0;
-							list-style-type: none;
-							li {
-								float: left;
-								margin-right: 7px;
-								&:after {
-									content: ",";
-								}
-								&:last-child {
-									&:after {
-										content: "";
-									}
-								}
-							}
-						}
-					}
-				}
-				@include mobile {
-					height: auto !important;
-				}
-			}
-			.footer {
-				padding: 15px;
-				width: 100%;
-				.btn {
-					padding-right: 40px;
-					font-weight: 700;
-					&.register {
-						float: left;
-					}
-					&.full-detail {
-						border: 0;
-						float: right;
-					}
-					&:after {
-						color: $yellow;
-					}
-				}
-			}
-		}	//past event
+		//past event
 		&.PreviousDate{
 			color:#cbccd1;
 			.events-wrap .content-wrap .title{
@@ -265,6 +169,120 @@
 		}
 		.btn-more-events.showLess .less{
 			display: block;
+		}
+	}
+}
+
+.events-wrap {
+	background-color: #f3f3f3;
+	position: relative;
+	.header {
+		display: block;
+		.date-field {
+			float: left;
+			margin: 15px;
+			width: 100%;
+			text-align: left;
+			strong, span {
+				float: left;
+			}
+		}
+		.date {
+			width: 55px;
+			height: 55px;
+			background-color: #878e9e;
+			font-size: 30px;
+			text-align: center;
+			color: $white;
+			padding-top: 5px;
+			float: left;
+		}
+		.country {
+			float: right;
+			margin: 15px;
+			position: absolute;
+			right: 0;
+			span {
+				float: left;
+			}
+		}
+	}
+	.content-wrap {
+		padding: 15px 20px;
+		.type {
+			display: inline-block;
+		    padding: 3px 8px;
+		    font-weight: 400;
+		    font-size: 0.9em;
+		    color: #f1f1f3;
+		    margin-right: 5px;
+		    margin-bottom: 5px;
+		    background-color: #6a7285;
+		}
+		.title {
+			font-size: 30px;
+			color: #6a7287;
+			font-family: 'FSMe-Bold';
+			margin: 0;
+			height:100px;
+			@include mobile {
+	    	height: auto;
+	    }
+		}
+		.content {
+			margin-top: 25px;
+			.title-content {
+				width: 90px;
+				padding-right: 10px;
+				float: left;
+				// &:after {
+				// 	content: ":";
+				// }
+			}
+			.title-body {
+				width: calc(100% - 90px);
+				float: left;
+				font-family: 'FSMe-Bold';
+				ul {
+					padding: 0;
+					list-style-type: none;
+					li {
+						float: left;
+						margin-right: 7px;
+						&:after {
+							content: ",";
+						}
+						&:last-child {
+							&:after {
+								content: "";
+							}
+						}
+					}
+				}
+			}
+		}
+		@include mobile {
+			height: auto !important;
+		}
+	}
+	.footer {
+		padding: 15px;
+		width: 100%;
+		.btn {
+			padding-right: 40px;
+			font-weight: 700;
+		    min-width: 45%;
+    		width: 40%;
+			&.register {
+				float: left;
+			}
+			&.full-detail {
+				border: 0;
+				float: right;
+			}
+			&:after {
+				color: $yellow;
+			}
 		}
 	}
 }

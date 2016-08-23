@@ -157,6 +157,7 @@
                 @include rotate(-5deg);
                 padding-bottom: 20px;
                 margin-left: -10px;
+                width: 110%;
                 .heading-content {
                     padding: 15px;
                     padding-left: 27px;
@@ -226,10 +227,13 @@
                 }
             }
         }
-        &.analyst {
-
-        }
-        &.recomended-wrapper {
+        .recomended-wrapper {
+            background-color: $grey-color7;
+            .content {
+                h4 {
+                    font-size: 24px;
+                }
+            }
             .footer {
                 padding: 0;
                 .btn-container {
@@ -241,6 +245,10 @@
                 }
             }
         }
+    }
+    .events-wrap .content-wrap .title {
+        font-size: 24px;
+        height: auto;
     }
 }
 .listView {
@@ -306,7 +314,9 @@
             }
         }
         .recomended-wrapper {
-            padding: 20px 0 20px 0;
+            background-color: $white;
+            margin: 0;
+            padding: 0;
             .content {
                 .type {
                     display: inline-block;
@@ -321,6 +331,70 @@
             }
             .footer .btn-container {
                 text-align: left;
+            }
+        }
+        .meet-anlyst-section {
+            background-color: $white;
+            .anlyst-heading {
+                padding: 0;
+                background-color: transparent;
+                height: auto;
+                .analyst-details {
+                    width: 100%;
+                    float: none;
+                }
+                .analyst-img {
+                    display: none;
+                }
+                &:after {
+                    display: none;
+                }
+                .location {
+                    padding-left: 0;
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+            .analyst-description {
+                padding: 0;
+                background-color: $white;
+            }
+            .analyst-footer {
+                padding: 0;
+                background-color: $white;
+                &:after {
+                    display: none;
+                }
+                .analyst-footer-content {
+                    float: left;
+                    margin: 25px 0;
+                    .nav-links {
+                        float: right;
+                    }
+                    .btn {
+                        min-width: 200px;
+                        margin-right: 20px;
+                    }
+                }
+            }
+        }
+        .events-wrap {
+            background-color: $white;
+            .date-field {
+                margin: 0;
+                width: auto;
+            }
+            .content-wrap {
+                padding: 0;
+            }
+            .footer {
+                padding: 20px 0;
+                .btn {
+                    min-width: 200px;
+                    width: 200px;
+                    float: left;
+                }
             }
         }
     }

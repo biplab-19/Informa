@@ -61,154 +61,172 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="list-items recomended-wrapper" data-fetch="{{Id}}">
-                        <div class="recomend-content">
-                            <div class="content">
-                                {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
-                                    <p class="category">
-                                        {{!-- {{#each SectorType}} --}}
-                                        <strong>Sector Name</strong>
-                                        {{!-- {{/each}} --}}
-                                    </p>
-                                {{!-- {{/compare}} --}}
-                                {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
-                                    <span class="type">
-                                        {{!-- {{#each BrandType}} --}}
-                                        <span>Biomedtracker</span>
-                                        {{!-- {{/each}} --}}
-                                    </span>
-                                {{!-- {{/compare}} --}}
-                                <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
-                                <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
-                                {{!-- {{#compare Description null operator="!="}} --}}
-                                    {{!-- <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p> --}}
-                                {{!-- {{/compare}} --}}
-                                {{!-- {{#compare Video null operator="!="}} --}}
+                    <!--If Article-->
+                    <div class="list-items">
+                        <div class="recomended-wrapper">
+                            <div class="recomend-content">
+                                <div class="content">
+                                        <p class="category">
+                                            <strong>Sector Name</strong>
+                                        </p>
+                                        <span class="type">
+                                            <span>Biomedtracker</span>
+                                        </span>
+                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                    <!--If Video-->
                                     <div class="video-container">
                                         <a href="http://www.dummyurl.com" class="video-link" tabindex="0">
                                             <img src="/cms-images/video-thumb-sample.jpg" alt="video description here">
                                             <span class="play-icon icon-play"></span>
                                         </a>
                                     </div>
-                                {{!-- {{/compare}} --}}
-                            </div>
-                            {{!-- {{#compare Topic.length 0 operator=">"}} --}}
-                                <p class="topics">Topics:
-                                    {{!-- {{#each Topic}} --}}
-                                        <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
-                                    {{!-- {{/each}} --}}
-                                </p>
-                            {{!-- {{/compare}} --}}
-                        </div>
-                        <div class="footer">
-                            <div class="btn-container text-right">
-                                <a href="#" class="btn btn-default">Full Article</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="list-items recomended-wrapper">
-                        <div class="recomend-content">
-                            <div class="content">
-                                {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
-                                    <p class="category">
-                                        {{!-- {{#each SectorType}} --}}
-                                        <strong>Sector Name</strong>
-                                        {{!-- {{/each}} --}}
+                                </div>
+                                    <p class="topics">Topics:
+                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
                                     </p>
-                                {{!-- {{/compare}} --}}
-                                {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
+                            </div>
+                            <div class="footer">
+                                <div class="btn-container text-right">
+                                    <a href="#" class="btn btn-default">Full Article</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <!--If Article-->
+                    <div class="list-items">
+                        <div class="recomended-wrapper">
+                            <div class="recomend-content">
+                                <div class="content">
+                                    <p class="category">
+                                        <strong>Sector Name</strong>
+                                    </p>
                                     <span class="type">
-                                        {{!-- {{#each BrandType}} --}}
                                         <span>Biomedtracker</span>
-                                        {{!-- {{/each}} --}}
                                     </span>
-                                {{!-- {{/compare}} --}}
-                                <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
-                                <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
-                                {{!-- {{#compare Description null operator="!="}} --}}
+                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                    <!--If Description-->
                                     <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                {{!-- {{/compare}} --}}
-                                {{!-- {{#compare Video null operator="!="}} --}}
-                                    {{!-- <div class="video-container">
-                                        <a href="{{Video.Url}}" class="video-link" tabindex="0">
-                                            <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
-                                            <span class="play-icon icon-play"></span>
-                                        </a>
-                                    </div> --}}
-                                {{!-- {{/compare}} --}}
+                                </div>
+                                    <p class="topics">Topics:
+                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                    </p>
                             </div>
-                            {{!-- {{#compare Topic.length 0 operator=">"}} --}}
-                                <p class="topics">Topics:
-                                    {{!-- {{#each Topic}} --}}
-                                        <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
-                                    {{!-- {{/each}} --}}
-                                </p>
-                            {{!-- {{/compare}} --}}
-                        </div>
-                        <div class="footer">
-                            <div class="btn-container text-right">
-                                <a href="#" class="btn btn-default">Full Article</a>
+                            <div class="footer">
+                                <div class="btn-container text-right">
+                                    <a href="#" class="btn btn-default">Full Article</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="meet-anlyst-section">
-                        <div class="anlyst-heading">
-                            <div class="analyst-heading-content">
-                                <div class="analyst-details">
-                                    <span class="analyst-type">Analyst</span>
-                                    <h4>Jim Wiesemeyer</h4>
-                                    <h3>Washington DC Insider</h3>
-                                    <p class="location">Washington DC, United States</p>
-                                </div>
-                                <div class="analyst-img">
-                                    <img src="cms-images/analyst-1.png" alt="cms-images/analyst-1.png">
+                    <!--If Analyst-->
+                    <div class="list-items">
+                        <div class="meet-anlyst-section">
+                            <div class="anlyst-heading">
+                                <div class="analyst-heading-content">
+                                    <div class="analyst-details">
+                                        <span class="analyst-type">Analyst</span>
+                                        <h4>Jim Wiesemeyer</h4>
+                                        <h3>Washington DC Insider</h3>
+                                        <p class="location">Washington DC, United States</p>
+                                    </div>
+                                    <div class="analyst-img">
+                                        <img src="cms-images/analyst-1.png" alt="cms-images/analyst-1.png">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="analyst-description">
-                            <p class="heading">What does Jim specialise in?</p>
-                            <ul class="yellow-bullets">
-                                
-                                    <li>Current Farm Policy Situation</li>
-                                
-                                    <li>Understanding Agriculture's Power</li>
-                                
-                                    <li>Crop Products</li>
-                                
-                            </ul>
-                            <p class="heading">+10 years experience</p>
-                            <ul class="track-analyst clearfix">
-                                
-                                    <li><a href="#">Food News</a></li>
-                                
-                                    <li><a href="#">Issue Monitor</a></li>
-                                
-                                    <li><a href="#">International Sugar Journal</a></li>
-                                
-                                    <li><a href="#">Sugar Journal</a></li>
-                                
-                                    <li><a href="#">Cottonseed Digest</a></li>
-                                
-                            </ul>
-                        </div>
-                        <div class="analyst-footer">
-                            <div class="analyst-footer-content clearfix">
-                                <ul class="nav-links">
-                                    <li><a href="#" class="icon-twitter"></a></li>
-                                    <li><a href="#" class="icon-linked-in"></a></li>
-                                    <li><a href="#" class="icon-facebook"></a></li>
+                            <div class="analyst-description">
+                                <p class="heading">What does Jim specialise in?</p>
+                                <ul class="yellow-bullets">
+                                    
+                                        <li>Current Farm Policy Situation</li>
+                                    
+                                        <li>Understanding Agriculture's Power</li>
+                                    
+                                        <li>Crop Products</li>
+                                    
                                 </ul>
-                                <a href="#" class="btn btn-default pull-right">Full Profile</a>
+                                <p class="heading">+10 years experience</p>
+                                <ul class="track-analyst clearfix">
+                                    
+                                        <li><a href="#">Food News</a></li>
+                                    
+                                        <li><a href="#">Issue Monitor</a></li>
+                                    
+                                        <li><a href="#">International Sugar Journal</a></li>
+                                    
+                                        <li><a href="#">Sugar Journal</a></li>
+                                    
+                                        <li><a href="#">Cottonseed Digest</a></li>
+                                    
+                                </ul>
+                            </div>
+                            <div class="analyst-footer">
+                                <div class="analyst-footer-content clearfix">
+                                    <ul class="nav-links">
+                                        <li><a href="#" class="icon-twitter"></a></li>
+                                        <li><a href="#" class="icon-linked-in"></a></li>
+                                        <li><a href="#" class="icon-facebook"></a></li>
+                                    </ul>
+                                    <a href="#" class="btn btn-default pull-right">Full Profile</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    
+                    <!--If Event-->
+                    <div class="list-items">
+                        <div class="events-wrap">
+                            <div class="header clearfix">
+                                <p class="date-field">dd/mm/yyyy</p>
+                                <p class="country"><strong>USA</strong></p>
+                            </div>
+                            <div class="content-wrap">
+                                <p><span class="type">Webinar</span></p>
+                                <h3 class="title">Free Webinar - North America's Commodity Constraints</h3>
+                                <div class="content clearfix">
+                                    <div class="title-content">Presenter</div>
+                                    <div class="title-body">
+                                        <ul class="clearfix">
+                                            
+                                            <li>jinni-pike</li>
+                                            
+                                            <li>Tore-Alden</li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="content clearfix">
+                                    <div class="title-content">Themes</div>
+                                    <div class="title-body">
+                                        <ul class="clearfix">
+                                            
+                                            <li>Content</li>
+                                                
+                                            <li>Data Sourcing</li>
+                                                
+                                            <li>Business Intelligence</li>
+                                                
+                                            <li>Commodities</li>
+                                                
+                                            <li>The Public Ledger</li>
+                                                
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer clearfix">
+                                <a href="#" class="btn btn-default register">Register</a>
+                                <a href="#" class="btn btn-default full-detail">Full Detail</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="text-center">

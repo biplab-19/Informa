@@ -47,95 +47,62 @@
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="list-items recomended-wrapper" data-fetch="{{Id}}">
-                            <div class="recomend-content">
-                                <div class="content">
-                                    {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
-                                        <p class="category">
-                                            {{!-- {{#each SectorType}} --}}
-                                            <strong>Sector Name</strong>
-                                            {{!-- {{/each}} --}}
-                                        </p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
-                                        <span class="type">
-                                            {{!-- {{#each BrandType}} --}}
-                                            <span>Biomedtracker</span>
-                                            {{!-- {{/each}} --}}
-                                        </span>
-                                    {{!-- {{/compare}} --}}
-                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
-                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
-                                    {{!-- {{#compare Description null operator="!="}} --}}
-                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare Video null operator="!="}} --}}
-                                        {{!-- <div class="video-container">
-                                            <a href="{{Video.Url}}" class="video-link" tabindex="0">
-                                                <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
+                        <div class="list-items">
+                            <div class="recomended-wrapper">
+                                <div class="recomend-content">
+                                    <div class="content">
+                                            <p class="category">
+                                                <strong>Sector Name</strong>
+                                            </p>
+                                            <span class="type">
+                                                <span>Biomedtracker</span>
+                                            </span>
+                                        <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                        <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                        <!--If Video-->
+                                        <div class="video-container">
+                                            <a href="http://www.dummyurl.com" class="video-link" tabindex="0">
+                                                <img src="/cms-images/video-thumb-sample.jpg" alt="video description here">
                                                 <span class="play-icon icon-play"></span>
                                             </a>
-                                        </div> --}}
-                                    {{!-- {{/compare}} --}}
+                                        </div>
+                                    </div>
+                                        <p class="topics">Topics:
+                                                <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                        </p>
                                 </div>
-                                {{!-- {{#compare Topic.length 0 operator=">"}} --}}
-                                    <p class="topics">Topics:
-                                        {{!-- {{#each Topic}} --}}
-                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
-                                        {{!-- {{/each}} --}}
-                                    </p>
-                                {{!-- {{/compare}} --}}
-                            </div>
-                            <div class="footer">
-                                <div class="btn-container text-right">
-                                    <a href="#" class="btn btn-default">Full Article</a>
+                                <div class="footer">
+                                    <div class="btn-container text-right">
+                                        <a href="#" class="btn btn-default">Full Article</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                        <div class="list-items recomended-wrapper" data-fetch="{{Id}}">
-                            <div class="recomend-content">
-                                <div class="content">
-                                    {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
+                        <div class="list-items" data-fetch="{{Id}}">
+                            <div class="recomended-wrapper">
+                                <div class="recomend-content">
+                                    <div class="content">
                                         <p class="category">
-                                            {{!-- {{#each SectorType}} --}}
                                             <strong>Sector Name</strong>
-                                            {{!-- {{/each}} --}}
                                         </p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
                                         <span class="type">
-                                            {{!-- {{#each BrandType}} --}}
                                             <span>Biomedtracker</span>
-                                            {{!-- {{/each}} --}}
                                         </span>
-                                    {{!-- {{/compare}} --}}
-                                    <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
-                                    <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
-                                    {{!-- {{#compare Description null operator="!="}} --}}
+                                        <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
+                                        <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
+                                        <!--If Description-->
                                         <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare Video null operator="!="}} --}}
-                                        {{!-- <div class="video-container">
-                                            <a href="{{Video.Url}}" class="video-link" tabindex="0">
-                                                <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
-                                                <span class="play-icon icon-play"></span>
-                                            </a>
-                                        </div> --}}
-                                    {{!-- {{/compare}} --}}
+                                    </div>
+                                        <p class="topics">Topics:
+                                                <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
+                                        </p>
                                 </div>
-                                {{!-- {{#compare Topic.length 0 operator=">"}} --}}
-                                    <p class="topics">Topics:
-                                        {{!-- {{#each Topic}} --}}
-                                            <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
-                                        {{!-- {{/each}} --}}
-                                    </p>
-                                {{!-- {{/compare}} --}}
-                            </div>
-                            <div class="footer">
-                                <div class="btn-container text-right">
-                                    <a href="#" class="btn btn-default">Full Article</a>
+                                <div class="footer">
+                                    <div class="btn-container text-right">
+                                        <a href="#" class="btn btn-default">Full Article</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -145,7 +112,7 @@
                     <a href="#" class="btn-showMore">Show More</a>
                 </div>
             </div>
-            <div class="product-results" data-desktop="3" data-tablet="2" data-mobile="1">
+            <div class="product-results">
                 <h2>From: <strong>Biomedtracker</strong></h2>
                 <div class="row list">
                     <div class="col-xs-12 col-sm-6 col-md-4">
@@ -184,41 +151,19 @@
                         <div class="list-items recomended-wrapper" data-fetch="{{Id}}">
                             <div class="recomend-content">
                                 <div class="content">
-                                    {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
                                         <p class="category">
-                                            {{!-- {{#each SectorType}} --}}
                                             <strong>Sector Name</strong>
-                                            {{!-- {{/each}} --}}
                                         </p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
                                         <span class="type">
-                                            {{!-- {{#each BrandType}} --}}
                                             <span>Biomedtracker</span>
-                                            {{!-- {{/each}} --}}
                                         </span>
-                                    {{!-- {{/compare}} --}}
                                     <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
                                     <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
-                                    {{!-- {{#compare Description null operator="!="}} --}}
-                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare Video null operator="!="}} --}}
-                                        {{!-- <div class="video-container">
-                                            <a href="{{Video.Url}}" class="video-link" tabindex="0">
-                                                <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
-                                                <span class="play-icon icon-play"></span>
-                                            </a>
-                                        </div> --}}
-                                    {{!-- {{/compare}} --}}
+                                    <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
                                 </div>
-                                {{!-- {{#compare Topic.length 0 operator=">"}} --}}
                                     <p class="topics">Topics:
-                                        {{!-- {{#each Topic}} --}}
                                             <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
-                                        {{!-- {{/each}} --}}
                                     </p>
-                                {{!-- {{/compare}} --}}
                             </div>
                             <div class="footer">
                                 <div class="btn-container text-right">
@@ -231,41 +176,19 @@
                         <div class="list-items recomended-wrapper" data-fetch="{{Id}}">
                             <div class="recomend-content">
                                 <div class="content">
-                                    {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
-                                        <p class="category">
-                                            {{!-- {{#each SectorType}} --}}
-                                            <strong>Sector Name</strong>
-                                            {{!-- {{/each}} --}}
-                                        </p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
-                                        <span class="type">
-                                            {{!-- {{#each BrandType}} --}}
-                                            <span>Biomedtracker</span>
-                                            {{!-- {{/each}} --}}
-                                        </span>
-                                    {{!-- {{/compare}} --}}
+                                    <p class="category">
+                                        <strong>Sector Name</strong>
+                                    </p>
+                                    <span class="type">
+                                        <span>Biomedtracker</span>
+                                    </span>
                                     <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
                                     <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
-                                    {{!-- {{#compare Description null operator="!="}} --}}
-                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare Video null operator="!="}} --}}
-                                        {{!-- <div class="video-container">
-                                            <a href="{{Video.Url}}" class="video-link" tabindex="0">
-                                                <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
-                                                <span class="play-icon icon-play"></span>
-                                            </a>
-                                        </div> --}}
-                                    {{!-- {{/compare}} --}}
+                                    <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
                                 </div>
-                                {{!-- {{#compare Topic.length 0 operator=">"}} --}}
                                     <p class="topics">Topics:
-                                        {{!-- {{#each Topic}} --}}
                                             <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
-                                        {{!-- {{/each}} --}}
                                     </p>
-                                {{!-- {{/compare}} --}}
                             </div>
                             <div class="footer">
                                 <div class="btn-container text-right">
@@ -279,7 +202,7 @@
                     <a href="#" class="btn-showMore">Show More</a>
                 </div>
             </div>
-            <div class="product-results" data-desktop="3" data-tablet="2" data-mobile="1">
+            <div class="product-results">
                 <h2>From: <strong>Biomedtracker</strong></h2>
                 <div class="row list">
                     <div class="col-xs-12 col-sm-6 col-md-4">
@@ -318,41 +241,19 @@
                         <div class="list-items recomended-wrapper" data-fetch="{{Id}}">
                             <div class="recomend-content">
                                 <div class="content">
-                                    {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
                                         <p class="category">
-                                            {{!-- {{#each SectorType}} --}}
                                             <strong>Sector Name</strong>
-                                            {{!-- {{/each}} --}}
                                         </p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
                                         <span class="type">
-                                            {{!-- {{#each BrandType}} --}}
                                             <span>Biomedtracker</span>
-                                            {{!-- {{/each}} --}}
                                         </span>
-                                    {{!-- {{/compare}} --}}
                                     <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
                                     <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
-                                    {{!-- {{#compare Description null operator="!="}} --}}
-                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare Video null operator="!="}} --}}
-                                        {{!-- <div class="video-container">
-                                            <a href="{{Video.Url}}" class="video-link" tabindex="0">
-                                                <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
-                                                <span class="play-icon icon-play"></span>
-                                            </a>
-                                        </div> --}}
-                                    {{!-- {{/compare}} --}}
+                                    <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
                                 </div>
-                                {{!-- {{#compare Topic.length 0 operator=">"}} --}}
                                     <p class="topics">Topics:
-                                        {{!-- {{#each Topic}} --}}
                                             <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
-                                        {{!-- {{/each}} --}}
                                     </p>
-                                {{!-- {{/compare}} --}}
                             </div>
                             <div class="footer">
                                 <div class="btn-container text-right">
@@ -365,41 +266,19 @@
                         <div class="list-items recomended-wrapper" data-fetch="{{Id}}">
                             <div class="recomend-content">
                                 <div class="content">
-                                    {{!-- {{#compare SectorType.length 0 operator=">"}} --}}
-                                        <p class="category">
-                                            {{!-- {{#each SectorType}} --}}
-                                            <strong>Sector Name</strong>
-                                            {{!-- {{/each}} --}}
-                                        </p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare BrandType.length 0 operator=">"}} --}}
-                                        <span class="type">
-                                            {{!-- {{#each BrandType}} --}}
-                                            <span>Biomedtracker</span>
-                                            {{!-- {{/each}} --}}
-                                        </span>
-                                    {{!-- {{/compare}} --}}
+                                    <p class="category">
+                                        <strong>Sector Name</strong>
+                                    </p>
+                                    <span class="type">
+                                        <span>Biomedtracker</span>
+                                    </span>
                                     <h4>Lorem ipsum dolor sit elit. ipsum dolor</h4>
                                     <p class="publish">By: <strong>Lorena Ruibal</strong>01.03.2016</p>
-                                    {{!-- {{#compare Description null operator="!="}} --}}
-                                        <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
-                                    {{!-- {{/compare}} --}}
-                                    {{!-- {{#compare Video null operator="!="}} --}}
-                                        {{!-- <div class="video-container">
-                                            <a href="{{Video.Url}}" class="video-link" tabindex="0">
-                                                <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
-                                                <span class="play-icon icon-play"></span>
-                                            </a>
-                                        </div> --}}
-                                    {{!-- {{/compare}} --}}
+                                    <p class="description">Leaked files from a Panama law firm that creates shell companies show that politicians, criminals and celebrities worldwide have used banks and shadow companies to hide their finances.</p>
                                 </div>
-                                {{!-- {{#compare Topic.length 0 operator=">"}} --}}
                                     <p class="topics">Topics:
-                                        {{!-- {{#each Topic}} --}}
                                             <strong>Lorem</strong><strong>Ipsum</strong><strong>Dolor</strong><strong>Sit</strong><strong>Amet</strong><strong>consecuter</strong>
-                                        {{!-- {{/each}} --}}
                                     </p>
-                                {{!-- {{/compare}} --}}
                             </div>
                             <div class="footer">
                                 <div class="btn-container text-right">
@@ -415,55 +294,3 @@
             </div>
     </div>
 </section>
-
-{{!-- <section class="product-finder-results search-container">
-<input type="hidden" class="sector-list" value="sector1,sector2,sector3" />
-<input type="hidden" class="sub-sector-list" value="" />
-<div class="search-filter">
-	<div class="container">
-		<p class="filter-text">You've searched for:</p>
-		<div class="filter-list">
-		</div>
-	</div>
-</div>
-<div class="refine-list form">
-	<div class="container">
-		<p class="header">
-			<a href="#" class="refine">Refine results <span class="icon-chevron-down"></span></a>
-			<a href="#" class="close-filter"><span class="icon-close"></span></a>
-		</p>
-	</div>
-	<div class="container slider">
-		<div class="refine-result container clearfix">
-
-		</div>
-		<div class="refine-button container">
-			<a href="#" class="btn btn-default">Refine</a>
-		</div>
-	</div>
-</div>
-<div class="container" id="results"> 
-	<div class="search-results flip" id="products">
-        <p class="count"><strong></strong> Products found</p>
-            <div class="row">
-            </div>
-            <div class="btn-container">
-                <a href="javascript:void(0)" class="btn-ShowMore">
-                    <span class="more">More Products</span>
-                    <span class="less">Less products</span>
-                </a>
-            </div>
-    </div>
-    <div class="search-results" id="resources">
-           <p class="count"><strong></strong> Resources found</p>
-           	<div class="row article-list">
-           	</div>
-           	<div class="btn-container">
-                <a href="javascript:void(0)" class="btn-ShowMore">
-                    <span class="more">More Products</span>
-                    <span class="less">Less products</span>
-                </a>
-            </div>
-    </div>
-</div>
-</section> --}}
