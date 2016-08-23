@@ -5,15 +5,15 @@ section#agri-report {
     @include mobile {
         padding: 10px 15px 35px;
     }
-    h1 {
-        @include tablet {
-            font-size: 32px;
-        }
-        @include mobile {
-            font-size: 24px;
-            margin-bottom: 25px;
-        }
-    }
+    // h1 {
+    //     @include tablet {
+    //         font-size: 32px;
+    //     }
+    //     @include mobile {
+    //         font-size: 24px;
+    //         margin-bottom: 25px;
+    //     }
+    // }
     .agri-report-wrapper {
         //  color: $white;
         position: relative;
@@ -59,7 +59,7 @@ section#agri-report {
             }
         }
         .description {
-            line-height: 1.2eM;
+            line-height: 1.2em;
             //padding-top: 50px;
             @include mobile {
                 padding-top: 15px;

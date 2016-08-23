@@ -1,10 +1,14 @@
 section.newsFlash{
-  //height: 200px;
-  position: relative;
-  padding-top: 2%;
-  padding-bottom: 1%;
-  background: $yellow;
+  height: 180px;
+  padding-top: 3%;
+  padding-bottom: 2%;
   overflow: hidden;
+  .newsbox{
+    background: $yellow;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    position: relative;
+  }
     .news-title{
       font-size: $padding-base-horizontal;
       strong{
@@ -61,7 +65,7 @@ section.newsFlash{
          border-right: none;
      }
      .slick-arrow {
-         top: 100%;
+         top: 80%;
 
          &:before {
              font-family: 'InformaIcons';
@@ -85,7 +89,7 @@ section.newsFlash{
          }
      }
      .slick-next {
-         left: 95%;
+         left: 98%;
          margin-left: 0;
          &:before {
              content: "\e902";
@@ -100,7 +104,7 @@ section.newsFlash{
      }
      .slick-prev {
        z-index: 2;
-       left: 92%;
+       left: 94%;
          @include mobile {
            left: 92%;
            margin-left:-20px;
