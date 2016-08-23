@@ -542,16 +542,16 @@ div.addthis_sharing_toolbox{
   }
    a.at-share-btn{
     padding-right: 5px;
-     max-width: 10pc !important;
-     max-height: 10pc !important;
+    border-radius: 100% !important;
+    background-color: $social-icon-back !important;
+    //  max-width: 10pc !important;
+    //  max-height: 10pc !important;
      @include mobile {
        padding-right: 0px;
      }
      span.at-icon-wrapper{
-       background-color: $social-icon-back !important;
-       border-radius: 100% !important;
        height: 40px !important;
-       width: 40px !important;
+       width: 37px !important;
        padding: 5px;
      }
    }
