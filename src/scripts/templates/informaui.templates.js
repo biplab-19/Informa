@@ -433,8 +433,8 @@ var INFORMA = window.INFORMA || {};
                           '</div>'+
                         '</div>'+
                     '</div>',
-        'RecomendedContent': '<div class="col-md-4 col-sm-6 col-xs-12">'+
-                        '<div class="recomended-wrapper" data-fetch="{{results.Id}}">'+
+        'SampleContent': '<div class="col-md-4 col-sm-6 col-xs-12" data-id="{{results.Id}}" data-type="SamepleContent">'+
+                        '<div class="list-items recomended-wrapper" data-fetch="{{results.Id}}">'+
                             '<div class="recomend-content">'+
                                 '<div class="content">'+
                                     '{{#compare results.SectorType.length 0 operator=">"}}'+
@@ -446,9 +446,9 @@ var INFORMA = window.INFORMA || {};
                                             '{{/each}}'+
                                         '</p>'+
                                     '{{/compare}}'+
-                                    '<p class="type">'+
+                                    '<span class="type">'+
                                         '<span>{{results.Product}}</span>'+
-                                    '</p>'+
+                                    '</span>'+
                                     '<h4>{{results.Title}}</h4>'+
                                     '<p class="publish">{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
                                     '{{#compare results.Description null operator="!="}}'+
@@ -456,7 +456,7 @@ var INFORMA = window.INFORMA || {};
                                     '{{/compare}}'+
                                     '{{#compare results.Video null operator="!="}}'+
                                         '<div class="video-container">'+
-                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0">'+
+                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_blank">'+
                                                 '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
                                                 '<span class="play-icon icon-play"></span>'+
                                             '</a>'+
@@ -482,38 +482,40 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '</div>'+
                     '</div>',
-            'Products': '<div class="col-xs-12 col-sm-6 col-md-4">'+
+            'Products':
+            '<div class="col-xs-12 col-sm-6 col-md-4" data-id="{{results.ProductPageID}}" data-type="Product">'+
                         '<div class="list-items products">'+
                             '<div class="heading">'+
                                 '<div class="heading-content">'+
                                     '<p class="category">'+
-                                        '{{#each Sector}}'+
+                                        '{{#each results.Sector}}'+
                                             '<strong>{{this}}</strong>'+
                                         '{{/each}}'+
                                     '</p>'+
-                                    '<h4>{{Title}}</h4>'+
+                                    '<h4>{{results.Title}}</h4>'+
                                 '</div>'+
                             '</div>'+
                             '<div class="body">'+
-                                '<p>{{description}}</p>'+
+                                '<p>{{results.Description}}</p>'+
                                 '<ul>'+
-                                    '{{#each InformationType}}'+
+                                    '{{#each results.Benefits}}'+
                                     '<li class="icon-tick">{{this}}</li>'+
                                     '{{/each}}'+
                                 '</ul>'+
                                 '<div class="button-links">'+
                                     '<div class="button-links-wrap row">'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="#" class="btn btn-default">{{DetailsLink}}</a>'+
+                                            '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.FullDetailText}}</a>'+
                                         '</div>'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="#" class="btn btn-primary">{{CTALink}}</a>'+
+                                            '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.CtaTypeName}}</a>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
                     '</div>'
+
 
 }
 }(this, jQuery, 'INFORMA'));
