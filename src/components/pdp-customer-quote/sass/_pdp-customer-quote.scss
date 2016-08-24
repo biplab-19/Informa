@@ -22,19 +22,20 @@ section.customer-quote {
     @include mobile {
         padding: 11px 0 0px;
     }
-    .customer-quote-slide {
-        @include mobile {
-            //  padding: 7.5px;
-            padding: 0 35px;
-        }
-    }
+    // .customer-quote-slide {
+    //     @include mobile {
+    //         //  padding: 7.5px;
+    //
+    //         padding-top: 65px;
+    //     }
+    // }
     .quote {
         padding-left: 115px;
 
         @include mobile {
             padding-left: 0;
             padding-right: 0;
-            padding-top: 40px;
+            //padding-top: 40px;
 
         }
         @include tablet {
@@ -65,6 +66,9 @@ section.customer-quote {
               top: -16px;
           }
           @include mobile {
+            padding-left: 0px;
+            padding: 0 35px;
+            padding-top: 65px;
             &:before {
               left: 30px;
               top: 0px;
@@ -72,8 +76,8 @@ section.customer-quote {
           }
           @include tablet {
             &:before {
-                left:13%;
-                top: 40px;
+                left:4%;
+                //top: 40px;
             }
           }
             & > div {
