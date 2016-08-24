@@ -102,7 +102,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         },
         equalHeights = function() {
             // Select and loop the container element of the elements you want to equalise
-           $(window).on('load', function () {
+           //$(window).on('load', function () {
                var Items = Article.find('.recomended-wrapper'),
                 MaxHeight = 0,
                 MaxWrapperHeight = 0,
@@ -123,7 +123,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 })
                 Items.find('.content').height(MaxHeight);
                 Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
-           })
+          // })
 
         },
         BindFilterEvents = function() {
