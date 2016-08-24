@@ -206,7 +206,11 @@ $desktop-width: 1142px;
           }
         }
     }
-
+    .headline-list{
+      a{
+        color: $secondarycolorlight80;
+      }
+    }
     .btn-default{
         min-width: 230px;
        text-align: left;
@@ -223,7 +227,7 @@ $desktop-width: 1142px;
          color:$primary;
        }
        &:hover{
-          border-color: $secondarycolordark;
+          border: 2px solid $secondarycolordark;
        }
     }
     .btn-container{
@@ -254,10 +258,24 @@ $desktop-width: 1142px;
          position: absolute;
        }
        &:hover{
-        background-color: $brand-secondary;
-        border-color: $brand-secondary;
+        background-color: $secondarycolorlight;
+        border-color: $secondarycolorlight;
         color: $white;
        }
+    }
+    #contactus-section{
+      a{
+        color: $primary;
+      } 
+      .subscribe-link{
+        background: $primary url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
+        &:after{
+          color: $light;
+        }    
+      }
+    }
+    .open-quote{
+      color: $secondarycolorlight80;
     }
     .component {
         padding: 0;
