@@ -1,4 +1,11 @@
-.recomended-content {
+.recomended-content{
+}	
+.recomended-wrapper{
+	background-color: $white;
+	padding: 15px;
+	margin-bottom: 15px;
+	position: relative;
+	overflow: auto;
 	.recomended-currency{
 		position: absolute;
 		bottom: 26px;
@@ -25,52 +32,45 @@
 		width: 100%;
 	}
 	.btn-showMore {
-			    background: none;
-			    min-width: 180px;
-			    width: auto;
-			    padding: 10px 0;
-			    padding-right: 40px;
-			    margin: 0 auto;
-			    text-align: left;
-			    color: #444957;
-			    border: none;
-			    border-bottom: 2px solid #ffd500;
-			    cursor: pointer;
-			    position: relative;
-			    margin: 20px 0;
-			    display: inline-block;
-			    &:after {
-			        font-family: 'InformaIcons';
-				    content: '\e912';
-				    color: #ffd600;
-				    right: 0;
-				    height: 30px;
-				    width: 30px;
-				    text-align: center;
-				    border-radius: 14px;
-				    font-size: 30px;
-				    top: -2px;
-				    position: absolute;
-				    @include mobile {
-				        right: 50%;
-					    margin-right: -15px;
-					    top: 25px;
-				    }
-			    }
-			    @include mobile {
-			    	width: 50%;
-				    padding-bottom: 35px;
-				    padding-right: 0;
-				    text-align: center;
-			    }
-		}
-}
-.recomended-wrapper {
-	background-color: $white;
-	padding: 15px;
-	margin-bottom: 15px;
-	position: relative;
-	overflow: auto;
+	    background: none;
+	    min-width: 180px;
+	    width: auto;
+	    padding: 10px 0;
+	    padding-right: 40px;
+	    margin: 0 auto;
+	    text-align: left;
+	    color: #444957;
+	    border: none;
+	    border-bottom: 2px solid #ffd500;
+	    cursor: pointer;
+	    position: relative;
+	    margin: 20px 0;
+	    display: inline-block;
+	    &:after {
+	        font-family: 'InformaIcons';
+		    content: '\e912';
+		    color: #ffd600;
+		    right: 0;
+		    height: 30px;
+		    width: 30px;
+		    text-align: center;
+		    border-radius: 14px;
+		    font-size: 30px;
+		    top: -2px;
+		    position: absolute;
+		    @include mobile {
+		        right: 50%;
+			    margin-right: -15px;
+			    top: 25px;
+		    }
+	    }
+	    @include mobile {
+	    	width: 50%;
+		    padding-bottom: 35px;
+		    padding-right: 0;
+		    text-align: center;
+	    }
+	}
 	.content {
 		margin-bottom: 10px;
 		h4 {
@@ -101,23 +101,20 @@
 				}
 			}
 		}
+
 		.category {
 		    display: inline-block;
-	   		padding: 3px 8px;
-    		font-weight: 400;
-    		font-size: 0.9em;
-    		color: #f1f1f3;
-    		margin-right: 5px;
-    		margin-bottom: 5px;
-    		background-color: $grey-color2;
+            padding-bottom: 10px;
+            margin-right: 5%;
     		strong {
+    			display: inline-block;
+                padding:3px 8px;
+                font-weight: 400;
+                font-size: 0.9em;
+                color: $gray-lighter-bg;
+                background-color:$gray-light-bg;
     			&:after {
-    				content: ',';
-    			}
-    			&:last-child {
-    				&:after {
-	    				content: '';
-	    			}
+    				content: '';
     			}
     		}
 		}
@@ -156,6 +153,9 @@
 	.topics {
 		strong {
 			display: inline-block;
+			a{
+				color: $grey-color2;
+			}
 			&:after {
 				content: ',';
 				margin-right: 5px;

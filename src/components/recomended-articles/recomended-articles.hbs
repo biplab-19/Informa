@@ -1,7 +1,7 @@
 <section class="recomended-content" data-desktop="5" data-tablet="3" data-mobile="2" data-MaximumNumberOfArticles="13" data-defaultCount="4">
 	<div class="container">
 		<h2>Recommended Content</h2>
-		<div class="row">
+			<div class="row">
 				{{#each Articles}}
 					<div class="col-md-4 col-sm-6 col-xs-12">
 						<div class="recomended-wrapper" data-fetch="{{Id}}">
@@ -36,18 +36,20 @@
 			                       {{!-- {{/compare}} --}}
 								</div>
 								{{!-- {{#compare Topic.length 0 operator=">"}} --}}
-									<p class="topics">Topics: <strong>A</strong><strong>A</strong><strong>A</strong><strong>A</strong>
+									<p class="topics">Topics: <strong><a href="#">A</a></strong><strong><a href="#">A</a></strong><strong><a href="#">A</a></strong><strong><a href="#">A</a></strong>
 										{{#each Topic}}
-											<strong>{{this}}</strong>
+											<strong><a href="#">{{this}}</a></strong>
 										{{/each}}
 									</p>
 								{{!-- {{/compare}} --}}
 							</div>
 							<div class="footer">
 								<div class="recomended-currency"><strong>50</strong></div>
-								<div class="btn-container text-right">
-									<a href="#" class="btn btn-default download">{{Linktext}}</a>
-								</div>
+								{{#if LinkText}}
+                                    <div class="btn-container text-right">
+                                        <a href="#" class="btn btn-default download">{{LinkText}}</a>
+                                    </div>
+                                {{/if}}
 							</div>	
 						</div>
 					</div>

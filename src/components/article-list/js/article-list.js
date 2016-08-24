@@ -14,7 +14,8 @@ var INFORMA = window.INFORMA || {};
 INFORMA.ArticleList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _ArticleLists = $('#article-list-section .list-container'),
+    var  Article = $('#article-list-section'),
+        _ArticleLists = $('#article-list-section .list-container'),
         _HeadlinesLists = $('section .headline-list .list-container'),
         FilterMenu = $(".category-filter-list .categoryFilter"),
         ArticleCont = $("section .article-list"),
@@ -101,27 +102,28 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         },
         equalHeights = function() {
             // Select and loop the container element of the elements you want to equalise
-            $(window).on('load', function () {
-                $('.list-container').each(function() {
+           $(window).on('load', function () {
+               var Items = Article.find('.recomended-wrapper'),
+                MaxHeight = 0,
+                MaxWrapperHeight = 0,
+                Padding = 20;
 
-                    // Cache the highest
-                    var highestBox = 0;
+                Items.each(function () {
+                    var WrapperHeight = $(this).find('.recomend-content').height(),
+                        ContentHeight = $(this).find('.content').height();
 
-                    // Select and loop the elements you want to equalise
-                    $('.columns', this).each(function() {
+                    if(WrapperHeight > MaxWrapperHeight) {
+                        MaxWrapperHeight = WrapperHeight;
+                    }
 
-                        // If this box is higher than the cached highest then store it
-                        if ($(this).height() > highestBox) {
-                            highestBox = $(this).height();
-                        }
-
-                    });
-
-                    // Set the height of all those children to whichever was highest
-                    $('.columns', this).height(highestBox);
-
-                });
-            })
+                    if(ContentHeight > MaxHeight) {
+                        MaxHeight = ContentHeight;
+                    }
+                    
+                })
+                Items.find('.content').height(MaxHeight);
+                Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
+           })
 
         },
         BindFilterEvents = function() {

@@ -16,43 +16,68 @@ var INFORMA = window.INFORMA || {};
     //variables
   INFORMA.Templates = {
     'articleListItems':
-    '{{#each Articles}}'+
+        '{{#each Articles}}'+
             '<li>'+
-            '<div class="columns">'+
-                '<p class="category">'+
-                    '{{#if BrandType}}'+
-                        '<span class="brand-type">{{BrandType}}</span>' +
-                    '{{/if}}' +
-                    '{{#if SectorType}}'+
-                      '<strong>{{SectorType}}</strong>' +
-                    '{{/if}}'+
-                '</p>'+
-                '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
-                '<span class="content-type">{{ContentType}}</span>'+
-                '<p class="date">{{PublicationDate}}</p>'+
-                '<div class="list-content">'+
-                    '{{#if Description}}'+
-                        '<p class="description">{{Description}}</p>'+
-                        '<span class="article-info"><em>Author:</em> <strong>{{Profile}}</strong></span>'+
-                            '<span class="article-info"><em>Topic:</em>'+
-                                '<strong>{{Topic}}</strong>'+
-                            '</span>'+
-                    '{{/if}}'+
-                    '{{#if Video}}'+
-                        '<div class="video-container">'+
-                            '<a href="{{Video.url}}" class="video-link">'+
-                                '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
-                            '</a>'+
-                            '<span class="play-icon icon-play"></span>'+
+                '<div class="col-xs-12">'+
+                    '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
+                        '<div class="recomend-content">'+
+                            '<div class="content">'+
+                                '{{#compare SectorType.length 0 operator=">"}}'+
+                                    '<p>'+
+                                        '{{#each SectorType}}'+
+                                            '<span class="category">'+
+                                                '<strong>{{this}}</strong>'+
+                                            '</span>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                                '{{/compare}}'+
+                                '{{#compare Product null operator="!="}}'+
+                                    '<span class="type">'+
+                                        '<span>{{Product}}</span>'+
+                                    '</span>'+
+                                '{{/compare}}'+  
+                                '<h4>{{Title}}</h4>'+
+                                '<p class="publish">{{ByKeyword}} <strong>{{Profile}}</strong>{{PublicationDate}}</p>'+
+                                '{{#compare Description null operator="!="}}'+
+                                    '<p class="description">{{Description}}</p>'+
+                                '{{/compare}}'+
+                                '{{#compare Video null operator="!="}}'+
+                                    '<div class="video-container">'+
+                                        '<a href="{{Video.Url}}" class="video-link" tabindex="0">'+
+                                            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                            '<span class="play-icon icon-play"></span>'+
+                                        '</a>'+
+                                    '</div>'+
+                                '{{/compare}}'+
+                            '</div>'+
+                            '{{#compare Topic.length 0 operator=">"}}'+
+                                '<p class="topics">'+
+                                    '{{TopicKeyword}} '+
+                                    '{{#each Topic}}'+
+                                        '<strong><a href="#">{{this}}</a></strong>'+
+                                    '{{/each}}'+
+                                '</p>'+
+                            '{{/compare}}'+
                         '</div>'+
-                    '{{/if}}'+
-                '</div>'+
-            '</div>'+
-                '{{#if LinkText}}'+
-                    '<div class="btn-container">'+
-                      '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
+                        '<div class="footer">'+
+                            '{{#compare Price null operator="!="}}'+
+                                    '<div class="recomended-currency"><strong>{{Price}}</strong></div>'+
+                            '{{/compare}}'+
+                            '{{#if EcommerceLink}}'+
+                                '{{#if EcommerceLink.Url}}'+
+                                    '<div class="btn-container text-right">'+
+                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-default" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
+                                    '</div>'+
+                                '{{/if}}'+  
+                            '{{/if}}'+
+                            '{{#if LinkText}}'+
+                                '<div class="btn-container text-right">'+
+                                    '<a href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
+                                '</div>'+
+                            '{{/if}}'+
+                        '</div>'+
                     '</div>'+
-                '{{/if}}'+
+                '</div>'+    
             '</li>'+
           '{{/each}}',
         'HeadlinesListItems':
@@ -467,7 +492,7 @@ var INFORMA = window.INFORMA || {};
                                     '<p class="topics">'+
                                         '{{results.TopicKeyword}} '+
                                         '{{#each results.Topic}}'+
-                                            '<strong>{{this}}</strong>'+
+                                            '<strong><a href="#">{{this}}</a></strong>'+
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
@@ -476,9 +501,11 @@ var INFORMA = window.INFORMA || {};
                                 '{{#compare results.Price null operator="!="}}'+
                                         '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
                                 '{{/compare}}'+
-                                '<div class="btn-container text-right">'+
-                                    '<a href="{{results.PageURL}}" class="btn btn-default">{{results.LinkText}}</a>'+
-                                '</div>'+
+                                '{{#if results.LinkText}}'+
+                                    '<div class="btn-container text-right">'+
+                                        '<a href="{{results.PageURL}}" class="btn btn-default" target="_blank">{{results.LinkText}}</a>'+
+                                    '</div>'+
+                                '{{/if}}'+
                             '</div>'+
                         '</div>'+
                     '</div>',

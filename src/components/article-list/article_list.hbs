@@ -1,45 +1,62 @@
 <section id="article-list-section">
     <div class="article-list carousel-lists" id="article-list">
         <div class="container">
-                    <ul class="list-container" data-slider-dots="true" data-slider-infinite="true" data-slides-show="3" data-slides-scroll="3" data-speed="400"
-                    data-autoplay-speed="4000" data-autoplay="false">
-                    {{#each Articles}}
-                        <li>
-                        <div class="columns">
-                                <span class="brand-type">Brand1</span>
-                                <p class="category">
-                                  <strong>{{SectorType}}</strong>
-                                </p>
-                                <h2 class="poduct-brand-subheading">{{Title}}</h2>
-                                <span class="content-type">{{ContentType}}</span>
-                                <p class="date">30.03.2016</p>
-                                <div class="list-content">
-                                    {{#if Description}}
+            <ul class="list-container" data-slider-dots="true" data-slider-infinite="true" data-slides-show="3" data-slides-scroll="3" data-speed="400"
+            data-autoplay-speed="4000" data-autoplay="false">
+                {{#each Articles}}
+                    <li>
+                        <div class="col-xs-12">
+                            <div class="recomended-wrapper" data-fetch="{{Id}}">                        
+                                <div class="recomend-content">
+                                    <div class="columns content">
+                                        <!--<span class="brand-type">Brand1</span>-->
+                                        <p class="category">
+                                            {{#each SectorType}}
+                                                <strong>{{this}}</strong>
+                                            {{/each}}
+                                        </p>
+                                        <span class="type">
+                                            {{#each BrandType}}
+                                                <span>{{this}}</span>
+                                            {{/each}}
+                                        </span>
+                                        <h4>{{Title}}</h4>
+                                        <p class="publish">By: <strong>{{Profile}}</strong>{{PublicationDate}}</p>
                                         <p class="description">{{Description}}</p>
-                                        <span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>
-                                            <span class="article-info"><em>Topic:</em>
-                                                <strong>{{Topics}}</strong>
-                                            </span>
-                                    {{/if}}
-                                    {{#if Video}}
                                         <div class="video-container">
-                                            <a href="{{Video.url}}" class="video-link">
-                                                <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />
+                                            <a href="{{Video.Url}}" class="video-link" tabindex="0">
+                                                <img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">
                                                 <span class="play-icon icon-play"></span>
                                             </a>
                                         </div>
-                                    {{/if}}
+                                    </div>    
+                                    <p class="topics">Topics: <strong><a href="#">A</a></strong><strong><a href="#">A</a></strong><strong><a href="#">A</a></strong><strong><a href="#">A</a></strong>
+                                        {{#each Topic}}
+                                            <strong><a href="#">{{this}}</a></strong>
+                                        {{/each}}
+                                    </p>
+                                </div> 
+
+                                <div class="footer">
+                                    <div class="recomended-currency"><strong>50</strong></div>
+                                        {{#if EcommerceLink}}
+                                            {{#if EcommerceLink.Url}}
+                                                <div class="btn-container text-right">
+                                                    <a href="{{EcommerceLink.Url}}" class="btn btn-default" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>
+                                                </div>
+                                            {{/if}} 
+                                        {{/if}}
+                                        {{#if LinkText}}
+                                            <div class="btn-container text-right">
+                                                <a href="#" class="btn btn-default download">{{LinkText}}</a>
+                                            </div>
+                                        {{/if}}
                                 </div>
                             </div>
-                            {{#if ResourceLink}}
-                                <div class="btn-container">
-                                  <a role="button" href="{{ResourceLink.url}}" class="btn btn-default" target="{{ResourceLink.target}}">{{ResourceLink.linkText}}</a>
-                                </div>
-                            {{/if}}
-                        </li>
-                      {{/each}}
-                    </ul>
-
+                        </div>
+                    </li>
+                {{/each}}
+            </ul>
         </div>
     </div>
 </section>
