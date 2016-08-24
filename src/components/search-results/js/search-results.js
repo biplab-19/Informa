@@ -42,7 +42,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
        GetPaginatedData = function(){
             var ShowMoreLink = SearchContent.find(".btn-showMore");
-            ShowMoreLink.on("click",function(e){
+            ShowMoreLink.off("click").on("click",function(e){
                 e.preventDefault();
                 var currentSection = $(this).parents(".product-results").eq(0),
                     TileList = currentSection.find(".col-xs-12"),
