@@ -1,3 +1,4 @@
+
 section.customer-quote {
     & > div {
         position: relative;
@@ -10,13 +11,13 @@ section.customer-quote {
     color: $text-gray;
     overflow: hidden;
     .quotes-header {
-        h2 {
-            color: $text-gray;
-            margin-bottom: -5px;
-        }
-        @include mobile {
-            margin:30px 0 0 5px;
-        }
+        // h2 {
+        //     color: $text-gray;
+        //     margin-bottom: -5px;
+        // }
+        // @include mobile {
+        //     margin:30px 0 0 5px;
+        // }
     }
     @include mobile {
         padding: 11px 0 0px;
@@ -29,34 +30,17 @@ section.customer-quote {
     }
     .quote {
         padding-left: 115px;
-        &:before {
-            padding-left: 10px;
-            content: ',,';
-            font-family: FSMe-Bold;
-            font-size: 90px;
-            opacity: 0.45;
-            position: absolute;
-            top: 55px;
-            transform: rotate(180Deg);
-            color: $quote-color;
-            left: 50px;
-        }
+
         @include mobile {
             padding-left: 0;
             padding-right: 0;
             padding-top: 40px;
-            &:before {
-              left: 30px;
-              top: 0px;
-            }
+
         }
         @include tablet {
             padding-left: 130px;
             //  padding-left: 30px;
-            &:before {
-                left:13%;
-                top: 40px;
-            }
+
         }
     }
     #customer-quote-slider {
@@ -66,6 +50,32 @@ section.customer-quote {
             margin-top: 10px;
         }
         .customer-quote-slide {
+          position: relative;
+          padding-left: 55px;
+          &:before {
+              padding-left: 10px;
+              content: ',,';
+              font-family: FSMe-Bold;
+              font-size: 90px;
+              //opacity: 0.45;
+              position: absolute;
+              transform: rotate(180Deg);
+              color: $quote-color;
+              left: 0px;
+              top: -16px;
+          }
+          @include mobile {
+            &:before {
+              left: 30px;
+              top: 0px;
+            }
+          }
+          @include tablet {
+            &:before {
+                left:13%;
+                top: 40px;
+            }
+          }
             & > div {
                 padding-right: 40%;
                 @include tablet {
