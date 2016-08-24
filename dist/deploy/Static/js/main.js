@@ -1,4 +1,4 @@
-/*! 2016-08-22 */s = new AppMeasurement()
+/*! 2016-08-24 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -4062,43 +4062,68 @@ var INFORMA = window.INFORMA || {};
     //variables
   INFORMA.Templates = {
     'articleListItems':
-    '{{#each Articles}}'+
+        '{{#each Articles}}'+
             '<li>'+
-            '<div class="columns">'+
-                '<p class="category">'+
-                    '{{#if BrandType}}'+
-                        '<span class="brand-type">{{BrandType}}</span>' +
-                    '{{/if}}' +
-                    '{{#if SectorType}}'+
-                      '<strong>{{SectorType}}</strong>' +
-                    '{{/if}}'+
-                '</p>'+
-                '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
-                '<span class="content-type">{{ContentType}}</span>'+
-                '<p class="date">{{PublicationDate}}</p>'+
-                '<div class="list-content">'+
-                    '{{#if Description}}'+
-                        '<p class="description">{{Description}}</p>'+
-                        '<span class="article-info"><em>Author:</em> <strong>{{Profile}}</strong></span>'+
-                            '<span class="article-info"><em>Topic:</em>'+
-                                '<strong>{{Topic}}</strong>'+
-                            '</span>'+
-                    '{{/if}}'+
-                    '{{#if Video}}'+
-                        '<div class="video-container">'+
-                            '<a href="{{Video.url}}" class="video-link">'+
-                                '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
-                            '</a>'+
-                            '<span class="play-icon icon-play"></span>'+
+                '<div class="col-xs-12">'+
+                    '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
+                        '<div class="recomend-content">'+
+                            '<div class="content">'+
+                                '{{#compare SectorType.length 0 operator=">"}}'+
+                                    '<p>'+
+                                        '{{#each SectorType}}'+
+                                            '<span class="category">'+
+                                                '<strong>{{this}}</strong>'+
+                                            '</span>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                                '{{/compare}}'+
+                                '{{#compare Product null operator="!="}}'+
+                                    '<span class="type">'+
+                                        '<span>{{Product}}</span>'+
+                                    '</span>'+
+                                '{{/compare}}'+  
+                                '<h4>{{Title}}</h4>'+
+                                '<p class="publish">{{ByKeyword}} <strong>{{Profile}}</strong>{{PublicationDate}}</p>'+
+                                '{{#compare Description null operator="!="}}'+
+                                    '<p class="description">{{Description}}</p>'+
+                                '{{/compare}}'+
+                                '{{#compare Video null operator="!="}}'+
+                                    '<div class="video-container">'+
+                                        '<a href="{{Video.Url}}" class="video-link" tabindex="0">'+
+                                            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                            '<span class="play-icon icon-play"></span>'+
+                                        '</a>'+
+                                    '</div>'+
+                                '{{/compare}}'+
+                            '</div>'+
+                            '{{#compare Topic.length 0 operator=">"}}'+
+                                '<p class="topics">'+
+                                    '{{TopicKeyword}} '+
+                                    '{{#each Topic}}'+
+                                        '<strong><a href="#">{{this}}</a></strong>'+
+                                    '{{/each}}'+
+                                '</p>'+
+                            '{{/compare}}'+
                         '</div>'+
-                    '{{/if}}'+
-                '</div>'+
-            '</div>'+
-                '{{#if LinkText}}'+
-                    '<div class="btn-container">'+
-                      '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
+                        '<div class="footer">'+
+                            '{{#compare Price null operator="!="}}'+
+                                    '<div class="recomended-currency"><strong>{{Price}}</strong></div>'+
+                            '{{/compare}}'+
+                            '{{#if EcommerceLink}}'+
+                                '{{#if EcommerceLink.Url}}'+
+                                    '<div class="btn-container text-right">'+
+                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-default" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
+                                    '</div>'+
+                                '{{/if}}'+  
+                            '{{/if}}'+
+                            '{{#if LinkText}}'+
+                                '<div class="btn-container text-right">'+
+                                    '<a href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
+                                '</div>'+
+                            '{{/if}}'+
+                        '</div>'+
                     '</div>'+
-                '{{/if}}'+
+                '</div>'+    
             '</li>'+
           '{{/each}}',
         'HeadlinesListItems':
@@ -4479,8 +4504,8 @@ var INFORMA = window.INFORMA || {};
                           '</div>'+
                         '</div>'+
                     '</div>',
-        'RecomendedContent': '<div class="col-md-4 col-sm-6 col-xs-12">'+
-                        '<div class="recomended-wrapper" data-fetch="{{results.Id}}">'+
+        'SampleContent': '<div class="col-md-4 col-sm-6 col-xs-12" data-id="{{results.Id}}" data-type="SamepleContent">'+
+                        '<div class="list-items recomended-wrapper" data-fetch="{{results.Id}}">'+
                             '<div class="recomend-content">'+
                                 '<div class="content">'+
                                     '{{#compare results.SectorType.length 0 operator=">"}}'+
@@ -4492,9 +4517,9 @@ var INFORMA = window.INFORMA || {};
                                             '{{/each}}'+
                                         '</p>'+
                                     '{{/compare}}'+
-                                    '<p class="type">'+
+                                    '<span class="type">'+
                                         '<span>{{results.Product}}</span>'+
-                                    '</p>'+
+                                    '</span>'+
                                     '<h4>{{results.Title}}</h4>'+
                                     '<p class="publish">{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
                                     '{{#compare results.Description null operator="!="}}'+
@@ -4502,7 +4527,7 @@ var INFORMA = window.INFORMA || {};
                                     '{{/compare}}'+
                                     '{{#compare results.Video null operator="!="}}'+
                                         '<div class="video-container">'+
-                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0">'+
+                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_blank">'+
                                                 '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
                                                 '<span class="play-icon icon-play"></span>'+
                                             '</a>'+
@@ -4513,7 +4538,7 @@ var INFORMA = window.INFORMA || {};
                                     '<p class="topics">'+
                                         '{{results.TopicKeyword}} '+
                                         '{{#each results.Topic}}'+
-                                            '<strong>{{this}}</strong>'+
+                                            '<strong><a href="#">{{this}}</a></strong>'+
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
@@ -4522,44 +4547,48 @@ var INFORMA = window.INFORMA || {};
                                 '{{#compare results.Price null operator="!="}}'+
                                         '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
                                 '{{/compare}}'+
-                                '<div class="btn-container text-right">'+
-                                    '<a href="{{results.PageURL}}" class="btn btn-default">{{results.LinkText}}</a>'+
-                                '</div>'+
+                                '{{#if results.LinkText}}'+
+                                    '<div class="btn-container text-right">'+
+                                        '<a href="{{results.PageURL}}" class="btn btn-default" target="_blank">{{results.LinkText}}</a>'+
+                                    '</div>'+
+                                '{{/if}}'+
                             '</div>'+
                         '</div>'+
                     '</div>',
-            'Products': '<div class="col-xs-12 col-sm-6 col-md-4">'+
+            'Products':
+            '<div class="col-xs-12 col-sm-6 col-md-4" data-id="{{results.ProductPageID}}" data-type="Product">'+
                         '<div class="list-items products">'+
                             '<div class="heading">'+
                                 '<div class="heading-content">'+
                                     '<p class="category">'+
-                                        '{{#each Sector}}'+
+                                        '{{#each results.Sector}}'+
                                             '<strong>{{this}}</strong>'+
                                         '{{/each}}'+
                                     '</p>'+
-                                    '<h4>{{Title}}</h4>'+
+                                    '<h4>{{results.Title}}</h4>'+
                                 '</div>'+
                             '</div>'+
                             '<div class="body">'+
-                                '<p>{{description}}</p>'+
+                                '<p>{{results.Description}}</p>'+
                                 '<ul>'+
-                                    '{{#each InformationType}}'+
+                                    '{{#each results.Benefits}}'+
                                     '<li class="icon-tick">{{this}}</li>'+
                                     '{{/each}}'+
                                 '</ul>'+
                                 '<div class="button-links">'+
                                     '<div class="button-links-wrap row">'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="#" class="btn btn-default">{{DetailsLink}}</a>'+
+                                            '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.FullDetailText}}</a>'+
                                         '</div>'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="#" class="btn btn-primary">{{CTALink}}</a>'+
+                                            '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.CtaTypeName}}</a>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
                     '</div>'
+
 
 }
 }(this, jQuery, 'INFORMA'));

@@ -6,21 +6,29 @@
         float: left;
         @include tablet {
             width: 100%;
-            float: none;
             padding: 20px 0;
         }
         @include mobile {
             width: 100%;
-            float: none;
             padding: 20px 0;
         }
         .container {
             width: 100%;
+            float: left;
+            @include mobile {
+                width: 100%;
+            }
+            @include tablet {
+                width: 100%;
+            }
         }
         .view-toggle {
             padding: 20px 0;
             padding-right: 100px;
             position: relative;
+            @include mobile {
+                padding-right: 0;
+            }
             .view-by {
                 width: 240px;
                 float: left;
@@ -55,6 +63,10 @@
             .results-found {
                 float: left;
                 width: calc(100% - 240px);
+                @include mobile {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
             }
             .items-found {
                 padding-left: 0;
@@ -131,7 +143,13 @@
         h4 {
             font-size: 24px;
         }
-        &.products {
+        .meet-anlyst-section {
+            margin-top: 0; 
+            .anlyst-heading {
+                height: 200px;
+            }
+        }
+        .products {
             overflow: hidden;
             h4 {
                 color: $white;
@@ -199,7 +217,7 @@
                     padding: 15px 10px;
                 }
             }
-            .category {
+            .category strong {
                 display: inline-block;
                 padding: 3px 8px;
                 font-weight: 400;
@@ -208,16 +226,6 @@
                 margin-right: 5px;
                 margin-bottom: 5px;
                 background-color: $grey-color2;
-                strong {
-                    &:after {
-                        content: ',';
-                    }
-                    &:last-child {
-                        &:after {
-                            content: '';
-                        }
-                    }
-                }
             }
         }
         .recomended-wrapper {
@@ -268,7 +276,7 @@
             h4 {
                 font-size: 18px;
             }
-            &.products {
+            .products {
                 .heading, .button-links {
                     background-color: transparent;
                     width: 100%;
@@ -296,6 +304,9 @@
                 }
                 .body {
                     padding: 0;
+                    ul {
+                        padding-left: 30px;
+                    }
                     li {
                         display: inline-block;
                         margin-right: 45px;

@@ -1,4 +1,4 @@
-/*! 2016-08-22 */
+/*! 2016-08-24 */
 /*
  * welcome-description
  *
@@ -458,7 +458,8 @@ var INFORMA = window.INFORMA || {};
 INFORMA.ArticleList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _ArticleLists = $('#article-list-section .list-container'),
+    var  Article = $('#article-list-section'),
+        _ArticleLists = $('#article-list-section .list-container'),
         _HeadlinesLists = $('section .headline-list .list-container'),
         FilterMenu = $(".category-filter-list .categoryFilter"),
         ArticleCont = $("section .article-list"),
@@ -545,27 +546,28 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         },
         equalHeights = function() {
             // Select and loop the container element of the elements you want to equalise
-            $(window).on('load', function () {
-                $('.list-container').each(function() {
+           //$(window).on('load', function () {
+               var Items = Article.find('.recomended-wrapper'),
+                MaxHeight = 0,
+                MaxWrapperHeight = 0,
+                Padding = 20;
 
-                    // Cache the highest
-                    var highestBox = 0;
+                Items.each(function () {
+                    var WrapperHeight = $(this).find('.recomend-content').height(),
+                        ContentHeight = $(this).find('.content').height();
 
-                    // Select and loop the elements you want to equalise
-                    $('.columns', this).each(function() {
+                    if(WrapperHeight > MaxWrapperHeight) {
+                        MaxWrapperHeight = WrapperHeight;
+                    }
 
-                        // If this box is higher than the cached highest then store it
-                        if ($(this).height() > highestBox) {
-                            highestBox = $(this).height();
-                        }
-
-                    });
-
-                    // Set the height of all those children to whichever was highest
-                    $('.columns', this).height(highestBox);
-
-                });
-            })
+                    if(ContentHeight > MaxHeight) {
+                        MaxHeight = ContentHeight;
+                    }
+                    
+                })
+                Items.find('.content').height(MaxHeight);
+                Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
+          // })
 
         },
         BindFilterEvents = function() {
@@ -712,6 +714,79 @@ INFORMA.brandList = (function(window, $, namespace) {
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.brandList.init());
 
+var INFORMA = window.INFORMA || {};
+INFORMA.brandList = (function(window, $, namespace) {
+    'use strict';
+    var DynamicBrandList = $('#dynamic-product-list'),
+        init, HideOnLoad, _equalHeight, ClickEvents,
+        Count = 1,
+        BtnShowMore = DynamicBrandList.find('.btn-showMore');
+
+    HideOnLoad = function (Parent) {
+        var showCount = Parent.attr('data-count'),
+            TotalItems = Parent.find('.card-col');
+
+
+        TotalItems.slice((showCount - TotalItems.length)).hide();
+        ClickEvents();
+    }
+
+    ClickEvents = function () {
+        
+        BtnShowMore.on('click', function(e) {
+            e.preventDefault();
+            var showCount = DynamicBrandList.attr('data-count'),
+                    TotalItems = DynamicBrandList.find('.card-col'),
+                    VisibleItems = DynamicBrandList.find('.card-col:visible').length;
+
+            if(!DynamicBrandList.hasClass('showLess')) {
+                    // debugger;
+                DynamicBrandList.removeClass('showLess');
+                TotalItems.slice((showCount * Count), (showCount * (Count+1))).slideDown();
+                Count++;
+            } else {
+                TotalItems.slice((showCount - TotalItems.length)).slideUp();
+                // debugger;
+                DynamicBrandList.removeClass('showLess');
+                Count = 1;
+                
+            }
+            if(TotalItems.length == VisibleItems) {
+                DynamicBrandList.addClass('showLess');
+            }
+        })
+    }
+
+    _equalHeight = function(container) {
+        var captionItems = container.find('.caption'),
+            maxHeight = 0,
+            padding = 50;
+
+        captionItems.each(function() {
+            var height = jQuery(this).height();
+            if(height > maxHeight) {
+                maxHeight = height;
+            }
+        })
+        if(INFORMA.global.device.viewportN != 2) {
+            captionItems.css('height', maxHeight + padding);
+        } else {
+            captionItems.css('height', 'auto');
+        }
+    }
+
+    init = function () {
+        if(DynamicBrandList.length > 0) {
+            HideOnLoad(DynamicBrandList);
+            _equalHeight(DynamicBrandList);
+        }
+    }
+
+     return {
+        init: init
+    };
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.brandList.init());
 /*
  * Home Contact Us.js
  *
@@ -3826,10 +3901,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 var FieldArray = ProductFinderSection.find("form").serializeArray(),
                     GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
                 INFORMA.Spinner.Show($("body"));
-                GetAjaxData(Urls[SearchType], "Post", GetSerializeData, RenderSearchResult, null, SearchType);
-
-                //Reset Pagination size to default value
-                INFORMA.SearchResults.ResetPageSize();
+                GetAjaxData(Urls[SearchType], "Get", GetSerializeData, RenderSearchResult, null, SearchType);
             });
         },
         BindAjaxHandler = function() {
@@ -4207,7 +4279,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 
                 for(var key in Articles) {
                     var Data = Articles[key],
-                        TemplateName = (Templates.RecomendedContent !== "undefined") ? Templates.RecomendedContent : "",
+                        TemplateName = (Templates.SampleContent !== "undefined") ? Templates.SampleContent : "",
                         ListTemplate = Handlebars.compile(TemplateName);
                     html += ListTemplate({ results: Data });
                 }
@@ -5005,11 +5077,86 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
     var Templates = INFORMA.Templates,
         Utils = INFORMA.Utils,
         Urls = INFORMA.Configs.urls.webservices,
+        SelectAll = $(".refine-container .panel-heading .custom-checkbox input"),
+        RefineCheckBox = $(".refine-container .panel-body .custom-checkbox input"),
+        RefineSection= $(".refine-container .panel-body"),
+        ShowMoreLinks = RefineSection.find("a.show-more"),
+        ClearAllLink = $(".refine-container a.clear-all"),
+
         // methods
-        init;
+        init, SelectAllCheckBox , BindRefineEvents, RefineSearchResult ,GetAjaxData;
 
+        GetAjaxData = function(url, method, data, SCallback, Errcallback) {
+            INFORMA.Spinner.Show($("body"));
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: data,
+                success_callback: SCallback,
+                error_callback: Errcallback
+            });
+        },
+        SelectAllCheckBox = function(){
+
+            SelectAll.on("click",function(e){
+                var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input");
+                if($(this).prop("checked")===true){
+                    jQuery.each(CurrentCheckBoxs, function(){
+                        $(this).prop("checked","checked");
+                    }); 
+                } else{
+                    jQuery.each(CurrentCheckBoxs, function(){
+                        $(this).prop("checked",false);
+                    }); 
+                }
+            });
+        },
+        BindRefineEvents = function(){
+            $.each(RefineSection, function(){
+                var DefaultCount= ($(this).data("defaultcount")!==null)? $(this).data("defaultcount"):5,
+                    SectionCheckBox = $(this).find(".custom-checkbox input"),
+                    CheckBoxCount = SectionCheckBox.length,
+                    ShowMoreLink = $(this).find("a.show-more");
+
+                    if(CheckBoxCount>DefaultCount){
+                        ShowMoreLink.addClass("show");
+                        $(this).find("ul").addClass("show-less");
+                    }
+            });
+
+            RefineCheckBox.on("click", function(){
+                var ParentEle = $(this).parents(".panel-body").eq(0),
+                    InputCount = ParentEle.find("input[type=checkbox]"),
+                    SelectedCheckBox  =ParentEle.find("input[type=checkbox]:checked"),
+                    CurrentSelectAllCheckBox = $(this).parents(".panel").eq(0).find(".panel-heading input");
+                if(SelectedCheckBox && SelectedCheckBox.length === InputCount.length){
+                    CurrentSelectAllCheckBox.prop("checked",true);
+                }else{
+                    CurrentSelectAllCheckBox.prop("checked",false);
+                }
+                GetAjaxData(Urls["ProductSearch"], "Get", JSON.stringify(Data),ParseSearchData, null);
+            });
+
+            ShowMoreLinks.on("click", function(e){
+                e.preventDefault();
+                $(this).parent().find("ul").removeClass("show-less");
+                $(this).removeClass("show");
+            });
+
+            ClearAllLink.on("click", function(e){
+                e.preventDefault();
+                var AllCheckBox = $(".refine-container .custom-checkbox input");
+                $.each(AllCheckBox, function(){
+                    $(this).prop("checked",false);
+                });
+                
+            });
+
+        },
         init = function() {
-
+            if(SelectAll && RefineCheckBox){
+                SelectAllCheckBox();
+                BindRefineEvents();
+            }
         };
     return {
         init: init
@@ -5040,16 +5187,52 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         PageSize = parseInt(Config.searchResult.pageSize),
         Urls = INFORMA.Configs.urls.webservices,
         Utils = INFORMA.Utils,
-        SearchType = '',
+        SearchContent = $(".search-container"),
         // methods
-        init , CreateSearchResult , ParseSearchData, ToggleView;
-        ToggleView  = function(){
+        init, CreateSearchResult, ParseSearchData, ToggleView, GetPaginatedData,GetAjaxData ;
+
+        GetAjaxData = function(url, method, data, SCallback, Errcallback) {
+            INFORMA.Spinner.Show($("body"));
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: data,
+                success_callback: function(data) {
+                    if (typeof SCallback === "function") {
+                        SCallback.call(this, data);
+                    }
+                },
+                error_callback: function() {
+                    if (typeof Errcallback === "function") {
+                        Errcallback.call(this, data);
+                    }
+                }
+            });
+        },
+       GetPaginatedData = function(){
+            var ShowMoreLink = SearchContent.find(".btn-showMore");
+            ShowMoreLink.off("click").on("click",function(e){
+                e.preventDefault();
+                var currentSection = $(this).parents(".product-results").eq(0),
+                    TileList = currentSection.find(".col-xs-12"),
+                    Data = [];
+                    $.each(TileList, function(){
+                        var KeyName = $(this).data("type"),
+                            KeyValue = $(this).data("id"),
+                            arrayValue = {};
+                            arrayValue[KeyName] = KeyValue;
+                        Data.push(arrayValue);
+                    });
+
+                GetAjaxData(Urls["ProductSearch"], "Get", JSON.stringify(Data),ParseSearchData, null);
+            });
+       },
+       ToggleView = function() {
             var toggleButtons = $(".search-container .view-mode li");
-            toggleButtons.on("click", function(e){
+            toggleButtons.on("click", function(e) {
                 e.preventDefault();
                 var currentView = $(this).data("view"),
                     parentEle = $(this).parents(".search-container").eq(0);
-                if(currentView){
+                if (currentView) {
                     toggleButtons.removeClass("selected");
                     $(this).addClass("selected");
                     parentEle.removeClass("tileView listView");
@@ -5057,59 +5240,36 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
             });
         },
-        CreateSearchResult = function(DataObject) {
-
-            for (var key in DataObject) {
-                if (DataObject.hasOwnProperty(key) && DataObject[key]) {
-                    var ResultName = key,
-                        html = "",
-                        Data = DataObject[key],
-                        ResultCount, ShowMoreLink, RemainingCount,
-                        TemplateName = (Templates[ResultName]) ? Templates[ResultName] : "",
-                        ListTemplate = Handlebars.compile(TemplateName),
-                        ContainerID = "#" + (ResultName).toLowerCase();
-                    ShowMoreLink = $(ContainerID).find(".btn-container");
-
-                    if ((Templates[ResultName]) && (Data[ResultName + 'List'])) {
-                        html = ListTemplate({ results: Data[ResultName + 'List'] }); //Update Search Results
-                        $(ContainerID).find(".row").html(html);
-                        $(ContainerID).show();
-                        ShowMoreLink.removeClass('hide');
-                    }
-
-                    //Update Record Counts
-                    if (Data) {
-                        ResultCount = (Data.Count) ? Data.Count : 0;
-                        RemainingCount = (Data.RemainingCount) ? Data.RemainingCount : 0;
-
-                        $(ContainerID).find(".count strong").text(ResultCount);
-
-                        if (RemainingCount < 1) {
-                            ShowMoreLink.addClass('hide');
+        CreateSearchResult = function(Data,SearchType) {
+            var FinalHTml='',Title,ShowMoreText;
+            for (var i = 0; i < Data.length; i++) {
+                var Results = Data[i], TemplateName, ListTemplate, Html='', ContentType,
+                    Lists = Results.Products;
+                    Title = (Results.ProductTitle) ? Results.ProductTitle:"";
+                    ShowMoreText = (Results.ShowMoreText) ? Results.ShowMoreText:"";
+                if(Lists){
+                    for (var j = 0; j < Lists.length; j++) { 
+                        if(Lists[j].ContentType){
+                            ContentType = Lists[j].ContentType;
+                            TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
+                            ListTemplate = Handlebars.compile(TemplateName);
+                            Html+= ListTemplate({ results: Lists[j] });
                         }
-
-                    } else {
-                        $(ContainerID).find(".count strong").text("0");
-                        ShowMoreLink.addClass('hide');
                     }
-                } else {
-                    var ResultName = key,
-                        ContainerID = "#" + (ResultName).toLowerCase();
-                    $(ContainerID).find(".row").html('');
+                    var Container = SearchContent.find(".product-results").eq(i);
+                    Container.find(".row").html(Html);
+                    Container.find("h2").text(Title);
                 }
             }
-            var UpddateHeight = setTimeout(function() {
-                clearTimeout(UpddateHeight);
-                UpdateHtmlView();
-            }, 500);
+            GetPaginatedData();
         },
         ParseSearchData = function(data, SearchType) {
-            if (Object.keys(data).length) {
-                var Results = (data.Results !== undefined) ? data.Results : false,
-                    Refine = (data.ProductFacets !== undefined) ? data.ProductFacets : false;
 
-                if (Results && Object.keys(Results).length) {
-                    CreateSearchResult(Results);
+            if (Object.keys(data).length) {
+                var ProductResults = (data.ProductListing !== undefined) ? data.ProductListing : false,
+                    Refine = (data.FacetSections !== undefined) ? data.FacetSections : false;
+                if (ProductResults && Object.keys(ProductResults).length) {
+                    CreateSearchResult(ProductResults,SearchType);
                 } else {
                     $(".no-results").show();
                 }
@@ -5118,7 +5278,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         init = function() {
             ToggleView();
         };
-     return {
+    return {
         init: init,
         RenderSearchResults: ParseSearchData
     };

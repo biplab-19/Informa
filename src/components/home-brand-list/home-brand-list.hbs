@@ -1,15 +1,15 @@
 --- component: sector list component ---
-<section id="product-brands-list-section" class="bg-gray-dark">
+<section id="dynamic-product-list" class="bg-gray-dark" data-count="3">
     <div class="product-brands-list">
         <div class="container">
             <div class="row">
                 {{#each data}}
-                    <div class="col-xs-12 card-col-heading">
+                    {{!-- <div class="col-xs-12 card-col-heading">
                         {{#if heading}}
                             <h2>{{heading}}</h2>
                         {{/if}}
                         <h3>{{sub-heading}}</h3>
-                    </div>
+                    </div> --}}
                     {{#each items}}
                         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 pull-left card-col">
                             <div class="card">
@@ -30,7 +30,7 @@
                     {{/each}}
                     {{#if allproducts.show}}
                         <div class="col-xs-12 card-col-heading show-more-btn-container">
-                            <a class="btn btn-default" href="{{allproducts.link}}" role="button">{{allproducts.label}}</a>
+                            <a class="btn-showMore" href="{{allproducts.link}}" role="button"><span class="more">More Products</span><span class="less">Less Products</span></a>
                         </div>
                     {{/if}}
                 {{/each}}

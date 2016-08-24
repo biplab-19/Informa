@@ -195,3 +195,24 @@
         }
     }
 }
+#dynamic-product-list {
+    .btn-showMore {
+        color: $white;
+        .more {
+            display: block;
+        }
+        .less {
+            display: none;
+        }
+    }
+    &.showLess {
+        .btn-showMore {
+            .more {
+                display: none;
+            }
+            .less {
+                display: block;
+            }
+        }
+    }
+}
