@@ -100,7 +100,7 @@
         // }
 
         .btn-container {
-            width: 60%;
+            width: 75%;
             margin: 0 auto;
             //position: absolute;
             padding-top: 10px;
@@ -111,7 +111,11 @@
                   color: $brand-secondary;
             }
             @include mobile {
+                width: 92%;
                 position: static;
+            }
+            @include tablet {
+              width: 92%;
             }
             .btn-default {
               border-color: $brand-primary;
