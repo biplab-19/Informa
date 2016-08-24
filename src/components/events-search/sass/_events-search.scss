@@ -4,20 +4,21 @@
 	.container {
 		position: relative;
 	}
+
 	.chosen-container-single .chosen-single {
+		border: none;
 		height: 50px;
 		span {
 			margin-top: 8px;
 		}
 		div {
 			&:after {
-				content: ">";
+				  content: "\e901";
+					font-family: 'InformaIcons';
 			    top: 50%;
 			    position: absolute;
 			    margin-top: -17px;
-			    -ms-transform: rotate(90deg); /* IE 9 */
-			    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-			    transform: rotate(90deg);
+					color: $grey-color3;
 			    font-weight: bold;
 			}
 			b {
