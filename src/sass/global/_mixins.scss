@@ -195,6 +195,18 @@ $desktop-width: 1142px;
             display: none;
         }
     }
+    .recomended-wrapper{
+        .btn-container .btn-default{
+          border: 2px solid $secondarycolorlight;
+          &:after{
+            color:$secondarycolorlight;
+          }
+          &:hover{
+            border: 2px solid $primarycolor;
+          }
+        }
+    }
+
     .btn-default{
         min-width: 230px;
        text-align: left;
