@@ -22,9 +22,9 @@ var INFORMA = window.INFORMA || {};
                     '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
                         '<div class="recomend-content">'+
                             '<div class="content">'+
-                                '{{#compare SectorType.length 0 operator=">"}}'+
+                                '{{#compare SectorTags.length 0 operator=">"}}'+
                                     '<p>'+
-                                        '{{#each SectorType}}'+
+                                        '{{#each SectorTags}}'+
                                             '<span class="category">'+
                                                 '<strong>{{this}}</strong>'+
                                             '</span>'+
@@ -53,8 +53,8 @@ var INFORMA = window.INFORMA || {};
                             '{{#compare Topic.length 0 operator=">"}}'+
                                 '<p class="topics">'+
                                     '{{TopicKeyword}} '+
-                                    '{{#each Topic}}'+
-                                        '<strong><a href="#">{{this}}</a></strong>'+
+                                    '{{#each TopicURLS}}'+
+                                        '<strong><a href="{{TopicURLS.TopicResourceLink}}">{{TopicURLS.TopicName}}</a></strong>'+
                                     '{{/each}}'+
                                 '</p>'+
                             '{{/compare}}'+
@@ -462,9 +462,9 @@ var INFORMA = window.INFORMA || {};
                         '<div class="list-items recomended-wrapper" data-fetch="{{results.Id}}">'+
                             '<div class="recomend-content">'+
                                 '<div class="content">'+
-                                    '{{#compare results.SectorType.length 0 operator=">"}}'+
+                                    '{{#compare results.SectorTags.length 0 operator=">"}}'+
                                         '<p>'+
-                                            '{{#each results.SectorType}}'+
+                                            '{{#each results.SectorTags}}'+
                                                 '<span class="category">'+
                                                     '<strong>{{this}}</strong>'+
                                                 '</span>'+
@@ -491,8 +491,8 @@ var INFORMA = window.INFORMA || {};
                                 '{{#compare results.Topic.length 0 operator=">"}}'+
                                     '<p class="topics">'+
                                         '{{results.TopicKeyword}} '+
-                                        '{{#each results.Topic}}'+
-                                            '<strong><a href="#">{{this}}</a></strong>'+
+                                        '{{#each result.TopicURLS}}'+
+                                            '<strong><a href="{{result.TopicURLS.TopicResourceLink}}">{{result.TopicURLS.TopicName}}</a></strong>'+
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
