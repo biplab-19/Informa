@@ -3314,6 +3314,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('html, body').addClass('global-no-scroll');
             $('#mobile-header-navigation .nav-back').css('display', 'none');
             $('#mobile-header-navigation .nav-subnav-heading').text('');
+            var img = $('.navbar-brand img')[0];
+            $('#mobile-header-navigation .nav-subnav-heading').append('<div class="navbar-image"><img src="'+img.src+'" class="logo-img-small"/></div>');            
         });
 
         _navclose.on('click', function(e) {
@@ -3322,6 +3324,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.informaNav .nav-main').css('left', '-100%');
             $('#sub-nav').css('left', '-100%');
             $('html, body').removeClass('global-no-scroll');
+            $('#mobile-header-navigation .nav-image').remove();
             //$('body').css('overflow-y', 'scroll');
             //$('body').css('height', 'auto');
         });
@@ -3331,6 +3334,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('#mobile-header-navigation .nav-subnav-heading').text('');
             $('#mobile-header-navigation .nav-back').css('display', 'none');
             $('html, body').addClass('global-no-scroll');
+            var img = $('.navbar-brand img')[0];
+            $('#mobile-header-navigation .nav-subnav-heading').append('<div class="navbar-image"><img src="'+img.src+'" class="logo-img-small"/></div>');
+            //$('#mobile-header-navigation .nav-image').remove();
             //$('body').css('overflow-y', 'hidden');
             //$('body').css('height', '100%');
         });
@@ -3985,7 +3991,6 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 var ProductData = GetProductFinderData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
-                console.log(Data);
                 GetAjaxData(Urls[SearchType], "Get", Data, RenderSearchResult, null, SearchType);
             });
         },
@@ -4027,9 +4032,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         },
         GetSubSectorList = function(arrayList) {
 
-            var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join("&");
-            SectorIDs = 'SectorIDs='+SectorIDs;
-            GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
+            var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
+            GetAjaxData(Urls.GetSubSectorList, "Get", JSON.stringify(SectorIDs), UpdateSubSectorDropdown, null);
         },
         BindDropDown = function() {
             var SectorList = [];
@@ -5173,7 +5177,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         SearchType='',
 
         // methods
-        init, SelectAllCheckBox , BindRefineEvents, RefineSearchResult ,GetAjaxData,GetSelectedFilter;
+        init, SelectAllCheckBox , BindRefineEvents, DoRefine, RefineSearchResult ,GetAjaxData,GetSelectedFilter;
 
         GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.Spinner.Show($("body"));
@@ -5200,6 +5204,13 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 return Data;
             }
        },
+       DoRefine = function(){
+         var ProductData = INFORMA.ProductFinder.GetProductData(),
+            FilterData = INFORMA.SearchResultFilter.GetRefineData(),
+            Data = JSON.stringify(INFORMA.ProductFinder.MergeData(ProductData,FilterData));
+                
+            GetAjaxData(Urls[SearchType], "Get", Data,INFORMA.SearchResults.RenderSearchResults, null);
+       },
         SelectAllCheckBox = function(){
 
             SelectAll.on("click",function(e){
@@ -5213,7 +5224,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                         $(this).prop("checked",false);
                     }); 
                 }
-                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),INFORMA.SearchResults.RenderSearchResults, null);
+                DoRefine();
             });
         },
         BindRefineEvents = function(){
@@ -5239,7 +5250,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 }else{
                     CurrentSelectAllCheckBox.prop("checked",false);
                 }
-                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),INFORMA.SearchResults.RenderSearchResults, null);
+                DoRefine();
             });
 
             ShowMoreLinks.on("click", function(e){
@@ -5254,7 +5265,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 $.each(AllCheckBox, function(){
                     $(this).prop("checked",false);
                 });
-                
+                DoRefine();
             });
 
         },
