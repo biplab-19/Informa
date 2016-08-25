@@ -18,44 +18,49 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         Config = INFORMA.Configs,
         PageSize = parseInt(Config.searchResult.pageSize),
         Urls = INFORMA.Configs.urls.webservices,
-        Utils = INFORMA.Utils,
+        Utils = INFORMA.Utils, SearchType,
         SearchContent = $(".search-container"),
+        ProductFinderSection = $('#product-finder-section'), Data = {},
         // methods
-        init, CreateSearchResult, ParseSearchData, ToggleView, GetPaginatedData,GetAjaxData ;
+        init, CreateSearchResult, ParseSearchData, ToggleView,GetPaginationData, DoPagination,GetAjaxData;
 
         GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
                 data: data,
-                success_callback: function(data) {
-                    if (typeof SCallback === "function") {
-                        SCallback.call(this, data);
-                    }
-                },
-                error_callback: function() {
-                    if (typeof Errcallback === "function") {
-                        Errcallback.call(this, data);
-                    }
-                }
+                success_callback: SCallback,
+                error_callback: Errcallback
             });
         },
-       GetPaginatedData = function(){
+        GetPaginationData = function(SectionObject){
+            var Data = {};
+            $.each(SectionObject, function(){
+                var KeyName = $(this).data("type"),
+                    KeyValue = $(this).data("id");
+                if(Data.hasOwnProperty(KeyName)){
+                    var uniqueArr = [], existingVal =[];
+                        existingVal = existingVal.concat(Data[KeyName]);
+                        uniqueArr.push(KeyValue);
+                        Data[KeyName] = uniqueArr.concat(existingVal);
+                }else{
+                   Data[KeyName] = KeyValue;
+                }
+            });
+            return Data;
+        },
+       DoPagination = function(){
             var ShowMoreLink = SearchContent.find(".btn-showMore");
             ShowMoreLink.off("click").on("click",function(e){
                 e.preventDefault();
                 var currentSection = $(this).parents(".product-results").eq(0),
                     TileList = currentSection.find(".col-xs-12"),
-                    Data = [];
-                    $.each(TileList, function(){
-                        var KeyName = $(this).data("type"),
-                            KeyValue = $(this).data("id"),
-                            arrayValue = {};
-                            arrayValue[KeyName] = KeyValue;
-                        Data.push(arrayValue);
-                    });
+                    PData = GetPaginationData(TileList),
+                    ProdData = INFORMA.ProductFinder.GetProductData(),
+                    FilterData = INFORMA.SearchResultFilter.GetRefineData(),
+                    Data = INFORMA.ProductFinder.MergeData(ProdData,PData,FilterData);
 
-                GetAjaxData(Urls["ProductSearch"], "Get", JSON.stringify(Data),ParseSearchData, null);
+                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),ParseSearchData, null);
             });
        },
        ToggleView = function() {
@@ -93,7 +98,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     Container.find("h2").text(Title);
                 }
             }
-            GetPaginatedData();
+            DoPagination();
         },
         ParseSearchData = function(data, SearchType) {
 
@@ -108,6 +113,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
         },
         init = function() {
+            var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
+                IsSearchPage = (ProductFinderSection.data("search") === true) ? true : false;
+
+            if (IsProductPage) {
+                SearchType = "ProductSearch";
+            }
+            if (IsSearchPage) {
+                SearchType = "SearchResult";
+            }
             ToggleView();
         };
     return {

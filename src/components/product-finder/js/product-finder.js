@@ -30,9 +30,9 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         Templates = INFORMA.Templates,
 
         // methods
-        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSearch,
+        init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSearch, GetProductFinderData,
         ToggleProductFinder, RenderSearchResult, UpdateSubSectorDropdown, GetAjaxData,
-        SubmitHandler, BindAjaxHandler;
+        SubmitHandler, BindAjaxHandler,MergeJsonData;
 
         ToggleProductFinder = function() {
             CloseIcon.on("click", function(e) {
@@ -47,6 +47,16 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     SearchIcon.toggleClass( "inactive" );
                 ProductFinderSection.slideDown("slow");
             });
+        },
+        MergeJsonData = function(Json1, Json2,Json3,Json4){
+            var Data = {};
+            $.extend(Data, Json1,Json2,Json3,Json4);
+            return Data;
+        },
+        GetProductFinderData = function(){
+            var FieldArray = ProductFinderSection.find("form").serializeArray(),
+                Data = INFORMA.Utils.serializeObject(FieldArray);
+            return Data ;
         },
         UpdateSubSectorDropdown = function(data) {
             if (data.SubSectors.length > 0) {
@@ -83,10 +93,12 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         SubmitHandler = function(btn, SearchType) {
             btn.off().on("click", function(e) {
                 e.preventDefault();
-                var FieldArray = ProductFinderSection.find("form").serializeArray(),
-                    GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
                 INFORMA.Spinner.Show($("body"));
-                GetAjaxData(Urls[SearchType], "Get", GetSerializeData, RenderSearchResult, null, SearchType);
+                var ProductData = GetProductFinderData(),
+                    FilterData = INFORMA.SearchResultFilter.GetRefineData(),
+                    Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
+                console.log(Data);
+                GetAjaxData(Urls[SearchType], "Get", Data, RenderSearchResult, null, SearchType);
             });
         },
         BindAjaxHandler = function() {
@@ -182,7 +194,9 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
     return {
         init: init,
-        UpdateSubSectorDropdown: UpdateSubSectorDropdown
+        UpdateSubSectorDropdown: UpdateSubSectorDropdown,
+        GetProductData : GetProductFinderData,
+        MergeData :MergeJsonData
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.ProductFinder.init());

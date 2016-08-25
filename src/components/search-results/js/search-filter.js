@@ -24,7 +24,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         ClearAllLink = $(".refine-container a.clear-all"),
 
         // methods
-        init, SelectAllCheckBox , BindRefineEvents, RefineSearchResult ,GetAjaxData;
+        init, SelectAllCheckBox , BindRefineEvents, RefineSearchResult ,GetAjaxData,GetSelectedFilter;
 
         GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.Spinner.Show($("body"));
@@ -35,6 +35,22 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 error_callback: Errcallback
             });
         },
+        GetSelectedFilter = function(){
+            var Data = {};
+            if(RefineSection){
+                $.each(RefineSection, function(){
+                    var GetSectionID = $(this).parent().attr("id"),
+                        SelectedCheckBox = $(this).find("input[type=checkbox]:checked"),
+                        uniqueArr = [];
+
+                    $.each(SelectedCheckBox, function(){
+                        uniqueArr.push($(this).attr("value"));
+                        Data[GetSectionID] = uniqueArr;
+                    });
+                });
+                return Data;
+            }
+       },
         SelectAllCheckBox = function(){
 
             SelectAll.on("click",function(e){
@@ -99,7 +115,8 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             }
         };
     return {
-        init: init
+        init: init,
+        GetRefineData:GetSelectedFilter
 
     };
 
