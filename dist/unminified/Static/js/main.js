@@ -1,4 +1,4 @@
-/*! 2016-08-24 */var INFORMA = window.INFORMA || {};
+/*! 2016-08-25 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3961,9 +3961,9 @@ var INFORMA = window.INFORMA || {};
                     '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
                         '<div class="recomend-content">'+
                             '<div class="content">'+
-                                '{{#compare SectorType.length 0 operator=">"}}'+
+                                '{{#compare SectorTags.length 0 operator=">"}}'+
                                     '<p>'+
-                                        '{{#each SectorType}}'+
+                                        '{{#each SectorTags}}'+
                                             '<span class="category">'+
                                                 '<strong>{{this}}</strong>'+
                                             '</span>'+
@@ -3992,8 +3992,8 @@ var INFORMA = window.INFORMA || {};
                             '{{#compare Topic.length 0 operator=">"}}'+
                                 '<p class="topics">'+
                                     '{{TopicKeyword}} '+
-                                    '{{#each Topic}}'+
-                                        '<strong><a href="#">{{this}}</a></strong>'+
+                                    '{{#each TopicURLS}}'+
+                                        '<strong><a href="{{TopicURLS.TopicResourceLink}}">{{TopicURLS.TopicName}}</a></strong>'+
                                     '{{/each}}'+
                                 '</p>'+
                             '{{/compare}}'+
@@ -4398,83 +4398,87 @@ var INFORMA = window.INFORMA || {};
                         '</div>'+
                     '</div>',
         'SampleContent': '<div class="col-md-4 col-sm-6 col-xs-12" data-id="{{results.Id}}" data-type="SamepleContent">'+
-                        '<div class="list-items recomended-wrapper" data-fetch="{{results.Id}}">'+
-                            '<div class="recomend-content">'+
-                                '<div class="content">'+
-                                    '{{#compare results.SectorType.length 0 operator=">"}}'+
-                                        '<p>'+
-                                            '{{#each results.SectorType}}'+
-                                                '<span class="category">'+
-                                                    '<strong>{{this}}</strong>'+
-                                                '</span>'+
+                        '<div class="list-items" data-fetch="{{results.Id}}">'+
+                            '<div class="recomended-wrapper">'+
+                                '<div class="recomend-content">'+
+                                    '<div class="content">'+
+                                        '{{#compare results.SectorTags.length 0 operator=">"}}'+
+                                            '<p>'+
+                                                '{{#each results.SectorTags}}'+
+                                                    '<span class="category">'+
+                                                        '<strong>{{this}}</strong>'+
+                                                    '</span>'+
+                                                '{{/each}}'+
+                                            '</p>'+
+                                        '{{/compare}}'+
+                                        '<span class="type">'+
+                                            '<span>{{results.Product}}</span>'+
+                                        '</span>'+
+                                        '<h4>{{results.Title}}</h4>'+
+                                        '<p class="publish">{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
+                                        '{{#compare results.Description null operator="!="}}'+
+                                            '<p class="description">{{results.Description}}</p>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.Video null operator="!="}}'+
+                                            '<div class="video-container">'+
+                                                '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_blank">'+
+                                                    '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                    '<span class="play-icon icon-play"></span>'+
+                                                '</a>'+
+                                            '</div>'+
+                                        '{{/compare}}'+
+                                    '</div>'+
+                                    '{{#compare results.Topic.length 0 operator=">"}}'+
+                                        '<p class="topics">'+
+                                            '{{results.TopicKeyword}} '+
+                                            '{{#each result.TopicURLS}}'+
+                                                '<strong><a href="{{result.TopicURLS.TopicResourceLink}}">{{result.TopicURLS.TopicName}}</a></strong>'+
                                             '{{/each}}'+
                                         '</p>'+
                                     '{{/compare}}'+
-                                    '<span class="type">'+
-                                        '<span>{{results.Product}}</span>'+
-                                    '</span>'+
-                                    '<h4>{{results.Title}}</h4>'+
-                                    '<p class="publish">{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
-                                    '{{#compare results.Description null operator="!="}}'+
-                                        '<p class="description">{{results.Description}}</p>'+
-                                    '{{/compare}}'+
-                                    '{{#compare results.Video null operator="!="}}'+
-                                        '<div class="video-container">'+
-                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_blank">'+
-                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
-                                                '<span class="play-icon icon-play"></span>'+
-                                            '</a>'+
-                                        '</div>'+
-                                    '{{/compare}}'+
                                 '</div>'+
-                                '{{#compare results.Topic.length 0 operator=">"}}'+
-                                    '<p class="topics">'+
-                                        '{{results.TopicKeyword}} '+
-                                        '{{#each results.Topic}}'+
-                                            '<strong><a href="#">{{this}}</a></strong>'+
-                                        '{{/each}}'+
-                                    '</p>'+
-                                '{{/compare}}'+
-                            '</div>'+
-                            '<div class="footer">'+
-                                '{{#compare results.Price null operator="!="}}'+
-                                        '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
-                                '{{/compare}}'+
-                                '{{#if results.LinkText}}'+
-                                    '<div class="btn-container text-right">'+
-                                        '<a href="{{results.PageURL}}" class="btn btn-default" target="_blank">{{results.LinkText}}</a>'+
-                                    '</div>'+
-                                '{{/if}}'+
+                                '<div class="footer">'+
+                                    '{{#compare results.Price null operator="!="}}'+
+                                            '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
+                                    '{{/compare}}'+
+                                    '{{#if results.LinkText}}'+
+                                        '<div class="btn-container text-right">'+
+                                            '<a href="{{results.PageURL}}" class="btn btn-default" target="_blank">{{results.LinkText}}</a>'+
+                                        '</div>'+
+                                    '{{/if}}'+
+                                '</div>'+
                             '</div>'+
                         '</div>'+
                     '</div>',
             'Products':
             '<div class="col-xs-12 col-sm-6 col-md-4" data-id="{{results.ProductPageID}}" data-type="Product">'+
-                        '<div class="list-items products">'+
-                            '<div class="heading">'+
-                                '<div class="heading-content">'+
-                                    '<p class="category">'+
-                                        '{{#each results.Sector}}'+
-                                            '<strong>{{this}}</strong>'+
-                                        '{{/each}}'+
-                                    '</p>'+
-                                    '<h4>{{results.Title}}</h4>'+
+                        '<div class="list-items">'+
+                            '<div class="products">'+
+                                '<div class="heading">'+
+                                    '<div class="heading-content">'+
+                                        '<p class="category">'+
+                                            '{{#each results.Sector}}'+
+                                                '<strong>{{this}}</strong>'+
+                                            '{{/each}}'+
+                                        '</p>'+
+                                        '<h4>{{results.Title}}</h4>'+
+                                    '</div>'+
                                 '</div>'+
-                            '</div>'+
-                            '<div class="body">'+
-                                '<p>{{results.Description}}</p>'+
-                                '<ul>'+
-                                    '{{#each results.Benefits}}'+
-                                    '<li class="icon-tick">{{this}}</li>'+
-                                    '{{/each}}'+
-                                '</ul>'+
-                                '<div class="button-links">'+
-                                    '<div class="button-links-wrap row">'+
-                                        '<div class="col-xs-6">'+
-                                            '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.FullDetailText}}</a>'+
-                                        '</div>'+
-                                        '<div class="col-xs-6">'+
-                                            '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.CtaTypeName}}</a>'+
+                                '<div class="body">'+
+                                    '<p>{{results.Description}}</p>'+
+                                    '<ul>'+
+                                        '{{#each results.Benefits}}'+
+                                        '<li class="icon-tick">{{this}}</li>'+
+                                        '{{/each}}'+
+                                    '</ul>'+
+                                    '<div class="button-links">'+
+                                        '<div class="button-links-wrap row">'+
+                                            '<div class="col-xs-6">'+
+                                                '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.FullDetailText}}</a>'+
+                                            '</div>'+
+                                            '<div class="col-xs-6">'+
+                                                '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.CtaTypeName}}</a>'+
+                                            '</div>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+

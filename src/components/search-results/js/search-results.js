@@ -44,7 +44,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     MaxHeight = ItemHeight;
                 }
             })
-            Items.height(MaxHeight + Padding);
+            //Items.height(MaxHeight + Padding);
         },
         GetPaginationData = function(SectionObject){
             var Data = {};

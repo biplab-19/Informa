@@ -232,7 +232,6 @@ in the empire of Sapient. Har Har Mahadev !! --->
                                 <div class="textbox">
                                     <label for="searchField">
                                         <input type="text" placeholder="Enter keyword" id="searchField" name="searchtext" />
-                                        <input type="hidden" name="searchtab" class="search-tab" value="allresults" />
                                     </label>
                                 </div>
                             </li>
@@ -244,7 +243,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                             <li class="menu">
                                 <label for="sector-list" class="label-text">Sector:</label>
                                 <div class="custom-multiselect">
-                                    <select id="sector-list" name="sectors" class="sector-list" multiple="multiple" data-placeholder="Please Select">
+                                    <select id="sector-list" name="Sectors" class="Sector" multiple="multiple" data-placeholder="Please Select">
                                         <option value="sector1">Commodities</option>
                                         <option value="sector2">Crop protection</option>
                                         <option value="sector3">Diary Products</option>
@@ -254,7 +253,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
                             <li class="menu disabled">
                                 <label for="sub-sector-list" class="label-text">Needs:</label>
                                 <div class="custom-multiselect">
-                                    <select id="sub-sector-list" name="subsectors" class="sub-sector-list" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
+                                    <select id="sub-sector-list" name="SubSectors" class="SubSector" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
                                         <option value="subsector1">Diary</option>
                                         <option value="subsector2">Meats</option>
                                         <option value="subsector3">Electronics</option>
@@ -294,23 +293,23 @@ in the empire of Sapient. Har Har Mahadev !! --->
 	<section class="events-search">
 	<div class="container">
 		<div class="row">
-			<div class="select-section col-sm-9 col-md-6">
+			<div class="select-section col-sm-12 col-md-12">
 				<div class="row">
-					<div class="col-xs-12 col-sm-6 form-group">
+					<div class="col-xs-12 col-sm-3 form-group">
 						<label for="sector">View by sector</label>
 	                    <select class="chosen-select" name="sector">
 	                        <option value="All">All</option>
 	                        <option value="latest">latest</option>
 	                    </select>
 					</div>
-					<div class="col-xs-12 col-sm-6 form-group">
+					<div class="col-xs-12 col-sm-3 form-group">
 						<label for="month">View by month</label>
 	                    <select class="chosen-select" name="month">
 	                        <option value="June 2016">All</option>
 	                        <option value="July 2016">latest</option>
 	                    </select>
 					</div>
-					<div class="col-xs-12 col-sm-6 form-group">
+					<div class="col-xs-12 col-sm-3 form-group">
 						<label for="event-type">Type</label>
 	                    <select class="chosen-select" name="eventType">
 	                        <option value="June 2016">All</option>
@@ -330,6 +329,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
 		</div>
 	</div>
 </section>
+
 	<section id="events" data-view="list-view" class="events-list">
 	<div class="container" data-count="3">
 
