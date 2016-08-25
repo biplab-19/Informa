@@ -97,7 +97,6 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 var ProductData = GetProductFinderData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
-                console.log(Data);
                 GetAjaxData(Urls[SearchType], "Get", Data, RenderSearchResult, null, SearchType);
             });
         },
@@ -139,9 +138,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         },
         GetSubSectorList = function(arrayList) {
 
-            var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join("&");
-            SectorIDs = 'SectorIDs='+SectorIDs;
-            GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
+            var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
+            GetAjaxData(Urls.GetSubSectorList, "Get", JSON.stringify(SectorIDs), UpdateSubSectorDropdown, null);
         },
         BindDropDown = function() {
             var SectorList = [];

@@ -26,7 +26,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         SearchType='',
 
         // methods
-        init, SelectAllCheckBox , BindRefineEvents, RefineSearchResult ,GetAjaxData,GetSelectedFilter;
+        init, SelectAllCheckBox , BindRefineEvents, DoRefine, RefineSearchResult ,GetAjaxData,GetSelectedFilter;
 
         GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.Spinner.Show($("body"));
@@ -53,6 +53,13 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 return Data;
             }
        },
+       DoRefine = function(){
+         var ProductData = INFORMA.ProductFinder.GetProductData(),
+            FilterData = INFORMA.SearchResultFilter.GetRefineData(),
+            Data = JSON.stringify(INFORMA.ProductFinder.MergeData(ProductData,FilterData));
+                
+            GetAjaxData(Urls[SearchType], "Get", Data,INFORMA.SearchResults.RenderSearchResults, null);
+       },
         SelectAllCheckBox = function(){
 
             SelectAll.on("click",function(e){
@@ -66,7 +73,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                         $(this).prop("checked",false);
                     }); 
                 }
-                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),INFORMA.SearchResults.RenderSearchResults, null);
+                DoRefine();
             });
         },
         BindRefineEvents = function(){
@@ -92,7 +99,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 }else{
                     CurrentSelectAllCheckBox.prop("checked",false);
                 }
-                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),INFORMA.SearchResults.RenderSearchResults, null);
+                DoRefine();
             });
 
             ShowMoreLinks.on("click", function(e){
@@ -107,7 +114,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 $.each(AllCheckBox, function(){
                     $(this).prop("checked",false);
                 });
-                
+                DoRefine();
             });
 
         },
