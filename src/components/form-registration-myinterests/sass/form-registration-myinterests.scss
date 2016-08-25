@@ -1,0 +1,267 @@
+.register-myinterests {
+    .triangle-nav-container {
+        background: $blue-light-bg;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .register-myinterests-form {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .form-progressive-container {
+        background-color: $gray-light-bg;
+        color: $white;
+    }
+    .contact-details {
+        legend {
+            &:first-child {
+                &:before {
+                    content: "\e91a";
+                    font-family: 'InformaIcons';
+                    position: absolute;
+                    top: 18px;
+                    left: 0;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .triangle-nav {
+        list-style: none;
+        overflow: hidden;
+    }
+    .triangle-nav li {
+        float: left;
+        &:first-child {
+            a {
+                padding-left: 5px;
+            }
+        }
+        a {
+            color: $font-color;
+            text-decoration: none;
+            padding: 5px 0 4px 40px;
+            background: $white;
+            /* fallback color */
+
+            //background: $brand-secondary;
+            position: relative;
+            display: block;
+            float: left;
+            &:after {
+                content: " ";
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 50px solid transparent;
+                /* Go big on the size, and let overflow hide */
+
+                border-bottom: 50px solid transparent;
+                border-left: 30px solid $white;
+                position: absolute;
+                top: 50%;
+                margin-top: -50px;
+                left: 100%;
+                z-index: 2;
+            }
+        }
+        &.active {
+            a {
+                color: $font-color;
+                text-decoration: none;
+                background: $brand-secondary;
+                /* fallback color */
+
+                position: relative;
+                display: block;
+                float: left;
+            }
+        }
+    }
+    .triangle-nav li.active a:after {
+        content: " ";
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 50px solid transparent;
+        /* Go big on the size, and let overflow hide */
+
+        border-bottom: 50px solid transparent;
+        border-left: 30px solid $brand-secondary;
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        left: 100%;
+        z-index: 2;
+    }
+    .tab-content {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+    .next-step {
+        width: 180px;
+    }
+    .form-container {
+        // margin-bottom: 20px;
+        // margin-top: 20px;
+    }
+    // .multiselect-container {
+    //   position: absolute;
+    //   list-style-type: none;
+    //   margin: 0;
+    //   padding: 0;
+    //
+    //   .input-group {
+    //     margin: 5px;
+    //   }
+    //
+    //   > li {
+    //     padding: 0;
+    //
+    //     > a.multiselect-all label {
+    //       font-weight: bold;
+    //     }
+    //
+    //     &.multiselect-group label {
+    //       margin: 0;
+    //       padding: 3px 20px 3px 20px;
+    //       height: 100%;
+    //       font-weight: bold;
+    //     }
+    //
+    //     &.multiselect-group-clickable label {
+    //       cursor: pointer;
+    //     }
+    //
+    //     > a {
+    //       padding: 0;
+    //
+    //       > label {
+    //         margin: 0;
+    //         height: 100%;
+    //         cursor: pointer;
+    //         font-weight: normal;
+    //         padding: 3px 20px 3px 40px;
+    //
+    //         &.radio, &.checkbox {
+    //           margin: 0;
+    //         }
+    //
+    //         > input[type="checkbox"] {
+    //           margin-bottom:5px;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    .custom-multiselect {
+        a {
+            padding: 0 !important;
+        }
+        label {
+            color: $text-gray;
+        }
+        input {
+            opacity: 0;
+            width: 16px;
+            height: 16px;
+        }
+        .btn-group {
+            width: 100%;
+            .caret {
+                content: "\e901";
+                border: none;
+                font-family: 'InformaIcons';
+                position: absolute;
+                right: 30px;
+                &:before {
+                    font: 400 15px 'InformaIcons';
+                    content: "\e901";
+                    color: #a7a9b6;
+                }
+            }
+            .dropdown-toggle {
+                width: 100%;
+                background-color: $blue-lighter-bg;
+                border: none;
+                //  padding: 10px;
+                &:after {
+                    content: '';
+                }
+                &:hover {
+                    background: $blue-lighter-bg;
+                }
+            }
+            .dropdown-menu {
+                border-radius: 0;
+                border: none;
+                width: 100%;
+                padding: 10px 0;
+                background-color: #f0f1f3;
+                box-shadow: 1px -1px -1px 1px rgba(0, 0, 0, 0.75);
+                -moz-box-shadow: 1px -1px -1px 1px rgba(0, 0, 0, 0.75);
+                -webkit-box-shadow: 1px -1px -1px 1px rgba(0, 0, 0, 0.75);
+                label {
+                    color: $text-gray;
+                    &:before {
+                        background: #fff none repeat scroll 0 0;
+                        content: "";
+                        height: 16px;
+                        left: 19px;
+                        position: absolute;
+                        top: 6px;
+                        width: 16px;
+                    }
+                }
+                .active {
+                    label {
+                        &:before {
+                            background: $white url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
+                            background-size: 100%;
+                        }
+                    }
+                    a {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+    .open > .dropdown-menu {
+        display: block;
+        //  width: 500px;
+        position: relative;
+    }
+    label.control-label {
+        font-family: FSMe-light !important;
+        font-weight: normal !important;
+        clear: both;
+        display: block;
+    }
+    .normal-checkbox label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: normal;
+    }
+}
+.form-progressive-container {
+    form.register-myinterests-form .form-group .select-wrapper:after {
+        display: none;
+    }
+    #step2 {
+        .list-inline {
+            width: 450px;
+            .btn-previous.prev-step {
+                float: left;
+            }
+            .form-submit-border {
+                padding-bottom: 12px;
+                z-index: 2;
+                .btn {
+                    padding: 17px;
+                }
+            }
+        }
+    }
+}
