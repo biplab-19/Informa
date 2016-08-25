@@ -1,6 +1,7 @@
 .tab-pane {
     form.get-in-touch,
-    form.request-a-demo {
+    form.request-a-demo,
+    form.register-myinterests-form {
         @include desktop {
             padding-left: 10% !important;
             padding-right: 10% !important;
@@ -25,7 +26,8 @@
     }
 }
 form.get-in-touch,
-form.request-a-demo {
+form.request-a-demo,
+form.register-myinterests-form {
     background-color: $gray-light-bg;
     color: $white;
     padding-left: 25%;
@@ -317,7 +319,7 @@ form.request-a-demo {
                         right: 8px;
                         bottom: 8px;
                     }
-                        
+
                 }
             }
         }

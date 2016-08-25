@@ -92,7 +92,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
       //  $('.triangle-nav > li a[title]').tooltip();
         $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
             var $target = $(e.target);
-            if($target.attr('href') == "#step2"){
+            if($target.attr('href') == "#step2" && $target.parent().attr('class') == 'active'){
               _recommendedTipsContainer.css('display', 'block');
             }else{
               _recommendedTipsContainer.css('display', 'none');
@@ -136,7 +136,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         // _appendStepTwo();
          _wrapFormContainer();
          _renderAllContainers();
-        _renderMultiSelect();
+        //_renderMultiSelect();
         _renderRecommendedTips();
         //  _validateForm();
     };
