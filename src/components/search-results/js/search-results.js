@@ -22,7 +22,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SearchContent = $(".search-container"),
         ProductFinderSection = $('#product-finder-section'), Data = {},
         // methods
-        init, CreateSearchResult, ParseSearchData, ToggleView,GetPaginationData, DoPagination,GetAjaxData;
+        init, CreateSearchResult, ParseSearchData, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight;
 
         GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.Spinner.Show($("body"));
@@ -32,6 +32,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 success_callback: SCallback,
                 error_callback: Errcallback
             });
+        },
+        EqualHeight = function(){
+            var Items = SearchContent.find('.list-items'),
+                MaxHeight = 0,
+                Padding = 35;
+
+            Items.each(function() {
+                var ItemHeight = $(this).outerHeight();
+                if(ItemHeight> MaxHeight) {
+                    MaxHeight = ItemHeight;
+                }
+            })
+            Items.height(MaxHeight + Padding);
         },
         GetPaginationData = function(SectionObject){
             var Data = {};
@@ -96,6 +109,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     var Container = SearchContent.find(".product-results").eq(i);
                     Container.find(".row").html(Html);
                     Container.find("h2").text(Title);
+                    EqualHeight();
                 }
             }
             DoPagination();
@@ -123,6 +137,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 SearchType = "SearchResult";
             }
             ToggleView();
+            EqualHeight();
         };
     return {
         init: init,

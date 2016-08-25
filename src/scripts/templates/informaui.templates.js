@@ -511,31 +511,33 @@ var INFORMA = window.INFORMA || {};
                     '</div>',
             'Products':
             '<div class="col-xs-12 col-sm-6 col-md-4" data-id="{{results.ProductPageID}}" data-type="Product">'+
-                        '<div class="list-items products">'+
-                            '<div class="heading">'+
-                                '<div class="heading-content">'+
-                                    '<p class="category">'+
-                                        '{{#each results.Sector}}'+
-                                            '<strong>{{this}}</strong>'+
-                                        '{{/each}}'+
-                                    '</p>'+
-                                    '<h4>{{results.Title}}</h4>'+
+                        '<div class="list-items">'+
+                            '<div class="products">'+
+                                '<div class="heading">'+
+                                    '<div class="heading-content">'+
+                                        '<p class="category">'+
+                                            '{{#each results.Sector}}'+
+                                                '<strong>{{this}}</strong>'+
+                                            '{{/each}}'+
+                                        '</p>'+
+                                        '<h4>{{results.Title}}</h4>'+
+                                    '</div>'+
                                 '</div>'+
-                            '</div>'+
-                            '<div class="body">'+
-                                '<p>{{results.Description}}</p>'+
-                                '<ul>'+
-                                    '{{#each results.Benefits}}'+
-                                    '<li class="icon-tick">{{this}}</li>'+
-                                    '{{/each}}'+
-                                '</ul>'+
-                                '<div class="button-links">'+
-                                    '<div class="button-links-wrap row">'+
-                                        '<div class="col-xs-6">'+
-                                            '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.FullDetailText}}</a>'+
-                                        '</div>'+
-                                        '<div class="col-xs-6">'+
-                                            '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.CtaTypeName}}</a>'+
+                                '<div class="body">'+
+                                    '<p>{{results.Description}}</p>'+
+                                    '<ul>'+
+                                        '{{#each results.Benefits}}'+
+                                        '<li class="icon-tick">{{this}}</li>'+
+                                        '{{/each}}'+
+                                    '</ul>'+
+                                    '<div class="button-links">'+
+                                        '<div class="button-links-wrap row">'+
+                                            '<div class="col-xs-6">'+
+                                                '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.FullDetailText}}</a>'+
+                                            '</div>'+
+                                            '<div class="col-xs-6">'+
+                                                '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.CtaTypeName}}</a>'+
+                                            '</div>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
