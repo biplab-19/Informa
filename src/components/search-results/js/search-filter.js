@@ -22,6 +22,8 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         RefineSection= $(".refine-container .panel-body"),
         ShowMoreLinks = RefineSection.find("a.show-more"),
         ClearAllLink = $(".refine-container a.clear-all"),
+        ProductFinderSection = $('#product-finder-section'),
+        SearchType='',
 
         // methods
         init, SelectAllCheckBox , BindRefineEvents, RefineSearchResult ,GetAjaxData,GetSelectedFilter;
@@ -64,6 +66,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                         $(this).prop("checked",false);
                     }); 
                 }
+                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),INFORMA.SearchResults.RenderSearchResults, null);
             });
         },
         BindRefineEvents = function(){
@@ -89,7 +92,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 }else{
                     CurrentSelectAllCheckBox.prop("checked",false);
                 }
-                GetAjaxData(Urls["ProductSearch"], "Get", JSON.stringify(Data),ParseSearchData, null);
+                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),INFORMA.SearchResults.RenderSearchResults, null);
             });
 
             ShowMoreLinks.on("click", function(e){
@@ -109,6 +112,16 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
         },
         init = function() {
+            var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
+                IsSearchPage = (ProductFinderSection.data("search") === true) ? true : false;
+
+            if (IsProductPage) {
+                SearchType = "ProductSearch";
+            }
+            if (IsSearchPage) {
+                SearchType = "SearchResult";
+            }
+
             if(SelectAll && RefineCheckBox){
                 SelectAllCheckBox();
                 BindRefineEvents();

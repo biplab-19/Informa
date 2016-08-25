@@ -15,7 +15,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
     'use strict';
     //variables
     var ProductFinderSection = $('#product-finder-section'),
-        SubSectorList = $(".sector-search .sub-sector-list"),
+        SubSectorList = $(".sector-search .SubSector"),
         SubmitBtn = $(".sector-search li.button"),
         CustomSelect = ProductFinderSection.find(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
@@ -161,7 +161,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     }
                 },
                 onChange: function(option, checked, select) {
-                    if ($(option).parent().hasClass("sector-list") === true) {
+                    if ($(option).parent().hasClass("Sector") === true) {
                         if (checked) {
                             SectorList.push($(option).val());
                         } else {
