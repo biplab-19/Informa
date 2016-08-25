@@ -8,7 +8,7 @@
         padding-left: 2%;
         padding-right: 2%;
     }
-    .form-progressive-container {
+    .register-myinterests-form-container {
         background-color: $gray-light-bg;
         color: $white;
     }
@@ -20,11 +20,26 @@
                     font-family: 'InformaIcons';
                     position: absolute;
                     top: 18px;
-                    left: 0;
+                    left: -25px;
                     font-size: 20px;
                 }
             }
         }
+    }
+
+    .scfSectionBorder{
+      legend {
+          &:first-child {
+              &:before {
+                  content: "\e925";
+                  font-family: 'InformaIcons';
+                  position: absolute;
+                  top: 18px;
+                  left: -25px;
+                  font-size: 20px;
+              }
+          }
+      }
     }
     .triangle-nav {
         list-style: none;
@@ -101,60 +116,7 @@
     .next-step {
         width: 180px;
     }
-    .form-container {
-        // margin-bottom: 20px;
-        // margin-top: 20px;
-    }
-    // .multiselect-container {
-    //   position: absolute;
-    //   list-style-type: none;
-    //   margin: 0;
-    //   padding: 0;
-    //
-    //   .input-group {
-    //     margin: 5px;
-    //   }
-    //
-    //   > li {
-    //     padding: 0;
-    //
-    //     > a.multiselect-all label {
-    //       font-weight: bold;
-    //     }
-    //
-    //     &.multiselect-group label {
-    //       margin: 0;
-    //       padding: 3px 20px 3px 20px;
-    //       height: 100%;
-    //       font-weight: bold;
-    //     }
-    //
-    //     &.multiselect-group-clickable label {
-    //       cursor: pointer;
-    //     }
-    //
-    //     > a {
-    //       padding: 0;
-    //
-    //       > label {
-    //         margin: 0;
-    //         height: 100%;
-    //         cursor: pointer;
-    //         font-weight: normal;
-    //         padding: 3px 20px 3px 40px;
-    //
-    //         &.radio, &.checkbox {
-    //           margin: 0;
-    //         }
-    //
-    //         > input[type="checkbox"] {
-    //           margin-bottom:5px;
-    //         }
-    //       }
-    //     }
-    //   }
-    // }
-    .custom-multiselect {
+  .custom-multiselect, .select-wrapper {
         a {
             padding: 0 !important;
         }
@@ -244,16 +206,43 @@
         margin-bottom: 5px;
         font-weight: normal;
     }
+    .btn-previous {
+    color: $white;
+     min-width: 180px;
+     text-align: right;
+     padding-top: 15px;
+     padding-bottom: 15px;
+     background:  $gray-dark-bg !important;
+     position: relative;
+     &:before{
+       content: "\e903";
+       font-family: 'InformaIcons';
+       left: 15px;
+       font-weight: bold;
+       position: absolute;
+       //color:$primary;
+     }
+     &:hover{
+        border-color: $gray-dark-bg;
+     }
 }
-.form-progressive-container {
-    form.register-myinterests-form .form-group .select-wrapper:after {
+}
+.register-myinterests-form-container {
+     .form-group .select-wrapper:after {
         display: none;
     }
     #step2 {
-        .list-inline {
-            width: 450px;
-            .btn-previous.prev-step {
+        .list-inline, .form-submit-border {
+                width: 450px;
+                float: right;
+                .btn {
+                    float: right;
+                    min-width: 180px;
+                }
+            .btn-previous {
                 float: left;
+                margin-right: 200px;
+                display: block;
             }
             .form-submit-border {
                 padding-bottom: 12px;

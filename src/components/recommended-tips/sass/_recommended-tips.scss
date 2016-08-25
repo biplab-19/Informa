@@ -2,9 +2,12 @@ div.recommended-tips{
   padding-top: 40px;
   background: $grey-color1;
   color: $grey-color6;
+
   .tips-title{
+      font-size: 24px;
       color: $grey-color7;
       padding-bottom: 10px;
+      position: relative;
       @include mobile {
         padding-left: 32px;
       }
@@ -15,9 +18,10 @@ div.recommended-tips{
         font-family: "InformaIcons" !important;
         content: "\e915";
         position: absolute;
-        color: $grey-color4;
-        top: -34px;
+        color: #a6aab6;
+        top: -33px;
         font-size: 28px;
+        left: -5px;
         @include mobile {
           top: 8px;
           left: 10px;
