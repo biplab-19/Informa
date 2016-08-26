@@ -187,7 +187,25 @@
                     }
                 }
             }
+            .select-all-bottom {
+              display: none;
+              background: $blue-lighter-bg;
+              padding: 0;
+              margin-top: 50px;
+              padding-left: 15px;
+              padding-bottom: 15px;
+              a.multiselect-all {
+
+              label {
+                  cursor: pointer;
+                  //color: $white;
+                  //padding: 10px;
+                }
+              }
+            }
         }
+
+
     }
     .open > .dropdown-menu {
         display: block;
@@ -226,6 +244,7 @@
         border-color: $gray-dark-bg;
      }
 }
+
 }
 .register-myinterests-form-container {
      .form-group .select-wrapper:after {
