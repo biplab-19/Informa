@@ -469,8 +469,8 @@ var INFORMA = window.INFORMA || {};
                           '</div>'+
                         '</div>'+
                     '</div>',
-        'SampleContent': '<div class="col-md-4 col-sm-6 col-xs-12" data-id="{{results.Id}}" data-type="SamepleContent">'+
-                        '<div class="list-items" data-fetch="{{results.Id}}">'+
+        'SampleContent': '<div class="col-md-4 col-sm-6 col-xs-12">'+
+                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.ContentType}}">'+
                             '<div class="recomended-wrapper">'+
                                 '<div class="recomend-content">'+
                                     '<div class="content">'+
@@ -523,8 +523,8 @@ var INFORMA = window.INFORMA || {};
                         '</div>'+
                     '</div>',
             'Products':
-            '<div class="col-xs-12 col-sm-6 col-md-4" data-id="{{results.ProductPageID}}" data-type="Product">'+
-                        '<div class="list-items">'+
+            '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.ContentType}}">'+
                             '<div class="products">'+
                                 '<div class="heading">'+
                                     '<div class="heading-content">'+
