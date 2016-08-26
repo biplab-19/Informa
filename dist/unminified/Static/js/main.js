@@ -4036,6 +4036,17 @@ var INFORMA = window.INFORMA || {};
             '{{#each SubSectors}}'+
                 '<option value="{{SubSectorID}}">{{SubSectorName}}</option>'+
             '{{/each}}',
+    'RefineFacets':
+            '{{#each results}}'+
+                '<li>'+
+                '<span class="custom-checkbox">'+
+                    '<label for="{{Id}}" class="label">'+
+                        '<input type="checkbox" name="{{Name}}" id="{{Id}}" value="{{Value}}" {{#if Disabled}}disabled="disabled"{{/if}} {{#if Selected}}checked="checked"{{/if}} />'+
+                        '<span>{{Text}}</span>'+
+                    '</label>'+
+                '</span>'+
+                '</li>'+
+            '{{/each}}',
     'Resources':
             '<ul class="list-container">'+
             '{{#each results}}'+
