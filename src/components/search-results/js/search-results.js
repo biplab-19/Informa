@@ -21,6 +21,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         Utils = INFORMA.Utils, SearchType,
         SearchContent = $(".search-container"),
         ProductFinderSection = $('#product-finder-section'), Data = {},
+        ShowMoreLink = SearchContent.find(".btn-showMore"),
         // methods
         init, CreateSearchResult, ParseSearchData, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight;
 
@@ -63,7 +64,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             return Data;
         },
        DoPagination = function(){
-            var ShowMoreLink = SearchContent.find(".btn-showMore");
             ShowMoreLink.off("click").on("click",function(e){
                 e.preventDefault();
                 var currentSection = $(this).parents(".product-results").eq(0),
@@ -135,6 +135,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             if (IsSearchPage) {
                 SearchType = "SearchResult";
+            }
+            if(ShowMoreLink){
+                DoPagination();
             }
             ToggleView();
             EqualHeight();
