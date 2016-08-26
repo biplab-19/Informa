@@ -524,7 +524,7 @@ var INFORMA = window.INFORMA || {};
                     '</div>',
             'Products':
             '<div class="col-xs-12 col-sm-6 col-md-4">'+
-                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.ContentType}}">'+
+                        '<div class="list-items" data-fetch="{{results.ProductPageID}}" data-type="{{results.ContentType}}">'+
                             '<div class="products">'+
                                 '<div class="heading">'+
                                     '<div class="heading-content">'+
