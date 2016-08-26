@@ -5421,11 +5421,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             })
             //Items.height(MaxHeight + Padding);
         },
-        GetPaginationData = function(SectionObject){
-            var Data = {};
-            $.each(SectionObject, function(){
+        GetPaginationData = function(List,Section){
+            var Data = {},
+                PageSizeValue = Section.data("pagesize");
+                
+            Data.PageSize = PageSizeValue;
+            $.each(List, function(){
                 var KeyName = $(this).data("type"),
-                    KeyValue = $(this).data("id");
+                    KeyValue = $(this).data("fetch");
                 if(Data.hasOwnProperty(KeyName)){
                     var uniqueArr = [], existingVal =[];
                         existingVal = existingVal.concat(Data[KeyName]);
@@ -5441,8 +5444,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             ShowMoreLink.off("click").on("click",function(e){
                 e.preventDefault();
                 var currentSection = $(this).parents(".product-results").eq(0),
-                    TileList = currentSection.find(".col-xs-12"),
-                    PData = GetPaginationData(TileList),
+                    TileList = currentSection.find(".list-items"),
+                    PData = GetPaginationData(TileList,currentSection),
                     ProdData = INFORMA.ProductFinder.GetProductData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = INFORMA.ProductFinder.MergeData(ProdData,PData,FilterData);
