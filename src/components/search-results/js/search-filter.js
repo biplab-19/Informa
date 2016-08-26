@@ -18,9 +18,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         Utils = INFORMA.Utils,
         Urls = INFORMA.Configs.urls.webservices,
         SelectAll = $(".refine-container .panel-heading .custom-checkbox input"),
-        RefineCheckBox = $(".refine-container .panel-body .custom-checkbox input"),
         RefineSection= $(".refine-container .panel-body"),
         ShowMoreLinks = RefineSection.find("a.show-more"),
+        RefineCheckBox = $(".refine-container .panel-body .custom-checkbox input"),
         ClearAllLink = $(".refine-container a.clear-all"),
         ProductFinderSection = $('#product-finder-section'),
         SearchType='',
@@ -88,8 +88,8 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                         $(this).find("ul").addClass("show-less");
                     }
             });
-
-            RefineCheckBox.on("click", function(){
+            var RefineCheckBoxes = $(".refine-container .panel-body .custom-checkbox input");
+            RefineCheckBoxes.on("click", function(){
                 var ParentEle = $(this).parents(".panel-body").eq(0),
                     InputCount = ParentEle.find("input[type=checkbox]"),
                     SelectedCheckBox  =ParentEle.find("input[type=checkbox]:checked"),
@@ -136,7 +136,8 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         };
     return {
         init: init,
-        GetRefineData:GetSelectedFilter
+        GetRefineData:GetSelectedFilter,
+        BindRefineEvents:BindRefineEvents
 
     };
 

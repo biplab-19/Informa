@@ -126,6 +126,10 @@ select.chosen-select {
                 background: $white url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
                 background-size: 100%;
             }
+            input:disabled + span:before {
+                background: $grey-color6 none;
+                background-size: 100%;
+            }
         }
     }
     .custom-multiselect {

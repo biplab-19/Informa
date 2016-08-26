@@ -22,8 +22,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SearchContent = $(".search-container"),
         ProductFinderSection = $('#product-finder-section'), Data = {},
         ShowMoreLink = SearchContent.find(".btn-showMore"),
+        RefineSection = $(".refine-container"),
         // methods
-        init, CreateSearchResult, ParseSearchData, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight;
+        init, CreateSearchResult, ParseSearchData,UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight;
 
         GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.Spinner.Show($("body"));
@@ -90,6 +91,23 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
             });
         },
+        UpdateRefineSection = function(Data, Type){
+                for (var i = 0; i < Data.length; i++) {
+                        var Results = Data[i], Html ='',
+                            FacetList = Results.FacetItem,
+                            CurrentClass = Results.ClassName,
+                            CurrentSection = RefineSection.find("."+CurrentClass),
+                            GetAllCheckBox =  CurrentSection.find("input[type=checkbox]"),
+                            TemplateName = (Templates["RefineFacets"]) ? Templates["RefineFacets"] : "",
+                            ListTemplate = Handlebars.compile(TemplateName);
+
+                    if(CurrentSection && FacetList){
+                            Html = ListTemplate({ results: FacetList });
+                            CurrentSection.find("ul").html(Html);
+                            INFORMA.SearchResultFilter.BindRefineEvents();
+                    }
+                }
+        },
         CreateSearchResult = function(Data,SearchType) {
             var FinalHTml='',Title,ShowMoreText;
             for (var i = 0; i < Data.length; i++) {
@@ -110,6 +128,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     Container.find(".row").html(Html);
                     Container.find("h2").text(Title);
                     EqualHeight();
+                    if(Lists.length<3){
+                        Container.find(".text-center").addClass("hidden");
+                    }else{
+                        Container.find(".text-center").removeClass("hidden");
+                    }
                 }
             }
             DoPagination();
@@ -123,6 +146,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     CreateSearchResult(ProductResults,SearchType);
                 } else {
                     $(".no-results").show();
+                }
+                if(Refine && Object.keys(Refine).length){
+                    UpdateRefineSection(Refine,SearchType);
                 }
             }
         },
