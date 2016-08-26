@@ -41,14 +41,20 @@
       font-family: FSMe-light;
       color: $grey-color7;
       font-size: 30px;
-      padding-left: 50px;
+      //padding-left: 50px;
       @include mobile {
           font-size: 18px;
           padding-left: 35px;
       }
 
   }
-  h2:before{
+  .pdp-without-icon{
+    padding-left:0;
+  }
+  .pdp-with-icon{
+    padding-left: 50px;
+  }
+  .pdp-with-icon:before{
     font-family: "InformaIcons";
     content: "\e91f";
     position: absolute;
@@ -60,6 +66,12 @@
       left: 8px;
     }
 
+  }
+  .pdp-without-icon{
+    padding-left:0;
+  }
+  .pdp-with-icon{
+    padding-left: 50px;
   }
   @include tablet {
       height: auto;
