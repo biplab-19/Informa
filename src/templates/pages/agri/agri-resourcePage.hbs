@@ -1,3 +1,40 @@
+<div id="resource-finder-section" class="resource-finder">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form" method="post" action="#">
+                    <fieldset>
+                        <ul class="resource-sector-search">
+                            <li class="menu">
+                                <label for="sector-list" class="label-text">Sector:</label>
+                                <div class="custom-multiselect">
+                                    <select id="resource-sector-list" name="Sectors" class="Sector" multiple="multiple" data-placeholder="Please Select">
+                                        <option value="sector1">Commodities</option>
+                                        <option value="sector2">Crop protection</option>
+                                        <option value="sector3">Diary Products</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="menu disabled">
+                                <label for="resource-sub-sector-list" class="label-text">Needs:</label>
+                                <div class="custom-multiselect">
+                                    <select id="sub-sector-list" name="SubSectors" class="SubSector" disabled="disabled" multiple="multiple" data-placeholder="Please Select">
+                                        <option value="subsector1">Diary</option>
+                                        <option value="subsector2">Meats</option>
+                                        <option value="subsector3">Electronics</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="menu button">
+                                <button type="submit" class="btn btn-primary" data-submit="sector-search">Go</button>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <section class="product-finder-results clearfix">
 	{{>refine-filter}}
 	{{>resource-list}}

@@ -32,7 +32,7 @@ var INFORMA = window.INFORMA || {};
         "dev": {
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList": "/client/search/GetSubSectors",
-            "ProductSearch": "/client/search/GetProducts",
+            "ProductSearch": "/client/search/GetProductsList",
             "SearchResult": "/client/search/GetSearchResults",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",

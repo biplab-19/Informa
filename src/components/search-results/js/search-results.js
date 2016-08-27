@@ -24,21 +24,27 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ShowMoreLink = SearchContent.find(".btn-showMore"),
         RefineSection = $(".refine-container"),
         // methods
-        init, CreateSearchResult, ParseSearchData,UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight;
+        init, CreateSearchResult, ParseSearchData,UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems;
 
-        GetAjaxData = function(url, method, data, SCallback, Errcallback) {
-            INFORMA.Spinner.Show($("body"));
-            INFORMA.DataLoader.GetServiceData(url, {
+        GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
-                data: data,
-                success_callback: SCallback,
-                error_callback: Errcallback
+                data: JSON.stringify({ data: data }),
+                success_callback: function (data) {
+                    if (typeof SCallback === "function") {
+                        SCallback.call(this, data, SearchType);
+                    }
+                },
+                error_callback: function () {
+                    if (typeof Errcallback === "function") {
+                        Errcallback.call(this, data, SearchType);
+                    }
+                }
             });
         },
         EqualHeight = function(){
             var Items = SearchContent.find('.list-items'),
-                MaxHeight = 0,
-                Padding = 35;
+                MaxHeight = 0;
 
             Items.each(function() {
                 var ItemHeight = $(this).outerHeight();
@@ -62,7 +68,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         uniqueArr.push(KeyValue);
                         Data[KeyName] = uniqueArr.concat(existingVal);
                 }else{
-                   Data[KeyName] = KeyValue;
+                   Data[KeyName] = [].concat(KeyValue);
                 }
             });
             return Data;
@@ -77,7 +83,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = INFORMA.ProductFinder.MergeData(ProdData,PData,FilterData);
 
-                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),ParseSearchData, null);
+                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),ParseSearchData, null, $(this));
             });
        },
        ToggleView = function() {
@@ -140,15 +146,45 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             DoPagination();
         },
-        ParseSearchData = function(data, SearchType) {
-
+        CreateSubItems = function(Data,SearchType, Button) {
+            var FinalHTml='',Title,ShowMoreText;
+            for (var i = 0; i < Data.length; i++) {
+                var Results = Data[i], TemplateName, ListTemplate, Html='', ContentType,
+                    Lists = Results.Results;
+                    ShowMoreText = (Results.ShowMoreText) ? Results.ShowMoreText:"";
+                if(Lists){
+                    for (var j = 0; j < Lists.length; j++) { 
+                        if(Lists[j].Category){
+                            ContentType = Lists[j].Category;
+                            TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
+                            ListTemplate = Handlebars.compile(TemplateName);
+                            Html+= ListTemplate({ results: Lists[j] });
+                        }
+                    }
+                    // debugger;
+                    $(SearchType).parents('.product-results').find(".list").append(Html);
+                    EqualHeight();
+                    if(Lists.length<3){
+                        Container.find(".text-center").addClass("hidden");
+                    }else{
+                        Container.find(".text-center").removeClass("hidden");
+                    }
+                }
+            }
+            DoPagination();
+        },
+        ParseSearchData = function(data, SearchType, Button) {
+            debugger;
             if (Object.keys(data).length) {
                 var ProductResults = (data.ProductListing !== undefined) ? data.ProductListing : false,
                     Refine = (data.FacetSections !== undefined) ? data.FacetSections : false;
-                if (ProductResults && Object.keys(ProductResults).length) {
+                if (ProductResults && Object.keys(ProductResults).length && Refine !== null) {
                     CreateSearchResult(ProductResults,SearchType);
                 } else {
                     $(".no-results").show();
+                }
+                if(Refine === null) {
+                    CreateSubItems(ProductResults, SearchType, Button);
                 }
                 if(Refine && Object.keys(Refine).length){
                     UpdateRefineSection(Refine,SearchType);

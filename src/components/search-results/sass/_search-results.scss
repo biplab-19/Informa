@@ -126,6 +126,10 @@
             }
         }
     }
+    .see-all-wrapper {
+        padding-top: 20px;
+        border-top: 1px solid $grey-color7;
+    }
 }
 
 .product-results {
@@ -204,7 +208,7 @@
                 background-color: $grey-color6;
                 @include rotate(-5deg);
                 padding-top: 20px;
-                margin: 10px 0 -29px -10px;
+                margin: 10px 0 0 -15px;
                 width: 118%;
                 padding-right: 8%;
                 @include mobile {
@@ -214,7 +218,7 @@
                     background-color: $grey-color6;
                     @include rotate(5deg);
                     margin-top: -5px;
-                    padding: 15px 10px;
+                    padding: 15px 20px;
                 }
             }
             .category strong {
@@ -237,6 +241,9 @@
             }
             .footer {
                 padding: 0;
+                float: left;
+                width: 100%;
+                height: 78px;
                 .btn-container {
                     text-align: right;
                     .btn {
@@ -260,6 +267,9 @@
         .btn-showMore {
             margin-top: 30px;
         }
+    }
+    .wrap-content {
+        height: auto !important;
     }
     .col-md-4, .col-sm-6 {
         width: 100%;
@@ -335,6 +345,7 @@
             }
             .footer .btn-container {
                 text-align: left;
+                margin: 25px 0 0 0;
             }
         }
         .meet-anlyst-section {

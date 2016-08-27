@@ -78,7 +78,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         },
         BindRefineEvents = function(){
             $.each(RefineSection, function(){
-                var DefaultCount= ($(this).data("defaultcount")!==null)? $(this).data("defaultcount"):5,
+                var DefaultCount= ($(this).attr("data-defaultcount")!==null)? $(this).attr("data-defaultcount"):5,
                     SectionCheckBox = $(this).find(".custom-checkbox input"),
                     CheckBoxCount = SectionCheckBox.length,
                     ShowMoreLink = $(this).find("a.show-more");

@@ -3,7 +3,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     'use strict';
     //variables
     var Templates = INFORMA.Templates,
-        ResourceContainer = $('.resource-filter'),
+        ResourceContainer = $('#resource-finder-section');
         CustomResourceSelect = ResourceContainer.find("select"),
         SectorSelect = ResourceContainer.find("select.resource-sector"),
         SubSectorSelect = ResourceContainer.find("select.resource-sub-sector"),
