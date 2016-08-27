@@ -10,15 +10,16 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _validateForm,
         _appendNextBtn,
         _appendBackBtn,
+        _myinterestsSection = $('.register-myinterests-section'),
         _myinterestForm = $('.register-myinterests-form'),
         _myinterestFormContainer = $('.register-myinterests-form-container'),
         _myinterestFormTabContainer = _myinterestFormContainer.find('tab-content'),
+        _myinterestFormSubmitBtn = _myinterestForm.find('input[type="submit"]'),
         _stepOneContaner = _myinterestFormContainer.find('#step1'),
         _stepTwoContaner = _myinterestFormContainer.find('#step2'),
         _recommendedTips = $('.recommended-tips'),
         _recommendedTipsContainer = $('.recommended-tips-container'),
         _appendSteps,
-        _appendStepTwo,
         _wrapFormContainer,
         _renderAllContainers,
         _renderRecommendedTips,
@@ -27,9 +28,31 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _showSelectAll,
         _hideSelectAll,
         _yourinterestguid = [],
-        _yourinterestitem = [];
+        _yourinterestitem = [],
+        _validateMultiSelct,
+        _validateOnSubmit,
+        _showRegisterFormBtn = $('.show-register-form'),
+        _showRegisterForm,
+        _showRegisterFormPopup,
+        _myinterestsModal = $('#registerMyinterestModal'),
+        _myinterestsModalClose = $('.register-myinterests-close');
 
     //methods
+    _showRegisterFormPopup = function(){
+        _myinterestsModal.find('.modal-body').append(_myinterestsSection);
+        _myinterestsModal.find('.modal-body .container').removeClass('container');
+        _myinterestsModal.modal('show');
+    }
+    _showRegisterForm = function() {
+      _showRegisterFormBtn.on('click', function(e){
+        if($(this).attr('data-show-register') == 'true'){
+          e.preventDefault();
+          e.stopPropagation();
+          _showRegisterFormPopup();
+        }
+
+      });
+    }
     _updateMultiSelect = function() {
         console.log('_updateMultiSelect');
     }
@@ -52,31 +75,12 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _stepTwoContaner.prepend(step2Block);
         //    aboutYouBlock.remove();
     }
-    _appendStepTwo = function() {
-        var step2Block = _myinterestForm.find('.step2');
-        if (step2Block.length > 0) {
-            if ($.isArray(step2Block)) {
-                $.each(step2Block, function(i) {
-                    _stepTwoContaner.prepend($(this));
-                });
-            } else {
-                _stepTwoContaner.prepend(step2Block);
-            }
-        }
 
-        var submitBlock = _myinterestForm.find('.form-submit-border');
-        _stepTwoContaner.append(submitBlock);
-    }
     _appendBackBtn = function() {
         var backBtn = $('.prev-step')[0],
             btnContainer = _myinterestForm.find(":submit").parent();
-        btnContainer.append(backBtn);
+            btnContainer.append(backBtn);
     }
-    _appendNextBtn = function() {
-        var nextBtn = '<ul class="list-inline pull-right"><li><button type="button" class="btn btn-primary next-step">Next</button></li></ul>';
-        $('.form-progressive-container').find('#step1').append(nextBtn);
-    }
-
     _showNextTab = function(elem) {
         $(elem).next().find('a[data-toggle="tab"]').click();
         _recommendedTipsContainer.css('display', 'block');
@@ -95,12 +99,12 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         includeSelectAllOption: true,
                         maxHeight: 200,
                         onChange: _updateMultiSelect,
+                        noneSelectedText: 'Select Something',
                         onDropdownShow : _showSelectAll,
                         onDropdownHidden : _hideSelectAll
                     });
                     var selectAllTag = $(this).next().find('li:first.multiselect-item').detach(),
                     selectAllDiv = $('<ul class="select-all-bottom"></ul>').append(selectAllTag.find('a'));
-                  //  var y = '<a class="multiselect-all">Selectall</a>';
                     if(selectAllTag){
                         $(this).next().append(selectAllDiv);
                     }
@@ -144,9 +148,12 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $(".next-step").on('click', function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             $active.next().removeClass('disabled');
-            _validateForm();
-            _showNextTab($active);
-
+            //_validateForm();
+            if(_myinterestForm.valid() == true){
+              var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
+                  formSubmitBtn.removeAttr('disabled');
+              _showNextTab($active);
+            }
         });
         $(".prev-step").on('click', function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
@@ -154,31 +161,72 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         });
     }
     _validateForm = function() {
-        _myinterestForm.validate({
-            submitHandler: function() {
-                console.log("submitted!");
-            },
-            failure: function() {
-                console.log("Failure");
-            },
-            success: function() {
-                console.log("Success");
-            }
-        });
+        //    _myinterestForm.validate();
+        // _myinterestForm.validate({
+        //   invalidHandler: function(form, validator) {
+        //         var errors = validator.numberOfInvalids();
+        //         if (errors) {
+        //             alert(5);
+        //         }
+        //     },
+        //     submitHandler: function(form) {
+        //       alert(6);
+        //     }
+        // });
+    }
+
+    _validateMultiSelct = function(){
+      //alert(2);
+      // $.validator.addMethod("needsSelection", function(value, element) {
+      //    return $(element).multiselect("getChecked").length > 0;
+      // });
+      // $.validator.messages.needsSelection = 'Select.';
+    }
+
+    _validateOnSubmit = function(){
+      _myinterestFormSubmitBtn.on('click', function(e){
+        e.preventDefault();
+            // $('select[name=multiselect1]').rules('add',{
+            //   required: true,
+            //   messages: {
+            //     required: 'required'
+            //   }
+            // });
+            // $.validator.addMethod("needsSelection", function (value, element) {
+            //     var count = $(element).find('option:selected').length;
+            //     return count > 0;
+            // });
+            // $.validator.messages.needsSelection = 'please select';
+
+        //     _myinterestForm.validate({
+        //       rules: {
+        //         multiselect1: "required"
+        //       },
+        //       ignore: ':hidden:not(".multiselect")',
+        //       submitHandler: function() {
+        //     alert('valid form');
+        //     return false;
+        // }
+        //     });
+        // if(_myinterestForm.valid() == true){
+        //     alert(11);
+        // }
+      });
+
     }
 
     init = function() {
         _showProgressiveTabs();
-        // //_appendNextBtn();
         _appendBackBtn();
         _appendSteps();
-        // _appendStepTwo();
         _wrapFormContainer();
         _renderAllContainers();
-        //_renderMultiSelect();
+        _validateForm();
         _renderRecommendedTips();
+        _validateMultiSelct();
+        _validateOnSubmit();
+        _showRegisterForm();
 
-        //  _validateForm();
     };
 
     return {

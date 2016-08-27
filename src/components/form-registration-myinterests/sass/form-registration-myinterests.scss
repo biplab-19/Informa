@@ -1,11 +1,15 @@
-.register-myinterests {
-
+.register-form-popup-container{
+  display: none;
+}
+.register-myinterests-section {
+    //display: none;
     .triangle-nav-container {
         background: $blue-light-bg;
         padding-top: 15px;
         padding-bottom: 15px;
     }
     .register-myinterests-form {
+        //display: none;
         padding-left: 2%;
         padding-right: 2%;
         background: url("/Static/images/pattern.png") no-repeat right 100% #444957;
@@ -283,3 +287,28 @@
         }
     }
 }
+
+
+  .register-myinterests-modal {
+      .modal-dialog {
+          width: 75%;
+          margin: 0 auto;
+      }
+      .modal-body {
+          @include mobile {
+              //padding: 15px 30px;
+          }
+      }
+      .modal-content {
+          border-radius: 0;
+          background-color: $gray-light-bg;
+          color: $white;
+      }
+      .modal-header {
+          border-bottom: 0;
+          .close {
+              color: $white;
+              opacity: 2;
+          }
+      }
+  }
