@@ -24,6 +24,12 @@
 				content: "\e905";
 			}
 		}
+		&.btn-ecommerce{
+			&:after {
+				content: "\e904";
+			}
+		}
+
 	}
 	.recomend-content {
 		float: left;
@@ -149,14 +155,20 @@
         }
 	}
 	.topics {
+		padding-top: 50px;
 		strong {
-			display: inline-block;
+			//display: inline-block;
 			a{
 				color: $grey-color2;
 			}
 			&:after {
-				content: '';
+				content: ',';
 				margin-right: 5px;
+			}
+			&:last-child {
+				&:after {
+					content: '';
+				}
 			}
 		}
 	}
