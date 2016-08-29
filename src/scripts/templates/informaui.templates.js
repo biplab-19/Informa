@@ -472,7 +472,7 @@ var INFORMA = window.INFORMA || {};
         'SampleContent': '<div class="col-md-4 col-sm-6 col-xs-12">'+
                         '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.ContentType}}">'+
                             '<div class="recomended-wrapper">'+
-                                '<div class="recomend-content">'+
+                                '<div class="recomend-content wrap-content">'+
                                     '<div class="content">'+
                                         '{{#compare results.SectorTags.length 0 operator=">"}}'+
                                             '<p>'+
@@ -522,41 +522,55 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '</div>'+
                     '</div>',
-            'Products':
+            'Product':
             '<div class="col-xs-12 col-sm-6 col-md-4">'+
-                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.ContentType}}">'+
+                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
                             '<div class="products">'+
-                                '<div class="heading">'+
-                                    '<div class="heading-content">'+
-                                        '<p class="category">'+
-                                            '{{#each results.Sector}}'+
-                                                '<strong>{{this}}</strong>'+
+                                '<div class="wrap-content">'+
+                                    '<div class="heading">'+
+                                        '<div class="heading-content">'+
+                                            '<p class="category">'+
+                                                '{{#each results.Sector}}'+
+                                                    '<strong>{{this}}</strong>'+
+                                                '{{/each}}'+
+                                            '</p>'+
+                                            '<h4>{{results.Title}}</h4>'+
+                                        '</div>'+
+                                    '</div>'+
+                                    '<div class="body">'+
+                                        '<p>{{results.Description}}</p>'+
+                                        '<ul>'+
+                                            '{{#each results.Benefits}}'+
+                                            '<li class="icon-tick">{{this}}</li>'+
                                             '{{/each}}'+
-                                        '</p>'+
-                                        '<h4>{{results.Title}}</h4>'+
+                                        '</ul>'+
                                     '</div>'+
                                 '</div>'+
-                                '<div class="body">'+
-                                    '<p>{{results.Description}}</p>'+
-                                    '<ul>'+
-                                        '{{#each results.Benefits}}'+
-                                        '<li class="icon-tick">{{this}}</li>'+
-                                        '{{/each}}'+
-                                    '</ul>'+
-                                    '<div class="button-links">'+
-                                        '<div class="button-links-wrap row">'+
-                                            '<div class="col-xs-6">'+
-                                                '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.FullDetailText}}</a>'+
-                                            '</div>'+
-                                            '<div class="col-xs-6">'+
-                                                '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.CtaTypeName}}</a>'+
-                                            '</div>'+
+                                '<div class="button-links">'+
+                                    '<div class="button-links-wrap row">'+
+                                        '<div class="col-xs-6">'+
+                                            '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.DetailText}}</a>'+
+                                        '</div>'+
+                                        '<div class="col-xs-6">'+
+                                            '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.CtaText}}</a>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
-                    '</div>'
+                    '</div>',
+                'SearchTemplate': '<div class="product-results" data-pagesize="9">'+
+                                        '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
+                                        '<div class="row list">'+
+                                            '{{{results.Content}}}'+
+                                        '</div>'+
+                                        '<div class="text-center">'+
+                                            '<a href="#" class="btn-showMore">'+
+                                                '<span class="more">{{results.ShowMoreText}}</span>'+
+                                                '<span class="less">{{results.ShowLessText}}</span>'+
+                                            '</a>'+
+                                        '</div>'+
+                                   '</div>'
 
 
 }

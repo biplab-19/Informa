@@ -133,6 +133,14 @@
 }
 
 .product-results {
+    &.showLess {
+        .more {
+            display: none;
+        }
+        .less {
+            display: block;
+        }
+    }
     h2 {
         font-family: 'FSMe-Light';
         padding: 10px 0 15px 0;
@@ -232,7 +240,7 @@
                 background-color: $grey-color2;
             }
         }
-        .recomended-wrapper {
+       .recomended-wrapper {
             background-color: $grey-color7;
             .content {
                 h4 {
@@ -269,7 +277,7 @@
         }
     }
     .wrap-content {
-        height: auto !important;
+        height: auto;
     }
     .col-md-4, .col-sm-6 {
         width: 100%;
@@ -331,6 +339,10 @@
             background-color: $white;
             margin: 0;
             padding: 0;
+            .recomended-currency {
+                bottom: 65px;
+                left: 0;
+            }
             .content {
                 .type {
                     display: inline-block;

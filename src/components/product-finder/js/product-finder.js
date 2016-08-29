@@ -1,5 +1,5 @@
 /*
- * analyst-list.js
+ * Product Finder
  *
  *
  * @project:    Informa
@@ -56,7 +56,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         GetProductFinderData = function(){
             var FieldArray = ProductFinderSection.find("form").serializeArray(),
                 Data = INFORMA.Utils.serializeObject(FieldArray);
-            return Data ;
+            return Data;
         },
         UpdateSubSectorDropdown = function(data) {
             if (data.SubSectors.length > 0) {
@@ -91,14 +91,14 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             });
         },
         SubmitHandler = function(btn, SearchType) {
-            btn.off().on("click", function(e) {
+            btn.off().on("submit", function(e) {
                 e.preventDefault();
                 INFORMA.Spinner.Show($("body"));
                 var ProductData = GetProductFinderData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
                     console.log(Urls[SearchType]);
-                GetAjaxData(Urls[SearchType], "Get", Data, RenderSearchResult, null, SearchType);
+                GetAjaxData(Urls.GetRefineResults, "Post", Data, RenderSearchResult, null, SearchType);
             });
         },
         BindAjaxHandler = function() {
@@ -138,11 +138,10 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             }
         },
         GetSubSectorList = function(arrayList) {
-
             var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
                 SectorIDs = 'SectorIDs='+SectorIDs;
 
-            GetAjaxData(Urls.GetSubSectorList, "Get", JSON.stringify(SectorIDs), UpdateSubSectorDropdown, null);
+            GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
         },
         BindDropDown = function() {
             var SectorList = [];
@@ -197,6 +196,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         init: init,
         UpdateSubSectorDropdown: UpdateSubSectorDropdown,
         GetProductData : GetProductFinderData,
+        GetSubSectorList: GetSubSectorList,
         MergeData :MergeJsonData
     };
 }(this, jQuery, 'INFORMA'));

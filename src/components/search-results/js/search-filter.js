@@ -54,11 +54,17 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             }
        },
        DoRefine = function(){
-         var ProductData = INFORMA.ProductFinder.GetProductData(),
+        var ProductData = INFORMA.ProductFinder.GetProductData(),
             FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-            Data = JSON.stringify(INFORMA.ProductFinder.MergeData(ProductData,FilterData));
-                
-            GetAjaxData(Urls[SearchType], "Get", Data,INFORMA.SearchResults.RenderSearchResults, null);
+            Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData);
+            debugger;
+            Data.DefaultItemCount = $('input[name="DefaultItemCount"]').val();
+            Data.MaxItemCount = $('input[name="MaxItemCount"]').val();
+            Data.DefaultProductCount = $('input[name="DefaultProductCount"]').val();
+            Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
+            Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
+
+            GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data) ,INFORMA.SearchResults.RenderSearchResults, null);
        },
         SelectAllCheckBox = function(){
 
@@ -140,6 +146,5 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         BindRefineEvents:BindRefineEvents
 
     };
-
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchResultFilter.init());
