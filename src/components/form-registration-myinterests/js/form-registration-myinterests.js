@@ -103,6 +103,11 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         onDropdownShow : _showSelectAll,
                         onDropdownHidden : _hideSelectAll
                     });
+                    var mutiselectContainer = $(this).next().find('.multiselect-container');
+                    if(!mutiselectContainer){
+                        var newMultiselectContainer = $(this).parent().find('.multiselect-container').detach();
+                        $(this).next().append(newMultiselectContainer);
+                    }
                     var selectAllTag = $(this).next().find('li:first.multiselect-item').detach(),
                     selectAllDiv = $('<ul class="select-all-bottom"></ul>').append(selectAllTag.find('a'));
                     if(selectAllTag){
@@ -184,34 +189,34 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _validateOnSubmit = function(){
-      _myinterestFormSubmitBtn.on('click', function(e){
-        e.preventDefault();
-            // $('select[name=multiselect1]').rules('add',{
-            //   required: true,
-            //   messages: {
-            //     required: 'required'
-            //   }
-            // });
-            // $.validator.addMethod("needsSelection", function (value, element) {
-            //     var count = $(element).find('option:selected').length;
-            //     return count > 0;
-            // });
-            // $.validator.messages.needsSelection = 'please select';
-
-        //     _myinterestForm.validate({
-        //       rules: {
-        //         multiselect1: "required"
-        //       },
-        //       ignore: ':hidden:not(".multiselect")',
-        //       submitHandler: function() {
-        //     alert('valid form');
-        //     return false;
-        // }
-        //     });
-        // if(_myinterestForm.valid() == true){
-        //     alert(11);
-        // }
-      });
+      // _myinterestFormSubmitBtn.on('click', function(e){
+      //   e.preventDefault();
+      //       // $('select[name=multiselect1]').rules('add',{
+      //       //   required: true,
+      //       //   messages: {
+      //       //     required: 'required'
+      //       //   }
+      //       // });
+      //       // $.validator.addMethod("needsSelection", function (value, element) {
+      //       //     var count = $(element).find('option:selected').length;
+      //       //     return count > 0;
+      //       // });
+      //       // $.validator.messages.needsSelection = 'please select';
+      // 
+      //   //     _myinterestForm.validate({
+      //   //       rules: {
+      //   //         multiselect1: "required"
+      //   //       },
+      //   //       ignore: ':hidden:not(".multiselect")',
+      //   //       submitHandler: function() {
+      //   //     alert('valid form');
+      //   //     return false;
+      //   // }
+      //   //     });
+      //   // if(_myinterestForm.valid() == true){
+      //   //     alert(11);
+      //   // }
+      // });
 
     }
 
