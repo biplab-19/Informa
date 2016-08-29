@@ -1961,6 +1961,11 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         onDropdownShow : _showSelectAll,
                         onDropdownHidden : _hideSelectAll
                     });
+                    var mutiselectContainer = $(this).next().find('.multiselect-container');
+                    if(!mutiselectContainer){
+                        var newMultiselectContainer = $(this).parent().find('.multiselect-container').detach();
+                        $(this).next().append(newMultiselectContainer);
+                    }
                     var selectAllTag = $(this).next().find('li:first.multiselect-item').detach(),
                     selectAllDiv = $('<ul class="select-all-bottom"></ul>').append(selectAllTag.find('a'));
                     if(selectAllTag){
@@ -2042,34 +2047,34 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _validateOnSubmit = function(){
-      _myinterestFormSubmitBtn.on('click', function(e){
-        e.preventDefault();
-            // $('select[name=multiselect1]').rules('add',{
-            //   required: true,
-            //   messages: {
-            //     required: 'required'
-            //   }
-            // });
-            // $.validator.addMethod("needsSelection", function (value, element) {
-            //     var count = $(element).find('option:selected').length;
-            //     return count > 0;
-            // });
-            // $.validator.messages.needsSelection = 'please select';
-
-        //     _myinterestForm.validate({
-        //       rules: {
-        //         multiselect1: "required"
-        //       },
-        //       ignore: ':hidden:not(".multiselect")',
-        //       submitHandler: function() {
-        //     alert('valid form');
-        //     return false;
-        // }
-        //     });
-        // if(_myinterestForm.valid() == true){
-        //     alert(11);
-        // }
-      });
+      // _myinterestFormSubmitBtn.on('click', function(e){
+      //   e.preventDefault();
+      //       // $('select[name=multiselect1]').rules('add',{
+      //       //   required: true,
+      //       //   messages: {
+      //       //     required: 'required'
+      //       //   }
+      //       // });
+      //       // $.validator.addMethod("needsSelection", function (value, element) {
+      //       //     var count = $(element).find('option:selected').length;
+      //       //     return count > 0;
+      //       // });
+      //       // $.validator.messages.needsSelection = 'please select';
+      // 
+      //   //     _myinterestForm.validate({
+      //   //       rules: {
+      //   //         multiselect1: "required"
+      //   //       },
+      //   //       ignore: ':hidden:not(".multiselect")',
+      //   //       submitHandler: function() {
+      //   //     alert('valid form');
+      //   //     return false;
+      //   // }
+      //   //     });
+      //   // if(_myinterestForm.valid() == true){
+      //   //     alert(11);
+      //   // }
+      // });
 
     }
 
@@ -5112,10 +5117,60 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SearchContent = $(".search-container"),
         ProductFinderSection = $('#product-finder-section'), Data = {},
         ShowMoreLink = SearchContent.find(".btn-showMore"),
+        SearchHidden = $("input.search-hidden"),
+        SectorHidden = $("input.sector-list"),
+        SubSectorHidden = $("input.sub-sector-list"),
         RefineSection = $(".refine-container"),
         // methods
-        init, CreateSearchResult, ParseSearchData,UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems;
+        init, CreateSearchResult, ParseSearchData,SetSearchState,MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems;
 
+        SetSearchState = function(sVal) {
+            if (sVal) {
+                var SearchField = $(".site-search input[type=text]"),
+                    SearchSubmitBtn =  $(".site-search li.button");
+
+                SearchField.val(sVal);
+                SearchSubmitBtn.removeClass("disabled");
+                ProductFinderSection.find("input[type=radio]").eq(0).trigger("click");
+                SearchSubmitBtn.trigger("click");
+            }
+        },
+        MakeDropPreSelected = function(Arr, DrpDwn) {
+            DrpDwn.val("");
+            $.each(Arr, function(i, e) {
+                DrpDwn.find("option[value='" + e + "']").prop("selected", true);
+            });
+            DrpDwn.multiselect('rebuild');
+        },
+        UpdateResultPage = function(SectorSelect, SecValue, SubSecValue) {
+
+            var SectorArray = SecValue.split(","),
+                SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
+                SectorIDs = SecValue,
+                SubmitBtn = ProductFinderSection.find(".sector-search li.button"),
+                SubSectorSelect = ProductFinderSection.find("select.SubSector");
+
+            ProductFinderSection.find("input[type=radio]").eq(1).trigger("click");
+            if (SectorSelect.length && SectorArray) {
+                MakeDropPreSelected(SectorArray, SectorSelect);
+                INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
+                    method: "Get",
+                    data: SectorIDs,
+                    success_callback: function(data) {
+                        INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
+
+                        if (SubSectors) {
+                            MakeDropPreSelected(SubSectors, SubSectorSelect);
+                        }
+                        ProductFinderSection.slideDown();
+                        SubmitBtn.trigger("click");
+                    },
+                    error_callback: function() {
+
+                    }
+                });
+            }
+        },
         GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType, Item) {
             INFORMA.Spinner.Show($("body"));
         INFORMA.DataLoader.GetServiceData(url, {
@@ -5320,6 +5375,20 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             if (IsSearchPage) {
                 SearchType = "SearchResult";
+            }
+            if (IsProductPage && SectorHidden.length > 0) {
+                var SVal = SectorHidden.val(),
+                    SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
+                if (SVal) {
+                    var SectorSelect = ProductFinderSection.find("select.Sector");
+                    UpdateResultPage(SectorSelect, SVal, SubSecVal);
+                } 
+            }
+            if (IsSearchPage && SearchHidden.length > 0) {
+                var SearchVal = SearchHidden.val();
+                if (SearchVal) {
+                    SetSearchState(SearchVal);
+                }
             }
             if(ShowMoreLink){
                 DoPagination();
