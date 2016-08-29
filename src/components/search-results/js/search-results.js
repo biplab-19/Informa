@@ -81,7 +81,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             return Data;
         },
        DoPagination = function(){
-            $(document).on("click", ".search-container .btn-showMore", function(e){
+        var ShowMoreLink = SearchContent.find(".btn-showMore");
+
+            ShowMoreLink.off("click").on("click", function(e){
                 e.preventDefault();
                 var currentSection = $(this).parents(".product-results").eq(0),
                     TileList = currentSection.find(".list-items"),
@@ -118,7 +120,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         },
         UpdateRefineSection = function(Data, Type){
-            debugger;
+
                 for (var i = 0; i < Data.length; i++) {
                         var Results = Data[i], Html ='',
                             FacetList = Results.FacetItem,
@@ -172,9 +174,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     
                 }
             }
-            UpdateRefineSection();
+            //UpdateRefineSection();
             SearchContent.find('.container').append(FinalHTml);
-            SearchContent.find('.results').html(Data.ProductFound);
             EqualHeight();
             DoPagination();
         },
@@ -209,6 +210,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     OnlySampleContent = (data.OnlySampleContent !== undefined) ? data.OnlySampleContent : false;
                 if (ProductResults && Object.keys(ProductResults).length && OnlySampleContent != true) {
                     CreateSearchResult(ProductResults,SearchType);
+                    SearchContent.find('.results').find('strong').html(data.ProductFound);
                     if(Refine && Object.keys(Refine).length){
                         UpdateRefineSection(Refine,SearchType);
                     }
