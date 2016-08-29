@@ -4411,7 +4411,7 @@ var INFORMA = window.INFORMA || {};
                         '</div>'+
                     '</div>',
         'SampleContent': '<div class="col-md-4 col-sm-6 col-xs-12">'+
-                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.ContentType}}">'+
+                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
                             '<div class="recomended-wrapper">'+
                                 '<div class="recomend-content wrap-content">'+
                                     '<div class="content">'+
@@ -4465,9 +4465,9 @@ var INFORMA = window.INFORMA || {};
                     '</div>',
             'Product':
             '<div class="col-xs-12 col-sm-6 col-md-4">'+
-                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
+                        '<div class="list-items" data-fetch="{{results.ProductPageID}}" data-type="{{results.Category}}">'+
                             '<div class="products">'+
-                                '<div class="wrap-content">'+
+                                '<div class="content-wrap">'+
                                     '<div class="heading">'+
                                         '<div class="heading-content">'+
                                             '<p class="category">'+
@@ -4493,25 +4493,13 @@ var INFORMA = window.INFORMA || {};
                                             '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.DetailText}}</a>'+
                                         '</div>'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.CtaText}}</a>'+
+                                            '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.LinkText}}</a>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
-                    '</div>',
-                'SearchTemplate': '<div class="product-results" data-pagesize="9">'+
-                                        '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
-                                        '<div class="row list">'+
-                                            '{{{results.Content}}}'+
-                                        '</div>'+
-                                        '<div class="text-center">'+
-                                            '<a href="#" class="btn-showMore">'+
-                                                '<span class="more">{{results.ShowMoreText}}</span>'+
-                                                '<span class="less">{{results.ShowLessText}}</span>'+
-                                            '</a>'+
-                                        '</div>'+
-                                   '</div>'
+                    '</div>'
 
 
 }

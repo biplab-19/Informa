@@ -78,7 +78,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
     },
 
     GetIds = function (Parent) {
-        var items = Parent.find('.recomended-wrapper'),
+        var items = Parent.find('.list-items'),
             ids = [];
 
         items.each(function () {
