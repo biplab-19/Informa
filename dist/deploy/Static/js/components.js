@@ -1893,9 +1893,40 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _showRegisterForm,
         _showRegisterFormPopup,
         _myinterestsModal = $('#registerMyinterestModal'),
-        _myinterestsModalClose = $('.register-myinterests-close');
+        _myinterestsModalClose = $('.register-myinterests-close'),
+        _validateEmail,
+        _bindValidationLogic,
+        _validateEmailDomainMsg;
 
     //methods
+    _validateEmail = function(email) {
+        var domain = email.substring(email.lastIndexOf("@") + 1);
+        if (INFORMA.validDomains.indexOf(domain) < 0)
+            return false;
+        return true;
+    }
+
+    _validateEmailDomainMsg = function(element){
+      //Email validation logic
+      if (_validateEmail($(element).val()))
+          if ($(element).next().children().length == 0)
+              $(element).next().prepend("<span class='field-validation-error'>E-mail is not in the valid domain list</span>");
+
+    }
+    _bindValidationLogic = function() {
+        //Email message
+        var  emailvalidator = $('form').find('.email-validation-error');         
+        if  (emailvalidator.length > 0) {            
+            $.extend($.validator.messages, {                  
+                email: emailvalidator.html()            
+            });         
+        }
+        //Email validation logic
+        $('form.register-myinterests-form input[type=email]').blur(function() {
+          _validateEmailDomainMsg(this);
+        });
+
+    }
     _showRegisterFormPopup = function(){
         _myinterestsModal.find('.modal-body').append(_myinterestsSection);
         _myinterestsModal.find('.modal-body .container').removeClass('container');
@@ -1955,12 +1986,13 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 if ($(this).attr('multiple') == 'multiple') {
                     $(this).multiselect({
                         includeSelectAllOption: true,
-                        maxHeight: 200,
+                        maxHeight: 140,
                         onChange: _updateMultiSelect,
-                        noneSelectedText: 'Select Something',
                         onDropdownShow : _showSelectAll,
                         onDropdownHidden : _hideSelectAll
                     });
+                    var placeHolderText = $(this).attr('placeHolder');
+                    $(this).next().find('button.multiselect>.multiselect-selected-text').html(placeHolderText)
                     var mutiselectContainer = $(this).next().find('.multiselect-container');
                     if(!mutiselectContainer){
                         var newMultiselectContainer = $(this).parent().find('.multiselect-container').detach();
@@ -2011,6 +2043,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $(".next-step").on('click', function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             $active.next().removeClass('disabled');
+            var EmailTag = $('form.register-myinterests-form input[type=email]');
+            _validateEmailDomainMsg(EmailTag);
             //_validateForm();
             if(_myinterestForm.valid() == true){
               var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
@@ -2060,7 +2094,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
       //       //     return count > 0;
       //       // });
       //       // $.validator.messages.needsSelection = 'please select';
-      // 
+      //
       //   //     _myinterestForm.validate({
       //   //       rules: {
       //   //         multiselect1: "required"
@@ -2089,7 +2123,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _validateMultiSelct();
         _validateOnSubmit();
         _showRegisterForm();
-
+        _bindValidationLogic();
     };
 
     return {
