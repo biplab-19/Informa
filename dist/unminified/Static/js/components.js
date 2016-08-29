@@ -1896,21 +1896,53 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _myinterestsModalClose = $('.register-myinterests-close'),
         _validateEmail,
         _bindValidationLogic,
-        _validateEmailDomainMsg;
+        _validateEmailDomainMsg,
+        _getAjaxData,
+        _updateProductVertical,
+        Urls = INFORMA.Configs.urls.webservices,
+        _parseResults;
 
     //methods
-    _validateEmail = function(email) {
-        var domain = email.substring(email.lastIndexOf("@") + 1);
-        if (INFORMA.validDomains.indexOf(domain) < 0)
-            return false;
-        return true;
+    _parseResults = function(data) {
+        console.log(data);
+        $('.product-name-holder').val(data.ProductName);
+        $('.vertical-name-holder').val(data.VerticalName);
     }
+    _updateProductVertical = function() {
+        var productId = {
+            'guid': $('.page-id').val()
+        };
+        _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseResults, null, null);
+    }
+    _getAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: data,
+                success_callback: function(data) {
+                    if (typeof SCallback === "function") {
+                        SCallback.call(this, data, SearchType);
+                    }
+                },
+                error_callback: function() {
+                    if (typeof Errcallback === "function") {
+                        Errcallback.call(this, data, SearchType);
+                    }
+                }
+            });
+        },
 
-    _validateEmailDomainMsg = function(element){
-      //Email validation logic
-      if (_validateEmail($(element).val()))
-          if ($(element).next().children().length == 0)
-              $(element).next().prepend("<span class='field-validation-error'>E-mail is not in the valid domain list</span>");
+        _validateEmail = function(email) {
+            var domain = email.substring(email.lastIndexOf("@") + 1);
+            if (INFORMA.validDomains.indexOf(domain) < 0)
+                return false;
+            return true;
+        }
+
+    _validateEmailDomainMsg = function(element) {
+        //Email validation logic
+        if (_validateEmail($(element).val()))
+            if ($(element).next().children().length == 0)
+                $(element).next().prepend("<span class='field-validation-error'>E-mail is not in the valid domain list</span>");
 
     }
     _bindValidationLogic = function() {
@@ -1923,24 +1955,24 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         }
         //Email validation logic
         $('form.register-myinterests-form input[type=email]').blur(function() {
-          _validateEmailDomainMsg(this);
+            _validateEmailDomainMsg(this);
         });
 
     }
-    _showRegisterFormPopup = function(){
+    _showRegisterFormPopup = function() {
         _myinterestsModal.find('.modal-body').append(_myinterestsSection);
         _myinterestsModal.find('.modal-body .container').removeClass('container');
         _myinterestsModal.modal('show');
     }
     _showRegisterForm = function() {
-      _showRegisterFormBtn.on('click', function(e){
-        if($(this).attr('data-show-register') == 'true'){
-          e.preventDefault();
-          e.stopPropagation();
-          _showRegisterFormPopup();
-        }
+        _showRegisterFormBtn.on('click', function(e) {
+            if ($(this).attr('data-show-register') == 'true') {
+                e.preventDefault();
+                e.stopPropagation();
+                _showRegisterFormPopup();
+            }
 
-      });
+        });
     }
     _updateMultiSelect = function() {
         console.log('_updateMultiSelect');
@@ -1968,7 +2000,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _appendBackBtn = function() {
         var backBtn = $('.prev-step')[0],
             btnContainer = _myinterestForm.find(":submit").parent();
-            btnContainer.append(backBtn);
+        btnContainer.append(backBtn);
     }
     _showNextTab = function(elem) {
         $(elem).next().find('a[data-toggle="tab"]').click();
@@ -1988,19 +2020,19 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         includeSelectAllOption: true,
                         maxHeight: 140,
                         onChange: _updateMultiSelect,
-                        onDropdownShow : _showSelectAll,
-                        onDropdownHidden : _hideSelectAll
+                        onDropdownShow: _showSelectAll,
+                        onDropdownHidden: _hideSelectAll
                     });
                     var placeHolderText = $(this).attr('placeHolder');
                     $(this).next().find('button.multiselect>.multiselect-selected-text').html(placeHolderText)
                     var mutiselectContainer = $(this).next().find('.multiselect-container');
-                    if(!mutiselectContainer){
+                    if (!mutiselectContainer) {
                         var newMultiselectContainer = $(this).parent().find('.multiselect-container').detach();
                         $(this).next().append(newMultiselectContainer);
                     }
                     var selectAllTag = $(this).next().find('li:first.multiselect-item').detach(),
-                    selectAllDiv = $('<ul class="select-all-bottom"></ul>').append(selectAllTag.find('a'));
-                    if(selectAllTag){
+                        selectAllDiv = $('<ul class="select-all-bottom"></ul>').append(selectAllTag.find('a'));
+                    if (selectAllTag) {
                         $(this).next().append(selectAllDiv);
                     }
                 }
@@ -2008,11 +2040,11 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         }
     }
 
-    _showSelectAll = function(select){
+    _showSelectAll = function(select) {
         $(this.$container).find('.select-all-bottom').css('display', 'block');
-      }
-    _hideSelectAll = function(){
-      $(this.$container).find('.select-all-bottom').css('display', 'none');
+    }
+    _hideSelectAll = function() {
+        $(this.$container).find('.select-all-bottom').css('display', 'none');
     }
     _updateMultiSelect = function(option, checked, select) {
         if (checked) {
@@ -2046,10 +2078,10 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             var EmailTag = $('form.register-myinterests-form input[type=email]');
             _validateEmailDomainMsg(EmailTag);
             //_validateForm();
-            if(_myinterestForm.valid() == true){
-              var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
-                  formSubmitBtn.removeAttr('disabled');
-              _showNextTab($active);
+            if (_myinterestForm.valid() == true) {
+                var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
+                formSubmitBtn.removeAttr('disabled');
+                _showNextTab($active);
             }
         });
         $(".prev-step").on('click', function(e) {
@@ -2072,43 +2104,43 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         // });
     }
 
-    _validateMultiSelct = function(){
-      //alert(2);
-      // $.validator.addMethod("needsSelection", function(value, element) {
-      //    return $(element).multiselect("getChecked").length > 0;
-      // });
-      // $.validator.messages.needsSelection = 'Select.';
+    _validateMultiSelct = function() {
+        //alert(2);
+        // $.validator.addMethod("needsSelection", function(value, element) {
+        //    return $(element).multiselect("getChecked").length > 0;
+        // });
+        // $.validator.messages.needsSelection = 'Select.';
     }
 
-    _validateOnSubmit = function(){
-      // _myinterestFormSubmitBtn.on('click', function(e){
-      //   e.preventDefault();
-      //       // $('select[name=multiselect1]').rules('add',{
-      //       //   required: true,
-      //       //   messages: {
-      //       //     required: 'required'
-      //       //   }
-      //       // });
-      //       // $.validator.addMethod("needsSelection", function (value, element) {
-      //       //     var count = $(element).find('option:selected').length;
-      //       //     return count > 0;
-      //       // });
-      //       // $.validator.messages.needsSelection = 'please select';
-      //
-      //   //     _myinterestForm.validate({
-      //   //       rules: {
-      //   //         multiselect1: "required"
-      //   //       },
-      //   //       ignore: ':hidden:not(".multiselect")',
-      //   //       submitHandler: function() {
-      //   //     alert('valid form');
-      //   //     return false;
-      //   // }
-      //   //     });
-      //   // if(_myinterestForm.valid() == true){
-      //   //     alert(11);
-      //   // }
-      // });
+    _validateOnSubmit = function() {
+        // _myinterestFormSubmitBtn.on('click', function(e){
+        //   e.preventDefault();
+        //       // $('select[name=multiselect1]').rules('add',{
+        //       //   required: true,
+        //       //   messages: {
+        //       //     required: 'required'
+        //       //   }
+        //       // });
+        //       // $.validator.addMethod("needsSelection", function (value, element) {
+        //       //     var count = $(element).find('option:selected').length;
+        //       //     return count > 0;
+        //       // });
+        //       // $.validator.messages.needsSelection = 'please select';
+        //
+        //   //     _myinterestForm.validate({
+        //   //       rules: {
+        //   //         multiselect1: "required"
+        //   //       },
+        //   //       ignore: ':hidden:not(".multiselect")',
+        //   //       submitHandler: function() {
+        //   //     alert('valid form');
+        //   //     return false;
+        //   // }
+        //   //     });
+        //   // if(_myinterestForm.valid() == true){
+        //   //     alert(11);
+        //   // }
+        // });
 
     }
 
@@ -2124,6 +2156,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _validateOnSubmit();
         _showRegisterForm();
         _bindValidationLogic();
+        _updateProductVertical();
     };
 
     return {
