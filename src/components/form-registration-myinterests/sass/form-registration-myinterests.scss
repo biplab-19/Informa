@@ -44,16 +44,12 @@
           display: table-cell;
           width: 48%;
           padding-left: 5px;
+          @include mobile {
+            display: block;
+            padding-left: 0;
           }
 
-        // .required-field:not(:first-child) {
-        //     display: table-cell;
-        //     width: 48%;
-        //     float: left;
-        // }
-        // .required-field:nth-child(2) {
-        //     margin-right: 4%;
-        // }
+          }
     }
     .your-area-interest{
       legend {
@@ -85,6 +81,7 @@
     .triangle-nav {
         list-style: none;
         overflow: hidden;
+        padding-left: 5px;
     }
     .triangle-nav li {
         float: left;
@@ -309,11 +306,23 @@
                 .btn {
                     float: right;
                     min-width: 180px;
+                    @include mobile{
+                      float: right;
+                      min-width: 32px;
+                      width: 42% !important;
+                    }
                 }
             .btn-previous {
                 float: left;
                 margin-right: 200px;
                 display: block;
+                @include mobile {
+                  float: left;
+                  margin-right: 44%;
+                  display: block;
+                  min-width: 85px;
+                  width: 36% !important;
+                }
             }
             .form-submit-border {
                 padding-bottom: 12px;
