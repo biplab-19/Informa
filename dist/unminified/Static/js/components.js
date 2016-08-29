@@ -4163,7 +4163,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
                     console.log(Urls[SearchType]);
-                GetAjaxData(Urls.GetRefineResults, "Post", Data, RenderSearchResult, null, SearchType);
+                GetAjaxData(Urls.GetRefineResults, "Get", Data, RenderSearchResult, null, SearchType);
             });
         },
         BindAjaxHandler = function() {
@@ -4762,9 +4762,14 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         ResourceSbmtBtn.on('click', function(){
             var ProductData = GetProductFinderData(),
                 FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                Data = JSON.stringify(INFORMA.ProductFinder.MergeData(ProductData,FilterData));
+                Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData);
+                Data.DefaultItemCount = $('input[name="DefaultItemCount"]').val();
+                Data.MaxItemCount = $('input[name="MaxItemCount"]').val();
+                Data.DefaultProductCount = $('input[name="DefaultProductCount"]').val();
+                Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
+                Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
                 debugger;
-
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), Re)
         });
     },
     UpdateSubSectorDropdown = function(data) {
@@ -5237,14 +5242,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = INFORMA.ProductFinder.MergeData(ProdData,PData,FilterData);
                 
-                if(!$(currentSection).hasClass('showLess')) {
-                    $(currentSection).addClass('showLess');
-                    GetAjaxData(Urls.ProductSearch, "Post", Data,ParseSearchData, null, SearchType, $(this));
-                } else {
-                    $(currentSection).removeClass('showLess');
-                    $(currentSection).find('.col-xs-12:nth-child(n+4)').remove();
-                    $(window).scrollTop($(currentSection).offset().top -60);
-                }
+
+                GetAjaxData(Urls.ProductSearch, "Post", Data,ParseSearchData, null, SearchType, $(this));
+                
             });
        },
        ToggleView = function() {
@@ -5326,8 +5326,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         CreateSubItems = function(Data,SearchType, Button) {
             var FinalHTml='',Title,ShowMoreText;
-            for (var i = 0; i < Data.length; i++) {
-                var Results = Data[i], TemplateName, ListTemplate, Html='', ContentType,
+                var Results = Data[0], TemplateName, ListTemplate, Html='', ContentType,
                     Lists = Results.Results;
                     ShowMoreText = (Results.ShowMoreText) ? Results.ShowMoreText:"";
                 if(Lists){
@@ -5342,10 +5341,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     // debugger;
                     $(Button).parents('.product-results').find(".list").append(Html);
                     EqualHeight();
-                    // $(Button).addClass("hidden");
+                    $(Button).addClass("hidden");
 
                 }
-            }
             DoPagination();
         },
         ParseSearchData = function(data, SearchType, Button) {
