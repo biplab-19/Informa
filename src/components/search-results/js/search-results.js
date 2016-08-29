@@ -27,7 +27,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SubSectorHidden = $("input.sub-sector-list"),
         RefineSection = $(".refine-container"),
         // methods
-        init, CreateSearchResult, ParseSearchData,SetSearchState,MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems;
+        init, CreateSearchResult, CreateSearchTags, ParseSearchData,SetSearchState,MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems;
 
         SetSearchState = function(sVal) {
             if (sVal) {
@@ -106,8 +106,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     }
                 })
                 Items.height(MaxHeight);
-            } else {
-                
+            } else {        
                 Items.css("height", "auto");
             }
         },
@@ -246,14 +245,29 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
             DoPagination();
         },
+        CreateSearchTags = function(SiteFacets) {
+            if(!$.isEmptyObject(SiteFacets)) {
+                var Html = "";
+                for(var key in SiteFacets) {
+                    if(SiteFacets[key].length > 0)
+                    Html += "<li><strong>"+SiteFacets[key].length+"</strong>"+key+"</li>";
+                }
+                $('.items-found').html(Html);
+            }
+        },
         ParseSearchData = function(data, SearchType, Button) {
             if (Object.keys(data).length) {
                 var ProductResults = (data.ProductListing !== undefined) ? data.ProductListing : false,
                     Refine = (data.FacetSections !== undefined) ? data.FacetSections : false,
-                    OnlySampleContent = (data.OnlySampleContent !== undefined) ? data.OnlySampleContent : false;
+                    OnlySampleContent = (data.OnlySampleContent !== undefined) ? data.OnlySampleContent : false,
+                    SiteFacets = (data.SiteFacets !== undefined) ? data.SiteFacets : false;
+
                 if (ProductResults && Object.keys(ProductResults).length && OnlySampleContent != true) {
                     CreateSearchResult(ProductResults,SearchType);
                     SearchContent.find('.results').find('strong').html(data.ProductFound);
+                    if(SiteFacets) {
+                        CreateSearchTags(SiteFacets);
+                    }
                     if(Refine && Object.keys(Refine).length){
                         UpdateRefineSection(Refine,SearchType);
                     }

@@ -12,6 +12,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     	init, BindDropDown, GetSubSectorList, UpdateSubSectorDropdown, GetAjaxData, BindResourceSbmt, GetProductFinderData;
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.Spinner.Show($("body"));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
             data: data,
@@ -44,7 +45,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
                 Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
 
-            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), Re)
+            GetAjaxData(Urls.ProductSearch, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null, null);
         });
     },
     UpdateSubSectorDropdown = function(data) {
@@ -64,7 +65,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     GetSubSectorList = function(arrayList) {
         var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
             SectorIDs = 'SectorIDs='+SectorIDs;
-        GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
+        GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null, null);
     },
     BindDropDown = function() {
         var SectorList = [];
