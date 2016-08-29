@@ -69,7 +69,10 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         SelectAllCheckBox = function(){
 
             SelectAll.on("click",function(e){
-                var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input");
+                var ParentEle = $(this).parents(".panel").eq(0).find(".panel-body"),
+                    CurrentCheckBoxs = ParentEle.find("input"),
+                    CurrentShowMoreLink = ParentEle.find("a.show-more");
+
                 if($(this).prop("checked")===true){
                     jQuery.each(CurrentCheckBoxs, function(){
                         $(this).prop("checked","checked");
@@ -78,6 +81,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     jQuery.each(CurrentCheckBoxs, function(){
                         $(this).prop("checked",false);
                     }); 
+                }
+                if(CurrentShowMoreLink){
+                    CurrentShowMoreLink.trigger("click");
                 }
                 DoRefine();
             });
