@@ -2901,26 +2901,39 @@ section#agri-report .agri-report-wrapper .headline {
     display: none;
   }
 }
-/* line 35, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 36, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+section#agri-report .agri-report-wrapper .download-report a {
+  position: relative;
+}
+/* line 38, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+section#agri-report .agri-report-wrapper .download-report a:after {
+  font-family: "InformaIcons";
+  content: "\e905";
+  position: absolute;
+  right: 8%;
+  top: 28%;
+  font-size: 16px;
+}
+/* line 48, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .splash-image {
   position: absolute;
   bottom: -40px;
   right: 225px;
 }
-/* line 39, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 52, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .splash-image img {
   width: 270px;
   height: auto;
 }
 @media (max-width: 767px) {
-  /* line 35, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 48, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image {
     right: 85px;
     position: static;
     margin-top: 35px;
     margin-bottom: 10px;
   }
-  /* line 48, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 61, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image > img {
     width: 160px;
     display: block;
@@ -2928,30 +2941,30 @@ section#agri-report .agri-report-wrapper .splash-image img {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 35, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 48, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image {
     right: 95px;
   }
-  /* line 56, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 69, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image > img {
     width: 225px;
   }
 }
-/* line 61, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 74, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .description {
   line-height: 1.2em;
 }
 @media (max-width: 767px) {
-  /* line 61, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 74, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .description {
     padding-top: 15px;
   }
 }
-/* line 67, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 80, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .description strong {
   font-family: FSMe-Bold;
 }
-/* line 71, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 84, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .orange-bd {
   font-size: ┬á14px;
   ┬áfont-family: ┬áFSMe;
@@ -2961,18 +2974,8 @@ section#agri-report .agri-report-wrapper .orange-bd {
   ┬ámin-width: ┬á160px;
   ┬áborder-color: ┬á #ffd600;
 }
-/* line 80, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
-section#agri-report .agri-report-wrapper .orange-bd.download-report┬á:after {
-  content: "\e905";
-  font-family: 'InformaIcons';
-  right: 15px;
-  font-weight: bold;
-  position: absolute;
-  font-size: 16px;
-  color: #ffd600;
-}
 @media (max-width: 767px) {
-  /* line 71, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 84, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .orange-bd {
     margin: 0 auto;
     display: block;
@@ -11269,8 +11272,9 @@ section.samplecontent-freearticle .quick-facts ul li:before {
     padding-right: 25px;
   }
 }
-/* line 11, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 12, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .brochure-btn a {
+  text-align: center;
   text-decoration: none;
   padding: 10px;
   padding-left: 15px;
@@ -11279,12 +11283,12 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   font-family: FSMe-bold;
 }
 @media (max-width: 767px) {
-  /* line 11, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 12, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure .brochure-btn a {
     width: 100%;
   }
 }
-/* line 24, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 26, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure p {
   padding-bottom: 10px;
   font-family: FSMe;
@@ -11292,40 +11296,40 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   font-size: 16px;
 }
 @media (max-width: 767px) {
-  /* line 24, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 26, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure p {
     font-size: 14px;
     padding-top: 15px;
     padding-bottom: 15px;
   }
 }
-/* line 36, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 38, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .list-title {
   font-family: FSMe-bold;
   padding-bottom: 10px;
 }
-/* line 40, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 42, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure h2 {
   font-family: FSMe-light;
   color: #f0f1f3;
   font-size: 30px;
 }
 @media (max-width: 767px) {
-  /* line 40, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 42, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure h2 {
     font-size: 18px;
     padding-left: 35px;
   }
 }
-/* line 51, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 53, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-without-icon {
   padding-left: 0;
 }
-/* line 54, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 56, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-with-icon {
   padding-left: 50px;
 }
-/* line 57, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 59, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-with-icon:before {
   font-family: "InformaIcons";
   content: "\e91f";
@@ -11334,17 +11338,17 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   font-size: 46px;
 }
 @media (max-width: 767px) {
-  /* line 57, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 59, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure .pdp-with-icon:before {
     font-size: 33px;
     left: 8px;
   }
 }
-/* line 70, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 72, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-without-icon {
   padding-left: 0;
 }
-/* line 73, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 75, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-with-icon {
   padding-left: 50px;
 }
@@ -11354,13 +11358,13 @@ section.samplecontent-freearticle .quick-facts ul li:before {
     height: auto;
   }
 }
-/* line 79, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 81, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure ul {
   padding-top: 13px;
   list-style-type: none;
   font-family: FSMe-light;
 }
-/* line 83, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 85, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure ul li {
   color: #c3c7cf;
   margin-bottom: 10px;
@@ -11368,12 +11372,12 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 83, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 85, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure ul li {
     padding-left: 32px;
   }
 }
-/* line 92, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 94, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure ul li:before {
   margin-right: 10px;
   font-family: "InformaIcons";
@@ -11385,14 +11389,14 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   top: -3px;
 }
 @media (max-width: 767px) {
-  /* line 92, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 94, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure ul li:before {
     left: 0px;
     padding-left: 0px;
   }
 }
 @media (max-width: 767px) {
-  /* line 79, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 81, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure ul {
     padding-top: 10px;
     padding-left: 0px;
@@ -11579,44 +11583,46 @@ section.recommendation-register-banner .light-font {
 /* line 1, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash {
   height: 180px;
-  padding-top: 3%;
-  padding-bottom: 2%;
+  margin-top: 40px;
+  margin-bottom: 20px;
   overflow: hidden;
 }
-/* line 6, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 8, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .newsbox {
   background: #ffd500;
   padding-top: 1%;
   padding-bottom: 1%;
   position: relative;
 }
-/* line 12, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 14, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-title {
   font-size: 18px;
 }
-/* line 14, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 16, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-title strong {
   color: #000;
 }
-/* line 18, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 20, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-desc {
   padding-top: 10px;
   font-family: FSMe-normal;
   padding-right: 220px;
+  height: 60px;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 18, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 20, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-desc {
     padding-right: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 18, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 20, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-desc {
     padding-right: 20px;
   }
 }
-/* line 29, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 33, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .read {
   color: #000;
   font-family: FSMe-bold;
@@ -11624,7 +11630,7 @@ section.newsFlash .read {
   display: inline-block;
   position: relative;
 }
-/* line 36, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 40, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .read:after {
   font-family: "InformaIcons";
   content: "\e900";
@@ -11635,7 +11641,7 @@ section.newsFlash .read:after {
   top: 13px;
   right: -11px;
 }
-/* line 46, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 50, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .cross {
   color: #ffffff;
   font-size: 20px;
@@ -11645,30 +11651,30 @@ section.newsFlash .cross {
   right: 14px;
   z-index: 2;
 }
-/* line 55, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 59, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .cross:after {
   font-family: "InformaIcons";
   content: "\e906";
 }
-/* line 59, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 63, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel {
   z-index: 1;
 }
 @media (min-width: 1142px) {
-  /* line 59, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 63, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel {
     height: 146px;
   }
 }
-/* line 64, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 68, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-list {
   border-right: none;
 }
-/* line 67, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 71, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-arrow {
   top: 80%;
 }
-/* line 70, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 74, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -11680,7 +11686,7 @@ section.newsFlash .news-carousel .slick-arrow:before {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 70, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 74, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -11688,54 +11694,54 @@ section.newsFlash .news-carousel .slick-arrow:before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 70, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 74, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 91, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 95, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-next {
   left: 98%;
   margin-left: 0;
 }
-/* line 94, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 98, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-next:before {
   content: "\e902";
 }
 @media (max-width: 767px) {
-  /* line 91, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 95, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-next {
     left: 94%;
     margin-left: 0;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 91, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 95, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-next {
     left: 97%;
   }
 }
-/* line 105, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 109, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-prev {
   z-index: 2;
   left: 94%;
 }
 @media (max-width: 767px) {
-  /* line 105, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 109, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-prev {
     left: 92%;
     margin-left: -20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 105, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+  /* line 109, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
   section.newsFlash .news-carousel .slick-prev {
     left: 93%;
   }
 }
-/* line 115, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
+/* line 119, ../../../src/components/rp-newsFlash/sass/_rp-newsFlash.scss */
 section.newsFlash .news-carousel .slick-prev:before {
   content: "\e903";
 }

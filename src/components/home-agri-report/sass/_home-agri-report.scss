@@ -32,6 +32,19 @@ section#agri-report {
                 display: none;
             }
         }
+        .download-report{
+          a{
+            position: relative;
+            &:after{
+              font-family: "InformaIcons";
+              content: "\e905";
+              position: absolute;
+              right: 8%;
+              top: 28%;
+              font-size: 16px;
+            }
+          }
+        }
         .splash-image {
             position: absolute;
             bottom: -40px;
@@ -76,17 +89,7 @@ section#agri-report {
              margin-top: 60px;
              min-width: 160px;
              border-color: #ffd600;
-            &.download-report {
-                &:after {
-                    content: "\e905";
-                    font-family: 'InformaIcons';
-                    right: 15px;
-                    font-weight: bold;
-                    position: absolute;
-                    font-size: 16px;
-                    color: $brand-secondary;
-                }
-            }
+
             @include mobile {
                 margin: 0 auto;
                 display: block;
@@ -94,5 +97,6 @@ section#agri-report {
                 margin-top: 20px;
             }
         }
+
     }
 }
