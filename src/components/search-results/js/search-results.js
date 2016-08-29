@@ -49,9 +49,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         UpdateResultPage = function(SectorSelect, SecValue, SubSecValue) {
 
-            var SectorArray = SecValue.split(","),
-                SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
-                SectorIDs = SecValue,
+            var SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
+                SectorIDs = 'SectorIDs='+SecValue,
                 SubmitBtn = ProductFinderSection.find(".sector-search li.button"),
                 SubSectorSelect = ProductFinderSection.find("select.SubSector");
 
