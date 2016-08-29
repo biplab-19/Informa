@@ -472,7 +472,7 @@ var INFORMA = window.INFORMA || {};
         'SampleContent': '<div class="col-md-4 col-sm-6 col-xs-12">'+
                         '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.ContentType}}">'+
                             '<div class="recomended-wrapper">'+
-                                '<div class="recomend-content">'+
+                                '<div class="recomend-content wrap-content">'+
                                     '<div class="content">'+
                                         '{{#compare results.SectorTags.length 0 operator=">"}}'+
                                             '<p>'+
@@ -524,7 +524,7 @@ var INFORMA = window.INFORMA || {};
                     '</div>',
             'Products':
             '<div class="col-xs-12 col-sm-6 col-md-4">'+
-                        '<div class="list-items" data-fetch="{{results.ProductPageID}}" data-type="{{results.ContentType}}">'+
+                        '<div class="list-items" data-fetch="{{results.ProductPageID}}" data-type="{{results.Category}}">'+
                             '<div class="products">'+
                                 '<div class="heading">'+
                                     '<div class="heading-content">'+
