@@ -1,12 +1,20 @@
-.register-myinterests {
+.register-form-popup-container{
+  display: none;
+}
+.register-myinterests-section {
+    //display: none;
     .triangle-nav-container {
         background: $blue-light-bg;
         padding-top: 15px;
         padding-bottom: 15px;
     }
     .register-myinterests-form {
+        //display: none;
         padding-left: 2%;
         padding-right: 2%;
+        background: url("/Static/images/pattern.png") no-repeat right 100% #444957;
+        background-size: 20%;
+        padding: 30px 0 100px;
     }
     .register-myinterests-form-container {
         background-color: $gray-light-bg;
@@ -113,6 +121,11 @@
         padding-bottom: 20px;
         padding-top: 20px;
     }
+    .list-inline > li {
+
+    padding-left: 0px;
+    padding-right: 0px;
+  }
     .next-step {
         width: 180px;
     }
@@ -155,14 +168,12 @@
                 }
             }
             .dropdown-menu {
+                box-shadow: none;
                 border-radius: 0;
                 border: none;
                 width: 100%;
                 padding: 10px 0;
                 background-color: #f0f1f3;
-                box-shadow: 1px -1px -1px 1px rgba(0, 0, 0, 0.75);
-                -moz-box-shadow: 1px -1px -1px 1px rgba(0, 0, 0, 0.75);
-                -webkit-box-shadow: 1px -1px -1px 1px rgba(0, 0, 0, 0.75);
                 label {
                     color: $text-gray;
                     &:before {
@@ -187,7 +198,28 @@
                     }
                 }
             }
+            .select-all-bottom {
+              display: none;
+              background: $blue-lighter-bg;
+              padding: 0;
+              margin-top: 0;
+              padding-left: 15px;
+              float: left;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              width: 100%;
+              a.multiselect-all {
+
+              label {
+                  cursor: pointer;
+                  //color: $white;
+                  //padding: 10px;
+                }
+              }
+            }
         }
+
+
     }
     .open > .dropdown-menu {
         display: block;
@@ -226,6 +258,7 @@
         border-color: $gray-dark-bg;
      }
 }
+
 }
 .register-myinterests-form-container {
      .form-group .select-wrapper:after {
@@ -254,3 +287,28 @@
         }
     }
 }
+
+
+  .register-myinterests-modal {
+      .modal-dialog {
+          width: 75%;
+          margin: 0 auto;
+      }
+      .modal-body {
+          @include mobile {
+              //padding: 15px 30px;
+          }
+      }
+      .modal-content {
+          border-radius: 0;
+          background-color: $gray-light-bg;
+          color: $white;
+      }
+      .modal-header {
+          border-bottom: 0;
+          .close {
+              color: $white;
+              opacity: 2;
+          }
+      }
+  }

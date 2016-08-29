@@ -24,29 +24,42 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ShowMoreLink = SearchContent.find(".btn-showMore"),
         RefineSection = $(".refine-container"),
         // methods
-        init, CreateSearchResult, ParseSearchData,UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight;
+        init, CreateSearchResult, ParseSearchData,UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems;
 
-        GetAjaxData = function(url, method, data, SCallback, Errcallback) {
+        GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType, Item) {
             INFORMA.Spinner.Show($("body"));
-            INFORMA.DataLoader.GetServiceData(url, {
+        INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
-                data: data,
-                success_callback: SCallback,
-                error_callback: Errcallback
+                data: JSON.stringify(data),
+                success_callback: function (data) {
+                    if (typeof SCallback === "function") {
+                        SCallback.call(this, data, SearchType, Item);
+                    }
+                },
+                error_callback: function () {
+                    if (typeof Errcallback === "function") {
+                        Errcallback.call(this, data, SearchType);
+                    }
+                }
             });
         },
         EqualHeight = function(){
-            var Items = SearchContent.find('.list-items'),
-                MaxHeight = 0,
-                Padding = 35;
+            var Items = SearchContent.find('.wrap-content');
+            
+            if($(".search-container").hasClass("tileView")) {
+                var MaxHeight = 0;
 
-            Items.each(function() {
-                var ItemHeight = $(this).outerHeight();
-                if(ItemHeight> MaxHeight) {
-                    MaxHeight = ItemHeight;
-                }
-            })
-            //Items.height(MaxHeight + Padding);
+                Items.each(function() {
+                    var ItemHeight = $(this).outerHeight();
+                    if(ItemHeight> MaxHeight) {
+                        MaxHeight = ItemHeight;
+                    }
+                })
+                Items.height(MaxHeight);
+            } else {
+                debugger;
+                Items.css("height", "auto");
+            }
         },
         GetPaginationData = function(List,Section){
             var Data = {},
@@ -62,13 +75,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         uniqueArr.push(KeyValue);
                         Data[KeyName] = uniqueArr.concat(existingVal);
                 }else{
-                   Data[KeyName] = KeyValue;
+                   Data[KeyName] = [].concat(KeyValue);
                 }
             });
             return Data;
         },
        DoPagination = function(){
-            ShowMoreLink.off("click").on("click",function(e){
+            $(document).on("click", ".search-container .btn-showMore", function(e){
                 e.preventDefault();
                 var currentSection = $(this).parents(".product-results").eq(0),
                     TileList = currentSection.find(".list-items"),
@@ -76,8 +89,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     ProdData = INFORMA.ProductFinder.GetProductData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = INFORMA.ProductFinder.MergeData(ProdData,PData,FilterData);
-
-                GetAjaxData(Urls[SearchType], "Get", JSON.stringify(Data),ParseSearchData, null);
+                
+                if(!$(currentSection).hasClass('showLess')) {
+                    $(currentSection).addClass('showLess');
+                    GetAjaxData(Urls.ProductSearch, "Post", Data,ParseSearchData, null, SearchType, $(this));
+                } else {
+                    $(currentSection).removeClass('showLess');
+                    $(currentSection).find('.col-xs-12:nth-child(n+4)').remove();
+                    $(window).scrollTop($(currentSection).offset().top -60);
+                }
             });
        },
        ToggleView = function() {
@@ -92,9 +112,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     parentEle.removeClass("tileView listView");
                     parentEle.addClass(currentView);
                 }
+                
+                    EqualHeight();
+                
             });
         },
         UpdateRefineSection = function(Data, Type){
+            debugger;
                 for (var i = 0; i < Data.length; i++) {
                         var Results = Data[i], Html ='',
                             FacetList = Results.FacetItem,
@@ -114,50 +138,90 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         CreateSearchResult = function(Data,SearchType) {
             var FinalHTml='',Title,ShowMoreText;
             for (var i = 0; i < Data.length; i++) {
-                var Results = Data[i], TemplateName, ListTemplate, Html='', ContentType,
-                    Lists = Results.Products;
-                    Title = (Results.ProductTitle) ? Results.ProductTitle:"";
-                    ShowMoreText = (Results.ShowMoreText) ? Results.ShowMoreText:"";
+                var Results = Data[i], TemplateName, ListTemplate, 
+                    HeroTemplate, HeroHandlebar, Html='', ContentType,
+                    Lists = Results.Results;
+                    HeroTemplate = (Templates.SearchTemplate) ? Templates.SearchTemplate : "";
+                    HeroHandlebar = Handlebars.compile(HeroTemplate);
+
                 if(Lists){
                     for (var j = 0; j < Lists.length; j++) { 
-                        if(Lists[j].ContentType){
-                            ContentType = Lists[j].ContentType;
+                        if(Lists[j].Category){
+                            ContentType = Lists[j].Category;
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                             ListTemplate = Handlebars.compile(TemplateName);
                             Html+= ListTemplate({ results: Lists[j] });
                         }
                     }
-                    var Container = SearchContent.find(".product-results").eq(i);
-                    Container.find(".row").html(Html);
-                    Container.find("h2").text(Title);
-                    EqualHeight();
-                    if(Lists.length<3){
-                        Container.find(".text-center").addClass("hidden");
-                    }else{
-                        Container.find(".text-center").removeClass("hidden");
+
+                    Results.Content = Html;
+
+                    SearchContent.find(".product-results").remove();
+                    
+                    FinalHTml += HeroHandlebar({ results: Results });
+                    // var Container = SearchContent.find(".product-results").eq(i);
+                    // Container.find(".list").html(Html);
+                    // Container.find("h2").text(Title);
+                    // EqualHeight();
+                    // if(Lists.length<3){
+                    //     Container.find(".text-center").addClass("hidden");
+                    // }else{
+                    //     Container.find(".text-center").removeClass("hidden");
+                    // }
+
+                    
+                }
+            }
+            UpdateRefineSection();
+            SearchContent.find('.container').append(FinalHTml);
+            SearchContent.find('.results').html(Data.ProductFound);
+            EqualHeight();
+            DoPagination();
+        },
+        CreateSubItems = function(Data,SearchType, Button) {
+            var FinalHTml='',Title,ShowMoreText;
+            for (var i = 0; i < Data.length; i++) {
+                var Results = Data[i], TemplateName, ListTemplate, Html='', ContentType,
+                    Lists = Results.Results;
+                    ShowMoreText = (Results.ShowMoreText) ? Results.ShowMoreText:"";
+                if(Lists){
+                    for (var j = 0; j < Lists.length; j++) { 
+                        if(Lists[j].Category){
+                            ContentType = Lists[j].Category;
+                            TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
+                            ListTemplate = Handlebars.compile(TemplateName);
+                            Html+= ListTemplate({ results: Lists[j] });
+                        }
                     }
+                    // debugger;
+                    $(Button).parents('.product-results').find(".list").append(Html);
+                    EqualHeight();
+                    // $(Button).addClass("hidden");
+
                 }
             }
             DoPagination();
         },
-        ParseSearchData = function(data, SearchType) {
-
+        ParseSearchData = function(data, SearchType, Button) {
             if (Object.keys(data).length) {
                 var ProductResults = (data.ProductListing !== undefined) ? data.ProductListing : false,
-                    Refine = (data.FacetSections !== undefined) ? data.FacetSections : false;
-                if (ProductResults && Object.keys(ProductResults).length) {
+                    Refine = (data.FacetSections !== undefined) ? data.FacetSections : false,
+                    OnlySampleContent = (data.OnlySampleContent !== undefined) ? data.OnlySampleContent : false;
+                if (ProductResults && Object.keys(ProductResults).length && OnlySampleContent != true) {
                     CreateSearchResult(ProductResults,SearchType);
-                } else {
-                    $(".no-results").show();
+                    if(Refine && Object.keys(Refine).length){
+                        UpdateRefineSection(Refine,SearchType);
+                    }
                 }
-                if(Refine && Object.keys(Refine).length){
-                    UpdateRefineSection(Refine,SearchType);
+                if(OnlySampleContent == true) {
+                    CreateSubItems(ProductResults, SearchType, Button);
                 }
+                
             }
         },
         init = function() {
-            var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
-                IsSearchPage = (ProductFinderSection.data("search") === true) ? true : false;
+            var IsProductPage = (ProductFinderSection.attr("data-product") == "true") ? true : false,
+                IsSearchPage = (ProductFinderSection.attr("data-search") == "true") ? true : false;
 
             if (IsProductPage) {
                 SearchType = "ProductSearch";

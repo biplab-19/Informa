@@ -195,6 +195,14 @@ $desktop-width: 1142px;
             display: none;
         }
     }
+    .showLess {
+        span.more {
+            display: none;
+        }
+        span.less {
+            display: block;
+        }
+    }
     .recomended-wrapper{
         .btn-container .btn-default{
           border: 2px solid $secondarycolorlight;

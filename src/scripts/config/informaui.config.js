@@ -19,6 +19,7 @@ var INFORMA = window.INFORMA || {};
             "GetArticles": "/data/article_list.json",
             "GetSubSectorList": "/data/product-finder.json",
             "ProductSearch": "/data/product-results.json",
+            "GetRefineResults": "/data/product-results.json",
             "SearchResult": "/data/search-results.json",
             "AnalystSearch": "/data/analyst-search.json",
             "AnalystSearchDropDown": "/data/analyst-search-dropdown.json",
@@ -32,7 +33,8 @@ var INFORMA = window.INFORMA || {};
         "dev": {
             "GetArticles": "/client/search/getarticles",
             "GetSubSectorList": "/client/search/GetSubSectors",
-            "ProductSearch": "/client/search/GetProducts",
+            "ProductSearch": "/client/search/GetProductsSampleContent",
+            "GetRefineResults": "/client/search/GetRefineProductResults",
             "SearchResult": "/client/search/GetSearchResults",
             "AnalystSearch": "/client/search/GetSpecialists",
             "AnalystSearchDropDown": "/client/search/GetSubSectorList",
