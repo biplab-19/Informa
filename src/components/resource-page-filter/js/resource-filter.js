@@ -37,9 +37,14 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         ResourceSbmtBtn.on('click', function(){
             var ProductData = GetProductFinderData(),
                 FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                Data = JSON.stringify(INFORMA.ProductFinder.MergeData(ProductData,FilterData));
+                Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData);
+                Data.DefaultItemCount = $('input[name="DefaultItemCount"]').val();
+                Data.MaxItemCount = $('input[name="MaxItemCount"]').val();
+                Data.DefaultProductCount = $('input[name="DefaultProductCount"]').val();
+                Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
+                Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
                 debugger;
-
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), Re)
         });
     },
     UpdateSubSectorDropdown = function(data) {

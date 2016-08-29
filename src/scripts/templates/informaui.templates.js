@@ -526,7 +526,7 @@ var INFORMA = window.INFORMA || {};
             '<div class="col-xs-12 col-sm-6 col-md-4">'+
                         '<div class="list-items" data-fetch="{{results.ProductPageID}}" data-type="{{results.Category}}">'+
                             '<div class="products">'+
-                                '<div class="content-wrap">'+
+                                '<div class="wrap-content">'+
                                     '<div class="heading">'+
                                         '<div class="heading-content">'+
                                             '<p class="category">'+
@@ -552,13 +552,29 @@ var INFORMA = window.INFORMA || {};
                                             '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.DetailText}}</a>'+
                                         '</div>'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="{{results.FreeTrialLink}}" class="btn btn-primary">{{results.LinkText}}</a>'+
+                                            '<a href="javascript:void(0)" data-toggle="modal" data-modal="#results.FreeTrialLink.CTAType" data-productid="results.FreeTrialLink.ProductGuid" class="btn btn-primary free-trial wffm-elq-form-btn">'+
+                                                '{{results.CtaText}}'+
+                                            '</a>'+
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
-                    '</div>'
+                    '</div>',
+                'SearchTemplate': '<div class="product-results" data-pagesize="9">'+
+                                       '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
+                                        '<div class="row list">'+
+                                            '{{{results.Content}}}'+
+                                        '</div>'+
+                                        '{{#compare results.ShowMoreFlag null operator="!="}}'+
+                                        '<div class="text-center">'+
+                                            '<a href="#" class="btn-showMore">'+
+                                                '<span class="more">{{results.ShowMoreText}}</span>'+
+                                                '<span class="less">{{results.ShowLessText}}</span>'+
+                                            '</a>'+
+                                        '</div>'+
+                                        '{{/compare}}'+
+                                   '</div>'
 
 
 }
