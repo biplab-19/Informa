@@ -28,7 +28,8 @@ var INFORMA = window.INFORMA || {};
             "ResourceList": "data/resource-list.json",
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/data/form-data.json",
-            "GetRecomendedItems": "/data/recomended-content.json"
+            "GetRecomendedItems": "/data/recomended-content.json",
+            "GetProductAndVerticalNames": "/data/GetWffmHiddenItemsContent.json"
         },
         "dev": {
             "GetArticles": "/client/search/getarticles",
@@ -44,7 +45,8 @@ var INFORMA = window.INFORMA || {};
             "ResourceSubSectorList": "/client/search/GetSubSectors",
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
-            "GetRecomendedItems": "/client/Account/GetRemainingContent"
+            "GetRecomendedItems": "/client/Account/GetRemainingContent",
+            "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent"
         }
     };
 
