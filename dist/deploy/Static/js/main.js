@@ -4116,7 +4116,7 @@ var INFORMA = window.INFORMA || {};
                             '{{#if EcommerceLink}}'+
                                 '{{#if EcommerceLink.Url}}'+
                                     '<div class="btn-container text-right">'+
-                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-default" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
+                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-default btn-ecommerce" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
                                     '</div>'+
                                 '{{/if}}'+  
                             '{{/if}}'+
