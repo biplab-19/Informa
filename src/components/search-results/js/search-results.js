@@ -27,7 +27,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SubSectorHidden = $("input.sub-sector-list"),
         RefineSection = $(".refine-container"),
         // methods
-        init, CreateSearchResult, CreateSearchTags, ParseSearchData,SetSearchState,MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems;
+        init, CreateSearchResult, CreateSearchTags, ParseSearchData,
+        SetSearchState,MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems, ProductPageValidation;
 
         SetSearchState = function(sVal) {
             if (sVal) {
@@ -39,6 +40,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ProductFinderSection.find("input[type=radio]").eq(0).trigger("click");
                 SearchSubmitBtn.trigger("click");
             }
+        },
+        ProductPageValidation = function() {
+            var _vp = INFORMA.global.device.viewport;
+
+            debugger;
         },
         MakeDropPreSelected = function(Arr, DrpDwn) {
             DrpDwn.val("");
@@ -284,6 +290,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if (IsProductPage) {
                 SearchType = "ProductSearch";
+                ProductPageValidation(), ProductPageValidation
+                ;
             }
             if (IsSearchPage) {
                 SearchType = "SearchResult";

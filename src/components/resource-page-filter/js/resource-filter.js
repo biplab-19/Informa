@@ -45,7 +45,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
                 Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
 
-            GetAjaxData(Urls.ProductSearch, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null, null);
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null, null);
         });
     },
     UpdateSubSectorDropdown = function(data) {
