@@ -3669,7 +3669,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
     _bindIframe = function(){
         var videoUrl = _videoElem.data('video');
         _videoElem.parent().html('<iframe width="100%" height="auto" src="'+videoUrl+'" frameborder="0" allowfullscreen volume="0"></iframe>');
-        debugger;
+
     };
 
     init = function() {
@@ -4768,7 +4768,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 Data.DefaultProductCount = $('input[name="DefaultProductCount"]').val();
                 Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
                 Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
-                debugger;
+
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), Re)
         });
     },
@@ -4776,7 +4776,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         if (data.SubSectors.length > 0) {
             var ListTemplate = Handlebars.compile(Templates.SubSectorList),
                 html = ListTemplate({ SubSectors: data.SubSectors });
-                debugger;
+
 
             ResourceSubSectorList.parents("li").removeClass("disabled");
             ResourceSubSectorList.removeAttr("disabled")
@@ -4789,7 +4789,6 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     GetSubSectorList = function(arrayList) {
         var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
             SectorIDs = 'SectorIDs='+SectorIDs;
-            debugger;
         GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
     },
     BindDropDown = function() {
@@ -5007,7 +5006,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         var ProductData = INFORMA.ProductFinder.GetProductData(),
             FilterData = INFORMA.SearchResultFilter.GetRefineData(),
             Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData);
-            debugger;
+            
             Data.DefaultItemCount = $('input[name="DefaultItemCount"]').val();
             Data.MaxItemCount = $('input[name="MaxItemCount"]').val();
             Data.DefaultProductCount = $('input[name="DefaultProductCount"]').val();
@@ -5207,7 +5206,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 })
                 Items.height(MaxHeight);
             } else {
-                debugger;
+                
                 Items.css("height", "auto");
             }
         },

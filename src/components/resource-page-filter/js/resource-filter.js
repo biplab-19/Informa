@@ -43,7 +43,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 Data.DefaultProductCount = $('input[name="DefaultProductCount"]').val();
                 Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
                 Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
-                debugger;
+
             GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), Re)
         });
     },
@@ -51,7 +51,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         if (data.SubSectors.length > 0) {
             var ListTemplate = Handlebars.compile(Templates.SubSectorList),
                 html = ListTemplate({ SubSectors: data.SubSectors });
-                debugger;
+
 
             ResourceSubSectorList.parents("li").removeClass("disabled");
             ResourceSubSectorList.removeAttr("disabled")
@@ -64,7 +64,6 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     GetSubSectorList = function(arrayList) {
         var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
             SectorIDs = 'SectorIDs='+SectorIDs;
-            debugger;
         GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
     },
     BindDropDown = function() {

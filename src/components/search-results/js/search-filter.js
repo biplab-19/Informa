@@ -57,7 +57,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         var ProductData = INFORMA.ProductFinder.GetProductData(),
             FilterData = INFORMA.SearchResultFilter.GetRefineData(),
             Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData);
-            debugger;
+            
             Data.DefaultItemCount = $('input[name="DefaultItemCount"]').val();
             Data.MaxItemCount = $('input[name="MaxItemCount"]').val();
             Data.DefaultProductCount = $('input[name="DefaultProductCount"]').val();

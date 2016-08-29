@@ -107,7 +107,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 })
                 Items.height(MaxHeight);
             } else {
-                debugger;
+                
                 Items.css("height", "auto");
             }
         },
