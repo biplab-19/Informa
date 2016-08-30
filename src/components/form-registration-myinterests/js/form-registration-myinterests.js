@@ -220,12 +220,16 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             var EmailTag = $('form.register-myinterests-form input[type=email]');
             _validateEmailDomainMsg(EmailTag);
             //_validateForm();
-            if (_myinterestForm.valid() == true) {
-                var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
-                formSubmitBtn.removeAttr('disabled');
-                _showNextTab($active);
+            var emailError = $('form.register-myinterests-form').find('.field-validation-error');
+            if(emailError.length == 0){
+              if (_myinterestForm.valid() == true) {
+                  var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
+                  formSubmitBtn.removeAttr('disabled');
+                  _showNextTab($active);
+              }
             }
-        });
+          });
+
         $(".prev-step").on('click', function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             _showPrevTab($active);
