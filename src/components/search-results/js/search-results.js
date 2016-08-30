@@ -143,7 +143,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     Data = INFORMA.ProductFinder.MergeData(ProdData,PData,FilterData);
                 
 
-                f(!$(currentSection).hasClass('showLess')) {
+                if(!$(currentSection).hasClass('showLess')) {
                     $(currentSection).addClass('showLess');
                     GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, SearchType, $(this));
                 } else {

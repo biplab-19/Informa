@@ -4230,7 +4230,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
                     console.log(Urls[SearchType]);
-                GetAjaxData(Urls.GetRefineResults, "Get", Data, RenderSearchResult, null, SearchType);
+                GetAjaxData(Urls[SearchType], "Get", Data, RenderSearchResult, null, SearchType);
             });
         },
         BindAjaxHandler = function() {
@@ -5201,7 +5201,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         RefineSection = $(".refine-container"),
         // methods
         init, CreateSearchResult, CreateSearchTags, ParseSearchData,
-        SetSearchState,MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems, ProductPageValidation;
+        SetSearchState,MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems;
 
         SetSearchState = function(sVal) {
             if (sVal) {
@@ -5213,11 +5213,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ProductFinderSection.find("input[type=radio]").eq(0).trigger("click");
                 SearchSubmitBtn.trigger("click");
             }
-        },
-        ProductPageValidation = function() {
-            var _vp = INFORMA.global.device.viewport;
-
-            debugger;
         },
         MakeDropPreSelected = function(Arr, DrpDwn) {
             DrpDwn.val("");
@@ -5321,7 +5316,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     Data = INFORMA.ProductFinder.MergeData(ProdData,PData,FilterData);
                 
 
-                GetAjaxData(Urls.ProductSearch, "Post", Data,ParseSearchData, null, SearchType, $(this));
+                if(!$(currentSection).hasClass('showLess')) {
+                    $(currentSection).addClass('showLess');
+                    GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, SearchType, $(this));
+                } else {
+                    $(currentSection).removeClass('showLess');
+                    $(currentSection).find('.col-xs-12:nth-child(n+4)').remove();
+                    $(window).scrollTop($(currentSection).offset().top -60);
+                }
+
                 
             });
        },
@@ -5463,8 +5466,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if (IsProductPage) {
                 SearchType = "ProductSearch";
-                ProductPageValidation(), ProductPageValidation
-                ;
             }
             if (IsSearchPage) {
                 SearchType = "SearchResult";
