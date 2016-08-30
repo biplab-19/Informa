@@ -816,7 +816,8 @@ header {
                         line-height: 20px;
                     }
                     @include tablet {
-                        width: 32%;
+                        width: 21%;
+                        min-width: auto;
                     }
                     &:after {
                         border: solid transparent;
@@ -851,7 +852,8 @@ header {
                         width: 100%;
                     }
                     @include tablet {
-                        width: 58%;
+                        width: 71%;
+                        margin-right: 0;    
                     }
                     .dropdown-toggle {
                         height: 40px;
