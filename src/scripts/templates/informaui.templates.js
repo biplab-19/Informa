@@ -66,13 +66,13 @@ var INFORMA = window.INFORMA || {};
                             '{{#if EcommerceLink}}'+
                                 '{{#if EcommerceLink.Url}}'+
                                     '<div class="btn-container text-right">'+
-                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-default btn-ecommerce" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
+                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-default btn-ecommerce full-width-btn" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
                                     '</div>'+
                                 '{{/if}}'+  
                             '{{/if}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
-                                    '<a href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
+                                    '<a href="{{PageURL}}" class="btn btn-default full-width-btn" target="_blank">{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                         '</div>'+
