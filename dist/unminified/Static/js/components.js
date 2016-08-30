@@ -5455,7 +5455,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     // debugger;
                     $(Button).parents('.product-results').find(".list").append(Html);
                     EqualHeight();
-                    $(Button).addClass("hidden");
+                    //$(Button).addClass("hidden");
 
                 }
             DoPagination();
