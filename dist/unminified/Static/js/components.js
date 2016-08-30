@@ -5126,12 +5126,18 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             $.each(RefineSection, function(){
                 var DefaultCount= ($(this).attr("data-defaultcount")!==null)? $(this).attr("data-defaultcount"):5,
                     SectionCheckBox = $(this).find(".custom-checkbox input"),
+                    CurrentList = $(this).find("ul li"),
                     CheckBoxCount = SectionCheckBox.length,
                     ShowMoreLink = $(this).find("a.show-more");
 
                     if(CheckBoxCount>DefaultCount){
                         ShowMoreLink.addClass("show");
-                        $(this).find("ul").addClass("show-less");
+                        $.each(CurrentList, function(i){
+                            var currentIndex = i+1;
+                            if(currentIndex>DefaultCount){
+                                $(this).addClass("hidden");
+                            }
+                        });
                     }
             });
             var RefineCheckBoxes = $(".refine-container .panel-body .custom-checkbox input");
@@ -5150,7 +5156,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
             ShowMoreLinks.on("click", function(e){
                 e.preventDefault();
-                $(this).parent().find("ul").removeClass("show-less");
+                $(this).parent().find("ul li").removeClass("hidden");
                 $(this).removeClass("show");
             });
 
