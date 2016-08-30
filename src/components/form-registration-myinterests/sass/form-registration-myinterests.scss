@@ -338,10 +338,23 @@
       .modal-dialog {
           width: 75%;
           margin: 0 auto;
+          @include mobile {
+              width: 90%;
+
+          }
       }
       .modal-body {
           @include mobile {
               //padding: 15px 30px;
+              .register-myinterests-section .your-area-interest legend:first-child:before{
+                  display: none;
+              }
+              .register-myinterests-section .about-you-details legend:first-child:before{
+                  display: none;
+              }
+              .register-myinterests-form-container #step2 .form-submit-border{
+                width: 425px;
+              }
           }
       }
       .modal-content {
