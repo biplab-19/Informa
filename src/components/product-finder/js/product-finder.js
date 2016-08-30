@@ -98,7 +98,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
                     console.log(Urls[SearchType]);
-                GetAjaxData(Urls.GetRefineResults, "Get", Data, RenderSearchResult, null, SearchType);
+                GetAjaxData(Urls[SearchType], "Get", Data, RenderSearchResult, null, SearchType);
             });
         },
         BindAjaxHandler = function() {

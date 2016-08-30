@@ -143,7 +143,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     Data = INFORMA.ProductFinder.MergeData(ProdData,PData,FilterData);
                 
 
-                GetAjaxData(Urls.ProductSearch, "Post", Data,ParseSearchData, null, SearchType, $(this));
+                f(!$(currentSection).hasClass('showLess')) {
+                    $(currentSection).addClass('showLess');
+                    GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, SearchType, $(this));
+                } else {
+                    $(currentSection).removeClass('showLess');
+                    $(currentSection).find('.col-xs-12:nth-child(n+4)').remove();
+                    $(window).scrollTop($(currentSection).offset().top -60);
+                }
+
                 
             });
        },
