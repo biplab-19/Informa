@@ -1978,7 +1978,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             if ($(this).attr('data-show-register') == 'true') {
                 e.preventDefault();
                 e.stopPropagation();
-                $('.redirect-url-field').val($(this).attr('href'));
+                $('.redirect-url-field').val($(this).attr('data-url'));
                 _showRegisterFormPopup();
             }
 

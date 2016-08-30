@@ -12657,8 +12657,8 @@ div.recommended-tips .tips-title:before {
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 17, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
   div.recommended-tips .tips-title:before {
-    top: 8px;
-    left: 10px;
+    top: -5px;
+    left: 0;
     color: #a6aab6;
   }
 }
@@ -13477,33 +13477,53 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   width: 75%;
   margin: 0 auto;
 }
-/* line 347, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+@media (max-width: 767px) {
+  /* line 338, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  .register-myinterests-modal .modal-dialog {
+    width: 90%;
+  }
+}
+@media (max-width: 767px) {
+  /* line 349, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  .register-myinterests-modal .modal-body .register-myinterests-section .your-area-interest legend:first-child:before {
+    display: none;
+  }
+  /* line 352, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  .register-myinterests-modal .modal-body .register-myinterests-section .about-you-details legend:first-child:before {
+    display: none;
+  }
+  /* line 355, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  .register-myinterests-modal .modal-body .register-myinterests-form-container #step2 .form-submit-border {
+    width: 425px;
+  }
+}
+/* line 360, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #ffffff;
 }
-/* line 352, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 365, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-header {
   border-bottom: 0;
 }
-/* line 354, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 367, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-header .close {
   color: #ffffff;
   opacity: 2;
 }
 
-/* line 361, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 374, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 #article-list-section .register-myinterests-section {
   display: none;
 }
 
-/* line 366, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 379, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .register-myinterests-section {
   display: block !important;
 }
 
-/* line 371, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 384, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-form-popup-container {
   display: none;
 }
