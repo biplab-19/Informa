@@ -1912,7 +1912,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
     //methods
     _parseResults = function(data) {
-        console.log(data);
         $('.product-name-holder').val(data.ProductName);
         $('.vertical-name-holder').val(data.VerticalName);
     }
@@ -1972,11 +1971,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _myinterestsModal.find('.modal-body .container').removeClass('container');
         _myinterestsModal.modal('show');
     }
+
     _showRegisterForm = function() {
         _showRegisterFormBtn.on('click', function(e) {
+
             if ($(this).attr('data-show-register') == 'true') {
                 e.preventDefault();
                 e.stopPropagation();
+                $('.redirect-url-field').val($(this).attr('href'));
                 _showRegisterFormPopup();
             }
 
