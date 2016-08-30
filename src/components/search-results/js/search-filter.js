@@ -36,6 +36,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 success_callback: SCallback,
                 error_callback: Errcallback
             });
+            INFORMA.SearchResults.ResetPaging();
         },
         GetSelectedFilter = function(){
             var Data = {};

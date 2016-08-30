@@ -45,7 +45,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
                 Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
 
-            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null, null);
+            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null, null);
         });
     },
     UpdateSubSectorDropdown = function(data) {
@@ -66,6 +66,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
             SectorIDs = 'SectorIDs='+SectorIDs;
         GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null, null);
+        INFORMA.SearchResults.ResetPaging();
     },
     BindDropDown = function() {
         var SectorList = [];
@@ -118,7 +119,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     }
 
     return {
-        init: init
+        init: init,
+        GetResourceData : GetProductFinderData
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.ResourceFilter.init());
