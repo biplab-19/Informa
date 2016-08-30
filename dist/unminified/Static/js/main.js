@@ -26,6 +26,7 @@
             "AnalystSearchAll": "/data/analyst-search-subsector.json",
             "EventsSearch": "data/events-page.json",
             "ResourceList": "data/resource-list.json",
+            "ResourceResult" : "data/resource-list.json",
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/data/form-data.json",
             "GetRecomendedItems": "/data/recomended-content.json",
@@ -42,7 +43,7 @@
             "AnalystSearchAll": "/client/search/SeeAllSpecialists",
             "EventsSearch": "/client/search/GetEventList",
             "ResourceList": "/client/search/GetResourceListing",
-            "ResourceSubSectorList": "/client/search/GetSubSectors",
+            "ResourceResult": "/client/search/GetResourceListing",
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
             "GetRecomendedItems": "/client/Account/GetRemainingContent",
@@ -4009,13 +4010,13 @@ var INFORMA = window.INFORMA || {};
                             '{{#if EcommerceLink}}'+
                                 '{{#if EcommerceLink.Url}}'+
                                     '<div class="btn-container text-right">'+
-                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-default btn-ecommerce" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
+                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-default btn-ecommerce full-width-btn" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
                                     '</div>'+
                                 '{{/if}}'+  
                             '{{/if}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
-                                    '<a href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>'+
+                                    '<a href="{{PageURL}}" class="btn btn-default full-width-btn" target="_blank">{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                         '</div>'+
