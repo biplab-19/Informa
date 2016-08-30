@@ -71,34 +71,33 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 SubSectorList.multiselect('rebuild');
             }
         },
-        RenderSearchResult = function(data, SearchType) {
-            INFORMA.SearchResults.RenderSearchResults(data,SearchType);
+        RenderSearchResult = function(data) {
+            INFORMA.SearchResults.RenderSearchResults(data);
         },
-        GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+        GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
                 data: data,
                 success_callback: function(data) {
                     if (typeof SCallback === "function") {
-                        SCallback.call(this, data, SearchType);
+                        SCallback.call(this, data);
                     }
                 },
                 error_callback: function() {
                     if (typeof Errcallback === "function") {
-                        Errcallback.call(this, data, SearchType);
+                        Errcallback.call(this, data);
                     }
                 }
             });
         },
-        SubmitHandler = function(btn, SearchType) {
-            btn.off().on("submit", function(e) {
+        SubmitHandler = function(btn,SearchType) {
+            btn.off().on("click", function(e) {
                 e.preventDefault();
                 INFORMA.Spinner.Show($("body"));
                 var ProductData = GetProductFinderData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
-                    console.log(Urls[SearchType]);
-                GetAjaxData(Urls[SearchType], "Get", Data, RenderSearchResult, null, SearchType);
+                GetAjaxData(Urls[SearchType], "Get", Data, RenderSearchResult, null);
             });
         },
         BindAjaxHandler = function() {
