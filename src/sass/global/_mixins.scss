@@ -150,9 +150,14 @@ $desktop-width: 1142px;
           background: $primary !important;
       }
 
-      //Pharma and agri secondary light color
+      //Pharma and agri secondary light background color
       .secondry-light-bg{
           background: $secondarycolorlight;
+      }
+
+       //Pharma and agri secondary light color
+      .secondry-light-color{
+          color: $secondarycolorlight;
       }
 
       //primary button hover
@@ -365,10 +370,18 @@ $desktop-width: 1142px;
        @extend .primary-background;
     }
     .anlyst-heading {
-      background-color: $secondarycolorlight;
-      &:after {
+      @if($name == agri-theme){
         background-color: $secondarycolorlight;
+          &:after {
+            background-color: $secondarycolorlight;
+          }
       }
+      @else{
+        background-color: $pharmalargebg;
+          &:after {
+            background-color: $pharmalargebg;
+          }
+      }      
     }
     .yellow-container{
        background: rgba($secondarycolorlight, 0.8);
@@ -378,6 +391,14 @@ $desktop-width: 1142px;
           }
        }
     }
+    .carousel-lists .slick-arrow{
+        @extend .secondry-light-bg;
+    }
+    section.customer-quote .slick-initialized .slick-arrow{
+      &:before{
+        @extend .secondry-light-color;
+      }
+    }  
     .view-all-sectors-btn-container{
         border-bottom: 1px solid $secondarycolorlight;
         .informa-icon{
@@ -390,6 +411,9 @@ $desktop-width: 1142px;
       }
     } 
     
+    .search.inactive{
+        @extend .primary-background;
+    }
     .feature li{
       &:before {
         content: "\e914";
