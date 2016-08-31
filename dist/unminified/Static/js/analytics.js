@@ -1,4 +1,4 @@
-/*! 2016-08-31 */s = new AppMeasurement()
+/*! 2016-09-01 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod

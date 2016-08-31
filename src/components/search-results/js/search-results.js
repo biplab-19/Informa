@@ -41,7 +41,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.DefaultItemCount = ($('input[name="DefaultItemCount"]')) ? $('input[name="DefaultItemCount"]').val() : null;
             data.MaxItemCount = ($('input[name="MaxItemCount"]')) ? $('input[name="MaxItemCount"]').val() : null;
             data.DefaultProductCount = ($('input[name="DefaultProductCount"]')) ? $('input[name="DefaultProductCount"]').val() : null;
-            data.SearchTexts = ($('input[name="SearchTexts"]')) ? $('input[name="SearchTexts"]').val().split(",");
+            data.SearchTexts = ($('input[name="SearchTexts"]')) ? $('input[name="SearchTexts"]').val().split(",") : null;
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
 
             return data;

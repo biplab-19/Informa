@@ -1,4 +1,4 @@
-/*! 2016-08-31 */s = new AppMeasurement()
+/*! 2016-09-01 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -4612,7 +4612,7 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '</div>'+
                     '</div>',
-                'SearchTemplate': '<div class="product-results" data-pagesize="9">'+
+                'SearchTemplate': '<div class="product-results" data-pagesize="{{results.DefaultItemCount}}">'+
                                        '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
                                         '<div class="row list">'+
                                             '{{{results.Content}}}'+
