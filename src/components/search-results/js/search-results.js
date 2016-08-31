@@ -88,7 +88,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (SectorSelect.length && SectorArray) {
                 MakeDropPreSelected(SectorArray, SectorSelect);
                 INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
-                    method: "Post",
+                    method: "Get",
                     data: SectorIDs,
                     success_callback: function(data) {
                         INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
