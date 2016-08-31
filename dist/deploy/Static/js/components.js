@@ -4291,6 +4291,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         },
         BindDropDown = function() {
             var SectorList = [];
+            SectorList = $(".custom-multiselect select.Sector").val();
             CustomSelect.val("");
             CustomSelect.multiselect({
                 maxHeight: 200,
