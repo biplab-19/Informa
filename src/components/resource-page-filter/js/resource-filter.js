@@ -38,14 +38,11 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         ResourceSbmtBtn.on('click', function(){
             var ProductData = GetProductFinderData(),
                 FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData);
-                Data.DefaultItemCount = $('input[name="DefaultItemCount"]').val();
-                Data.MaxItemCount = $('input[name="MaxItemCount"]').val();
-                Data.DefaultProductCount = $('input[name="DefaultProductCount"]').val();
-                Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
-                Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
+                DefaultData = INFORMA.SearchResults.DefaultParameters,
+                Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData,DefaultData);
+                Data.PageNo = 1;
 
-            GetAjaxData(Urls.ResourceList, "Get", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null, null);
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null, null);
         });
     },
     UpdateSubSectorDropdown = function(data) {

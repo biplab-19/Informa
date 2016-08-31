@@ -57,14 +57,19 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
        DoRefine = function(){
         var ProductData = INFORMA.ProductFinder.GetProductData(),
             FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-            Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData);
+            DefaultData = INFORMA.SearchResults.DefaultParameters(),
+            Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData,DefaultData);
             
-            Data.DefaultItemCount = $('input[name="DefaultItemCount"]').val();
-            Data.MaxItemCount = $('input[name="MaxItemCount"]').val();
-            Data.DefaultProductCount = $('input[name="DefaultProductCount"]').val();
-            Data.SearchTexts = $('input[name="SearchTexts"]').val().split(",");
-            Data.OrderOfContentType = $('input[name="OrderOfContentType"]').val().split(",");
-
+            Data.PageNo = 1;
+            if(SearchType === "ResourceResult") {
+                Data.IsResourceListing = true;
+            }
+            if(SearchType === "SearchResult") {
+                Data.IsSearch = true;
+            }
+            if(SearchType === "ProductSearch") {
+                Data.IsProduct = true;
+            }
             GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data) ,INFORMA.SearchResults.RenderSearchResults, null);
        },
         SelectAllCheckBox = function(){
@@ -139,13 +144,18 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         },
         init = function() {
             var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
-                IsSearchPage = (ProductFinderSection.data("search") === true) ? true : false;
+                IsSearchPage = (ProductFinderSection.data("search") === true) ? true : false,
+                IsResourcePage = ($(".resource-finder").data("resource") === true) ? true : false;
 
             if (IsProductPage) {
                 SearchType = "ProductSearch";
             }
             if (IsSearchPage) {
                 SearchType = "SearchResult";
+            }
+
+            if(IsResourcePage) {
+                SearchType ="ResourceResult";
             }
 
             if(SelectAll && RefineCheckBox){

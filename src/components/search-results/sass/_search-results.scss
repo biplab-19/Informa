@@ -77,6 +77,12 @@
             .items-found {
                 padding-left: 0;
                 li {
+                    a {
+                        color: $grey-color2;
+                        &:hover {
+                            text-decoration: initial;
+                        }
+                    }
                     list-style-type: none;
                     display: inline-block;
                     padding-right: 7px;
@@ -89,6 +95,7 @@
                         padding-right: 7px;
                         position: absolute;
                         right: -7px;
+                        top: -1px;
                     }
                     &:last-child {
                         &:after {
@@ -232,13 +239,16 @@
                 width: 118%;
                 padding-right: 8%;
                 @include mobile {
-                    margin: 10px 0 -30px -20px;
+                    margin: 10px 0 0 -20px;
                 }
                 .button-links-wrap {
                     background-color: $grey-color6;
                     @include rotate(5deg);
                     margin-top: -5px;
                     padding: 15px 20px;
+                    @include mobile {
+                        padding: 15px 30px;
+                    }
                 }
             }
             .category strong {

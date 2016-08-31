@@ -561,7 +561,7 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '</div>'+
                     '</div>',
-                'SearchTemplate': '<div class="product-results" data-pagesize="9">'+
+                'SearchTemplate': '<div class="product-results" data-pagesize="{{results.DefaultItemCount}}">'+
                                        '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
                                         '<div class="row list">'+
                                             '{{{results.Content}}}'+
