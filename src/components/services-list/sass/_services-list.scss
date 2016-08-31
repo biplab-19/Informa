@@ -1,5 +1,5 @@
 nav#services-navigation {
-    background: $yellow;
+    //background: $yellow;
     border-bottom: 2px solid #c0c1c2;
     &.navbar-fixed-top {
         position: fixed;
@@ -97,6 +97,9 @@ nav#services-navigation {
 section#services-list {
     section:nth-child(even) {
         background-color: #f5f6f8;
+        .single-img {
+            float: left;
+        }
     }
     section:nth-child(odd) {
         background-color: $white;
@@ -108,7 +111,7 @@ section#services-list {
         header {
             color: $font-color;
         }
-        .image-thumbnail {
+        .single-image-thumbnail,.image-thumbnail {
             overflow: hidden;
             position: relative;
             .image-resp{
@@ -137,7 +140,7 @@ section#services-list {
     @include desktop {
         .row {
             padding-left: 15px;
-            .image-thumbnail {
+            .single-image-thumbnail,.image-thumbnail {
                 margin-bottom: 25px;
                 &:after {
                     top: calc(100% - 27px);
@@ -164,10 +167,10 @@ section#services-list {
     @include tablet {
         .row {
             padding: 30px 0;
-            .img {
+            .single-img,.img {
                 display: none;
             }
-            .image-thumbnail {
+            .single-image-thumbnail,.image-thumbnail {
                 width: 50%;
                 height: 50%;
                 margin-bottom: 25px;
@@ -178,11 +181,19 @@ section#services-list {
                 float: left;
                 margin-right: 25px;
             }
+            .single-image-thumbnail {
+                float: right;
+                margin-right: 25px;
+            }
         }
         section:nth-child(odd) {
             .image-thumbnail {
                 float: right;
                 margin-left: 25px;
+            }
+            .single-image-thumbnail {
+                float: left;
+                margin-right: 25px;
             }
         }
         header {
@@ -207,7 +218,7 @@ section#services-list {
             header {
                 order: 2;
             }
-            .img {
+            .single-img,.img {
                 order: 1;
             }
             .content {

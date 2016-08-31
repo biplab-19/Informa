@@ -386,11 +386,11 @@ header {
                             background-color: $orange;
                         }
                     }
-                    .nav-links.nav-active {
-                        a {
-                            color: $yellow;
-                        }
-                    }
+                    //.nav-links.nav-active {
+                        //a {
+                            //color: $yellow;
+                        //}
+                    //}
                     .nav-links {
                         .icon-chevron-right {
                             display: none;
@@ -1127,20 +1127,8 @@ header {
                         width: 25px;
                         height: 25px;
                         border-radius: 50%;
-                        border: 5px solid #6C6845;
-                        background: $yellow;
-                    }
-                    .popover {
-                        background: $yellow;
-                        width: 175px;
-                        top: -36px;
-                        .popover-content {
-                            color: #424953;
-                            font-family: 'FSMe-bold';
-                        }
-                        &.right .arrow:after {
-                            border-right-color: $yellow;
-                        }
+                        //border: 5px solid #6C6845;
+                        //background: $yellow;
                     }
                 }
             }
@@ -1167,21 +1155,12 @@ header {
                         width: 25px;
                         height: 25px;
                         border-radius: 50%;
-                        border: 5px solid #6C6845;
-                        background: $yellow;
+
+                        //Need to be removed
+                        //border: 5px solid #6C6845;
+                        //background: $yellow;
                     }
-                    .popover {
-                        background: $yellow;
-                        width: 175px;
-                        top: -36px;
-                        .popover-content {
-                            color: #424953;
-                            font-family: 'FSMe-bold';
-                        }
-                        &.right .arrow:after {
-                            border-right-color: $yellow;
-                        }
-                    }
+                    
                 }
             }
             p {

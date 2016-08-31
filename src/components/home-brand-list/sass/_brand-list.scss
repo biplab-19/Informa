@@ -180,7 +180,7 @@
         p{
             font-size:19px;
             a{
-                color:$orange;
+                //color:$orange;
                 font-weight:700;
                  &:after{
                      content: "\e900";
@@ -195,9 +195,14 @@
         }
     }
 }
+a{
+    &:hover{
+        text-decoration: none;
+    }
+}
 #dynamic-product-list {
     .btn-showMore {
-        color: $white;
+        //color: $white;
         .more {
             display: block;
         }

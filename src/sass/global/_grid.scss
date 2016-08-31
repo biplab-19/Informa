@@ -226,25 +226,7 @@ appropriate style change */
   }
 }
 
-.yellow-bullets {
-	list-style-type: none;
-	padding-left: 20px;
-	li {
-		margin-bottom: 5px;
-		position: relative;
-		&:before {
-			content: '';
-			position: absolute;
-			left: -20px;
-			width: 5px;
-			height: 5px;
-			top: 7px;
-			background-color: $yellow;
-			@include border-radius(50%);
-			font-family: 'FS Me Bold'; //discuss
-		}
-	}
-}
+
 .gray-bullets {
   list-style-type: none;
   padding-left: 20px;

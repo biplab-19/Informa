@@ -120,25 +120,349 @@ $desktop-width: 1142px;
 
   .#{$name} {
     color: $gray-darker;
-    a {
-        color: $light;
+      //For navlink ang bullet point color
+      .color-link{
+        @if($name == agri-theme){
+          color: $navlinkagricolor;
+        }
+        @else{
+          color: $navlinkpharmacolor;
+        }
+      }
+
+       //For navlink ang bullet point backgroundcolor
+      .background-link{
+        @if($name == agri-theme){
+          background-color: $navlinkagricolor;
+        }
+        @else{
+          background-color: $navlinkpharmacolor;
+        }
+      }
+
+      //Pharma and Agri primary color
+      .primary-color{
+        color: $primary;
+      }
+
+      //Pharma and Agri primary background color
+      .primary-background{
+          background: $primary !important;
+      }
+
+      //Pharma and agri secondary light color
+      .secondry-light-bg{
+          background: $secondarycolorlight;
+      }
+
+      //primary button hover
+      .primary-btn-hover{
+        color: $white;
+        @if($name == agri-theme){
+          background-color: $secondarycolordark;
+          border-color: $secondarycolordark;
+        }
+        @else{
+          background-color: $secondarycolorlight;
+          border-color: $secondarycolorlight;
+        }
+      }
+
+      //Anchor link color and active color
+      a {
+        color: $white;
+        &:active{
+          @extend .color-link;
+        }
+      } 
+
+      //Navigation active color
+      .nav-active{
+        a{
+          @extend .color-link;
+        }
+      } 
+
+      //bright banner
+      .bright-banner{
+        @if($name == agri-theme){
+          background-color: $navlinkagricolor;
+          em,span{
+            color: $text-gray-dark;
+          } 
+          a {
+            color: $text-gray;
+          }
+        }
+        @else{
+          background-color: $pharmalargebg;
+          color: $white;
+          h2,em,span,a,p,div{
+              color: $white;
+          }
+        }
+      }
+
+      //For pharma and agri page-ui
+      .page-ui{
+         @if($name == agri-theme){
+            background: $secondarycolorlight; 
+         }
+         @else{
+            background-color: $grey-color6;
+             #pdp-sections-heading,a{
+              color: $grey-color1;
+            }
+         }
+      }
+
+      //for quotes
+      .quote{
+        @if($name == agri-theme){
+          color: $agriquote;
+        } 
+        @else{
+          color: $pharmaquote;
+        }
+      }
+
+      #services-navigation,#pdp-navigation{
+        @extend .page-ui;
+      }
+
+      //Accordian collpase and expand 
+      #contact-us-brand .panel-group .panel-heading.collapsed{
+        &:after{
+          background-color: $secondarycolorlight;
+        }
+      }
+      .panel-group .panel .panel-heading .panel-title a.collapsed:after{
+          color: $secondarycolorlight !important;
+      }
+
+      //Bullet color
+      .yellow-bullets {
+        list-style-type: none;
+        padding-left: 20px;
+        li {
+          margin-bottom: 5px;
+          position: relative;
+          &:before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            width: 5px;
+            height: 5px;
+            top: 7px;
+            @extend .secondry-light-bg;
+            @include border-radius(50%);
+            font-family: 'FS Me Bold'; //discuss
+          }
+        }
+      }
+
+      //carousel dots color
+      ul.slick-dots {
+        li.slick-active{
+          @extend .primary-background;
+        }
+      }
+
+      .quick-facts ul li{
+        &:before{
+          @extend .color-link;
+        }
+      }
+      
+      #customer-quote-slider{
+        .customer-quote-slide {
+           &:before {
+             @extend .quote;
+          }
+        }
+      }
+      .related-products{
+        .productfinder-link{
+          a{
+            color: $primary;
+          }
+        }
+      } 
+
+     
+      .accordian-structure {
+        a{
+          color: $primary;
+        }
+      }
+      
+     .articlepage-quote {
+        blockquote{
+          &:before {
+            @extend .quote;
+          }
+        }
+     } 
+    form.request-a-demo {
+      p{
+        background-color: $secondarycolorlight;
+        @if($name == pharma-theme){
+          color: $white;
+        }
+        &:after{
+          border-left: 10px solid $secondarycolorlight;
+        }
+      }
+      .checkbox.active{
+          label{
+            border: 3px solid $secondarycolorlight;
+          }  
+          &:after{
+            color: $primary;
+          }
+      }         
     }
-    .feature li{
-       &:before {
-          content: "\e914";
-          font-family: 'InformaIcons';
-          position: absolute;
-          left: -32px;
-          top: 0;
-          font-size: 16px;
+    .icon-calender{
+      color: $primary;
+    }
+    
+    .icon-tick {
+      &:before {
+        @extend .color-link;
+      }
+    }
+
+    //Select field option highlight color and background
+    .chosen-container .chosen-results li.highlighted{
+      background-color: $secondarycolorlight;
+      @extend .color-text;
+
+
+    }
+
+    .contactUsPage-contactUs li.active{
+      &:after{
+        @if($name == pharma-theme){
+          background: $navlinkpharmacolor;
+        }
+      }
+    } 
+    .form-submit-border{
+      .btn-primary{
+        width: auto;
+      }
+    }
+    .color-text{
+      @if($name == agri-theme){
+          color: $font-color;
+       } 
+       @else{
+          color: $white;
+       }
+    }
+
+    .form :not(.lt-ie9) .custom-radio input:checked + span::before {
+       @extend .primary-background;
+    }
+    .anlyst-heading {
+      background-color: $secondarycolorlight;
+      &:after {
+        background-color: $secondarycolorlight;
+      }
+    }
+    .yellow-container{
+       background: rgba($secondarycolorlight, 0.8);
+       @if($name == pharma-theme){
+          h3{
+            color: $white;
+          }
+       }
+    }
+    .view-all-sectors-btn-container{
+        border-bottom: 1px solid $secondarycolorlight;
+        .informa-icon{
           color: $secondarycolorlight;
-          @include border-radius(50%);
-          font-weight: normal;
-       }
-       a{
-          color: $primary !important;
-       }
+        }
     }
+    .twitter-carousel{
+      a{
+        @extend .primary-color;
+      }
+    } 
+    
+    .feature li{
+      &:before {
+        content: "\e914";
+        font-family: 'InformaIcons';
+        position: absolute;
+        left: -32px;
+        top: 0;
+        font-size: 16px;
+        @extend .color-link;
+        @include border-radius(50%);
+        font-weight: normal;
+     }
+     a{
+        color: $primary !important;
+     }
+    }
+
+    //Sprite image position
+    .sprite-image{
+      @if($name == agri-theme){
+        background-position: -5px -232px;
+      }
+      @else{
+        background-position: -5px -270px;
+      }
+     }
+
+    .product-brands-list .card .caption h4,.product-results .list-items .products h4{
+      &:after{
+        @extend .sprite-image;
+      }
+     } 
+
+    #sub-nav{
+      .subnav-container{
+        .heading{
+          .top{
+             .circle{
+                @extend .background-link;
+                @extend .border-circle;
+             }
+          }
+        }
+      }
+    }
+
+    .popover {
+      background: $secondarycolorlight;
+      width: 175px;
+      top: -36px;
+      .popover-content {
+          @if($name == agri-theme){
+            color: #424953;
+          }
+          @else{
+            color: $white;
+          }  
+          font-family: 'FSMe-bold';
+      }
+      &.right .arrow:after {
+          border-right-color: $secondarycolorlight;
+      }
+    }
+
+    .border-circle{
+      @if($name == agri-theme){
+        borders: 5px solid $navagricirclecolor;
+      } 
+      @else{
+        borders: 5px solid $navpharmacirclecolor;
+      }
+    }
+
     .btn {
         width: 180px;
         background: transparent;
@@ -146,6 +470,12 @@ $desktop-width: 1142px;
         border-color: $primary;
         border-radius: $border-radius-base;
         border-width: 2px;
+    }
+    .btn-faq-more{
+        border-bottom: 2px solid $secondarycolorlight !important;
+        &:after{
+          color: $secondarycolorlight;
+        }
     }
     .btn-showMore {
         background: none;
@@ -203,20 +533,26 @@ $desktop-width: 1142px;
             display: block;
         }
     }
-    .recomended-wrapper{
-        .btn-container .btn-default{
-          border: 2px solid $secondarycolorlight;
-          &:after{
-            color:$secondarycolorlight;
-          }
-          &:hover{
-            border: 2px solid $primarycolor;
-          }
+
+    .meet-anlyst-section{
+      .analyst-details{
+         @if($name == pharma-theme){
+          h4,h3,p{
+            color: $white;
+          } 
         }
+      }
     }
+
+    .contactus-list{
+      @if($name == pharma-theme){
+        background: $grey-color1;
+      }
+    }
+
     .headline-list{
       a{
-        color: $secondarycolorlight80;
+        @extend .primary-color;
       }
     }
     .btn-default{
@@ -235,7 +571,7 @@ $desktop-width: 1142px;
          color:$primary;
        }
        &:hover{
-          border: 2px solid $secondarycolordark;
+          border: 2px solid $secondarycolorlight;
        }
     }
     .btn-container{
@@ -245,13 +581,13 @@ $desktop-width: 1142px;
             color: $primary;
           }
           &:hover{
-            border: 2px solid $secondarycolordark;
+            border: 2px solid $secondarycolorlight;
           }
       }
     }
     .btn-primary{
        text-align: left;
-       width:100%;
+       //width:100%;
        padding-top: 15px;
        padding-bottom: 15px;
        border-color: $primary;
@@ -265,10 +601,11 @@ $desktop-width: 1142px;
          font-weight: bold;
          position: absolute;
        }
-       &:hover{
-        background-color: $secondarycolorlight;
-        border-color: $secondarycolorlight;
+       a{
         color: $white;
+       }
+       &:hover{
+        @extend .primary-btn-hover;
        }
     }
 		.btn-previous {
@@ -294,8 +631,11 @@ $desktop-width: 1142px;
 				 }
 		}
     #contactus-section{
-      a{
+      .phone-number a,.email a{
         color: $primary;
+      }
+      a.btn{
+        color: $white;
       }
       .subscribe-link{
         background: $primary url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
@@ -307,119 +647,18 @@ $desktop-width: 1142px;
     .open-quote{
       color: $secondarycolorlight80;
     }
-    .component {
-        padding: 0;
-        color: $text-color;
-        .component-content {
-            padding: 0;
-            display: block;
-            height: 100%;
-            background-color: transparent;
-        }
-        &.boxed {
-            .component-content {
-                padding: $gutterside;
-                background-color: $btn-default-color;
-            }
-        }
-        a {
-            color: $btn-default-color;
-            &:hover {
-                color: $btn-default-color;
-            }
-        }
-        h1 {
-            font-weight: bold;
-        }
-        h1,
-        h2,
-        h3 {
-            margin-top: 0;
-        }
-        .btn {
-            color: $btn-default-color;
-            &:hover {
-                color: $btn-default-color;
-            }
-        }
-    }
-    ul.slick-dots {
-      li.slick-active{
-        background: $primary !important;
-      }
-    }
-    .card-container {
-        padding-top: $gutterside;
-        .component {
-            padding: 0 $gutterside $gutterside 0;
-        }
-        & > .container {
-            padding-right: 0;
-        }
-    }
+
     //All common CSS which are themeable can be written here
     .demo-item {
       height: 100px;
       background-color: $secondarycolorlight80;
     }
-
-    .icon-tick {
-      &:before {
-        color: $secondarycolorlight;
-      }
-    }
-
-  }
-
-  .meet-anlyst-section .anlyst-heading {
-    // background-color: 
-  }
-}
-
-
-@mixin linx ($link, $visit, $hover, $active) {
-  a {
-    color: $link;
-    &:visited {
-      color: $visit;
-    }
-    &:hover {
-      color: $hover;
-    }
-    &:active {
-      color: $active;
-    }
-  }
-}
-
-@mixin pad ($pads...) {
-  padding: $pads;
-}
-
-@mixin image-2x($image, $width, $height) {
-  @media (min--moz-device-pixel-ratio: 1.3),
-         (-o-min-device-pixel-ratio: 2.6/2),
-         (-webkit-min-device-pixel-ratio: 1.3),
-         (min-device-pixel-ratio: 1.3),
-         (min-resolution: 1.3dppx) {
-    /* on retina, use image that's scaled by 2 */
-    background-image: url($image);
-    background-size: $width $height;
   }
 }
 
 @mixin opacity($opacity) {
   opacity: $opacity;
 }
-
-@mixin abs-pos ($top, $right, $bottom , $left , $pos) {
-  top: $top;
-  right: $right;
-  bottom: $bottom;
-  left: $left;
-  position: $pos;
-}
-
 @mixin line-height($lineHeight){
     line-height: $lineHeight;
 }
@@ -428,33 +667,6 @@ $desktop-width: 1142px;
     width: 100%;
     height: 100%;
 }
-
-@mixin animation($value) {
-  -webkit-animation: $value;
-  -moz-animation: $value;
-  -ms-animation: $value;
-  -o-animation: $value;
-  animation: $value;
-}
-
-@mixin keyframes($name) {
-  @-webkit-keyframes #{$name} {
-    @content
-  }
-  @-moz-keyframes #{$name} {
-    @content
-  }
-  @-ms-keyframes #{$name} {
-    @content
-  }
-  @-o-keyframes #{$name} {
-    @content
-  }
-  @keyframes #{$name} {
-    @content
-  }
-}
-
 @mixin input-placeholder {
     &.placeholder { @content; }
     &:-moz-placeholder { @content; }
@@ -468,16 +680,6 @@ $desktop-width: 1142px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-@mixin button-bg($bg) {
-  background: $bg;
-  &:hover {
-    background:darken($bg,8%);
-  }
-  &:active {
-    background:darken($bg,25%);
-  }
 }
 
 @mixin border-solid($width, $color) {

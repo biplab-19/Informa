@@ -148,10 +148,7 @@ form.register-myinterests-form {
     .chosen-container .chosen-results li {
         padding: 10px 6px;
     }
-    .chosen-container .chosen-results li.highlighted {
-        background-color: $brand-secondary;
-        color: $font-color;
-    }
+   
     label.error {
         color: $brand-secondary !important;
         font-size: 14px;
@@ -301,14 +298,14 @@ form.register-myinterests-form {
             &.active {
                 color: $body-bg;
                 label{
-                    border: 3px solid $yellow;
+                    //border: 3px solid $yellow;
                     background-color: inherit;
                 }
                 &::after {
                     content: "\e914";
                     visibility: visible;
                     font-family: 'InformaIcons';
-                    color: $brand-secondary;
+                    //color: $brand-secondary;
                     position: absolute;
                     font-size: 20px;
                     right: 5px;
@@ -695,7 +692,7 @@ form.register-myinterests-form {
     position: relative;
     padding-bottom: 20px;
     .btn {
-        background-color: #ef7c00 !important;
+        //background-color: #ef7c00 !important;
         border: 0 !important;
         color: $white !important;
         position: absolute !important;

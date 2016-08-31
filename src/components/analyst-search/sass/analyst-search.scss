@@ -34,7 +34,7 @@
 		}
 		.submit-btn {
 			width: 100%;
-			border-color: $orange;
+			//border-color: $orange;
 			margin-top: 23px;
 			color: $white;
 			height: 45px;
@@ -44,6 +44,9 @@
 			}
 			@include tablet {
 				margin-bottom: 20px;
+			}
+			@include desktop {
+				min-width: 230px;
 			}
 			&:hover {
 				color: $white;
