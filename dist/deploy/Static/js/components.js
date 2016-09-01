@@ -4254,7 +4254,14 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     DefaultData = INFORMA.SearchResults.DefaultParameters(),
                     Data = JSON.stringify(MergeJsonData(ProductData,FilterData,DefaultData));
-                GetAjaxData(Urls[SearchType], "Post", Data, RenderSearchResult, null);
+
+                if(SearchType === "ProductSearch") {
+                    Data.IsProduct = true;
+                }
+                if(SearchType === "SearchResult") { 
+                    Data.IsSearch = true;
+                }
+                GetAjaxData(Urls.GetRefineResults, "Post", Data, RenderSearchResult, null);
                 INFORMA.SearchResults.ResetPaging();
             });
         },
@@ -5574,7 +5581,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 var ProductResults = (data.ProductListing !== undefined) ? data.ProductListing : false,
                     Refine = (data.FacetSections !== undefined) ? data.FacetSections : false,
                     AppendItemsFlag = (data.AppendItemsFlag !== undefined) ? data.AppendItemsFlag : false,
-                    FacetDescription = (data.FacetDescription.length > 0) ? data.FacetDescription : false,
+                    FacetDescription = (data.FacetDescription !=null && data.FacetDescription.length > 0) ? data.FacetDescription : false,
                     RemainingCount = (data.RemainingCount !== undefined) ? data.RemainingCount : false;
 
                 if (ProductResults && Object.keys(ProductResults).length && AppendItemsFlag != true) {

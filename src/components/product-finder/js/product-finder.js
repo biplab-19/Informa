@@ -98,7 +98,14 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     DefaultData = INFORMA.SearchResults.DefaultParameters(),
                     Data = JSON.stringify(MergeJsonData(ProductData,FilterData,DefaultData));
-                GetAjaxData(Urls[SearchType], "Post", Data, RenderSearchResult, null);
+
+                if(SearchType === "ProductSearch") {
+                    Data.IsProduct = true;
+                }
+                if(SearchType === "SearchResult") { 
+                    Data.IsSearch = true;
+                }
+                GetAjaxData(Urls.GetRefineResults, "Post", Data, RenderSearchResult, null);
                 INFORMA.SearchResults.ResetPaging();
             });
         },
