@@ -9233,8 +9233,10 @@ select.form-control option {
 /* line 182, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-menu label {
   color: #434854;
+  white-space: normal;
+  word-wrap: break-word;
 }
-/* line 184, ../../../src/sass/global/_form.scss */
+/* line 186, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-menu label:before {
   background: #fff none repeat scroll 0 0;
   content: "";
@@ -9244,12 +9246,12 @@ select.form-control option {
   top: 6px;
   width: 16px;
 }
-/* line 196, ../../../src/sass/global/_form.scss */
+/* line 198, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-menu .active label:before {
   background: #ffffff url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 201, ../../../src/sass/global/_form.scss */
+/* line 203, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-menu .active a {
   background-color: transparent;
 }
