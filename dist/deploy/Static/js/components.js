@@ -4260,6 +4260,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 }
                 if(SearchType === "SearchResult") { 
                     Data.IsSearch = true;
+                    Data.PageNo = 1;
                 }
                 GetAjaxData(Urls.GetRefineResults, "Post", Data, RenderSearchResult, null);
                 INFORMA.SearchResults.ResetPaging();
@@ -4278,7 +4279,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             }
             SearchField.on("keyup",function(e){
                 var MaxLength = $(this).data('length');
-                if($(this).val().length > MaxLength){
+                if($(this).val().length >= MaxLength){
                     SearchSubmitBtn.removeClass("disabled");
                 }
                 else{
@@ -4310,7 +4311,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         },
         BindDropDown = function() {
             var SectorList = [];
-            SectorList = $(".custom-multiselect select.Sector").val();
+            // SectorList = $(".custom-multiselect select.Sector").val();
             CustomSelect.val("");
             CustomSelect.multiselect({
                 maxHeight: 200,
@@ -5624,15 +5625,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     UpdateResultPage(SectorSelect, SVal, SubSecVal);
                 } 
             }
-            if (IsSearchPage && SearchHidden.length > 0) {
+            if ((IsSearchPage && SearchHidden.length > 0) || (ProductSearchText.val().length > 0)) {
                 var SearchVal = SearchHidden.val(),
-                    SearchText = ProductSearchText.val();
+                    SearchText = ProductSearchText.val().length;
                 if (SearchVal) {
                     SetSearchState(SearchVal);
                 }
-                if(SearchText) {
-                    SearchSubmitBtn.trigger('click');
-                }
+                if (SearchText) {
+                    $('li.search').trigger('click');
+                } 
             }
             if(ShowMoreLink && IsProductPage){
                 DoPagination();

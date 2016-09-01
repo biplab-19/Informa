@@ -629,7 +629,7 @@ var INFORMA = window.INFORMA || {};
                                                                         '{{/if}}'+
                                                                         '{{#if results.TwitterHandleID}}'+
                                                                             '<li>'+
-                                                                                '<a class="addthis_button_twitter_follow" addthis:userid="@Model.TwitterHandleID"></a>'+
+                                                                                '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
                                                                             '</li>'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
@@ -659,30 +659,34 @@ var INFORMA = window.INFORMA || {};
                                                     '<div class="content-wrap">'+
                                                         '<p><span class="type">{{results.EventType}}</span></p>'+
                                                         '<h3 class="title">{{results.Title}}</h3>'+
-                                                            '<div class="content clearfix">'+
-                                                                '<div class="title-content">'+
-                                                                    '{{results.PresentersLabel}}'+
+                                                            '{{#compare results.Presenters.length 0 operator=">"}}'+
+                                                                '<div class="content clearfix">'+
+                                                                    '<div class="title-content">'+
+                                                                        '{{results.PresentersLabel}}'+
+                                                                    '</div>'+
+                                                                    '<div class="title-body">'+
+                                                                        '<ul class="clearfix">'+
+                                                                            '{{#each results.Presenters}}'+
+                                                                            '<li>{{this}}</li>'+
+                                                                            '{{/each}}'+
+                                                                        '</ul>'+
+                                                                    '</div>'+
                                                                 '</div>'+
-                                                                '<div class="title-body">'+
-                                                                    '<ul class="clearfix">'+
-                                                                        '{{#each Model.Presenters}}'+
-                                                                        '<li>@profile</li>'+
-                                                                        '{{/each}}'+
-                                                                    '</ul>'+
-                                                                '</div>'+
-                                                            '</div>'+
+                                                            '{{/compare}}'+
+                                                            '{{#compare results.Themes.length 0 operator=">"}}'+
                                                             '<div class="content clearfix">'+
                                                                 '<div class="title-content">'+
                                                                     '{{results.ThemeLabel}}'+
                                                                 '</div>'+
                                                                 '<div class="title-body">'+
                                                                     '<ul class="clearfix">'+
-                                                                        '{{#each Model.Themes}}'+
-                                                                            '<li>@theme</li>'+
+                                                                        '{{#each results.Themes}}'+
+                                                                            '<li>{{this}}</li>'+
                                                                         '{{/each}}'+
                                                                     '</ul>'+
                                                                 '</div>'+
                                                             '</div>'+
+                                                            '{{/compare}}'+
                                                         '</div>'+
                                                     '</div>'+
                                                     '<div class="footer clearfix">'+
@@ -716,7 +720,9 @@ var INFORMA = window.INFORMA || {};
                                                     '</div>'+
                                                     '<div class="footer">'+
                                                         '<div class="btn-container text-right">'+
-                                                            '<a href="{{results.PageURL}}" class="btn btn-default" target="_blank">{{results.LinkText}}</a>'+
+                                                            '{{#compare results.LinkText null operator="!="}}'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-default" target="_blank">{{results.LinkText}}</a>'+
+                                                            '{{/compare}}'+
                                                         '</div>'+
                                                     '</div>'+
                                                 '</div>'+

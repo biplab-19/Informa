@@ -401,15 +401,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     UpdateResultPage(SectorSelect, SVal, SubSecVal);
                 } 
             }
-            if (IsSearchPage && SearchHidden.length > 0) {
+            if ((IsSearchPage && SearchHidden.length > 0) || (ProductSearchText.val().length > 0)) {
                 var SearchVal = SearchHidden.val(),
-                    SearchText = ProductSearchText.val();
+                    SearchText = ProductSearchText.val().length;
                 if (SearchVal) {
                     SetSearchState(SearchVal);
                 }
-                if(SearchText) {
-                    SearchSubmitBtn.trigger('click');
-                }
+                if (SearchText) {
+                    $('li.search').trigger('click');
+                } 
             }
             if(ShowMoreLink && IsProductPage){
                 DoPagination();

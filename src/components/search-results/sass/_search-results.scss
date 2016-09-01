@@ -74,36 +74,6 @@
                     margin-bottom: 20px;
                 }
             }
-            .items-found {
-                padding-left: 0;
-                li {
-                    a {
-                        color: $grey-color2;
-                        &:hover {
-                            text-decoration: initial;
-                        }
-                    }
-                    list-style-type: none;
-                    display: inline-block;
-                    padding-right: 7px;
-                    position: relative;
-                    strong {
-                        margin: 0 5px;
-                    }
-                    &:after {
-                        content: '|';
-                        padding-right: 7px;
-                        position: absolute;
-                        right: -7px;
-                        top: -1px;
-                    }
-                    &:last-child {
-                        &:after {
-                            content: '';
-                        }
-                    }
-                }
-            }
             .results {
                 font-size: 16px;
                 color: $text-gray;
@@ -137,6 +107,36 @@
                         &.active {
                             background-color: $grey-color7;
                         }
+                    }
+                }
+            }
+        }
+        .items-found {
+            padding-left: 0;
+            li {
+                a {
+                    color: $grey-color2;
+                    &:hover {
+                        text-decoration: initial;
+                    }
+                }
+                list-style-type: none;
+                display: inline-block;
+                padding-right: 7px;
+                position: relative;
+                strong {
+                    margin: 0 5px;
+                }
+                &:after {
+                    content: '|';
+                    padding-right: 7px;
+                    position: absolute;
+                    right: -7px;
+                    top: -1px;
+                }
+                &:last-child {
+                    &:after {
+                        content: '';
                     }
                 }
             }
@@ -453,4 +453,7 @@
             }
         }
     }
+}
+.others-wrapper {
+    padding: 15px;
 }
