@@ -96,7 +96,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 INFORMA.Spinner.Show($("body"));
                 var ProductData = GetProductFinderData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                    Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
+                    DefaultData = INFORMA.SearchResults.DefaultParameters(),
+                    Data = JSON.stringify(MergeJsonData(ProductData,FilterData,DefaultData));
                 GetAjaxData(Urls[SearchType], "Post", Data, RenderSearchResult, null);
                 INFORMA.SearchResults.ResetPaging();
             });
@@ -113,7 +114,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 SubmitHandler(SearchSubmitBtn,"SearchResult");
             }
             SearchField.on("keyup",function(e){
-                if($(this).val()!==""){
+                var MaxLength = $(this).data('length');
+                if($(this).val().length > MaxLength){
                     SearchSubmitBtn.removeClass("disabled");
                 }
                 else{

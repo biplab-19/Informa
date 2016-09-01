@@ -27,7 +27,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SubSectorHidden = $("input.sub-sector-list"),
         RefineSection = $(".refine-container"),
         SortDropDown = SearchContent.find(".chosen-select"),
-        ProductSearchText = $('input[name="searchtext"]'),
+        ProductSearchText = $('input[name="SearchText"]'),
         PageNo = 2,
         SortValue = null,
         // methods
@@ -67,7 +67,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 Data.ContentType = $(this).attr('data-contenttype').split(",");
                 
                 if(SearchType === "SearchResult") {
-                    Data.SearchText = $('input[name="searchText"]').val().split(",");
+                    Data.SearchText = $('input[name="SearchText"]').val().split(",");
                 }
                 // debugger;
                 GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, null);
@@ -347,10 +347,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if(!$.isEmptyObject(SiteFacets)) {
                 var Html = "";
                 for(var key in SiteFacets) {
-                    Html += "<li><a href='#' data-contenttype='"+ SiteFacets.ItemId +"'><strong>"+ SiteFacets.Count +"</strong>"+SiteFacets.Value+"</li>";
+                    Html += "<li><a href='#' data-contenttype='"+ SiteFacets[key].ItemId +"'><strong>"+ SiteFacets[key].Count +"</strong>"+SiteFacets[key].Value+"</li>";
                 }
                 $('.items-found').html(Html);
             }
+            DoLinksEvents();
         },
         ParseSearchData = function(data, Button) {
             if (Object.keys(data).length) {
@@ -415,9 +416,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             if(ShowMoreLink && (IsResourcePage)){
                 DoGlobalShowMore();
+                DoLinksEvents();
             }
             if(ShowMoreLink && (IsSearchPage)){
                 DoGlobalShowMore();
+                DoLinksEvents();
             }
             ToggleView();
             EqualHeight();
