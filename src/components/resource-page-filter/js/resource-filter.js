@@ -38,7 +38,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         ResourceSbmtBtn.on('click', function(){
             var ProductData = GetProductFinderData(),
                 FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                DefaultData = INFORMA.SearchResults.DefaultParameters,
+                DefaultData = INFORMA.SearchResults.DefaultParameters(),
                 Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData,DefaultData);
                 Data.PageNo = 1;
 

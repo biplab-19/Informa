@@ -43,7 +43,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.DefaultProductCount = ($('input[name="DefaultProductCount"]')) ? $('input[name="DefaultProductCount"]').val() : null;
             data.SearchTexts = ($('input[name="SearchTexts"]')) ? $('input[name="SearchTexts"]').val().split(",") : null;
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
-
+            data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
             return data;
         },
         DoLinksEvents = function() {
@@ -51,8 +51,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             Links.on('click', function(e) {
                 e.preventDefault();
-                var ProdData, FilterData, Data, DefaultData;
+                var ProdData, FilterData, Data, DefaultData, GetContentType = $(this).attr('data-contenttype');
                 
+                $('input[value="'+GetContentType+'"]').prop('checked', true);
+
                 if(SearchType === "ResourceResult") {
                     ProdData = INFORMA.ResourceFilter.GetResourceData();
                 }
@@ -61,14 +63,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
 
                 FilterData = INFORMA.SearchResultFilter.GetRefineData();
-                DefaultData = GetDefaultValues();
+                DefaultData = INFORMA.SearchResults.GetDefaultValues();
                 Data = INFORMA.ProductFinder.MergeData(ProdData,FilterData,DefaultData);
                 Data.PageNo = 1;
-                Data.ContentType = $(this).attr('data-contenttype').split(",");
+                Data.ContentType = GetContentType.split(",");
                 
-                if(SearchType === "SearchResult") {
-                    Data.SearchText = $('input[name="SearchText"]').val().split(",");
-                }
                 // debugger;
                 GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, null);
                 ResetPageSize();
@@ -237,8 +236,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
                 Data.PageNo = PageNo;
 
-                if(SearchType === "SearchType") {
-                    Data.SearchText = $('input[name="searchText"]').val().split(",");
+                if(SearchType === "SearchResult") {
+                    Data.SearchText = $('input[name="SearchText"]').val();
                 }
                 GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, $(this));
                 
@@ -401,9 +400,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     UpdateResultPage(SectorSelect, SVal, SubSecVal);
                 } 
             }
-            if ((IsSearchPage && SearchHidden.length > 0) || (ProductSearchText.val().length > 0)) {
+            if ((IsSearchPage && SearchHidden.length > 0) || (ProductSearchText)) {
                 var SearchVal = SearchHidden.val(),
-                    SearchText = ProductSearchText.val().length;
+                    SearchText = (ProductSearchText.length > 0) ? ProductSearchText.val() : null;
                 if (SearchVal) {
                     SetSearchState(SearchVal);
                 }

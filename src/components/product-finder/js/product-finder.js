@@ -97,7 +97,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 var ProductData = GetProductFinderData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     DefaultData = INFORMA.SearchResults.DefaultParameters(),
-                    Data = JSON.stringify(MergeJsonData(ProductData,FilterData,DefaultData));
+                    Data = MergeJsonData(ProductData,FilterData,DefaultData);
 
                 if(SearchType === "ProductSearch") {
                     Data.IsProduct = true;
@@ -106,7 +106,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     Data.IsSearch = true;
                     Data.PageNo = 1;
                 }
-                GetAjaxData(Urls.GetRefineResults, "Post", Data, RenderSearchResult, null);
+                GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), RenderSearchResult, null);
                 INFORMA.SearchResults.ResetPaging();
             });
         },
