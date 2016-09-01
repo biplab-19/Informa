@@ -4518,7 +4518,145 @@ var INFORMA = window.INFORMA || {};
                                             '</a>'+
                                         '</div>'+
                                         '{{/compare}}'+
-                                   '</div>'
+                                   '</div>',
+                            'Specialist': '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                                                '<div class="list-items">'+
+                                                    '<div class="analyst-list-container {{results.Type}}">'+
+                                                        '<div class="meet-anlyst-section">'+
+                                                            '<div class="wrap-content">'+
+                                                                '<div class="anlyst-heading">'+
+                                                                    '<div class="analyst-heading-content">'+
+                                                                        '<div class="analyst-details">'+
+                                                                            '<span class="analyst-type">{{results.Type}}</span>'+
+                                                                            '<h4>{{results.Name}}</h4>'+
+                                                                            '<h5>{{results.JobTitle}}</h5>'+
+                                                                            '{{#if results.location}}'+
+                                                                                '<p class="location">results.location</p>'+
+                                                                            '{{/if}}'+
+                                                                        '</div>'+
+                                                                        '<div class="analyst-img">'+
+                                                                            '<img src="{{results.Image}}" alt="@Model.Name" />'+
+                                                                        '</div>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                                '<div class="analyst-description">'+
+                                                                    '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>'+
+                                                                    '<ul class="yellow-bullets">'+
+                                                                        '{{#each results.Specialization}}'+
+                                                                        '<li>{{this}}</li>'+
+                                                                        '{{/each}}'+
+                                                                    '</ul>'+
+                                                                    '<p class="heading"> {{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
+                                                                    '<ul class="track-analyst clearfix">'+
+                                                                        '{{#each results.MultipleProducts}}'+
+                                                                            '<li><a href="javascript:void(0);">{{this}}</a></li>'+
+                                                                        '{{/each}}'+
+                                                                    '</ul>'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                            '<div class="analyst-footer">'+
+                                                                '<div class="analyst-footer-content clearfix">'+
+                                                                    '<ul class="nav-links">'+
+                                                                        '{{#if results.LinkedInProfileID}}'+
+                                                                            '<li>'+
+                                                                                '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
+                                                                            '</li>'+
+                                                                        '{{/if}}'+
+                                                                        '{{#if results.TwitterHandleID}}'+
+                                                                            '<li>'+
+                                                                                '<a class="addthis_button_twitter_follow" addthis:userid="@Model.TwitterHandleID"></a>'+
+                                                                            '</li>'+
+                                                                        '{{/if}}'+
+                                                                        '{{#if results.EmailAddressLink}}'+
+                                                                            '<li>'+
+                                                                                '<a href="{{results.EmailAddressLink.Url}}" target="_blank" class="icon-email"></a>'+
+                                                                            '</li>'+
+                                                                        '{{/if}}'+
+                                                                    '</ul>'+
+                                                                    '<a href="{{results.ProfileUrl}}" class="btn btn-default pull-right">{{results.SeeFullProfileLText}}</a>'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                           '</div>',
+                            'Event': '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                                    '<div class="list-items">'+
+                                            '<div class="events-wrap">'+
+                                                '<div class="wrap-content">'+
+                                                    '<div class="header clearfix">'+
+                                                        '<div class="date-field">{{results.EventDate}}</div>'+
+                                                        '<p class="country">'+
+                                                            '<span>{{results.State}}</span>'+
+                                                            '<strong>{{results.Country}}</strong>'+
+                                                       ' </p>'+
+                                                    '</div>'+
+                                                    '<div class="content-wrap">'+
+                                                        '<p><span class="type">{{results.EventType}}</span></p>'+
+                                                        '<h3 class="title">{{results.Title}}</h3>'+
+                                                            '<div class="content clearfix">'+
+                                                                '<div class="title-content">'+
+                                                                    '{{results.PresentersLabel}}'+
+                                                                '</div>'+
+                                                                '<div class="title-body">'+
+                                                                    '<ul class="clearfix">'+
+                                                                        '{{#each Model.Presenters}}'+
+                                                                        '<li>@profile</li>'+
+                                                                        '{{/each}}'+
+                                                                    '</ul>'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                            '<div class="content clearfix">'+
+                                                                '<div class="title-content">'+
+                                                                    '{{results.ThemeLabel}}'+
+                                                                '</div>'+
+                                                                '<div class="title-body">'+
+                                                                    '<ul class="clearfix">'+
+                                                                        '{{#each Model.Themes}}'+
+                                                                            '<li>@theme</li>'+
+                                                                        '{{/each}}'+
+                                                                    '</ul>'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '<div class="footer clearfix">'+
+                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-default register results.EventText">'+
+                                                            '{{results.EventStatus}}'+
+                                                        '</a>'+
+                                                        '<a href="{{results.FullDetail.Url}}" target="{{results.FullDetail.Target}}" class="btn btn-default full-detail">'+
+                                                            '{{results.FullDetail.LinkText}}'+
+                                                        '</a>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>',
+                                'Other': '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                                            '<div class="list-items">'+
+                                                '<div class="others-wrapper">'+
+                                                    '<div class="wrap-content">'+
+                                                        '<div class="content">'+
+                                                                '<h4>{{results.Title}}</h4>'+
+                                                                '{{#if results.ShortDescription}}'+
+                                                                    '<p class="description">'+
+                                                                        '{{results.ShortDescription}}'+
+                                                                    '</p>'+
+                                                                '{{/if}}'+
+                                                                '{{#if results.Description}}'+
+                                                                    '<p class="description">'+
+                                                                        '{{results.Description}}'+
+                                                                    '</p>'+
+                                                                '{{/if}}'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '<div class="footer">'+
+                                                        '<div class="btn-container text-right">'+
+                                                            '<a href="{{results.PageURL}}" class="btn btn-default" target="_blank">{{results.LinkText}}</a>'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'
 
 
 }

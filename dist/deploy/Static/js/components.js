@@ -1914,6 +1914,13 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _parseResults = function(data) {
         $('.product-name-holder').val(data.ProductName);
         $('.vertical-name-holder').val(data.VerticalName);
+        $('.tc-product-name').html(data.ProductName);
+        $('.tc-vertical-name').html(data.VerticalName);
+        if(data.ProductName != null){
+          $('.tc-product-name').html(data.ProductName);
+        }else{
+          $('.tc-vertical-name').html(data.VerticalName);
+        }
     }
     _updateProductVertical = function() {
         var productId = {
@@ -3532,6 +3539,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _navlinks.on('click', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
+                $('#sub-nav').css('left', 0);
                 $('#sub-nav .subnav-container').hide();
                 _navlinks.removeClass('nav-active');
                 $(this).addClass('nav-active');
@@ -3548,7 +3556,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 var navId = $(this).find('a').data('subnav');
                 var navText = $(this).find('a').text();
                 $('#sub-nav .subnav-container').hide();
-                $('.informaNav .nav-main').css('left', '-100%');
+                //$('.informaNav .nav-main').css('left', '-100%');
+                $('#sub-nav').css('left', '0');
                 $('#' + navId).css('display', 'block');
                 $('#mobile-header-navigation .nav-subnav-heading').text(navText);
                 $('#mobile-header-navigation .nav-back').css('display', 'block');
@@ -3560,7 +3569,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             e.preventDefault();
             $('#mobile-header-navigation').css('left', '0');
             $('.informaNav .nav-main').css('left', '0');
-            $('#sub-nav').css('left', '0');
+            //$('#sub-nav').css('left', '0');
             //$('body').css('overflow-y', 'hidden');
             //$('body').css('height', '100%');
             $('html, body').addClass('global-no-scroll');
@@ -3583,6 +3592,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         _navback.on('click', function(e) {
             $('.informaNav .nav-main').css('left', '0');
+            $('#sub-nav').css('left', '-100%');
             $('#mobile-header-navigation .nav-subnav-heading').text('');
             $('#mobile-header-navigation .nav-back').css('display', 'none');
             $('html, body').addClass('global-no-scroll');
@@ -4242,7 +4252,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 INFORMA.Spinner.Show($("body"));
                 var ProductData = GetProductFinderData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                    Data = JSON.stringify(MergeJsonData(ProductData,FilterData));
+                    DefaultData = INFORMA.SearchResults.DefaultParameters(),
+                    Data = JSON.stringify(MergeJsonData(ProductData,FilterData,DefaultData));
                 GetAjaxData(Urls[SearchType], "Post", Data, RenderSearchResult, null);
                 INFORMA.SearchResults.ResetPaging();
             });
@@ -4259,7 +4270,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 SubmitHandler(SearchSubmitBtn,"SearchResult");
             }
             SearchField.on("keyup",function(e){
-                if($(this).val()!==""){
+                var MaxLength = $(this).data('length');
+                if($(this).val().length > MaxLength){
                     SearchSubmitBtn.removeClass("disabled");
                 }
                 else{
@@ -5231,7 +5243,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SubSectorHidden = $("input.sub-sector-list"),
         RefineSection = $(".refine-container"),
         SortDropDown = SearchContent.find(".chosen-select"),
-        ProductSearchText = $('input[name="searchtext"]'),
+        ProductSearchText = $('input[name="SearchText"]'),
         PageNo = 2,
         SortValue = null,
         // methods
@@ -5271,7 +5283,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 Data.ContentType = $(this).attr('data-contenttype').split(",");
                 
                 if(SearchType === "SearchResult") {
-                    Data.SearchText = $('input[name="searchText"]').val().split(",");
+                    Data.SearchText = $('input[name="SearchText"]').val().split(",");
                 }
                 // debugger;
                 GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, null);
@@ -5551,10 +5563,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if(!$.isEmptyObject(SiteFacets)) {
                 var Html = "";
                 for(var key in SiteFacets) {
-                    Html += "<li><a href='#' data-contenttype='"+ SiteFacets.ItemId +"'><strong>"+ SiteFacets.Count +"</strong>"+SiteFacets.Value+"</li>";
+                    Html += "<li><a href='#' data-contenttype='"+ SiteFacets[key].ItemId +"'><strong>"+ SiteFacets[key].Count +"</strong>"+SiteFacets[key].Value+"</li>";
                 }
                 $('.items-found').html(Html);
             }
+            DoLinksEvents();
         },
         ParseSearchData = function(data, Button) {
             if (Object.keys(data).length) {
@@ -5619,9 +5632,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             if(ShowMoreLink && (IsResourcePage)){
                 DoGlobalShowMore();
+                DoLinksEvents();
             }
             if(ShowMoreLink && (IsSearchPage)){
                 DoGlobalShowMore();
+                DoLinksEvents();
             }
             ToggleView();
             EqualHeight();
