@@ -259,7 +259,7 @@ $desktop-width: 1142px;
             width: 5px;
             height: 5px;
             top: 7px;
-            @extend .secondry-light-bg;
+            @extend .background-link;
             @include border-radius(50%);
             font-family: 'FS Me Bold'; //discuss
           }
@@ -333,7 +333,7 @@ $desktop-width: 1142px;
     
     .icon-tick {
       &:before {
-        @extend .color-link;
+        color: $secondarycolorlight;
       }
     }
 
@@ -391,14 +391,15 @@ $desktop-width: 1142px;
           }
        }
     }
-    .carousel-lists .slick-arrow{
+    .carousel-lists .slick-arrow,.twitter-carousel .slick-arrow{
         @extend .secondry-light-bg;
     }
     section.customer-quote .slick-initialized .slick-arrow{
       &:before{
         @extend .secondry-light-color;
       }
-    }  
+    } 
+
     .view-all-sectors-btn-container{
         border-bottom: 1px solid $secondarycolorlight;
         .informa-icon{
@@ -411,6 +412,31 @@ $desktop-width: 1142px;
       }
     } 
     
+    .register-myinterests-section{
+      .triangle-nav li.active a{
+        @extend .primary-background;
+        @extend .font-color;
+        &:after{
+          @if($name == agri-theme){
+            border-left: 30px solid $primary;
+          }
+          @else{
+            border-left: 30px solid $primary;
+          }
+        }
+      }
+    }
+
+    //Font color changes
+    .font-color{
+      @if($name == agri-theme){
+        color: $font-color;
+      }
+      @else{
+        color: $white;
+      }
+    }
+
     .search.inactive{
         @extend .primary-background;
     }
@@ -452,8 +478,8 @@ $desktop-width: 1142px;
         .heading{
           .top{
              .circle{
-                @extend .background-link;
-                @extend .border-circle;
+                //@extend .background-link;
+                //@extend .border-circle;
              }
           }
         }
@@ -715,4 +741,11 @@ $properties: (margin, padding);
     @each $prop in $properties {
         $prop : 0;
     }
+}
+
+@mixin img-icon{
+  @include desktop{
+    width: 100px;
+    height: 100px;
+  }
 }

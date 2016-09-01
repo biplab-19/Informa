@@ -5,8 +5,16 @@ section.customer-quote {
         // this fix the right and left perfectly for arrows
         // what an idea sirji
     }
+    .container{
+        padding: 0;
+    }
+    @include not-desktop{
+        h2{
+            margin: 0 20px;
+        }
+    }
     background: $yellow;
-    padding: 40px 0 0;
+    //padding: 40px 0 0;
     position: relative;
     color: $text-gray;
     overflow: hidden;
@@ -93,7 +101,13 @@ section.customer-quote {
                 font-size: 18px;
                 font-family: FSMe-Light;
                 font-style: normal;
-                margin-bottom: 20px;
+                @include tablet{
+                    margin-bottom: 25px;
+                }
+                @include mobile{
+                    margin-bottom: 20px;
+                }
+                margin-bottom: 30px;
                 display: block;
                 //color: $text-gray-dark;
                 @include mobile {
@@ -102,7 +116,13 @@ section.customer-quote {
             }
             .case-study {
                 padding-right: 45px;
-                margin: 20px 0;
+                margin: 30px 0;
+                @include tablet{
+                    margin: 25px 0;
+                }
+                @include mobile{
+                    margin: 20px 0;
+                }
                 //border-color: $brand-primary;
                 a {
                     //color: $text-gray;

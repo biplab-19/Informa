@@ -1,13 +1,28 @@
 .recomended-wrapper{
 	background-color: $white;
-	padding: 15px;
-	margin-bottom: 15px;
+	@include desktop{
+		padding: 25px 20px;
+	}
+	@include not-desktop{
+		padding: 20px 15px;
+	}
+	//margin-bottom: 15px;
 	position: relative;
 	overflow: hidden;
+	h4{
+		padding: 25px 0;
+		@include margin-reset;
+	}
+	@include not-desktop{
+		h4{
+			padding: 20px 0;
+    		@include margin-reset;
+		}
+	}
 	.recomended-currency{
 		position: absolute;
-		bottom: 26px;
-		left: 15px;
+		bottom: 8%;
+		left: 19px;
 		display: -webkit-box;
 		&:before{
 			content:"\20AC";
@@ -33,7 +48,7 @@
 	}
 	.recomend-content {
 		float: left;
-		width: 100%;
+		width: 100%
 	}
 	.btn-showMore {
 	    background: none;
@@ -97,6 +112,11 @@
 		    }
 		}
 		.publish {
+			padding-bottom: 25px;
+    		margin: 0;
+    		@include not-desktop{
+    			padding-bottom: 20px;
+    		}
 			strong {
 				&:after {
 					content: '|';
@@ -108,14 +128,14 @@
 
 		.category {
 		    display: inline-block;
-            padding-bottom: 10px;
+            //padding-bottom: 10px;
     		strong {
     			display: inline-block;
                 padding:3px 8px;
                 font-weight: 400;
                 font-size: 0.9em;
                 color: $gray-lighter-bg;
-                background-color:$gray-light-bg;
+                background-color:$grey-color05;
                 margin: 0 5px 5px 0;
     			&:after {
     				content: '';
@@ -155,7 +175,7 @@
         }
 	}
 	.topics {
-		padding-top: 50px;
+		padding-top: 0px;
 		strong {
 			//display: inline-block;
 			a{

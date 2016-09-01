@@ -1,20 +1,22 @@
 .category-filter-list {
     background-color: $white;
-    padding: 20px 0;
     h2 {
-        font-size: $font-size-h2;
-        font-family: FSMe-Bold;
+        padding-bottom: 25px;
+        @include not-desktop{
+           padding-bottom: 20px; 
+        }
     }
     h3 {
-        font-size: $font-size-h2;
-        font-family: FSMe-Light;
-        margin-bottom: 20px;
-        color:$gray-dark-bg;
+        padding: 25px 0;
+        margin-bottom: 0;
+        @include not-desktop{
+           padding: 20px 0; 
+        }
     }
     .selectMenu{
-    	width: 200px;
-    	@include mobile{
-    		width: 100%;
-    	}
+        width: 200px;
+        @include mobile{
+            width: 100%;
+        }
     }
 }

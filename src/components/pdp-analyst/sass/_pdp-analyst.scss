@@ -154,11 +154,12 @@
 			width: calc(100% - 85px);
 			float: left;
 			margin-right: 10px;
-			h4 {
+			h4{
 				font-size: 22px;
-				margin: 0 0 5px 0;
+				margin: 0;
 				font-weight: normal;
 				font-family: 'FSMe-Bold';
+				padding: 15px 0
 			}
 			h3 {
 				color: #7f828c;
@@ -183,10 +184,12 @@
 	}
 	.analyst-description {
 		padding: 20px 20px 40px;
-		background-color: $gray-lighter-bg;
+		background-color: $grey-color11;
 		.heading {
 			color: $text-gray;
 			font-weight: bold;
+			padding: 20px 0;
+    		margin: 0;	
 		}
 	}
 	.track-analyst {
@@ -222,8 +225,8 @@
 		}
 	}
 	.analyst-footer {
-		padding: 15px;
-		background-color: $gray-draker-bg;
+		padding: 20px 15px;
+		background-color: $grey-color09;
 		position: relative;
 		-ms-transform: skewY(-2deg);
 		-webkit-transform: skewY(-2deg);

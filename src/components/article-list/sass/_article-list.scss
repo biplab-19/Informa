@@ -50,8 +50,11 @@
         }
         .slick-slide {
             border-left: 1px solid #c3c6d0;
-            &:nth-child(even) {
-                background-color: #f3f3f3;
+            //&:nth-child(even) {
+            background-color: $grey-color11;
+            //}
+            .col-xs-12{
+                padding:0;
             }
         }
         .slick-track{
