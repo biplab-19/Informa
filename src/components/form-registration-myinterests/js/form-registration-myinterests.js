@@ -48,6 +48,13 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _parseResults = function(data) {
         $('.product-name-holder').val(data.ProductName);
         $('.vertical-name-holder').val(data.VerticalName);
+        $('.tc-product-name').html(data.ProductName);
+        $('.tc-vertical-name').html(data.VerticalName);
+        if(data.ProductName != null){
+          $('.tc-product-name').html(data.ProductName);
+        }else{
+          $('.tc-vertical-name').html(data.VerticalName);
+        }
     }
     _updateProductVertical = function() {
         var productId = {
