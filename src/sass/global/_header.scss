@@ -303,12 +303,6 @@ header {
                         .icon {
                             padding-left: 15px;
                         }
-                    }
-                    .ProductLogin {
-                        display: inline-block !important;
-                        box-sizing: border-box;
-                        padding: 10px 20px;
-                        position: relative;
                         img{
                           width: 20px;
                           height: 15px;
@@ -316,6 +310,11 @@ header {
                           top: 10px;
                           right: -15px;
                         }
+                    }
+                    .ProductLogin {
+                        display: inline-block !important;
+                        box-sizing: border-box;
+                        padding: 10px 20px;
                         //position: relative;
                         // &:after {
                         //     content: "\e91a";
@@ -592,7 +591,7 @@ header {
                         display: inline-block !important;
                         box-sizing: border-box;
                         position: relative;
-                        &:nth-child(odd) {
+                        &:nth-child(even) {
                             :after {
                                 content: '';
                                 border-left: 2px solid #666666;
@@ -610,20 +609,19 @@ header {
                         .icon {
                             padding-left: 15px;
                         }
+                        img{
+                          width: 20px;
+                          height: 15px;
+                          position: absolute;
+                          top: 10px;
+                          right: -15px;
+                        }
                     }
                     .ProductLogin {
                         display: inline-block !important;
                         box-sizing: border-box;
                         padding: 10px 17px;
 
-                          img{
-                            width: 20px;
-                            height: 15px;
-                            position: absolute;
-                            top: 10px;
-                            right: -15px;
-                          }
-                    
                         // position: relative;
                         // &:after {
                         //     content: "\e91a";
