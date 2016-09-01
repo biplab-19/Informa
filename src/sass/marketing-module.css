@@ -39,7 +39,7 @@
     position: relative;
     overflow: hidden;
     font-family: "PT Serif", Georgia, serif;
-    color: #6a7285;
+    color: #444854;
 }
 
 @media (min-width: 1142px) {
@@ -162,8 +162,9 @@
 .marketing-banner .row .content h1 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: FSMe-Bold;
+    font-family: 'FSMe-Bold';
     font-size: 40px;
+    font-weight: 400;
 }
 
 
@@ -172,6 +173,9 @@
 .marketing-banner .row .content h2 {
     margin-top: 0;
     margin-bottom: 0;
+    font-family: 'FSMe-Bold';
+    font-size:30px
+    font-weight: 400;
 }
 
 
@@ -202,9 +206,9 @@
 .marketing-banner .row .content .btn {
     padding-right: 40px;
     font-size: 16px;
-    font-family: 'FSMe-Light';
+    font-family: 'FSMe-Bold';
     min-width: 275px;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 
@@ -362,6 +366,13 @@
         width: 100%;
         height: auto;
     }
+    .marketing-banner .row .content h1 {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-family: 'FSMe-Bold';
+      font-size: 30px;
+      font-weight: 400;
+  }
 }
 
 .btn {
@@ -380,7 +391,7 @@
     -ms-user-select: none;
     user-select: none;
     position: relative;
-    color: #6a7285;
+    color: #444854;
     text-decoration: initial;
 }
 
