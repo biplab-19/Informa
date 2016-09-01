@@ -30,9 +30,9 @@
                     content: "\e91a";
                     font-family: 'InformaIcons';
                     position: absolute;
-                    top: 18px;
-                    left: -25px;
-                    font-size: 20px;
+                    top: 10px;
+                    left: -30px;
+                    font-size: 30px;
                     @include mobile {
                       top: 18px;
                       left: 10px;
@@ -50,7 +50,7 @@
         .required-field:nth-child(2) {
           display: table-cell;
           width: 48%;
-          padding-left: 10px;
+          padding-left: 20px;
           @include mobile {
             display: block;
             padding-left: 0;
@@ -165,6 +165,7 @@
   }
     .next-step {
         width: 180px;
+        margin-top: 15px;
     }
   .custom-multiselect, .select-wrapper {
         a {
