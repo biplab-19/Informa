@@ -806,7 +806,7 @@ section#hero-banner .analyst-single-image .image-margin {
   content: "";
   width: 0.7px;
   height: 0.5px;
-  border-left: 2px solid #6a7287;
+  border-left: 2px solid #a6aab6;
   margin: 0 0.625em;
 }
 /* line 82, ../../../src/components/home-sector-list/sass/_sector-list.scss */
@@ -6671,105 +6671,106 @@ section#services-list .row .btn-container .btn-primary {
   }
   /* line 143, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-image-thumbnail, section#services-list .row .image-thumbnail {
+    margin-top: 5px;
     margin-bottom: 25px;
   }
-  /* line 145, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 146, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-image-thumbnail:after, section#services-list .row .image-thumbnail:after {
     top: calc(100% - 27px);
   }
-  /* line 150, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 151, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row [class*='col-'] {
     padding-left: 0;
   }
-  /* line 153, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 154, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 40px;
     padding-top: 30px;
     padding-bottom: 40px;
   }
-  /* line 157, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 158, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 80px;
     height: 80px;
   }
-  /* line 162, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 163, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 50px;
     margin-bottom: 50px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 168, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 169, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding: 30px 0;
   }
-  /* line 170, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 171, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-img, section#services-list .row .img {
     display: none;
   }
-  /* line 173, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 174, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-image-thumbnail, section#services-list .row .image-thumbnail {
     width: 50%;
     height: 50%;
     margin-bottom: 25px;
   }
-  /* line 180, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 181, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(even) .image-thumbnail {
     float: left;
     margin-right: 25px;
   }
-  /* line 184, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 185, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(even) .single-image-thumbnail {
     float: right;
     margin-right: 25px;
   }
-  /* line 190, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 191, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(odd) .image-thumbnail {
     float: right;
     margin-left: 25px;
   }
-  /* line 194, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 195, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(odd) .single-image-thumbnail {
     float: left;
     margin-right: 25px;
   }
-  /* line 199, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 200, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 30px;
     padding-left: 7.5px;
     padding-right: 7.5px;
     padding-bottom: 20px;
   }
-  /* line 204, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 205, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 80px;
     height: 80px;
   }
-  /* line 209, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 210, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 40px;
   }
 }
 @media (max-width: 767px) {
-  /* line 214, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 215, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding: 30px 0;
     display: flex;
     flex-flow: column;
   }
-  /* line 218, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 219, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row header {
     order: 2;
   }
-  /* line 221, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 222, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-img, section#services-list .row .img {
     order: 1;
   }
-  /* line 224, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 225, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .content {
     order: 3;
   }
-  /* line 228, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 229, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 20px;
     padding-left: 7.5px;
@@ -6777,18 +6778,18 @@ section#services-list .row .btn-container .btn-primary {
     padding-bottom: 20px;
     padding-top: 20px;
   }
-  /* line 234, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 235, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 45px;
     height: 45px;
   }
-  /* line 239, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 240, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 20px;
   }
 }
 
-/* line 244, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 245, ../../../src/components/services-list/sass/_services-list.scss */
 .img-icon {
   width: 100px;
   height: 100px;
@@ -9788,7 +9789,23 @@ section.recommendation-register-banner .signup-container {
   padding: 15px;
   background: #565c6b;
 }
-/* line 48, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 47, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+section.recommendation-register-banner .signup-container span.bold {
+  position: relative;
+  padding-left: 35px;
+}
+/* line 50, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+section.recommendation-register-banner .signup-container span.bold:before {
+  margin-right: 10px;
+  font-family: "InformaIcons" !important;
+  content: "\e914";
+  font-size: 20px;
+  color: #ffd500;
+  position: absolute;
+  left: 4px;
+  top: -5px;
+}
+/* line 62, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .create-profile-btn-container {
   width: 20%;
   text-align: center;
@@ -9796,27 +9813,12 @@ section.recommendation-register-banner .create-profile-btn-container {
   padding-top: 30px;
 }
 @media (max-width: 767px) {
-  /* line 48, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 62, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .create-profile-btn-container {
     width: 90%;
   }
 }
-/* line 57, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
-section.recommendation-register-banner .tick-icon {
-  position: relative;
-}
-/* line 60, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
-section.recommendation-register-banner .tick-icon:before {
-  margin-right: 10px;
-  font-family: "InformaIcons" !important;
-  content: "\e914";
-  font-size: 20px;
-  color: #ffd500;
-  position: absolute;
-  left: -22px;
-  top: -8px;
-}
-/* line 70, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 84, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .existing-customer-container {
   background: #444957;
   text-align: center;
@@ -9825,39 +9827,43 @@ section.recommendation-register-banner .existing-customer-container {
   padding-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 70, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 84, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .existing-customer-container {
     padding-top: 20px;
     padding-bottom: 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 81, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 95, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .steps-tips {
     margin-bottom: 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 85, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 99, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .steps-tips .steps-item {
     position: relative;
   }
 }
-/* line 90, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 104, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+section.recommendation-register-banner .steps-tips .image {
+  width: 100px;
+}
+/* line 107, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .steps-tips .desc {
   word-wrap: break-word;
   padding-top: 24px;
   font-size: 20px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 90, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 107, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .steps-tips .desc {
     padding-top: 2px;
     font-size: 15px;
   }
 }
 @media (max-width: 767px) {
-  /* line 90, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 107, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .steps-tips .desc {
     padding-top: 0px;
     font-size: 15px;
@@ -9868,25 +9874,25 @@ section.recommendation-register-banner .steps-tips .desc {
   }
 }
 @media (max-width: 767px) {
-  /* line 108, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 125, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .existing-customer-wrapper {
     display: block;
     text-align: left;
   }
 }
-/* line 114, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 131, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .goto-product {
   color: #ef7c00;
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  /* line 114, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 131, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .goto-product {
     display: block;
     text-align: left;
   }
 }
-/* line 122, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 139, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .light-font {
   font-family: FSMe-Light;
 }

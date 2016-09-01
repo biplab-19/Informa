@@ -44,6 +44,20 @@ section.recommendation-register-banner {
     .signup-container {
         padding: 15px;
         background: $gray-header;
+        span.bold{
+          position: relative;
+          padding-left: 35px;
+          &:before {
+              margin-right: 10px;
+              font-family: "InformaIcons" !important;
+              content: "\e914";
+              font-size: 20px;
+              color: #ffd500;
+              position: absolute;
+              left: 4px;
+              top: -5px;
+          }
+        }
     }
     .create-profile-btn-container {
         width: 20%;
@@ -54,19 +68,19 @@ section.recommendation-register-banner {
             width: 90%;
         }
     }
-    .tick-icon {
-        position: relative;
-    }
-    .tick-icon:before {
-        margin-right: 10px;
-        font-family: "InformaIcons" !important;
-        content: "\e914";
-        font-size: 20px;
-        color: #ffd500;
-        position: absolute;
-        left: -22px;
-        top: -8px;
-    }
+    // .tick-icon {
+    //     position: relative;
+    // }
+    // .tick-icon:before {
+    //     margin-right: 10px;
+    //     font-family: "InformaIcons" !important;
+    //     content: "\e914";
+    //     font-size: 20px;
+    //     color: #ffd500;
+    //     position: absolute;
+    //     left: -22px;
+    //     top: -8px;
+    // }
     .existing-customer-container {
         background: $grey-color1;
         text-align: center;
@@ -86,6 +100,9 @@ section.recommendation-register-banner {
             @include mobile {
                 position: relative;
             }
+        }
+        .image{
+          width: 100px;
         }
         .desc {
             word-wrap: break-word;
