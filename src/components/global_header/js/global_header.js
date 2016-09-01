@@ -521,6 +521,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _navlinks.on('click', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
+                $('#sub-nav').css('left', 0);
                 $('#sub-nav .subnav-container').hide();
                 _navlinks.removeClass('nav-active');
                 $(this).addClass('nav-active');
@@ -537,7 +538,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 var navId = $(this).find('a').data('subnav');
                 var navText = $(this).find('a').text();
                 $('#sub-nav .subnav-container').hide();
-                $('.informaNav .nav-main').css('left', '-100%');
+                //$('.informaNav .nav-main').css('left', '-100%');
+                $('#sub-nav').css('left', '0');
                 $('#' + navId).css('display', 'block');
                 $('#mobile-header-navigation .nav-subnav-heading').text(navText);
                 $('#mobile-header-navigation .nav-back').css('display', 'block');
@@ -549,7 +551,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             e.preventDefault();
             $('#mobile-header-navigation').css('left', '0');
             $('.informaNav .nav-main').css('left', '0');
-            $('#sub-nav').css('left', '0');
+            //$('#sub-nav').css('left', '0');
             //$('body').css('overflow-y', 'hidden');
             //$('body').css('height', '100%');
             $('html, body').addClass('global-no-scroll');
@@ -572,6 +574,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         _navback.on('click', function(e) {
             $('.informaNav .nav-main').css('left', '0');
+            $('#sub-nav').css('left', '-100%');
             $('#mobile-header-navigation .nav-subnav-heading').text('');
             $('#mobile-header-navigation .nav-back').css('display', 'none');
             $('html, body').addClass('global-no-scroll');
