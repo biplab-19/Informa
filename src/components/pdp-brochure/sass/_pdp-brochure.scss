@@ -47,8 +47,14 @@
       @include mobile {
           font-size: 18px;
           padding-left: 35px;
+          padding-bottom: 20px;
       }
-
+      @include desktop{
+        padding-bottom:30px;
+      }
+      @include tablet{
+        padding-bottom:25px;
+      }
   }
   .pdp-without-icon{
     padding-left:0;
