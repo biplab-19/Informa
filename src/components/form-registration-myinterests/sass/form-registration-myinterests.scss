@@ -12,6 +12,9 @@
         background: url("/Static/images/pattern.png") no-repeat right 100% #444957;
         background-size: 20%;
         padding: 30px 0 100px;
+        @include mobile {
+          display: none;
+        }
     }
     .register-myinterests-form-container {
         background-color: $gray-light-bg;
@@ -20,6 +23,9 @@
     .about-you-details {
         legend {
             &:first-child {
+                @include mobile {
+                    margin-left: 25px;
+                }
                 &:before {
                     content: "\e91a";
                     font-family: 'InformaIcons';
@@ -27,6 +33,10 @@
                     top: 18px;
                     left: -25px;
                     font-size: 20px;
+                    @include mobile {
+                      top: 18px;
+                      left: 10px;
+                    }
                 }
             }
         }
@@ -40,7 +50,7 @@
         .required-field:nth-child(2) {
           display: table-cell;
           width: 48%;
-          padding-left: 5px;
+          padding-left: 10px;
           @include mobile {
             display: block;
             padding-left: 0;
