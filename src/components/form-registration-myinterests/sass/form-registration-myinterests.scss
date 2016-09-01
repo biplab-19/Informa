@@ -13,7 +13,7 @@
         background-size: 20%;
         padding: 30px 0 100px;
         @include mobile {
-          display: none;
+          background: none;
         }
     }
     .register-myinterests-form-container {
@@ -24,7 +24,7 @@
         legend {
             &:first-child {
                 @include mobile {
-                    margin-left: 25px;
+                    margin-left: 40px;
                 }
                 &:before {
                     content: "\e91a";
@@ -34,7 +34,7 @@
                     left: -30px;
                     font-size: 30px;
                     @include mobile {
-                      top: 18px;
+                      top: 12px;
                       left: 10px;
                     }
                 }
@@ -61,13 +61,20 @@
     .your-area-interest{
       legend {
           &:first-child {
+            @include mobile {
+              margin-left: 45px;
+            }
               &:before {
                   content: "\e925";
                   font-family: 'InformaIcons';
                   position: absolute;
-                  top: 18px;
-                  left: -25px;
-                  font-size: 20px;
+                  top: 10px;
+                  left: -30px;
+                  font-size: 30px;
+                  @include mobile {
+                    top: 12px;
+                    left: 10px;
+                  }
               }
           }
       }
