@@ -3976,9 +3976,9 @@ var INFORMA = window.INFORMA || {};
                                     '</p>'+
                                 '{{/compare}}'+
                                 '{{#compare Product null operator="!="}}'+
-                                    '<span class="type">'+
+                                    '<p class="type">'+
                                         '<span>{{Product}}</span>'+
-                                    '</span>'+
+                                    '</p>'+
                                 '{{/compare}}'+
                                 '<h4>{{Title}}</h4>'+
                                 '<p class="publish">{{ByKeyword}} <strong>{{Profile}}</strong>{{PublicationDate}}</p>'+
@@ -4436,9 +4436,9 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/each}}'+
                                             '</p>'+
                                         '{{/compare}}'+
-                                        '<span class="type">'+
+                                        '<p class="type">'+
                                             '<span>{{results.Product}}</span>'+
-                                        '</span>'+
+                                        '</p>'+
                                         '<h4>{{results.Title}}</h4>'+
                                         '<p class="publish">{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
                                         '{{#compare results.Description null operator="!="}}'+
