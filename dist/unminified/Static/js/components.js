@@ -1,4 +1,4 @@
-/*! 2016-09-01 */
+/*! 2016-09-02 */
 /*
  * welcome-description
  *
@@ -5275,7 +5275,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             Links.on('click', function(e) {
                 e.preventDefault();
-                var ProdData, FilterData, Data, DefaultData, GetContentType = $(this).attr('data-contenttype');
+                var ProdData, FilterData, Data, DefaultData, 
+                    GetContentType = $(this).attr('data-contenttype'),
+                    FacetCheck = ($(this).attr('data-check') != undefined) ? $(this).attr('data-check') : "";
+
+                if($('#'+FacetCheck).prop('checked') === false) {
+                    $('#'+FacetCheck).parents('.panel').find('input[type="checkbox"]').prop('checked', true);
+                }
                 
                 $('input[value="'+GetContentType+'"]').prop('checked', true);
 
@@ -5291,7 +5297,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 Data = INFORMA.ProductFinder.MergeData(ProdData,FilterData,DefaultData);
                 Data.PageNo = 1;
                 Data.ContentType = GetContentType.split(",");
-                
                 // debugger;
                 GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, null);
                 ResetPageSize();

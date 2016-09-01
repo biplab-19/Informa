@@ -29,7 +29,7 @@
             border-top: 1px solid $grey-color7;
         }
         .view-toggle {
-            padding: 20px 0;
+            margin-bottom: 20px;
             padding-right: 100px;
             position: relative;
             @include mobile {
@@ -77,6 +77,10 @@
             .results {
                 font-size: 16px;
                 color: $text-gray;
+                margin-top: 15px;
+                @include not-desktop {
+                    margin-top: 0;
+                }
             }
             .view-mode {
                 padding: 0;
@@ -126,11 +130,11 @@
                 padding-right: 7px;
                 position: relative;
                 strong {
-                    margin: 0 5px;
+                    margin: 0 5px 0 0;
                 }
                 &:after {
                     content: '|';
-                    padding-right: 7px;
+                    margin: 0 10px;
                     position: absolute;
                     right: -7px;
                     top: -1px;
@@ -265,6 +269,7 @@
         }
        .recomended-wrapper {
             background-color: $grey-color7;
+            padding: 15px 20px;
             .topics {
                 strong {
                     display: inline-block;
@@ -452,6 +457,9 @@
                     float: left;
                 }
             }
+        }
+        .others-wrapper {
+
         }
     }
 }
