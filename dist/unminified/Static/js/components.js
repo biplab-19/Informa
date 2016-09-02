@@ -1764,7 +1764,8 @@ INFORMA.featureList = (function(window, $, namespace) {
         // methods
         init,
         _hideList,
-        _bindShowMore;
+        _bindShowMore,
+        equalHeight;
 
     _bindShowMore = function() {
         // if data-items, data-infinite is defined, used it
@@ -1785,10 +1786,26 @@ INFORMA.featureList = (function(window, $, namespace) {
 
         });
     }
+    equalHeight = function () {
+        var EachView = jQuery('.feature-list-section');
+        EachView.each(function () {
+            var Items = jQuery(this).find('.feature-list-container'),
+                _maxHeight = 0,
+                _padding = 80;;
+            Items.each(function () {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeight) {
+                    _maxHeight = Height;
+                }
+            })
+            Items.css('height', _maxHeight + _padding);
+        })
+    }
     init = function() {
         if (_featureListSection.length > 0) {
             _hideList(_featureListSection);
             _bindShowMore();
+            equalHeight();
         }
     };
 

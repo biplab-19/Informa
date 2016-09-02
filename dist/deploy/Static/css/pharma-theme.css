@@ -128,54 +128,58 @@
   color: #62428b;
 }
 /* line 341, ../../../src/sass/global/_mixins.scss */
+.pharma-theme .refine-container .clear-all, .pharma-theme .refine-container .show-more {
+  color: #D14A7F;
+}
+/* line 347, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .chosen-container .chosen-results li.highlighted {
   background-color: #62428b;
 }
-/* line 349, ../../../src/sass/global/_mixins.scss */
+/* line 355, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .contactUsPage-contactUs li.active:after {
   background: #e291b1;
 }
-/* line 356, ../../../src/sass/global/_mixins.scss */
+/* line 362, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .form-submit-border .btn-primary {
   width: auto;
 }
-/* line 360, ../../../src/sass/global/_mixins.scss */
+/* line 366, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .color-text, .pharma-theme .chosen-container .chosen-results li.highlighted {
   color: #ffffff;
 }
-/* line 372, ../../../src/sass/global/_mixins.scss */
+/* line 378, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .anlyst-heading {
   background-color: #5b4476;
 }
-/* line 381, ../../../src/sass/global/_mixins.scss */
+/* line 387, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .anlyst-heading:after {
   background-color: #5b4476;
 }
-/* line 386, ../../../src/sass/global/_mixins.scss */
+/* line 392, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .yellow-container {
   background: rgba(98, 66, 139, 0.8);
 }
-/* line 389, ../../../src/sass/global/_mixins.scss */
+/* line 395, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .yellow-container h3 {
   color: #ffffff;
 }
-/* line 403, ../../../src/sass/global/_mixins.scss */
+/* line 409, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .view-all-sectors-btn-container {
   border-bottom: 1px solid #62428b;
 }
-/* line 405, ../../../src/sass/global/_mixins.scss */
+/* line 411, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .view-all-sectors-btn-container .informa-icon {
   color: #62428b;
 }
-/* line 419, ../../../src/sass/global/_mixins.scss */
+/* line 425, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .register-myinterests-section .triangle-nav li.active a:after {
   border-left: 30px solid #D14A7F;
 }
-/* line 431, ../../../src/sass/global/_mixins.scss */
+/* line 437, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .font-color, .pharma-theme .register-myinterests-section .triangle-nav li.active a {
   color: #ffffff;
 }
-/* line 444, ../../../src/sass/global/_mixins.scss */
+/* line 450, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .feature li:before {
   content: "\e914";
   font-family: 'InformaIcons';
@@ -188,34 +192,48 @@
   border-radius: 50%;
   font-weight: normal;
 }
-/* line 455, ../../../src/sass/global/_mixins.scss */
+/* line 461, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .feature li a {
   color: #D14A7F !important;
 }
-/* line 461, ../../../src/sass/global/_mixins.scss */
+/* line 467, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .sprite-image, .pharma-theme .product-brands-list .card .caption h4:after, .pharma-theme .product-results .list-items .products h4:after {
   background-position: -5px -270px;
 }
-/* line 489, ../../../src/sass/global/_mixins.scss */
+@media (min-width: 1142px) {
+  /* line 484, ../../../src/sass/global/_mixins.scss */
+  .pharma-theme #sub-nav .subnav-container .content {
+    margin-right: 30px;
+  }
+  /* line 487, ../../../src/sass/global/_mixins.scss */
+  .pharma-theme #sub-nav .subnav-container .content:first-child, .pharma-theme #sub-nav .subnav-container .content:last-child {
+    margin-right: 0px;
+  }
+}
+/* line 494, ../../../src/sass/global/_mixins.scss */
+.pharma-theme #sub-nav .subnav-container .heading .top:first-child {
+  border: none;
+}
+/* line 506, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .popover {
   background: #62428b;
   width: 175px;
   top: -36px;
 }
-/* line 493, ../../../src/sass/global/_mixins.scss */
+/* line 510, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .popover .popover-content {
   color: #ffffff;
   font-family: 'FSMe-bold';
 }
-/* line 502, ../../../src/sass/global/_mixins.scss */
+/* line 519, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .popover.right .arrow:after {
   border-right-color: #62428b;
 }
-/* line 507, ../../../src/sass/global/_mixins.scss */
+/* line 524, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .border-circle {
   borders: 5px solid rgba(226, 145, 177, 0.2);
 }
-/* line 516, ../../../src/sass/global/_mixins.scss */
+/* line 533, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn {
   width: 180px;
   background: transparent;
@@ -224,15 +242,15 @@
   border-radius: 0;
   border-width: 2px;
 }
-/* line 524, ../../../src/sass/global/_mixins.scss */
+/* line 541, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-faq-more {
   border-bottom: 2px solid #62428b !important;
 }
-/* line 526, ../../../src/sass/global/_mixins.scss */
+/* line 543, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-faq-more:after {
   color: #62428b;
 }
-/* line 530, ../../../src/sass/global/_mixins.scss */
+/* line 547, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-showMore {
   background: none;
   width: 160px;
@@ -247,14 +265,14 @@
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 530, ../../../src/sass/global/_mixins.scss */
+  /* line 547, ../../../src/sass/global/_mixins.scss */
   .pharma-theme .btn-showMore {
     width: 50%;
     padding-bottom: 35px;
     text-align: center;
   }
 }
-/* line 547, ../../../src/sass/global/_mixins.scss */
+/* line 564, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e912';
@@ -269,46 +287,46 @@
   top: -2px;
 }
 @media (max-width: 767px) {
-  /* line 547, ../../../src/sass/global/_mixins.scss */
+  /* line 564, ../../../src/sass/global/_mixins.scss */
   .pharma-theme .btn-showMore:after {
     right: 50%;
     margin-right: -15px;
     top: 25px;
   }
 }
-/* line 565, ../../../src/sass/global/_mixins.scss */
+/* line 582, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-showMore:hover {
   border-bottom: 2px solid #D14A7F;
 }
-/* line 568, ../../../src/sass/global/_mixins.scss */
+/* line 585, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-showMore:focus {
   outline: 0;
 }
-/* line 571, ../../../src/sass/global/_mixins.scss */
+/* line 588, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-showMore span.more {
   display: block;
 }
-/* line 574, ../../../src/sass/global/_mixins.scss */
+/* line 591, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-showMore span.less {
   display: none;
 }
-/* line 579, ../../../src/sass/global/_mixins.scss */
+/* line 596, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .showLess span.more {
   display: none;
 }
-/* line 582, ../../../src/sass/global/_mixins.scss */
+/* line 599, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .showLess span.less {
   display: block;
 }
-/* line 590, ../../../src/sass/global/_mixins.scss */
+/* line 607, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .meet-anlyst-section .analyst-details h4, .pharma-theme .meet-anlyst-section .analyst-details h3, .pharma-theme .meet-anlyst-section .analyst-details p {
   color: #ffffff;
 }
-/* line 597, ../../../src/sass/global/_mixins.scss */
+/* line 614, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .contactus-list {
   background: #444957;
 }
-/* line 608, ../../../src/sass/global/_mixins.scss */
+/* line 625, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-default {
   min-width: 230px;
   text-align: left;
@@ -317,7 +335,7 @@
   border-color: #D14A7F;
   position: relative;
 }
-/* line 615, ../../../src/sass/global/_mixins.scss */
+/* line 632, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-default:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -326,23 +344,23 @@
   position: absolute;
   color: #D14A7F;
 }
-/* line 623, ../../../src/sass/global/_mixins.scss */
+/* line 640, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-default:hover {
   border: 2px solid #62428b;
 }
-/* line 628, ../../../src/sass/global/_mixins.scss */
+/* line 645, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-container .btn-default {
   border: 2px solid #D14A7F;
 }
-/* line 630, ../../../src/sass/global/_mixins.scss */
+/* line 647, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-container .btn-default:after {
   color: #D14A7F;
 }
-/* line 633, ../../../src/sass/global/_mixins.scss */
+/* line 650, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-container .btn-default:hover {
   border: 2px solid #62428b;
 }
-/* line 638, ../../../src/sass/global/_mixins.scss */
+/* line 655, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-primary {
   text-align: left;
   padding-top: 15px;
@@ -352,7 +370,7 @@
   color: #ffffff;
   position: relative;
 }
-/* line 647, ../../../src/sass/global/_mixins.scss */
+/* line 664, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-primary:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -360,11 +378,11 @@
   font-weight: bold;
   position: absolute;
 }
-/* line 654, ../../../src/sass/global/_mixins.scss */
+/* line 671, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-primary a {
   color: #ffffff;
 }
-/* line 661, ../../../src/sass/global/_mixins.scss */
+/* line 678, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-previous {
   color: #ffffff;
   min-width: 180px;
@@ -376,7 +394,7 @@
   position: relative;
   z-index: 9;
 }
-/* line 671, ../../../src/sass/global/_mixins.scss */
+/* line 688, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-previous:before {
   content: "\e903";
   font-family: 'InformaIcons';
@@ -384,31 +402,32 @@
   font-weight: bold;
   position: absolute;
 }
-/* line 679, ../../../src/sass/global/_mixins.scss */
+/* line 696, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .btn-previous:hover {
   border-color: #6a7285;
 }
-/* line 684, ../../../src/sass/global/_mixins.scss */
-.pharma-theme #contactus-section .phone-number a, .pharma-theme #contactus-section .email a {
+/* line 701, ../../../src/sass/global/_mixins.scss */
+.pharma-theme #contactus-section .phone-number a, .pharma-theme #contactus-section .phone-number, .pharma-theme #contactus-section .email a, .pharma-theme #contactus-section .email {
   color: #D14A7F;
 }
-/* line 687, ../../../src/sass/global/_mixins.scss */
+/* line 704, ../../../src/sass/global/_mixins.scss */
 .pharma-theme #contactus-section a.btn {
   color: #ffffff;
+  width: 100%;
 }
-/* line 690, ../../../src/sass/global/_mixins.scss */
+/* line 708, ../../../src/sass/global/_mixins.scss */
 .pharma-theme #contactus-section .subscribe-link {
   background: #D14A7F url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
 }
-/* line 692, ../../../src/sass/global/_mixins.scss */
+/* line 710, ../../../src/sass/global/_mixins.scss */
 .pharma-theme #contactus-section .subscribe-link:after {
   color: #fff;
 }
-/* line 697, ../../../src/sass/global/_mixins.scss */
+/* line 715, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .open-quote {
   color: rgba(98, 66, 139, 0.8);
 }
-/* line 702, ../../../src/sass/global/_mixins.scss */
+/* line 720, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .demo-item {
   height: 100px;
   background-color: rgba(98, 66, 139, 0.8);
