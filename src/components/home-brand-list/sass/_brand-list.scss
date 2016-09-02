@@ -1,5 +1,6 @@
 .product-brands-list {
     padding-bottom: 20px;
+    background-color: #3c404c;
     //h2 {
        // margin-bottom: 20px;
     //}
@@ -71,7 +72,7 @@
             //  position: relative;
             overflow: hidden;
             position:relative;
-            padding: 60px 0;
+            padding: 15px;
             &:before {
                 content: '';
                 position: absolute;
@@ -85,16 +86,17 @@
                 height: 100%;
             }
             .btn-container {
-                width: 165px;
-                position: absolute;
                 bottom: 15px;
-                right: 15px;
                 float: right;
             }
         }
     }
     .view-all-mobile-container {
         display: none;
+    }
+    .card-col-heading {
+        padding: 0;
+        text-align: right;
     }
     .show-more-btn-container, .btn-container {
         .btn {

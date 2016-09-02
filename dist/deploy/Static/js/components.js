@@ -5295,7 +5295,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 e.preventDefault();
                 var ProdData, FilterData, Data, DefaultData, 
                     GetContentType = $(this).attr('data-contenttype'),
-                    FacetCheck = ($(this).attr('data-check') != undefined) ? $(this).attr('data-check') : "";
+                    FacetCheck = ($(this).attr('data-check') != undefined) ? $(this).attr('data-check') : "",
+                    Name = ($(this).attr('name')) ? $(this).attr('name') : "";
 
                 if($('#'+FacetCheck).prop('checked') === false) {
                     $('#'+FacetCheck).parents('.panel').find('input[type="checkbox"]').prop('checked', true);
@@ -5314,7 +5315,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 DefaultData = GetDefaultValues();
                 Data = INFORMA.ProductFinder.MergeData(ProdData,FilterData,DefaultData);
                 Data.PageNo = 1;
-                Data.ContentType = GetContentType.split(",");
+                if(FacetCheck.length > 0) {
+                    Data[Name] = GetContentType.split(",");
+                } else {
+                    Data.ContentType = GetContentType.split(",");
+                }
                 // debugger;
                 GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, null);
                 ResetPageSize();
@@ -5593,7 +5598,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if(!$.isEmptyObject(SiteFacets)) {
                 var Html = "";
                 for(var key in SiteFacets) {
-                    Html += "<li><a href='#' data-contenttype='"+ SiteFacets[key].ItemId +"'><strong>"+ SiteFacets[key].Count +"</strong>"+SiteFacets[key].Value+"</li>";
+                    Html += "<li><a href='#' name='"+SiteFacets[key].Name+"' data-check='"+SiteFacets[key].Check+"'' data-contenttype='"+ SiteFacets[key].ItemId +"'><strong>"+ SiteFacets[key].Count +"</strong>"+SiteFacets[key].Value+"</li>";
                 }
                 $('.items-found').html(Html);
             }
@@ -5622,6 +5627,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     CreateSubItems(ProductResults, Button, RemainingCount);
                 }
                 
+            } else {
+                $('.product-results').html(data);
             }
         },
         init = function() {
