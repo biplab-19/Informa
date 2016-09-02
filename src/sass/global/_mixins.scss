@@ -342,7 +342,7 @@ $desktop-width: 1142px;
         color: $primary;
       }
     }
-    
+
     //Select field option highlight color and background
     .chosen-container .chosen-results li.highlighted{
       background-color: $secondarycolorlight;
@@ -481,8 +481,19 @@ $desktop-width: 1142px;
 
     #sub-nav{
       .subnav-container{
+        .content{
+          @include desktop{
+            margin-right: 30px;
+            &:first-child,&:last-child{
+              margin-right: 0px;
+            }
+          }
+        }
         .heading{
           .top{
+            &:first-child{
+              border: none;
+            }
              .circle{
                 //@extend .background-link;
                 //@extend .border-circle;
@@ -687,7 +698,7 @@ $desktop-width: 1142px;
 				 }
 		}
     #contactus-section{
-      .phone-number a,.email a{
+      .phone-number a,.phone-number,.email a,.email{
         color: $primary;
       }
       a.btn{
