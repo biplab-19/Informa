@@ -154,8 +154,9 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
         },
         BindDropDown = function() {
-            var SectorList = [];
-            // SectorList = $(".custom-multiselect select.Sector").val();
+        	var IsSectorExist = $("input.sector-list").val(),
+            	SectorList = (IsSectorExist) ? IsSectorExist.split(',') : [];
+
             CustomSelect.val("");
             CustomSelect.multiselect({
                 maxHeight: 200,
