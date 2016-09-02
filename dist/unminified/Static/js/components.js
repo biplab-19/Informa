@@ -527,14 +527,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
                         RenderCarousel(html, _ArticleLists,1,2);
-                        var Items = data.Articles;
-                        if(Items.length > 0){
-                            $.each( Items, function( i, val ) {
-                                if(val.Price === '' || val.Price === undefined){
-                                    $('.full-width-btn').css('width', '100%');
-                                }
-                            });      
-                        }
                     }else{
                         ArticleCont.hide();
                     }
