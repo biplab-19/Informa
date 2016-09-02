@@ -4327,8 +4327,9 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
         },
         BindDropDown = function() {
-            var SectorList = [];
-            // SectorList = $(".custom-multiselect select.Sector").val();
+        	var IsSectorExist = $("input.sector-list").val(),
+            	SectorList = (IsSectorExist) ? IsSectorExist.split(',') : [];
+
             CustomSelect.val("");
             CustomSelect.multiselect({
                 maxHeight: 200,
@@ -5310,7 +5311,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
 
                 FilterData = INFORMA.SearchResultFilter.GetRefineData();
-                DefaultData = INFORMA.SearchResults.GetDefaultValues();
+                DefaultData = GetDefaultValues();
                 Data = INFORMA.ProductFinder.MergeData(ProdData,FilterData,DefaultData);
                 Data.PageNo = 1;
                 Data.ContentType = GetContentType.split(",");
@@ -5350,7 +5351,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 SearchField.val(sVal);
                 SearchSubmitBtn.removeClass("disabled");
                 ProductFinderSection.find("input[type=radio]").eq(0).trigger("click");
-                SearchSubmitBtn.trigger("click");
+                //SearchSubmitBtn.trigger("click");
             }
         },
         ResetPageSize = function(){
@@ -5384,7 +5385,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             MakeDropPreSelected(SubSectors, SubSectorSelect);
                         }
                         ProductFinderSection.slideDown();
-                        SubmitBtn.trigger("click");
+                        //SubmitBtn.trigger("click");
                     },
                     error_callback: function() {
 
@@ -5633,6 +5634,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             if (IsSearchPage) {
                 SearchType = "SearchResult";
+                if($("input[name=searchResultsPageUrl]") && $("input.SeeAllResultInput")){
+                    var Value = $("input[name=searchResultsPageUrl]").val();
+                    $("input.SeeAllResultInput").val(Value);
+                }
+
             }
             if(IsResourcePage && (!IsProductPage && !IsSearchPage)){
                 SearchType ="ResourceResult";
