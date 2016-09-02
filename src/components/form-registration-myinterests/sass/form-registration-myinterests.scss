@@ -23,20 +23,14 @@
     .about-you-details {
         legend {
             &:first-child {
-                @include mobile {
-                    margin-left: 40px;
-                }
+                margin-left: 40px;
                 &:before {
                     content: "\e91a";
                     font-family: 'InformaIcons';
                     position: absolute;
-                    top: 10px;
-                    left: -30px;
+                    top: 12px;
+                    left: 10px;
                     font-size: 30px;
-                    @include mobile {
-                      top: 12px;
-                      left: 10px;
-                    }
                 }
             }
         }
@@ -60,23 +54,17 @@
     }
     .your-area-interest{
       legend {
-          &:first-child {
-            @include mobile {
-              margin-left: 45px;
-            }
-              &:before {
-                  content: "\e925";
-                  font-family: 'InformaIcons';
-                  position: absolute;
-                  top: 10px;
-                  left: -30px;
-                  font-size: 30px;
-                  @include mobile {
-                    top: 12px;
-                    left: 10px;
-                  }
-              }
+        &:first-child {
+          margin-left: 45px;
+          &:before {
+              content: "\e925";
+              font-family: 'InformaIcons';
+              position: absolute;
+              top: 12px;
+              left: 10px;
+              font-size: 30px;
           }
+        }
       }
       p{
           position: relative;
@@ -365,10 +353,10 @@
           @include mobile {
               //padding: 15px 30px;
               .register-myinterests-section .your-area-interest legend:first-child:before{
-                  display: none;
+                  //display: none;
               }
               .register-myinterests-section .about-you-details legend:first-child:before{
-                  display: none;
+                  //display: none;
               }
               .register-myinterests-form-container #step2 .form-submit-border{
                 width: 425px;

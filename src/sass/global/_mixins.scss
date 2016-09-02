@@ -231,8 +231,21 @@ $desktop-width: 1142px;
         }
       }
 
+      section.newsFlash .newsbox{
+        @extend .secondry-light-bg;
+        @if($name == pharma-theme){
+          .news-desc,.news-title,span{
+            color: $white;
+          }
+        } 
+       
+      }
+
       #services-navigation,#pdp-navigation{
         @extend .page-ui;
+        .btn{
+          color: $white;
+        }
       }
 
       //Accordian collpase and expand 
@@ -273,7 +286,7 @@ $desktop-width: 1142px;
         }
       }
 
-      .quick-facts ul li{
+      .quick-facts ul li,.dark-banner-subscribe ul li{
         &:before{
           @extend .color-link;
         }
@@ -343,6 +356,13 @@ $desktop-width: 1142px;
       }
     }
 
+    .register-myinterests-section .select-wrapper label {
+      color: $primary;
+    }
+
+    .flip .tile .back .triangle{
+      border-top: 50px solid $primary;
+    }
     //Select field option highlight color and background
     .chosen-container .chosen-results li.highlighted{
       background-color: $secondarycolorlight;
@@ -358,11 +378,7 @@ $desktop-width: 1142px;
         }
       }
     } 
-    .form-submit-border{
-      .btn-primary{
-        width: auto;
-      }
-    }
+   
     .color-text{
       @if($name == agri-theme){
           color: $font-color;
