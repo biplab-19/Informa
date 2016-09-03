@@ -5642,14 +5642,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if (IsProductPage) {
                 SearchType = "ProductSearch";
-            }
-            if (IsSearchPage) {
-                SearchType = "SearchResult";
                 if($("input[name=searchResultsPageUrl]") && $("input.SeeAllResultInput")){
                     var Value = $("input[name=searchResultsPageUrl]").val()+'?searchText=*';
                     $("input.SeeAllResultInput").val(Value);
                 }
-
+            }
+            if (IsSearchPage) {
+                SearchType = "SearchResult";
             }
             if(IsResourcePage && (!IsProductPage && !IsSearchPage)){
                 SearchType ="ResourceResult";
