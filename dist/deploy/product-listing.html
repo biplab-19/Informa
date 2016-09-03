@@ -1273,7 +1273,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
 <script src="Static/js/components/recomended-content.js"></script>
 <script src="Static/js/components/dashboard-preference.js"></script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5788f7305e83d71c"></script>
+
 
 <script src="Static/js/components/faqs.js"></script>
 <script src="Static/js/components/rte-table.js"></script>
@@ -1289,36 +1289,7 @@ in the empire of Sapient. Har Har Mahadev !! --->
 <script src="Static/js/components/form-registration-myinterests.js"></script>
 
 
-<script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&amp;render=explicit"></script>
-<script>
-    window.gRecaptchaWidget = [];
-    var loadCaptcha = function() {
-        //rendering google recapthca
-        jQuery('.wffm-form').each(function(i, element) {
-            var recaptchaElementId = jQuery(element).find('.g-recaptcha').attr('id');
-            var widgetId = null;
-            widgetId = grecaptcha.render(recaptchaElementId, {
-                'sitekey': jQuery('#' + recaptchaElementId).data('sitekey'),
-                'theme': 'dark',
-                'callback': function(response) {
-                    if (response.length > 0) {
-                        var validationField = jQuery(element).siblings('.captcha-wrapper').find('span'); // get only current form captcha validation element
-                        if (response.length > 0) {
-                            validationField.css('display', 'none')
-                                .removeClass('field-validation-error')
-                                .addClass('field-validation-valid');
-                        } else {
-                            validationField.css('display', 'block').html('The captcha field is required.')                                .removeClass('field-validation-valid')
-                                .addClass('field-validation-error');
 
-                        }
-                    }
-                }
-            });
-            window.gRecaptchaWidget.push({captchaElementId: recaptchaElementId, captchaWidgetId: widgetId});
-        })
-    };
-</script>
 
 
 <!-- endbuild -->

@@ -39,7 +39,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _validateEmail,
         _bindValidationLogic,
         _validateEmailDomainMsg,
-        _getAjaxData,
+        _getAjaxData, _SelectAll,
         _updateProductVertical,
         Urls = INFORMA.Configs.urls.webservices,
         _parseResults;
@@ -50,10 +50,10 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $('.vertical-name-holder').val(data.VerticalName);
         $('.tc-product-name').html(data.ProductName);
         $('.tc-vertical-name').html(data.VerticalName);
-        if(data.ProductName != null){
-          $('.tc-product-name').html(data.ProductName);
-        }else{
-          $('.tc-vertical-name').html(data.VerticalName);
+        if (data.ProductName != null) {
+            $('.tc-product-name').html(data.ProductName);
+        } else {
+            $('.tc-vertical-name').html(data.VerticalName);
         }
     }
     _updateProductVertical = function() {
@@ -168,11 +168,18 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             $.each(findMultipleSelect, function(i) {
                 if ($(this).attr('multiple') == 'multiple') {
                     $(this).multiselect({
-                        includeSelectAllOption: true,
                         maxHeight: 140,
                         onChange: _updateMultiSelect,
                         onDropdownShow: _showSelectAll,
-                        onDropdownHidden: _hideSelectAll
+                        onDropdownHidden: _hideSelectAll,
+                        onSelectAll: function() {
+                            var CurrentSelect = $(".custom-multiselect select.active"),
+                                CurrentVals = CurrentSelect.val(),
+                                CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
+                                _myinterestForm.find('.area-interests-guid').val(CurrentVals);
+                                _myinterestForm.find('.area-interests-text').val(CurrentTxt);
+                                IsAllSelected = true;
+                        }
                     });
                     var placeHolderText = $(this).attr('placeHolder');
                     $(this).next().find('button.multiselect>.multiselect-selected-text').html(placeHolderText)
@@ -181,33 +188,71 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         var newMultiselectContainer = $(this).parent().find('.multiselect-container').detach();
                         $(this).next().append(newMultiselectContainer);
                     }
-                    var selectAllTag = $(this).next().find('li:first.multiselect-item').detach(),
-                        selectAllDiv = $('<ul class="select-all-bottom"></ul>').append(selectAllTag.find('a'));
-                    if (selectAllTag) {
+                       var selectAllDiv = $('<div class="select-all-bottom"><a class="multiselect-all" href="#">Select all</a></div>');
                         $(this).next().append(selectAllDiv);
-                    }
                 }
             });
+            _SelectAll();
         }
     }
 
     _showSelectAll = function(select) {
+         $(this.$container).parent().find("select").addClass("active");
         $(this.$container).find('.select-all-bottom').css('display', 'block');
     }
     _hideSelectAll = function() {
+         $(this.$container).parent().find("select").removeClass("active");
         $(this.$container).find('.select-all-bottom').css('display', 'none');
     }
     _updateMultiSelect = function(option, checked, select) {
-        if (checked) {
-            _yourinterestitem.push(option.text());
-            _yourinterestguid.push(option.val());
-        } else {
-            _yourinterestitem.splice($.inArray(option.text(), _yourinterestitem), 1);
-            _yourinterestguid.splice($.inArray(option.val(), _yourinterestguid), 1);
-        }
-        _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
-        _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
 
+        if (option) {
+            if (checked) {
+                _yourinterestitem.push(option.text());
+                _yourinterestguid.push(option.val());
+            } else {
+                _yourinterestitem.splice($.inArray(option.text(), _yourinterestitem), 1);
+                _yourinterestguid.splice($.inArray(option.val(), _yourinterestguid), 1);
+            }
+            _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
+            _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
+        }
+
+    }
+    _SelectAll = function(){
+
+        var Element = $(".select-all-bottom a"),
+            IsAllSelected = false;
+
+        if(Element){
+            Element.on("click",function(e){
+                e.preventDefault();
+                if(!IsAllSelected){
+                    var CurrentSelect = $(this).parents('.form-group').find("select");
+                        CurrentSelect.multiselect("selectAll",true);
+                        var CurrentVals = CurrentSelect.val(),
+                            CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
+
+                        _yourinterestitem.push(CurrentTxt);
+                        _yourinterestguid.push(CurrentVals);
+
+                    _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
+                    _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
+                    IsAllSelected = true; 
+                }else{
+                    var CurrentSelect = $(this).parents('.form-group').find("select");
+                     CurrentSelect.multiselect("deselectAll",false);
+                        var CurrentVals = CurrentSelect.val(),
+                            CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
+                     _yourinterestitem.splice($.inArray(CurrentTxt, _yourinterestitem), 1);
+                    _yourinterestguid.splice($.inArray(CurrentVals, _yourinterestguid), 1);
+                    _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
+                    _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
+                     IsAllSelected = false; 
+                }
+                return false;
+            });
+        }
     }
     _showProgressiveTabs = function() {
         //  $('.triangle-nav > li a[title]').tooltip();
@@ -230,14 +275,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _validateEmailDomainMsg(EmailTag);
             //_validateForm();
             var emailError = $('form.register-myinterests-form').find('.field-validation-error');
-            if(emailError.length == 0){
-              if (_myinterestForm.valid() == true) {
-                  var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
-                  formSubmitBtn.removeAttr('disabled');
-                  _showNextTab($active);
-              }
+            if (emailError.length == 0) {
+                if (_myinterestForm.valid() == true) {
+                    var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
+                    formSubmitBtn.removeAttr('disabled');
+                    _showNextTab($active);
+                }
             }
-          });
+        });
 
         $(".prev-step").on('click', function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
