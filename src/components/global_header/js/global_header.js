@@ -530,6 +530,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _subnavclose.on('click', function(e) {
                 e.preventDefault();
                 $('#sub-nav .subnav-container').hide();
+                $('#sub-nav').css({'left': 0, 'min-height': '0px'});
                 _navlinks.removeClass('nav-active');
             });
         } else {
