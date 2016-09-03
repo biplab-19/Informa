@@ -249,7 +249,12 @@ header {
                 top: 3px;
                 left: 15px;
                 @include not-desktop {
-                    display: none;
+                    left: 50%;
+                    position: absolute;
+                    width: 175px !important;
+                    height: auto !important;
+                    transform: translate(-50%, -50%);
+                    top: 50%;
                 }
             }
         }
