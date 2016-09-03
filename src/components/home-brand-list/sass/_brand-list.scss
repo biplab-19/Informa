@@ -73,6 +73,7 @@
             overflow: hidden;
             position:relative;
             padding: 15px;
+            background-color: $grey-color3;
             &:before {
                 content: '';
                 position: absolute;
@@ -88,6 +89,7 @@
             .btn-container {
                 bottom: 15px;
                 float: right;
+                padding-top: 45px;
             }
         }
     }
@@ -97,6 +99,10 @@
     .card-col-heading {
         padding: 0;
         text-align: right;
+        h2 {
+            color: $white;
+            text-align: left;
+        }
         .btn.btn-default {
             color: $white;
         }

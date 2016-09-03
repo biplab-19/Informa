@@ -2862,13 +2862,17 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _showFormIntro = function(){
-       var contactUsGetinTouchForm =  $('.contactUsPage-contactUs .get-in-touch'),
+       var contactUsGetinTouchForm =  $('.contactUsPage-contactUs'),
         formIntroText = contactUsGetinTouchForm.find('.form-introduction'),
+        tabform = contactUsGetinTouchForm.find('.tab-content'),
         formHeaderText = contactUsGetinTouchForm.find('.page-header');
        if(formIntroText.length > 0 ){
           formIntroText.addClass('show');
-          formHeaderText.addClass('hide')
        }
+       if(tabform.length > 0){
+          formHeaderText.addClass('hide');
+       }
+
     }
 
     init = function() {
