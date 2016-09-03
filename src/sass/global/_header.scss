@@ -1287,15 +1287,17 @@ header {
     position: relative;
     height: 100%;
 }
-
 #mobile-header-navigation .navbar-image {
-    .logo-img-small {
-        width: 35px;
-        height: 32px;
-        position: absolute;
-        top: 50%;
+    .logo-img-big {
         left: 50%;
-        transform: translate(100%, -25%);
+        position: absolute;
+        width: 175px !important;
+        height: auto !important;
+        transform: translate(-30%, 0);
+        top: 50%;
+        @include tablet {
+            left: 66%;
+        }
         @include desktop {
             display: none;
         }

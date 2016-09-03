@@ -11528,18 +11528,24 @@ header section.informaNav .nav-main {
   height: 100%;
 }
 
-/* line 1292, ../../../src/sass/global/_header.scss */
-#mobile-header-navigation .navbar-image .logo-img-small {
-  width: 35px;
-  height: 32px;
-  position: absolute;
-  top: 50%;
+/* line 1291, ../../../src/sass/global/_header.scss */
+#mobile-header-navigation .navbar-image .logo-img-big {
   left: 50%;
-  transform: translate(100%, -25%);
+  position: absolute;
+  width: 175px !important;
+  height: auto !important;
+  transform: translate(-30%, 0);
+  top: 50%;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 1291, ../../../src/sass/global/_header.scss */
+  #mobile-header-navigation .navbar-image .logo-img-big {
+    left: 66%;
+  }
 }
 @media (min-width: 1142px) {
-  /* line 1292, ../../../src/sass/global/_header.scss */
-  #mobile-header-navigation .navbar-image .logo-img-small {
+  /* line 1291, ../../../src/sass/global/_header.scss */
+  #mobile-header-navigation .navbar-image .logo-img-big {
     display: none;
   }
 }
