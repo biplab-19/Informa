@@ -80,7 +80,7 @@ var INFORMA = window.INFORMA || {};
                             '{{#compare IsAnonymousUser true operator="=="}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
-                                    '<a data-show-register="true" class="wffm-elq-form-btn btn btn-default show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{PageURL}}">{{LinkText}}</a>'+
+                                    '<a data-show-register="true" class="btn btn-default show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{PageURL}}">{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                             '{{/compare}}'+
