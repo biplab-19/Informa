@@ -10305,8 +10305,6 @@ header section.informaNav .navbar-brand .logo-img-small {
 }
 /* line 245, ../../../src/sass/global/_header.scss */
 header section.informaNav .navbar-brand .logo-img-big {
-  min-width: 268px;
-  height: 45px;
   position: absolute;
   top: 3px;
   left: 15px;
@@ -11432,60 +11430,62 @@ header section.informaNav .nav-main {
   position: absolute;
   padding-left: 5px;
   color: #a2a5ad;
+  top: -1px;
+  right: -17px;
 }
-/* line 1217, ../../../src/sass/global/_header.scss */
+/* line 1219, ../../../src/sass/global/_header.scss */
 #sub-nav .subnav-container .labels {
   list-style-type: none;
   padding: 0;
 }
-/* line 1220, ../../../src/sass/global/_header.scss */
+/* line 1222, ../../../src/sass/global/_header.scss */
 #sub-nav .subnav-container .labels li {
   padding: 5px 50px 5px 0;
   line-height: 16px;
 }
 @media (max-width: 767px) {
-  /* line 1220, ../../../src/sass/global/_header.scss */
+  /* line 1222, ../../../src/sass/global/_header.scss */
   #sub-nav .subnav-container .labels li {
     padding: 20px 0;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 1220, ../../../src/sass/global/_header.scss */
+  /* line 1222, ../../../src/sass/global/_header.scss */
   #sub-nav .subnav-container .labels li {
     padding: 20px 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 1217, ../../../src/sass/global/_header.scss */
+  /* line 1219, ../../../src/sass/global/_header.scss */
   #sub-nav .subnav-container .labels {
     width: 50%;
     float: left;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 1217, ../../../src/sass/global/_header.scss */
+  /* line 1219, ../../../src/sass/global/_header.scss */
   #sub-nav .subnav-container .labels {
     width: 50%;
     float: left;
   }
 }
-/* line 1240, ../../../src/sass/global/_header.scss */
+/* line 1242, ../../../src/sass/global/_header.scss */
 #sub-nav .subnav-close {
   float: right;
 }
-/* line 1242, ../../../src/sass/global/_header.scss */
+/* line 1244, ../../../src/sass/global/_header.scss */
 #sub-nav .subnav-close a {
   padding: 0;
   text-decoration: none;
 }
 @media (max-width: 1141px) {
-  /* line 1240, ../../../src/sass/global/_header.scss */
+  /* line 1242, ../../../src/sass/global/_header.scss */
   #sub-nav .subnav-close {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 1251, ../../../src/sass/global/_header.scss */
+  /* line 1253, ../../../src/sass/global/_header.scss */
   #sub-nav .container {
     padding-left: 15px !important;
     padding-right: 15px !important;
@@ -11509,21 +11509,21 @@ header section.informaNav .nav-main {
     -o-transition: 1s;
     -webkit-backface-visibility: hidden;
   }
-  /* line 1271, ../../../src/sass/global/_header.scss */
+  /* line 1273, ../../../src/sass/global/_header.scss */
   #sub-nav .nav-mobile-header {
     list-style-type: none;
     background-color: #4c5161;
   }
 }
 
-/* line 1278, ../../../src/sass/global/_header.scss */
+/* line 1280, ../../../src/sass/global/_header.scss */
 .global-no-scroll {
   overflow: hidden;
   position: relative;
   height: 100%;
 }
 
-/* line 1285, ../../../src/sass/global/_header.scss */
+/* line 1287, ../../../src/sass/global/_header.scss */
 #mobile-header-navigation .navbar-image .logo-img-small {
   width: 35px;
   height: 32px;
@@ -11533,7 +11533,7 @@ header section.informaNav .nav-main {
   transform: translate(100%, -25%);
 }
 @media (min-width: 1142px) {
-  /* line 1285, ../../../src/sass/global/_header.scss */
+  /* line 1287, ../../../src/sass/global/_header.scss */
   #mobile-header-navigation .navbar-image .logo-img-small {
     display: none;
   }
