@@ -5307,7 +5307,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 DefaultData = GetDefaultValues();
                 Data = INFORMA.ProductFinder.MergeData(ProdData,FilterData,DefaultData);
                 Data.PageNo = 1;
-                if(FacetCheck.length > 0) {
+                if(FacetCheck != "null") {
                     Data[Name] = GetContentType.split(",");
                 } else {
                     Data.ContentType = GetContentType.split(",");

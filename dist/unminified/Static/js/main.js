@@ -4521,7 +4521,7 @@ var INFORMA = window.INFORMA || {};
                                         '<div class="row list">'+
                                             '{{{results.Content}}}'+
                                         '</div>'+
-                                        '{{#compare results.ShowMoreFlag null operator="!="}}'+
+                                        '{{#compare results.ShowMoreFlag false operator="!="}}'+
                                         '<div class="text-center">'+
                                             '<a href="#" class="btn-showMore">'+
                                                 '<span class="more">{{results.ShowMoreText}}</span>'+

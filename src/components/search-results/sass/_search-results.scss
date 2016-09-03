@@ -119,6 +119,16 @@
                         }
                     }
                 }
+                li[data-view="tileView"] {
+                    a {
+                        &:before {
+                            content: '';
+                            height: 26px;
+                            width: 26px;
+                            background: url(/Static/images/dashboard.png) no-repeat;
+                        }
+                    }
+                }
             }
         }
         .items-found {
