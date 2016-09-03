@@ -5636,7 +5636,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (IsSearchPage) {
                 SearchType = "SearchResult";
                 if($("input[name=searchResultsPageUrl]") && $("input.SeeAllResultInput")){
-                    var Value = $("input[name=searchResultsPageUrl]").val();
+                    var Value = $("input[name=searchResultsPageUrl]").val()+'?searchText=*';
                     $("input.SeeAllResultInput").val(Value);
                 }
 
