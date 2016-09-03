@@ -541,7 +541,7 @@ var INFORMA = window.INFORMA || {};
                                     '<div class="heading">'+
                                         '<div class="heading-content">'+
                                             '<p class="category">'+
-                                                '{{#each results.Sector}}'+
+                                                '{{#each results.SectorTags}}'+
                                                     '<strong>{{this}}</strong>'+
                                                 '{{/each}}'+
                                             '</p>'+

@@ -340,8 +340,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     $(Button).parents('.product-results').find(".list").append(Html);
                     EqualHeight();
                     
-                    if(RemainingCount < 1) {
-                        $(Button).addClass("hidden");
+                    if(SearchType != "ProductSearch") {
+                        if(RemainingCount < 1) {
+                            $(Button).addClass("hidden");
+                        }
                     }
 
                 }

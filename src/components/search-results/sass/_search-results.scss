@@ -27,6 +27,12 @@
             width: 100%;
             padding-top: 20px;
             border-top: 1px solid $grey-color7;
+            @include mobile {
+                padding-right: 10px;
+            }
+            @include tablet {
+                padding-right: 10px;   
+            }
         }
         .view-toggle {
             margin-bottom: 20px;
@@ -154,6 +160,12 @@
 }
 
 .product-results {
+    @include mobile {
+        padding: 0 10px;
+    }
+    @include tablet {
+        padding: 0 10px;
+    }
     &.showLess {
         .more {
             display: none;
@@ -272,7 +284,7 @@
             padding: 15px 20px;
             .topics {
                 strong {
-                    display: inline-block;
+                    display: inline;
                 }
             }
             .content {
@@ -302,12 +314,18 @@
     }
 }
 .listView {
+    .search-container {
+        .see-all {
+            border-top: none;
+        }
+    }
     .product-results {
         h2 {
             border-bottom: 1px solid $grey-color6;
         }
         .btn-showMore {
             margin-top: 30px;
+            margin-bottom: 30px;
         }
     }
     .wrap-content {

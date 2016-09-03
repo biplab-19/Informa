@@ -1,4 +1,4 @@
-/*! 2016-09-02 */s = new AppMeasurement()
+/*! 2016-09-03 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -4592,7 +4592,7 @@ var INFORMA = window.INFORMA || {};
                                     '<div class="heading">'+
                                         '<div class="heading-content">'+
                                             '<p class="category">'+
-                                                '{{#each results.Sector}}'+
+                                                '{{#each results.SectorTags}}'+
                                                     '<strong>{{this}}</strong>'+
                                                 '{{/each}}'+
                                             '</p>'+
