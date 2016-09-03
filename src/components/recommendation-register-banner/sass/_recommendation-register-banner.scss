@@ -45,9 +45,22 @@ section.recommendation-register-banner {
         padding: 15px;
         background: $gray-header;
         text-align: center;
+        @include tablet {
+          text-align: left;
+          padding-left: 35px;
+        }
+        span{
+          @include mobile {
+            display: block;
+            text-align: left;
+            padding-left: 25px;
+            line-height: 25px;
+          }
+        }
         span.bold{
           position: relative;
-          padding-left: 35px;
+          // padding-left: 35px;
+          font-family: FSMe-bold;
           &:before {
               margin-right: 10px;
               font-family: "InformaIcons" !important;
@@ -55,18 +68,28 @@ section.recommendation-register-banner {
               font-size: 20px;
               color: #ffd500;
               position: absolute;
-              left: 4px;
+              left: -27px;
               top: -5px;
+              @include mobile {
+                left: -4px;
+                top: 0px;
+              }
+              @include tablet {
+                left: -34px;
+              }
           }
         }
     }
     .create-profile-btn-container {
-        width: 20%;
+        //width: 20%;
         text-align: center;
         margin: 0 auto;
         padding-top: 30px;
         @include mobile {
-            width: 90%;
+          .btn{
+              width: 100%;
+          }
+
         }
     }
     // .tick-icon {
