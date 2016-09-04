@@ -290,9 +290,9 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _parseResults = function(data) {
-        if (!$(_formId + ' fieldset').hasClass('area-interests')) {
-            return false;
-        }
+        // if (!$(_formId + ' fieldset').hasClass('area-interests')) {
+        //     return false;
+        // }
         var results = data,
             _inputId = $(_formId + ' .area-interests input').first().attr("id"),
             _inputName = $(_formId + ' .area-interests input').first().attr("name"),
@@ -309,7 +309,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
         $(_formId + " .area-interests .form-group .checkbox").remove();
         $(_formId + " .area-interests").addClass('dynamic-interests');
-        $(_formId + ' .page-header h2').find('.product-name').text(results.Title);
+        $(_formId + ' .page-header h2').find('.product-name').text(results.ProductName);
 
         $(_formId + ' .page-header h2').text(formHeading);
 
