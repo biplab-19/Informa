@@ -5325,7 +5325,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.DefaultItemCount = ($('input[name="DefaultItemCount"]')) ? $('input[name="DefaultItemCount"]').val() : null;
             data.MaxItemCount = ($('input[name="MaxItemCount"]')) ? $('input[name="MaxItemCount"]').val() : null;
             data.DefaultProductCount = ($('input[name="DefaultProductCount"]')) ? $('input[name="DefaultProductCount"]').val() : null;
-            data.SearchTexts = ($('input[name="SearchTexts"]')) ? $('input[name="SearchTexts"]').val().split(",") : null;
+            data.SearchTexts = ($('input[name="SearchTexts"]') && $('input[name="SearchTexts"]').length > 0) ? $('input[name="SearchTexts"]').val().split(",") : null;
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
             data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
             return data;
@@ -5344,7 +5344,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     $('#'+FacetCheck).parents('.panel').find('input[type="checkbox"]').prop('checked', true);
                 }
                 
-                $('input[value="'+GetContentType+'"]').prop('checked', true);
 
                 if(SearchType === "ResourceResult") {
                     ProdData = INFORMA.ResourceFilter.GetResourceData();
@@ -5661,8 +5660,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     SearchContent.find('.results').find('strong').html(data.ProductFound);
                     if(data.ProductFound == 0) {
                         $('.items-found').hide();
+                        $('.product-results').hide();
                     } else {
                         $('.items-found').show();
+                        $('.product-results').show();
                     }
                     SearchContent.find('.product-results').attr('data-pagesize', data.DefaultItemCount);
                     if(FacetDescription) {

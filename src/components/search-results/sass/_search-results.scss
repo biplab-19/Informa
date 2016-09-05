@@ -193,7 +193,7 @@
         padding: 10px 0 15px 0;
         font-size: 30px;
     }
-    .btn-showMore {
+    a.btn-showMore {
         margin-bottom: 25px;
     }
     .list-items {
@@ -206,6 +206,13 @@
             margin-top: 0; 
             .anlyst-heading {
                 height: 200px;
+            }
+            .analyst-footer {
+                padding: 7px 15px;
+                .analyst-footer-content {
+                    padding: 5px 0;
+                    margin-bottom: 16px;
+                }
             }
         }
         .products {
@@ -226,7 +233,7 @@
                 background-color: $grey-color1;
                 @include rotate(-5deg);
                 padding-bottom: 20px;
-                margin-left: -10px;
+                margin-left: -15px;
                 width: 110%;
                 .heading-content {
                     padding: 15px;
@@ -492,7 +499,7 @@
         }
     }
 }
-.others-wrapper {
+.others-wrapper  {
     padding: 15px;
     .footer {
         min-height: 50px;
