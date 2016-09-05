@@ -163,6 +163,7 @@ $desktop-width: 1142px;
       //primary button hover
       .primary-btn-hover{
         color: $white;
+        text-decoration: none;
         @if($name == agri-theme){
           background-color: $secondarycolordark;
           border-color: $secondarycolordark;
@@ -178,6 +179,9 @@ $desktop-width: 1142px;
         color: $white;
         &:active{
           @extend .color-link;
+        }
+        &:hover{
+          text-decoration: none;
         }
       } 
 
@@ -416,7 +420,7 @@ $desktop-width: 1142px;
           }
        }
     }
-    .carousel-lists .slick-arrow,.twitter-carousel .slick-arrow,.customers_list_slider .slick-arrow{
+    .carousel-lists .slick-arrow,.customers_list_slider .slick-arrow{
         @extend .secondry-light-bg;
     }
     section.customer-quote .slick-initialized .slick-arrow{
@@ -424,6 +428,12 @@ $desktop-width: 1142px;
         @extend .secondry-light-color;
       }
     } 
+    .twitter-carousel .slick-arrow{
+      background: $white;
+      &:before{
+        @extend .secondry-light-color;
+      }
+    }
 
     .view-all-sectors-btn-container{
         border-bottom: 1px solid $secondarycolorlight;
@@ -432,8 +442,18 @@ $desktop-width: 1142px;
         }
     }
     .twitter-carousel{
-      a{
-        @extend .primary-color;
+      @if($name == pharma-theme){
+        .feed-heading{
+          span{
+            color: $white;
+          }
+        }
+        .message{
+          a{
+          color: $white;
+          border-bottom: 1px solid $white;
+          }
+        }
       }
     } 
     
@@ -565,9 +585,9 @@ $desktop-width: 1142px;
     }
     .btn-showMore {
         background: none;
-        width: 160px;
+        width: 120px;
         padding: 10px 0;
-        margin: 0 auto;
+        margin: 0 auto 25px;
         text-align: left;
         color: $grey-color1;
         border: none;
@@ -575,48 +595,22 @@ $desktop-width: 1142px;
         display: block;
         cursor: pointer;
         position: relative;
-        @include mobile {
-            width: 50%;
-            padding-bottom: 35px;
-            text-align: center;
-        }
         &:after {
             font-family: 'InformaIcons';
             content: '\e912';
             position: absolute;
             color: $secondarycolorlight;
             right: 0;
-            height: 30px;
-            width: 30px;
-            text-align: center;
             border-radius: 14px;
             font-size: 30px;
             top: -2px;
-            @include mobile {
-                right: 50%;
-                margin-right: -15px;
-                top: 25px;
-            }
         }
         &:hover{
           border-bottom: 2px solid $primarycolor;
+          
         }
-        &:focus {
-            outline: 0;
-        }
-        span.more {
-            display: block;
-        }
-        span.less {
-            display: none;
-        }
-    }
-    .showLess {
-        span.more {
-            display: none;
-        }
-        span.less {
-            display: block;
+        span.more,span.less{
+          text-decoration: none;
         }
     }
 
@@ -718,6 +712,7 @@ $desktop-width: 1142px;
     #contactus-section{
       .phone-number a,.phone-number,.email a,.email{
         color: $primary;
+        font-weight: bold;
       }
       a.btn{
         color: $white;
