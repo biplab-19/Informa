@@ -478,7 +478,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             "slidesShow": 3,
             "speed": 400
         },
-        CreateSlider, GetCarouselOptions, GetCarouselUpdatedHtml, GetCarouselData, equalHeights, RenderCarousel, BindFilterEvents, GetListCount,_equalHeight;
+        CreateSlider, GetCarouselOptions, GetCarouselUpdatedHtml, GetCarouselData, equalHeights, RenderCarousel, BindFilterEvents, GetListCount,headLineEqualHeight;
 
     //get all default setting value from component and check
     //if exist any default setting then update and return carousel object.
@@ -513,6 +513,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             var updateCarouselHeight = setTimeout(function(){
                 clearTimeout(updateCarouselHeight);
                 equalHeights();
+                headLineEqualHeight();
             },500);
         },
         GetCarouselData = function(data) {
@@ -571,20 +572,16 @@ INFORMA.ArticleList = (function(window, $, namespace) {
 
         },
 
-        _equalHeight = function () {
-            var items = _HeadlinesLists.find('.list-container .slick-slide'),
-                _vp = INFORMA.global.device.viewportN,
+        headLineEqualHeight = function () {
+            var items = _HeadlinesLists.find('.slick-slide'),
                 maxHeight = 0;
-
-                if(_vp === 0 || _vp === 1) {
-                    items.each(function () {
-                        var Height = $(this).height();
-                        if(Height > maxHeight) {
-                            maxHeight = Height;
-                        }
-                    })
-                    items.css('height', maxHeight);
-                }
+                items.each(function () {
+                    var Height = $(this).height();
+                    if(Height > maxHeight) {
+                        maxHeight = Height;
+                    }
+                })
+                items.css('height', maxHeight);
         }
 
         BindFilterEvents = function() {
@@ -635,7 +632,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                     // instead of a settings object
                 ]
             });
-            _equalHeight();
+            headLineEqualHeight();
         }
 
     init = function() {
@@ -645,6 +642,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             }
             if (_HeadlinesLists.length > 0) {
                 CreateSlider(_HeadlinesLists,2,4);
+                headLineEqualHeight();
             }
             if (FilterMenu && !isExperienceMode) {
                 $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
@@ -653,9 +651,11 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         }
         $(window).on("load", function() {
             equalHeights();
+            headLineEqualHeight();
         });
         $(window).on("orientationchange", function() {
             equalHeights();
+            headLineEqualHeight();
         });
 
     };
