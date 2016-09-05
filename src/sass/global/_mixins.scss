@@ -286,7 +286,7 @@ $desktop-width: 1142px;
         }
       }
 
-      .quick-facts ul li,.dark-banner-subscribe ul li{
+      .quick-facts ul li,.dark-banner-subscribe ul li,.pdp-brochure ul li{
         &:before{
           @extend .color-link;
         }
@@ -301,6 +301,9 @@ $desktop-width: 1142px;
       }
       .related-products{
         .productfinder-link{
+          p{
+            color: $white;
+          }
           a{
             color: $primary;
           }
