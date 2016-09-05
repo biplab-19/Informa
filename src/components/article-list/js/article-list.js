@@ -34,7 +34,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             "slidesShow": 3,
             "speed": 400
         },
-        CreateSlider, GetCarouselOptions, GetCarouselUpdatedHtml, GetCarouselData, equalHeights, RenderCarousel, BindFilterEvents, GetListCount;
+        CreateSlider, GetCarouselOptions, GetCarouselUpdatedHtml, GetCarouselData, equalHeights, RenderCarousel, BindFilterEvents, GetListCount,_equalHeight;
 
     //get all default setting value from component and check
     //if exist any default setting then update and return carousel object.
@@ -126,6 +126,23 @@ INFORMA.ArticleList = (function(window, $, namespace) {
           // })
 
         },
+
+        _equalHeight = function () {
+            var items = _HeadlinesLists.find('.list-container .slick-slide'),
+                _vp = INFORMA.global.device.viewportN,
+                maxHeight = 0;
+
+                if(_vp === 0 || _vp === 1) {
+                    items.each(function () {
+                        var Height = $(this).height();
+                        if(Height > maxHeight) {
+                            maxHeight = Height;
+                        }
+                    })
+                    items.css('height', maxHeight);
+                }
+        }
+
         BindFilterEvents = function() {
             //Filter menu present then bind filter event to dropdown
             if (FilterMenu) {
@@ -174,6 +191,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                     // instead of a settings object
                 ]
             });
+            _equalHeight();
         }
 
     init = function() {
