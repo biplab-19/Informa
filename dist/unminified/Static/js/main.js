@@ -4014,14 +4014,14 @@ var INFORMA = window.INFORMA || {};
                                     '</div>'+
                                 '{{/if}}'+
                             '{{/if}}'+
-                            '{{#compare IsAnonymousUser false operator="=="}}'+
+                            '{{#compare IsAuthenticatedUser true operator="=="}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
                                     '<a href="{{PageURL}}" class="btn btn-default full-width-btn" target="_blank">{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                             '{{/compare}}'+
-                            '{{#compare IsAnonymousUser true operator="=="}}'+
+                            '{{#compare IsAuthenticatedUser false operator="=="}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
                                     '<a data-show-register="true" class="btn btn-default show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{PageURL}}">{{LinkText}}</a>'+

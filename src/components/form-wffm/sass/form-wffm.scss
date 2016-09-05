@@ -1,7 +1,11 @@
 .tab-pane {
+    h2 {
+        color: $white;
+    }
     form.get-in-touch,
     form.request-a-demo,
     form.register-myinterests-form {
+        padding-top: 30px;
         @include desktop {
             padding-left: 10% !important;
             padding-right: 10% !important;
@@ -32,6 +36,7 @@ form.register-myinterests-form {
     color: $white;
     padding-left: 25%;
     padding-right: 25%;
+    padding-top: 30px;
     @include mobile {
         padding-left: 5px;
         padding-right: 5px;
@@ -728,6 +733,9 @@ form.register-myinterests-form {
     transform: translate3d(0,-50%,0);
 }
 .tab-pane {
+    h2 {
+        color: $white;
+    }
     .error-response,
     .submit-response {
         padding-left: 85px;
