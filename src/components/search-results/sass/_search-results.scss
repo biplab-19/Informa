@@ -29,9 +29,15 @@
             border-top: 1px solid $grey-color7;
             @include mobile {
                 padding-right: 10px;
+                text-align:center;
             }
             @include tablet {
                 padding-right: 10px;   
+            }
+            .btn{
+                 @include mobile {
+                    width: 100%;
+                 }
             }
         }
         .view-toggle {
