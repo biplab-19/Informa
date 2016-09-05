@@ -32,8 +32,14 @@ INFORMA.forms = (function(window, $, namespace) {
         _disableSubmit,
         _showHideInlineForm,
         _HideOverlay,
-        _showFormIntro;
+        _showFormIntro,
+        _updateVerticalName;
 
+      _updateVerticalName = function(){
+        if(INFORMA.verticalName){
+          $('.get-in-touch').find('.tc-product-name').html(INFORMA.verticalName);
+        }
+      }
 
     _HideOverlay = function () {
         $('.form-modal').on('hidden.bs.modal', function () {
@@ -646,6 +652,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _showHideInlineForm();
         _HideOverlay();
         _showFormIntro();
+        _updateVerticalName();
     };
 
     return {
