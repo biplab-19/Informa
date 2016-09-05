@@ -201,6 +201,12 @@
     }
     a.btn-showMore {
         margin-bottom: 25px;
+        &:focus{
+        	text-decoration: none;
+        }
+        &:active{
+        	text-decoration: none;
+        }
     }
     .list-items {
         background-color: #f0f1f3;
