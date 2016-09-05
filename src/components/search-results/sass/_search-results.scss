@@ -263,7 +263,7 @@
             .button-links {
                 a {
                     width: 100%;
-                    min-width: auto;
+                    min-width: initial;
                 }
             }
             .button-links {
@@ -276,6 +276,9 @@
                 @include mobile {
                     margin: 10px 0 0 -20px;
                 }
+                @include tablet {
+                    margin: 10px 0 0 -20px;
+                }
                 .button-links-wrap {
                     background-color: $grey-color6;
                     @include rotate(5deg);
@@ -283,6 +286,9 @@
                     padding: 15px 20px;
                     @include mobile {
                         padding: 15px 30px;
+                    }
+                    @include tablet {
+                        padding: 15px 25px;
                     }
                 }
             }
@@ -318,7 +324,7 @@
                 .btn-container {
                     text-align: right;
                     .btn {
-                        min-width: auto;
+                        min-width: initial;
                         padding-right: 32px;
                         width: auto;
                     }
