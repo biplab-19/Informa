@@ -132,7 +132,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
             }
             
         })
-        Items.find('.content').height(MaxHeight);
+        Items.find('.content').height(MaxHeight + Padding);
         Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
     }
 
