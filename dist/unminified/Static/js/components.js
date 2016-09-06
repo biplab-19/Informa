@@ -1,4 +1,4 @@
-/*! 2016-09-05 */
+/*! 2016-09-06 */
 /*
  * welcome-description
  *
@@ -2000,13 +2000,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
     }
     _showRegisterFormPopup = function() {
+        _myinterestsModal.find('.modal-body').empty();
         _myinterestsModal.find('.modal-body').append(_myinterestsSection);
         _myinterestsModal.find('.modal-body .container').removeClass('container');
         _myinterestsModal.modal('show');
     }
 
     _showRegisterForm = function() {
-        _showRegisterFormBtn.on('click', function(e) {
+        _showRegisterFormBtn.off().on('click', function(e) {
 
             if ($(this).attr('data-show-register') == 'true') {
                 e.preventDefault();
@@ -2059,11 +2060,16 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         if (findMultipleSelect.length > 0) {
             $.each(findMultipleSelect, function(i) {
                 if ($(this).attr('multiple') == 'multiple') {
+                    var placeHolder = $(this).attr('placeHolder');
                     $(this).multiselect({
+                        buttonText: function(options, select) {
+                           return placeHolder;
+                         },
                         maxHeight: 140,
                         onChange: _updateMultiSelect,
                         onDropdownShow: _showSelectAll,
                         onDropdownHidden: _hideSelectAll,
+                        numberDisplayed: 1,
                         onSelectAll: function() {
                             var CurrentSelect = $(".custom-multiselect select.active"),
                                 CurrentVals = CurrentSelect.val(),
@@ -2130,7 +2136,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
                     _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
                     _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
-                    IsAllSelected = true; 
+                    IsAllSelected = true;
                 }else{
                     var CurrentSelect = $(this).parents('.form-group').find("select");
                      CurrentSelect.multiselect("deselectAll",false);
@@ -2140,7 +2146,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                     _yourinterestguid.splice($.inArray(CurrentVals, _yourinterestguid), 1);
                     _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
                     _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
-                     IsAllSelected = false; 
+                     IsAllSelected = false;
                 }
                 return false;
             });
