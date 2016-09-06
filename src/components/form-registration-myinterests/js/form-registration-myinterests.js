@@ -46,15 +46,16 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
     //methods
     _parseResults = function(data) {
-        $('.product-name-holder').val(data.ProductName);
-        $('.vertical-name-holder').val(data.VerticalName);
-        $('.tc-product-name').html(data.ProductName);
-        $('.tc-vertical-name').html(data.VerticalName);
-        if (data.ProductName != null) {
+            $('span.product-name-holder').html(data.ProductName);
+            $('.product-name-holder').val(data.ProductName);
+            $('.vertical-name-holder').val(data.VerticalName);
             $('.tc-product-name').html(data.ProductName);
-        } else {
             $('.tc-vertical-name').html(data.VerticalName);
-        }
+            if (data.ProductName != null) {
+                $('.tc-product-name').html(data.ProductName);
+            } else {
+                $('.tc-product-name').html(data.VerticalName);
+            }
     }
     _updateProductVertical = function() {
         var productId = {
@@ -115,15 +116,13 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _showRegisterForm = function() {
-        _showRegisterFormBtn.off().on('click', function(e) {
-
+        $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
                 e.preventDefault();
                 e.stopPropagation();
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 _showRegisterFormPopup();
             }
-
         });
     }
     _updateMultiSelect = function() {

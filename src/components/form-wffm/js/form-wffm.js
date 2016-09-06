@@ -36,9 +36,9 @@ INFORMA.forms = (function(window, $, namespace) {
         _updateVerticalName;
 
       _updateVerticalName = function(){
-        if(INFORMA.verticalName){
-          $('.get-in-touch').find('.tc-product-name').html(INFORMA.verticalName);
-        }
+        // if(INFORMA.verticalName){
+        //   $('.wffm-form').find('.tc-product-name').html(INFORMA.verticalName);
+        // }
       }
 
     _HideOverlay = function () {
