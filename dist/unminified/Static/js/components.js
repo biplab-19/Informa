@@ -2177,7 +2177,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
 
-        $(".next-step").on('click', function(e) {
+        $(document).on('click', '.next-step',  function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             $active.next().removeClass('disabled');
             var EmailTag = $('form.register-myinterests-form input[type=email]');
@@ -2193,7 +2193,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
 
-        $(".prev-step").on('click', function(e) {
+        $(document).on('click', '.prev-step', function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             _showPrevTab($active);
         });
@@ -2453,17 +2453,17 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _showHideInlineForm = function() {
-        var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane');
+        var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active');
         if (formInlineActiveTab.length > 0) {
             var inlineTabError = formInlineActiveTab.find('.error-response'),
-                inlineTabErrorForm = inlineTabError.parents('.tab-pane').find('form');
+                inlineTabErrorForm = inlineTabError.parents('.tab-pane.active').find('form');
             if (inlineTabError.length > 0) {
                 inlineTabErrorForm.addClass('hide');
             } else {
                 inlineTabErrorForm.removeClass('hide');
             }
             var inlineTabSucess = formInlineActiveTab.find('.submit-response'),
-                inlineTabSucessForm = inlineTabSucess.parents('.tab-pane').find('form');
+                inlineTabSucessForm = inlineTabSucess.parents('.tab-pane.active').find('form');
             if (inlineTabSucess.length > 0) {
                 inlineTabSucessForm.addClass('hide');
             } else {
@@ -2471,14 +2471,14 @@ INFORMA.forms = (function(window, $, namespace) {
             }
         }
 
-      var formInlineContainer =  $('.form-inline-container');
-        if(formInlineContainer.length > 0 ){
-          if(formInlineContainer.find('.submit-response').length > 0){
-                formInlineContainer.find('form').addClass('hide');
-          }else{
-            formInlineContainer.find('form').removeClass('hide');
-          }
-        }
+      // var formInlineContainer =  $('.form-inline-container');
+      //   if(formInlineContainer.length > 0 ){
+      //     if(formInlineContainer.find('.submit-response').length > 0){
+      //           formInlineContainer.find('form').addClass('hide');
+      //     }else{
+      //       formInlineContainer.find('form').removeClass('hide');
+      //     }
+      //   }
 
 
     }

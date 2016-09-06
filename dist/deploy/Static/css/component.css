@@ -5246,12 +5246,20 @@ section#about-us-hero .transparent-bg-content .description {
   width: 200px;
   float: left;
 }
+/* line 515, ../../../src/components/search-results/sass/_search-results.scss */
+.listView .col-md-4 .others-wrapper┬á, .listView .col-sm-6 .others-wrapper┬á {
+  padding: 15px;
+}
+/* line 517, ../../../src/components/search-results/sass/_search-results.scss */
+.listView .col-md-4 .others-wrapper┬á .footer, .listView .col-sm-6 .others-wrapper┬á .footer {
+  min-height: 50px;
+}
 
-/* line 520, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 523, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper┬á {
   padding: 15px;
 }
-/* line 522, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 525, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper┬á .footer {
   min-height: 50px;
 }
@@ -10437,7 +10445,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 }
 /* line 41, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .recomended-currency:before {
-  content: "\20AC";
+  content: "\00a3";
   font-weight: bold;
 }
 /* line 46, ../../../src/components/recomended-articles/sass/recomended-content.scss */
@@ -11137,23 +11145,27 @@ section.recommended-products {
   background-color: #6a7285;
   padding: 10px;
 }
-/* line 6, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 4, ../../../src/components/recom-products/sass/_recom-products.scss */
+section.recommended-products h2 {
+  color: #ffffff;
+}
+/* line 9, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .slick-list {
   border-right: none;
 }
-/* line 9, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 12, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .slick-arrow {
   display: none;
 }
-/* line 12, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 15, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .slick-next:before {
   display: none;
 }
-/* line 15, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 18, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .slick-prev:before {
   display: none;
 }
-/* line 18, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 21, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel ul.slick-dots {
   text-align: center;
   width: 100%;
@@ -11162,7 +11174,7 @@ section.recommended-products .recom-prod-carousel ul.slick-dots {
   z-index: 2;
   margin: 15px 0;
 }
-/* line 25, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 28, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel ul.slick-dots li {
   height: 10px;
   width: 10px;
@@ -11171,31 +11183,31 @@ section.recommended-products .recom-prod-carousel ul.slick-dots li {
   background: #888e9f;
   padding: 0;
 }
-/* line 35, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 38, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel ul.slick-dots li button {
   display: none;
 }
-/* line 41, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 44, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products {
   margin-right: 10px;
 }
-/* line 43, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 46, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading {
   background-color: #444957;
   padding: 30px;
   position: relative;
   overflow: hidden;
 }
-/* line 48, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 51, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading h4 {
   color: #ffffff;
 }
-/* line 50, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 53, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading h4 img {
   display: inline-block;
   padding-bottom: 20px;
 }
-/* line 55, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 58, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading .sector {
   display: inline-block;
   padding: 3px 8px;
@@ -11206,20 +11218,20 @@ section.recommended-products .recom-prod-carousel .recom-products .heading .sect
   margin-bottom: 5px;
   background-color: #6a7285;
 }
-/* line 65, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 68, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading .sector span:after {
   content: ',';
 }
-/* line 69, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 72, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading .sector span:last-child:after {
   content: '';
 }
-/* line 75, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 78, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading .brand {
   color: #f1f1f3;
   font-family: FSMe-light;
 }
-/* line 79, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 82, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading:after {
   content: '';
   width: 110%;
@@ -11234,31 +11246,31 @@ section.recommended-products .recom-prod-carousel .recom-products .heading:after
   top: calc(100% - 38px);
   left: 0;
 }
-/* line 92, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 95, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .body {
   padding: 30px 15px 20px 15px;
   background-color: #f0f1f3;
 }
-/* line 95, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 98, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .body p {
   line-height: 25px;
   padding: 10px;
 }
-/* line 99, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 102, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .body li {
   list-style-type: none;
   padding-bottom: 20px;
   position: relative;
   font-family: 'FSMe-Bold' !important;
 }
-/* line 104, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 107, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .body li:before {
   position: absolute;
   left: -33px;
   font-size: 20px;
   top: -6px;
 }
-/* line 112, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 115, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .button-links {
   background-color: #e1e3e7;
   min-height: 90px;
@@ -11266,7 +11278,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   position: relative;
   padding: 60px 20px 20px 20px;
 }
-/* line 118, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 121, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .button-links:before {
   content: '';
   position: absolute;
@@ -11277,12 +11289,12 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links:
   transform: rotate(-5deg);
   height: 100%;
 }
-/* line 128, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 131, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .button-links a {
   width: 100%;
   min-width: initial;
 }
-/* line 132, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 135, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .button-links .button-links-wrap {
   background-color: red;
   -ms-transform: rotate(-5deg);
