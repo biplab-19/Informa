@@ -281,7 +281,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
 
-        $(".next-step").on('click', function(e) {
+        $(document).on('click', '.next-step',  function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             $active.next().removeClass('disabled');
             var EmailTag = $('form.register-myinterests-form input[type=email]');
@@ -297,7 +297,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
 
-        $(".prev-step").on('click', function(e) {
+        $(document).on('click', '.prev-step', function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             _showPrevTab($active);
         });
