@@ -574,11 +574,12 @@ INFORMA.ArticleList = (function(window, $, namespace) {
 
         headLineEqualHeight = function () {
             var items = _HeadlinesLists.find('.slick-slide'),
-                maxHeight = 0;
+                maxHeight = 0,
+                Padding = 40;
                 items.each(function () {
                     var Height = $(this).height();
                     if(Height > maxHeight) {
-                        maxHeight = Height;
+                        maxHeight = Height + Padding;
                     }
                 })
                 items.css('height', maxHeight);
@@ -1934,20 +1935,29 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _getAjaxData, _SelectAll,
         _updateProductVertical,
         Urls = INFORMA.Configs.urls.webservices,
-        _parseResults;
+        _parseResults,
+        _bindNumber;
 
     //methods
     _parseResults = function(data) {
-        $('.product-name-holder').val(data.ProductName);
-        $('.vertical-name-holder').val(data.VerticalName);
-        $('.tc-product-name').html(data.ProductName);
-        $('.tc-vertical-name').html(data.VerticalName);
-        if (data.ProductName != null) {
+            $('span.product-name-holder').html(data.ProductName);
+            $('.product-name-holder').val(data.ProductName);
+            $('.vertical-name-holder').val(data.VerticalName);
             $('.tc-product-name').html(data.ProductName);
-        } else {
             $('.tc-vertical-name').html(data.VerticalName);
-        }
+            if (data.ProductName != null) {
+                $('.tc-product-name').html(data.ProductName);
+            } else {
+                $('.tc-product-name').html(data.VerticalName);
+            }
     }
+    _bindNumber = function() {
+            $(document).on('keypress', function(e) {
+                if((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
+                    e.preventDefault();
+                }
+            })
+      }
     _updateProductVertical = function() {
         var productId = {
             'guid': $('.page-id').val()
@@ -2007,15 +2017,13 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _showRegisterForm = function() {
-        _showRegisterFormBtn.off().on('click', function(e) {
-
+        $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
                 e.preventDefault();
                 e.stopPropagation();
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 _showRegisterFormPopup();
             }
-
         });
     }
     _updateMultiSelect = function() {
@@ -2243,6 +2251,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     init = function() {
+        _bindNumber();
         _showProgressiveTabs();
         _appendBackBtn();
         _appendSteps();
@@ -2348,12 +2357,21 @@ INFORMA.forms = (function(window, $, namespace) {
         _showHideInlineForm,
         _HideOverlay,
         _showFormIntro,
-        _updateVerticalName;
+        _updateVerticalName,
+        _bindNumber;
 
       _updateVerticalName = function(){
-        if(INFORMA.verticalName){
-          $('.get-in-touch').find('.tc-product-name').html(INFORMA.verticalName);
-        }
+        // if(INFORMA.verticalName){
+        //   $('.wffm-form').find('.tc-product-name').html(INFORMA.verticalName);
+        // }
+      }
+
+      _bindNumber = function() {
+            $(document).on('keypress', function(e) {
+                if((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
+                    e.preventDefault();
+                }
+            })
       }
 
     _HideOverlay = function () {
@@ -2951,7 +2969,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
-
+        _bindNumber();
         _showOverlay();
         _showOverlayQueryString()
         _reCaptchaHandler();

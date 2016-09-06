@@ -4573,11 +4573,34 @@ var INFORMA = window.INFORMA || {};
                                     '{{#compare results.Price null operator="!="}}'+
                                             '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
                                     '{{/compare}}'+
-                                    '{{#if results.LinkText}}'+
+                                    '{{#if EcommerceLink}}'+
+                                        '{{#if EcommerceLink.Url}}'+
+                                            '<div class="btn-container text-right">'+
+                                                '<a href="{{EcommerceLink.Url}}" class="btn btn-default btn-ecommerce full-width-btn" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
+                                            '</div>'+
+                                        '{{/if}}'+
+                                    '{{/if}}'+
+                                    '{{#if ProductLink}}'+
+                                        '{{#if ProductLink.Url}}'+
+                                            '<div class="btn-container text-right">'+
+                                                '<a href="{{ProductLink.Url}}" class="btn btn-default btn-ecommerce full-width-btn" target="{{ProductLink.Target}}">{{ProductLink.LinkText}}</a>'+
+                                            '</div>'+
+                                        '{{/if}}'+
+                                    '{{/if}}'+
+                                    '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                    '{{#if LinkText}}'+
                                         '<div class="btn-container text-right">'+
-                                            '<a href="{{results.PageURL}}" class="btn btn-default" target="_blank">{{results.LinkText}}</a>'+
+                                            '<a href="{{PageURL}}" class="btn btn-default full-width-btn" target="_blank">{{LinkText}}</a>'+
                                         '</div>'+
                                     '{{/if}}'+
+                                    '{{/compare}}'+
+                                    '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                    '{{#if LinkText}}'+
+                                        '<div class="btn-container text-right">'+
+                                            '<a data-show-register="true" class="btn btn-default show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{PageURL}}">{{LinkText}}</a>'+
+                                        '</div>'+
+                                    '{{/if}}'+
+                                    '{{/compare}}'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+

@@ -33,12 +33,21 @@ INFORMA.forms = (function(window, $, namespace) {
         _showHideInlineForm,
         _HideOverlay,
         _showFormIntro,
-        _updateVerticalName;
+        _updateVerticalName,
+        _bindNumber;
 
       _updateVerticalName = function(){
         // if(INFORMA.verticalName){
         //   $('.wffm-form').find('.tc-product-name').html(INFORMA.verticalName);
         // }
+      }
+
+      _bindNumber = function() {
+            $(document).on('keypress', function(e) {
+                if((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
+                    e.preventDefault();
+                }
+            })
       }
 
     _HideOverlay = function () {
@@ -636,7 +645,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
-
+        _bindNumber();
         _showOverlay();
         _showOverlayQueryString()
         _reCaptchaHandler();
