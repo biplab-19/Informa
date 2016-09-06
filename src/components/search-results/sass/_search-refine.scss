@@ -5,8 +5,14 @@
     .clear-all {
         //color:$orange;
         &:after {
-            content: 'x';
+            content: 'X';
             margin-left: 5px;
+        }
+        @include tablet {
+            display: none;
+        }
+        @include mobile {
+            display: none;
         }
     }
     @include tablet {
@@ -24,6 +30,42 @@
     .heading {
         font-family: FSMe-Light;
         font-size: 16px;
+        padding-bottom: 20px;
+        @include mobile {
+            cursor: pointer;
+            border-bottom: 1px solid $grey-color5;
+        }
+        @include tablet {
+            cursor: pointer;
+            border-bottom: 1px solid $grey-color5;
+        }
+        &:after {
+            @include mobile {
+                font-family: 'InformaIcons';
+                content: "\e906";
+                position: absolute;
+                right: 15px;
+            }
+            @include tablet {
+                font-family: 'InformaIcons';
+                content: "\e906";
+                position: absolute;
+                right: 15px;
+            }
+        }
+    }
+    .heading-collapsed {
+        border-bottom: none;
+        &:after {
+            color: $grey-color4;
+            font-size: 23px;
+            @include mobile {
+                content: "\e912";
+            }
+            @include tablet {
+                content: "\e912";
+            }
+        }
     }
     .panel-group {
         margin-bottom: 0;
@@ -63,10 +105,10 @@
                             white-space: initial;
                         }
                     }
-                    &.show-less{
+                    &.show-less {
                         li {
                             display: none;
-                            &:nth-child(-n+5){
+                            &:nth-child(-n+5) {
                                 display: block;
                             }
                         }
@@ -76,7 +118,7 @@
                     //color: $orange;
                     display: none;
                     margin-bottom: 20px;
-                    &.show{
+                    &.show {
                         display: inline-block;
                     }
                 }
@@ -125,6 +167,18 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.clear-mobile {
+    display: none;
+    background: #fff;
+    padding: 20px 10px 0;
+    .clear-all {
+        &:after {
+            content: 'X';
+            margin-left: 5px;
         }
     }
 }

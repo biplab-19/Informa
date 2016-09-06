@@ -1,7 +1,12 @@
 (function(INFORMA, $) {
     INFORMA.Utils = (function() {
         function _utils() {
-
+                Array.prototype.contains = function ( needle ) {
+                   for (i in this) {
+                       if (this[i] == needle) return true;
+                   }
+                   return false;
+                }
                 this.getUniqueArray = function(arrayList) {
                     var uniqueArray = [];
                     $.each(arrayList, function(i, el) {
