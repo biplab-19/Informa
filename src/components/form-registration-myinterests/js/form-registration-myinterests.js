@@ -120,6 +120,10 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _myinterestsModal.find('.modal-body').empty();
         _myinterestsModal.find('.modal-body').append(_myinterestsSection);
         _myinterestsModal.find('.modal-body .container').removeClass('container');
+        var $active = $('.form-progressive-wizard .triangle-nav li.active');
+        if($active){
+            _showPrevTab($active);
+        }
         _myinterestsModal.modal('show');
     }
 
