@@ -4547,9 +4547,7 @@ var INFORMA = window.INFORMA || {};
                                             '<span>{{results.Product}}</span>'+
                                         '</p>'+
                                         '<h4>{{results.Title}}</h4>'+
-                                        '{{#if results.Profile}}'+
-                                        '<p class="publish">{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{results.PublicationDate}}</p>'+
-                                        '{{/if}}'+
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+ 
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
                                         '{{/compare}}'+
