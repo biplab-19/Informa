@@ -4364,6 +4364,10 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             btn.off().on("click", function(e) {
                 e.preventDefault();
                 INFORMA.Spinner.Show($("body"));
+                if($('#hdnSearchType')) {
+                    $('#hdnSearchType').attr('name', '');
+                    $('#hdnSearchType').attr('value', '');
+                }
                 var ProductData = GetProductFinderData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     DefaultData = INFORMA.SearchResults.DefaultParameters(),
@@ -5281,6 +5285,10 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             obj.on("click", function(e) {
                 e.preventDefault();
                 var AllCheckBox = $(".refine-container .custom-checkbox input");
+                if($('#hdnSearchType').length > 0) {
+                    $('#hdnSearchType').attr('name', '');
+                    $('#hdnSearchType').attr('value', '');
+                }
                 $.each(AllCheckBox, function() {
                     $(this).prop("checked", false);
                 });
@@ -5434,6 +5442,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.SearchTexts = ($('input[name="SearchTexts"]') && $('input[name="SearchTexts"]').length > 0) ? $('input[name="SearchTexts"]').val().split(",") : null;
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
             data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
+            if (SearchType === "SearchResult") {
+                if($('#hdnSearchType').length > 0) {
+                    var NameSearchType = $('#hdnSearchType').attr('name'),
+                        Value = $('#hdnSearchType').attr('value');
+                                    
+                    data[NameSearchType] = Value;
+                }
+            }
             return data;
         },
         DoLinksEvents = function() {
@@ -5464,8 +5480,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 Data.PageNo = 1;
                 if (FacetCheck != "null") {
                     Data[Name] = GetContentType.split(",");
+                    if($('#hdnSearchType').length > 0) {
+                        $('#hdnSearchType').attr('name', Name);
+                        $('#hdnSearchType').attr('value', GetContentType);
+                    }
                 } else {
                     Data.ContentType = GetContentType.split(",");
+                    if($('#hdnSearchType').length > 0) {
+                        $('#hdnSearchType').attr('name', 'ContentType');
+                        $('#hdnSearchType').attr('value', GetContentType);
+                    }
                 }
                 // debugger;
                 GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, null);

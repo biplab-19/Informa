@@ -115,6 +115,10 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             obj.on("click", function(e) {
                 e.preventDefault();
                 var AllCheckBox = $(".refine-container .custom-checkbox input");
+                if($('#hdnSearchType').length > 0) {
+                    $('#hdnSearchType').attr('name', '');
+                    $('#hdnSearchType').attr('value', '');
+                }
                 $.each(AllCheckBox, function() {
                     $(this).prop("checked", false);
                 });

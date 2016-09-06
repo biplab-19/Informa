@@ -94,6 +94,10 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             btn.off().on("click", function(e) {
                 e.preventDefault();
                 INFORMA.Spinner.Show($("body"));
+                if($('#hdnSearchType')) {
+                    $('#hdnSearchType').attr('name', '');
+                    $('#hdnSearchType').attr('value', '');
+                }
                 var ProductData = GetProductFinderData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     DefaultData = INFORMA.SearchResults.DefaultParameters(),

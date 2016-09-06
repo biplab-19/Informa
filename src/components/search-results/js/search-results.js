@@ -46,6 +46,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.SearchTexts = ($('input[name="SearchTexts"]') && $('input[name="SearchTexts"]').length > 0) ? $('input[name="SearchTexts"]').val().split(",") : null;
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
             data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
+            if (SearchType === "SearchResult") {
+                if($('#hdnSearchType').length > 0) {
+                    var NameSearchType = $('#hdnSearchType').attr('name'),
+                        Value = $('#hdnSearchType').attr('value');
+                                    
+                    data[NameSearchType] = Value;
+                }
+            }
             return data;
         },
         DoLinksEvents = function() {
@@ -76,8 +84,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 Data.PageNo = 1;
                 if (FacetCheck != "null") {
                     Data[Name] = GetContentType.split(",");
+                    if($('#hdnSearchType').length > 0) {
+                        $('#hdnSearchType').attr('name', Name);
+                        $('#hdnSearchType').attr('value', GetContentType);
+                    }
                 } else {
                     Data.ContentType = GetContentType.split(",");
+                    if($('#hdnSearchType').length > 0) {
+                        $('#hdnSearchType').attr('name', 'ContentType');
+                        $('#hdnSearchType').attr('value', GetContentType);
+                    }
                 }
                 // debugger;
                 GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, null);
