@@ -37,6 +37,9 @@
 		position: absolute;
 		bottom: 40px;
 		left: 15px;
+		@include desktop{
+			left: 19px;
+		}
 		display: -webkit-box;
 		&:before{
 			content:"\00a3";
