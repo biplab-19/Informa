@@ -952,6 +952,9 @@ header {
     background-color: $gray-light-bg;
     position: absolute;
     width: 100%;
+    min-height: 0;
+    -webkit-transition: width 0.5s; /* Safari 3.1 to 6.0 */
+    transition: width 0.5s;
     .topic {
         color: $yellow;
         text-align: center;

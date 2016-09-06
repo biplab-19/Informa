@@ -43,7 +43,7 @@ INFORMA.forms = (function(window, $, namespace) {
       }
 
       _bindNumber = function() {
-            $(document).on('keypress', function(e) {
+            $(document).on('keypress','input[type="number"]', function(e) {
                 if((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
                     e.preventDefault();
                 }

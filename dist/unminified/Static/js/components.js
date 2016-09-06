@@ -856,18 +856,21 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     })
     
     _equalHeight = function () {
-        var EachView = jQuery('#contactus-section');
-        EachView.each(function () {
-            var Items = jQuery(this).find('.panel-default'),
-                _maxHeight = 0;
-            Items.each(function () {
-                var Height = jQuery(this).height();
-                if (Height > _maxHeight) {
-                    _maxHeight = Height;
-                }
+        var EachView = jQuery('#contactus-section'),
+         _vp = INFORMA.global.device.viewportN;
+         if(_vp === 0 || _vp === 1) {
+            EachView.each(function () {
+                var Items = jQuery(this).find('.panel-default'),
+                    _maxHeight = 0;
+                Items.each(function () {
+                    var Height = jQuery(this).height();
+                    if (Height > _maxHeight) {
+                        _maxHeight = Height;
+                    }
+                })
+                Items.css('height', _maxHeight);
             })
-            Items.css('height', _maxHeight);
-        })
+        }    
     }
 
     init = function() {
@@ -1952,7 +1955,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
     }
     _bindNumber = function() {
-            $(document).on('keypress', function(e) {
+            $(document).on('keypress','input[type="number"]', function(e) {
                 if((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
                     e.preventDefault();
                 }
@@ -2367,7 +2370,7 @@ INFORMA.forms = (function(window, $, namespace) {
       }
 
       _bindNumber = function() {
-            $(document).on('keypress', function(e) {
+            $(document).on('keypress','input[type="number"]', function(e) {
                 if((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
                     e.preventDefault();
                 }
