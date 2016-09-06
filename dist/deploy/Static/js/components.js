@@ -5652,7 +5652,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
                 if (!$(currentSection).hasClass('showLess')) {
                     $(currentSection).addClass('showLess');
-                    GetAjaxData(Urls[SearchType], "Get", Data, ParseSearchData, null, $(this));
+                    GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, $(this));
                 } else {
                     $(currentSection).removeClass('showLess');
                     $(currentSection).find('.col-xs-12:nth-child(n+4)').remove();
