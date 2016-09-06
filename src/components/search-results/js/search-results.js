@@ -18,9 +18,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         Config = INFORMA.Configs,
         PageSize = parseInt(Config.searchResult.pageSize),
         Urls = INFORMA.Configs.urls.webservices,
-        Utils = INFORMA.Utils, SearchType='',
+        Utils = INFORMA.Utils,
+        SearchType = '',
         SearchContent = $(".search-container"),
-        ProductFinderSection = $('#product-finder-section'), Data = {},
+        ProductFinderSection = $('#product-finder-section'),
+        Data = {},
         ShowMoreLink = SearchContent.find(".btn-showMore"),
         SearchHidden = $("input.search-hidden"),
         SectorHidden = $("input.sector-list"),
@@ -32,9 +34,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SortValue = null,
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,
-        SetSearchState,MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView,GetPaginationData, DoPagination,GetAjaxData, EqualHeight, CreateSubItems,
+        SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
         DoLinksEvents, GetDefaultValues;
-        GetDefaultValues = function() {
+    GetDefaultValues = function() {
             var data = {};
             data.Sorting = ($('select[name="sorting"]')) ? $('select[name="sorting"]').val() : null;
             data.PageSize = ($('.product-results')) ? $('.product-results').attr('data-pagesize') : null;
@@ -51,64 +53,64 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             Links.on('click', function(e) {
                 e.preventDefault();
-                var ProdData, FilterData, Data, DefaultData, 
+                var ProdData, FilterData, Data, DefaultData,
                     GetContentType = $(this).attr('data-contenttype'),
                     FacetCheck = ($(this).attr('data-check') != undefined) ? $(this).attr('data-check') : "",
                     Name = ($(this).attr('name')) ? $(this).attr('name') : "";
 
-                if($('#'+FacetCheck).prop('checked') === false) {
-                    $('#'+FacetCheck).parents('.panel').find('input[type="checkbox"]').prop('checked', true);
+                if ($('#' + FacetCheck).prop('checked') === false) {
+                    $('#' + FacetCheck).parents('.panel').find('input[type="checkbox"]').prop('checked', true);
                 }
-                
 
-                if(SearchType === "ResourceResult") {
+
+                if (SearchType === "ResourceResult") {
                     ProdData = INFORMA.ResourceFilter.GetResourceData();
                 }
-                if(SearchType === "SearchResult") {
+                if (SearchType === "SearchResult") {
                     ProdData = INFORMA.ProductFinder.GetProductData();
                 }
 
                 FilterData = INFORMA.SearchResultFilter.GetRefineData();
                 DefaultData = GetDefaultValues();
-                Data = INFORMA.ProductFinder.MergeData(ProdData,FilterData,DefaultData);
+                Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
                 Data.PageNo = 1;
-                if(FacetCheck != "null") {
+                if (FacetCheck != "null") {
                     Data[Name] = GetContentType.split(",");
                 } else {
                     Data.ContentType = GetContentType.split(",");
                 }
                 // debugger;
-                GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, null);
+                GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, null);
                 ResetPageSize();
             });
         }
-        GetSortValue = function(value){
+    GetSortValue = function(value) {
             SortValue = (value) ? value : SortDropDown.val();
 
-            SortDropDown.on("change",function(e){
+            SortDropDown.on("change", function(e) {
                 SortValue = $(this).find("option:selected").val();
 
                 var ProdData, FilterData, Data, DefaultData;
-                if(SearchType === "ResourceResult") {
+                if (SearchType === "ResourceResult") {
                     ProdData = INFORMA.ResourceFilter.GetResourceData();
                 }
-                if(SearchType === "SearchResult") {
+                if (SearchType === "SearchResult") {
                     ProdData = INFORMA.ProductFinder.GetProductData();
                 }
 
                 FilterData = INFORMA.SearchResultFilter.GetRefineData();
                 DefaultData = GetDefaultValues();
-                Data = INFORMA.ProductFinder.MergeData(ProdData,FilterData,DefaultData);
+                Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
                 Data.PageNo = 1;
                 // debugger;
-                GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, null);
+                GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, null);
                 ResetPageSize();
             });
         },
         SetSearchState = function(sVal) {
             if (sVal) {
                 var SearchField = $(".site-search input[type=text]"),
-                    SearchSubmitBtn =  $(".site-search li.button");
+                    SearchSubmitBtn = $(".site-search li.button");
 
                 SearchField.val(sVal);
                 SearchSubmitBtn.removeClass("disabled");
@@ -116,7 +118,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 //SearchSubmitBtn.trigger("click");
             }
         },
-        ResetPageSize = function(){
+        ResetPageSize = function() {
             PageNo = 2;
         },
         MakeDropPreSelected = function(Arr, DrpDwn) {
@@ -130,7 +132,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             var SectorArray = SecValue.split(","),
                 SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
-                SectorIDs = 'SectorIDs='+SecValue,
+                SectorIDs = 'SectorIDs=' + SecValue,
                 SubmitBtn = ProductFinderSection.find(".sector-search li.button"),
                 SubSectorSelect = ProductFinderSection.find("select.SubSector");
 
@@ -155,106 +157,107 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 });
             }
         },
-        GetAjaxData = function (url, method, data, SCallback, Errcallback, Item) {
+        GetAjaxData = function(url, method, data, SCallback, Errcallback, Item) {
             INFORMA.Spinner.Show($("body"));
-        INFORMA.DataLoader.GetServiceData(url, {
+            INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
                 data: JSON.stringify(data),
-                success_callback: function (data) {
+                success_callback: function(data) {
                     if (typeof SCallback === "function") {
                         SCallback.call(this, data, Item);
                     }
                 },
-                error_callback: function () {
+                error_callback: function() {
                     if (typeof Errcallback === "function") {
                         Errcallback.call(this, data);
                     }
                 }
             });
         },
-        EqualHeight = function(){
+        EqualHeight = function() {
             var Items = SearchContent.find('.wrap-content');
-            
-            if($(".search-container").hasClass("tileView")) {
+
+            if ($(".search-container").hasClass("tileView")) {
                 var MaxHeight = 0;
 
                 Items.each(function() {
                     var ItemHeight = $(this).outerHeight();
-                    if(ItemHeight> MaxHeight) {
+                    if (ItemHeight > MaxHeight) {
                         MaxHeight = ItemHeight;
                     }
                 })
                 Items.height(MaxHeight);
-            } else {        
+            } else {
                 Items.css("height", "auto");
             }
         },
-        GetPaginationData = function(List,Section){
+        GetPaginationData = function(List, Section) {
             var Data = {},
                 PageSizeValue = Section.data("pagesize");
-                
+
             Data.PageSize = PageSizeValue;
-            $.each(List, function(){
+            $.each(List, function() {
                 var KeyName = $(this).data("type"),
                     KeyValue = $(this).data("fetch");
-                if(Data.hasOwnProperty(KeyName)){
-                    var uniqueArr = [], existingVal =[];
-                        existingVal = existingVal.concat(Data[KeyName]);
-                        uniqueArr.push(KeyValue);
-                        Data[KeyName] = uniqueArr.concat(existingVal);
-                }else{
-                   Data[KeyName] = [].concat(KeyValue);
+                if (Data.hasOwnProperty(KeyName)) {
+                    var uniqueArr = [],
+                        existingVal = [];
+                    existingVal = existingVal.concat(Data[KeyName]);
+                    uniqueArr.push(KeyValue);
+                    Data[KeyName] = uniqueArr.concat(existingVal);
+                } else {
+                    Data[KeyName] = [].concat(KeyValue);
                 }
             });
             return Data;
         },
-       DoPagination = function(){
-        var ShowMoreLink = SearchContent.find(".btn-showMore");
+        DoPagination = function() {
+            var ShowMoreLink = SearchContent.find(".btn-showMore");
 
-            ShowMoreLink.off("click").on("click", function(e){
+            ShowMoreLink.off("click").on("click", function(e) {
                 e.preventDefault();
                 var currentSection = $(this).parents(".product-results").eq(0),
                     TileList = currentSection.find(".list-items"),
-                    PData = GetPaginationData(TileList,currentSection),
+                    PData = GetPaginationData(TileList, currentSection),
                     ProdData = INFORMA.ProductFinder.GetProductData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                    Data = INFORMA.ProductFinder.MergeData(ProdData,PData,FilterData);
+                    Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData);
 
-                if(!$(currentSection).hasClass('showLess')) {
+                if (!$(currentSection).hasClass('showLess')) {
                     $(currentSection).addClass('showLess');
-                    GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, $(this));
+                    GetAjaxData(Urls[SearchType], "Get", Data, ParseSearchData, null, $(this));
                 } else {
                     $(currentSection).removeClass('showLess');
                     $(currentSection).find('.col-xs-12:nth-child(n+4)').remove();
-                    $(window).scrollTop($(currentSection).offset().top -60);
+                    $(window).scrollTop($(currentSection).offset().top - 60);
                 }
 
-                
+
             });
-       },
-       DoGlobalShowMore = function(){
+        },
+        DoGlobalShowMore = function() {
             var ShowMoreLink = SearchContent.find(".btn-showMore");
 
-            ShowMoreLink.off("click").on("click", function(e){
+            ShowMoreLink.off("click").on("click", function(e) {
                 e.preventDefault();
                 var Section = $(this).parents(".product-results").eq(0),
                     ProdData = INFORMA.ResourceFilter.GetResourceData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     DefaultData = GetDefaultValues(),
-                    Data = INFORMA.ProductFinder.MergeData(ProdData,FilterData,DefaultData);
+                    Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
 
                 Data.PageNo = PageNo;
 
-                if(SearchType === "SearchResult") {
+                if (SearchType === "SearchResult") {
                     Data.SearchText = $('input[name="SearchText"]').val();
                 }
-                GetAjaxData(Urls[SearchType], "Post", Data,ParseSearchData, null, $(this));
-                
+                GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, $(this));
+
             });
 
             DoLinksEvents();
-       },
-       ToggleView = function() {
+        },
+        ToggleView = function() {
             var toggleButtons = $(".search-container .view-mode li");
             toggleButtons.on("click", function(e) {
                 e.preventDefault();
@@ -266,87 +269,102 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     parentEle.removeClass("tileView listView");
                     parentEle.addClass(currentView);
                 }
-                
+
                 EqualHeight();
-                
+
             });
         },
-        UpdateRefineSection = function(Data, Type){
-
-                for (var i = 0; i < Data.length; i++) {
-                        var Results = Data[i], Html ='',
-                            FacetList = Results.FacetItem,
-                            CurrentClass = Results.ClassName,
-                            CurrentSection = RefineSection.find("."+CurrentClass),
-                            GetAllCheckBox =  CurrentSection.find("input[type=checkbox]"),
-                            TemplateName = (Templates["RefineFacets"]) ? Templates["RefineFacets"] : "",
-                            ListTemplate = Handlebars.compile(TemplateName);
-
-                    if(CurrentSection && FacetList){
-                            Html = ListTemplate({ results: FacetList });
-                            CurrentSection.find("ul").html(Html);
-                            INFORMA.SearchResultFilter.BindRefineEvents();
+        UpdateRefineSection = function(Data, Type) {
+            for (var key in Data) {
+                if (Data.hasOwnProperty(key) && Data[key]) {
+                    var RefineObj = Data[key],
+                        CurrentSection = key;
+                    if (RefineObj && CurrentSection) {
+                        var Facet = RefineSection.find("#"+CurrentSection),
+                            CheckBoxes = Facet.find("input[type=checkbox]");
+                        if (CheckBoxes && Facet && RefineObj.length) {
+                            $.each(CheckBoxes, function() {
+                                 var CurrentChkBoxVal = $(this).attr("value");
+                                     if (RefineObj.contains(CurrentChkBoxVal)) {
+                                        $(this).removeAttr("disabled");
+                                     }else{
+                                        $(this).attr("disabled","disabled");
+                                     }
+                            });
+                        }
+                        if(CheckBoxes && Facet && RefineObj.length<1){
+                            $.each(CheckBoxes, function() {         
+                                 $(this).attr("disabled","disabled");
+                            });
+                        }
                     }
                 }
+            }
         },
         CreateSearchResult = function(Data) {
-            var FinalHTml='',Title,ShowMoreText;
+            var FinalHTml = '',
+                Title, ShowMoreText;
             for (var i = 0; i < Data.length; i++) {
-                var Results = Data[i], TemplateName, ListTemplate, 
-                    HeroTemplate, HeroHandlebar, Html='', ContentType,
+                var Results = Data[i],
+                    TemplateName, ListTemplate,
+                    HeroTemplate, HeroHandlebar, Html = '',
+                    ContentType,
                     Lists = Results.Results;
-                    HeroTemplate = (Templates.SearchTemplate) ? Templates.SearchTemplate : "";
-                    HeroHandlebar = Handlebars.compile(HeroTemplate);
+                HeroTemplate = (Templates.SearchTemplate) ? Templates.SearchTemplate : "";
+                HeroHandlebar = Handlebars.compile(HeroTemplate);
 
-                if(Lists){
-                    for (var j = 0; j < Lists.length; j++) { 
-                        if(Lists[j].Category){
+                if (Lists) {
+                    for (var j = 0; j < Lists.length; j++) {
+                        if (Lists[j].Category) {
                             ContentType = Lists[j].Category;
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                             ListTemplate = Handlebars.compile(TemplateName);
-                            Html+= ListTemplate({ results: Lists[j] });
+                            Html += ListTemplate({ results: Lists[j] });
                         }
                     }
 
                     Results.Content = Html;
                     SearchContent.find(".product-results").remove();
-                    FinalHTml += HeroHandlebar({ results: Results });                    
+                    FinalHTml += HeroHandlebar({ results: Results });
                 }
             }
             SearchContent.find('.container').append(FinalHTml);
             EqualHeight();
-            if(SearchType === "ProductSearch") {
+            if (SearchType === "ProductSearch") {
                 DoPagination();
             } else {
                 DoGlobalShowMore();
             }
         },
         CreateSubItems = function(Data, Button, RemainingCount) {
-            var FinalHTml='',Title,ShowMoreText;
-                var Results = Data[0], TemplateName, ListTemplate, Html='', ContentType,
-                    Lists = Results.Results;
-                    ShowMoreText = (Results.ShowMoreText) ? Results.ShowMoreText:"";
-                if(Lists){
-                    for (var j = 0; j < Lists.length; j++) { 
-                        if(Lists[j].Category){
-                            ContentType = Lists[j].Category;
-                            TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
-                            ListTemplate = Handlebars.compile(TemplateName);
-                            Html+= ListTemplate({ results: Lists[j] });
-                        }
+            var FinalHTml = '',
+                Title, ShowMoreText;
+            var Results = Data[0],
+                TemplateName, ListTemplate, Html = '',
+                ContentType,
+                Lists = Results.Results;
+            ShowMoreText = (Results.ShowMoreText) ? Results.ShowMoreText : "";
+            if (Lists) {
+                for (var j = 0; j < Lists.length; j++) {
+                    if (Lists[j].Category) {
+                        ContentType = Lists[j].Category;
+                        TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
+                        ListTemplate = Handlebars.compile(TemplateName);
+                        Html += ListTemplate({ results: Lists[j] });
                     }
-                    // debugger;
-                    $(Button).parents('.product-results').find(".list").append(Html);
-                    EqualHeight();
-                    
-                    if(SearchType != "ProductSearch") {
-                        if(RemainingCount < 1) {
-                            $(Button).addClass("hidden");
-                        }
-                    }
-
                 }
-            if(SearchType === "ProductSearch") {
+                // debugger;
+                $(Button).parents('.product-results').find(".list").append(Html);
+                EqualHeight();
+
+                if (SearchType != "ProductSearch") {
+                    if (RemainingCount < 1) {
+                        $(Button).addClass("hidden");
+                    }
+                }
+
+            }
+            if (SearchType === "ProductSearch") {
                 DoPagination();
             } else {
                 DoGlobalShowMore();
@@ -354,10 +372,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
         },
         CreateSearchTags = function(SiteFacets) {
-            if(!$.isEmptyObject(SiteFacets)) {
+            if (!$.isEmptyObject(SiteFacets)) {
                 var Html = "";
-                for(var key in SiteFacets) {
-                    Html += "<li><a href='#' name='"+SiteFacets[key].Name+"' data-check='"+SiteFacets[key].Check+"'' data-contenttype='"+ SiteFacets[key].ItemId +"'><strong>"+ SiteFacets[key].Count +"</strong>"+SiteFacets[key].Value+"</li>";
+                for (var key in SiteFacets) {
+                    Html += "<li><a href='#' name='" + SiteFacets[key].Name + "' data-check='" + SiteFacets[key].Check + "'' data-contenttype='" + SiteFacets[key].ItemId + "'><strong>" + SiteFacets[key].Count + "</strong>" + SiteFacets[key].Value + "</li>";
                 }
                 $('.items-found').html(Html);
             }
@@ -366,15 +384,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ParseSearchData = function(data, Button) {
             if (Object.keys(data).length) {
                 var ProductResults = (data.ProductListing !== undefined) ? data.ProductListing : false,
-                    Refine = (data.FacetSections !== undefined) ? data.FacetSections : false,
+                    Refine = (data.UpdatedFacets !== undefined) ? data.UpdatedFacets : false,
                     AppendItemsFlag = (data.AppendItemsFlag !== undefined) ? data.AppendItemsFlag : false,
-                    FacetDescription = (data.FacetDescription !=null && data.FacetDescription.length > 0) ? data.FacetDescription : false,
+                    FacetDescription = (data.FacetDescription != null && data.FacetDescription.length > 0) ? data.FacetDescription : false,
                     RemainingCount = (data.RemainingCount !== undefined) ? data.RemainingCount : false;
 
                 if (ProductResults && Object.keys(ProductResults).length && AppendItemsFlag != true) {
                     CreateSearchResult(ProductResults);
                     SearchContent.find('.results').find('strong').html(data.ProductFound);
-                    if(data.ProductFound == 0) {
+                    if (data.ProductFound == 0) {
                         $('.items-found').hide();
                         $('.product-results').hide();
                     } else {
@@ -382,17 +400,17 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         $('.product-results').show();
                     }
                     SearchContent.find('.product-results').attr('data-pagesize', data.DefaultItemCount);
-                    if(FacetDescription) {
+                    if (FacetDescription) {
                         CreateSearchTags(FacetDescription);
                     }
-                    if(Refine && Object.keys(Refine).length){
+                    if (Refine && Object.keys(Refine).length) {
                         UpdateRefineSection(Refine);
                     }
                 }
-                if(AppendItemsFlag == true) {
+                if (AppendItemsFlag == true) {
                     CreateSubItems(ProductResults, Button, RemainingCount);
                 }
-                
+
             } else {
                 $('.product-results').html(data);
             }
@@ -404,16 +422,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             if (IsProductPage) {
                 SearchType = "ProductSearch";
-                if($("input[name=searchResultsPageUrl]") && $("input.SeeAllResultInput")){
-                    var Value = $("input[name=searchResultsPageUrl]").val()+'?searchText=*';
+                if ($("input[name=searchResultsPageUrl]") && $("input.SeeAllResultInput")) {
+                    var Value = $("input[name=searchResultsPageUrl]").val() + '?searchText=*';
                     $("input.SeeAllResultInput").val(Value);
                 }
             }
             if (IsSearchPage) {
                 SearchType = "SearchResult";
             }
-            if(IsResourcePage && (!IsProductPage && !IsSearchPage)){
-                SearchType ="ResourceResult";
+            if (IsResourcePage && (!IsProductPage && !IsSearchPage)) {
+                SearchType = "ResourceResult";
             }
 
             if (IsProductPage && SectorHidden.length > 0) {
@@ -422,7 +440,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (SVal) {
                     var SectorSelect = ProductFinderSection.find("select.Sector");
                     UpdateResultPage(SectorSelect, SVal, SubSecVal);
-                } 
+                }
             }
             if ((IsSearchPage && SearchHidden.length > 0) || (ProductSearchText)) {
                 var SearchVal = SearchHidden.val(),
@@ -432,16 +450,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
                 if (SearchText) {
                     $('li.search').trigger('click');
-                } 
+                }
             }
-            if(ShowMoreLink && IsProductPage){
+            if (ShowMoreLink && IsProductPage) {
                 DoPagination();
             }
-            if(ShowMoreLink && (IsResourcePage)){
+            if (ShowMoreLink && (IsResourcePage)) {
                 DoGlobalShowMore();
                 DoLinksEvents();
             }
-            if(ShowMoreLink && (IsSearchPage)){
+            if (ShowMoreLink && (IsSearchPage)) {
                 DoGlobalShowMore();
                 DoLinksEvents();
             }

@@ -26,7 +26,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         SearchType = '',
 
         // methods
-        init, SelectAllCheckBox, BindRefineEvents, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
+        init, SelectAllCheckBox, BindRefineEvents, ClearAllLinkBinding, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.Spinner.Show($("body"));
@@ -73,7 +73,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         },
         DoRefine = function() {
             var ProductData = INFORMA.ProductFinder.GetProductData(),
-                FilterData = INFORMA.SearchResultFilter.GetRefineData(),
+                FilterData = GetSelectedFilter(),
                 DefaultData = INFORMA.SearchResults.DefaultParameters(),
                 Data = INFORMA.ProductFinder.MergeData(ProductData, FilterData, DefaultData);
 
@@ -110,6 +110,17 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 }
                 DoRefine();
             });
+        },
+        ClearAllLinkBinding = function(obj){
+            obj.on("click", function(e) {
+                e.preventDefault();
+                var AllCheckBox = $(".refine-container .custom-checkbox input");
+                $.each(AllCheckBox, function() {
+                    $(this).prop("checked", false);
+                });
+                DoRefine();
+            });
+
         },
         BindRefineEvents = function() {
             $.each(RefineSection, function() {
@@ -148,16 +159,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 $(this).parent().find("ul li").removeClass("hidden");
                 $(this).removeClass("show");
             });
-
-            ClearAllLink.on("click", function(e) {
-                e.preventDefault();
-                var AllCheckBox = $(".refine-container .custom-checkbox input");
-                $.each(AllCheckBox, function() {
-                    $(this).prop("checked", false);
-                });
-                DoRefine();
-            });
-
+            ClearAllLinkBinding(ClearAllLink);
         },
         init = function() {
             var IsProductPage = (ProductFinderSection.data("product") === true) ? true : false,
@@ -171,13 +173,42 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 SearchType = "SearchResult";
             }
 
-            if (IsResourcePage && (!IsProductPage && IsSearchPage)) {
+            if (IsResourcePage && (!IsProductPage && !IsSearchPage)) {
                 SearchType = "ResourceResult";
             }
 
             if (SelectAll && RefineCheckBox) {
+                var ViewPort = INFORMA.global.device.viewportN;
+
+                if(ViewPort===1|| ViewPort===2){
+                    var AllRefineText = $(".refine-container").find("p.heading"),
+                        ClearAll = $(".refine-container").find("a.clear-all"),
+                        ClearHtml = $('<div class="clear-mobile"><a href="#" class="clear-all">'+ClearAll.html()+'</a></div>');
+
+                    $("body").find(".refine-container").after(ClearHtml);
+                    if(AllRefineText.hasClass("heading-collapsed")!==true){
+                        ClearHtml.show();
+                    };
+
+                    AllRefineText.off().on("click", function(){
+                        var RefineContent = $(this).parent().find("#refine-list");
+                        if($(this).hasClass("heading-collapsed")!==true){
+                            RefineContent.slideUp("slow");
+                             $(this).addClass("heading-collapsed");
+                             ClearHtml.hide();
+                        }else{
+                             RefineContent.slideDown("slow");
+                            $(this).removeClass("heading-collapsed");
+                            ClearHtml.show();
+                        }
+                    });
+                }
                 SelectAllCheckBox();
                 BindRefineEvents();
+                var ClearMobileLink = $("body").find(".refine-container clear-mobile a");
+                if(ClearMobileLink){
+                    ClearAllLinkBinding(ClearMobileLink);
+                }
             }
         };
     return {
