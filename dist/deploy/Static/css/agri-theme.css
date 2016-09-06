@@ -416,3 +416,32 @@
   height: 100px;
   background-color: rgba(255, 214, 0, 0.8);
 }
+/* line 755, ../../../src/sass/global/_mixins.scss */
+.agri-theme .tab-pane .error-response,
+.agri-theme .tab-pane .submit-response {
+  padding-left: 85px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+@media (max-width: 767px) {
+  /* line 755, ../../../src/sass/global/_mixins.scss */
+  .agri-theme .tab-pane .error-response,
+  .agri-theme .tab-pane .submit-response {
+    padding-left: 7px;
+    padding-right: 5px;
+  }
+}
+/* line 764, ../../../src/sass/global/_mixins.scss */
+.agri-theme .tab-pane .error-response h2,
+.agri-theme .tab-pane .submit-response h2 {
+  font-size: 36px;
+  color: #ffffff;
+}
+/* line 767, ../../../src/sass/global/_mixins.scss */
+.agri-theme .tab-pane .error-response h2:before,
+.agri-theme .tab-pane .submit-response h2:before {
+  content: "\e914";
+  left: -60px;
+  font-family: "InformaIcons";
+  color: secondarycolordark;
+}

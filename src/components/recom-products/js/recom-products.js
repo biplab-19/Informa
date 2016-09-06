@@ -18,7 +18,21 @@ INFORMA.news_flash = (function(window, $, namespace) {
         _productsList = _recommendedproducts.find('.recom-prod-carousel'),
     // methods
         init,
-        _createSlider;
+        _createSlider,
+        EqualHeightProducts;
+
+        EqualHeightProducts = function() {
+            var Items = _recommendedproducts.find('.wrap-content');
+            
+                Items.each(function() {
+                    var ItemHeight = $(this).outerHeight();
+                    if (ItemHeight > MaxHeight) {
+                        MaxHeight = ItemHeight;
+                    }
+                })
+                Items.height(MaxHeight);
+
+        },
         _createSlider = function(container){
             // if data-items, data-infinite is defined, used it
             var _slideCount = container.data('itemsperframe'),
@@ -66,6 +80,7 @@ INFORMA.news_flash = (function(window, $, namespace) {
     init = function() {
         if (_productsList.length > 0) {
             _createSlider(_productsList);
+            EqualHeightProducts();
         }
     }
 
