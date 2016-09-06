@@ -374,8 +374,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         CreateSearchTags = function(SiteFacets) {
             if (!$.isEmptyObject(SiteFacets)) {
                 var Html = "";
-                for (var key in SiteFacets) {
-                    Html += "<li><a href='#' name='" + SiteFacets[key].Name + "' data-check='" + SiteFacets[key].Check + "'' data-contenttype='" + SiteFacets[key].ItemId + "'><strong>" + SiteFacets[key].Count + "</strong>" + SiteFacets[key].Value + "</li>";
+                for (var i = 0; i < SiteFacets.length; i++) {
+                    Html += "<li><a href='#' name='" + SiteFacets[i].Name + "' data-check='" + SiteFacets[i].Check + "'' data-contenttype='" + SiteFacets[i].ItemId + "'><strong>" + SiteFacets[i].Count + "</strong>" + SiteFacets[i].Value + "</li>";
                 }
                 $('.items-found').html(Html);
             }
