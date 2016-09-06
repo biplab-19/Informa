@@ -130,11 +130,12 @@ INFORMA.ArticleList = (function(window, $, namespace) {
 
         headLineEqualHeight = function () {
             var items = _HeadlinesLists.find('.slick-slide'),
-                maxHeight = 0;
+                maxHeight = 0,
+                Padding = 40;
                 items.each(function () {
                     var Height = $(this).height();
                     if(Height > maxHeight) {
-                        maxHeight = Height;
+                        maxHeight = Height + Padding;
                     }
                 })
                 items.css('height', maxHeight);
