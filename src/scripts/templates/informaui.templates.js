@@ -584,7 +584,7 @@ var INFORMA = window.INFORMA || {};
                                             '<a href="{{results.MoreLink}}" target="_blank" class="btn btn-default">{{results.DetailText}}</a>'+
                                         '</div>'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="javascript:void(0)" data-toggle="modal" data-modal="#results.FreeTrialLink.CTAType" data-productid="results.FreeTrialLink.ProductGuid" class="btn btn-primary free-trial wffm-elq-form-btn">'+
+                                            '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.FreeTrialLink.CTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
                                                 '{{results.CtaText}}'+
                                             '</a>'+
                                         '</div>'+
