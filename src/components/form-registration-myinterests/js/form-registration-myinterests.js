@@ -115,7 +115,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _showRegisterForm = function() {
-        _showRegisterFormBtn.on('click', function(e) {
+        _showRegisterFormBtn.off().on('click', function(e) {
 
             if ($(this).attr('data-show-register') == 'true') {
                 e.preventDefault();
