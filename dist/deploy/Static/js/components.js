@@ -2720,7 +2720,7 @@ INFORMA.forms = (function(window, $, namespace) {
         }
 
         //Email validation logic
-        $('form.get-in-touch .contact-details .scfEmailBorder, form.request-a-demo .contact-details .scfEmailBorder').each(function() {
+        $('.wffm-form').find('input[type="email"]').each(function() {
             $(this).blur(function() {
                 if (_validateEmail($(this).val()))
                     if ($(this).next().children().length == 0)
