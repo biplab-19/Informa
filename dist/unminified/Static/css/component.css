@@ -725,7 +725,8 @@ section#hero-banner .analyst-single-image .image-margin {
 /* line 9, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list h3 {
   word-wrap: break-word;
-  height: 55px;
+  height: 80px;
+  padding-top: 10px;
   overflow: hidden;
   font-size: 24px;
   font-family: FSMe-Light;
@@ -744,50 +745,50 @@ section#hero-banner .analyst-single-image .image-margin {
     height: auto;
   }
 }
-/* line 24, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 25, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .content {
   line-height: 1.6em;
   overflow: hidden;
   min-height: 75px;
 }
-/* line 36, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 37, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .icon {
   width: 100px;
   height: 100px;
   margin: 0 auto;
 }
 @media (max-width: 767px) {
-  /* line 36, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 37, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .icon {
     width: 15%;
     height: 15%;
   }
 }
-/* line 44, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 45, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .icon img {
   padding-bottom: 20px;
 }
 @media (max-width: 767px) {
-  /* line 44, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 45, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .icon img {
     width: 100%;
     height: 100%;
   }
 }
-/* line 52, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 53, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products {
   height: 90px;
   padding: 15px 0 25px;
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 52, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 53, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list ul.sector-list-products {
     position: static;
     height: auto;
   }
 }
-/* line 61, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 62, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li {
   font-family: FSMe-Bold;
   display: inline;
@@ -797,11 +798,11 @@ section#hero-banner .analyst-single-image .image-margin {
   margin: 0;
   padding: 0;
 }
-/* line 70, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 71, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li a {
   color: #6a7287;
 }
-/* line 74, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 75, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li:after {
   content: "";
   width: 0.7px;
@@ -809,22 +810,22 @@ section#hero-banner .analyst-single-image .image-margin {
   border-left: 2px solid #a6aab6;
   margin: 0 0.625em;
 }
-/* line 82, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 83, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list ul.sector-list-products li:last-child:after {
   content: "";
   border-left: none;
 }
-/* line 86, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 87, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .view-all-sectors-btn-container {
   display: none;
 }
-/* line 90, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 91, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .sector-card {
   padding: 30px;
   height: 480px;
   background: #e1e2e7;
 }
-/* line 102, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+/* line 103, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .sector-card .btn-container {
   width: 75%;
   margin: 0 auto;
@@ -834,24 +835,24 @@ section#hero-banner .analyst-single-image .image-margin {
   right: 0;
 }
 @media (max-width: 767px) {
-  /* line 102, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 103, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .sector-card .btn-container {
     width: 92%;
     position: static;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 102, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 103, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .sector-card .btn-container {
     width: 92%;
   }
 }
 @media (max-width: 767px) {
-  /* line 129, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 130, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .container > .row + .row > .text-center:nth-child(n+3) {
     display: none;
   }
-  /* line 133, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 134, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .view-all-sectors-btn-container {
     display: block;
     width: 100px;
@@ -860,11 +861,11 @@ section#hero-banner .analyst-single-image .image-margin {
     cursor: pointer;
     margin-bottom: 15px;
   }
-  /* line 142, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 143, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .informa-icon {
     font-size: 30px;
   }
-  /* line 146, ../../../src/components/home-sector-list/sass/_sector-list.scss */
+  /* line 147, ../../../src/components/home-sector-list/sass/_sector-list.scss */
   .sector-list .btn-container {
     width: 92%;
     margin: 0 auto;
