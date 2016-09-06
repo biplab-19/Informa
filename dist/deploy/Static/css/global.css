@@ -11101,9 +11101,9 @@ header section.informaNav .nav-main {
   position: absolute;
   width: 100%;
   min-height: 0;
-  -webkit-transition: width 0.5s;
+  -webkit-transition: all 0.5s;
   /* Safari 3.1 to 6.0 */
-  transition: width 0.5s;
+  transition: all 0.5s;
 }
 /* line 958, ../../../src/sass/global/_header.scss */
 #sub-nav .topic {
@@ -11853,6 +11853,10 @@ footer section#privacy .disclaimer-copyright {
   font-size: 13px;
   margin: 30px 0 0;
 }
+/* line 240, ../../../src/sass/global/_footer.scss */
+footer section#privacy .disclaimer-copyright p {
+  color: #ffffff;
+}
 @media (max-width: 767px) {
   /* line 237, ../../../src/sass/global/_footer.scss */
   footer section#privacy .disclaimer-copyright {
@@ -11860,46 +11864,46 @@ footer section#privacy .disclaimer-copyright {
     text-align: center;
   }
 }
-/* line 244, ../../../src/sass/global/_footer.scss */
+/* line 247, ../../../src/sass/global/_footer.scss */
 footer section#privacy .disclaimer-copyright + .bottom-logo {
   padding: 25px 0 0;
 }
-/* line 246, ../../../src/sass/global/_footer.scss */
+/* line 249, ../../../src/sass/global/_footer.scss */
 footer section#privacy .disclaimer-copyright + .bottom-logo img {
   display: block;
   float: right;
 }
 @media (max-width: 767px) {
-  /* line 246, ../../../src/sass/global/_footer.scss */
+  /* line 249, ../../../src/sass/global/_footer.scss */
   footer section#privacy .disclaimer-copyright + .bottom-logo img {
     float: none;
     margin: 0 auto;
   }
 }
-/* line 257, ../../../src/sass/global/_footer.scss */
+/* line 260, ../../../src/sass/global/_footer.scss */
 footer ul.slick-dots {
   text-align: center;
   width: 100%;
   bottom: -27px;
 }
 @media (max-width: 767px) {
-  /* line 257, ../../../src/sass/global/_footer.scss */
+  /* line 260, ../../../src/sass/global/_footer.scss */
   footer ul.slick-dots {
     bottom: -40px;
   }
 }
-/* line 264, ../../../src/sass/global/_footer.scss */
+/* line 267, ../../../src/sass/global/_footer.scss */
 footer ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background: #6a7285;
 }
-/* line 269, ../../../src/sass/global/_footer.scss */
+/* line 272, ../../../src/sass/global/_footer.scss */
 footer ul.slick-dots li button:before {
   content: '';
 }
-/* line 272, ../../../src/sass/global/_footer.scss */
+/* line 275, ../../../src/sass/global/_footer.scss */
 footer ul.slick-dots li.slick-active {
   background: #ef7c00;
 }
