@@ -238,7 +238,7 @@ $desktop-width: 1142px;
       section.newsFlash .newsbox{
         @extend .secondry-light-bg;
         @if($name == pharma-theme){
-          .news-desc,.news-title,span{
+          .news-desc,.news-title,span,strong,.read,.read:after{
             color: $white;
           }
         } 
@@ -446,6 +446,51 @@ $desktop-width: 1142px;
         .informa-icon{
           color: $secondarycolorlight;
         }
+    }
+
+    .events-list{
+      .btn-more-events{
+        border: 0;
+        border-bottom: 2px solid $secondarycolorlight !important;
+        min-width: auto;
+        width: 100px;
+        margin-top: 20px;
+        @include mobile{
+          padding: 0;
+          text-align: left;
+        }
+        .more,.less{
+          &:after{
+            background-color: $secondarycolorlight;
+            right:0;
+          }
+         } 
+       } 
+        .fc-event-container .events p.title:before{
+          background: $secondarycolorlight;
+        }
+        .header {
+          .arrows{
+            background: $secondarycolorlight;
+            &.arrow-desabled{
+              background-color: grey;
+            }
+          }
+        } 
+    } 
+
+    .fc-state-default.fc-corner-right, .fc-state-default.fc-corner-left{
+      background: $secondarycolorlight;
+      &.disabled{
+        background-color: grey;
+      }
+    }
+    .fc-center{
+      h2{
+         @include mobile{
+          padding: 0;
+        }
+      }
     }
     .twitter-carousel{
       @if($name == pharma-theme){
