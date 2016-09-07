@@ -1,4 +1,4 @@
-/*! 2016-09-07 */
+/*! 2016-09-06 */
 /*
  * welcome-description
  *
@@ -1939,18 +1939,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _updateProductVertical,
         Urls = INFORMA.Configs.urls.webservices,
         _parseResults,
-        _bindNumber,
-        _clearFormInput,
-        _bindToggleTab,
-        _destroyMultiSelect;
+        _bindNumber;
 
     //methods
-    _clearFormInput = function(form){
-      form.find('input[type=text], input[type=password], input[type=number], input[type=email], textarea').val('');
-      form.find('.area-interests-guid').val('');
-      form.find('.area-interests-text').val('');
-      form.find(".field-validation-error span").hide();
-    }
     _parseResults = function(data) {
             $('span.product-name-holder').html(data.ProductName);
             $('.product-name-holder').val(data.ProductName);
@@ -2004,7 +1995,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         //Email validation logic
         if (_validateEmail($(element).val()))
             if ($(element).next().children().length == 0)
-                $(element).next().prepend("<span class='field-validation-error email-error'>E-mail is not in the valid domain list</span>");
+                $(element).next().prepend("<span class='field-validation-error'>E-mail is not in the valid domain list</span>");
 
     }
     _bindValidationLogic = function() {
@@ -2021,53 +2012,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         });
 
     }
-    _bindToggleTab = function(){
-      $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-        if (_myinterestForm.valid() == true) {
-          var $target = $(e.target);
-          if ($target.attr('href') == "#step2" && $target.parent().attr('class') == 'active') {
-              _recommendedTipsContainer.css('display', 'block');
-          } else {
-              _recommendedTipsContainer.css('display', 'none');
-          }
-          if ($target.parent().hasClass('disabled')) {
-              return false;
-          }
-        }else{
-           e.preventDefault();
-        }
-      });
-    }
     _showRegisterFormPopup = function() {
         _myinterestsModal.find('.modal-body').empty();
         _myinterestsModal.find('.modal-body').append(_myinterestsSection);
         _myinterestsModal.find('.modal-body .container').removeClass('container');
-        _clearFormInput(_myinterestForm);
-        _yourinterestguid = [];
-        _yourinterestitem = [];
-        var resetFormValidate = _myinterestForm.removeData("validator").removeData("unobtrusiveValidation");
-        $.validator.unobtrusive.parse(resetFormValidate);
         var $active = $('.form-progressive-wizard .triangle-nav li.active');
         if($active){
             _showPrevTab($active);
         }
-        _bindToggleTab();
-        _destroyMultiSelect();
-        _renderMultiSelect();
-
-        $.each($('.custom-multiselect'), function(){
-          var secondBtnGroup = $(this).find('.btn-group').eq(1);
-          if(secondBtnGroup){
-            secondBtnGroup.remove();
-          }
-        });
-
-        $.each($('.select-wrapper'), function(){
-          var secondBtnGroup = $(this).find('.btn-group').eq(1);
-          if(secondBtnGroup){
-            secondBtnGroup.remove();
-          }
-        });
         _myinterestsModal.modal('show');
     }
 
@@ -2081,21 +2033,12 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
     }
-
+    _updateMultiSelect = function() {
+        console.log('_updateMultiSelect');
+    }
     _renderRecommendedTips = function() {
         _recommendedTipsContainer.append(_recommendedTips).css('display', 'none');
 
-    }
-    _destroyMultiSelect = function(){
-      _myinterestForm.find('select').multiselect('rebuild');
-      var findMultipleSelect = _myinterestForm.find('select');
-      if (findMultipleSelect.length > 0) {
-          $.each(findMultipleSelect, function(i) {
-              if ($(this).attr('multiple') == 'multiple') {
-                    $(this).multiselect('destroy');
-                }
-          });
-      }
     }
     _renderAllContainers = function() {
         _myinterestForm.append(_myinterestFormContainer);
@@ -2132,7 +2075,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         if (findMultipleSelect.length > 0) {
             $.each(findMultipleSelect, function(i) {
                 if ($(this).attr('multiple') == 'multiple') {
-                    $(this).multiselect('destroy');
                     var placeHolder = $(this).attr('placeHolder');
                     $(this).multiselect({
                         buttonText: function(options, select) {
@@ -2168,14 +2110,15 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _showSelectAll = function(select) {
-        $(this.$container).parent().find("select").addClass("active");
+         $(this.$container).parent().find("select").addClass("active");
         $(this.$container).find('.select-all-bottom').css('display', 'block');
     }
     _hideSelectAll = function() {
          $(this.$container).parent().find("select").removeClass("active");
-         $(this.$container).find('.select-all-bottom').css('display', 'none');
+        $(this.$container).find('.select-all-bottom').css('display', 'none');
     }
     _updateMultiSelect = function(option, checked, select) {
+
         if (option) {
             if (checked) {
                 _yourinterestitem.push(option.text());
@@ -2190,20 +2133,18 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
     }
     _SelectAll = function(){
+
         var Element = $(".select-all-bottom a"),
             IsAllSelected = false;
+
         if(Element){
             Element.on("click",function(e){
                 e.preventDefault();
                 if(!IsAllSelected){
                     var CurrentSelect = $(this).parents('.form-group').find("select");
                         CurrentSelect.multiselect("selectAll",true);
-                        var CurrentVals = CurrentSelect.val();
-                        var CurrentTxt = CurrentSelect.find('option').map(function(){
-                              return $(this).text();
-                          }).get();
-
-                          //  CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
+                        var CurrentVals = CurrentSelect.val(),
+                            CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
 
                         _yourinterestitem.push(CurrentTxt);
                         _yourinterestguid.push(CurrentVals);
@@ -2214,12 +2155,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 }else{
                     var CurrentSelect = $(this).parents('.form-group').find("select");
                      CurrentSelect.multiselect("deselectAll",false);
-                        var CurrentVals = CurrentSelect.val();
-                        var CurrentTxt = CurrentSelect.find('option').map(function(){
-                              return $(this).text();
-                          }).get();
-
-                   _yourinterestitem.splice($.inArray(CurrentTxt, _yourinterestitem), 1);
+                        var CurrentVals = CurrentSelect.val(),
+                            CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
+                     _yourinterestitem.splice($.inArray(CurrentTxt, _yourinterestitem), 1);
                     _yourinterestguid.splice($.inArray(CurrentVals, _yourinterestguid), 1);
                     _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
                     _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
@@ -2230,15 +2168,26 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         }
     }
     _showProgressiveTabs = function() {
-        _bindToggleTab();
+        //  $('.triangle-nav > li a[title]').tooltip();
+        $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+            var $target = $(e.target);
+            if ($target.attr('href') == "#step2" && $target.parent().attr('class') == 'active') {
+                _recommendedTipsContainer.css('display', 'block');
+            } else {
+                _recommendedTipsContainer.css('display', 'none');
+            }
+            if ($target.parent().hasClass('disabled')) {
+                return false;
+            }
+        });
+
         $(document).on('click', '.next-step',  function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             $active.next().removeClass('disabled');
             var EmailTag = $('form.register-myinterests-form input[type=email]');
             _validateEmailDomainMsg(EmailTag);
             //_validateForm();
-            var emailError = $('form.register-myinterests-form').find('.email-error');
-            $('form.register-myinterests-form').find('.field-validation-error span').css('display', 'block');
+            var emailError = $('form.register-myinterests-form').find('.field-validation-error');
             if (emailError.length == 0) {
                 if (_myinterestForm.valid() == true) {
                     var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
@@ -2315,7 +2264,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _appendSteps();
         _wrapFormContainer();
         _renderAllContainers();
-        //_renderMultiSelect();
         _validateForm();
         _renderRecommendedTips();
         _validateMultiSelct();
@@ -4615,9 +4563,8 @@ INFORMA.news_flash = (function(window, $, namespace) {
         EqualHeightProducts;
 
         EqualHeightProducts = function() {
-            var Items = _recommendedproducts.find('.wrap-content'),
-                MaxHeight = 0;
-                Items.height('auto');
+            var Items = _recommendedproducts.find('.wrap-content');
+            
                 Items.each(function() {
                     var ItemHeight = $(this).outerHeight();
                     if (ItemHeight > MaxHeight) {
@@ -4674,9 +4621,7 @@ INFORMA.news_flash = (function(window, $, namespace) {
     init = function() {
         if (_productsList.length > 0) {
             _createSlider(_productsList);
-            setTimeout(function() {
-                EqualHeightProducts();
-            }, 500);
+            EqualHeightProducts();
         }
     }
 

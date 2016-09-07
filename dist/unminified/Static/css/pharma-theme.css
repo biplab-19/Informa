@@ -447,13 +447,32 @@
   height: 100px;
   background-color: rgba(98, 66, 139, 0.8);
 }
-/* line 757, ../../../src/sass/global/_mixins.scss */
+/* line 755, ../../../src/sass/global/_mixins.scss */
+.pharma-theme .tab-pane .error-response,
+.pharma-theme .tab-pane .submit-response {
+  padding-left: 85px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+}
+@media (max-width: 767px) {
+  /* line 755, ../../../src/sass/global/_mixins.scss */
+  .pharma-theme .tab-pane .error-response,
+  .pharma-theme .tab-pane .submit-response {
+    padding-left: 7px;
+    padding-right: 5px;
+  }
+}
+/* line 764, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .tab-pane .error-response h2,
 .pharma-theme .tab-pane .submit-response h2 {
+  font-size: 36px;
   color: #ffffff;
 }
-/* line 759, ../../../src/sass/global/_mixins.scss */
+/* line 767, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .tab-pane .error-response h2:before,
 .pharma-theme .tab-pane .submit-response h2:before {
-  color: secondarycolordark;
+  content: "\e914";
+  left: -60px;
+  font-family: "InformaIcons";
+  color: #62428b;
 }
