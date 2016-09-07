@@ -1,4 +1,4 @@
-/*! 2016-09-06 */@charset "UTF-8";
+/*! 2016-09-07 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -9765,7 +9765,11 @@ section.samplecontent-freearticle .quick-facts ul li:before {
     padding-right: 25px;
   }
 }
-/* line 12, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 11, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+.pdp-brochure .list-title p {
+  color: #ffffff;
+}
+/* line 16, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .brochure-btn a {
   text-align: center;
   text-decoration: none;
@@ -9776,12 +9780,12 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   font-family: FSMe-bold;
 }
 @media (max-width: 767px) {
-  /* line 12, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 16, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure .brochure-btn a {
     width: 100%;
   }
 }
-/* line 26, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 30, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure p {
   padding-bottom: 10px;
   font-family: FSMe;
@@ -9789,27 +9793,26 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   font-size: 16px;
 }
 @media (max-width: 767px) {
-  /* line 26, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 30, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure p {
     font-size: 14px;
     padding-top: 15px;
     padding-bottom: 15px;
   }
 }
-/* line 38, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 42, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .list-title {
   font-family: FSMe-bold;
   padding-bottom: 10px;
-  color: #ffffff;
 }
-/* line 43, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 46, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure h2 {
   font-family: FSMe-light;
   color: #f0f1f3;
   font-size: 30px;
 }
 @media (max-width: 767px) {
-  /* line 43, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 46, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure h2 {
     font-size: 18px;
     padding-left: 35px;
@@ -9817,26 +9820,26 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   }
 }
 @media (min-width: 1142px) {
-  /* line 43, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 46, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure h2 {
     padding-bottom: 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 43, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 46, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure h2 {
     padding-bottom: 25px;
   }
 }
-/* line 60, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 63, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-without-icon {
   padding-left: 0;
 }
-/* line 63, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 66, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-with-icon {
   padding-left: 50px;
 }
-/* line 66, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 69, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-with-icon:before {
   font-family: "InformaIcons";
   content: "\e91f";
@@ -9845,17 +9848,17 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   font-size: 46px;
 }
 @media (max-width: 767px) {
-  /* line 66, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 69, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure .pdp-with-icon:before {
     font-size: 33px;
     left: 8px;
   }
 }
-/* line 79, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 82, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-without-icon {
   padding-left: 0;
 }
-/* line 82, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 85, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure .pdp-with-icon {
   padding-left: 50px;
 }
@@ -9865,13 +9868,13 @@ section.samplecontent-freearticle .quick-facts ul li:before {
     height: auto;
   }
 }
-/* line 88, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 91, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure ul {
   padding-top: 13px;
   list-style-type: none;
   font-family: FSMe-light;
 }
-/* line 92, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 95, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure ul li {
   color: #c3c7cf;
   margin-bottom: 10px;
@@ -9879,12 +9882,12 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 92, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 95, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure ul li {
     padding-left: 32px;
   }
 }
-/* line 101, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+/* line 104, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
 .pdp-brochure ul li:before {
   margin-right: 10px;
   font-family: "InformaIcons";
@@ -9896,14 +9899,14 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   top: -3px;
 }
 @media (max-width: 767px) {
-  /* line 101, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 104, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure ul li:before {
     left: 0px;
     padding-left: 0px;
   }
 }
 @media (max-width: 767px) {
-  /* line 88, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
+  /* line 91, ../../../src/components/pdp-brochure/sass/_pdp-brochure.scss */
   .pdp-brochure ul {
     padding-top: 10px;
     padding-left: 0px;
