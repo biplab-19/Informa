@@ -126,7 +126,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
     }
     _bindToggleTab = function(){
-      $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+      $('.form-progressive-wizard a[data-toggle="tab"]').on('show.bs.tab', function(e) {
         if (_myinterestForm.valid() == true) {
           var $target = $(e.target);
           if ($target.attr('href') == "#step2" && $target.parent().attr('class') == 'active') {
