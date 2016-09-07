@@ -22,8 +22,9 @@ INFORMA.news_flash = (function(window, $, namespace) {
         EqualHeightProducts;
 
         EqualHeightProducts = function() {
-            var Items = _recommendedproducts.find('.wrap-content');
-            
+            var Items = _recommendedproducts.find('.wrap-content'),
+                MaxHeight = 0;
+                Items.height('auto');
                 Items.each(function() {
                     var ItemHeight = $(this).outerHeight();
                     if (ItemHeight > MaxHeight) {
@@ -80,7 +81,9 @@ INFORMA.news_flash = (function(window, $, namespace) {
     init = function() {
         if (_productsList.length > 0) {
             _createSlider(_productsList);
-            EqualHeightProducts();
+            setTimeout(function() {
+                EqualHeightProducts();
+            }, 500);
         }
     }
 

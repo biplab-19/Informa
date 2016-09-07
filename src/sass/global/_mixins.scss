@@ -754,21 +754,10 @@ $desktop-width: 1142px;
     .tab-pane {
         .error-response,
         .submit-response {
-            padding-left: 85px;
-            padding-right: 30px;
-            padding-bottom: 20px;
-            @include mobile {
-                padding-left: 7px;
-                padding-right: 5px;
-            }
             h2 {
-                font-size: 36px;
-                color: $white;
+              color: $white;
                 &:before {
-                    content: "\e914";
-                    left: -60px;
-                    font-family: "InformaIcons";
-                    color: $secondarycolorlight;
+                    color: secondarycolordark;
                 }
             }
         }
