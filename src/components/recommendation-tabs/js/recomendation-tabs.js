@@ -38,7 +38,6 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         });
     },
     GetItemsDefault = function (target) {
-        console.log('hi');
         var object = null;
          var   DefaultCount = $('.recomended-content').attr('data-defaultCount');
 

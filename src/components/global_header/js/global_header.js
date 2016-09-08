@@ -203,7 +203,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
-            console.log("Sections button clicked");
             if($("#pdp-sections:visible").length)
                 $('#pdp-sections').slideUp();
             else

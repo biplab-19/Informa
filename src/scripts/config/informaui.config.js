@@ -3717,7 +3717,7 @@ var INFORMA = window.INFORMA || {};
 var logThis = function(throwLog) {
     if (INFORMA.Configs.debug) {
         for (var i = 0; i < arguments.length; i++) {
-            console.log(arguments[i])
+            //console.log(arguments[i])
         }
     }
 }
