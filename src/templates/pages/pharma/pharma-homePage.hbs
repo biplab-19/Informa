@@ -1,11 +1,33 @@
 <div class="page-content my-theme">
-    {{>home-hero}}
-    {{>home-sector-list sectors}}
-    {{>home-brand-list brands}}
-    {{>category_filter category_list}}
-    {{>article_list article_list}}
+<section id="banner" class="hero-banner home-page">
+	<div class="cf-img">
+		{{!-- <img src="cms-images/banner-images/hero08.jpg" alt="" /> --}}
+		<picture>
+			<source srcset="cms-images/banner-images/hero08_mobile.jpg" media="(max-width: 737px)">
+			<source srcset="cms-images/banner-images/hero08_tablet.jpg" media="(max-width: 1024px)">
+			<source srcset="cms-images/banner-images/hero08.jpg" media="(max-width: 1280px)">
+			<img src="cms-images/banner-images/hero08.jpg" alt="" />
+		</picture>
+	</div>
+	<div class="vertical-align">
+		<div class="container">
+			<div class="content">
+				<h1>The Complete picture on global agribusiness</h1>
+				<p>We help the world's largest and most influential agribusiness organisations gain advantage by delivering actionable intelligence across the food and commodities value chain We help the We help the fgh</p>
+			</div>
+		</div>
+	</div>
+</section>
+	{{>pdp-feature-list pdp-feature-list}}
+	{{>category_filter category_list}}
+	{{>article_list article_list}}
     {{>headline_list headline_list}}
-    {{>home-agri-report}}
+    {{>sectorpage-strengths sectorpage-strengths}}
+    {{>home-brand-list brands}}
+    {{>pdp-customer-quote pdp-customer-quote}}
+    {{>logo-carousel}}
     {{>home_social home_social}}
-    {{>home-contactus contactus}}
+    {{>home-agri-report}}
 </div>
+
+
