@@ -66,11 +66,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     FacetCheck = ($(this).attr('data-check') != undefined) ? $(this).attr('data-check') : "",
                     Name = ($(this).attr('name')) ? $(this).attr('name') : "";
 
-                if ($('#' + FacetCheck).prop('checked') === false) {
-                    $('#' + FacetCheck).parents('.panel').find('input[type="checkbox"]').prop('checked', true);
-                }
-
-
+                
                 if (SearchType === "ResourceResult") {
                     ProdData = INFORMA.ResourceFilter.GetResourceData();
                 }
