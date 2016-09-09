@@ -43,7 +43,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             if (RefineSection) {
                 $.each(RefineSection, function() {
                     var GetSectionID = $(this).parent().attr("id"),
-                        SelectedCheckBox = $(this).find("input[type=checkbox]:checked"),
+                        SelectedCheckBox = $(this).find("input[type=checkbox]:checked").not(":disabled"),
                         EnabledCheckBox = $(this).find('input[type="checkbox"]').not(":disabled"),
                         uniqueArr = [];
 
@@ -93,16 +93,18 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
             SelectAll.on("click", function(e) {
                 var ParentEle = $(this).parents(".panel").eq(0).find(".panel-body"),
-                    CurrentCheckBoxs = ParentEle.find("input"),
+                    CurrentCheckBoxs = ParentEle.find('input[type="checkbox"]').not(":disabled"),
                     CurrentShowMoreLink = ParentEle.find("a.show-more");
 
                 if ($(this).prop("checked") === true) {
                     jQuery.each(CurrentCheckBoxs, function() {
                         $(this).prop("checked", "checked");
+                        $(this).attr("checked", "checked");
                     });
                 } else {
                     jQuery.each(CurrentCheckBoxs, function() {
-                        $(this).prop("checked", false);
+                        $(this).removeAttr("checked", false);
+                        $(this).removeProp("checked", false);
                     });
                 }
                 if (CurrentShowMoreLink) {
