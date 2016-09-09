@@ -293,7 +293,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         CurrentSection = key;
                     if (RefineObj && CurrentSection) {
                         var Facet = RefineSection.find("#"+CurrentSection),
-                            CheckBoxes = Facet.find("input[type=checkbox]");
+                            CheckBoxes = Facet.find("input[type=checkbox]"),
+                            Header = Facet.prev(".panel-heading"),
+                           	SelectAllChkBox = Header.find("input[type=checkbox]"),
+                            Links = Header.find("a strong");
+
                         if (CheckBoxes && Facet && RefineObj.length) {
                             $.each(CheckBoxes, function() {
                                  var CurrentChkBoxVal = $(this).attr("value");
@@ -303,11 +307,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                                         $(this).attr("disabled","disabled");
                                      }
                             });
+                            SelectAllChkBox.removeAttr("disabled");
+                            Links.removeClass("disabled");
                         }
                         if(CheckBoxes && Facet && RefineObj.length<1){
                             $.each(CheckBoxes, function() {         
                                  $(this).attr("disabled","disabled");
                             });
+                            SelectAllChkBox.attr("disabled","disabled");
+                            Links.addClass("disabled");
                         }
                     }
                 }

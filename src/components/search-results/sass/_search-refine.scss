@@ -144,6 +144,11 @@
             a {
                 color: $grey-color2;
                 text-decoration: none;
+                strong {
+                    &.disabled {
+                        color: $grey-color06;
+                    }
+                }
                 &:before {
                     font-weight: normal;
                     text-align: center;
