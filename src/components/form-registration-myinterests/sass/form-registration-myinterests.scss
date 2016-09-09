@@ -13,8 +13,8 @@
         background-size: 20%;
         padding: 30px 0 100px;
         @include mobile {
-          background: none;
-              padding: 0px;
+            background: none;
+            padding: 0px;
         }
     }
     .register-myinterests-form-container {
@@ -35,51 +35,48 @@
                 }
             }
         }
-
         .required-field:nth-child(1) {
-          display: table-cell;
-          width: 48%;
-          float: left;
+            display: table-cell;
+            width: 48%;
+            float: left;
         }
-
         .required-field:nth-child(2) {
-          display: table-cell;
-          width: 48%;
-          padding-left: 20px;
-          @include mobile {
-            display: block;
-            padding-left: 0;
-          }
-
-          }
-    }
-    .your-area-interest{
-      legend {
-        &:first-child {
-          margin-left: 45px;
-          &:before {
-              content: "\e925";
-              font-family: 'InformaIcons';
-              position: absolute;
-              top: 12px;
-              left: 10px;
-              font-size: 30px;
-          }
+            display: table-cell;
+            width: 48%;
+            padding-left: 20px;
+            @include mobile {
+                display: block;
+                padding-left: 0;
+            }
         }
-      }
-      p{
-          position: relative;
-          display: block;
-          width: 100%;
-          color:$white;
-          background-color: $gray-light-bg;
-          padding: 10px 0px;
-          margin-top: -20px;
-          font-size: 14px;
-          &:after {
-            display: none;
-          }
-      }
+    }
+    .your-area-interest {
+        legend {
+            &:first-child {
+                margin-left: 45px;
+                &:before {
+                    content: "\e925";
+                    font-family: 'InformaIcons';
+                    position: absolute;
+                    top: 12px;
+                    left: 10px;
+                    font-size: 30px;
+                }
+            }
+        }
+        p {
+            position: relative;
+            display: block;
+            width: 100%;
+            color: $white;
+            background-color: $gray-light-bg;
+            padding: 10px 0px;
+            margin-top: -20px;
+            font-size: 14px;
+            &:after {
+                display: none;
+            }
+        }
     }
     .triangle-nav {
         list-style: none;
@@ -121,10 +118,10 @@
                 z-index: 2;
             }
             span.tab-numbers {
-              font-size: 16px;
-              padding-right: 8px;
-              font-weight: bold;
-              padding-left: 5px;
+                font-size: 16px;
+                padding-right: 8px;
+                font-weight: bold;
+                padding-left: 5px;
             }
         }
         &.active {
@@ -161,15 +158,15 @@
         padding-top: 20px;
     }
     .list-inline > li {
-
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+        padding-left: 0px;
+        padding-right: 0px;
+    }
     .next-step {
         width: 180px;
         margin-top: 15px;
     }
-  .custom-multiselect, .select-wrapper {
+    .custom-multiselect,
+    .select-wrapper {
         a {
             padding: 0 !important;
         }
@@ -244,28 +241,26 @@
                 }
             }
             .select-all-bottom {
-              display: none;
-              background: $blue-lighter-bg;
-              padding: 0;
-              margin-top: 0;
-              padding-left: 15px;
-              float: left;
-              padding-top: 5px;
-              padding-bottom: 5px;
-              width: 100%;
-              border-top: 2px solid #a7a9b6;
-              a.multiselect-all {
-                color: $brand-primary;
-              label {
-                  cursor: pointer;
-                  //color: $white;
-                  //padding: 10px;
+                display: none;
+                background: $blue-lighter-bg;
+                padding: 0;
+                margin-top: 0;
+                padding-left: 15px;
+                float: left;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                width: 100%;
+                border-top: 2px solid #a7a9b6;
+                a.multiselect-all {
+                    color: $brand-primary;
+                    label {
+                        cursor: pointer;
+                        //color: $white;
+                        //padding: 10px;
+                    }
                 }
-              }
             }
         }
-
-
     }
     .open > .dropdown-menu {
         display: block;
@@ -285,54 +280,53 @@
         font-weight: normal;
     }
     .btn-previous {
-    color: $white;
-     min-width: 180px;
-     text-align: right;
-     padding-top: 15px;
-     padding-bottom: 15px;
-     background:  $grey-color04 !important;
-     position: relative;
-     &:before{
-       content: "\e903";
-       font-family: 'InformaIcons';
-       left: 15px;
-       font-weight: bold;
-       position: absolute;
-       //color:$primary;
-     }
-     &:hover{
-        border-color: $gray-dark-bg;
-     }
-}
-
+        color: $white;
+        min-width: 180px;
+        text-align: right;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background: $grey-color04 !important;
+        position: relative;
+        &:before {
+            content: "\e903";
+            font-family: 'InformaIcons';
+            left: 15px;
+            font-weight: bold;
+            position: absolute;
+            //color:$primary;
+        }
+        &:hover {
+            border-color: $gray-dark-bg;
+        }
+    }
 }
 .register-myinterests-form-container {
-     .form-group .select-wrapper:after {
+    .form-group .select-wrapper:after {
         display: none;
     }
     #step2 {
         .list-inline, .form-submit-border {
-                width: 450px;
+            width: 450px;
+            float: right;
+            .btn {
                 float: right;
-                .btn {
+                min-width: 180px;
+                @include mobile {
                     float: right;
-                    min-width: 180px;
-                    @include mobile{
-                      float: right;
-                      min-width: 32px;
-                      width: 42% !important;
-                    }
+                    min-width: 32px;
+                    width: 42% !important;
                 }
+            }
             .btn-previous {
                 float: left;
                 margin-right: 200px;
                 display: block;
                 @include mobile {
-                  float: left;
-                  margin-right: 44%;
-                  display: block;
-                  min-width: 85px;
-                  width: 36% !important;
+                    float: left;
+                    margin-right: 44%;
+                    display: block;
+                    min-width: 85px;
+                    width: 36% !important;
                 }
             }
             .form-submit-border {
@@ -345,55 +339,73 @@
         }
     }
 }
-
-
-  .register-myinterests-modal {
-      .modal-dialog {
-          width: 75%;
-          margin: 0 auto;
-          @include mobile {
-              width: 90%;
-
-          }
-      }
-      .modal-body {
-          @include mobile {
-              //padding: 15px 30px;
-              .register-myinterests-section .your-area-interest legend:first-child:before{
-                  //display: none;
-              }
-              .register-myinterests-section .about-you-details legend:first-child:before{
-                  //display: none;
-              }
-              .register-myinterests-form-container #step2 .form-submit-border{
-                width: 425px;
-              }
-          }
-      }
-      .modal-content {
-          border-radius: 0;
-          background-color: $gray-light-bg;
-          color: $white;
-      }
-      .modal-header {
-          border-bottom: 0;
-          .close {
-              color: $white;
-              opacity: 2;
-          }
-      }
-  }
-  #article-list-section {
-    .register-myinterests-section{
-      display: none;
+.register-myinterests-modal.modal.fade .modal-dialog {
+    -webkit-transform: scale(0.1);
+    -moz-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    transform: scale(0.1);
+    top: 300px;
+    opacity: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.register-myinterests-modal.modal.fade.in .modal-dialog {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform: translate3d(0, -300px, 0);
+    transform: translate3d(0, -300px, 0);
+    opacity: 1;
+}
+.register-myinterests-modal {
+    .modal-dialog {
+        width: 75%;
+        margin: 0 auto;
+        @include mobile {
+            width: 90%;
+        }
     }
-  }
-  .register-myinterests-modal{
-      .register-myinterests-section{
-            display: block !important;
-      }
-
-  }
-  .register-form-popup-container{
+    .modal-body {
+        @include mobile {
+            //padding: 15px 30px;
+            .register-myinterests-section .your-area-interest legend:first-child:before {
+                //display: none;
+            }
+            .register-myinterests-section .about-you-details legend:first-child:before {
+                //display: none;
+            }
+            .register-myinterests-form-container #step2 .form-submit-border {
+                width: 425px;
+            }
+        }
+    }
+    .modal-content {
+        border-radius: 0;
+        background-color: $gray-light-bg;
+        color: $white;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    .modal-header {
+        border-bottom: 0;
+        .close {
+            color: $white;
+            opacity: 2;
+        }
+    }
+}
+#article-list-section {
+    .register-myinterests-section {
+        display: none;
+    }
+}
+.register-myinterests-modal {
+    .register-myinterests-section {
+        display: block !important;
+    }
+}
+.register-form-popup-container {
     display: none;
-  }
+}
