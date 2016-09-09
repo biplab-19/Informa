@@ -232,8 +232,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     TileList = currentSection.find(".list-items"),
                     PData = GetPaginationData(TileList, currentSection),
                     ProdData = INFORMA.ProductFinder.GetProductData(),
+                    GetDefaultData = GetDefaultValues(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                    Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData);
+                    Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
 
                 if (!$(currentSection).hasClass('showLess')) {
                     $(currentSection).addClass('showLess');
