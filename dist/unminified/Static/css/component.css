@@ -1,4 +1,4 @@
-/*! 2016-09-08 */@charset "UTF-8";
+/*! 2016-09-09 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -157,7 +157,12 @@ section#hero-banner .btn.priceCTA .priceDetails span.price {
   font-size: 24px;
   font-family: FSMe-Bold;
 }
-/* line 115, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 113, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+section#hero-banner .btn.priceCTA .priceDetails span.price:before {
+  content: "\00a3";
+  font-weight: bold;
+}
+/* line 119, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .btn.priceCTA .headline {
   font-family: FSMe-Bold;
 }
@@ -167,27 +172,27 @@ section#hero-banner .btn.priceCTA .headline {
     margin-bottom: 10px;
   }
 }
-/* line 123, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 127, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .btn-margin {
   margin-left: 10px;
 }
-/* line 126, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 130, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .cta1, section#hero-banner .cta2 {
   font-size: 14px;
   font-family: FSMe-Bold;
 }
-/* line 130, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 134, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .cta2 {
   font-family: FSMe;
 }
-/* line 133, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 137, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .cta3 {
   font-family: FSMe-Light;
   font-size: 16px;
   color: #ef7c00 !important;
 }
 @media (max-width: 767px) {
-  /* line 133, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 137, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .cta3 {
     font-size: 14px;
   }
@@ -198,110 +203,110 @@ section#hero-banner .cta3 {
     height: auto;
   }
 }
-/* line 145, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 149, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.default {
   background: #444957;
 }
-/* line 146, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 150, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.default .abs-image {
   display: block;
   right: 0;
 }
-/* line 155, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 159, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.brand .description {
   color: #343742;
 }
-/* line 158, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 162, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.brand h1 {
   font-size: 40px;
 }
-/* line 162, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 166, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.brand, section#hero-banner.product, section#hero-banner.casestudy {
   background: #ffd500;
 }
-/* line 163, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 167, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.brand .abs-image, section#hero-banner.product .abs-image, section#hero-banner.casestudy .abs-image {
   display: block;
   width: 33.33%;
   height: 100%;
   right: 0;
 }
-/* line 172, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 176, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.product {
   background: #424A57;
 }
 @media (max-width: 767px) {
-  /* line 176, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 180, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.default .abs-image, section#hero-banner.brand .abs-image, section#hero-banner.product .abs-image, section#hero-banner.casestudy .abs-image {
     display: none;
   }
 }
-/* line 184, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 188, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.about, section#hero-banner.contact {
   height: 221px;
   background: #ffd500;
   color: #444957;
 }
 @media (max-width: 767px) {
-  /* line 184, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 188, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.about, section#hero-banner.contact {
     height: auto;
     padding: 60px 0;
   }
 }
-/* line 192, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 196, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.about h1, section#hero-banner.contact h1 {
   font-size: 60px;
   margin: 0 0 13px 0;
 }
 @media (max-width: 767px) {
-  /* line 192, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 196, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.about h1, section#hero-banner.contact h1 {
     font-size: 30px;
     width: 49%;
   }
 }
 @media (min-width: 1142px) {
-  /* line 201, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 205, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.about .splash > div, section#hero-banner.contact .splash > div {
     width: 75%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 201, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 205, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.about .splash > div, section#hero-banner.contact .splash > div {
     width: 90%;
   }
 }
-/* line 211, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 215, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.about, section#hero-banner.contact {
   height: 330px;
 }
 @media (max-width: 767px) {
-  /* line 211, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 215, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.about, section#hero-banner.contact {
     height: auto;
   }
 }
-/* line 216, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 220, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.about h1, section#hero-banner.contact h1 {
   width: auto;
 }
-/* line 220, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 224, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.about .splash > div, section#hero-banner.contact .splash > div {
   width: 70%;
 }
-/* line 226, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 230, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.video {
   overflow: hidden;
 }
-/* line 228, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 232, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.video .abs-image {
   display: block;
   width: 100%;
   height: 100%;
 }
-/* line 238, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 242, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst {
   background-color: #ffd80f;
   height: 650px;
@@ -309,13 +314,13 @@ section#hero-banner.analyst {
   padding-bottom: 20px;
 }
 @media (max-width: 767px) {
-  /* line 238, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 242, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst {
     padding: 0px;
     height: auto;
   }
 }
-/* line 247, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 251, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst h1 {
   padding-top: 60px;
   font-size: 60px;
@@ -323,7 +328,7 @@ section#hero-banner.analyst h1 {
   color: #444957;
 }
 @media (max-width: 767px) {
-  /* line 247, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 251, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst h1 {
     padding-top: 19px;
     padding-bottom: 27px;
@@ -332,12 +337,12 @@ section#hero-banner.analyst h1 {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 247, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 251, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst h1 {
     font-size: 40px;
   }
 }
-/* line 262, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 266, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .rotate-icon {
   width: auto;
   padding-top: 10px;
@@ -349,18 +354,18 @@ section#hero-banner.analyst .rotate-icon {
   transform: rotate(88deg);
 }
 @media (max-width: 767px) {
-  /* line 262, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 266, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .rotate-icon {
     display: none;
   }
 }
 @media only screen and (min-width: 768px) and (max-device-width: 1023px) {
-  /* line 262, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 266, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .rotate-icon {
     left: 46%;
   }
 }
-/* line 278, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 282, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .subtext {
   font-family: FSMe-light;
   font-size: 40px;
@@ -368,7 +373,7 @@ section#hero-banner.analyst .subtext {
   padding-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 278, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 282, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .subtext {
     font-size: 24px;
     letter-spacing: normal;
@@ -377,26 +382,26 @@ section#hero-banner.analyst .subtext {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 278, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 282, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .subtext {
     font-size: 20px;
     letter-spacing: normal;
   }
 }
-/* line 294, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 298, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst h3 {
   font-family: FSMe-light;
   font-size: 20px;
   color: #444957;
 }
-/* line 299, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 303, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .color-subtext {
   color: #444957;
   line-height: 22px;
   font-family: FSMe-light;
 }
 @media (max-width: 767px) {
-  /* line 299, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 303, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .color-subtext {
     text-align: left;
     line-height: 20px;
@@ -404,11 +409,11 @@ section#hero-banner.analyst .color-subtext {
     overflow: hidden;
   }
 }
-/* line 310, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 314, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .pos {
   position: relative;
 }
-/* line 313, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 317, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .line {
   position: absolute;
   height: 2px;
@@ -419,23 +424,23 @@ section#hero-banner.analyst .line {
   background-color: white;
 }
 @media (max-width: 767px) {
-  /* line 313, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 317, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .line {
     display: none;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 313, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 317, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .line {
     right: 150px;
   }
 }
-/* line 329, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 333, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner.analyst .image-margin {
   margin-right: 65px;
 }
 @media (max-width: 767px) {
-  /* line 329, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 333, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .image-margin {
     margin-right: 0px;
     margin-top: 21px;
@@ -443,35 +448,35 @@ section#hero-banner.analyst .image-margin {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 329, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 333, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .image-margin {
     margin-left: 0px;
   }
 }
 @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-  /* line 341, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 345, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner.analyst .image-margin {
     margin-left: -24px;
   }
 }
-/* line 347, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 351, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images {
   padding-bottom: 20px;
   color: #fff;
 }
 @media (max-width: 767px) {
-  /* line 347, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 351, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images {
     padding: 10px;
   }
 }
-/* line 353, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 357, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images h1 {
   font-size: 50px;
   margin-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 353, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 357, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images h1 {
     margin: 17px 0 7px 0;
     font-size: 35px;
@@ -479,29 +484,29 @@ section#hero-banner .analyst-two-images h1 {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 353, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 357, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images h1 {
     font-size: 40px;
     margin-top: 0px;
   }
 }
-/* line 367, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 371, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .span-arrow {
   font-size: 300%;
 }
 @media (max-width: 767px) {
-  /* line 367, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 371, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .span-arrow {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 373, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 377, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .img-mobile {
     margin-top: 17px;
   }
 }
-/* line 378, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 382, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .subtext {
   font-family: FSMe;
   font-size: 30px;
@@ -509,7 +514,7 @@ section#hero-banner .analyst-two-images .subtext {
   padding-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 378, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 382, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .subtext {
     font-size: 25px;
     letter-spacing: normal;
@@ -518,45 +523,45 @@ section#hero-banner .analyst-two-images .subtext {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 378, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 382, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .subtext {
     font-size: 20px;
     letter-spacing: normal;
   }
 }
-/* line 394, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 398, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images h3 {
   font-weight: bold;
   color: #444957;
 }
-/* line 398, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 402, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .color-subtext {
   color: #444957;
 }
 @media (max-width: 767px) {
-  /* line 398, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 402, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .color-subtext {
     text-align: left;
     line-height: 20px;
   }
 }
-/* line 406, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 410, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .image-margin {
   margin-right: 60px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1023px) {
-  /* line 410, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 414, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-right: 70px;
   }
 }
 @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-  /* line 416, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 420, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-right: 55%;
   }
 }
-/* line 421, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 425, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .line {
   position: absolute;
   height: 2px;
@@ -567,58 +572,58 @@ section#hero-banner .analyst-two-images .line {
   background-color: white;
 }
 @media (max-width: 767px) {
-  /* line 421, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 425, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .line {
     display: none;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 421, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 425, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .line {
     right: 150px;
   }
 }
-/* line 438, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 442, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-two-images .image-margin {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 438, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 442, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-left: 0px;
     margin-top: 3px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 446, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 450, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-right: 0px;
   }
 }
 @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-  /* line 453, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 457, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-two-images .image-margin {
     margin-right: 50%;
   }
 }
-/* line 459, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 463, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image {
   padding-bottom: 20px;
   color: #fff;
 }
 @media (max-width: 767px) {
-  /* line 459, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 463, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image {
     padding: 10px;
   }
 }
-/* line 465, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 469, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image h1 {
   font-size: 150px;
   margin-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 465, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 469, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image h1 {
     margin: 17px 0 7px 0;
     font-size: 35px;
@@ -626,29 +631,29 @@ section#hero-banner .analyst-single-image h1 {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 465, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 469, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image h1 {
     font-size: 40px;
     margin-top: 0px;
   }
 }
-/* line 479, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 483, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image .span-arrow {
   font-size: 300%;
 }
 @media (max-width: 767px) {
-  /* line 479, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 483, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .span-arrow {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 486, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 490, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .img-mobile {
     margin-top: 17px;
   }
 }
-/* line 491, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 495, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image .subtext {
   font-family: FSMe;
   font-size: 30px;
@@ -656,7 +661,7 @@ section#hero-banner .analyst-single-image .subtext {
   padding-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 491, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 495, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .subtext {
     font-size: 25px;
     letter-spacing: normal;
@@ -665,47 +670,47 @@ section#hero-banner .analyst-single-image .subtext {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 491, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 495, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .subtext {
     font-size: 20px;
     letter-spacing: normal;
   }
 }
-/* line 507, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 511, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image h3 {
   font-weight: bold;
   color: #444957;
 }
-/* line 511, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 515, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image .color-subtext {
   color: #444957;
 }
 @media (max-width: 767px) {
-  /* line 511, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 515, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .color-subtext {
     text-align: left;
     line-height: 20px;
   }
 }
-/* line 519, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 523, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner .analyst-single-image .image-margin {
   margin-left: 37px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 519, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 523, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .image-margin {
     margin-left: 0px;
   }
 }
 @media (max-width: 767px) {
-  /* line 519, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 523, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .image-margin {
     margin-left: -10px;
     margin-top: 17px;
   }
 }
 @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-  /* line 537, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 541, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   section#hero-banner .analyst-single-image .image-margin {
     margin-left: 25px;
   }
@@ -1947,25 +1952,40 @@ section#pdp-hero .cta3 {
   border-left: 1px solid #c3c6d0;
 }
 /* line 31, ../../../src/components/headline-list/sass/_headline-list.scss */
+.headline-list .list-container li .type {
+  font-weight: bold;
+  display: block;
+  color: #565c6b;
+  margin-bottom: 0;
+}
+/* line 37, ../../../src/components/headline-list/sass/_headline-list.scss */
+.headline-list .list-container li .type span:after {
+  content: ',';
+}
+/* line 41, ../../../src/components/headline-list/sass/_headline-list.scss */
+.headline-list .list-container li .type span:last-child:after {
+  content: '';
+}
+/* line 47, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .list-content {
   min-height: 100px;
 }
-/* line 34, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 50, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .poduct-brand-subheading {
   font-size: 18px;
   font-family: FSMe-Bold;
 }
-/* line 38, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 54, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .link {
   margin-top: 10px;
   position: absolute;
   bottom: 0;
 }
-/* line 44, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 60, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .link a:after {
   color: #ffd500;
 }
-/* line 50, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 66, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container .slick-arrow {
   top: 42%;
 }
@@ -1976,19 +1996,24 @@ section.feature-list-section {
   background: #fff;
   padding: 20px 0;
 }
+/* line 5, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list h2,
+section.feature-list-section h2 {
+  padding-bottom: 10px;
+}
 @media (max-width: 767px) {
   /* line 1, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list,
   section.feature-list-section {
     padding: 5px 0 25px;
   }
-  /* line 7, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 10, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list h1,
   section.feature-list-section h1 {
     font-size: 24px;
   }
 }
-/* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 14, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-see-all-features,
 section.feature-list-section .btn-see-all-features {
   width: 20%;
@@ -1997,7 +2022,7 @@ section.feature-list-section .btn-see-all-features {
   padding-bottom: 5px;
 }
 @media (max-width: 767px) {
-  /* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 14, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-see-all-features,
   section.feature-list-section .btn-see-all-features {
     width: 90%;
@@ -2006,7 +2031,7 @@ section.feature-list-section .btn-see-all-features {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 14, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-see-all-features,
   section.feature-list-section .btn-see-all-features {
     width: 30%;
@@ -2014,7 +2039,7 @@ section.feature-list-section .btn-see-all-features {
     padding-bottom: 5px;
   }
 }
-/* line 27, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 30, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container,
 section.feature-list-section .feature-list-container {
   float: left;
@@ -2024,27 +2049,27 @@ section.feature-list-section .feature-list-container {
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 27, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 30, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     height: auto;
     overflow: initial;
   }
 }
-/* line 32, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 35, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section.feature-list-section .feature-list-container .feature-image {
   width: 100px;
   height: 100px;
   margin: 0 auto;
 }
-/* line 36, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 39, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image img,
 section.feature-list-section .feature-list-container .feature-image img {
   width: 100%;
   height: 100%;
 }
-/* line 41, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 44, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
 section#feature-list .feature-list-container p,
@@ -2053,7 +2078,7 @@ section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 46, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 49, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .headText,
 section.feature-list-section .feature-list-container .headText {
   font-family: FSMe-Bold;
@@ -2061,7 +2086,7 @@ section.feature-list-section .feature-list-container .headText {
   color: #444957;
   padding: 12px 0 6px;
 }
-/* line 52, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 55, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container p,
 section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
@@ -2069,7 +2094,7 @@ section.feature-list-section .feature-list-container p {
   color: #000;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 27, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 30, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 33.3333%;
@@ -2077,49 +2102,49 @@ section.feature-list-section .feature-list-container p {
   }
 }
 @media (max-width: 767px) {
-  /* line 27, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 30, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 100%;
     padding: 30px 40px;
   }
-  /* line 64, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 67, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .headText,
   section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 67, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 70, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container p,
   section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 73, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 76, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:focus,
 section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 76, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 79, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.more,
 section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 79, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 82, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.less,
 section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 85, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 88, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.more,
 section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 88, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 91, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.less,
 section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 91, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 94, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore:after,
 section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
@@ -5608,7 +5633,11 @@ section#about-us-hero .transparent-bg-content .description {
   color: #6a7285;
   text-decoration: none;
 }
-/* line 147, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 148, ../../../src/components/search-results/sass/_search-refine.scss */
+.refine-container .panel .panel-heading a strong.disabled {
+  color: #888e9e;
+}
+/* line 152, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading a:before {
   font-weight: normal;
   text-align: center;
@@ -5624,20 +5653,20 @@ section#about-us-hero .transparent-bg-content .description {
   position: absolute;
   right: 0px;
 }
-/* line 163, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 168, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading a.collapsed:before {
   content: "\e912";
   color: #a6aab6;
   display: inline;
 }
 
-/* line 174, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 179, ../../../src/components/search-results/sass/_search-refine.scss */
 .clear-mobile {
   display: none;
   background: #fff;
   padding: 20px 10px 0;
 }
-/* line 179, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 184, ../../../src/components/search-results/sass/_search-refine.scss */
 .clear-mobile .clear-all:after {
   content: 'X';
   margin-left: 5px;
@@ -11775,8 +11804,8 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
 /* line 3, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .triangle-nav-container {
   background: #e1e2e7;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 /* line 8, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .register-myinterests-form {
@@ -11862,7 +11891,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
 .register-myinterests-section .triangle-nav {
   list-style: none;
   overflow: hidden;
-  padding-left: 5px;
+  padding-left: 15px;
 }
 /* line 89, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .triangle-nav li {
@@ -11899,7 +11928,14 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   left: 100%;
   z-index: 2;
 }
-/* line 125, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 123, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+.register-myinterests-section .triangle-nav li a span.tab-numbers {
+  font-size: 16px;
+  padding-right: 8px;
+  font-weight: bold;
+  padding-left: 5px;
+}
+/* line 131, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .triangle-nav li.active a {
   text-decoration: none;
   /* fallback color */
@@ -11907,7 +11943,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   display: block;
   float: left;
 }
-/* line 137, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 143, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .triangle-nav li.active a:after {
   content: " ";
   display: block;
@@ -11922,41 +11958,41 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   left: 100%;
   z-index: 2;
 }
-/* line 153, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 159, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .tab-content {
   padding-bottom: 20px;
   padding-top: 20px;
 }
-/* line 157, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 163, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .list-inline > li {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 162, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 168, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .next-step {
   width: 180px;
   margin-top: 15px;
 }
-/* line 167, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 173, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect a, .register-myinterests-section .select-wrapper a {
   padding: 0 !important;
 }
-/* line 170, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 176, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect label, .register-myinterests-section .select-wrapper label {
   color: #ef7c00;
   font-size: 14px;
 }
-/* line 174, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 180, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect input, .register-myinterests-section .select-wrapper input {
   opacity: 0;
   width: 16px;
   height: 16px;
 }
-/* line 179, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 185, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group, .register-myinterests-section .select-wrapper .btn-group {
   width: 100%;
 }
-/* line 181, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 187, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .caret, .register-myinterests-section .select-wrapper .btn-group .caret {
   content: "\e901";
   border: none;
@@ -11964,27 +12000,27 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   position: absolute;
   right: 30px;
 }
-/* line 187, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 193, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .caret:before, .register-myinterests-section .select-wrapper .btn-group .caret:before {
   font: 400 15px 'InformaIcons';
   content: "\e901";
   color: #a7a9b6;
 }
-/* line 193, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 199, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .dropdown-toggle, .register-myinterests-section .select-wrapper .btn-group .dropdown-toggle {
   width: 100%;
   background-color: #e1e3e7;
   border: none;
 }
-/* line 198, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 204, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .dropdown-toggle:after, .register-myinterests-section .select-wrapper .btn-group .dropdown-toggle:after {
   content: '';
 }
-/* line 201, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 207, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .dropdown-toggle:hover, .register-myinterests-section .select-wrapper .btn-group .dropdown-toggle:hover {
   background: #e1e3e7;
 }
-/* line 205, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 211, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .dropdown-menu, .register-myinterests-section .select-wrapper .btn-group .dropdown-menu {
   box-shadow: none;
   border-radius: 0;
@@ -11993,7 +12029,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   padding: 10px 0;
   background-color: #f0f1f3;
 }
-/* line 212, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 218, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .dropdown-menu label, .register-myinterests-section .select-wrapper .btn-group .dropdown-menu label {
   color: #434854;
   font-size: 14px;
@@ -12001,7 +12037,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   padding-left: 50px;
   padding-top: 5px;
 }
-/* line 218, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 224, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .dropdown-menu label:before, .register-myinterests-section .select-wrapper .btn-group .dropdown-menu label:before {
   background: #ffffff none repeat scroll 0 0;
   content: "";
@@ -12011,16 +12047,16 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   top: 6px;
   width: 20px;
 }
-/* line 230, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 236, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .dropdown-menu .active label:before, .register-myinterests-section .select-wrapper .btn-group .dropdown-menu .active label:before {
   background: #ffffff url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 235, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 241, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .dropdown-menu .active a, .register-myinterests-section .select-wrapper .btn-group .dropdown-menu .active a {
   background-color: transparent;
 }
-/* line 240, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 246, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .select-all-bottom, .register-myinterests-section .select-wrapper .btn-group .select-all-bottom {
   display: none;
   background: #e1e3e7;
@@ -12033,34 +12069,34 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   width: 100%;
   border-top: 2px solid #a7a9b6;
 }
-/* line 251, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 257, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .select-all-bottom a.multiselect-all, .register-myinterests-section .select-wrapper .btn-group .select-all-bottom a.multiselect-all {
   color: #ef7c00;
 }
-/* line 253, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 259, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .custom-multiselect .btn-group .select-all-bottom a.multiselect-all label, .register-myinterests-section .select-wrapper .btn-group .select-all-bottom a.multiselect-all label {
   cursor: pointer;
 }
-/* line 264, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 270, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .open > .dropdown-menu {
   display: block;
   position: relative;
 }
-/* line 269, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 275, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section label.control-label {
   font-family: FSMe-light !important;
   font-weight: normal !important;
   clear: both;
   display: block;
 }
-/* line 275, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 281, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .normal-checkbox label {
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: normal;
 }
-/* line 281, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 287, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .btn-previous {
   color: #ffffff;
   min-width: 180px;
@@ -12070,7 +12106,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   background: #343742 !important;
   position: relative;
 }
-/* line 289, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 295, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .btn-previous:before {
   content: "\e903";
   font-family: 'InformaIcons';
@@ -12078,41 +12114,41 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   font-weight: bold;
   position: absolute;
 }
-/* line 297, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 303, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .btn-previous:hover {
   border-color: #343742;
 }
 
-/* line 304, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 310, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container .form-group .select-wrapper:after {
   display: none;
 }
-/* line 308, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 314, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline, .register-myinterests-form-container #step2 .form-submit-border {
   width: 450px;
   float: right;
 }
-/* line 311, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 317, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline .btn, .register-myinterests-form-container #step2 .form-submit-border .btn {
   float: right;
   min-width: 180px;
 }
 @media (max-width: 767px) {
-  /* line 311, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 317, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-form-container #step2 .list-inline .btn, .register-myinterests-form-container #step2 .form-submit-border .btn {
     float: right;
     min-width: 32px;
     width: 42% !important;
   }
 }
-/* line 320, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 326, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline .btn-previous, .register-myinterests-form-container #step2 .form-submit-border .btn-previous {
   float: left;
   margin-right: 200px;
   display: block;
 }
 @media (max-width: 767px) {
-  /* line 320, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 326, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-form-container #step2 .list-inline .btn-previous, .register-myinterests-form-container #step2 .form-submit-border .btn-previous {
     float: left;
     margin-right: 44%;
@@ -12121,60 +12157,60 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
     width: 36% !important;
   }
 }
-/* line 332, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 338, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline .form-submit-border, .register-myinterests-form-container #step2 .form-submit-border .form-submit-border {
   padding-bottom: 12px;
   z-index: 2;
 }
-/* line 335, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 341, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline .form-submit-border .btn, .register-myinterests-form-container #step2 .form-submit-border .form-submit-border .btn {
   padding: 17px;
 }
 
-/* line 345, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 351, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-dialog {
   width: 75%;
   margin: 0 auto;
 }
 @media (max-width: 767px) {
-  /* line 345, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 351, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-modal .modal-dialog {
     width: 90%;
   }
 }
 @media (max-width: 767px) {
-  /* line 362, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 368, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-modal .modal-body .register-myinterests-form-container #step2 .form-submit-border {
     width: 425px;
   }
 }
-/* line 367, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 373, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #ffffff;
 }
-/* line 372, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 378, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-header {
   border-bottom: 0;
 }
-/* line 374, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 380, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-header .close {
   color: #ffffff;
   opacity: 2;
 }
 
-/* line 381, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 387, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 #article-list-section .register-myinterests-section {
   display: none;
 }
 
-/* line 386, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 392, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .register-myinterests-section {
   display: block !important;
 }
 
-/* line 391, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 397, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-form-popup-container {
   display: none;
 }

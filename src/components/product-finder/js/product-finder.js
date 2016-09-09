@@ -71,8 +71,16 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 SubSectorList.multiselect('rebuild');
             }
         },
-        RenderSearchResult = function(data) {
+        RenderSearchResult = function(data,type) {
             INFORMA.SearchResults.RenderSearchResults(data);
+            //Update url with update search text value
+            if(type === "SearchResult") { 
+                var SearchValue = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
+                if (history.pushState) {
+                    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchText='+SearchValue;
+                    window.history.pushState({path:newurl},'',newurl);
+                }
+            }
         },
         GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.DataLoader.GetServiceData(url, {
@@ -110,7 +118,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     Data.IsSearch = true;
                     Data.PageNo = 1;
                 }
-                GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), RenderSearchResult, null);
+                GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), function(data){RenderSearchResult(data,SearchType)}, null);
                 INFORMA.SearchResults.ResetPaging();
             });
         },

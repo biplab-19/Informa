@@ -1,4 +1,4 @@
-/*! 2016-09-08 */
+/*! 2016-09-09 */
 /*
  * welcome-description
  *
@@ -1942,7 +1942,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _bindNumber,
         _clearFormInput,
         _bindToggleTab,
-        _destroyMultiSelect;
+        _destroyMultiSelect,
+        _addTabNumbers;
 
     //methods
     _clearFormInput = function(form){
@@ -2020,7 +2021,17 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _validateEmailDomainMsg(this);
         });
 
-    }
+    },
+
+    _addTabNumbers = function(){
+      var progressiveTabs = $('.form-progressive-wizard a[data-toggle="tab"]');
+      if(progressiveTabs.length > 0 ){
+        $.each(progressiveTabs, function(i){
+              $(this).prepend('<span class="tab-numbers">'+(i+1)+'</span>');
+        });
+      }
+    },
+
     _bindToggleTab = function(){
       $('.form-progressive-wizard a[data-toggle="tab"]').on('show.bs.tab', function(e) {
         if (_myinterestForm.valid() == true) {
@@ -2100,6 +2111,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _renderAllContainers = function() {
         _myinterestForm.append(_myinterestFormContainer);
         _myinterestForm.addClass('row');
+        _addTabNumbers();
         _renderMultiSelect();
     }
     _wrapFormContainer = function() {
@@ -3386,7 +3398,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
-            console.log("Sections button clicked");
             if($("#pdp-sections:visible").length)
                 $('#pdp-sections').slideUp();
             else
@@ -3704,7 +3715,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _navlinks.on('click', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
-                $('#sub-nav').css({'left': 0, 'min-height': '300px'});
+                $('#sub-nav').css({'left': 0, 'min-height': '425px'});
                 $('#sub-nav .subnav-container').hide();
                 _navlinks.removeClass('nav-active');
                 $(this).addClass('nav-active');
@@ -4393,8 +4404,16 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 SubSectorList.multiselect('rebuild');
             }
         },
-        RenderSearchResult = function(data) {
+        RenderSearchResult = function(data,type) {
             INFORMA.SearchResults.RenderSearchResults(data);
+            //Update url with update search text value
+            if(type === "SearchResult") { 
+                var SearchValue = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
+                if (history.pushState) {
+                    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchText='+SearchValue;
+                    window.history.pushState({path:newurl},'',newurl);
+                }
+            }
         },
         GetAjaxData = function(url, method, data, SCallback, Errcallback) {
             INFORMA.DataLoader.GetServiceData(url, {
@@ -4432,7 +4451,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     Data.IsSearch = true;
                     Data.PageNo = 1;
                 }
-                GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), RenderSearchResult, null);
+                GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), function(data){RenderSearchResult(data,SearchType)}, null);
                 INFORMA.SearchResults.ResetPaging();
             });
         },
@@ -4726,7 +4745,6 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         });
     },
     GetItemsDefault = function (target) {
-        console.log('hi');
         var object = null;
          var   DefaultCount = $('.recomended-content').attr('data-defaultCount');
 
@@ -5192,7 +5210,8 @@ INFORMA.news_flash = (function(window, $, namespace) {
                 speed: _speed,
                 dots: _dots,
                 adaptiveHeight: true,
-                arrows: true
+                arrows: true,
+                swipe: INFORMA.global.device.isDesktop ? false : true
             });
         }
 
@@ -5759,7 +5778,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         CurrentSection = key;
                     if (RefineObj && CurrentSection) {
                         var Facet = RefineSection.find("#"+CurrentSection),
-                            CheckBoxes = Facet.find("input[type=checkbox]");
+                            CheckBoxes = Facet.find("input[type=checkbox]"),
+                            Header = Facet.prev(".panel-heading"),
+                           	SelectAllChkBox = Header.find("input[type=checkbox]"),
+                            Links = Header.find("a strong");
+
                         if (CheckBoxes && Facet && RefineObj.length) {
                             $.each(CheckBoxes, function() {
                                  var CurrentChkBoxVal = $(this).attr("value");
@@ -5769,11 +5792,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                                         $(this).attr("disabled","disabled");
                                      }
                             });
+                            SelectAllChkBox.removeAttr("disabled");
+                            Links.removeClass("disabled");
                         }
                         if(CheckBoxes && Facet && RefineObj.length<1){
                             $.each(CheckBoxes, function() {         
                                  $(this).attr("disabled","disabled");
                             });
+                            SelectAllChkBox.attr("disabled","disabled");
+                            Links.addClass("disabled");
                         }
                     }
                 }
@@ -6062,16 +6089,15 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
     equalHeight = function () {
         var EachView = jQuery('.sectorpage-strengths');
         EachView.each(function () {
-            var Items = jQuery(this).find('.sector-responisve-img,.yellow-container'),
-                _maxHeight = 0,
-                _padding = 90;
+            var Items = jQuery(this).find('.text-description'),
+                _maxHeight = 0;
             Items.each(function () {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeight) {
                     _maxHeight = Height;
                 }
             })
-            Items.css('height', _maxHeight + _padding);
+            Items.css('height', _maxHeight );
         })
     }
 

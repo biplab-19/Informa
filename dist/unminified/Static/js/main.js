@@ -1,4 +1,4 @@
-/*! 2016-09-08 */var INFORMA = window.INFORMA || {};
+/*! 2016-09-09 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3717,7 +3717,7 @@
 var logThis = function(throwLog) {
     if (INFORMA.Configs.debug) {
         for (var i = 0; i < arguments.length; i++) {
-            console.log(arguments[i])
+            //console.log(arguments[i])
         }
     }
 }
@@ -4036,6 +4036,11 @@ var INFORMA = window.INFORMA || {};
         'HeadlinesListItems':
             '{{#each Headlines}}'+
                 '<li>'+
+                    '{{#compare Product null operator="!="}}'+
+                        '<p class="type">'+
+                            '<span>{{Product}}</span>'+
+                        '</p>'+
+                    '{{/compare}}'+
                     '<p class="date">{{PublicationDate}}</p>'+
                     '<div class="list-content">'+
                         '<h4 class="poduct-brand-subheading">{{Title}}</h4>'+
@@ -4826,7 +4831,7 @@ var INFORMA = window.INFORMA || {};
 var logThis = function(throwLog) {
     if (INFORMA.Configs.debug) {
         for (var i = 0; i < arguments.length; i++) {
-            console.log(arguments[i])
+            //console.log(arguments[i])
         }
     }
 }
