@@ -66,21 +66,21 @@ var INFORMA = window.INFORMA || {};
                             '{{#if EcommerceLink}}'+
                                 '{{#if EcommerceLink.Url}}'+
                                     '<div class="btn-container text-right">'+
-                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-default btn-ecommerce full-width-btn" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
+                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
                                     '</div>'+
                                 '{{/if}}'+
                             '{{/if}}'+
                             '{{#compare IsAuthenticatedUser true operator="=="}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
-                                    '<a href="{{PageURL}}" class="btn btn-default full-width-btn" target="_blank">{{LinkText}}</a>'+
+                                    '<a href="{{PageURL}}" class="btn btn-primary full-width-btn" target="_blank">{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                             '{{/compare}}'+
                             '{{#compare IsAuthenticatedUser false operator="=="}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
-                                    '<a data-show-register="true" class="btn btn-default show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{PageURL}}">{{LinkText}}</a>'+
+                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{PageURL}}">{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                             '{{/compare}}'+
@@ -666,7 +666,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '</li>'+
                                                                         '{{/if}}'+
                                                                     '</ul>'+
-                                                                    '<a href="{{results.ProfileUrl}}" class="btn btn-default pull-right">{{results.SeeFullProfileLText}}</a>'+
+                                                                    '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
                                                                 '</div>'+
                                                             '</div>'+
                                                         '</div>'+
@@ -721,7 +721,7 @@ var INFORMA = window.INFORMA || {};
                                                         '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-default register results.EventText">'+
                                                             '{{results.EventStatus}}'+
                                                         '</a>'+
-                                                        '<a href="{{results.FullDetail.Url}}" target="{{results.FullDetail.Target}}" class="btn btn-default full-detail">'+
+                                                        '<a href="{{results.FullDetail.Url}}" target="{{results.FullDetail.Target}}" class="btn btn-primary full-detail">'+
                                                             '{{results.FullDetail.LinkText}}'+
                                                         '</a>'+
                                                     '</div>'+
@@ -749,7 +749,7 @@ var INFORMA = window.INFORMA || {};
                                                     '<div class="footer">'+
                                                         '<div class="btn-container text-right">'+
                                                             '{{#compare results.LinkText null operator="!="}}'+
-                                                                '<a href="{{results.PageURL}}" class="btn btn-default" target="_blank">{{results.LinkText}}</a>'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary" target="_blank">{{results.LinkText}}</a>'+
                                                             '{{/compare}}'+
                                                         '</div>'+
                                                     '</div>'+
