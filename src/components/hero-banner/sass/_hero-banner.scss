@@ -108,8 +108,12 @@ section#hero-banner {
              font-family: FSMe-Light;
              .priceDetails {
                    span.price {
-                        font-size: 24px;
-                        font-family: FSMe-Bold;
+                    font-size: 24px;
+                    font-family: FSMe-Bold;
+                    &:before{
+                      content:"\00a3";
+                      font-weight: bold;
+                    }
                   }
              }
              .headline {

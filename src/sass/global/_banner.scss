@@ -227,6 +227,19 @@
                 padding-bottom: 30px;
             }
         }
+        .already-a-customer{
+            padding: 30px 0 10px 0;
+            span{
+                &:first-child{
+                    font-family: FSMe-Light;
+                    margin-right: 10px;
+                }
+                a{
+                    text-decoration: underline;
+                    font-family: FSMe-Bold;
+                }
+            }
+        }
         ul {
             padding-top: 73px;
             list-style-type: none;
@@ -267,6 +280,10 @@
                 span.price {
                     font-size: 24px;
                     font-family: FSMe-Bold;
+                    &:before{
+                      content:"\00a3";
+                      font-weight: bold;
+                    }
                 }
             }
             .headline {
