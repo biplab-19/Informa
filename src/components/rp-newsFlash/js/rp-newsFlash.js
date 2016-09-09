@@ -53,7 +53,8 @@ INFORMA.news_flash = (function(window, $, namespace) {
                 speed: _speed,
                 dots: _dots,
                 adaptiveHeight: true,
-                arrows: true
+                arrows: true,
+                swipe: INFORMA.global.device.isDesktop ? false : true
             });
         }
 
