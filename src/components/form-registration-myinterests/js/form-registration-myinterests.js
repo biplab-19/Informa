@@ -46,7 +46,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _bindNumber,
         _clearFormInput,
         _bindToggleTab,
-        _destroyMultiSelect;
+        _destroyMultiSelect,
+        _addTabNumbers;
 
     //methods
     _clearFormInput = function(form){
@@ -124,7 +125,17 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _validateEmailDomainMsg(this);
         });
 
-    }
+    },
+
+    _addTabNumbers = function(){
+      var progressiveTabs = $('.form-progressive-wizard a[data-toggle="tab"]');
+      if(progressiveTabs.length > 0 ){
+        $.each(progressiveTabs, function(i){
+              $(this).prepend('<span class="tab-numbers">'+(i+1)+'</span>');
+        });
+      }
+    },
+
     _bindToggleTab = function(){
       $('.form-progressive-wizard a[data-toggle="tab"]').on('show.bs.tab', function(e) {
         if (_myinterestForm.valid() == true) {
@@ -204,6 +215,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _renderAllContainers = function() {
         _myinterestForm.append(_myinterestFormContainer);
         _myinterestForm.addClass('row');
+        _addTabNumbers();
         _renderMultiSelect();
     }
     _wrapFormContainer = function() {

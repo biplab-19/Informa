@@ -2,8 +2,8 @@
     //display: none;
     .triangle-nav-container {
         background: $blue-light-bg;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     .register-myinterests-form {
         //display: none;
@@ -84,7 +84,7 @@
     .triangle-nav {
         list-style: none;
         overflow: hidden;
-        padding-left: 5px;
+        padding-left: 15px;
     }
     .triangle-nav li {
         float: left;
@@ -119,6 +119,12 @@
                 margin-top: -50px;
                 left: 100%;
                 z-index: 2;
+            }
+            span.tab-numbers {
+              font-size: 16px;
+              padding-right: 8px;
+              font-weight: bold;
+              padding-left: 5px;
             }
         }
         &.active {
