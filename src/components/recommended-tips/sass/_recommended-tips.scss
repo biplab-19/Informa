@@ -1,37 +1,56 @@
-div.recommended-tips{
-  padding-top: 40px;
-  background: $grey-color1;
-  color: $grey-color6;
-
-  .tips-title{
-      font-size: 24px;
-      color: $grey-color7;
-      padding-bottom: 10px;
-      position: relative;
-      @include mobile {
-        padding-left: 32px;
-      }
-      @include tablet {
-        padding-left: 32px;
-      }
-      &:before{
-        font-family: "InformaIcons" !important;
-        content: "\e915";
-        position: absolute;
-        color: #a6aab6;
-        top: -33px;
-        font-size: 28px;
-        left: -5px;
+.recommended-tips-col {
+    @include mobile {
+        background: $grey-color04;
+    }
+    @include tablet {
+      background: $grey-color04;
+    }
+    .recommended-tips{
+      padding-top: 40px;
+      background: $grey-color03;
+      color: $grey-color6;
         @include mobile {
-          top: 0;
-          left: 0;
-          color: $grey-color2;
+            background: $grey-color04;
+            padding-top: 25px;
+            padding-bottom: 25px;
         }
-        @include tablet {
-          top: -5px;
-          left: 0;
-          color: $grey-color4;
+        @include tablet{
+          background: $grey-color04;
+          padding-top: 25px;
+          padding-bottom: 25px;
         }
-      }
-  }
+        .tips-title {
+            font-size: 24px;
+            font-family: FSMe-Light;
+            //color: $grey-color7;
+            padding-bottom: 10px;
+            position: relative;
+            @include mobile {
+                padding-left: 32px;
+                padding-bottom: 15px;
+            }
+            @include tablet {
+                padding-left: 32px;
+            }
+            &:before {
+                font-family: "InformaIcons" !important;
+                content: "\e915";
+                position: absolute;
+                color: #a6aab6;
+                top: -33px;
+                font-size: 28px;
+                left: -5px;
+                @include mobile {
+                    top: -3px;
+                    left: 0;
+                    color: $grey-color2;
+                }
+                @include tablet {
+                    top: -5px;
+                    left: 0;
+                    color: $grey-color4;
+                }
+            }
+        }
+    }
 }
