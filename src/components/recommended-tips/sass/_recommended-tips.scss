@@ -4,7 +4,16 @@
     }
     @include tablet {
       background: $grey-color04;
+      padding-left: 2%;
+      padding-right: 2%;
+      background: url("/Static/images/pattern.png") no-repeat right 160% #565c6b;
+      background-size: 20%;
     }
+    .recommended-tips-container {
+      @include tablet {
+        padding-left: 90px;
+        padding-right: 90px;
+      }
     .recommended-tips{
       padding-top: 40px;
       background: $grey-color03;
@@ -53,4 +62,5 @@
             }
         }
     }
+  }
 }
