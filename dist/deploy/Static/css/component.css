@@ -11285,33 +11285,62 @@ section.welcome-description .cross:after {
   font-family: 'FSMe';
 }
 
-/* line 1, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
-div.recommended-tips {
+@media (max-width: 767px) {
+  /* line 1, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+  .recommended-tips-col {
+    background: #565c6b;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 1, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+  .recommended-tips-col {
+    background: #565c6b;
+  }
+}
+/* line 8, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+.recommended-tips-col .recommended-tips {
   padding-top: 40px;
   background: #444957;
   color: #e1e3e7;
 }
-/* line 6, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
-div.recommended-tips .tips-title {
+@media (max-width: 767px) {
+  /* line 8, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+  .recommended-tips-col .recommended-tips {
+    background: #565c6b;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 8, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+  .recommended-tips-col .recommended-tips {
+    background: #565c6b;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+/* line 22, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+.recommended-tips-col .recommended-tips .tips-title {
   font-size: 24px;
-  color: #f0f1f3;
+  font-family: FSMe-Light;
   padding-bottom: 10px;
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 6, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
-  div.recommended-tips .tips-title {
+  /* line 22, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+  .recommended-tips-col .recommended-tips .tips-title {
     padding-left: 32px;
+    padding-bottom: 15px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 6, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
-  div.recommended-tips .tips-title {
+  /* line 22, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+  .recommended-tips-col .recommended-tips .tips-title {
     padding-left: 32px;
   }
 }
-/* line 17, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
-div.recommended-tips .tips-title:before {
+/* line 35, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+.recommended-tips-col .recommended-tips .tips-title:before {
   font-family: "InformaIcons" !important;
   content: "\e915";
   position: absolute;
@@ -11321,16 +11350,16 @@ div.recommended-tips .tips-title:before {
   left: -5px;
 }
 @media (max-width: 767px) {
-  /* line 17, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
-  div.recommended-tips .tips-title:before {
-    top: 0;
+  /* line 35, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+  .recommended-tips-col .recommended-tips .tips-title:before {
+    top: -3px;
     left: 0;
     color: #6a7285;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 17, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
-  div.recommended-tips .tips-title:before {
+  /* line 35, ../../../src/components/recommended-tips/sass/_recommended-tips.scss */
+  .recommended-tips-col .recommended-tips .tips-title:before {
     top: -5px;
     left: 0;
     color: #a6aab6;
@@ -12103,7 +12132,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   text-align: right;
   padding-top: 15px;
   padding-bottom: 15px;
-  background: #343742 !important;
+  background: #565c6b !important;
   position: relative;
 }
 /* line 295, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
