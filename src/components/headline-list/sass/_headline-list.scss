@@ -28,6 +28,22 @@
             background-color: $white;
             padding: 15px;
             border-left: 1px solid #c3c6d0;
+            .type {
+                font-weight: bold;
+                display: block;
+                color: $grey-color04;
+                margin-bottom: 0;
+                span {
+                    &:after {
+                        content: ',';
+                    }
+                    &:last-child {
+                        &:after {
+                            content: '';
+                        }
+                    }
+                }
+            }
             .list-content {
                 min-height: 100px;
             }
