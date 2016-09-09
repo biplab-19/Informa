@@ -7,7 +7,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _renderMultiSelect,
         _showNextTab,
         _showPrevTab,
-        _validateForm,
         _appendNextBtn,
         _appendBackBtn,
         _myinterestsSection = $('.register-myinterests-section'),
@@ -30,7 +29,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _yourinterestguid = [],
         _yourinterestitem = [],
         _validateMultiSelct,
-        _validateOnSubmit,
         _showRegisterFormBtn = $('.show-register-form'),
         _showRegisterForm,
         _showRegisterFormPopup,
@@ -112,6 +110,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 $(element).next().prepend("<span class='field-validation-error email-error'>E-mail is not in the valid domain list</span>");
 
     }
+
     _bindValidationLogic = function() {
         //Email message
         var  emailvalidator = $('form').find('.email-validation-error');         
@@ -125,7 +124,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _validateEmailDomainMsg(this);
         });
 
-    },
+    }
 
     _addTabNumbers = function(){
       var progressiveTabs = $('.form-progressive-wizard a[data-toggle="tab"]');
@@ -199,7 +198,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
     _renderRecommendedTips = function() {
         _recommendedTipsContainer.append(_recommendedTips).css('display', 'none');
-
     }
     _destroyMultiSelect = function(){
       _myinterestForm.find('select').multiselect('rebuild');
@@ -352,7 +350,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             $active.next().removeClass('disabled');
             var EmailTag = $('form.register-myinterests-form input[type=email]');
             _validateEmailDomainMsg(EmailTag);
-            //_validateForm();
             var emailError = $('form.register-myinterests-form').find('.email-error');
             $('form.register-myinterests-form').find('.field-validation-error span').css('display', 'block');
             if (emailError.length == 0) {
@@ -369,76 +366,33 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _showPrevTab($active);
         });
     }
-    _validateForm = function() {
-        //    _myinterestForm.validate();
-        // _myinterestForm.validate({
-        //   invalidHandler: function(form, validator) {
-        //         var errors = validator.numberOfInvalids();
-        //         if (errors) {
-        //             alert(5);
-        //         }
-        //     },
-        //     submitHandler: function(form) {
-        //       alert(6);
-        //     }
-        // });
-    }
 
     _validateMultiSelct = function() {
-        //alert(2);
         // $.validator.addMethod("needsSelection", function(value, element) {
         //    return $(element).multiselect("getChecked").length > 0;
         // });
         // $.validator.messages.needsSelection = 'Select.';
     }
 
-    _validateOnSubmit = function() {
-        // _myinterestFormSubmitBtn.on('click', function(e){
-        //   e.preventDefault();
-        //       // $('select[name=multiselect1]').rules('add',{
-        //       //   required: true,
-        //       //   messages: {
-        //       //     required: 'required'
-        //       //   }
-        //       // });
-        //       // $.validator.addMethod("needsSelection", function (value, element) {
-        //       //     var count = $(element).find('option:selected').length;
-        //       //     return count > 0;
-        //       // });
-        //       // $.validator.messages.needsSelection = 'please select';
-        //
-        //   //     _myinterestForm.validate({
-        //   //       rules: {
-        //   //         multiselect1: "required"
-        //   //       },
-        //   //       ignore: ':hidden:not(".multiselect")',
-        //   //       submitHandler: function() {
-        //   //     alert('valid form');
-        //   //     return false;
-        //   // }
-        //   //     });
-        //   // if(_myinterestForm.valid() == true){
-        //   //     alert(11);
-        //   // }
-        // });
-
-    }
-
     init = function() {
-        _bindNumber();
+      if(_myinterestForm.length > 0 ){
         _showProgressiveTabs();
         _appendBackBtn();
         _appendSteps();
         _wrapFormContainer();
         _renderAllContainers();
+        _bindNumber();
         //_renderMultiSelect();
-        _validateForm();
         _renderRecommendedTips();
         _validateMultiSelct();
-        _validateOnSubmit();
         _showRegisterForm();
         _bindValidationLogic();
         _updateProductVertical();
+      }else{
+        _myinterestsSection.css('display', 'none');
+
+      }
+
     };
 
     return {
