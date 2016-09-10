@@ -18,6 +18,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _stepTwoContaner = _myinterestFormContainer.find('#step2'),
         _recommendedTips = $('.recommended-tips'),
         _recommendedTipsContainer = $('.recommended-tips-container'),
+        _recommendedTipCol = $('.recommended-tips-col'),
         _appendSteps,
         _wrapFormContainer,
         _renderAllContainers,
@@ -140,9 +141,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         if (_myinterestForm.valid() == true) {
           var $target = $(e.target);
           if ($target.attr('href') == "#step2" && $target.parent().attr('class') == 'active') {
-              _recommendedTipsContainer.css('display', 'block');
+              _recommendedTipCol.css('display', 'block');
           } else {
-              _recommendedTipsContainer.css('display', 'none');
+              _recommendedTipCol.css('display', 'none');
           }
           if ($target.parent().hasClass('disabled')) {
               return false;
@@ -197,7 +198,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _renderRecommendedTips = function() {
-        _recommendedTipsContainer.append(_recommendedTips).css('display', 'none');
+        _recommendedTipsContainer.append(_recommendedTips);
+        _recommendedTipCol.css('display', 'none');
     }
     _destroyMultiSelect = function(){
       _myinterestForm.find('select').multiselect('rebuild');
@@ -234,11 +236,13 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
     _showNextTab = function(elem) {
         $(elem).next().find('a[data-toggle="tab"]').click();
-        _recommendedTipsContainer.css('display', 'block');
+        _recommendedTipCol.css('display', 'block');
+        _myinterestFormContainer.removeClass('background-pattern');
     }
     _showPrevTab = function(elem) {
         $(elem).prev().find('a[data-toggle="tab"]').click();
-        _recommendedTipsContainer.css('display', 'none');
+        _recommendedTipCol.css('display', 'none');
+        _myinterestFormContainer.addClass('background-pattern');
     }
 
     _renderMultiSelect = function() {
