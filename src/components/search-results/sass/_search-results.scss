@@ -1,6 +1,6 @@
 .product-finder-results {
     .search-container {
-        padding: 20px 95px 20px 15px;
+        padding: 35px 105px 20px 15px;
         background-color: $white;
         width: 75%;
         float: left;
@@ -45,14 +45,14 @@
         }
         .view-toggle {
             margin-bottom: 20px;
-            padding-right: 100px;
             position: relative;
             @include mobile {
                 padding-right: 0;
             }
             .view-by {
-                width: 240px;
+                width: auto;
                 float: left;
+                padding-right: 30px;
                 label {
                     margin-right: 10px;
                     font-weight: normal;
@@ -83,10 +83,12 @@
             }
             .results-found {
                 float: left;
-                width: calc(100% - 240px);
+                width: 60%;
+                margin-top: 15px;
                 @include mobile {
                     width: 100%;
                     margin-bottom: 20px;
+                    margin-top: 0;
                 }
             }
             .results {
@@ -99,10 +101,7 @@
             }
             .view-mode {
                 padding: 0;
-                position: absolute;
-                top: 50%;
-                right: 0;
-                transform: translateY(-50%);
+                float: right;
                 li {
                     list-style-type: none;
                     float: left;
@@ -290,7 +289,7 @@
                 background-color: $grey-color6;
                 @include rotate(-5deg);
                 padding-top: 20px;
-                margin: 10px 0 0 -15px;
+                margin: 9px 0 0 -13px;
                 width: 116%;
                 padding-right: 8%;
                 @include mobile {
@@ -302,8 +301,8 @@
                 .button-links-wrap {
                     background-color: $grey-color6;
                     @include rotate(5deg);
-                    margin-top: -5px;
-                    padding: 15px 20px;
+                    margin-top: -7px;
+                    padding: 14px 20px;
                     @include mobile {
                         padding: 15px 30px;
                     }
@@ -334,13 +333,16 @@
             .content {
                 h4 {
                     font-size: 24px;
+                    padding:10px 0;
+                }
+                .publish{
+                    padding-bottom:15px;
                 }
             }
             .footer {
                 padding: 0;
                 float: left;
                 width: 100%;
-                height: 78px;
                 .btn-container {
                     text-align: right;
                     .btn {
@@ -385,12 +387,12 @@
             background-color: $white;
             padding: 20px 0;
             border-bottom: 1px solid $grey-color6;
+            margin-bottom: 0;
             @include tablet {
                 padding-bottom: 20px;
             }
-            h4 {
-                font-size: 18px;
-                padding: 10px 0;
+            &:first-child{
+                border-top: 1px solid $grey-color6;
             }
             .products {
                 .heading, .button-links {
@@ -406,6 +408,8 @@
                         padding: 0;
                         h4 {
                             color: $grey-color2;
+                            padding:0;
+                            font-family: FSMe-Bold;
                             &:after {
                                 display: none;
                             }
@@ -445,11 +449,14 @@
             }
             .content {
                 margin-bottom: 0;
+                > p{
+                    display: inline-block;
+                }
                 .type {
                     display: inline-block;
                 }
                 .publish {
-                    padding-bottom: 0;
+                    padding-bottom: 8px;
                 }
                 .video-container {
                     width: 290px;
