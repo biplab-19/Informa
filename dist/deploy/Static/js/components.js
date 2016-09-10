@@ -1444,7 +1444,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
         var EventList = [];
 
-        for(var key in data) {
+        for(var key = 0; key < data.length ; key++) {
             EventList.push({
                 "title": data[key].Title,
                 "start": new Date(data[key].EventDate),
@@ -1453,7 +1453,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             })
         }
         jQuery('section[data-view="calendar-view"]').show();
-        for(var key in EventList) {
+        for(var key = 0; key < EventList.length ; key++) {
             Calendar.fullCalendar('renderEvent', EventList[key], true);
         }
         if(jQuery('body').hasClass('list-view')) {
@@ -1467,7 +1467,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var ViewMode = jQuery(this).data('viewport');
             Views.removeClass('active');
             jQuery(this).addClass('active');
-            jQuery('body').attr('class', 'agri-theme');
+            jQuery('body').removeClass('list-view');
+            jQuery('body').removeClass('calendar-view');
             jQuery('.events-list').hide();
             jQuery('body').addClass(ViewMode);
             jQuery('section[data-view="'+ViewMode+'"]').show();

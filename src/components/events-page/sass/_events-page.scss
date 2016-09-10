@@ -17,7 +17,7 @@
 		}
 		h2 {
 			display: inline-block;
-			margin: 20px 0 10px 0;
+			margin: 10px 0;
 			font-size: 28px;
 			font-weight: 700;
 			padding: 0;
@@ -145,7 +145,6 @@
 					top: 2px;
 					width: 20px;
 					height: 20px;
-					background-color: #ffd500;
 					color: #fff;
 					font-weight: bold;
 					-webkit-border-radius: 50%;
@@ -190,28 +189,27 @@
 			}
 		}
 		.date {
-			width: 55px;
-			height: 55px;
+			width: 60px;
+			height: 50px;
 			background-color: #878e9e;
 			font-size: 30px;
 			text-align: center;
 			color: $white;
-			padding-top: 5px;
+			padding: 7px;
 			float: left;
 		}
 		.country {
 			float: right;
-			margin: 15px;
+			margin: 25px 20px;
 			position: absolute;
 			right: 0;
 			span {
 				float: left;
-				margin-right: 5px;
 			}
 		}
 	}
 	.content-wrap {
-		padding: 15px 20px;
+		padding: 20px;
 		.type {
 			display: inline-block;
 		    padding: 3px 8px;
@@ -219,7 +217,7 @@
 		    font-size: 0.9em;
 		    color: #f1f1f3;
 		    margin-right: 5px;
-		    margin-bottom: 5px;
+		    margin-bottom: 10px;
 		    background-color: #6a7285;
 		}
 		.title {
@@ -227,7 +225,6 @@
 			color: #6a7287;
 			font-family: 'FSMe-Bold';
 			margin: 0;
-			height:100px;
 			@include mobile {
 	    	height: auto;
 	    }
@@ -269,7 +266,7 @@
 		}
 	}
 	.footer {
-		padding: 15px;
+		padding: 25px 20px;
 		width: 100%;
 		.btn {
 			padding-right: 40px;
@@ -281,9 +278,6 @@
 			}
 			&.full-detail {
 				float: right;
-			}
-			&:after {
-				//color: $yellow;
 			}
 		}
 	}
