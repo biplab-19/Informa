@@ -60,7 +60,7 @@ INFORMA.news_flash = (function(window, $, namespace) {
                 speed: _speed,
                 dots: _dots,
                 adaptiveHeight: true,
-                arrows: false,
+                arrows: true,
                 responsive: [{
                         breakpoint: 1024,
                         settings: {
