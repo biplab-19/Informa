@@ -44,10 +44,11 @@
             }
         }
         .view-toggle {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             position: relative;
             @include mobile {
                 padding-right: 0;
+                margin-bottom: 15px;
             }
             .view-by {
                 width: auto;
@@ -345,6 +346,9 @@
                 }
                 .publish {
                     padding-bottom: 15px;
+                }
+                .type {
+                    margin-bottom:0;
                 }
             }
             .footer {

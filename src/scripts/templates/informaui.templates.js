@@ -153,7 +153,7 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                     '{{#if PageURL}}' +
                         '<div class="btn-container">' +
-                          '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>' +
+                          '<a role="button" href="{{PageURL}}" class="btn btn-primary" target="_blank">{{LinkText}}</a>' +
                         '</div>' +
                     '{{/if}}' +
                 '</li>'+
@@ -259,7 +259,7 @@ var INFORMA = window.INFORMA || {};
                                                                 '<li><a href="mailto:{{EmailAddressLink}}" class="icon-email"></a></li>' +
                                                             '{{/compare}}' +
                                                         '</ul>' +
-                                                        '<a href="#" class="btn btn-default pull-right">Full Profile</a>' +
+                                                        '<a href="#" class="btn btn-primary pull-right">Full Profile</a>' +
                                                     '</div>' +
                                                 '</div>' +
                                             '</div>' +
@@ -321,7 +321,7 @@ var INFORMA = window.INFORMA || {};
                                                         '<li><a href="mailto:{{EmailAddress}}" class="icon-email"></a></li>' +
                                                     '{{/compare}}' +
                                                 '</ul>' +
-                                                '<a href="#" class="btn btn-default pull-right">Full Profile</a>' +
+                                                '<a href="#" class="btn btn-primary pull-right">Full Profile</a>' +
                                             '</div>' +
                                         '</div>' +
                                     '</div>' +
@@ -375,7 +375,7 @@ var INFORMA = window.INFORMA || {};
                                                         '<li><a href="mailto:{{results.EmailAddressLink}}" class="icon-email"></a></li>' +
                                                     '{{/compare}}' +
                                                 '</ul>' +
-                                                '<a href="#" class="btn btn-default pull-right">{{results.SeeFullProfileLabel}}</a>' +
+                                                '<a href="#" class="btn btn-primary pull-right">{{results.SeeFullProfileLabel}}</a>' +
                                             '</div>' +
                                         '</div>' +
                                     '</div>' +
@@ -464,7 +464,7 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                             '{{#if PageURL}}' +
                                 '<div class="btn-container">' +
-                                  '<a role="button" href="{{PageURL}}" class="btn btn-default" target="_blank">{{LinkText}}</a>' +
+                                  '<a role="button" href="{{PageURL}}" class="btn btn-primary" target="_blank">{{LinkText}}</a>' +
                                 '</div>' +
                             '{{/if}}' +
                         '</div>'+
