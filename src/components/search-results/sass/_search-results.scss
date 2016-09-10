@@ -31,16 +31,16 @@
             padding-top: 20px;
             border-top: 1px solid $grey-color7;
             @include mobile {
-                padding:10px;
-                text-align:center;
+                padding: 10px;
+                text-align: center;
             }
             @include tablet {
-                padding:10px;   
+                padding: 10px;
             }
-            .btn{
-                 @include mobile {
+            .btn {
+                @include mobile {
                     width: 100%;
-                 }
+                }
             }
         }
         .view-toggle {
@@ -52,13 +52,21 @@
             .view-by {
                 width: auto;
                 float: left;
-                padding-right: 30px;
+                @include mobile {
+                     float: none;
+                }
+                @include tablet {
+                     float: none;
+                }
                 label {
                     margin-right: 10px;
                     font-weight: normal;
                 }
                 .chosen-container {
                     width: 165px !important;
+                    @include mobile {
+                        width: 225px !important;
+                    }
                     .chosen-single {
                         height: 50px;
                         border: 1px solid $grey-color7;
@@ -105,8 +113,8 @@
                 li {
                     list-style-type: none;
                     float: left;
-                    &.selected{
-                        background:$grey-color7;
+                    &.selected {
+                        background: $grey-color7;
                     }
                     a {
                         width: 50px;
@@ -204,11 +212,11 @@
     }
     a.btn-showMore {
         margin-bottom: 25px;
-        &:focus{
-        	text-decoration: none;
+        &:focus {
+            text-decoration: none;
         }
-        &:active{
-        	text-decoration: none;
+        &:active {
+            text-decoration: none;
         }
     }
     .list-items {
@@ -218,7 +226,7 @@
             font-size: 24px;
         }
         .meet-anlyst-section {
-            margin-top: 0; 
+            margin-top: 0;
             .anlyst-heading {
                 height: 200px;
             }
@@ -322,7 +330,7 @@
                 background-color: $grey-color2;
             }
         }
-       .recomended-wrapper {
+        .recomended-wrapper {
             background-color: $grey-color7;
             padding: 15px 20px;
             .topics {
@@ -333,10 +341,10 @@
             .content {
                 h4 {
                     font-size: 24px;
-                    padding:10px 0;
+                    padding: 10px 0;
                 }
-                .publish{
-                    padding-bottom:15px;
+                .publish {
+                    padding-bottom: 15px;
                 }
             }
             .footer {
@@ -360,6 +368,7 @@
         height: auto;
     }
 }
+
 .listView {
     .search-container {
         .see-all {
@@ -378,7 +387,8 @@
     .wrap-content {
         height: auto;
     }
-    .col-md-4, .col-sm-6 {
+    .col-md-4,
+    .col-sm-6 {
         width: 100%;
         @include tablet {
             border-bottom: none;
@@ -391,24 +401,26 @@
             @include tablet {
                 padding-bottom: 20px;
             }
-            &:first-child{
+            &:first-child {
                 border-top: 1px solid $grey-color6;
             }
             .products {
-                .heading, .button-links {
+                .heading,
+                .button-links {
                     background-color: transparent;
                     width: 100%;
                     @include rotate(0deg);
                     margin: 0;
                     padding: 0;
-                    .heading-content, .button-links-wrap {
+                    .heading-content,
+                    .button-links-wrap {
                         background-color: transparent;
                         @include rotate(0deg);
                         margin: 0;
                         padding: 0;
                         h4 {
                             color: $grey-color2;
-                            padding:0;
+                            padding: 0;
                             font-family: FSMe-Bold;
                             &:after {
                                 display: none;
@@ -449,7 +461,7 @@
             }
             .content {
                 margin-bottom: 0;
-                > p{
+                > p {
                     display: inline-block;
                 }
                 .type {
@@ -550,7 +562,10 @@
                 }
             }
         }
-        div.meet-anlyst-section .analyst-details h4, div.meet-anlyst-section .analyst-details h3, div.meet-anlyst-section .analyst-details h5, div.meet-anlyst-section .analyst-details p {
+        div.meet-anlyst-section .analyst-details h4,
+        div.meet-anlyst-section .analyst-details h3,
+        div.meet-anlyst-section .analyst-details h5,
+        div.meet-anlyst-section .analyst-details p {
             color: $grey-color05;
             margin: 0;
             padding: 0;
@@ -584,7 +599,7 @@
                 }
             }
         }
-        .others-wrapper {
+        .others-wrapper {
             padding: 15px;
             .footer {
                 min-height: 50px;
@@ -592,7 +607,8 @@
         }
     }
 }
-.others-wrapper  {
+
+.others-wrapper {
     padding: 15px;
     .footer {
         min-height: 50px;
