@@ -183,14 +183,14 @@ $desktop-width: 1142px;
         &:hover{
           text-decoration: none;
         }
-      } 
+      }
 
       //Navigation active color
       .nav-active{
         a{
           @extend .color-link;
         }
-      } 
+      }
 
       //bright banner
       .bright-banner{
@@ -198,7 +198,7 @@ $desktop-width: 1142px;
           background-color: $navlinkagricolor;
           em,span{
             color: $text-gray-dark;
-          } 
+          }
           a {
             color: $text-gray;
           }
@@ -215,7 +215,7 @@ $desktop-width: 1142px;
       //For pharma and agri page-ui
       .page-ui{
          @if($name == agri-theme){
-            background: $secondarycolorlight; 
+            background: $secondarycolorlight;
          }
          @else{
             background-color: $grey-color6;
@@ -229,7 +229,7 @@ $desktop-width: 1142px;
       .quote{
         @if($name == agri-theme){
           color: $agriquote;
-        } 
+        }
         @else{
           color: $pharmaquote;
         }
@@ -241,8 +241,8 @@ $desktop-width: 1142px;
           .news-desc,.news-title,span,strong,.read,.read:after{
             color: $white;
           }
-        } 
-       
+        }
+
       }
 
       #services-navigation,#pdp-navigation{
@@ -252,7 +252,7 @@ $desktop-width: 1142px;
         }
       }
 
-      //Accordian collpase and expand 
+      //Accordian collpase and expand
       #contact-us-brand .panel-group .panel-heading.collapsed{
         &:after{
           background-color: $secondarycolorlight;
@@ -295,7 +295,7 @@ $desktop-width: 1142px;
           @extend .color-link;
         }
       }
-      
+
       #customer-quote-slider{
         .customer-quote-slide {
            &:before {
@@ -312,22 +312,22 @@ $desktop-width: 1142px;
             color: $primary;
           }
         }
-      } 
+      }
 
-     
+
       .accordian-structure {
         a{
           color: $primary;
         }
       }
-      
+
      .articlepage-quote {
         blockquote{
           &:before {
             @extend .quote;
           }
         }
-     } 
+     }
     form.request-a-demo,form.get-in-touch {
       p{
         background-color: $secondarycolorlight;
@@ -341,16 +341,16 @@ $desktop-width: 1142px;
       .checkbox.active{
           label{
             border: 3px solid $secondarycolorlight;
-          }  
+          }
           &:after{
             color: $primary;
           }
-      }         
+      }
     }
     .icon-calender{
       color: $primary;
     }
-    
+
     .icon-tick {
       &:before {
         color: $secondarycolorlight;
@@ -390,12 +390,12 @@ $desktop-width: 1142px;
           background: $navlinkpharmacolor;
         }
       }
-    } 
-   
+    }
+
     .color-text{
       @if($name == agri-theme){
           color: $font-color;
-       } 
+       }
        @else{
           color: $white;
        }
@@ -416,7 +416,7 @@ $desktop-width: 1142px;
           &:after {
             background-color: $pharmalargebg;
           }
-      }      
+      }
     }
     .yellow-container{
        background: rgba($secondarycolorlight, 0.8);
@@ -433,7 +433,7 @@ $desktop-width: 1142px;
       &:before{
         @extend .secondry-light-color;
       }
-    } 
+    }
     .twitter-carousel .slick-arrow{
       background: $white;
       &:before{
@@ -464,8 +464,8 @@ $desktop-width: 1142px;
             background-color: $secondarycolorlight;
             right:0;
           }
-         } 
-       } 
+         }
+       }
         .fc-event-container .events p.title:before{
           background: $secondarycolorlight;
         }
@@ -476,8 +476,8 @@ $desktop-width: 1142px;
               background-color: grey;
             }
           }
-        } 
-    } 
+        }
+    }
 
     .fc-state-default.fc-corner-right, .fc-state-default.fc-corner-left{
       background: $secondarycolorlight;
@@ -504,15 +504,15 @@ $desktop-width: 1142px;
           }
         }
       }
-    } 
-    
+    }
+
     .view-all-mobile-container{
       border-bottom: solid 1px $secondarycolorlight;
       .informa-icon{
         color: $secondarycolorlight;
       }
     }
-    
+
     .register-myinterests-section{
       .triangle-nav li.active a{
         @extend .primary-background;
@@ -572,7 +572,7 @@ $desktop-width: 1142px;
       &:after{
         @extend .sprite-image;
       }
-     } 
+     }
 
     #sub-nav{
       .subnav-container{
@@ -608,7 +608,7 @@ $desktop-width: 1142px;
           }
           @else{
             color: $white;
-          }  
+          }
           font-family: 'FSMe-bold';
       }
       &.right .arrow:after {
@@ -619,7 +619,7 @@ $desktop-width: 1142px;
     .border-circle{
       @if($name == agri-theme){
         borders: 5px solid $navagricirclecolor;
-      } 
+      }
       @else{
         borders: 5px solid $navpharmacirclecolor;
       }
@@ -663,7 +663,7 @@ $desktop-width: 1142px;
         }
         &:hover{
           border-bottom: 2px solid $primarycolor;
-          
+
         }
         span.more,span.less{
           text-decoration: none;
@@ -675,7 +675,7 @@ $desktop-width: 1142px;
          @if($name == pharma-theme){
           h4,h3,h5,p{
             color: $white;
-          } 
+          }
         }
       }
     }
@@ -754,12 +754,16 @@ $desktop-width: 1142px;
 				 position: relative;
 					z-index: 9;
 				 &:before{
-					 content: "\e903";
+					 content: "\e900";
 					 font-family: 'InformaIcons';
 					 left: 15px;
 					 font-weight: bold;
 					 position: absolute;
-					 //color:$primary;
+					 -webkit-transform: scale(-1, 1);
+					 -moz-transform: scale(-1, 1);
+					 -ms-transform: scale(-1, 1);
+					 //-o-transform: scale(-1, 1);
+					 transform: scale(-1, 1);
 				 }
 				 &:hover{
 						border-color: $gray-light;
