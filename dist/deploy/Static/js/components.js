@@ -2179,6 +2179,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             });
             _SelectAll();
         }
+        $('.multiselect-container').mCustomScrollbar();
     }
 
     _showSelectAll = function(select) {
