@@ -11,8 +11,14 @@
     h3 {
         font-size: $font-size-h2;
         font-family: FSMe-Light;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         color: $gray-dark-bg;
+        @include tablet {
+            margin-bottom: 40px;
+        }
+        @include mobile {
+            margin-bottom: 30px;
+        }
     }
     .list-container {
         list-style-type: none;
@@ -26,13 +32,14 @@
         }
         li {
             background-color: $white;
-            padding: 15px;
+            padding: 0 15px;
             border-left: 1px solid #c3c6d0;
             .type {
                 font-weight: bold;
                 display: block;
                 color: $grey-color04;
-                margin-bottom: 0;
+                line-height: 1;
+                margin-bottom: 10px;
                 span {
                     &:after {
                         content: ',';
@@ -42,6 +49,13 @@
                             content: '';
                         }
                     }
+                }
+            }
+            .date {
+                line-height: 1;
+                margin-bottom: 20px;
+                @include mobile {
+                    margin-bottom: 15px;
                 }
             }
             .list-content {
@@ -65,6 +79,9 @@
         }
         .slick-arrow {
             top: 42%;
+        }
+        ul.slick-dots {
+            margin: 20px 0;
         }
     }
 }

@@ -2,6 +2,8 @@
 	overflow: hidden;
 	h2 {
 		margin: 0 0 15px 0;
+		padding: 0;
+		color: $white;
 	}
 	a {
 		color: $orange
@@ -12,7 +14,7 @@
 	.introduction {
 		padding: 30px 0 0 0;
 		margin-bottom: 20px;
-	    background-color: #ffea7f;
+	    background-color: $grey-color02;
 	    position: relative;
 	    @include mobile {
 	        padding: 30px 0 25px 0;
@@ -26,6 +28,7 @@
 	        width: 115px;
 		    height: 115px;
 		    float: right;
+		    margin-top: 15px;
 		    @include mobile {
 	    	    width: 60px;
 				height: 60px;
@@ -56,20 +59,21 @@
 		.place, .experience {
 			padding-left: 30px;
 			position: relative;
+			color: $white;
 			&:before {
 				content: '';
 				position: absolute;
 			}
 		}
-		&.analyst {
-			background-color: $yellow;
-		}
-		&.consultant {
-			background-color: #ffea7f;
-		}
-		&.reporter {
-			background-color: #fff7cc;
-		}
+		// &.analyst {
+		// 	background-color: $yellow;
+		// }
+		// &.consultant {
+		// 	background-color: #ffea7f;
+		// }
+		// &.reporter {
+		// 	background-color: #fff7cc;
+		// }
 	}
 	.nav-links {
 			list-style-type: none;
@@ -209,6 +213,9 @@
 			li {
 				padding: 3px 0;
 				position: relative;
+				a {
+					color: $grey-color04;
+				}
 				@include desktop {
 					width: 50%;
 					float: left;
@@ -231,7 +238,7 @@
 	    background: url(/Static/images/spritesheet.png) no-repeat;
 	    left: 0;
 	    top: -5px;
-	    background-position: -5px -196px;
+	    background-position: -5px -313px;
 	}
 	.experience:before {
 		width: 20px;
@@ -239,7 +246,7 @@
 		background: url(/Static/images/spritesheet.png) no-repeat;
 		left: 0;
 	    top: -5px;
-	    background-position: -5px -158px;
+	    background-position: -5px -345px;
 	}
 }
 .bold {

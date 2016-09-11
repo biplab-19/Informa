@@ -1,12 +1,16 @@
 .product-brands-list {
     padding-bottom: 20px;
-    background-color: #3c404c;
-    //h2 {
-       // margin-bottom: 20px;
-    //}
+    background-color: $grey-color02;
+    h2 {
+       margin-bottom: 20px;
+       padding-left: 10px;
+       padding-bottom: 0;
+    }
     h3 {
         font-size: 24px;
         color: $gray-bright-bg;
+        text-align: left;
+        padding-left: 10px;
     }
     .card {
         word-wrap: break-word;
@@ -35,7 +39,7 @@
                 -ms-transform: rotate(-5deg); /* IE 9 */
                 -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
                 transform: rotate(-5deg);
-                top: calc(100% - 38px);
+                top: calc(100% - 20px);
                 left: 0;
             }
         }
@@ -51,7 +55,8 @@
                 color: $gray-darker;
                 font-family: FSMe-Bold;
                 font-size: 30px;
-                margin-top: 0;
+                margin: 0;
+                padding: 20px 0;
             }
             h4::after {
                 content:'';
@@ -62,9 +67,6 @@
                 background-position: -5px -232px;
                 display: inline-block;
             }
-            p {
-                padding-top: 15px;
-            }
         }
         .showmore {
 
@@ -73,7 +75,7 @@
             overflow: hidden;
             position:relative;
             padding: 15px;
-            background-color: $grey-color5;
+            background-color: $grey-color09;
             &:before {
                 content: '';
                 position: absolute;

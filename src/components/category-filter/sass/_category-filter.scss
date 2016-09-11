@@ -5,12 +5,21 @@
         @include not-desktop{
            padding-bottom: 20px; 
         }
+        @include tablet {
+            padding: 40px 20px;
+        }
+        @include mobile {
+            padding: 30px 20px;
+        }
     }
     h3 {
         padding: 25px 0;
         margin-bottom: 0;
         @include not-desktop{
            padding: 20px 0; 
+        }
+        @include tablet {
+            padding: 20px 0;
         }
     }
     .selectMenu{
