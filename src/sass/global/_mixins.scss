@@ -224,6 +224,19 @@ $desktop-width: 1142px;
         }
       }
 
+      //For dark gray background
+      .bg-gray-dark {
+          .btn-default {
+              border: 2px solid $white;
+              &:hover {
+                border: 2px solid $secondarycolorlight;
+                &:after {
+                  color: $secondarycolorlight;
+                }
+              }
+          }
+      }
+
       //For pharma and agri page-ui
       .page-ui{
          @if($name == agri-theme){
@@ -729,6 +742,9 @@ $desktop-width: 1142px;
           }
           &:hover{
             border: 2px solid $secondarycolorlight;
+            &:after {
+              color: $secondarycolorlight;
+            }
           }
       }
     }
