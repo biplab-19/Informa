@@ -811,13 +811,18 @@ $desktop-width: 1142px;
             h2 {
                 font-size: 36px;
                 color: $white;
+								position: relative;
                 &:before {
                     content: "\e914";
                     left: -60px;
                     font-family: "InformaIcons";
                     color: $secondarycolorlight;
+										position: absolute;
                 }
             }
+						p{
+							font-size: 24px;
+						}
         }
     }
   }
