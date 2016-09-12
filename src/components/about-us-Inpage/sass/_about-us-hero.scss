@@ -2,7 +2,7 @@ $about-hero-height-desktop: 600px;
 
 section#about-us-hero{
   height: $about-hero-height-desktop;
-  overflow: hidden; 
+  overflow: hidden;
   margin-top: 30px;
   .sample{
     position: relative;
@@ -59,15 +59,14 @@ section#about-us-hero{
         border-right: none;
       }
     }
-    h1 {
+    h2 {
       font-family: FSMe-Bold;
-      color: #d1d1d1;
+      color: $white;
       font-size: 40px;
       padding-top: 40px;
       padding-right: 100px;
       word-spacing: 8px;
       padding-left: 10px;
-      margin-bottom: 20px;
       @include mobile {
         font-size: 25px;
         padding-top: 10px;
@@ -75,7 +74,7 @@ section#about-us-hero{
     }
     .description {
         font-family: FSMe-Light;
-        color: #d1d1d1;
+        color: $white;
         font-size: 14px;
         padding-bottom: 40px;
         padding-left: 10px;

@@ -425,6 +425,14 @@
             }
             .register-myinterests-form-container #step2 .form-submit-border {
                 width: 425px;
+                @include mobile {
+                  width: 375px;
+                }
+                .prev-step {
+                    @include mobile {
+                      width: 40% !important;
+                    }
+                }
             }
         }
     }
