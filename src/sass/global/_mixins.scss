@@ -108,6 +108,18 @@ $desktop-width: 1142px;
   height: 100px;
 }
 
+@mixin anchor-font($fontDesk,$fontTab,$fontMob){
+  @include desktop{
+      font-size: $fontDesk;
+  }
+  @include tablet{
+      font-size: $fontTab;
+  }
+  @include mobile{
+      font-size: $fontMob;
+  }
+}
+
 @mixin theme($name, $primarycolor, $secondarycolordark, $secondarycolorlight) {
   $primary: $primarycolor;
   $secondarycolordark: $secondarycolordark;
