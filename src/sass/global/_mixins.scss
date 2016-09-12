@@ -810,35 +810,21 @@ $desktop-width: 1142px;
       background-color: $secondarycolorlight80;
     }
 
-    .tab-pane {
-        .error-response,
-        .submit-response {
-            padding-left: 85px;
-            padding-right: 30px;
-            padding-bottom: 20px;
-            @include mobile {
-                padding-left: 7px;
-                padding-right: 5px;
-            }
-            h2 {
-                font-size: 36px;
-                color: $white;
-								position: relative;
-                &:before {
-                    content: "\e914";
-                    left: -60px;
-                    font-family: "InformaIcons";
-                    color: $secondarycolorlight;
-										position: absolute;
-                }
-            }
-						p{
-							font-size: 24px;
-						}
-        }
-    }
   }
+
+	.error-response,
+	.submit-response {
+			h2 {
+					&:before {
+							color: $secondarycolorlight;
+					}
+			}
+	}
+
 }
+
+
+
 
 @mixin opacity($opacity) {
   opacity: $opacity;
