@@ -13,8 +13,6 @@
     }
     /* Funciton for updating banner on html page*/
 
-    alert("sdfsf");
-
     //Cross Domain Ajax Call for consuming Rest Services
     $.ajax({
         type: "Get", // This will be Get request 
