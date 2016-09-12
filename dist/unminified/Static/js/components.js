@@ -3675,7 +3675,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _navlinks.on('click', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
-                $('#sub-nav').css({'left': 0, 'min-height': '425px'});
+                $('#sub-nav').css({'left': 0, 'min-height': '325px'});
                 $('#sub-nav .subnav-container').hide();
                 _navlinks.removeClass('nav-active');
                 $(this).addClass('nav-active');
