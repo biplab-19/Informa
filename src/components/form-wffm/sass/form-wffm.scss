@@ -544,11 +544,9 @@ form.register-myinterests-form {
     font-family: "FSMe-Light";
     display: block;
     font-size: $line-height-computed;
-    h1 {
+    h2 {
         display: inline-block;
-        margin-bottom: 25px;
         position: relative;
-        font-size: 40px;
         @include mobile {
             padding-right: 20px;
             margin-right: 20px;
@@ -560,16 +558,13 @@ form.register-myinterests-form {
             font-family: 'InformaIcons';
             @include desktop {
                 font-size: 35px;
-                left: -10%;
-                top: 0;
             }
             @include tablet {
                 font-size: 35px;
-                top: 0;
                 left: -15%;
             }
             @include mobile {
-                font-size: 50px;
+                font-size: 35px;
                 margin-top: 5px;
                 left: 100%;
             }
@@ -601,14 +596,7 @@ form.register-myinterests-form {
         }
     }
 }
-.submit-response h1::before {
-    content: "\e914";
-    color: $brand-secondary;
-}
-.error-response h1::before {
-    content: "\e916";
-    color: $error-orange;
-}
+
 .form-btn-container {
     width: 20%;
     margin: 10px auto;
@@ -732,6 +720,7 @@ form.register-myinterests-form {
 .form-modal.modal.fade.in.centreAlign .modal-dialog {
     transform: translate3d(0,-50%,0);
 }
+
 .tab-pane {
     .error-response,
     .submit-response {
@@ -743,13 +732,25 @@ form.register-myinterests-form {
             padding-right: 5px;
         }
         h2 {
-            font-size: 36px;
             color: $white;
+						position: relative;
             &:before {
+                @include mobile{
+                  right: -60px;
+                }
+                @include tablet{
+                  left: -60px;
+                }
+                @include desktop{
+                  left: -60px;
+                }
                 content: "\e914";
-                left: -60px;
                 font-family: "InformaIcons";
+								position: absolute;
             }
         }
+				p{
+					font-size: 24px;
+				}
     }
 }
