@@ -31,8 +31,17 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
         var EachView = jQuery('.analyst-views');
         EachView.each(function () {
             var Items = jQuery(this).find('.analyst-list-container .analyst-description'),
+                ItemsHeader = jQuery(this).find('.analyst-list-container .analyst-details'),
                 _maxHeight = 0,
+                _maxHeightHeader = 0,
                 _padding = 50;
+            ItemsHeader.each(function () {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeightHeader) {
+                    _maxHeightHeader = Height;
+                }
+            })
+            ItemsHeader.css('height', _maxHeightHeader);
             Items.each(function () {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeight) {
