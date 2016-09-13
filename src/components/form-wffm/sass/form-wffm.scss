@@ -32,7 +32,7 @@
 form.get-in-touch,
 form.request-a-demo,
 form.register-myinterests-form {
-    background-color: $gray-light-bg;
+    background-color: $grey-color03;
     color: $white;
     padding-left: 25%;
     padding-right: 25%;
@@ -76,7 +76,7 @@ form.register-myinterests-form {
     }
     select.form-control {
         height: 54px;
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
         color: $gray-form-txt;
     }
     label.control-label {
@@ -89,7 +89,7 @@ form.register-myinterests-form {
     input.form-control {
         border-radius: 0;
         height: 54px;
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
         //width: 94%;
     }
     input[type=number].form-control::-webkit-inner-spin-button,
@@ -102,7 +102,7 @@ form.register-myinterests-form {
     }
     textarea.form-control {
         border-radius: 0;
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
         height: 227px;
         //width: 94%;
     }
@@ -116,14 +116,14 @@ form.register-myinterests-form {
     .chosen-single {
         height: 50px;
         border-radius: 0;
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
         span {
             margin-top: 6px;
             font-size: 14px;
         }
     }
     .chosen-container-single .chosen-drop {
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
         font-size: 14px;
     }
     .chosen-container .chosen-results {
@@ -228,7 +228,7 @@ form.register-myinterests-form {
                 font-family: 'InformaIcons';
                 content: '\e915';
                 padding-left: 15px;
-                color: $info-icon-color;
+                color: $grey-color07;
             }
         }
     }
@@ -270,7 +270,7 @@ form.register-myinterests-form {
             margin-top: -5px;
             margin-bottom: 15px;
             height: 70px;
-            color: $gray-light-bg;
+            color: $grey-color03;
             input {
                 margin-left: 0;
                 right: 5px;
@@ -559,7 +559,7 @@ form.register-myinterests-form {
             }
             .error-response,
             .submit-response {
-                background-color: $gray-light-bg;
+                background-color: $grey-color03;
                 color: $white;
                 padding-left: 25%;
                 padding-right: 25%;
@@ -634,7 +634,7 @@ form.register-myinterests-form {
     }
     .modal-content {
         border-radius: 0;
-        background-color: $gray-light-bg;
+        background-color: $grey-color03;
         color: $white;
         //margin-top: 20%;
         @include tablet {
@@ -706,6 +706,8 @@ form.register-myinterests-form {
 .tab-pane {
     .error-response,
     .submit-response {
+        background-color: $grey-color03;
+        color: $white;
         padding-left: 85px;
         padding-right: 30px;
         padding-bottom: 20px;
@@ -733,6 +735,7 @@ form.register-myinterests-form {
         }
 				p{
 					font-size: 24px;
+          color: $white;
 				}
     }
 }

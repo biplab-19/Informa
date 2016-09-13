@@ -461,7 +461,7 @@ $desktop-width: 1142px;
     }
     section.customer-quote {
       @if($name == pharma-theme){
-        @include tablet{ 
+        @include tablet{
           background: linear-gradient($pharmalargebg 82%, $pharmalargebg10 18%);
           background: -webkit-linear-gradient($pharmalargebg 82%, $pharmalargebg10 18%); /* For Safari 5.1 to 6.0 */
           background: -moz-linear-gradient($pharmalargebg 82%, $pharmalargebg10 18%); /* For Firefox 3.6 to 15 */
@@ -843,6 +843,7 @@ $desktop-width: 1142px;
 
   }
 
+.tab-pane{
 	.error-response,
 	.submit-response {
 			h2 {
@@ -850,6 +851,21 @@ $desktop-width: 1142px;
 							color: $secondarycolorlight;
 					}
 			}
+	}
+}
+.form-modal {
+		.modal-body {
+			.form-inline-container{
+				.error-response,
+				.submit-response {
+						h2 {
+								&:before {
+										color: $secondarycolorlight;
+								}
+						}
+				}
+			}
+		}
 	}
 
 }
