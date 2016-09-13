@@ -6,22 +6,26 @@ section.customer-quote {
     .container{
         padding: 0;
     }
-    @include tablet{
-        h2{
+    h2{
+        padding-bottom: 30px;
+        @include tablet{
             margin: 0 20px;
             padding-bottom: 25px;
         }
-    }
-    @include tablet{
-        h2{
-            margin: 0 20px;
-            pading-bottom: 25px;
+        @include mobile{
+            margin: 0 10px;
+            padding-bottom: 20px;
         }
     }
-    @include mobile{
-        h2{
-            margin: 0 10px;
-            pading-bottom: 20px;
+    h4{
+        color: #fff;
+        padding-left: 100px;
+        margin: 0;  
+        @include mobile{
+            padding: 0 30px;
+        }
+        @include tablet{
+            padding: 0 140px;
         }
     }
     position: relative;
@@ -37,7 +41,7 @@ section.customer-quote {
         position: relative;
         margin-top: 30px;
         @include mobile {
-            margin-top: 20px;
+            margin-top: 0px;
         }
         @include tablet {
             margin-top: 25px;
