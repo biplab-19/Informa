@@ -1,4 +1,4 @@
-/*! 2016-09-13 */
+/*! 2016-09-14 */
 /*
  * welcome-description
  *
@@ -698,8 +698,7 @@ INFORMA.brandList = (function(window, $, namespace) {
         _equalHeight;
     _equalHeight = function(container) {
         var captionItems = container.find('.caption'),
-            maxHeight = 0,
-            padding = 50;
+            maxHeight = 0;
 
         captionItems.each(function() {
             var height = jQuery(this).height();
@@ -708,7 +707,7 @@ INFORMA.brandList = (function(window, $, namespace) {
             }
         })
         if(INFORMA.global.device.viewportN != 2) {
-            captionItems.css('height', maxHeight + padding);
+            captionItems.css('height', maxHeight);
         } else {
             captionItems.css('height', 'auto');
         }
@@ -915,24 +914,15 @@ INFORMA.navbars = (function(window, $, namespace) {
       tabcontent = $('.tab-content .tab-pane'),
         init;
     init = function() {
-        // jQuery(Tabs[0]).addClass('active');
-        // Tabs.on('click', function() {
-        //     Tabs.removeClass('active');
-        //     jQuery(this).addClass('active');
-        //     var tabpane = jQuery(this).find('a').attr('href');
-        //     tabcontent.removeClass('active');
-        //     jQuery(tabpane).addClass('active');
-        // })
-        $('.contactUsPage-contactUs a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-            localStorage.setItem('activeTab', $(e.target).attr('href'));
-        });
-        var activeTab = localStorage.getItem('activeTab');
-        if (activeTab) {
-            $('.contactUsPage-contactUs a[data-toggle="tab"]').removeClass('active');
-            $('.contactUsPage-contactUs a[href="' + activeTab + '"]').tab('show').addClass('active');
-        }else{
-          $('.contactUsPage-contactUs a[data-toggle="tab"]:first').tab('show').addClass('active');
-        }
+          var hash = document.location.hash, prefix = "tab_";
+          if (hash) {
+              $('.contactUsPage-contactUs .nav-tabs a[href="'+hash.replace(prefix,"")+'"]').tab('show').addClass('active');
+          }else{
+              $('.contactUsPage-contactUs a[data-toggle="tab"]:first').tab('show').addClass('active');
+          }
+          $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+              window.location.hash = e.target.hash.replace("#", "#" + prefix);
+          });
     };
 
     return {

@@ -21,8 +21,7 @@ INFORMA.brandList = (function(window, $, namespace) {
         _equalHeight;
     _equalHeight = function(container) {
         var captionItems = container.find('.caption'),
-            maxHeight = 0,
-            padding = 50;
+            maxHeight = 0;
 
         captionItems.each(function() {
             var height = jQuery(this).height();
@@ -31,7 +30,7 @@ INFORMA.brandList = (function(window, $, namespace) {
             }
         })
         if(INFORMA.global.device.viewportN != 2) {
-            captionItems.css('height', maxHeight + padding);
+            captionItems.css('height', maxHeight);
         } else {
             captionItems.css('height', 'auto');
         }

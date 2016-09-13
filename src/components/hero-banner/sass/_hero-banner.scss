@@ -254,6 +254,8 @@ section#hero-banner {
           font-size: 60px;
           padding-bottom: 42px;
           color: #444957;
+          margin: 0;
+          color: $white;
            @include mobile {
                padding-top: 19px;
                padding-bottom: 27px;
@@ -285,6 +287,7 @@ section#hero-banner {
            font-size: 40px;
            color: #444957;
            padding-bottom: 0px;
+           color: $white;
            @include mobile {
                font-size: 24px;
                letter-spacing: normal;
@@ -300,11 +303,13 @@ section#hero-banner {
              font-family: FSMe-light;
              font-size: 20px;
              color: #444957;
+             color: $white;
          }
          .color-subtext{
            color: #444957;
            line-height: 22px;
            font-family: FSMe-light;
+           color: $white;
            @include mobile {
              text-align: left;
              line-height: 20px;

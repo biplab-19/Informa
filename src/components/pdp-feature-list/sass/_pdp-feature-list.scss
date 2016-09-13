@@ -1,9 +1,12 @@
 section#feature-list,
 section.feature-list-section {
-    background: $light;
-    padding: 20px 0;
+    background: $grey-color10;
     h2{
         padding-bottom: 10px;
+    }
+    h5 {
+        padding: 0;
+        margin-bottom: 25px;
     }
     @include mobile {
         padding: 5px 0 25px;
@@ -47,10 +50,10 @@ section.feature-list-section {
             text-align: center;
         }
         .headText {
-            font-family: FSMe-Bold;
-            font-size: 16px;
-            color: $text-gray-dark;
-            padding: 12px 0 6px;
+            // font-family: FSMe-Bold;
+            // font-size: 16px;
+            // color: $text-gray-dark;
+            // padding: 10px 0 25px 0;
         }
         p {
             font-family: FSMe-Light;

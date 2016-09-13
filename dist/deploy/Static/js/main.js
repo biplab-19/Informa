@@ -1,4 +1,4 @@
-/*! 2016-09-13 */s = new AppMeasurement()
+/*! 2016-09-14 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -4588,25 +4588,33 @@ var INFORMA = window.INFORMA || {};
                                         '{{/if}}'+
                                     '{{/if}}'+
                                     '{{#if results.ProductLink}}'+
+                                        '{{#compare results.ProductLink null operator="!="}}'+
                                         '{{#if results.ProductLink.Url}}'+
                                             '<div class="btn-container text-right">'+
                                                 '<a href="{{results.ProductLink.Url}}" class="btn btn-default btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
                                             '</div>'+
                                         '{{/if}}'+
+                                        '{{/compare}}'+
                                     '{{/if}}'+
-                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-                                    '{{#if results.LinkText}}'+
-                                        '<div class="btn-container text-right">'+
-                                            '<a href="{{results.PageURL}}" class="btn btn-default full-width-btn" target="_blank">{{results.LinkText}}</a>'+
-                                        '</div>'+
-                                    '{{/if}}'+
-                                    '{{/compare}}'+
-                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-                                    '{{#if results.LinkText}}'+
-                                        '<div class="btn-container text-right">'+
-                                            '<a data-show-register="true" class="btn btn-default show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
-                                        '</div>'+
-                                    '{{/if}}'+
+                                    '{{#compare results.LinkText null operator="!="}}'+
+                                        '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                            '{{#if results.LinkText}}'+
+                                                
+                                                '<div class="btn-container text-right">'+
+                                                    '<a href="{{results.PageURL}}" class="btn btn-default full-width-btn" target="{{results.LinkTarget}}">{{results.LinkText}}</a>'+
+                                                '</div>'+
+                                                
+                                            '{{/if}}'+
+                                            '{{/compare}}'+
+                                            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                            '{{#if results.LinkText}}'+
+                                            
+                                                '<div class="btn-container text-right">'+
+                                                    '<a data-show-register="true" class="btn btn-default show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
+                                                '</div>'+
+                                                
+                                            '{{/if}}'+
+                                        '{{/compare}}'+
                                     '{{/compare}}'+
                                 '</div>'+
                             '</div>'+
@@ -4792,17 +4800,12 @@ var INFORMA = window.INFORMA || {};
                                                                         '{{results.ShortDescription}}'+
                                                                     '</p>'+
                                                                 '{{/if}}'+
-                                                                '{{#if results.Description}}'+
-                                                                    '<p class="description">'+
-                                                                        '{{results.Description}}'+
-                                                                    '</p>'+
-                                                                '{{/if}}'+
                                                         '</div>'+
                                                     '</div>'+
                                                     '<div class="footer">'+
                                                         '<div class="btn-container text-right">'+
                                                             '{{#compare results.LinkText null operator="!="}}'+
-                                                                '<a href="{{results.PageURL}}" class="btn btn-primary" target="_blank">{{results.LinkText}}</a>'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary" target="_blank">{{results.DetailText}}</a>'+
                                                             '{{/compare}}'+
                                                         '</div>'+
                                                     '</div>'+
