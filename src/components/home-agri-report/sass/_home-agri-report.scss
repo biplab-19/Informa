@@ -1,21 +1,25 @@
 section#agri-report {
-    //background: $gray-light-bg;
-    padding: 40px 0;
     position: relative;
-    @include mobile {
-        padding: 10px 15px 35px;
+    background: $grey-color10;
+    h2{
+        padding: 50px 0 40px 0;
+        @include tablet{
+            padding: 40px 0 30px 0;
+        }
+        @include mobile{
+            padding: 30px 0 25px 0;
+        }
     }
-    // h1 {
-    //     @include tablet {
-    //         font-size: 32px;
-    //     }
-    //     @include mobile {
-    //         font-size: 24px;
-    //         margin-bottom: 25px;
-    //     }
-    // }
+    h5{
+        &:first-child{
+            color: $grey-color03;
+            font-family: FSMe-Bold;
+        }
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
     .agri-report-wrapper {
-        //  color: $white;
         position: relative;
         font-family: FSMe-Light;
         font-size: 18px;
@@ -33,9 +37,20 @@ section#agri-report {
             }
         }
         .download-report{
-          a{
+            padding: 40px 0 50px 0;
+            @include tablet{
+                padding: 40px 15px; 
+            }
+            @include mobile{
+                padding: 30px 15px; 
+            }
+           a{
             position: relative;
             min-width: 180px;
+            margin-right: 15px;
+            @include mobile{
+                width: 100%;
+            }
             &:after{
               font-family: "InformaIcons";
               content: "\e905";
@@ -48,8 +63,8 @@ section#agri-report {
         }
         .splash-image {
             position: absolute;
-            bottom: -40px;
-            right: 225px;
+            bottom: 0;
+            right: 100px;
             img {
                 width: 270px;
                 height: auto;
@@ -57,8 +72,8 @@ section#agri-report {
             @include mobile {
                 right: 85px;
                 position: static;
-                margin-top: 35px;
-                margin-bottom: 10px;
+                margin-top: 25px;
+                margin-bottom: 0;
                 & > img {
                     width: 160px;
                     display: block;
