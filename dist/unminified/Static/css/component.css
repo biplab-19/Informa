@@ -1,4 +1,5 @@
-/*! 2016-09-13 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-09-13 */@charset "UTF-8";
+/*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
   background-color: #444957;
@@ -1191,34 +1192,51 @@ section#agri-report .agri-report-wrapper {
   }
 }
 /* line 29, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+section#agri-report .agri-report-wrapper .headline {
+  font-family: FSMe-Bold;
+  padding: 60px 0 20px;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 29, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  section#agri-report .agri-report-wrapper .headline {
+    padding: 30px 0 10px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 29, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  section#agri-report .agri-report-wrapper .headline {
+    display: none;
+  }
+}
+/* line 39, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .download-report {
   padding: 40px 0 50px 0;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 29, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 39, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .download-report {
     padding: 40px 15px;
   }
 }
 @media (max-width: 767px) {
-  /* line 29, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 39, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .download-report {
     padding: 30px 15px;
   }
 }
-/* line 37, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 47, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .download-report a {
   position: relative;
   min-width: 180px;
   margin-right: 15px;
 }
 @media (max-width: 767px) {
-  /* line 37, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 47, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .download-report a {
     width: 100%;
   }
 }
-/* line 44, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 54, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .download-report a:after {
   font-family: "InformaIcons";
   content: "\e905";
@@ -1227,26 +1245,26 @@ section#agri-report .agri-report-wrapper .download-report a:after {
   top: 28%;
   font-size: 16px;
 }
-/* line 54, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 64, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .splash-image {
   position: absolute;
   bottom: 0;
   right: 100px;
 }
-/* line 58, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 68, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .splash-image img {
   width: 270px;
   height: auto;
 }
 @media (max-width: 767px) {
-  /* line 54, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 64, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image {
     right: 85px;
     position: static;
     margin-top: 25px;
     margin-bottom: 0;
   }
-  /* line 67, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 77, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image > img {
     width: 160px;
     display: block;
@@ -1254,24 +1272,47 @@ section#agri-report .agri-report-wrapper .splash-image img {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 54, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 64, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image {
     right: 95px;
   }
-  /* line 75, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 85, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image > img {
     width: 225px;
   }
 }
+/* line 90, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+section#agri-report .agri-report-wrapper .description {
+  line-height: 1.2em;
+}
 @media (max-width: 767px) {
-  /* line 80, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 90, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .description {
     padding-top: 15px;
   }
 }
-/* line 84, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 96, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .description strong {
   font-family: FSMe-Bold;
+}
+/* line 100, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+section#agri-report .agri-report-wrapper .orange-bd {
+  font-size: ┬á14px;
+  ┬áfont-family: ┬áFSMe;
+  ┬áfloat: ┬áleft;
+  ┬ámargin-right: ┬á10px;
+  ┬ámargin-top: ┬á60px;
+  ┬ámin-width: ┬á160px;
+  ┬áborder-color: ┬á #ffd600;
+}
+@media (max-width: 767px) {
+  /* line 100, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  section#agri-report .agri-report-wrapper .orange-bd {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -2208,79 +2249,72 @@ section.feature-list-section.showLess .btn-showMore:after {
 
 /* line 1, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus {
-  background-color: #ffffff;
-  padding: 12px 0 28px;
-  font-family: FSMe-Light;
-}
-/* line 3, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
-section#market-focus.sector-page-coverage {
-  background-color: #fff;
-}
-/* line 5, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
-section#market-focus.sector-page-coverage .market-list-wrapper .market-list {
   background-color: #f0f1f3;
-  height: 82px;
+  padding-bottom: 20px;
 }
 @media (max-width: 767px) {
   /* line 1, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus {
-    padding: 6px 0 5px;
+    padding-bottom: 15px;
   }
 }
-/* line 15, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
-section#market-focus h2 {
-  margin-bottom: 40px;
+/* line 7, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+section#market-focus.sector-page-coverage {
+  background-color: #fff;
 }
-@media (max-width: 767px) {
-  /* line 15, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
-  section#market-focus h2 {
-    margin-bottom: 18px;
-  }
+/* line 9, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+section#market-focus.sector-page-coverage .market-list-wrapper .market-list {
+  background-color: #f0f1f3;
+  height: 82px;
 }
-/* line 21, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 14, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper {
-  margin-bottom: 32px;
+  margin-bottom: 30px;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 14, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  section#market-focus .market-list-wrapper {
+    margin-bottom: 20px;
+  }
 }
 @media (max-width: 767px) {
-  /* line 21, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 14, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper {
     margin-bottom: 15px;
   }
 }
-/* line 26, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 22, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper .market-list {
-  background: #f0f1f3;
+  background: #ffffff;
   background-repeat: no-repeat;
   background-position: 100% 0;
   position: relative;
-  padding: 22px 50px 12px 17px;
+  padding: 10px 50px 10px 0;
   overflow: hidden;
-  height: 62px;
+  height: 68px;
   position: relative;
+  display: flex;
+  vertical-align: middle;
 }
-/* line 35, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
-section#market-focus .market-list-wrapper .market-list h4 {
-  color: #444957;
-  margin: 0;
-  font-size: 24px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+/* line 33, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+section#market-focus .market-list-wrapper .market-list h5 {
+  margin: auto;
+  margin-left: 10px;
 }
-/* line 43, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 37, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper .market-list p {
   display: none;
   font-size: 14px;
   line-height: 1.6eM;
 }
 @media (max-width: 767px) {
-  /* line 43, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 37, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper .market-list p {
     font-size: 12px;
     padding-right: 22px;
   }
 }
-/* line 52, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 46, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper .market-list .abs-image {
   top: 0;
   right: 0;
