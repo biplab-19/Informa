@@ -43,9 +43,15 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
-                if($("#product-finder-section:hidden").length)
+                var NavClose =$("#sub-nav .subnav-close a");
+                if($("#product-finder-section:hidden").length){
                     SearchIcon.toggleClass( "inactive" );
-                ProductFinderSection.slideDown("slow");
+                    ProductFinderSection.slideDown("slow");
+                    if(NavClose){
+                        NavClose.trigger("click");
+                    }
+                }
+                
             });
         },
         MergeJsonData = function(Json1, Json2,Json3,Json4){
