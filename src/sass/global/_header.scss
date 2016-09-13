@@ -987,10 +987,10 @@ header {
     .subnav-container {
         display: none;
         @include desktop {
-            padding-top: 50px;
+            padding: 50px 0;
         }
         @include tablet {
-            width: 60%;
+            width: 94%;
             margin: auto;
         }
         .subnav-heading {
@@ -1231,20 +1231,18 @@ header {
             li {
                 padding: 0px 50px 20px 0;
                 @include not-desktop {
+                    padding: 0;
                     &:first-child{
                         padding-top: 30px;
                     }
                     padding-bottom: 40px;
                 }
             }
-            @include mobile {
+            @include not-desktop {
                 width: 50%;
                 float: left;
             }
-            @include tablet {
-                width: 50%;
-                float: left;
-            }
+           
         }
     }
     .subnav-close {
