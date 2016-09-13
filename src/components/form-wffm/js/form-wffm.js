@@ -20,6 +20,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _resetForm,
         _getAjaxData,
         _parseResults,
+        _parseVerticalName,
         _bindProductId,
         _bindToolTip,
         _bindCalendar,
@@ -33,14 +34,9 @@ INFORMA.forms = (function(window, $, namespace) {
         _showHideInlineForm,
         _HideOverlay,
         _showFormIntro,
-        _updateVerticalName,
-        _bindNumber;
+        _bindNumber,
+        _updateProductVerticalName;
 
-      _updateVerticalName = function(){
-        // if(INFORMA.verticalName){
-        //   $('.wffm-form').find('.tc-product-name').html(INFORMA.verticalName);
-        // }
-      }
 
       _bindNumber = function() {
             $(document).on('keypress','input[type="number"]', function(e) {
@@ -304,6 +300,19 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
+    _parseVerticalName = function(data) {
+            $('span.product-name-holder').html(data.ProductName);
+            $('.product-name-holder').val(data.ProductName);
+            $('.vertical-name-holder').val(data.VerticalName);
+            $('.tc-product-name').html(data.ProductName);
+            $('.tc-vertical-name').html(data.VerticalName);
+            if (data.ProductName != null) {
+                $('.tc-product-name').html(data.ProductName);
+            } else {
+                $('.tc-product-name').html(data.VerticalName);
+            }
+    }
+
     _parseResults = function(data) {
         // if (!$(_formId + ' fieldset').hasClass('area-interests')) {
         //     return false;
@@ -367,7 +376,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     }
                 }
             });
-        },
+        }
 
         _bindSelectOptions = function() {
             $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function(e) {
@@ -643,6 +652,13 @@ INFORMA.forms = (function(window, $, namespace) {
 
     }
 
+    _updateProductVerticalName = function() {
+        var productId = {
+            'guid': $('.page-id').val()
+        };
+        _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
+    }
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _bindNumber();
@@ -661,7 +677,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _showHideInlineForm();
         _HideOverlay();
         _showFormIntro();
-        _updateVerticalName();
+        _updateProductVerticalName();
     };
 
     return {
