@@ -5780,64 +5780,65 @@ section#about-us-hero .transparent-bg-content .description {
 .refine-container .panel .panel-collapse .panel-body ul li label {
   color: #6a7285;
   font-size: 12px;
-  white-space: initial;
 }
-/* line 122, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 121, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-collapse .panel-body ul li label span {
   display: inline-block;
   line-height: 20px;
   text-align: left;
   vertical-align: top;
+  white-space: normal;
+  word-wrap: break-word;
 }
-/* line 131, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 132, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-collapse .panel-body ul.show-less li {
   display: none;
 }
-/* line 133, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 134, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-collapse .panel-body ul.show-less li:nth-child(-n+5) {
   display: block;
 }
-/* line 139, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 140, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-collapse .panel-body .show-more {
   display: none;
   margin-bottom: 20px;
 }
-/* line 143, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 144, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-collapse .panel-body .show-more.show {
   display: inline-block;
 }
-/* line 149, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 150, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading {
   position: relative;
   background-color: transparent;
   padding: 15px 0;
 }
-/* line 153, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 154, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading .custom-checkbox {
   top: 4px;
 }
-/* line 155, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 156, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading .custom-checkbox span {
   text-indent: -9999px;
   position: absolute;
   left: 0;
 }
-/* line 161, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 162, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading h3 {
   font-size: 16px;
   font-family: FSMe-Light;
   line-height: 22px;
 }
-/* line 166, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 167, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading a {
   color: #6a7285;
   text-decoration: none;
 }
-/* line 170, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 171, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading a strong.disabled {
   color: #888e9e;
 }
-/* line 174, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 175, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading a:before {
   font-weight: normal;
   text-align: center;
@@ -5853,20 +5854,20 @@ section#about-us-hero .transparent-bg-content .description {
   position: absolute;
   right: 0px;
 }
-/* line 190, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 191, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading a.collapsed:before {
   content: "\e912";
   color: #a6aab6;
   display: inline;
 }
 
-/* line 201, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 202, ../../../src/components/search-results/sass/_search-refine.scss */
 .clear-mobile {
   display: none;
   background: #fff;
   padding: 20px 10px 0;
 }
-/* line 206, ../../../src/components/search-results/sass/_search-refine.scss */
+/* line 207, ../../../src/components/search-results/sass/_search-refine.scss */
 .clear-mobile .clear-all:after {
   content: 'X';
   margin-left: 5px;
