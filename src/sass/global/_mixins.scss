@@ -676,7 +676,7 @@ $desktop-width: 1142px;
           color: $secondarycolorlight;
         }
     }
-    .btn-showMore {
+    .btn-showMore, .btn-plus {
         background: none;
         width: 120px;
         padding: 10px 0;
@@ -744,6 +744,9 @@ $desktop-width: 1142px;
        }
        &:hover{
           border: 2px solid $secondarycolorlight;
+          &:after {
+            color: $secondarycolorlight;
+          }
        }
     }
     .btn-container{
