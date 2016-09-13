@@ -530,8 +530,14 @@
   background-color: rgba(98, 66, 139, 0.8);
 }
 
-/* line 849, ../../../src/sass/global/_mixins.scss */
-.error-response h2:before,
-.submit-response h2:before {
+/* line 850, ../../../src/sass/global/_mixins.scss */
+.tab-pane .error-response h2:before,
+.tab-pane .submit-response h2:before {
+  color: #62428b;
+}
+
+/* line 862, ../../../src/sass/global/_mixins.scss */
+.form-modal .modal-body .form-inline-container .error-response h2:before,
+.form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #62428b;
 }
