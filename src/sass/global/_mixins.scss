@@ -459,6 +459,18 @@ $desktop-width: 1142px;
         @extend .secondry-light-color;
       }
     }
+    section.customer-quote {
+      @if($name == pharma-theme){
+        @include tablet{ 
+          background: linear-gradient($pharmalargebg 82%, $pharmalargebg10 18%);
+          background: -webkit-linear-gradient($pharmalargebg 82%, $pharmalargebg10 18%); /* For Safari 5.1 to 6.0 */
+          background: -moz-linear-gradient($pharmalargebg 82%, $pharmalargebg10 18%); /* For Firefox 3.6 to 15 */
+        }
+        background: linear-gradient($pharmalargebg 85%, $pharmalargebg10 15%);
+        background: -webkit-linear-gradient($pharmalargebg 85%, $pharmalargebg10 15%); /* For Safari 5.1 to 6.0 */
+        background: -moz-linear-gradient($pharmalargebg 85%, $pharmalargebg10 15%); /* For Firefox 3.6 to 15 */
+      }
+    }
     .twitter-carousel .slick-arrow{
       background: $white;
       &:before{

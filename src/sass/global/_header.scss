@@ -30,7 +30,7 @@ header {
             background-color: $grey-color04;
             overflow: hidden;
             position: absolute;
-            z-index: 9;
+            z-index: 2;
             left: 0;
             right: 0;
             @include tablet {
@@ -529,12 +529,8 @@ header {
                 }
                 .nav-left {
                     @include tablet {
-                        width: 60%;
+                        width: 100%;
                         margin: auto;
-                        padding-top: 80px;
-                        @media screen and (max-height: 500px) and (orientation: landscape) {
-                            padding-top: 0;
-                        }
                     }
                 }
                 .navbar-right {

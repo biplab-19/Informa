@@ -2,61 +2,45 @@
 section.customer-quote {
     & > div {
         position: relative;
-        // this fix the right and left perfectly for arrows
-        // what an idea sirji
     }
     .container{
         padding: 0;
     }
-    @include not-desktop{
+    @include tablet{
         h2{
             margin: 0 20px;
+            padding-bottom: 25px;
         }
     }
-    background: $yellow;
-    //padding: 40px 0 0;
+    @include tablet{
+        h2{
+            margin: 0 20px;
+            pading-bottom: 25px;
+        }
+    }
+    @include mobile{
+        h2{
+            margin: 0 10px;
+            pading-bottom: 20px;
+        }
+    }
     position: relative;
     color: $text-gray;
     overflow: hidden;
-    .quotes-header {
-        // h2 {
-        //     color: $text-gray;
-        //     margin-bottom: -5px;
-        // }
-        // @include mobile {
-        //     margin:30px 0 0 5px;
-        // }
-    }
-    @include mobile {
-        padding: 11px 0 0px;
-    }
-    // .customer-quote-slide {
-    //     @include mobile {
-    //         //  padding: 7.5px;
-    //
-    //         padding-top: 65px;
-    //     }
-    // }
     .quote {
-        padding-left: 115px;
-
         @include mobile {
             padding-left: 0;
             padding-right: 0;
-            //padding-top: 40px;
-
-        }
-        @include tablet {
-            padding-left: 130px;
-            //  padding-left: 30px;
-
         }
     }
     #customer-quote-slider {
         position: relative;
         margin-top: 30px;
         @include mobile {
-            margin-top: 10px;
+            margin-top: 20px;
+        }
+        @include tablet {
+            margin-top: 25px;
         }
         .customer-quote-slide {
           position: relative;
@@ -66,11 +50,9 @@ section.customer-quote {
               content: ',,';
               font-family: FSMe-Bold;
               font-size: 90px;
-              //opacity: 0.45;
               position: absolute;
               transform: rotate(180Deg);
-              //color: $quote-color;
-              left: 0px;
+              left: -3px;
               top: -16px;
           }
           @include mobile {
@@ -85,7 +67,6 @@ section.customer-quote {
           @include tablet {
             &:before {
                 left:4%;
-                //top: 40px;
             }
           }
             & > div {
@@ -98,9 +79,8 @@ section.customer-quote {
                 }
             }
             .saying {
-                font-size: 18px;
-                font-family: FSMe-Light;
-                font-style: normal;
+                color: $white;
+                margin-top: 0;
                 @include tablet{
                     margin-bottom: 25px;
                 }
@@ -109,10 +89,6 @@ section.customer-quote {
                 }
                 margin-bottom: 30px;
                 display: block;
-                //color: $text-gray-dark;
-                @include mobile {
-                    font-size: 16px;
-                }
             }
             .case-study {
                 padding-right: 45px;
@@ -123,27 +99,18 @@ section.customer-quote {
                 @include mobile{
                     margin: 20px 0;
                 }
-                //border-color: $brand-primary;
-                a {
-                    //color: $text-gray;
-                }
                 &:after {
                     content: "\e900";
                     font-family: 'InformaIcons';
                     right: 15px;
                     font-weight: bold;
                     position: absolute;
-                    //color: $brand-primary;
                 }
             }
             .saidBy {
-                font-size: 14px;
-                //color: $text-gray-dark;
+                margin: 0;
                 .owner {
                     text-transform: uppercase;
-                }
-                @include mobile {
-                    font-size: 12px;
                 }
                 font-family: FSMe-Bold;
                 span {
@@ -203,7 +170,9 @@ section.customer-quote {
         ul.slick-dots {
             text-align: center;
             width: 100%;
-            bottom: 20px;
+            bottom: 0;
+            position: relative;
+            left: 8%;
             @include mobile {
                 position: static;
             }
@@ -223,22 +192,6 @@ section.customer-quote {
                 }
             }
         }
-        // .slick-next,
-        // .slick-prev {
-        //     top: 50%;
-        //     transform: translateY(-50%);
-        //     right: 0;
-        //     @include mobile {
-        //         display: none!important;
-        //     }
-        //     background: url("/Static/images/white-arrow.jpg");
-        //     transform: rotate(180Deg);
-        //     height: 60px;
-        //     width: 46px;
-        //     &:before {
-        //         content: '';
-        //     }
-        // }
         .slick-arrow {
             height: 60px;
             width: 40px;
@@ -311,23 +264,22 @@ section.customer-quote {
                 content: "\e903";
             }
         }
-        // .slick-prev {
-        //     left: -30px;
-        //     right: auto;
-        //     transform: rotate(0Deg);
-        //     @include tablet {
-        //         left: 0px;
-        //         height: 30px;
-        //         width: 25px;
-        //     }
-        // }
-        // .slick-next {
-        //     right: -30px;
-        //     @include tablet {
-        //         right: 0px;
-        //         height: 30px;
-        //         width: 25px;
-        //     }
-        // }
+    }
+    .card-col-heading{
+        text-align: right;
+        margin: 15px 0;
+        @include desktop{
+            padding: 0;
+        }
+        @include mobile{
+            .btn-default{
+                width: 100%;
+            }
+        }
+    }
+    .slick-dotted.slick-slider{
+        @include mobile{
+            margin-bottom: 20px;
+        }
     }
 }
