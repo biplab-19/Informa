@@ -333,8 +333,8 @@ var INFORMA = window.INFORMA || {};
                                             '<div class="analyst-heading-content">' +
                                                 '<div class="analyst-details">' +
                                                      '<span class="analyst-type">{{results.Type}}</span>' +
-                                                    '<h2>{{results.Name}}</h2>' +
-                                                    '<h3>{{results.Type}}, {{results.JobTitle}}</h3>' +
+                                                    '<h4>{{results.Name}}</h5>' +
+                                                    '<h5>{{results.Type}}, {{results.JobTitle}}</h3>' +
                                                     '{{#if results.Country}}'+
                                                         '<p class="location">{{results.State}}, {{results.Country}}</p>' +
                                                     '{{/if}}'+

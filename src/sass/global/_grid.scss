@@ -265,25 +265,7 @@ appropriate style change */
   pointer-events: all !important;
 }
 .btn-container {
-  .btn-plus {
-        color: #444957;
-        padding: 20px 0;
-        width: 175px;
-        display: inline-block;
-        border-bottom: 2px solid #ffd500;
-        position: relative;
-        span {
-          color: #444957;
-          float: left;
-          &:before {
-            content: "\e912";
-            position: absolute;
-            right: 0;
-            font-family: "InformaIcons";
-            font-size: 25px;
-            top: 10px;
-            color: #ffd500;
-          }
-        }
+  a.btn-plus {
+    width: 175px;
   }
 }
