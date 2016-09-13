@@ -2384,6 +2384,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _resetForm,
         _getAjaxData,
         _parseResults,
+        _parseVerticalName,
         _bindProductId,
         _bindToolTip,
         _bindCalendar,
@@ -2397,14 +2398,9 @@ INFORMA.forms = (function(window, $, namespace) {
         _showHideInlineForm,
         _HideOverlay,
         _showFormIntro,
-        _updateVerticalName,
-        _bindNumber;
+        _bindNumber,
+        _updateProductVerticalName;
 
-      _updateVerticalName = function(){
-        // if(INFORMA.verticalName){
-        //   $('.wffm-form').find('.tc-product-name').html(INFORMA.verticalName);
-        // }
-      }
 
       _bindNumber = function() {
             $(document).on('keypress','input[type="number"]', function(e) {
@@ -2668,6 +2664,19 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
+    _parseVerticalName = function(data) {
+            $('span.product-name-holder').html(data.ProductName);
+            $('.product-name-holder').val(data.ProductName);
+            $('.vertical-name-holder').val(data.VerticalName);
+            $('.tc-product-name').html(data.ProductName);
+            $('.tc-vertical-name').html(data.VerticalName);
+            if (data.ProductName != null) {
+                $('.tc-product-name').html(data.ProductName);
+            } else {
+                $('.tc-product-name').html(data.VerticalName);
+            }
+    }
+
     _parseResults = function(data) {
         // if (!$(_formId + ' fieldset').hasClass('area-interests')) {
         //     return false;
@@ -2731,7 +2740,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     }
                 }
             });
-        },
+        }
 
         _bindSelectOptions = function() {
             $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function(e) {
@@ -3007,6 +3016,13 @@ INFORMA.forms = (function(window, $, namespace) {
 
     }
 
+    _updateProductVerticalName = function() {
+        var productId = {
+            'guid': $('.page-id').val()
+        };
+        _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
+    }
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _bindNumber();
@@ -3025,7 +3041,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _showHideInlineForm();
         _HideOverlay();
         _showFormIntro();
-        _updateVerticalName();
+        _updateProductVerticalName();
     };
 
     return {
@@ -4350,9 +4366,15 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
-                if($("#product-finder-section:hidden").length)
+                var NavClose =$("#sub-nav .subnav-close a");
+                if($("#product-finder-section:hidden").length){
                     SearchIcon.toggleClass( "inactive" );
-                ProductFinderSection.slideDown("slow");
+                    ProductFinderSection.slideDown("slow");
+                    if(NavClose){
+                        NavClose.trigger("click");
+                    }
+                }
+                
             });
         },
         MergeJsonData = function(Json1, Json2,Json3,Json4){
@@ -5491,12 +5513,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         RefineSection = $(".refine-container"),
         SortDropDown = SearchContent.find(".chosen-select"),
         ProductSearchText = $('input[name="SearchText"]'),
+        SeeAllButton = SearchContent.find(".see-all"),
+        IsShowFlag = false,
         PageNo = 2,
         SortValue = null,
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
-        DoLinksEvents, GetDefaultValues;
+        DoLinksEvents, GetDefaultValues, LoadMoreProducts;
     GetDefaultValues = function() {
             var data = {};
             data.Sorting = ($('select[name="sorting"]')) ? $('select[name="sorting"]').val() : null;
@@ -5506,6 +5530,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.DefaultProductCount = ($('input[name="DefaultProductCount"]')) ? $('input[name="DefaultProductCount"]').val() : null;
             data.SearchTexts = ($('input[name="SearchTexts"]') && $('input[name="SearchTexts"]').length > 0) ? $('input[name="SearchTexts"]').val().split(",") : null;
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
+            data.WhoWeHelp = ($('input[name="WhoWeHelp"]')) ? $('input[name="WhoWeHelp"]').val() : null,
             data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
             if (SearchType === "SearchResult") {
                 if($('#hdnSearchType').length > 0) {
@@ -5666,9 +5691,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         GetPaginationData = function(List, Section) {
             var Data = {},
-                PageSizeValue = Section.data("pagesize");
-
-            Data.PageSize = PageSizeValue;
+                PageSizeValue = (Section) ? Section.data("pagesize") : null;
+            if(PageSizeValue){
+                Data.PageSize = PageSizeValue;
+            }
             $.each(List, function() {
                 var KeyName = $(this).data("type"),
                     KeyValue = $(this).data("fetch");
@@ -5708,6 +5734,17 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
 
             });
+        },
+        LoadMoreProducts = function(){
+            var Data, TileList = jQuery('.search-container .product-results [data-type="Product"]'),
+                PData = GetPaginationData(TileList),
+                FilterData = INFORMA.SearchResultFilter.GetRefineData(),
+                DefaultData = GetDefaultValues(),
+                ProdData = INFORMA.ProductFinder.GetProductData();
+                Data = INFORMA.ProductFinder.MergeData(FilterData, DefaultData,ProdData);
+                Data.PageNo = 1;
+                Data.ExcludedProduct = PData["Product"];
+                GetAjaxData(Urls["GetMoreProducts"], "Post", Data, ParseSearchData, null, $(this));
         },
         DoGlobalShowMore = function() {
             var ShowMoreLink = SearchContent.find(".btn-showMore");
@@ -5806,10 +5843,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     }
 
                     Results.Content = Html;
-                    SearchContent.find(".product-results").remove();
+                    if(!IsShowFlag){
+                        SearchContent.find(".product-results").remove();
+                    }
                     FinalHTml += HeroHandlebar({ results: Results });
                 }
             }
+            IsShowFlag = false;
             SearchContent.find('.container').append(FinalHTml);
             EqualHeight();
             if (SearchType === "ProductSearch") {
@@ -5869,9 +5909,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     Refine = (data.UpdatedFacets !== undefined) ? data.UpdatedFacets : false,
                     AppendItemsFlag = (data.AppendItemsFlag !== undefined) ? data.AppendItemsFlag : false,
                     FacetDescription = (data.FacetDescription != null && data.FacetDescription.length > 0) ? data.FacetDescription : false,
+                    ShowMoreProductFlag = (data.ShowAllFlag  !== undefined) ? data.ShowAllFlag  : false,
                     RemainingCount = (data.RemainingCount !== undefined) ? data.RemainingCount : false;
 
                 if (ProductResults && Object.keys(ProductResults).length && AppendItemsFlag != true) {
+
                     CreateSearchResult(ProductResults);
                     SearchContent.find('.results').find('strong').html(data.ProductFound);
                     if (data.ProductFound == 0) {
@@ -5887,6 +5929,17 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     }
                     if (Refine && Object.keys(Refine).length) {
                         UpdateRefineSection(Refine);
+                    }
+                    if(ShowMoreProductFlag)
+                    {
+                        $(".see-all").removeClass("hidden");
+                        $(".see-all").off("click").on("click",function(e){
+                            e.preventDefault();
+                            IsShowFlag = true;
+                            LoadMoreProducts();
+                        });
+                    }else{
+                        $(".see-all").addClass("hidden");
                     }
                 }
                 if (AppendItemsFlag == true) {
@@ -5907,6 +5960,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if ($("input[name=searchResultsPageUrl]") && $("input.SeeAllResultInput")) {
                     var Value = $("input[name=searchResultsPageUrl]").val() + '?searchText=*';
                     $("input.SeeAllResultInput").val(Value);
+                }
+                if(SeeAllButton){
+                    SeeAllButton.off("click").on("click",function(e){
+                        e.preventDefault();
+                        IsShowFlag = true;
+                        LoadMoreProducts();
+                    });
                 }
             }
             if (IsSearchPage) {
