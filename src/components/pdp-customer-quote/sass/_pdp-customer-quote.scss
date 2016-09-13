@@ -44,7 +44,7 @@ section.customer-quote {
         }
         .customer-quote-slide {
           position: relative;
-          padding-left: 55px;
+          padding-left: 100px;
           &:before {
               padding-left: 10px;
               content: ',,';
@@ -52,7 +52,7 @@ section.customer-quote {
               font-size: 90px;
               position: absolute;
               transform: rotate(180Deg);
-              left: -3px;
+              left: 25px;
               top: -16px;
           }
           @include mobile {
@@ -66,7 +66,7 @@ section.customer-quote {
           }
           @include tablet {
             &:before {
-                left:4%;
+                left:8%;
             }
           }
             & > div {
@@ -250,7 +250,7 @@ section.customer-quote {
         }
         .slick-prev {
             left: 0;
-            top: 45%;
+            top: 40%;
             margin-left: -40px;
             @include mobile {
                 margin-left: 0;
