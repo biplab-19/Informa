@@ -52,19 +52,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                             uniqueArr.push($(this).attr("value"));
                             Data[GetSectionID] = uniqueArr;
                         });
-                    } else {
-                        //Specific To Resource Listing Page
-                        if (GetSectionID && (SearchType === "ResourceResult")) {
-                            if (GetSectionID.toLowerCase() === "contenttype") {
-                                if (!SelectedCheckBox.length) {
-                                    var UArray = [];
-                                    $.each(EnabledCheckBox, function() {
-                                        UArray.push($(this).attr("value"));
-                                        Data[GetSectionID] = UArray;
-                                    });
-                                }
-                            }
-                        }
                     }
 
                 });

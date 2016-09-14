@@ -2098,7 +2098,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _recommendedTipCol.css('display', 'none');
     }
     _destroyMultiSelect = function(){
-      _myinterestForm.find('select').multiselect('rebuild');
+      _myinterestForm.find('select[multiple="multiple"]').multiselect('rebuild');
       var findMultipleSelect = _myinterestForm.find('select');
       if (findMultipleSelect.length > 0) {
           $.each(findMultipleSelect, function(i) {
@@ -2137,6 +2137,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
     _showPrevTab = function(elem) {
         $(elem).prev().find('a[data-toggle="tab"]').click();
+        $('.about-you-details').find('input:first').focus();
         _recommendedTipCol.css('display', 'none');
         _myinterestFormContainer.addClass('background-pattern');
     }
@@ -5297,19 +5298,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                             uniqueArr.push($(this).attr("value"));
                             Data[GetSectionID] = uniqueArr;
                         });
-                    } else {
-                        //Specific To Resource Listing Page
-                        if (GetSectionID && (SearchType === "ResourceResult")) {
-                            if (GetSectionID.toLowerCase() === "contenttype") {
-                                if (!SelectedCheckBox.length) {
-                                    var UArray = [];
-                                    $.each(EnabledCheckBox, function() {
-                                        UArray.push($(this).attr("value"));
-                                        Data[GetSectionID] = UArray;
-                                    });
-                                }
-                            }
-                        }
                     }
 
                 });
@@ -5522,7 +5510,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
             data.WhoWeHelp = ($('input[name="WhoWeHelp"]')) ? $('input[name="WhoWeHelp"]').val() : null,
             data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
-            if (SearchType === "SearchResult") {
+            if (SearchType != "ProductSearch") {
                 if($('#hdnSearchType').length > 0) {
                     var NameSearchType = $('#hdnSearchType').attr('name'),
                         Value = $('#hdnSearchType').attr('value');

@@ -4795,9 +4795,9 @@ var INFORMA = window.INFORMA || {};
                                                     '<div class="wrap-content">'+
                                                         '<div class="content">'+
                                                                 '<h4>{{results.Title}}</h4>'+
-                                                                '{{#if results.ShortDescription}}'+
+                                                                '{{#if results.Description}}'+
                                                                     '<p class="description">'+
-                                                                        '{{results.ShortDescription}}'+
+                                                                        '{{results.Description}}'+
                                                                     '</p>'+
                                                                 '{{/if}}'+
                                                         '</div>'+
