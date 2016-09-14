@@ -288,10 +288,8 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _bindToolTip = function() {
         $('form.get-in-touch legend, form.request-a-demo legend').on("click", function(e) {
-            if (e.offsetX > $(this).outerWidth() + 15) {
                 $(this).toggleClass('active');
                 $(this).parent().children('p').slideToggle();
-            }
         });
 
         $('form.get-in-touch legend, form.request-a-demo legend').each(function() {
