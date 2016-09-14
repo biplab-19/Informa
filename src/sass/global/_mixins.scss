@@ -133,7 +133,7 @@ $desktop-width: 1142px;
   .#{$name} {
     color: $gray-darker;
       //For navlink ang bullet point color
-      .color-link{
+      .color-link,.cookieBanner p a{
         @if($name == agri-theme){
           color: $navlinkagricolor;
         }
