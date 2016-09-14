@@ -2330,83 +2330,103 @@ section#market-focus .market-list-wrapper .market-list .abs-image {
 /* line 2, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote {
   position: relative;
+  position: relative;
   color: #434854;
   overflow: hidden;
 }
-/* line 3, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 4, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote > div {
   position: relative;
 }
-/* line 6, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 7, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .container {
   padding: 0;
 }
-/* line 9, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 10, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+section.customer-quote:after {
+  content: '';
+  background: url("/Static/images/testimonial-pattern.png");
+  width: 400px;
+  height: 600px;
+  position: absolute;
+  right: -150px;
+  top: 8%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 100%;
+}
+@media (max-width: 1141px) {
+  /* line 10, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  section.customer-quote:after {
+    display: none;
+  }
+}
+/* line 25, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote h2 {
   padding-bottom: 30px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 9, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 25, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote h2 {
     margin: 0 20px;
     padding-bottom: 25px;
   }
 }
 @media (max-width: 767px) {
-  /* line 9, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 25, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote h2 {
     margin: 0 10px;
     padding-bottom: 20px;
   }
 }
-/* line 20, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 36, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote h4 {
   color: #fff;
   padding-left: 100px;
   margin: 0;
 }
 @media (max-width: 767px) {
-  /* line 20, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 36, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote h4 {
     padding: 0 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 20, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 36, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote h4 {
     padding: 0 140px;
   }
 }
 @media (max-width: 767px) {
-  /* line 34, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 50, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .quote {
     padding-left: 0;
     padding-right: 0;
   }
 }
-/* line 40, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 56, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider {
   position: relative;
   margin-top: 30px;
 }
 @media (max-width: 767px) {
-  /* line 40, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 56, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider {
     margin-top: 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 40, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 56, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider {
     margin-top: 25px;
   }
 }
-/* line 49, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 65, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide {
   position: relative;
   padding-left: 100px;
 }
-/* line 52, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 68, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide:before {
   padding-left: 10px;
   content: ',,';
@@ -2418,41 +2438,41 @@ section.customer-quote #customer-quote-slider .customer-quote-slide:before {
   top: -16px;
 }
 @media (max-width: 767px) {
-  /* line 49, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 65, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide {
     padding-left: 0px;
     padding: 0 35px;
     padding-top: 65px;
   }
-  /* line 66, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 82, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide:before {
     left: 30px;
     top: 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 72, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 88, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide:before {
     left: 8%;
   }
 }
-/* line 76, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 92, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide > div {
   padding-right: 40%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 76, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 92, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide > div {
     padding: 0 30% 0 6%;
   }
 }
 @media (max-width: 767px) {
-  /* line 76, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 92, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide > div {
     padding-right: 0;
   }
 }
-/* line 85, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 101, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saying {
   color: #ffffff;
   margin-top: 0;
@@ -2460,35 +2480,35 @@ section.customer-quote #customer-quote-slider .customer-quote-slide .saying {
   display: block;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 85, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 101, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .saying {
     margin-bottom: 25px;
   }
 }
 @media (max-width: 767px) {
-  /* line 85, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 101, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .saying {
     margin-bottom: 20px;
   }
 }
-/* line 97, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 113, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .case-study {
   padding-right: 45px;
   margin: 30px 0;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 97, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 113, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .case-study {
     margin: 25px 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 97, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 113, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .case-study {
     margin: 20px 0;
   }
 }
-/* line 106, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 122, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .case-study:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -2496,39 +2516,39 @@ section.customer-quote #customer-quote-slider .customer-quote-slide .case-study:
   font-weight: bold;
   position: absolute;
 }
-/* line 114, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 130, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy {
   margin: 0;
   font-family: FSMe-Bold;
 }
-/* line 116, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 132, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy .owner {
   text-transform: uppercase;
 }
-/* line 120, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 136, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy span {
   padding-right: 15px;
   position: relative;
 }
-/* line 123, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 139, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy span.owner:after {
   position: absolute;
   content: '\/';
   right: 3px;
   font-family: FSMe-Light;
 }
-/* line 130, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 146, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy .description {
   font-family: FSMe-Light;
   text-transform: uppercase;
 }
 @media (max-width: 767px) {
-  /* line 130, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 146, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy .description {
     display: block;
   }
 }
-/* line 140, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 156, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .design-helper {
   position: absolute;
   width: auto;
@@ -2538,19 +2558,19 @@ section.customer-quote .design-helper {
   pointer-events: none;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 140, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 156, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .design-helper {
     top: -40px;
     right: -28px;
   }
 }
 @media (max-width: 767px) {
-  /* line 140, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 156, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .design-helper {
     display: none;
   }
 }
-/* line 154, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 170, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .design-helper .white-streak {
   transform: skew(34Deg);
   width: 100px;
@@ -2558,23 +2578,23 @@ section.customer-quote .design-helper .white-streak {
   background: #fff;
   opacity: 0.3;
 }
-/* line 160, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 176, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .design-helper .white-streak.two {
   height: 500px;
 }
-/* line 164, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 180, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .design-helper.two {
   top: 50px;
   right: -75px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 164, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 180, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .design-helper.two {
     top: 48px;
     right: 30px;
   }
 }
-/* line 174, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 190, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized ul.slick-dots {
   text-align: center;
   width: 100%;
@@ -2583,33 +2603,33 @@ section.customer-quote .slick-initialized ul.slick-dots {
   left: 8%;
 }
 @media (max-width: 767px) {
-  /* line 174, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 190, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized ul.slick-dots {
     position: static;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 174, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 190, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized ul.slick-dots {
     left: 0;
   }
 }
-/* line 186, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 202, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background: #434854;
 }
-/* line 191, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 207, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized ul.slick-dots li button:before {
   content: '';
 }
-/* line 194, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 210, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized ul.slick-dots li.slick-active {
   background: #fff;
 }
-/* line 199, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 215, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-arrow {
   height: 60px;
   width: 40px;
@@ -2618,7 +2638,7 @@ section.customer-quote .slick-initialized .slick-arrow {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 199, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 215, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-arrow {
     height: 40px;
     width: 20px;
@@ -2627,7 +2647,7 @@ section.customer-quote .slick-initialized .slick-arrow {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 199, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 215, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-arrow {
     height: 40px;
     width: 25px;
@@ -2635,7 +2655,7 @@ section.customer-quote .slick-initialized .slick-arrow {
     margin-left: -25px;
   }
 }
-/* line 217, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 233, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -2648,7 +2668,7 @@ section.customer-quote .slick-initialized .slick-arrow:before {
   color: #ffd500;
 }
 @media (max-width: 767px) {
-  /* line 217, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 233, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -2656,21 +2676,21 @@ section.customer-quote .slick-initialized .slick-arrow:before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 217, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 233, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 239, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 255, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-next {
   left: 100%;
   top: 45%;
   margin-left: 0;
 }
 @media (max-width: 767px) {
-  /* line 239, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 255, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-next {
     left: calc(100% - 30px);
     width: 30px;
@@ -2678,23 +2698,23 @@ section.customer-quote .slick-initialized .slick-next {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 239, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 255, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-next {
     left: calc(100% - 25px);
   }
 }
-/* line 251, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 267, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-next:before {
   content: "\e902";
 }
-/* line 255, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 271, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-prev {
   left: 0;
   top: 40%;
   margin-left: -40px;
 }
 @media (max-width: 767px) {
-  /* line 255, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 271, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-prev {
     margin-left: 0;
     width: 30px;
@@ -2702,85 +2722,113 @@ section.customer-quote .slick-initialized .slick-prev {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 255, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 271, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-prev {
     margin: 0;
   }
 }
-/* line 267, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 283, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-prev:before {
   content: "\e903";
 }
-/* line 272, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 288, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .card-col-heading {
   text-align: right;
   margin: 15px 0;
 }
 @media (min-width: 1142px) {
-  /* line 272, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 288, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .card-col-heading {
     padding: 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 279, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 295, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .card-col-heading .btn-default {
     width: 100%;
   }
 }
 @media (max-width: 767px) {
-  /* line 284, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 300, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-dotted.slick-slider {
     margin-bottom: 20px;
   }
 }
 
-/* line 4, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 1, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+nav#pdp-navigation {
+  background: #e1e3e7;
+}
+@media (min-width: 1142px) {
+  /* line 1, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation {
+    padding: 12px 0;
+  }
+}
+/* line 6, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation.navbar-fixed-top {
   position: fixed;
   width: 100%;
   z-index: 99;
 }
-/* line 9, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 11, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul {
   margin: 0;
   position: relative;
 }
-/* line 12, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 14, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul li {
   margin-right: 20px;
 }
-/* line 14, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 16, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul li a {
-  font-size: 14px;
-  color: #343742;
-  padding: 15px 0px;
+  padding: 0;
+  padding-top: 5px;
 }
-/* line 21, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+@media (min-width: 1142px) {
+  /* line 16, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation ul li a {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 16, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation ul li a {
+    font-size: 13px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 16, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation ul li a {
+    font-size: 12px;
+  }
+}
+/* line 23, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation .menuFollower {
-  background: #fff;
+  background: #ffffff;
   height: 5px;
-  margin-top: -5px;
+  margin-top: 5px;
   width: 150px;
   position: absolute;
   transition: .3s ease-in;
   display: none;
 }
 @media (min-width: 1142px) {
-  /* line 32, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 34, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .nav-pdp-nondesktop {
     display: none;
   }
-  /* line 35, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 37, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections {
     display: block;
+    padding: 0;
   }
-  /* line 37, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 40, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky {
     float: right;
     opacity: 0;
   }
-  /* line 40, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 43, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky a {
     margin-top: -10px;
     margin-bottom: 10px;
@@ -2790,45 +2838,45 @@ nav#pdp-navigation .menuFollower {
     padding-right: 25px;
     color: #444957;
   }
-  /* line 48, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 51, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky a:after {
     position: absolute;
     right: 5px;
     content: "\e900";
     font-family: "InformaIcons" !important;
   }
-  /* line 55, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 58, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky.move-left {
     opacity: 1;
     transition: opacity 2s ease-in;
   }
-  /* line 60, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 63, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky .try-stick.btn {
     color: #ffffff;
     background: #ef7c00 !important;
   }
-  /* line 66, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 69, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky .subscribe-stick.btn {
     color: #343742;
     background: none !important;
   }
-  /* line 73, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 76, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections #pdp-sections-heading {
-    font-size: 18px;
+    margin: 0;
     opacity: 0;
   }
-  /* line 77, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 79, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections #pdp-sections-heading.move-left {
     opacity: 1;
     transition: opacity 2s ease-in;
   }
-  /* line 82, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 84, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .navbar-nav {
     display: block;
     width: auto;
     margin: 0;
   }
-  /* line 87, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 89, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .navbar-nav > li {
     float: none;
     display: inline-block;
@@ -2836,11 +2884,11 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (max-width: 1141px) {
-  /* line 98, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 100, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 100, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 102, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop {
     display: inline-block;
     height: 50px;
@@ -2850,26 +2898,46 @@ nav#pdp-navigation .menuFollower {
     padding-left: 0;
     transition: width 2s, left 2s;
   }
-  /* line 108, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 110, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     width: 20%;
     padding-left: 7.5px;
   }
 }
 @media (max-width: 1141px) and (min-width: 768px) and (max-width: 1141px) {
-  /* line 108, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 110, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     width: 5%;
     padding-left: 15px;
   }
 }
 @media (max-width: 1141px) {
-  /* line 116, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 118, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
     position: relative;
     color: #444957;
   }
-  /* line 119, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+}
+@media (max-width: 1141px) and (min-width: 1142px) {
+  /* line 118, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
+    font-size: 14px;
+  }
+}
+@media (max-width: 1141px) and (min-width: 768px) and (max-width: 1141px) {
+  /* line 118, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
+    font-size: 13px;
+  }
+}
+@media (max-width: 1141px) and (max-width: 767px) {
+  /* line 118, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1141px) {
+  /* line 122, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a:after {
     content: '>';
     color: #343742;
@@ -2878,25 +2946,25 @@ nav#pdp-navigation .menuFollower {
     -ms-transform: rotate(90Deg);
     -webkit-transform: rotate(90Deg);
     font-size: large;
-    top: -3px;
+    top: -5px;
     right: -20px;
   }
-  /* line 130, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 133, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a:hover {
     text-decoration: none;
   }
-  /* line 133, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 136, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a:focus {
     text-decoration: none;
   }
-  /* line 138, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 141, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop-sticky {
     position: absolute;
     top: 0;
     right: 0;
     opacity: 0;
   }
-  /* line 144, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 147, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop-sticky a {
     height: 30px;
     padding: 5px;
@@ -2904,31 +2972,30 @@ nav#pdp-navigation .menuFollower {
     margin-bottom: 10px;
     margin-right: 10px;
   }
-  /* line 151, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 154, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop-sticky.move-left {
     opacity: 1;
     transition: opacity 2s ease-in;
   }
-  /* line 156, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 159, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections {
     display: none;
   }
-  /* line 158, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 161, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul {
     margin-top: 0;
     margin-bottom: 0;
   }
-  /* line 161, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 164, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul li {
     width: 100%;
     display: block;
   }
-  /* line 166, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 169, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections #pdp-sections-heading {
-    text-align: center;
-    font-size: 18px;
+    text-align: left;
   }
-  /* line 175, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 176, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .menuFollower {
     display: none !important;
   }
@@ -10431,7 +10498,6 @@ section.recommendation-register-banner .signup-container span.bold:before {
   font-family: "InformaIcons" !important;
   content: "\e914";
   font-size: 20px;
-  color: #ffd500;
   position: absolute;
   left: -27px;
   top: -5px;
@@ -10524,18 +10590,23 @@ section.recommendation-register-banner .steps-tips .desc {
   }
 }
 /* line 155, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+section.recommendation-register-banner .existing-customer-span {
+  margin-right: 10px;
+}
+/* line 158, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .goto-product {
-  color: #ef7c00;
+  color: #ffffff;
+  text-decoration: underline;
   cursor: pointer;
 }
 @media (max-width: 767px) {
-  /* line 155, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+  /* line 158, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
   section.recommendation-register-banner .goto-product {
     display: block;
     text-align: left;
   }
 }
-/* line 163, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
+/* line 167, ../../../src/components/recommendation-register-banner/sass/_recommendation-register-banner.scss */
 section.recommendation-register-banner .light-font {
   font-family: FSMe-Light;
 }
@@ -10925,7 +10996,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 }
 /* line 26, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper h4 {
-  padding: 25px 0;
+  padding: 20px 0 15px;
   margin: 0;
 }
 @media (max-width: 1141px) {
@@ -11043,7 +11114,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 }
 /* line 128, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .publish {
-  padding-bottom: 25px;
+  padding-bottom: 15px;
   margin: 0;
 }
 @media (max-width: 1141px) {
@@ -11301,19 +11372,20 @@ section.welcome-description .registered .reg-title strong.wel-text {
   /* line 39, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .registered .reg-title strong.wel-text {
     padding-left: 0px;
+    margin-bottom: 20px;
   }
 }
-/* line 47, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 48, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .registered .reg-title span {
   display: inline-block;
   font-size: 30px;
 }
-/* line 53, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 54, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip {
   background: #ffd500;
   padding: 15px 30px;
 }
-/* line 56, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 57, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip:before {
   position: absolute;
   font-family: "InformaIcons";
@@ -11324,12 +11396,12 @@ section.welcome-description .tip:before {
   color: #000;
 }
 @media (max-width: 767px) {
-  /* line 56, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 57, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .tip:before {
     top: 32%;
   }
 }
-/* line 68, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 69, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip a {
   position: relative;
   color: #000;
@@ -11337,27 +11409,27 @@ section.welcome-description .tip a {
   padding-left: 20px;
   font-family: FSMe-bold;
 }
-/* line 74, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 75, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip a:after {
   font-family: "InformaIcons";
   content: "\e900";
   position: absolute;
   right: -17px;
 }
-/* line 81, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 82, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip span {
   display: inline-block;
   position: relative;
   padding-left: 30px;
 }
 @media (max-width: 767px) {
-  /* line 81, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 82, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .tip span {
     padding-left: 0px;
     padding-top: 15px;
   }
 }
-/* line 91, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 92, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross {
   color: #ffffff;
   font-size: 14px;
@@ -11366,7 +11438,7 @@ section.welcome-description .cross {
   right: 20px;
   z-index: 2;
 }
-/* line 99, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 100, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross:after {
   font-family: "InformaIcons";
   content: "\e906";
@@ -11383,7 +11455,7 @@ section.welcome-description .cross:after {
 .recommendation-tabs .nav-tabs > li.active > a:hover {
   background: none !important;
   border: none !important;
-  color: #ffffff;
+  color: #444957;
 }
 /* line 11, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .nav-tabs > li > a,
@@ -11432,40 +11504,31 @@ section.welcome-description .cross:after {
 }
 /* line 49, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li.active {
-  background-color: #444957;
-  border-bottom: 1px solid #444957;
+  border-bottom: 5px solid #444957;
 }
-/* line 52, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul.nav-tabs li.active:after {
-  background-color: #444957;
-}
-/* line 56, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul.nav-tabs li.active:last-child:after {
-  background-color: #444957;
-}
-/* line 61, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 53, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li a {
   display: block;
   padding: 20px 0;
-  color: #444957;
+  color: #6a7285;
   font-size: 14px;
   text-align: center;
   text-decoration: none;
 }
-/* line 68, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 60, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li a span {
   font-size: 14px;
   font-family: 'FSMe' !important;
   position: relative;
 }
-/* line 72, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 64, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li a span:before {
   position: absolute;
   left: -30px;
   top: -2px;
   font-size: 20px;
 }
-/* line 81, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 72, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li:after {
   content: '';
   width: 2px;
@@ -11475,31 +11538,37 @@ section.welcome-description .cross:after {
   top: 15px;
   right: 0;
 }
-/* line 92, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
-.recommendation-tabs ul.nav-tabs li:last-child:after {
-  background-color: #ffffff;
+/* line 83, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recommendation-tabs ul.nav-tabs li:first-child a:before {
+  content: '';
+  width: 2px;
+  height: 30px;
+  background-color: #e5e7ef;
+  position: absolute;
+  top: 15px;
+  left: 0;
 }
-/* line 98, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 96, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .chosen-select {
   border: none;
   width: 100%;
   padding: 15px;
   height: auto;
 }
-/* line 105, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 102, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .mobile-tabs {
   padding: 15px;
   background-color: #444957;
   position: relative;
 }
-/* line 109, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 106, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .mobile-tabs .title {
   padding-bottom: 10px;
   font-size: 16px;
   color: #c3c7cf;
 }
 
-/* line 118, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 115, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommended-results .tab-content {
   margin-top: -2px;
 }
@@ -11703,6 +11772,34 @@ section.recommended-products .recom-prod-carousel .slick-list {
   border-right: none;
 }
 /* line 15, ../../../src/components/recom-products/sass/_recom-products.scss */
+section.recommended-products .recom-prod-carousel .slick-prev {
+  left: 0%;
+}
+@media (max-width: 767px) {
+  /* line 15, ../../../src/components/recom-products/sass/_recom-products.scss */
+  section.recommended-products .recom-prod-carousel .slick-prev {
+    margin-left: -3px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 15, ../../../src/components/recom-products/sass/_recom-products.scss */
+  section.recommended-products .recom-prod-carousel .slick-prev {
+    margin-left: -10px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 24, ../../../src/components/recom-products/sass/_recom-products.scss */
+  section.recommended-products .recom-prod-carousel .slick-next {
+    margin-left: -15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 24, ../../../src/components/recom-products/sass/_recom-products.scss */
+  section.recommended-products .recom-prod-carousel .slick-next {
+    margin-left: -10px;
+  }
+}
+/* line 32, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel ul.slick-dots {
   text-align: center;
   width: 100%;
@@ -11711,7 +11808,7 @@ section.recommended-products .recom-prod-carousel ul.slick-dots {
   z-index: 2;
   margin: 15px 0;
 }
-/* line 22, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 39, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel ul.slick-dots li {
   height: 10px;
   width: 10px;
@@ -11720,31 +11817,31 @@ section.recommended-products .recom-prod-carousel ul.slick-dots li {
   background: #888e9f;
   padding: 0;
 }
-/* line 32, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 49, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel ul.slick-dots li button {
   display: none;
 }
-/* line 37, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 54, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products {
   margin-right: 10px;
 }
-/* line 39, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 56, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading {
   background-color: #444957;
   padding: 30px;
   position: relative;
   overflow: hidden;
 }
-/* line 44, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 61, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading h4 {
   color: #ffffff;
 }
-/* line 46, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 63, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading h4 img {
   display: inline-block;
   padding-bottom: 20px;
 }
-/* line 51, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 68, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading .sector {
   display: inline-block;
   padding: 3px 8px;
@@ -11755,20 +11852,20 @@ section.recommended-products .recom-prod-carousel .recom-products .heading .sect
   margin-bottom: 5px;
   background-color: #6a7285;
 }
-/* line 61, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 78, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading .sector span:after {
   content: ',';
 }
-/* line 65, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 82, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading .sector span:last-child:after {
   content: '';
 }
-/* line 71, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 88, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading .brand {
   color: #f1f1f3;
   font-family: FSMe-light;
 }
-/* line 75, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 92, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .heading:after {
   content: '';
   width: 110%;
@@ -11783,31 +11880,31 @@ section.recommended-products .recom-prod-carousel .recom-products .heading:after
   top: calc(100% - 38px);
   left: 0;
 }
-/* line 90, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 107, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .body {
   padding: 30px 15px 20px 15px;
   background-color: #f0f1f3;
 }
-/* line 93, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 110, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .body p {
   line-height: 25px;
   padding: 10px;
 }
-/* line 97, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 114, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .body li {
   list-style-type: none;
   padding-bottom: 20px;
   position: relative;
   font-family: 'FSMe-Bold' !important;
 }
-/* line 102, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 119, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .body li:before {
   position: absolute;
   left: -33px;
   font-size: 20px;
   top: -6px;
 }
-/* line 110, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 127, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .button-links {
   background-color: #e1e3e7;
   min-height: 90px;
@@ -11815,7 +11912,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   position: relative;
   padding: 60px 20px 20px 20px;
 }
-/* line 116, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 133, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .button-links:before {
   content: '';
   position: absolute;
@@ -11826,12 +11923,12 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links:
   transform: rotate(-5deg);
   height: 100%;
 }
-/* line 126, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 143, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .button-links a {
   width: 100%;
   min-width: initial;
 }
-/* line 130, ../../../src/components/recom-products/sass/_recom-products.scss */
+/* line 147, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .recom-prod-carousel .recom-products .button-links .button-links-wrap {
   background-color: red;
   -ms-transform: rotate(-5deg);
