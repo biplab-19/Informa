@@ -1,6 +1,9 @@
 .register-myinterests-section {
     .container{
-      padding-left: 30px;
+      @include desktop {
+        padding-left: 30px;
+      }
+
     }
     //display: none;
     .triangle-nav-container {
@@ -353,6 +356,9 @@
     #step2 {
         .list-inline, .form-submit-border {
             width: 450px;
+            @include mobile {
+              width: 415px;
+            }
             float: right;
             .btn {
                 float: right;
