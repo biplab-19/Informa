@@ -374,10 +374,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _validateMultiSelct = function() {
-        // $.validator.addMethod("needsSelection", function(value, element) {
-        //    return $(element).multiselect("getChecked").length > 0;
-        // });
-        // $.validator.messages.needsSelection = 'Select.';
+      $.validator.setDefaults({ ignore: ":hidden:not(.chosen-select)" });
     }
 
     init = function() {

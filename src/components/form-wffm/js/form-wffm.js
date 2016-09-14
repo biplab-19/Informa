@@ -382,7 +382,7 @@ INFORMA.forms = (function(window, $, namespace) {
             $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function(e) {
                 $(this).parent().parent().toggleClass('active');
             });
-            $("form.get-in-touch .form-group select, form.request-a-demo .form-group select").wrap("<div class='select-wrapper'></div>");
+            // $("form.get-in-touch .form-group select, form.request-a-demo .form-group select").wrap("<div class='select-wrapper'></div>");
         }
 
     _validateEmail = function(email) {

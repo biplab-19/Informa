@@ -115,7 +115,7 @@ form.register-myinterests-form {
     }
     .chosen-container,
     .chosen-single {
-        height: 50px;
+        height: 54px;
         border-radius: 0;
         background-color: $grey-color09;
         span {
@@ -126,6 +126,10 @@ form.register-myinterests-form {
     .chosen-container-single .chosen-drop {
         background-color: $grey-color09;
         font-size: 14px;
+        border-radius: 0;
+    }
+    .chosen-container-single .chosen-search {
+      display: none;
     }
     .chosen-container .chosen-results {
         border-radius: 0;
@@ -176,19 +180,19 @@ form.register-myinterests-form {
         select {
             padding-right: 25px;
         }
-        .select-wrapper {
-            position: relative;
-            &:after {
-                content: "\e901";
-                visibility: visible;
-                font-family: 'InformaIcons';
-                color: $font-color;
-                position: absolute;
-                top: 18px;
-                right: 10px;
-                pointer-events: none;
-            }
-        }
+        // .select-wrapper {
+        //     position: relative;
+        //     &:after {
+        //         content: "\e901";
+        //         visibility: visible;
+        //         font-family: 'InformaIcons';
+        //         color: $font-color;
+        //         position: absolute;
+        //         top: 18px;
+        //         right: 10px;
+        //         pointer-events: none;
+        //     }
+        // }
 
         .has-error .bg-warning {
             display: block;
