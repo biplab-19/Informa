@@ -63,14 +63,23 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         var EachView = jQuery('.sectorpage-strengths');
         EachView.each(function () {
             var Items = jQuery(this).find('.text-description'),
-                _maxHeight = 0;
+                Description = jQuery(this).find('.yellow-container'),
+                _maxHeight = 0,
+                _descHeight = 0;
             Items.each(function () {
-                var Height = jQuery(this).height();
+                var Height = jQuery(this).outerHeight();
                 if (Height > _maxHeight) {
                     _maxHeight = Height;
                 }
             })
             Items.css('height', _maxHeight );
+            Description.each(function () {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _descHeight) {
+                    _descHeight = Height;
+                }
+            })
+            Description.css('height', _descHeight );
         })
     }
 

@@ -18,19 +18,22 @@ section.feature-list-section {
         }
     }
     .btn-see-all-features {
-        width: 20%;
         margin: 0 auto;
-        padding-top: 20px;
-        padding-bottom: 5px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        text-align: right;
+        .btn {
+            @include mobile {
+                width: 100%;
+            }
+        }
         @include mobile {
-          width: 90%;
-          padding-top: 5px;
-          padding-bottom: 0px;
+            padding-top: 30px;
+            padding-bottom: 30px;
         }
         @include tablet {
-          width: 30%;
-          padding-top: 10px;
-          padding-bottom: 5px;
+          padding-top: 40px;
+            padding-bottom: 40px;
         }
     }
     .feature-list-container {

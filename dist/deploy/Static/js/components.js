@@ -1,4 +1,4 @@
-/*! 2016-09-14 */
+/*! 2016-09-15 */
 /*
  * welcome-description
  *
@@ -2270,10 +2270,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _validateMultiSelct = function() {
-        // $.validator.addMethod("needsSelection", function(value, element) {
-        //    return $(element).multiselect("getChecked").length > 0;
-        // });
-        // $.validator.messages.needsSelection = 'Select.';
+      $.validator.setDefaults({ ignore: ":hidden:not(.chosen-select)" });
     }
 
     init = function() {
@@ -2643,10 +2640,8 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _bindToolTip = function() {
         $('form.get-in-touch legend, form.request-a-demo legend').on("click", function(e) {
-            if (e.offsetX > $(this).outerWidth() + 15) {
                 $(this).toggleClass('active');
                 $(this).parent().children('p').slideToggle();
-            }
         });
 
         $('form.get-in-touch legend, form.request-a-demo legend').each(function() {
@@ -2737,7 +2732,7 @@ INFORMA.forms = (function(window, $, namespace) {
             $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function(e) {
                 $(this).parent().parent().toggleClass('active');
             });
-            $("form.get-in-touch .form-group select, form.request-a-demo .form-group select").wrap("<div class='select-wrapper'></div>");
+            // $("form.get-in-touch .form-group select, form.request-a-demo .form-group select").wrap("<div class='select-wrapper'></div>");
         }
 
     _validateEmail = function(email) {
@@ -6105,14 +6100,23 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         var EachView = jQuery('.sectorpage-strengths');
         EachView.each(function () {
             var Items = jQuery(this).find('.text-description'),
-                _maxHeight = 0;
+                Description = jQuery(this).find('.yellow-container'),
+                _maxHeight = 0,
+                _descHeight = 0;
             Items.each(function () {
-                var Height = jQuery(this).height();
+                var Height = jQuery(this).outerHeight();
                 if (Height > _maxHeight) {
                     _maxHeight = Height;
                 }
             })
             Items.css('height', _maxHeight );
+            Description.each(function () {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _descHeight) {
+                    _descHeight = Height;
+                }
+            })
+            Description.css('height', _descHeight );
         })
     }
 

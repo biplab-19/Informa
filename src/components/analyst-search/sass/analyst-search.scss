@@ -59,6 +59,8 @@
 			    font-size: 30px;
 			    left: 30px;
 			    bottom: 7px;
+			    -webkit-transform: rotateY(180deg); /* Safari */
+    			transform: rotateY(180deg);
 			    @include mobile {
 			    	left: 15px;
 			    }

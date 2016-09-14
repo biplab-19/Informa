@@ -1,4 +1,4 @@
-/*! 2016-09-14 */var INFORMA = window.INFORMA || {};
+/*! 2016-09-15 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3996,9 +3996,9 @@ var INFORMA = window.INFORMA || {};
                                     '</div>'+
                                 '{{/compare}}'+
                             '</div>'+
-                            '{{#compare TopicURLS.length 0 operator=">"}}'+
+                            '{{#compare TopicURLS.length "0" operator=">"}}'+
                                 '<p class="topics">'+
-                                    '{{TopicKeyword}} '+
+                                    '{{TopicKeyword}}: '+
                                     '{{#each TopicURLS}}'+
                                         '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
                                     '{{/each}}'+
@@ -4476,7 +4476,7 @@ var INFORMA = window.INFORMA || {};
                                     '{{#if results.EcommerceLink}}'+
                                         '{{#if results.EcommerceLink.Url}}'+
                                             '<div class="btn-container text-right">'+
-                                                '<a href="{{results.EcommerceLink.Url}}" class="btn btn-default btn-ecommerce full-width-btn" target="{{results.EcommerceLink.Target}}">{{results.EcommerceLink.LinkText}}</a>'+
+                                                '<a href="{{results.EcommerceLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.EcommerceLink.Target}}">{{results.EcommerceLink.LinkText}}</a>'+
                                             '</div>'+
                                         '{{/if}}'+
                                     '{{/if}}'+
@@ -4484,7 +4484,7 @@ var INFORMA = window.INFORMA || {};
                                         '{{#compare results.ProductLink null operator="!="}}'+
                                         '{{#if results.ProductLink.Url}}'+
                                             '<div class="btn-container text-right">'+
-                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-default btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
+                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
                                             '</div>'+
                                         '{{/if}}'+
                                         '{{/compare}}'+
@@ -4494,7 +4494,7 @@ var INFORMA = window.INFORMA || {};
                                             '{{#if results.LinkText}}'+
                                                 
                                                 '<div class="btn-container text-right">'+
-                                                    '<a href="{{results.PageURL}}" class="btn btn-default full-width-btn" target="{{results.LinkTarget}}">{{results.LinkText}}</a>'+
+                                                    '<a href="{{results.PageURL}}" class="btn btn-primary full-width-btn" target="{{results.LinkTarget}}">{{results.LinkText}}</a>'+
                                                 '</div>'+
                                                 
                                             '{{/if}}'+
@@ -4503,7 +4503,7 @@ var INFORMA = window.INFORMA || {};
                                             '{{#if results.LinkText}}'+
                                             
                                                 '<div class="btn-container text-right">'+
-                                                    '<a data-show-register="true" class="btn btn-default show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
+                                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
                                                 '</div>'+
                                                 
                                             '{{/if}}'+

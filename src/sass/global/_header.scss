@@ -664,6 +664,10 @@ header {
     &.inactive {
         display: none;
     }
+    .btn-group.open .dropdown-toggle {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
     .container {
         @include desktop{
             padding-right: 0;

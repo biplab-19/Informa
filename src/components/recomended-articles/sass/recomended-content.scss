@@ -194,9 +194,10 @@
 			//display: inline-block;
 			a{
 				color: $grey-color2;
+				text-decoration: underline;
 			}
 			&:after {
-				content: ',';
+				content: '|';
 				margin-right: 5px;
 			}
 			&:last-child {

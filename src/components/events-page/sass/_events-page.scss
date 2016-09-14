@@ -139,19 +139,8 @@
 			}
 			.more,.less{
 				&:after{
-					content: "+";
-					position: absolute;
-					right: 10px;
-					top: 2px;
-					width: 20px;
-					height: 20px;
-					color: #fff;
-					font-weight: bold;
-					-webkit-border-radius: 50%;
-					-moz-border-radius: 50%;
-					border-radius: 50%;
-					font-size: 16px;
-					padding: 0 6px;
+					font-family: 'InformaIcons';
+            		content: '\e912';
 					@include mobile {
 						top: auto;
 						right: 47px;
