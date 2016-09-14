@@ -231,7 +231,13 @@ h3 {
 }
  // The customer list + SLider
   section#customers_list{
-    height: 208px;
+    padding-bottom: 40px;
+    @include tablet{
+      padding-bottom: 30px;
+    }
+    @include mobile{
+      padding-bottom: 20px;
+    }
     overflow: hidden;
     .title_comp {
       h4 {
@@ -249,6 +255,7 @@ h3 {
       }
       &.slick-slider {
         opacity: 1;
+        height: 80px;
         .slick-arrow {
         height: 60px;
         width: 40px;
@@ -284,6 +291,7 @@ h3 {
                 margin-left: -8px;
             }
         }
+       
         &.slick-next {
           &:before {
             content: "\e902";
@@ -301,6 +309,8 @@ h3 {
        }
       }
       .customer {
+        margin: 15px 0;
+        max-width: 200px;
         img { max-width: 100%;} //SW-871
       }
     }
