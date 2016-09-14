@@ -243,7 +243,7 @@ header {
             .logo-img-big {
                 position: absolute;
                 top: 3px;
-                left: 10px;
+                left: 15px;
                 @include not-desktop {
                     left: 50%;
                     position: absolute;
@@ -252,6 +252,9 @@ header {
                     transform: translate(-50%, -50%);
                     top: 50%;
                 }
+            }
+            .local-logo-img-big{
+                left: 10px;
             }
         }
         .nav-main {
