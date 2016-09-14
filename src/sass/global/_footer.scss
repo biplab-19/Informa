@@ -197,6 +197,16 @@ h3 {
         @include tablet{
           padding: 40px 0 0 0;
         }
+        .navbar-brand {
+          float: none;
+          @include tablet{
+            float: right;
+          }
+          @include mobile{
+            float: none;
+            padding: 0;
+          }
+        }
         img {
              display: block;
              float: right;
