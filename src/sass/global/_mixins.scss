@@ -283,8 +283,11 @@ $desktop-width: 1142px;
           background-color: $secondarycolorlight;
         }
       }
-      .panel-group .panel .panel-heading .panel-title a.collapsed:after,.dashboard .panel .panel-heading a.collapsed:before{
+      .panel-group .panel .panel-heading .panel-title a.collapsed:after{
           color: $secondarycolorlight !important;
+      }
+      .dashboard .panel .panel-heading a.collapsed:before{
+         color: $navlinkpharmacolor !important;
       }
 
       //Bullet color
@@ -610,6 +613,15 @@ $desktop-width: 1142px;
         @extend .sprite-image;
       }
      }
+
+    //tab theming
+    ul.nav-tabs {
+      li {
+        &.active{
+              border-bottom: 5px solid $pharmaprimarycolor;
+        }
+      }
+   }
 
     #sub-nav{
       .subnav-container{

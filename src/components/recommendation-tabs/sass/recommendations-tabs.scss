@@ -1,121 +1,118 @@
 .recommendation-tabs {
-	background-color: $white;
-	border-bottom: 1px solid #d1d3da;
-	.nav-tabs > li.active > a,
-	.nav-tabs > li.active > a:focus,
-	.nav-tabs > li.active > a:hover {
-			background: none !important;
-			border: none !important;
-			color: $white;
-	}
-	.nav-tabs > li > a,
-	.nav-tabs > li > a:focus,
-	.nav-tabs > li > a:hover {
-			background: none !important;
-			border: none !important;
-			//color: $white;
-	}
-	.tab-content{
-		background-color: $grey-color1;
-		.tab-pane{
-			padding: 10px;
-		}
-	}
-	.chosen-container-single {
-		&:after{
-			position: absolute;
-			font-family: "InformaIcons" !important;
-			content: "\e901";
-			top: 50%;
-			transform: translateY(-50%);
-			right: 15px;
-			color: $grey-color3;
-			font-size: 16px;
-		}
-	}
-	.chosen-container-single .chosen-single div {
-		display: none;
-	}
-	.nav-tabs{
-		border-bottom: none;
-	}
-	ul.nav-tabs {
-		list-style-type: none;
-		padding: 0;
-		li {
-			float: left;
-			width: 25%;
-			position: relative;
-			&.active{
-					background-color: $grey-color1;
-					border-bottom: 1px solid $grey-color1;
-					&:after {
-						background-color: $grey-color1;
-					}
-					&:last-child {
-						&:after {
-							background-color: $grey-color1;
-						}
-					}
-			}
-			a {
-				display: block;
-				padding: 20px 0;
-				color: $grey-color1;
-				font-size: 14px;
-				text-align: center;
-				text-decoration: none;
-				span {
-					font-size: 14px;
-					font-family: 'FSMe' !important;
-					position: relative;
-					&:before {
-						position: absolute;
-					    left: -30px;
-					    top: -2px;
-						font-size: 20px;
-					}
-				}
-			}
-
-			&:after {
-				content: '';
-				width: 2px;
-				height: 30px;
-				background-color: #e5e7ef;
-				position: absolute;
-				top: 15px;
-				right: 0;
-
-			}
-			&:last-child {
-				&:after {
-					background-color: $white;
-				}
-			}
-		}
-	}
-	.chosen-select{
-		border: none;
-		width: 100%;
-    padding: 15px;
-    height: auto;
-	}
-
-.mobile-tabs{
-		padding: 15px;
-		background-color: $grey-color1;
-		position: relative;
-	.title{
-		padding-bottom: 10px;
-		font-size: 16px;
-		color: $grey-color5;
-	}
-
+    background-color: $white;
+    border-bottom: 1px solid #d1d3da;
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus,
+    .nav-tabs > li.active > a:hover {
+        background: none !important;
+        border: none !important;
+        color: $grey-color1;
+    }
+    .nav-tabs > li > a,
+    .nav-tabs > li > a:focus,
+    .nav-tabs > li > a:hover {
+        background: none !important;
+        border: none !important;
+        //color: $white;
+    }
+    .tab-content {
+        background-color: $grey-color1;
+        .tab-pane {
+            padding: 10px;
+        }
+    }
+    .chosen-container-single {
+        &:after {
+            position: absolute;
+            font-family: "InformaIcons" !important;
+            content: "\e901";
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            color: $grey-color3;
+            font-size: 16px;
+        }
+    }
+    .chosen-container-single .chosen-single div {
+        display: none;
+    }
+    .nav-tabs {
+        border-bottom: none;
+    }
+    ul.nav-tabs {
+        list-style-type: none;
+        padding: 0;
+        li {
+            float: left;
+            width: 25%;
+            position: relative;
+            &.active {
+                border-bottom: 5px solid $grey-color1;
+                &:last-child {}
+            }
+            a {
+                display: block;
+                padding: 20px 0;
+                color: $grey-color2;
+                font-size: 14px;
+                text-align: center;
+                text-decoration: none;
+                span {
+                    font-size: 14px;
+                    font-family: 'FSMe' !important;
+                    position: relative;
+                    &:before {
+                        position: absolute;
+                        left: -30px;
+                        top: -2px;
+                        font-size: 20px;
+                    }
+                }
+            }
+            &:after {
+                content: '';
+                width: 2px;
+                height: 30px;
+                background-color: #e5e7ef;
+                position: absolute;
+                top: 15px;
+                right: 0;
+            }
+            &:first-child {
+                a {
+                    &:before {
+                        content: '';
+                        width: 2px;
+                        height: 30px;
+                        background-color: #e5e7ef;
+                        position: absolute;
+                        top: 15px;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+    .chosen-select {
+        border: none;
+        width: 100%;
+        padding: 15px;
+        height: auto;
+    }
+    .mobile-tabs {
+        padding: 15px;
+        background-color: $grey-color1;
+        position: relative;
+        .title {
+            padding-bottom: 10px;
+            font-size: 16px;
+            color: $grey-color5;
+        }
+    }
 }
-}
+
 .recommended-results {
-	.tab-content {
-		margin-top: -2px;
-	}
+    .tab-content {
+        margin-top: -2px;
+    }
 }
