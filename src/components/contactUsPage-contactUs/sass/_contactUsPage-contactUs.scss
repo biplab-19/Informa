@@ -22,6 +22,9 @@
     }
     .nav-tabs {
         border-bottom: none;
+        li.active{
+          border-bottom: none !important;
+        }
     }
     .pos {
         position: relative;
@@ -47,10 +50,9 @@
         content: " ";
         position: absolute;
         height: 5px;
-        width: 78%;
-        background: yellow;
+        width: 88%;
         bottom: 0;
-        left: 18px;
+        left: 5%;
     }
     .email-image-pos {
         color: $gray-lighter;
