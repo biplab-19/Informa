@@ -62,7 +62,9 @@
   }
   .pdp-without-icon{
     padding-left:0;
-    width: 80%;
+    @include mobile{
+      width: 80%;
+    }
   }
   .pdp-with-icon{
     padding-left: 50px;
