@@ -177,17 +177,18 @@ form.register-myinterests-form {
         }
         .select-wrapper {
             position: relative;
+            &:after {
+                content: "\e901";
+                visibility: visible;
+                font-family: 'InformaIcons';
+                color: $font-color;
+                position: absolute;
+                top: 18px;
+                right: 10px;
+                pointer-events: none;
+            }
         }
-        .select-wrapper:after {
-            content: "\e901";
-            visibility: visible;
-            font-family: 'InformaIcons';
-            color: $font-color;
-            position: absolute;
-            top: 18px;
-            right: 10px;
-            pointer-events: none;
-        }
+
         .has-error .bg-warning {
             display: block;
         }

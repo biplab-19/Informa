@@ -202,7 +202,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _recommendedTipCol.css('display', 'none');
     }
     _destroyMultiSelect = function(){
-      _myinterestForm.find('select').multiselect('rebuild');
+      _myinterestForm.find('select[multiple="multiple"]').multiselect('rebuild');
       var findMultipleSelect = _myinterestForm.find('select');
       if (findMultipleSelect.length > 0) {
           $.each(findMultipleSelect, function(i) {
@@ -241,6 +241,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
     _showPrevTab = function(elem) {
         $(elem).prev().find('a[data-toggle="tab"]').click();
+        $('.about-you-details').find('input:first').focus();
         _recommendedTipCol.css('display', 'none');
         _myinterestFormContainer.addClass('background-pattern');
     }
