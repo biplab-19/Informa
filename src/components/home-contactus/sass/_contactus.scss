@@ -162,6 +162,7 @@
             }
             .content-wrapper-cta {
                 min-height: 120px;
+                margin-bottom: 198px;
                 @include mobile {
                     min-height: auto;
                     margin-bottom: 15px;
@@ -175,7 +176,10 @@
                 min-width: 222px;
                 @include tablet{
                     min-width: auto;
+                }&:hover{
+                  border: none;
                 }
+
             }
             .pay-with {
                 padding: 15px 0;
