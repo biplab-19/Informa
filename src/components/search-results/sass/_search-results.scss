@@ -46,12 +46,6 @@
         .view-toggle {
             margin-bottom: 25px;
             position: relative;
-            &.product{
-                margin-bottom:0;
-                @include mobile {
-                    margin-bottom: 15px;
-                }
-            }
             @include mobile {
                 padding-right: 0;
                 margin-bottom: 15px;
@@ -60,10 +54,10 @@
                 width: auto;
                 float: left;
                 @include mobile {
-                     float: none;
+                    float: none;
                 }
                 @include tablet {
-                     float: none;
+                    float: none;
                 }
                 label {
                     margin-right: 10px;
@@ -187,6 +181,14 @@
                     &:after {
                         content: '';
                     }
+                }
+            }
+        }
+        &.product {
+            .view-toggle {
+                margin-bottom: 0;
+                @include mobile {
+                    margin-bottom: 15px;
                 }
             }
         }
@@ -360,7 +362,7 @@
                     padding-bottom: 15px;
                 }
                 .type {
-                    margin-bottom:0;
+                    margin-bottom: 0;
                 }
             }
             .footer {
@@ -627,6 +629,7 @@
         }
     }
 }
+
 .others-wrapper {
     padding: 15px;
     h4 {
