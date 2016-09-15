@@ -127,7 +127,7 @@
 			    font-size: 0.9em;
 			    color: #f1f1f3;
 			    margin-right: 5px;
-			    margin-bottom: 15px;
+			    margin-bottom: 10px;
 			    background-color: $grey-color05;
 			}
 			width: calc(100% - 85px);
@@ -170,7 +170,7 @@
 		.heading {
 			color: $text-gray;
 			font-weight: bold;
-			padding: 20px 0;
+			padding: 10px 0;
     		margin: 0;	
 		}
 	}
@@ -245,12 +245,20 @@
 				position: relative;
 				a {
 					vertical-align: middle;
-					font-size: 16px;
+					font-size: 18px;
 					color: $white;
 					position: absolute;
 					top: 50%;
 					transform: translateY(-50%) translateX(-50%);
 					left: 50%;
+					&.addthis_button_linkedin_follow, &.addthis_button_twitter_follow {
+						top: 17px;
+						left: 15px;
+						.at-icon-wrapper, svg {
+							height: 24px !important;
+							width: 24px !important;
+						}
+					}
 					&:active,
 					&:hover {
 						outline: 0;
