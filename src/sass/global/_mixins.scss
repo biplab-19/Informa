@@ -291,7 +291,7 @@ $desktop-width: 1142px;
       }
 
       //Events
-      .EventFinished {
+      .EventFinished, .FullyBooked {
         background-color: rgba($primary, 0.4) !important;
 
       }
@@ -501,18 +501,19 @@ $desktop-width: 1142px;
     .events-list{
       .btn-more-events{
         border: 0;
-        border-bottom: 2px solid $secondarycolorlight !important;
+        border-bottom: 2px solid $primary !important;
         min-width: auto;
-        width: 100px;
+        width: 140px;
         margin-top: 20px;
+        text-align: center;
         @include mobile{
           padding: 0;
           text-align: left;
         }
         .more,.less{
           &:after{
-            background-color: $secondarycolorlight;
             right:0;
+            color: $primary;
           }
          }
        }

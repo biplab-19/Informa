@@ -138,8 +138,11 @@
 			}
 			.more,.less{
 				&:after{
-					font-family: 'InformaIcons';
             		content: '\e912';
+            		font-family: 'InformaIcons';
+				    font-size: 20px;
+				    position: absolute;
+				    top: 0px;
 					@include mobile {
 						top: auto;
 						right: 47px;
@@ -150,7 +153,7 @@
 			.less{
 				display: none;
 				&:after{
-					content: "-";
+					content: '\e913';
 				}
 			}
 		}
@@ -273,6 +276,7 @@
 }
 .no-result {
 	background: $white;
+	padding: 50px 0;
 }
 section[data-view="list-view"], section[data-view="calendar-view"] {
 	@include mobile {
