@@ -1,4 +1,4 @@
-/*! 2016-09-15 */
+/*! 2016-09-16 */
 /*
  * welcome-description
  *
@@ -895,42 +895,41 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.homeContactUs.init());
 
-/*
-* analyst-list.js
-*
-*
-* @project:    Informa
-* @date:       2016-May-22
-* @author:     Tejaswi tchennupati@sapient.com
-* @licensor:   SAPIENNITRO
-* @namespaces: INFORMA
-*
-*/
-
 var INFORMA = window.INFORMA || {};
-INFORMA.navbars = (function(window, $, namespace) {
+INFORMA.ContactUs = (function(window, $, namespace) {
     'use strict';
     //variables
     var Tabs = $('.pos ul.nav li'),
-      tabcontent = $('.tab-content .tab-pane'),
+        tabcontent = $('.tab-content .tab-pane'),
+        _updateRedirectUrl,
         init;
+    _updateRedirectUrl = function() {
+        var urlRedirectHidden = $('.contactUsPage-contactUs').find('.redirect-url-hidden');
+        if (urlRedirectHidden.length > 0) {
+            urlRedirectHidden.val(window.location.href);
+        }
+    }
     init = function() {
-          var hash = document.location.hash, prefix = "tab_";
-          if (hash) {
-              $('.contactUsPage-contactUs .nav-tabs a[href="'+hash.replace(prefix,"")+'"]').tab('show').addClass('active');
-          }else{
-              $('.contactUsPage-contactUs a[data-toggle="tab"]:first').tab('show').addClass('active');
-          }
-          $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-              window.location.hash = e.target.hash.replace("#", "#" + prefix);
-          });
+        var hash = document.location.hash,
+            prefix = "tab_";
+        if (hash) {
+            $('.contactUsPage-contactUs .nav-tabs a[href="' + hash.replace(prefix, "") + '"]').tab('show').addClass('active');
+            _updateRedirectUrl();
+        } else {
+            $('.contactUsPage-contactUs a[data-toggle="tab"]:first').tab('show').addClass('active');
+            _updateRedirectUrl();
+        }
+        $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            window.location.hash = e.target.hash.replace("#", "#" + prefix);
+            _updateRedirectUrl();
+        });
     };
 
     return {
         init: init
     };
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.navbars.init());
+jQuery(INFORMA.ContactUs.init());
 
 /*
  * global-footer.js
@@ -1774,7 +1773,7 @@ INFORMA.featureList = (function(window, $, namespace) {
     'use strict';
     //variables
     var _featureList = $('.feature-list'),
-        _featureListSection = $('.feature-list-section'),
+        _featureListSection = $('.feature-list-section-pharma'),
         // methods
         init,
         _hideList,
@@ -1801,24 +1800,24 @@ INFORMA.featureList = (function(window, $, namespace) {
         });
     }
     equalHeight = function () {
-        var EachView = jQuery('.feature-list-section');
+        var EachView = jQuery('.feature-list-section-pharma');
         EachView.each(function () {
             var Items = jQuery(this).find('.feature-list-container'),
                 _maxHeight = 0,
-                _padding = 80;;
+                _padding = 80;
             Items.each(function () {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeight) {
                     _maxHeight = Height;
                 }
             })
-            Items.css('height', _maxHeight + _padding);
+            Items.css('height', _maxHeight);
         })
     }
     init = function() {
         if (_featureListSection.length > 0) {
-            _hideList(_featureListSection);
-            _bindShowMore();
+            //_hideList(_featureListSection);
+            //_bindShowMore();
             equalHeight();
         }
     };

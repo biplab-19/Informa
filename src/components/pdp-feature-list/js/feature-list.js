@@ -15,7 +15,7 @@ INFORMA.featureList = (function(window, $, namespace) {
     'use strict';
     //variables
     var _featureList = $('.feature-list'),
-        _featureListSection = $('.feature-list-section'),
+        _featureListSection = $('.feature-list-section-pharma'),
         // methods
         init,
         _hideList,
@@ -42,24 +42,24 @@ INFORMA.featureList = (function(window, $, namespace) {
         });
     }
     equalHeight = function () {
-        var EachView = jQuery('.feature-list-section');
+        var EachView = jQuery('.feature-list-section-pharma');
         EachView.each(function () {
             var Items = jQuery(this).find('.feature-list-container'),
                 _maxHeight = 0,
-                _padding = 80;;
+                _padding = 80;
             Items.each(function () {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeight) {
                     _maxHeight = Height;
                 }
             })
-            Items.css('height', _maxHeight + _padding);
+            Items.css('height', _maxHeight);
         })
     }
     init = function() {
         if (_featureListSection.length > 0) {
-            _hideList(_featureListSection);
-            _bindShowMore();
+            //_hideList(_featureListSection);
+            //_bindShowMore();
             equalHeight();
         }
     };

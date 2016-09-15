@@ -1,4 +1,4 @@
-/*! 2016-09-15 */@charset "UTF-8";
+/*! 2016-09-16 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -2262,16 +2262,6 @@ section.feature-list-section .feature-list-container {
   float: left;
   width: 25%;
   padding: 0 40px 15px 40px;
-  height: 257px;
-  overflow: hidden;
-}
-@media (max-width: 767px) {
-  /* line 43, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-container,
-  section.feature-list-section .feature-list-container {
-    height: auto;
-    overflow: initial;
-  }
 }
 /* line 48, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
@@ -2294,7 +2284,15 @@ section.feature-list-section .feature-list-container .feature-image img {
     height: 80px;
   }
 }
-/* line 61, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+@media (max-width: 767px) {
+  /* line 48, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .feature-list-container .feature-image,
+  section.feature-list-section .feature-list-container .feature-image {
+    width: 60px;
+    height: 60px;
+  }
+}
+/* line 65, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
 section#feature-list .feature-list-container p,
@@ -2303,7 +2301,7 @@ section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 72, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 76, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container p,
 section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
@@ -2314,54 +2312,54 @@ section.feature-list-section .feature-list-container p {
   /* line 43, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
-    width: 33.3333%;
-    padding: 40px 35px 20px;
+    width: 25%;
+    padding: 40px 15px 20px;
   }
 }
 @media (max-width: 767px) {
   /* line 43, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
-    width: 100%;
-    padding: 30px 40px;
+    width: 50%;
+    padding: 30px 15px;
   }
-  /* line 84, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 88, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .headText,
   section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 87, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 91, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container p,
   section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 93, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 97, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:focus,
 section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 96, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 100, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.more,
 section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 99, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 103, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.less,
 section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 105, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 109, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.more,
 section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 108, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 112, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.less,
 section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 111, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 115, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore:after,
 section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
