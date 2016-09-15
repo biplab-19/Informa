@@ -250,7 +250,10 @@ header {
                 }
             }
             .local-logo-img-big{
-                left: 10px;
+                @include desktop{
+                    left: 10px;  
+                }
+                
             }
         }
         .nav-main {
