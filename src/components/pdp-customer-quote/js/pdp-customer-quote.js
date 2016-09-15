@@ -34,10 +34,6 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
               _rtl = container.data('rtl');
           }
 
-     //chk for sitecore preview
-      if(INFORMA.global.siteCore.isPreview) {
-            _autoplay = true;
-      }
       if (INFORMA.global.siteCore.isExperience) {
           _autoplay = false;
           _infinite = false;
@@ -58,6 +54,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
                slidesToShow: _slideCount,
                slidesToScroll: _slideCount,
                speed: _speed,
+               swipe: INFORMA.global.device.isDesktop ? false : true,
                dots: (_dots!==null || _dots!==undefined) ? _dots : true,
                swipe: INFORMA.global.device.isDesktop ? false : true
            });

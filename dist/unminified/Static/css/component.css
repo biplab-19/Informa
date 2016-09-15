@@ -2856,80 +2856,52 @@ section.customer-quote .card-col-heading {
   }
 }
 
-/* line 1, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-nav#pdp-navigation {
-  background: #e1e3e7;
-}
-@media (min-width: 1142px) {
-  /* line 1, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation {
-    padding: 12px 0;
-  }
-}
-/* line 6, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 4, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation.navbar-fixed-top {
   position: fixed;
   width: 100%;
   z-index: 99;
 }
-/* line 11, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 9, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul {
   margin: 0;
   position: relative;
 }
-/* line 14, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 12, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul li {
   margin-right: 20px;
 }
-/* line 16, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 14, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul li a {
-  padding: 0;
-  padding-top: 5px;
+  font-size: 14px;
+  color: #343742;
+  padding: 15px 0px;
 }
-@media (min-width: 1142px) {
-  /* line 16, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation ul li a {
-    font-size: 14px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 16, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation ul li a {
-    font-size: 13px;
-  }
-}
-@media (max-width: 767px) {
-  /* line 16, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation ul li a {
-    font-size: 12px;
-  }
-}
-/* line 23, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 21, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation .menuFollower {
-  background: #ffffff;
+  background: #fff;
   height: 5px;
-  margin-top: 5px;
+  margin-top: -5px;
   width: 150px;
   position: absolute;
   transition: .3s ease-in;
   display: none;
 }
 @media (min-width: 1142px) {
-  /* line 34, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 32, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .nav-pdp-nondesktop {
     display: none;
   }
-  /* line 37, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 35, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections {
     display: block;
-    padding: 0;
   }
-  /* line 40, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 37, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky {
     float: right;
     opacity: 0;
   }
-  /* line 43, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 40, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky a {
     margin-top: -10px;
     margin-bottom: 10px;
@@ -2939,45 +2911,45 @@ nav#pdp-navigation .menuFollower {
     padding-right: 25px;
     color: #444957;
   }
-  /* line 51, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 48, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky a:after {
     position: absolute;
     right: 5px;
     content: "\e900";
     font-family: "InformaIcons" !important;
   }
-  /* line 58, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 55, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky.move-left {
     opacity: 1;
     transition: opacity 2s ease-in;
   }
-  /* line 63, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 60, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky .try-stick.btn {
     color: #ffffff;
     background: #ef7c00 !important;
   }
-  /* line 69, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 66, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky .subscribe-stick.btn {
     color: #343742;
     background: none !important;
   }
-  /* line 76, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 73, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections #pdp-sections-heading {
-    margin: 0;
+    font-size: 18px;
     opacity: 0;
   }
-  /* line 79, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 77, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections #pdp-sections-heading.move-left {
     opacity: 1;
     transition: opacity 2s ease-in;
   }
-  /* line 84, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 82, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .navbar-nav {
     display: block;
     width: auto;
     margin: 0;
   }
-  /* line 89, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 87, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .navbar-nav > li {
     float: none;
     display: inline-block;
@@ -2985,11 +2957,11 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (max-width: 1141px) {
-  /* line 100, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 98, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 102, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 100, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop {
     display: inline-block;
     height: 50px;
@@ -2999,46 +2971,26 @@ nav#pdp-navigation .menuFollower {
     padding-left: 0;
     transition: width 2s, left 2s;
   }
-  /* line 110, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 108, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     width: 20%;
     padding-left: 7.5px;
   }
 }
 @media (max-width: 1141px) and (min-width: 768px) and (max-width: 1141px) {
-  /* line 110, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 108, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     width: 5%;
     padding-left: 15px;
   }
 }
 @media (max-width: 1141px) {
-  /* line 118, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 116, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
     position: relative;
     color: #444957;
   }
-}
-@media (max-width: 1141px) and (min-width: 1142px) {
-  /* line 118, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
-    font-size: 14px;
-  }
-}
-@media (max-width: 1141px) and (min-width: 768px) and (max-width: 1141px) {
-  /* line 118, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
-    font-size: 13px;
-  }
-}
-@media (max-width: 1141px) and (max-width: 767px) {
-  /* line 118, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
-  nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
-    font-size: 12px;
-  }
-}
-@media (max-width: 1141px) {
-  /* line 122, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 119, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a:after {
     content: '>';
     color: #343742;
@@ -3047,25 +2999,25 @@ nav#pdp-navigation .menuFollower {
     -ms-transform: rotate(90Deg);
     -webkit-transform: rotate(90Deg);
     font-size: large;
-    top: -5px;
+    top: -3px;
     right: -20px;
   }
-  /* line 133, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 130, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a:hover {
     text-decoration: none;
   }
-  /* line 136, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 133, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a:focus {
     text-decoration: none;
   }
-  /* line 141, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 138, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop-sticky {
     position: absolute;
     top: 0;
     right: 0;
     opacity: 0;
   }
-  /* line 147, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 144, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop-sticky a {
     height: 30px;
     padding: 5px;
@@ -3073,30 +3025,31 @@ nav#pdp-navigation .menuFollower {
     margin-bottom: 10px;
     margin-right: 10px;
   }
-  /* line 154, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 151, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop-sticky.move-left {
     opacity: 1;
     transition: opacity 2s ease-in;
   }
-  /* line 159, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 156, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections {
     display: none;
   }
-  /* line 161, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 158, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul {
     margin-top: 0;
     margin-bottom: 0;
   }
-  /* line 164, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 161, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul li {
     width: 100%;
     display: block;
   }
-  /* line 169, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 166, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections #pdp-sections-heading {
-    text-align: left;
+    text-align: center;
+    font-size: 18px;
   }
-  /* line 176, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 175, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .menuFollower {
     display: none !important;
   }
@@ -11449,49 +11402,50 @@ section.welcome-description a.orange-link {
   color: #ef7c00;
 }
 /* line 11, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
-section.welcome-description h2 {
+section.welcome-description .registered {
   padding: 0 0 10px;
+  color: #6a7285;
 }
-/* line 15, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 16, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .anonymous p {
   padding-bottom: 30px;
 }
-/* line 18, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 19, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .anonymous span.title {
   font-family: FSMe-light;
   display: inline-block;
   font-size: 30px;
 }
-/* line 25, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 26, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .registered .reg-title {
   position: relative;
   font-size: 40px;
   font-family: FSMe-light;
 }
-/* line 39, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 40, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .registered .reg-title strong.wel-text {
   display: inline-block;
   font-size: 40px;
   font-family: FSMe-bold;
 }
 @media (max-width: 767px) {
-  /* line 39, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 40, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .registered .reg-title strong.wel-text {
     padding-left: 0px;
     margin-bottom: 20px;
   }
 }
-/* line 48, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 49, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .registered .reg-title span {
   display: inline-block;
   font-size: 30px;
 }
-/* line 54, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 55, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip {
   background: #ffd500;
   padding: 15px 30px;
 }
-/* line 57, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 58, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip:before {
   position: absolute;
   font-family: "InformaIcons";
@@ -11502,12 +11456,12 @@ section.welcome-description .tip:before {
   color: #000;
 }
 @media (max-width: 767px) {
-  /* line 57, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 58, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .tip:before {
     top: 32%;
   }
 }
-/* line 69, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 70, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip a {
   position: relative;
   color: #000;
@@ -11515,27 +11469,27 @@ section.welcome-description .tip a {
   padding-left: 20px;
   font-family: FSMe-bold;
 }
-/* line 75, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 76, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip a:after {
   font-family: "InformaIcons";
   content: "\e900";
   position: absolute;
   right: -17px;
 }
-/* line 82, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 83, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip span {
   display: inline-block;
   position: relative;
   padding-left: 30px;
 }
 @media (max-width: 767px) {
-  /* line 82, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 83, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .tip span {
     padding-left: 0px;
     padding-top: 15px;
   }
 }
-/* line 92, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 93, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross {
   color: #ffffff;
   font-size: 14px;
@@ -11544,7 +11498,7 @@ section.welcome-description .cross {
   right: 20px;
   z-index: 2;
 }
-/* line 100, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 101, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross:after {
   font-family: "InformaIcons";
   content: "\e906";
@@ -11618,23 +11572,24 @@ section.welcome-description .cross:after {
   padding: 20px 0;
   color: #6a7285;
   font-size: 14px;
+  font-family: 'FsMe-Bold';
   text-align: center;
   text-decoration: none;
 }
-/* line 60, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 61, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li a span {
   font-size: 14px;
   font-family: 'FSMe' !important;
   position: relative;
 }
-/* line 64, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 65, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li a span:before {
   position: absolute;
   left: -30px;
   top: -2px;
   font-size: 20px;
 }
-/* line 72, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 73, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li:after {
   content: '';
   width: 2px;
@@ -11644,7 +11599,7 @@ section.welcome-description .cross:after {
   top: 15px;
   right: 0;
 }
-/* line 83, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 84, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs ul.nav-tabs li:first-child a:before {
   content: '';
   width: 2px;
@@ -11654,27 +11609,27 @@ section.welcome-description .cross:after {
   top: 15px;
   left: 0;
 }
-/* line 96, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 97, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .chosen-select {
   border: none;
   width: 100%;
   padding: 15px;
   height: auto;
 }
-/* line 102, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 103, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .mobile-tabs {
   padding: 15px;
   background-color: #444957;
   position: relative;
 }
-/* line 106, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 107, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommendation-tabs .mobile-tabs .title {
   padding-bottom: 10px;
   font-size: 16px;
   color: #c3c7cf;
 }
 
-/* line 115, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 116, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recommended-results .tab-content {
   margin-top: -2px;
 }

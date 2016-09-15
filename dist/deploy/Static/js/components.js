@@ -618,6 +618,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 autoplaySpeed: Options.autoplaySpeed,
                 slidesToShow: (_listItemCounts >= Options.slidesShow) ? Options.slidesShow : _listItemCounts,
                 slidesToScroll: Options.slidesScroll,
+                swipe: INFORMA.global.device.isDesktop ? false : true,
                 responsive: [{
                         breakpoint: 1024,
                         settings: {
@@ -3148,6 +3149,7 @@ INFORMA.globalFooter = (function(window, $, namespace) {
             slidesToShow: _slideCount,
             slidesToScroll: _slideCount,
             speed: _speed,
+            swipe: INFORMA.global.device.isDesktop ? false : true, 
             dots: _dots
         });
     }
@@ -4009,6 +4011,7 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             slidesToScroll: _slideCount,
             speed: _speed,
             dots: _dots,
+            swipe: INFORMA.global.device.isDesktop ? false : true,
             adaptiveHeight: true
         });
     }
@@ -4187,10 +4190,6 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
               _rtl = container.data('rtl');
           }
 
-     //chk for sitecore preview
-      if(INFORMA.global.siteCore.isPreview) {
-            _autoplay = true;
-      }
       if (INFORMA.global.siteCore.isExperience) {
           _autoplay = false;
           _infinite = false;
@@ -4211,6 +4210,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
                slidesToShow: _slideCount,
                slidesToScroll: _slideCount,
                speed: _speed,
+               swipe: INFORMA.global.device.isDesktop ? false : true,
                dots: (_dots!==null || _dots!==undefined) ? _dots : true,
                swipe: INFORMA.global.device.isDesktop ? false : true
            });
@@ -4279,6 +4279,7 @@ jQuery(INFORMA.pdp_customer_quote.init());
                  dots: _dots,
                  adaptiveHeight: true,
                  arrows: true,
+                 swipe: INFORMA.global.device.isDesktop ? false : true,
                  responsive: [{
                          breakpoint: 1024,
                          settings: {
@@ -4656,6 +4657,7 @@ INFORMA.news_flash = (function(window, $, namespace) {
                 dots: _dots,
                 adaptiveHeight: true,
                 arrows: true,
+                swipe: INFORMA.global.device.isDesktop ? false : true,
                 responsive: [{
                         breakpoint: 1024,
                         settings: {
@@ -6221,6 +6223,7 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
             dots: _dots,
             adaptiveHeight: true,
             arrows: true,
+            swipe: INFORMA.global.device.isDesktop ? false : true,
             responsive: [{
                     breakpoint: 1024,
                     settings: {

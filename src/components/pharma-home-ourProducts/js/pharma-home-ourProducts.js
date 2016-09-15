@@ -49,6 +49,7 @@
                  dots: _dots,
                  adaptiveHeight: true,
                  arrows: true,
+                 swipe: INFORMA.global.device.isDesktop ? false : true,
                  responsive: [{
                          breakpoint: 1024,
                          settings: {
