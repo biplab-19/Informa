@@ -38,6 +38,9 @@ section#agri-report {
         }
         .download-report{
             padding: 40px 0 50px 0;
+            @include desktop{
+                margin-left: 15px;
+            }
             @include tablet{
                 padding: 40px 15px; 
             }
