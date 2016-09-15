@@ -2,31 +2,26 @@
     .panel-heading {
         img {
             @include mobile {
-                float: left;
-                margin-right: 10px;
-                margin-top: -5px;
-                width: auto;
+              max-width: 30px;
+              max-height: 30px;
+              margin-right: 15px;
             }
         }
         h4 {
             @include mobile {
-                position: relative;
-                top: 5px;
-                left: 5px;
+              margin: 0;
             }
         }
     }
+      .panel-group {
+        @include mobile {
+            padding-bottom:30px;
+            margin-bottom:0;
+        }
+      }
     @include not-mobile {
         .panel-heading {
             pointer-events: none;
-            img {
-                margin-top: -6px;
-                margin-right: 10px;
-                float: left;
-                left: 0;
-                top: 2px;
-                width: auto;
-            }
             h4 {
                 color: $text-gray-dark;
                 margin: 0;
@@ -37,24 +32,36 @@
                 @include tablet {
                     font-size: 22px;
                 }
+                img {
+                  max-width: 30px;
+                  max-height: 30px;
+                  margin-right: 15px;
+                  float: left;
+                }
             }
         }
         .panel-group {
-            margin: -1.25%;
+            margin:0 -1.25%;
+            float: left;
+            padding-bottom:29px;
             &:after {
                 content: " ";
                 clear: both;
                 height: 0;
+            }
+            @include tablet {
+                padding-bottom:19px;
             }
         }
         .panel-group .panel {
             overflow: hidden;
             float: left;
             width: 22.5%;
+            background-color:$grey-color11;
             //height: 370px;
             //  margin-bottom: 20px;
             font-size: 14px;
-            margin: 0 0 20px 1.8%;
+            margin: 0 0 21px 1.8%;
             @include tablet {
                 width: 30.5%;
             }
@@ -71,14 +78,15 @@
         color: $white;
     }
     .contactus-header {
-        //padding-bottom: 20px;
+        padding-bottom: 30px;
     }
     .contactus-sub-header {
         padding-bottom: 30px;
         margin-top: -5px;
     }
     .contactus-header-desc {
-        padding-bottom: 20px;
+        margin:0;
+        padding-bottom: 30px;
     }
     .contactus-header-normal {
         font-family: "Fsme";
@@ -87,8 +95,8 @@
         position: relative;
     }
     .accordion-toggle:after {
-        font-family: 'Glyphicons Halflings';
-        content: "\e082";
+        font-family: 'InformaIcons' !important;
+        content: "\e913";
         float: right;
         position: absolute;
         font-size: 35px;
@@ -98,7 +106,7 @@
         transform: translateY(-50%);
     }
     .accordion-toggle.collapsed:after {
-        content: "\e081";
+        content: "\e912";
         right: 30px;
         font-size: 35px;
         color: $default-dots-color;
@@ -107,16 +115,19 @@
         //  min-height: 250px;
         position: relative;
         .panel-heading {
-            padding: 25px;
-            background-color: $blue-lighter-bg;
-            color: #6a7285;
+            padding: 25px 20px;
+            background-color: $grey-color09;
+            color: $grey-color05;
             display: block;
+            @include tablet {
+                padding:25px 15px;
+            }
             @include mobile {
-                padding: 10px 20px 10px 20px;
+                padding:25px 15px;
             }
         }
         .panel-body {
-            padding: 20px;
+            padding:25px 20px;
             .phone-number: nth-of-type(1) {
                 padding-top: 0px !important;
             }
@@ -163,9 +174,13 @@
                 background: $orange url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
                 border: none;
                 padding-left: 45px;
+                min-width: 222px;
+                @include tablet{
+                    min-width: auto;
+                }
             }
             .pay-with {
-                padding: 10px 0;
+                padding: 15px 0;
                 font-size: 12px;
                 .copy {
                     vertical-align: top;
@@ -175,17 +190,23 @@
                 span.payment {
                     padding-right: 10px;
                     height: 34px;
-                    width: 34px;
+                    width: 47px;
                     display: inline-block;
                     &.amex {
-                        background: url(/Static/images/subscribe/amex.png);
+                        background: url(/Static/images/subscribe/amex.svg) no-repeat -20px center;
+                        background-size:150% auto;
                     }
                     &.visa {
-                        background: url(/Static/images/subscribe/visa.png);
+                        background: url(/Static/images/subscribe/visa.svg) no-repeat center;
+                        background-size:100% auto;
                     }
                     &.mastercard {
-                        background: url(/Static/images/subscribe/mastercard.png);
+                        background: url(/Static/images/subscribe/MasterCard.svg) no-repeat center;
+                        background-size:135% auto;
                     }
+                }
+                @include mobile {
+                    padding: 10px 0;
                 }
             }
             .btn-container {
@@ -198,14 +219,17 @@
                     -webkit-appearance: none;
                     -moz-appearance: none;
                     -o-appearance: none;
-                    background: $blue-lighter-bg url(/Static/images/subscribe/drop-down.png) no-repeat 95% 50%;
+                    background: $grey-color09 url(/Static/images/subscribe/drop-down.png) no-repeat 95% 50%;
                 }
                 &:last-child {
                     width: 100%;
-                    padding: 15px;
+                    padding:15px 20px 25px;
                     position: absolute;
                     bottom: 0;
                     left: 0;
+                    @include tablet {
+                      padding:15px 15px 20px;
+                    }
                     @include mobile {
                         position: static;
                         padding: 20px 0;
@@ -215,6 +239,12 @@
                     position: relative;
                     padding: 0px;
                 }
+            }
+            @include tablet {
+                  padding: 20px 15px;
+            }
+            @include mobile {
+                padding: 20px 15px;
             }
         }
         .icon {
