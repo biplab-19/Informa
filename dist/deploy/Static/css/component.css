@@ -2125,12 +2125,20 @@ section.feature-list-section h2 {
 section#feature-list h4,
 section.feature-list-section h4 {
   text-align: center;
+  margin: 5px 0 20px 0;
 }
-/* line 10, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list h5,
 section.feature-list-section h5 {
   padding: 0;
   margin-bottom: 25px;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list h5,
+  section.feature-list-section h5 {
+    margin-bottom: 20px;
+  }
 }
 @media (max-width: 767px) {
   /* line 1, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
@@ -2138,13 +2146,13 @@ section.feature-list-section h5 {
   section.feature-list-section {
     padding: 5px 0 25px;
   }
-  /* line 16, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 20, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list h1,
   section.feature-list-section h1 {
     font-size: 24px;
   }
 }
-/* line 20, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 24, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-see-all-features,
 section.feature-list-section .btn-see-all-features {
   margin: 0 auto;
@@ -2153,14 +2161,14 @@ section.feature-list-section .btn-see-all-features {
   text-align: right;
 }
 @media (max-width: 767px) {
-  /* line 25, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 29, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-see-all-features .btn,
   section.feature-list-section .btn-see-all-features .btn {
     width: 100%;
   }
 }
 @media (max-width: 767px) {
-  /* line 20, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 24, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-see-all-features,
   section.feature-list-section .btn-see-all-features {
     padding-top: 30px;
@@ -2168,44 +2176,52 @@ section.feature-list-section .btn-see-all-features {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 20, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 24, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-see-all-features,
   section.feature-list-section .btn-see-all-features {
     padding-top: 40px;
     padding-bottom: 40px;
   }
 }
-/* line 39, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 43, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container,
 section.feature-list-section .feature-list-container {
   float: left;
   width: 25%;
-  padding: 20px 40px;
+  padding: 0 40px 15px 40px;
   height: 257px;
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 39, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 43, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     height: auto;
     overflow: initial;
   }
 }
-/* line 44, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 48, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section.feature-list-section .feature-list-container .feature-image {
   width: 100px;
   height: 100px;
   margin: 0 auto;
 }
-/* line 48, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 52, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image img,
 section.feature-list-section .feature-list-container .feature-image img {
   width: 100%;
   height: 100%;
 }
-/* line 53, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 48, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .feature-list-container .feature-image,
+  section.feature-list-section .feature-list-container .feature-image {
+    width: 80px;
+    height: 80px;
+  }
+}
+/* line 61, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
 section#feature-list .feature-list-container p,
@@ -2214,7 +2230,7 @@ section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 64, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 72, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container p,
 section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
@@ -2222,7 +2238,7 @@ section.feature-list-section .feature-list-container p {
   color: #000;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 39, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 43, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 33.3333%;
@@ -2230,49 +2246,49 @@ section.feature-list-section .feature-list-container p {
   }
 }
 @media (max-width: 767px) {
-  /* line 39, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 43, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 100%;
     padding: 30px 40px;
   }
-  /* line 76, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 84, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .headText,
   section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 79, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 87, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container p,
   section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 85, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 93, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:focus,
 section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 88, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 96, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.more,
 section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 91, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 99, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.less,
 section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 97, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 105, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.more,
 section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 100, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 108, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.less,
 section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 103, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 111, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore:after,
 section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
