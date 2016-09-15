@@ -162,6 +162,10 @@ h3 {
       li {
         margin-right: 35px;
         display: inline-block;
+        @include mobile{
+          padding: 0 15px;
+          margin: 0;
+        }
       }
       a {
         color: $light;
