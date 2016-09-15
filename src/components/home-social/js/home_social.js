@@ -84,6 +84,7 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             slidesToScroll: _slideCount,
             speed: _speed,
             dots: _dots,
+            swipe: INFORMA.global.device.isDesktop ? false : true,
             adaptiveHeight: true
         });
     }

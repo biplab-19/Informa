@@ -165,6 +165,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 autoplaySpeed: Options.autoplaySpeed,
                 slidesToShow: (_listItemCounts >= Options.slidesShow) ? Options.slidesShow : _listItemCounts,
                 slidesToScroll: Options.slidesScroll,
+                swipe: INFORMA.global.device.isDesktop ? false : true,
                 responsive: [{
                         breakpoint: 1024,
                         settings: {
