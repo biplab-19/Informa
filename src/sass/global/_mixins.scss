@@ -295,7 +295,11 @@ $desktop-width: 1142px;
         background-color: rgba($primary, 0.4) !important;
 
       }
-
+      .CurrentDate{
+        .events-wrap .header .date{
+          background-color:$primary !important;
+        }
+      }
       //Bullet color
       .yellow-bullets {
         list-style-type: none;
@@ -512,8 +516,8 @@ $desktop-width: 1142px;
           }
          }
        }
-        .fc-event-container .events p.title:before{
-          background: $secondarycolorlight;
+        .events p.title:before{
+          background: $primary;
         }
         .header {
           .arrows{

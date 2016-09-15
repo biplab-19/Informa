@@ -3333,14 +3333,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         if (_windowPos > _headerPos) {
             if (!_mainNavigation.hasClass(_fixed)) {
                 _mainNavigation.addClass(_fixed);
-                $(".informaNav .hide-stick").fadeOut("5000", "linear");
+                $(".informaNav .hide-stick").fadeOut("3000", "linear");
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
                 $('body').css('padding-top', _navHeight);
             }
         } else {
             if (_mainNavigation.hasClass(_fixed)) {
                 _mainNavigation.removeClass(_fixed);
-                $(".informaNav .hide-stick").fadeIn("5000", "linear");
+                $(".informaNav .hide-stick").fadeIn("3000", "linear");
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
                 $('body').css('padding-top', 0);
             }

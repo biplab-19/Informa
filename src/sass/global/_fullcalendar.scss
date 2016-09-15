@@ -96,18 +96,18 @@
 		}
 		&.disabled {
 			p {
-				color: #bcbfc8;
+				color: $white;
 				&.title {
 					a {
 						text-decoration: none;
 					}
 					&:before {
 						width: 4px;
-						background: #bcbfc8;
+						background: $white;
 					}
 				}
 				a {
-					color: #bcbfc8;
+					color: $white;
 					pointer-events: none;
 				}
 			}
@@ -379,6 +379,7 @@ section[data-view="calendar-view"] .container {
 }
 .fc td.fc-today {
     border-style: solid;
+    color: $white;
 }
 .fc-more-cell {
 	position: absolute;
