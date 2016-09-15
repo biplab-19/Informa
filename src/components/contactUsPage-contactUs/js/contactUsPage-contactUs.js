@@ -1,36 +1,35 @@
-/*
-* analyst-list.js
-*
-*
-* @project:    Informa
-* @date:       2016-May-22
-* @author:     Tejaswi tchennupati@sapient.com
-* @licensor:   SAPIENNITRO
-* @namespaces: INFORMA
-*
-*/
-
 var INFORMA = window.INFORMA || {};
-INFORMA.navbars = (function(window, $, namespace) {
+INFORMA.ContactUs = (function(window, $, namespace) {
     'use strict';
     //variables
     var Tabs = $('.pos ul.nav li'),
-      tabcontent = $('.tab-content .tab-pane'),
+        tabcontent = $('.tab-content .tab-pane'),
+        _updateRedirectUrl,
         init;
+    _updateRedirectUrl = function() {
+        var urlRedirectHidden = $('.contactUsPage-contactUs').find('.redirect-url-hidden');
+        if (urlRedirectHidden.length > 0) {
+            urlRedirectHidden.val(window.location.href);
+        }
+    }
     init = function() {
-          var hash = document.location.hash, prefix = "tab_";
-          if (hash) {
-              $('.contactUsPage-contactUs .nav-tabs a[href="'+hash.replace(prefix,"")+'"]').tab('show').addClass('active');
-          }else{
-              $('.contactUsPage-contactUs a[data-toggle="tab"]:first').tab('show').addClass('active');
-          }
-          $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-              window.location.hash = e.target.hash.replace("#", "#" + prefix);
-          });
+        var hash = document.location.hash,
+            prefix = "tab_";
+        if (hash) {
+            $('.contactUsPage-contactUs .nav-tabs a[href="' + hash.replace(prefix, "") + '"]').tab('show').addClass('active');
+            _updateRedirectUrl();
+        } else {
+            $('.contactUsPage-contactUs a[data-toggle="tab"]:first').tab('show').addClass('active');
+            _updateRedirectUrl();
+        }
+        $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            window.location.hash = e.target.hash.replace("#", "#" + prefix);
+            _updateRedirectUrl();
+        });
     };
 
     return {
         init: init
     };
 }(this, jQuery, 'INFORMA'));
-jQuery(INFORMA.navbars.init());
+jQuery(INFORMA.ContactUs.init());
