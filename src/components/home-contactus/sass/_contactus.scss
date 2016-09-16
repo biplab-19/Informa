@@ -184,27 +184,28 @@
             .pay-with {
                 padding: 15px 0;
                 font-size: 12px;
+                display: table;
                 .copy {
-                    vertical-align: top;
-                    padding-top: 10px;
-                    display: inline-block;
+                    display: table-cell;
+                    vertical-align: middle;
+                    width:50px;
                 }
                 span.payment {
                     padding-right: 10px;
                     height: 34px;
                     width: 47px;
-                    display: inline-block;
+                    display: table-cell;
+                    vertical-align: middle;
                     &.amex {
-                        background: url(/Static/images/subscribe/amex.svg) no-repeat -20px center;
-                        background-size:150% auto;
+                        background: url(/Static/images/subscribe/amex.svg) no-repeat -25px center;
+                        background-size:auto 100%;
                     }
                     &.visa {
                         background: url(/Static/images/subscribe/visa.svg) no-repeat center;
-                        background-size:100% auto;
                     }
                     &.mastercard {
                         background: url(/Static/images/subscribe/MasterCard.svg) no-repeat center;
-                        background-size:135% auto;
+                        background-size:155% 100%;
                     }
                 }
                 @include mobile {
