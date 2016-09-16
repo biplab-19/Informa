@@ -7,7 +7,7 @@ INFORMA.ContactUs = (function(window, $, namespace) {
         _updateRedirectUrl,
         init;
     _updateRedirectUrl = function() {
-        var urlRedirectHidden = $('.contactUsPage-contactUs').find('.redirect-url-hidden');
+        var urlRedirectHidden = $('.contactUsPage-contactUs').find('.redirect-url-field');
         if (urlRedirectHidden.length > 0) {
             urlRedirectHidden.val(window.location.href);
         }
