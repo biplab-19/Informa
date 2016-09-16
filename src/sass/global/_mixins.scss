@@ -651,6 +651,14 @@ $desktop-width: 1142px;
                 }
             }
         }
+        #analyst-profile {
+            .show-options{
+                border-bottom:2px solid $secondarycolorlight;
+                &:after{
+                    background-color: $secondarycolorlight;
+                }
+            }
+        }
         .popover {
             background: $secondarycolorlight;
             width: 175px;
