@@ -7285,6 +7285,7 @@ button.close {
 .slick-slider {
   position: relative;
   display: block;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -7297,7 +7298,7 @@ button.close {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* line 17, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 18, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list {
   position: relative;
   overflow: hidden;
@@ -7305,17 +7306,17 @@ button.close {
   margin: 0;
   padding: 0;
 }
-/* line 24, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 25, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list:focus {
   outline: none;
 }
-/* line 28, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 29, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list.dragging {
   cursor: pointer;
   cursor: hand;
 }
 
-/* line 33, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 34, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slider .slick-track,
 .slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
@@ -7325,72 +7326,72 @@ button.close {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 42, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 43, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track {
   position: relative;
   left: 0;
   top: 0;
   display: block;
 }
-/* line 48, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 49, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:before, .slick-track:after {
   content: "";
   display: table;
 }
-/* line 54, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 55, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:after {
   clear: both;
 }
-/* line 58, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 59, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-track {
   visibility: hidden;
 }
 
-/* line 62, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 63, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide {
   float: left;
   height: 100%;
   min-height: 1px;
   display: none;
 }
-/* line 66, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 67, ../../../bower_components/slick-carousel/slick/slick.scss */
 [dir="rtl"] .slick-slide {
   float: right;
 }
-/* line 69, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 70, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide img {
   display: block;
 }
-/* line 72, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 73, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.slick-loading img {
   display: none;
 }
-/* line 78, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 79, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.dragging img {
   pointer-events: none;
 }
-/* line 82, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 83, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-initialized .slick-slide {
   display: block;
 }
-/* line 86, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 87, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-slide {
   visibility: hidden;
 }
-/* line 90, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 91, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-vertical .slick-slide {
   display: block;
   height: auto;
   border: 1px solid transparent;
 }
 
-/* line 96, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 97, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-arrow.slick-hidden {
   display: none;
 }
 
 /* Slider */
-/* line 45, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 40, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-loading .slick-list {
   background: #fff url('/images/ajax-loader.gif') center center no-repeat;
 }
@@ -7404,7 +7405,7 @@ button.close {
   font-style: normal;
 }
 /* Arrows */
-/* line 63, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 58, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev,
 .slick-next {
   position: absolute;
@@ -7417,6 +7418,8 @@ button.close {
   background: transparent;
   color: transparent;
   top: 50%;
+  margin-top: -10px\9;
+  /*lte IE 8*/
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
@@ -7424,7 +7427,7 @@ button.close {
   border: none;
   outline: none;
 }
-/* line 81, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 77, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev:hover, .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus {
@@ -7432,20 +7435,20 @@ button.close {
   background: transparent;
   color: transparent;
 }
-/* line 85, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 81, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev:hover:before, .slick-prev:focus:before,
 .slick-next:hover:before,
 .slick-next:focus:before {
   opacity: 1;
 }
-/* line 89, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 85, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before {
   opacity: 0.25;
 }
-/* line 92, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-prev:before,
-.slick-next:before {
+
+/* line 90, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-prev:before, .slick-next:before {
   font-family: "slick";
   font-size: 20px;
   line-height: 1;
@@ -7455,60 +7458,59 @@ button.close {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 103, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 100, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev {
   left: -25px;
 }
-/* line 105, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 102, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-prev {
   left: auto;
   right: -25px;
 }
-/* line 109, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 106, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-prev:before {
   content: "←";
 }
-/* line 111, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 108, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-prev:before {
   content: "→";
 }
 
-/* line 117, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 114, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-next {
   right: -25px;
 }
-/* line 119, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 116, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-next {
   left: -25px;
   right: auto;
 }
-/* line 123, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 120, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-next:before {
   content: "→";
 }
-/* line 125, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 122, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 [dir="rtl"] .slick-next:before {
   content: "←";
 }
 
 /* Dots */
-/* line 133, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-dotted.slick-slider {
+/* line 130, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+.slick-slider {
   margin-bottom: 30px;
 }
 
-/* line 137, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 134, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots {
   position: absolute;
-  bottom: -25px;
+  bottom: -45px;
   list-style: none;
   display: block;
   text-align: center;
   padding: 0;
-  margin: 0;
   width: 100%;
 }
-/* line 146, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 142, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li {
   position: relative;
   display: inline-block;
@@ -7518,7 +7520,7 @@ button.close {
   padding: 0;
   cursor: pointer;
 }
-/* line 154, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 150, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button {
   border: 0;
   background: transparent;
@@ -7532,15 +7534,15 @@ button.close {
   padding: 5px;
   cursor: pointer;
 }
-/* line 166, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 162, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button:hover, .slick-dots li button:focus {
   outline: none;
 }
-/* line 168, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 164, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
   opacity: 1;
 }
-/* line 172, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 168, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li button:before {
   position: absolute;
   top: 0;
@@ -7557,7 +7559,7 @@ button.close {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 189, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 185, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
 .slick-dots li.slick-active button:before {
   color: black;
   opacity: 0.75;
