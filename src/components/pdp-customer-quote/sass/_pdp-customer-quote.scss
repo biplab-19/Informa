@@ -299,6 +299,12 @@ section.customer-quote {
         @include desktop{
             padding-right: 5%;
         }
+        a{
+            border: 1px solid $white;
+            &:after{
+                color: $white;
+            }
+        }
     }
     .slick-dotted.slick-slider{
         @include tablet{
