@@ -53,6 +53,7 @@
             }
             .date {
                 line-height: 1;
+                margin-bottom: 17px;
                 @include mobile {
                     margin-bottom: 15px;
                 }
@@ -67,8 +68,11 @@
             .link {
                 margin-top: 10px;
                 position: absolute;
-                bottom: -3px;
+                bottom: 0;
                 a {
+                    span{
+                        vertical-align: bottom;
+                    }
                     //color: $yellow;
                     &:after {
                         color: $yellow;
@@ -80,7 +84,7 @@
             top: 42%;
         }
         ul.slick-dots {
-            margin: 15px 0;
+            margin: 15px 0 20px;
         }
     }
 }
