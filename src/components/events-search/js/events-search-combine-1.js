@@ -471,7 +471,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                        data:JSON.stringify({  MonthYear: prevMonth,
                         SectorId: SectorSelect.val(),
                        Country: Country.val(),
-                        Type: Type.val()})
+                        eventType: Type.val()})
                     }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', 1));
@@ -492,7 +492,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                       data:JSON.stringify({   MonthYear: prevMonth,
                         SectorId: SectorSelect.val(),
                       Country: Country.val(),
-                        Type: Type.val()})
+                        eventType: Type.val()})
                     }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', -1));

@@ -904,7 +904,7 @@ INFORMA.ContactUs = (function(window, $, namespace) {
         _updateRedirectUrl,
         init;
     _updateRedirectUrl = function() {
-        var urlRedirectHidden = $('.contactUsPage-contactUs').find('.redirect-url-hidden');
+        var urlRedirectHidden = $('.contactUsPage-contactUs').find('.redirect-url-field');
         if (urlRedirectHidden.length > 0) {
             urlRedirectHidden.val(window.location.href);
         }
@@ -1588,7 +1588,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                        data:JSON.stringify({  MonthYear: prevMonth,
                         SectorId: SectorSelect.val(),
                        Country: Country.val(),
-                        Type: Type.val()})
+                        eventType: Type.val()})
                     }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', 1));
@@ -1609,7 +1609,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                       data:JSON.stringify({   MonthYear: prevMonth,
                         SectorId: SectorSelect.val(),
                       Country: Country.val(),
-                        Type: Type.val()})
+                        eventType: Type.val()})
                     }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', -1));

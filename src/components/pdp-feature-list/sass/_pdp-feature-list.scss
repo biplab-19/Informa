@@ -43,7 +43,7 @@ section.feature-list-section {
     .feature-list-container {
         float: left;
         width: 25%;
-        padding: 0 40px 15px 40px;
+        padding: 0 15px 15px 15px;
         //@include limitHeight(257px); // 1 headlne, 4 copy text
         .feature-image {
             width: 100px;
@@ -76,7 +76,6 @@ section.feature-list-section {
         p {
             font-family: FSMe-Light;
             font-size: 14px;
-            color: $black;
         }
         @include tablet {
             width: 25%;
