@@ -10,13 +10,13 @@ section.customer-quote {
     &:after{
         content: '';
         background: url("/Static/images/testimonial-pattern.png");
-        width: 400px;
-        height: 90%;
+        min-width: 400px;
+        height: 100%;
         position: absolute;
-        right: -100px;
+        right: 0;
         background-repeat: no-repeat;
-        background-position: right;
-        background-size: 100%;
+        background-position: right -100px top 100%;
+        background-size: 80%;
         bottom: 0;
         @include not-desktop{
             display: none;
@@ -288,6 +288,11 @@ section.customer-quote {
     .card-col-heading{
         text-align: right;
         margin: 15px 0;
+        @include not-desktop{
+            background: $pharmatestimonial;
+            padding: 15px;
+            margin: 0;
+        }
         @include desktop{
             padding: 0;
         }
@@ -298,6 +303,7 @@ section.customer-quote {
         }
     }
     .slick-dotted.slick-slider{
+        margin-bottom: 0px;
         @include mobile{
             margin-bottom: 20px;
         }
