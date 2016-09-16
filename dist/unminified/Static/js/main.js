@@ -4019,7 +4019,7 @@ var INFORMA = window.INFORMA || {};
                             '{{#compare IsAuthenticatedUser true operator="=="}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
-                                    '<a href="{{PageURL}}" class="btn btn-primary full-width-btn" target="_blank">{{LinkText}}</a>'+
+                                    '<a href="{{PageURL}}" class="btn btn-primary full-width-btn" target="_self">{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                             '{{/compare}}'+
