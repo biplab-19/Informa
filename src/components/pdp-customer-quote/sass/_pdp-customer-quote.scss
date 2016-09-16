@@ -288,22 +288,23 @@ section.customer-quote {
     .card-col-heading{
         text-align: right;
         margin: 15px 0;
-        @include not-desktop{
-            background: $pharmatestimonial;
-            padding: 15px;
-            margin: 0;
-        }
-        @include desktop{
-            padding: 0;
-        }
+        background: $pharmatestimonial;
+        padding: 15px;
+        margin: 0;
         @include mobile{
             .btn-default{
                 width: 100%;
             }
         }
+        @include desktop{
+            padding-right: 5%;
+        }
     }
     .slick-dotted.slick-slider{
-        margin-bottom: 0px;
+        @include tablet{
+            margin-bottom: 0px;
+        }
+        margin-bottom: 30px;
         @include mobile{
             margin-bottom: 20px;
         }

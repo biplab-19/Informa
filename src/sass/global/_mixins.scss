@@ -473,12 +473,7 @@ $desktop-width: 1142px;
         }
         section.customer-quote {
             @if($name==pharma-theme) {
-                @include not-desktop{
-                    background: $pharmalargebg;
-                }
-                @include desktop{
-                    background: linear-gradient($pharmalargebg 85%, $pharmalargebg10 15%);
-                }
+                background: $pharmalargebg;
             }
         }
         .twitter-carousel .slick-arrow {
