@@ -11,13 +11,13 @@ section.customer-quote {
         content: '';
         background: url("/Static/images/testimonial-pattern.png");
         width: 400px;
-        height: 600px;
+        height: 90%;
         position: absolute;
-        right: -150px;
-        top: 8%;
+        right: -100px;
         background-repeat: no-repeat;
         background-position: right;
         background-size: 100%;
+        bottom: 0;
         @include not-desktop{
             display: none;
         }
@@ -203,12 +203,12 @@ section.customer-quote {
                 height: 10px;
                 width: 10px;
                 border-radius: 5px;
-                background: $text-gray;
+                background: $grey-color05;
                 button:before {
                     content: '';
                 }
                 &.slick-active {
-                    background: $light;
+                    background: $white !important;
                 }
             }
         }
