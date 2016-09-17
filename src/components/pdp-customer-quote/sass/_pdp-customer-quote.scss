@@ -18,6 +18,7 @@ section.customer-quote {
         background-position: right -100px top 100%;
         background-size: 80%;
         bottom: 0;
+        z-index: 1;
         @include not-desktop{
             display: none;
         }
@@ -291,6 +292,7 @@ section.customer-quote {
         background: $pharmatestimonial;
         padding: 15px;
         margin: 0;
+        z-index: 2;
         @include mobile{
             .btn-default{
                 width: 100%;
@@ -298,12 +300,6 @@ section.customer-quote {
         }
         @include desktop{
             padding-right: 5%;
-        }
-        a{
-            border: 1px solid $white;
-            &:after{
-                color: $white;
-            }
         }
     }
     .slick-dotted.slick-slider{
