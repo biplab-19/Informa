@@ -3244,7 +3244,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _initialPdpHdrPos = 0,
         _expandedPdpNav = false,
 
-        
+
 
         // for sticky nav of services-navigation
         _servicesNavigation = $('#services-navigation'),
@@ -3293,7 +3293,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         _bindClickEvents,
         _bindNavigationEvents;
-        
+
 
 
     // if header or pdp is present then only we calc the values.
@@ -3302,7 +3302,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     if (_pdpNavigation.length > 0) {
         _pdpNavigationHeight = _pdpNavigation.height(),
         _pdpNavigationPos = _pdpNavigation.offset().top;
-        
+
         _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
                         .css('left', $(_pdpLinkSpan[0]).offset().left)
                         .show();
@@ -3396,7 +3396,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     _initPdpMenuBarFollow = function() {
         _pdpLink = $('#pdp-navigation ul > li > a');
-        
+
         if (_pdpLink.length == 0) {
             _pdpNavigation.remove();
             _pdpMenuActive = false;
@@ -3423,7 +3423,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
 
         if (INFORMA.global.device.isDesktop){
-            
+
             if(_tryStick.length > 0){
 
                 _tryStickPosition = _tryStick.offset().top;
@@ -3445,20 +3445,28 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _headingStickPosition = _headingStick.offset().top;
                 if (_windowPos > (_headingStickPosition - _fixedNavHeight)) {
                     if (!_pdpStickyHeadingDesktopFlag) {
+                      //debugger;
                         $('#pdp-sections-heading').text(_heroBannerHeading);
-                        $('#pdp-sections-heading').addClass('move-left');
                         _pdpStickyHeadingDesktopFlag = true;
+                        $('#pdp-sections-heading').addClass('move-left');
+                        _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
+                                        .css('left', $(_pdpLinkSpan[0]).offset().left)
+                                        .show();
+
                     }
                 }
                 else{
                     $('#pdp-sections-heading').text('');
                     $('#pdp-sections-heading').removeClass('move-left');
+                    _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
+                                    .css('left', $(_pdpLinkSpan[0]).offset().left)
+                                    .show();
                     _pdpStickyHeadingDesktopFlag = false;
                 }
             }
-            
+
         }
-        
+
 
         //For fixing the Product Detail Header: Desktop + Tablet + Mobile
         if (_windowPos > (_initialPdpHdrPos - _fixedNavHeight)) {
@@ -3470,12 +3478,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.nav-pdp-nondesktop').addClass('move-left');
 
             if (!INFORMA.global.device.isDesktop && !_pdpStickyMobileFlag) {
+              var leftOfPdpMover = _pdpMenuFollower.css('left');
                 _tryStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _subscribeStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _pdpStickyMobileFlag = true;
                 $('#pdp-sections-heading').text(_heroBannerHeading);
                 $('#pdp-sections-heading').addClass('move-left');
                 $('.nav-pdp-nondesktop-sticky').addClass('move-left');
+                _pdpMenuFollower.css('left', leftOfPdpMover + $('#pdp-sections-heading').outerWidth());
             }
 
             if (_arrayFlag) {
@@ -3514,7 +3524,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             }
 
         }
-        
+
         var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
         var i = _pdpMenuPos.length - 1;
         for (; i >= 0; i--) {
@@ -3523,11 +3533,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 if (INFORMA.global.device.isDesktop) {
                     _pdpMenuFollower.css('width', _pdpMenuWidth[i]);
                     _pdpMenuFollower.css('left', _pdpMenuleft[i]);
-                } 
+                }
                 i = -1;
             }
         }
-        
+
     };
 
     _pdpNavigationScrollTo = function() {
@@ -3549,7 +3559,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                     _fixedNavHeight = _navHeightMobile;
                     var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
-                    
+
                     $('html, body').stop().animate({
                         scrollTop: _scrollTopPixels
                     }, 1000);
@@ -3742,7 +3752,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('#mobile-header-navigation .nav-back').css('display', 'none');
             $('#mobile-header-navigation .nav-subnav-heading').text('');
             var img = $('.navbar-brand img')[0];
-            $('#mobile-header-navigation .nav-subnav-heading').append('<div class="navbar-image"><img src="'+img.src+'" class="logo-img-big"/></div>');            
+            $('#mobile-header-navigation .nav-subnav-heading').append('<div class="navbar-image"><img src="'+img.src+'" class="logo-img-big"/></div>');
         });
 
         _navclose.on('click', function(e) {
@@ -3784,8 +3794,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _servicesNavigationScrollTo();
         }
 
-        $('[data-toggle="popover"]').popover(); 
-        
+        $('[data-toggle="popover"]').popover();
+
         _whenScrolling();
         //}
         _bindNavigationEvents();
