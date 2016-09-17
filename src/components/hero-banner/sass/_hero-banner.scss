@@ -241,7 +241,7 @@ section#hero-banner {
       //adding styles for anlayst
      //  for 3 images
       &.analyst{
-        background-color: #ffd80f;
+        background-color: $white;
         height: 650px;
         overflow: hidden;
         padding-bottom: 20px;
@@ -260,7 +260,7 @@ section#hero-banner {
                padding-top: 19px;
                padding-bottom: 27px;
                font-size: 30px;
-               text-align: left;
+               text-align: center;
            }
            @include tablet {
                font-size: 40px;
@@ -282,6 +282,7 @@ section#hero-banner {
             left: 46%;
           }
         }
+        h2,
        .subtext {
            font-family: FSMe-light;
            font-size: 40px;
@@ -292,7 +293,7 @@ section#hero-banner {
                font-size: 24px;
                letter-spacing: normal;
                padding-bottom: 30px;
-               text-align: left;
+               text-align: center;
            }
            @include tablet {
                font-size: 20px;
