@@ -392,6 +392,24 @@ $desktop-width: 1142px;
                 }
             }
         }
+        div {
+                form.get-in-touch,
+                form.request-a-demo,
+                form.register-myinterests-form {
+                    input:focus,
+                    select:focus,
+                    textarea:focus {
+                        outline: none !important;
+                        border: 2px solid $primary;
+                    }
+                     label.error {
+                        color: $navlinkpharmacolor !important;
+                    }
+                    .field-validation-error {
+                        color: $navlinkpharmacolor !important;
+                    }
+                }
+        }
         .icon-calender {
             color: $primary;
         }
