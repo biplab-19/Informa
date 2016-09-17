@@ -1,6 +1,14 @@
 nav#pdp-navigation {
-      //background: $yellow;
-
+      @include desktop{
+            padding: 12px 0;
+      }
+      border-bottom: 1px solid $grey-color08;
+      background: $grey-color09;
+      @include not-desktop{
+            .nav-pdp-col{
+                  padding: 0;
+            }
+      }
       &.navbar-fixed-top {
             position: fixed;
             width: 100%;
@@ -12,16 +20,16 @@ nav#pdp-navigation {
             li {
                   margin-right: 20px;
                   a {
-                        font-size: 14px;
-                        color: $gray-dark-bg;
-                        padding: 15px 0px;
+                        @include anchor-font(14px,13px,12px); 
+                        padding: 0;
+                        padding-top: 5px;
                   }
             }
       }
       .menuFollower {
-            background: $light;
+            //background: $white;
             height: 5px;
-            margin-top: -5px;
+            margin-top: 7px;
             width: 150px;
             position: absolute;
             transition: .3s ease-in;
@@ -71,9 +79,9 @@ nav#pdp-navigation {
                         }
                   }
                   #pdp-sections-heading{
-                        //color: $gray-dark-bg;
-                        font-size: 18px;
+                        margin: 0;
                         opacity: 0;
+                        font-family: FSMe-Bold;
                         &.move-left{
                               opacity: 1;
                               transition: opacity 2s ease-in;
@@ -100,32 +108,33 @@ nav#pdp-navigation {
                         .nav-pdp-nondesktop{
                               display: inline-block;
                               height: 50px;
-                              text-align: center;
+                              text-align: left;
                               padding: 15px 0;
                               width: 95%;
-                              padding-left: 0;
+                              padding-left: 15px;
                               transition: width 2s, left 2s;
                               &.move-left{
-                                    width: 20%;
-                                    padding-left: 7.5px;
+                                    width: 28%;
+                                    padding-left: 20px;
+                                    background: $grey-color10;
                                     @include tablet{
-                                          width: 5%;
-                                          padding-left: 15px;
+                                        width: 13%;
+                                        padding-left: 20px;
                                     }
                               }
                               >a{
                                     position: relative;
                                     color: $text-gray-dark;
+                                    @include anchor-font(14px,13px,12px);
                                     &:after {
                                           content: '>';
-                                          color: #343742;
                                           position: absolute;
                                           transform: rotate(90Deg);
                                           -ms-transform: rotate(90Deg);
                                           -webkit-transform: rotate(90Deg);
-                                          font-size: large;
-                                          top: -3px;
-                                          right: -20px;
+                                          top: -1px;
+                                          right: -15px;
+                                          font-family: FSMe-Bold;
                                     }
                                     &:hover{
                                           text-decoration: none;
@@ -155,18 +164,45 @@ nav#pdp-navigation {
                         }
                         #pdp-sections{
                               display: none;
+                              padding: 0 15px;
+                              background: $grey-color10;
                               ul{
                                     margin-top: 0;
                                     margin-bottom: 0;
+                                    float: none;
                                     li {
                                           width: 100%;
                                           display: block;
+                                          @include not-desktop{
+                                                a{
+                                                      padding: 0;
+                                                      padding-bottom: 20px;
+                                                      &:first-child{
+                                                            padding-top: 20px;
+                                                      }
+                                                      &:last-child{
+                                                            padding-bottom: 30px;
+                                                      }
+                                                      &:after{
+                                                            content: ">";
+                                                            display: block;
+                                                            float: right;
+                                                            font-family: FSMe-Bold;
+                                                      }
+                                                }
+                                          }
+                                          
                                     }
                               }
                               #pdp-sections-heading{
-                                    text-align: center;
-                                    //color: $gray-dark-bg;
-                                    font-size: 18px;
+                                    text-align: left;
+                                    border-bottom: 1px solid $grey-color08;
+                                    margin: 0;
+                                    &.move-left{
+                                          padding: 20px 0;
+                                          font-family: FSMe-Bold;
+
+                                    }
                               }
                         }
                   }

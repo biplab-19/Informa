@@ -4090,7 +4090,7 @@ var INFORMA = window.INFORMA || {};
                                     '</p>'+
                                 '{{/compare}}'+
                                 '<h4>{{Title}}</h4>'+
-                                '<p class="publish">{{#if Profile}}{{ByKeyword}}:{{/if}} <strong>{{Profile}}</strong>{{PublicationDate}}</p>'+
+                                '<p class="publish">{{ByKeyword}} <strong>{{Profile}}</strong>{{PublicationDate}}</p>'+
                                 '{{#compare Description null operator="!="}}'+
                                     '<p class="description">{{Description}}</p>'+
                                 '{{/compare}}'+
