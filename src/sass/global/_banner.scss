@@ -119,9 +119,13 @@
     @include mobile {
         height: 225px;
     }
+    .h1-styles{
+        padding:50px 0 20px;
+    }
     .cf-img {
         position: absolute;
         right: 0;
+        height: 100%;
         @include mobile{
             transform: translateX(25%);
         }
@@ -150,16 +154,20 @@
     &.bright-banner {
         background-color: $yellow;
         color: $text-gray;
+        .cf-img {
+
+        }
     }
     &.dark-banner {
         background-color: $gray-light-bg;
         color: $white;
+        padding:0 0 35px;
     }
     &.dark-banner-subscribe {
         background-color: $gray-light-bg;
         color: $white;
         height: auto;
-        padding: 50px 0;
+        padding:0 0 35px;
         .from{
           width: auto;
           display: inline-block;
@@ -182,6 +190,12 @@
         .cf-img {
             position: absolute;
             right: 0;
+            opacity: 0.5;
+            background-color: $grey-color01;
+            img
+            {
+                vertical-align: text-bottom;
+            }
             @include mobile {
                 display: none;
             }
@@ -297,7 +311,7 @@
             }
         }
         ul {
-            padding-top: 73px;
+            padding-top: 123px;
             list-style-type: none;
             font-size: 20px;
             li {
