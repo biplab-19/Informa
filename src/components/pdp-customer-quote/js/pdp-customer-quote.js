@@ -54,7 +54,6 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
                slidesToShow: _slideCount,
                slidesToScroll: _slideCount,
                speed: _speed,
-               swipe: INFORMA.global.device.isDesktop ? false : true,
                dots: (_dots!==null || _dots!==undefined) ? _dots : true,
                swipe: INFORMA.global.device.isDesktop ? false : true
            });

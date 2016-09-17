@@ -963,7 +963,6 @@ section#hero-banner .analyst-single-image .image-margin {
 .product-brands-list .card .caption h4 {
   color: #6a7285;
   font-family: FSMe-Bold;
-  font-size: 30px;
   margin: 0;
   padding: 20px 0;
 }
@@ -2231,8 +2230,9 @@ section.feature-list-section h5 {
   }
 }
 /* line 24, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-section#feature-list .btn-see-all-features,
-section.feature-list-section .btn-see-all-features {
+section#feature-list .btn-see-all-features, section#feature-list .text-right,
+section.feature-list-section .btn-see-all-features,
+section.feature-list-section .text-right {
   margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -2240,23 +2240,26 @@ section.feature-list-section .btn-see-all-features {
 }
 @media (max-width: 767px) {
   /* line 29, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .btn-see-all-features .btn,
-  section.feature-list-section .btn-see-all-features .btn {
+  section#feature-list .btn-see-all-features .btn, section#feature-list .text-right .btn,
+  section.feature-list-section .btn-see-all-features .btn,
+  section.feature-list-section .text-right .btn {
     width: 100%;
   }
 }
 @media (max-width: 767px) {
   /* line 24, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .btn-see-all-features,
-  section.feature-list-section .btn-see-all-features {
+  section#feature-list .btn-see-all-features, section#feature-list .text-right,
+  section.feature-list-section .btn-see-all-features,
+  section.feature-list-section .text-right {
     padding-top: 30px;
     padding-bottom: 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 24, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .btn-see-all-features,
-  section.feature-list-section .btn-see-all-features {
+  section#feature-list .btn-see-all-features, section#feature-list .text-right,
+  section.feature-list-section .btn-see-all-features,
+  section.feature-list-section .text-right {
     padding-top: 40px;
     padding-bottom: 40px;
   }

@@ -1790,7 +1790,7 @@ INFORMA.featureList = (function(window, $, namespace) {
     'use strict';
     //variables
     var _featureList = $('.feature-list'),
-        _featureListSection = $('.feature-list-section-pharma'),
+        _featureListSection = $('.feature-list-section-pharma, .feature-list-section'),
         // methods
         init,
         _hideList,
@@ -1817,7 +1817,7 @@ INFORMA.featureList = (function(window, $, namespace) {
         });
     }
     equalHeight = function () {
-        var EachView = jQuery('.feature-list-section-pharma');
+        var EachView = jQuery('.feature-list-section-pharma, .feature-list-section');
         EachView.each(function () {
             var Items = jQuery(this).find('.feature-list-container'),
                 _maxHeight = 0,
@@ -4226,7 +4226,6 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
                slidesToShow: _slideCount,
                slidesToScroll: _slideCount,
                speed: _speed,
-               swipe: INFORMA.global.device.isDesktop ? false : true,
                dots: (_dots!==null || _dots!==undefined) ? _dots : true,
                swipe: INFORMA.global.device.isDesktop ? false : true
            });
