@@ -1032,10 +1032,8 @@ header {
         .subnav-items {
             border-top: 1px solid #777b87;
             @include desktop {
-                //width: 40%;
                 border-top: none;
                 ul li {
-                    //float:left; width:50%;
                     padding-top: 10px;
                     padding-bottom: 10px;
                 }
@@ -1228,10 +1226,10 @@ header {
                 @include anchor-font(14px,13px,12px);
                 &:after {
                     content: ">";
-                    position: absolute;
-                    padding-left: 10px;
+                    position: relative;
+                    padding-left: 5px;
                     color: #a2a5ad;
-                    top: -1px;
+                    top: 0px;
                 }
             }
         }
