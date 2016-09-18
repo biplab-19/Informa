@@ -20,7 +20,7 @@ body {
 /* If you have a theme for yourself which you need to follow this then extend this agri-theme to that class and make
 appropriate style change */
 // .agri-theme {
-//     color: $gray-darker;
+//     color: $grey-color05;
 //     a{
 //         color: $light;
 //     }
@@ -61,8 +61,8 @@ appropriate style change */
 //        width:100%;
 //        padding-top: 15px;
 //        padding-bottom: 15px;
-//        border-color: $brand-primary;
-//        background-color: $brand-primary;
+//        border-color: $orange;
+//        background-color: $orange;
 //        color: $white;
 //        position: relative;
 //        &:after{
@@ -135,11 +135,11 @@ appropriate style change */
 
 
 //     .bg-gray-light {
-//       background-color: $gray-light-bg;
+//       background-color: $grey-color03;
 //     }
 
 //     .bg-gray-dark {
-//       background-color: $gray-dark-bg;
+//       background-color: $grey-color01;
 //     }
 
 //     .bg-white {
@@ -147,11 +147,11 @@ appropriate style change */
 //     }
 
 //     .bg-light-blue {
-//       background: $blue-light-bg;
+//       background: $grey-color09;
 //     }
 
 //     .bg-lighter-blue {
-//       background: $blue-lighter-bg;
+//       background: $grey-color09;
 //     }
 //     @mixin header-color($param) {
 //       @if($param == 'bg-gray-dark'){
@@ -180,7 +180,7 @@ appropriate style change */
     border-radius: 0;
     .panel-heading{
       border: none;
-      color: $gray-darker;
+      color: $grey-color05;
       padding: 10px 15px;
     }
   }
@@ -241,7 +241,7 @@ appropriate style change */
       width: 5px;
       height: 5px;
       top: 7px;
-      background-color: $gray-dark-bg;
+      background-color: $grey-color01;
       @include border-radius(50%);
       font-family: 'FS Me Bold'; //discuss
     }

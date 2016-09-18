@@ -1,9 +1,9 @@
 section#casestudy-infograph {
     position: relative;
-    background-color: $gray-lightest-bg;
+    background-color: $grey-color11;
     .container{
         >.row{
-            background-color: $gray-bright-bg;
+            background-color: $grey-color10;
         }
     }
     .challenge-container, .solution-container, .achieved-container{
@@ -62,15 +62,15 @@ section#casestudy-infograph {
     }
 
     .challenge-container, .achieved-container {
-        background-color: $gray-bright-bg;
+        background-color: $grey-color10;
         color: $text-gray;
         overflow: hidden;
         position: relative;
     }
 
     .solution-container {
-        background-color: $blue-light-bg;
-        color: $light-blue-border;
+        background-color: $grey-color09;
+        color: $grey-color05 ;
         padding: 0px;
 
         .row{
@@ -84,7 +84,7 @@ section#casestudy-infograph {
         }
 
         .productdetails {
-            background-color: $gray-darkest-bg;
+            background-color: $grey-color08;
             min-height: 90px;
             overflow: hidden;
             position:relative;
@@ -95,7 +95,7 @@ section#casestudy-infograph {
                 width: 110%;
                 top: calc(-100% + 33px);
                 left: -10px;
-                background-color: $blue-light-bg;
+                background-color: $grey-color09;
                 -ms-transform: rotate(-5deg); /* IE 9 */
                 -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
                 transform: rotate(-5deg);

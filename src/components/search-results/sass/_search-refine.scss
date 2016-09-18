@@ -19,13 +19,13 @@
         width: 100%;
         float: none;
         padding: 35px 15px 0;
-        border-bottom: 1px solid $grey-color5;
+        border-bottom: 1px solid $grey-color08;
     }
     @include mobile {
         width: 100%;
         float: none;
         padding: 35px 15px 0;
-        border-bottom: 1px solid $grey-color5;
+        border-bottom: 1px solid $grey-color08;
     }
     .heading {
         font-family: FSMe-Light;
@@ -33,11 +33,11 @@
         padding-bottom: 20px;
         @include mobile {
             cursor: pointer;
-            border-bottom: 1px solid $grey-color5;
+            border-bottom: 1px solid $grey-color08;
         }
         @include tablet {
             cursor: pointer;
-            border-bottom: 1px solid $grey-color5;
+            border-bottom: 1px solid $grey-color08;
         }
         &:after {
             @include mobile {
@@ -57,7 +57,7 @@
     .heading-collapsed {
         border-bottom: none;
         &:after {
-            color: $grey-color4;
+            color: $grey-color07;
             font-size: 23px;
             @include mobile {
                 content: "\e912";
@@ -89,7 +89,7 @@
     .panel {
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid $grey-color5;
+        border-bottom: 1px solid $grey-color08;
         box-shadow: none;
         margin-top: 0;
         @include mobile {
@@ -180,7 +180,7 @@
                     display: block;
                     border-radius: 100%;
                     content: "\e913";
-                    color: $grey-color4;
+                    color: $grey-color07;
                     font-size: 23px;
                     font-family: "InformaIcons" !important;
                     display: inline;
@@ -190,7 +190,7 @@
                 &.collapsed {
                     &:before {
                         content: "\e912";
-                        color: $grey-color4;
+                        color: $grey-color07;
                         display: inline;
                     }
                 }

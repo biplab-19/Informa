@@ -16,12 +16,12 @@
     }
     .panel-group{
         margin-top:40px;
-        border-bottom:1px solid $gray-box;
+        border-bottom:1px solid $grey-color05;
     }
     .panel {
         background-color: transparent;
         border:none;
-        border-top:1px solid $gray-box;
+        border-top:1px solid $grey-color05;
         box-shadow:none;
         margin-top: 0;
         @include mobile{
@@ -60,7 +60,7 @@
                 line-height: 20px;
             }
             a {
-                color:$gray-bright-bg;
+                color:$grey-color10;
                 text-decoration: none;
                 &:before {
                     font-weight: normal;
@@ -70,7 +70,7 @@
                     display: block;
                     border-radius: 100%;
                     content: "\e913";
-                    color:$gray-bright-bg;
+                    color:$grey-color10;
                     font-size: 23px;
                     font-family: "InformaIcons" !important;
                     display: inline;

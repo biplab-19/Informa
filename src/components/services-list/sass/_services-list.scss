@@ -12,7 +12,7 @@ nav#services-navigation {
             margin-right: 20px;
             a {
                 font-size: 14px;
-                color: $gray-dark-bg;
+                color: $grey-color01;
                 padding: 15px 0px;
             }
         }
@@ -32,7 +32,7 @@ nav#services-navigation {
     	}
     	@include not-desktop{
     		display: block;
-    		color: $gray-light-bg;
+    		color: $grey-color03;
             padding-top: 15px;
             font-weight: bold;
     	}
@@ -109,7 +109,7 @@ section#services-list {
     }
     .row {
         header {
-            color: $font-color;
+            color: $grey-color05;
         }
         .single-image-thumbnail,.image-thumbnail {
             overflow: hidden;
@@ -127,7 +127,7 @@ section#services-list {
                 transform: rotate(-5deg);
                 top: calc(100% - 20px);
                 left: 0;
-                background-color: $blue-light-bg;
+                background-color: $grey-color09;
             }
         }
         .btn-container {

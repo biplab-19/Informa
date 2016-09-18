@@ -14,7 +14,7 @@
 		}
 		strong {
 			text-align: right;
-			color: $font-color;
+			color: $grey-color05;
 			font-size: 14px;
 			float: right;
 			font-weight: normal;
@@ -30,7 +30,7 @@
 		table.table {
 			width: 100%;
 			tr:nth-of-type(even) {
-				background-color: $sitemap-light-gray;
+				background-color: $grey-color10;
 			}
 			tr:first-child td:first-child {
 				font-weight: 700;
@@ -65,7 +65,7 @@
 				padding: 10px;
 				font-size: 14px;
 				vertical-align: middle;
-				color: $gray-darker;
+				color: $grey-color05;
 				.rteTable-rightText {
 					display: block;
 					width: 75%;
@@ -86,7 +86,7 @@
 				}
 				&:first-child {
 					font-weight: 700;
-					color: $sitemap-main-gray;
+					color: $grey-color03;
 				}
 				&:first-child:before {
 					display: none;
@@ -104,16 +104,16 @@
 		}
 		table.table {
 				tr{
-				background-color: $sitemap-light-gray;
+				background-color: $grey-color10;
 				border-bottom: 1px solid $rte-b-btm-gray-light;
 				width: 100%;
 				margin-bottom: 25px;
     		display: block;
 				td {
-					color: $gray-darker;
+					color: $grey-color05;
 					padding: 12px 10px;
 					font-size: 14px;
-					background-color: $sitemap-light-gray;
+					background-color: $grey-color10;
 					border-top: none;
 					display: block;
 					vertical-align: middle;
@@ -127,12 +127,12 @@
 						width: 50%;
 				    display: inline-block;
 						vertical-align: middle;
-						color: $gray-darker;
+						color: $grey-color05;
 					}
 					.rteTitles {
 				    width: 50%;
 				    display: inline-block;
-						color: $gray-darker;
+						color: $grey-color05;
 						.rteValues{
 							width: 100%;
 						}

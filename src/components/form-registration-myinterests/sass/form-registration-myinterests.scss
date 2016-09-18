@@ -7,7 +7,7 @@
     }
     //display: none;
     .triangle-nav-container {
-        background: $blue-light-bg;
+        background: $grey-color09;
         padding-top: 20px;
         padding-bottom: 20px;
     }
@@ -140,7 +140,7 @@
             }
         }
         a {
-            color: $font-color;
+            color: $grey-color05;
             text-decoration: none;
             padding: 5px 0 4px 40px;
             background: $white;
@@ -175,7 +175,7 @@
         }
         &.active {
             a {
-                //color: $font-color;
+                //color: $grey-color05;
                 text-decoration: none;
                 //background: $brand-secondary;
                 /* fallback color */
@@ -220,7 +220,7 @@
             padding: 0 !important;
         }
         label {
-            color: $brand-primary;
+            color: $orange;
             font-size: 14px;
         }
         input {
@@ -244,14 +244,14 @@
             }
             .dropdown-toggle {
                 width: 100%;
-                background-color: $blue-lighter-bg;
+                background-color: $grey-color09;
                 border: none;
                 //  padding: 10px;
                 &:after {
                     content: '';
                 }
                 &:hover {
-                    background: $blue-lighter-bg;
+                    background: $grey-color09;
                 }
             }
             .dropdown-menu {
@@ -292,7 +292,7 @@
             }
             .select-all-bottom {
                 display: none;
-                background: $blue-lighter-bg;
+                background: $grey-color09;
                 padding: 0;
                 margin-top: 0;
                 padding-left: 15px;
@@ -302,7 +302,7 @@
                 width: 100%;
                 border-top: 2px solid #a7a9b6;
                 a.multiselect-all {
-                    color: $brand-primary;
+                    color: $orange;
                     label {
                         cursor: pointer;
                         //color: $white;
@@ -351,7 +351,7 @@
             transform: scale(-1, 1);
         }
         &:hover {
-            border-color: $gray-dark-bg;
+            border-color: $grey-color01;
         }
     }
 }

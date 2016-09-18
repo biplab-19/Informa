@@ -139,7 +139,7 @@ $desktop-width: 1142px;
     $secondarycolorlight40: rgba($secondarycolorlight, 0.4);
     $secondarycolorlight20: rgba($secondarycolorlight, 0.2);
     .#{$name} {
-        color: $gray-darker;
+        color: $grey-color05;
         //For navlink ang bullet point color
         .color-link,
         .cookieBanner p a {
@@ -213,7 +213,7 @@ $desktop-width: 1142px;
                 background-color: $navlinkagricolor;
                 em,
                 span {
-                    color: $text-gray-dark;
+                    color: $grey-color03;
                 }
                 a {
                     color: $text-gray;
@@ -250,7 +250,7 @@ $desktop-width: 1142px;
                 background: $secondarycolorlight;
             }
             @else {
-                background-color: $grey-color6;
+                background-color: $grey-color09;
                 #pdp-sections-heading,
                 a {
                     color: $grey-color1;
@@ -449,7 +449,7 @@ $desktop-width: 1142px;
         }
         .color-text {
             @if($name==agri-theme) {
-                color: $font-color;
+                color: $grey-color05;
             }
             @else {
                 color: $white;
@@ -597,7 +597,7 @@ $desktop-width: 1142px;
         //Font color changes
         .font-color {
             @if($name==agri-theme) {
-                color: $font-color;
+                color: $grey-color05;
             }
             @else {
                 color: $white;
@@ -833,8 +833,8 @@ $desktop-width: 1142px;
             text-align: right;
             padding-top: 15px;
             padding-bottom: 15px;
-            border-color: $gray-light;
-            background: $gray-light;
+            border-color: $grey-color05 ;
+            background: $grey-color05 ;
             position: relative;
             z-index: 9;
             &:before {
@@ -850,7 +850,7 @@ $desktop-width: 1142px;
                 transform: scale(-1, 1);
             }
             &:hover {
-                border-color: $gray-light;
+                border-color: $grey-color05 ;
             }
         }
         #contactus-section {

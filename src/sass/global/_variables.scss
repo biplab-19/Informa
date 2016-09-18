@@ -3,82 +3,100 @@
 //== Colors
 //
 //## Gray and brand colors for use across Bootstrap.
-$font-color:   #6a7287;
-$gray-dark-bg:    #343742;
-$gray-draker-bg:    #e2e3e8;
-$gray-lightest-bg: #f7f7f7;
-$gray-bright-bg: #eff0f3;
-$gray-darkest-bg: #c3c6d0;
-$gray-light-bg:   #444957;
-$gray-lighter-bg:   #f1f1f3;
-$blue-light-bg:   #e1e2e7;
-$blue-lighter-bg: #e1e3e7;
-$gray-form-txt: #555555;
+//$font-color:   #6a7287;
+//$gray-dark-bg:    #343742;
+//$gray-draker-bg:    #e2e3e8;//09
+//$gray-lightest-bg: #f7f7f7; // 11
+//$gray-bright-bg: #eff0f3; //10
+//$gray-darkest-bg: #c3c6d0; //08
+//$gray-light-bg:   #444957; //03
+//$gray-lighter-bg:   #f1f1f3;//10
+//$blue-light-bg:   #e1e2e7;//09
+//$blue-lighter-bg: #e1e3e7;//09
+//$gray-form-txt: #555555;//04
+//$sitemap-light-gray: #eff0f4;//10
+//$sitemap-border: #bec2cc;//07
+//$sitemap-main-gray: #444854;//03
+//$sitemap-sub-gray: #c3c5d1;//08
+//$brand-primary:         #ef7c00; // $orange
+//$gray-box: #6a7185;//05
+//$gray-darker:           #6a7285;//05
+//$gray-lighter:          #6a7285; // 05
+//$gray-light:            #6a7285;   // 05
+//$gray-dark:             #6a7285;   // 05
+//$light-blue-border: #6a7185; //05
+//not using
+//$gray-base:             #434952; //not using
+//$brand-success:         #ef7c00;//Not using
+//$gray:                  #6a7285; // 05
+//$text-gray-dark:       #444957; //03
+//$brand-info:            #ef7c00;//not using
+//$brand-warning:         #ef7c00; // not using
+//$brand-danger:          #ef7c00; // not using..
+//$grey-color2: #6a7285; // 05
+//$grey-color3: #888e9e;//06
+//$grey-color4: #a6aab6;//07
+//$grey-color5: #c3c7cf;//08
+//$grey-color6: #e1e3e7;//09
+//$grey-color7: #f0f1f3;//10
+
+//// All commented color replaced with new values wriiten in side - please dont use above commented colors - Rajiv
+
+
+//Grey Colors Used
+$grey-color01: #343742;//Darkest
+$grey-color02: #3c404c;
+$grey-color03: #444957;
+$grey-color04: #565c6b;
+$grey-color05: #6a7285;
+$grey-color06: #888e9e;
+$grey-color07: #a6aab6;
+$grey-color08: #c3c7cf;
+$grey-color09: #e1e3e7;
+$grey-color10: #f0f1f3;
+$grey-color11: #f6f6f7;//Lightest
+//Grey Colors Used
+
+
+//Generic Colors Used
 $white:#fff;
 $input-orange:#f07d00;
 $error-orange:#FF6131;
 $info-icon-color: #a6aab6;
-$sitemap-main-gray: #444854;
-$sitemap-sub-gray: #c3c5d1;
-$sitemap-light-gray: #eff0f4;
-$sitemap-border: #bec2cc;
-
 $black:                 #000;
 $yellow:                #ffd500;
 $white:                 #fff;
-$brand-primary:         #ef7c00;
-
 $orange:                #ef7c00;
+$brand-primary:         #ef7c00; 
 $orange-dark:			#FF7800;
-
 $brand-secondary:       #ffd600;
-
-$gray-box: #6a7185;
 $quote-color: #ba9f2f;
 $social-icon-back: #4a4f5e;
-
-//not using
-$gray-base:             #434952;
-$gray-darker:           #6a7285;
-$gray-dark:             #6a7285;   // #333
-$gray:                  #6a7285; // #555
-$gray-light:            #6a7285;   // #999
-$gray-lighter:          #6a7285; // #eee
-$brand-success:         #ef7c00;
-$brand-info:            #ef7c00;
-$brand-warning:         #ef7c00;
-$brand-danger:          #ef7c00;
+//Generic Colors Used
 
 
-
-//Border Colours
-$light-blue-border: #6a7185;
-
-//Carousel Dots
+//Carousel Dots Used
 $default-dots-color: 	#888e9f;
 $active-dots-color: 	$yellow;
+//Carousel Dots Used
 
 
-
-
-// Text colors
+//Footer color Used
 $text-gray:             #434854;
-$text-gray-dark:       #444957;
-
 $gray-header:           #565c6b;
 $footer-top-gray:       #3C404C;
 $footer-bottom-gray:    #424A57;
 $light:                 #fff;
 $copyright-gray-header: #525a5c;
 $copyright-gray-border: #A5ACAF;
+//Footer color Used
 
-
-// Sub colors : Used in footer links
+//Sub color Used in Footer
 $sub-pink:              #d14a7d;
 $sub-red:               #dc0a36;
 $sub-green:             #5ab031;
 $sub-blue:              #1291d1;
-
+//Sub color Used in Footer
 
 // Sub colors : Used in RTE custom table
 $rte-h1-gray-draker:          #4b4f5b;
@@ -91,11 +109,11 @@ $rte-txt-border-gray-lightest:#c3c6cf;
 //
 //## Settings for some of the most global styles.
 //** Background color for `<body>`.
-$body-bg:               #f0f1f3;
+$body-bg:               $grey-color10;
 //** Global text color on `<body>`.
-$text-color:            $gray-dark;
+$text-color:            $grey-color05;
 
-//** Global textual link color.
+//** Global textual link color. // Not Using
 $link-color:           $brand-primary;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      $brand-secondary;
@@ -128,7 +146,7 @@ $headings-color: inherit; //== Iconography
 
 $border-radius-base: 0;
 
-$btn-default-color: $gray-darker;
+$btn-default-color: $grey-color05;
 
 
 //## Define the breakpoints at which your layout will change, adapting to different screen sizes.
@@ -178,7 +196,7 @@ $container-lg: $container-large-desktop; //== Navbar
 
 
 //##
-$panel-default-heading-bg: $blue-light-bg;
+$panel-default-heading-bg: $grey-color09;
 $panel-primary-border: $brand-primary;
 $panel-primary-heading-bg: $brand-primary;
 //
@@ -187,16 +205,16 @@ $panel-primary-heading-bg: $brand-primary;
 //##
 //** Horizontal offset for forms and lists.
 $component-offset-horizontal: 180px; //** Text muted color
-$text-muted: $gray-light; //** Abbreviations and acronyms border color
-$abbr-border-color: $gray-light; //** Headings small color
-$headings-small-color: $gray-light; //** Blockquote small color
-$blockquote-small-color: $gray-light; //** Blockquote font size
+$text-muted: $grey-color05; //** Abbreviations and acronyms border color
+$abbr-border-color: $grey-color05; //** Headings small color
+$headings-small-color: $grey-color05; //** Blockquote small color
+$blockquote-small-color: $grey-color05; //** Blockquote font size
 $blockquote-font-size: ($font-size-base * 1.25); //** Blockquote border color
-$blockquote-border-color: $gray-lighter; //** Page header border color
-$page-header-border-color: $gray-lighter; //** Width of horizontal description list titles
+$blockquote-border-color: $grey-color05; //** Page header border color
+$page-header-border-color: $grey-color05; //** Width of horizontal description list titles
 $dl-horizontal-offset: $component-offset-horizontal; //** Point at which .dl-horizontal becomes horizontal
 $dl-horizontal-breakpoint: $grid-float-breakpoint; //** Horizontal line color.
-$hr-border: $gray-lighter; // define variables for spacings
+$hr-border: $grey-color05; // define variables for spacings
 // ==========================================================================
 $gutterwidth: 30px;
 $gutterside: $gutterwidth/2;

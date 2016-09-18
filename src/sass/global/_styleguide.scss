@@ -12,7 +12,7 @@ section {
     }
     // light font which comes after h1
     h2 {
-        @include family-style(FSMe-Bold , $gray-dark);
+        @include family-style(FSMe-Bold , $grey-color05 );
         @include heading-font-size(40px,30px,24px);
         @include heading-line-height(40px,36px,30px);
         @include heading-padding((50px 0),(40px 0),(30px 0));
@@ -20,33 +20,33 @@ section {
     }
 
     h3 {
-        @include family-style(FSMe-Light ,$gray-dark);
+        @include family-style(FSMe-Light ,$grey-color05 );
         @include heading-font-size(30px,24px,22px);
         @include heading-line-height(30px,30px,30px);
         @include margin-reset;
         &.light {
-            //@include family-style(FSMe-Light ,$gray-light-bg);
+            //@include family-style(FSMe-Light ,$grey-color03);
             @include family-style(FSMe-Light ,$light);
         }
     }
 
     h4 {
-        @include family-style(FSMe ,$gray-dark);
+        @include family-style(FSMe ,$grey-color05 );
         @include heading-font-size(24px,18px,18px);
         @include heading-line-height(30px,26px,26px);
         &.light {
-           @include family-style(FSMe-Light ,$gray-light-bg);
+           @include family-style(FSMe-Light ,$grey-color03);
         }
     }
 
     h5{
-        @include family-style(FSMe-Light ,$gray-dark);
+        @include family-style(FSMe-Light ,$grey-color05 );
         @include heading-font-size(18px,16px,16px);
         @include heading-line-height(26px,24px,24px);
     }
 
     h6 {
-        @include family-style(FSMe-Light ,$gray-light-bg);
+        @include family-style(FSMe-Light ,$grey-color03);
         @include heading-font-size(16px,14px,14px);
         @include heading-line-height(24px,22px,22px);
     }
@@ -129,7 +129,7 @@ section {
 // for local navigation
 ul.navigation-list {
       li a {
-            color: $gray-dark-bg;
+            color: $grey-color01;
       }
 }
 

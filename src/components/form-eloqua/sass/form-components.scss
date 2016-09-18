@@ -11,7 +11,7 @@
     }
     .modal-content {
         border-radius: 0;
-        background-color: $gray-light-bg;
+        background-color: $grey-color03;
         color: $white;
     }
     .modal-header {
@@ -63,7 +63,7 @@ form.elq-form {
         border-radius: 0;
         padding: 10px;
         margin-top: 15px;
-        color: $font-color;
+        color: $grey-color05;
     }
     .tooltip-placeholder:after {
         content: '';
@@ -91,11 +91,11 @@ form.elq-form {
     input.form-control {
         border-radius: 0;
         height: 50px;
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
     }
     textarea.form-control {
         border-radius: 0;
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
     }
     .disabled {
         opacity: 0.6;
@@ -108,7 +108,7 @@ form.elq-form {
             -ms-appearance: none;
             border: none;
             padding: 10px;
-            color: $text-gray-dark;
+            color: $grey-color03;
             font-weight: 400;
             width: 100%;
         }
@@ -165,14 +165,14 @@ form.elq-form {
     }
     .checkbox-container .checkbox-label {
         height: 100px;
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
         display: block;
         padding: 10px;
     }
     .checkbox-container input:checked + .checkbox-label {
         width: 100%;
         border: $brand-secondary 2px solid;
-        background-color: $gray-light-bg;
+        background-color: $grey-color03;
         color: $white;
     }
     .checkbox-container .checkbox {
@@ -184,7 +184,7 @@ form.elq-form {
         width: 100%;
         height: 100px;
         margin-bottom: 10px;
-        color: $font-color;
+        color: $grey-color05;
         margin-top: 10px;
     }
     .checkbox-container .checkbox {
@@ -210,14 +210,14 @@ form.elq-form {
     .chosen-single {
         height: 50px;
         border-radius: 0;
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
         span {
             margin-top: 6px;
             font-size: 14px;
         }
     }
     .chosen-container-single .chosen-drop {
-        background-color: $blue-lighter-bg;
+        background-color: $grey-color09;
         font-size: 14px;
     }
     .chosen-container .chosen-results {
@@ -256,7 +256,7 @@ form.elq-form {
     textarea:focus {
         outline: none !important;
         border: 2px solid $brand-secondary;
-        //box-shadow: 0 0 2px $blue-lighter-bg;
+        //box-shadow: 0 0 2px $grey-color09;
     }
     .right-inner {
         position: relative;
@@ -276,7 +276,7 @@ form.elq-form {
         position: absolute;
         font-size: 30px;
         content: "\e920";
-        color: $brand-primary;
+        color: $orange;
     }
 }
 .form-submit-response {
