@@ -70,60 +70,74 @@
   border: 2px solid #fff;
 }
 /* line 239, ../../../src/sass/global/_mixins.scss */
+.agri-theme .bg-gray-dark .btn-default:after {
+  color: #fff;
+}
+/* line 242, ../../../src/sass/global/_mixins.scss */
 .agri-theme .bg-gray-dark .btn-default:hover {
   border: 2px solid #ffd600;
 }
-/* line 241, ../../../src/sass/global/_mixins.scss */
+/* line 244, ../../../src/sass/global/_mixins.scss */
 .agri-theme .bg-gray-dark .btn-default:hover:after {
   color: #ffd600;
 }
-/* line 248, ../../../src/sass/global/_mixins.scss */
+/* line 251, ../../../src/sass/global/_mixins.scss */
 .agri-theme .page-ui, .agri-theme #services-navigation,
 .agri-theme #pdp-navigation {
   background: #ffd600;
 }
-/* line 261, ../../../src/sass/global/_mixins.scss */
+/* line 264, ../../../src/sass/global/_mixins.scss */
 .agri-theme .quote, .agri-theme #customer-quote-slider .customer-quote-slide:before, .agri-theme .articlepage-quote blockquote:before {
   color: #ffe898;
 }
-/* line 285, ../../../src/sass/global/_mixins.scss */
+/* line 288, ../../../src/sass/global/_mixins.scss */
 .agri-theme #services-navigation .btn,
 .agri-theme #pdp-navigation .btn {
   color: #fff !important;
 }
-/* line 291, ../../../src/sass/global/_mixins.scss */
+/* line 294, ../../../src/sass/global/_mixins.scss */
 .agri-theme #contact-us-brand .panel-group .panel-heading.collapsed:after {
   background-color: #ffd600;
 }
-/* line 295, ../../../src/sass/global/_mixins.scss */
+/* line 298, ../../../src/sass/global/_mixins.scss */
 .agri-theme .panel-group .panel .panel-heading .panel-title a.collapsed:after {
   color: #ffd600 !important;
 }
-/* line 298, ../../../src/sass/global/_mixins.scss */
+/* line 301, ../../../src/sass/global/_mixins.scss */
 .agri-theme .dashboard .panel .panel-heading a.collapsed:before {
   color: #e291b1 !important;
 }
-/* line 302, ../../../src/sass/global/_mixins.scss */
+/* line 305, ../../../src/sass/global/_mixins.scss */
 .agri-theme .EventFinished,
 .agri-theme .FullyBooked {
   background-color: rgba(239, 124, 0, 0.4) !important;
+  color: #fff !important;
 }
-/* line 307, ../../../src/sass/global/_mixins.scss */
+/* line 309, ../../../src/sass/global/_mixins.scss */
+.agri-theme .EventFinished:after,
+.agri-theme .FullyBooked:after {
+  color: #fff !important;
+}
+/* line 314, ../../../src/sass/global/_mixins.scss */
 .agri-theme .CurrentDate .events-wrap .header .date {
   background-color: #EF7C00 !important;
 }
-/* line 312, ../../../src/sass/global/_mixins.scss */
+/* line 319, ../../../src/sass/global/_mixins.scss */
+.agri-theme section#hero-banner.analyst {
+  background-color: #9e3005;
+}
+/* line 324, ../../../src/sass/global/_mixins.scss */
 .agri-theme .yellow-bullets {
   list-style-type: none;
   padding-left: 20px;
 }
-/* line 315, ../../../src/sass/global/_mixins.scss */
+/* line 327, ../../../src/sass/global/_mixins.scss */
 .agri-theme .yellow-bullets li {
   margin-bottom: 5px;
   position: relative;
   color: #565c6b;
 }
-/* line 319, ../../../src/sass/global/_mixins.scss */
+/* line 331, ../../../src/sass/global/_mixins.scss */
 .agri-theme .yellow-bullets li:before {
   content: '';
   position: absolute;
@@ -136,39 +150,39 @@
   border-radius: 50%;
   font-family: 'FS Me Bold';
 }
-/* line 355, ../../../src/sass/global/_mixins.scss */
+/* line 367, ../../../src/sass/global/_mixins.scss */
 .agri-theme .related-products .productfinder-link p {
   color: #fff;
 }
-/* line 358, ../../../src/sass/global/_mixins.scss */
+/* line 370, ../../../src/sass/global/_mixins.scss */
 .agri-theme .related-products .productfinder-link a {
   color: #EF7C00;
 }
-/* line 364, ../../../src/sass/global/_mixins.scss */
+/* line 376, ../../../src/sass/global/_mixins.scss */
 .agri-theme .accordian-structure a {
   color: #EF7C00;
 }
-/* line 377, ../../../src/sass/global/_mixins.scss */
+/* line 389, ../../../src/sass/global/_mixins.scss */
 .agri-theme form.request-a-demo p,
 .agri-theme form.get-in-touch p {
   background-color: #ffd600;
 }
-/* line 382, ../../../src/sass/global/_mixins.scss */
+/* line 394, ../../../src/sass/global/_mixins.scss */
 .agri-theme form.request-a-demo p:after,
 .agri-theme form.get-in-touch p:after {
   border-left: 10px solid #ffd600;
 }
-/* line 387, ../../../src/sass/global/_mixins.scss */
+/* line 399, ../../../src/sass/global/_mixins.scss */
 .agri-theme form.request-a-demo .checkbox.active label,
 .agri-theme form.get-in-touch .checkbox.active label {
   border: 3px solid #ffd600;
 }
-/* line 390, ../../../src/sass/global/_mixins.scss */
+/* line 402, ../../../src/sass/global/_mixins.scss */
 .agri-theme form.request-a-demo .checkbox.active:after,
 .agri-theme form.get-in-touch .checkbox.active:after {
   color: #EF7C00;
 }
-/* line 399, ../../../src/sass/global/_mixins.scss */
+/* line 411, ../../../src/sass/global/_mixins.scss */
 .agri-theme div form.get-in-touch input:focus,
 .agri-theme div form.get-in-touch select:focus,
 .agri-theme div form.get-in-touch textarea:focus,
@@ -181,80 +195,80 @@
   outline: none !important;
   border: 2px solid #EF7C00;
 }
-/* line 405, ../../../src/sass/global/_mixins.scss */
+/* line 417, ../../../src/sass/global/_mixins.scss */
 .agri-theme div form.get-in-touch label.error,
 .agri-theme div form.request-a-demo label.error,
 .agri-theme div form.register-myinterests-form label.error {
   color: #e291b1 !important;
 }
-/* line 408, ../../../src/sass/global/_mixins.scss */
+/* line 420, ../../../src/sass/global/_mixins.scss */
 .agri-theme div form.get-in-touch .field-validation-error,
 .agri-theme div form.request-a-demo .field-validation-error,
 .agri-theme div form.register-myinterests-form .field-validation-error {
   color: #e291b1 !important;
 }
-/* line 413, ../../../src/sass/global/_mixins.scss */
+/* line 425, ../../../src/sass/global/_mixins.scss */
 .agri-theme .icon-calender {
   color: #EF7C00;
 }
-/* line 417, ../../../src/sass/global/_mixins.scss */
+/* line 429, ../../../src/sass/global/_mixins.scss */
 .agri-theme .icon-tick:before {
   color: #ffd600;
 }
-/* line 422, ../../../src/sass/global/_mixins.scss */
+/* line 434, ../../../src/sass/global/_mixins.scss */
 .agri-theme .refine-container .clear-all,
 .agri-theme .refine-container .show-more {
   color: #EF7C00;
 }
-/* line 428, ../../../src/sass/global/_mixins.scss */
+/* line 440, ../../../src/sass/global/_mixins.scss */
 .agri-theme .clear-mobile .clear-all {
   color: #EF7C00;
 }
-/* line 432, ../../../src/sass/global/_mixins.scss */
+/* line 444, ../../../src/sass/global/_mixins.scss */
 .agri-theme .register-myinterests-section .select-wrapper label {
   color: #EF7C00;
 }
-/* line 435, ../../../src/sass/global/_mixins.scss */
+/* line 447, ../../../src/sass/global/_mixins.scss */
 .agri-theme .flip .tile .back .triangle {
   border-top: 50px solid #EF7C00;
 }
-/* line 439, ../../../src/sass/global/_mixins.scss */
+/* line 451, ../../../src/sass/global/_mixins.scss */
 .agri-theme .chosen-container .chosen-results li.highlighted {
   background-color: #ffd600;
 }
-/* line 450, ../../../src/sass/global/_mixins.scss */
+/* line 462, ../../../src/sass/global/_mixins.scss */
 .agri-theme .color-text, .agri-theme .chosen-container .chosen-results li.highlighted {
   color: #6a7285;
 }
-/* line 461, ../../../src/sass/global/_mixins.scss */
+/* line 473, ../../../src/sass/global/_mixins.scss */
 .agri-theme .anlyst-heading {
   background-color: #ffd600;
 }
-/* line 464, ../../../src/sass/global/_mixins.scss */
+/* line 476, ../../../src/sass/global/_mixins.scss */
 .agri-theme .anlyst-heading:after {
   background-color: #ffd600;
 }
-/* line 475, ../../../src/sass/global/_mixins.scss */
+/* line 487, ../../../src/sass/global/_mixins.scss */
 .agri-theme .yellow-container {
   background: rgba(255, 214, 0, 0.8);
 }
-/* line 497, ../../../src/sass/global/_mixins.scss */
+/* line 509, ../../../src/sass/global/_mixins.scss */
 .agri-theme .twitter-carousel .slick-arrow {
   background: #fff;
 }
-/* line 503, ../../../src/sass/global/_mixins.scss */
+/* line 515, ../../../src/sass/global/_mixins.scss */
 .agri-theme .view-all-sectors-btn-container {
   border-bottom: 1px solid #ffd600;
 }
-/* line 505, ../../../src/sass/global/_mixins.scss */
+/* line 517, ../../../src/sass/global/_mixins.scss */
 .agri-theme .view-all-sectors-btn-container .informa-icon {
   color: #ffd600;
 }
-/* line 513, ../../../src/sass/global/_mixins.scss */
+/* line 525, ../../../src/sass/global/_mixins.scss */
 .agri-theme .events-list .CurrentDate .events-wrap .header .date {
   background-color: #EF7C00;
 }
-/* line 519, ../../../src/sass/global/_mixins.scss */
+/* line 531, ../../../src/sass/global/_mixins.scss */
 .agri-theme .events-list .btn-more-events {
   border: 0;
   border-bottom: 2px solid #EF7C00 !important;
@@ -264,61 +278,61 @@
   text-align: center;
 }
 @media (max-width: 767px) {
-  /* line 519, ../../../src/sass/global/_mixins.scss */
+  /* line 531, ../../../src/sass/global/_mixins.scss */
   .agri-theme .events-list .btn-more-events {
     padding: 0;
     text-align: left;
   }
 }
-/* line 532, ../../../src/sass/global/_mixins.scss */
+/* line 544, ../../../src/sass/global/_mixins.scss */
 .agri-theme .events-list .btn-more-events .more:after,
 .agri-theme .events-list .btn-more-events .less:after {
   right: 0;
   color: #EF7C00;
 }
-/* line 538, ../../../src/sass/global/_mixins.scss */
+/* line 550, ../../../src/sass/global/_mixins.scss */
 .agri-theme .events-list .events p.title:before {
   background: #EF7C00;
 }
-/* line 542, ../../../src/sass/global/_mixins.scss */
+/* line 554, ../../../src/sass/global/_mixins.scss */
 .agri-theme .events-list .header .arrows {
   background: #ffd600;
 }
-/* line 544, ../../../src/sass/global/_mixins.scss */
+/* line 556, ../../../src/sass/global/_mixins.scss */
 .agri-theme .events-list .header .arrows.arrow-desabled {
   background-color: grey;
 }
-/* line 550, ../../../src/sass/global/_mixins.scss */
+/* line 562, ../../../src/sass/global/_mixins.scss */
 .agri-theme .fc-state-default.fc-corner-right,
 .agri-theme .fc-state-default.fc-corner-left {
   background: #ffd600;
 }
-/* line 553, ../../../src/sass/global/_mixins.scss */
+/* line 565, ../../../src/sass/global/_mixins.scss */
 .agri-theme .fc-state-default.fc-corner-right.disabled,
 .agri-theme .fc-state-default.fc-corner-left.disabled {
   background-color: grey;
 }
-/* line 558, ../../../src/sass/global/_mixins.scss */
+/* line 570, ../../../src/sass/global/_mixins.scss */
 .agri-theme .fc-center h2 {
   padding: 0;
 }
-/* line 577, ../../../src/sass/global/_mixins.scss */
+/* line 589, ../../../src/sass/global/_mixins.scss */
 .agri-theme .view-all-mobile-container {
   border-bottom: solid 1px #ffd600;
 }
-/* line 579, ../../../src/sass/global/_mixins.scss */
+/* line 591, ../../../src/sass/global/_mixins.scss */
 .agri-theme .view-all-mobile-container .informa-icon {
   color: #ffd600;
 }
-/* line 587, ../../../src/sass/global/_mixins.scss */
+/* line 599, ../../../src/sass/global/_mixins.scss */
 .agri-theme .register-myinterests-section .triangle-nav li.active a:after {
   border-left: 30px solid #EF7C00;
 }
-/* line 598, ../../../src/sass/global/_mixins.scss */
+/* line 610, ../../../src/sass/global/_mixins.scss */
 .agri-theme .font-color, .agri-theme .register-myinterests-section .triangle-nav li.active a {
   color: #6a7285;
 }
-/* line 610, ../../../src/sass/global/_mixins.scss */
+/* line 622, ../../../src/sass/global/_mixins.scss */
 .agri-theme .feature li:before {
   content: "\e914";
   font-family: 'InformaIcons';
@@ -331,57 +345,57 @@
   border-radius: 50%;
   font-weight: normal;
 }
-/* line 626, ../../../src/sass/global/_mixins.scss */
+/* line 638, ../../../src/sass/global/_mixins.scss */
 .agri-theme .sprite-image, .agri-theme .product-brands-list .card .caption h4:after,
 .agri-theme .product-results .list-items .products h4:after {
   background-position: -5px -232px;
 }
-/* line 643, ../../../src/sass/global/_mixins.scss */
+/* line 655, ../../../src/sass/global/_mixins.scss */
 .agri-theme ul.nav-tabs li.active {
   border-bottom: 5px solid #D14A7F;
 }
 @media (min-width: 1142px) {
-  /* line 650, ../../../src/sass/global/_mixins.scss */
+  /* line 662, ../../../src/sass/global/_mixins.scss */
   .agri-theme #sub-nav .subnav-container .content {
     margin-left: 30px;
   }
-  /* line 653, ../../../src/sass/global/_mixins.scss */
+  /* line 665, ../../../src/sass/global/_mixins.scss */
   .agri-theme #sub-nav .subnav-container .content:first-child, .agri-theme #sub-nav .subnav-container .content:last-child {
     margin-left: 0px;
   }
 }
-/* line 661, ../../../src/sass/global/_mixins.scss */
+/* line 673, ../../../src/sass/global/_mixins.scss */
 .agri-theme #sub-nav .subnav-container .heading .top:first-child {
   border: none;
 }
-/* line 673, ../../../src/sass/global/_mixins.scss */
+/* line 685, ../../../src/sass/global/_mixins.scss */
 .agri-theme #analyst-profile .show-options {
   border-bottom: 2px solid #ffd600;
 }
-/* line 675, ../../../src/sass/global/_mixins.scss */
+/* line 687, ../../../src/sass/global/_mixins.scss */
 .agri-theme #analyst-profile .show-options:after {
   background-color: #ffd600;
 }
-/* line 680, ../../../src/sass/global/_mixins.scss */
+/* line 692, ../../../src/sass/global/_mixins.scss */
 .agri-theme .popover {
   background: #ffd600;
   width: 175px;
   top: -36px;
 }
-/* line 684, ../../../src/sass/global/_mixins.scss */
+/* line 696, ../../../src/sass/global/_mixins.scss */
 .agri-theme .popover .popover-content {
   color: #424953;
   font-family: 'FSMe-bold';
 }
-/* line 693, ../../../src/sass/global/_mixins.scss */
+/* line 705, ../../../src/sass/global/_mixins.scss */
 .agri-theme .popover.right .arrow:after {
   border-right-color: #ffd600;
 }
-/* line 697, ../../../src/sass/global/_mixins.scss */
+/* line 709, ../../../src/sass/global/_mixins.scss */
 .agri-theme .border-circle {
   borders: 5px solid #6c6845;
 }
-/* line 705, ../../../src/sass/global/_mixins.scss */
+/* line 717, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn {
   width: 180px;
   background: transparent;
@@ -390,15 +404,15 @@
   border-radius: 0;
   border-width: 2px;
 }
-/* line 713, ../../../src/sass/global/_mixins.scss */
+/* line 725, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-faq-more {
   border-bottom: 2px solid #ffd600 !important;
 }
-/* line 715, ../../../src/sass/global/_mixins.scss */
+/* line 727, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-faq-more:after {
   color: #ffd600;
 }
-/* line 719, ../../../src/sass/global/_mixins.scss */
+/* line 731, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-showMore,
 .agri-theme .btn-plus {
   background: none;
@@ -413,7 +427,7 @@
   cursor: pointer;
   position: relative;
 }
-/* line 732, ../../../src/sass/global/_mixins.scss */
+/* line 744, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-showMore:after,
 .agri-theme .btn-plus:after {
   font-family: 'InformaIcons';
@@ -425,19 +439,19 @@
   font-size: 30px;
   top: -2px;
 }
-/* line 742, ../../../src/sass/global/_mixins.scss */
+/* line 754, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-showMore:hover,
 .agri-theme .btn-plus:hover {
   border-bottom: 2px solid #EF7C00;
 }
-/* line 745, ../../../src/sass/global/_mixins.scss */
+/* line 757, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-showMore span.more,
 .agri-theme .btn-showMore span.less,
 .agri-theme .btn-plus span.more,
 .agri-theme .btn-plus span.less {
   text-decoration: none;
 }
-/* line 772, ../../../src/sass/global/_mixins.scss */
+/* line 784, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-default {
   min-width: 230px;
   text-align: left;
@@ -446,7 +460,7 @@
   border-color: #EF7C00;
   position: relative;
 }
-/* line 779, ../../../src/sass/global/_mixins.scss */
+/* line 791, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-default:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -454,31 +468,31 @@
   position: absolute;
   color: #EF7C00;
 }
-/* line 786, ../../../src/sass/global/_mixins.scss */
+/* line 798, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-default:hover {
   border: 2px solid #ffd600;
 }
-/* line 788, ../../../src/sass/global/_mixins.scss */
+/* line 800, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-default:hover:after {
   color: #ffd600;
 }
-/* line 794, ../../../src/sass/global/_mixins.scss */
+/* line 806, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-container .btn-default {
   border: 2px solid #EF7C00;
 }
-/* line 796, ../../../src/sass/global/_mixins.scss */
+/* line 808, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-container .btn-default:after {
   color: #EF7C00;
 }
-/* line 799, ../../../src/sass/global/_mixins.scss */
+/* line 811, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-container .btn-default:hover {
   border: 2px solid #ffd600;
 }
-/* line 801, ../../../src/sass/global/_mixins.scss */
+/* line 813, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-container .btn-default:hover:after {
   color: #ffd600;
 }
-/* line 807, ../../../src/sass/global/_mixins.scss */
+/* line 819, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-primary {
   text-align: left;
   padding-top: 15px;
@@ -488,7 +502,7 @@
   color: #fff;
   position: relative;
 }
-/* line 816, ../../../src/sass/global/_mixins.scss */
+/* line 828, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-primary:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -496,11 +510,11 @@
   font-weight: bold;
   position: absolute;
 }
-/* line 823, ../../../src/sass/global/_mixins.scss */
+/* line 835, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-primary a {
   color: #fff;
 }
-/* line 830, ../../../src/sass/global/_mixins.scss */
+/* line 842, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-previous {
   color: #fff;
   min-width: 180px;
@@ -512,7 +526,7 @@
   position: relative;
   z-index: 9;
 }
-/* line 840, ../../../src/sass/global/_mixins.scss */
+/* line 852, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-previous:before {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -524,11 +538,11 @@
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 852, ../../../src/sass/global/_mixins.scss */
+/* line 864, ../../../src/sass/global/_mixins.scss */
 .agri-theme .btn-previous:hover {
   border-color: #6a7285;
 }
-/* line 857, ../../../src/sass/global/_mixins.scss */
+/* line 869, ../../../src/sass/global/_mixins.scss */
 .agri-theme #contactus-section .phone-number a,
 .agri-theme #contactus-section .phone-number,
 .agri-theme #contactus-section .email a,
@@ -536,40 +550,40 @@
   color: #EF7C00;
   font-weight: bold;
 }
-/* line 864, ../../../src/sass/global/_mixins.scss */
+/* line 876, ../../../src/sass/global/_mixins.scss */
 .agri-theme #contactus-section a.btn {
   color: #fff;
   width: 100%;
 }
-/* line 867, ../../../src/sass/global/_mixins.scss */
+/* line 879, ../../../src/sass/global/_mixins.scss */
 .agri-theme #contactus-section a.btn:after {
   color: #fff;
 }
-/* line 871, ../../../src/sass/global/_mixins.scss */
+/* line 883, ../../../src/sass/global/_mixins.scss */
 .agri-theme #contactus-section .subscribe-link {
   background: #EF7C00 url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
 }
-/* line 873, ../../../src/sass/global/_mixins.scss */
+/* line 885, ../../../src/sass/global/_mixins.scss */
 .agri-theme #contactus-section .subscribe-link:after {
   color: #fff;
 }
-/* line 878, ../../../src/sass/global/_mixins.scss */
+/* line 890, ../../../src/sass/global/_mixins.scss */
 .agri-theme .open-quote {
   color: rgba(255, 214, 0, 0.8);
 }
-/* line 882, ../../../src/sass/global/_mixins.scss */
+/* line 894, ../../../src/sass/global/_mixins.scss */
 .agri-theme .demo-item {
   height: 100px;
   background-color: rgba(255, 214, 0, 0.8);
 }
 
-/* line 891, ../../../src/sass/global/_mixins.scss */
+/* line 903, ../../../src/sass/global/_mixins.scss */
 .tab-pane .error-response h2:before,
 .tab-pane .submit-response h2:before {
   color: #ffd600;
 }
 
-/* line 903, ../../../src/sass/global/_mixins.scss */
+/* line 915, ../../../src/sass/global/_mixins.scss */
 .form-modal .modal-body .form-inline-container .error-response h2:before,
 .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #ffd600;

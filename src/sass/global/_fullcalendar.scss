@@ -63,7 +63,7 @@
 	}
 }
 .fc-event-container {
-	.events {
+	div.events {
 		margin-bottom: 10px;
 		@include mobile {
 			display: none;
@@ -103,10 +103,6 @@
 					a {
 						text-decoration: none;
 					}
-					&:before {
-						width: 4px;
-						background: $white;
-					}
 				}
 				a {
 					pointer-events: none;
@@ -117,11 +113,14 @@
 			p {
 				&.title {
 					a {
-						color: #687083;
+						color: $white;
 					}
 					&:before {
-						background: #6a7287;
+						background: $white;
 					}
+				}
+				&.country {
+					color: $white;
 				}
 			}
 		}
@@ -254,9 +253,13 @@
 			}
 			&.current {
 				p {
+
 					&.title {
 						&:before {
 							background: $yellow;
+						}
+						a {
+
 						}
 					}
 				}

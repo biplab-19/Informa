@@ -14,7 +14,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _brandList = $('#product-brands-list-section'),
+    var _brandList = $('#product-brands-list-section, #related-products-section'),
     // methods
         init,
         _bindShowMore,

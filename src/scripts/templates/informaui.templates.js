@@ -424,7 +424,7 @@ var INFORMA = window.INFORMA || {};
                                                 '</div>'+
                                                 '<div class="footer clearfix">'+
                                                     '{{#compare Register null operator="!="}}' + 
-                                                       '<a href="{{Register.Url}}" class="btn btn-default pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
+                                                       '<a href="{{Register.Url}}" class="btn btn-primary pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
                                                     '{{/compare}}'+
                                                     '{{#compare FullDetail null operator="!="}}' +
                                                       '<a href="{{FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+

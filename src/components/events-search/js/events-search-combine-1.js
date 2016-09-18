@@ -280,9 +280,11 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         }
 
                     if(moment(CurrentDate) > moment(ItemDate)) {
-                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
-                    } else if(moment(CurrentDate) == moment(ItemDate)) {
-                        return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                        if(moment(CurrentDate).format('d MMM YYYY') == moment(ItemDate).format('d MMM YYYY')) {
+                            return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                        } else {
+                            return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                        }
                     } else {
                         return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                     }

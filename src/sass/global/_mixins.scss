@@ -236,6 +236,9 @@ $desktop-width: 1142px;
         .bg-gray-dark {
             .btn-default {
                 border: 2px solid $white;
+                &:after {
+                    color: $white;
+                }
                 &:hover {
                     border: 2px solid $secondarycolorlight;
                     &:after {
@@ -302,12 +305,21 @@ $desktop-width: 1142px;
         .EventFinished,
         .FullyBooked {
             background-color: rgba($primary, 0.4) !important;
+            color: $white !important;
+            &:after {
+                color: $white !important;
+            }
         }
         .CurrentDate {
             .events-wrap .header .date {
                 background-color: $primary !important;
             }
         }
+        //Analyst Banner
+        section#hero-banner.analyst {
+            background-color: $secondarycolordark;
+        }
+
         //Bullet color
         .yellow-bullets {
             list-style-type: none;
