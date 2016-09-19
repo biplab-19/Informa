@@ -3307,6 +3307,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _activateMainFixedHeader,
         _activateMobileFixedHeader,
         _pdpsectionSubnavigationInit,
+        _selectDocClickEvents,
         _bindClickEvents,
         _bindNavigationEvents;
 
@@ -3727,19 +3728,35 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _bindNavigationEvents = function() {
 
         if (INFORMA.global.device.isDesktop) {
-            _navlinks.on('click', function(e) {
+            _navlinks.on('mouseover', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
-                $('#sub-nav').css({'left': 0, 'min-height': '325px'});
+                $('#sub-nav').css({ 'left': 0, 'min-height': '325px' });
                 $('#sub-nav .subnav-container').hide();
                 _navlinks.removeClass('nav-active');
                 $(this).addClass('nav-active');
-                $('#' + navId).slideDown();
+                $('#sub-nav').show();
+                $('#' + navId).show();
+            });
+
+            $('#sub-nav').hover(
+                function() {
+                    $(this).show();
+                },
+                function() {
+                    $(this).hide();
+                }
+            );
+            _navlinks.on('mouseout', function(e) {
+                e.preventDefault();
+                $('#sub-nav').hide();
+                $('#sub-nav').css({'left': 0, 'min-height': '0px'});
+                _navlinks.removeClass('nav-active');
             });
             _subnavclose.on('click', function(e) {
                 e.preventDefault();
                 $('#sub-nav .subnav-container').hide();
-                $('#sub-nav').css({'left': 0, 'min-height': '0px'});
+                $('#sub-nav').css({ 'left': 0, 'min-height': '0px' });
                 _navlinks.removeClass('nav-active');
             });
         } else {
@@ -3804,7 +3821,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
        }
       });
     }
-
+    _selectDocClickEvents=function(){
+      $(document).on('click',function(event) {
+           if (!$(event.target).closest('.selectMenu').length) {
+              $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
+           }
+       });
+    }
     init = function() {
         //if(INFORMA.global.device.viewport!='mobile'){
         if (_pdpNavigation.length > 0) {
@@ -3825,6 +3848,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         //}
         _bindNavigationEvents();
         _bindClickEvents();
+        _selectDocClickEvents();
         /*if (INFORMA.global.device.isMobile) {
             $('#pdp-navigation ul').on('click', function() {
                 //todo stop hardcoding
