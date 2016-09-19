@@ -302,9 +302,13 @@ h3 {
       @include tablet {
             padding: 0 40px;
       }
+      ul.slick-dots {
+        display: none !important;
+      }
       &.slick-slider {
         opacity: 1;
         height: 80px;
+        margin-bottom: 0;
         .slick-arrow {
         height: 60px;
         width: 40px;
