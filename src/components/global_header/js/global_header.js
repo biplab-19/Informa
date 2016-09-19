@@ -107,6 +107,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _activateMainFixedHeader,
         _activateMobileFixedHeader,
         _pdpsectionSubnavigationInit,
+        _selectDocClickEvents,
         _bindClickEvents,
         _bindNavigationEvents;
 
@@ -604,7 +605,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
        }
       });
     }
-
+    _selectDocClickEvents=function(){
+      $(document).on('click',function(event) {
+           if (!$(event.target).closest('.selectMenu').length) {
+              $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
+           }
+       });
+    }
     init = function() {
         //if(INFORMA.global.device.viewport!='mobile'){
         if (_pdpNavigation.length > 0) {
@@ -625,6 +632,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         //}
         _bindNavigationEvents();
         _bindClickEvents();
+        _selectDocClickEvents();
         /*if (INFORMA.global.device.isMobile) {
             $('#pdp-navigation ul').on('click', function() {
                 //todo stop hardcoding
