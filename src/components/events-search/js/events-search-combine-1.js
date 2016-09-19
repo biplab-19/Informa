@@ -298,7 +298,9 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 
                 var obj = { 
                      data:JSON.stringify({MonthYear: NextMonth, 
-                        SectorId: SectorSelect.val()})
+                        SectorId: SectorSelect.val(),
+                        eventType: Type.val()
+                        })
                 } 
 
         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
