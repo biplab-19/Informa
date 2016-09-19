@@ -54,6 +54,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         form.find('.area-interests-guid').val('');
         form.find('.area-interests-text').val('');
         form.find(".field-validation-error span").hide();
+        form.find('input[type=radio]').removeAttr('checked');
+        form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
+        form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
     }
     _parseResults = function(data) {
         $('span.product-name-holder').html(data.ProductName);
