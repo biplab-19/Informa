@@ -929,6 +929,7 @@ section#hero-banner .analyst-single-image .image-margin {
 /* line 30, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .image-thumbnail img {
   width: 100%;
+  height: auto;
 }
 @media (max-width: 767px) {
   /* line 26, ../../../src/components/home-brand-list/sass/_brand-list.scss */
@@ -936,7 +937,7 @@ section#hero-banner .analyst-single-image .image-margin {
     height: auto;
   }
 }
-/* line 36, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 37, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .image-thumbnail:after {
   content: '';
   width: 110%;
@@ -951,26 +952,26 @@ section#hero-banner .analyst-single-image .image-margin {
   top: calc(100% - 20px);
   left: 0;
 }
-/* line 49, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 50, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption {
   padding: 0 15px;
   word-wrap: break-word;
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 49, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 50, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .card .caption {
     height: auto;
   }
 }
-/* line 57, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 58, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption h4 {
   color: #6a7285;
   font-family: FSMe-Bold;
   margin: 0;
   padding: 20px 0;
 }
-/* line 64, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 65, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption h4::after {
   content: '';
   background: url(/Static/images/spritesheet.png) no-repeat;
@@ -980,7 +981,7 @@ section#hero-banner .analyst-single-image .image-margin {
   background-position: -5px -232px;
   display: inline-block;
 }
-/* line 74, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 75, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore {
   min-height: 90px;
   overflow: hidden;
@@ -988,7 +989,7 @@ section#hero-banner .analyst-single-image .image-margin {
   padding: 15px;
   background-color: #e1e3e7;
 }
-/* line 82, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 83, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore:before {
   content: '';
   position: absolute;
@@ -1003,72 +1004,72 @@ section#hero-banner .analyst-single-image .image-margin {
   transform: rotate(-5deg);
   height: 100%;
 }
-/* line 94, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 95, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore .btn-container {
   bottom: 15px;
   float: right;
   padding-top: 45px;
 }
-/* line 101, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 102, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .view-all-mobile-container {
   display: none;
 }
-/* line 104, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 105, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading {
   padding: 0;
   text-align: right;
 }
-/* line 107, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 108, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading h2 {
   color: #fff;
   text-align: left;
 }
-/* line 111, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 112, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading .btn.btn-default {
   color: #fff;
   margin: 30px 0;
 }
 @media (max-width: 767px) {
-  /* line 111, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 112, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .card-col-heading .btn.btn-default {
     width: 100%;
   }
 }
-/* line 117, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 118, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading .btn.btn-default:after {
   color: #fff;
 }
-/* line 123, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 124, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .show-more-btn-container .btn, .product-brands-list .btn-container .btn {
   padding-right: 40px;
   font-family: 'FSMe-Bold';
 }
 @media (max-width: 767px) {
-  /* line 129, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 130, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(1) {
     display: block;
   }
-  /* line 132, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 133, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(2) {
     display: block;
   }
-  /* line 135, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 136, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 138, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 139, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 141, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 142, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col:nth-child(n+5) {
     display: none;
   }
-  /* line 145, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 146, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .show-more-btn-container .btn {
     width: 50%;
   }
-  /* line 149, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 150, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .view-all-mobile-container {
     display: block;
     color: #fff;
@@ -1077,75 +1078,75 @@ section#hero-banner .analyst-single-image .image-margin {
     padding: 5px;
     cursor: pointer;
   }
-  /* line 158, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 159, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .informa-icon {
     font-size: 30px;
   }
-  /* line 162, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 163, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .btn-container {
     width: 100%;
     margin: 0 auto;
   }
 }
 
-/* line 168, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 169, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products {
   background: #fff;
 }
-/* line 170, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 171, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .product-brands-list {
   background-color: #fff;
 }
-/* line 172, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 173, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .product-brands-list h2 {
   color: #6a7285;
 }
-/* line 176, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 177, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card {
   background: #f0f1f3;
 }
-/* line 179, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 180, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card .image-thumbnail:after {
   background-color: #f0f1f3;
 }
-/* line 184, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 185, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card .showmore:before {
   background-color: #f0f1f3;
 }
-/* line 189, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 190, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card .caption h2::after {
   content: '';
 }
-/* line 194, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 195, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .view-all-mobile-container {
   display: none;
   color: #434854;
 }
 @media (max-width: 767px) {
-  /* line 199, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 200, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .related-products .container > .row > .card-col:nth-child(n+4) {
     display: none;
   }
-  /* line 202, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 203, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .related-products .view-all-mobile-container {
     display: block;
   }
 }
-/* line 206, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 207, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link {
   margin: 30px auto 0;
   text-align: center;
   width: 100%;
 }
-/* line 210, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 211, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link p {
   font-size: 19px;
 }
-/* line 212, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 213, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link p a {
   font-weight: 700;
 }
-/* line 215, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 216, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link p a:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -1156,24 +1157,24 @@ section#hero-banner .analyst-single-image .image-margin {
   left: 3px;
 }
 
-/* line 229, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 230, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 236, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 237, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list .btn-showMore .more {
   display: block;
 }
-/* line 239, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 240, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list .btn-showMore .less {
   display: none;
 }
-/* line 245, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 246, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list.showLess .btn-showMore .more {
   display: none;
 }
-/* line 248, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 249, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list.showLess .btn-showMore .less {
   display: block;
 }
@@ -1887,12 +1888,18 @@ section#pdp-hero .cta3 {
   margin: 0;
   top: calc(100% + 10px);
 }
+@media (max-width: 767px) {
+  /* line 63, ../../../src/components/article-list/sass/_article-list.scss */
+  .article-list .list-container ul.slick-dots {
+    display: none !important;
+  }
+}
 
-/* line 72, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 75, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists .slick-list {
   border-right: 1px solid #c3c6d0;
 }
-/* line 75, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 78, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists .slick-arrow {
   height: 60px;
   width: 40px;
@@ -1901,7 +1908,7 @@ section#pdp-hero .cta3 {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 75, ../../../src/components/article-list/sass/_article-list.scss */
+  /* line 78, ../../../src/components/article-list/sass/_article-list.scss */
   .carousel-lists .slick-arrow {
     height: 40px;
     width: 20px;
@@ -1910,7 +1917,7 @@ section#pdp-hero .cta3 {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 75, ../../../src/components/article-list/sass/_article-list.scss */
+  /* line 78, ../../../src/components/article-list/sass/_article-list.scss */
   .carousel-lists .slick-arrow {
     height: 40px;
     width: 25px;
@@ -1918,7 +1925,7 @@ section#pdp-hero .cta3 {
     margin-left: -25px;
   }
 }
-/* line 93, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 96, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -1930,7 +1937,7 @@ section#pdp-hero .cta3 {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 93, ../../../src/components/article-list/sass/_article-list.scss */
+  /* line 96, ../../../src/components/article-list/sass/_article-list.scss */
   .carousel-lists .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -1938,44 +1945,44 @@ section#pdp-hero .cta3 {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 93, ../../../src/components/article-list/sass/_article-list.scss */
+  /* line 96, ../../../src/components/article-list/sass/_article-list.scss */
   .carousel-lists .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 114, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 117, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists .slick-next {
   left: 100%;
   margin-left: 0;
 }
-/* line 117, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 120, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists .slick-next:before {
   content: "\e902";
 }
-/* line 121, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 124, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists .slick-prev {
   left: 0%;
   margin-left: -40px;
 }
 @media (max-width: 767px) {
-  /* line 121, ../../../src/components/article-list/sass/_article-list.scss */
+  /* line 124, ../../../src/components/article-list/sass/_article-list.scss */
   .carousel-lists .slick-prev {
     margin-left: -20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 121, ../../../src/components/article-list/sass/_article-list.scss */
+  /* line 124, ../../../src/components/article-list/sass/_article-list.scss */
   .carousel-lists .slick-prev {
     margin-left: -25px;
   }
 }
-/* line 130, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 133, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists .slick-prev:before {
   content: "\e903";
 }
-/* line 134, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 137, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists ul.slick-dots {
   text-align: center;
   width: 100%;
@@ -1984,7 +1991,7 @@ section#pdp-hero .cta3 {
   z-index: 2;
   margin: 15px 0;
 }
-/* line 141, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 144, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists ul.slick-dots li {
   height: 10px;
   width: 10px;
@@ -1993,31 +2000,31 @@ section#pdp-hero .cta3 {
   background: #888e9f;
   padding: 0;
 }
-/* line 148, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 151, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 151, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 154, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists ul.slick-dots li button {
   display: none;
 }
-/* line 157, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 160, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists.no-carousel .list-container li {
   margin-bottom: 20px;
   border-right: 1px solid #c3c6d0;
 }
-/* line 160, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 163, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists.no-carousel .list-container li:last-child {
   border-right: 1px solid #c3c6d0;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 157, ../../../src/components/article-list/sass/_article-list.scss */
+  /* line 160, ../../../src/components/article-list/sass/_article-list.scss */
   .carousel-lists.no-carousel .list-container li {
     width: 50%;
     float: left;
   }
 }
-/* line 168, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 171, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists.no-carousel .slick-list {
   border: none;
 }
@@ -2179,17 +2186,29 @@ section#pdp-hero .cta3 {
 .headline-list .list-container li .link a span {
   vertical-align: bottom;
 }
-/* line 77, ../../../src/components/headline-list/sass/_headline-list.scss */
+@media (max-width: 767px) {
+  /* line 73, ../../../src/components/headline-list/sass/_headline-list.scss */
+  .headline-list .list-container li .link a span {
+    vertical-align: top;
+  }
+}
+/* line 80, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .link a:after {
   color: #ffd500;
 }
-/* line 83, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 86, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container .slick-arrow {
   top: 42%;
 }
-/* line 86, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 89, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container ul.slick-dots {
   margin: 15px 0 20px;
+}
+@media (max-width: 767px) {
+  /* line 89, ../../../src/components/headline-list/sass/_headline-list.scss */
+  .headline-list .list-container ul.slick-dots {
+    display: none !important;
+  }
 }
 
 /* line 1, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
@@ -9389,18 +9408,27 @@ form.register-myinterests-form .normal-checkbox label {
   font-weight: normal;
 }
 /* line 419, ../../../src/components/form-wffm/sass/form-wffm.scss */
+form.get-in-touch .preselected-checkbox label,
+form.request-a-demo .preselected-checkbox label,
+form.register-myinterests-form .preselected-checkbox label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+/* line 425, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .right-inner,
 form.request-a-demo .right-inner,
 form.register-myinterests-form .right-inner {
   position: relative;
 }
-/* line 421, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 427, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .right-inner .icon-calender,
 form.request-a-demo .right-inner .icon-calender,
 form.register-myinterests-form .right-inner .icon-calender {
   pointer-events: none;
 }
-/* line 423, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 429, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .right-inner .icon-calender:before,
 form.request-a-demo .right-inner .icon-calender:before,
 form.register-myinterests-form .right-inner .icon-calender:before {
@@ -9412,7 +9440,7 @@ form.register-myinterests-form .right-inner .icon-calender:before {
   top: 10px;
   right: 5px;
 }
-/* line 434, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 440, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom,
 form.request-a-demo .radio-custom,
 form.register-myinterests-form .radio-custom {
@@ -9424,7 +9452,7 @@ form.register-myinterests-form .radio-custom {
   position: relative;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 434, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 440, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .radio-custom,
   form.request-a-demo .radio-custom,
   form.register-myinterests-form .radio-custom {
@@ -9432,14 +9460,14 @@ form.register-myinterests-form .radio-custom {
   }
 }
 @media (max-width: 767px) {
-  /* line 434, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 440, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .radio-custom,
   form.request-a-demo .radio-custom,
   form.register-myinterests-form .radio-custom {
     width: 100%;
   }
 }
-/* line 448, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 454, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom label,
 form.request-a-demo .radio-custom label,
 form.register-myinterests-form .radio-custom label {
@@ -9449,7 +9477,7 @@ form.register-myinterests-form .radio-custom label {
   padding-left: 12px;
   font-weight: normal !important;
 }
-/* line 455, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 461, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom label::before,
 form.request-a-demo .radio-custom label::before,
 form.register-myinterests-form .radio-custom label::before {
@@ -9467,7 +9495,7 @@ form.register-myinterests-form .radio-custom label::before {
   -o-transition: border 0.15s ease-in-out;
   transition: border 0.15s ease-in-out;
 }
-/* line 470, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 476, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom label::after,
 form.request-a-demo .radio-custom label::after,
 form.register-myinterests-form .radio-custom label::after {
@@ -9490,7 +9518,7 @@ form.register-myinterests-form .radio-custom label::after {
   -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
 }
-/* line 490, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 496, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"],
 form.request-a-demo .radio-custom input[type="radio"],
 form.register-myinterests-form .radio-custom input[type="radio"] {
@@ -9500,7 +9528,7 @@ form.register-myinterests-form .radio-custom input[type="radio"] {
   top: -1px;
   position: absolute;
 }
-/* line 502, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 508, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"]:checked + label::after,
 form.request-a-demo .radio-custom input[type="radio"]:checked + label::after,
 form.register-myinterests-form .radio-custom input[type="radio"]:checked + label::after {
@@ -9509,55 +9537,55 @@ form.register-myinterests-form .radio-custom input[type="radio"]:checked + label
   -o-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 508, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 514, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"]:disabled + label,
 form.request-a-demo .radio-custom input[type="radio"]:disabled + label,
 form.register-myinterests-form .radio-custom input[type="radio"]:disabled + label {
   opacity: 0.65;
 }
-/* line 511, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 517, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"]:disabled + label::before,
 form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before,
 form.register-myinterests-form .radio-custom input[type="radio"]:disabled + label::before {
   cursor: not-allowed;
 }
 
-/* line 515, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 521, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .has-error {
   display: none;
 }
 
-/* line 518, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 524, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .has-error .bg-warning {
   display: block;
 }
 
-/* line 521, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 527, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .bg-warning {
   display: block !important;
   background-color: initial !important;
 }
-/* line 524, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 530, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .bg-warning li.list-group-item.list-group-item-warning {
   background-color: initial !important;
 }
-/* line 527, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 533, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .bg-warning .list-group-item {
   border: none;
   padding: 0 !important;
 }
-/* line 531, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 537, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .bg-warning .list-group-item-warning {
   color: inherit !important;
 }
 
-/* line 536, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 542, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-btn-container {
   width: 20%;
   margin: 10px auto;
 }
 
-/* line 542, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 548, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-dialog {
   padding-top: 10%;
   padding-bottom: 10%;
@@ -9565,37 +9593,37 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   margin: 0 auto;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 542, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 548, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 85%;
   }
 }
 @media (max-width: 767px) {
-  /* line 542, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 548, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 100%;
   }
 }
-/* line 555, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 561, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container {
   margin-top: 10%;
   margin-bottom: 10%;
 }
 @media (max-width: 767px) {
-  /* line 555, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 561, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container {
     margin-top: 4%;
     margin-bottom: 4%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 555, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 561, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container {
     margin-top: 6%;
     margin-bottom: 6%;
   }
 }
-/* line 566, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 572, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response,
 .form-modal .modal-body .form-inline-container .submit-response {
   background-color: #444957;
@@ -9606,7 +9634,7 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   font-size: 20px;
 }
 @media (max-width: 767px) {
-  /* line 566, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 572, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response,
   .form-modal .modal-body .form-inline-container .submit-response {
     padding-left: 20px;
@@ -9614,14 +9642,14 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 566, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 572, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response,
   .form-modal .modal-body .form-inline-container .submit-response {
     padding-left: 20%;
     padding-right: 20%;
   }
 }
-/* line 582, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 588, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response h2,
 .form-modal .modal-body .form-inline-container .submit-response h2 {
   font-family: "FSMe-bold";
@@ -9629,7 +9657,7 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 582, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 588, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response h2,
   .form-modal .modal-body .form-inline-container .submit-response h2 {
     padding-right: 20px;
@@ -9637,7 +9665,7 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
     width: calc(100% - 50px);
   }
 }
-/* line 591, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 597, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response h2:before,
 .form-modal .modal-body .form-inline-container .submit-response h2:before {
   position: absolute;
@@ -9646,7 +9674,7 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   content: "\e914";
 }
 @media (min-width: 1142px) {
-  /* line 591, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 597, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response h2:before,
   .form-modal .modal-body .form-inline-container .submit-response h2:before {
     font-size: 35px;
@@ -9655,7 +9683,7 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 591, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 597, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response h2:before,
   .form-modal .modal-body .form-inline-container .submit-response h2:before {
     font-size: 35px;
@@ -9663,7 +9691,7 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   }
 }
 @media (max-width: 767px) {
-  /* line 591, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 597, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response h2:before,
   .form-modal .modal-body .form-inline-container .submit-response h2:before {
     font-size: 35px;
@@ -9671,12 +9699,12 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
     left: 100%;
   }
 }
-/* line 612, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 618, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response img,
 .form-modal .modal-body .form-inline-container .submit-response img {
   opacity: 0.5;
 }
-/* line 615, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 621, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response p,
 .form-modal .modal-body .form-inline-container .submit-response p {
   margin-bottom: 25px;
@@ -9691,7 +9719,7 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   border-radius: 0;
   padding: 0;
 }
-/* line 627, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 633, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response p:after,
 .form-modal .modal-body .form-inline-container .submit-response p:after {
   content: '';
@@ -9702,22 +9730,22 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   height: 0;
   border: 0;
 }
-/* line 641, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 647, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #fff;
 }
-/* line 653, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 659, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header {
   border-bottom: 0;
 }
-/* line 655, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 661, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .close {
   color: #fff;
   opacity: 2;
 }
-/* line 659, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 665, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .form-modal-close-icon:after {
   content: "\e906";
   visibility: visible;
@@ -9728,13 +9756,13 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   margin-left: -5px;
 }
 
-/* line 671, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 677, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border {
   padding-top: 56px;
   position: relative;
   padding-bottom: 20px;
 }
-/* line 675, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 681, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border .btn {
   border: 0 !important;
   color: #fff !important;
@@ -9744,18 +9772,18 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   bottom: 15px;
 }
 @media (min-width: 768px) {
-  /* line 675, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 681, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 121px;
   }
 }
 @media (max-width: 767px) {
-  /* line 675, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 681, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 100% !important;
   }
 }
-/* line 690, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 696, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border::after {
   position: absolute;
   font-family: 'InformaIcons';
@@ -9765,7 +9793,7 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   font-weight: bold;
 }
 
-/* line 699, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 705, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border.disabled {
   cursor: not-allowed;
   pointer-events: none;
@@ -9773,17 +9801,17 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   box-shadow: none;
 }
 
-/* line 705, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 711, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-horizontal .form-group {
   margin-left: 0 !important;
 }
 
-/* line 708, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 714, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade.in.centreAlign .modal-dialog {
   transform: translate3d(0, -50%, 0);
 }
 
-/* line 713, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 719, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .tab-pane .error-response,
 .tab-pane .submit-response {
   background-color: #444957;
@@ -9793,20 +9821,20 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   padding-bottom: 20px;
 }
 @media (max-width: 767px) {
-  /* line 713, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 719, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response,
   .tab-pane .submit-response {
     padding-left: 7px;
     padding-right: 5px;
   }
 }
-/* line 724, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 730, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .tab-pane .error-response h2,
 .tab-pane .submit-response h2 {
   color: #fff;
   position: relative;
 }
-/* line 727, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 733, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .tab-pane .error-response h2:before,
 .tab-pane .submit-response h2:before {
   content: "\e914";
@@ -9814,34 +9842,34 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   position: absolute;
 }
 @media (max-width: 767px) {
-  /* line 727, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 733, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response h2:before,
   .tab-pane .submit-response h2:before {
     right: -60px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 727, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 733, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response h2:before,
   .tab-pane .submit-response h2:before {
     left: -60px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 727, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 733, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response h2:before,
   .tab-pane .submit-response h2:before {
     left: -60px;
   }
 }
-/* line 742, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 748, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .tab-pane .error-response p,
 .tab-pane .submit-response p {
   font-size: 24px;
   color: #fff;
 }
 
-/* line 749, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 755, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
   -moz-transform: scale(0.1);
@@ -9854,7 +9882,7 @@ form.register-myinterests-form .radio-custom input[type="radio"]:disabled + labe
   transition: all 0.3s;
 }
 
-/* line 760, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 766, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade.in .modal-dialog {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -12843,6 +12871,13 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   font-weight: normal;
 }
 /* line 332, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+.register-myinterests-section .preselected-checkbox label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+/* line 338, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .btn-previous {
   color: #fff;
   min-width: 180px;
@@ -12852,7 +12887,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   background: #565c6b !important;
   position: relative;
 }
-/* line 340, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 346, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .btn-previous:before {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -12864,47 +12899,47 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 353, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 359, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .btn-previous:hover {
   border-color: #343742;
 }
 
-/* line 359, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 365, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container .form-group .select-wrapper:after {
   display: none;
 }
-/* line 363, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 369, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline, .register-myinterests-form-container #step2 .form-submit-border {
   width: 450px;
   float: right;
 }
 @media (max-width: 767px) {
-  /* line 363, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 369, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-form-container #step2 .list-inline, .register-myinterests-form-container #step2 .form-submit-border {
     width: 415px;
   }
 }
-/* line 369, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 375, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline .btn, .register-myinterests-form-container #step2 .form-submit-border .btn {
   float: right;
   min-width: 180px;
 }
 @media (max-width: 767px) {
-  /* line 369, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 375, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-form-container #step2 .list-inline .btn, .register-myinterests-form-container #step2 .form-submit-border .btn {
     float: right;
     min-width: 32px;
     width: 42% !important;
   }
 }
-/* line 378, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 384, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline .btn-previous, .register-myinterests-form-container #step2 .form-submit-border .btn-previous {
   float: left;
   margin-right: 200px;
   display: block;
 }
 @media (max-width: 767px) {
-  /* line 378, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 384, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-form-container #step2 .list-inline .btn-previous, .register-myinterests-form-container #step2 .form-submit-border .btn-previous {
     float: left;
     margin-right: 44%;
@@ -12913,17 +12948,17 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
     width: 36% !important;
   }
 }
-/* line 390, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 396, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline .form-submit-border, .register-myinterests-form-container #step2 .form-submit-border .form-submit-border {
   padding-bottom: 12px;
   z-index: 2;
 }
-/* line 393, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 399, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-form-container #step2 .list-inline .form-submit-border .btn, .register-myinterests-form-container #step2 .form-submit-border .form-submit-border .btn {
   padding: 17px;
 }
 
-/* line 400, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 406, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
   -moz-transform: scale(0.1);
@@ -12936,7 +12971,7 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   transition: all 0.3s;
 }
 
-/* line 411, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 417, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal.modal.fade.in .modal-dialog {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -12947,41 +12982,41 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   opacity: 1;
 }
 
-/* line 421, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 427, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-dialog {
   width: 75%;
   margin: 0 auto;
 }
 @media (max-width: 767px) {
-  /* line 421, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 427, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-modal .modal-dialog {
     width: 90%;
   }
 }
-/* line 428, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 434, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-body {
   padding-bottom: 0px;
 }
 @media (max-width: 767px) {
-  /* line 438, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 444, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-modal .modal-body .register-myinterests-form-container #step2 .form-submit-border {
     width: 425px;
   }
 }
 @media (max-width: 767px) and (max-width: 767px) {
-  /* line 438, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 444, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-modal .modal-body .register-myinterests-form-container #step2 .form-submit-border {
     width: 375px;
   }
 }
 @media (max-width: 767px) and (max-width: 767px) {
-  /* line 443, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+  /* line 449, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
   .register-myinterests-modal .modal-body .register-myinterests-form-container #step2 .form-submit-border .prev-step {
     width: 37% !important;
   }
 }
 
-/* line 451, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 457, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
@@ -12989,27 +13024,27 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
   margin-top: 10%;
   margin-bottom: 10%;
 }
-/* line 458, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 464, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-header {
   border-bottom: 0;
 }
-/* line 460, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 466, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .modal-header .close {
   color: #fff;
   opacity: 2;
 }
 
-/* line 467, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 473, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 #article-list-section .register-myinterests-section {
   display: none;
 }
 
-/* line 472, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 478, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-modal .register-myinterests-section {
   display: block !important;
 }
 
-/* line 476, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
+/* line 482, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-form-popup-container {
   display: none;
 }
