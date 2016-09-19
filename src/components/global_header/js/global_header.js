@@ -608,6 +608,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     init = function() {
         //if(INFORMA.global.device.viewport!='mobile'){
         if (_pdpNavigation.length > 0) {
+            _pdpsectionSubnavigationInit();
             _initPdpMenuBarFollow();
             _pdpNavigationScrollTo();
             _pdpSectionActions();
@@ -624,10 +625,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         //}
         _bindNavigationEvents();
         _bindClickEvents();
-        $(document).ready(function(){
-          _pdpsectionSubnavigationInit();
-        });
-
         /*if (INFORMA.global.device.isMobile) {
             $('#pdp-navigation ul').on('click', function() {
                 //todo stop hardcoding
