@@ -256,7 +256,7 @@ $desktop-width: 1142px;
                 background-color: $grey-color09;
                 #pdp-sections-heading,
                 a {
-                    color: $grey-color1;
+                    color: $grey-color03;
                 }
             }
         }
@@ -673,10 +673,6 @@ $desktop-width: 1142px;
                         &:first-child {
                             border: none;
                         }
-                        .circle {
-                            //@extend .background-link;
-                            //@extend .border-circle;
-                        }
                     }
                 }
             }
@@ -706,14 +702,6 @@ $desktop-width: 1142px;
                 border-right-color: $secondarycolorlight;
             }
         }
-        .border-circle {
-            @if($name==agri-theme) {
-                borders: 5px solid $navagricirclecolor;
-            }
-            @else {
-                borders: 5px solid $navpharmacirclecolor;
-            }
-        }
         .btn {
             width: 180px;
             background: transparent;
@@ -735,7 +723,7 @@ $desktop-width: 1142px;
             padding: 10px 0;
             margin: 0 auto 25px;
             text-align: left;
-            color: $grey-color1;
+            color: $grey-color03;
             border: none;
             border-bottom: 2px solid $secondarycolorlight;
             display: block;
