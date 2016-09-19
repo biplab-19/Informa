@@ -106,7 +106,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _whenScrolling,
         _activateMainFixedHeader,
         _activateMobileFixedHeader,
-
+        _pdpsectionSubnavigationInit,
         _bindClickEvents,
         _bindNavigationEvents;
 
@@ -310,7 +310,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpMenuleft = [];
                 for (var i = 0; i < _pdpLink.length; i++) {
                     var _sectionName = '#' + $(_pdpLink[i]).data('target');
-                    if(_sectionName){
+                    if($(_sectionName).length > 0){
                         _pdpMenuPos.push($(_sectionName).offset().top);
                     }else{
                         _pdpMenuPos.push(0);
@@ -596,6 +596,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         });
 
     };
+    _pdpsectionSubnavigationInit = function(){
+      $('#pdp-sections ul li').each(function(){
+       var idname = '#' + $(this).find('a').data("target");
+       if($(idname).length == 0) {
+          $(this).remove();
+       }
+      });
+    }
 
     init = function() {
         //if(INFORMA.global.device.viewport!='mobile'){
@@ -616,6 +624,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         //}
         _bindNavigationEvents();
         _bindClickEvents();
+        $(document).ready(function(){
+          _pdpsectionSubnavigationInit();
+        });
 
         /*if (INFORMA.global.device.isMobile) {
             $('#pdp-navigation ul').on('click', function() {
