@@ -380,6 +380,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $.validator.setDefaults({
             ignore: ":hidden:not(.chosen-select)"
         });
+        $(".chosen-select").on('change', function(){
+            $(this).valid();
+        });
     }
 
     init = function() {
