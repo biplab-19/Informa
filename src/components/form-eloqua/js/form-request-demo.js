@@ -28,8 +28,8 @@ INFORMA.formRequestForDemo = (function(window, $, namespace) {
     init = function() {
           //todo: No null check, dont execute these bindings if forms are not there
 
-            _showOverlay();
-            _bindToolTip();
+          //  _showOverlay();
+        //    _bindToolTip();
 
     };
 
