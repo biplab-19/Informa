@@ -72,6 +72,9 @@
                 a {
                     span{
                         vertical-align: bottom;
+                        @include mobile {
+                            vertical-align: top;
+                        }
                     }
                     //color: $yellow;
                     &:after {
@@ -85,6 +88,9 @@
         }
         ul.slick-dots {
             margin: 15px 0 20px;
+            @include mobile {
+                display: none !important;
+            }
         }
     }
 }

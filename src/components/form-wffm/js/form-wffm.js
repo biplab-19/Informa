@@ -117,8 +117,9 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _resetForm = function($form) {
         $form.find('input[type=text], input[type=password], input[type=number], input[type=email], select, textarea').val('');
-        $form.find('input[type=radio], input[type=checkbox]')
-            .removeAttr('checked').removeAttr('selected');
+        $form.find('input[type=radio]').removeAttr('checked');
+        $form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
+        $form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
     }
 
     _showHideInlineForm = function() {
@@ -622,7 +623,8 @@ INFORMA.forms = (function(window, $, namespace) {
                 'guid': $(el).attr('data-productid')
             };
             //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
-            _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseResults, null, null);
+            //_getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseResults, null, null);
+            _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
         }        
         $(_formId).modal({         
             show: 'true'         

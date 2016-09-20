@@ -66,7 +66,7 @@ jQuery(INFORMA.brandList.init());
 var INFORMA = window.INFORMA || {};
 INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
-    var DynamicBrandList = $('#dynamic-product-list'),
+    var DynamicBrandList = $('.product-brands-list'),
         init, HideOnLoad, _equalHeight, ClickEvents,
         Count = 1,
         BtnShowMore = DynamicBrandList.find('.btn-showMore');

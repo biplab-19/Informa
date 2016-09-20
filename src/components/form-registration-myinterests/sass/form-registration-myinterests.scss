@@ -329,6 +329,12 @@
         margin-bottom: 5px;
         font-weight: normal;
     }
+    .preselected-checkbox label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: normal;
+    }
     .btn-previous {
         color: $white;
         min-width: 180px;
@@ -438,7 +444,7 @@
             .register-myinterests-form-container #step2 .form-submit-border {
                 width: 425px;
                 @include mobile {
-                  width: 375px;
+                  width: 360px;
                 }
                 .prev-step {
                     @include mobile {
