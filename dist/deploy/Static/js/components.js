@@ -3728,24 +3728,34 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _bindNavigationEvents = function() {
 
         if (INFORMA.global.device.isDesktop) {
+            
             _navlinks.on('mouseover', function(e) {
                 e.preventDefault();
-                var navId = $(this).find('a').data('subnav');
-                $('#sub-nav').css({ 'left': 0});
-                $('#sub-nav .subnav-container').hide();
+                var navId = $(this).find('a').data('subnav'),
+                    SubNav =  $('#sub-nav'),
+                    SubContainer = $("#sub-nav").find(".subnav-container");
+                SubNav.css({ 'left': 0});
+                SubContainer.hide();
                 _navlinks.removeClass('nav-active');
                 $(this).addClass('nav-active');
-                $('#sub-nav').show();
+                SubNav.show();
                 $('#' + navId).show();
+                SubContainer.removeClass("active");
+                SubNav.find('#'+navId).addClass("active");
             });
 
             $('#sub-nav').hover(
                 function() {
                     $(this).show();
                     $('#sub-nav').css({ 'left': 0});
+                    var ActiveId = $('#sub-nav').find(".active").attr("id"),
+                        ParentEle = _navlinks.find('a[data-subnav='+ActiveId+']').parent();
+                    _navlinks.removeClass('nav-active');
+                    ParentEle.addClass('nav-active');
                 },
                 function() {
                     $(this).hide();
+                     _navlinks.removeClass('nav-active');
                 }
             );
             _navlinks.on('mouseout', function(e) {
