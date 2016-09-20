@@ -976,12 +976,12 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
     ShowBanner = function(name, value, days) {
             $("body").find("#cookieBanner").show();
             $("#cookieBanner a.close").on("click", function(e) {
+                RemoveMe();
                 //CreateCookie(cookieName,cookieValue, cookieDuration); 
                 INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
                     method: "Post",
                     data: JSON.stringify({"key":cookieName,"value":cookieValue ,"expires":cookieDuration}),
                     success_callback: function(data) {
-                        RemoveMe();
                     }
                 });
                     ///
@@ -3757,6 +3757,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('#sub-nav').hover(
                 function() {
                     $(this).show();
+                    $('#sub-nav').css({ 'left': 0, 'min-height': '325px' });
                 },
                 function() {
                     $(this).hide();

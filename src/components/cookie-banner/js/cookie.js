@@ -26,12 +26,12 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
     ShowBanner = function(name, value, days) {
             $("body").find("#cookieBanner").show();
             $("#cookieBanner a.close").on("click", function(e) {
+                RemoveMe();
                 //CreateCookie(cookieName,cookieValue, cookieDuration); 
                 INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
                     method: "Post",
                     data: JSON.stringify({"key":cookieName,"value":cookieValue ,"expires":cookieDuration}),
                     success_callback: function(data) {
-                        RemoveMe();
                     }
                 });
                     ///

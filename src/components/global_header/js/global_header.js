@@ -542,6 +542,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('#sub-nav').hover(
                 function() {
                     $(this).show();
+                    $('#sub-nav').css({ 'left': 0, 'min-height': '325px' });
                 },
                 function() {
                     $(this).hide();
