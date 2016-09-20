@@ -22,10 +22,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _mainNavigation = $('.mainNavigation'),
         _mobileNavigation = $('.mobileNavigation'),
         _mobileHeaderNavigation = $('#mobile-header-navigation'),
+        _cookieBanner =  $('#cookieBanner'),
         _navHeight = _mainNavigation.height(),
         _headerPos = 0,
         _navHeightMobile = _mobileNavigation.height(),
         _headerPosMobile = 0,
+        _cookieHeight =  $('#cookieBanner').outerHeight(),
         _fixed = 'navbar-fixed-top',
         _isHeaderFixed = false,
         _heroBannerHeading = $('#banner h1').text(),
@@ -109,7 +111,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpsectionSubnavigationInit,
         _selectDocClickEvents,
         _bindClickEvents,
-        _bindNavigationEvents;
+        _bindNavigationEvents,
+        _cookieFixUpdate;
 
 
 
@@ -145,6 +148,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _headerPosMobile = _mobileNavigation.offset().top;
     }
 
+     _cookieFixUpdate = function(){
+        var _windowPos = $(window).scrollTop();
+        if (_windowPos > _cookieHeight) {
+            _cookieBanner.addClass(_fixed);
+        } else {
+            _cookieBanner.removeClass(_fixed);
+        }
+    }
     // both pdp nav and main nav handled here
 
     _whenScrolling = function() {
@@ -158,7 +169,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _activatePdpFixedHeader();
             if (_servicesNavigation.length > 0 && _servicesMenuActive)
                 _activateServicesFixedHeader();
-
+            if ($('#cookieBanner:visible').length > 0)
+                _cookieFixUpdate();
         });
     };
 
@@ -168,6 +180,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         if (_windowPos > _headerPos) {
             if (!_mainNavigation.hasClass(_fixed)) {
                 _mainNavigation.addClass(_fixed);
+                if($('#cookieBanner:visible').length > 0){
+                    _mainNavigation.css('top', _cookieHeight + 'px');
+                }
                 $(".informaNav .hide-stick").fadeOut("3000", "linear");
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
                 $('body').css('padding-top', _navHeight);
@@ -187,12 +202,18 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         if (_windowPosMobile > _headerPosMobile) {
             _mobileNavigation.addClass(_fixed);
+            if($('#cookieBanner:visible').length > 0){
+                _mobileNavigation.css('top', _cookieHeight + 'px');
+            }
             $('body').css('padding-top', _navHeightMobile);
             _mobileHeaderNavigation.css({
                 'z-index': '2000'
             });
         } else {
             _mobileNavigation.removeClass(_fixed);
+            if($('#cookieBanner:visible').length > 0){
+                _mobileNavigation.css('top', 0);
+            }
             $('body').css('padding-top', 0);
             _mobileHeaderNavigation.css({
                 'z-index': '2'
