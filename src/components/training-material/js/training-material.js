@@ -23,7 +23,7 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
     _createSlider = function(container){
         // if data-items, data-infinite is defined, used it
         var _slideCount = container.data('itemsperframe'),
-            _autoplay = container.data('autorotate'),
+            _autoplay = Boolean(container.data('autorotate')),
             _speed = container.data('transitionspeed'), // speed of transition
             _duration = container.data('slideduration'), // how long the slider will be displayed
             _infinite = true,

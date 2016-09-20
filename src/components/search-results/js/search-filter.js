@@ -21,6 +21,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         RefineSection = $(".refine-container .panel-body"),
         ShowMoreLinks = RefineSection.find("a.show-more"),
         RefineCheckBox = $(".refine-container .panel-body .custom-checkbox input"),
+        CheckedRefineCheckBox = $(".refine-container .panel-body .custom-checkbox input:checked"),
         ClearAllLink = $(".refine-container a.clear-all"),
         ProductFinderSection = $('#product-finder-section'),
         SearchType = '',
@@ -169,7 +170,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             if (IsResourcePage && (!IsProductPage && !IsSearchPage)) {
                 SearchType = "ResourceResult";
             }
-
+            if (CheckedRefineCheckBox.length > 0) {
+                //DoRefine();
+            }
             if (SelectAll && RefineCheckBox) {
                 var ViewPort = INFORMA.global.device.viewportN;
 

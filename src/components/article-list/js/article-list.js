@@ -210,7 +210,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             equalHeights();
             headLineEqualHeight();
         });
-        $(window).on("orientationchange", function() {
+        $(window).on("resize", function() {
             equalHeights();
             headLineEqualHeight();
         });

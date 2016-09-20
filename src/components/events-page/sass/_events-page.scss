@@ -96,7 +96,7 @@
 			.events-wrap .content-wrap .content .title-content{
 				color:#cbccd1;
 			}
-			.events-wrap .content-wrap .content .title-body ul li{
+			.events-wrap .content-wrap .content .title-body ul li, .events-wrap .header .country{
 				color:#cbccd1;
 			}
 		}//current event
@@ -144,7 +144,7 @@
 				    position: absolute;
 				    top: 0px;
 					@include mobile {
-						top: auto;
+						top: 2px;
 						right: 47px;
 						bottom: 10px;
 					}

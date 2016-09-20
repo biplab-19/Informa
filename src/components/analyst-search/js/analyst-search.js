@@ -149,9 +149,9 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 "Sector": null
             }
             AnalystSearch.find('#name').val('');
-            $('select[name="Sector"]').prop('selectedIndex',0);
-            
-            $('select[name="SubSector"]').prop('selectedIndex',0);
+            //$('select[name="Sector"]').prop('selectedIndex',0);
+            Sector.prop('selectedIndex',0).trigger('chosen:updated').trigger('change');
+            //$('select[name="SubSector"]').prop('selectedIndex',0);
             GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
         })
     }

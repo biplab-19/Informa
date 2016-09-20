@@ -18,7 +18,12 @@
 	    margin: 0;
 	    padding: 0;
 	}
-	.btn-default {
-		padding-right: 40px;
+	.btn-container {
+		.btn-default {
+			padding-right: 40px;
+			width: 100%;
+	    	min-width: auto;
+	    	min-width: initial;
+		}
 	}
 }

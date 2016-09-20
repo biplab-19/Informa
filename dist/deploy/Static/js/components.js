@@ -1,4 +1,4 @@
-/*! 2016-09-20 */
+/*! 2016-09-21 */
 /*
  * welcome-description
  *
@@ -320,9 +320,9 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 "Sector": null
             }
             AnalystSearch.find('#name').val('');
-            $('select[name="Sector"]').prop('selectedIndex',0);
-            
-            $('select[name="SubSector"]').prop('selectedIndex',0);
+            //$('select[name="Sector"]').prop('selectedIndex',0);
+            Sector.prop('selectedIndex',0).trigger('chosen:updated').trigger('change');
+            //$('select[name="SubSector"]').prop('selectedIndex',0);
             GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
         })
     }
@@ -663,7 +663,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             equalHeights();
             headLineEqualHeight();
         });
-        $(window).on("orientationchange", function() {
+        $(window).on("resize", function() {
             equalHeights();
             headLineEqualHeight();
         });
@@ -3379,12 +3379,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _activateMobileFixedHeader = function() {
         var _windowPosMobile = $(window).scrollTop();
 
-        if (_windowPosMobile > (_headerPosMobile + _cookieHeight)) {
+        if (_windowPosMobile > _headerPosMobile) {
             _mobileNavigation.addClass(_fixed);
             if($('#cookieBanner:visible').length > 0){
                 _mobileNavigation.css('top', _cookieHeight + 'px');
             }
-            $('body').css('padding-top', _navHeightMobile + _cookieHeight);
+            $('body').css('padding-top', _navHeightMobile);
             _mobileHeaderNavigation.css({
                 'z-index': '2000'
             });
@@ -3404,10 +3404,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
-            if($("#pdp-sections:visible").length)
+            if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
-            else
+                $('nav#pdp-navigation').removeClass('deviceactive');
+            }else{
                 $('#pdp-sections').slideDown();
+                $('nav#pdp-navigation').addClass('deviceactive');
+            }
         })
     };
 
@@ -3509,6 +3512,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpMenuPos = [];
                 _pdpMenuWidth = [];
                 _pdpMenuleft = [];
+                _pdpLink = $('#pdp-navigation ul > li > a');
+                _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
                 for (var i = 0; i < _pdpLink.length; i++) {
                     var _sectionName = '#' + $(_pdpLink[i]).data('target');
                     if($(_sectionName).length > 0){
@@ -3516,8 +3521,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     }else{
                         _pdpMenuPos.push(0);
                     }
+                    if($(_pdpLinkSpan[i]).length > 0) {
                     _pdpMenuWidth.push($(_pdpLinkSpan[i]).width());
                     _pdpMenuleft.push($(_pdpLinkSpan[i]).offset().left);
+                    }
                 }
                 _arrayFlag = false;
             }
@@ -3728,7 +3735,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _bindNavigationEvents = function() {
 
         if (INFORMA.global.device.isDesktop) {
-            
+
             _navlinks.on('mouseover', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav'),
@@ -3834,9 +3841,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     }
     _selectDocClickEvents=function(){
       $(document).on('click',function(event) {
-           if (!$(event.target).closest('.selectMenu').length) {
-              $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
-           }
+        if(event.target.class != 'selectMenu' && !$('.selectMenu').find(event.target).length){
+           $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
+        }
        });
     }
     init = function() {
@@ -5349,6 +5356,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         RefineSection = $(".refine-container .panel-body"),
         ShowMoreLinks = RefineSection.find("a.show-more"),
         RefineCheckBox = $(".refine-container .panel-body .custom-checkbox input"),
+        CheckedRefineCheckBox = $(".refine-container .panel-body .custom-checkbox input:checked"),
         ClearAllLink = $(".refine-container a.clear-all"),
         ProductFinderSection = $('#product-finder-section'),
         SearchType = '',
@@ -5497,7 +5505,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             if (IsResourcePage && (!IsProductPage && !IsSearchPage)) {
                 SearchType = "ResourceResult";
             }
-
+            if (CheckedRefineCheckBox.length > 0) {
+                //DoRefine();
+            }
             if (SelectAll && RefineCheckBox) {
                 var ViewPort = INFORMA.global.device.viewportN;
 
@@ -6283,7 +6293,7 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
     _createSlider = function(container){
         // if data-items, data-infinite is defined, used it
         var _slideCount = container.data('itemsperframe'),
-            _autoplay = container.data('autorotate'),
+            _autoplay = Boolean(container.data('autorotate')),
             _speed = container.data('transitionspeed'), // speed of transition
             _duration = container.data('slideduration'), // how long the slider will be displayed
             _infinite = true,
