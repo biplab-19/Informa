@@ -137,7 +137,7 @@
 			+ .btn-container {
 				.show-options {
 					&:after {
-						content: '-';
+						content: "\e913";
 					}
 				}
 				.more {
@@ -177,18 +177,12 @@
 			text-align: center;
 		}
 		&:after {
-			content: "+";
+			content: "\e912";
 			position: absolute;
 			right: 0;
-			top: 5px;
-			width: 20px;
-			height: 20px;
-			background-color: $yellow;
-			color: $white;
-			font-weight: bold;
-			@include border-radius(50%);
-			font-size: 16px;
-			padding: 0 6px;
+			top: 0;
+			font-size: 20px;
+			font-family:'InformaIcons';
 			@include mobile {
 				top: 20px;
 				right: 50%;

@@ -46,7 +46,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                 html = "",
                 Articles = results.Articles;
 
-                for(var key in Articles) {
+                for(var key = 0; key < Articles.length; key++) {
                     var Data = Articles[key],
                         TemplateName = (Templates.SampleContent !== "undefined") ? Templates.SampleContent : "",
                         ListTemplate = Handlebars.compile(TemplateName);

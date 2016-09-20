@@ -1,4 +1,4 @@
-/*! 2016-09-19 */
+/*! 2016-09-20 */
 /*
  * welcome-description
  *
@@ -744,7 +744,7 @@ jQuery(INFORMA.brandList.init());
 var INFORMA = window.INFORMA || {};
 INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
-    var DynamicBrandList = $('#dynamic-product-list'),
+    var DynamicBrandList = $('.product-brands-list'),
         init, HideOnLoad, _equalHeight, ClickEvents,
         Count = 1,
         BtnShowMore = DynamicBrandList.find('.btn-showMore');
@@ -964,47 +964,54 @@ var INFORMA = window.INFORMA || {};
 INFORMA.CookiePolicy = (function(window, $, namespace) {
     'use strict';
     //variables
-    var dropCookie = true,                 // false disables the Cookie, allowing you to style the banner
-        cookieDuration = 0,              // Number of days before the cookie expires, banner reappears
-        cookieName = 'cookiepolicyaccepted',       // Name of our cookie
-        cookieValue = 'yes',               // Value of cookie
+    var dropCookie = true, // false disables the Cookie, allowing you to style the banner
+        cookieDuration = 0, // Number of days before the cookie expires, banner reappears
+        cookieName = 'cookiepolicyaccepted', // Name of our cookie
+        cookieValue = 'yes', // Value of cookie
         // methods
         init,
-        ShowBanner,CreateCookie,CheckCookie,EraseCookie,RemoveMe;
+        ShowBanner, CreateCookie, CheckCookie, EraseCookie, RemoveMe;
 
 
-        ShowBanner = function(name,value,days) {
-                $("body").find("#cookieBanner").show();
-                $("#cookieBanner a.close").on("click",function(e){
-                    RemoveMe();
-                    CreateCookie(cookieName,cookieValue, cookieDuration); 
+    ShowBanner = function(name, value, days) {
+            $("body").find("#cookieBanner").show();
+            $("#cookieBanner a.close").on("click", function(e) {
+                //CreateCookie(cookieName,cookieValue, cookieDuration); 
+                INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
+                    method: "Post",
+                    data: JSON.stringify({"key":cookieName,"value":cookieValue ,"expires":cookieDuration}),
+                    success_callback: function(data) {
+                        RemoveMe();
+                    }
                 });
+                    ///
+            });
         },
-        CreateCookie = function(name,value,days) {
-                if (days) {
-                    var date = new Date();
-                    date.setTime(date.getTime()+(days*24*60*60*1000)); 
-                    var expires = "; expires="+date.toGMTString(); 
-                }
-                else {
-                    var expires = "";
-                }
-                if(dropCookie) { 
-                    document.cookie = name+"="+value+expires+"; path=/"; 
-                }
-        },
+        // CreateCookie = function(name,value,days) {
+        //         if (days) {
+        //             var date = new Date();
+        //             date.setTime(date.getTime()+(days*24*60*60*1000)); 
+        //             var expires = "; expires="+date.toGMTString(); 
+        //         }
+        //         else {
+        //             var expires = "";
+        //         }
+        //         if(dropCookie) { 
+        //             document.cookie = name+"="+value+expires+"; path=/"; 
+        //         }
+        // },
         CheckCookie = function(name) {
-                var nameEQ = name + "=";
-                var ca = document.cookie.split(';');
-                for(var i=0;i < ca.length;i++) {
-                    var c = ca[i];
-                    while (c.charAt(0)==' ') c = c.substring(1,c.length);
-                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-                }
-                return null;
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
         },
         EraseCookie = function(xhtml, ele) {
-                CreateCookie(name,"",-1);
+            CreateCookie(name, "", -1);
         },
         RemoveMe = function(data) {
             $("body").find("#cookieBanner").hide();
@@ -1012,9 +1019,9 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
         init = function() {
             var getCookieExpiryDate = ($("input.cookieDuration").val()) ? $("input.cookieDuration").val() : 365;
             cookieDuration = parseInt(getCookieExpiryDate);
-            window.onload = function(){ 
-                if(CheckCookie(cookieName) !== cookieValue){
-                    ShowBanner(); 
+            window.onload = function() {
+                if (CheckCookie(cookieName) !== cookieValue) {
+                    ShowBanner();
                 }
             };
         }
@@ -1971,6 +1978,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         form.find('.area-interests-guid').val('');
         form.find('.area-interests-text').val('');
         form.find(".field-validation-error span").hide();
+        form.find('input[type=radio]').removeAttr('checked');
+        form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
+        form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
     }
     _parseResults = function(data) {
         $('span.product-name-holder').html(data.ProductName);
@@ -2492,8 +2502,9 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _resetForm = function($form) {
         $form.find('input[type=text], input[type=password], input[type=number], input[type=email], select, textarea').val('');
-        $form.find('input[type=radio], input[type=checkbox]')
-            .removeAttr('checked').removeAttr('selected');
+        $form.find('input[type=radio]').removeAttr('checked');
+        $form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
+        $form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
     }
 
     _showHideInlineForm = function() {
@@ -2997,7 +3008,8 @@ INFORMA.forms = (function(window, $, namespace) {
                 'guid': $(el).attr('data-productid')
             };
             //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
-            _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseResults, null, null);
+            //_getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseResults, null, null);
+            _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
         }        
         $(_formId).modal({         
             show: 'true'         
@@ -3296,7 +3308,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _whenScrolling,
         _activateMainFixedHeader,
         _activateMobileFixedHeader,
-
+        _pdpsectionSubnavigationInit,
+        _selectDocClickEvents,
         _bindClickEvents,
         _bindNavigationEvents;
 
@@ -3500,7 +3513,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpMenuleft = [];
                 for (var i = 0; i < _pdpLink.length; i++) {
                     var _sectionName = '#' + $(_pdpLink[i]).data('target');
-                    if(_sectionName){
+                    if($(_sectionName).length > 0){
                         _pdpMenuPos.push($(_sectionName).offset().top);
                     }else{
                         _pdpMenuPos.push(0);
@@ -3717,19 +3730,35 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _bindNavigationEvents = function() {
 
         if (INFORMA.global.device.isDesktop) {
-            _navlinks.on('click', function(e) {
+            _navlinks.on('mouseover', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
-                $('#sub-nav').css({'left': 0, 'min-height': '325px'});
+                $('#sub-nav').css({ 'left': 0, 'min-height': '325px' });
                 $('#sub-nav .subnav-container').hide();
                 _navlinks.removeClass('nav-active');
                 $(this).addClass('nav-active');
-                $('#' + navId).slideDown();
+                $('#sub-nav').show();
+                $('#' + navId).show();
+            });
+
+            $('#sub-nav').hover(
+                function() {
+                    $(this).show();
+                },
+                function() {
+                    $(this).hide();
+                }
+            );
+            _navlinks.on('mouseout', function(e) {
+                e.preventDefault();
+                $('#sub-nav').hide();
+                $('#sub-nav').css({'left': 0, 'min-height': '0px'});
+                _navlinks.removeClass('nav-active');
             });
             _subnavclose.on('click', function(e) {
                 e.preventDefault();
                 $('#sub-nav .subnav-container').hide();
-                $('#sub-nav').css({'left': 0, 'min-height': '0px'});
+                $('#sub-nav').css({ 'left': 0, 'min-height': '0px' });
                 _navlinks.removeClass('nav-active');
             });
         } else {
@@ -3786,10 +3815,25 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         });
 
     };
-
+    _pdpsectionSubnavigationInit = function(){
+      $('#pdp-sections ul li').each(function(){
+       var idname = '#' + $(this).find('a').data("target");
+       if($(idname).length == 0) {
+          $(this).remove();
+       }
+      });
+    }
+    _selectDocClickEvents=function(){
+      $(document).on('click',function(event) {
+           if (!$(event.target).closest('.selectMenu').length) {
+              $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
+           }
+       });
+    }
     init = function() {
         //if(INFORMA.global.device.viewport!='mobile'){
         if (_pdpNavigation.length > 0) {
+            _pdpsectionSubnavigationInit();
             _initPdpMenuBarFollow();
             _pdpNavigationScrollTo();
             _pdpSectionActions();
@@ -3806,7 +3850,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         //}
         _bindNavigationEvents();
         _bindClickEvents();
-
+        _selectDocClickEvents();
         /*if (INFORMA.global.device.isMobile) {
             $('#pdp-navigation ul').on('click', function() {
                 //todo stop hardcoding
@@ -4866,7 +4910,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                 html = "",
                 Articles = results.Articles;
 
-                for(var key in Articles) {
+                for(var key = 0; key < Articles.length; key++) {
                     var Data = Articles[key],
                         TemplateName = (Templates.SampleContent !== "undefined") ? Templates.SampleContent : "",
                         ListTemplate = Handlebars.compile(TemplateName);
