@@ -531,7 +531,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _navlinks.on('mouseover', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
-                $('#sub-nav').css({ 'left': 0, 'min-height': '325px' });
+                $('#sub-nav').css({ 'left': 0});
                 $('#sub-nav .subnav-container').hide();
                 _navlinks.removeClass('nav-active');
                 $(this).addClass('nav-active');
@@ -542,7 +542,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('#sub-nav').hover(
                 function() {
                     $(this).show();
-                    $('#sub-nav').css({ 'left': 0, 'min-height': '325px' });
+                    $('#sub-nav').css({ 'left': 0});
                 },
                 function() {
                     $(this).hide();
@@ -551,13 +551,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _navlinks.on('mouseout', function(e) {
                 e.preventDefault();
                 $('#sub-nav').hide();
-                $('#sub-nav').css({'left': 0, 'min-height': '0px'});
+                $('#sub-nav').css({'left': 0});
                 _navlinks.removeClass('nav-active');
             });
             _subnavclose.on('click', function(e) {
                 e.preventDefault();
                 $('#sub-nav .subnav-container').hide();
-                $('#sub-nav').css({ 'left': 0, 'min-height': '0px' });
+                $('#sub-nav').css({ 'left': 0});
                 _navlinks.removeClass('nav-active');
             });
         } else {
