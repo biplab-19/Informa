@@ -142,7 +142,8 @@ h3 {
         margin-top: 40px;
       }
       li {
-            padding:0 0 6px  60px;
+            padding:0;
+            margin-bottom: 10px;
             background: url(/Static/images/spritesheet.png) no-repeat;
             &:first-child {
               a{
@@ -153,7 +154,7 @@ h3 {
               padding-bottom: 0;
             }
             &.facebook-white {
-                  background-position: -5px -5px;
+                  background-position: -5px -6px;
             }
             &.twitter-white {
                   background-position: -5px -57px;
@@ -173,6 +174,9 @@ h3 {
                   a {
                         opacity: 0;
                   }
+            }
+            a{
+              padding:10px 0 10px 60px;
             }
       }
     }
