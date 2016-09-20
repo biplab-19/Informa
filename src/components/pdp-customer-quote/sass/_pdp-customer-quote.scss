@@ -113,12 +113,12 @@ section.customer-quote {
             }
             .case-study {
                 padding-right: 45px;
-                margin: 30px 0;
+                margin: 30px 0 0;
                 @include tablet{
-                    margin: 25px 0;
+                    margin: 25px 0 0;
                 }
                 @include mobile{
-                    margin: 20px 0;
+                    margin: 20px 0 0;
                 }
                 &:after {
                     content: "\e900";
@@ -194,11 +194,14 @@ section.customer-quote {
             bottom: 0;
             position: relative;
             left: 0;
+            padding-top: 30px;
             @include mobile {
                 position: static;
+                padding-top: 20px;
             }
             @include tablet {
                 left: 0;
+                padding-top: 25px;
             }
             li {
                 height: 10px;
