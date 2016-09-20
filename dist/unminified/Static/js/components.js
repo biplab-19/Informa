@@ -749,41 +749,6 @@ INFORMA.brandList = (function(window, $, namespace) {
         Count = 1,
         BtnShowMore = DynamicBrandList.find('.btn-showMore');
 
-    HideOnLoad = function (Parent) {
-        var showCount = Parent.attr('data-count'),
-            TotalItems = Parent.find('.card-col');
-
-
-        TotalItems.slice((showCount - TotalItems.length)).hide();
-        ClickEvents();
-    }
-
-    ClickEvents = function () {
-        
-        BtnShowMore.on('click', function(e) {
-            e.preventDefault();
-            var showCount = DynamicBrandList.attr('data-count'),
-                    TotalItems = DynamicBrandList.find('.card-col'),
-                    VisibleItems = DynamicBrandList.find('.card-col:visible').length;
-
-            if(!DynamicBrandList.hasClass('showLess')) {
-                    // debugger;
-                DynamicBrandList.removeClass('showLess');
-                TotalItems.slice((showCount * Count), (showCount * (Count+1))).slideDown();
-                Count++;
-            } else {
-                TotalItems.slice((showCount - TotalItems.length)).slideUp();
-                // debugger;
-                DynamicBrandList.removeClass('showLess');
-                Count = 1;
-                
-            }
-            if(TotalItems.length == VisibleItems) {
-                DynamicBrandList.addClass('showLess');
-            }
-        })
-    }
-
     _equalHeight = function(container) {
         var captionItems = container.find('.caption'),
             maxHeight = 0,
@@ -804,7 +769,6 @@ INFORMA.brandList = (function(window, $, namespace) {
 
     init = function () {
         if(DynamicBrandList.length > 0) {
-            HideOnLoad(DynamicBrandList);
             _equalHeight(DynamicBrandList);
         }
     }
@@ -6158,7 +6122,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         if(_vp == 0) {
             var count = _sectorPageStrengths.data('desktop');
             _sectorPageStrengths.find('.marg1:nth-child(n+'+ (count + 1)+')').hide();
-            if(_sectorPageStrengths.find('.marg1').length > (count+1)) {
+            if(_sectorPageStrengths.find('.marg1').length >= (count+1)) {
                 _sectorPageStrengths.find('.view-all-sectors-btn-container').show();
             } else {
                 _sectorPageStrengths.find('.view-all-sectors-btn-container').hide();

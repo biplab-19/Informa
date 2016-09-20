@@ -29,7 +29,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         if(_vp == 0) {
             var count = _sectorPageStrengths.data('desktop');
             _sectorPageStrengths.find('.marg1:nth-child(n+'+ (count + 1)+')').hide();
-            if(_sectorPageStrengths.find('.marg1').length > (count+1)) {
+            if(_sectorPageStrengths.find('.marg1').length >= (count+1)) {
                 _sectorPageStrengths.find('.view-all-sectors-btn-container').show();
             } else {
                 _sectorPageStrengths.find('.view-all-sectors-btn-container').hide();

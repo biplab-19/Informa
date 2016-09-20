@@ -61,10 +61,12 @@
 					background-color: #e2e4e9;
 				}
 				&.icon-list-view {
-					content: '';
-				    height: 26px;
-				    width: 26px;
-				    background: url(/Static/images/dashboard.png) no-repeat;
+					&:before {
+						content: '';
+					    height: 26px;
+					    width: 26px;
+					    background: url(/Static/images/dashboard.png) no-repeat;
+					}
 				}
 			}
 		}

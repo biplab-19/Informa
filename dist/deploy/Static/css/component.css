@@ -7289,8 +7289,8 @@ section.event-profile-container .content-wrap {
 .events-search .views-section .views a.active {
   background-color: #e2e4e9;
 }
-/* line 63, ../../../src/components/events-search/sass/_events-search.scss */
-.events-search .views-section .views a.icon-list-view {
+/* line 64, ../../../src/components/events-search/sass/_events-search.scss */
+.events-search .views-section .views a.icon-list-view:before {
   content: '';
   height: 26px;
   width: 26px;
@@ -11439,21 +11439,23 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 .recomended-wrapper .footer {
   padding: 0;
   margin-top: 15px;
+  float: left;
+  width: 100%;
 }
 
-/* line 219, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 221, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .search-tile {
   margin-bottom: 15px;
 }
-/* line 222, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 224, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .btn-ShowMore {
   margin-bottom: 30px;
 }
-/* line 226, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 228, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .more {
   display: none;
 }
-/* line 229, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 231, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .less {
   display: block;
 }

@@ -4105,7 +4105,7 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                             '{{#compare TopicURLS.length "0" operator=">"}}'+
                                 '<p class="topics">'+
-                                    '{{TopicKeyword}}: '+
+                                    '{{TopicKeyword}} '+
                                     '{{#each TopicURLS}}'+
                                         '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
                                     '{{/each}}'+
