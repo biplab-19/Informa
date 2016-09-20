@@ -225,10 +225,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
-            if($("#pdp-sections:visible").length)
+            if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
-            else
+                $('nav#pdp-navigation').removeClass('deviceactive');
+            }else{
                 $('#pdp-sections').slideDown();
+                $('nav#pdp-navigation').addClass('deviceactive');
+            }
         })
     };
 
@@ -330,6 +333,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpMenuPos = [];
                 _pdpMenuWidth = [];
                 _pdpMenuleft = [];
+                _pdpLink = $('#pdp-navigation ul > li > a');
+                _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
                 for (var i = 0; i < _pdpLink.length; i++) {
                     var _sectionName = '#' + $(_pdpLink[i]).data('target');
                     if($(_sectionName).length > 0){
@@ -337,8 +342,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     }else{
                         _pdpMenuPos.push(0);
                     }
+                    if($(_pdpLinkSpan[i]).length > 0) {
                     _pdpMenuWidth.push($(_pdpLinkSpan[i]).width());
                     _pdpMenuleft.push($(_pdpLinkSpan[i]).offset().left);
+                    }
                 }
                 _arrayFlag = false;
             }
@@ -549,7 +556,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _bindNavigationEvents = function() {
 
         if (INFORMA.global.device.isDesktop) {
-            
+
             _navlinks.on('mouseover', function(e) {
                 e.preventDefault();
                 var navId = $(this).find('a').data('subnav'),
@@ -655,9 +662,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     }
     _selectDocClickEvents=function(){
       $(document).on('click',function(event) {
-           if (!$(event.target).closest('.selectMenu').length) {
-              $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
-           }
+        if(event.target.class != 'selectMenu' && !$('.selectMenu').find(event.target).length){
+           $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
+        }
        });
     }
     init = function() {
