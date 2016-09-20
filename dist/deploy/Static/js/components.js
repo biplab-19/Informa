@@ -2304,6 +2304,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $.validator.setDefaults({
             ignore: ":hidden:not(.chosen-select)"
         });
+        $(".chosen-select").on('change', function(){
+            $(this).valid();
+        });
     }
 
     init = function() {
@@ -2420,8 +2423,17 @@ INFORMA.forms = (function(window, $, namespace) {
         _HideOverlay,
         _showFormIntro,
         _bindNumber,
-        _updateProductVerticalName;
+        _updateProductVerticalName,
+        _validateChoosenSelect;
 
+        _validateChoosenSelect = function(){
+          $.validator.setDefaults({
+              ignore: ":hidden:not(.chosen-select)"
+          });
+          $(".chosen-select").on('change', function(){
+              $(this).valid();
+          });
+        }
 
       _bindNumber = function() {
             $(document).on('keypress','input[type="number"]', function(e) {
@@ -3063,6 +3075,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _HideOverlay();
         _showFormIntro();
         _updateProductVerticalName();
+        _validateChoosenSelect();
     };
 
     return {
