@@ -128,8 +128,8 @@ form.register-myinterests-form {
         font-size: 14px;
         border-radius: 0;
     }
-    .chosen-container-single .chosen-search {
-      display: none;
+    .chosen-container-single .chosen-search input[type="text"]{
+      color: $grey-color04;
     }
     .chosen-container .chosen-results {
         border-radius: 0;
@@ -180,19 +180,35 @@ form.register-myinterests-form {
         select {
             padding-right: 25px;
         }
-        // .select-wrapper {
-        //     position: relative;
-        //     &:after {
-        //         content: "\e901";
-        //         visibility: visible;
-        //         font-family: 'InformaIcons';
-        //         color: $grey-color05;
-        //         position: absolute;
-        //         top: 18px;
-        //         right: 10px;
-        //         pointer-events: none;
-        //     }
-        // }
+        .select-wrapper {
+          @include mobile {
+            position: relative;
+            &:after {
+                content: "\e901";
+                visibility: visible;
+                font-family: 'InformaIcons';
+                color: $grey-color05;
+                position: absolute;
+                top: 18px;
+                right: 10px;
+                pointer-events: none;
+            }
+          }
+          @include tablet {
+            position: relative;
+            &:after {
+                content: "\e901";
+                visibility: visible;
+                font-family: 'InformaIcons';
+                color: $grey-color05;
+                position: absolute;
+                top: 18px;
+                right: 10px;
+                pointer-events: none;
+            }
+          }
+
+        }
 
         .has-error .bg-warning {
             display: block;

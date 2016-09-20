@@ -43,9 +43,9 @@ INFORMA.formComponents = (function(window, $, namespace) {
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
-        _showOverlay();
-        _bindToolTip();
-        _validateForm();
+        // _showOverlay();
+        // _bindToolTip();
+        // _validateForm();
 
     };
 
