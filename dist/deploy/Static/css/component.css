@@ -1204,75 +1204,80 @@ section#agri-report h2 {
 section#agri-report h5:first-child {
   color: #444957;
   font-family: FSMe-Bold;
+  margin-top: 0;
 }
-/* line 18, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 19, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report h5:last-child {
   margin-bottom: 0;
 }
-/* line 22, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 23, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+section#agri-report h5 p:last-child {
+  margin: 0;
+}
+/* line 28, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper {
   position: relative;
   font-family: FSMe-Light;
   font-size: 18px;
 }
 @media (max-width: 767px) {
-  /* line 22, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 28, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper {
     font-size: 14px;
   }
 }
-/* line 29, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 35, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .headline {
   font-family: FSMe-Bold;
   padding: 60px 0 20px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 29, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 35, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .headline {
     padding: 30px 0 10px;
   }
 }
 @media (max-width: 767px) {
-  /* line 29, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 35, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .headline {
     display: none;
   }
 }
-/* line 39, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 45, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .download-report {
   padding: 40px 0 50px 0;
 }
 @media (min-width: 1142px) {
-  /* line 39, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 45, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .download-report {
     margin-left: 15px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 39, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 45, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .download-report {
     padding: 40px 15px;
   }
 }
 @media (max-width: 767px) {
-  /* line 39, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 45, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .download-report {
     padding: 30px 15px;
   }
 }
-/* line 50, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 56, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .download-report a {
   position: relative;
   min-width: 180px;
   margin-right: 15px;
 }
 @media (max-width: 767px) {
-  /* line 50, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 56, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .download-report a {
     width: 100%;
   }
 }
-/* line 59, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 65, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .download-report .btn-primary:after {
   font-family: "InformaIcons";
   content: "\e905";
@@ -1281,26 +1286,26 @@ section#agri-report .agri-report-wrapper .download-report .btn-primary:after {
   top: 28%;
   font-size: 16px;
 }
-/* line 69, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 75, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .splash-image {
   position: absolute;
   bottom: 0;
   right: 100px;
 }
-/* line 73, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 79, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .splash-image img {
   width: 270px;
   height: auto;
 }
 @media (max-width: 767px) {
-  /* line 69, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 75, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image {
     right: 85px;
     position: static;
     margin-top: 25px;
     margin-bottom: 0;
   }
-  /* line 82, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 88, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image > img {
     width: 160px;
     display: block;
@@ -1308,30 +1313,30 @@ section#agri-report .agri-report-wrapper .splash-image img {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 69, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 75, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image {
     right: 95px;
   }
-  /* line 90, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 96, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image > img {
     width: 225px;
   }
 }
-/* line 95, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 101, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .description {
   line-height: 1.2em;
 }
 @media (max-width: 767px) {
-  /* line 95, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 101, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .description {
     padding-top: 15px;
   }
 }
-/* line 101, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 107, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .description strong {
   font-family: FSMe-Bold;
 }
-/* line 105, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 111, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .orange-bd {
   font-size: ┬á14px;
   ┬áfont-family: ┬áFSMe;
@@ -1342,7 +1347,7 @@ section#agri-report .agri-report-wrapper .orange-bd {
   ┬áborder-color: ┬á #ffd600;
 }
 @media (max-width: 767px) {
-  /* line 105, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 111, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .orange-bd {
     margin: 0 auto;
     display: block;
@@ -2914,7 +2919,7 @@ section.customer-quote .card-col-heading {
   }
 }
 /* line 310, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
-section.customer-quote .slick-dotted.slick-slider {
+section.customer-quote .slick-slider {
   margin-bottom: 0px;
 }
 
