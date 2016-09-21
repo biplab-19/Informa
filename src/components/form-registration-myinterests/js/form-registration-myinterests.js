@@ -36,8 +36,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _showRegisterFormPopup,
         _myinterestsModal = $('#registerMyinterestModal'),
         _myinterestsModalClose = $('.register-myinterests-close'),
-        _validateEmail,
-        _bindValidationLogic,
         _validateEmailDomainMsg,
         _getAjaxData, _SelectAll,
         _updateProductVertical,
@@ -102,36 +100,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 }
             });
         },
-
-        _validateEmail = function(email) {
-            var domain = email.substring(email.lastIndexOf("@") + 1);
-            if (INFORMA.validDomains.indexOf(domain) < 0)
-                return false;
-            return true;
-        }
-
-    _validateEmailDomainMsg = function(element) {
-        //Email validation logic
-        if (_validateEmail($(element).val()))
-            if ($(element).next().children().length == 0)
-                $(element).next().prepend("<span class='field-validation-error email-error'>E-mail is not in the valid domain list</span>");
-
-    }
-
-    _bindValidationLogic = function() {
-        //Email message
-        var  emailvalidator = $('form').find('.email-validation-error');         
-        if  (emailvalidator.length > 0) {            
-            $.extend($.validator.messages, {                  
-                email: emailvalidator.html()            
-            });         
-        }
-        //Email validation logic
-        $('form.register-myinterests-form input[type=email]').blur(function() {
-            _validateEmailDomainMsg(this);
-        });
-
-    }
 
     _addTabNumbers = function() {
             var progressiveTabs = $('.form-progressive-wizard a[data-toggle="tab"]');
@@ -365,9 +333,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $(document).on('click', '.next-step', function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             $active.next().removeClass('disabled');
-            var EmailTag = $('form.register-myinterests-form input[type=email]');
-            _validateEmailDomainMsg(EmailTag);
-            var emailError = $('form.register-myinterests-form').find('.email-error');
+            var emailError = $('form.register-myinterests-form .email-field').parent().find('.email-validation-message.show');
             $('form.register-myinterests-form').find('.field-validation-error span').css('display', 'block');
             if (emailError.length == 0) {
                 if (_myinterestForm.valid() == true) {
@@ -418,7 +384,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _renderRecommendedTips();
             _validateMultiSelct();
             _showRegisterForm();
-            _bindValidationLogic();
             _updateProductVertical();
             _closeMyInterestModal();
         } else {
