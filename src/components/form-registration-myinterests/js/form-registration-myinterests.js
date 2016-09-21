@@ -5,6 +5,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     var init,
         _showProgressiveTabs,
         _renderMultiSelect,
+        _renderSingleSelect,
         _showNextTab,
         _showPrevTab,
         _appendNextBtn,
@@ -46,9 +47,11 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _clearFormInput,
         _bindToggleTab,
         _destroyMultiSelect,
-        _addTabNumbers;
+        _addTabNumbers,
+        _closeMyInterestModal;
 
     //methods
+
     _clearFormInput = function(form) {
         form.find('input[type=text], input[type=password], input[type=number], input[type=email], textarea').val('');
         form.find('.area-interests-guid').val('');
@@ -159,6 +162,10 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _showRegisterFormPopup = function() {
         _myinterestsModal.find('.modal-body').empty();
         _myinterestsModal.find('.modal-body').append(_myinterestsSection);
+        $("form.register-myinterests-form .chosen-select").chosen({
+            disable_search_threshold: 10,
+            width: "100%"
+        });
         _myinterestsModal.find('.modal-body .container').removeClass('container');
         _clearFormInput(_myinterestForm);
         _yourinterestguid = [];
@@ -219,6 +226,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _myinterestForm.append(_myinterestFormContainer);
         _myinterestForm.addClass('row');
         _addTabNumbers();
+        _renderSingleSelect();
         _renderMultiSelect();
     }
     _wrapFormContainer = function() {
@@ -380,8 +388,21 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $.validator.setDefaults({
             ignore: ":hidden:not(.chosen-select)"
         });
-        $(".chosen-select").on('change', function(){
+        $("form.register-myinterests-form .chosen-select").on('change', function() {
             $(this).valid();
+        });
+    }
+
+    _renderSingleSelect = function() {
+        $("form.register-myinterests-form .chosen-select").chosen({
+            disable_search_threshold: 10,
+            width: "100%"
+        });
+    }
+
+    _closeMyInterestModal = function() {
+        _myinterestsModalClose.click(function() {
+            $("form.register-myinterests-form .chosen-select").chosen('destroy');
         });
     }
 
@@ -399,6 +420,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _showRegisterForm();
             _bindValidationLogic();
             _updateProductVertical();
+            _closeMyInterestModal();
         } else {
             _myinterestsSection.css('display', 'none');
 
