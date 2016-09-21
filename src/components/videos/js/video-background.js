@@ -19,7 +19,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         _addOptions;
 
     _addOptions = function() {
-        $('.videoBG_wrapper').parent().css( "height", "auto" );
+        //$('.videoBG_wrapper').parent().css( "height", "auto" );
         _iFrameElement.each(function(i, e) {
             _urlType = $(this).attr('data-videotype');
 
