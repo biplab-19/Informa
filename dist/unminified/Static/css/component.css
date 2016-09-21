@@ -4231,9 +4231,14 @@ nav#pdp-navigation .menuFollower {
 /* line 22, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
 .analyst-profile-events .btn-container .btn-default {
   padding-right: 40px;
-  width: 100%;
-  min-width: auto;
-  min-width: initial;
+}
+@media (max-width: 767px) {
+  /* line 22, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+  .analyst-profile-events .btn-container .btn-default {
+    width: 100%;
+    min-width: auto;
+    min-width: initial;
+  }
 }
 
 /* line 1, ../../../src/components/faqs/sass/faqs.scss */
@@ -7210,38 +7215,44 @@ section.articlepage-quote .container figure figcaption {
   min-width: 45%;
   width: 40%;
 }
-/* line 270, ../../../src/components/events-page/sass/_events-page.scss */
+@media (max-width: 767px) {
+  /* line 265, ../../../src/components/events-page/sass/_events-page.scss */
+  .events-wrap .footer .btn {
+    font-size: 12px;
+  }
+}
+/* line 273, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer .btn.register {
   float: left;
 }
-/* line 273, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 276, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer .btn.full-detail {
   float: right;
 }
 
-/* line 279, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 282, ../../../src/components/events-page/sass/_events-page.scss */
 .no-result {
   background: #fff;
   padding: 50px 0;
 }
 
 @media (max-width: 767px) {
-  /* line 283, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 286, ../../../src/components/events-page/sass/_events-page.scss */
   section[data-view="list-view"], section[data-view="calendar-view"] {
     padding-top: 95px;
   }
 }
 
-/* line 289, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 292, ../../../src/components/events-page/sass/_events-page.scss */
 section.event-profile-container .header {
   text-align: -webkit-auto;
   width: auto;
 }
-/* line 293, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 296, ../../../src/components/events-page/sass/_events-page.scss */
 section.event-profile-container .date-field .bold {
   float: none;
 }
-/* line 296, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 299, ../../../src/components/events-page/sass/_events-page.scss */
 section.event-profile-container .content-wrap {
   padding: 0px 15px 15px 15px;
 }
@@ -8750,9 +8761,10 @@ section.hero-banner .videoBG {
   height: 0;
   padding-bottom: 56.25%;
   /* 16:9 */
+  pointer-events: none;
   opacity: 0.5;
 }
-/* line 32, ../../../src/components/videos/sass/_video-background.scss */
+/* line 33, ../../../src/components/videos/sass/_video-background.scss */
 section.hero-banner .videoBG iframe {
   position: absolute;
   top: 0;
@@ -8760,11 +8772,11 @@ section.hero-banner .videoBG iframe {
   width: 100%;
   height: 100%;
 }
-/* line 40, ../../../src/components/videos/sass/_video-background.scss */
+/* line 41, ../../../src/components/videos/sass/_video-background.scss */
 section.hero-banner .wideScreen {
   padding-bottom: 56.25%;
 }
-/* line 43, ../../../src/components/videos/sass/_video-background.scss */
+/* line 44, ../../../src/components/videos/sass/_video-background.scss */
 section.hero-banner .fourBYthree {
   padding-bottom: 75%;
 }

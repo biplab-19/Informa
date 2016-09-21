@@ -259,7 +259,7 @@ var INFORMA = window.INFORMA || {};
                                                                 '<li><a href="mailto:{{EmailAddressLink}}" class="icon-email"></a></li>' +
                                                             '{{/compare}}' +
                                                         '</ul>' +
-                                                        '<a href="#" class="btn btn-primary pull-right">Full Profile</a>' +
+                                                        '<a href="{{ProfileUrl}}" class="btn btn-primary pull-right">Full Profile</a>' +
                                                     '</div>' +
                                                 '</div>' +
                                             '</div>' +
@@ -321,7 +321,7 @@ var INFORMA = window.INFORMA || {};
                                                         '<li><a href="mailto:{{EmailAddress}}" class="icon-email"></a></li>' +
                                                     '{{/compare}}' +
                                                 '</ul>' +
-                                                '<a href="#" class="btn btn-primary pull-right">Full Profile</a>' +
+                                                '<a href="{{ProfileUrl}}" class="btn btn-primary pull-right">Full Profile</a>' +
                                             '</div>' +
                                         '</div>' +
                                     '</div>' +
@@ -375,7 +375,7 @@ var INFORMA = window.INFORMA || {};
                                                         '<li><a href="mailto:{{results.EmailAddressLink}}" class="icon-email"></a></li>' +
                                                     '{{/compare}}' +
                                                 '</ul>' +
-                                                '<a href="#" class="btn btn-primary pull-right">{{results.SeeFullProfileLabel}}</a>' +
+                                                '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLabel}}</a>' +
                                             '</div>' +
                                         '</div>' +
                                     '</div>' +

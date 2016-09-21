@@ -162,7 +162,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
 
         var html = '<option value=' + defaultValue.val() + '>' + defaultValue.text() + '</option>';
 
-        for (var key in data) {
+        for (var key = 0; key< data.length; key++) {
             html += '<option value=' + data[key].Value + '>' + data[key].Text + '</option>';
         }
         SubSector.html(html);

@@ -267,6 +267,9 @@
 			font-weight: 700;
 		    min-width: 45%;
     		width: 40%;
+    		@include mobile {
+    			font-size: 12px;
+    		}
 			&.register {
 				float: left;
 			}

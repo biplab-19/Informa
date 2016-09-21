@@ -21,9 +21,11 @@
 	.btn-container {
 		.btn-default {
 			padding-right: 40px;
-			width: 100%;
-	    	min-width: auto;
-	    	min-width: initial;
+			@include mobile {
+				width: 100%;
+		    	min-width: auto;
+		    	min-width: initial;
+		    }
 		}
 	}
 }
