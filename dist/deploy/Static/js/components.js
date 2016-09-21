@@ -979,6 +979,10 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
         },
         RemoveMe = function(data) {
             $("body").find("#cookieBanner").hide();
+            if($('#cookieBanner:hidden')){
+                $('.mobileNavigation').css('top',0);
+                $('.mainNavigation').css('top',0);
+            }
         },
         init = function() {
             var getCookieExpiryDate = ($("input.cookieDuration").val()) ? $("input.cookieDuration").val() : 365;
