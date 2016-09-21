@@ -20,6 +20,22 @@
 		}
 	}
 }
+#product-finder-section{
+	.sector-search{
+		.dropdown-menu{
+					left:auto;
+					right:0;
+					@include mobile {
+						left:0;
+						right:auto;
+					}
+					@include tablet {
+						left:0;
+						right:auto;
+					}
+		}
+	}
+}
 .product-refine-results {
 	padding: 20px 0;
 	@include mobile {

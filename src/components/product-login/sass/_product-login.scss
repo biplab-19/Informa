@@ -4,6 +4,9 @@
     }
     .inner-wrapper{
         padding: 30px 50px;
+        @include mobile{
+            padding:20px;
+        }
     }
     .create-profile{
         padding:10px;
@@ -31,8 +34,11 @@
         h2 {
             color: $white;
             font: 400 30px 'FSMe-light';
-            margin: 0 0 20px;
+            margin: 0 0 0 20px;
             padding:0;
+            @include mobile{
+                margin: 0 auto;
+            }
         }
         h3 {
             font: 400 20px 'FSMe-bold';
@@ -42,6 +48,11 @@
             float: left;
             width: 40%;
             margin-left:70px;
+            @include mobile{
+                 float: none;
+                 width: 100%;
+                 margin:0 auto;
+            }
         }
         .list {
             border-bottom: 1px solid $grey-color05;

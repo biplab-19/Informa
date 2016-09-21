@@ -233,12 +233,23 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
+            var _pdpLinksCont = $('#pdp-navigation ul > li > a > span');
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
+              if(_pdpLinksCont.length>6){
                 $('nav#pdp-navigation').removeClass('deviceactive');
+                if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+                $('body').removeClass('global-no-scroll');
+              }
+              }
             }else{
                 $('#pdp-sections').slideDown();
+                if(_abc.length>6){
                 $('nav#pdp-navigation').addClass('deviceactive');
+                if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+                $('body').addClass('global-no-scroll');
+              }
+              }
             }
         })
     };
