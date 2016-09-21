@@ -26,6 +26,7 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
     ShowBanner = function(name, value, days) {
             $("body").find("#cookieBanner").show();
             $("#cookieBanner a.close").on("click", function(e) {
+                e.preventDefault();
                 RemoveMe();
                 //CreateCookie(cookieName,cookieValue, cookieDuration); 
                 INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
@@ -65,9 +66,11 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
         },
         RemoveMe = function(data) {
             $("body").find("#cookieBanner").hide();
-            if($('#cookieBanner:hidden')){
-                $('.mobileNavigation').css('top',0);
+            if($('.mainNavigation').hasClass('navbar-fixed-top')) {
                 $('.mainNavigation').css('top',0);
+            }
+            if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
+                $('.mobileNavigation').css('top',0);
             }
         },
         init = function() {
