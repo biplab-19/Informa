@@ -200,7 +200,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _activateMobileFixedHeader = function() {
         var _windowPosMobile = $(window).scrollTop();
 
-        if (_windowPosMobile > _headerPosMobile) {
+        if (_windowPosMobile > _headerPosMobile + _cookieHeight) {
             _mobileNavigation.addClass(_fixed);
             if($('#cookieBanner:visible').length > 0){
                 _mobileNavigation.css('top', _cookieHeight + 'px');
