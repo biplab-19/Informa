@@ -37,7 +37,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _bindNumber,
         _updateProductVerticalName,
         _validateChoosenSelect,
-        _destroyChosenInDevice;
+        _destroyChosenInDevice,
+        _customPhoneErrorMsg;
 
     _validateChoosenSelect = function() {
         $.validator.setDefaults({
@@ -217,12 +218,12 @@ INFORMA.forms = (function(window, $, namespace) {
     _validateAllForms = function() {
         // $('form.get-in-touch').validate();
         // $('form.request-a-demo').validate();
-        $('.wffm-form').find(':submit').on('click', function(){
-          if($('.get-in-touch ').valid() == true){
-            return true;
-          }else {
-            return false;
-          }
+        $('.wffm-form').find(':submit').on('click', function() {
+            if ($('.get-in-touch ').valid() == true) {
+                return true;
+            } else {
+                return false;
+            }
         });
     }
 
@@ -331,17 +332,17 @@ INFORMA.forms = (function(window, $, namespace) {
         $('.wffm-form').find('.email-field').each(function() {
             $(this).blur(function() {
                 var emailDomainMsg = $(this).parent().find('span.email-validation-message'),
-                  emailValidMsg = $(this).parent().find('span.field-validation-error');
-                if (_validateEmail($(this).val())){
-                  if(emailDomainMsg.length > 0 && emailValidMsg.length == 0 ){
-                      emailDomainMsg.removeClass('hide').addClass('show');
-                  }else{
-                    emailDomainMsg.addClass('hide').removeClass('show');
-                  }
-                }else{
-                  if(emailDomainMsg.length > 0){
-                      emailDomainMsg.addClass('hide').removeClass('show');
-                  }
+                    emailValidMsg = $(this).parent().find('span.field-validation-error');
+                if (_validateEmail($(this).val())) {
+                    if (emailDomainMsg.length > 0 && emailValidMsg.length == 0) {
+                        emailDomainMsg.removeClass('hide').addClass('show');
+                    } else {
+                        emailDomainMsg.addClass('hide').removeClass('show');
+                    }
+                } else {
+                    if (emailDomainMsg.length > 0) {
+                        emailDomainMsg.addClass('hide').removeClass('show');
+                    }
                 }
             });
         });
@@ -588,25 +589,31 @@ INFORMA.forms = (function(window, $, namespace) {
         _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
     }
 
-    _destroyChosenInDevice = function(){
-      if(INFORMA.global.device.isTablet || INFORMA.global.device.isMobile){
-        if($('form .chosen-container').length > 0 ){
-            $('form .chosen-select').chosen('destroy');
-            $("form.get-in-touch .form-group .chosen-select, form.request-a-demo .form-group .chosen-select, form.register-myinterests-form .form-group .chosen-select").wrap("<div class='select-wrapper'></div>");
+    _destroyChosenInDevice = function() {
+        if (INFORMA.global.device.isTablet || INFORMA.global.device.isMobile) {
+            if ($('form .chosen-container').length > 0) {
+                $('form .chosen-select').chosen('destroy');
+                $("form.get-in-touch .form-group .chosen-select, form.request-a-demo .form-group .chosen-select, form.register-myinterests-form .form-group .chosen-select").wrap("<div class='select-wrapper'></div>");
+            }
         }
-      }
     }
 
-
+    _customPhoneErrorMsg = function() {
+        var phoneErorrMsg = $('form.wffm-form input[type="number"]').attr('data-val-regex');
+        if (phoneErorrMsg) {
+            $.extend($.validator.messages, {
+                number: phoneErorrMsg
+            });
+        }
+    }
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
-
         _destroyChosenInDevice();
         _bindNumber();
         _showOverlay();
         _showOverlayQueryString()
         _reCaptchaHandler();
-        //_validateAllForms();
+      //  _validateAllForms();
         _bindToolTip();
         _bindCalendar();
         _bindProductId();
@@ -618,7 +625,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _showFormIntro();
         _updateProductVerticalName();
         _validateChoosenSelect();
-
+        _customPhoneErrorMsg();
     };
 
     return {
