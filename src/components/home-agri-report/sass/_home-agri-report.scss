@@ -14,9 +14,15 @@ section#agri-report {
         &:first-child{
             color: $grey-color03;
             font-family: FSMe-Bold;
+            margin-top: 0;
         }
         &:last-child{
             margin-bottom: 0;
+        }
+        p{
+            &:last-child{
+               margin: 0;
+            }
         }
     }
     .agri-report-wrapper {
