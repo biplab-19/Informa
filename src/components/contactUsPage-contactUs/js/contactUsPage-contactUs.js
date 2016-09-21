@@ -5,7 +5,15 @@ INFORMA.ContactUs = (function(window, $, namespace) {
     var Tabs = $('.pos ul.nav li'),
         tabcontent = $('.tab-content .tab-pane'),
         _updateRedirectUrl,
+        _showSelectedTab,
         init;
+
+    _showSelectedTab = function() {
+        var sucessTabId = $('.contactUsPage-contactUs').find(".submit-status[data-status='success']").parents('.tab-pane').attr('id');
+        $('.contactUsPage-contactUs .nav-tabs a[href!="#' + sucessTabId + '"]').removeClass('active')
+        $('.contactUsPage-contactUs .nav-tabs a[href="#' + sucessTabId + '"]').tab('show').addClass('active');
+        //_updateRedirectUrl();
+    }
     _updateRedirectUrl = function() {
         var urlRedirectHidden = $('.contactUsPage-contactUs').find('.redirect-url-field');
         if (urlRedirectHidden.length > 0) {
@@ -13,6 +21,7 @@ INFORMA.ContactUs = (function(window, $, namespace) {
         }
     }
     init = function() {
+        _showSelectedTab();
         var hash = document.location.hash,
             prefix = "tab_";
         if (hash) {
@@ -20,6 +29,7 @@ INFORMA.ContactUs = (function(window, $, namespace) {
             _updateRedirectUrl();
         } else {
             $('.contactUsPage-contactUs a[data-toggle="tab"]:first').tab('show').addClass('active');
+            _showSelectedTab();
             _updateRedirectUrl();
         }
         $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
