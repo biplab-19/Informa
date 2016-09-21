@@ -1931,8 +1931,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _showRegisterFormPopup,
         _myinterestsModal = $('#registerMyinterestModal'),
         _myinterestsModalClose = $('.register-myinterests-close'),
-        _validateEmail,
-        _bindValidationLogic,
         _validateEmailDomainMsg,
         _getAjaxData, _SelectAll,
         _updateProductVertical,
@@ -1997,36 +1995,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 }
             });
         },
-
-        _validateEmail = function(email) {
-            var domain = email.substring(email.lastIndexOf("@") + 1);
-            if (INFORMA.validDomains.indexOf(domain) < 0)
-                return false;
-            return true;
-        }
-
-    _validateEmailDomainMsg = function(element) {
-        //Email validation logic
-        if (_validateEmail($(element).val()))
-            if ($(element).next().children().length == 0)
-                $(element).next().prepend("<span class='field-validation-error email-error'>E-mail is not in the valid domain list</span>");
-
-    }
-
-    _bindValidationLogic = function() {
-        //Email message
-        var  emailvalidator = $('form').find('.email-validation-error');         
-        if  (emailvalidator.length > 0) {            
-            $.extend($.validator.messages, {                  
-                email: emailvalidator.html()            
-            });         
-        }
-        //Email validation logic
-        $('form.register-myinterests-form input[type=email]').blur(function() {
-            _validateEmailDomainMsg(this);
-        });
-
-    }
 
     _addTabNumbers = function() {
             var progressiveTabs = $('.form-progressive-wizard a[data-toggle="tab"]');
@@ -2260,9 +2228,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $(document).on('click', '.next-step', function(e) {
             var $active = $('.form-progressive-wizard .triangle-nav li.active');
             $active.next().removeClass('disabled');
-            var EmailTag = $('form.register-myinterests-form input[type=email]');
-            _validateEmailDomainMsg(EmailTag);
-            var emailError = $('form.register-myinterests-form').find('.email-error');
+            var emailError = $('form.register-myinterests-form .email-field').parent().find('.email-validation-message.show');
             $('form.register-myinterests-form').find('.field-validation-error span').css('display', 'block');
             if (emailError.length == 0) {
                 if (_myinterestForm.valid() == true) {
@@ -2313,7 +2279,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _renderRecommendedTips();
             _validateMultiSelct();
             _showRegisterForm();
-            _bindValidationLogic();
             _updateProductVertical();
             _closeMyInterestModal();
         } else {
@@ -2531,17 +2496,6 @@ INFORMA.forms = (function(window, $, namespace) {
                 inlineTabSucessForm.removeClass('hide');
             }
         }
-
-        // var formInlineContainer =  $('.form-inline-container');
-        //   if(formInlineContainer.length > 0 ){
-        //     if(formInlineContainer.find('.submit-response').length > 0){
-        //           formInlineContainer.find('form').addClass('hide');
-        //     }else{
-        //       formInlineContainer.find('form').removeClass('hide');
-        //     }
-        //   }
-
-
     }
 
     _showOverlay = function() {
@@ -2553,16 +2507,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     formSubmitResponseModal.find('form').removeClass('hide');
                     formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
                     formSubmitResponseModal.removeClass('centreAlign');
-                    /*formSubmitResponseModal.modal({
-                        show: true,
-                        keyboard: false,
-                        backdrop: "static"
-                    })*/
                 }
-                // formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
-                // if (formSubmitResponseHTML.length > 0) {
-                //    formSubmitResponseHTML.find('form').removeClass('hide');
-                // }
             } else if (_formSubmitStatus.attr('data-status').length > 0) {
                 formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
                 if (formSubmitResponseModal.length > 0) {
@@ -2586,11 +2531,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('.error-response').removeClass('hidden');
                     $('.submit-response').addClass('hidden');
                 }
-                // formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
-                // if (formSubmitResponseHTML.length > 0) {
-                //    formSubmitResponseHTML.find('form').addClass('hide');
-                //    _resetForm(formSubmitResponseHTML.find('form'));
-                // }
+
             }
 
             _formSubmitStatus.each(function() {
@@ -2618,54 +2559,17 @@ INFORMA.forms = (function(window, $, namespace) {
 
     }
 
-    // _showOverlay = function() {
-    //     var formSubmitResponseModal,
-    //         formSubmitResponseHTML;
-
-    //     if (_formSubmitStatus.attr('data-status') == "") {
-    //         formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
-    //         if (formSubmitResponseModal.length > 0) {
-
-    //             formSubmitResponseModal.find('form').removeClass('hide');
-    //             formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
-    //             /*formSubmitResponseModal.modal({
-    //                 show: true,
-    //                 keyboard: false,
-    //                 backdrop: "static"
-    //             })*/
-    //         }
-    //         formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
-    //         if (formSubmitResponseHTML.length > 0) {
-    //            formSubmitResponseHTML.find('form').removeClass('hide');
-    //         }
-    //     }else if(_formSubmitStatus.attr('data-status') > ""){
-    //         formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
-    //         if (formSubmitResponseModal.length > 0) {
-
-    //             formSubmitResponseModal.find('form').addClass('hide');
-    //             formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
-    //             _resetForm(formSubmitResponseModal.find('form'));
-    //             formSubmitResponseModal.modal({
-    //                 show: true,
-    //                 keyboard: false,
-    //                 backdrop: "static"
-    //             })
-
-    //             formSubmitResponseModal.find('.form-modal-close').on("click",function(){
-    //                 _formSubmitStatus.attr("data-status","");
-    //             })
-    //         }
-    //         formSubmitResponseHTML = _formSubmitStatus.parents('form:first');
-    //         if (formSubmitResponseHTML.length > 0) {
-    //            formSubmitResponseHTML.find('form').addClass('hide');
-    //            _resetForm(formSubmitResponseHTML.find('form'));
-    //         }
-    //     }
-    // }
 
     _validateAllForms = function() {
-      //  $('form.get-in-touch').validate();
-      //  $('form.request-a-demo').validate();
+        // $('form.get-in-touch').validate();
+        // $('form.request-a-demo').validate();
+        $('.wffm-form').find(':submit').on('click', function(){
+          if($('.get-in-touch ').valid() == true){
+            return true;
+          }else {
+            return false;
+          }
+        });
     }
 
     _bindToolTip = function() {
@@ -2694,9 +2598,6 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _parseResults = function(data) {
-        // if (!$(_formId + ' fieldset').hasClass('area-interests')) {
-        //     return false;
-        // }
         var results = data,
             _inputId = $(_formId + ' .area-interests input').first().attr("id"),
             _inputName = $(_formId + ' .area-interests input').first().attr("name"),
@@ -2762,7 +2663,6 @@ INFORMA.forms = (function(window, $, namespace) {
         $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function(e) {
             $(this).parent().parent().toggleClass('active');
         });
-        // $("form.get-in-touch .form-group select, form.request-a-demo .form-group select").wrap("<div class='select-wrapper'></div>");
     }
 
     _validateEmail = function(email) {
@@ -2773,23 +2673,24 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _bindValidationLogic = function() {
-        //Email message
-        var  emailvalidator = $('form').find('.email-validation-error');         
-        if  (emailvalidator.length > 0) {            
-            $.extend($.validator.messages, {                  
-                email: emailvalidator.html()            
-            });         
-        }
-
         //Email validation logic
-        $('.wffm-form').find('input[type="email"]').each(function() {
+        $('.wffm-form').find('.email-field').each(function() {
             $(this).blur(function() {
-                if (_validateEmail($(this).val()))
-                    if ($(this).next().children().length == 0)
-                        $(this).next().prepend("<span class='field-validation-error'>E-mail is not in the valid domain list</span>");
+                var emailDomainMsg = $(this).parent().find('span.email-validation-message'),
+                  emailValidMsg = $(this).parent().find('span.field-validation-error');
+                if (_validateEmail($(this).val())){
+                  if(emailDomainMsg.length > 0 && emailValidMsg.length == 0 ){
+                      emailDomainMsg.removeClass('hide').addClass('show');
+                  }else{
+                    emailDomainMsg.addClass('hide').removeClass('show');
+                  }
+                }else{
+                  if(emailDomainMsg.length > 0){
+                      emailDomainMsg.addClass('hide').removeClass('show');
+                  }
+                }
             });
         });
-
     }
 
     function strToDate(str) {
@@ -2988,11 +2889,6 @@ INFORMA.forms = (function(window, $, namespace) {
         formSubmitBtn.attr('disabled', true);
         formDOM.on('change', 'input, textarea, select', function() {
             formSubmitBtn.removeAttr('disabled');
-            // if ($('.field-validation-error').length == 0 && $('.captcha-wrapper .field-validation-error').css('display') == "none" && $('.captcha-wrapper .field-validation-valid').html() == "") {
-            //     formSubmitBtn.removeAttr('disabled');
-            // } else {
-            //     formSubmitBtn.attr('disabled', true);
-            // }
         });
     }
 
@@ -3003,8 +2899,6 @@ INFORMA.forms = (function(window, $, namespace) {
             productId = {
                 'guid': $(el).attr('data-productid')
             };
-            //productId = "{8DE4EC3E-5039-492C-8D04-2D4499CCD026}";
-            //_getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseResults, null, null);
             _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
         }        
         $(_formId).modal({         
@@ -3052,12 +2946,13 @@ INFORMA.forms = (function(window, $, namespace) {
 
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
+
         _destroyChosenInDevice();
         _bindNumber();
         _showOverlay();
         _showOverlayQueryString()
         _reCaptchaHandler();
-      //  _validateAllForms();
+        //_validateAllForms();
         _bindToolTip();
         _bindCalendar();
         _bindProductId();
@@ -3069,6 +2964,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _showFormIntro();
         _updateProductVerticalName();
         _validateChoosenSelect();
+
     };
 
     return {
@@ -3441,12 +3337,23 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
+            var _pdpLinksCont = $('#pdp-navigation ul > li > a > span');
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
+              if(_pdpLinksCont.length>6){
                 $('nav#pdp-navigation').removeClass('deviceactive');
+                if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+                $('body').removeClass('global-no-scroll');
+              }
+              }
             }else{
                 $('#pdp-sections').slideDown();
+                if(_abc.length>6){
                 $('nav#pdp-navigation').addClass('deviceactive');
+                if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+                $('body').addClass('global-no-scroll');
+              }
+              }
             }
         })
     };

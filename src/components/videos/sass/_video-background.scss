@@ -1,5 +1,6 @@
 section.hero-banner {
     //height: auto;
+    height: 450px;
     .videoBG_wrapper {
         position: absolute;
         top: 0;
@@ -21,6 +22,10 @@ section.hero-banner {
                 background-color: $black;
             }
         }
+        .btn{
+            margin-top: 20px;
+        }
+
     }
     .videoBG {
         position: relative;
@@ -29,7 +34,17 @@ section.hero-banner {
         padding-bottom: 56.25%;
         /* 16:9 */
         pointer-events: none;
-        opacity: 0.5;
+        &:after{
+            background: $black;
+            content: " ";
+            height: 100%;
+            opacity: 0.3;
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
         iframe {
             position: absolute;
             top: 0;
@@ -43,5 +58,8 @@ section.hero-banner {
     }
     .fourBYthree {
         padding-bottom: 75%;
+    }
+    &:after{
+        display: none;
     }
 }
