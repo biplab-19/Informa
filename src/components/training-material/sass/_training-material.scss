@@ -141,6 +141,9 @@ section.training-section{
  			                display: none;
  			            }
  			        }
+ 			        @include mobile {
+       					display: none !important;
+       				}
  			    }
  			}
 	}
