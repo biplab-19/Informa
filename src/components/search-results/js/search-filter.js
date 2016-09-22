@@ -182,6 +182,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                         ClearHtml = $('<div class="clear-mobile"><a href="#" class="clear-all">'+ClearAll.html()+'</a></div>');
 
                     $("body").find(".refine-container").after(ClearHtml);
+                    
+                    // By default on mobile and tabet refine need to close
+                    AllRefineText.addClass("heading-collapsed");
+                    $("#refine-list").hide();
+
                     if(AllRefineText.hasClass("heading-collapsed")!==true){
                         ClearHtml.show();
                     };
