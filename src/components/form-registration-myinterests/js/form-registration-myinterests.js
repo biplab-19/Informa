@@ -30,7 +30,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _hideSelectAll,
         _yourinterestguid = [],
         _yourinterestitem = [],
-        _validateMultiSelct,
+        _isAllSelected = 'false',
+        //_validateMultiSelct,
         _showRegisterFormBtn = $('.show-register-form'),
         _showRegisterForm,
         _showRegisterFormPopup,
@@ -240,15 +241,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         onChange: _updateMultiSelect,
                         onDropdownShow: _showSelectAll,
                         onDropdownHidden: _hideSelectAll,
-                        numberDisplayed: 1,
-                        onSelectAll: function() {
-                            var CurrentSelect = $(".custom-multiselect select.active"),
-                                CurrentVals = CurrentSelect.val(),
-                                CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
-                            _myinterestForm.find('.area-interests-guid').val(CurrentVals);
-                            _myinterestForm.find('.area-interests-text').val(CurrentTxt);
-                            IsAllSelected = true;
-                        }
+                        numberDisplayed: 1
                     });
                     var placeHolderText = $(this).parents('.form-group').find('.sector-placeholder-text').text();
                     $(this).next().find('button.multiselect>.multiselect-selected-text').html(placeHolderText)
@@ -257,7 +250,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         var newMultiselectContainer = $(this).parent().find('.multiselect-container').detach();
                         $(this).next().append(newMultiselectContainer);
                     }
-                    var selectAllDiv = $('<div class="select-all-bottom"><a class="multiselect-all" href="#">Select all</a></div>');
+                    var selectAllDiv = $('<div class="select-all-bottom"><a class="multiselect-all" data-selectall="false" href="#">Select all</a></div>');
                     $(this).next().append(selectAllDiv);
                 }
             });
@@ -283,49 +276,73 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 _yourinterestitem.splice($.inArray(option.text(), _yourinterestitem), 1);
                 _yourinterestguid.splice($.inArray(option.val(), _yourinterestguid), 1);
             }
+            _yourinterestguid = $.unique(_yourinterestguid);
+            _yourinterestitem = $.unique(_yourinterestitem);
             _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
             _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
         }
 
     }
     _SelectAll = function() {
-        var Element = $(".select-all-bottom a"),
-            IsAllSelected = false;
-        if (Element) {
-            Element.on("click", function(e) {
+        var Element = $(".select-all-bottom a");
+        if (Element.length > 0 ) {
+          $.each(Element, function(){
+            $(this).on("click", function(e) {
+                _isAllSelected = $(this).attr('data-selectall');
                 e.preventDefault();
-                if (!IsAllSelected) {
+                if (_isAllSelected == 'false') {
                     var CurrentSelect = $(this).parents('.form-group').find("select");
                     CurrentSelect.multiselect("selectAll", true);
                     var CurrentVals = CurrentSelect.val();
                     var CurrentTxt = CurrentSelect.find('option').map(function() {
                         return $(this).text();
                     }).get();
-
-                    //  CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
-
-                    _yourinterestitem.push(CurrentTxt);
-                    _yourinterestguid.push(CurrentVals);
-
+                    $.each(CurrentTxt,function(index, value){
+                      if ($.inArray(value, _yourinterestitem)==-1){
+                        _yourinterestitem.push(value);
+                      }
+                    });
+                    $.each(CurrentVals,function(index, value){
+                        if ($.inArray(value, _yourinterestguid)==-1){
+                          _yourinterestguid.push(value);
+                        }
+                    });
+                    _yourinterestguid = $.unique(_yourinterestguid);
+                    _yourinterestitem = $.unique(_yourinterestitem);
+                    _myinterestForm.find('.area-interests-guid').val('');
                     _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
+                    _myinterestForm.find('.area-interests-text').val('');
                     _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
-                    IsAllSelected = true;
+                    $(this).attr('data-selectall', 'true');
+                  //  _isAllSelected = true;
                 } else {
                     var CurrentSelect = $(this).parents('.form-group').find("select");
                     CurrentSelect.multiselect("deselectAll", false);
-                    var CurrentVals = CurrentSelect.val();
+                    var CurrentVals = CurrentSelect.find('option').map(function() {
+                        return $(this).val();
+                    }).get();
                     var CurrentTxt = CurrentSelect.find('option').map(function() {
                         return $(this).text();
                     }).get();
-
-                    _yourinterestitem.splice($.inArray(CurrentTxt, _yourinterestitem), 1);
-                    _yourinterestguid.splice($.inArray(CurrentVals, _yourinterestguid), 1);
+                     _yourinterestitem = $.grep(_yourinterestitem, function(value) {
+                        return $.inArray(value, CurrentTxt) < 0;
+                    });
+                     _yourinterestguid = $.grep(_yourinterestguid, function(value) {
+                        return $.inArray(value, CurrentVals) < 0;
+                    });
+                    _yourinterestguid = $.unique(_yourinterestguid);
+                    _yourinterestitem = $.unique(_yourinterestitem);
+                    _myinterestForm.find('.area-interests-guid').val('');
                     _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
+                    _myinterestForm.find('.area-interests-text').val('');
                     _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
-                    IsAllSelected = false;
+                  //  _isAllSelected = false;
+                    $(this).attr('data-selectall', 'false');
                 }
                 return false;
             });
+          });
+
         }
     }
     _showProgressiveTabs = function() {
@@ -350,14 +367,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         });
     }
 
-    _validateMultiSelct = function() {
-        $.validator.setDefaults({
-            ignore: ":hidden:not(.chosen-select)"
-        });
-        $("form.register-myinterests-form .chosen-select").on('change', function() {
-            $(this).valid();
-        });
-    }
+    // _validateMultiSelct = function() {
+    //     $.validator.setDefaults({
+    //         ignore: ":hidden:not(.chosen-select)"
+    //     });
+    //     $("form.register-myinterests-form .chosen-select").on('change', function() {
+    //         $(this).valid();
+    //     });
+    // }
 
     _renderSingleSelect = function() {
         $("form.register-myinterests-form .chosen-select").chosen({
@@ -380,9 +397,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _wrapFormContainer();
             _renderAllContainers();
             _bindNumber();
-            //_renderMultiSelect();
             _renderRecommendedTips();
-            _validateMultiSelct();
+            //_validateMultiSelct();
             _showRegisterForm();
             _updateProductVertical();
             _closeMyInterestModal();
