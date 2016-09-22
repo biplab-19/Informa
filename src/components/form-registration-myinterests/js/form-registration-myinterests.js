@@ -131,10 +131,18 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _showRegisterFormPopup = function() {
         _myinterestsModal.find('.modal-body').empty();
         _myinterestsModal.find('.modal-body').append(_myinterestsSection);
-        $("form.register-myinterests-form .chosen-select").chosen({
-            disable_search_threshold: 10,
-            width: "100%"
-        });
+        var chosenSelect = $("form.register-myinterests-form .chosen-select"),
+        chosenCotainer = $('form.register-myinterests-form .chosen-container');
+        if(chosenCotainer.length > 0 ){
+          chosenCotainer.remove();
+        }
+        if(chosenSelect.length > 0){
+          chosenSelect.chosen('destroy');
+          chosenSelect.chosen({
+              disable_search_threshold: 10,
+              width: "100%"
+          });
+        }
         _myinterestsModal.find('.modal-body .container').removeClass('container');
         _clearFormInput(_myinterestForm);
         _yourinterestguid = [];
