@@ -7391,178 +7391,193 @@ button.close {
 }
 
 /* Slider */
-/* line 40, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-loading .slick-list {
-  background: #fff url('/images/ajax-loader.gif') center center no-repeat;
-}
-
 /* Icons */
 @font-face {
-  font-family: "slick";
-  src: url('/fonts/slick.eot');
-  src: url('/fonts/slick.eot?#iefix') format("embedded-opentype"), url('/fonts/slick.woff') format("woff"), url('/fonts/slick.ttf') format("truetype"), url('/fonts/slick.svg#slick') format("svg");
+  font-family: 'slick';
   font-weight: normal;
   font-style: normal;
+  src: url("./fonts/slick.eot");
+  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
 }
 /* Arrows */
-/* line 58, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 15, ../../../src/sass/global/_slick-theme.scss */
 .slick-prev,
 .slick-next {
+  font-size: 0;
+  line-height: 0;
   position: absolute;
-  display: block;
-  height: 20px;
-  width: 20px;
-  line-height: 0px;
-  font-size: 0px;
-  cursor: pointer;
-  background: transparent;
-  color: transparent;
   top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  padding: 0;
   margin-top: -10px\9;
   /*lte IE 8*/
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
-  padding: 0;
+  cursor: pointer;
+  color: transparent;
   border: none;
   outline: none;
+  background: transparent;
 }
-/* line 77, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-prev:hover, .slick-prev:focus,
+
+/* line 41, ../../../src/sass/global/_slick-theme.scss */
+.slick-prev:hover,
+.slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus {
+  color: transparent;
   outline: none;
   background: transparent;
-  color: transparent;
 }
-/* line 81, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-prev:hover:before, .slick-prev:focus:before,
+
+/* line 50, ../../../src/sass/global/_slick-theme.scss */
+.slick-prev:hover:before,
+.slick-prev:focus:before,
 .slick-next:hover:before,
 .slick-next:focus:before {
   opacity: 1;
 }
-/* line 85, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+
+/* line 57, ../../../src/sass/global/_slick-theme.scss */
 .slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before {
-  opacity: 0.25;
+  opacity: .25;
 }
 
-/* line 90, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-prev:before, .slick-next:before {
-  font-family: "slick";
+/* line 63, ../../../src/sass/global/_slick-theme.scss */
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
   font-size: 20px;
   line-height: 1;
+  opacity: .75;
   color: white;
-  opacity: 0.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 100, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 77, ../../../src/sass/global/_slick-theme.scss */
 .slick-prev {
   left: -25px;
 }
-/* line 102, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-[dir="rtl"] .slick-prev {
-  left: auto;
+
+/* line 81, ../../../src/sass/global/_slick-theme.scss */
+[dir='rtl'] .slick-prev {
   right: -25px;
-}
-/* line 106, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-prev:before {
-  content: "←";
-}
-/* line 108, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-[dir="rtl"] .slick-prev:before {
-  content: "→";
+  left: auto;
 }
 
-/* line 114, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 86, ../../../src/sass/global/_slick-theme.scss */
+.slick-prev:before {
+  content: 'ΓåÉ';
+}
+
+/* line 90, ../../../src/sass/global/_slick-theme.scss */
+[dir='rtl'] .slick-prev:before {
+  content: 'ΓåÆ';
+}
+
+/* line 95, ../../../src/sass/global/_slick-theme.scss */
 .slick-next {
   right: -25px;
 }
-/* line 116, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-[dir="rtl"] .slick-next {
-  left: -25px;
+
+/* line 99, ../../../src/sass/global/_slick-theme.scss */
+[dir='rtl'] .slick-next {
   right: auto;
+  left: -25px;
 }
-/* line 120, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+
+/* line 104, ../../../src/sass/global/_slick-theme.scss */
 .slick-next:before {
-  content: "→";
+  content: 'ΓåÆ';
 }
-/* line 122, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-[dir="rtl"] .slick-next:before {
-  content: "←";
+
+/* line 108, ../../../src/sass/global/_slick-theme.scss */
+[dir='rtl'] .slick-next:before {
+  content: 'ΓåÉ';
 }
 
 /* Dots */
-/* line 130, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 114, ../../../src/sass/global/_slick-theme.scss */
 .slick-slider {
   margin-bottom: 30px;
 }
 
-/* line 134, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+/* line 119, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots {
   position: absolute;
   bottom: -45px;
-  list-style: none;
   display: block;
-  text-align: center;
-  padding: 0;
   width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
 }
-/* line 142, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+
+/* line 133, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots li {
   position: relative;
   display: inline-block;
-  height: 20px;
   width: 20px;
+  height: 20px;
   margin: 0 5px;
   padding: 0;
   cursor: pointer;
 }
-/* line 150, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+
+/* line 146, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots li button {
-  border: 0;
-  background: transparent;
+  font-size: 0;
+  line-height: 0;
   display: block;
-  height: 20px;
   width: 20px;
-  outline: none;
-  line-height: 0px;
-  font-size: 0px;
-  color: transparent;
+  height: 20px;
   padding: 5px;
   cursor: pointer;
+  color: transparent;
+  border: 0;
+  outline: none;
+  background: transparent;
 }
-/* line 162, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-dots li button:hover, .slick-dots li button:focus {
+
+/* line 164, ../../../src/sass/global/_slick-theme.scss */
+.slick-dots li button:hover,
+.slick-dots li button:focus {
   outline: none;
 }
-/* line 164, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
-.slick-dots li button:hover:before, .slick-dots li button:focus:before {
+
+/* line 169, ../../../src/sass/global/_slick-theme.scss */
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
   opacity: 1;
 }
-/* line 168, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+
+/* line 174, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots li button:before {
+  font-family: 'slick';
+  font-size: 6px;
+  line-height: 20px;
   position: absolute;
   top: 0;
   left: 0;
-  content: "•";
   width: 20px;
   height: 20px;
-  font-family: "slick";
-  font-size: 6px;
-  line-height: 20px;
+  content: 'ΓÇó';
   text-align: center;
+  opacity: .25;
   color: black;
-  opacity: 0.25;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* line 185, ../../../bower_components/slick-carousel/slick/slick-theme.scss */
+
+/* line 196, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots li.slick-active button:before {
+  opacity: .75;
   color: black;
-  opacity: 0.75;
 }
 
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
