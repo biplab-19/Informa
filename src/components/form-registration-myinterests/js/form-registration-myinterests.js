@@ -231,7 +231,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             $.each(findMultipleSelect, function(i) {
                 if ($(this).attr('multiple') == 'multiple') {
                     $(this).multiselect('destroy');
-                    var placeHolder = $(this).attr('placeHolder');
+                    var placeHolder = $(this).parents('.form-group').find('.sector-placeholder-text').text();
                     $(this).multiselect({
                         buttonText: function(options, select) {
                             return placeHolder;
@@ -250,7 +250,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                             IsAllSelected = true;
                         }
                     });
-                    var placeHolderText = $(this).attr('placeHolder');
+                    var placeHolderText = $(this).parents('.form-group').find('.sector-placeholder-text').text();
                     $(this).next().find('button.multiselect>.multiselect-selected-text').html(placeHolderText)
                     var mutiselectContainer = $(this).next().find('.multiselect-container');
                     if (!mutiselectContainer) {
