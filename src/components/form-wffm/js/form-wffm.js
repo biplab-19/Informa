@@ -36,18 +36,18 @@ INFORMA.forms = (function(window, $, namespace) {
         _showFormIntro,
         _bindNumber,
         _updateProductVerticalName,
-        _validateChoosenSelect,
+        //_validateChoosenSelect,
         _destroyChosenInDevice,
         _customPhoneErrorMsg;
 
-    _validateChoosenSelect = function() {
-        $.validator.setDefaults({
-            ignore: ":hidden:not(.chosen-select)"
-        });
-        $(".wffm-form .chosen-select").on('change', function() {
-            $(this).valid();
-        });
-    }
+    // _validateChoosenSelect = function() {
+    //     $.validator.setDefaults({
+    //         ignore: ":hidden:not(.chosen-select)"
+    //     });
+    //     $(".wffm-form .chosen-select").on('change', function() {
+    //         $(this).valid();
+    //     });
+    // }
 
     _bindNumber = function() {
         $(document).on('keypress', 'input[type="number"]', function(e) {
@@ -180,11 +180,11 @@ INFORMA.forms = (function(window, $, namespace) {
                 //Checking The status and Displaying that section
 
                 if (_formSubmitStatus.attr('data-status') == 'success') {
-                    $('.submit-response').removeClass('hidden');
-                    $('.error-response').addClass('hidden');
+                    $('.submit-response').removeClass('hide');
+                    $('.error-response').addClass('hide');
                 } else {
-                    $('.error-response').removeClass('hidden');
-                    $('.submit-response').addClass('hidden');
+                    $('.error-response').removeClass('hide');
+                    $('.submit-response').addClass('hide');
                 }
 
             }
@@ -200,11 +200,11 @@ INFORMA.forms = (function(window, $, namespace) {
                     })
 
                     if (Status == 'success') {
-                        Parent.find('.submit-response').removeClass('hidden');
-                        Parent.find('.error-response').addClass('hidden');
+                        Parent.find('.submit-response').removeClass('hide');
+                        Parent.find('.error-response').addClass('hide');
                     } else {
-                        Parent.find('.error-response').removeClass('hidden');
-                        Parent.find('.submit-response').addClass('hidden');
+                        Parent.find('.error-response').removeClass('hide');
+                        Parent.find('.submit-response').addClass('hide');
                     }
 
                 }
@@ -624,7 +624,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _HideOverlay();
         _showFormIntro();
         _updateProductVerticalName();
-        _validateChoosenSelect();
+        //_validateChoosenSelect();
         _customPhoneErrorMsg();
     };
 
