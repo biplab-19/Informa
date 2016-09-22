@@ -112,7 +112,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _selectDocClickEvents,
         _bindClickEvents,
         _bindNavigationEvents,
-        _cookieFixUpdate;
+        _cookieFixUpdate,
+        _PdpNavReArrange;
 
 
 
@@ -233,10 +234,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
-            var _pdpLinksCont = $('#pdp-navigation ul > li > a > span');
+            var _pdpLinksCont = $('#pdp-navigation ul > li > a > span').length;
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
-              if(_pdpLinksCont.length>6){
+              if(_pdpLinksCont>6){
                 $('nav#pdp-navigation').removeClass('deviceactive');
                 if($('#pdp-navigation').hasClass('navbar-fixed-top')){
                 $('body').removeClass('global-no-scroll');
@@ -244,15 +245,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
               }
             }else{
                 $('#pdp-sections').slideDown();
-                if(_abc.length>6){
+                if(_pdpLinksCont>6){
                 $('nav#pdp-navigation').addClass('deviceactive');
                 if($('#pdp-navigation').hasClass('navbar-fixed-top')){
                 $('body').addClass('global-no-scroll');
               }
               }
             }
-        })
-    };
+        });
+    }
 
     _initPdpMenuBarFollow = function() {
         _pdpLink = $('#pdp-navigation ul > li > a');
@@ -651,7 +652,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('#mobile-header-navigation').css('left', '-100%');
             $('.informaNav .nav-main').css('left', '-100%');
             $('#sub-nav').css('left', '-100%');
-            //$('html, body').removeClass('global-no-scroll'); 
+            //$('html, body').removeClass('global-no-scroll');
             $('#mobile-header-navigation .nav-image').remove();
             //$('body').css('overflow-y', 'scroll');
             //$('body').css('height', 'auto');
@@ -686,10 +687,34 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         }
        });
     }
+    _PdpNavReArrange = function () {
+      var _ArrayOfPdpElements = [],
+          Html = "";
+      _pdpLink.each(function () {
+          var Target = $(this).data('target'),
+              _Element = {};
+          if($('#'+Target).length > 0) {
+              _Element["Name"] = $(this).text();
+              _Element["Target"] = Target;
+              _ArrayOfPdpElements.push(_Element);
+              $('#'+Target).addClass('pdp-item-id');
+          }
+      });
+      $('.pdp-item-id').each(function() {
+          var _Id = $(this).attr("id");
+          for(var i = 0; i < _ArrayOfPdpElements.length; i++) {
+              if(_ArrayOfPdpElements[i].Target == _Id) {
+                  Html += '<li><a href="#" data-target="' +_ArrayOfPdpElements[i].Target+ '"><span>' +_ArrayOfPdpElements[i].Name+ '</span></a></li>';
+              }
+          }
+      })
+      $('#pdp-sections').find('.navbar-nav').html(Html);
+    }
     init = function() {
         //if(INFORMA.global.device.viewport!='mobile'){
         if (_pdpNavigation.length > 0) {
             _pdpsectionSubnavigationInit();
+            _PdpNavReArrange();
             _initPdpMenuBarFollow();
             _pdpNavigationScrollTo();
             _pdpSectionActions();

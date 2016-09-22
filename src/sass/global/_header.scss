@@ -29,7 +29,7 @@ header {
             color: $white;
             background-color: $grey-color04;
             overflow: hidden;
-            position: absolute;
+            position:relative;
             z-index: 4;
             left: 0;
             right: 0;
@@ -145,13 +145,13 @@ header {
                         color: $white;
                         @include mobile{
                             line-height: 15px;
-                        } 
+                        }
                         @include tablet{
                             line-height: 16px;
-                        }  
+                        }
                         @include desktop{
                             line-height: 18px;
-                        }   
+                        }
                     }
                     & .links {
                         margin-right: 10px;
@@ -190,7 +190,7 @@ header {
         }
     }
     section.informaNav {
-        padding-top: 36px;
+        //padding-top: 36px;
         a {
             text-decoration: none !important;
         }
@@ -255,9 +255,9 @@ header {
             }
             .local-logo-img-big{
                 @include desktop{
-                    left: 10px;  
+                    left: 10px;
                 }
-                
+
             }
         }
         .nav-main {
@@ -322,7 +322,7 @@ header {
                 height: 58px;
                 .container {
                     @include desktop{
-                       padding-right: 0 ; 
+                       padding-right: 0 ;
                     }
                 }
                 .navbar-collapse {
@@ -879,7 +879,7 @@ header {
                             &:last-child{
                                 padding-bottom: 16px;
                             }
-                            
+
                             label{
                                 @include anchor-font(14px,13px,12px);
                                 &:before{
@@ -887,8 +887,8 @@ header {
                                     top: 3px;
                                 }
                             }
-                        }  
-                    } 
+                        }
+                    }
                     a {
                         color: $text-gray;
                     }
@@ -1264,7 +1264,7 @@ header {
                 width: 50%;
                 float: left;
             }
-           
+
         }
     }
     .subnav-close {
@@ -1337,13 +1337,13 @@ header {
         text-align: left;
         overflow: hidden;
     }
-    
-    a.skip-navigation:active, 
-    a.skip-navigation:focus, 
+
+    a.skip-navigation:active,
+    a.skip-navigation:focus,
     a.skip-navigation:hover {
-        left: 0; 
+        left: 0;
         top: 0;
-        width: auto; 
-        height: auto; 
-        overflow: visible; 
+        width: auto;
+        height: auto;
+        overflow: visible;
     }
