@@ -44,7 +44,7 @@ INFORMA.forms = (function(window, $, namespace) {
         $.validator.setDefaults({
             ignore: ":hidden:not(.chosen-select)"
         });
-        $(".chosen-select").on('change', function() {
+        $(".wffm-form .chosen-select").on('change', function() {
             $(this).valid();
         });
     }
@@ -591,8 +591,8 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _destroyChosenInDevice = function() {
         if (INFORMA.global.device.isTablet || INFORMA.global.device.isMobile) {
-            if ($('form .chosen-container').length > 0) {
-                $('form .chosen-select').chosen('destroy');
+            if ($('form.wffm-form .chosen-container').length > 0) {
+                $('form.wffm-form .chosen-select').chosen('destroy');
                 $("form.get-in-touch .form-group .chosen-select, form.request-a-demo .form-group .chosen-select, form.register-myinterests-form .form-group .chosen-select").wrap("<div class='select-wrapper'></div>");
             }
         }
