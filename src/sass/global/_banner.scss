@@ -136,6 +136,13 @@
         position: absolute;
         right: 0;
         height: 100%;
+        width:35%;
+         img {
+            vertical-align: text-bottom;
+            position: absolute;
+            left: 0;
+            bottom: -80px;
+        }
         @include mobile{
             transform: translateX(25%);
         }
@@ -203,9 +210,13 @@
             right: 0;
             opacity: 0.5;
             background-color: $grey-color01;
+            width:35%;
             img
             {
                 vertical-align: text-bottom;
+                position:absolute;
+                left:0;
+                bottom:-80px;
             }
             @include mobile {
                 display: none;

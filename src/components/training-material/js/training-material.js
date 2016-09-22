@@ -28,14 +28,7 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
             _duration = container.data('slideduration'), // how long the slider will be displayed
             _infinite = true,
             _dots = Boolean(container.data('pagination'));
-            //chk for sitecore preview
-            if (INFORMA.global.siteCore.isPreview) {
-                _autoplay = true;
-            }
-            if (INFORMA.global.siteCore.isExperience) {
-                _autoplay = false;
-                _infinite = false;
-            }
+            
 
         container.slick({
             infinite: _infinite,

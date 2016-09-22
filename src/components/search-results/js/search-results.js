@@ -462,6 +462,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (AppendItemsFlag == true) {
                     CreateSubItems(ProductResults, Button, RemainingCount);
                 }
+                
 
             } else {
                 $('.product-results').html(data);
