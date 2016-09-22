@@ -33,12 +33,15 @@ section#market-focus{
             h5 {
                 margin: auto;
                 margin-left: 10px;
-                &:after{
-                  content: "\e900";
-                  font-family: 'InformaIcons';
-                  font-size: 14px;
-                  margin-left:10px;
-                  color: #D14A7F;
+                a{
+                  color:$grey-color04;
+                  &:after{
+                    content: "\e900";
+                    font-family: 'InformaIcons';
+                    font-size: 14px;
+                    margin-left:10px;
+                    color: #D14A7F;
+                  }
                 }
             }
             p {

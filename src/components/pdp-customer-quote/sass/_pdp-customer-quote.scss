@@ -49,6 +49,7 @@ section.customer-quote {
     color: $text-gray;
     overflow: hidden;
     .quote {
+        margin-bottom: 30px;
         @include mobile {
             padding-left: 0;
             padding-right: 0;
@@ -296,16 +297,13 @@ section.customer-quote {
         background: $pharmatestimonial;
         padding: 15px;
         margin: 0;
-        margin-top: 25px;
         @include mobile{
-            margin-top: 20px;
             .btn-default{
                 width: 100%;
             }
         }
         @include desktop{
             padding-right: 5%;
-            margin-top: 30px;
         }
     }
     .slick-slider{
