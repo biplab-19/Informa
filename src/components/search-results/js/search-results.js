@@ -509,7 +509,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     SetSearchState(SearchVal);
                 }
                 if (SearchText) {
-                    $('li.search').trigger('click');
+                    $('.search:visible').trigger('click');
                 }
             }
             if (ShowMoreLink && IsProductPage) {
