@@ -3,14 +3,14 @@
     padding: 30px 0;
     background: $white;
     .call-image-pos {
-        color: $grey-color05 ;
+        color: $grey-color05;
         padding-bottom: 25px;
         margin: 0;
         position: relative;
         padding-left: 40px;
         hr {
             height: 1px;
-            background: $grey-color05 ;
+            background: $grey-color05;
             margin-top: 10px;
             margin-bottom: 10px;
         }
@@ -23,8 +23,8 @@
     }
     .nav-tabs {
         border-bottom: none;
-        li.active{
-          border-bottom: none !important;
+        li.active {
+            border-bottom: none !important;
         }
     }
     .pos {
@@ -57,7 +57,7 @@
         left: 5%;
     }
     .email-image-pos {
-        color: $grey-color05 ;
+        color: $grey-color05;
         margin-top: 40px;
         position: relative;
         padding-left: 40px;
@@ -66,7 +66,7 @@
         }
         hr {
             height: 1px;
-            background: $grey-color05 ;
+            background: $grey-color05;
             margin-top: 10px;
             margin-bottom: 10px;
         }
@@ -100,7 +100,8 @@
             font-family: Fsme-bold;
             color: $grey-color04;
             font-size: 16px;
-            padding-right: 110px;
+            padding-right: 10px;
+            text-align: left;
             @include mobile {
                 padding-right: 10px;
             }
@@ -109,16 +110,16 @@
             margin-top: 20px;
             font-family: Fsme-bold;
             span.contact-number {
-              margin-top: 5px;
-              font-size: 24px;
-              font-family: Fsme-light;
-              margin-bottom: 20px;
-              @include tablet {
-                font-size: 22px;
-              }
-              @include mobile {
-                font-size: 22px;
-              }
+                margin-top: 5px;
+                font-size: 24px;
+                font-family: Fsme-light;
+                margin-bottom: 20px;
+                @include tablet {
+                    font-size: 22px;
+                }
+                @include mobile {
+                    font-size: 22px;
+                }
             }
         }
     }
@@ -126,6 +127,6 @@
         top: 0;
         margin-bottom: 20px;
         padding: 30px 0px;
-        border-bottom: 1px $grey-color05  solid;
+        border-bottom: 1px $grey-color05 solid;
     }
 }
