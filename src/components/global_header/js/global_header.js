@@ -619,16 +619,18 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _navlinks.removeClass('nav-active');
             });
         } else {
-            _navlinks.on('click', function(e) {
-                e.preventDefault();
+             _navlinks.on('click', function(e) {
+                //e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
                 var navText = $(this).find('a').text();
-                $('#sub-nav .subnav-container').hide();
-                //$('.informaNav .nav-main').css('left', '-100%');
-                $('#sub-nav').css('left', '0');
-                $('#' + navId).css('display', 'block');
-                $('#mobile-header-navigation .nav-subnav-heading').text(navText);
-                $('#mobile-header-navigation .nav-back').css('display', 'block');
+                if($('#' + navId).length > 0) {
+                    $('#sub-nav .subnav-container').hide();
+                    //$('.informaNav .nav-main').css('left', '-100%');
+                    $('#sub-nav').css('left', '0');
+                    $('#' + navId).css('display', 'block');
+                    $('#mobile-header-navigation .nav-subnav-heading').text(navText);
+                    $('#mobile-header-navigation .nav-back').css('display', 'block');
+                }
             });
         }
 

@@ -2241,19 +2241,20 @@ section#pdp-hero .cta3 {
 section#feature-list,
 section.feature-list-section {
   background: #f0f1f3;
+  padding-bottom: 50px;
 }
-/* line 4, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 5, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list h2,
 section.feature-list-section h2 {
   padding-bottom: 10px;
 }
-/* line 7, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 8, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list h4,
 section.feature-list-section h4 {
   text-align: center;
   margin: 5px 0 20px 0;
 }
-/* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 12, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list h5,
 section.feature-list-section h5 {
   padding: 0;
@@ -2261,7 +2262,7 @@ section.feature-list-section h5 {
   color: #565c6b;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 11, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 12, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list h5,
   section.feature-list-section h5 {
     margin-bottom: 20px;
@@ -2273,19 +2274,18 @@ section.feature-list-section h5 {
   section.feature-list-section {
     padding: 5px 0 25px;
   }
-  /* line 21, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 22, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list h1,
   section.feature-list-section h1 {
     font-size: 24px;
   }
 }
-/* line 25, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 26, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-see-all-features, section#feature-list .text-right,
 section.feature-list-section .btn-see-all-features,
 section.feature-list-section .text-right {
   margin: 0 auto;
   padding-top: 50px;
-  padding-bottom: 50px;
   text-align: right;
 }
 @media (max-width: 767px) {
@@ -2297,7 +2297,7 @@ section.feature-list-section .text-right {
   }
 }
 @media (max-width: 767px) {
-  /* line 25, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 26, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-see-all-features, section#feature-list .text-right,
   section.feature-list-section .btn-see-all-features,
   section.feature-list-section .text-right {
@@ -2306,7 +2306,7 @@ section.feature-list-section .text-right {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 25, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 26, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-see-all-features, section#feature-list .text-right,
   section.feature-list-section .btn-see-all-features,
   section.feature-list-section .text-right {
@@ -12097,6 +12097,7 @@ section.welcome-description .cross:after {
 .product-login .create-profile p {
   width: 50%;
   margin: 0 auto;
+  color: #fff;
 }
 @media (max-width: 767px) {
   /* line 22, ../../../src/components/product-login/sass/_product-login.scss */
@@ -12104,13 +12105,13 @@ section.welcome-description .cross:after {
     width: 100%;
   }
 }
-/* line 30, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 31, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links {
   margin: 30px auto;
   background: url("/Static/images/pattern.png") no-repeat bottom right #444957;
   background-size: 20%;
 }
-/* line 34, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 35, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links h2 {
   color: #fff;
   font: 400 30px 'FSMe-light';
@@ -12118,50 +12119,50 @@ section.welcome-description .cross:after {
   padding: 0;
 }
 @media (max-width: 767px) {
-  /* line 34, ../../../src/components/product-login/sass/_product-login.scss */
+  /* line 35, ../../../src/components/product-login/sass/_product-login.scss */
   .product-login .login-links h2 {
     margin: 0 auto;
   }
 }
-/* line 43, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 44, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links h3 {
   font: 400 20px 'FSMe-bold';
   color: #fff;
 }
-/* line 47, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 48, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .col-left {
   float: left;
   width: 40%;
   margin-left: 70px;
 }
 @media (max-width: 767px) {
-  /* line 47, ../../../src/components/product-login/sass/_product-login.scss */
+  /* line 48, ../../../src/components/product-login/sass/_product-login.scss */
   .product-login .login-links .col-left {
     float: none;
     width: 100%;
     margin: 0 auto;
   }
 }
-/* line 57, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 58, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list {
   border-bottom: 1px solid #6a7285;
   margin: 60px 0 0 0;
 }
-/* line 60, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 61, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list ul {
   list-style-type: none;
   padding: 0;
   margin: 30px 0 0;
   position: relative;
 }
-/* line 65, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 66, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list ul li {
   border-top: 1px solid #6a7285;
   padding: 15px 0;
   font-size: 18px;
   font-family: 'InformaIcons';
 }
-/* line 70, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 71, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list ul li:after {
   content: "\e904";
   position: absolute;
@@ -12169,7 +12170,7 @@ section.welcome-description .cross:after {
   right: 0;
   font-size: 15px;
 }
-/* line 77, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 78, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list ul li a {
   font-family: 'FSMe';
 }
