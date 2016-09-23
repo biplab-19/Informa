@@ -5010,7 +5010,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     MaxHeight = ContentHeight;
                 }
             })
-            Items.find('.content').height(MaxHeight);
+            Items.find('.content').height(MaxHeight + Padding);
             Items.each(function(){
                 var WrapperHeight = $(this).find('.recomend-content').outerHeight();
                 if(WrapperHeight > MaxWrapperHeight) {

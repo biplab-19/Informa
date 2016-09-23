@@ -7285,6 +7285,7 @@ button.close {
 .slick-slider {
   position: relative;
   display: block;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -7297,7 +7298,7 @@ button.close {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* line 17, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 18, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list {
   position: relative;
   overflow: hidden;
@@ -7305,17 +7306,17 @@ button.close {
   margin: 0;
   padding: 0;
 }
-/* line 24, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 25, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list:focus {
   outline: none;
 }
-/* line 28, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 29, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list.dragging {
   cursor: pointer;
   cursor: hand;
 }
 
-/* line 33, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 34, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slider .slick-track,
 .slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
@@ -7325,66 +7326,66 @@ button.close {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 42, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 43, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track {
   position: relative;
   left: 0;
   top: 0;
   display: block;
 }
-/* line 48, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 49, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:before, .slick-track:after {
   content: "";
   display: table;
 }
-/* line 54, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 55, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:after {
   clear: both;
 }
-/* line 58, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 59, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-track {
   visibility: hidden;
 }
 
-/* line 62, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 63, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide {
   float: left;
   height: 100%;
   min-height: 1px;
   display: none;
 }
-/* line 66, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 67, ../../../bower_components/slick-carousel/slick/slick.scss */
 [dir="rtl"] .slick-slide {
   float: right;
 }
-/* line 69, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 70, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide img {
   display: block;
 }
-/* line 72, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 73, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.slick-loading img {
   display: none;
 }
-/* line 78, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 79, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.dragging img {
   pointer-events: none;
 }
-/* line 82, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 83, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-initialized .slick-slide {
   display: block;
 }
-/* line 86, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 87, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-slide {
   visibility: hidden;
 }
-/* line 90, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 91, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-vertical .slick-slide {
   display: block;
   height: auto;
   border: 1px solid transparent;
 }
 
-/* line 96, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 97, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-arrow.slick-hidden {
   display: none;
 }
@@ -11364,7 +11365,7 @@ section#customers_list .customers_list_slider .customer img {
   position: relative;
   display: inline-block;
 }
-/* line 11, ../../../src/sass/global/_common-components.scss */
+/* line 12, ../../../src/sass/global/_common-components.scss */
 .video-wrap .play-icon {
   position: absolute;
   width: 54px;
@@ -11376,7 +11377,7 @@ section#customers_list .customers_list_slider .customer img {
   margin-left: -27px;
 }
 
-/* line 22, ../../../src/sass/global/_common-components.scss */
+/* line 24, ../../../src/sass/global/_common-components.scss */
 .at-icon-wrapper {
   background-color: transparent !important;
 }
@@ -11384,7 +11385,7 @@ section#customers_list .customers_list_slider .customer img {
 /*=================================================
 	Mini - Video modal
 ==================================================*/
-/* line 28, ../../../src/sass/global/_common-components.scss */
+/* line 30, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
   -moz-transform: scale(0.1);
@@ -11397,7 +11398,7 @@ section#customers_list .customers_list_slider .customer img {
   transition: all 0.3s;
 }
 
-/* line 39, ../../../src/sass/global/_common-components.scss */
+/* line 42, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal.modal.fade.in .modal-dialog {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -11408,24 +11409,24 @@ section#customers_list .customers_list_slider .customer img {
   opacity: 1;
 }
 
-/* line 49, ../../../src/sass/global/_common-components.scss */
+/* line 53, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal .modal-dialog {
   width: 60%;
   margin: 0 auto;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 49, ../../../src/sass/global/_common-components.scss */
+  /* line 53, ../../../src/sass/global/_common-components.scss */
   .video-mini-modal .modal-dialog {
     width: 85%;
   }
 }
 @media (max-width: 767px) {
-  /* line 49, ../../../src/sass/global/_common-components.scss */
+  /* line 53, ../../../src/sass/global/_common-components.scss */
   .video-mini-modal .modal-dialog {
     width: 100%;
   }
 }
-/* line 59, ../../../src/sass/global/_common-components.scss */
+/* line 64, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
@@ -11433,22 +11434,22 @@ section#customers_list .customers_list_slider .customer img {
   margin-top: 20%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 59, ../../../src/sass/global/_common-components.scss */
+  /* line 64, ../../../src/sass/global/_common-components.scss */
   .video-mini-modal .modal-content {
     margin-top: 20%;
   }
 }
 @media (max-width: 767px) {
-  /* line 59, ../../../src/sass/global/_common-components.scss */
+  /* line 64, ../../../src/sass/global/_common-components.scss */
   .video-mini-modal .modal-content {
     margin-top: 10%;
   }
 }
-/* line 71, ../../../src/sass/global/_common-components.scss */
+/* line 77, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal .modal-header {
   border-bottom: 0;
 }
-/* line 73, ../../../src/sass/global/_common-components.scss */
+/* line 80, ../../../src/sass/global/_common-components.scss */
 .video-mini-modal .modal-header .close {
   color: #fff;
   opacity: 2;
@@ -11457,7 +11458,7 @@ section#customers_list .customers_list_slider .customer img {
 /*===================================================
 	Search Flip Tile
 ====================================================*/
-/* line 83, ../../../src/sass/global/_common-components.scss */
+/* line 90, ../../../src/sass/global/_common-components.scss */
 .flip .tile {
   height: 100%;
   position: relative;
@@ -11465,25 +11466,25 @@ section#customers_list .customers_list_slider .customer img {
   transition: transform 0.3s;
   overflow: hidden;
 }
-/* line 90, ../../../src/sass/global/_common-components.scss */
+/* line 98, ../../../src/sass/global/_common-components.scss */
 .flip .tile.flip .front {
   transform: perspective(800px) rotateY(-180deg);
 }
-/* line 93, ../../../src/sass/global/_common-components.scss */
+/* line 102, ../../../src/sass/global/_common-components.scss */
 .flip .tile.flip .back {
   transform: perspective(800px) rotateY(0deg);
 }
-/* line 97, ../../../src/sass/global/_common-components.scss */
+/* line 107, ../../../src/sass/global/_common-components.scss */
 .flip .tile .triangle {
   position: absolute;
   background: #fff;
   width: 25px;
   height: 25px;
-  top: 0px;
+  top: 0;
   z-index: 1;
   cursor: pointer;
 }
-/* line 105, ../../../src/sass/global/_common-components.scss */
+/* line 116, ../../../src/sass/global/_common-components.scss */
 .flip .tile .triangle .icon-arrow-right {
   color: #fff;
   display: block;
@@ -11491,17 +11492,17 @@ section#customers_list .customers_list_slider .customer img {
   transform: rotate(-143deg);
   position: absolute;
 }
-/* line 113, ../../../src/sass/global/_common-components.scss */
+/* line 125, ../../../src/sass/global/_common-components.scss */
 .flip .tile .header {
   position: relative;
   overflow: hidden;
   max-height: 140px;
 }
-/* line 117, ../../../src/sass/global/_common-components.scss */
+/* line 130, ../../../src/sass/global/_common-components.scss */
 .flip .tile .header img {
   width: 100%;
 }
-/* line 120, ../../../src/sass/global/_common-components.scss */
+/* line 134, ../../../src/sass/global/_common-components.scss */
 .flip .tile .header:after {
   content: "";
   position: absolute;
@@ -11512,7 +11513,7 @@ section#customers_list .customers_list_slider .customer img {
   top: calc(100% - 14px);
   left: 0;
 }
-/* line 131, ../../../src/sass/global/_common-components.scss */
+/* line 146, ../../../src/sass/global/_common-components.scss */
 .flip .tile .tag {
   padding: 3px 8px;
   background-color: #434854;
@@ -11520,7 +11521,7 @@ section#customers_list .customers_list_slider .customer img {
   margin: 0 3px 20px;
   display: inline-block;
 }
-/* line 138, ../../../src/sass/global/_common-components.scss */
+/* line 154, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front {
   background-color: #343742;
   height: 100%;
@@ -11531,50 +11532,50 @@ section#customers_list .customers_list_slider .customer img {
   transition: transform 0.2s linear 0s;
   position: relative;
 }
-/* line 147, ../../../src/sass/global/_common-components.scss */
+/* line 164, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .triangle {
   border-bottom: 50px solid #a6aab6;
   border-left: 50px solid transparent;
 }
-/* line 150, ../../../src/sass/global/_common-components.scss */
+/* line 168, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .triangle .icon-arrow-right {
   left: -21px;
   top: 29px;
 }
-/* line 155, ../../../src/sass/global/_common-components.scss */
+/* line 174, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content {
   min-height: 100px;
   padding: 20px;
   height: 55%;
 }
-/* line 159, ../../../src/sass/global/_common-components.scss */
+/* line 179, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content .tag {
   background-color: #6a7184;
   color: #fff;
   display: inline-block;
 }
-/* line 164, ../../../src/sass/global/_common-components.scss */
+/* line 185, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content a {
   text-decoration: none;
   color: #fff;
 }
-/* line 168, ../../../src/sass/global/_common-components.scss */
+/* line 190, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content h2 {
   color: #fff;
 }
-/* line 171, ../../../src/sass/global/_common-components.scss */
+/* line 194, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content ul {
   list-style-type: none;
   padding-left: 20px;
 }
-/* line 174, ../../../src/sass/global/_common-components.scss */
+/* line 198, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content ul li {
   padding: 10px;
   position: relative;
   font-size: 16px;
   color: #fff;
 }
-/* line 179, ../../../src/sass/global/_common-components.scss */
+/* line 204, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .content ul li:before {
   content: "\e914";
   font-family: "InformaIcons";
@@ -11584,7 +11585,7 @@ section#customers_list .customers_list_slider .customer img {
   font-size: 20px;
   color: #ffd500;
 }
-/* line 191, ../../../src/sass/global/_common-components.scss */
+/* line 217, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer {
   -ms-transform: rotate(-3deg);
   -webkit-transform: rotate(-3deg);
@@ -11598,7 +11599,7 @@ section#customers_list .customers_list_slider .customer img {
   height: 90px;
   bottom: -5px;
 }
-/* line 203, ../../../src/sass/global/_common-components.scss */
+/* line 230, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content {
   -ms-transform: rotate(3deg);
   /* IE 9 */
@@ -11606,27 +11607,27 @@ section#customers_list .customers_list_slider .customer img {
   /* Chrome, Safari, Opera */
   transform: rotate(3deg);
   background-color: #434854;
-  padding: 0 0 10px 0;
+  padding: 0 0 10px;
 }
-/* line 211, ../../../src/sass/global/_common-components.scss */
+/* line 239, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content .btn {
   width: 100%;
   display: block;
   color: #fff;
 }
-/* line 215, ../../../src/sass/global/_common-components.scss */
+/* line 244, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content .btn.free-trial {
   border-color: #ef7c00;
 }
-/* line 217, ../../../src/sass/global/_common-components.scss */
+/* line 247, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content .btn.free-trial:after {
   color: #ef7c00;
 }
-/* line 221, ../../../src/sass/global/_common-components.scss */
+/* line 252, ../../../src/sass/global/_common-components.scss */
 .flip .tile .front .footer .footer-content .btn.more {
   border-color: #ef7c00;
 }
-/* line 229, ../../../src/sass/global/_common-components.scss */
+/* line 260, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back {
   background-color: #f0f1f3;
   height: 100%;
@@ -11640,7 +11641,7 @@ section#customers_list .customers_list_slider .customer img {
   top: 0;
   overflow: hidden;
 }
-/* line 241, ../../../src/sass/global/_common-components.scss */
+/* line 273, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .triangle {
   background: #fff;
   border-top: 50px solid #ef7c00;
@@ -11649,36 +11650,36 @@ section#customers_list .customers_list_slider .customer img {
   bottom: 0;
   right: 0;
 }
-/* line 248, ../../../src/sass/global/_common-components.scss */
+/* line 281, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .triangle .icon-arrow-right {
   bottom: 30px;
   left: 10px;
   top: auto;
   transform: rotate(41deg);
 }
-/* line 256, ../../../src/sass/global/_common-components.scss */
+/* line 290, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .header:after {
   background-color: #f0f1f3;
 }
-/* line 260, ../../../src/sass/global/_common-components.scss */
+/* line 295, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content {
   min-height: 100px;
   padding: 20px;
 }
-/* line 263, ../../../src/sass/global/_common-components.scss */
+/* line 299, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content a {
   text-decoration: none;
   color: #6a7285;
 }
-/* line 267, ../../../src/sass/global/_common-components.scss */
+/* line 304, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content h2 {
   color: #6a7285;
 }
-/* line 270, ../../../src/sass/global/_common-components.scss */
+/* line 308, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .content p {
   padding-right: 20px;
 }
-/* line 274, ../../../src/sass/global/_common-components.scss */
+/* line 313, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer {
   padding-top: 5%;
   position: absolute;
@@ -11686,7 +11687,7 @@ section#customers_list .customers_list_slider .customer img {
   bottom: 0;
   width: 100%;
 }
-/* line 280, ../../../src/sass/global/_common-components.scss */
+/* line 320, ../../../src/sass/global/_common-components.scss */
 .flip .tile .back .footer:before {
   content: "";
   position: absolute;
@@ -11698,12 +11699,12 @@ section#customers_list .customers_list_slider .customer img {
   left: 0;
 }
 
-/* line 296, ../../../src/sass/global/_common-components.scss */
+/* line 336, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container {
   margin: 20px 0 0;
   text-align: center;
 }
-/* line 299, ../../../src/sass/global/_common-components.scss */
+/* line 340, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore,
 .search-container .btn-container .open-tab {
   color: #444957;
@@ -11714,25 +11715,25 @@ section#customers_list .customers_list_slider .customer img {
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 299, ../../../src/sass/global/_common-components.scss */
+  /* line 340, ../../../src/sass/global/_common-components.scss */
   .search-container .btn-container .btn-ShowMore,
   .search-container .btn-container .open-tab {
     padding: 20px 0 40px;
   }
 }
-/* line 310, ../../../src/sass/global/_common-components.scss */
+/* line 352, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore span,
 .search-container .btn-container .open-tab span {
   float: left;
 }
 @media (max-width: 767px) {
-  /* line 310, ../../../src/sass/global/_common-components.scss */
+  /* line 352, ../../../src/sass/global/_common-components.scss */
   .search-container .btn-container .btn-ShowMore span,
   .search-container .btn-container .open-tab span {
     float: none;
   }
 }
-/* line 315, ../../../src/sass/global/_common-components.scss */
+/* line 358, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore span:before,
 .search-container .btn-container .open-tab span:before {
   content: "\e912";
@@ -11744,7 +11745,7 @@ section#customers_list .customers_list_slider .customer img {
   color: #ffd500;
 }
 @media (max-width: 767px) {
-  /* line 315, ../../../src/sass/global/_common-components.scss */
+  /* line 358, ../../../src/sass/global/_common-components.scss */
   .search-container .btn-container .btn-ShowMore span:before,
   .search-container .btn-container .open-tab span:before {
     right: 50%;
@@ -11752,30 +11753,30 @@ section#customers_list .customers_list_slider .customer img {
     top: 35px;
   }
 }
-/* line 330, ../../../src/sass/global/_common-components.scss */
+/* line 374, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore span.less:before,
 .search-container .btn-container .open-tab span.less:before {
   content: "\e913";
 }
-/* line 335, ../../../src/sass/global/_common-components.scss */
+/* line 380, ../../../src/sass/global/_common-components.scss */
 .search-container .btn-container .btn-ShowMore:focus, .search-container .btn-container .btn-ShowMore:hover,
 .search-container .btn-container .open-tab:focus,
 .search-container .btn-container .open-tab:hover {
   text-decoration: none;
 }
-/* line 341, ../../../src/sass/global/_common-components.scss */
+/* line 387, ../../../src/sass/global/_common-components.scss */
 .search-container .more {
   display: block;
 }
-/* line 344, ../../../src/sass/global/_common-components.scss */
+/* line 391, ../../../src/sass/global/_common-components.scss */
 .search-container .less {
   display: none;
 }
-/* line 348, ../../../src/sass/global/_common-components.scss */
+/* line 396, ../../../src/sass/global/_common-components.scss */
 .search-container.all-shown .more {
   display: none;
 }
-/* line 351, ../../../src/sass/global/_common-components.scss */
+/* line 400, ../../../src/sass/global/_common-components.scss */
 .search-container.all-shown .less {
   display: block;
 }
@@ -11786,7 +11787,7 @@ section#customers_list .customers_list_slider .customer img {
 /*===================================================
 	Image Fit to screen
 ====================================================*/
-/* line 362, ../../../src/sass/global/_common-components.scss */
+/* line 411, ../../../src/sass/global/_common-components.scss */
 .img-fit {
   max-width: 100%;
 }
@@ -11795,11 +11796,21 @@ section#customers_list .customers_list_slider .customer img {
 Turn Off Number Input Spinners
 ==================================================
 */
-/* line 371, ../../../src/sass/global/_common-components.scss */
+/* line 418, ../../../src/sass/global/_common-components.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* ===============================================
+Fix boostrap modal is shifting fixed navbar
+==================================================
+*/
+/* line 427, ../../../src/sass/global/_common-components.scss */
+body.modal-open {
+  overflow-y: auto !important;
+  padding-right: 0 !important;
 }
 
 /* line 1, ../../../src/sass/global/_banner.scss */
