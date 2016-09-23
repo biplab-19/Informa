@@ -359,7 +359,7 @@ $desktop-width: 1142px;
             }
         }
         #customer-quote-slider {
-            .customer-quote-slide {
+            .saying {
                 &:before {
                     @extend .quote;
                 }
@@ -934,6 +934,13 @@ $desktop-width: 1142px;
     }
     .infograph .number-container{
         color:$navlinkpharmacolor;
+    }
+    .welcome-description{
+        .tool{
+            p a{
+                color:$navlinkpharmacolor;
+            }
+        }
     }
     .more-stories .feature li {
             &:before {

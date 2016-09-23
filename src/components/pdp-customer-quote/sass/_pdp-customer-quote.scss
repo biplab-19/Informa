@@ -7,6 +7,19 @@ section.customer-quote {
     .container{
         padding: 0;
     }
+    .customer-sub-title{
+        h4{
+            color: #fff;
+            margin: 0;
+            padding-bottom: 30px;
+            @include tablet{
+                padding-bottom: 25px;
+            }
+            @include mobile{
+                padding-bottom: 20px;
+            }
+        }
+    }
     &:after{
         content: '';
         background: url("/Static/images/testimonial-pattern.png");
@@ -34,17 +47,7 @@ section.customer-quote {
             padding-bottom: 20px;
         }
     }
-    h4{
-        color: #fff;
-        padding-left: 100px;
-        margin: 0;  
-        @include mobile{
-            padding: 0 30px;
-        }
-        @include tablet{
-            padding: 0 140px;
-        }
-    }
+    
     position: relative;
     color: $text-gray;
     overflow: hidden;
@@ -57,30 +60,13 @@ section.customer-quote {
     }
     #customer-quote-slider {
         position: relative;
-        margin-top: 30px;
-        @include mobile {
-            margin-top: 0px;
-        }
-        @include tablet {
-            margin-top: 25px;
-        }
+        margin-top: 0;
         .customer-quote-slide {
           position: relative;
           padding-left: 100px;
-          &:before {
-              padding-left: 10px;
-              content: ',,';
-              font-family: FSMe-Bold;
-              font-size: 90px;
-              position: absolute;
-              transform: rotate(180Deg);
-              left: 25px;
-              top: -16px;
-          }
           @include mobile {
             padding-left: 0px;
             padding: 0 35px;
-            padding-top: 65px;
             &:before {
               left: 30px;
               top: 0px;
@@ -100,9 +86,15 @@ section.customer-quote {
                     padding-right: 0;
                 }
             }
+            .pdp-quote{
+                @include mobile{
+                    padding-top: 50px;
+                }
+            }
             .saying {
                 color: $white;
                 margin-top: 0;
+                position: relative;
                 @include tablet{
                     margin-bottom: 25px;
                 }
@@ -111,6 +103,20 @@ section.customer-quote {
                 }
                 margin-bottom: 30px;
                 display: block;
+                &:before {
+                  padding-left: 10px;
+                  content: ',,';
+                  font-family: FSMe-Bold;
+                  font-size: 90px;
+                  position: absolute;
+                  transform: rotate(180Deg);
+                  left: -60px;
+                  top: 35px;
+                  @include mobile{
+                        left: -3px;
+                        top: -20px;
+                  }
+                }
             }
             .case-study {
                 padding-right: 45px;

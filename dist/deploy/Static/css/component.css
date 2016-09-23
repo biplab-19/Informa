@@ -2524,7 +2524,25 @@ section.customer-quote > div {
 section.customer-quote .container {
   padding: 0;
 }
-/* line 10, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 11, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+section.customer-quote .customer-sub-title h4 {
+  color: #fff;
+  margin: 0;
+  padding-bottom: 30px;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 11, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  section.customer-quote .customer-sub-title h4 {
+    padding-bottom: 25px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 11, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  section.customer-quote .customer-sub-title h4 {
+    padding-bottom: 20px;
+  }
+}
+/* line 23, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote:after {
   content: '';
   background: url("/Static/images/testimonial-pattern.png");
@@ -2539,163 +2557,146 @@ section.customer-quote:after {
   pointer-events: none;
 }
 @media (max-width: 1141px) {
-  /* line 10, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 23, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote:after {
     display: none;
   }
 }
-/* line 26, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 39, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote h2 {
   padding-bottom: 30px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 26, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 39, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote h2 {
     margin: 0 20px;
     padding-bottom: 25px;
   }
 }
 @media (max-width: 767px) {
-  /* line 26, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 39, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote h2 {
     margin: 0 10px;
     padding-bottom: 20px;
   }
 }
-/* line 37, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
-section.customer-quote h4 {
-  color: #fff;
-  padding-left: 100px;
-  margin: 0;
-}
-@media (max-width: 767px) {
-  /* line 37, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
-  section.customer-quote h4 {
-    padding: 0 30px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 37, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
-  section.customer-quote h4 {
-    padding: 0 140px;
-  }
-}
-/* line 51, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 54, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .quote {
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 51, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 54, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .quote {
     padding-left: 0;
     padding-right: 0;
   }
 }
-/* line 58, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 61, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider {
   position: relative;
-  margin-top: 30px;
+  margin-top: 0;
 }
-@media (max-width: 767px) {
-  /* line 58, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
-  section.customer-quote #customer-quote-slider {
-    margin-top: 0px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 58, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
-  section.customer-quote #customer-quote-slider {
-    margin-top: 25px;
-  }
-}
-/* line 67, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 64, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide {
   position: relative;
   padding-left: 100px;
 }
-/* line 70, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
-section.customer-quote #customer-quote-slider .customer-quote-slide:before {
-  padding-left: 10px;
-  content: ',,';
-  font-family: FSMe-Bold;
-  font-size: 90px;
-  position: absolute;
-  transform: rotate(180Deg);
-  left: 25px;
-  top: -16px;
-}
 @media (max-width: 767px) {
-  /* line 67, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 64, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide {
     padding-left: 0px;
     padding: 0 35px;
-    padding-top: 65px;
   }
-  /* line 84, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 70, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide:before {
     left: 30px;
     top: 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 90, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 76, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide:before {
     left: 8%;
   }
 }
-/* line 94, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 80, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide > div {
   padding-right: 40%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 94, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 80, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide > div {
     padding: 0 30% 0 6%;
   }
 }
 @media (max-width: 767px) {
-  /* line 94, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 80, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide > div {
     padding-right: 0;
   }
 }
-/* line 103, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+@media (max-width: 767px) {
+  /* line 89, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  section.customer-quote #customer-quote-slider .customer-quote-slide .pdp-quote {
+    padding-top: 50px;
+  }
+}
+/* line 94, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saying {
   color: #fff;
   margin-top: 0;
+  position: relative;
   margin-bottom: 30px;
   display: block;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 103, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 94, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .saying {
     margin-bottom: 25px;
   }
 }
 @media (max-width: 767px) {
-  /* line 103, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 94, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .saying {
     margin-bottom: 20px;
   }
 }
-/* line 115, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 106, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+section.customer-quote #customer-quote-slider .customer-quote-slide .saying:before {
+  padding-left: 10px;
+  content: ',,';
+  font-family: FSMe-Bold;
+  font-size: 90px;
+  position: absolute;
+  transform: rotate(180Deg);
+  left: -60px;
+  top: 35px;
+}
+@media (max-width: 767px) {
+  /* line 106, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  section.customer-quote #customer-quote-slider .customer-quote-slide .saying:before {
+    left: -3px;
+    top: -20px;
+  }
+}
+/* line 121, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .case-study {
   padding-right: 45px;
   margin: 30px 0 0;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 115, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 121, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .case-study {
     margin: 25px 0 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 115, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 121, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .case-study {
     margin: 20px 0 0;
   }
 }
-/* line 124, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 130, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .case-study:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -2703,39 +2704,39 @@ section.customer-quote #customer-quote-slider .customer-quote-slide .case-study:
   font-weight: bold;
   position: absolute;
 }
-/* line 132, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 138, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy {
   margin: 0;
   font-family: FSMe-Bold;
 }
-/* line 134, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 140, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy .owner {
   text-transform: uppercase;
 }
-/* line 138, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 144, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy span {
   padding-right: 15px;
   position: relative;
 }
-/* line 141, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 147, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy span.owner:after {
   position: absolute;
   content: '\/';
   right: 3px;
   font-family: FSMe-Light;
 }
-/* line 148, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 154, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy .description {
   font-family: FSMe-Light;
   text-transform: uppercase;
 }
 @media (max-width: 767px) {
-  /* line 148, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 154, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote #customer-quote-slider .customer-quote-slide .saidBy .description {
     display: block;
   }
 }
-/* line 158, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 164, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .design-helper {
   position: absolute;
   width: auto;
@@ -2745,19 +2746,19 @@ section.customer-quote .design-helper {
   pointer-events: none;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 158, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 164, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .design-helper {
     top: -40px;
     right: -28px;
   }
 }
 @media (max-width: 767px) {
-  /* line 158, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 164, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .design-helper {
     display: none;
   }
 }
-/* line 172, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 178, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .design-helper .white-streak {
   transform: skew(34Deg);
   width: 100px;
@@ -2765,23 +2766,23 @@ section.customer-quote .design-helper .white-streak {
   background: #fff;
   opacity: 0.3;
 }
-/* line 178, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 184, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .design-helper .white-streak.two {
   height: 500px;
 }
-/* line 182, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 188, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .design-helper.two {
   top: 50px;
   right: -75px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 182, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 188, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .design-helper.two {
     top: 48px;
     right: 30px;
   }
 }
-/* line 192, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 198, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized ul.slick-dots {
   text-align: center;
   width: 100%;
@@ -2791,7 +2792,7 @@ section.customer-quote .slick-initialized ul.slick-dots {
   padding-top: 30px;
 }
 @media (max-width: 767px) {
-  /* line 192, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 198, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized ul.slick-dots {
     display: none !important;
     position: static;
@@ -2799,28 +2800,28 @@ section.customer-quote .slick-initialized ul.slick-dots {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 192, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 198, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized ul.slick-dots {
     left: 0;
     padding-top: 25px;
   }
 }
-/* line 208, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 214, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background: #6a7285;
 }
-/* line 213, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 219, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized ul.slick-dots li button:before {
   content: '';
 }
-/* line 216, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 222, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized ul.slick-dots li.slick-active {
   background: #fff !important;
 }
-/* line 221, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 227, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-arrow {
   height: 60px;
   width: 40px;
@@ -2829,7 +2830,7 @@ section.customer-quote .slick-initialized .slick-arrow {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 221, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 227, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-arrow {
     height: 40px;
     width: 20px;
@@ -2838,7 +2839,7 @@ section.customer-quote .slick-initialized .slick-arrow {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 221, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 227, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-arrow {
     height: 40px;
     width: 25px;
@@ -2846,7 +2847,7 @@ section.customer-quote .slick-initialized .slick-arrow {
     margin-left: -25px;
   }
 }
-/* line 239, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 245, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -2859,7 +2860,7 @@ section.customer-quote .slick-initialized .slick-arrow:before {
   color: #ffd500;
 }
 @media (max-width: 767px) {
-  /* line 239, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 245, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -2867,21 +2868,21 @@ section.customer-quote .slick-initialized .slick-arrow:before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 239, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 245, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 261, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 267, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-next {
   left: 100%;
   top: 45%;
   margin-left: 0;
 }
 @media (max-width: 767px) {
-  /* line 261, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 267, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-next {
     left: calc(100% - 30px);
     width: 30px;
@@ -2889,23 +2890,23 @@ section.customer-quote .slick-initialized .slick-next {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 261, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 267, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-next {
     left: calc(100% - 25px);
   }
 }
-/* line 273, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 279, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-next:before {
   content: "\e902";
 }
-/* line 277, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 283, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-prev {
   left: 0;
   top: 45%;
   margin-left: -40px;
 }
 @media (max-width: 767px) {
-  /* line 277, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 283, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-prev {
     margin-left: 0;
     width: 30px;
@@ -2913,16 +2914,16 @@ section.customer-quote .slick-initialized .slick-prev {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 277, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 283, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .slick-initialized .slick-prev {
     margin-left: 0;
   }
 }
-/* line 289, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 295, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-initialized .slick-prev:before {
   content: "\e903";
 }
-/* line 294, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 300, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .card-col-heading {
   text-align: right;
   margin: 15px 0;
@@ -2931,18 +2932,18 @@ section.customer-quote .card-col-heading {
   margin: 0;
 }
 @media (max-width: 767px) {
-  /* line 301, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 307, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .card-col-heading .btn-default {
     width: 100%;
   }
 }
 @media (min-width: 1142px) {
-  /* line 294, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+  /* line 300, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
   section.customer-quote .card-col-heading {
     padding-right: 5%;
   }
 }
-/* line 309, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
+/* line 315, ../../../src/components/pdp-customer-quote/sass/_pdp-customer-quote.scss */
 section.customer-quote .slick-slider {
   margin-bottom: 0px;
 }
