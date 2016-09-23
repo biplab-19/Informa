@@ -1,6 +1,10 @@
 .article-list {
     background-color: $grey-color11;
     position: relative;
+    padding-bottom: 50px;
+    @include mobile{
+        padding-bottom: 0;
+    }
     .container{
         padding:0 15px;
     }
