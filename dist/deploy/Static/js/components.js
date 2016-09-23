@@ -1,4 +1,4 @@
-/*! 2016-09-22 */
+/*! 2016-09-23 */
 /*
  * welcome-description
  *
@@ -1935,7 +1935,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _hideSelectAll,
         _yourinterestguid = [],
         _yourinterestitem = [],
-        _validateMultiSelct,
+        _isAllSelected = 'false',
+        //_validateMultiSelct,
         _showRegisterFormBtn = $('.show-register-form'),
         _showRegisterForm,
         _showRegisterFormPopup,
@@ -2035,10 +2036,18 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _showRegisterFormPopup = function() {
         _myinterestsModal.find('.modal-body').empty();
         _myinterestsModal.find('.modal-body').append(_myinterestsSection);
-        $("form.register-myinterests-form .chosen-select").chosen({
-            disable_search_threshold: 10,
-            width: "100%"
-        });
+        var chosenSelect = $("form.register-myinterests-form .chosen-select"),
+        chosenCotainer = $('form.register-myinterests-form .chosen-container');
+        if(chosenCotainer.length > 0 ){
+          chosenCotainer.remove();
+        }
+        if(chosenSelect.length > 0){
+          chosenSelect.chosen('destroy');
+          chosenSelect.chosen({
+              disable_search_threshold: 10,
+              width: "100%"
+          });
+        }
         _myinterestsModal.find('.modal-body .container').removeClass('container');
         _clearFormInput(_myinterestForm);
         _yourinterestguid = [];
@@ -2136,7 +2145,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             $.each(findMultipleSelect, function(i) {
                 if ($(this).attr('multiple') == 'multiple') {
                     $(this).multiselect('destroy');
-                    var placeHolder = $(this).attr('placeHolder');
+                    var placeHolder = $(this).parents('.form-group').find('.sector-placeholder-text').text();
                     $(this).multiselect({
                         buttonText: function(options, select) {
                             return placeHolder;
@@ -2145,24 +2154,16 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         onChange: _updateMultiSelect,
                         onDropdownShow: _showSelectAll,
                         onDropdownHidden: _hideSelectAll,
-                        numberDisplayed: 1,
-                        onSelectAll: function() {
-                            var CurrentSelect = $(".custom-multiselect select.active"),
-                                CurrentVals = CurrentSelect.val(),
-                                CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
-                            _myinterestForm.find('.area-interests-guid').val(CurrentVals);
-                            _myinterestForm.find('.area-interests-text').val(CurrentTxt);
-                            IsAllSelected = true;
-                        }
+                        numberDisplayed: 1
                     });
-                    var placeHolderText = $(this).attr('placeHolder');
+                    var placeHolderText = $(this).parents('.form-group').find('.sector-placeholder-text').text();
                     $(this).next().find('button.multiselect>.multiselect-selected-text').html(placeHolderText)
                     var mutiselectContainer = $(this).next().find('.multiselect-container');
                     if (!mutiselectContainer) {
                         var newMultiselectContainer = $(this).parent().find('.multiselect-container').detach();
                         $(this).next().append(newMultiselectContainer);
                     }
-                    var selectAllDiv = $('<div class="select-all-bottom"><a class="multiselect-all" href="#">Select all</a></div>');
+                    var selectAllDiv = $('<div class="select-all-bottom"><a class="multiselect-all" data-selectall="false" href="#">Select all</a></div>');
                     $(this).next().append(selectAllDiv);
                 }
             });
@@ -2188,49 +2189,73 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 _yourinterestitem.splice($.inArray(option.text(), _yourinterestitem), 1);
                 _yourinterestguid.splice($.inArray(option.val(), _yourinterestguid), 1);
             }
+            _yourinterestguid = $.unique(_yourinterestguid);
+            _yourinterestitem = $.unique(_yourinterestitem);
             _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
             _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
         }
 
     }
     _SelectAll = function() {
-        var Element = $(".select-all-bottom a"),
-            IsAllSelected = false;
-        if (Element) {
-            Element.on("click", function(e) {
+        var Element = $(".select-all-bottom a");
+        if (Element.length > 0 ) {
+          $.each(Element, function(){
+            $(this).on("click", function(e) {
+                _isAllSelected = $(this).attr('data-selectall');
                 e.preventDefault();
-                if (!IsAllSelected) {
+                if (_isAllSelected == 'false') {
                     var CurrentSelect = $(this).parents('.form-group').find("select");
                     CurrentSelect.multiselect("selectAll", true);
                     var CurrentVals = CurrentSelect.val();
                     var CurrentTxt = CurrentSelect.find('option').map(function() {
                         return $(this).text();
                     }).get();
-
-                    //  CurrentTxt = CurrentSelect.parent().find(".dropdown-toggle").attr("title");
-
-                    _yourinterestitem.push(CurrentTxt);
-                    _yourinterestguid.push(CurrentVals);
-
+                    $.each(CurrentTxt,function(index, value){
+                      if ($.inArray(value, _yourinterestitem)==-1){
+                        _yourinterestitem.push(value);
+                      }
+                    });
+                    $.each(CurrentVals,function(index, value){
+                        if ($.inArray(value, _yourinterestguid)==-1){
+                          _yourinterestguid.push(value);
+                        }
+                    });
+                    _yourinterestguid = $.unique(_yourinterestguid);
+                    _yourinterestitem = $.unique(_yourinterestitem);
+                    _myinterestForm.find('.area-interests-guid').val('');
                     _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
+                    _myinterestForm.find('.area-interests-text').val('');
                     _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
-                    IsAllSelected = true;
+                    $(this).attr('data-selectall', 'true');
+                  //  _isAllSelected = true;
                 } else {
                     var CurrentSelect = $(this).parents('.form-group').find("select");
                     CurrentSelect.multiselect("deselectAll", false);
-                    var CurrentVals = CurrentSelect.val();
+                    var CurrentVals = CurrentSelect.find('option').map(function() {
+                        return $(this).val();
+                    }).get();
                     var CurrentTxt = CurrentSelect.find('option').map(function() {
                         return $(this).text();
                     }).get();
-
-                    _yourinterestitem.splice($.inArray(CurrentTxt, _yourinterestitem), 1);
-                    _yourinterestguid.splice($.inArray(CurrentVals, _yourinterestguid), 1);
+                     _yourinterestitem = $.grep(_yourinterestitem, function(value) {
+                        return $.inArray(value, CurrentTxt) < 0;
+                    });
+                     _yourinterestguid = $.grep(_yourinterestguid, function(value) {
+                        return $.inArray(value, CurrentVals) < 0;
+                    });
+                    _yourinterestguid = $.unique(_yourinterestguid);
+                    _yourinterestitem = $.unique(_yourinterestitem);
+                    _myinterestForm.find('.area-interests-guid').val('');
                     _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
+                    _myinterestForm.find('.area-interests-text').val('');
                     _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
-                    IsAllSelected = false;
+                  //  _isAllSelected = false;
+                    $(this).attr('data-selectall', 'false');
                 }
                 return false;
             });
+          });
+
         }
     }
     _showProgressiveTabs = function() {
@@ -2255,14 +2280,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         });
     }
 
-    _validateMultiSelct = function() {
-        $.validator.setDefaults({
-            ignore: ":hidden:not(.chosen-select)"
-        });
-        $("form.register-myinterests-form .chosen-select").on('change', function() {
-            $(this).valid();
-        });
-    }
+    // _validateMultiSelct = function() {
+    //     $.validator.setDefaults({
+    //         ignore: ":hidden:not(.chosen-select)"
+    //     });
+    //     $("form.register-myinterests-form .chosen-select").on('change', function() {
+    //         $(this).valid();
+    //     });
+    // }
 
     _renderSingleSelect = function() {
         $("form.register-myinterests-form .chosen-select").chosen({
@@ -2285,9 +2310,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _wrapFormContainer();
             _renderAllContainers();
             _bindNumber();
-            //_renderMultiSelect();
             _renderRecommendedTips();
-            _validateMultiSelct();
+            //_validateMultiSelct();
             _showRegisterForm();
             _updateProductVertical();
             _closeMyInterestModal();
@@ -2392,18 +2416,18 @@ INFORMA.forms = (function(window, $, namespace) {
         _showFormIntro,
         _bindNumber,
         _updateProductVerticalName,
-        _validateChoosenSelect,
+        //_validateChoosenSelect,
         _destroyChosenInDevice,
         _customPhoneErrorMsg;
 
-    _validateChoosenSelect = function() {
-        $.validator.setDefaults({
-            ignore: ":hidden:not(.chosen-select)"
-        });
-        $(".chosen-select").on('change', function() {
-            $(this).valid();
-        });
-    }
+    // _validateChoosenSelect = function() {
+    //     $.validator.setDefaults({
+    //         ignore: ":hidden:not(.chosen-select)"
+    //     });
+    //     $(".wffm-form .chosen-select").on('change', function() {
+    //         $(this).valid();
+    //     });
+    // }
 
     _bindNumber = function() {
         $(document).on('keypress', 'input[type="number"]', function(e) {
@@ -2536,11 +2560,11 @@ INFORMA.forms = (function(window, $, namespace) {
                 //Checking The status and Displaying that section
 
                 if (_formSubmitStatus.attr('data-status') == 'success') {
-                    $('.submit-response').removeClass('hidden');
-                    $('.error-response').addClass('hidden');
+                    $('.submit-response').removeClass('hide');
+                    $('.error-response').addClass('hide');
                 } else {
-                    $('.error-response').removeClass('hidden');
-                    $('.submit-response').addClass('hidden');
+                    $('.error-response').removeClass('hide');
+                    $('.submit-response').addClass('hide');
                 }
 
             }
@@ -2556,11 +2580,11 @@ INFORMA.forms = (function(window, $, namespace) {
                     })
 
                     if (Status == 'success') {
-                        Parent.find('.submit-response').removeClass('hidden');
-                        Parent.find('.error-response').addClass('hidden');
+                        Parent.find('.submit-response').removeClass('hide');
+                        Parent.find('.error-response').addClass('hide');
                     } else {
-                        Parent.find('.error-response').removeClass('hidden');
-                        Parent.find('.submit-response').addClass('hidden');
+                        Parent.find('.error-response').removeClass('hide');
+                        Parent.find('.submit-response').addClass('hide');
                     }
 
                 }
@@ -2947,8 +2971,8 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _destroyChosenInDevice = function() {
         if (INFORMA.global.device.isTablet || INFORMA.global.device.isMobile) {
-            if ($('form .chosen-container').length > 0) {
-                $('form .chosen-select').chosen('destroy');
+            if ($('form.wffm-form .chosen-container').length > 0) {
+                $('form.wffm-form .chosen-select').chosen('destroy');
                 $("form.get-in-touch .form-group .chosen-select, form.request-a-demo .form-group .chosen-select, form.register-myinterests-form .form-group .chosen-select").wrap("<div class='select-wrapper'></div>");
             }
         }
@@ -2980,7 +3004,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _HideOverlay();
         _showFormIntro();
         _updateProductVerticalName();
-        _validateChoosenSelect();
+        //_validateChoosenSelect();
         _customPhoneErrorMsg();
     };
 
@@ -3233,7 +3257,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _selectDocClickEvents,
         _bindClickEvents,
         _bindNavigationEvents,
-        _cookieFixUpdate;
+        _cookieFixUpdate,
+        _PdpNavReArrange;
 
 
 
@@ -3354,10 +3379,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
-            var _pdpLinksCont = $('#pdp-navigation ul > li > a > span');
+            var _pdpLinksCont = $('#pdp-navigation ul > li > a > span').length;
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
-              if(_pdpLinksCont.length>6){
+              if(_pdpLinksCont>6){
                 $('nav#pdp-navigation').removeClass('deviceactive');
                 if($('#pdp-navigation').hasClass('navbar-fixed-top')){
                 $('body').removeClass('global-no-scroll');
@@ -3365,15 +3390,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
               }
             }else{
                 $('#pdp-sections').slideDown();
-                if(_abc.length>6){
+                if(_pdpLinksCont>6){
                 $('nav#pdp-navigation').addClass('deviceactive');
                 if($('#pdp-navigation').hasClass('navbar-fixed-top')){
                 $('body').addClass('global-no-scroll');
               }
               }
             }
-        })
-    };
+        });
+    }
 
     _initPdpMenuBarFollow = function() {
         _pdpLink = $('#pdp-navigation ul > li > a');
@@ -3772,7 +3797,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('#mobile-header-navigation').css('left', '-100%');
             $('.informaNav .nav-main').css('left', '-100%');
             $('#sub-nav').css('left', '-100%');
-            //$('html, body').removeClass('global-no-scroll'); 
+            //$('html, body').removeClass('global-no-scroll');
             $('#mobile-header-navigation .nav-image').remove();
             //$('body').css('overflow-y', 'scroll');
             //$('body').css('height', 'auto');
@@ -3807,10 +3832,34 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         }
        });
     }
+    _PdpNavReArrange = function () {
+      var _ArrayOfPdpElements = [],
+          Html = "";
+      _pdpLink.each(function () {
+          var Target = $(this).data('target'),
+              _Element = {};
+          if($('#'+Target).length > 0) {
+              _Element["Name"] = $(this).text();
+              _Element["Target"] = Target;
+              _ArrayOfPdpElements.push(_Element);
+              $('#'+Target).addClass('pdp-item-id');
+          }
+      });
+      $('.pdp-item-id').each(function() {
+          var _Id = $(this).attr("id");
+          for(var i = 0; i < _ArrayOfPdpElements.length; i++) {
+              if(_ArrayOfPdpElements[i].Target == _Id) {
+                  Html += '<li><a href="#" data-target="' +_ArrayOfPdpElements[i].Target+ '"><span>' +_ArrayOfPdpElements[i].Name+ '</span></a></li>';
+              }
+          }
+      })
+      $('#pdp-sections').find('.navbar-nav').html(Html);
+    }
     init = function() {
         //if(INFORMA.global.device.viewport!='mobile'){
         if (_pdpNavigation.length > 0) {
             _pdpsectionSubnavigationInit();
+            _PdpNavReArrange();
             _initPdpMenuBarFollow();
             _pdpNavigationScrollTo();
             _pdpSectionActions();
@@ -5478,6 +5527,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                         ClearHtml = $('<div class="clear-mobile"><a href="#" class="clear-all">'+ClearAll.html()+'</a></div>');
 
                     $("body").find(".refine-container").after(ClearHtml);
+                    
+                    // By default on mobile and tabet refine need to close
+                    AllRefineText.addClass("heading-collapsed");
+                    $("#refine-list").hide();
+
                     if(AllRefineText.hasClass("heading-collapsed")!==true){
                         ClearHtml.show();
                     };
@@ -5976,6 +6030,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (AppendItemsFlag == true) {
                     CreateSubItems(ProductResults, Button, RemainingCount);
                 }
+                
 
             } else {
                 $('.product-results').html(data);
@@ -6259,14 +6314,7 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
             _duration = container.data('slideduration'), // how long the slider will be displayed
             _infinite = true,
             _dots = Boolean(container.data('pagination'));
-            //chk for sitecore preview
-            if (INFORMA.global.siteCore.isPreview) {
-                _autoplay = true;
-            }
-            if (INFORMA.global.siteCore.isExperience) {
-                _autoplay = false;
-                _infinite = false;
-            }
+            
 
         container.slick({
             infinite: _infinite,
