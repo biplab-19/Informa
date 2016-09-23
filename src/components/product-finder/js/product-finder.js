@@ -50,6 +50,11 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     if(NavClose){
                         NavClose.trigger("click");
                     }
+                    if($(".mainNavigation").hasClass("navbar-fixed-top")===true){
+                        $('html, body').stop().animate({
+                            scrollTop: 0
+                        }, 600);
+                    }
                 }
                 
             });
