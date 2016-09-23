@@ -119,21 +119,20 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
             MaxWrapperHeight = 0,
             Padding = 20;
 
-        Items.each(function () {
-            var WrapperHeight = $(this).find('.recomend-content').height(),
-                ContentHeight = $(this).find('.content').height();
-
-            if(WrapperHeight > MaxWrapperHeight) {
-                MaxWrapperHeight = WrapperHeight;
-            }
-
-            if(ContentHeight > MaxHeight) {
-                MaxHeight = ContentHeight;
-            }
-            
-        })
-        Items.find('.content').height(MaxHeight + Padding);
-        Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
+            Items.each(function () {
+                var ContentHeight = $(this).find('.content').height();
+                if(ContentHeight > MaxHeight) {
+                    MaxHeight = ContentHeight;
+                }
+            })
+            Items.find('.content').height(MaxHeight + Padding);
+            Items.each(function(){
+                var WrapperHeight = $(this).find('.recomend-content').outerHeight();
+                if(WrapperHeight > MaxWrapperHeight) {
+                    MaxWrapperHeight = WrapperHeight;
+                }
+            })
+            Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
     }
 
     init = function () {

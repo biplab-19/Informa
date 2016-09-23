@@ -556,29 +556,24 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         },
         equalHeights = function() {
             // Select and loop the container element of the elements you want to equalise
-           //$(window).on('load', function () {
-               var Items = Article.find('.recomended-wrapper'),
+           var Items = Article.find('.recomended-wrapper'),
                 MaxHeight = 0,
-                MaxWrapperHeight = 0,
-                Padding = 20;
+                MaxWrapperHeight = 0;
 
                 Items.each(function () {
-                    var WrapperHeight = $(this).find('.recomend-content').height(),
-                        ContentHeight = $(this).find('.content').height();
-
-                    if(WrapperHeight > MaxWrapperHeight) {
-                        MaxWrapperHeight = WrapperHeight;
-                    }
-
+                    var ContentHeight = $(this).find('.content').height();
                     if(ContentHeight > MaxHeight) {
                         MaxHeight = ContentHeight;
                     }
-                    
                 })
                 Items.find('.content').height(MaxHeight);
-                Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
-          // })
-
+                Items.each(function(){
+                    var WrapperHeight = $(this).find('.recomend-content').outerHeight();
+                    if(WrapperHeight > MaxWrapperHeight) {
+                        MaxWrapperHeight = WrapperHeight;
+                    }
+                })
+                Items.find('.recomend-content').height(MaxWrapperHeight);
         },
 
         headLineEqualHeight = function () {
@@ -3326,7 +3321,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _activateMainFixedHeader = function() {
         var _windowPos = $(window).scrollTop();
 
-        if (_windowPos > _headerPos + _cookieHeight) {
+        if (_windowPos > _headerPos) {
             if (!_mainNavigation.hasClass(_fixed)) {
                 _mainNavigation.addClass(_fixed);
                 _cookieBanner.addClass(_fixed);
@@ -5009,21 +5004,20 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
             MaxWrapperHeight = 0,
             Padding = 20;
 
-        Items.each(function () {
-            var WrapperHeight = $(this).find('.recomend-content').height(),
-                ContentHeight = $(this).find('.content').height();
-
-            if(WrapperHeight > MaxWrapperHeight) {
-                MaxWrapperHeight = WrapperHeight;
-            }
-
-            if(ContentHeight > MaxHeight) {
-                MaxHeight = ContentHeight;
-            }
-            
-        })
-        Items.find('.content').height(MaxHeight + Padding);
-        Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
+            Items.each(function () {
+                var ContentHeight = $(this).find('.content').height();
+                if(ContentHeight > MaxHeight) {
+                    MaxHeight = ContentHeight;
+                }
+            })
+            Items.find('.content').height(MaxHeight);
+            Items.each(function(){
+                var WrapperHeight = $(this).find('.recomend-content').outerHeight();
+                if(WrapperHeight > MaxWrapperHeight) {
+                    MaxWrapperHeight = WrapperHeight;
+                }
+            })
+            Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
     }
 
     init = function () {

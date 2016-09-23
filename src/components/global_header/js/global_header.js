@@ -181,7 +181,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _activateMainFixedHeader = function() {
         var _windowPos = $(window).scrollTop();
 
-        if (_windowPos > _headerPos + _cookieHeight) {
+        if (_windowPos > _headerPos) {
             if (!_mainNavigation.hasClass(_fixed)) {
                 _mainNavigation.addClass(_fixed);
                 _cookieBanner.addClass(_fixed);

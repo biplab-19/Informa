@@ -103,29 +103,24 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         },
         equalHeights = function() {
             // Select and loop the container element of the elements you want to equalise
-           //$(window).on('load', function () {
-               var Items = Article.find('.recomended-wrapper'),
+           var Items = Article.find('.recomended-wrapper'),
                 MaxHeight = 0,
-                MaxWrapperHeight = 0,
-                Padding = 20;
+                MaxWrapperHeight = 0;
 
                 Items.each(function () {
-                    var WrapperHeight = $(this).find('.recomend-content').height(),
-                        ContentHeight = $(this).find('.content').height();
-
-                    if(WrapperHeight > MaxWrapperHeight) {
-                        MaxWrapperHeight = WrapperHeight;
-                    }
-
+                    var ContentHeight = $(this).find('.content').height();
                     if(ContentHeight > MaxHeight) {
                         MaxHeight = ContentHeight;
                     }
-                    
                 })
                 Items.find('.content').height(MaxHeight);
-                Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
-          // })
-
+                Items.each(function(){
+                    var WrapperHeight = $(this).find('.recomend-content').outerHeight();
+                    if(WrapperHeight > MaxWrapperHeight) {
+                        MaxWrapperHeight = WrapperHeight;
+                    }
+                })
+                Items.find('.recomend-content').height(MaxWrapperHeight);
         },
 
         headLineEqualHeight = function () {
