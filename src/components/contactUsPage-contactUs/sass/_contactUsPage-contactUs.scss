@@ -113,6 +113,12 @@
               font-size: 24px;
               font-family: Fsme-light;
               margin-bottom: 20px;
+              @include tablet {
+                font-size: 22px;
+              }
+              @include mobile {
+                font-size: 22px;
+              }
             }
         }
     }
