@@ -207,7 +207,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         });
         $(window).on("resize", function() {
             equalHeights();
-            headLineEqualHeight();
+            //headLineEqualHeight();
         });
 
     };

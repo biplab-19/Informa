@@ -660,7 +660,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         });
         $(window).on("resize", function() {
             equalHeights();
-            headLineEqualHeight();
+            //headLineEqualHeight();
         });
 
     };
@@ -5491,8 +5491,28 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
             ShowMoreLinks.on("click", function(e) {
                 e.preventDefault();
-                $(this).parent().find("ul li").removeClass("hidden");
-                $(this).removeClass("show");
+                if($(this).hasClass("SeeLess")!==true){
+                    var text = $(this).data("lesstext");
+                    $(this).parent().find("ul li").removeClass("hidden");
+                    $(this).addClass("SeeLess");
+                    $(this).text(text);
+                }else{
+                    var text = $(this).data("moretext"),
+                        defaultCount = $(this).parent().data('defaultcount'),
+                        listItem = $(this).parent().find("li");
+                        $(this).removeClass("SeeLess");
+                        $(this).text(text);
+                        listItem.addClass("hidden");
+                        
+                    $.each(listItem, function(i){
+                        var Index=i+1;
+                        console.log($(this));
+                        if(Index<=defaultCount){
+                            $(this).removeClass("hidden");
+                        }
+                    });
+                }
+
             });
             ClearAllLinkBinding(ClearAllLink);
         },
@@ -5547,7 +5567,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 }
                 SelectAllCheckBox();
                 BindRefineEvents();
-                var ClearMobileLink = $("body").find(".refine-container clear-mobile a");
+                var ClearMobileLink = $("body").find(".clear-mobile a");
                 if(ClearMobileLink){
                     ClearAllLinkBinding(ClearMobileLink);
                 }
@@ -6073,7 +6093,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     SetSearchState(SearchVal);
                 }
                 if (SearchText) {
-                    $('li.search').trigger('click');
+                    $('.search:visible').trigger('click');
                 }
             }
             if (ShowMoreLink && IsProductPage) {

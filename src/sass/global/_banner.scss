@@ -123,6 +123,9 @@
     overflow: hidden;
     height: 330px;
     clear: both;
+    h1 {
+        margin-bottom: 10px;
+    }
     @include tablet {
         height: 230px;
     }
@@ -180,6 +183,15 @@
         background-color: $grey-color03;
         color: $white;
         padding:0 0 35px;
+        .content {
+            width: 60%;
+            @include mobile {
+                width: 80%;
+            }
+            h1 {
+                margin-bottom: 10px;
+            }
+        }
     }
     &.dark-banner-subscribe {
         background-color: $grey-color03;
@@ -539,10 +551,12 @@
 	    	h2{
 	    		margin-top: 0;
 	    		margin-bottom: 0;
+                color: $white;
 	    	}
 	    	h3{
 	    		margin-top: 40px;
                 font-family: 'FSMe-Bold';
+                color: $white;
                 @include mobile {
                     margin-top: 15px;
                 }
