@@ -1,4 +1,4 @@
-/*! 2016-09-23 */
+/*! 2016-09-24 */
 /*
  * welcome-description
  *
@@ -4458,6 +4458,11 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     ProductFinderSection.slideDown("slow");
                     if(NavClose){
                         NavClose.trigger("click");
+                    }
+                    if($(".mainNavigation").hasClass("navbar-fixed-top")===true){
+                        $('html, body').stop().animate({
+                            scrollTop: 0
+                        }, 600);
                     }
                 }
                 
