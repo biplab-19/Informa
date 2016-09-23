@@ -1,4 +1,4 @@
-/*! 2016-09-23 */var INFORMA = window.INFORMA || {};
+/*! 2016-09-24 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4553,7 +4553,9 @@ var INFORMA = window.INFORMA || {};
                         '</div>'+
                     '</div>',
                 'SearchTemplate': '<div class="product-results" data-pagesize="{{results.DefaultItemCount}}">'+
+                                        '{{#if results.ProductTitle}}'+
                                        '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
+                                       '{{/if}}'+
                                         '<div class="row list">'+
                                             '{{{results.Content}}}'+
                                         '</div>'+
@@ -4616,7 +4618,7 @@ var INFORMA = window.INFORMA || {};
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
                                                                             '<li>'+
-                                                                                '<a href="{{results.EmailAddressLink.Url}}" target="_blank" class="icon-email"></a>'+
+                                                                                '<a class="addthis_button_email"></a>'+
                                                                             '</li>'+
                                                                         '{{/if}}'+
                                                                     '</ul>'+
