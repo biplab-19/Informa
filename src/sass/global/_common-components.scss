@@ -8,6 +8,7 @@
 .video-wrap {
 	position: relative;
 	display: inline-block;
+
 	.play-icon {
 		position: absolute;
 		width: 54px;
@@ -19,6 +20,7 @@
 		margin-left: -27px;
 	}
 }
+
 .at-icon-wrapper {
 	background-color: transparent !important;
 }
@@ -36,6 +38,7 @@
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
 }
+
 .video-mini-modal.modal.fade.in .modal-dialog {
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
@@ -45,6 +48,7 @@
 	transform: translate3d(0, -300px, 0);
 	opacity: 1;
 }
+
 .video-mini-modal {
 	.modal-dialog {
 		width: 60%;
@@ -56,6 +60,7 @@
 			width: 100%;
 		}
 	}
+
 	.modal-content {
 		border-radius: 0;
 		background-color: $grey-color03;
@@ -68,8 +73,10 @@
 			margin-top: 10%;
 		}
 	}
+
 	.modal-header {
 		border-bottom: 0;
+
 		.close {
 			color: $white;
 			opacity: 2;
@@ -86,37 +93,44 @@
 		transform: rotate(0deg);
 		transition: transform 0.3s;
 		overflow: hidden;
+
 		&.flip {
 			.front {
 				transform: perspective( 800px ) rotateY( -180deg );
 			}
+
 			.back {
 				transform: perspective( 800px ) rotateY( 0deg );
 			}
 		}
+
 		.triangle {
-			position:absolute;
-			background:$white;
+			position: absolute;
+			background: $white;
 			width: 25px;
 			height: 25px;
-			top:0px;
-			z-index:1;
+			top: 0;
+			z-index: 1;
 			cursor: pointer;
-			.icon-arrow-right{
+
+			.icon-arrow-right {
 				color: $white;
-			    display: block;
-			    font-size: 10px;
-			    transform: rotate(-143deg);
-			    position:absolute;
+				display: block;
+				font-size: 10px;
+				transform: rotate(-143deg);
+				position: absolute;
 			}
 		}
+
 		.header {
 			position: relative;
 			overflow: hidden;
 			max-height: 140px;
+
 			img {
 				width: 100%;
 			}
+
 			&:after {
 				content: "";
 				position: absolute;
@@ -128,13 +142,15 @@
 				left: 0;
 			}
 		}
-		.tag{
-			padding:3px 8px;
+
+		.tag {
+			padding: 3px 8px;
 			background-color: #434854;
 			color: $white;
-			margin:0 3px 20px;
+			margin: 0 3px 20px;
 			display: inline-block;
 		}
+
 		.front {
 			background-color: #343742;
 			height: 100%;
@@ -144,38 +160,47 @@
 			backface-visibility: hidden;
 			transition: transform 0.2s linear 0s;
 			position: relative;
+
 			.triangle {
 				border-bottom: 50px solid #a6aab6;
 				border-left: 50px solid transparent;
-				.icon-arrow-right{
-				    left: -21px;
-				    top: 29px;
+
+				.icon-arrow-right {
+					left: -21px;
+					top: 29px;
 				}
 			}
+
 			.content {
 				min-height: 100px;
-				padding:20px;
+				padding: 20px;
 				height: 55%;
-				.tag{
-					background-color:#6a7184;
+
+				.tag {
+					background-color: #6a7184;
 					color: $white;
 					display: inline-block;
 				}
-				a{
+
+				a {
 					text-decoration: none;
-					color:$white;
-				}
-				h2{
 					color: $white;
 				}
+
+				h2 {
+					color: $white;
+				}
+
 				ul {
 					list-style-type: none;
-					padding-left:20px;
+					padding-left: 20px;
+
 					li {
 						padding: 10px;
 						position: relative;
 						font-size: 16px;
-						color:$white;
+						color: $white;
+
 						&:before {
 							content: "\e914";
 							font-family: "InformaIcons";
@@ -188,6 +213,7 @@
 					}
 				}
 			}
+
 			.footer {
 				-ms-transform: rotate(-3deg);
 				-webkit-transform: rotate(-3deg);
@@ -200,6 +226,7 @@
 				left: -1px;
 				height: 90px;
 				bottom: -5px;
+
 				.footer-content {
 					-ms-transform: rotate(3deg);
 					/* IE 9 */
@@ -207,25 +234,29 @@
 					/* Chrome, Safari, Opera */
 					transform: rotate(3deg);
 					background-color: #434854;
-					    padding: 0 0 10px 0;
+					padding: 0 0 10px;
+
 					.btn {
 						width: 100%;
 						display: block;
 						color: $white;
+
 						&.free-trial {
 							border-color: $orange;
+
 							&:after {
 								color: $orange;
 							}
 						}
+
 						&.more {
 							border-color: $orange;
 						}
 					}
 				}
 			}
-
 		}
+
 		.back {
 			background-color: #f0f1f3;
 			height: 100%;
@@ -238,45 +269,54 @@
 			width: 100%;
 			top: 0;
 			overflow: hidden;
+
 			.triangle {
-				background:$white;
+				background: $white;
 				border-top: 50px solid $orange;
 				border-right: 50px solid transparent;
-				top:auto;
-				bottom:0;
+				top: auto;
+				bottom: 0;
 				right: 0;
-				.icon-arrow-right{
+
+				.icon-arrow-right {
 					bottom: 30px;
-    				left: 10px;
-    				top: auto;
-    				transform: rotate(41deg);
+					left: 10px;
+					top: auto;
+					transform: rotate(41deg);
 				}
 			}
+
 			.header {
 				&:after {
 					background-color: #f0f1f3;
 				}
 			}
+
 			.content {
 				min-height: 100px;
-				padding:20px;
-				a{
+				padding: 20px;
+
+				a {
 					text-decoration: none;
-					color:#6a7285;
+					color: #6a7285;
 				}
-				h2{
-					color:#6a7285;
+
+				h2 {
+					color: #6a7285;
 				}
+
 				p {
 					padding-right: 20px;
 				}
 			}
+
 			.footer {
 				padding-top: 5%;
 				position: absolute;
 				overflow: hidden;
 				bottom: 0;
 				width: 100%;
+
 				&:before {
 					content: "";
 					position: absolute;
@@ -288,14 +328,15 @@
 					left: 0;
 				}
 			}
-
 		}
 	}
 }
+
 .search-container {
 	.btn-container {
 		margin: 20px 0 0;
 		text-align: center;
+
 		.btn-ShowMore,
 		.open-tab {
 			color: #444957;
@@ -307,11 +348,13 @@
 			@include mobile {
 				padding: 20px 0 40px;
 			}
+
 			span {
 				float: left;
 				@include mobile {
 					float: none;
 				}
+
 				&:before {
 					content: "\e912";
 					position: absolute;
@@ -326,28 +369,34 @@
 						top: 35px;
 					}
 				}
+
 				&.less {
 					&:before {
 						content: "\e913";
 					}
 				}
 			}
+
 			&:focus,
 			&:hover {
 				text-decoration: none;
 			}
 		}
 	}
+
 	.more {
 		display: block;
 	}
+
 	.less {
 		display: none;
 	}
+
 	&.all-shown {
 		.more {
 			display: none;
 		}
+
 		.less {
 			display: block;
 		}
@@ -362,14 +411,20 @@
 .img-fit {
 	max-width: 100%;
 }
-
 /* ===============================================
 Turn Off Number Input Spinners
 ==================================================
 */
-
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
+}
+/* ===============================================
+Fix boostrap modal is shifting fixed navbar
+==================================================
+*/
+body.modal-open {
+	overflow-y: auto !important;
+	padding-right: 0 !important;
 }
