@@ -607,9 +607,7 @@ var INFORMA = window.INFORMA || {};
                         '</div>'+
                     '</div>',
                 'SearchTemplate': '<div class="product-results" data-pagesize="{{results.DefaultItemCount}}">'+
-                                        '{{#if results.ProductTitle}}'+
                                        '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
-                                       '{{/if}}'+
                                         '<div class="row list">'+
                                             '{{{results.Content}}}'+
                                         '</div>'+
@@ -672,7 +670,7 @@ var INFORMA = window.INFORMA || {};
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
                                                                             '<li>'+
-                                                                                '<a class="addthis_button_email"></a>'+
+                                                                                '<a href="{{results.EmailAddressLink.Url}}" target="_blank" class="icon-email"></a>'+
                                                                             '</li>'+
                                                                         '{{/if}}'+
                                                                     '</ul>'+

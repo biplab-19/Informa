@@ -1,4 +1,4 @@
-/*! 2016-09-24 */
+/*! 2016-09-23 */
 /*
  * welcome-description
  *
@@ -4459,11 +4459,6 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     if(NavClose){
                         NavClose.trigger("click");
                     }
-                    if($(".mainNavigation").hasClass("navbar-fixed-top")===true){
-                        $('html, body').stop().animate({
-                            scrollTop: 0
-                        }, 600);
-                    }
                 }
                 
             });
@@ -6052,7 +6047,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     CreateSubItems(ProductResults, Button, RemainingCount);
                 }
                 
-                addthis.toolbox('.product-results');
+
             } else {
                 $('.product-results').html(data);
             }

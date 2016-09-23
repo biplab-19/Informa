@@ -6052,7 +6052,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     CreateSubItems(ProductResults, Button, RemainingCount);
                 }
                 
-                addthis.toolbox('.product-results');
+
             } else {
                 $('.product-results').html(data);
             }
