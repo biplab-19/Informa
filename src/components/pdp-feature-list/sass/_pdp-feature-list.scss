@@ -50,8 +50,8 @@ section.feature-list-section {
         padding: 0 15px 15px 15px;
         //@include limitHeight(257px); // 1 headlne, 4 copy text
         .feature-image {
-            width: 80px;
-            height: auto;
+            width: 100px;
+            height: 100px;
             margin: 0 auto;
             img {
                 width: 100%;
@@ -59,9 +59,11 @@ section.feature-list-section {
             }
             @include tablet {
                 width: 80px;
+                height: 80px;
             }
             @include mobile {
                 width: 60px;
+                height: 60px;
             }
         }
         .feature-image,
