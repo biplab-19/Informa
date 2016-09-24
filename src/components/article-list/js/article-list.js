@@ -136,7 +136,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 maxHeight = 0,
                 Padding = 40;
                 items.each(function () {
-                    var Height = $(this).height();
+                    var Height = $(this).outerHeight();
                     if(Height > maxHeight) {
                         maxHeight = Height + Padding;
                     }

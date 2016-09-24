@@ -65,6 +65,9 @@
                 font-size: $font-size-h4;
                 font-family: FSMe-Bold;
                 color:$grey-color05;
+                @include mobile {
+                    padding-bottom: 15px;
+                }
             }
             .link {
                 margin-top: 10px;
