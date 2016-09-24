@@ -683,7 +683,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       });
     }
     _selectDocClickEvents=function(){
-      $(document).on('click',function(event) {
+      $(document).on('touchstart',function(event) {
         if(event.target.class != 'selectMenu' && !$('.selectMenu').find(event.target).length){
            $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
         }

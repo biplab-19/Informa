@@ -77,7 +77,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
 
         for (var key in results) {
             if (results.hasOwnProperty(key)) {
-                
+
                 var Data = results[key],
                     HeaderText = key,
                     TemplateName = (Templates.AnalystTemplate !== "undefined") ? Templates.AnalystTemplate : "",
@@ -114,6 +114,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 submitBtn.addClass('disabled');
             } else {
                 submitBtn.removeClass('disabled');
+                resetBtn.show();
             }
 
             if (_value == "default") {
@@ -140,6 +141,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             }
             var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
             GetAjaxData(Urls.AnalystSearch, "Post", GetSerializeData, RenderSearchResult, null, null);
+            $(this).hide();
         })
 
         resetBtn.on('click', function (e) {
@@ -153,6 +155,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             Sector.prop('selectedIndex',0).trigger('chosen:updated').trigger('change');
             //$('select[name="SubSector"]').prop('selectedIndex',0);
             GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
+            $(this).hide();
         })
     }
 
