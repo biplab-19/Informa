@@ -5494,6 +5494,13 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 DoRefine();
             });
 
+            RefineCheckBoxes.on("focus",function(){
+                $(this).parents('li').eq(0).addClass("active");
+            });
+            RefineCheckBoxes.on("focusout",function(){
+                $(this).parents('li').eq(0).removeClass("active");
+            });
+
             ShowMoreLinks.on("click", function(e) {
                 e.preventDefault();
                 if($(this).hasClass("SeeLess")!==true){
