@@ -112,7 +112,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _selectDocClickEvents,
         _bindClickEvents,
         _bindNavigationEvents,
-        _cookieFixUpdate,
+        _cookieBannerExist,
         _PdpNavReArrange;
 
 
@@ -149,17 +149,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _headerPosMobile = _mobileNavigation.offset().top;
     }
 
-    //To stick the cookie policy when scroll the page
-     _cookieFixUpdate = function(){
-        var _windowPos = $(window).scrollTop();
-        if(!INFORMA.global.device.isDesktop){
-            if (_windowPos > _cookieHeight) {
-                _cookieBanner.addClass(_fixed);
-            } else {
-                _cookieBanner.removeClass(_fixed);
-            }
+    //Check whether cookie banner exists or not
+   _cookieBannerExist = function(){
+        if($('#cookieBanner:visible').length){
+             _cookieHeight =  $('#cookieBanner').outerHeight();
+        }else{
+              _cookieHeight =  0;
         }
-    }
+   }
     // both pdp nav and main nav handled here
 
     _whenScrolling = function() {
@@ -173,22 +170,17 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _activatePdpFixedHeader();
             if (_servicesNavigation.length > 0 && _servicesMenuActive)
                 _activateServicesFixedHeader();
-            if ($('#cookieBanner:visible').length > 0)
-                _cookieFixUpdate();
         });
     };
 
     _activateMainFixedHeader = function() {
         var _windowPos = $(window).scrollTop();
-
-        if (_windowPos > _headerPos) {
+        _cookieBannerExist();
+        if (_windowPos > _headerPos + _cookieHeight) {
             if (!_mainNavigation.hasClass(_fixed)) {
                 _mainNavigation.addClass(_fixed);
                 _cookieBanner.addClass(_fixed);
-                if($('#cookieBanner:visible').length > 0){
-                    _mainNavigation.css('top', _cookieHeight + 'px');
-                }
-                //$(".informaNav .hide-stick").fadeOut("3000", "linear");
+                _mainNavigation.css('top', _cookieHeight);
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
                 $('body').css('padding-top', _navHeight);
             }
@@ -196,10 +188,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             if (_mainNavigation.hasClass(_fixed)) {
                 _mainNavigation.removeClass(_fixed);
                 _cookieBanner.removeClass(_fixed);
-                if($('#cookieBanner:visible').length > 0){
-                    _mainNavigation.css('top', 0);
-                }
-                //$(".informaNav .hide-stick").fadeIn("3000", "linear");
+                _mainNavigation.css('top', 0);
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
                 $('body').css('padding-top', 0);
             }
@@ -208,27 +197,24 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     _activateMobileFixedHeader = function() {
         var _windowPosMobile = $(window).scrollTop();
-
+        _cookieBannerExist();
         if (_windowPosMobile > _headerPosMobile + _cookieHeight) {
             _mobileNavigation.addClass(_fixed);
-            if($('#cookieBanner:visible').length > 0){
-                _mobileNavigation.css('top', _cookieHeight + 'px');
-            }
+            _cookieBanner.addClass(_fixed);
+            _mobileNavigation.css('top', _cookieHeight);
             $('body').css('padding-top', _navHeightMobile);
             _mobileHeaderNavigation.css({
                 'z-index': '2000'
             });
         } else {
             _mobileNavigation.removeClass(_fixed);
-            if($('#cookieBanner:visible').length > 0){
-                _mobileNavigation.css('top', 0);
-            }
+            _cookieBanner.removeClass(_fixed);
+            _mobileNavigation.css('top', 0);
             $('body').css('padding-top', 0);
             _mobileHeaderNavigation.css({
                 'z-index': '2'
             });
         }
-
     };
 
     _pdpSectionActions = function(){
