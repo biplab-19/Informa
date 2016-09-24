@@ -9,13 +9,16 @@ section.feature-list-section {
         text-align: center;
         margin: 5px 0 20px 0;
     }
-    h5 {
+    .feature-list-col p{
         padding: 0;
         margin-bottom: 25px;
         color: $grey-color04;
         @include tablet {
             margin-bottom: 20px;
         }
+        @include family-style(FSMe-Light ,$grey-color05 );
+        @include heading-font-size(18px,16px,16px);
+        @include heading-line-height(26px,24px,24px);
     }
     @include mobile {
         padding: 5px 0 25px;
