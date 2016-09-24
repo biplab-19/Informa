@@ -141,7 +141,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             }
             var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
             GetAjaxData(Urls.AnalystSearch, "Post", GetSerializeData, RenderSearchResult, null, null);
-            $(this).hide();
+            resetBtn.hide();
         })
 
         resetBtn.on('click', function (e) {

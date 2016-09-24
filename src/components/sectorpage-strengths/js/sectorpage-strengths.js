@@ -19,7 +19,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         _elements = 0,
     // methods
         init,
-        _bindShowMore,
+        _bindShowMore,_bindShowLess,
         _adjustHeigt, _checkElemnt , equalHeight;
 
 
@@ -53,9 +53,8 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.view-all-sectors-btn');
         _showMore.on('click',function(){
-              $('.sectorpage-strengths .container > .row + .row >.marg1:nth-child(n+'+ (_elements + 1) +')').toggle();
+              $('.sectorpage-strengths .container > .row + .row >.marg1:nth-child(n+'+ (_elements + 1) +')').slideToggle();
               $(this).parents('.sectorpage-strengths').toggleClass('showLess');
-
         });
     }
 
@@ -82,11 +81,19 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
             Description.css('height', _descHeight );
         })
     }
-
+    _bindShowLess = function () {
+      var _showLess = $('.view-all-sectors-btn.less');
+      _showLess.on('click',function(){
+          $('html, body').animate({
+              scrollTop: _sectorPageStrengths.offset().top
+          }, 1000);
+      });
+    }
     init = function() {
         if (_sectorPageStrengths.length > 0) {
             _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
+            _bindShowLess();
             equalHeight();
         }
     };
