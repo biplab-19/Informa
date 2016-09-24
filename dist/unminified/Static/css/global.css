@@ -7285,6 +7285,7 @@ button.close {
 .slick-slider {
   position: relative;
   display: block;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -7297,7 +7298,7 @@ button.close {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* line 17, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 18, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list {
   position: relative;
   overflow: hidden;
@@ -7305,17 +7306,17 @@ button.close {
   margin: 0;
   padding: 0;
 }
-/* line 24, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 25, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list:focus {
   outline: none;
 }
-/* line 28, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 29, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-list.dragging {
   cursor: pointer;
   cursor: hand;
 }
 
-/* line 33, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 34, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slider .slick-track,
 .slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
@@ -7325,66 +7326,66 @@ button.close {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 42, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 43, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track {
   position: relative;
   left: 0;
   top: 0;
   display: block;
 }
-/* line 48, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 49, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:before, .slick-track:after {
   content: "";
   display: table;
 }
-/* line 54, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 55, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-track:after {
   clear: both;
 }
-/* line 58, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 59, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-track {
   visibility: hidden;
 }
 
-/* line 62, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 63, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide {
   float: left;
   height: 100%;
   min-height: 1px;
   display: none;
 }
-/* line 66, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 67, ../../../bower_components/slick-carousel/slick/slick.scss */
 [dir="rtl"] .slick-slide {
   float: right;
 }
-/* line 69, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 70, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide img {
   display: block;
 }
-/* line 72, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 73, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.slick-loading img {
   display: none;
 }
-/* line 78, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 79, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-slide.dragging img {
   pointer-events: none;
 }
-/* line 82, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 83, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-initialized .slick-slide {
   display: block;
 }
-/* line 86, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 87, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-loading .slick-slide {
   visibility: hidden;
 }
-/* line 90, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 91, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-vertical .slick-slide {
   display: block;
   height: auto;
   border: 1px solid transparent;
 }
 
-/* line 96, ../../../bower_components/slick-carousel/slick/slick.scss */
+/* line 97, ../../../bower_components/slick-carousel/slick/slick.scss */
 .slick-arrow.slick-hidden {
   display: none;
 }
@@ -11816,6 +11817,25 @@ body.modal-open {
   padding-right: 0 !important;
 }
 
+/* ===============================================
+Fix form input zoom in mobile
+==================================================
+*/
+@media (max-width: 767px) {
+  /* line 439, ../../../src/sass/global/_common-components.scss */
+  form.wffm-form input[type="text"]:focus,
+  form.wffm-form input[type="email"]:focus,
+  form.wffm-form input[type="number"]:focus,
+  form.wffm-form textarea:focus, form.wffm-form select:focus {
+    font-size: 16px !important;
+  }
+  /* line 445, ../../../src/sass/global/_common-components.scss */
+  form.wffm-form input[type="text"], form.wffm-form input[type="email"],
+  form.wffm-form input[type="number"],
+  form.wffm-form textarea, form.wffm-form select {
+    font-size: 16px !important;
+  }
+}
 /* line 1, ../../../src/sass/global/_banner.scss */
 .hero-banner {
   height: 450px;

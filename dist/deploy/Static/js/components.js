@@ -2613,7 +2613,7 @@ INFORMA.forms = (function(window, $, namespace) {
     _bindToolTip = function() {
         $('form.get-in-touch legend, form.request-a-demo legend').on("click", function(e) {
             $(this).toggleClass('active');
-            $(this).parent().children('p').slideToggle();
+            $(this).parent().children('p').toggleClass('show');
         });
 
         $('form.get-in-touch legend, form.request-a-demo legend').each(function() {
@@ -2974,7 +2974,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _destroyChosenInDevice = function() {
         if (INFORMA.global.device.isTablet || INFORMA.global.device.isMobile) {
-            if ($('form.wffm-form .chosen-container').length > 0) {
+            if ($('form.wffm-form .chosen-select').length > 0) {
                 $('form.wffm-form .chosen-select').chosen('destroy');
                 $("form.get-in-touch .form-group .chosen-select, form.request-a-demo .form-group .chosen-select, form.register-myinterests-form .form-group .chosen-select").wrap("<div class='select-wrapper'></div>");
             }
