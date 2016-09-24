@@ -188,7 +188,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 if($('#cookieBanner:visible').length > 0){
                     _mainNavigation.css('top', _cookieHeight + 'px');
                 }
-                $(".informaNav .hide-stick").fadeOut("3000", "linear");
+                //$(".informaNav .hide-stick").fadeOut("3000", "linear");
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
                 $('body').css('padding-top', _navHeight);
             }
@@ -199,7 +199,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 if($('#cookieBanner:visible').length > 0){
                     _mainNavigation.css('top', 0);
                 }
-                $(".informaNav .hide-stick").fadeIn("3000", "linear");
+                //$(".informaNav .hide-stick").fadeIn("3000", "linear");
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
                 $('body').css('padding-top', 0);
             }
