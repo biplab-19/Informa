@@ -165,6 +165,14 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 e.preventDefault();
                 ShowHideSearch($(this));
             });
+            jQuery(".search-options input[type=radio]").on('focus', function(e) {
+                e.preventDefault();
+                $(this).parent().addClass("active");
+            });
+            jQuery(".search-options input[type=radio]").on('focusout', function(e) {
+                e.preventDefault();
+               	$(this).parent().removeClass("active");
+            });
             var CheckedOption = jQuery(".search-options input[type=radio]:checked");
             if (typeof CheckedOption === "object") {
                 ShowHideSearch(CheckedOption);

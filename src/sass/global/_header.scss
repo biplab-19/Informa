@@ -736,6 +736,9 @@ header {
                         @include mobile {
                             font-size: 1em;
                         }
+                        &.active{
+                            border:1px dotted $white;
+                        }
                     }
                 }
                 &:last-child {
@@ -864,6 +867,9 @@ header {
                         .caret:before{
                             font: 400 16px 'InformaIcons';
                         }
+                        &:focus{
+                            outline: 1px dotted $grey-color04;
+                        }
                     }
                     .dropdown-menu{
                         padding: 0;
@@ -894,6 +900,9 @@ header {
                     }
                     a {
                         color: $text-gray;
+                        &:focus{
+                            outline: 1px dotted $grey-color04;
+                        }
                     }
                 }
             }
