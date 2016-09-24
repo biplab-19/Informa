@@ -84,9 +84,11 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
     _bindShowLess = function () {
       var _showLess = $('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
+        setTimeout(function () {
           $('html, body').animate({
-              scrollTop: _sectorPageStrengths.offset().top
-          }, 1000);
+              scrollTop: _sectorPageStrengths.offset().top - 50
+          },700);
+        }, 500);
       });
     }
     init = function() {
