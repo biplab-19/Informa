@@ -22,9 +22,6 @@
 		font-size: 40px;
 	}
 	.analyst-list-container {
-		&:nth-child(n+4) {
-			display: none;
-		}
 		@include mobile {
 			&:nth-child(n+2) {
 				display: none;
