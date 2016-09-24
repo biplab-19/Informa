@@ -176,6 +176,7 @@
     font-family: 'FSMe-Bold';
     font-size:30px
     font-weight: 400;
+    color: #fff;
 }
 
 
@@ -184,6 +185,7 @@
 .marketing-banner .row .content h3 {
     margin-top: 40px;
     font-family: 'FSMe-Bold';
+    color: #fff;
 }
 
 @media (max-width: 767px) {
@@ -307,9 +309,13 @@
     display: block;
 }
 
-
+.marketing-banner.Variation2 .Variant2-description p{
+    color: #fff;
+}
 /* line 461, ../fonts/../fonts/../fonts/src/sass/global/_banner.scss */
-
+.marketing-banner.Variation2 .Variant2-description .btn {
+    background: #d14a7f;
+}
 .marketing-banner.Variation2 .Variant1-description {
     display: none;
 }
