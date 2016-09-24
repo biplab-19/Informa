@@ -8,7 +8,7 @@
     background: $white;
     .call-image-pos {
         color: $grey-color05;
-        padding-bottom: 25px;
+        padding-bottom: 50px;
         margin: 0;
         position: relative;
         padding-left: 40px;
@@ -105,12 +105,19 @@
             color: $grey-color04;
             font-size: 16px;
             padding-right: 10px;
+            line-height: 24px;
             text-align: left;
             @include mobile {
                 padding-right: 10px;
             }
         }
         p {
+            &:first-child {
+              font-size: 16px;
+              line-height: 24px;
+              font-family: Fsme-bold;
+              color: $grey-color04;
+            }
             margin-top: 20px;
             font-family: Fsme-bold;
             span.contact-number {
