@@ -11817,6 +11817,25 @@ body.modal-open {
   padding-right: 0 !important;
 }
 
+/* ===============================================
+Fix form input zoom in mobile
+==================================================
+*/
+@media (max-width: 767px) {
+  /* line 439, ../../../src/sass/global/_common-components.scss */
+  form.wffm-form input[type="text"]:focus,
+  form.wffm-form input[type="email"]:focus,
+  form.wffm-form input[type="number"]:focus,
+  form.wffm-form textarea:focus, form.wffm-form select:focus {
+    font-size: 16px !important;
+  }
+  /* line 445, ../../../src/sass/global/_common-components.scss */
+  form.wffm-form input[type="text"], form.wffm-form input[type="email"],
+  form.wffm-form input[type="number"],
+  form.wffm-form textarea, form.wffm-form select {
+    font-size: 16px !important;
+  }
+}
 /* line 1, ../../../src/sass/global/_banner.scss */
 .hero-banner {
   height: 450px;
