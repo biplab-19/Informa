@@ -119,6 +119,9 @@
                         list-style-type: none;
                         margin-bottom: 10px;
                         display: block;
+                        &.active{
+                            border:1px dotted $grey-color04;
+                        }
                         label {
                             color: $grey-color04;
                             font-size: 12px;
