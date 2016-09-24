@@ -381,9 +381,9 @@ var INFORMA = window.INFORMA || {};
                                     '</div>' +
                                 '</div>',
     'EventpageListviewTemplate':'<div class="header clearfix">'+
-                                  '<a href="javascript:void(0)" class="arrows previous"></a>'+
+                                  '<a href="javascript:void(0)" class="arrows previous">Previous Arrow</a>'+
                                   '<h2>{{results.Month}}</h2>'+
-                                  '<a href="javascript:void(0)" class="arrows next"></a>'+
+                                  '<a href="javascript:void(0)" class="arrows next">Next Arrow</a>'+
                                 '</div>'+
                                 '<div class="events-container row">'+
                                         '{{#each results.ModelItem}}'+

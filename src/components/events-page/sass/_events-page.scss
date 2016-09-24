@@ -33,6 +33,7 @@
 			background-color: $yellow;
 			position: relative;
 			color: $white;
+			text-indent: -999px;
 			@include tablet {
 				width: 35px;
 				height: 60px;
@@ -47,6 +48,7 @@
 			    left: 50%;
 			    margin-top: -19px;
 			    margin-left: -13px;
+			    text-indent: 0;
 			    @include mobile {
 			    	font-size: 20px;
 			    }
