@@ -1,4 +1,8 @@
 .contactUsPage-contactUs {
+    .contactus-left{
+      padding-left: 0px;
+      padding-right: 0px;
+    }
     height: 100%;
     padding: 30px 0;
     background: $white;
@@ -81,11 +85,11 @@
         padding-left: 50px;
         text-align: justify;
         @include tablet {
-            padding-left: 10px;
+            padding-left: 0px;
             padding-top: 20px;
         }
         @include mobile {
-            padding-left: 10px;
+            padding-left: 0px;
             margin-top: 20px;
         }
     }
