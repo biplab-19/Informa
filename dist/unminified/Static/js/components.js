@@ -248,7 +248,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
 
         for (var key in results) {
             if (results.hasOwnProperty(key)) {
-                
+
                 var Data = results[key],
                     HeaderText = key,
                     TemplateName = (Templates.AnalystTemplate !== "undefined") ? Templates.AnalystTemplate : "",
@@ -285,6 +285,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 submitBtn.addClass('disabled');
             } else {
                 submitBtn.removeClass('disabled');
+                resetBtn.show();
             }
 
             if (_value == "default") {
@@ -311,6 +312,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             }
             var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
             GetAjaxData(Urls.AnalystSearch, "Post", GetSerializeData, RenderSearchResult, null, null);
+            $(this).hide();
         })
 
         resetBtn.on('click', function (e) {
@@ -324,6 +326,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             Sector.prop('selectedIndex',0).trigger('chosen:updated').trigger('change');
             //$('select[name="SubSector"]').prop('selectedIndex',0);
             GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
+            $(this).hide();
         })
     }
 
@@ -3831,7 +3834,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       });
     }
     _selectDocClickEvents=function(){
-      $(document).on('click',function(event) {
+      $(document).on('touchstart',function(event) {
         if(event.target.class != 'selectMenu' && !$('.selectMenu').find(event.target).length){
            $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
         }
@@ -4581,6 +4584,14 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             jQuery(".search-options input[type=radio]").on('change', function(e) {
                 e.preventDefault();
                 ShowHideSearch($(this));
+            });
+            jQuery(".search-options input[type=radio]").on('focus', function(e) {
+                e.preventDefault();
+                $(this).parent().addClass("active");
+            });
+            jQuery(".search-options input[type=radio]").on('focusout', function(e) {
+                e.preventDefault();
+               	$(this).parent().removeClass("active");
             });
             var CheckedOption = jQuery(".search-options input[type=radio]:checked");
             if (typeof CheckedOption === "object") {
