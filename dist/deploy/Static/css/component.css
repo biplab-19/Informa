@@ -2369,7 +2369,7 @@ section.feature-list-section .feature-list-container {
 section#feature-list .feature-list-container .feature-image,
 section.feature-list-section .feature-list-container .feature-image {
   width: 80px;
-  height: 80px;
+  height: auto;
   margin: 0 auto;
 }
 /* line 56, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
@@ -2383,7 +2383,6 @@ section.feature-list-section .feature-list-container .feature-image img {
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 80px;
-    height: 80px;
   }
 }
 @media (max-width: 767px) {
@@ -2391,10 +2390,9 @@ section.feature-list-section .feature-list-container .feature-image img {
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 60px;
-    height: 60px;
   }
 }
-/* line 69, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 67, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
 section#feature-list .feature-list-container p,
@@ -2403,7 +2401,7 @@ section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 80, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 78, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container p,
 section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
@@ -2424,43 +2422,43 @@ section.feature-list-section .feature-list-container p {
     width: 50%;
     padding: 30px 15px;
   }
-  /* line 91, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 89, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .headText,
   section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 94, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 92, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container p,
   section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 100, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 98, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:focus,
 section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 103, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 101, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.more,
 section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 106, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 104, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.less,
 section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 112, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 110, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.more,
 section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 115, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 113, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.less,
 section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 118, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 116, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore:after,
 section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
