@@ -558,7 +558,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             // Select and loop the container element of the elements you want to equalise
            var Items = Article.find('.recomended-wrapper'),
                 MaxHeight = 0,
-                MaxWrapperHeight = 0,
                 MaxTopicHeight = 0;
 
                 Items.each(function () {
@@ -568,13 +567,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                     }
                 })
                 Items.find('.content').height(MaxHeight);
-                // Items.each(function(){
-                //     var WrapperHeight = $(this).find('.recomend-content').outerHeight();
-                //     if(WrapperHeight > MaxWrapperHeight) {
-                //         MaxWrapperHeight = WrapperHeight;
-                //     }
-                // })
-                // Items.find('.recomend-content').height(MaxWrapperHeight);
                 Items.each(function(){
                     var TopicHeight = $(this).find('.topics').outerHeight();
                     if(TopicHeight > MaxTopicHeight) {
@@ -5016,23 +5008,21 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
     equalHeight = function (Parent) {
         var Items = Parent.find('.recomended-wrapper'),
             MaxHeight = 0,
-            MaxWrapperHeight = 0,
-            Padding = 20;
-
+            MaxTopicHeight = 0;
             Items.each(function () {
                 var ContentHeight = $(this).find('.content').height();
                 if(ContentHeight > MaxHeight) {
                     MaxHeight = ContentHeight;
                 }
             })
-            Items.find('.content').height(MaxHeight + Padding);
+            Items.find('.content').height(MaxHeight);
             Items.each(function(){
-                var WrapperHeight = $(this).find('.recomend-content').outerHeight();
-                if(WrapperHeight > MaxWrapperHeight) {
-                    MaxWrapperHeight = WrapperHeight;
+                var TopicHeight = $(this).find('.topics').outerHeight();
+                if(TopicHeight > MaxTopicHeight) {
+                    MaxTopicHeight = TopicHeight;
                 }
             })
-            Items.find('.recomend-content').height(MaxWrapperHeight + Padding);
+            Items.find('.topics').height(MaxTopicHeight);
     }
 
     init = function () {

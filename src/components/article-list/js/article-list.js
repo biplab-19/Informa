@@ -105,7 +105,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             // Select and loop the container element of the elements you want to equalise
            var Items = Article.find('.recomended-wrapper'),
                 MaxHeight = 0,
-                MaxWrapperHeight = 0,
                 MaxTopicHeight = 0;
 
                 Items.each(function () {
