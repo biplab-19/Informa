@@ -55,6 +55,11 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                             scrollTop: 0
                         }, 600);
                     }
+                    if($(".mobileNavigation").hasClass("navbar-fixed-top")===true){
+                        $('html, body').stop().animate({
+                            scrollTop: 0
+                        }, 600);
+                    }
                 }
                 
             });
