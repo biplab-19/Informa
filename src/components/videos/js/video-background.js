@@ -16,8 +16,17 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         _youTubeSound,
         _wistiaSound,
         _vimeoSound,
-        _addOptions;
+        _addOptions,
+        _setHeroVideoHeight;
+    _setHeroVideoHeight = function(){
+      var videoBGContainer = $('.hero-banner').find('.videoBG');
+      if(videoBGContainer.length > 0){
+        $('.hero-banner').addClass('hero-banner-video');
+      }else{
+        $('.hero-banner').removeClass('hero-banner-video');
+      }
 
+    }
     _addOptions = function() {
         //$('.videoBG_wrapper').parent().css( "height", "auto" );
         _iFrameElement.each(function(i, e) {
@@ -68,7 +77,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
                 $(this).append(iframeWSElement);
 
             }
-            
+
         });
 
     }
@@ -98,6 +107,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
     init = function() {
         _addOptions();
+        _setHeroVideoHeight();
     };
 
     return {
