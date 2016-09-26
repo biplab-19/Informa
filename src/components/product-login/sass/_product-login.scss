@@ -21,8 +21,29 @@
             width: 50%;
             margin: 0 auto;
             color:$white;
+            position: relative;
+              &:before {
+                width: 30px;
+                height: 30px;
+                background: none;
+                position: absolute;
+                margin: -20px 0 0 -60px;
+                top: 50%;
+                left: 0;
+                background-size: 100%;
+                -ms-transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+                content: "\e916";
+                font-family: "InformaIcons" !important;
+                font-size: 30px;
+              @include mobile{
+                margin: -15px 0 0 10px;
+              }
+            }
             @include mobile{
-                width: 100%;
+              width: auto;
+              padding-left: 60px;
             }
         }
     }
