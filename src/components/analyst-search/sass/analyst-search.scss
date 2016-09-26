@@ -9,6 +9,9 @@
 			font-size: 12px;
 		    font-weight: normal;
 		    font-family: 'FSMe-Bold';
+				white-space: nowrap;
+    		overflow: hidden;
+    		text-overflow: ellipsis;
 		}
 		.chosen-container {
 			width: 100% !important;
@@ -105,3 +108,9 @@
 		}
 	}
 }
+.text-center{
+	&.NoRecords{
+		background: #fff;
+		padding: 50px 0;
+		}
+	}
