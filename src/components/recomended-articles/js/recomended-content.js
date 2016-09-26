@@ -106,7 +106,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 
                 _Object = {
                     ExcludeContentGuids: Ids,
-                    PageSize: Count
+                    PageSize: Count,
+                    SearchTexts: $('.SearchTextsSampleContent').val().split('|')
                 };
 
             GetAjaxData(Urls.GetRecomendedItems, "Post", _Object, RenderRecomendResult, null, null);

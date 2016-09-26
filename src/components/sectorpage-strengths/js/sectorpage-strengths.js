@@ -63,7 +63,9 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         EachView.each(function () {
             var Items = jQuery(this).find('.text-description'),
                 Description = jQuery(this).find('.yellow-container'),
+                MainContainer = jQuery(this).find('.main-container'),
                 _maxHeight = 0,
+                _mainMaxHeight = 0,
                 _descHeight = 0;
             Items.each(function () {
                 var Height = jQuery(this).outerHeight();
@@ -79,6 +81,14 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
                 }
             })
             Description.css('height', _descHeight );
+            MainContainer.each(function () {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _mainMaxHeight) {
+                    _mainMaxHeight = Height;
+                }
+            })
+            MainContainer.css('height', _mainMaxHeight );
+            
         })
     }
     _bindShowLess = function () {

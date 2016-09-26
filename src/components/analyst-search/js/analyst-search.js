@@ -91,7 +91,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
         Parent.find('.row').html(html);
         equalHeight();
         Parent.addClass('showLess');
-        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideToggle();
+        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideDown();
         return html;
     }
 
@@ -139,16 +139,19 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                     FieldArray[key].value = null;
                 }
             }
-            var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
+            var Data = INFORMA.Utils.serializeObject(FieldArray);
+            Data.SearchText = $('.SearchTextSpecialist').val();
+            var GetSerializeData = JSON.stringify(Data);
             GetAjaxData(Urls.AnalystSearch, "Post", GetSerializeData, RenderSearchResult, null, null);
-            resetBtn.hide();
+            //resetBtn.hide();
         })
 
         resetBtn.on('click', function (e) {
             e.preventDefault();
             var _Object = {
                 "Name": null,
-                "Sector": null
+                "Sector": null,
+                "SearchText": $('.SearchTextSpecialist').val()
             }
             AnalystSearch.find('#name').val('');
             //$('select[name="Sector"]').prop('selectedIndex',0);
@@ -234,6 +237,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 _limit = parseInt(productAnalystResults.data(_vp)) + 1;
 
             _Object.SectorID = sectorId;
+            _Object.SearchText = $('.SearchTextSpecialist').val()
             for (var key in _Object) {
                 if (_Object[key] == "default") {
                     _Object[key] = null;

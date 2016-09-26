@@ -274,7 +274,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             if(_tryStick.length > 0){
 
                 _tryStickPosition = _tryStick.offset().top;
-                if (_windowPos > (_tryStickPosition - _fixedNavHeight)) {
+                if (_windowPos > ((_tryStickPosition - _fixedNavHeight) + _cookieHeight)) {
                     if (!_pdpStickyIconDesktopFlag) {
                         _tryStick.clone(true).appendTo('.nav-pdp-desktop-sticky');
                         _subscribeStick.clone(true).appendTo('.nav-pdp-desktop-sticky');
@@ -290,7 +290,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             if(_headingStick.length > 0){
                 _headingStickPosition = _headingStick.offset().top;
-                if (_windowPos > (_headingStickPosition - _fixedNavHeight)) {
+                if (_windowPos > ((_headingStickPosition - _fixedNavHeight) + _cookieHeight)) {
                     if (!_pdpStickyHeadingDesktopFlag) {
                       //debugger;
                         $('#pdp-sections-heading').text(_heroBannerHeading);
@@ -314,11 +314,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         }
 
-
+        console.log(_initialPdpHdrPos - _fixedNavHeight);
         //For fixing the Product Detail Header: Desktop + Tablet + Mobile
-        if (_windowPos > (_initialPdpHdrPos - _fixedNavHeight)) {
+        if (_windowPos > ((_initialPdpHdrPos - _fixedNavHeight) + _cookieHeight)) {
             _pdpNavigation.addClass(_fixed);
-            _pdpNavigation.css('top', _fixedNavHeight + 'px');
+            _pdpNavigation.css('top', _fixedNavHeight + _cookieHeight + 'px');
             _pdpWrapper.css('padding-top', _pdpNavigationHeight);
             _pdpFixed = true;
 

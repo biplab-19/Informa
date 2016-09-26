@@ -89,10 +89,12 @@ INFORMA.FAQs = (function (window, $, namespace) {
                 HelpDropdown = Parent.parents('.accordian-structure').find('.help-faq-select'),
                 Count = Parent.parents('.accordian-structure').attr('data-count'),
                 CurrentPageItemGuid = Parent.parents('.accordian-structure').attr('data-CurrentPageItemGuid'),
+                SearchTextFaqs = $('.SearchTextFAQ').val(),
                 _Object = {
                     PageNo: 0,
                     PageSize: Count,
-                    CurrentPageItemGuid: CurrentPageItemGuid
+                    CurrentPageItemGuid: CurrentPageItemGuid,
+                    SearchText: SearchTextFaqs
                 };
 
             _Object.ExcludedFAQItemIds = GetFaqIds(Parent);
