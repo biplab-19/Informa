@@ -206,10 +206,6 @@ header {
             .navbar-toggle {
                 float: left;
                 margin-left: 15px;
-                @include desktop{
-                    position: absolute;
-                    text-indent: -9999px;
-                }
             }
             .navbar-toggle:hover {
                 background-color: initial;
@@ -1350,6 +1346,7 @@ header {
         width: 1px;
         text-align: left;
         overflow: hidden;
+        color: $grey-color03;
     }
 
     a.skip-navigation:active,
