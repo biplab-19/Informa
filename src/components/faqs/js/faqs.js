@@ -33,7 +33,8 @@ INFORMA.FAQs = (function (window, $, namespace) {
         var Results = data,
             List = Results.FaqList,
             AccordianId = Results.FaqAccordionId,
-            Html = "";
+            Html = "",
+            TabsValue = "";
 
         for (var key in List) {
             var Data = List[key],
@@ -45,16 +46,21 @@ INFORMA.FAQs = (function (window, $, namespace) {
         
             Html += ListTemplate({ results: Data });
         }
+
+        if(Button.parents('.accordian-structure').attr('data-tabs').length > 0) {
+            TabsValue = Button.parents('.accordian-structure').attr('data-tabs');
+        }
+
         if($('.help-faq-wrapper').length > 0) {
-            Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId+'"]').append(Html);
+            Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId + TabsValue'"]').append(Html);
         } else {
-            Button.parents('.accordian-wrap').find('.panel-group[data-panel="'+AccordianId+'"]').append(Html);
+            Button.parents('.accordian-wrap').find('.panel-group[data-panel="'+AccordianId + (Data.Tabs)+'"]').append(Html);
         }
 
         if (Results.FaqRemainingCount < 1) {
-            $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').hide();
+            $('.panel-group#' + AccordianId + Data.Tabs).parent().find('.btn-faq-more').hide();
         } else {
-            $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').show();
+            $('.panel-group#' + AccordianId + Data.Tabs).parent().find('.btn-faq-more').show();
         }
     },
 

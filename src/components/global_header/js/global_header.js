@@ -35,6 +35,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         // for sticky nav of pdp-navigation
         _pdpNavigation = $('#pdp-navigation'),
+        _pdpNavigationOffset = $('#pdp-navigation').offset().top,
         _pdpNavigationScrollTo,
         _pdpSectionActions,
         _pdpNavigationHeight = 0,
@@ -252,7 +253,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     };
 
     _activatePdpFixedHeader = function() {
-        var _windowPos = $(window).scrollTop();
+        var _windowPos = $(window).scrollTop(),
+            PdpNavTop = null;
 
         if (_pdpFirst) {
             _initialPdpHdrPos = _pdpNavigation.offset().top;
@@ -314,9 +316,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         }
 
-        console.log(_initialPdpHdrPos - _fixedNavHeight);
+        
         //For fixing the Product Detail Header: Desktop + Tablet + Mobile
-        if (_windowPos > ((_initialPdpHdrPos - _fixedNavHeight) + _cookieHeight)) {
+        _cookieBannerExist();
+        if (_windowPos > (_initialPdpHdrPos - _fixedNavHeight) - _cookieHeight) {
             _pdpNavigation.addClass(_fixed);
             _pdpNavigation.css('top', _fixedNavHeight + _cookieHeight + 'px');
             _pdpWrapper.css('padding-top', _pdpNavigationHeight);
