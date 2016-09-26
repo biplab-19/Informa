@@ -6397,17 +6397,15 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
                 }
             })
             MainContainer.css('height', _mainMaxHeight );
-            
+
         })
     }
     _bindShowLess = function () {
       var _showLess = $('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
-        setTimeout(function () {
-          $('html, body').animate({
-              scrollTop: _sectorPageStrengths.offset().top - 50
-          },700);
-        }, 500);
+            $('html, body').animate({
+                scrollTop: _sectorPageStrengths.offset().top - 50
+            },700);
       });
     }
     init = function() {
