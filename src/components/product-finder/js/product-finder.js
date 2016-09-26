@@ -31,37 +31,41 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
         // methods
         init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSearch, GetProductFinderData,
-        ToggleProductFinder, RenderSearchResult, UpdateSubSectorDropdown, GetAjaxData,
+        ToggleProductFinder, ToggleSearch, RenderSearchResult, UpdateSubSectorDropdown, GetAjaxData,
         SubmitHandler, BindAjaxHandler,MergeJsonData;
 
+        ToggleSearch = function(){
+            var NavClose =$("#sub-nav .subnav-close a");
+            ProductFinderSection.slideDown("slow");
+                if(NavClose){
+                    NavClose.trigger("click");
+                }
+                if($(".mainNavigation").hasClass("navbar-fixed-top")===true){
+                    $('html, body').stop().animate({
+                        scrollTop: 0
+                    }, 600);
+                }
+                if($(".mobileNavigation").hasClass("navbar-fixed-top")===true){
+                    $('html, body').stop().animate({
+                        scrollTop: 0
+                    }, 600);
+                }
+        },
         ToggleProductFinder = function() {
             CloseIcon.on("click", function(e) {
                 e.preventDefault();
                 SearchIcon.toggleClass("inactive");
                 ProductFinderSection.slideUp("fast");
             });
-
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
-                var NavClose =$("#sub-nav .subnav-close a");
                 if($("#product-finder-section:hidden").length){
                     SearchIcon.toggleClass( "inactive" );
-                    ProductFinderSection.slideDown("slow");
-                    if(NavClose){
-                        NavClose.trigger("click");
-                    }
-                    if($(".mainNavigation").hasClass("navbar-fixed-top")===true){
-                        $('html, body').stop().animate({
-                            scrollTop: 0
-                        }, 600);
-                    }
-                    if($(".mobileNavigation").hasClass("navbar-fixed-top")===true){
-                        $('html, body').stop().animate({
-                            scrollTop: 0
-                        }, 600);
-                    }
+                    ToggleSearch();
+                }else{
+                    SearchIcon.toggleClass( "active" );
+                    ToggleSearch();
                 }
-                
             });
         },
         MergeJsonData = function(Json1, Json2,Json3,Json4){
