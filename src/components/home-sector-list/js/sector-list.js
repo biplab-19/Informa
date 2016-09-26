@@ -18,6 +18,7 @@ INFORMA.sectorList = (function(window, $, namespace) {
     // methods
         init,
         _bindShowMore,
+        _bindShowLess,
         _adjustHeigt;
 
     _bindShowMore = function(container){
@@ -28,10 +29,18 @@ INFORMA.sectorList = (function(window, $, namespace) {
               $('.sector-list .view-all-sectors-btn-container').hide();
         });
     }
-
+    _bindShowLess = function () {
+      var _showLess = $('.view-all-sectors-btn.less');
+      _showLess.on('click',function(){
+            $('html, body').animate({
+                scrollTop: _sectorPageStrengths.offset().top - 20
+            },700);
+      });
+    }
     init = function() {
         if (_sectorList.length > 0) {
             _bindShowMore(_sectorList);
+            _bindShowLess();
         }
     };
 
