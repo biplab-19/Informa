@@ -1790,7 +1790,8 @@ INFORMA.FAQs = (function (window, $, namespace) {
         var Results = data,
             List = Results.FaqList,
             AccordianId = Results.FaqAccordionId,
-            Html = "";
+            Html = "",
+            TabsValue = "";
 
         for (var key in List) {
             var Data = List[key],
@@ -1802,16 +1803,21 @@ INFORMA.FAQs = (function (window, $, namespace) {
         
             Html += ListTemplate({ results: Data });
         }
+
+        if(Button.parents('.accordian-structure').attr('data-tabs').length > 0) {
+            TabsValue = Button.parents('.accordian-structure').attr('data-tabs');
+        }
+
         if($('.help-faq-wrapper').length > 0) {
-            Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId+'"]').append(Html);
+            Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId + TabsValue+'"]').append(Html);
         } else {
-            Button.parents('.accordian-wrap').find('.panel-group[data-panel="'+AccordianId+'"]').append(Html);
+            Button.parents('.accordian-wrap').find('.panel-group[data-panel="'+AccordianId + TabsValue+'"]').append(Html);
         }
 
         if (Results.FaqRemainingCount < 1) {
-            $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').hide();
+            $('.panel-group#' + AccordianId + TabsValue).parent().find('.btn-faq-more').hide();
         } else {
-            $('.panel-group#' + AccordianId).parent().find('.btn-faq-more').show();
+            $('.panel-group#' + AccordianId + TabsValue).parent().find('.btn-faq-more').show();
         }
     },
 
@@ -3294,6 +3300,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         // for sticky nav of pdp-navigation
         _pdpNavigation = $('#pdp-navigation'),
+        _pdpNavigationOffset = $('#pdp-navigation').offset().top,
         _pdpNavigationScrollTo,
         _pdpSectionActions,
         _pdpNavigationHeight = 0,
@@ -3511,7 +3518,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     };
 
     _activatePdpFixedHeader = function() {
-        var _windowPos = $(window).scrollTop();
+        var _windowPos = $(window).scrollTop(),
+            PdpNavTop = null;
 
         if (_pdpFirst) {
             _initialPdpHdrPos = _pdpNavigation.offset().top;
@@ -3573,9 +3581,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         }
 
-        console.log(_initialPdpHdrPos - _fixedNavHeight);
+        
         //For fixing the Product Detail Header: Desktop + Tablet + Mobile
-        if (_windowPos > ((_initialPdpHdrPos - _fixedNavHeight) + _cookieHeight)) {
+        _cookieBannerExist();
+        if (_windowPos > (_initialPdpHdrPos - _fixedNavHeight) - _cookieHeight) {
             _pdpNavigation.addClass(_fixed);
             _pdpNavigation.css('top', _fixedNavHeight + _cookieHeight + 'px');
             _pdpWrapper.css('padding-top', _pdpNavigationHeight);
@@ -4256,18 +4265,19 @@ INFORMA.analystList = (function(window, $, namespace) {
     // methods
         init,
         _bindShowMore,
+        _bindShowLess,
         _equalHeight,
         _lists = null;
 
     _bindShowMore = function(container){
-        
+
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.btn-showMore');
         _showMore.on('click',function(){
-            
+
             var _vp = INFORMA.global.device.viewportN,
                 VisibleItem = $(this).parents('section').find('.analyst-list-container:visible');
-            
+
             if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
                 _vp = 2; //to emulate nth-child(n+3)
             } else if(_vp == 3) {
@@ -4305,11 +4315,19 @@ INFORMA.analystList = (function(window, $, namespace) {
             Items.css('height', _maxHeight + _padding);
         })
     }
-
+    _bindShowLess = function () {
+      var _showLess = $('.btn.btn-showMore .less');
+      _showLess.on('click',function(){
+            $('html, body').animate({
+                scrollTop: _analystList.offset().top - 20
+            },700);
+      });
+    }
     init = function() {
         if (_analystList.length > 0) {
            // _bindElement();
             _bindShowMore(_analystList);
+            _bindShowLess();
         }
         if (_listItems.length > 0) {
             _listItems.each(function() {
@@ -6284,6 +6302,7 @@ INFORMA.sectorList = (function(window, $, namespace) {
     // methods
         init,
         _bindShowMore,
+        _bindShowLess,
         _adjustHeigt;
 
     _bindShowMore = function(container){
@@ -6294,10 +6313,18 @@ INFORMA.sectorList = (function(window, $, namespace) {
               $('.sector-list .view-all-sectors-btn-container').hide();
         });
     }
-
+    _bindShowLess = function () {
+      var _showLess = $('.view-all-sectors-btn.less');
+      _showLess.on('click',function(){
+            $('html, body').animate({
+                scrollTop: _sectorPageStrengths.offset().top - 20
+            },700);
+      });
+    }
     init = function() {
         if (_sectorList.length > 0) {
             _bindShowMore(_sectorList);
+            _bindShowLess();
         }
     };
 
@@ -6404,7 +6431,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
       var _showLess = $('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
             $('html, body').animate({
-                scrollTop: _sectorPageStrengths.offset().top - 50
+                scrollTop: _sectorPageStrengths.offset().top - 20
             },700);
       });
     }
@@ -6550,8 +6577,17 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         _youTubeSound,
         _wistiaSound,
         _vimeoSound,
-        _addOptions;
+        _addOptions,
+        _setHeroVideoHeight;
+    _setHeroVideoHeight = function(){
+      var videoBGContainer = $('.hero-banner').find('.videoBG');
+      if(videoBGContainer.length > 0){
+        $('.hero-banner').addClass('hero-banner-video');
+      }else{
+        $('.hero-banner').removeClass('hero-banner-video');
+      }
 
+    }
     _addOptions = function() {
         //$('.videoBG_wrapper').parent().css( "height", "auto" );
         _iFrameElement.each(function(i, e) {
@@ -6602,7 +6638,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
                 $(this).append(iframeWSElement);
 
             }
-            
+
         });
 
     }
@@ -6632,6 +6668,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
     init = function() {
         _addOptions();
+        _setHeroVideoHeight();
     };
 
     return {

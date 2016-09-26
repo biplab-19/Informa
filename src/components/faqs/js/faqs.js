@@ -52,15 +52,15 @@ INFORMA.FAQs = (function (window, $, namespace) {
         }
 
         if($('.help-faq-wrapper').length > 0) {
-            Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId + TabsValue'"]').append(Html);
+            Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId + TabsValue+'"]').append(Html);
         } else {
-            Button.parents('.accordian-wrap').find('.panel-group[data-panel="'+AccordianId + (Data.Tabs)+'"]').append(Html);
+            Button.parents('.accordian-wrap').find('.panel-group[data-panel="'+AccordianId + TabsValue+'"]').append(Html);
         }
 
         if (Results.FaqRemainingCount < 1) {
-            $('.panel-group#' + AccordianId + Data.Tabs).parent().find('.btn-faq-more').hide();
+            $('.panel-group#' + AccordianId + TabsValue).parent().find('.btn-faq-more').hide();
         } else {
-            $('.panel-group#' + AccordianId + Data.Tabs).parent().find('.btn-faq-more').show();
+            $('.panel-group#' + AccordianId + TabsValue).parent().find('.btn-faq-more').show();
         }
     },
 
