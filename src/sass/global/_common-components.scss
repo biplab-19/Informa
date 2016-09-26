@@ -424,9 +424,19 @@ input[type=number]::-webkit-outer-spin-button {
 Fix boostrap modal is shifting fixed navbar
 ==================================================
 */
-body.modal-open {
-	overflow-y: auto !important;
-	padding-right: 0 !important;
+body.modal-open .navbar-fixed-top{
+// @include greater-desktop {
+// 	padding-right: 32px !important;
+// }
+@include desktop {
+	padding-right: 16px !important;
+}
+
+&.cookieBanner {
+	@include desktop {
+		padding-right: 36px !important;
+	}
+}
 }
 
 
