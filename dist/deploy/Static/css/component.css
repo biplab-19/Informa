@@ -5595,7 +5595,7 @@ section#about-us-hero .transparent-bg-content .description {
 }
 /* line 341, ../../../src/components/search-results/sass/_search-results.scss */
 .product-results .list-items .products .category strong {
-  display: inline-block;
+  display: none !important;
   padding: 3px 8px;
   font-weight: 400;
   font-size: 0.9em;
@@ -8717,7 +8717,7 @@ section.articlepage-freearticle .container .mini-video {
 }
 /* line 33, ../../../src/components/resource-list/sass/_resource-list.scss */
 .resource-list .list-container ul.resource-list li .category {
-  display: inline-block;
+  display: none !important;
   padding-bottom: 10px;
   margin-right: 5%;
 }
@@ -11722,7 +11722,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 }
 /* line 147, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .category {
-  display: inline-block;
+  display: none !important;
 }
 /* line 150, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .category strong {
@@ -12208,21 +12208,46 @@ section.welcome-description .cross:after {
   width: 50%;
   margin: 0 auto;
   color: #fff;
+  position: relative;
+}
+/* line 25, ../../../src/components/product-login/sass/_product-login.scss */
+.product-login .create-profile p:before {
+  width: 30px;
+  height: 30px;
+  background: none;
+  position: absolute;
+  margin: -20px 0 0 -60px;
+  top: 50%;
+  left: 0;
+  background-size: 100%;
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  content: "\e916";
+  font-family: "InformaIcons" !important;
+  font-size: 30px;
+}
+@media (max-width: 767px) {
+  /* line 25, ../../../src/components/product-login/sass/_product-login.scss */
+  .product-login .create-profile p:before {
+    margin: -15px 0 0 10px;
+  }
 }
 @media (max-width: 767px) {
   /* line 20, ../../../src/components/product-login/sass/_product-login.scss */
   .product-login .create-profile p {
-    width: 100%;
+    width: auto;
+    padding-left: 60px;
   }
 }
-/* line 29, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 50, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links {
   margin: 30px auto;
   background: url("/Static/images/pattern.png") no-repeat bottom right #444957;
   background-size: 20%;
   padding-bottom: 80px;
 }
-/* line 34, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 55, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links h2 {
   color: #fff;
   font: 400 30px 'FSMe-light';
@@ -12230,50 +12255,50 @@ section.welcome-description .cross:after {
   padding: 0;
 }
 @media (max-width: 767px) {
-  /* line 34, ../../../src/components/product-login/sass/_product-login.scss */
+  /* line 55, ../../../src/components/product-login/sass/_product-login.scss */
   .product-login .login-links h2 {
     margin: 0 auto;
   }
 }
-/* line 43, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 64, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links h3 {
   font: 400 20px 'FSMe-bold';
   color: #fff;
 }
-/* line 47, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 68, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .col-left {
   float: left;
   width: 40%;
   margin-left: 70px;
 }
 @media (max-width: 767px) {
-  /* line 47, ../../../src/components/product-login/sass/_product-login.scss */
+  /* line 68, ../../../src/components/product-login/sass/_product-login.scss */
   .product-login .login-links .col-left {
     float: none;
     width: 100%;
     margin: 0 auto;
   }
 }
-/* line 57, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 78, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list {
   border-bottom: 1px solid #6a7285;
   margin: 60px 0 0 0;
 }
-/* line 60, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 81, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list ul {
   list-style-type: none;
   padding: 0;
   margin: 30px 0 0;
   position: relative;
 }
-/* line 65, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 86, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list ul li {
   border-top: 1px solid #6a7285;
   padding: 15px 0;
   font-size: 18px;
   font-family: 'InformaIcons';
 }
-/* line 70, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 91, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list ul li:after {
   content: "\e904";
   position: absolute;
@@ -12281,7 +12306,7 @@ section.welcome-description .cross:after {
   right: 0;
   font-size: 15px;
 }
-/* line 77, ../../../src/components/product-login/sass/_product-login.scss */
+/* line 98, ../../../src/components/product-login/sass/_product-login.scss */
 .product-login .login-links .list ul li a {
   font-family: 'FSMe';
 }
