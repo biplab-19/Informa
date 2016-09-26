@@ -1,4 +1,4 @@
-/*! 2016-09-25 */@charset "UTF-8";
+/*! 2016-09-26 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -11823,10 +11823,17 @@ input[type=number]::-webkit-outer-spin-button {
 Fix boostrap modal is shifting fixed navbar
 ==================================================
 */
-/* line 427, ../../../src/sass/global/_common-components.scss */
-body.modal-open {
-  overflow-y: auto !important;
-  padding-right: 0 !important;
+@media (min-width: 1142px) {
+  /* line 427, ../../../src/sass/global/_common-components.scss */
+  body.modal-open .navbar-fixed-top {
+    padding-right: 16px !important;
+  }
+}
+@media (min-width: 1142px) {
+  /* line 435, ../../../src/sass/global/_common-components.scss */
+  body.modal-open .navbar-fixed-top.cookieBanner {
+    padding-right: 36px !important;
+  }
 }
 
 /* ===============================================
@@ -11834,14 +11841,14 @@ Fix form input zoom in mobile
 ==================================================
 */
 @media (max-width: 767px) {
-  /* line 439, ../../../src/sass/global/_common-components.scss */
+  /* line 449, ../../../src/sass/global/_common-components.scss */
   form.wffm-form input[type="text"]:focus,
   form.wffm-form input[type="email"]:focus,
   form.wffm-form input[type="number"]:focus,
   form.wffm-form textarea:focus, form.wffm-form select:focus {
     font-size: 16px !important;
   }
-  /* line 445, ../../../src/sass/global/_common-components.scss */
+  /* line 455, ../../../src/sass/global/_common-components.scss */
   form.wffm-form input[type="text"], form.wffm-form input[type="email"],
   form.wffm-form input[type="number"],
   form.wffm-form textarea, form.wffm-form select {

@@ -1,4 +1,4 @@
-/*! 2016-09-25 */
+/*! 2016-09-26 */
 /*
  * welcome-description
  *
@@ -262,7 +262,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
         Parent.find('.row').html(html);
         equalHeight();
         Parent.addClass('showLess');
-        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideToggle();
+        Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideDown();
         return html;
     }
 
@@ -310,16 +310,19 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                     FieldArray[key].value = null;
                 }
             }
-            var GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray));
+            var Data = INFORMA.Utils.serializeObject(FieldArray);
+            Data.SearchText = $('.SearchTextSpecialist').val();
+            var GetSerializeData = JSON.stringify(Data);
             GetAjaxData(Urls.AnalystSearch, "Post", GetSerializeData, RenderSearchResult, null, null);
-            resetBtn.hide();
+            //resetBtn.hide();
         })
 
         resetBtn.on('click', function (e) {
             e.preventDefault();
             var _Object = {
                 "Name": null,
-                "Sector": null
+                "Sector": null,
+                "SearchText": $('.SearchTextSpecialist').val()
             }
             AnalystSearch.find('#name').val('');
             //$('select[name="Sector"]').prop('selectedIndex',0);
@@ -405,6 +408,7 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
                 _limit = parseInt(productAnalystResults.data(_vp)) + 1;
 
             _Object.SectorID = sectorId;
+            _Object.SearchText = $('.SearchTextSpecialist').val()
             for (var key in _Object) {
                 if (_Object[key] == "default") {
                     _Object[key] = null;
@@ -1842,10 +1846,12 @@ INFORMA.FAQs = (function (window, $, namespace) {
                 HelpDropdown = Parent.parents('.accordian-structure').find('.help-faq-select'),
                 Count = Parent.parents('.accordian-structure').attr('data-count'),
                 CurrentPageItemGuid = Parent.parents('.accordian-structure').attr('data-CurrentPageItemGuid'),
+                SearchTextFaqs = $('.SearchTextFAQ').val(),
                 _Object = {
                     PageNo: 0,
                     PageSize: Count,
-                    CurrentPageItemGuid: CurrentPageItemGuid
+                    CurrentPageItemGuid: CurrentPageItemGuid,
+                    SearchText: SearchTextFaqs
                 };
 
             _Object.ExcludedFAQItemIds = GetFaqIds(Parent);
@@ -3527,7 +3533,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             if(_tryStick.length > 0){
 
                 _tryStickPosition = _tryStick.offset().top;
-                if (_windowPos > (_tryStickPosition - _fixedNavHeight)) {
+                if (_windowPos > ((_tryStickPosition - _fixedNavHeight) + _cookieHeight)) {
                     if (!_pdpStickyIconDesktopFlag) {
                         _tryStick.clone(true).appendTo('.nav-pdp-desktop-sticky');
                         _subscribeStick.clone(true).appendTo('.nav-pdp-desktop-sticky');
@@ -3543,7 +3549,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             if(_headingStick.length > 0){
                 _headingStickPosition = _headingStick.offset().top;
-                if (_windowPos > (_headingStickPosition - _fixedNavHeight)) {
+                if (_windowPos > ((_headingStickPosition - _fixedNavHeight) + _cookieHeight)) {
                     if (!_pdpStickyHeadingDesktopFlag) {
                       //debugger;
                         $('#pdp-sections-heading').text(_heroBannerHeading);
@@ -3567,11 +3573,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         }
 
-
+        console.log(_initialPdpHdrPos - _fixedNavHeight);
         //For fixing the Product Detail Header: Desktop + Tablet + Mobile
-        if (_windowPos > (_initialPdpHdrPos - _fixedNavHeight)) {
+        if (_windowPos > ((_initialPdpHdrPos - _fixedNavHeight) + _cookieHeight)) {
             _pdpNavigation.addClass(_fixed);
-            _pdpNavigation.css('top', _fixedNavHeight + 'px');
+            _pdpNavigation.css('top', _fixedNavHeight + _cookieHeight + 'px');
             _pdpWrapper.css('padding-top', _pdpNavigationHeight);
             _pdpFixed = true;
 
@@ -4541,37 +4547,41 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
 
         // methods
         init, GetSubSectorList, ToggleSearchOption, BindDropDown, ShowHideSearch, GetProductFinderData,
-        ToggleProductFinder, RenderSearchResult, UpdateSubSectorDropdown, GetAjaxData,
+        ToggleProductFinder, ToggleSearch, RenderSearchResult, UpdateSubSectorDropdown, GetAjaxData,
         SubmitHandler, BindAjaxHandler,MergeJsonData;
 
+        ToggleSearch = function(){
+            var NavClose =$("#sub-nav .subnav-close a");
+            ProductFinderSection.slideDown("slow");
+                if(NavClose){
+                    NavClose.trigger("click");
+                }
+                if($(".mainNavigation").hasClass("navbar-fixed-top")===true){
+                    $('html, body').stop().animate({
+                        scrollTop: 0
+                    }, 600);
+                }
+                if($(".mobileNavigation").hasClass("navbar-fixed-top")===true){
+                    $('html, body').stop().animate({
+                        scrollTop: 0
+                    }, 600);
+                }
+        },
         ToggleProductFinder = function() {
             CloseIcon.on("click", function(e) {
                 e.preventDefault();
                 SearchIcon.toggleClass("inactive");
                 ProductFinderSection.slideUp("fast");
             });
-
             SearchIcon.on("click", function(e) {
                 e.preventDefault();
-                var NavClose =$("#sub-nav .subnav-close a");
                 if($("#product-finder-section:hidden").length){
                     SearchIcon.toggleClass( "inactive" );
-                    ProductFinderSection.slideDown("slow");
-                    if(NavClose){
-                        NavClose.trigger("click");
-                    }
-                    if($(".mainNavigation").hasClass("navbar-fixed-top")===true){
-                        $('html, body').stop().animate({
-                            scrollTop: 0
-                        }, 600);
-                    }
-                    if($(".mobileNavigation").hasClass("navbar-fixed-top")===true){
-                        $('html, body').stop().animate({
-                            scrollTop: 0
-                        }, 600);
-                    }
+                    ToggleSearch();
+                }else{
+                    SearchIcon.toggleClass( "active" );
+                    ToggleSearch();
                 }
-                
             });
         },
         MergeJsonData = function(Json1, Json2,Json3,Json4){
@@ -5112,7 +5122,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
 
                 _Object = {
                     ExcludeContentGuids: Ids,
-                    PageSize: Count
+                    PageSize: Count,
+                    SearchTexts: $('.SearchTextsSampleContent').val().split('|')
                 };
 
             GetAjaxData(Urls.GetRecomendedItems, "Post", _Object, RenderRecomendResult, null, null);
@@ -6361,7 +6372,9 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         EachView.each(function () {
             var Items = jQuery(this).find('.text-description'),
                 Description = jQuery(this).find('.yellow-container'),
+                MainContainer = jQuery(this).find('.main-container'),
                 _maxHeight = 0,
+                _mainMaxHeight = 0,
                 _descHeight = 0;
             Items.each(function () {
                 var Height = jQuery(this).outerHeight();
@@ -6377,6 +6390,14 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
                 }
             })
             Description.css('height', _descHeight );
+            MainContainer.each(function () {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _mainMaxHeight) {
+                    _mainMaxHeight = Height;
+                }
+            })
+            MainContainer.css('height', _mainMaxHeight );
+            
         })
     }
     _bindShowLess = function () {
