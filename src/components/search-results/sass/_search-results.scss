@@ -187,7 +187,6 @@
         }
         &.product {
             .view-toggle {
-                margin-bottom: 0;
                 @include mobile {
                     margin-bottom: 15px;
                 }
@@ -397,6 +396,7 @@
         border-top: none !important;
     }
     .product-results {
+        margin-bottom: 25px;
         h2 {
             border-bottom: 1px solid $grey-color09;
         }
@@ -484,6 +484,9 @@
                 margin-bottom: 0;
                 > p {
                     display: inline-block;
+                    &.description {
+                        display: block;
+                    }
                 }
                 .type {
                     display: inline-block;

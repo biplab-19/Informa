@@ -36,7 +36,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
             Html = "",
             TabsValue = "";
 
-        for (var key in List) {
+        for (var key = 0; key < List.length; key++) {
             var Data = List[key],
             TemplateName = (Templates.AccordianTemplate !== "undefined") ? Templates.AccordianTemplate : "",
             ListTemplate = Handlebars.compile(TemplateName);
