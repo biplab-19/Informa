@@ -275,6 +275,11 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             } else {
                 submitBtn.removeClass('disabled');
             }
+            if(calcLength > 0) {
+                resetBtn.show();
+            } else {
+                resetBtn.hide();
+            }
         })
 
         Sector.chosen().on('change', function () {
@@ -1005,6 +1010,9 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
             }
             if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
                 $('.mobileNavigation').css('top',0);
+            }
+            if($('#pdp-navigation').hasClass('navbar-fixed-top')) {
+                $('#pdp-navigation').css('top', $('.mainNavigation').outerHeight());
             }
         },
         init = function() {
