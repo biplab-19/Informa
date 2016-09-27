@@ -46,6 +46,9 @@
 			    overflow: hidden;
 			    bottom: 0;
 			    width: 100%;
+          @include mobile {
+            width: 104%;
+          }
 				&:before {
 				    content: "";
 				    position: absolute;

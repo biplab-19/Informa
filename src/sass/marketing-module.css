@@ -1,4 +1,4 @@
-* {
+/*! 2016-09-27 */* {
     margin: 0;
     padding: 0;
 }
@@ -231,7 +231,7 @@
 /* line 423, ../fonts/../fonts/../fonts/src/sass/global/_banner.scss */
 
 .marketing-banner.Variation1 {
-    background-color: #ffd500;
+    background-color: #5b4476;
 }
 
 
@@ -241,7 +241,10 @@
     display: block;
 }
 
-
+.marketing-banner.Variation1 .Variant1-description .description p{ 
+    color: #fff;
+    margin-bottom: 0;
+}
 /* line 428, ../fonts/../fonts/../fonts/src/sass/global/_banner.scss */
 
 .marketing-banner.Variation1 .Variant2-description {
@@ -285,13 +288,14 @@
 
 .marketing-banner.Variation1 .btn {
     border-color: #ef7c00 !important;
+    color: #fff;
 }
 
 
 /* line 449, ../fonts/../fonts/../fonts/src/sass/global/_banner.scss */
 
 .marketing-banner.Variation1 .btn:after {
-    color: #ef7c00;
+    color: #fff;
 }
 
 
