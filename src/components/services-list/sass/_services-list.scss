@@ -111,6 +111,12 @@ section#services-list {
         header {
             color: $grey-color05;
         }
+        h2 {
+            @include tablet {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
         .single-image-thumbnail,.image-thumbnail {
             overflow: hidden;
             position: relative;
@@ -169,12 +175,14 @@ section#services-list {
         .row {
             padding: 30px 0;
             .single-img,.img {
-                display: none;
+                width: 50%;
             }
             .single-image-thumbnail,.image-thumbnail {
-                width: 50%;
-                height: 50%;
                 margin-bottom: 25px;
+            }
+            .content {
+                width: auto;
+                float: none;
             }
         }
         section:nth-child(even) {

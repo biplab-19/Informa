@@ -72,6 +72,9 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
             if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
                 $('.mobileNavigation').css('top',0);
             }
+            if($('#pdp-navigation').hasClass('navbar-fixed-top')) {
+                $('#pdp-navigation').css('top', $('.mainNavigation').outerHeight());
+            }
         },
         init = function() {
             var getCookieExpiryDate = ($("input.cookieDuration").val()) ? $("input.cookieDuration").val() : 365;

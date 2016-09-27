@@ -104,6 +104,11 @@ INFORMA.AnalystSearch = (function (window, $, namespace) {
             } else {
                 submitBtn.removeClass('disabled');
             }
+            if(calcLength > 0) {
+                resetBtn.show();
+            } else {
+                resetBtn.hide();
+            }
         })
 
         Sector.chosen().on('change', function () {
