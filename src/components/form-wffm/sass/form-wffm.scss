@@ -559,12 +559,15 @@ form.register-myinterests-form {
     background-color: initial !important;
     li.list-group-item.list-group-item-warning {
         background-color: initial !important;
+        font-size: 24px;
         list-style: none;
         margin-left: -30px;
         @include mobile {
+          font-size: 14px;
           margin-left: -30px;
         }
         @include tablet{
+          font-size: 16px;
           margin-left: -30px;
         }
     }
@@ -778,7 +781,7 @@ form.register-myinterests-form {
 						position: relative;
             &:before {
                 @include mobile{
-                  right: -60px;
+                  right: 0px;
                 }
                 @include tablet{
                   left: -60px;
@@ -794,6 +797,13 @@ form.register-myinterests-form {
 				p{
 					font-size: 24px;
           color: $white;
+          line-height: normal;
+          @include mobile {
+            font-size: 14px;
+          }
+          @include tablet{
+            font-size: 16px;
+          }
 				}
     }
 }
