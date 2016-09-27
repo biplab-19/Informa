@@ -954,7 +954,17 @@ $desktop-width: 1142px;
             color:$navlinkpharmacolor;
         }
     }
-    
+    .marketing-banner{
+        &.Variation2,&.Variation1{
+            .btn{
+                background: $pharmaprimarycolor;
+                &:after {
+                    color: $white;
+                }
+            }
+        }
+    }
+
     .more-stories .feature li {
             &:before {
                 color:$secondarycolordark;
