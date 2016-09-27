@@ -95,7 +95,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
       var _showLess = $('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
             $('html, body').animate({
-                scrollTop: _sectorPageStrengths.offset().top - 20
+                scrollTop: _sectorPageStrengths.offset().top - 35
             },700);
       });
     }

@@ -73,7 +73,7 @@ INFORMA.analystList = (function(window, $, namespace) {
       var _showLess = $('.btn.btn-showMore .less');
       _showLess.on('click',function(){
             $('html, body').animate({
-                scrollTop: _analystList.offset().top - 20
+                scrollTop: _analystList.offset().top - 35
             },700);
       });
     }
