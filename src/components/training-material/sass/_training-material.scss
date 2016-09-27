@@ -30,13 +30,15 @@ section.training-section{
 			}
 		}
 		.btn{
-			width: 90%;
+			width: auto;
+			width: initial;
 			margin-left: 7px;
 			@include tablet {
 				margin-left: 17px;
 			}
 			@include mobile {
 				width: 100%;
+				margin-left: 0;
 			}
 		}
 			 .carousel-lists {
