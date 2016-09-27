@@ -5915,7 +5915,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if (SubSectors) {
                             MakeDropPreSelected(SubSectors, SubSectorSelect);
                         }
-                        ProductFinderSection.slideDown();
+
+                        //ProductFinderSection.slideDown();
+                         $('.search:visible').trigger('click');
                         //SubmitBtn.trigger("click");
                     },
                     error_callback: function() {
