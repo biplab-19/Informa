@@ -4326,7 +4326,7 @@ INFORMA.analystList = (function(window, $, namespace) {
       var _showLess = $('.btn.btn-showMore .less');
       _showLess.on('click',function(){
             $('html, body').animate({
-                scrollTop: _analystList.offset().top - 20
+                scrollTop: _analystList.offset().top - 35
             },700);
       });
     }
@@ -6324,7 +6324,7 @@ INFORMA.sectorList = (function(window, $, namespace) {
       var _showLess = $('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
             $('html, body').animate({
-                scrollTop: _sectorPageStrengths.offset().top - 20
+                scrollTop: _sectorPageStrengths.offset().top - 35
             },700);
       });
     }
@@ -6438,7 +6438,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
       var _showLess = $('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
             $('html, body').animate({
-                scrollTop: _sectorPageStrengths.offset().top - 20
+                scrollTop: _sectorPageStrengths.offset().top - 35
             },700);
       });
     }
