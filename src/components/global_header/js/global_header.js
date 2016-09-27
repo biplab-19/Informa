@@ -35,7 +35,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         // for sticky nav of pdp-navigation
         _pdpNavigation = $('#pdp-navigation'),
-        _pdpNavigationOffset = $('#pdp-navigation').offset().top,
         _pdpNavigationScrollTo,
         _pdpSectionActions,
         _pdpNavigationHeight = 0,
