@@ -4049,7 +4049,7 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                     '<div class="link">'+
                         '<a role="button" href="{{Link.Url}}" title="External Link" target="{{Link.Target}}">'+
-                        '<span class="icon-external-link">{{Link.LinkText}}</span></a>'+
+                        '<span class="icon-external-link">{{Link.LinkText}}<span class="access-link">Link</span></span></a>'+
                     '</div>'+
                 '</li>'+
             '{{/each}}',
