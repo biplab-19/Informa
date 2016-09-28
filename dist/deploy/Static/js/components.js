@@ -1918,6 +1918,7 @@ INFORMA.featureList = (function(window, $, namespace) {
     'use strict';
     //variables
     var _featureList = $('.feature-list'),
+        _featureListContainer = $('.feature-list-container'),
         _featureListSection = $('.feature-list-section-pharma, .feature-list-section'),
         // methods
         init,
@@ -1933,25 +1934,38 @@ INFORMA.featureList = (function(window, $, namespace) {
                 _limit = $(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1,
                 Parent = $(this).parents('.feature-list-section'),
                 Children = Parent.find('.feature-list-container');
-                $(Children.slice((_limit-1), Children.length)).slideToggle();
-                Parent.toggleClass('showLess');
+            $(Children.slice((_limit - 1), Children.length)).slideToggle();
+            Parent.toggleClass('showLess');
         });
     }
     _hideList = function(ListItems) {
-        ListItems.each(function() {
-            var _limit = $(this).data(INFORMA.global.device.viewport) + 1;
-            $(this).find('.feature-list-container:nth-child(n+' + _limit + ')').hide();
-
-        });
+        if (ListItems.length > 0) {
+            ListItems.each(function() {
+                $(this).find('.feature-list-btn-container').hide();
+                var _limit = $(this).data(INFORMA.global.device.viewport) + 1,
+                    containersLength = $(this).find('.feature-list-container').length,
+                    containerConfigLength = $(this).data(INFORMA.global.device.viewport);
+                if (_limit) {
+                    $(this).find(".feature-list-container:nth-child(n+" + _limit + ")").hide();
+                    if (containersLength > containerConfigLength) {
+                        $(this).find('.feature-list-btn-container').show();
+                    } else {
+                        $(this).find('.feature-list-btn-container').hide();
+                    }
+                }else{
+                  $(this).find('.feature-list-btn-container').show();
+                }
+            });
+        }
     }
-    equalHeight = function () {
+    equalHeight = function() {
         var EachView = jQuery('.feature-list-section-pharma, .feature-list-section');
-        EachView.each(function () {
+        EachView.each(function() {
             var Items = jQuery(this).find('.feature-list-container'),
                 _maxHeight = 0,
                 _padding = 80;
-            Items.each(function () {
-                var Height = jQuery(this).height();
+            Items.each(function() {
+                var Height = jQuery(this).outerHeight();
                 if (Height > _maxHeight) {
                     _maxHeight = Height;
                 }
@@ -1961,7 +1975,7 @@ INFORMA.featureList = (function(window, $, namespace) {
     }
     init = function() {
         if (_featureListSection.length > 0) {
-            //_hideList(_featureListSection);
+            _hideList(_featureListSection);
             //_bindShowMore();
             equalHeight();
         }
