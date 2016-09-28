@@ -9,10 +9,9 @@
 			font-size: 12px;
 		    font-weight: normal;
 		    font-family: 'FSMe-Bold';
-			white-space: nowrap;
-    		overflow: hidden;
-    		text-overflow: ellipsis;
+			white-space: normal;
     		color:$grey-color04;
+    		height: 27px;
 		}
 		.chosen-container {
 			width: 100% !important;
@@ -40,14 +39,16 @@
 		.submit-btn {
 			width: 100%;
 			//border-color: $orange;
-			margin-top: 23px;
+			margin-top: 35px;
 			color: $white;
 			height: 45px;
 			padding-top: 10px;
 			@include mobile {
+				margin-top: 23px;
 				margin-bottom: 20px;
 			}
 			@include tablet {
+				margin-top: 23px;
 				margin-bottom: 20px;
 			}
 			@include desktop {
