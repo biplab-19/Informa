@@ -42,6 +42,11 @@ INFORMA.analystProfile = (function(window, $, namespace) {
         //if (_analystList.length > 0) {
             _bindShowMore();
             _checkButton();
+
+            if(INFORMA.global.siteCore.isExperience) {
+                $('#analyst-profile .show-options').hide();
+                $('#analyst-profile .descriptions').addClass('show-content')
+            }
         //}
     };
 
