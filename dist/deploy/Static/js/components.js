@@ -153,6 +153,8 @@ INFORMA.analystProfile = (function(window, $, namespace) {
         if(TotalHeight <= ContentHeight) {
             jQuery('.show-options').addClass('hidden');
         }
+        var Height = $($('.descriptions').find('p')[0]).height();
+        $('#analyst-profile .descriptions .bold+div').height(Height);
         $('.descriptions').removeClass('show-content');
     }
 
@@ -553,6 +555,14 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 data: data,
                 success_callback: function(data) {
                     if (data.Articles !== undefined && data.Articles.length > 0) {
+                        for(var i=0 ; i < data.Articles.length ; i++ ){
+                            if(data.Articles[i].Price != null){
+                                if(data.Articles[i].Price){
+                                    var replacezeroWidthSpace = data.Articles[i].Price.replace(/\u200B/g,'');
+                                    data.Articles[i].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
+                                }
+                            }
+                        }
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
@@ -4000,9 +4010,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     init = function() {
         //if(INFORMA.global.device.viewport!='mobile'){
         if (_pdpNavigation.length > 0) {
+            _pdpsectionSubnavigationInit();
             if (!INFORMA.global.siteCore.isExperience) {
-                _pdpsectionSubnavigationInit();
-                _PdpNavReArrange();
+              _PdpNavReArrange();
             }
             _initPdpMenuBarFollow();
             _pdpNavigationScrollTo();
