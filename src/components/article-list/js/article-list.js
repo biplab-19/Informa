@@ -80,6 +80,14 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 data: data,
                 success_callback: function(data) {
                     if (data.Articles !== undefined && data.Articles.length > 0) {
+                        for(var i=0 ; i < data.Articles.length ; i++ ){
+                            if(data.Articles[i].Price != null){
+                                if(data.Articles[i].Price){
+                                    var replacezeroWidthSpace = data.Articles[i].Price.replace(/\u200B/g,'');
+                                    data.Articles[i].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
+                                }
+                            }
+                        }
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
