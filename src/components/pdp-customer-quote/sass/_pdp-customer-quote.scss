@@ -8,11 +8,13 @@ section.customer-quote {
         padding: 0;
     }
     .customer-sub-title{
-        h4{
+        h3{
             color: #fff;
             margin: 0;
             padding-bottom: 30px;
             font-family: FSMe-Bold;
+            @include heading-font-size(24px,18px,18px);
+            @include heading-line-height(30px,26px,26px);
             @include tablet{
                 padding-bottom: 25px;
             }
@@ -97,6 +99,8 @@ section.customer-quote {
                 margin-top: 0;
                 position: relative;
                 font-family: FSMe;
+                @include heading-font-size(18px,16px,16px);
+                @include heading-line-height(26px,24px,24px);
                 @include tablet{
                     margin-bottom: 25px;
                 }

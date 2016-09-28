@@ -9,8 +9,11 @@ section.training-section{
 		h2 {
 			padding-bottom: 25px;
 		}
-		h4 {
+		h3 {
 			margin-top: 20px;
+			@include family-style(FSMe ,$grey-color05 );
+        	@include heading-font-size(24px,18px,18px);
+        	@include heading-line-height(30px,26px,26px);
 		}
 		.carousel-lists .slick-list{
 			border-right: none;
@@ -34,13 +37,8 @@ section.training-section{
 		.btn{
 			width: auto;
 			width: initial;
-			margin-left: 7px;
-			@include tablet {
-				margin-left: 17px;
-			}
 			@include mobile {
 				width: 100%;
-				margin-left: 0;
 			}
 		}
 			 .carousel-lists {
