@@ -291,6 +291,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             if(_headingStick.length > 0){
                 _headingStickPosition = _headingStick.offset().top;
+                _pdpLink = $('#pdp-navigation ul > li > a');
+                _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
                 if (_windowPos > ((_headingStickPosition - _fixedNavHeight) + _cookieHeight)) {
                     if (!_pdpStickyHeadingDesktopFlag) {
                       //debugger;
@@ -315,7 +317,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         }
 
-        
+
         //For fixing the Product Detail Header: Desktop + Tablet + Mobile
         _cookieBannerExist();
         if (_windowPos > (_initialPdpHdrPos - _fixedNavHeight) - _cookieHeight) {
@@ -391,7 +393,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             }
         }
 
-    };
+    }
 
     _pdpNavigationScrollTo = function() {
         _pdpLink.on('click', function(e) {
