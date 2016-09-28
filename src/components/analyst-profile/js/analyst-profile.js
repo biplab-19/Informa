@@ -33,6 +33,8 @@ INFORMA.analystProfile = (function(window, $, namespace) {
         if(TotalHeight <= ContentHeight) {
             jQuery('.show-options').addClass('hidden');
         }
+        var Height = $($('.descriptions').find('p')[0]).height();
+        $('#analyst-profile .descriptions .bold+div').height(Height);
         $('.descriptions').removeClass('show-content');
     }
 
