@@ -4,7 +4,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
     //variables
     var _videoFullWrapper = $('.video-full-container .video-img'),
         _videoPlayBtnWrapper = $('.video-full-container .play-icon'),
-        video,
+        video, player,
         // methods
         init,
         _playFullVideoWrapper,
