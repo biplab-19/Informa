@@ -129,7 +129,9 @@ h3 {
     }
     .social {
       border-left: 2px solid #4a4f5e;
-      padding-left: 30px;
+      @include desktop {
+        padding-left: 30px;
+      }
       @include mobile {
             padding-top: 30px;
             border: none;
