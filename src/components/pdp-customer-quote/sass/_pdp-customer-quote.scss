@@ -125,8 +125,13 @@ section.customer-quote {
                 }
             }
             .case-study {
-                padding-right: 45px;
+                // padding-right: 45px;
                 margin: 30px 0 0;
+                padding: 0;
+                a {
+                    padding: 15px 10px;
+                    display: block;
+                }
                 @include tablet{
                     margin: 25px 0 0;
                 }
@@ -139,6 +144,8 @@ section.customer-quote {
                     right: 15px;
                     font-weight: bold;
                     position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
                 }
             }
             .saidBy {

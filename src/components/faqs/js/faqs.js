@@ -40,10 +40,9 @@ INFORMA.FAQs = (function (window, $, namespace) {
             var Data = List[key],
             TemplateName = (Templates.AccordianTemplate !== "undefined") ? Templates.AccordianTemplate : "",
             ListTemplate = Handlebars.compile(TemplateName);
-            Data.FaqAccordionId = AccordianId;
+            Data.FaqAccordionId = AccordianId + Button.parents('.accordian-structure').attr('data-tabs');
             if(Button.parents('.accordian-structure').attr('data-tabs'))
             Data.Tabs = Button.parents('.accordian-structure').attr('data-tabs');
-        
             Html += ListTemplate({ results: Data });
         }
 
