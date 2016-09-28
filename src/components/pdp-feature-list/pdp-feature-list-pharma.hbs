@@ -1,5 +1,5 @@
 --- component: pdp-feature-list ---
-<section id="feature-list" class="feature-list-section remove-showmore" data-desktop=8 data-tablet=8 data-mobile=2>
+<section id="feature-list" class="feature-list-section feature-list-section-pharma" data-desktop=8 data-tablet=6 data-mobile=4>
     <div class="container">
         <div class="row headline">
            <div class="col-xs-12">
@@ -14,18 +14,18 @@
                         <div class="feature-image">
                             <img src="cms-images/feature-list/{{image}}">
                         </div>
-                        <div class="headText">
+                        <h4>
                             {{title}}
-                        </div>
+                        </h4>
                         <p>{{description}}</p>
                     </div>
                 </div>
             {{/each}}
         </div>
-        <div class="row">
+        <div class="row feature-list-btn-container">
              <div class="col-xs-12">
-                  <div class="btn-container btn-see-all-features">
-                      <a class="btn btn-primary" href="#" role="button">More</a>
+                  <div class="btn-container text-right">
+                      <a class="btn btn-default" href="#" role="button">More</a>
                   </div>
             </div>
         </div>
