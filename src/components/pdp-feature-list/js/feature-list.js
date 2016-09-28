@@ -25,7 +25,7 @@ INFORMA.featureList = (function(window, $, namespace) {
 
     _bindShowMore = function() {
         // if data-items, data-infinite is defined, used it
-        var _showMore = $('.btn-showMore');
+        var _showMore = $('.feature-list-section .btn-showMore');
         _showMore.on('click', function() {
             var _vp = INFORMA.global.device.viewport,
                 _limit = $(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1,
@@ -73,7 +73,7 @@ INFORMA.featureList = (function(window, $, namespace) {
     init = function() {
         if (_featureListSection.length > 0) {
             _hideList(_featureListSection);
-            //_bindShowMore();
+            _bindShowMore();
             equalHeight();
         }
     };
