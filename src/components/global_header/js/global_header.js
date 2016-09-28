@@ -705,9 +705,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     init = function() {
         //if(INFORMA.global.device.viewport!='mobile'){
         if (_pdpNavigation.length > 0) {
+            _pdpsectionSubnavigationInit();
             if (!INFORMA.global.siteCore.isExperience) {
-                _pdpsectionSubnavigationInit();
-                _PdpNavReArrange();
+              _PdpNavReArrange();
             }
             _initPdpMenuBarFollow();
             _pdpNavigationScrollTo();
