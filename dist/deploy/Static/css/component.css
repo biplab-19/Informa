@@ -1,4 +1,4 @@
-/*! 2016-09-28 */@charset "UTF-8";
+/*! 2016-09-29 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -2266,8 +2266,9 @@ section.feature-list-section .feature-list-col p {
   padding: 0;
   margin-bottom: 25px;
   color: #565c6b;
+  font-size: 16px;
   font-family: FSMe-Light;
-  color: #6a7285;
+  line-height: 24px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 12, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
@@ -2276,61 +2277,19 @@ section.feature-list-section .feature-list-col p {
     margin-bottom: 20px;
   }
 }
-@media (min-width: 1142px) {
-  /* line 12, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-col p,
-  section.feature-list-section .feature-list-col p {
-    font-size: 18px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 12, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-col p,
-  section.feature-list-section .feature-list-col p {
-    font-size: 16px;
-  }
-}
-@media (max-width: 767px) {
-  /* line 12, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-col p,
-  section.feature-list-section .feature-list-col p {
-    font-size: 16px;
-  }
-}
-@media (min-width: 1142px) {
-  /* line 12, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-col p,
-  section.feature-list-section .feature-list-col p {
-    line-height: 26px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 12, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-col p,
-  section.feature-list-section .feature-list-col p {
-    line-height: 24px;
-  }
-}
-@media (max-width: 767px) {
-  /* line 12, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
-  section#feature-list .feature-list-col p,
-  section.feature-list-section .feature-list-col p {
-    line-height: 24px;
-  }
-}
 @media (max-width: 767px) {
   /* line 1, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list,
   section.feature-list-section {
     padding: 5px 0 25px;
   }
-  /* line 25, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 28, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list h1,
   section.feature-list-section h1 {
     font-size: 24px;
   }
 }
-/* line 29, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 32, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-see-all-features, section#feature-list .text-right,
 section.feature-list-section .btn-see-all-features,
 section.feature-list-section .text-right {
@@ -2338,35 +2297,35 @@ section.feature-list-section .text-right {
   text-align: right;
 }
 @media (max-width: 767px) {
-  /* line 33, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 36, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-see-all-features .btn, section#feature-list .text-right .btn,
   section.feature-list-section .btn-see-all-features .btn,
   section.feature-list-section .text-right .btn {
     width: 100%;
   }
 }
-/* line 47, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 50, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container,
 section.feature-list-section .feature-list-container {
   float: left;
   width: 25%;
   padding: 0 15px 15px 15px;
 }
-/* line 52, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 55, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section.feature-list-section .feature-list-container .feature-image {
   width: 80px;
   height: 80px;
   margin: 0 auto;
 }
-/* line 56, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 59, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image img,
 section.feature-list-section .feature-list-container .feature-image img {
   width: 100%;
   height: 100%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 52, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 55, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 80px;
@@ -2374,14 +2333,14 @@ section.feature-list-section .feature-list-container .feature-image img {
   }
 }
 @media (max-width: 767px) {
-  /* line 52, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 55, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 60px;
     height: 60px;
   }
 }
-/* line 69, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 72, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
 section#feature-list .feature-list-container p,
@@ -2390,69 +2349,73 @@ section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 80, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 83, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container p,
 section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
   font-size: 14px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 47, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 50, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 25%;
-    padding: 40px 15px 20px;
+    padding: 10px 15px 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 47, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 50, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 50%;
-    padding: 30px 15px;
+    padding: 10px 15px;
   }
-  /* line 91, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 94, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .headText,
   section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 94, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 97, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container p,
   section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 100, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 102, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .btn-showMore,
+section.feature-list-section .btn-showMore {
+  width: 150px;
+}
+/* line 104, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:focus,
 section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 103, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 107, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.more,
 section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 106, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 110, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.less,
 section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 112, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 116, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.more,
 section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 115, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 119, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.less,
 section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 118, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 122, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore:after,
 section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e913';
-  color: #ffd600;
 }
 
 /* line 1, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
@@ -4317,12 +4280,12 @@ nav#pdp-navigation .menuFollower {
   left: 50%;
 }
 /* line 256, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-.meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email {
+.meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email {
   top: 17px;
   left: 15px;
 }
 /* line 259, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
-.meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow svg, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow svg, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email svg {
+.meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow svg, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow svg, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email svg, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email svg {
   height: 24px !important;
   width: 24px !important;
 }
@@ -6512,73 +6475,74 @@ section#about-us-hero .transparent-bg-content .description {
   font-size: 12px;
   font-weight: normal;
   font-family: 'FSMe-Bold';
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
   color: #565c6b;
+  height: 27px;
 }
-/* line 17, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 16, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .chosen-container {
   width: 100% !important;
 }
-/* line 20, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 19, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .chosen-container-single .chosen-single {
   line-height: 45px;
   height: 45px;
   border: 1px solid #ccc;
 }
-/* line 26, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 25, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .chosen-container-single .chosen-single div:after {
   content: '\e901';
   position: absolute;
   font-family: "InformaIcons";
   left: 0;
 }
-/* line 32, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 31, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .chosen-container-single .chosen-single div b {
   display: none;
 }
-/* line 36, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 35, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .form-control {
   height: 45px;
   border-radius: 0;
 }
-/* line 40, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 39, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .submit-btn {
   width: 100%;
-  margin-top: 23px;
+  margin-top: 35px;
   color: #fff;
   height: 45px;
   padding-top: 10px;
 }
 @media (max-width: 767px) {
-  /* line 40, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  /* line 39, ../../../src/components/analyst-search/sass/analyst-search.scss */
   .analyst-search form .submit-btn {
+    margin-top: 23px;
     margin-bottom: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 40, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  /* line 39, ../../../src/components/analyst-search/sass/analyst-search.scss */
   .analyst-search form .submit-btn {
+    margin-top: 23px;
     margin-bottom: 20px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 40, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  /* line 39, ../../../src/components/analyst-search/sass/analyst-search.scss */
   .analyst-search form .submit-btn {
     min-width: 230px;
   }
 }
-/* line 56, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 57, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .submit-btn:hover {
   color: #fff;
 }
-/* line 60, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 61, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .search-field {
   position: relative;
 }
-/* line 62, ../../../src/components/analyst-search/sass/analyst-search.scss */
-.analyst-search form .search-field span {
+/* line 63, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .search-field span.icon-search {
   position: absolute;
   font-size: 30px;
   left: 30px;
@@ -6588,56 +6552,56 @@ section#about-us-hero .transparent-bg-content .description {
   transform: rotateY(180deg);
 }
 @media (max-width: 767px) {
-  /* line 62, ../../../src/components/analyst-search/sass/analyst-search.scss */
-  .analyst-search form .search-field span {
+  /* line 63, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  .analyst-search form .search-field span.icon-search {
     left: 15px;
   }
 }
-/* line 73, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 74, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .search-field .form-control {
   padding: 6px 12px 6px 50px;
 }
-/* line 77, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 78, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .btn-reset {
   display: none;
 }
 
-/* line 83, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 84, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .analyst-views {
   padding-bottom: 0;
 }
 @media (max-width: 767px) {
-  /* line 83, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  /* line 84, ../../../src/components/analyst-search/sass/analyst-search.scss */
   .product-analyst-results .analyst-views {
     padding: 0;
   }
 }
-/* line 89, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 90, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .more {
   display: block;
 }
-/* line 92, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 93, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .less {
   display: none;
 }
-/* line 95, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 96, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .analyst-list-container {
   display: block;
 }
-/* line 99, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 100, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .more {
   display: none;
 }
-/* line 102, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 103, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .less {
   display: block;
 }
-/* line 106, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 107, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .btn-plus:after {
   content: '\e913';
 }
 
-/* line 113, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 114, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .text-center.NoRecords {
   background: #fff;
   padding: 50px 0;
@@ -6828,6 +6792,11 @@ section#about-us-hero .transparent-bg-content .description {
   margin-bottom: 20px;
   padding: 30px 0px;
   border-bottom: 1px #6a7285 solid;
+}
+
+/* line 148, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+.experience-mode .contactUsPage-contactUs .tab-pane {
+  display: block !important;
 }
 
 /* line 1, ../../../src/components/article-header/sass/_article-header.scss */
@@ -7862,110 +7831,102 @@ section#services-list .row .btn-container .btn-primary {
   section#services-list .row .single-image-thumbnail:after, section#services-list .row .image-thumbnail:after {
     top: calc(100% - 27px);
   }
-  /* line 157, ../../../src/components/services-list/sass/_services-list.scss */
-  section#services-list .row:first-child {
-    padding-bottom: 50px;
-  }
-  /* line 160, ../../../src/components/services-list/sass/_services-list.scss */
-  section#services-list .row:last-child {
-    padding-bottom: 0;
-  }
-  /* line 164, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 158, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row [class*='col-'] {
     padding-left: 0;
   }
-  /* line 167, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 161, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 40px;
     padding-top: 30px;
     padding-bottom: 40px;
   }
-  /* line 171, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 165, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 80px;
     height: 80px;
   }
-  /* line 176, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 170, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 50px;
     margin-bottom: 50px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 182, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 176, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding: 30px 0;
   }
-  /* line 184, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 178, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-img, section#services-list .row .img {
     width: 50%;
   }
-  /* line 187, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 181, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-image-thumbnail, section#services-list .row .image-thumbnail {
     margin-bottom: 25px;
   }
-  /* line 190, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 184, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .content {
     width: auto;
     float: none;
   }
-  /* line 196, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 190, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(even) .image-thumbnail {
     float: left;
     margin-right: 25px;
   }
-  /* line 200, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 194, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(even) .single-image-thumbnail {
     float: right;
     margin-right: 25px;
   }
-  /* line 206, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 200, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(odd) .image-thumbnail {
     float: right;
     margin-left: 25px;
   }
-  /* line 210, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 204, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(odd) .single-image-thumbnail {
     float: left;
     margin-right: 25px;
   }
-  /* line 215, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 209, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 30px;
     padding-left: 7.5px;
     padding-right: 7.5px;
     padding-bottom: 20px;
   }
-  /* line 220, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 214, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 80px;
     height: 80px;
   }
-  /* line 225, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 219, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 40px;
   }
 }
 @media (max-width: 767px) {
-  /* line 230, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 224, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding: 30px 0;
     display: flex;
     flex-flow: column;
   }
-  /* line 234, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 228, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row header {
     order: 2;
   }
-  /* line 237, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 231, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-img, section#services-list .row .img {
     order: 1;
   }
-  /* line 240, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 234, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .content {
     order: 3;
   }
-  /* line 244, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 238, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 20px;
     padding-left: 7.5px;
@@ -7973,18 +7934,18 @@ section#services-list .row .btn-container .btn-primary {
     padding-bottom: 20px;
     padding-top: 20px;
   }
-  /* line 250, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 244, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 45px;
     height: 45px;
   }
-  /* line 255, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 249, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 20px;
   }
 }
 
-/* line 260, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 254, ../../../src/components/services-list/sass/_services-list.scss */
 .img-icon {
   width: 100px;
   height: 100px;
