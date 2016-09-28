@@ -2162,83 +2162,82 @@ section#pdp-hero .cta3 {
 }
 /* line 33, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li {
-  background-color: #fff;
   padding: 0 15px;
   border-left: 1px solid #c3c6d0;
 }
 /* line 37, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .type {
-  font-weight: bold;
+  font-size: 18px;
+  text-decoration: underline;
   display: block;
   color: #565c6b;
-  line-height: 1;
   margin-bottom: 10px;
 }
-/* line 44, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 46, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .type span:after {
   content: ',';
 }
-/* line 48, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 50, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .type span:last-child:after {
   content: '';
 }
-/* line 54, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 56, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .date {
   line-height: 1;
   margin-bottom: 17px;
 }
 @media (max-width: 767px) {
-  /* line 54, ../../../src/components/headline-list/sass/_headline-list.scss */
+  /* line 56, ../../../src/components/headline-list/sass/_headline-list.scss */
   .headline-list .list-container li .date {
     margin-bottom: 15px;
   }
 }
-/* line 61, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 63, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .list-content {
   min-height: 100px;
 }
-/* line 64, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 66, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .poduct-brand-subheading {
   font-size: 18px;
   font-family: FSMe-Bold;
   color: #6a7285;
 }
 @media (max-width: 767px) {
-  /* line 64, ../../../src/components/headline-list/sass/_headline-list.scss */
+  /* line 66, ../../../src/components/headline-list/sass/_headline-list.scss */
   .headline-list .list-container li .poduct-brand-subheading {
     padding-bottom: 15px;
   }
 }
-/* line 72, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 74, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .link {
   margin-top: 10px;
   position: absolute;
   bottom: 0;
 }
-/* line 77, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 79, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .link a span {
   vertical-align: bottom;
 }
 @media (max-width: 767px) {
-  /* line 77, ../../../src/components/headline-list/sass/_headline-list.scss */
+  /* line 79, ../../../src/components/headline-list/sass/_headline-list.scss */
   .headline-list .list-container li .link a span {
     vertical-align: top;
   }
 }
-/* line 84, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 86, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .link a:after {
   color: #ffd500;
 }
-/* line 90, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 92, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container .slick-arrow {
   top: 42%;
 }
-/* line 93, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 95, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container ul.slick-dots {
   margin: 15px 0 20px;
 }
 @media (max-width: 767px) {
-  /* line 93, ../../../src/components/headline-list/sass/_headline-list.scss */
+  /* line 95, ../../../src/components/headline-list/sass/_headline-list.scss */
   .headline-list .list-container ul.slick-dots {
     display: none !important;
   }
@@ -4473,59 +4472,58 @@ section.training-section {
     padding: 0px;
   }
 }
-/* line 8, ../../../src/components/training-material/sass/_training-material.scss */
-section.training-section .training-material h1 {
-  margin-bottom: 20px;
+/* line 9, ../../../src/components/training-material/sass/_training-material.scss */
+section.training-section .training-material h2 {
+  padding-bottom: 25px;
 }
 /* line 12, ../../../src/components/training-material/sass/_training-material.scss */
+section.training-section .training-material h4 {
+  margin-top: 20px;
+}
+/* line 15, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists .slick-list {
   border-right: none;
 }
-/* line 15, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 18, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .container {
   padding: 15px;
 }
-/* line 19, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 22, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .video-container {
   padding: 10px;
 }
-/* line 21, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 24, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .video-container img {
   height: 220px;
 }
-/* line 24, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 27, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .video-container .video-wrap {
   display: block;
 }
-/* line 27, ../../../src/components/training-material/sass/_training-material.scss */
-section.training-section .training-material .video-container h3 {
-  color: black;
-  font-weight: bold;
-}
-/* line 32, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 34, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .btn {
   width: auto;
   width: initial;
   margin-left: 7px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 32, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 34, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .btn {
     margin-left: 17px;
   }
 }
 @media (max-width: 767px) {
-  /* line 32, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 34, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .btn {
     width: 100%;
     margin-left: 0;
   }
 }
-/* line 45, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 47, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists .slick-list {
   border-right: none;
 }
-/* line 48, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 50, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists .slick-arrow {
   height: 60px;
   width: 40px;
@@ -4534,7 +4532,7 @@ section.training-section .training-material .carousel-lists .slick-arrow {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 48, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 50, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .carousel-lists .slick-arrow {
     height: 40px;
     width: 20px;
@@ -4543,7 +4541,7 @@ section.training-section .training-material .carousel-lists .slick-arrow {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 48, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 50, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .carousel-lists .slick-arrow {
     height: 40px;
     width: 25px;
@@ -4551,7 +4549,7 @@ section.training-section .training-material .carousel-lists .slick-arrow {
     margin-left: -25px;
   }
 }
-/* line 66, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 68, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -4563,7 +4561,7 @@ section.training-section .training-material .carousel-lists .slick-arrow:before 
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 66, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 68, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .carousel-lists .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -4571,25 +4569,25 @@ section.training-section .training-material .carousel-lists .slick-arrow:before 
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 66, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 68, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .carousel-lists .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 87, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 89, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists .slick-next {
   left: 98%;
   margin-left: 0;
   top: 121px;
 }
-/* line 91, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 93, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists .slick-next:before {
   content: "\e902";
 }
 @media (max-width: 767px) {
-  /* line 87, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 89, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .carousel-lists .slick-next {
     left: 94%;
     margin-left: 0;
@@ -4597,19 +4595,19 @@ section.training-section .training-material .carousel-lists .slick-next:before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 87, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 89, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .carousel-lists .slick-next {
     left: 97%;
     top: 145px;
   }
 }
-/* line 105, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 107, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists .slick-prev {
   left: 2%;
   top: 121px;
 }
 @media (max-width: 767px) {
-  /* line 105, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 107, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .carousel-lists .slick-prev {
     left: 6%;
     top: 140px;
@@ -4617,17 +4615,17 @@ section.training-section .training-material .carousel-lists .slick-prev {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 105, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 107, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .carousel-lists .slick-prev {
     left: 3%;
     top: 145px;
   }
 }
-/* line 118, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 120, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists .slick-prev:before {
   content: "\e903";
 }
-/* line 122, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 124, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists ul.slick-dots {
   text-align: center;
   width: 100%;
@@ -4636,7 +4634,7 @@ section.training-section .training-material .carousel-lists ul.slick-dots {
   z-index: 2;
   margin: 15px 0;
 }
-/* line 129, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 131, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists ul.slick-dots li {
   height: 10px;
   width: 10px;
@@ -4645,16 +4643,16 @@ section.training-section .training-material .carousel-lists ul.slick-dots li {
   background: #888e9f;
   padding: 0;
 }
-/* line 136, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 138, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 139, ../../../src/components/training-material/sass/_training-material.scss */
+/* line 141, ../../../src/components/training-material/sass/_training-material.scss */
 section.training-section .training-material .carousel-lists ul.slick-dots li button {
   display: none;
 }
 @media (max-width: 767px) {
-  /* line 122, ../../../src/components/training-material/sass/_training-material.scss */
+  /* line 124, ../../../src/components/training-material/sass/_training-material.scss */
   section.training-section .training-material .carousel-lists ul.slick-dots {
     display: none !important;
   }
@@ -11746,41 +11744,41 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 }
 /* line 116, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .type {
-  font-weight: 700;
-  font-size: 0.9em;
+  font-size: 18px;
   display: block;
+  text-decoration: underline;
   color: #565c6b;
 }
-/* line 122, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 123, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .type span:after {
   content: ',';
 }
-/* line 126, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 127, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .type span:last-child:after {
   content: '';
 }
-/* line 132, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 133, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .publish {
   padding-bottom: 15px;
   margin: 0;
 }
 @media (max-width: 1141px) {
-  /* line 132, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+  /* line 133, ../../../src/components/recomended-articles/sass/recomended-content.scss */
   .recomended-wrapper .content .publish {
     padding-bottom: 20px;
   }
 }
-/* line 139, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 140, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .publish strong:after {
   content: '|';
   margin: 0 5px;
   font-weight: normal;
 }
-/* line 147, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 148, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .category {
   display: none !important;
 }
-/* line 150, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 151, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .category strong {
   display: inline-block;
   padding: 3px 8px;
@@ -11790,28 +11788,28 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   background-color: #6a7285;
   margin: 0 5px 5px 0;
 }
-/* line 158, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 159, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .category strong:after {
   content: '';
 }
-/* line 163, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 164, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .description {
   margin: 0;
   padding-bottom: 10px;
 }
-/* line 167, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 168, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .content-type {
   font-weight: 700;
   font-size: 0.9em;
 }
-/* line 171, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 172, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .video-container {
   max-height: 156px;
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
 }
-/* line 176, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 177, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .video-container img {
   width: 100%;
   height: auto;
@@ -11819,7 +11817,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   float: none;
   display: block;
 }
-/* line 183, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 184, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .video-container .play-icon {
   color: #fff;
   display: block;
@@ -11830,25 +11828,25 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   top: 25%;
   width: 30px;
 }
-/* line 195, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 196, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .topics {
   padding-top: 0px;
 }
-/* line 199, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 200, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .topics strong a {
   color: #6a7285;
   text-decoration: underline;
 }
-/* line 203, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 204, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .topics strong:after {
   content: '|';
   margin-right: 5px;
 }
-/* line 208, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 209, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .topics strong:last-child:after {
   content: '';
 }
-/* line 214, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 215, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .footer {
   padding: 0;
   margin-top: 15px;
@@ -11856,19 +11854,19 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   width: 100%;
 }
 
-/* line 222, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 223, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .search-tile {
   margin-bottom: 15px;
 }
-/* line 225, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 226, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .btn-ShowMore {
   margin-bottom: 30px;
 }
-/* line 229, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 230, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .more {
   display: none;
 }
-/* line 232, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 233, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .less {
   display: block;
 }
