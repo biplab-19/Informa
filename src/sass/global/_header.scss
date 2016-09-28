@@ -8,6 +8,9 @@ header {
         background-color: $grey-color09;
         padding: 20px;
         color: $grey-color03;
+        .access-link{
+            right: 5px;
+        }
         .icon-close {
             text-align: right;
             float: right;
@@ -107,21 +110,19 @@ header {
                 max-height: initial;
                 height: initial;
                 opacity: 1;
-                margin-top: 40px;
                 padding: 0;
                 filter: alpha(opacity=100);
                 @include tablet{
                     padding: 0 15px;
                 }
-                @include mobile {
-                    margin-top: 0;
-                }
                 & .header-copyright-text {
                     padding: 0;
+                    margin: 40px auto;
+                    margin-bottom: 75px;
                     @include mobile{
                         text-align: center;
                         padding: 0 20px;
-                        margin: 40px auto;
+                        margin: 35px auto;
                     }
                     @include tablet{
                         padding: 0 15px;
@@ -133,19 +134,22 @@ header {
                     }
                     &:last-child {
                         border-left: 1px solid $copyright-gray-border;
-                        padding-left: 26px;
-                        margin-bottom: 60px;
+                        padding-left: 35px;
                         @include mobile {
                             border-left: none;
                             padding-top: 0;
                         }
-
                         & p {
                             margin: 0;
                             &:first-child{
                                 @include mobile{
-                                    padding-top: 40px;
+                                    padding-top: 35px;
                                     border-top: 1px solid $copyright-gray-border;
+                                }
+                            }
+                            &:last-child{
+                                @include mobile{
+                                    padding-bottom: 35px;
                                 }
                             }
                         }
@@ -167,7 +171,6 @@ header {
                             list-style: none;
                             display: inline;
                             text-transform: uppercase;
-                            font-family: Arial;
                             font-size: 12px;
                             &:after {
                                 content: "|";
@@ -175,6 +178,9 @@ header {
                                 @include mobile {
                                     padding: 0 0.3em;
                                 }
+                            }
+                            a{
+                                font-family: FSMe-Bold;
                             }
                         }
                         & li:last-child:after {
@@ -460,6 +466,9 @@ header {
                                 .icon-search {
                                     font-size: x-large;
                                 }
+                                .access-link{
+                                    right: 5px;
+                                }
                             }
                         }
                     }
@@ -521,6 +530,9 @@ header {
                     .icon-chevron-right {
                         display: block;
                         float: right;
+                    }
+                    .access-link{
+                        right: 5px;
                     }
                     @include not-desktop{
                         padding: 20px 20px 20px 30px;
@@ -740,6 +752,9 @@ header {
                     .close-finder {
                         padding: 0;
                         text-decoration: none;
+                        .access-link{
+                            right: 5px;
+                        }
                     }
                 }
             }
@@ -975,6 +990,9 @@ header {
     }
     .nav-close {
         float: right;
+        .access-link{
+            right: 5px;
+        }
     }
     @include mobile {
         .nav-back {
