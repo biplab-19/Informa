@@ -450,14 +450,17 @@ $desktop-width: 1142px;
         .refine-container {
             .clear-all,
             .show-more {
-                color: $primary;
+                color: darken($primary, 10%) ;
             }
         }
         .clear-mobile {
             .clear-all {
-                color: $primary;
+                color: darken($primary, 10%);
             }
         }
+        .cookieBanner p a{
+             color: darken($primary, 10%);
+        } 
         .register-myinterests-section .select-wrapper label {
             color: $primary;
         }
