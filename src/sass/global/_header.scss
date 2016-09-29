@@ -79,7 +79,7 @@ header {
         }
         .header-copyright-content {
             max-height: 0;
-            overflow: hidden;
+            display: none;
             text-align: left;
             padding-top: 10px;
             top: 100%;
@@ -112,6 +112,7 @@ header {
                 opacity: 1;
                 padding: 0;
                 filter: alpha(opacity=100);
+                display: block;
                 @include tablet{
                     padding: 0 15px;
                 }
@@ -130,7 +131,7 @@ header {
                     &:first-child {
                        @include mobile {
                             margin-bottom: 0;
-                       } 
+                       }
                     }
                     &:last-child {
                         border-left: 1px solid $copyright-gray-border;
