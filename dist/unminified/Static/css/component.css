@@ -4278,46 +4278,48 @@ nav#pdp-navigation .menuFollower {
   top: 50%;
   transform: translateY(-50%) translateX(-50%);
   left: 50%;
+  font-size: 0;
+  line-height: 0;
 }
-/* line 256, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 258, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email {
   top: 17px;
   left: 15px;
 }
-/* line 259, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 261, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow svg, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow svg, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email svg, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email svg {
   height: 24px !important;
   width: 24px !important;
 }
-/* line 264, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 266, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a:active, .meet-anlyst-section .analyst-footer .nav-links li a:hover {
   outline: 0;
   border: 0;
   text-decoration: initial;
 }
-/* line 271, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 273, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 276, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 278, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .full-profile {
   float: right;
   font-size: 16px;
   color: #ffd500;
 }
-/* line 281, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 283, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .btn {
   min-width: 50%;
   width: auto;
 }
 @media (max-width: 767px) {
-  /* line 281, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 283, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 281, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 283, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
@@ -5988,7 +5990,7 @@ section#about-us-hero .transparent-bg-content .description {
 .listView .col-sm-6 .meet-anlyst-section .analyst-description .track-analyst {
   position: absolute;
   width: 50%;
-  top: 30px;
+  top: 40px;
   left: 40%;
 }
 /* line 564, ../../../src/components/search-results/sass/_search-results.scss */
@@ -6053,7 +6055,7 @@ section#about-us-hero .transparent-bg-content .description {
 .listView .col-md-4 .events-wrap .country,
 .listView .col-sm-6 .events-wrap .country {
   float: left;
-  margin: 0 0 0 15px;
+  margin: 10px 0;
   position: static;
 }
 /* line 608, ../../../src/components/search-results/sass/_search-results.scss */
@@ -6077,43 +6079,44 @@ section#about-us-hero .transparent-bg-content .description {
 /* line 619, ../../../src/components/search-results/sass/_search-results.scss */
 .listView .col-md-4 .events-wrap .footer .btn,
 .listView .col-sm-6 .events-wrap .footer .btn {
-  min-width: 200px;
-  width: 200px;
+  min-width: auto;
+  width: 175px;
   float: left;
+  margin-right: 25px;
 }
-/* line 626, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 627, ../../../src/components/search-results/sass/_search-results.scss */
 .listView .col-md-4 .others-wrapper,
 .listView .col-sm-6 .others-wrapper {
   padding: 15px;
 }
-/* line 628, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 629, ../../../src/components/search-results/sass/_search-results.scss */
 .listView .col-md-4 .others-wrapper h4,
 .listView .col-sm-6 .others-wrapper h4 {
   font-family: 'FSMe-Bold';
 }
-/* line 631, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 632, ../../../src/components/search-results/sass/_search-results.scss */
 .listView .col-md-4 .others-wrapper .footer,
 .listView .col-sm-6 .others-wrapper .footer {
   min-height: 50px;
 }
 
-/* line 638, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 639, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper {
   padding: 15px;
 }
-/* line 640, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 641, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper h4 {
   font-family: 'FSMe-Bold';
 }
-/* line 643, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 644, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper .footer {
   min-height: 50px;
 }
-/* line 645, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 646, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper .footer .btn-container {
   margin: 0;
 }
-/* line 647, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 648, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper .footer .btn-container .btn {
   float: right;
 }

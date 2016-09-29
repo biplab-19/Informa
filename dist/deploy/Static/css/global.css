@@ -11293,7 +11293,7 @@ section#customers_list {
 }
 /* line 306, ../../../src/sass/global/_footer.scss */
 section#customers_list .title_comp h4 {
-  margin: 40px 30px;
+  margin: 40px 30px 40px 0px;
 }
 @media (max-width: 767px) {
   /* line 306, ../../../src/sass/global/_footer.scss */
@@ -11301,28 +11301,34 @@ section#customers_list .title_comp h4 {
     margin: 30px 20px;
   }
 }
-/* line 313, ../../../src/sass/global/_footer.scss */
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 306, ../../../src/sass/global/_footer.scss */
+  section#customers_list .title_comp h4 {
+    margin: 30px 20px 30px 5px;
+  }
+}
+/* line 316, ../../../src/sass/global/_footer.scss */
 section#customers_list .customers_list_slider {
   opacity: 0;
   transition: .5s ease;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 313, ../../../src/sass/global/_footer.scss */
+  /* line 316, ../../../src/sass/global/_footer.scss */
   section#customers_list .customers_list_slider {
     padding: 0 40px;
   }
 }
-/* line 319, ../../../src/sass/global/_footer.scss */
+/* line 322, ../../../src/sass/global/_footer.scss */
 section#customers_list .customers_list_slider ul.slick-dots {
   display: none !important;
 }
-/* line 322, ../../../src/sass/global/_footer.scss */
+/* line 325, ../../../src/sass/global/_footer.scss */
 section#customers_list .customers_list_slider.slick-slider {
   opacity: 1;
   height: 80px;
   margin-bottom: 0;
 }
-/* line 326, ../../../src/sass/global/_footer.scss */
+/* line 329, ../../../src/sass/global/_footer.scss */
 section#customers_list .customers_list_slider.slick-slider .slick-arrow {
   height: 60px;
   width: 40px;
@@ -11330,20 +11336,20 @@ section#customers_list .customers_list_slider.slick-slider .slick-arrow {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 326, ../../../src/sass/global/_footer.scss */
+  /* line 329, ../../../src/sass/global/_footer.scss */
   section#customers_list .customers_list_slider.slick-slider .slick-arrow {
     height: 40px;
     width: 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 326, ../../../src/sass/global/_footer.scss */
+  /* line 329, ../../../src/sass/global/_footer.scss */
   section#customers_list .customers_list_slider.slick-slider .slick-arrow {
     height: 40px;
     width: 25px;
   }
 }
-/* line 340, ../../../src/sass/global/_footer.scss */
+/* line 343, ../../../src/sass/global/_footer.scss */
 section#customers_list .customers_list_slider.slick-slider .slick-arrow:before {
   content: "\e903";
   font-family: 'InformaIcons';
@@ -11356,7 +11362,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-arrow:before {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 340, ../../../src/sass/global/_footer.scss */
+  /* line 343, ../../../src/sass/global/_footer.scss */
   section#customers_list .customers_list_slider.slick-slider .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -11364,33 +11370,33 @@ section#customers_list .customers_list_slider.slick-slider .slick-arrow:before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 340, ../../../src/sass/global/_footer.scss */
+  /* line 343, ../../../src/sass/global/_footer.scss */
   section#customers_list .customers_list_slider.slick-slider .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 363, ../../../src/sass/global/_footer.scss */
+/* line 366, ../../../src/sass/global/_footer.scss */
 section#customers_list .customers_list_slider.slick-slider .slick-arrow.slick-next:before {
   content: "\e902";
 }
 @media (max-width: 1141px) {
-  /* line 370, ../../../src/sass/global/_footer.scss */
+  /* line 373, ../../../src/sass/global/_footer.scss */
   section#customers_list .customers_list_slider.slick-slider .slick-prev {
     left: -5px;
   }
-  /* line 373, ../../../src/sass/global/_footer.scss */
+  /* line 376, ../../../src/sass/global/_footer.scss */
   section#customers_list .customers_list_slider.slick-slider .slick-next {
     right: -5px;
   }
 }
-/* line 378, ../../../src/sass/global/_footer.scss */
+/* line 381, ../../../src/sass/global/_footer.scss */
 section#customers_list .customers_list_slider .customer {
   margin: 15px 0;
   max-width: 200px;
 }
-/* line 381, ../../../src/sass/global/_footer.scss */
+/* line 384, ../../../src/sass/global/_footer.scss */
 section#customers_list .customers_list_slider .customer img {
   max-width: 100%;
 }
