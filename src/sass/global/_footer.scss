@@ -304,9 +304,12 @@ h3 {
     overflow: hidden;
     .title_comp {
       h4 {
-        margin: 40px 30px;
+        margin: 40px 30px 40px 0px;
         @include mobile {
              margin: 30px 20px;
+       }
+       @include tablet {
+         margin: 30px 20px 30px 5px;
        }
       }
     }
