@@ -1,4 +1,4 @@
-/*! 2016-09-29 */var INFORMA = window.INFORMA || {};
+/*! 2016-09-30 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3983,7 +3983,7 @@ var INFORMA = window.INFORMA || {};
                                     '</p>'+
                                 '{{/compare}}'+
                                 '<h4>{{Title}}</h4>'+
-                                '<p class="publish">{{#if Profile}}{{ByKeyword}}{{/if}} <strong>{{Profile}}</strong>{{PublicationDate}}</p>'+
+                                '<p class="publish">{{#if Profile}}{{ByKeyword}}<strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
                                 '{{#compare Description null operator="!="}}'+
                                     '<p class="description">{{Description}}</p>'+
                                 '{{/compare}}'+

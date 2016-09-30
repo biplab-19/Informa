@@ -1,4 +1,4 @@
-/*! 2016-09-29 */s = new AppMeasurement()
+/*! 2016-09-30 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -4090,7 +4090,7 @@ var INFORMA = window.INFORMA || {};
                                     '</p>'+
                                 '{{/compare}}'+
                                 '<h4>{{Title}}</h4>'+
-                                '<p class="publish">{{#if Profile}}{{ByKeyword}}{{/if}} <strong>{{Profile}}</strong>{{PublicationDate}}</p>'+
+                                '<p class="publish">{{#if Profile}}{{ByKeyword}}<strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
                                 '{{#compare Description null operator="!="}}'+
                                     '<p class="description">{{Description}}</p>'+
                                 '{{/compare}}'+
