@@ -1,3 +1,9 @@
+#headline-list-section{
+    background-color: $white;
+    @include mobile{
+        padding-bottom: 30px;
+    }
+}
 .headline-list {
     background-color: $white;
     position: relative;
@@ -6,7 +12,7 @@
         background: transparent url("/Static/images/common/sprite.png") no-repeat 0 0;
     }
     .container {
-        padding: 50px 15px 0 15px;
+        padding: 40px 15px 0 15px;
     }
     h3 {
         font-size: $font-size-h2;
@@ -22,25 +28,24 @@
     }
     .list-container {
         list-style-type: none;
-        padding: 0;
+        padding: 20px 0 0;
         margin: 0;
-        @include mobile {
-            margin: 0 1.5%;
-        }
-        @include tablet {
-            margin: 0 1.5%;
+        background-color: $grey-color10;
+        @include mobile{
+            padding-bottom: 20px;
         }
         li {
-            //background-color: $white;
+            background-color: $grey-color10;
             padding: 0 15px;
-            border-left: 1px solid #c3c6d0;
+            border-left: 1px solid $grey-color09;
+            &.slick-slide{
+                margin-left: -2px;
+            }
             .type {
-                //font-weight: bold;
                 font-size: 18px;
-                text-decoration: underline;
                 display: block;
                 color: $grey-color04;
-              //  line-height: 1;
+                text-decoration: underline;
                 margin-bottom: 10px;
                 span {
                     &:after {
@@ -92,9 +97,14 @@
         .slick-arrow {
             top: 42%;
         }
+        .slick-list {
+            border-right: 1px solid transparent;
+        }
         ul.slick-dots {
             margin: 15px 0 20px;
-            @include mobile {
+            background: $white;
+            padding: 20px 0;
+            @include mobile{
                 display: none !important;
             }
         }

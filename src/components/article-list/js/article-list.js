@@ -180,8 +180,8 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 responsive: [{
                         breakpoint: 1024,
                         settings: {
-                            slidesToShow: (_listItemCounts >= 2) ? 2 : _listItemCounts,
-                            slidesToScroll: 2
+                            slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
+                            slidesToScroll: ipadScroll
                         }
                     }, {
                         breakpoint: 600,
