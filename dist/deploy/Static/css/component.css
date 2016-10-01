@@ -1,4 +1,4 @@
-/*! 2016-09-30 */@charset "UTF-8";
+/*! 2016-10-01 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -2172,81 +2172,80 @@ section#pdp-hero .cta3 {
 .headline-list .list-container li .type {
   font-size: 18px;
   display: block;
-  color: #565c6b;
-  text-decoration: underline;
+  color: #6a7285;
   margin-bottom: 10px;
 }
-/* line 51, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 50, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .type span:after {
   content: ',';
 }
-/* line 55, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 54, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .type span:last-child:after {
   content: '';
 }
-/* line 61, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 60, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .date {
   line-height: 1;
   margin-bottom: 17px;
 }
 @media (max-width: 767px) {
-  /* line 61, ../../../src/components/headline-list/sass/_headline-list.scss */
+  /* line 60, ../../../src/components/headline-list/sass/_headline-list.scss */
   .headline-list .list-container li .date {
     margin-bottom: 15px;
   }
 }
-/* line 68, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 67, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .list-content {
   min-height: 100px;
 }
-/* line 71, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 70, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .poduct-brand-subheading {
   font-size: 18px;
   font-family: FSMe-Bold;
   color: #6a7285;
 }
 @media (max-width: 767px) {
-  /* line 71, ../../../src/components/headline-list/sass/_headline-list.scss */
+  /* line 70, ../../../src/components/headline-list/sass/_headline-list.scss */
   .headline-list .list-container li .poduct-brand-subheading {
     padding-bottom: 15px;
   }
 }
-/* line 79, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 78, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .link {
   margin-top: 10px;
   position: absolute;
   bottom: 0;
 }
-/* line 84, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 83, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .link a span {
   vertical-align: bottom;
 }
 @media (max-width: 767px) {
-  /* line 84, ../../../src/components/headline-list/sass/_headline-list.scss */
+  /* line 83, ../../../src/components/headline-list/sass/_headline-list.scss */
   .headline-list .list-container li .link a span {
     vertical-align: top;
   }
 }
-/* line 91, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 90, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container li .link a:after {
   color: #ffd500;
 }
-/* line 97, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 96, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container .slick-arrow {
   top: 42%;
 }
-/* line 100, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 99, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container .slick-list {
   border-right: 1px solid transparent;
 }
-/* line 103, ../../../src/components/headline-list/sass/_headline-list.scss */
+/* line 102, ../../../src/components/headline-list/sass/_headline-list.scss */
 .headline-list .list-container ul.slick-dots {
   margin: 15px 0 20px;
   background: #fff;
   padding: 20px 0;
 }
 @media (max-width: 767px) {
-  /* line 103, ../../../src/components/headline-list/sass/_headline-list.scss */
+  /* line 102, ../../../src/components/headline-list/sass/_headline-list.scss */
   .headline-list .list-container ul.slick-dots {
     display: none !important;
   }
@@ -4306,29 +4305,34 @@ nav#pdp-navigation .menuFollower {
   border: 0;
   text-decoration: initial;
 }
-/* line 273, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 272, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.meet-anlyst-section .analyst-footer .nav-links li a:before {
+  font-size: 18px;
+  line-height: 20px;
+}
+/* line 277, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 278, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 282, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .full-profile {
   float: right;
   font-size: 16px;
   color: #ffd500;
 }
-/* line 283, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 287, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .btn {
   min-width: 50%;
   width: auto;
 }
 @media (max-width: 767px) {
-  /* line 283, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 287, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 283, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 287, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
@@ -11818,39 +11822,38 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 .recomended-wrapper .content .type {
   font-size: 18px;
   display: block;
-  text-decoration: underline;
-  color: #565c6b;
+  color: #6a7285;
 }
-/* line 122, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 121, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .type span:after {
   content: ',';
 }
-/* line 126, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 125, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .type span:last-child:after {
   content: '';
 }
-/* line 132, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 131, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .publish {
   padding-bottom: 15px;
   margin: 0;
 }
 @media (max-width: 1141px) {
-  /* line 132, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+  /* line 131, ../../../src/components/recomended-articles/sass/recomended-content.scss */
   .recomended-wrapper .content .publish {
     padding-bottom: 20px;
   }
 }
-/* line 139, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 138, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .publish strong:after {
   content: '|';
   margin: 0 5px;
   font-weight: normal;
 }
-/* line 147, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 146, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .category {
   display: none !important;
 }
-/* line 150, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 149, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .category strong {
   display: inline-block;
   padding: 3px 8px;
@@ -11860,28 +11863,28 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   background-color: #6a7285;
   margin: 0 5px 5px 0;
 }
-/* line 158, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 157, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .category strong:after {
   content: '';
 }
-/* line 163, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 162, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .description {
   margin: 0;
   padding-bottom: 10px;
 }
-/* line 167, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 166, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .content-type {
   font-weight: 700;
   font-size: 0.9em;
 }
-/* line 171, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 170, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .video-container {
   max-height: 156px;
   overflow: hidden;
   position: relative;
   margin-bottom: 20px;
 }
-/* line 176, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 175, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .video-container img {
   width: 100%;
   height: auto;
@@ -11889,7 +11892,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   float: none;
   display: block;
 }
-/* line 183, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 182, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .video-container .play-icon {
   color: #fff;
   display: block;
@@ -11900,55 +11903,55 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   top: 25%;
   width: 30px;
 }
-/* line 195, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 194, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .topics {
   padding-top: 0px;
 }
-/* line 199, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 198, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .topics strong a {
   color: #6a7285;
   text-decoration: underline;
 }
-/* line 203, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 202, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .topics strong:after {
   content: '|';
   margin-right: 5px;
 }
-/* line 208, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 207, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .topics strong:last-child:after {
   content: '';
 }
-/* line 214, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 213, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .footer {
   padding: 0;
   margin-top: 15px;
   float: left;
   width: 100%;
 }
-/* line 219, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 218, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .footer .btn {
   width: 70%;
 }
 @media (max-width: 767px) {
-  /* line 219, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+  /* line 218, ../../../src/components/recomended-articles/sass/recomended-content.scss */
   .recomended-wrapper .footer .btn {
     width: 80%;
   }
 }
 
-/* line 228, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 227, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .search-tile {
   margin-bottom: 15px;
 }
-/* line 231, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 230, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .btn-ShowMore {
   margin-bottom: 30px;
 }
-/* line 235, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 234, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .more {
   display: none;
 }
-/* line 238, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 237, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .less {
   display: block;
 }
