@@ -257,6 +257,9 @@ $desktop-width: 1142px;
                 #pdp-sections-heading,
                 a {
                     color: $grey-color03;
+                    &:active {
+                        outline: none;
+                    }
                 }
             }
         }

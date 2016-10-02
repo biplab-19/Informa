@@ -50,6 +50,12 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     var Data = Articles[key],
                         TemplateName = (Templates.SampleContent !== "undefined") ? Templates.SampleContent : "",
                         ListTemplate = Handlebars.compile(TemplateName);
+                        if(Data.Price != null){
+                            if(Data.Price){
+                                var replacezeroWidthSpace = Data.Price.replace(/\u200B/g,'');
+                                Data.Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
+                            }
+                        }
                     html += ListTemplate({ results: Data });
                 }
 
