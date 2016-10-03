@@ -82,9 +82,9 @@ INFORMA.news_flash = (function(window, $, namespace) {
     init = function() {
         if (_productsList.length > 0) {
             _createSlider(_productsList);
-            setTimeout(function() {
+            $(window).on('load', function() {
                 EqualHeightProducts();
-            }, 500);
+            });
         }
     }
 
