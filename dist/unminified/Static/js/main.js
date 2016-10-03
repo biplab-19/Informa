@@ -4617,7 +4617,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '</li>'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
-                                                                            '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                            '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                         '{{/if}}'+
                                                                     '</ul>'+
                                                                     '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
