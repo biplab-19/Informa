@@ -539,12 +539,16 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _disableSubmit = function() {
-        var formDOM = $("form.get-in-touch, form.request-a-demo"),
-            formSubmitBtn = $('form.get-in-touch, form.request-a-demo').find('.form-submit-border .btn');
-        formSubmitBtn.attr('disabled', true);
-        formDOM.on('change', 'input, textarea, select', function() {
-            formSubmitBtn.removeAttr('disabled');
-        });
+        var formDOM = $("form.wffm-form");
+        if (formDOM.length > 0) {
+            $.each(formDOM, function() {
+                var formSubmitBtn = $(this).find('.form-submit-border .btn');
+                formSubmitBtn.attr('disabled', true);
+                $(this).on('change', 'input, textarea, select', function() {
+                    formSubmitBtn.removeAttr('disabled');
+                });
+            });
+        }
     }
 
     _showModal = function(el)  {         
@@ -613,7 +617,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _showOverlay();
         _showOverlayQueryString()
         _reCaptchaHandler();
-      //  _validateAllForms();
+        //  _validateAllForms();
         _bindToolTip();
         _bindCalendar();
         _bindProductId();
