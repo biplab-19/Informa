@@ -281,12 +281,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
                     if(moment(CurrentDate) > moment(ItemDate)) {
                         if(moment(CurrentDate).format('d MMM YYYY') == moment(ItemDate).format('d MMM YYYY')) {
-                            return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                            return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                         } else {
-                            return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                            return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                         }
                     } else {
-                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="javascript:void(0)">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                     }
                 }
         });
@@ -335,7 +335,9 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 "title": data[key].Title,
                 "start": new Date(data[key].EventDate),
                 "State": data[key].State,
-                "Country": data[key].Country
+                "Country": data[key].Country,
+                "Link": data[key].FullDetail.Url,
+                "Target": data[key].FullDetail.Target
             })
         }
         jQuery('section[data-view="calendar-view"]').show();
