@@ -7541,11 +7541,13 @@ section.event-profile-container .content-wrap {
 /* line 29, ../../../src/components/events-search/sass/_events-search.scss */
 .events-search label {
   color: #fff;
-  font-size: 12px;
+  font-size: 15px;
   width: 100%;
   text-align: left;
+  font-weight: normal;
+  font-family: 'FSMe-Light';
 }
-/* line 35, ../../../src/components/events-search/sass/_events-search.scss */
+/* line 37, ../../../src/components/events-search/sass/_events-search.scss */
 .events-search .views-section {
   text-align: right;
   position: absolute;
@@ -7554,16 +7556,16 @@ section.event-profile-container .content-wrap {
   width: auto;
 }
 @media (max-width: 767px) {
-  /* line 35, ../../../src/components/events-search/sass/_events-search.scss */
+  /* line 37, ../../../src/components/events-search/sass/_events-search.scss */
   .events-search .views-section {
     text-align: left;
   }
 }
-/* line 44, ../../../src/components/events-search/sass/_events-search.scss */
+/* line 46, ../../../src/components/events-search/sass/_events-search.scss */
 .events-search .views-section .views {
   float: left;
 }
-/* line 46, ../../../src/components/events-search/sass/_events-search.scss */
+/* line 48, ../../../src/components/events-search/sass/_events-search.scss */
 .events-search .views-section .views a {
   display: block;
   width: 60px;
@@ -7575,11 +7577,11 @@ section.event-profile-container .content-wrap {
   text-indent: -99999999999999999999999px;
   overflow: hidden;
 }
-/* line 56, ../../../src/components/events-search/sass/_events-search.scss */
+/* line 58, ../../../src/components/events-search/sass/_events-search.scss */
 .events-search .views-section .views a .access-link {
   left: -9999999px;
 }
-/* line 59, ../../../src/components/events-search/sass/_events-search.scss */
+/* line 61, ../../../src/components/events-search/sass/_events-search.scss */
 .events-search .views-section .views a:before {
   position: absolute;
   top: 50%;
@@ -7587,11 +7589,11 @@ section.event-profile-container .content-wrap {
   transform: translate(-50%, -50%);
   text-indent: 0;
 }
-/* line 66, ../../../src/components/events-search/sass/_events-search.scss */
+/* line 68, ../../../src/components/events-search/sass/_events-search.scss */
 .events-search .views-section .views a.active {
   background-color: #e2e4e9;
 }
-/* line 70, ../../../src/components/events-search/sass/_events-search.scss */
+/* line 72, ../../../src/components/events-search/sass/_events-search.scss */
 .events-search .views-section .views a.icon-list-view:before {
   content: '';
   height: 26px;
@@ -12546,7 +12548,7 @@ section.welcome-description .cross:after {
 
 /* line 1, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products {
-  background-color: #6a7285;
+  background-color: #3c404c;
   padding: 10px;
 }
 /* line 4, ../../../src/components/recom-products/sass/_recom-products.scss */
