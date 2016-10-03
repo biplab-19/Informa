@@ -6249,10 +6249,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     CreateSearchResult(ProductResults);
                     SearchContent.find('.results').find('strong').html(data.ProductFound);
                     if (data.ProductFound == 0) {
-                        $('.items-found').hide();
+                        $('.items-found').addClass('hidden');
                         $('.product-results').hide();
                     } else {
-                        $('.items-found').show();
+                        $('.items-found').removeClass('hidden');
                         $('.product-results').show();
                     }
                     SearchContent.find('.product-results').attr('data-pagesize', data.DefaultItemCount);
