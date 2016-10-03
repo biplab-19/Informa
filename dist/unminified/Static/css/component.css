@@ -976,7 +976,7 @@ section#hero-banner .analyst-single-image .image-margin {
   content: '';
   background: url(/Static/images/spritesheet.png) no-repeat;
   padding-left: 5px;
-  width: 26px;
+  width: 31px;
   height: 34px;
   background-position: -5px -232px;
   display: inline-block;
@@ -2172,7 +2172,7 @@ section#pdp-hero .cta3 {
 .headline-list .list-container li .type {
   font-size: 18px;
   display: block;
-  color: #6a7285;
+  color: #565c6b;
   margin-bottom: 10px;
 }
 /* line 50, ../../../src/components/headline-list/sass/_headline-list.scss */
@@ -3840,62 +3840,64 @@ nav#pdp-navigation .menuFollower {
 }
 /* line 112, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twit-img img {
-  width: 100%;
+  max-width: 100%;
+  width: auto;
 }
-/* line 118, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 119, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twittedby:before {
   content: '@';
 }
-/* line 122, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 123, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .video-wrap {
   display: inline-block;
   position: relative;
 }
-/* line 126, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 127, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .feed-heading {
   margin-bottom: 10px;
 }
-/* line 128, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 129, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .feed-heading span {
   margin-right: 10px;
   font-size: 14px;
 }
-/* line 138, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 139, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .message {
   color: #fff;
   font-size: 18px;
 }
-/* line 143, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 144, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots {
   text-align: center;
   width: 100%;
   bottom: -40px;
 }
 @media (max-width: 767px) {
-  /* line 143, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 144, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel ul.slick-dots {
     display: none !important;
     position: static;
     margin: 10px 0 20px 0;
   }
 }
-/* line 152, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 153, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li {
   height: 10px;
   width: 10px;
   border-radius: 5px;
   background: #6a7285;
+  color: #fff;
   overflow: hidden;
 }
-/* line 158, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 160, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li button:before {
   content: '';
 }
-/* line 161, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 163, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 166, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 168, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow {
   height: 60px;
   width: 40px;
@@ -3903,7 +3905,7 @@ nav#pdp-navigation .menuFollower {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 166, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 168, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 20px;
@@ -3912,7 +3914,7 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 166, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 168, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 25px;
@@ -3920,7 +3922,7 @@ nav#pdp-navigation .menuFollower {
     margin-left: -25px;
   }
 }
-/* line 184, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 186, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -3932,7 +3934,7 @@ nav#pdp-navigation .menuFollower {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 184, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 186, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -3940,52 +3942,52 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 184, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 186, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 205, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 207, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next {
   left: 100%;
   margin-left: 0;
 }
 @media (max-width: 767px) {
-  /* line 205, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 207, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-next {
     left: calc(100% - 10px);
   }
 }
-/* line 211, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 213, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next:before {
   content: "\e902";
 }
-/* line 215, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 217, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev {
   left: 0%;
   margin-left: -40px;
 }
 @media (max-width: 767px) {
-  /* line 215, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 217, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     left: 10px;
   }
 }
 @media (max-width: 767px) {
-  /* line 215, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 217, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 215, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 217, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -25px;
   }
 }
-/* line 227, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 229, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev:before {
   content: "\e903";
 }
@@ -4293,7 +4295,7 @@ nav#pdp-navigation .menuFollower {
 }
 /* line 258, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email {
-  top: 17px;
+  top: 15px;
   left: 15px;
 }
 /* line 261, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
@@ -4301,40 +4303,44 @@ nav#pdp-navigation .menuFollower {
   height: 24px !important;
   width: 24px !important;
 }
-/* line 266, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 265, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow:active, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow:hover, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow:active, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow:hover, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email:active, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email:hover, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email:active, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email:hover {
+  text-decoration: none;
+}
+/* line 270, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a:active, .meet-anlyst-section .analyst-footer .nav-links li a:hover {
   outline: 0;
   border: 0;
   text-decoration: initial;
 }
-/* line 272, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 276, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a:before {
   font-size: 18px;
   line-height: 20px;
 }
-/* line 277, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 281, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 282, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 286, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .full-profile {
   float: right;
   font-size: 16px;
   color: #ffd500;
 }
-/* line 287, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 291, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .btn {
   min-width: 50%;
   width: auto;
 }
 @media (max-width: 767px) {
-  /* line 287, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 291, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 287, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 291, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
@@ -11820,7 +11826,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 .recomended-wrapper .content .type {
   font-size: 18px;
   display: block;
-  color: #6a7285;
+  color: #565c6b;
 }
 /* line 121, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .content .type span:after {
