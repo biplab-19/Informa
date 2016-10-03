@@ -124,6 +124,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpNavigationHeight = _pdpNavigation.height(),
         _pdpNavigationPos = _pdpNavigation.offset().top;
 
+        $('#pdp-sections ul li').each(function(){
+           var idname = '#' + $(this).find('a').data("target");
+           if($(idname).length == 0) {
+              $(this).remove();
+           }
+        });
+        var _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
         _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
                         .css('left', $(_pdpLinkSpan[0]).offset().left)
                         .show();
