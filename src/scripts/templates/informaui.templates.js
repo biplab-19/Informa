@@ -256,7 +256,7 @@ var INFORMA = window.INFORMA || {};
                                                                 '<li><a href="{{LinkedinLink.Url}}" target="{{LinkedinLink.Target}}" class="icon-linked-in"></a></li>' +
                                                             '{{/compare}}' +
                                                             '{{#compare EmailAddressLink null operator="!="}}' +
-                                                                '<li><a href="mailto:{{EmailAddressLink}}" class="icon-email"></a></li>' +
+                                                                '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                             '{{/compare}}' +
                                                         '</ul>' +
                                                         '<a href="{{ProfileUrl}}" class="btn btn-primary pull-right">Full Profile</a>' +
@@ -365,10 +365,10 @@ var INFORMA = window.INFORMA || {};
                                         '<div class="analyst-footer">' +
                                             '<div class="analyst-footer-content clearfix">' +
                                                 '<ul class="nav-links">' +
-                                                    '{{#compare results.TwitterLink null operator="!="}}' +
+                                                    '{{#compare results.TwitterHandleID null operator="!="}}' +
                                                         '<li><a href="{{results.TwitterLink.Url}}" target="{{results.TwitterLink.Target}}" class="icon-twitter"></a></li>' +
                                                     '{{/compare}}' +
-                                                    '{{#compare results.LinkedinLink null operator="!="}}' +
+                                                    '{{#compare results.LinkedInProfileID null operator="!="}}' +
                                                         '<li><a href="{{results.LinkedinLink.Url}}" target="{{results.LinkedinLink.Target}}" class="icon-linked-in"></a></li>' +
                                                     '{{/compare}}' +
                                                     '{{#compare results.EmailAddressLink null operator="!="}}' +
@@ -671,9 +671,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '</li>'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
-                                                                            '<li>'+
-                                                                                '<a class="addthis_button_email"></a>'+
-                                                                            '</li>'+
+                                                                            '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                         '{{/if}}'+
                                                                     '</ul>'+
                                                                     '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
