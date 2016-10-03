@@ -105,6 +105,11 @@ $desktop-width: 1142px;
     }
 }
 
+@mixin webkit-focus{
+    @media screen and (-webkit-min-device-pixel-ratio:0) {  
+       border:2px solid #4f83da;
+    }
+}
 @mixin padding-reset {
     padding: 0;
 }
