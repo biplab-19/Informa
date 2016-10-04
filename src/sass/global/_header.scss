@@ -8,13 +8,20 @@ header {
         background-color: $grey-color09;
         padding: 20px;
         color: $grey-color03;
+        .close{
+            opacity: 1;
+        }
         .access-link{
             right: 5px;
+            color:$grey-color04;
         }
         .icon-close {
             text-align: right;
             float: right;
             color: #000;
+            &:before{
+                color: $grey-color04;
+            }
         }
     }
     section.informa-header-copyright {
@@ -1357,7 +1364,8 @@ header {
         }
     }
 }
-.skip-navigation {
+body{
+    a.skip-navigation {
         position: absolute;
         top: -1000px;
         left: -1000px;
@@ -1367,7 +1375,6 @@ header {
         overflow: hidden;
         color: $grey-color03;
     }
-
     a.skip-navigation:active,
     a.skip-navigation:focus,
     a.skip-navigation:hover {
@@ -1377,3 +1384,4 @@ header {
         height: auto;
         overflow: visible;
     }
+}
