@@ -172,7 +172,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                         
                     $.each(listItem, function(i){
                         var Index=i+1;
-                        console.log($(this));
                         if(Index<=defaultCount){
                             $(this).removeClass("hidden");
                         }
