@@ -41,6 +41,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     BindCheckboxes = function(ele) {
         SelectAll.on("click",function(e){
             var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input");
+            console.log(CurrentCheckBoxs);
             if($(this).prop("checked")===true){
                 jQuery.each(CurrentCheckBoxs, function(e){
                     if($(this).prop("checked")!==true){
@@ -148,12 +149,13 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
             if($(this).prop("checked")===true){
                 jQuery.each(CurrentCheckBoxs, function(e){
                     if($(this).prop("checked")!==true){
-                       $(this).trigger("click");
+                       $(this).prop("checked",true);
                     }
                 }); 
             } else{
                 jQuery.each(CurrentCheckBoxs, function(e){
                        $(this).trigger("click");
+                       $(this).prop("checked",false);
                 }); 
             }
             BakeCookies("PrefernceUpdated", true);
