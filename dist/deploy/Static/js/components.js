@@ -1239,10 +1239,10 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
                 
                 if(MergedJson && getCookie!==null){
                     getCookie.AreaOfInterest = MergedJson.join(',');
-                    BakeCookies("USR_DETAIL", getCookie);
+                    BakeCookies("USR_DETAIL", getCookie.AreaOfInterest);
                 }else{
                     CookieValue.AreaOfInterest = MergedJson.join(',');
-                    BakeCookies("USR_DETAIL", CookieValue);
+                    BakeCookies("USR_DETAIL", CookieValue.AreaOfInterest);
                 }
                 if(SelectedCount){
                     Count = SelectedCount.length;
