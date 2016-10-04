@@ -6520,23 +6520,27 @@ section#about-us-hero .transparent-bg-content .description {
   height: 45px;
   border: 1px solid #ccc;
 }
-/* line 25, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 23, ../../../src/components/analyst-search/sass/analyst-search.scss */
+.analyst-search form .chosen-container-single .chosen-single:focus {
+  border: 1px solid #66afe9;
+}
+/* line 28, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .chosen-container-single .chosen-single div:after {
   content: '\e901';
   position: absolute;
   font-family: "InformaIcons";
   left: 0;
 }
-/* line 31, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 34, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .chosen-container-single .chosen-single div b {
   display: none;
 }
-/* line 35, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 38, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .form-control {
   height: 45px;
   border-radius: 0;
 }
-/* line 39, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 42, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .submit-btn {
   width: 100%;
   margin-top: 34px;
@@ -6545,34 +6549,34 @@ section#about-us-hero .transparent-bg-content .description {
   padding-top: 10px;
 }
 @media (max-width: 767px) {
-  /* line 39, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  /* line 42, ../../../src/components/analyst-search/sass/analyst-search.scss */
   .analyst-search form .submit-btn {
     margin-top: 23px;
     margin-bottom: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 39, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  /* line 42, ../../../src/components/analyst-search/sass/analyst-search.scss */
   .analyst-search form .submit-btn {
     margin-top: 23px;
     margin-bottom: 20px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 39, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  /* line 42, ../../../src/components/analyst-search/sass/analyst-search.scss */
   .analyst-search form .submit-btn {
     min-width: 230px;
   }
 }
-/* line 57, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 60, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .submit-btn:hover {
   color: #fff;
 }
-/* line 61, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 64, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .search-field {
   position: relative;
 }
-/* line 63, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 66, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .search-field span.icon-search {
   position: absolute;
   font-size: 30px;
@@ -6583,56 +6587,56 @@ section#about-us-hero .transparent-bg-content .description {
   transform: rotateY(180deg);
 }
 @media (max-width: 767px) {
-  /* line 63, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  /* line 66, ../../../src/components/analyst-search/sass/analyst-search.scss */
   .analyst-search form .search-field span.icon-search {
     left: 15px;
   }
 }
-/* line 74, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 77, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .search-field .form-control {
   padding: 6px 12px 6px 50px;
 }
-/* line 78, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 81, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .analyst-search form .btn-reset {
   display: none;
 }
 
-/* line 84, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 87, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .analyst-views {
   padding-bottom: 0;
 }
 @media (max-width: 767px) {
-  /* line 84, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  /* line 87, ../../../src/components/analyst-search/sass/analyst-search.scss */
   .product-analyst-results .analyst-views {
     padding: 0;
   }
 }
-/* line 90, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 93, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .more {
   display: block;
 }
-/* line 93, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 96, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .less {
   display: none;
 }
-/* line 96, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 99, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .analyst-list-container {
   display: block;
 }
-/* line 100, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 103, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .more {
   display: none;
 }
-/* line 103, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 106, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .less {
   display: block;
 }
-/* line 107, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 110, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .btn-plus:after {
   content: '\e913';
 }
 
-/* line 114, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 117, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .text-center.NoRecords {
   background: #fff;
   padding: 50px 0;
@@ -8127,7 +8131,6 @@ section#services-list .row .btn-container .btn-primary {
   position: absolute;
   right: 0;
   top: 50%;
-  margin-top: -20px;
   font-size: 35px;
   font-family: 'InformaIcons';
   font-style: normal;
@@ -8140,20 +8143,20 @@ section#services-list .row .btn-container .btn-primary {
     padding: 25px 35px 25px 0;
   }
 }
-/* line 115, ../../../src/components/help-faqs/sass/help-faqs.scss */
+/* line 114, ../../../src/components/help-faqs/sass/help-faqs.scss */
 #helpFaqs .panel-group .panel .panel-body,
 .accordian-structure .panel-group .panel .panel-body {
   border: none;
   padding: 15px 60px 40px 0;
 }
-/* line 121, ../../../src/components/help-faqs/sass/help-faqs.scss */
+/* line 120, ../../../src/components/help-faqs/sass/help-faqs.scss */
 #helpFaqs .btn,
 .accordian-structure .btn {
   width: 260px;
   margin: 15px 50px;
 }
 @media (max-width: 767px) {
-  /* line 121, ../../../src/components/help-faqs/sass/help-faqs.scss */
+  /* line 120, ../../../src/components/help-faqs/sass/help-faqs.scss */
   #helpFaqs .btn,
   .accordian-structure .btn {
     margin: 0;
@@ -8162,7 +8165,7 @@ section#services-list .row .btn-container .btn-primary {
 }
 
 /*Experience Mode FAQs*/
-/* line 136, ../../../src/components/help-faqs/sass/help-faqs.scss */
+/* line 135, ../../../src/components/help-faqs/sass/help-faqs.scss */
 .experience-mode #faqs .collapse {
   display: block !important;
 }
