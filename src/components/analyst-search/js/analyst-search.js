@@ -205,6 +205,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         checkButtonMore();
         equalHeight();
         ajaxCallonSector();
+        addthis.toolbox('.analyst-views');
         return html;
     }
 
@@ -224,6 +225,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             }
         }
         productAnalystResults.html(html);
+        addthis.toolbox('.analyst-views');
         equalHeight();
         return html;
     }
