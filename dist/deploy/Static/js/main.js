@@ -4090,7 +4090,7 @@ var INFORMA = window.INFORMA || {};
                                     '</p>'+
                                 '{{/compare}}'+
                                 '<h4>{{Title}}</h4>'+
-                                '<p class="publish">{{#if Profile}}{{ByKeyword}} <strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
+                                '<p class="publish">{{#if Profile}}{{ByKeyword}}<strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
                                 '{{#compare Description null operator="!="}}'+
                                     '<p class="description">{{Description}}</p>'+
                                 '{{/compare}}'+
@@ -4417,17 +4417,21 @@ var INFORMA = window.INFORMA || {};
                                         '</div>' +
                                         '<div class="analyst-footer">' +
                                             '<div class="analyst-footer-content clearfix">' +
-                                                '<ul class="nav-links">' +
-                                                    '{{#compare results.TwitterHandleID null operator="!="}}' +
-                                                        '<li><a href="{{results.TwitterLink.Url}}" target="{{results.TwitterLink.Target}}" class="icon-twitter"></a></li>' +
-                                                    '{{/compare}}' +
-                                                    '{{#compare results.LinkedInProfileID null operator="!="}}' +
-                                                        '<li><a href="{{results.LinkedinLink.Url}}" target="{{results.LinkedinLink.Target}}" class="icon-linked-in"></a></li>' +
-                                                    '{{/compare}}' +
-                                                    '{{#compare results.EmailAddressLink null operator="!="}}' +
-                                                        '<li><a href="mailto:{{results.EmailAddressLink}}" class="icon-email"></a></li>' +
-                                                    '{{/compare}}' +
-                                                '</ul>' +
+                                                    '<ul class="nav-links">'+
+                                                        '{{#if results.LinkedInProfileID}}'+
+                                                            '<li>'+
+                                                                '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
+                                                            '</li>'+
+                                                        '{{/if}}'+
+                                                        '{{#if results.TwitterHandleID}}'+
+                                                            '<li>'+
+                                                                '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
+                                                            '</li>'+
+                                                        '{{/if}}'+
+                                                        '{{#if results.EmailAddressLink}}'+
+                                                            '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                        '{{/if}}'+
+                                                    '</ul>'+
                                                 '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLabel}}</a>' +
                                             '</div>' +
                                         '</div>' +
@@ -4647,7 +4651,7 @@ var INFORMA = window.INFORMA || {};
                                 '<div class="button-links">'+
                                     '<div class="button-links-wrap row">'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="{{results.PageURL}}" target="_blank" class="btn btn-default">{{results.DetailText}}</a>'+
+                                            '<a href="{{results.PageURL}}" target="{{results.LinkTarget}} class="btn btn-default">{{results.DetailText}}</a>'+
                                         '</div>'+
                                         '<div class="col-xs-6">'+
                                             '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.FreeTrialLink.CTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
@@ -4727,7 +4731,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                         '{{/if}}'+
                                                                     '</ul>'+
-                                                                    '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
+                                                                    '<a href="{{results.ProfileUrl}}" target="{{results.LinkTarget}} class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
                                                                 '</div>'+
                                                             '</div>'+
                                                         '</div>'+
@@ -4805,7 +4809,7 @@ var INFORMA = window.INFORMA || {};
                                                     '<div class="footer">'+
                                                         '<div class="btn-container text-right">'+
                                                             '{{#compare results.LinkText null operator="!="}}'+
-                                                                '<a href="{{results.PageURL}}" class="btn btn-primary" target="_blank">{{results.DetailText}}</a>'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary" target="{{results.LinkTarget}}>{{results.DetailText}}</a>'+
                                                             '{{/compare}}'+
                                                         '</div>'+
                                                     '</div>'+
@@ -5333,6 +5337,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         checkButtonMore();
         equalHeight();
         ajaxCallonSector();
+        addthis.toolbox('.analyst-views');
         return html;
     }
 
@@ -5352,6 +5357,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             }
         }
         productAnalystResults.html(html);
+        addthis.toolbox('.analyst-views');
         equalHeight();
         return html;
     }
