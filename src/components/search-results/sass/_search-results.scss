@@ -58,7 +58,7 @@
                     float: none;
                 }
                 @include tablet {
-                    float: none;
+                    float: left;
                 }
                 label {
                     margin-right: 10px;
@@ -95,6 +95,9 @@
                 float: left;
                 width: 60%;
                 margin-top: 15px;
+                @include tablet{
+                    width: 55%;
+                }
                 @include mobile {
                     width: 100%;
                     margin-bottom: 20px;
