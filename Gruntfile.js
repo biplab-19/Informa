@@ -156,23 +156,30 @@ module.exports = function(grunt) {
             },
             prod: {
                 files: {
-                    '<%= config.dist %>/unminified/Static/js/main.js': ['<%= config.tmp %>/Static/js/*.js','!<%= config.tmp %>/Static/js/analytics.js'],
-                    '<%= config.dist %>/unminified/Static/js/components.js': ['<%= config.tmp %>/Static/js/components/*.js'],
+                    '<%= config.dist %>/unminified/Static/js/main.js': ['<%= config.tmp %>/Static/js/*.js','!<%= config.tmp %>/Static/js/analytics.js', '<%= config.tmp %>/Static/js/components/*.js'],
+                    //'<%= config.dist %>/unminified/Static/js/components.js': ['<%= config.tmp %>/Static/js/components/*.js'],
+
                     '<%= config.dist %>/unminified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js','bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js', 'bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js'],
-                    '<%= config.dist %>/unminified/Static/js/analytics.js':['<%= config.tmp %>/Static/js/analytics.js'],
+
+
+                  //  '<%= config.dist %>/unminified/Static/js/analytics/':['<%= config.tmp %>/Static/js/analytics/**'],
+
                       '<%= config.dist %>/unminified/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
                       '<%= config.dist %>/unminified/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
                       '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
                       '<%= config.dist %>/unminified/Static/css/pharma-theme.css': ['<%= config.tmp %>/Static/css/pharma-theme.css'],
+
+
                       '<%= config.dist %>/unminified/Static/css/marketing-module.css': ['src/sass/marketing-module.css'],
 
-                      '<%= config.dist %>/deploy/Static/js/main.js': ['<%= config.tmp %>/Static/js/*.js'],
-                      '<%= config.dist %>/deploy/Static/js/components.js': ['<%= config.tmp %>/Static/js/components/*.js'],
+                      '<%= config.dist %>/deploy/Static/js/main.js': ['<%= config.tmp %>/Static/js/*.js', '<%= config.tmp %>/Static/js/components/*.js'],
+                    //  '<%= config.dist %>/deploy/Static/js/components.js': ['<%= config.tmp %>/Static/js/components/*.js'],
                       '<%= config.dist %>/deploy/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js','bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js','bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js'],
-                      '<%= config.dist %>/deploy/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
+
+                      //'<%= config.dist %>/deploy/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
                       '<%= config.dist %>/deploy/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
-                      '<%= config.dist %>/deploy/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
-                      '<%= config.dist %>/deploy/Static/css/pharma-theme.css': ['<%= config.tmp %>/Static/css/pharma-theme.css'],
+                      '<%= config.dist %>/deploy/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/agri-theme.css'],
+                      '<%= config.dist %>/deploy/Static/css/pharma-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/pharma-theme.css'],
                       '<%= config.dist %>/deploy/Static/css/marketing-module.css': ['src/sass/marketing-module.css']
                 }
             }
@@ -227,6 +234,12 @@ module.exports = function(grunt) {
                         flatten: true,
                         src: ['<%= config.src %>/scripts/**/*.js'],
                         dest: '<%= config.tmp %>/Static/js'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= config.src %>/scripts/analytics',
+                        src: ['{,*/}*.*'],
+                        dest: '<%= config.tmp %>/Static/js/analytics'
                     },
                     {
                         expand: true,
@@ -295,10 +308,12 @@ module.exports = function(grunt) {
                     {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/minified/Static/fonts'},
                     {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/unminified/Static/images'},
                     {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/unminified/Static/fonts'},
+                    {expand: true, cwd: '<%= config.src %>/scripts/analytics', src: ['**/*.*'], dest: '<%= config.dist %>/env-specific'},
                     {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/Static/images'},
                     {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/Static/fonts'},
                     {expand: true, cwd: '<%= config.src %>/cms-images', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/cms-images'},
-                    {expand: true, cwd: '<%= config.tmp %>/data', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/data'}
+                    {expand: true, cwd: '<%= config.tmp %>/data', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/data'},
+
                 ]
             }
         },
@@ -320,8 +335,8 @@ module.exports = function(grunt) {
             },
             prod: {
                 files: {
-                    '<%= config.dist %>/minified/Static/js/components.js':['<%= config.tmp %>/Static/js/components/*.js'],
-                    '<%= config.dist %>/minified/Static/js/main.js':['<%= config.tmp %>/Static/js/*.js','!<%= config.tmp %>/Static/js/analytics.js'],
+                    //'<%= config.dist %>/minified/Static/js/components.js':['<%= config.tmp %>/Static/js/components/*.js'],
+                    '<%= config.dist %>/minified/Static/js/main.js':['<%= config.tmp %>/Static/js/*.js','<%= config.tmp %>/Static/js/components/*.js','!<%= config.tmp %>/Static/js/analytics.js'],
                     '<%= config.dist %>/minified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js', 'bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js',
                       'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
                      'bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js']
@@ -384,16 +399,13 @@ module.exports = function(grunt) {
           prod: {
               files:  [
                 {
-                  '<%= config.dist %>/minified/Static/css/component.css':['<%= config.tmp %>/Static/css/component.css']
-                },
-                {
                   '<%= config.dist %>/minified/Static/css/global.css':['<%= config.tmp %>/Static/css/global.css']
                 },
                 {
-                  '<%= config.dist %>/minified/Static/css/agri-theme.css':['<%= config.tmp %>/Static/css/agri-theme.css']
+                  '<%= config.dist %>/minified/Static/css/agri-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/agri-theme.css']
                 },
                 {
-                  '<%= config.dist %>/minified/Static/css/pharma-theme.css':['<%= config.tmp %>/Static/css/pharma-theme.css']
+                  '<%= config.dist %>/minified/Static/css/pharma-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/pharma-theme.css']
                 },{
                     '<%= config.dist %>/minified/Static/css/marketing-module.css': ['src/sass/marketing-module.css'],
                 }

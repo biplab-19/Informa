@@ -1,11 +1,11 @@
 s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
-s.account="informashopwindowpharmapreprod" // UAT
-//s.account="informashopwindowpharmaprod" // Prod
+//s.account="informashopwindowpharmapreprod" // UAT
+s.account="informashopwindowpharmaprod" // Prod
 
 
 s.trackingServer="informa.122.2o7.net" // Non Secure
-//s.trackingServerSecure ="informa.122.2o7.net" // Secure 
+//s.trackingServerSecure ="informa.122.2o7.net" // Secure
 
 /************************** CONFIG SECTION **************************/
 /* You may add or alter any code config here. */
