@@ -1,6 +1,6 @@
 header {
     .greyed-out {
-        color: $grey-color07 !important;
+        color: $white !important;
     }
     color: $light;
     .cookieBanner {
@@ -289,10 +289,10 @@ header {
                         @include anchor-font(14px,13px,12px);
                         &:after {
                             content: '';
-                            border-left: 2px solid #666666;
-                            height: 45%;
+                            border-left: 2px solid #777b87;
+                            height: 30%;
                             position: absolute;
-                            top: 15px;
+                            top: 18px;
                             right: 0px;
                         }
                         &:last-child {
@@ -389,6 +389,8 @@ header {
                                 top: 3px;
                                 .access-link{
                                     right: 5px;
+                                    font-size: 0;
+                                    line-height: 0;
                                 }
                             }
                         }
