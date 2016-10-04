@@ -41,11 +41,13 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         var object = null;
          var   DefaultCount = $('.recomended-content').attr('data-defaultCount');
 
-        if(target === '#tabs-1' && document.cookie.indexOf("PrefernceUpdated=true") > 0) {
+        if(target === '#tabs-1') {
             
             object = {
                 PageSize: DefaultCount,
-                GetContentBasedOnContentType:true
+                GetContentBasedOnContentType:true,
+                SearchTexts: $('.SearchTextsSampleContent').val().split('|'),
+                ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|')
             }
             
             GetAjaxData(Urls.GetRecomendedItems, "Post", object, INFORMA.RecomendedContent.RenderRecomendResult, null, "PreferenceUpdate");

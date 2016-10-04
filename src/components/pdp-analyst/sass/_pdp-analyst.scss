@@ -255,16 +255,12 @@
 					left: 50%;
 					font-size:0;
 					line-height: 0;
-					&.addthis_button_linkedin_follow, &.addthis_button_twitter_follow, &.addthis_button_email,&.custom_email {
+					&.addthis_button_linkedin_follow, &.addthis_button_twitter_follow, &.addthis_button_email, &.custom_email {
 						top: 15px;
 						left: 15px;
 						.at-icon-wrapper, svg {
 							height: 24px !important;
 							width: 24px !important;
-						}
-						&:active,
-						&:hover {
-							text-decoration: none;
 						}
 					}
 					&:active,
@@ -276,6 +272,12 @@
 					&:before{
 						font-size: 18px;
 						line-height: 20px;
+					}
+					&.icon-email{
+						&:active,
+						&:hover {
+							text-decoration: none;
+						}
 					}
 				}
 				&:last-child {
