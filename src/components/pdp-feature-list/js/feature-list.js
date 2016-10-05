@@ -59,8 +59,16 @@ INFORMA.featureList = (function(window, $, namespace) {
         var EachView = jQuery('.feature-list-section-pharma, .feature-list-section');
         EachView.each(function() {
             var Items = jQuery(this).find('.feature-list-container'),
+                InnerItems = jQuery(this).find('.feature-list-container h4'),
                 _maxHeight = 0,
-                _padding = 80;
+                _maxInnerHeight = 0;
+            InnerItems.each(function() {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _maxInnerHeight) {
+                    _maxInnerHeight = Height;
+                }
+            })
+            InnerItems.css('height', _maxInnerHeight);
             Items.each(function() {
                 var Height = jQuery(this).outerHeight();
                 if (Height > _maxHeight) {
