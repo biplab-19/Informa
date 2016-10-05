@@ -121,6 +121,7 @@
                         display: block;
                         &.active{
                             border:1px dotted $grey-color04;
+                            @include webkit-focus;
                         }
                         label {
                             color: $grey-color04;
@@ -165,6 +166,7 @@
                     text-indent: -9999px;
                     position: absolute;
                     left: 0;
+                    color:$grey-color04;
                 }
             }
             h3 {

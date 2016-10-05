@@ -756,6 +756,7 @@ header {
                         }
                         &.active{
                             border:1px dotted $white;
+                            @include webkit-focus;
                         }
                     }
                 }
@@ -890,6 +891,7 @@ header {
                         }
                         &:focus{
                             outline: 1px dotted $grey-color04;
+                            @include webkit-focus;
                         }
                     }
                     .dropdown-menu{
@@ -923,6 +925,7 @@ header {
                         color: $text-gray;
                         &:focus{
                             outline: 1px dotted $grey-color04;
+                            @include webkit-focus;
                         }
                     }
                 }

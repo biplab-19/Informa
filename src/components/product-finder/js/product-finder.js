@@ -160,8 +160,10 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 }
                 else{
                     SearchSubmitBtn.addClass("disabled");
+                    return false;
                 }
             });
+
         },
         ShowHideSearch = function(ele) {
             var ShowOption = $(ele).data('show');
