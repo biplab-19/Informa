@@ -62,6 +62,16 @@
             a {
                 color:$grey-color10;
                 text-decoration: none;
+                display: inline-block;
+                overflow-wrap: break-word;
+                white-space: normal;
+                @include mobile{
+                    width: 230px;
+                }
+                @include tablet{
+                    width: 670px;
+                }
+
                 &:before {
                     font-weight: normal;
                     text-align: center;
