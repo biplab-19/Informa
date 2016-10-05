@@ -3493,51 +3493,57 @@ nav#pdp-navigation .menuFollower {
   }
 }
 /* line 128, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
-#analyst-profile .descriptions .bold + div {
-  height: 55px;
+#analyst-profile .descriptions .bold {
+  color: #444957;
 }
 /* line 131, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+#analyst-profile .descriptions .bold + div {
+  height: 55px;
+  color: #444957;
+}
+/* line 135, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions p {
   margin: 0;
+  color: #444957;
 }
-/* line 134, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 139, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content {
   height: auto !important;
 }
-/* line 136, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 141, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content .bold + div {
   height: auto !important;
 }
-/* line 141, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 146, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .show-options:after {
   content: "\e913";
 }
-/* line 145, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 150, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .more {
   display: none;
 }
-/* line 148, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 153, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .less {
   display: block;
 }
-/* line 153, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 158, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions .bold {
   margin-bottom: 10px;
 }
-/* line 157, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 162, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .btn-container {
   padding-right: 45px;
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 157, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 162, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .btn-container {
     text-align: center;
     padding-right: 0;
     margin-bottom: 0;
   }
 }
-/* line 166, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 171, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options {
   min-width: 105px;
   padding: 5px 30px 5px 0;
@@ -3551,13 +3557,13 @@ nav#pdp-navigation .menuFollower {
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 166, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 171, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .show-options {
     padding: 0 0 45px 0;
     text-align: center;
   }
 }
-/* line 181, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 186, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options:after {
   content: "\e912";
   position: absolute;
@@ -3567,82 +3573,83 @@ nav#pdp-navigation .menuFollower {
   font-family: 'InformaIcons';
 }
 @media (max-width: 767px) {
-  /* line 181, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 186, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .show-options:after {
     top: 20px;
     right: 50%;
     margin-right: -10px;
   }
 }
-/* line 194, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 199, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .more {
   display: block;
 }
-/* line 197, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 202, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .less {
   display: none;
 }
-/* line 201, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 206, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories {
   margin-top: 0;
 }
 @media (max-width: 767px) {
-  /* line 201, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 206, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 35px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 201, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 206, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 30px;
   }
 }
-/* line 209, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 214, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading {
   font-size: 18px;
   margin-top: 20px;
   margin-bottom: 15px;
 }
-/* line 213, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 218, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading i {
   margin-right: 5px;
 }
-/* line 217, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 222, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature {
   list-style-type: none;
   padding-left: 32px;
   margin-bottom: 20px;
 }
-/* line 221, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 226, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li {
   padding: 3px 0;
   position: relative;
+  color: #444957;
 }
-/* line 224, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 230, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li a {
   color: #565c6b;
 }
 @media (min-width: 1142px) {
-  /* line 221, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 226, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     width: 50%;
     float: left;
   }
 }
 @media (max-width: 767px) {
-  /* line 221, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 226, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     margin-bottom: 10px;
   }
 }
-/* line 235, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 241, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature:after {
   content: '';
   clear: both;
   display: block;
 }
-/* line 243, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 249, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .place:before {
   width: 18px;
   height: 26px;
@@ -3651,7 +3658,7 @@ nav#pdp-navigation .menuFollower {
   top: -5px;
   background-position: -5px -313px;
 }
-/* line 251, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 257, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .experience:before {
   width: 20px;
   height: 28px;
@@ -3661,12 +3668,12 @@ nav#pdp-navigation .menuFollower {
   background-position: -5px -345px;
 }
 
-/* line 260, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 266, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .bold {
   font-weight: bold;
 }
 
-/* line 263, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 269, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset {
   display: inline-block;
   padding: 5px;
@@ -3679,7 +3686,7 @@ nav#pdp-navigation .menuFollower {
   padding-right: 40px;
   position: relative;
 }
-/* line 274, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 280, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset:after {
   content: 'x';
   position: absolute;
@@ -3689,7 +3696,7 @@ nav#pdp-navigation .menuFollower {
   border-left: 1px solid #fff;
   padding: 0 6px;
 }
-/* line 285, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 291, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset .details .social-links .at-icon-wrapper {
   line-height: 56px;
   background-color: transparent !important;
@@ -5437,7 +5444,7 @@ section#about-us-hero .transparent-bg-content .description {
 .product-finder-results .search-container .view-toggle .view-mode li[data-view="tileView"] a:before {
   content: '';
   height: 26px;
-  width: 26px;
+  width: 22px;
   background: url(/Static/images/dashboard.png) no-repeat;
 }
 /* line 158, ../../../src/components/search-results/sass/_search-results.scss */
@@ -6143,12 +6150,13 @@ section#about-us-hero .transparent-bg-content .description {
 /* line 648, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper .footer {
   min-height: 50px;
+  margin-top: 11px;
 }
-/* line 650, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 651, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper .footer .btn-container {
   margin: 0;
 }
-/* line 652, ../../../src/components/search-results/sass/_search-results.scss */
+/* line 653, ../../../src/components/search-results/sass/_search-results.scss */
 .others-wrapper .footer .btn-container .btn {
   float: right;
 }
@@ -6567,20 +6575,32 @@ section#about-us-hero .transparent-bg-content .description {
 .product-analyst-results .analyst-list-container {
   display: block;
 }
-/* line 103, ../../../src/components/analyst-search/sass/analyst-search.scss */
+@media (max-width: 767px) {
+  /* line 102, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  .product-analyst-results .analyst-list-container:nth-child(n+2) {
+    display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 107, ../../../src/components/analyst-search/sass/analyst-search.scss */
+  .product-analyst-results .analyst-list-container:nth-child(n+3) {
+    display: block;
+  }
+}
+/* line 113, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .more {
   display: none;
 }
-/* line 106, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 116, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .less {
   display: block;
 }
-/* line 110, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 120, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .product-analyst-results .showLess .btn-plus:after {
   content: '\e913';
 }
 
-/* line 117, ../../../src/components/analyst-search/sass/analyst-search.scss */
+/* line 127, ../../../src/components/analyst-search/sass/analyst-search.scss */
 .text-center.NoRecords {
   background: #fff;
   padding: 50px 0;
@@ -7551,7 +7571,7 @@ section.event-profile-container .content-wrap {
 .events-search .views-section .views a.icon-list-view:before {
   content: '';
   height: 26px;
-  width: 26px;
+  width: 22px;
   background: url(/Static/images/dashboard.png) no-repeat;
 }
 
@@ -12512,11 +12532,11 @@ section.recommended-products {
 /* line 4, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products h2 {
   color: #fff;
-  font-family: 'FSMe-Bold';
+  font-family: 'FSMe-Light';
 }
 /* line 7, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products h2 span {
-  font-family: 'FSMe';
+  font-family: 'FSMe-Light';
 }
 /* line 11, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products .container {

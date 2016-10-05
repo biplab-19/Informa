@@ -4273,7 +4273,7 @@ var INFORMA = window.INFORMA || {};
                                                             '<h4>{{Name}}</h4>' +
                                                             '<h5>{{Type}}, {{JobTitle}}</h5>' +
                                                             '{{#if Country}}'+
-                                                            '<p class="location">{{State}}, {{Country}}</p>' +
+                                                            '<p class="location">{{State}}{{#if Country}}{{#if State}},{{/if}}{{/if}} {{Country}}</p>' +
                                                             '{{/if}}'+
                                                         '</div>' +
                                                         '<div class="analyst-img">' +
@@ -4302,18 +4302,18 @@ var INFORMA = window.INFORMA || {};
                                                 '<div class="analyst-footer">' +
                                                     '<div class="analyst-footer-content clearfix">' +
                                                         '<ul class="nav-links">'+
-                                                            '{{#if results.LinkedInProfileID}}'+
+                                                            '{{#if LinkedInProfileID}}'+
                                                                 '<li>'+
-                                                                    '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
+                                                                    '<a class="addthis_button_linkedin_follow" addthis:userid="{{LinkedInProfileID}}"></a>'+
                                                                 '</li>'+
                                                             '{{/if}}'+
-                                                            '{{#if results.TwitterHandleID}}'+
+                                                            '{{#if TwitterHandleID}}'+
                                                                 '<li>'+
-                                                                    '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
+                                                                    '<a class="addthis_button_twitter_follow" addthis:userid="{{TwitterHandleID}}"></a>'+
                                                                 '</li>'+
                                                             '{{/if}}'+
-                                                            '{{#if results.EmailAddressLink}}'+
-                                                                '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                            '{{#if EmailAddressLink.Url}}'+
+                                                                '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                             '{{/if}}'+
                                                         '</ul>'+
                                                         '<a href="{{ProfileUrl}}" class="btn btn-primary pull-right">Full Profile</a>' +
@@ -4380,7 +4380,7 @@ var INFORMA = window.INFORMA || {};
                                                                 '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
                                                             '</li>'+
                                                         '{{/if}}'+
-                                                        '{{#if results.EmailAddressLink}}'+
+                                                        '{{#if results.EmailAddressLink.Url}}'+
                                                             '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                         '{{/if}}'+
                                                     '</ul>'+
@@ -4432,12 +4432,12 @@ var INFORMA = window.INFORMA || {};
                                                     '{{/compare}}'+
                                                 '</div>'+
                                                 '<div class="footer clearfix">'+
-                                                    '{{#compare Register null operator="!="}}' + 
-                                                       '<a href="{{Register.Url}}" class="btn btn-primary pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
-                                                    '{{/compare}}'+
                                                     '{{#compare FullDetail null operator="!="}}' +
                                                       '<a href="{{FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
                                                     '{{/compare}}'+
+                                                    '{{#compare Register null operator="!="}}' + 
+                                                       '<a href="{{Register.Url}}" class="btn btn-primary pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
+                                                    '{{/compare}}'+
                                                 '</div>'+
                                             '</div>'+
                                         '</div>'+
@@ -4643,7 +4643,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '<h4>{{results.Name}}</h4>'+
                                                                             '<h5>{{results.JobTitle}}</h5>'+
                                                                             '{{#if results.Country}}'+
-                                                                                '<p class="location">{{results.State}}, {{results.Country}}</p>'+
+                                                                                '<p class="location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}}</p>'+
                                                                             '{{/if}}'+
                                                                         '</div>'+
                                                                         '<div class="analyst-img">'+
@@ -4683,7 +4683,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                         '{{/if}}'+
                                                                     '</ul>'+
-                                                                    '<a href="{{results.ProfileUrl}}" target="{{results.LinkTarget}} class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
+                                                                    '<a href="{{results.ProfileUrl}}" target="{{results.LinkTarget}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
                                                                 '</div>'+
                                                             '</div>'+
                                                         '</div>'+
@@ -4761,7 +4761,7 @@ var INFORMA = window.INFORMA || {};
                                                     '<div class="footer">'+
                                                         '<div class="btn-container text-right">'+
                                                             '{{#compare results.LinkText null operator="!="}}'+
-                                                                '<a href="{{results.PageURL}}" class="btn btn-primary" target="{{results.LinkTarget}}>{{results.DetailText}}</a>'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary" target="{{results.LinkTarget}}">{{results.DetailText}}</a>'+
                                                             '{{/compare}}'+
                                                         '</div>'+
                                                     '</div>'+
@@ -5175,6 +5175,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         Parent.find('.row').html(html);
         equalHeight();
         Parent.addClass('showLess');
+        addthis.toolbox('.analyst-views');
         Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideDown();
         return html;
     }
@@ -10818,10 +10819,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         },
         EqualHeight = function() {
-            var Items = SearchContent.find('.wrap-content');
+            var Items = SearchContent.find('.wrap-content'),
+                Wrapper = SearchContent.find('.list-items');
 
             if ($(".search-container").hasClass("tileView")) {
-                var MaxHeight = 0;
+                var MaxHeight = 0,
+                    maxWrapperHeight = 0;
 
                 Items.each(function() {
                     var ItemHeight = $(this).outerHeight();
@@ -10830,6 +10833,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     }
                 })
                 Items.height(MaxHeight);
+                Wrapper.each(function() {
+                    var ItemHeight = $(this).outerHeight();
+                    if (ItemHeight > MaxHeight) {
+                        maxWrapperHeight = ItemHeight;
+                    }
+                })
+                Wrapper.height(maxWrapperHeight);
             } else {
                 Items.css("height", "auto");
             }
