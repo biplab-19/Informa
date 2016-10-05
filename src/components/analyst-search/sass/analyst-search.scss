@@ -98,6 +98,16 @@
 	}
 	.analyst-list-container {
 		display: block;
+		@include mobile {
+			&:nth-child(n+2) {
+				display: block;
+			}
+		}
+		@include tablet {
+			&:nth-child(n+3) {
+				display: block;
+			}
+		}
 	}
 	.showLess {
 		.more {

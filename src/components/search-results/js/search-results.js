@@ -192,10 +192,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         },
         EqualHeight = function() {
-            var Items = SearchContent.find('.wrap-content');
+            var Items = SearchContent.find('.wrap-content'),
+                Wrapper = SearchContent.find('.list-items');
 
             if ($(".search-container").hasClass("tileView")) {
-                var MaxHeight = 0;
+                var MaxHeight = 0,
+                    maxWrapperHeight = 0;
 
                 Items.each(function() {
                     var ItemHeight = $(this).outerHeight();
@@ -204,6 +206,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     }
                 })
                 Items.height(MaxHeight);
+                Wrapper.each(function() {
+                    var ItemHeight = $(this).outerHeight();
+                    if (ItemHeight > MaxHeight) {
+                        maxWrapperHeight = ItemHeight;
+                    }
+                })
+                Wrapper.height(maxWrapperHeight);
             } else {
                 Items.css("height", "auto");
             }

@@ -91,6 +91,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         Parent.find('.row').html(html);
         equalHeight();
         Parent.addClass('showLess');
+        addthis.toolbox('.analyst-views');
         Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideDown();
         return html;
     }
