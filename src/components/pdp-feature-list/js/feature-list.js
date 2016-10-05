@@ -21,7 +21,8 @@ INFORMA.featureList = (function(window, $, namespace) {
         init,
         _hideList,
         _bindShowMore,
-        equalHeight;
+        _equalHeight,
+        _bindShowLess;
 
     _bindShowMore = function() {
         // if data-items, data-infinite is defined, used it
@@ -55,7 +56,7 @@ INFORMA.featureList = (function(window, $, namespace) {
             });
         }
     }
-    equalHeight = function() {
+    _equalHeight = function() {
         var EachView = jQuery('.feature-list-section-pharma, .feature-list-section');
         EachView.each(function() {
             var Items = jQuery(this).find('.feature-list-container'),
@@ -78,11 +79,22 @@ INFORMA.featureList = (function(window, $, namespace) {
             Items.css('height', _maxHeight);
         })
     }
+
+    _bindShowLess = function () {
+      var _showLess = _featureListSection.find('.btn-showMore .less');
+      $('body').on('click', _showLess, function(){
+          $('html, body').animate({
+              scrollTop: _featureListSection.offset().top - 40
+          });
+      });
+    }
+
     init = function() {
         if (_featureListSection.length > 0) {
             _hideList(_featureListSection);
             _bindShowMore();
-            equalHeight();
+            _equalHeight();
+            _bindShowLess();
         }
     };
 
