@@ -1,4 +1,4 @@
-/*! 2016-10-05 */@charset "UTF-8";
+/*! 2016-10-06 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -11909,21 +11909,22 @@ Fix form input zoom in mobile
 ==================================================
 */
 @media (max-width: 767px) {
-  /* line 449, ../../../src/sass/global/_common-components.scss */
-  form.wffm-form input[type="text"]:focus,
-  form.wffm-form input[type="email"]:focus,
-  form.wffm-form input[type="number"]:focus,
-  form.wffm-form textarea:focus, form.wffm-form select:focus {
+  /* line 448, ../../../src/sass/global/_common-components.scss */
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  textarea:focus, select:focus {
     font-size: 16px !important;
   }
-  /* line 455, ../../../src/sass/global/_common-components.scss */
-  form.wffm-form input[type="text"], form.wffm-form input[type="email"],
-  form.wffm-form input[type="number"],
-  form.wffm-form textarea, form.wffm-form select {
+
+  /* line 454, ../../../src/sass/global/_common-components.scss */
+  input[type="text"], input[type="email"],
+  input[type="number"],
+  textarea, select {
     font-size: 16px !important;
   }
 }
-/* line 462, ../../../src/sass/global/_common-components.scss */
+/* line 460, ../../../src/sass/global/_common-components.scss */
 .adjust-image {
   max-width: 100% !important;
   height: auto !important;

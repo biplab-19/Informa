@@ -1,4 +1,4 @@
-/*! 2016-10-05 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-06 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4675,6 +4675,23 @@ var INFORMA = window.INFORMA || {};
                    }
                    return false;
                 }
+                Array.prototype.remove = function(){
+                    var args = Array.apply(null, arguments);
+                    var indices = [];
+                    for(var i = 0; i < args.length; i++){
+                        var arg = args[i];
+                        var index = this.indexOf(arg);
+                        while(index > -1){
+                            indices.push(index);
+                            index = this.indexOf(arg, index + 1);
+                        }
+                    }
+                    indices.sort();
+                    for(var i = 0; i < indices.length; i++){
+                        var index = indices[i] - i;
+                        this.splice(index, 1);
+                    }    
+                }
                 this.getUniqueArray = function(arrayList) {
                     var uniqueArray = [];
                     $.each(arrayList, function(i, el) {
@@ -5875,14 +5892,14 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     var PreferenceCheckbox = $(".preference .panel-body li .custom-checkbox"),
          CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
          SelectAll = $(".preference .panel-heading .custom-checkbox input"),
-        init, BindCheckboxes,ReadCookies,BakeCookies, CookieValue = {},Count=0,
+        init, BindCheckboxes,ReadPref,CreatePref, UpdatePref, PrefValue = {},Count=0,
     
 
 
     //get all default setting value from component and check
     //if exist any default setting then update and return carousel object.
     
-    BakeCookies = function(name, value) {
+    CreatePref = function(name, value) {
         INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
             method: "Post",
             data: JSON.stringify({"key":name,"value":value ,"expires":365}),
@@ -5890,63 +5907,81 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
             }
         });
     },
-    ReadCookies = function(name) {
+    ReadPref = function(name) {
          var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
          result && (result = JSON.parse(result[1]));
          return result;
     },
-
-    BindCheckboxes = function(ele) {
-        SelectAll.on("click",function(e){
-            var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input");
-            if($(this).prop("checked")===true){
-                jQuery.each(CurrentCheckBoxs, function(e){
-                    if($(this).prop("checked")!==true){
-                       $(this).trigger("click");
-                       $(this).prop("checked",true);
-                    }
-                }); 
-            } else{
-                jQuery.each(CurrentCheckBoxs, function(e){
-                       $(this).trigger("click");
-                       $(this).prop("checked",false);
-                }); 
-            }
-            BakeCookies("PrefernceUpdated", true);
-        });
-        CheckBoxes.on("click",function(e){
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-                var getCookie = ReadCookies("USR_DETAIL"),
-                    CheckBoxVal = $(this).val(),
+    UpdatePref = function(obj, isHeading, SelectedSector){
+                var getCookie = ReadPref("USR_DETAIL"),
+                    CheckBoxVal = obj.val(),
                     ExistingInterest = (getCookie!==null && getCookie.AreaOfInterest) ? getCookie.AreaOfInterest : [],
-                    ParentEle = $(this).parents(".panel-default").eq(0),
+                    ParentEle = obj.parents(".panel-default").eq(0),
                     CountSpan = ParentEle.find("span.count"),
                     SelectedCount = ParentEle.find(".panel-body input[type=checkbox]:checked"),
                     UserInterest = [] , MergedJson; 
 
-                if($(this).prop("checked")){
-                    UserInterest.push(CheckBoxVal);
-                    MergedJson = INFORMA.Utils.ArrayUnique(UserInterest.concat(ExistingInterest));
-                }else{
-                    var tempArray = (ExistingInterest.length) ? (ExistingInterest).split(','):[];
-                    MergedJson = INFORMA.Utils.RemoveArrayItem(tempArray,CheckBoxVal);
-                    $(this).parents(".panel").eq(0).find(".panel-heading input").prop("checked",false);
+                if(!isHeading){
+                    if(obj.prop("checked")){
+                        UserInterest.push(CheckBoxVal);
+                        MergedJson = INFORMA.Utils.ArrayUnique(UserInterest.concat(ExistingInterest));
+                    }else{
+                        var tempArray = (ExistingInterest.length) ? (ExistingInterest).split(','):[];
+                        MergedJson = INFORMA.Utils.RemoveArrayItem(tempArray,CheckBoxVal);
+                        obj.parents(".panel").eq(0).find(".panel-heading input").prop("checked",false);
 
+                    }
+                }
+                if(isHeading){
+                    if(obj.prop("checked")){
+                        MergedJson = INFORMA.Utils.ArrayUnique(SelectedSector.concat(ExistingInterest));
+                    }else{
+                        var tempArray = (ExistingInterest.length) ? (ExistingInterest).split(','):[];
+                        tempArray.remove(SelectedSector.join(','));
+                        MergedJson = tempArray;
+                    }
                 }
                 
                 if(MergedJson && getCookie!==null){
                     getCookie.AreaOfInterest = MergedJson.join(',');
-                    BakeCookies("USR_DETAIL", getCookie.AreaOfInterest);
+                    CreatePref("USR_DETAIL", getCookie.AreaOfInterest);
                 }else{
-                    CookieValue.AreaOfInterest = MergedJson.join(',');
-                    BakeCookies("USR_DETAIL", CookieValue.AreaOfInterest);
+                    PrefValue.AreaOfInterest = MergedJson.join(',');
+                    CreatePref("USR_DETAIL", PrefValue.AreaOfInterest);
                 }
                 if(SelectedCount){
                     Count = SelectedCount.length;
                     CountSpan.text(Count);
                 }
-            BakeCookies("PrefernceUpdated", true);
+                CreatePref("PrefernceUpdated", true);
+    },
+    BindCheckboxes = function(ele) {
+        SelectAll.on("click",function(e){
+            var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input"),
+                uniqueArray = [];
+            if($(this).prop("checked")===true){
+                var localArray = [];
+                jQuery.each(CurrentCheckBoxs, function(e){
+                    if($(this).prop("checked")!==true){
+                       $(this).prop("checked",true);
+                       localArray.push($(this).val());
+                    }
+                }); 
+                uniqueArray = localArray;
+            } else{
+                var localArray = [];
+                jQuery.each(CurrentCheckBoxs, function(e){
+                       $(this).prop("checked",false);
+                       localArray.push($(this).val());
+                }); 
+                uniqueArray = localArray;
+            }
+            UpdatePref($(this),true,uniqueArray);
+        });
+        CheckBoxes.on("click",function(e){
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            UpdatePref($(this),false,null)
         });
     },
 
@@ -6107,7 +6142,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             DatePass = moment(date).format('MMMM YYYY');
             EqualHeight();
         var obj = {
-            data:JSON.stringify({MonthYear: DatePass})
+            data:JSON.stringify({MonthYear: DatePass,SectorId: SectorSelect.val(), eventType: Type.val(),
+            Country: Country.val()})
         }
         _previousDate = date;
         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderLoadEvents, null, null);
@@ -7931,7 +7967,7 @@ INFORMA.global = (function(window, $, namespace) {
 	var init = function(){
 		// viewport properties
 		var _viewportWidth = $(window).width();
-		if(_viewportWidth >= 1024){
+		if(_viewportWidth > 1024){
 			device.isDesktop = true;
 			device.viewport = 'desktop';
 			device.viewportN = 0;
@@ -9655,6 +9691,7 @@ INFORMA.news_flash = (function(window, $, namespace) {
         EqualHeightProducts = function() {
             var Items = _recommendedproducts.find('.wrap-content'),
                 MaxHeight = 0;
+                _recommendedproducts.find('.list-items').height('auto');
                 Items.height('auto');
                 Items.each(function() {
                     var ItemHeight = $(this).outerHeight();
