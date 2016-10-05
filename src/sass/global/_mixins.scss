@@ -578,7 +578,7 @@ $desktop-width: 1142px;
                 }
             }
             .events p.title:before {
-                background: $primary;
+                background: $primary !important;
             }
             .header {
                 .arrows {
@@ -595,6 +595,9 @@ $desktop-width: 1142px;
             &.disabled {
                 background-color: grey;
             }
+        }
+        .fc .events-wrap .events.current p.title:before {
+            background: $primary !important;
         }
         .fc-center {
             h2 {

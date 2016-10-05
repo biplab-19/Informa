@@ -142,7 +142,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             DatePass = moment(date).format('MMMM YYYY');
             EqualHeight();
         var obj = {
-            data:JSON.stringify({MonthYear: DatePass})
+            data:JSON.stringify({MonthYear: DatePass,SectorId: SectorSelect.val(), eventType: Type.val(),
+            Country: Country.val()})
         }
         _previousDate = date;
         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderLoadEvents, null, null);

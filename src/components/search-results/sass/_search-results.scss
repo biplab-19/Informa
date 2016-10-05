@@ -1,5 +1,13 @@
 .product-finder-results {
     background: $white;
+    .container {
+        @include mobile {
+            padding: 0;
+        }
+        @include tablet {
+            padding: 0;
+        }
+    }
     .search-container {
         padding: 35px 90px 20px 15px;
         background-color: $white;

@@ -24,6 +24,7 @@ INFORMA.news_flash = (function(window, $, namespace) {
         EqualHeightProducts = function() {
             var Items = _recommendedproducts.find('.wrap-content'),
                 MaxHeight = 0;
+                _recommendedproducts.find('.list-items').height('auto');
                 Items.height('auto');
                 Items.each(function() {
                     var ItemHeight = $(this).outerHeight();
