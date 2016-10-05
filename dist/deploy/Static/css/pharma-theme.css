@@ -2425,6 +2425,13 @@ section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e913';
 }
+@media (min-width: 1142px) {
+  /* line 128, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  section#feature-list .btn-showMore-container,
+  section.feature-list-section .btn-showMore-container {
+    padding-top: 30px;
+  }
+}
 
 /* line 1, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus {
@@ -12297,7 +12304,11 @@ section.welcome-description .cross:after {
   font-family: 'FSMe';
 }
 
-/* line 130, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+/* line 129, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
+.recomended-content h2 {
+  font-family: 'FSMe-Bold';
+}
+/* line 131, ../../../src/components/recommendation-tabs/sass/recommendations-tabs.scss */
 .recomended-content h2 span {
   font-family: 'FSMe-Light';
 }
@@ -12532,7 +12543,7 @@ section.recommended-products {
 /* line 4, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products h2 {
   color: #fff;
-  font-family: 'FSMe-Light';
+  font-family: 'FSMe-Bold';
 }
 /* line 7, ../../../src/components/recom-products/sass/_recom-products.scss */
 section.recommended-products h2 span {

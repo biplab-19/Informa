@@ -6640,7 +6640,8 @@ INFORMA.featureList = (function(window, $, namespace) {
         init,
         _hideList,
         _bindShowMore,
-        equalHeight;
+        _equalHeight,
+        _bindShowLess;
 
     _bindShowMore = function() {
         // if data-items, data-infinite is defined, used it
@@ -6674,7 +6675,7 @@ INFORMA.featureList = (function(window, $, namespace) {
             });
         }
     }
-    equalHeight = function() {
+    _equalHeight = function() {
         var EachView = jQuery('.feature-list-section-pharma, .feature-list-section');
         EachView.each(function() {
             var Items = jQuery(this).find('.feature-list-container'),
@@ -6697,11 +6698,24 @@ INFORMA.featureList = (function(window, $, namespace) {
             Items.css('height', _maxHeight);
         })
     }
+
+    _bindShowLess = function () {
+      // var _showLess = _featureListSection.find('.btn-showMore .less');
+      // if(_showLess.length > 0){
+      //   $('body').on('click', '.feature-list-section .btn-showMore .less', function(){
+      //       $('html, body').animate({
+      //           scrollTop: _featureListSection.offset().top - 40
+      //       });
+      //   });
+      // }
+    }
+
     init = function() {
         if (_featureListSection.length > 0) {
             _hideList(_featureListSection);
             _bindShowMore();
-            equalHeight();
+            _equalHeight();
+            _bindShowLess();
         }
     };
 
@@ -9462,7 +9476,16 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     SearchSubmitBtn.addClass("disabled");
                 }
             });
-
+            $(".product-finder form").on("keypress",function(e){
+                var SearchTextField = $(".site-search input[name=SearchText]");
+                if (e.keyCode === 13 || e.which===13) {
+                    if(SearchTextField.val().length >= SearchTextField.data('length')){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+            });
         },
         ShowHideSearch = function(ele) {
             var ShowOption = $(ele).data('show');
