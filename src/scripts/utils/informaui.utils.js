@@ -7,6 +7,23 @@
                    }
                    return false;
                 }
+                Array.prototype.remove = function(){
+                    var args = Array.apply(null, arguments);
+                    var indices = [];
+                    for(var i = 0; i < args.length; i++){
+                        var arg = args[i];
+                        var index = this.indexOf(arg);
+                        while(index > -1){
+                            indices.push(index);
+                            index = this.indexOf(arg, index + 1);
+                        }
+                    }
+                    indices.sort();
+                    for(var i = 0; i < indices.length; i++){
+                        var index = indices[i] - i;
+                        this.splice(index, 1);
+                    }    
+                }
                 this.getUniqueArray = function(arrayList) {
                     var uniqueArray = [];
                     $.each(arrayList, function(i, el) {
