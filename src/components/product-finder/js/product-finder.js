@@ -162,7 +162,16 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     SearchSubmitBtn.addClass("disabled");
                 }
             });
-
+            $(".product-finder form").on("keypress",function(e){
+                var SearchTextField = $(".site-search input[name=SearchText]");
+                if (e.keyCode === 13 || e.which===13) {
+                    if(SearchTextField.val().length >= SearchTextField.data('length')){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+            });
         },
         ShowHideSearch = function(ele) {
             var ShowOption = $(ele).data('show');
