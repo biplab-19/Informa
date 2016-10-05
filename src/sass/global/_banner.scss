@@ -202,6 +202,12 @@
           width: auto;
           display: inline-block;
           float: left;
+          @include desktop{
+            margin-right: 15px;
+          }
+          @include tablet{
+            margin-right: 15px;
+          }
         }
         .follow-row{
           margin-top: 15px;
