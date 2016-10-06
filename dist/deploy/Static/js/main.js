@@ -6955,7 +6955,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _myinterestsModalClose = $('.register-myinterests-close'),
         _validateEmailDomainMsg,
         _getAjaxData, _SelectAll,
-        _updateProductVertical,
         Urls = INFORMA.Configs.urls.webservices,
         _parseResults,
         _bindNumber,
@@ -6977,30 +6976,12 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
         form.find('select.chosen-select').find('option:first-child').prop('selected', true).end().trigger('chosen:updated');
     }
-    _parseResults = function(data) {
-        $('span.product-name-holder').html(data.ProductName);
-        $('.product-name-holder').val(data.ProductName);
-        $('.vertical-name-holder').val(data.VerticalName);
-        $('.tc-product-name').html(data.ProductName);
-        $('.tc-vertical-name').html(data.VerticalName);
-        if (data.ProductName != null) {
-            $('.tc-product-name').html(data.ProductName);
-        } else {
-            $('.tc-product-name').html(data.VerticalName);
-        }
-    }
     _bindNumber = function() {
         $(document).on('keypress', 'input[type="number"]', function(e) {
             if ((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
                 e.preventDefault();
             }
         })
-    }
-    _updateProductVertical = function() {
-        var productId = {
-            'guid': $('.page-id').val()
-        };
-        _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseResults, null, null);
     }
     _getAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
             INFORMA.DataLoader.GetServiceData(url, {
@@ -7325,7 +7306,6 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _renderRecommendedTips();
             //_validateMultiSelct();
             _showRegisterForm();
-            _updateProductVertical();
             _closeMyInterestModal();
         } else {
             _myinterestsSection.css('display', 'none');
@@ -7430,7 +7410,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _updateProductVerticalName,
         //_validateChoosenSelect,
         _destroyChosenInDevice,
-        _customPhoneErrorMsg;
+        _customPhoneErrorMsg,
+        _reCaptchaAccessbility;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -8003,6 +7984,13 @@ INFORMA.forms = (function(window, $, namespace) {
             });
         }
     }
+
+    _reCaptchaAccessbility = function(){
+      $(window).load(function() {
+            $('.g-recaptcha-response').attr('aria-labelledby', 'g-recaptcha-response');
+    });
+    }
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _destroyChosenInDevice();
@@ -8023,6 +8011,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _updateProductVerticalName();
         //_validateChoosenSelect();
         _customPhoneErrorMsg();
+        _reCaptchaAccessbility();
     };
 
     return {
