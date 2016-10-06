@@ -6995,6 +6995,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         form.find('input[type=radio]').removeAttr('checked');
         form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
         form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
+        form.find('select.chosen-select').find('option:first-child').prop('selected', true).end().trigger('chosen:updated');
     }
     _parseResults = function(data) {
         $('span.product-name-holder').html(data.ProductName);
@@ -7542,6 +7543,7 @@ INFORMA.forms = (function(window, $, namespace) {
         $form.find('input[type=radio]').removeAttr('checked');
         $form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
         $form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
+        $form.find('select.chosen-select').find('option:first-child').prop('selected', true).end().trigger('chosen:updated');
     }
 
     _showHideInlineForm = function() {
@@ -11626,7 +11628,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
             playerVars: {
                 'modestbranding': 0,
                 'autoplay': 1,
-                'controls': 0,
+                'controls': 1,
                 'loop': 1,
                 'playlist': _youTubeId,
                 'showinfo': 0
