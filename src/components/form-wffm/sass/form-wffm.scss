@@ -1,7 +1,7 @@
 .tab-pane {
     form.get-in-touch,
-    form.request-a-demo,
-    form.register-myinterests-form {
+    form.register-myinterests-form,
+    form.request-a-demo {
         h2 {
             color: $white;
         }
@@ -18,25 +18,31 @@
             padding-left: 50px !important;
             padding-right: 50px !important;
         }
+
         .page-header {
             margin-top: 0 !important;
+
             h2 {
-                padding-top: 20px!important;
-                margin-top: 0!important;
+                padding-top: 20px !important;
+                margin-top: 0 !important;
                 color: #fff;
                 margin: 0;
             }
         }
     }
 }
+
 form.get-in-touch,
-form.request-a-demo,
-form.register-myinterests-form {
+form.register-myinterests-form,
+form.request-a-demo {
+    .form-introduction {
+        padding-bottom: 30px;
+    }
     fieldset {
-      padding-bottom: 25px;
-      @include mobile {
-        padding-bottom: 15px;
-      }
+        padding-bottom: 25px;
+        @include mobile {
+            padding-bottom: 15px;
+        }
     }
     background-color: $grey-color03;
     color: $white;
@@ -51,19 +57,22 @@ form.register-myinterests-form {
         padding-left: 30px;
         padding-right: 30px;
     }
+
     .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
+
     .row [class*='col-'] {
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
-    @include mobile{
+    @include mobile {
         .area-interests-conatiner .row [class*='col-'] {
             margin-left: -8px;
         }
     }
+
     .form-control {
         border-radius: 0 !important;
         //width: 90% !important;
@@ -71,91 +80,113 @@ form.register-myinterests-form {
             width: 100% !important;
         }
     }
+
     .email-validation-error {
         display: none;
     }
+
     .submit-tc {
         padding-top: 10px;
     }
+
     select::-ms-expand {
         display: none;
     }
+
     select.form-control {
         height: 54px;
         background-color: $grey-color10;
         color: $grey-color04;
-        -webkit-appearance:none;
+        -webkit-appearance: none;
     }
+
     label.control-label {
         font-family: FSMe-light !important;
         font-weight: normal !important;
         margin-bottom: 10px;
     }
+
     input::-ms-clear {
         display: none;
     }
+
     input.form-control {
         border-radius: 0;
         height: 50px;
         background-color: $grey-color10;
         //width: 94%;
     }
+
     input[type=number].form-control::-webkit-inner-spin-button,
     input[type=number].form-control::-webkit-outer-spin-button {
         -webkit-appearance: none !important;
         margin: 0 !important;
     }
+
     input[type=number] {
         -moz-appearance: textfield;
     }
+
     textarea.form-control {
         border-radius: 0;
         background-color: $grey-color10;
         height: 227px;
         //width: 94%;
     }
+
     input:focus,
     select:focus,
     textarea:focus {
         border: 2px solid $brand-secondary;
     }
-    select.chosen-select{
-      border: none;
+
+    select.chosen-select {
+        border: none;
     }
+
     .chosen-container,
     .chosen-single {
         height: 50px;
         border-radius: 0;
         margin-bottom: 10px;
         background-color: $grey-color10;
+
         span {
             margin-top: 6px;
             font-size: 14px;
         }
     }
+
     .chosen-container-single .chosen-drop {
         background-color: $grey-color10;
         font-size: 14px;
         border-radius: 0;
     }
-    .chosen-container-single .chosen-search input[type="text"]{
-      color: $grey-color04;
+
+    .chosen-container-single .chosen-search input[type="text"] {
+        color: $grey-color04;
     }
+
     .chosen-container .chosen-results {
         border-radius: 0;
     }
+
     .chosen-container .chosen-results li.active-result {
         font-size: 14px;
     }
+
     .chosen-drop {
         border-radius: none;
     }
+
     .chosen-single {
         border: none;
     }
+
     .chosen-container-single .chosen-single div b {
         display: none;
     }
+
     .chosen-container-single .chosen-single div:after {
         top: 50%;
         margin-top: -20px;
@@ -165,6 +196,7 @@ form.register-myinterests-form {
         margin-left: -10px;
         font-size: 16px;
     }
+
     .chosen-container .chosen-results li {
         padding: 10px 6px;
     }
@@ -174,75 +206,87 @@ form.register-myinterests-form {
         font-size: 14px;
         padding-top: 5px;
     }
+
     .field-validation-error {
         color: $brand-secondary !important;
         font-size: 14px;
         padding-top: 5px;
     }
+
     .page-header {
         border-bottom: none !important;
     }
+
     .form-group {
         width: 100%;
-        margin-bottom: 0px;
+        margin-bottom: 0;
         @include mobile {
             width: 100% !important;
         }
+
         select {
             padding-right: 25px;
         }
-        .select-wrapper {
-          @include mobile {
-            position: relative;
-            &:after {
-                content: "\e901";
-                visibility: visible;
-                font-family: 'InformaIcons';
-                color: $grey-color05;
-                position: absolute;
-                top: 18px;
-                right: 10px;
-                pointer-events: none;
-            }
-          }
-          @include tablet {
-            position: relative;
-            &:after {
-                content: "\e901";
-                visibility: visible;
-                font-family: 'InformaIcons';
-                color: $grey-color05;
-                position: absolute;
-                top: 18px;
-                right: 10px;
-                pointer-events: none;
-            }
-          }
 
+        .select-wrapper {
+            @include mobile {
+                position: relative;
+
+                &:after {
+                    content: "\e901";
+                    visibility: visible;
+                    font-family: 'InformaIcons';
+                    color: $grey-color05;
+                    position: absolute;
+                    top: 18px;
+                    right: 10px;
+                    pointer-events: none;
+                }
+            }
+            @include tablet {
+                position: relative;
+
+                &:after {
+                    content: "\e901";
+                    visibility: visible;
+                    font-family: 'InformaIcons';
+                    color: $grey-color05;
+                    position: absolute;
+                    top: 18px;
+                    right: 10px;
+                    pointer-events: none;
+                }
+            }
         }
 
         .has-error .bg-warning {
             display: block;
         }
+
         .has-error .has-feedback .bg-warning {
             display: block;
         }
     }
+
     .half-width-text-box {
         display: table;
         width: 100%;
+
         .required-field {
             display: table-cell;
             //width: 48%;
             float: left;
         }
+
         .required-field:nth-child(odd) {
             margin-right: 4%;
         }
     }
+
     h1 {
         font-family: FSMe-bold;
     }
+
     legend {
         color: $white;
         font-size: 16px;
@@ -250,13 +294,16 @@ form.register-myinterests-form {
         border-bottom: none !important;
         width: initial;
         margin-bottom: 22px;
+
         &.active {
             margin-bottom: 10px !important;
+
             &::after {
                 //color: $yellow;
                 margin-bottom: 10px !important;
             }
         }
+
         &.tool_tip {
             &::after {
                 position: absolute;
@@ -268,6 +315,7 @@ form.register-myinterests-form {
             }
         }
     }
+
     p {
         position: relative;
         display: none;
@@ -280,6 +328,7 @@ form.register-myinterests-form {
         padding: 10px;
         //margin-top: 15px;
         color: $grey-color05;
+
         &:after {
             content: '';
             position: absolute;
@@ -292,14 +341,17 @@ form.register-myinterests-form {
             border-top: 10px solid transparent;
         }
     }
+
     .hide-title {
         p {
             display: none;
         }
+
         label.control-label {
             display: none;
             clear: both;
         }
+
         .checkbox {
             display: table-cell;
             float: left;
@@ -307,19 +359,21 @@ form.register-myinterests-form {
             margin-bottom: 15px;
             height: 70px;
             color: $grey-color03;
+
             input {
                 margin-left: 0;
                 right: 5px;
                 bottom: 5px;
                 display: none;
             }
-             @include mobile {
+            @include mobile {
                 width: 50%;
                 padding: 0 5px;
             }
             @include not-mobile {
                 width: 30%;
             }
+
             label {
                 height: inherit;
                 margin: 0;
@@ -336,12 +390,15 @@ form.register-myinterests-form {
                     padding: 10px;
                 }
             }
+
             &.active {
                 color: $body-bg;
-                label{
+
+                label {
                     //border: 3px solid $yellow;
                     background-color: inherit;
                 }
+
                 &::after {
                     content: "\e914";
                     visibility: visible;
@@ -353,11 +410,10 @@ form.register-myinterests-form {
                     bottom: 5px;
                 }
                 @include mobile {
-                    &::after{
+                    &::after {
                         right: 8px;
                         bottom: 8px;
                     }
-
                 }
             }
         }
@@ -368,57 +424,70 @@ form.register-myinterests-form {
             }
         }
     }
+
     .dynamic-interests {
         @include not-mobile {
             .checkbox:nth-child(3n-1) {
                 margin-left: 5%;
                 margin-right: 5%;
             }
+
             .checkbox:nth-child(3n-2) {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
             }
         }
     }
+
     .scfSectionBorder {
         p {
             display: none;
         }
     }
+
     .picker-container {
         position: static;
     }
+
     .two-column {
         display: table;
         width: 100%;
+
         p {
             display: none;
         }
+
         .required-field {
             display: table-cell;
             width: 48%;
             float: left;
         }
+
         .required-field:nth-child(odd) {
             margin-right: 4%;
         }
     }
+
     .contact-details {
         .required-field:not(:first-child) {
             display: table-cell;
             width: 48%;
             float: left;
         }
+
         .required-field:nth-child(2) {
             margin-right: 4%;
         }
     }
+
     .three-column {
         display: table;
         width: 100%;
+
         p {
             display: none;
         }
+
         .required-field {
             display: table-cell;
             width: 30%;
@@ -431,31 +500,39 @@ form.register-myinterests-form {
             }
         }
     }
+
     .terms-and-conditions {
         margin-top: 10px;
+
         legend {
             display: none;
         }
+
         span.help-block {
             color: inherit;
         }
     }
+
     .normal-checkbox label {
         display: inline-block;
         max-width: 100%;
         margin-bottom: 5px;
         font-weight: normal;
     }
+
     .preselected-checkbox label {
         display: inline-block;
         max-width: 100%;
         margin-bottom: 5px;
         font-weight: normal;
     }
+
     .right-inner {
         position: relative;
+
         .icon-calender {
             pointer-events: none;
+
             &:before {
                 font-family: 'InformaIcons';
                 position: absolute;
@@ -467,6 +544,7 @@ form.register-myinterests-form {
             }
         }
     }
+
     .radio-custom {
         width: 45%;
         display: inline-block;
@@ -481,6 +559,7 @@ form.register-myinterests-form {
             width: 100%;
         }
     }
+
     .radio-custom label {
         display: inline-block;
         vertical-align: middle;
@@ -488,6 +567,7 @@ form.register-myinterests-form {
         padding-left: 12px;
         font-weight: normal !important;
     }
+
     .radio-custom label::before {
         content: "";
         display: inline-block;
@@ -503,6 +583,7 @@ form.register-myinterests-form {
         -o-transition: border 0.15s ease-in-out;
         transition: border 0.15s ease-in-out;
     }
+
     .radio-custom label::after {
         display: inline-block;
         position: absolute;
@@ -523,6 +604,7 @@ form.register-myinterests-form {
         -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
         transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
     }
+
     .radio-custom input[type="radio"] {
         opacity: 0;
         z-index: 1;
@@ -530,51 +612,61 @@ form.register-myinterests-form {
         top: -1px;
         position: absolute;
     }
+
     .radio-custom input[type="radio"]:focus + label::before {
         // outline: thin dotted;
         // outline: 5px auto -webkit-focus-ring-color;
         // outline-offset: -2px;
     }
+
     .radio-custom input[type="radio"]:checked + label::after {
         -webkit-transform: scale(1, 1);
         -ms-transform: scale(1, 1);
         -o-transform: scale(1, 1);
         transform: scale(1, 1);
     }
+
     .radio-custom input[type="radio"]:disabled + label {
         opacity: 0.65;
     }
+
     .radio-custom input[type="radio"]:disabled + label::before {
         cursor: not-allowed;
     }
 }
+
 .has-error {
     display: none;
 }
+
 .has-error .bg-warning {
     display: block;
 }
+
 .bg-warning {
     display: block !important;
     background-color: initial !important;
+
     li.list-group-item.list-group-item-warning {
         background-color: initial !important;
         font-size: 24px;
         list-style: none;
         margin-left: -30px;
         @include mobile {
-          font-size: 14px;
-          margin-left: -30px;
+            font-size: 14px;
+            margin-left: -30px;
         }
-        @include tablet{
-          font-size: 16px;
-          margin-left: -30px;
+        @include tablet {
+            font-size: 16px;
+            margin-left: -30px;
         }
     }
+
     .list-group-item {
         border: none;
         padding: 0 !important;
     }
+
     .list-group-item-warning {
         color: inherit !important;
     }
@@ -598,6 +690,7 @@ form.register-myinterests-form {
             width: 100%;
         }
     }
+
     .modal-body {
         .form-inline-container {
             margin-top: 5%;
@@ -610,28 +703,21 @@ form.register-myinterests-form {
                 margin-top: 6%;
                 margin-bottom: 6%;
             }
+
             .error-response,
             .submit-response {
                 background-color: $grey-color03;
                 color: $white;
-                padding-left: 25%;
-                padding-right: 25%;
-                padding-bottom: 30px;
-                padding-top: 30px;
+                padding: 30px 25%;
                 @include mobile {
-                    padding-left: 20px;
-                    padding-right: 20px;
-                    padding-bottom: 20px;
-                    padding-top: 20px;
+                    padding: 20px;
                 }
                 @include tablet {
-                    padding-left: 20%;
-                    padding-right: 20%;
-                    padding-bottom: 20px;
-                    padding-top: 20px;
+                    padding: 20px 20%;
                 }
                 display: block;
                 font-size: $line-height-computed;
+
                 h2 {
                     font-family: "FSMe-bold";
                     display: inline-block;
@@ -641,6 +727,7 @@ form.register-myinterests-form {
                         margin-right: 20px;
                         width: calc(100% - 50px);
                     }
+
                     &:before {
                         position: absolute;
                         visibility: visible;
@@ -662,9 +749,11 @@ form.register-myinterests-form {
                         }
                     }
                 }
+
                 img {
                     opacity: 0.5;
                 }
+
                 p {
                     margin-bottom: 25px;
                     margin-top: 0;
@@ -677,6 +766,7 @@ form.register-myinterests-form {
                     text-align: left;
                     border-radius: 0;
                     padding: 0;
+
                     &:after {
                         content: '';
                         position: absolute;
@@ -689,8 +779,8 @@ form.register-myinterests-form {
                 }
             }
         }
-
     }
+
     .modal-content {
         border-radius: 0;
         background-color: $grey-color03;
@@ -703,12 +793,15 @@ form.register-myinterests-form {
             //margin-top: 10%;
         }
     }
+
     .modal-header {
         border-bottom: 0;
+
         .close {
             color: $white;
             opacity: 2;
         }
+
         .form-modal-close-icon:after {
             content: "\e906";
             visibility: visible;
@@ -726,12 +819,13 @@ form.register-myinterests-form {
     position: relative;
     padding-bottom: 40px;
     margin-top: 25px;
+
     .btn {
         //background-color: #ef7c00 !important;
         border: 0 !important;
         color: $white !important;
         position: absolute !important;
-      //  font-family: FSMe-bold !important;
+        //  font-family: FSMe-bold !important;
         font-size: 16px;
         right: 0;
         bottom: 35px;
@@ -742,6 +836,7 @@ form.register-myinterests-form {
             width: 100% !important;
         }
     }
+
     &::after {
         position: absolute;
         font-family: 'InformaIcons';
@@ -751,15 +846,18 @@ form.register-myinterests-form {
         font-weight: bold;
     }
 }
+
 .form-submit-border.disabled {
     cursor: not-allowed;
     pointer-events: none;
     opacity: 0.65;
     box-shadow: none;
 }
+
 .form-horizontal .form-group {
     margin-left: 0 !important;
 }
+
 .form-modal.modal.fade.in.centreAlign .modal-dialog {
     transform: translate3d(0,-50%,0);
 }
@@ -776,35 +874,38 @@ form.register-myinterests-form {
             padding-left: 7px;
             padding-right: 5px;
         }
+
         h2 {
             color: $white;
-						position: relative;
+            position: relative;
+
             &:before {
-                @include mobile{
-                  right: 0px;
+                @include mobile {
+                    right: 0;
                 }
-                @include tablet{
-                  left: -60px;
+                @include tablet {
+                    left: -60px;
                 }
-                @include desktop{
-                  left: -60px;
+                @include desktop {
+                    left: -60px;
                 }
                 content: "\e914";
                 font-family: "InformaIcons";
-								position: absolute;
+                position: absolute;
             }
         }
-				p{
-					font-size: 24px;
-          color: $white;
-          line-height: normal;
-          @include mobile {
-            font-size: 14px;
-          }
-          @include tablet{
-            font-size: 16px;
-          }
-				}
+
+        p {
+            font-size: 24px;
+            color: $white;
+            line-height: normal;
+            @include mobile {
+                font-size: 14px;
+            }
+            @include tablet {
+                font-size: 16px;
+            }
+        }
     }
 }
 
@@ -819,6 +920,7 @@ form.register-myinterests-form {
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+
 .form-modal.modal.fade.in .modal-dialog {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
