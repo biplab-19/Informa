@@ -1088,63 +1088,7 @@ header {
                 ul {
                     border-top: 1px solid #777b87;
                     width: 40%;
-                    &.one {
-                        column-count: 1;
-                        -webkit-column-count: 1;
-                        -moz-column-count: 1;
-                        width: 40%;
-                    }
-                    &.two {
-                        column-count: 2;
-                        -webkit-column-count: 2;
-                        -moz-column-count: 2;
-                        width: 40%;
-                    }
-                    &.three {
-                        column-count: 3;
-                        -webkit-column-count: 3;
-                        -moz-column-count: 3;
-                        width: 80%;
-                        li {
-                            padding-right: 10px;
-                        }
-                    }
-                    &.four {
-                        column-count: 4;
-                        -webkit-column-count: 4;
-                        -moz-column-count: 4;
-                        width: 80%;
-                        li {
-                            padding-right: 10px;
-                        }
-                    }
-                    &.five {
-                        column-count: 5;
-                        -webkit-column-count: 5;
-                        -moz-column-count: 5;
-                        width: 90%;
-                        li {
-                            padding-right: 10px;
-                        }
-                    }
-                    &.six {
-                        column-count: 6;
-                        -webkit-column-count: 6;
-                        -moz-column-count: 6;
-                        width: 95%;
-                        li {
-                            padding-right: 10px;
-                        }
-                    }
-                    &.seven {
-                        column-count: 7;
-                        -webkit-column-count: 7;
-                        -moz-column-count: 7;
-                        width: 95%;
-                        li {
-                            padding-right: 10px;
-                        }
-                    }
+                    
                 }
                 .labels {
                     padding-top: 10px;
@@ -1286,11 +1230,67 @@ header {
             list-style-type: none;
             padding: 0;
             padding-top: 15px;
+            @include desktop{
+                padding-top: 0;
+                &.one {
+                        column-count: 1;
+                        -webkit-column-count: 1;
+                        -moz-column-count: 1;
+                    }
+                    &.two {
+                        column-count: 2;
+                        -webkit-column-count: 2;
+                        -moz-column-count: 2;
+                    }
+                    &.three {
+                        column-count: 3;
+                        -webkit-column-count: 3;
+                        -moz-column-count: 3;
+                        li {
+                            padding-right: 10px;
+                        }
+                    }
+                    &.four {
+                        column-count: 4;
+                        -webkit-column-count: 4;
+                        -moz-column-count: 4;
+                        li {
+                            padding-right: 10px;
+                        }
+                    }
+                    &.five {
+                        column-count: 5;
+                        -webkit-column-count: 5;
+                        -moz-column-count: 5;
+                        li {
+                            padding-right: 10px;
+                        }
+                    }
+                    &.six {
+                        column-count: 6;
+                        -webkit-column-count: 6;
+                        -moz-column-count: 6;
+                        li {
+                            padding-right: 10px;
+                        }
+                    }
+                    &.seven {
+                        column-count: 7;
+                        -webkit-column-count: 7;
+                        -moz-column-count: 7;
+                        li {
+                            padding-right: 10px;
+                        }
+                    }
+            }
             @include not-desktop{
                 padding-top: 0;
             }
             li {
                 padding: 0px 50px 20px 0;
+                @include desktop{
+                    padding: 20px 50px 0 0;
+                }
                 @include not-desktop {
                     padding: 0;
                     &:first-child{
