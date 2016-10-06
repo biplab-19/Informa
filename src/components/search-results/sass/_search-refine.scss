@@ -119,16 +119,16 @@
                         list-style-type: none;
                         margin-bottom: 10px;
                         display: block;
-                        &.active{
-                            border:1px dotted $grey-color04;
+                        &.active {
+                            outline: 1px dotted $grey-color04;
                             @include webkit-focus;
                         }
                         label {
                             color: $grey-color04;
                             font-size: 12px;
-                            span{
+                            span {
                                 display: inline-block;
-                                line-height:20px;
+                                line-height: 20px;
                                 text-align: left;
                                 vertical-align: top;
                                 white-space: normal;
@@ -166,7 +166,17 @@
                     text-indent: -9999px;
                     position: absolute;
                     left: 0;
-                    color:$grey-color04;
+                    color: $grey-color04;
+                }
+                &.active {
+                    label {
+                        span {
+                            &:before {
+                                outline: 1px dotted #333;
+                                @include webkit-focus;
+                            }
+                        }
+                    }
                 }
             }
             h3 {

@@ -100,6 +100,12 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 }
                 DoRefine();
             });
+            SelectAll.on("focus",function(e){
+            	$(this).parents('span').eq(0).addClass("active");
+            });
+            SelectAll.on("focusout",function(e){
+            	$(this).parents('span').eq(0).removeClass("active");
+            });
         },
         ClearAllLinkBinding = function(obj){
             obj.on("click", function(e) {
@@ -147,7 +153,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 }
                 DoRefine();
             });
-
+            //Accsisbility fix for custom
             RefineCheckBoxes.on("focus",function(){
                 $(this).parents('li').eq(0).addClass("active");
             });
