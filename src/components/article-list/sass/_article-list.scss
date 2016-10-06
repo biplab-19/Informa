@@ -107,10 +107,6 @@
                 margin-left: -8px;
             }
         }
-        &:focus{
-            outline:1px dotted #333;
-            @include webkit-focus;
-        }
     }
     .slick-next {
         left: 100%;
@@ -169,5 +165,11 @@
         .slick-list {
             border: none;
         }
+    }
+}
+.slick-arrow {
+    &:focus{
+        outline:1px dotted #ccc;
+        @include webkit-focus;
     }
 }
