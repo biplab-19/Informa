@@ -38,7 +38,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _updateProductVerticalName,
         //_validateChoosenSelect,
         _destroyChosenInDevice,
-        _customPhoneErrorMsg;
+        _customPhoneErrorMsg,
+        _reCaptchaAccessbility;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -611,6 +612,13 @@ INFORMA.forms = (function(window, $, namespace) {
             });
         }
     }
+
+    _reCaptchaAccessbility = function(){
+      $(window).load(function() {
+            $('.g-recaptcha-response').attr('aria-labelledby', 'g-recaptcha-response');
+    });
+    }
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _destroyChosenInDevice();
@@ -631,6 +639,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _updateProductVerticalName();
         //_validateChoosenSelect();
         _customPhoneErrorMsg();
+        _reCaptchaAccessbility();
     };
 
     return {
