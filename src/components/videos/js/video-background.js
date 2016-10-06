@@ -86,9 +86,9 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         ytPlayer = new YT.Player('youtubePlayer', {
             videoId: _youTubeId,
             playerVars: {
-                'modestbranding': 1,
+                'modestbranding': 0,
                 'autoplay': 1,
-                'controls': 0,
+                'controls': 1,
                 'loop': 1,
                 'playlist': _youTubeId,
                 'showinfo': 0
