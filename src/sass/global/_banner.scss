@@ -417,6 +417,15 @@
                 margin-left: -15px;
             }
         }
+        .cta1,.cta2,.cta3{
+            @include mobile{
+                margin-left: -7.5px;
+                padding-left: 20px;
+                &:after{
+                    right: 20px;
+                }
+            }
+        }
         .cta3 {
             font-family: FSMe-Light;
             font-size: 16px;
