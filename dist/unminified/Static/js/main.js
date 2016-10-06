@@ -5912,76 +5912,56 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
          result && (result = JSON.parse(result[1]));
          return result;
     },
-    UpdatePref = function(obj, isHeading, SelectedSector){
+    UpdatePref = function(obj, isHeading){
                 var getCookie = ReadPref("USR_DETAIL"),
                     CheckBoxVal = obj.val(),
-                    ExistingInterest = (getCookie!==null && getCookie.AreaOfInterest) ? getCookie.AreaOfInterest : [],
                     ParentEle = obj.parents(".panel-default").eq(0),
                     CountSpan = ParentEle.find("span.count"),
                     SelectedCount = ParentEle.find(".panel-body input[type=checkbox]:checked"),
-                    UserInterest = [] , MergedJson; 
+                    AllCheckBoxs = $(".preference .panel-body").find("input[type=checkbox]:checked"),
+                    UserInterest = []; 
 
                 if(!isHeading){
-                    if(obj.prop("checked")){
-                        UserInterest.push(CheckBoxVal);
-                        MergedJson = INFORMA.Utils.ArrayUnique(UserInterest.concat(ExistingInterest));
-                    }else{
-                        var tempArray = (ExistingInterest.length) ? (ExistingInterest).split(','):[];
-                        MergedJson = INFORMA.Utils.RemoveArrayItem(tempArray,CheckBoxVal);
-                        obj.parents(".panel").eq(0).find(".panel-heading input").prop("checked",false);
-
+                    if(!obj.prop("checked")){
+                          obj.parents(".panel").eq(0).find(".panel-heading input").prop("checked",false);
                     }
-                }
-                if(isHeading){
-                    if(obj.prop("checked")){
-                        MergedJson = INFORMA.Utils.ArrayUnique(SelectedSector.concat(ExistingInterest));
-                    }else{
-                        var tempArray = (ExistingInterest.length) ? (ExistingInterest).split(','):[];
-                        tempArray.remove(SelectedSector.join(','));
-                        MergedJson = tempArray;
-                    }
-                }
-                
-                if(MergedJson && getCookie!==null){
-                    getCookie.AreaOfInterest = MergedJson.join(',');
-                    CreatePref("USR_DETAIL", getCookie.AreaOfInterest);
-                }else{
-                    PrefValue.AreaOfInterest = MergedJson.join(',');
-                    CreatePref("USR_DETAIL", PrefValue.AreaOfInterest);
                 }
                 if(SelectedCount){
                     Count = SelectedCount.length;
                     CountSpan.text(Count);
                 }
-                CreatePref("PrefernceUpdated", true);
+                jQuery.each(AllCheckBoxs, function(e){
+                    if($(this).prop("checked")===true){
+                       UserInterest.push($(this).val());
+                    }
+                }); 
+                if(!UserInterest){
+                    UserInterest = null;
+                }else{
+                    UserInterest = UserInterest.join(",");
+                }
+                CreatePref("USR_DETAIL", UserInterest);
     },
     BindCheckboxes = function(ele) {
         SelectAll.on("click",function(e){
-            var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input"),
-                uniqueArray = [];
+            var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input");
             if($(this).prop("checked")===true){
-                var localArray = [];
                 jQuery.each(CurrentCheckBoxs, function(e){
                     if($(this).prop("checked")!==true){
                        $(this).prop("checked",true);
-                       localArray.push($(this).val());
                     }
                 }); 
-                uniqueArray = localArray;
             } else{
-                var localArray = [];
                 jQuery.each(CurrentCheckBoxs, function(e){
                        $(this).prop("checked",false);
-                       localArray.push($(this).val());
                 }); 
-                uniqueArray = localArray;
             }
-            UpdatePref($(this),true,uniqueArray);
+            UpdatePref($(this),true);
         });
         CheckBoxes.on("click",function(e){
             e.stopPropagation();
             e.stopImmediatePropagation();
-            UpdatePref($(this),false,null)
+            UpdatePref($(this),false);
         });
     },
 
