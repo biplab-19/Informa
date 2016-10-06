@@ -131,6 +131,7 @@ INFORMA.forms = (function(window, $, namespace) {
         $form.find('input[type=radio]').removeAttr('checked');
         $form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
         $form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
+        $form.find('select.chosen-select').find('option:first-child').prop('selected', true).end().trigger('chosen:updated');
     }
 
     _showHideInlineForm = function() {
