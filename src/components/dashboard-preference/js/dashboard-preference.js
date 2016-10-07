@@ -25,7 +25,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     //if exist any default setting then update and return carousel object.
     
     CreatePref = function(name, value) {
-        INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
+        INFORMA.DataLoader.GetServiceData("/client/ajax/UpdateCookieAreaOfInterest", {
             method: "Post",
             data: JSON.stringify({"key":name,"value":value ,"expires":365}),
             success_callback: function(data) {
