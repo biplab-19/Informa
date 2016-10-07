@@ -1,4 +1,4 @@
-/*! 2016-10-06 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-07 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -5019,8 +5019,14 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         Templates = INFORMA.Templates,
         _template = "",
         //methods
-        init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults;
+        init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults,
+        emptyData;
 
+    emptyData = function() {
+        AnalystSearch.find('#name').val('');
+            //$('select[name="Sector"]').prop('selectedIndex',0);
+        Sector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
+    }
     equalHeight = function() {
         var EachView = jQuery('.analyst-views');
         EachView.each(function() {
@@ -5279,7 +5285,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 EventsFunctions();
                 ajaxCallonSector();
                 checkButtonMore();
-
+                emptyData();
                 txtField.on("keyup", function(e) {
                     if (e.which == 13) {
                         e.preventDefault();
@@ -8633,6 +8639,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 SubNav.find('#'+navId).addClass("active");
             });
 
+            $('.nav-links a').on('focus', function(e) {
+                $(this).parent().trigger('mouseover');
+            });
+
             $('#sub-nav').hover(
                 function() {
                     $(this).show();
@@ -10771,6 +10781,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 })
                 Wrapper.height(maxWrapperHeight);
             } else {
+                Wrapper.css("height", "auto");
                 Items.css("height", "auto");
             }
         },
