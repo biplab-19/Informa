@@ -120,8 +120,7 @@
                         margin-bottom: 10px;
                         display: block;
                         &.active {
-                            outline: 1px dotted $grey-color04;
-                            @include webkit-focus;
+                            @include border-focus;
                         }
                         label {
                             color: $grey-color04;
@@ -172,8 +171,7 @@
                     label {
                         span {
                             &:before {
-                                outline: 1px dotted #333;
-                                @include webkit-focus;
+                                @include border-focus;
                             }
                         }
                     }

@@ -462,3 +462,17 @@ Fix form input zoom in mobile
 	height: auto !important;
 	display: block;
 }
+
+/* ===============================================
+Accessibility fix for focus		
+==================================================
+*/
+body{
+	a:focus,
+	button:focus,
+	input:focus{
+		@include border-focus;
+	}
+}
+
+

@@ -146,7 +146,9 @@
                 background: $yellow;
             }
             button {
-                display: none;
+                &:before{
+                    content: " ";
+                }
             }
         }
     }
@@ -169,7 +171,6 @@
 }
 .slick-arrow {
     &:focus{
-        outline:1px dotted #ccc;
-        @include webkit-focus;
+        @include border-focus;
     }
 }

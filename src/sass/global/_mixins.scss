@@ -105,10 +105,8 @@ $desktop-width: 1142px;
     }
 }
 
-@mixin webkit-focus{
-    @media screen and (-webkit-min-device-pixel-ratio:0) {  
-        outline:2px solid #9fc1f9;
-    }
+@mixin border-focus{
+        outline:3px solid #3566b8 !important;
 }
 @mixin padding-reset {
     padding: 0;

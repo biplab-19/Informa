@@ -755,8 +755,7 @@ header {
                             font-size: 1em;
                         }
                         &.active{
-                            outline:1px dotted $white;
-                            @include webkit-focus;
+                          @include border-focus;
                         }
                     }
                 }
@@ -890,8 +889,7 @@ header {
                             font: 400 16px 'InformaIcons';
                         }
                         &:focus{
-                            outline: 1px dotted $grey-color04;
-                            @include webkit-focus;
+                            @include border-focus;
                         }
                     }
                     .dropdown-menu{
@@ -924,8 +922,7 @@ header {
                     a {
                         color: $text-gray;
                         &:focus{
-                            outline: 1px dotted $grey-color04;
-                            @include webkit-focus;
+                            @include border-focus;
                         }
                     }
                 }
@@ -1377,6 +1374,7 @@ body{
         text-align: left;
         overflow: hidden;
         color: $grey-color03;
+        padding:1px 4px;
     }
     a.skip-navigation:active,
     a.skip-navigation:focus,
@@ -1389,5 +1387,7 @@ body{
         z-index: 2;
         -webkit-transition: all 0.2s; /* Safari 3.1 to 6.0 */
         transition: all 0.2s;
+        color: #fff;
+        padding:1px 4px;
     }
 }
