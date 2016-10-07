@@ -589,6 +589,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 SubNav.find('#'+navId).addClass("active");
             });
 
+            $('.nav-links a').on('focus', function(e) {
+                $(this).parent().trigger('mouseover');
+            });
+
             $('#sub-nav').hover(
                 function() {
                     $(this).show();
