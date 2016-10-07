@@ -13,6 +13,12 @@
     }
     .container {
         padding: 40px 15px 0 15px;
+        @include tablet{
+            padding: 40px 25px 0 25px;
+        }
+        @include mobile{
+            padding: 40px 20px 0 20px;
+        }
     }
     h3 {
         font-size: $font-size-h2;
