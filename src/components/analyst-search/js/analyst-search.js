@@ -25,8 +25,14 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         Templates = INFORMA.Templates,
         _template = "",
         //methods
-        init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults;
+        init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults,
+        emptyData;
 
+    emptyData = function() {
+        AnalystSearch.find('#name').val('');
+            //$('select[name="Sector"]').prop('selectedIndex',0);
+        Sector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
+    }
     equalHeight = function() {
         var EachView = jQuery('.analyst-views');
         EachView.each(function() {
@@ -285,7 +291,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 EventsFunctions();
                 ajaxCallonSector();
                 checkButtonMore();
-
+                emptyData();
                 txtField.on("keyup", function(e) {
                     if (e.which == 13) {
                         e.preventDefault();
