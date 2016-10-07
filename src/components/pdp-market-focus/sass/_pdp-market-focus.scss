@@ -30,27 +30,23 @@ section#market-focus{
             position: relative;
             display: flex;
             vertical-align: middle;
-            h5 {
-                margin: auto;
-                margin-left: 10px;
-                a{
-                  color:$grey-color04;
+            .market-content{
+                p{
+                  margin: auto;
+                  margin-left: 10px;
+                  @include family-style(FSMe-Light ,$grey-color05 );
+                  @include heading-font-size(18px,16px,16px);
+                  @include heading-line-height(26px,24px,24px);
                   &:after{
-                    content: "\e900";
-                    font-family: 'InformaIcons';
-                    font-size: 14px;
-                    margin-left:10px;
-                    color: #B83166;
+                      content: "\e900";
+                      font-family: 'InformaIcons';
+                      font-size: 14px;
+                      margin-left:10px;
+                      color: #B83166;
                   }
-                }
-            }
-            p {
-                  display: none;
-                font-size: 14px;
-                line-height: 1.6eM;
-                @include mobile {
-                    font-size: 12px;
-                    padding-right: 22px;
+                  a{
+                    color:$grey-color04;
+                  }
                 }
             }
             .abs-image {
