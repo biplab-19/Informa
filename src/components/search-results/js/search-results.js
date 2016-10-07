@@ -214,6 +214,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 })
                 Wrapper.height(maxWrapperHeight);
             } else {
+                Wrapper.css("height", "auto");
                 Items.css("height", "auto");
             }
         },
