@@ -227,7 +227,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         buttonText: function(options, select) {
                             return placeHolder;
                         },
-                        maxHeight: 140,
+                        maxHeight: 160,
                         onChange: _updateMultiSelect,
                         onDropdownShow: _showSelectAll,
                         onDropdownHidden: _hideSelectAll,
