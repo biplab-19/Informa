@@ -1,9 +1,8 @@
 .register-myinterests-section {
-    .container{
-      @include desktop {
-        padding-left: 30px;
-      }
-
+    .container {
+        @include desktop {
+            padding-left: 30px;
+        }
     }
     //display: none;
     .triangle-nav-container {
@@ -11,45 +10,52 @@
         padding-top: 20px;
         padding-bottom: 20px;
     }
+
     .register-myinterests-form {
         background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color03;
         background-size: 20%;
         padding: 5px 0 100px;
         @include mobile {
             background: none;
-            padding: 0px;
+            padding: 0;
         }
         @include tablet {
             background: none;
-            padding: 0px;
+            padding: 0;
         }
+
         .chosen-container .chosen-results {
-          height: 180px;
+            height: 180px;
         }
     }
+
     .background-pattern {
-      @include tablet {
-        background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color03;
-        background-size: 20%;
-        padding: 5px 0 85px;
-      }
+        @include tablet {
+            background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color03;
+            background-size: 20%;
+            padding: 5px 0 85px;
+        }
     }
+
     .register-myinterests-form-container {
         background-color: $grey-color03;
         color: $white;
-        .col-md-6{
-          @include tablet{
-            margin-left: 90px;
-            margin-right: 90px;
-          }
+
+        .col-md-6 {
+            @include tablet {
+                margin-left: 90px;
+                margin-right: 90px;
+            }
         }
     }
+
     .about-you-details {
         legend {
             &:first-child {
-              @include mobile {
-                margin-left: 40px;
-              }
+                @include mobile {
+                    margin-left: 40px;
+                }
+
                 &:before {
                     content: "\e91a";
                     font-family: 'InformaIcons';
@@ -58,22 +64,24 @@
                     top: 20px;
                     font-size: 30px;
                     color: $grey-color08;
-                    @include mobile{
-                      top: 20px;
-                      left: 8px;
+                    @include mobile {
+                        top: 20px;
+                        left: 8px;
                     }
-                    @include tablet{
-                      left: -30px;
-                       top: 20px;
+                    @include tablet {
+                        left: -30px;
+                        top: 20px;
                     }
                 }
             }
         }
+
         .required-field:nth-child(1) {
             display: table-cell;
             width: 48%;
             float: left;
         }
+
         .required-field:nth-child(2) {
             display: table-cell;
             width: 48%;
@@ -84,12 +92,13 @@
             }
         }
     }
+
     .your-area-interest {
         legend {
             &:first-child {
-              @include mobile {
-                margin-left: 45px;
-              }
+                @include mobile {
+                    margin-left: 45px;
+                }
 
                 &:before {
                     content: "\e925";
@@ -99,68 +108,75 @@
                     left: -30px;
                     font-size: 30px;
                     color: $grey-color08;
-                    @include mobile{
-                      top: 20px;
-                      left: 10px;
+                    @include mobile {
+                        top: 20px;
+                        left: 10px;
                     }
-                    @include tablet{
-                      left: -30px;
-                      top: 20px;
+                    @include tablet {
+                        left: -30px;
+                        top: 20px;
                     }
                 }
             }
         }
+
         .select-wrapper {
-          &:after {
-            @include mobile{
-              display: none;
+            &:after {
+                @include mobile {
+                    display: none;
+                }
+                @include tablet {
+                    display: none;
+                }
             }
-            @include tablet{
-              display: none;
-            }
-          }
         }
+
         p {
             position: relative;
             display: block;
             width: 100%;
             color: $white;
             background-color: $grey-color03;
-            padding: 10px 0px;
+            padding: 10px 0;
             margin-top: -20px;
             margin-bottom: -10px;
             font-size: 14px;
+
             &:after {
                 display: none;
             }
         }
     }
+
     .triangle-nav {
         list-style: none;
         overflow: hidden;
         padding-left: 15px;
-        @include mobile{
+        @include mobile {
             padding-left: 7.5px;
         }
     }
+
     .triangle-nav li {
         float: left;
+
         &:first-child {
             a {
                 padding-left: 5px;
             }
         }
+
         a {
             color: $grey-color05;
             text-decoration: none;
             padding: 5px 0 4px 40px;
             background: $white;
             /* fallback color */
-
             //background: $brand-secondary;
             position: relative;
             display: block;
             float: left;
+
             &:after {
                 content: " ";
                 display: block;
@@ -168,7 +184,6 @@
                 height: 0;
                 border-top: 50px solid transparent;
                 /* Go big on the size, and let overflow hide */
-
                 border-bottom: 50px solid transparent;
                 border-left: 30px solid $white;
                 position: absolute;
@@ -177,6 +192,7 @@
                 left: 100%;
                 z-index: 2;
             }
+
             span.tab-numbers {
                 font-size: 16px;
                 padding-right: 8px;
@@ -184,19 +200,20 @@
                 padding-left: 5px;
             }
         }
+
         &.active {
             a {
                 //color: $grey-color05;
                 text-decoration: none;
                 //background: $brand-secondary;
                 /* fallback color */
-
                 position: relative;
                 display: block;
                 float: left;
             }
         }
     }
+
     .triangle-nav li.active a:after {
         content: " ";
         display: block;
@@ -204,7 +221,6 @@
         height: 0;
         border-top: 50px solid transparent;
         /* Go big on the size, and let overflow hide */
-
         border-bottom: 50px solid transparent;
         //border-left: 30px solid $brand-secondary;
         position: absolute;
@@ -213,46 +229,56 @@
         left: 100%;
         z-index: 2;
     }
+
     .tab-content {
         padding-bottom: 20px;
         padding-top: 20px;
     }
+
     .list-inline > li {
-        padding-left: 0px;
-        padding-right: 0px;
+        padding-left: 0;
+        padding-right: 0;
     }
+
     .next-step {
         width: 180px;
         margin-top: 15px;
     }
+
     .custom-multiselect,
     .select-wrapper {
         a {
             padding: 0 !important;
         }
+
         label {
             color: $orange;
             font-size: 14px;
         }
+
         input {
             opacity: 0;
             width: 16px;
             height: 16px;
         }
+
         .btn-group {
             width: 100%;
+
             .caret {
                 content: "\e901";
                 border: none;
                 font-family: 'InformaIcons';
                 position: absolute;
                 right: 30px;
+
                 &:before {
                     font: 400 15px 'InformaIcons';
                     content: "\e901";
                     color: #a7a9b6;
                 }
             }
+
             .dropdown-toggle {
                 width: 100%;
                 background-color: $grey-color09;
@@ -261,10 +287,12 @@
                 &:after {
                     content: '';
                 }
+
                 &:hover {
                     background: $grey-color09;
                 }
             }
+
             .dropdown-menu {
                 box-shadow: none;
                 border-radius: 0;
@@ -272,6 +300,7 @@
                 width: 100%;
                 padding: 10px 0;
                 background-color: #f0f1f3;
+
                 label {
                     color: $text-gray;
                     font-size: 14px;
@@ -279,6 +308,7 @@
                     padding-left: 50px;
                     padding-top: 5px;
                     font-weight: normal;
+
                     &:before {
                         background: $white none repeat scroll 0 0;
                         content: "";
@@ -289,6 +319,7 @@
                         width: 20px;
                     }
                 }
+
                 .active {
                     label {
                         &:before {
@@ -296,11 +327,13 @@
                             background-size: 100%;
                         }
                     }
+
                     a {
                         background-color: transparent;
                     }
                 }
             }
+
             .select-all-bottom {
                 display: none;
                 background: $grey-color09;
@@ -312,8 +345,10 @@
                 padding-bottom: 5px;
                 width: 100%;
                 border-top: 2px solid #a7a9b6;
+
                 a.multiselect-all {
                     color: $orange;
+
                     label {
                         cursor: pointer;
                         //color: $white;
@@ -323,11 +358,17 @@
             }
         }
     }
+
+    .dropdown-backdrop {
+        position: static;
+    }
+
     .open > .dropdown-menu {
         display: block;
         //  width: 500px;
         position: relative;
     }
+
     label.control-label {
         font-family: FSMe-light !important;
         font-weight: normal !important;
@@ -335,18 +376,21 @@
         display: block;
         margin-top: 20px;
     }
+
     .normal-checkbox label {
         display: inline-block;
         max-width: 100%;
         margin-bottom: 5px;
         font-weight: normal;
     }
+
     .preselected-checkbox label {
         display: inline-block;
         max-width: 100%;
         margin-bottom: 5px;
         font-weight: normal;
     }
+
     .btn-previous {
         color: $white;
         min-width: 180px;
@@ -355,6 +399,7 @@
         padding-bottom: 15px;
         background: $grey-color04 !important;
         position: relative;
+
         &:before {
             content: "\e900";
             font-family: 'InformaIcons';
@@ -368,24 +413,29 @@
             //-o-transform: scale(-1, 1);
             transform: scale(-1, 1);
         }
+
         &:hover {
             border-color: $grey-color01;
         }
     }
 }
+
 .register-myinterests-form-container {
     .form-group .select-wrapper:after {
-      @include desktop {
-        display: none;
-      }
+        @include desktop {
+            display: none;
+        }
     }
+
     #step2 {
-        .list-inline, .form-submit-border {
+        .form-submit-border,
+        .list-inline {
             width: 450px;
             @include mobile {
-              width: 415px;
+                width: 415px;
             }
             float: right;
+
             .btn {
                 float: right;
                 min-width: 180px;
@@ -395,6 +445,7 @@
                     width: 42% !important;
                 }
             }
+
             .btn-previous {
                 float: left;
                 margin-right: 200px;
@@ -407,9 +458,11 @@
                     width: 36% !important;
                 }
             }
+
             .form-submit-border {
                 padding-bottom: 12px;
                 z-index: 2;
+
                 .btn {
                     padding: 17px;
                 }
@@ -417,6 +470,7 @@
         }
     }
 }
+
 .register-myinterests-modal.modal.fade .modal-dialog {
     -webkit-transform: scale(0.1);
     -moz-transform: scale(0.1);
@@ -428,6 +482,7 @@
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+
 .register-myinterests-modal.modal.fade.in .modal-dialog {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -437,6 +492,7 @@
     transform: translate3d(0, -300px, 0);
     opacity: 1;
 }
+
 .register-myinterests-modal {
     .modal-dialog {
         width: 75%;
@@ -445,29 +501,34 @@
             width: 90%;
         }
     }
+
     .modal-body {
-        padding-bottom: 0px;
+        padding-bottom: 0;
         @include mobile {
             //padding: 15px 30px;
             .register-myinterests-section .your-area-interest legend:first-child:before {
                 //display: none;
             }
+
             .register-myinterests-section .about-you-details legend:first-child:before {
                 //display: none;
             }
+
             .register-myinterests-form-container #step2 .form-submit-border {
                 width: 425px;
                 @include mobile {
-                  width: 360px;
+                    width: 360px;
                 }
+
                 .prev-step {
                     @include mobile {
-                      width: 42% !important;
+                        width: 42% !important;
                     }
                 }
             }
         }
     }
+
     .modal-content {
         border-radius: 0;
         background-color: $grey-color03;
@@ -475,24 +536,29 @@
         margin-top: 10%;
         margin-bottom: 10%;
     }
+
     .modal-header {
         border-bottom: 0;
+
         .close {
             color: $white;
             opacity: 2;
         }
     }
 }
+
 #article-list-section {
     .register-myinterests-section {
         display: none;
     }
 }
+
 .register-myinterests-modal {
     .register-myinterests-section {
         display: block !important;
     }
 }
+
 .register-form-popup-container {
     display: none;
 }
