@@ -230,20 +230,20 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             var _pdpLinksCont = $('#pdp-navigation ul > li > a > span').length;
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
-              if(_pdpLinksCont>6){
-                //$('nav#pdp-navigation').removeClass('deviceactive');
-                if($('#pdp-navigation').hasClass('navbar-fixed-top')){
-                $('body').removeClass('global-no-scroll');
-              }
-              }
+              // if(_pdpLinksCont>6){
+              //   //$('nav#pdp-navigation').removeClass('deviceactive');
+              //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+              //   $('body').removeClass('global-no-scroll');
+              // }
+              // }
             }else{
                 $('#pdp-sections').slideDown();
-                if(_pdpLinksCont>6){
-                //$('nav#pdp-navigation').addClass('deviceactive');
-                if($('#pdp-navigation').hasClass('navbar-fixed-top')){
-                $('body').addClass('global-no-scroll');
-              }
-              }
+              //   if(_pdpLinksCont>6){
+              //   //$('nav#pdp-navigation').addClass('deviceactive');
+              //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+              //   $('body').addClass('global-no-scroll');
+              // }
+              // }
             }
         });
     }
