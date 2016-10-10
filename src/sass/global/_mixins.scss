@@ -106,7 +106,7 @@ $desktop-width: 1142px;
 }
 
 @mixin border-focus{
-    outline:3px solid #3566b8 !important;
+    outline:2px solid #3566b8 !important;
     outline-offset:-2px;
 }
 @mixin padding-reset {
@@ -512,7 +512,7 @@ $desktop-width: 1142px;
             }
         }
         .yellow-container {
-            background: rgba($secondarycolorlight, 0.8);
+            background: rgba($secondarycolorlight, 0.9);
             @if($name==pharma-theme) {
                 h3 {
                     color: $white;

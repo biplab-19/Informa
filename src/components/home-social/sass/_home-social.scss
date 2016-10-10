@@ -156,15 +156,11 @@
                 border-radius: 5px;
                 background: $grey-color05;
                 color: $white;
-                overflow: hidden;
                 button:before {
                     content: '';
                 }
                 &.slick-active{
                     background: $yellow;
-                }
-                &:focus{
-                	overflow: visible	;
                 }
             }
        }

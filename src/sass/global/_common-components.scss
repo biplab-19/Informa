@@ -473,6 +473,11 @@ body{
 	input:focus{
 		@include border-focus;
 	}
+	.chosen-container-active {
+		.chosen-single{
+			@include border-focus;
+		}
+	}
 }
 
 

@@ -10044,7 +10044,7 @@ header section.informaNav .nav-main {
 }
 /* line 765, ../../../src/sass/global/_header.scss */
 .product-finder form ul.search-options li .custom-radio .label.active {
-  outline: 3px solid #3566b8 !important;
+  outline: 2px solid #3566b8 !important;
   outline-offset: -2px;
 }
 /* line 770, ../../../src/sass/global/_header.scss */
@@ -10226,7 +10226,7 @@ header section.informaNav .nav-main {
 }
 /* line 899, ../../../src/sass/global/_header.scss */
 .product-finder form ul.sector-search li .custom-multiselect .dropdown-toggle:focus {
-  outline: 3px solid #3566b8 !important;
+  outline: 2px solid #3566b8 !important;
   outline-offset: -2px;
 }
 /* line 903, ../../../src/sass/global/_header.scss */
@@ -10285,7 +10285,7 @@ header section.informaNav .nav-main {
 }
 /* line 932, ../../../src/sass/global/_header.scss */
 .product-finder form ul.sector-search li .custom-multiselect a:focus {
-  outline: 3px solid #3566b8 !important;
+  outline: 2px solid #3566b8 !important;
   outline-offset: -2px;
 }
 /* line 938, ../../../src/sass/global/_header.scss */
@@ -12015,7 +12015,12 @@ Accessibility fix for focus
 body a:focus,
 body button:focus,
 body input:focus {
-  outline: 3px solid #3566b8 !important;
+  outline: 2px solid #3566b8 !important;
+  outline-offset: -2px;
+}
+/* line 477, ../../../src/sass/global/_common-components.scss */
+body .chosen-container-active .chosen-single {
+  outline: 2px solid #3566b8 !important;
   outline-offset: -2px;
 }
 
