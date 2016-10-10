@@ -70,7 +70,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         })
     }
     _bindShowLess = function () {
-      var _showLess = $('.btn.btn-showMore .less');
+      var _showLess = _analystList.find('.btn.btn-showMore .less');
       _showLess.on('click',function(){
             $('html, body').animate({
                 scrollTop: _analystList.offset().top - 35
@@ -81,7 +81,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         if (_analystList.length > 0) {
            // _bindElement();
             _bindShowMore(_analystList);
-            _bindShowLess();
+            //_bindShowLess();
         }
         if (_listItems.length > 0) {
             _listItems.each(function() {

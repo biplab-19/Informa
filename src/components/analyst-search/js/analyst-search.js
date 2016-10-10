@@ -26,7 +26,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         _template = "",
         //methods
         init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults,
-        emptyData;
+        emptyData,_bindShowLess;
 
     emptyData = function() {
         AnalystSearch.find('#name').val('');
@@ -260,14 +260,21 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                     GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
                 } else {
                     Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
-                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').remove();
+                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
                     Parent.removeClass('showLess');
                 }
 
 
             })
         },
-
+        _bindShowLess = function () {
+          var _showLess = $('.analyst-views').find('.btn-container .btn-plus .less');
+          _showLess.on('click',function(){
+                $('html, body').animate({
+                    scrollTop: $(this).closest('.analyst-views').offset().top - 35
+                },500);
+          });
+        },
         GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
@@ -291,6 +298,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 EventsFunctions();
                 ajaxCallonSector();
                 checkButtonMore();
+                _bindShowLess();
                 emptyData();
                 txtField.on("keyup", function(e) {
                     if (e.which == 13) {

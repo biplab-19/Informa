@@ -81,14 +81,12 @@ INFORMA.featureList = (function(window, $, namespace) {
     }
 
     _bindShowLess = function () {
-      // var _showLess = _featureListSection.find('.btn-showMore .less');
-      // if(_showLess.length > 0){
-      //   $('body').on('click', '.feature-list-section .btn-showMore .less', function(){
-      //       $('html, body').animate({
-      //           scrollTop: _featureListSection.offset().top - 40
-      //       });
-      //   });
-      // }
+      var _showLess = $('.feature-list-section').find('.btn-showMore .less');
+        _showLess.on('click',function(){
+          $('html, body').animate({
+              scrollTop: $(this).closest('.feature-list-section').offset().top - 50
+          });
+        });
     }
 
     init = function() {
