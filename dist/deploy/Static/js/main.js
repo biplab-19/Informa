@@ -1,4 +1,4 @@
-/*! 2016-10-07 */s = new AppMeasurement()
+/*! 2016-10-10 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -7149,7 +7149,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         buttonText: function(options, select) {
                             return placeHolder;
                         },
-                        maxHeight: 140,
+                        maxHeight: 160,
                         onChange: _updateMultiSelect,
                         onDropdownShow: _showSelectAll,
                         onDropdownHidden: _hideSelectAll,
@@ -8197,6 +8197,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpNavigationHeight = 0,
         _pdpNavigationPos = 0,
         _pdpSectionsHeight = 0,
+        _isPdpPage = _pdpNavigation.data("productpage"),
         _pdpWrapper = $('.product-detail-page'),
         _pdpMenuFollower = $('#pdp-navigation .menuFollower'),
         _pdpSectionsButton = $('#pdp-navigation .nav-pdp-nondesktop'),
@@ -8280,7 +8281,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     if (_pdpNavigation.length > 0) {
         _pdpNavigationHeight = _pdpNavigation.height(),
         _pdpNavigationPos = _pdpNavigation.offset().top;
-
         $('#pdp-sections ul li').each(function(){
            var idname = '#' + $(this).find('a').data("target");
            if($(idname).length == 0) {
@@ -8460,9 +8460,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 if (_windowPos > ((_headingStickPosition - _fixedNavHeight) + _cookieHeight)) {
                     if (!_pdpStickyHeadingDesktopFlag) {
                       //debugger;
+                      if(_isPdpPage){
                         $('#pdp-sections-heading').text(_heroBannerHeading);
-                        _pdpStickyHeadingDesktopFlag = true;
                         $('#pdp-sections-heading').addClass('move-left');
+                      }
+                        _pdpStickyHeadingDesktopFlag = true;
                         _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
                                         .css('left', $(_pdpLinkSpan[0]).offset().left)
                                         .show();
@@ -8497,8 +8499,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _tryStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _subscribeStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _pdpStickyMobileFlag = true;
-                $('#pdp-sections-heading').text(_heroBannerHeading);
-                $('#pdp-sections-heading').addClass('move-left');
+                if(_isPdpPage){
+                  $('#pdp-sections-heading').text(_heroBannerHeading);
+                  $('#pdp-sections-heading').addClass('move-left');
+                }
                 $('.nav-pdp-nondesktop-sticky').addClass('move-left');
                 _pdpMenuFollower.css('left', leftOfPdpMover + $('#pdp-sections-heading').outerWidth());
             }
