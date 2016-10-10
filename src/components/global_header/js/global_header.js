@@ -596,7 +596,21 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.nav-links a').on('focus', function(e) {
                 $(this).parent().trigger('mouseover');
             });
-
+             //Accessibility Events
+            $('.nav-links a').on('focus', function() {
+                $(this).parent().trigger('mouseover');
+            });
+            $('.nav-links a').on('focusout', function() {
+                var Id = $(this).data('subnav');
+                if($('#' + Id).find('.content').length > 0) {
+                    $($($('#' + Id).find('.content')[0]).find('a')[0]).focus();
+                }
+                // $($($('#' + Id).find('.content')[0]).find('a')[0]).focus();
+            });
+            $('.subnav-close a').on('focusout', function() {
+                var ParentId = $(this).parents('.subnav-container').attr('id');
+                $('.nav-links a[data-subnav="' +ParentId+ '"]').parent('li').next('li').find('a').focus();
+            });
             $('#sub-nav').hover(
                 function() {
                     $(this).show();
