@@ -106,7 +106,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         return false;
                     }
                 } else {
-                    e.preventDefault();
+                  var validator = _myinterestForm.validate();
+                    validator.focusInvalid();
+                    return false;
                 }
             });
         }
@@ -227,7 +229,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         buttonText: function(options, select) {
                             return placeHolder;
                         },
-                        maxHeight: 160,
+                        maxHeight: 220,
                         onChange: _updateMultiSelect,
                         onDropdownShow: _showSelectAll,
                         onDropdownHidden: _hideSelectAll,
@@ -347,6 +349,10 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                     var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
                     formSubmitBtn.removeAttr('disabled');
                     _showNextTab($active);
+                }else{
+                  var validator = _myinterestForm.validate();
+                    validator.focusInvalid();
+                    return false;
                 }
             }
         });
