@@ -60,9 +60,11 @@ section#agri-report {
                 padding: 30px 15px;
             }
            a{
-            position: relative;
-            min-width: 200px;
-            margin-right: 15px;
+              position: relative;
+              min-width: initial;
+              margin-right: 15px;
+              padding-right: 40px;
+              width: auto;
             @include mobile{
                 width: 100%;
             }
