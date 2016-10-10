@@ -300,7 +300,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 checkButtonMore();
                 _bindShowLess();
                 emptyData();
-                txtField.on("keyup", function(e) {
+                txtField.on("keypress", function(e) {
                     if (e.which == 13) {
                         e.preventDefault();
                         if(txtField.val()){
