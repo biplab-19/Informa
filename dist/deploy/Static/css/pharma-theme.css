@@ -1281,7 +1281,7 @@ section#agri-report .agri-report-wrapper .download-report {
 /* line 62, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .download-report a {
   position: relative;
-  min-width: 180px;
+  min-width: 200px;
   margin-right: 15px;
 }
 @media (max-width: 767px) {
@@ -2045,11 +2045,6 @@ section#pdp-hero .cta3 {
 /* line 167, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists.no-carousel .slick-list {
   border: none;
-}
-
-/* line 173, ../../../src/components/article-list/sass/_article-list.scss */
-.slick-arrow:focus {
-  outline: 3px solid #3566b8 !important;
 }
 
 /* line 1, ../../../src/components/category-filter/sass/_category-filter.scss */
@@ -6410,10 +6405,6 @@ section#about-us-hero .transparent-bg-content .description {
   margin-bottom: 10px;
   display: block;
 }
-/* line 122, ../../../src/components/search-results/sass/_search-refine.scss */
-.refine-container .panel .panel-collapse .panel-body ul li.active {
-  outline: 3px solid #3566b8 !important;
-}
 /* line 125, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-collapse .panel-body ul li label {
   color: #565c6b;
@@ -6462,10 +6453,6 @@ section#about-us-hero .transparent-bg-content .description {
   position: absolute;
   left: 0;
   color: #565c6b;
-}
-/* line 173, ../../../src/components/search-results/sass/_search-refine.scss */
-.refine-container .panel .panel-heading .custom-checkbox.active label span:before {
-  outline: 3px solid #3566b8 !important;
 }
 /* line 180, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading h3 {
@@ -12183,12 +12170,24 @@ section.welcome-description .registered .reg-title span {
   display: inline-block;
   font-size: 30px;
 }
-/* line 55, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+@media (max-width: 767px) {
+  /* line 49, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  section.welcome-description .registered .reg-title span {
+    font-size: 24px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 49, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  section.welcome-description .registered .reg-title span {
+    font-size: 30px;
+  }
+}
+/* line 61, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip {
   background: #ffd500;
   padding: 15px 30px;
 }
-/* line 58, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 64, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip:before {
   position: absolute;
   font-family: "InformaIcons";
@@ -12199,12 +12198,12 @@ section.welcome-description .tip:before {
   color: #000;
 }
 @media (max-width: 767px) {
-  /* line 58, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 64, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .tip:before {
     top: 32%;
   }
 }
-/* line 70, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 76, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip a {
   position: relative;
   color: #000;
@@ -12212,27 +12211,27 @@ section.welcome-description .tip a {
   padding-left: 20px;
   font-family: FSMe-bold;
 }
-/* line 76, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 82, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip a:after {
   font-family: "InformaIcons";
   content: "\e900";
   position: absolute;
   right: -17px;
 }
-/* line 83, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 89, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .tip span {
   display: inline-block;
   position: relative;
   padding-left: 30px;
 }
 @media (max-width: 767px) {
-  /* line 83, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+  /* line 89, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
   section.welcome-description .tip span {
     padding-left: 0px;
     padding-top: 15px;
   }
 }
-/* line 93, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 99, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross {
   color: #fff;
   font-size: 14px;
@@ -12241,7 +12240,7 @@ section.welcome-description .cross {
   right: 20px;
   z-index: 2;
 }
-/* line 101, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
+/* line 107, ../../../src/components/Welcome-description/sass/_Welcome-description.scss */
 section.welcome-description .cross:after {
   font-family: "InformaIcons";
   content: "\e906";

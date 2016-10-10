@@ -4164,7 +4164,7 @@ var INFORMA = window.INFORMA || {};
                                                         '<div class="analyst-details">' +
                                                           '<span class="analyst-type">{{Type}}</span>' +
                                                             '<h4>{{Name}}</h4>' +
-                                                            '<h5>{{Type}}, {{JobTitle}}</h5>' +
+                                                            '<h5>{{Type}}{{#if Type}}{{#if JobTitle}},{{/if}}{{/if}} {{JobTitle}}</h5>' +
                                                             '{{#if Country}}'+
                                                             '<p class="location">{{State}}{{#if Country}}{{#if State}},{{/if}}{{/if}} {{Country}}</p>' +
                                                             '{{/if}}'+
@@ -4232,7 +4232,7 @@ var INFORMA = window.INFORMA || {};
                                                 '<div class="analyst-details">' +
                                                      '<span class="analyst-type">{{results.Type}}</span>' +
                                                     '<h4>{{results.Name}}</h5>' +
-                                                    '<h5>{{results.Type}}, {{results.JobTitle}}</h3>' +
+                                                    '<h5>{{results.Type}}{{#if results.Type}}{{#if results.JobTitle}},{{/if}}{{/if}} {{results.JobTitle}}</h3>' +
                                                     '{{#if results.Country}}'+
                                                         '<p class="location">{{results.State}}, {{results.Country}}</p>' +
                                                     '{{/if}}'+
@@ -6921,7 +6921,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         return false;
                     }
                 } else {
-                    e.preventDefault();
+                  var validator = _myinterestForm.validate();
+                    validator.focusInvalid();
+                    return false;
                 }
             });
         }
@@ -7042,7 +7044,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         buttonText: function(options, select) {
                             return placeHolder;
                         },
-                        maxHeight: 160,
+                        maxHeight: 220,
                         onChange: _updateMultiSelect,
                         onDropdownShow: _showSelectAll,
                         onDropdownHidden: _hideSelectAll,
@@ -7162,6 +7164,10 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                     var formSubmitBtn = $('form.register-myinterests-form').find('.form-submit-border .btn');
                     formSubmitBtn.removeAttr('disabled');
                     _showNextTab($active);
+                }else{
+                  var validator = _myinterestForm.validate();
+                    validator.focusInvalid();
+                    return false;
                 }
             }
         });
@@ -8646,7 +8652,21 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.nav-links a').on('focus', function(e) {
                 $(this).parent().trigger('mouseover');
             });
-
+             //Accessibility Events
+            $('.nav-links a').on('focus', function() {
+                $(this).parent().trigger('mouseover');
+            });
+            $('.nav-links a').on('focusout', function() {
+                var Id = $(this).data('subnav');
+                if($('#' + Id).find('.content').length > 0) {
+                    $($($('#' + Id).find('.content')[0]).find('a')[0]).focus();
+                }
+                // $($($('#' + Id).find('.content')[0]).find('a')[0]).focus();
+            });
+            $('.subnav-close a').on('focusout', function() {
+                var ParentId = $(this).parents('.subnav-container').attr('id');
+                $('.nav-links a[data-subnav="' +ParentId+ '"]').parent('li').next('li').find('a').focus();
+            });
             $('#sub-nav').hover(
                 function() {
                     $(this).show();
