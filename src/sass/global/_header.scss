@@ -60,6 +60,7 @@ header {
                 bottom: 5px;
                 left: 50%;
                 transform: translate(-50%);
+                -webkit-transform: translate(-50%);
                 cursor: pointer;
                 font-size: 20px;
                 text-transform: lowercase;
@@ -243,6 +244,7 @@ header {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
                 @include desktop {
                     display: none;
                 }
@@ -257,6 +259,7 @@ header {
                     width: 175px !important;
                     height: auto !important;
                     transform: translate(-50%, -50%);
+                    -webkit-transform: translate(-50%, -50%);
                     top: 50%;
                 }
             }
@@ -1355,6 +1358,7 @@ header {
         width: 175px !important;
         height: auto !important;
         transform: translate(-30%, 0);
+        -webkit-transform: translate(-30%, 0);
         top: 50%;
         @include tablet {
             left: 66%;
