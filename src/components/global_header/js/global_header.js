@@ -231,7 +231,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
               if(_pdpLinksCont>6){
-                $('nav#pdp-navigation').removeClass('deviceactive');
+                //$('nav#pdp-navigation').removeClass('deviceactive');
                 if($('#pdp-navigation').hasClass('navbar-fixed-top')){
                 $('body').removeClass('global-no-scroll');
               }
@@ -239,7 +239,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             }else{
                 $('#pdp-sections').slideDown();
                 if(_pdpLinksCont>6){
-                $('nav#pdp-navigation').addClass('deviceactive');
+                //$('nav#pdp-navigation').addClass('deviceactive');
                 if($('#pdp-navigation').hasClass('navbar-fixed-top')){
                 $('body').addClass('global-no-scroll');
               }
