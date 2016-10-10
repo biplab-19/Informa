@@ -5127,7 +5127,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         _template = "",
         //methods
         init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults,
-        emptyData;
+        emptyData,_bindShowLess;
 
     emptyData = function() {
         AnalystSearch.find('#name').val('');
@@ -5361,14 +5361,21 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                     GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
                 } else {
                     Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
-                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').remove();
+                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
                     Parent.removeClass('showLess');
                 }
 
 
             })
         },
-
+        _bindShowLess = function () {
+          var _showLess = $('.analyst-views').find('.btn-container .btn-plus .less');
+          _showLess.on('click',function(){
+                $('html, body').animate({
+                    scrollTop: $(this).closest('.analyst-views').offset().top - 35
+                },500);
+          });
+        },
         GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
@@ -5392,8 +5399,9 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 EventsFunctions();
                 ajaxCallonSector();
                 checkButtonMore();
+                _bindShowLess();
                 emptyData();
-                txtField.on("keyup", function(e) {
+                txtField.on("keypress", function(e) {
                     if (e.which == 13) {
                         e.preventDefault();
                         if(txtField.val()){
@@ -5645,6 +5653,37 @@ INFORMA.ArticleList = (function(window, $, namespace) {
     };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.ArticleList.init());
+
+var INFORMA = window.INFORMA || {};
+INFORMA.freearticle = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var init,
+        _setFreearticlePadding;
+    _setFreearticlePadding = function() {
+        var freearticleSection = $('.product-detail-page section.articlepage-freearticle');
+        if (freearticleSection.length > 0) {
+            if (INFORMA.global.device.viewportN == 1) {
+                freearticleSection.first().css('padding-top', '40px');
+                freearticleSection.last().css('padding-bottom', '40px');
+            } else if (INFORMA.global.device.viewportN == 2) {
+                freearticleSection.first().css('padding-top', '30px');
+                freearticleSection.last().css('padding-bottom', '30px');
+            } else {
+                freearticleSection.first().css('padding-top', '50px');
+                freearticleSection.last().css('padding-bottom', '50px');
+            }
+        }
+    }
+    init = function() {
+        _setFreearticlePadding();
+    }
+
+    return {
+        init: init
+    }
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.freearticle.init());
 
 /*
  * feature-list.js
@@ -6829,14 +6868,12 @@ INFORMA.featureList = (function(window, $, namespace) {
     }
 
     _bindShowLess = function () {
-      // var _showLess = _featureListSection.find('.btn-showMore .less');
-      // if(_showLess.length > 0){
-      //   $('body').on('click', '.feature-list-section .btn-showMore .less', function(){
-      //       $('html, body').animate({
-      //           scrollTop: _featureListSection.offset().top - 40
-      //       });
-      //   });
-      // }
+      var _showLess = $('.feature-list-section').find('.btn-showMore .less');
+        _showLess.on('click',function(){
+          $('html, body').animate({
+              scrollTop: $(this).closest('.feature-list-section').offset().top - 50
+          });
+        });
     }
 
     init = function() {
@@ -8394,7 +8431,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
               if(_pdpLinksCont>6){
-                $('nav#pdp-navigation').removeClass('deviceactive');
+                //$('nav#pdp-navigation').removeClass('deviceactive');
                 if($('#pdp-navigation').hasClass('navbar-fixed-top')){
                 $('body').removeClass('global-no-scroll');
               }
@@ -8402,7 +8439,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             }else{
                 $('#pdp-sections').slideDown();
                 if(_pdpLinksCont>6){
-                $('nav#pdp-navigation').addClass('deviceactive');
+                //$('nav#pdp-navigation').addClass('deviceactive');
                 if($('#pdp-navigation').hasClass('navbar-fixed-top')){
                 $('body').addClass('global-no-scroll');
               }
@@ -9244,7 +9281,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         })
     }
     _bindShowLess = function () {
-      var _showLess = $('.btn.btn-showMore .less');
+      var _showLess = _analystList.find('.btn.btn-showMore .less');
       _showLess.on('click',function(){
             $('html, body').animate({
                 scrollTop: _analystList.offset().top - 35
@@ -9255,7 +9292,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         if (_analystList.length > 0) {
            // _bindElement();
             _bindShowMore(_analystList);
-            _bindShowLess();
+            //_bindShowLess();
         }
         if (_listItems.length > 0) {
             _listItems.each(function() {
@@ -11409,7 +11446,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         })
     }
     _bindShowLess = function () {
-      var _showLess = $('.view-all-sectors-btn.less');
+      var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
             $('html, body').animate({
                 scrollTop: _sectorPageStrengths.offset().top - 35

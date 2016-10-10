@@ -106,10 +106,8 @@ $desktop-width: 1142px;
 }
 
 @mixin border-focus{
-    outline:1px dotted #ccc !important;
-    @media screen and (-webkit-min-device-pixel-ratio: 2){
-        outline:2px solid #3566b8 !important;
-    }
+    outline:3px solid #3566b8 !important;
+    outline-offset:-2px;
 }
 @mixin padding-reset {
     padding: 0;

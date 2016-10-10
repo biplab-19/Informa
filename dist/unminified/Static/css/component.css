@@ -1281,8 +1281,10 @@ section#agri-report .agri-report-wrapper .download-report {
 /* line 62, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .download-report a {
   position: relative;
-  min-width: 200px;
+  min-width: initial;
   margin-right: 15px;
+  padding-right: 40px;
+  width: auto;
 }
 @media (max-width: 767px) {
   /* line 62, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
@@ -1290,7 +1292,7 @@ section#agri-report .agri-report-wrapper .download-report a {
     width: 100%;
   }
 }
-/* line 71, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 73, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .download-report .btn-primary:after {
   font-family: "InformaIcons";
   content: "\e905";
@@ -1299,26 +1301,26 @@ section#agri-report .agri-report-wrapper .download-report .btn-primary:after {
   top: 28%;
   font-size: 16px;
 }
-/* line 81, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 83, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .splash-image {
   position: absolute;
   bottom: 0;
   right: 100px;
 }
-/* line 85, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 87, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .splash-image img {
   width: 270px;
   height: auto;
 }
 @media (max-width: 767px) {
-  /* line 81, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 83, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image {
     right: 85px;
     position: static;
     margin-top: 25px;
     margin-bottom: 0;
   }
-  /* line 94, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 96, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image > img {
     width: 160px;
     display: block;
@@ -1326,30 +1328,30 @@ section#agri-report .agri-report-wrapper .splash-image img {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 81, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 83, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image {
     right: 95px;
   }
-  /* line 102, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 104, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .splash-image > img {
     width: 225px;
   }
 }
-/* line 107, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 109, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .description {
   line-height: 1.2em;
 }
 @media (max-width: 767px) {
-  /* line 107, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 109, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .description {
     padding-top: 15px;
   }
 }
-/* line 113, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 115, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .description strong {
   font-family: FSMe-Bold;
 }
-/* line 117, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+/* line 119, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
 section#agri-report .agri-report-wrapper .orange-bd {
   font-size: ┬á14px;
   ┬áfont-family: ┬áFSMe;
@@ -1360,7 +1362,7 @@ section#agri-report .agri-report-wrapper .orange-bd {
   ┬áborder-color: ┬á #ffd600;
 }
 @media (max-width: 767px) {
-  /* line 117, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
+  /* line 119, ../../../src/components/home-agri-report/sass/_home-agri-report.scss */
   section#agri-report .agri-report-wrapper .orange-bd {
     margin: 0 auto;
     display: block;
@@ -2015,47 +2017,46 @@ section#pdp-hero .cta3 {
   width: 10px;
   border-radius: 5px;
   border: none;
-  background: #888e9f;
+  background: #565c6b;
   padding: 0;
 }
 /* line 145, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 149, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 148, ../../../src/components/article-list/sass/_article-list.scss */
+.carousel-lists ul.slick-dots li button {
+  color: #fff;
+}
+/* line 150, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists ul.slick-dots li button:before {
   content: " ";
 }
-/* line 156, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 157, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists.no-carousel .list-container li {
   margin-bottom: 20px;
   border-right: 1px solid #c3c6d0;
 }
-/* line 159, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 160, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists.no-carousel .list-container li:last-child {
   border-right: 1px solid #c3c6d0;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 156, ../../../src/components/article-list/sass/_article-list.scss */
+  /* line 157, ../../../src/components/article-list/sass/_article-list.scss */
   .carousel-lists.no-carousel .list-container li {
     width: 50%;
     float: left;
   }
 }
-/* line 167, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 168, ../../../src/components/article-list/sass/_article-list.scss */
 .carousel-lists.no-carousel .slick-list {
   border: none;
 }
 
-/* line 173, ../../../src/components/article-list/sass/_article-list.scss */
+/* line 174, ../../../src/components/article-list/sass/_article-list.scss */
 .slick-arrow:focus {
-  outline: 1px solid #ccc !important;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 173, ../../../src/components/article-list/sass/_article-list.scss */
-  .slick-arrow:focus {
-    outline: 2px solid #3566b8 !important;
-  }
+  outline: 3px solid #3566b8 !important;
+  outline-offset: -2px;
 }
 
 /* line 1, ../../../src/components/category-filter/sass/_category-filter.scss */
@@ -3533,22 +3534,23 @@ nav#pdp-navigation .menuFollower {
 #analyst-profile .nav-links li a.addthis_button_linkedin_follow, #analyst-profile .nav-links li a.addthis_button_twitter_follow {
   line-height: 0;
   height: 22px !important;
+  transform: translateY(-18px) translateX(-50%);
 }
-/* line 115, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 116, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li a:before {
   font-size: 24px;
 }
-/* line 118, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 119, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li a:hover, #analyst-profile .nav-links li a:active {
   outline: 0;
   border: 0;
   text-decoration: initial;
 }
-/* line 124, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 125, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 129, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 130, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions {
   min-height: 106px;
   overflow: hidden;
@@ -3556,63 +3558,63 @@ nav#pdp-navigation .menuFollower {
   margin-bottom: 40px;
 }
 @media (max-width: 767px) {
-  /* line 129, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 130, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .descriptions {
     padding-right: 0;
   }
 }
-/* line 138, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 139, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions .bold {
   color: #444957;
 }
-/* line 141, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 142, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions .bold + div {
   height: 55px;
   color: #444957;
 }
-/* line 145, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 146, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions p {
   margin: 0;
   color: #444957;
 }
-/* line 149, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 150, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content {
   height: auto !important;
 }
-/* line 151, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 152, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content .bold + div {
   height: auto !important;
 }
-/* line 156, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 157, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .show-options:after {
   content: "\e913";
 }
-/* line 160, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 161, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .more {
   display: none;
 }
-/* line 163, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 164, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .less {
   display: block;
 }
-/* line 168, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 169, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions .bold {
   margin-bottom: 10px;
 }
-/* line 172, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 173, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .btn-container {
   padding-right: 45px;
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 172, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 173, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .btn-container {
     text-align: center;
     padding-right: 0;
     margin-bottom: 0;
   }
 }
-/* line 181, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 182, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options {
   min-width: 105px;
   padding: 5px 30px 5px 0;
@@ -3626,13 +3628,13 @@ nav#pdp-navigation .menuFollower {
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 181, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 182, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .show-options {
     padding: 0 0 45px 0;
     text-align: center;
   }
 }
-/* line 196, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 197, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options:after {
   content: "\e912";
   position: absolute;
@@ -3642,83 +3644,83 @@ nav#pdp-navigation .menuFollower {
   font-family: 'InformaIcons';
 }
 @media (max-width: 767px) {
-  /* line 196, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 197, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .show-options:after {
     top: 20px;
     right: 50%;
     margin-right: -10px;
   }
 }
-/* line 209, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 210, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .more {
   display: block;
 }
-/* line 212, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 213, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .less {
   display: none;
 }
-/* line 216, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 217, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories {
   margin-top: 0;
 }
 @media (max-width: 767px) {
-  /* line 216, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 217, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 35px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 216, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 217, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 30px;
   }
 }
-/* line 224, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 225, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading {
   font-size: 18px;
   margin-top: 20px;
   margin-bottom: 15px;
 }
-/* line 228, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 229, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading i {
   margin-right: 5px;
 }
-/* line 232, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 233, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature {
   list-style-type: none;
   padding-left: 32px;
   margin-bottom: 20px;
 }
-/* line 236, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 237, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li {
   padding: 3px 0;
   position: relative;
   color: #444957;
 }
-/* line 240, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 241, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li a {
   color: #565c6b;
 }
 @media (min-width: 1142px) {
-  /* line 236, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 237, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     width: 50%;
     float: left;
   }
 }
 @media (max-width: 767px) {
-  /* line 236, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 237, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     margin-bottom: 10px;
   }
 }
-/* line 251, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 252, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature:after {
   content: '';
   clear: both;
   display: block;
 }
-/* line 259, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 260, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .place:before {
   width: 18px;
   height: 26px;
@@ -3727,7 +3729,7 @@ nav#pdp-navigation .menuFollower {
   top: -5px;
   background-position: -5px -313px;
 }
-/* line 267, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 268, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .experience:before {
   width: 20px;
   height: 28px;
@@ -3737,12 +3739,12 @@ nav#pdp-navigation .menuFollower {
   background-position: -5px -345px;
 }
 
-/* line 276, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 277, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .bold {
   font-weight: bold;
 }
 
-/* line 279, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 280, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset {
   display: inline-block;
   padding: 5px;
@@ -3755,7 +3757,7 @@ nav#pdp-navigation .menuFollower {
   padding-right: 40px;
   position: relative;
 }
-/* line 290, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 291, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset:after {
   content: 'x';
   position: absolute;
@@ -3765,7 +3767,7 @@ nav#pdp-navigation .menuFollower {
   border-left: 1px solid #fff;
   padding: 0 6px;
 }
-/* line 301, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 302, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset .details .social-links .at-icon-wrapper {
   line-height: 56px;
   background-color: transparent !important;
@@ -3973,7 +3975,11 @@ nav#pdp-navigation .menuFollower {
 #social-section .twitter-carousel ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 168, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 166, ../../../src/components/home-social/sass/_home-social.scss */
+#social-section .twitter-carousel ul.slick-dots li:focus {
+  overflow: visible;
+}
+/* line 171, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow {
   height: 60px;
   width: 40px;
@@ -3981,7 +3987,7 @@ nav#pdp-navigation .menuFollower {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 168, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 171, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 20px;
@@ -3990,7 +3996,7 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 168, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 171, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 25px;
@@ -3998,7 +4004,7 @@ nav#pdp-navigation .menuFollower {
     margin-left: -25px;
   }
 }
-/* line 186, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 189, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -4010,7 +4016,7 @@ nav#pdp-navigation .menuFollower {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 186, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 189, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -4018,52 +4024,52 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 186, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 189, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 207, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 210, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next {
   left: 100%;
   margin-left: 0;
 }
 @media (max-width: 767px) {
-  /* line 207, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 210, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-next {
     left: calc(100% - 10px);
   }
 }
-/* line 213, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 216, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next:before {
   content: "\e902";
 }
-/* line 217, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 220, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev {
   left: 0%;
   margin-left: -39px;
 }
 @media (max-width: 767px) {
-  /* line 217, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 220, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     left: 10px;
   }
 }
 @media (max-width: 767px) {
-  /* line 217, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 220, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 217, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 220, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -25px;
   }
 }
-/* line 229, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 232, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev:before {
   content: "\e903";
 }
@@ -6418,13 +6424,8 @@ section#about-us-hero .transparent-bg-content .description {
 }
 /* line 122, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-collapse .panel-body ul li.active {
-  outline: 1px solid #ccc !important;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 122, ../../../src/components/search-results/sass/_search-refine.scss */
-  .refine-container .panel .panel-collapse .panel-body ul li.active {
-    outline: 2px solid #3566b8 !important;
-  }
+  outline: 3px solid #3566b8 !important;
+  outline-offset: -2px;
 }
 /* line 125, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-collapse .panel-body ul li label {
@@ -6477,13 +6478,8 @@ section#about-us-hero .transparent-bg-content .description {
 }
 /* line 173, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading .custom-checkbox.active label span:before {
-  outline: 1px solid #ccc !important;
-}
-@media screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 173, ../../../src/components/search-results/sass/_search-refine.scss */
-  .refine-container .panel .panel-heading .custom-checkbox.active label span:before {
-    outline: 2px solid #3566b8 !important;
-  }
+  outline: 3px solid #3566b8 !important;
+  outline-offset: -2px;
 }
 /* line 180, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .panel .panel-heading h3 {
@@ -7890,8 +7886,9 @@ section#services-list .row .single-image-thumbnail, section#services-list .row .
 /* line 129, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list .row .single-image-thumbnail .image-resp, section#services-list .row .image-thumbnail .image-resp {
   width: 100%;
+  height: auto;
 }
-/* line 132, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 133, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list .row .single-image-thumbnail:after, section#services-list .row .image-thumbnail:after {
   content: '';
   width: 110%;
@@ -7904,122 +7901,122 @@ section#services-list .row .single-image-thumbnail:after, section#services-list 
   left: 0;
   background-color: #e1e3e7;
 }
-/* line 146, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 147, ../../../src/components/services-list/sass/_services-list.scss */
 section#services-list .row .btn-container .btn-primary {
   width: initial;
   padding-right: 40px;
 }
 @media (min-width: 1142px) {
-  /* line 153, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 154, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding-left: 15px;
     padding-bottom: 50px;
   }
-  /* line 156, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 157, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-image-thumbnail, section#services-list .row .image-thumbnail {
     margin-top: 5px;
     margin-bottom: 25px;
   }
-  /* line 159, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 160, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-image-thumbnail:after, section#services-list .row .image-thumbnail:after {
     top: calc(100% - 27px);
   }
-  /* line 164, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 165, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row [class*='col-'] {
     padding-left: 0;
   }
-  /* line 167, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 168, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 40px;
     padding-top: 30px;
     padding-bottom: 40px;
   }
-  /* line 171, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 172, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 80px;
     height: 80px;
   }
-  /* line 176, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 177, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 50px;
     margin-bottom: 50px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 182, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 183, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding: 30px 0;
   }
-  /* line 184, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 185, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-img, section#services-list .row .img {
     width: 50%;
   }
-  /* line 187, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 188, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-image-thumbnail, section#services-list .row .image-thumbnail {
     margin-bottom: 25px;
   }
-  /* line 190, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 191, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .content {
     width: auto;
     float: none;
   }
-  /* line 196, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 197, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(even) .image-thumbnail {
     float: left;
     margin-right: 25px;
   }
-  /* line 200, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 201, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(even) .single-image-thumbnail {
     float: right;
     margin-right: 25px;
   }
-  /* line 206, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 207, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(odd) .image-thumbnail {
     float: right;
     margin-left: 25px;
   }
-  /* line 210, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 211, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list section:nth-child(odd) .single-image-thumbnail {
     float: left;
     margin-right: 25px;
   }
-  /* line 215, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 216, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 30px;
     padding-left: 7.5px;
     padding-right: 7.5px;
     padding-bottom: 20px;
   }
-  /* line 220, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 221, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 80px;
     height: 80px;
   }
-  /* line 225, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 226, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 40px;
   }
 }
 @media (max-width: 767px) {
-  /* line 230, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 231, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row {
     padding: 30px 0;
     display: flex;
     flex-flow: column;
   }
-  /* line 234, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 235, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row header {
     order: 2;
   }
-  /* line 237, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 238, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .single-img, section#services-list .row .img {
     order: 1;
   }
-  /* line 240, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 241, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .row .content {
     order: 3;
   }
-  /* line 244, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 245, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header {
     font-size: 20px;
     padding-left: 7.5px;
@@ -8027,18 +8024,18 @@ section#services-list .row .btn-container .btn-primary {
     padding-bottom: 20px;
     padding-top: 20px;
   }
-  /* line 250, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 251, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list header .img-icon {
     width: 45px;
     height: 45px;
   }
-  /* line 255, ../../../src/components/services-list/sass/_services-list.scss */
+  /* line 256, ../../../src/components/services-list/sass/_services-list.scss */
   section#services-list .btn-container {
     margin-top: 20px;
   }
 }
 
-/* line 260, ../../../src/components/services-list/sass/_services-list.scss */
+/* line 261, ../../../src/components/services-list/sass/_services-list.scss */
 .img-icon {
   width: 100px;
   height: 100px;
@@ -8785,7 +8782,6 @@ section#services-list .row .btn-container .btn-primary {
 /* line 82, ../../../src/components/article-terms/sass/article-terms.scss */
 section.articlepage-freearticle {
   background-color: #fff;
-  padding: 25px 0;
 }
 /* line 85, ../../../src/components/article-terms/sass/article-terms.scss */
 section.articlepage-freearticle .container {
@@ -12000,20 +11996,24 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   float: left;
   width: 100%;
 }
+/* line 218, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+.recomended-wrapper .footer .btn {
+  width: 210px;
+}
 
-/* line 221, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 224, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .search-tile {
   margin-bottom: 15px;
 }
-/* line 224, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 227, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .btn-ShowMore {
   margin-bottom: 30px;
 }
-/* line 228, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 231, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .more {
   display: none;
 }
-/* line 231, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 234, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .less {
   display: block;
 }
