@@ -10035,6 +10035,16 @@ header section.informaNav .nav-main {
     font-size: 1em;
   }
 }
+/* line 757, ../../../src/sass/global/_header.scss */
+.product-finder form ul.search-options li .custom-radio .label.active {
+  outline: 1px solid #ccc !important;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 757, ../../../src/sass/global/_header.scss */
+  .product-finder form ul.search-options li .custom-radio .label.active {
+    outline: 2px solid #3566b8 !important;
+  }
+}
 /* line 762, ../../../src/sass/global/_header.scss */
 .product-finder form ul.search-options li:last-child {
   float: right;
@@ -10212,6 +10222,16 @@ header section.informaNav .nav-main {
 .product-finder form ul.sector-search li .custom-multiselect .dropdown-toggle .caret:before {
   font: 400 16px 'InformaIcons';
 }
+/* line 891, ../../../src/sass/global/_header.scss */
+.product-finder form ul.sector-search li .custom-multiselect .dropdown-toggle:focus {
+  outline: 1px solid #ccc !important;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 891, ../../../src/sass/global/_header.scss */
+  .product-finder form ul.sector-search li .custom-multiselect .dropdown-toggle:focus {
+    outline: 2px solid #3566b8 !important;
+  }
+}
 /* line 895, ../../../src/sass/global/_header.scss */
 .product-finder form ul.sector-search li .custom-multiselect .dropdown-menu {
   padding: 0;
@@ -10265,6 +10285,16 @@ header section.informaNav .nav-main {
 /* line 922, ../../../src/sass/global/_header.scss */
 .product-finder form ul.sector-search li .custom-multiselect a {
   color: #434854;
+}
+/* line 924, ../../../src/sass/global/_header.scss */
+.product-finder form ul.sector-search li .custom-multiselect a:focus {
+  outline: 1px solid #ccc !important;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 924, ../../../src/sass/global/_header.scss */
+  .product-finder form ul.sector-search li .custom-multiselect a:focus {
+    outline: 2px solid #3566b8 !important;
+  }
 }
 /* line 930, ../../../src/sass/global/_header.scss */
 .product-finder form ul.sector-search .menu {
@@ -11988,6 +12018,14 @@ Fix form input zoom in mobile
 /* ===============================================
 Accessibility fix for focus		
 ==================================================
+
+body{
+	a:focus,
+	button:focus,
+	input:focus{
+		@include border-focus;
+	}
+}
 */
 /* line 1, ../../../src/sass/global/_banner.scss */
 .hero-banner {
