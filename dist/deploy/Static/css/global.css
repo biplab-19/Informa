@@ -1,4 +1,4 @@
-/*! 2016-10-10 */@charset "UTF-8";
+/*! 2016-10-11 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -10044,8 +10044,13 @@ header section.informaNav .nav-main {
 }
 /* line 765, ../../../src/sass/global/_header.scss */
 .product-finder form ul.search-options li .custom-radio .label.active {
-  outline: 2px solid #3566b8 !important;
-  outline-offset: -2px;
+  outline: 1px dotted #ccc !important;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 765, ../../../src/sass/global/_header.scss */
+  .product-finder form ul.search-options li .custom-radio .label.active {
+    outline: 2px solid #3566b8 !important;
+  }
 }
 /* line 770, ../../../src/sass/global/_header.scss */
 .product-finder form ul.search-options li:last-child {
@@ -10226,8 +10231,13 @@ header section.informaNav .nav-main {
 }
 /* line 899, ../../../src/sass/global/_header.scss */
 .product-finder form ul.sector-search li .custom-multiselect .dropdown-toggle:focus {
-  outline: 2px solid #3566b8 !important;
-  outline-offset: -2px;
+  outline: 1px dotted #ccc !important;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 899, ../../../src/sass/global/_header.scss */
+  .product-finder form ul.sector-search li .custom-multiselect .dropdown-toggle:focus {
+    outline: 2px solid #3566b8 !important;
+  }
 }
 /* line 903, ../../../src/sass/global/_header.scss */
 .product-finder form ul.sector-search li .custom-multiselect .dropdown-menu {
@@ -10285,8 +10295,13 @@ header section.informaNav .nav-main {
 }
 /* line 932, ../../../src/sass/global/_header.scss */
 .product-finder form ul.sector-search li .custom-multiselect a:focus {
-  outline: 2px solid #3566b8 !important;
-  outline-offset: -2px;
+  outline: 1px dotted #ccc !important;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 932, ../../../src/sass/global/_header.scss */
+  .product-finder form ul.sector-search li .custom-multiselect a:focus {
+    outline: 2px solid #3566b8 !important;
+  }
 }
 /* line 938, ../../../src/sass/global/_header.scss */
 .product-finder form ul.sector-search .menu {
@@ -12011,17 +12026,29 @@ Fix form input zoom in mobile
 /* ===============================================
 Accessibility fix for focus		
 ==================================================*/
-/* line 471, ../../../src/sass/global/_common-components.scss */
-body a:focus,
-body button:focus,
-body input:focus {
-  outline: 2px solid #3566b8 !important;
-  outline-offset: -2px;
+/* line 470, ../../../src/sass/global/_common-components.scss */
+body {
+  /*
+  a:focus,
+  button:focus,
+  input:focus{
+  	@include border-focus;
+  }
+  a:active,
+  button:active,
+  input:active{
+  	outline:none !important;
+  }*/
 }
-/* line 477, ../../../src/sass/global/_common-components.scss */
+/* line 483, ../../../src/sass/global/_common-components.scss */
 body .chosen-container-active .chosen-single {
-  outline: 2px solid #3566b8 !important;
-  outline-offset: -2px;
+  outline: 1px dotted #ccc !important;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  /* line 483, ../../../src/sass/global/_common-components.scss */
+  body .chosen-container-active .chosen-single {
+    outline: 2px solid #3566b8 !important;
+  }
 }
 
 /* line 1, ../../../src/sass/global/_banner.scss */

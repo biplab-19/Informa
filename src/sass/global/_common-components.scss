@@ -468,11 +468,17 @@ Accessibility fix for focus
 ==================================================*/
 
 body{
+	/*
 	a:focus,
 	button:focus,
 	input:focus{
 		@include border-focus;
 	}
+	a:active,
+	button:active,
+	input:active{
+		outline:none !important;
+	}*/
 	.chosen-container-active {
 		.chosen-single{
 			@include border-focus;
