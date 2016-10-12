@@ -27,10 +27,15 @@ section#market-focus{
             padding: 10px 50px 10px 0;
             overflow: hidden;
             height: 68px;
-            position: relative;
             display: flex;
             vertical-align: middle;
             .market-content{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                width: 75%;
+                word-break: break-all;
                 p{
                   margin: auto;
                   margin-left: 10px;
