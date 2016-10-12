@@ -9237,9 +9237,11 @@ section.hero-banner .fourBYthree {
   padding-bottom: 75%;
 }
 
-/* line 96, ../../../src/components/videos/sass/_video-background.scss */
-section.hero-banner-video {
-  height: 100% !important;
+@media (max-width: 767px) {
+  /* line 96, ../../../src/components/videos/sass/_video-background.scss */
+  section.hero-banner-video {
+    height: 210px;
+  }
 }
 
 /* line 2, ../../../src/components/form-wffm/sass/form-wffm.scss */

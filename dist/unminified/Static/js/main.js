@@ -8748,6 +8748,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 $('#sub-nav .subnav-container').hide();
                 $('#sub-nav').css({ 'left': 0});
                 _navlinks.removeClass('nav-active');
+                $(this).unbind('focusout');
+                $(this).find('a').unbind('focusout');
             });
         } else {
              _navlinks.on('click', function(e) {
