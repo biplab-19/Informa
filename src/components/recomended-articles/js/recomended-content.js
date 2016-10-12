@@ -58,6 +58,11 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                         }
                     html += ListTemplate({ results: Data });
                 }
+                if(Articles.length > 0) {
+                    $('.recomended-content h2').show();
+                } else {
+                    $('.recomended-content h2').hide();
+                }
 
             if(SearchType == null) {
                 RecomendedWrapper.find('.row').append(html);
@@ -81,6 +86,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         } else {
             BtnMore.addClass('hidden');
         }
+        debugger;
     },
 
     GetIds = function (Parent) {

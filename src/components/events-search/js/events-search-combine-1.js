@@ -248,7 +248,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     var _vp = INFORMA.global.device.viewportN;
                     if(_vp === 2 || _vp === 1) {
 
-                        var Events = $('.fc-event-container .events');
+                        var Events = $('.fc-view-container .events');
 
                         Events.each(function () {
                             var DateField = $(this).data('date');
@@ -281,7 +281,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         }
 
                     if(moment(CurrentDate) > moment(ItemDate)) {
-                        if(moment(CurrentDate).format('d MMM YYYY') == moment(ItemDate).format('d MMM YYYY')) {
+                        if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
                             return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                         } else {
                             return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
@@ -327,7 +327,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     SetCalendarEvents = function(list) {
         Calendar.fullCalendar('removeEvents');
         var Month = Object.keys(list.SearchDictionary)[0],
-            data = list.SearchDictionary[Month].ModelItem;
+            data = list.SearchDictionary[Month].ModelItem,
+            _vp = INFORMA.global.device.viewportN;
 
         var EventList = [];
 
@@ -340,6 +341,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 "Link": data[key].FullDetail.Url,
                 "Target": data[key].FullDetail.Target
             })
+        }
+        if(_vp === 1 || _vp === 2) {
+            $('td.fc-day-number').removeClass('events-now');
+            $('td.fc-widget-content').removeClass('event-present');
         }
         jQuery('section[data-view="calendar-view"]').show();
         for(var key = 0; key < EventList.length ; key++) {

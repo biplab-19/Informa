@@ -17,13 +17,22 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     var PreferenceCheckbox = $(".preference .panel-body li .custom-checkbox"),
          CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
          SelectAll = $(".preference .panel-heading .custom-checkbox input"),
-        init, BindCheckboxes,ReadPref,CreatePref, UpdatePref, PrefValue = {},Count=0,
+        init, BindCheckboxes, CheckParentSectorCheckBox, ReadPref,CreatePref, UpdatePref, PrefValue = {},Count=0,
     
 
 
     //get all default setting value from component and check
     //if exist any default setting then update and return carousel object.
-    
+    CheckParentSectorCheckBox = function() {
+        $('.preference .panel-body').each(function() {
+            var Items = $(this).find('input[type="checkbox"]').length,
+                CheckedItems = $(this).find('input[type="checkbox"]:checked').length;
+
+            if(Items == CheckedItems) {
+                $(this).parents('.panel').find('.panel-heading').find('input[type="checkbox"]').attr('checked', 'checked');
+            }
+        })
+    },
     CreatePref = function(name, value) {
         INFORMA.DataLoader.GetServiceData("/client/ajax/UpdateCookieAreaOfInterest", {
             method: "Post",
@@ -94,6 +103,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     init = function() {
         if(PreferenceCheckbox.length){
             BindCheckboxes();
+            CheckParentSectorCheckBox();
         }
     };
 
