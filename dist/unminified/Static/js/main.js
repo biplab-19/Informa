@@ -4184,10 +4184,10 @@ var INFORMA = window.INFORMA || {};
                                                         '{{/each}}' +
                                                     '</ul>' +
                                                     '<p class="heading">+{{YearsOfExperience}} {{ExperienceText}}</p>' +
-                                                    '{{#compare MultipleProducts 0 operator=">"}}' +
+                                                    '{{#compare ProductDetails.length 0 operator=">"}}' +
                                                         '<ul class="track-analyst clearfix">' +
                                                             '{{#each MultipleProducts}}' +
-                                                                '<li><a href="#">{{this}}</a></li>' +
+                                                                '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
                                                             '{{/each}}' +
                                                         '</ul>' +
                                                     '{{/compare}}' +
@@ -4252,10 +4252,10 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/each}}' +
                                             '</ul>' +
                                             '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>' +
-                                            '{{#compare results.MultipleProducts "0" operator=">"}}' +
+                                            '{{#compare results.ProductDetails.length "0" operator=">"}}' +
                                                 '<ul class="track-analyst clearfix">' +
-                                                    '{{#each results.MultipleProducts}}' +
-                                                        '<li><a href="#">{{this}}</a></li>' +
+                                                    '{{#each results.ProductDetails.length}}' +
+                                                        '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
                                                     '{{/each}}' +
                                                 '</ul>' +
                                             '{{/compare}}' +
@@ -4374,12 +4374,12 @@ var INFORMA = window.INFORMA || {};
         'AccordianTemplate': '<div class="panel panel-default">'+
                         '<div class="panel-heading" role="tab">'+
                           '<h4 class="panel-title">'+
-                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#{{results.FaqAccordionId}}" href="#{{results.Id}}{{results.Tabs}}" aria-expanded="false" aria-controls="{{results.Id}}">'+
+                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#{{results.FaqAccordionId}}" href="#{{results.Id}}{{results.FaqAccordionId}}{{results.Tabs}}" aria-expanded="false" aria-controls="{{results.Id}}">'+
                               '{{results.Title}}'+
                             '</a>'+
                           '</h4>'+
                         '</div>'+
-                        '<div id="{{results.Id}}{{results.Tabs}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{results.Id}}" data-fetch="{{results.Id}}">'+
+                        '<div id="{{results.Id}}{{results.FaqAccordionId}}{{results.Tabs}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{results.Id}}" data-fetch="{{results.Id}}">'+
                           '<div class="panel-body">'+
                             '{{results.Description}}'+
                           '</div>'+
@@ -4553,9 +4553,9 @@ var INFORMA = window.INFORMA || {};
                                                                     '</ul>'+
                                                                     '<p class="heading"> {{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
                                                                     '<ul class="track-analyst clearfix">'+
-                                                                        '{{#each results.MultipleProducts}}'+
-                                                                            '<li><a href="javascript:void(0);">{{this}}</a></li>'+
-                                                                        '{{/each}}'+
+                                                                        '{{#each results.ProductDetails.length}}' +
+                                                                            '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
+                                                                        '{{/each}}' +
                                                                     '</ul>'+
                                                                 '</div>'+
                                                             '</div>'+
@@ -6738,6 +6738,8 @@ INFORMA.featureList = (function(window, $, namespace) {
                 var _limit = $(this).data(INFORMA.global.device.viewport) + 1,
                     containersLength = $(this).find('.feature-list-container').length,
                     containerConfigLength = $(this).data(INFORMA.global.device.viewport);
+
+
                 if (_limit) {
                     $(this).find(".feature-list-container:nth-child(n+" + _limit + ")").hide();
                     if (containersLength > containerConfigLength) {
@@ -6786,7 +6788,9 @@ INFORMA.featureList = (function(window, $, namespace) {
 
     init = function() {
         if (_featureListSection.length > 0) {
-            _hideList(_featureListSection);
+            if($('.feature-list-section').length > 0) {
+                _hideList(_featureListSection);
+            }
             _bindShowMore();
             _equalHeight();
             _bindShowLess();

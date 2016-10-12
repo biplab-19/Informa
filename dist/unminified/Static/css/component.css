@@ -1061,10 +1061,6 @@ section#hero-banner .analyst-single-image .image-margin {
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 142, ../../../src/components/home-brand-list/sass/_brand-list.scss */
-  .product-brands-list .container > .row > .card-col:nth-child(n+5) {
-    display: none;
-  }
   /* line 146, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .show-more-btn-container .btn {
     width: 50%;
@@ -2506,11 +2502,19 @@ section#market-focus .market-list-wrapper .market-list {
   padding: 10px 50px 10px 0;
   overflow: hidden;
   height: 68px;
-  position: relative;
   display: flex;
   vertical-align: middle;
 }
-/* line 34, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+/* line 32, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+section#market-focus .market-list-wrapper .market-list .market-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  width: 75%;
+  word-break: break-all;
+}
+/* line 39, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper .market-list .market-content p {
   margin: auto;
   margin-left: 10px;
@@ -2518,54 +2522,105 @@ section#market-focus .market-list-wrapper .market-list .market-content p {
   color: #565c6b;
 }
 @media (min-width: 1142px) {
-  /* line 34, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 39, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper .market-list .market-content p {
     font-size: 18px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 34, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 39, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper .market-list .market-content p {
     font-size: 16px;
   }
 }
 @media (max-width: 767px) {
-  /* line 34, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 39, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper .market-list .market-content p {
     font-size: 16px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 34, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 39, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper .market-list .market-content p {
     line-height: 26px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 34, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 39, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper .market-list .market-content p {
     line-height: 24px;
   }
 }
 @media (max-width: 767px) {
-  /* line 34, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  /* line 39, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
   section#market-focus .market-list-wrapper .market-list .market-content p {
     line-height: 24px;
   }
 }
-/* line 40, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
-section#market-focus .market-list-wrapper .market-list .market-content p:after {
+/* line 45, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+section#market-focus .market-list-wrapper .market-list .market-content p a {
+  color: #565c6b;
+  margin-left: 0;
+}
+/* line 48, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+section#market-focus .market-list-wrapper .market-list .market-content p a:after {
   content: "\e900";
   font-family: 'InformaIcons';
   font-size: 14px;
   margin-left: 10px;
   color: #B83166;
 }
-/* line 47, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
-section#market-focus .market-list-wrapper .market-list .market-content p a {
+/* line 57, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+section#market-focus .market-list-wrapper .market-list .market-content a {
+  margin-left: 10px;
+  font-family: FSMe-Light;
   color: #565c6b;
 }
-/* line 52, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+@media (min-width: 1142px) {
+  /* line 57, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  section#market-focus .market-list-wrapper .market-list .market-content a {
+    font-size: 18px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 57, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  section#market-focus .market-list-wrapper .market-list .market-content a {
+    font-size: 16px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 57, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  section#market-focus .market-list-wrapper .market-list .market-content a {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1142px) {
+  /* line 57, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  section#market-focus .market-list-wrapper .market-list .market-content a {
+    line-height: 26px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 57, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  section#market-focus .market-list-wrapper .market-list .market-content a {
+    line-height: 24px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 57, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+  section#market-focus .market-list-wrapper .market-list .market-content a {
+    line-height: 24px;
+  }
+}
+/* line 62, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
+section#market-focus .market-list-wrapper .market-list .market-content a:after {
+  content: "\e900";
+  font-family: 'InformaIcons';
+  font-size: 14px;
+  margin-left: 10px;
+  color: #B83166;
+}
+/* line 71, ../../../src/components/pdp-market-focus/sass/_pdp-market-focus.scss */
 section#market-focus .market-list-wrapper .market-list .abs-image {
   top: 0;
   right: 0;
