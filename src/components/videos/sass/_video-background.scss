@@ -94,5 +94,8 @@ section.hero-banner {
     }
 }
 section.hero-banner-video{
-  height: 100% !important;
+  //height: 100% !important;
+  @include mobile {
+      height: 210px;
+  }
 }
