@@ -43,6 +43,8 @@ INFORMA.featureList = (function(window, $, namespace) {
                 var _limit = $(this).data(INFORMA.global.device.viewport) + 1,
                     containersLength = $(this).find('.feature-list-container').length,
                     containerConfigLength = $(this).data(INFORMA.global.device.viewport);
+
+
                 if (_limit) {
                     $(this).find(".feature-list-container:nth-child(n+" + _limit + ")").hide();
                     if (containersLength > containerConfigLength) {
@@ -91,7 +93,9 @@ INFORMA.featureList = (function(window, $, namespace) {
 
     init = function() {
         if (_featureListSection.length > 0) {
-            _hideList(_featureListSection);
+            if($('.feature-list-section').length > 0) {
+                _hideList(_featureListSection);
+            }
             _bindShowMore();
             _equalHeight();
             _bindShowLess();
