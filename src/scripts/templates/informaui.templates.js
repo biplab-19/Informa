@@ -428,12 +428,12 @@ var INFORMA = window.INFORMA || {};
         'AccordianTemplate': '<div class="panel panel-default">'+
                         '<div class="panel-heading" role="tab">'+
                           '<h4 class="panel-title">'+
-                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#{{results.FaqAccordionId}}" href="#{{results.Id}}{{results.Tabs}}" aria-expanded="false" aria-controls="{{results.Id}}">'+
+                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#{{results.FaqAccordionId}}" href="#{{results.Id}}{{results.FaqAccordionId}}{{results.Tabs}}" aria-expanded="false" aria-controls="{{results.Id}}">'+
                               '{{results.Title}}'+
                             '</a>'+
                           '</h4>'+
                         '</div>'+
-                        '<div id="{{results.Id}}{{results.Tabs}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{results.Id}}" data-fetch="{{results.Id}}">'+
+                        '<div id="{{results.Id}}{{results.FaqAccordionId}}{{results.Tabs}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{results.Id}}" data-fetch="{{results.Id}}">'+
                           '<div class="panel-body">'+
                             '{{results.Description}}'+
                           '</div>'+
