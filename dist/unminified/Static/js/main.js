@@ -1,4 +1,4 @@
-/*! 2016-10-11 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-12 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -5937,13 +5937,22 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     var PreferenceCheckbox = $(".preference .panel-body li .custom-checkbox"),
          CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
          SelectAll = $(".preference .panel-heading .custom-checkbox input"),
-        init, BindCheckboxes,ReadPref,CreatePref, UpdatePref, PrefValue = {},Count=0,
+        init, BindCheckboxes, CheckParentSectorCheckBox, ReadPref,CreatePref, UpdatePref, PrefValue = {},Count=0,
     
 
 
     //get all default setting value from component and check
     //if exist any default setting then update and return carousel object.
-    
+    CheckParentSectorCheckBox = function() {
+        $('.preference .panel-body').each(function() {
+            var Items = $(this).find('input[type="checkbox"]').length,
+                CheckedItems = $(this).find('input[type="checkbox"]:checked').length;
+
+            if(Items == CheckedItems) {
+                $(this).parents('.panel').find('.panel-heading').find('input[type="checkbox"]').attr('checked', 'checked');
+            }
+        })
+    },
     CreatePref = function(name, value) {
         INFORMA.DataLoader.GetServiceData("/client/ajax/UpdateCookieAreaOfInterest", {
             method: "Post",
@@ -6014,6 +6023,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     init = function() {
         if(PreferenceCheckbox.length){
             BindCheckboxes();
+            CheckParentSectorCheckBox();
         }
     };
 
@@ -6273,7 +6283,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     var _vp = INFORMA.global.device.viewportN;
                     if(_vp === 2 || _vp === 1) {
 
-                        var Events = $('.fc-event-container .events');
+                        var Events = $('.fc-view-container .events');
 
                         Events.each(function () {
                             var DateField = $(this).data('date');
@@ -6306,7 +6316,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         }
 
                     if(moment(CurrentDate) > moment(ItemDate)) {
-                        if(moment(CurrentDate).format('d MMM YYYY') == moment(ItemDate).format('d MMM YYYY')) {
+                        if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
                             return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                         } else {
                             return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
@@ -6352,7 +6362,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     SetCalendarEvents = function(list) {
         Calendar.fullCalendar('removeEvents');
         var Month = Object.keys(list.SearchDictionary)[0],
-            data = list.SearchDictionary[Month].ModelItem;
+            data = list.SearchDictionary[Month].ModelItem,
+            _vp = INFORMA.global.device.viewportN;
 
         var EventList = [];
 
@@ -6365,6 +6376,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 "Link": data[key].FullDetail.Url,
                 "Target": data[key].FullDetail.Target
             })
+        }
+        if(_vp === 1 || _vp === 2) {
+            $('td.fc-day-number').removeClass('events-now');
+            $('td.fc-widget-content').removeClass('event-present');
         }
         jQuery('section[data-view="calendar-view"]').show();
         for(var key = 0; key < EventList.length ; key++) {
@@ -9963,6 +9978,11 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                         }
                     html += ListTemplate({ results: Data });
                 }
+                if(Articles.length > 0) {
+                    $('.recomended-content h2').show();
+                } else {
+                    $('.recomended-content h2').hide();
+                }
 
             if(SearchType == null) {
                 RecomendedWrapper.find('.row').append(html);
@@ -9986,6 +10006,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         } else {
             BtnMore.addClass('hidden');
         }
+        debugger;
     },
 
     GetIds = function (Parent) {

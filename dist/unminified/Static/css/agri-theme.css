@@ -1,4 +1,4 @@
-/*! 2016-10-11 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-10-12 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -607,65 +607,72 @@
   color: #fff;
   width: 100%;
 }
-/* line 925, ../../../src/sass/global/_mixins.scss */
+@media (min-width: 1142px) {
+  /* line 922, ../../../src/sass/global/_mixins.scss */
+  .agri-theme #contactus-section a.btn {
+    width: auto;
+    min-width: 220px;
+  }
+}
+/* line 929, ../../../src/sass/global/_mixins.scss */
 .agri-theme #contactus-section a.btn:after {
   color: #fff;
 }
-/* line 929, ../../../src/sass/global/_mixins.scss */
+/* line 933, ../../../src/sass/global/_mixins.scss */
 .agri-theme #contactus-section .subscribe-link {
   background: #EF7C00 url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
 }
-/* line 931, ../../../src/sass/global/_mixins.scss */
+/* line 935, ../../../src/sass/global/_mixins.scss */
 .agri-theme #contactus-section .subscribe-link:after {
   color: #fff;
 }
-/* line 936, ../../../src/sass/global/_mixins.scss */
+/* line 940, ../../../src/sass/global/_mixins.scss */
 .agri-theme .open-quote {
   color: rgba(255, 214, 0, 0.8);
 }
-/* line 940, ../../../src/sass/global/_mixins.scss */
+/* line 944, ../../../src/sass/global/_mixins.scss */
 .agri-theme .demo-item {
   height: 100px;
   background-color: rgba(255, 214, 0, 0.8);
 }
 
-/* line 949, ../../../src/sass/global/_mixins.scss */
+/* line 953, ../../../src/sass/global/_mixins.scss */
 .tab-pane .error-response h2:before,
 .tab-pane .submit-response h2:before {
   color: #ffd600;
 }
 
-/* line 961, ../../../src/sass/global/_mixins.scss */
+/* line 965, ../../../src/sass/global/_mixins.scss */
 .form-modal .modal-body .form-inline-container .error-response h2:before,
 .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #ffd600;
 }
 
-/* line 969, ../../../src/sass/global/_mixins.scss */
+/* line 973, ../../../src/sass/global/_mixins.scss */
 .infograph .number-container {
   color: #e291b1;
 }
 
-/* line 974, ../../../src/sass/global/_mixins.scss */
+/* line 978, ../../../src/sass/global/_mixins.scss */
 .welcome-description .tool p a {
   color: #e291b1;
 }
 
-/* line 980, ../../../src/sass/global/_mixins.scss */
+/* line 984, ../../../src/sass/global/_mixins.scss */
 .product-login .create-profile a {
   color: #e291b1;
 }
 
-/* line 986, ../../../src/sass/global/_mixins.scss */
+/* line 990, ../../../src/sass/global/_mixins.scss */
 .marketing-banner.Variation2 .btn, .marketing-banner.Variation1 .btn {
   background: #B83166;
 }
-/* line 988, ../../../src/sass/global/_mixins.scss */
+/* line 992, ../../../src/sass/global/_mixins.scss */
 .marketing-banner.Variation2 .btn:after, .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
 
-/* line 996, ../../../src/sass/global/_mixins.scss */
+/* line 1000, ../../../src/sass/global/_mixins.scss */
 .more-stories .feature li:before {
   color: #9e3005;
 }
