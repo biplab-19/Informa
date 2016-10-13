@@ -225,6 +225,9 @@ header {
             }
             .action {
                 float: right;
+                @include desktop {
+                    padding-right: 15px;
+                }
             }
         }
         .navbar-brand {
@@ -339,6 +342,11 @@ header {
                     @include desktop{
                        padding-right: 0 ;
                     }
+                    .row {
+                        @include desktop {
+                            margin: 0;
+                        }
+                    }
                 }
                 .navbar-collapse {
                     padding-left: 0;
@@ -365,6 +373,9 @@ header {
                             }
                             a{
                                 @include anchor-font(14px,13px,12px);
+                                @include desktop {
+                                    padding-left: 0;
+                                }
                             }
                         }
                     }
@@ -422,7 +433,7 @@ header {
                     .stick-img {
                         display: block;
                         a {
-                            padding-left: 15px;
+                            padding-left: 0;
                             padding-top: 7px;
                             padding-bottom: 0;
                         }

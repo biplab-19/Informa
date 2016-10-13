@@ -240,7 +240,7 @@ var INFORMA = window.INFORMA || {};
                                                     '<p class="heading">+{{YearsOfExperience}} {{ExperienceText}}</p>' +
                                                     '{{#compare ProductDetails.length 0 operator=">"}}' +
                                                         '<ul class="track-analyst clearfix">' +
-                                                            '{{#each MultipleProducts}}' +
+                                                            '{{#each ProductDetails}}' +
                                                                 '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
                                                             '{{/each}}' +
                                                         '</ul>' +
@@ -308,7 +308,7 @@ var INFORMA = window.INFORMA || {};
                                             '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>' +
                                             '{{#compare results.ProductDetails.length "0" operator=">"}}' +
                                                 '<ul class="track-analyst clearfix">' +
-                                                    '{{#each results.ProductDetails.length}}' +
+                                                    '{{#each results.ProductDetails}}' +
                                                         '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
                                                     '{{/each}}' +
                                                 '</ul>' +
@@ -607,7 +607,7 @@ var INFORMA = window.INFORMA || {};
                                                                     '</ul>'+
                                                                     '<p class="heading"> {{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
                                                                     '<ul class="track-analyst clearfix">'+
-                                                                        '{{#each results.ProductDetails.length}}' +
+                                                                        '{{#each results.ProductDetails}}' +
                                                                             '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
                                                                         '{{/each}}' +
                                                                     '</ul>'+
@@ -630,7 +630,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                         '{{/if}}'+
                                                                     '</ul>'+
-                                                                    '<a href="{{results.ProfileUrl}}" target="{{results.LinkTarget}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
+                                                                    '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
                                                                 '</div>'+
                                                             '</div>'+
                                                         '</div>'+
