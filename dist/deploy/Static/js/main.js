@@ -8036,12 +8036,15 @@ INFORMA.forms = (function(window, $, namespace) {
     _showModal = function(el)  {         
         _formId = $(el).data('modal');
         _resetForm($(_formId).find('form'));
-        if ($(el).attr('data-productid')) {
-            productId = {
-                'guid': $(el).attr('data-productid')
-            };
-            _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
-        }        
+        var ProductName = $('.product-name').val();
+        if(ProductName == ""){
+          if ($(el).attr('data-productid')) {
+              productId = {
+                  'guid': $(el).attr('data-productid')
+              };
+              _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
+          } 
+        }
         $(_formId).modal({         
             show: 'true'         
         })
@@ -11526,7 +11529,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
             _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
             _bindShowLess();
-            $(document).ready(function() {
+            $(window).on('load', function() {
                 equalHeight();
             });
         }
