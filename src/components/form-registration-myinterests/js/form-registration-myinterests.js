@@ -52,7 +52,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     //methods
 
     _clearFormInput = function(form) {
-        form.find('input[type=text], input[type=password], input[type=number], input[type=email], textarea').val('');
+        form.find('input[type=text], input[type=password], input[type=number], input[type=email], input[type=tel], textarea').val('');
         form.find('.area-interests-guid').val('');
         form.find('.area-interests-text').val('');
         form.find(".field-validation-error span").hide();

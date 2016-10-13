@@ -448,11 +448,12 @@ Fix form input zoom in mobile
 	input[type="text"]:focus,
 	input[type="email"]:focus,
 	input[type="number"]:focus,
+	input[type="tel"]:focus,
 	textarea:focus, select:focus {
 			font-size: 16px !important;
 	}
 	input[type="text"], input[type="email"],
-	input[type="number"],
+	input[type="number"],input[type="tel"],
 		textarea, select {
 				font-size: 16px !important;
 		}
@@ -464,7 +465,7 @@ Fix form input zoom in mobile
 }
 
 /* ===============================================
-Accessibility fix for focus		
+Accessibility fix for focus
 ==================================================*/
 
 body{
@@ -485,6 +486,3 @@ body{
 		}
 	}
 }
-
-
-
