@@ -4254,7 +4254,7 @@ var INFORMA = window.INFORMA || {};
                                             '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>' +
                                             '{{#compare results.ProductDetails.length "0" operator=">"}}' +
                                                 '<ul class="track-analyst clearfix">' +
-                                                    '{{#each results.ProductDetails.length}}' +
+                                                    '{{#each results.ProductDetails}}' +
                                                         '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
                                                     '{{/each}}' +
                                                 '</ul>' +
@@ -4553,7 +4553,7 @@ var INFORMA = window.INFORMA || {};
                                                                     '</ul>'+
                                                                     '<p class="heading"> {{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
                                                                     '<ul class="track-analyst clearfix">'+
-                                                                        '{{#each results.ProductDetails.length}}' +
+                                                                        '{{#each results.ProductDetails}}' +
                                                                             '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
                                                                         '{{/each}}' +
                                                                     '</ul>'+
@@ -4576,7 +4576,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                         '{{/if}}'+
                                                                     '</ul>'+
-                                                                    '<a href="{{results.ProfileUrl}}" target="{{results.LinkTarget}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
+                                                                    '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
                                                                 '</div>'+
                                                             '</div>'+
                                                         '</div>'+
@@ -5851,6 +5851,10 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
 
     ShowBanner = function(name, value, days) {
             $("body").find("#cookieBanner").show();
+            if($('#cookieBanner:visible').length){
+                $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
+                $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
+            }
             $("#cookieBanner a.close").on("click", function(e) {
                 e.preventDefault();
                 RemoveMe();
@@ -6923,7 +6927,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     //methods
 
     _clearFormInput = function(form) {
-        form.find('input[type=text], input[type=password], input[type=number], input[type=email], textarea').val('');
+        form.find('input[type=text], input[type=password], input[type=number], input[type=email], input[type=tel], textarea').val('');
         form.find('.area-interests-guid').val('');
         form.find('.area-interests-text').val('');
         form.find(".field-validation-error span").hide();
@@ -7497,7 +7501,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _resetForm = function($form) {
-        $form.find('input[type=text], input[type=password], input[type=number], input[type=email], select, textarea').val('');
+        $form.find('input[type=text], input[type=password], input[type=number], input[type=email], input[type=tel], select, textarea').val('');
         $form.find('input[type=radio]').removeAttr('checked');
         $form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
         $form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
@@ -8751,16 +8755,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             });
             $('.nav-links a').on('focusout', function() {
                 var Id = $(this).data('subnav');
-                if($('#' + Id).find('.content').length > 0) {
-                    $($($('#' + Id).find('.content')[0]).find('a')[0]).focus();
-                }
-                else {
-                    $($($('#' + Id).find('.subnav-heading')[0]).find('a')[0]).focus();
-                }
+                $($('#' + Id).find('a')[0]).focus();
             });
             $('.subnav-close a').on('focusout', function() {
                 var ParentId = $(this).parents('.subnav-container').attr('id');
                 $('.nav-links a[data-subnav="' +ParentId+ '"]').parent('li').next('li').find('a').focus();
+                $(this).find('a').unbind('click');
             });
             $('#sub-nav').hover(
                 function() {

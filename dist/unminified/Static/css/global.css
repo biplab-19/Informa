@@ -12030,18 +12030,19 @@ Fix form input zoom in mobile
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="number"]:focus,
+  input[type="tel"]:focus,
   textarea:focus, select:focus {
     font-size: 16px !important;
   }
 
-  /* line 454, ../../../src/sass/global/_common-components.scss */
+  /* line 455, ../../../src/sass/global/_common-components.scss */
   input[type="text"], input[type="email"],
-  input[type="number"],
+  input[type="number"], input[type="tel"],
   textarea, select {
     font-size: 16px !important;
   }
 }
-/* line 460, ../../../src/sass/global/_common-components.scss */
+/* line 461, ../../../src/sass/global/_common-components.scss */
 .adjust-image {
   max-width: 100% !important;
   height: auto !important;
@@ -12049,9 +12050,9 @@ Fix form input zoom in mobile
 }
 
 /* ===============================================
-Accessibility fix for focus		
+Accessibility fix for focus
 ==================================================*/
-/* line 470, ../../../src/sass/global/_common-components.scss */
+/* line 471, ../../../src/sass/global/_common-components.scss */
 body {
   /*
   a:focus,
@@ -12065,12 +12066,12 @@ body {
   	outline:none !important;
   }*/
 }
-/* line 483, ../../../src/sass/global/_common-components.scss */
+/* line 484, ../../../src/sass/global/_common-components.scss */
 body .chosen-container-active .chosen-single {
   outline: 1px dotted #ccc !important;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {
-  /* line 483, ../../../src/sass/global/_common-components.scss */
+  /* line 484, ../../../src/sass/global/_common-components.scss */
   body .chosen-container-active .chosen-single {
     outline: 2px solid #3566b8 !important;
   }
