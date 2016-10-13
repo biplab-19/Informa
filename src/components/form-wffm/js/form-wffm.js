@@ -39,7 +39,8 @@ INFORMA.forms = (function(window, $, namespace) {
         //_validateChoosenSelect,
         _destroyChosenInDevice,
         _customPhoneErrorMsg,
-        _reCaptchaAccessbility;
+        _reCaptchaAccessbility,
+        _updateHiddenProductVerticalName;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -49,7 +50,22 @@ INFORMA.forms = (function(window, $, namespace) {
     //         $(this).valid();
     //     });
     // }
-
+    _updateHiddenProductVerticalName = function() {
+        var ProductName = $('.product-name').val(),
+            VerticalName = $('.vertical-name').val();
+        if (ProductName || VerticalName) {
+            $('span.product-name-holder').html(ProductName);
+            $('.product-name-holder').val(ProductName);
+            $('.vertical-name-holder').val(VerticalName);
+            $('.tc-product-name').html(ProductName);
+            $('.tc-vertical-name').html(VerticalName);
+            if (ProductName.length > 0) {
+                $('.tc-product-name').html(ProductName);
+            } else {
+                $('.tc-product-name').html(VerticalName);
+            }
+        }
+    }
     _bindNumber = function() {
         $(document).on('keypress', 'input[type="number"]', function(e) {
             if ((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
@@ -613,10 +629,10 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
-    _reCaptchaAccessbility = function(){
-      $(window).load(function() {
+    _reCaptchaAccessbility = function() {
+        $(window).load(function() {
             $('.g-recaptcha-response').attr('aria-labelledby', 'g-recaptcha-response');
-    });
+        });
     }
 
     init = function() {
@@ -636,7 +652,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _showHideInlineForm();
         _HideOverlay();
         _showFormIntro();
-        _updateProductVerticalName();
+        //_updateProductVerticalName();
+        _updateHiddenProductVerticalName();
         //_validateChoosenSelect();
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
