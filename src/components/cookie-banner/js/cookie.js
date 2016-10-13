@@ -25,6 +25,10 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
 
     ShowBanner = function(name, value, days) {
             $("body").find("#cookieBanner").show();
+            if($('#cookieBanner:visible').length){
+                $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
+                $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
+            }
             $("#cookieBanner a.close").on("click", function(e) {
                 e.preventDefault();
                 RemoveMe();

@@ -602,16 +602,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             });
             $('.nav-links a').on('focusout', function() {
                 var Id = $(this).data('subnav');
-                if($('#' + Id).find('.content').length > 0) {
-                    $($($('#' + Id).find('.content')[0]).find('a')[0]).focus();
-                }
-                else {
-                    $($($('#' + Id).find('.subnav-heading')[0]).find('a')[0]).focus();
-                }
+                $($('#' + Id).find('a')[0]).focus();
             });
             $('.subnav-close a').on('focusout', function() {
                 var ParentId = $(this).parents('.subnav-container').attr('id');
                 $('.nav-links a[data-subnav="' +ParentId+ '"]').parent('li').next('li').find('a').focus();
+                $(this).find('a').unbind('click');
             });
             $('#sub-nav').hover(
                 function() {
