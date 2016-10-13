@@ -4698,7 +4698,8 @@ var INFORMA = window.INFORMA || {};
                                                         '<div class="date-field">{{results.EventDate}}</div>'+
                                                         '<p class="country">'+
                                                             '<span>{{results.State}}</span>'+
-                                                            '<strong>{{results.Country}}</strong>'+
+                                                            '{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}}'+
+                                                            '<strong> {{results.Country}}</strong>'+
                                                        ' </p>'+
                                                     '</div>'+
                                                     '<div class="content-wrap">'+
