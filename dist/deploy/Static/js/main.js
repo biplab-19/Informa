@@ -1,4 +1,4 @@
-/*! 2016-10-13 */s = new AppMeasurement()
+/*! 2016-10-14 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -4341,7 +4341,7 @@ var INFORMA = window.INFORMA || {};
                                                     '<h4>{{results.Name}}</h5>' +
                                                     '<h5>{{results.Type}}{{#if results.Type}}{{#if results.JobTitle}},{{/if}}{{/if}} {{results.JobTitle}}</h3>' +
                                                     '{{#if results.Country}}'+
-                                                        '<p class="location">{{results.State}}, {{results.Country}}</p>' +
+                                                        '<p class="location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}}</p>' +
                                                     '{{/if}}'+
                                                 '</div>' +
                                                 '<div class="analyst-img">' +
@@ -6058,9 +6058,11 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
         $('.preference .panel-body').each(function() {
             var Items = $(this).find('input[type="checkbox"]').length,
                 CheckedItems = $(this).find('input[type="checkbox"]:checked').length;
-
-            if(Items == CheckedItems) {
-                $(this).parents('.panel').find('.panel-heading').find('input[type="checkbox"]').attr('checked', 'checked');
+                
+            if(Items > 0) {
+                if(Items == CheckedItems) {
+                    $(this).parents('.panel').find('.panel-heading').find('input[type="checkbox"]').attr('checked', 'checked');
+                }
             }
         })
     },
@@ -10899,7 +10901,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (SearchType === "SearchResult") {
                     ProdData = INFORMA.ProductFinder.GetProductData();
                 }
-
+                $(".refine-container a.clear-all").addClass("noOpaque");
                 FilterData = INFORMA.SearchResultFilter.GetRefineData();
                 DefaultData = GetDefaultValues();
                 Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
