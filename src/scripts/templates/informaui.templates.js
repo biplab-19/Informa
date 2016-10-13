@@ -288,7 +288,7 @@ var INFORMA = window.INFORMA || {};
                                                     '<h4>{{results.Name}}</h5>' +
                                                     '<h5>{{results.Type}}{{#if results.Type}}{{#if results.JobTitle}},{{/if}}{{/if}} {{results.JobTitle}}</h3>' +
                                                     '{{#if results.Country}}'+
-                                                        '<p class="location">{{results.State}}, {{results.Country}}</p>' +
+                                                        '<p class="location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}}</p>' +
                                                     '{{/if}}'+
                                                 '</div>' +
                                                 '<div class="analyst-img">' +
