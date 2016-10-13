@@ -1,8 +1,11 @@
 .analyst-views {
 	background-color: $white;
 	padding-bottom: 50px;
+	h2{
+		padding:40px 0;
+	}
 	&.showLess, .btn-plus {
-		.btn-container {
+		.btn-container {	
 			.btn-showMore {
 		    	.less {
 			    	display: block;
@@ -30,7 +33,6 @@
 		}
 	}
 	.btn-container {
-		margin-top: 30px;
 		.btn-default {
 			@include mobile {
 				min-width: auto;
@@ -47,6 +49,10 @@
 		    .more {
 		    	display: block;
 		    }
+		}
+		.btn-plus{
+			margin-top: 10px;
+			margin-bottom: 0;
 		}
 	}
 }
@@ -75,9 +81,8 @@
 }
 .meet-anlyst-section {
 	overflow: hidden;
-	margin-bottom: 10px;
 	background-color: $grey-color11;
-	margin-top: 20px;
+	margin-bottom:20px;
 	.anlyst-heading {
 		padding: 20px;
 		//background-color: $yellow;

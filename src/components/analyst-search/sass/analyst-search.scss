@@ -1,12 +1,15 @@
 .analyst-search {
 	padding-bottom: 15px;
+	h2{
+		padding:40px 0;
+	}
 	form {
 		.disabled {
 			opacity: 0.5;
 			pointer-events: none;
 		}
 		label {
-			font-size: 12px;
+			font-size: 14px;
 		    font-weight: normal;
 		    font-family: 'FSMe-Bold';
 			white-space: normal;
@@ -84,10 +87,14 @@
 	}
 }
 .product-analyst-results {
+	padding-bottom: 15px;
 	.analyst-views {
 		padding-bottom: 0;
 		@include mobile {
 			padding: 0;
+		}
+		h2{
+			font-size: 28px;
 		}
 	}
 	.more {
