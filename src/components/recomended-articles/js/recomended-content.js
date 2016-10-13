@@ -56,6 +56,13 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                                 Data.Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
                             }
                         }
+                        if($('.recommendation-tabs').length > 0) {
+                            if($('.welcome-description').hasClass('Authenticated')) {
+                                Data.IsAuthenticatedUser = true;
+                            } else {
+                                Data.IsAuthenticatedUser = false;
+                            }
+                        }
                     html += ListTemplate({ results: Data });
                 }
                 if(Articles.length > 0) {
