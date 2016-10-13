@@ -4026,7 +4026,7 @@ var INFORMA = window.INFORMA || {};
                             '{{#compare IsAuthenticatedUser false operator="=="}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
-                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{PageURL}}">{{LinkText}}</a>'+
+                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                             '{{/compare}}'+
@@ -4403,7 +4403,7 @@ var INFORMA = window.INFORMA || {};
                                             '<span>{{results.Product}}</span>'+
                                         '</p>'+
                                         '<h4>{{results.Title}}</h4>'+
-                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+ 
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
                                         '{{/compare}}'+
@@ -4448,20 +4448,20 @@ var INFORMA = window.INFORMA || {};
                                     '{{#compare results.LinkText null operator="!="}}'+
                                         '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
                                             '{{#if results.LinkText}}'+
-                                                
+
                                                 '<div class="btn-container text-right">'+
                                                     '<a href="{{results.PageURL}}" class="btn btn-primary full-width-btn" target="{{results.LinkTarget}}">{{results.LinkText}}</a>'+
                                                 '</div>'+
-                                                
+
                                             '{{/if}}'+
                                             '{{/compare}}'+
                                             '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
                                             '{{#if results.LinkText}}'+
-                                            
+
                                                 '<div class="btn-container text-right">'+
-                                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
+                                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
                                                 '</div>'+
-                                                
+
                                             '{{/if}}'+
                                         '{{/compare}}'+
                                     '{{/compare}}'+
@@ -6917,7 +6917,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _bindToggleTab,
         _destroyMultiSelect,
         _addTabNumbers,
-        _closeMyInterestModal;
+        _closeMyInterestModal,
+        _showRegisterFormPopupSingleStep;
 
     //methods
 
@@ -7034,11 +7035,28 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 e.preventDefault();
                 e.stopPropagation();
                 $('.redirect-url-field').val($(this).attr('data-url'));
-                _showRegisterFormPopup();
+                //_showRegisterFormPopup();
+                _showRegisterFormPopupSingleStep();
             }
         });
     }
 
+    _showRegisterFormPopupSingleStep = function(){
+        _clearFormInput(_myinterestForm);
+        var chosenSelect = $("form.register-myinterests-form .chosen-select"),
+        chosenCotainer = $('form.register-myinterests-form .chosen-container');
+        if(chosenCotainer.length > 0 ){
+          chosenCotainer.remove();
+        }
+        if(chosenSelect.length > 0){
+          chosenSelect.chosen('destroy');
+          chosenSelect.chosen({
+              disable_search_threshold: 10,
+              width: "100%"
+          });
+        }
+        $('#formRegistration').modal('show');
+    }
     _renderRecommendedTips = function() {
         _recommendedTipsContainer.append(_recommendedTips);
         _recommendedTipCol.css('display', 'none');
@@ -7258,13 +7276,13 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
     init = function() {
         if (_myinterestForm.length > 0) {
-            _showProgressiveTabs();
-            _appendBackBtn();
-            _appendSteps();
-            _wrapFormContainer();
-            _renderAllContainers();
-            _bindNumber();
-            _renderRecommendedTips();
+            // _showProgressiveTabs();
+            // _appendBackBtn();
+            // _appendSteps();
+            // _wrapFormContainer();
+            // _renderAllContainers();
+             _bindNumber();
+            // _renderRecommendedTips();
             //_validateMultiSelct();
             _showRegisterForm();
             _closeMyInterestModal();
@@ -7384,20 +7402,22 @@ INFORMA.forms = (function(window, $, namespace) {
     //     });
     // }
     _updateHiddenProductVerticalName = function() {
-        var ProductName = $('.product-name').val(),
-            VerticalName = $('.vertical-name').val();
-        if (ProductName || VerticalName) {
-            $('span.product-name-holder').html(ProductName);
-            $('.product-name-holder').val(ProductName);
-            $('.vertical-name-holder').val(VerticalName);
-            $('.tc-product-name').html(ProductName);
-            $('.tc-vertical-name').html(VerticalName);
-            if (ProductName.length > 0) {
+          $(document).ready(function() {
+            var ProductName = $('.product-name').val(),
+                VerticalName = $('.vertical-name').val();
+            if (ProductName || VerticalName) {
+                $('span.product-name-holder').html(ProductName);
+                $('.product-name-holder').val(ProductName);
+                $('.vertical-name-holder').val(VerticalName);
                 $('.tc-product-name').html(ProductName);
-            } else {
-                $('.tc-product-name').html(VerticalName);
+                $('.tc-vertical-name').html(VerticalName);
+                if (ProductName.length > 0) {
+                    $('.tc-product-name').html(ProductName);
+                } else {
+                    $('.tc-product-name').html(VerticalName);
+                }
             }
-        }
+          });
     }
     _bindNumber = function() {
         $(document).on('keypress', 'input[type="number"]', function(e) {
