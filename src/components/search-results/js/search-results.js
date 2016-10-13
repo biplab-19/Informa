@@ -76,7 +76,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (SearchType === "SearchResult") {
                     ProdData = INFORMA.ProductFinder.GetProductData();
                 }
-
+                $(".refine-container a.clear-all").addClass("noOpaque");
                 FilterData = INFORMA.SearchResultFilter.GetRefineData();
                 DefaultData = GetDefaultValues();
                 Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
