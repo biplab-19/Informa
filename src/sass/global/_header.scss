@@ -1318,6 +1318,13 @@ header {
         a {
             padding: 0;
             text-decoration: none;
+            position: absolute;
+            top: 50px;
+            .access-link{
+                font-size: 0;
+                line-height: 0;
+            }
+
         }
         @include not-desktop {
             display: none;

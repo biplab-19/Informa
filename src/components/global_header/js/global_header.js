@@ -605,7 +605,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 if($('#' + Id).find('.content').length > 0) {
                     $($($('#' + Id).find('.content')[0]).find('a')[0]).focus();
                 }
-                // $($($('#' + Id).find('.content')[0]).find('a')[0]).focus();
+                else {
+                    $($($('#' + Id).find('.subnav-heading')[0]).find('a')[0]).focus();
+                }
             });
             $('.subnav-close a').on('focusout', function() {
                 var ParentId = $(this).parents('.subnav-container').attr('id');
