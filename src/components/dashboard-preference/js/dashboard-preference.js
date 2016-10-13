@@ -52,6 +52,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
                     ParentEle = obj.parents(".panel-default").eq(0),
                     CountSpan = ParentEle.find("span.count"),
                     SelectedCount = ParentEle.find(".panel-body input[type=checkbox]:checked"),
+                    CurrentCheckBoxs = ParentEle.find(".panel-body input[type=checkbox]"),
                     AllCheckBoxs = $(".preference .panel-body").find("input[type=checkbox]:checked"),
                     UserInterest = []; 
 
@@ -73,6 +74,9 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
                     UserInterest = null;
                 }else{
                     UserInterest = UserInterest.join(",");
+                }
+                if(SelectedCount.length===CurrentCheckBoxs.length){
+                    obj.parents(".panel").eq(0).find(".panel-heading input").prop("checked",true);
                 }
                 CreatePref("USR_DETAIL", UserInterest);
     },
