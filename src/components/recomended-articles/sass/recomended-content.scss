@@ -110,8 +110,9 @@
 			margin: 0;
 		}
 		h4 {
-		    font-size: 30px;
+		    @include heading-font-size(30px,24px,22px);
     		font-family: FSMe-Bold;
+    		@include heading-line-height(34px,30px,30px);
 		}
 		.type {
 		    font-size: 18px;
@@ -178,6 +179,7 @@
                 max-width: 100%;
                 float: none;
                 display: block;
+                color: $grey-color04; 
             }
             .play-icon {
                 color: #fff;
