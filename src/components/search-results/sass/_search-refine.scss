@@ -6,6 +6,7 @@
     background: $grey-color10;
     .clear-all {
         //color:$orange;
+        display: none;
         &:after {
             content: 'X';
             margin-left: 5px;
@@ -16,7 +17,11 @@
         @include mobile {
             display: none;
         }
+        &.noOpaque{
+            display:block;
+        }
     }
+
     @include tablet {
         width: 100%;
         float: none;
