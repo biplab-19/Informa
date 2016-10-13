@@ -10649,13 +10649,19 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 if (CurrentShowMoreLink) {
                     CurrentShowMoreLink.trigger("click");
                 }
+                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked");
+                if(IsAnyCheckBoxChecked.length>0){
+                    ClearAllLink.addClass("noOpaque");
+                }else{
+                    ClearAllLink.removeClass("noOpaque");
+                }
                 DoRefine();
             });
             SelectAll.on("focus",function(e){
-            	$(this).parents('span').eq(0).addClass("active");
+                $(this).parents('span').eq(0).addClass("active");
             });
             SelectAll.on("focusout",function(e){
-            	$(this).parents('span').eq(0).removeClass("active");
+                $(this).parents('span').eq(0).removeClass("active");
             });
         },
         ClearAllLinkBinding = function(obj){
@@ -10666,6 +10672,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     $('#hdnSearchType').attr('name', '');
                     $('#hdnSearchType').attr('value', '');
                 }
+                $(this).removeClass("noOpaque");
                 $.each(AllCheckBox, function() {
                     $(this).prop("checked", false);
                 });
@@ -10701,6 +10708,12 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     CurrentSelectAllCheckBox.prop("checked", true);
                 } else {
                     CurrentSelectAllCheckBox.prop("checked", false);
+                }
+                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked");
+                if(IsAnyCheckBoxChecked.length>0){
+                    ClearAllLink.addClass("noOpaque");
+                }else{
+                    ClearAllLink.removeClass("noOpaque");
                 }
                 DoRefine();
             });
