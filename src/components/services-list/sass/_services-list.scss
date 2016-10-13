@@ -112,6 +112,7 @@ section#services-list {
             color: $grey-color05;
         }
         ul {
+            padding:0 0 0 15px;
             li {
                 font-family: 'FSMe-Light';
                 color: #565c6b;
@@ -151,6 +152,9 @@ section#services-list {
         }
     }
     @include desktop {
+        .row [class*='col-'] {
+            padding-left: 0;
+        }
         .row {
             padding-left: 15px;
             padding-bottom: 50px;
@@ -161,9 +165,9 @@ section#services-list {
                     top: calc(100% - 27px);
                 }
             }
-        }
-        .row [class*='col-'] {
-            padding-left: 0;
+            .content{
+                padding-left:15px;
+            }
         }
         header {
             font-size: 40px;
@@ -240,6 +244,7 @@ section#services-list {
             }
             .content {
                 order: 3;
+                padding-top:20px;
             }
         }
         header {
