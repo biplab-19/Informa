@@ -146,7 +146,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _resetForm = function($form) {
-        $form.find('input[type=text], input[type=password], input[type=number], input[type=email], select, textarea').val('');
+        $form.find('input[type=text], input[type=password], input[type=number], input[type=email], input[type=tel], select, textarea').val('');
         $form.find('input[type=radio]').removeAttr('checked');
         $form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
         $form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
