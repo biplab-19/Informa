@@ -80,7 +80,7 @@ var INFORMA = window.INFORMA || {};
                             '{{#compare IsAuthenticatedUser false operator="=="}}'+
                             '{{#if LinkText}}'+
                                 '<div class="btn-container text-right">'+
-                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{PageURL}}">{{LinkText}}</a>'+
+                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/if}}'+
                             '{{/compare}}'+
@@ -457,7 +457,7 @@ var INFORMA = window.INFORMA || {};
                                             '<span>{{results.Product}}</span>'+
                                         '</p>'+
                                         '<h4>{{results.Title}}</h4>'+
-                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+ 
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
                                         '{{/compare}}'+
@@ -502,20 +502,20 @@ var INFORMA = window.INFORMA || {};
                                     '{{#compare results.LinkText null operator="!="}}'+
                                         '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
                                             '{{#if results.LinkText}}'+
-                                                
+
                                                 '<div class="btn-container text-right">'+
                                                     '<a href="{{results.PageURL}}" class="btn btn-primary full-width-btn" target="{{results.LinkTarget}}">{{results.LinkText}}</a>'+
                                                 '</div>'+
-                                                
+
                                             '{{/if}}'+
                                             '{{/compare}}'+
                                             '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
                                             '{{#if results.LinkText}}'+
-                                            
+
                                                 '<div class="btn-container text-right">'+
-                                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="registerMyinterestModal" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
+                                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
                                                 '</div>'+
-                                                
+
                                             '{{/if}}'+
                                         '{{/compare}}'+
                                     '{{/compare}}'+

@@ -46,7 +46,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _bindToggleTab,
         _destroyMultiSelect,
         _addTabNumbers,
-        _closeMyInterestModal;
+        _closeMyInterestModal,
+        _showRegisterFormPopupSingleStep;
 
     //methods
 
@@ -163,11 +164,28 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 e.preventDefault();
                 e.stopPropagation();
                 $('.redirect-url-field').val($(this).attr('data-url'));
-                _showRegisterFormPopup();
+                //_showRegisterFormPopup();
+                _showRegisterFormPopupSingleStep();
             }
         });
     }
 
+    _showRegisterFormPopupSingleStep = function(){
+        _clearFormInput(_myinterestForm);
+        var chosenSelect = $("form.register-myinterests-form .chosen-select"),
+        chosenCotainer = $('form.register-myinterests-form .chosen-container');
+        if(chosenCotainer.length > 0 ){
+          chosenCotainer.remove();
+        }
+        if(chosenSelect.length > 0){
+          chosenSelect.chosen('destroy');
+          chosenSelect.chosen({
+              disable_search_threshold: 10,
+              width: "100%"
+          });
+        }
+        $('#formRegistration').modal('show');
+    }
     _renderRecommendedTips = function() {
         _recommendedTipsContainer.append(_recommendedTips);
         _recommendedTipCol.css('display', 'none');
@@ -387,13 +405,13 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
     init = function() {
         if (_myinterestForm.length > 0) {
-            _showProgressiveTabs();
-            _appendBackBtn();
-            _appendSteps();
-            _wrapFormContainer();
-            _renderAllContainers();
-            _bindNumber();
-            _renderRecommendedTips();
+            // _showProgressiveTabs();
+            // _appendBackBtn();
+            // _appendSteps();
+            // _wrapFormContainer();
+            // _renderAllContainers();
+             _bindNumber();
+            // _renderRecommendedTips();
             //_validateMultiSelct();
             _showRegisterForm();
             _closeMyInterestModal();
