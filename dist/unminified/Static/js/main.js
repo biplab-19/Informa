@@ -7449,7 +7449,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _reCaptchaHandler = function() {
-        $("form.get-in-touch, form.request-a-demo").submit(function() {
+        $("form.get-in-touch, form.request-a-demo, form.single-step-form").submit(function() {
             var widgetId, captcha_response, g_captchaId = $(this).find('.g-recaptcha').attr('id');
             if (window.gRecaptchaWidget) {
                 widgetId = $.grep(window.gRecaptchaWidget, function(obj) {
