@@ -2,6 +2,9 @@
 	background-color: $footer-top-gray;
 	padding: 0 0 50px 0;
 	.col-lg-12 {
+		@include desktop {
+			padding: 0;
+		}
 		@include mobile {
 			padding: 0 5px;
 		}

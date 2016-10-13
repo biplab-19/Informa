@@ -51,20 +51,22 @@ INFORMA.forms = (function(window, $, namespace) {
     //     });
     // }
     _updateHiddenProductVerticalName = function() {
-        var ProductName = $('.product-name').val(),
-            VerticalName = $('.vertical-name').val();
-        if (ProductName || VerticalName) {
-            $('span.product-name-holder').html(ProductName);
-            $('.product-name-holder').val(ProductName);
-            $('.vertical-name-holder').val(VerticalName);
-            $('.tc-product-name').html(ProductName);
-            $('.tc-vertical-name').html(VerticalName);
-            if (ProductName.length > 0) {
+          $(document).ready(function() {
+            var ProductName = $('.product-name').val(),
+                VerticalName = $('.vertical-name').val();
+            if (ProductName || VerticalName) {
+                $('span.product-name-holder').html(ProductName);
+                $('.product-name-holder').val(ProductName);
+                $('.vertical-name-holder').val(VerticalName);
                 $('.tc-product-name').html(ProductName);
-            } else {
-                $('.tc-product-name').html(VerticalName);
+                $('.tc-vertical-name').html(VerticalName);
+                if (ProductName.length > 0) {
+                    $('.tc-product-name').html(ProductName);
+                } else {
+                    $('.tc-product-name').html(VerticalName);
+                }
             }
-        }
+          });
     }
     _bindNumber = function() {
         $(document).on('keypress', 'input[type="number"]', function(e) {

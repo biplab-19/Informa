@@ -1,4 +1,4 @@
-.registeration-form-section {
+.registration-form-single-section {
     .container {
         background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color03;
         background-size: 20%;
@@ -10,6 +10,17 @@
         @include tablet {
             background: none;
             padding: 0;
+        }
+    }
+
+    .single-step-form {
+        @include mobile {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        @include tablet {
+            padding-left: 40px;
+            padding-right: 40px;
         }
     }
 }
@@ -27,11 +38,26 @@
             background: none;
             padding: 0;
         }
+
+        .form-inline-container {
+            margin-top: 0;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
     }
 }
 
 form.single-step-form {
-    background-color: transparent;
+    .page-header {
+        margin: 20px 0;
+
+        h2 {
+            font-family: FSMe-Light !important;
+        }
+    }
+    @include desktop {
+        background-color: transparent;
+    }
     margin: 0;
 
     h1 {
@@ -42,6 +68,28 @@ form.single-step-form {
     h2 {
         padding: 0;
         color: $white;
+    }
+
+    label.control-label {
+        font-family: FSMe-light !important;
+        font-weight: normal !important;
+        clear: both;
+        display: block;
+        margin-top: 20px;
+    }
+
+    .normal-checkbox label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: normal;
+    }
+
+    .preselected-checkbox label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: normal;
     }
 
     .about-you-details {
@@ -89,4 +137,11 @@ form.single-step-form {
             }
         }
     }
+    .form-submit-border {
+      @include mobile {
+        width: 60%;
+        float: right;
+      }
+    }
+
 }
