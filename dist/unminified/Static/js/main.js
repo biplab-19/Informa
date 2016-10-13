@@ -4186,7 +4186,7 @@ var INFORMA = window.INFORMA || {};
                                                     '<p class="heading">+{{YearsOfExperience}} {{ExperienceText}}</p>' +
                                                     '{{#compare ProductDetails.length 0 operator=">"}}' +
                                                         '<ul class="track-analyst clearfix">' +
-                                                            '{{#each MultipleProducts}}' +
+                                                            '{{#each ProductDetails}}' +
                                                                 '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
                                                             '{{/each}}' +
                                                         '</ul>' +
@@ -10024,9 +10024,11 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     html += ListTemplate({ results: Data });
                 }
                 if(Articles.length > 0) {
-                    $('.recomended-content h2').show();
+                    $('#tabs-1 section.recomended-content').removeClass('hidden');
+                    $('#tabs-1 section.dashboard-no-record').addClass('hidden');
                 } else {
-                    $('.recomended-content h2').hide();
+                    $('#tabs-1 section.recomended-content').addClass('hidden');
+                    $('#tabs-1 section.dashboard-no-record').removeClass('hidden');
                 }
 
             if(SearchType == null) {

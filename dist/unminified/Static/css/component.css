@@ -1720,7 +1720,7 @@ section#agri-report .agri-report-wrapper .orange-bd {
 }
 /* line 270, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.three .contactus-list .panel-group .panel {
-  width: 30.5%;
+  width: 31%;
 }
 /* line 275, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.four .contactus-list .panel-group .panel {
@@ -3838,6 +3838,12 @@ nav#pdp-navigation .menuFollower {
   background-color: #3C404C;
   padding: 0 0 50px 0;
 }
+@media (min-width: 1142px) {
+  /* line 4, ../../../src/components/home-social/sass/_home-social.scss */
+  #social-section .col-lg-12 {
+    padding: 0;
+  }
+}
 @media (max-width: 767px) {
   /* line 4, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .col-lg-12 {
@@ -3850,14 +3856,14 @@ nav#pdp-navigation .menuFollower {
     padding: 0;
   }
 }
-/* line 12, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 15, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section h2 {
   color: #fff;
   padding-left: 50px;
   position: relative;
   font-family: FSMe-Bold;
 }
-/* line 18, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 21, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section h2:before {
   content: "\e90c";
   position: absolute;
@@ -3865,22 +3871,22 @@ nav#pdp-navigation .menuFollower {
   left: 0;
 }
 @media (max-width: 767px) {
-  /* line 12, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 15, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section h2 {
     margin-bottom: 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 28, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 31, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .slick-slider {
     margin-bottom: 10px;
   }
 }
-/* line 33, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 36, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .slick-list {
   position: relative;
 }
-/* line 35, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 38, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .slick-list:before, #social-section .slick-list:after {
   content: "";
   width: 2px;
@@ -3891,21 +3897,21 @@ nav#pdp-navigation .menuFollower {
   left: 1px;
 }
 @media (max-width: 767px) {
-  /* line 35, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 38, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .slick-list:before, #social-section .slick-list:after {
     width: 0;
     height: 0;
   }
 }
-/* line 48, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 51, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .slick-list:after {
   left: calc(100% - 2px);
 }
-/* line 53, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 56, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .feed {
   margin-left: 1px;
 }
-/* line 55, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 58, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .feed:before, #social-section .twitter-carousel .feed:after {
   content: '';
   height: 100%;
@@ -3916,23 +3922,23 @@ nav#pdp-navigation .menuFollower {
   top: 0;
 }
 @media (max-width: 767px) {
-  /* line 55, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 58, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .feed:before, #social-section .twitter-carousel .feed:after {
     left: 3px;
     height: 0;
     width: 0;
   }
 }
-/* line 69, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 72, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .feed:after {
   left: calc(100% - 3px);
 }
 @media (max-width: 767px) {
-  /* line 75, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 78, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-active .feed {
     margin-left: 1px;
   }
-  /* line 77, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 80, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-active .feed:before, #social-section .twitter-carousel .slick-active .feed:after {
     content: '';
     height: 100%;
@@ -3942,82 +3948,82 @@ nav#pdp-navigation .menuFollower {
     left: 3px;
     top: 0;
   }
-  /* line 86, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 89, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-active .feed:after {
     left: calc(100% - 3px);
   }
 }
-/* line 92, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 95, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel {
   background-color: transparent;
   margin-bottom: 0;
 }
-/* line 95, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 98, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel p {
   font-size: 14px;
 }
-/* line 98, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 101, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed {
   padding: 0 15px;
   margin: 0 -3px;
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 98, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 101, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .panel .feed {
     min-height: auto;
     border-left: none;
   }
 }
-/* line 108, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 111, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twit-img {
   margin-top: 12px;
   margin-bottom: 20px;
   width: calc(100% - 25px);
 }
-/* line 112, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 115, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twit-img img {
   max-width: 100%;
   width: auto;
 }
-/* line 119, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 122, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .twittedby:before {
   content: '@';
 }
-/* line 123, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 126, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .video-wrap {
   display: inline-block;
   position: relative;
 }
-/* line 127, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 130, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .feed-heading {
   margin-bottom: 10px;
 }
-/* line 129, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 132, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .feed .feed-heading span {
   margin-right: 10px;
   font-size: 14px;
 }
-/* line 139, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 142, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .panel .message {
   color: #fff;
   font-size: 18px;
 }
-/* line 144, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 147, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots {
   text-align: center;
   width: 100%;
   bottom: -40px;
 }
 @media (max-width: 767px) {
-  /* line 144, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 147, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel ul.slick-dots {
     display: none !important;
     position: static;
     margin: 10px 0 20px 0;
   }
 }
-/* line 153, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 156, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li {
   height: 10px;
   width: 10px;
@@ -4025,15 +4031,15 @@ nav#pdp-navigation .menuFollower {
   background: #6a7285;
   color: #fff;
 }
-/* line 159, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 162, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li button:before {
   content: '';
 }
-/* line 162, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 165, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel ul.slick-dots li.slick-active {
   background: #ffd500;
 }
-/* line 167, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 170, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow {
   height: 60px;
   width: 40px;
@@ -4041,7 +4047,7 @@ nav#pdp-navigation .menuFollower {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 167, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 170, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 20px;
@@ -4050,7 +4056,7 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 167, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 170, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow {
     height: 40px;
     width: 25px;
@@ -4058,7 +4064,7 @@ nav#pdp-navigation .menuFollower {
     margin-left: -25px;
   }
 }
-/* line 185, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 188, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -4070,7 +4076,7 @@ nav#pdp-navigation .menuFollower {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 185, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 188, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -4078,52 +4084,52 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 185, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 188, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 206, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 209, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next {
   left: 100%;
   margin-left: 0;
 }
 @media (max-width: 767px) {
-  /* line 206, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 209, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-next {
     left: calc(100% - 10px);
   }
 }
-/* line 212, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 215, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-next:before {
   content: "\e902";
 }
-/* line 216, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 219, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev {
   left: 0%;
   margin-left: -39px;
 }
 @media (max-width: 767px) {
-  /* line 216, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 219, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     left: 10px;
   }
 }
 @media (max-width: 767px) {
-  /* line 216, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 219, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 216, ../../../src/components/home-social/sass/_home-social.scss */
+  /* line 219, ../../../src/components/home-social/sass/_home-social.scss */
   #social-section .twitter-carousel .slick-prev {
     margin-left: -25px;
   }
 }
-/* line 228, ../../../src/components/home-social/sass/_home-social.scss */
+/* line 231, ../../../src/components/home-social/sass/_home-social.scss */
 #social-section .twitter-carousel .slick-prev:before {
   content: "\e903";
 }
