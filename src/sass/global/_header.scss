@@ -362,7 +362,20 @@ header {
                         display: none;
                     }
                     .stick-img {
-                        display: none;
+                      padding-right: 0 !important;
+                      width: 0;
+                      -webkit-transition-property:  width;
+                        -moz-transition-property:   width;
+                        -o-transition-property: width;
+                        -webkit-transition-duration: 1s;
+                      -moz-transition-duration: 1s;
+                      -o-transition-duration: 1s;
+                      a{
+                          transition: .5s;
+                          transition-timing-function: ease-in;
+                          opacity: 0;
+                          padding-left: 0 !important;
+                      }
                     }
                     .nav-left {
                         li {
@@ -407,17 +420,30 @@ header {
                             a {
                                 padding: 13px 15px 15px 20px;
                                 @include anchor-font(14px,13px,12px);
+                                width: 115px;
+                                -webkit-transition-property:  width;
+                                  -moz-transition-property:   width;
+                                  -o-transition-property: width;
+                                  -webkit-transition-duration: 1s;
+                                -moz-transition-duration: 1s;
+                                -o-transition-duration: 1s;
                             }
                             .icon-search {
                                 font-size: large;
                                 padding-left: 15px;
-                                position: relative;
-                                top: 3px;
+                                position: absolute;
+                                top: 16px;
+                                right: 15px;
                                 .access-link{
                                     right: 5px;
                                     font-size: 0;
                                     line-height: 0;
                                 }
+                            }
+                            .hide-stick{
+                                 transition: 2s;
+                                 transition-timing-function: ease-out;
+                                 opacity: 1;
                             }
                         }
                     }
@@ -430,16 +456,28 @@ header {
             }
             .nav-main.mainNavigation.navbar-fixed-top {
                 .navbar-collapse {
-                    .stick-img {
-                        display: block;
-                        a {
-                            padding-left: 0;
-                            padding-top: 7px;
-                            padding-bottom: 0;
-                        }
-                    }
+                  .stick-img {
+                    width:64px;
+                    -webkit-transition-property:  width;
+                      -moz-transition-property:   width;
+                      -o-transition-property: width;
+                      -webkit-transition-duration: 1s;
+                    -moz-transition-duration: 1s;
+                    -o-transition-duration: 1s;
+                      a {
+                          padding-left: 15px;
+                          padding-top: 7px;
+                          padding-bottom: 0;
+                            transition: .5s;
+                            padding-right: 0;
+                            transition-timing-function: ease-out;
+                            opacity: 1;
+                      }
+                  }
                     .hide-stick{
-                         display: none;
+                      transition-timing-function: ease-in;
+                      transition:1s;
+                      opacity:0;
                     }
                     .icon-search {
                         padding-left: 0;
@@ -450,6 +488,9 @@ header {
                     .search {
                         border-left: 1px solid $grey-color04;
                         border-right: 1px solid $grey-color04;
+                        a{
+                          width: 54px;
+                        }
                     }
                     .nav-left {
                         position: relative;
@@ -1104,7 +1145,7 @@ header {
                 ul {
                     border-top: 1px solid #777b87;
                     width: 40%;
-                    
+
                 }
                 .labels {
                     padding-top: 10px;
