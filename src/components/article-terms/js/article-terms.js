@@ -5,7 +5,7 @@ INFORMA.freearticle = (function(window, $, namespace) {
     var init,
         _setFreearticlePadding;
     _setFreearticlePadding = function() {
-        var freearticleSection = $('.product-detail-page section.articlepage-freearticle');
+        var freearticleSection = $('#productDetails section.articlepage-freearticle');
         if (freearticleSection.length > 0) {
             if (INFORMA.global.device.viewportN == 1) {
                 freearticleSection.first().css('padding-top', '40px');
