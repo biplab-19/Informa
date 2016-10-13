@@ -201,6 +201,12 @@
         height: auto;
         padding:0 0 35px;
         &.sample-content-banner {
+            .h1-styles, .date {
+                margin: 0 -15px;
+                @include mobile {
+                    margin: 0;
+                }
+            }
             .cf-img {
                 background-color: transparent;
                 width: 20%;
