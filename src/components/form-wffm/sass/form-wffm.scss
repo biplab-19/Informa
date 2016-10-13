@@ -37,6 +37,13 @@ form.register-myinterests-form,
 form.request-a-demo {
     .form-introduction {
         padding-bottom: 30px;
+        line-height: 24px;
+        @include mobile{
+          line-height: 20px;
+        }
+        @include tablet {
+          line-height: 22px;
+        }
     }
     fieldset {
         padding-bottom: 25px;
