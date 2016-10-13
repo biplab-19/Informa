@@ -27,9 +27,11 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
         $('.preference .panel-body').each(function() {
             var Items = $(this).find('input[type="checkbox"]').length,
                 CheckedItems = $(this).find('input[type="checkbox"]:checked').length;
-
-            if(Items == CheckedItems) {
-                $(this).parents('.panel').find('.panel-heading').find('input[type="checkbox"]').attr('checked', 'checked');
+                
+            if(Items > 0) {
+                if(Items == CheckedItems) {
+                    $(this).parents('.panel').find('.panel-heading').find('input[type="checkbox"]').attr('checked', 'checked');
+                }
             }
         })
     },
