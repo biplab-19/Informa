@@ -5960,9 +5960,19 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
     ShowBanner = function(name, value, days) {
             $("body").find("#cookieBanner").show();
             if($('#cookieBanner:visible').length){
-                $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
-                $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
-            }
+                if (INFORMA.global.device.isDesktop) {
+                    if($('.mainNavigation').hasClass('navbar-fixed-top')) {
+                        $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
+                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
+                    }
+                }
+                else{
+                    if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
+                        $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
+                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mobileNavigation").outerHeight());
+                    }
+                }
+             }   
             $("#cookieBanner a.close").on("click", function(e) {
                 e.preventDefault();
                 RemoveMe();
@@ -9734,6 +9744,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             $(".product-finder form").on("keypress",function(e){
                 var SearchTextField = $(".site-search input[name=SearchText]");
                 if (e.keyCode === 13 || e.which===13) {
+                    SearchTextField.trigger("blur");
+                    document.activeElement.blur();
                     if(SearchTextField.val().length >= SearchTextField.data('length')){
                         return true;
                     }else{
@@ -10813,6 +10825,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                             ClearHtml.show();
                         }
                     });
+                    $(".refine-container").addClass("showRefine");
                 }
                 SelectAllCheckBox();
                 BindRefineEvents();
