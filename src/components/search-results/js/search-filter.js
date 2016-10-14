@@ -248,6 +248,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                             ClearHtml.show();
                         }
                     });
+                    $(".refine-container").addClass("showRefine");
                 }
                 SelectAllCheckBox();
                 BindRefineEvents();
