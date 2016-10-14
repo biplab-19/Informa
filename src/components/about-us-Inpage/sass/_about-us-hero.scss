@@ -3,14 +3,8 @@ $about-hero-height-desktop: 600px;
 section#about-us-hero{
   height: $about-hero-height-desktop;
   overflow: hidden;
-  margin-top: 30px;
   .sample{
     position: relative;
-
-    .col-xs-12{
-      padding-left: 0px;
-      padding-right: 0px;
-    }
   }
   .img-bg{
     img{
@@ -22,8 +16,6 @@ section#about-us-hero{
     position: absolute;
     background: rgba(0,0,0,0.7);
     height: 100%;
-    line-height: 30px;
-
     &:before {
       content: '';
       position: absolute;
@@ -46,7 +38,6 @@ section#about-us-hero{
       }
     }
     @include mobile {
-      padding: 20px;
       height: $about-hero-height-desktop;
       &:before {
         content: '';
@@ -60,28 +51,14 @@ section#about-us-hero{
       }
     }
     h2 {
-      font-family: FSMe-Bold;
       color: $white;
-      font-size: 40px;
-      padding-top: 40px;
-      padding-right: 100px;
-      word-spacing: 8px;
-      padding-left: 10px;
-      @include mobile {
-        font-size: 25px;
-        padding-top: 10px;
-      }
+      padding-bottom: 0 !important;
+      @include heading-padding((50px 20px),(40px 20px),(30px 10px));
     }
     .description {
-        font-family: FSMe-Light;
-        color: $white;
-        font-size: 14px;
-        padding-bottom: 40px;
-        padding-left: 10px;
-        padding-right: 100px;
-        @include mobile {
-            padding-bottom: 25px;
-            font-size: 12px;
+        @include heading-padding((50px 20px),(40px 20px),(30px 10px));
+        p{
+          color: $white;
         }
     }
   }

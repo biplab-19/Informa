@@ -213,6 +213,9 @@ header {
         }
         .nav-head {
             background-color: $grey-color03;
+            @include not-desktop{
+                background-color: $grey-color01;
+            }
             .navbar-toggle {
                 float: left;
                 margin-left: 15px;
