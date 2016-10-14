@@ -357,6 +357,9 @@ header {
                     z-index: 0;
                     ul {
                         height: inherit;
+                        @include desktop {
+                            margin-left: -15px;
+                        }
                     }
                     li {
                         padding: 5px;
@@ -377,7 +380,7 @@ header {
                           transition: .5s;
                           transition-timing-function: ease-in;
                           opacity: 0;
-                          padding-left: 0 !important;
+                          padding-left: 15px;
                       }
                     }
                     .nav-left {
@@ -389,9 +392,6 @@ header {
                             }
                             a{
                                 @include anchor-font(14px,13px,12px);
-                                @include desktop {
-                                    padding-left: 0;
-                                }
                             }
                         }
                     }
@@ -766,9 +766,9 @@ header {
         box-shadow: none;
     }
     .container {
-        @include desktop{
-            padding-right: 0;
-        }
+        // @include desktop{
+        //     padding-right: 0;
+        // }
         @include mobile {
             display: block;
         }
