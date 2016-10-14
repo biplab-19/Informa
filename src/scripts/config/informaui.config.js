@@ -31,7 +31,8 @@ var INFORMA = window.INFORMA || {};
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/data/form-data.json",
             "GetRecomendedItems": "/data/recomended-content.json",
-            "GetProductAndVerticalNames": "/data/GetWffmHiddenItemsContent.json"
+            "GetProductAndVerticalNames": "/data/GetWffmHiddenItemsContent.json",
+            "GetRecomendedProductItems": "/data/recomendedProducts.json"
         },
         "dev": {
             "GetArticles": "/client/search/getarticles",
@@ -49,7 +50,8 @@ var INFORMA = window.INFORMA || {};
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
             "GetRecomendedItems": "/client/Account/GetRemainingContent",
-            "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent"
+            "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent",
+            "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct"
         }
     };
 
