@@ -26,9 +26,19 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
     ShowBanner = function(name, value, days) {
             $("body").find("#cookieBanner").show();
             if($('#cookieBanner:visible').length){
-                $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
-                $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
-            }
+                if (INFORMA.global.device.isDesktop) {
+                    if($('.mainNavigation').hasClass('navbar-fixed-top')) {
+                        $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
+                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
+                    }
+                }
+                else{
+                    if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
+                        $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
+                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mobileNavigation").outerHeight());
+                    }
+                }
+             }   
             $("#cookieBanner a.close").on("click", function(e) {
                 e.preventDefault();
                 RemoveMe();
