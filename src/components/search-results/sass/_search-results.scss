@@ -1,5 +1,8 @@
 .product-finder-results {
     background: $white;
+    @include desktop {
+        padding: 0 15px;
+    }
     .container {
         @include mobile {
             padding: 0;
