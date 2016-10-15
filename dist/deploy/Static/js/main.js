@@ -7521,8 +7521,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _destroyChosenInDevice,
         _customPhoneErrorMsg,
         _reCaptchaAccessbility,
-        _updateHiddenProductVerticalName,
-        _resetFormOnRefresh;
+        _updateHiddenProductVerticalName;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -8121,17 +8120,6 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
-    _resetFormOnRefresh = function() {
-        $(window).bind("pageshow", function() {
-            var form = $('.wffm-form');
-            if (form.length > 0) {
-                $.each(form, function() {
-                    _resetForm($(this));
-                });
-            }
-        });
-    }
-
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _destroyChosenInDevice();
@@ -8154,7 +8142,6 @@ INFORMA.forms = (function(window, $, namespace) {
         //_validateChoosenSelect();
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
-        _resetFormOnRefresh();
     };
 
     return {
@@ -10094,7 +10081,8 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
     },
 
     RenderDashboardProduct= function(data){
-        if(data != null) {
+        $('#tabs-1 .recommended-products').removeClass('hidden');
+        if(data.length > 0) {
             var results = data,
                 html = "";
 
@@ -10108,7 +10096,9 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
 
             $('.recom-prod-carousel').slick('unslick');
             $('.recom-prod-carousel').html(html);
-            INFORMA.news_flash.CreateProductSlider($('.recom-prod-carousel'));
+            INFORMA.RecomendedProductsItems.CreateProductSlider($('.recom-prod-carousel'));
+        } else {
+            $('#tabs-1 .recommended-products').addClass('hidden');
         }
     }
 
@@ -10174,66 +10164,73 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
     RenderRecomendResult = function (data, SearchType) {
 
         if(data != null) {
+           
             var results = data,
                 html = "",
                 Articles = results.Articles;
 
-                for(var key = 0; key < Articles.length; key++) {
-                    var Data = Articles[key],
-                        TemplateName = (Templates.SampleContent !== "undefined") ? Templates.SampleContent : "",
-                        ListTemplate = Handlebars.compile(TemplateName);
-                        if(Data.Price != null){
-                            if(Data.Price){
-                                var replacezeroWidthSpace = Data.Price.replace(/\u200B/g,'');
-                                Data.Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
+                if(Articles != null) {
+                    $('#tabs-1 .recomended-content').removeClass('hidden');
+                    $('#tabs-1 .recommended-products').removeClass('hidden');
+                    $('#tabs-1 .dashboard-no-record').addClass('hidden');
+                    for(var key = 0; key < Articles.length; key++) {
+                        var Data = Articles[key],
+                            TemplateName = (Templates.SampleContent !== "undefined") ? Templates.SampleContent : "",
+                            ListTemplate = Handlebars.compile(TemplateName);
+                            if(Data.Price != null){
+                                if(Data.Price){
+                                    var replacezeroWidthSpace = Data.Price.replace(/\u200B/g,'');
+                                    Data.Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
+                                }
                             }
-                        }
-                        if($('.recommendation-tabs').length > 0) {
-                            if($('.welcome-description').hasClass('Authenticated')) {
-                                Data.IsAuthenticatedUser = true;
-                            } else {
-                                Data.IsAuthenticatedUser = false;
+                            if($('.recommendation-tabs').length > 0) {
+                                if($('.welcome-description').hasClass('Authenticated')) {
+                                    Data.IsAuthenticatedUser = true;
+                                } else {
+                                    Data.IsAuthenticatedUser = false;
+                                }
                             }
+                        html += ListTemplate({ results: Data });
+                    }
+                    if(Articles.length > 0) {
+                        $('#tabs-1 section.recomended-content').removeClass('hidden');
+                        $('#tabs-1 section.dashboard-no-record').addClass('hidden');
+                    } else {
+                        $('#tabs-1 section.recomended-content').addClass('hidden');
+                        $('#tabs-1 section.dashboard-no-record').removeClass('hidden');
+                    }
+                    if(SearchType == null) {
+                        RecomendedWrapper.find('.row').append(html);
+                    } else {
+                        RecomendedWrapper.find('.row').html(html);
+                        equalHeight(RecomendedWrapper);
+                        var name = "PrefernceUpdated";
+                        var cookie = name+"="+false+'; path=/';
+                        document.cookie = cookie;
+                    }
+                    equalHeight(RecomendedWrapper);
+
+                    if(results.ArticleRemainingCount > 0 && RecomendedWrapper.find('.recomended-wrapper').length < 30) {
+                        BtnMore.removeClass('hidden');
+                    } else {
+                        BtnMore.addClass('hidden');
+                    }
+
+                    if($('#tabs-1 .recommended-products').length > 0) {
+                        var _DashBoardObject = {
+                            SearchTexts: ($('.SearchTextsPDPTemplateIds').length) ? $('.SearchTextsPDPTemplateIds').val().split('|') : "",
+                            PageSize: $('.recomended-content').data('maximumnumberofarticles')
                         }
-                    html += ListTemplate({ results: Data });
-                }
-                if(Articles.length > 0) {
-                    $('#tabs-1 section.recomended-content').removeClass('hidden');
-                    $('#tabs-1 section.dashboard-no-record').addClass('hidden');
+                        GetAjaxData(Urls.GetRecomendedProductItems, "Post", _DashBoardObject, INFORMA.RecomendedTabs.RenderDashboardProduct, null, null);
+                    }
                 } else {
-                    $('#tabs-1 section.recomended-content').addClass('hidden');
-                    $('#tabs-1 section.dashboard-no-record').removeClass('hidden');
+                    $('#tabs-1 .recomended-content').addClass('hidden');
+                    $('#tabs-1 .recommended-products').addClass('hidden');
+                    $('#tabs-1 .dashboard-no-record').removeClass('hidden');
                 }
 
-            if(SearchType == null) {
-                RecomendedWrapper.find('.row').append(html);
-            } else {
-                RecomendedWrapper.find('.row').html(html);
-                equalHeight(RecomendedWrapper);
-                var name = "PrefernceUpdated";
-                var cookie = name+"="+false+'; path=/';
-                document.cookie = cookie;
-            }
-
-            equalHeight(RecomendedWrapper);
-
-
-
-            if(results.ArticleRemainingCount > 0 && RecomendedWrapper.find('.recomended-wrapper').length < 30) {
-                BtnMore.removeClass('hidden');
-            } else {
-                BtnMore.addClass('hidden');
-            }
         } else {
             BtnMore.addClass('hidden');
-        }
-
-        if($('#tabs-1 .recommended-products').length > 0) {
-            var _DashBoardObject = {
-                SearchTexts: ($('.SearchTextsPDPTemplateIds').length) ? $('.SearchTextsPDPTemplateIds').val().split('|') : "",
-                PageSize: $('.recomended-content').data('maximumnumberofarticles')
-            }
-            GetAjaxData(Urls.GetRecomendedProductItems, "Post", _DashBoardObject, INFORMA.RecomendedTabs.RenderDashboardProduct, null, null);
         }
         
     },
