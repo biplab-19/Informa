@@ -407,6 +407,13 @@
         font-size: 24px;
         height: auto;
     }
+    .events-wrap .footer .btn {
+        padding-left: 7px;
+        min-width: 47%;
+        &:after {
+            right: 5px;
+        }
+    }
 }
 
 .listView {
@@ -643,12 +650,17 @@
             }
         }
         .others-wrapper {
-            padding: 15px;
+            padding: 0;
             h4 {
                 font-family: 'FSMe-Bold';
             }
             .footer {
                 min-height: 50px;
+                .btn-container {
+                    .btn {
+                        float: left;
+                    }
+                }
             }
         }
     }

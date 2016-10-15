@@ -83,7 +83,9 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
     },
 
     RenderDashboardProduct= function(data){
-        if(data != null) {
+        
+        if(data.length > 0) {
+            $('#tabs-1 .recommended-products').removeClass('hidden');
             var results = data,
                 html = "";
 
@@ -97,7 +99,9 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
 
             $('.recom-prod-carousel').slick('unslick');
             $('.recom-prod-carousel').html(html);
-            INFORMA.news_flash.CreateProductSlider($('.recom-prod-carousel'));
+            INFORMA.RecomendedProductsItems.CreateProductSlider($('.recom-prod-carousel'));
+        } else {
+            $('#tabs-1 .recommended-products').addClass('hidden');
         }
     }
 
