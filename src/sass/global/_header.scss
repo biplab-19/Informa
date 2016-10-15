@@ -394,8 +394,10 @@ header {
                             a{
                                 @include anchor-font(14px,13px,12px);
                                 @include desktop {
-                                    padding-left: 25px;
-                                    padding-right: 25px;
+                                    padding-left: 0;
+                                    padding-right: 0;
+                                    margin-left: 25px;
+                                    margin-right: 25px;
                                 }
                             }
                         }
@@ -473,7 +475,7 @@ header {
                     -moz-transition-duration: 1s;
                     -o-transition-duration: 1s;
                       a {
-                          padding-left: 25px;
+                          padding-left: 0;
                           padding-top: 7px;
                           padding-bottom: 0;
                             transition: .5s;
