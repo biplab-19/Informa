@@ -381,6 +381,15 @@ header {
                           transition-timing-function: ease-in;
                           opacity: 0;
                           padding-left: 15px;
+                          .logo-img-small{
+                            opacity: 0;
+                            -webkit-transition-property: opacity;
+                              -moz-transition-property: opacity;
+                              -o-transition-property: opacity;
+                              -webkit-transition-duration: 1s;
+                            -moz-transition-duration: 1s;
+                            -o-transition-duration: 1s;
+                          }
                       }
                     }
                     .nav-left {
@@ -450,7 +459,7 @@ header {
                                     line-height: 0;
                                 }
                             }
-                           
+
                         }
                     }
                     .nav-links {
@@ -478,9 +487,18 @@ header {
                             padding-right: 0;
                             transition-timing-function: ease-out;
                             opacity: 1;
+                          .logo-img-small{
+                            opacity: 1;
+                            -webkit-transition-property: opacity;
+                              -moz-transition-property: opacity;
+                              -o-transition-property:opacity;
+                              -webkit-transition-duration: 2s;
+                            -moz-transition-duration: 2s;
+                            -o-transition-duration: 2s;
+                            }
                       }
                   }
-                    
+
                     .icon-search {
                         padding-left: 0;
                     }
