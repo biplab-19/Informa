@@ -32,6 +32,12 @@ section.hero-banner {
                  font-family: 'FSMe-Light';
                  display: inline-block;
                  font-size: 60px;
+                 @include mobile{
+                    font-size: 30px;
+                 }
+                 @include tablet{
+                    font-size: 40px;
+                 }
                  //padding-right:30px;
             }
             p{
