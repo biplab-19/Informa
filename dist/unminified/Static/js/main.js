@@ -6099,7 +6099,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
 
-        //INFORMA.Spinner.Show($('body'));
+        INFORMA.Spinner.Show($('body'));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
             data: data,

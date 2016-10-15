@@ -6848,7 +6848,27 @@ section#about-us-hero .transparent-bg-content .description p {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 9, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+@media (max-width: 767px) {
+  /* line 5, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  .contactUsPage-contactUs .contactus-left .col-xs-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 13, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  .contactUsPage-contactUs .contactus-right .col-xs-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 1, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  .contactUsPage-contactUs {
+    padding: 20px 0 0;
+  }
+}
+/* line 26, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .call-image-pos {
   color: #6a7285;
   padding-bottom: 50px;
@@ -6856,35 +6876,42 @@ section#about-us-hero .transparent-bg-content .description p {
   position: relative;
   padding-left: 40px;
 }
-/* line 15, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 32, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .call-image-pos hr {
   height: 1px;
   background: #6a7285;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/* line 21, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 38, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .call-image-pos img {
   margin-right: 10px;
   position: absolute;
   left: 0;
   top: 0;
 }
-/* line 28, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+@media (max-width: 767px) {
+  /* line 26, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  .contactUsPage-contactUs .call-image-pos {
+    padding-left: 0px;
+    padding-bottom: 30px;
+  }
+}
+/* line 49, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .nav-tabs {
   border-bottom: none;
 }
-/* line 30, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 51, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .nav-tabs li.active {
   border-bottom: none !important;
 }
-/* line 34, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 55, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .pos {
   position: relative;
   background-color: #343742;
   height: 50px;
 }
-/* line 39, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 60, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .nav-tabs > li.active > a,
 .contactUsPage-contactUs .nav-tabs > li.active > a:focus,
 .contactUsPage-contactUs .nav-tabs > li.active > a:hover {
@@ -6892,7 +6919,7 @@ section#about-us-hero .transparent-bg-content .description p {
   background: none;
   border: none;
 }
-/* line 46, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 67, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .nav > li > a {
   position: relative;
   display: block;
@@ -6900,12 +6927,12 @@ section#about-us-hero .transparent-bg-content .description p {
   border: none;
 }
 @media (max-width: 767px) {
-  /* line 46, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 67, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .nav > li > a {
     padding: 15px 7px;
   }
 }
-/* line 55, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 76, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs li.active:after {
   content: " ";
   position: absolute;
@@ -6914,7 +6941,7 @@ section#about-us-hero .transparent-bg-content .description p {
   bottom: 0;
   left: 5%;
 }
-/* line 63, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 84, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .email-image-pos {
   color: #6a7285;
   margin-top: 40px;
@@ -6922,55 +6949,68 @@ section#about-us-hero .transparent-bg-content .description p {
   padding-left: 40px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 63, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 84, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .email-image-pos {
     margin-top: 0;
   }
 }
-/* line 71, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 92, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .email-image-pos hr {
   height: 1px;
   background: #6a7285;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/* line 77, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 98, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .email-image-pos img {
   margin-right: 10px;
   position: absolute;
   left: 0;
   top: 0;
 }
-/* line 84, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 105, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-box {
   padding-left: 50px;
   text-align: justify;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 84, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 105, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-box {
     padding-left: 0px;
     padding-top: 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 84, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 105, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-box {
     padding-left: 0px;
-    margin-top: 20px;
+    margin-top: 0px;
+    margin-left: 0px;
   }
 }
-/* line 96, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 118, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content {
   margin-left: 10px;
 }
-/* line 98, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+@media (max-width: 767px) {
+  /* line 118, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  .contactUsPage-contactUs .contactus-content {
+    margin-left: 0px;
+  }
+}
+/* line 123, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content strong {
   font-size: 24px;
   font-family: Fsme-bold;
   color: #565c6b;
 }
-/* line 103, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+@media (max-width: 767px) {
+  /* line 123, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  .contactUsPage-contactUs .contactus-content strong {
+    margin-left: 45px;
+  }
+}
+/* line 131, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content .contact-descrip {
   font-family: Fsme-bold;
   color: #565c6b;
@@ -6980,24 +7020,24 @@ section#about-us-hero .transparent-bg-content .description p {
   text-align: left;
 }
 @media (max-width: 767px) {
-  /* line 103, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 131, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content .contact-descrip {
     padding-right: 10px;
   }
 }
-/* line 114, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 142, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content p {
   margin-top: 20px;
   font-family: Fsme-bold;
 }
-/* line 115, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 143, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content p:first-child {
   font-size: 16px;
   line-height: 24px;
   font-family: Fsme-bold;
   color: #565c6b;
 }
-/* line 123, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 151, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content p span.contact-number {
   margin-top: 5px;
   font-size: 24px;
@@ -7005,36 +7045,36 @@ section#about-us-hero .transparent-bg-content .description p {
   margin-bottom: 20px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 123, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 151, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content p span.contact-number {
     font-size: 22px;
   }
 }
 @media (max-width: 767px) {
-  /* line 123, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 151, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content p span.contact-number {
     font-size: 22px;
   }
 }
-/* line 137, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 165, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .form-introduction {
   top: 0;
   line-height: 24px;
 }
 @media (max-width: 767px) {
-  /* line 137, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 165, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .form-introduction {
     line-height: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 137, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 165, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .form-introduction {
     line-height: 22px;
   }
 }
 
-/* line 153, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 181, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .experience-mode .contactUsPage-contactUs .tab-pane {
   display: block !important;
 }
