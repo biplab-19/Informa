@@ -8887,17 +8887,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 SubNav.find('#'+navId).addClass("active");
             });
 
-            $('.nav-links a').on('focus', function(e) {
-                $(this).parent().trigger('mouseover');
+            $('.nav-links a').on('keypress', function(e) {
+                if (e.keyCode === 13 || e.which===13) {
+                    $(this).parent().trigger('mouseover');
+                    var Id = $(this).data('subnav');
+                    $($('#' + Id).find('a')[0]).focus();
+                }
+                
             });
-             //Accessibility Events
-            $('.nav-links a').on('focus', function() {
-                $(this).parent().trigger('mouseover');
-            });
-            $('.nav-links a').on('focusout', function() {
-                var Id = $(this).data('subnav');
-                $($('#' + Id).find('a')[0]).focus();
-            });
+
             $('.subnav-close a').on('focusout', function() {
                 var ParentId = $(this).parents('.subnav-container').attr('id');
                 $('.nav-links a[data-subnav="' +ParentId+ '"]').parent('li').next('li').find('a').focus();
