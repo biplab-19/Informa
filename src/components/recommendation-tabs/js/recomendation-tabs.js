@@ -17,8 +17,10 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         RecomendedResults = $('.recommended-results'),
         Tabs = RecomendedTab.find('a[data-toggle="tab"]'),
         Urls = INFORMA.Configs.urls.webservices,
+        Templates = INFORMA.Templates,
         //methods
-        init, LargeDeviceFunction, SmallDeviceFunction, GetAjaxData, GetItemsDefault, RenderItems;
+        init, LargeDeviceFunction, SmallDeviceFunction, GetAjaxData, GetItemsDefault, RenderItems,
+        RenderDashboardProduct;
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.Spinner.Show($("body"));
@@ -80,6 +82,25 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         });
     },
 
+    RenderDashboardProduct= function(data){
+        if(data != null) {
+            var results = data,
+                html = "";
+
+            for(var key = 0; key < results.length; key++) {
+                var Data = results[key],
+                    TemplateName = (Templates.Product !== "undefined") ? Templates.Product : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    
+                html += ListTemplate({ results: Data });
+            }
+
+            $('.recom-prod-carousel').slick('unslick');
+            $('.recom-prod-carousel').html(html);
+            INFORMA.news_flash.CreateProductSlider($('.recom-prod-carousel'));
+        }
+    }
+
     init = function () {
         if(RecomendedTab.length > 0) {
             var Viewport = INFORMA.global.device.viewport;
@@ -92,7 +113,8 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         }
     }
     return {
-        init: init
+        init: init,
+        RenderDashboardProduct: RenderDashboardProduct
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));

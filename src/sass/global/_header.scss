@@ -358,7 +358,7 @@ header {
                     ul {
                         height: inherit;
                         @include desktop {
-                            margin-left: -15px;
+                            margin-left: -25px;
                         }
                     }
                     li {
@@ -388,10 +388,17 @@ header {
                             padding-right: 20px;
                             @include desktop{
                                 padding-left: 0;
+                                padding-right: 0;
                                 height: 58px;
                             }
                             a{
                                 @include anchor-font(14px,13px,12px);
+                                @include desktop {
+                                    padding-left: 0;
+                                    padding-right: 0;
+                                    margin-left: 25px;
+                                    margin-right: 25px;
+                                }
                             }
                         }
                     }
@@ -468,7 +475,7 @@ header {
                     -moz-transition-duration: 1s;
                     -o-transition-duration: 1s;
                       a {
-                          padding-left: 15px;
+                          padding-left: 0;
                           padding-top: 7px;
                           padding-bottom: 0;
                             transition: .5s;
@@ -927,7 +934,7 @@ header {
                     }
                 }
                 .custom-multiselect {
-                    width: 73%;
+                    width: 72%;
                     margin-right: 30px;
                     height: 40px;
                     display: inline-block;
@@ -942,7 +949,7 @@ header {
                         width: 100%;
                     }
                     @include tablet {
-                        width: 73%;
+                        width: 72%;
                         margin-right: 0;
                     }
                     .dropdown-toggle {
@@ -1116,6 +1123,10 @@ header {
         .subnav-heading {
             color: $white;
             font-family: 'FSMe-bold';
+            @include desktop{
+                border-bottom: 1px solid #777b87;
+                width: 20%;
+            }
             &:after {
                 content: ">";
                 margin-left: 5px;
@@ -1138,17 +1149,10 @@ header {
         .subnav-items {
             border-top: 1px solid #777b87;
             @include desktop {
-                //width: 40%;
                 border-top: none;
                 ul li {
-                    //float:left; width:50%;
                     padding-top: 10px;
                     padding-bottom: 10px;
-                }
-                ul {
-                    border-top: 1px solid #777b87;
-                    width: 40%;
-
                 }
                 .labels {
                     padding-top: 10px;
@@ -1191,6 +1195,7 @@ header {
                     border-bottom: none;
                 }
             }
+            /*
             @include desktop {
                 &:nth-last-child(2) {
                     .top {
@@ -1200,7 +1205,7 @@ header {
                         padding-right: 15px !important;
                     }
                 }
-            }
+            }*/
         }
         .heading {
             .top {
@@ -1256,7 +1261,7 @@ header {
             }
         }
         .top {
-            padding: 0 50px 15px 0;
+            padding: 0 40px 15px 0;
             color: $white;
             border-bottom: 1px solid #777b87;
             font-family: 'FSMe-bold';
@@ -1349,7 +1354,7 @@ header {
             li {
                 padding: 0px 50px 20px 0;
                 @include desktop{
-                    padding: 20px 50px 0 0;
+                    padding: 20px 40px 0 0;
                 }
                 @include not-desktop {
                     padding: 0;

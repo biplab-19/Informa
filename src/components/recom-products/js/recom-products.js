@@ -11,7 +11,7 @@
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.news_flash = (function(window, $, namespace) {
+INFORMA.RecomendedProductsItems = (function(window, $, namespace) {
     'use strict';
     //variables
     var _recommendedproducts = $('.recommended-products'),
@@ -78,6 +78,7 @@ INFORMA.news_flash = (function(window, $, namespace) {
                         }
                 ]
             });
+            EqualHeightProducts();
         }
 
     init = function() {
@@ -90,7 +91,8 @@ INFORMA.news_flash = (function(window, $, namespace) {
     }
 
     return {
-        init: init
+        init: init,
+        CreateProductSlider: _createSlider
     }
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.news_flash.init());
+jQuery(INFORMA.RecomendedProductsItems.init());

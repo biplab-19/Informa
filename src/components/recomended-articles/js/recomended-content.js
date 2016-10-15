@@ -95,7 +95,15 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         } else {
             BtnMore.addClass('hidden');
         }
-        debugger;
+
+        if($('#tabs-1 .recommended-products').length > 0) {
+            var _DashBoardObject = {
+                SearchTexts: ($('.SearchTextsPDPTemplateIds').length) ? $('.SearchTextsPDPTemplateIds').val().split('|') : "",
+                PageSize: $('.recomended-content').data('maximumnumberofarticles')
+            }
+            GetAjaxData(Urls.GetRecomendedProductItems, "Post", _DashBoardObject, INFORMA.RecomendedTabs.RenderDashboardProduct, null, null);
+        }
+        
     },
 
     GetIds = function (Parent) {
