@@ -87,6 +87,13 @@
         p {
             line-height: 1.7;
             color:$white;
+            font-size: 17px;
+            @include mobile {
+                font-size: 16px;
+            }
+            @include tablet {
+                font-size: 16px;
+            }
         }
     }
     .content {
@@ -104,11 +111,16 @@
         }
     }
     &.slim-banner {
+        h1{
+            @include mobile{
+                padding-top:30px;
+            }
+        }
         @include tablet {
             height: 340px;
         }
         @include mobile {
-            height: 250px;
+            height: 290px;
         }
     }
     &.texture {
@@ -125,9 +137,7 @@
     overflow: hidden;
     height: 330px;
     clear: both;
-    h1 {
-        margin-bottom: 10px;
-    }
+
     @include tablet {
         height: 230px;
     }
@@ -163,6 +173,13 @@
         p {
             line-height: 1.7;
             color: $white;
+            font-size: 17px;
+            @include mobile {
+                font-size: 16px;
+            }
+            @include tablet {
+                font-size: 16px;
+            }
         }
         .content {
             width: 50%;
@@ -272,12 +289,15 @@
         }
         .subtext {
             font-family: FSMe-Bold;
-            font-size: 14px;
+            font-size: 17px;
             padding-bottom: 24px;
             @include mobile {
                 display: block;
                 font-size: 16px;
                 margin-left: 0px;
+            }
+            @include tablet {
+                font-size: 16px;
             }
         }
         .date {
@@ -359,7 +379,7 @@
         ul {
             padding-top: 123px;
             list-style-type: none;
-            font-size: 20px;
+            font-size: 18px;
             li {
                 position: relative;
                 margin-bottom: 20px;

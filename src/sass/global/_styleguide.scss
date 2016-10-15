@@ -6,8 +6,8 @@ section {
     // Grey heading only.. Rest should be overriden on component level
     h1 {
         @include family-style(FSMe-Bold , $white);
-        @include heading-font-size(60px,40px,30px);
-        @include heading-line-height(60px,50px,36px);
+        @include heading-font-size(55px,40px,30px);
+        @include heading-line-height(65px,50px,36px);
         @include margin-reset;
     }
     // light font which comes after h1
