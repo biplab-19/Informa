@@ -593,7 +593,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 SubNav.find('#'+navId).addClass("active");
             });
 
-            $('.nav-links a').on('keypress', function(e) {
+            $('.nav-links a').on('keydown', function(e) {
                 if (e.keyCode === 13 || e.which===13) {
                     $(this).parent().trigger('mouseover');
                     var Id = $(this).data('subnav');
