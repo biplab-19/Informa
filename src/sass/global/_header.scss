@@ -450,11 +450,7 @@ header {
                                     line-height: 0;
                                 }
                             }
-                            .hide-stick{
-                                 transition: 2s;
-                                 transition-timing-function: ease-out;
-                                 opacity: 1;
-                            }
+                           
                         }
                     }
                     .nav-links {
@@ -484,11 +480,7 @@ header {
                             opacity: 1;
                       }
                   }
-                    .hide-stick{
-                      transition-timing-function: ease-in;
-                      transition:1s;
-                      opacity:0;
-                    }
+                    
                     .icon-search {
                         padding-left: 0;
                     }
@@ -498,9 +490,6 @@ header {
                     .search {
                         border-left: 1px solid $grey-color04;
                         border-right: 1px solid $grey-color04;
-                        a{
-                          width: 54px;
-                        }
                     }
                     .nav-left {
                         position: relative;
