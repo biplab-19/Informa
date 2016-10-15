@@ -7521,7 +7521,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _destroyChosenInDevice,
         _customPhoneErrorMsg,
         _reCaptchaAccessbility,
-        _updateHiddenProductVerticalName;
+        _updateHiddenProductVerticalName,
+        _resetFormOnRefresh;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -8120,6 +8121,17 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
+    _resetFormOnRefresh = function() {
+        $(window).bind("pageshow", function() {
+            var form = $('.wffm-form');
+            if (form.length > 0) {
+                $.each(form, function() {
+                    _resetForm($(this));
+                });
+            }
+        });
+    }
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _destroyChosenInDevice();
@@ -8142,6 +8154,7 @@ INFORMA.forms = (function(window, $, namespace) {
         //_validateChoosenSelect();
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
+        _resetFormOnRefresh();
     };
 
     return {
@@ -10081,8 +10094,9 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
     },
 
     RenderDashboardProduct= function(data){
-        $('#tabs-1 .recommended-products').removeClass('hidden');
+        
         if(data.length > 0) {
+            $('#tabs-1 .recommended-products').removeClass('hidden');
             var results = data,
                 html = "";
 
