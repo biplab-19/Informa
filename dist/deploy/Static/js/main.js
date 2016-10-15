@@ -1,4 +1,4 @@
-/*! 2016-10-14 */s = new AppMeasurement()
+/*! 2016-10-15 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -138,7 +138,8 @@ var INFORMA = window.INFORMA || {};
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/data/form-data.json",
             "GetRecomendedItems": "/data/recomended-content.json",
-            "GetProductAndVerticalNames": "/data/GetWffmHiddenItemsContent.json"
+            "GetProductAndVerticalNames": "/data/GetWffmHiddenItemsContent.json",
+            "GetRecomendedProductItems": "/data/recomendedProducts.json"
         },
         "dev": {
             "GetArticles": "/client/search/getarticles",
@@ -156,7 +157,8 @@ var INFORMA = window.INFORMA || {};
             "GetFAQs": "/client/search/GetFAQList",
             "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
             "GetRecomendedItems": "/client/Account/GetRemainingContent",
-            "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent"
+            "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent",
+            "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct"
         }
     };
 
@@ -9909,7 +9911,7 @@ jQuery(INFORMA.ProductRefine.init());
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.news_flash = (function(window, $, namespace) {
+INFORMA.RecomendedProductsItems = (function(window, $, namespace) {
     'use strict';
     //variables
     var _recommendedproducts = $('.recommended-products'),
@@ -9976,6 +9978,7 @@ INFORMA.news_flash = (function(window, $, namespace) {
                         }
                 ]
             });
+            EqualHeightProducts();
         }
 
     init = function() {
@@ -9988,10 +9991,11 @@ INFORMA.news_flash = (function(window, $, namespace) {
     }
 
     return {
-        init: init
+        init: init,
+        CreateProductSlider: _createSlider
     }
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.news_flash.init());
+jQuery(INFORMA.RecomendedProductsItems.init());
 
 /*
 * Product Results.js
@@ -10012,8 +10016,10 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         RecomendedResults = $('.recommended-results'),
         Tabs = RecomendedTab.find('a[data-toggle="tab"]'),
         Urls = INFORMA.Configs.urls.webservices,
+        Templates = INFORMA.Templates,
         //methods
-        init, LargeDeviceFunction, SmallDeviceFunction, GetAjaxData, GetItemsDefault, RenderItems;
+        init, LargeDeviceFunction, SmallDeviceFunction, GetAjaxData, GetItemsDefault, RenderItems,
+        RenderDashboardProduct;
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.Spinner.Show($("body"));
@@ -10075,6 +10081,25 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         });
     },
 
+    RenderDashboardProduct= function(data){
+        if(data != null) {
+            var results = data,
+                html = "";
+
+            for(var key = 0; key < results.length; key++) {
+                var Data = results[key],
+                    TemplateName = (Templates.Product !== "undefined") ? Templates.Product : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    
+                html += ListTemplate({ results: Data });
+            }
+
+            $('.recom-prod-carousel').slick('unslick');
+            $('.recom-prod-carousel').html(html);
+            INFORMA.news_flash.CreateProductSlider($('.recom-prod-carousel'));
+        }
+    }
+
     init = function () {
         if(RecomendedTab.length > 0) {
             var Viewport = INFORMA.global.device.viewport;
@@ -10087,7 +10112,8 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         }
     }
     return {
-        init: init
+        init: init,
+        RenderDashboardProduct: RenderDashboardProduct
     };
 
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
@@ -10189,7 +10215,15 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         } else {
             BtnMore.addClass('hidden');
         }
-        debugger;
+
+        if($('#tabs-1 .recommended-products').length > 0) {
+            var _DashBoardObject = {
+                SearchTexts: ($('.SearchTextsPDPTemplateIds').length) ? $('.SearchTextsPDPTemplateIds').val().split('|') : "",
+                PageSize: $('.recomended-content').data('maximumnumberofarticles')
+            }
+            GetAjaxData(Urls.GetRecomendedProductItems, "Post", _DashBoardObject, INFORMA.RecomendedTabs.RenderDashboardProduct, null, null);
+        }
+        
     },
 
     GetIds = function (Parent) {
