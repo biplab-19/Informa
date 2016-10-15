@@ -7414,7 +7414,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _destroyChosenInDevice,
         _customPhoneErrorMsg,
         _reCaptchaAccessbility,
-        _updateHiddenProductVerticalName;
+        _updateHiddenProductVerticalName,
+        _resetFormOnRefresh;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -7425,7 +7426,7 @@ INFORMA.forms = (function(window, $, namespace) {
     //     });
     // }
     _updateHiddenProductVerticalName = function() {
-          $(document).ready(function() {
+        $(document).ready(function() {
             var ProductName = $('.product-name').val(),
                 VerticalName = $('.vertical-name').val();
             if (ProductName || VerticalName) {
@@ -7440,7 +7441,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('.tc-product-name').html(VerticalName);
                 }
             }
-          });
+        });
     }
     _bindNumber = function() {
         $(document).on('keypress', 'input[type="number"]', function(e) {
@@ -7636,13 +7637,9 @@ INFORMA.forms = (function(window, $, namespace) {
     _parseVerticalName = function(data) {
         $('span.product-name-holder').html(data.ProductName);
         $('.product-name-holder').val(data.ProductName);
-        $('.vertical-name-holder').val(data.VerticalName);
         $('.tc-product-name').html(data.ProductName);
-        $('.tc-vertical-name').html(data.VerticalName);
         if (data.ProductName != null) {
             $('.tc-product-name').html(data.ProductName);
-        } else {
-            $('.tc-product-name').html(data.VerticalName);
         }
     }
 
@@ -7940,6 +7937,9 @@ INFORMA.forms = (function(window, $, namespace) {
                 formSubmitBtn.attr('disabled', true);
                 $(this).on('change', 'input, textarea, select', function() {
                     formSubmitBtn.removeAttr('disabled');
+                    if ($(this).is('textarea') || $(this).is('input[type="email"]') || $(this).is('input[type="text"]') || $(this).is('input[type="number"]') || $(this).is('input[type="tel"]')) {
+                        $(this).val($(this).val().trim());
+                    }
                 });
             });
         }
@@ -7949,13 +7949,13 @@ INFORMA.forms = (function(window, $, namespace) {
         _formId = $(el).data('modal');
         _resetForm($(_formId).find('form'));
         var ProductName = $('.product-name').val();
-        if(ProductName == ""){
-          if ($(el).attr('data-productid')) {
-              productId = {
-                  'guid': $(el).attr('data-productid')
-              };
-              _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
-          } 
+        if (ProductName == "") {
+            if ($(el).attr('data-productid')) {
+                productId = {
+                    'guid': $(el).attr('data-productid')
+                };
+                _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
+            } 
         }
         $(_formId).modal({         
             show: 'true'         
@@ -8014,6 +8014,17 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
+    _resetFormOnRefresh = function() {
+        $(window).bind("pageshow", function() {
+            var form = $('.wffm-form');
+            if (form.length > 0) {
+                $.each(form, function() {
+                    _resetForm($(this));
+                });
+            }
+        });
+    }
+
     init = function() {
         //todo: No null check, dont execute these bindings if forms are not there
         _destroyChosenInDevice();
@@ -8036,6 +8047,7 @@ INFORMA.forms = (function(window, $, namespace) {
         //_validateChoosenSelect();
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
+        _resetFormOnRefresh();
     };
 
     return {
