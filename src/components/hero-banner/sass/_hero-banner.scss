@@ -76,9 +76,12 @@ section#hero-banner {
   	}
     .subtext {
         font-family: FSMe-Bold;
-        font-size: 14px;
+        font-size: 17px;
         padding-bottom: 24px;
         @include mobile {
+            font-size: 16px;
+        }
+        @include tablet {
             font-size: 16px;
         }
     }
