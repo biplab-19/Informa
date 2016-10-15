@@ -1121,6 +1121,10 @@ header {
         .subnav-heading {
             color: $white;
             font-family: 'FSMe-bold';
+            @include desktop{
+                border-bottom: 1px solid #777b87;
+                width: 20%;
+            }
             &:after {
                 content: ">";
                 margin-left: 5px;
@@ -1143,17 +1147,10 @@ header {
         .subnav-items {
             border-top: 1px solid #777b87;
             @include desktop {
-                //width: 40%;
                 border-top: none;
                 ul li {
-                    //float:left; width:50%;
                     padding-top: 10px;
                     padding-bottom: 10px;
-                }
-                ul {
-                    border-top: 1px solid #777b87;
-                    width: 40%;
-
                 }
                 .labels {
                     padding-top: 10px;
@@ -1196,6 +1193,7 @@ header {
                     border-bottom: none;
                 }
             }
+            /*
             @include desktop {
                 &:nth-last-child(2) {
                     .top {
@@ -1205,7 +1203,7 @@ header {
                         padding-right: 15px !important;
                     }
                 }
-            }
+            }*/
         }
         .heading {
             .top {
@@ -1261,7 +1259,7 @@ header {
             }
         }
         .top {
-            padding: 0 50px 15px 0;
+            padding: 0 40px 15px 0;
             color: $white;
             border-bottom: 1px solid #777b87;
             font-family: 'FSMe-bold';
@@ -1354,7 +1352,7 @@ header {
             li {
                 padding: 0px 50px 20px 0;
                 @include desktop{
-                    padding: 20px 50px 0 0;
+                    padding: 20px 40px 0 0;
                 }
                 @include not-desktop {
                     padding: 0;
