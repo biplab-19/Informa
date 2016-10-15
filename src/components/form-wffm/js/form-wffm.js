@@ -51,7 +51,7 @@ INFORMA.forms = (function(window, $, namespace) {
     //     });
     // }
     _updateHiddenProductVerticalName = function() {
-          $(document).ready(function() {
+        $(document).ready(function() {
             var ProductName = $('.product-name').val(),
                 VerticalName = $('.vertical-name').val();
             if (ProductName || VerticalName) {
@@ -66,7 +66,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('.tc-product-name').html(VerticalName);
                 }
             }
-          });
+        });
     }
     _bindNumber = function() {
         $(document).on('keypress', 'input[type="number"]', function(e) {
@@ -262,13 +262,9 @@ INFORMA.forms = (function(window, $, namespace) {
     _parseVerticalName = function(data) {
         $('span.product-name-holder').html(data.ProductName);
         $('.product-name-holder').val(data.ProductName);
-        $('.vertical-name-holder').val(data.VerticalName);
         $('.tc-product-name').html(data.ProductName);
-        $('.tc-vertical-name').html(data.VerticalName);
         if (data.ProductName != null) {
             $('.tc-product-name').html(data.ProductName);
-        } else {
-            $('.tc-product-name').html(data.VerticalName);
         }
     }
 
@@ -566,6 +562,9 @@ INFORMA.forms = (function(window, $, namespace) {
                 formSubmitBtn.attr('disabled', true);
                 $(this).on('change', 'input, textarea, select', function() {
                     formSubmitBtn.removeAttr('disabled');
+                    if ($(this).is('textarea') || $(this).is('input[type="email"]') || $(this).is('input[type="text"]') || $(this).is('input[type="number"]') || $(this).is('input[type="tel"]')) {
+                        $(this).val($(this).val().trim());
+                    }
                 });
             });
         }
@@ -575,13 +574,13 @@ INFORMA.forms = (function(window, $, namespace) {
         _formId = $(el).data('modal');
         _resetForm($(_formId).find('form'));
         var ProductName = $('.product-name').val();
-        if(ProductName == ""){
-          if ($(el).attr('data-productid')) {
-              productId = {
-                  'guid': $(el).attr('data-productid')
-              };
-              _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
-          } 
+        if (ProductName == "") {
+            if ($(el).attr('data-productid')) {
+                productId = {
+                    'guid': $(el).attr('data-productid')
+                };
+                _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
+            } 
         }
         $(_formId).modal({         
             show: 'true'         
