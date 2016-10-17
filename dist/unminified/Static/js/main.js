@@ -1,4 +1,4 @@
-/*! 2016-10-17 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-18 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -5329,11 +5329,11 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 success_callback: function(data) {
                     if (typeof SCallback === "function") {
                         SCallback.call(this, data, SearchType);
-                         jQuery('.load-spinner').delay(1000).remove();
+                         jQuery('.load-spinner').delay(600).remove();
                     }
                 },
                 error_callback: function() {
-                    jQuery('.load-spinner').delay(1000).remove();
+                    jQuery('.load-spinner').delay(600).remove();
                     if (typeof Errcallback === "function") {
                         Errcallback.call(this, data, SearchType);
                     }
@@ -8007,6 +8007,10 @@ INFORMA.forms = (function(window, $, namespace) {
                         $(this).val($(this).val().trim());
                     }
                 });
+
+                $(this).on('change', '.terms-and-conditions input[type=checkbox]', function() {
+                    $(this).val(this.checked ? true : false);
+                });
             });
         }
     }
@@ -8015,7 +8019,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _formId = $(el).data('modal');
         _resetForm($(_formId).find('form'));
         var ProductName = $('.product-name').val();
-        if (ProductName == "") {
+        if (ProductName == "" || ProductName == undefined) {
             if ($(el).attr('data-productid')) {
                 productId = {
                     'guid': $(el).attr('data-productid')
