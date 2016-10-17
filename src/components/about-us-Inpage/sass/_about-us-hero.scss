@@ -1,15 +1,23 @@
-$about-hero-height-desktop: 600px;
+$about-hero-height-desktop: 530px;
 
 section#about-us-hero{
   height: $about-hero-height-desktop;
   overflow: hidden;
   .sample{
     position: relative;
+    margin: 0;
+  }
+  .container {
+    overflow: hidden;
   }
   .img-bg{
+    margin: 0 -15px;
+    overflow: hidden;
     img{
-      width: 100%;
       height: $about-hero-height-desktop;
+      position:relative;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
   .transparent-bg-content{
