@@ -275,15 +275,19 @@ section#hero-banner {
           padding-top: 10px;
           padding-bottom: 10px;
           font-size: 35px;
-          left: 47%;
-          -ms-transform: rotate(88deg);
-          -webkit-transform: rotate(88deg);
-          transform: rotate(88deg);
+          left: 50%;
+          -ms-transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
           @include mobile {
               display: none;
           }
           @media only screen and (min-width : 768px) and (max-device-width : 1023px) {
             left: 46%;
+          }
+          .glyphicon-arrow-down{
+            top: 4px;
+            right: -4px;
           }
         }
         h2,
