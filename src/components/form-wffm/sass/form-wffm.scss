@@ -521,17 +521,17 @@ form.request-a-demo {
     }
 
     .normal-checkbox label {
-        display: inline-block;
-        max-width: 100%;
-        margin-bottom: 5px;
-        font-weight: normal;
+      /* display: inline-block; */
+      max-width: 100%;
+      /* margin-bottom: 5px; */
+      font-weight: normal;
     }
 
     .preselected-checkbox label {
-        display: inline-block;
-        max-width: 100%;
-        margin-bottom: 5px;
-        font-weight: normal;
+      /* display: inline-block; */
+      max-width: 100%;
+      /* margin-bottom: 5px; */
+      font-weight: normal;
     }
 
     .right-inner {
@@ -936,4 +936,50 @@ form.request-a-demo {
     -webkit-transform: translate3d(0, -300px, 0);
     transform: translate3d(0, -300px, 0);
     opacity: 1;
+}
+
+
+.wffm-form{
+  .custom-checkbox {
+      color: $text-gray;
+      position: relative;
+      label {
+          font-family: "FSMe";
+          font-size: 14px;
+          line-height: 24px;
+          margin-left:25px;
+          white-space: normal;
+          span {
+              &:before {
+                  background: #fff none repeat scroll 0 0;
+                  content: "";
+                  height: 18px;
+                  left: 0;
+                  position: absolute;
+                  top: 0;
+                  width: 18px;
+              }
+          }
+          input:checked + span:before {
+              background: $white url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
+              background-size: 100%;
+          }
+          input:disabled + span:before {
+              background: $grey-color09 none;
+              background-size: 100%;
+          }
+      }
+
+          input {
+              border: 0;
+              clip: rect(0 0 0 0);
+              height: 1px;
+              margin: -1px;
+              overflow: hidden;
+              padding: 0;
+              position: absolute;
+              width: 1px;
+          }
+
+  }
 }
