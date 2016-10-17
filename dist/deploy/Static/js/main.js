@@ -4319,14 +4319,18 @@ var INFORMA = window.INFORMA || {};
                                                     '<div class="analyst-footer-content clearfix">' +
                                                         '<ul class="nav-links">'+
                                                             '{{#if LinkedInProfileID}}'+
+                                                                '{{#compare LinkedInProfileID.length "1" operator=">"}}'+
                                                                 '<li>'+
                                                                     '<a class="addthis_button_linkedin_follow" addthis:userid="{{LinkedInProfileID}}"></a>'+
                                                                 '</li>'+
+                                                                '{{/compare}}'+
                                                             '{{/if}}'+
                                                             '{{#if TwitterHandleID}}'+
+                                                                '{{#compare TwitterHandleID.length "1" operator=">"}}'+
                                                                 '<li>'+
                                                                     '<a class="addthis_button_twitter_follow" addthis:userid="{{TwitterHandleID}}"></a>'+
                                                                 '</li>'+
+                                                                '{{/compare}}'+
                                                             '{{/if}}'+
                                                             '{{#if EmailAddressLink.Url}}'+
                                                                 '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
@@ -4387,14 +4391,18 @@ var INFORMA = window.INFORMA || {};
                                             '<div class="analyst-footer-content clearfix">' +
                                                     '<ul class="nav-links">'+
                                                         '{{#if results.LinkedInProfileID}}'+
+                                                            '{{#compare results.LinkedInProfileID.length "1" operator=">"}}'+
                                                             '<li>'+
                                                                 '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
                                                             '</li>'+
+                                                            '{{/compare}}'+
                                                         '{{/if}}'+
                                                         '{{#if results.TwitterHandleID}}'+
+                                                            '{{#compare results.TwitterHandleID.length "1" operator=">"}}'+
                                                             '<li>'+
                                                                 '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
                                                             '</li>'+
+                                                            '{{/compare}}'+
                                                         '{{/if}}'+
                                                         '{{#if results.EmailAddressLink.Url}}'+
                                                             '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
@@ -4709,14 +4717,18 @@ var INFORMA = window.INFORMA || {};
                                                                 '<div class="analyst-footer-content clearfix">'+
                                                                     '<ul class="nav-links">'+
                                                                         '{{#if results.LinkedInProfileID}}'+
+                                                                            '{{#compare results.LinkedInProfileID.length "1" operator=">"}}'+
                                                                             '<li>'+
                                                                                 '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
                                                                             '</li>'+
+                                                                            '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.TwitterHandleID}}'+
+                                                                            '{{#compare results.TwitterHandleID.length "1" operator=">"}}'+
                                                                             '<li>'+
                                                                                 '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
                                                                             '</li>'+
+                                                                            '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
                                                                             '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
@@ -6554,8 +6566,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 "start": new Date(data[key].EventDate),
                 "State": data[key].State,
                 "Country": data[key].Country,
-                "Link": data[key].FullDetail.Url,
-                "Target": data[key].FullDetail.Target
+                "Link": (data[key].FullDetail != null) ? (data[key].FullDetail.Url): null,
+                "Target": (data[key].FullDetail != null) ? (data[key].FullDetail.Target): null
             })
         }
         if(_vp === 1 || _vp === 2) {
@@ -11106,7 +11118,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 SubmitBtn = ProductFinderSection.find(".sector-search li.button"),
                 SubSectorSelect = ProductFinderSection.find("select.SubSector");
 
-            ProductFinderSection.find("input[type=radio]").eq(1).trigger("click");
+            ProductFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
             if (SectorSelect.length && SectorArray) {
                 MakeDropPreSelected(SectorArray, SectorSelect);
                 INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
@@ -11480,17 +11492,17 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (IsProductPage && SectorHidden.length > 0) {
                 var SVal = SectorHidden.val(),
                     SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
-                if (SVal) {
+                //if (SVal) {
                     var SectorSelect = ProductFinderSection.find("select.Sector");
                     UpdateResultPage(SectorSelect, SVal, SubSecVal);
-                }
+                //}
             }
             if ((IsSearchPage && SearchHidden.length > 0) || (ProductSearchText)) {
                 var SearchVal = SearchHidden.val(),
                     SearchText = (ProductSearchText.length > 0) ? ProductSearchText.val() : null;
-                if (SearchVal) {
+                //if (SearchVal) {
                     SetSearchState(SearchVal);
-                }
+                //}
                 if (SearchText) {
                     $('.search:visible').trigger('click');
                 }
