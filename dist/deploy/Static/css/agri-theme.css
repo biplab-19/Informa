@@ -5036,53 +5036,65 @@ section#about-us-description .description img {
 
 /* line 3, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
 section#about-us-hero {
-  height: 600px;
+  height: 530px;
   overflow: hidden;
 }
 /* line 6, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
 section#about-us-hero .sample {
   position: relative;
+  margin: 0;
 }
 /* line 10, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
-section#about-us-hero .img-bg img {
-  width: 100%;
-  height: 600px;
+section#about-us-hero .container {
+  overflow: hidden;
 }
-/* line 15, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+/* line 13, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+section#about-us-hero .img-bg {
+  margin: 0 -15px;
+  overflow: hidden;
+}
+/* line 16, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+section#about-us-hero .img-bg img {
+  height: 530px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* line 23, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
 section#about-us-hero .transparent-bg-content {
   position: absolute;
   background: rgba(0, 0, 0, 0.7);
   height: 100%;
 }
-/* line 19, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+/* line 27, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
 section#about-us-hero .transparent-bg-content:before {
   content: '';
   position: absolute;
   left: -130px;
-  height: 600px;
+  height: 530px;
   width: 0;
-  border-top: 600px solid transparent;
+  border-top: 530px solid transparent;
   border-bottom: 0px solid transparent;
   border-right: 130px solid RGBA(0, 0, 0, 0.7);
 }
 @media (max-width: 1023px) and (min-width: 768px) {
-  /* line 30, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+  /* line 38, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content:before {
     content: '';
     position: absolute;
     left: -130px;
     width: 0;
-    border-top: 600px solid transparent;
+    border-top: 530px solid transparent;
     border-bottom: 0px solid transparent;
     border-right: 130px solid RGBA(0, 0, 0, 0.7);
   }
 }
 @media (max-width: 767px) {
-  /* line 15, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+  /* line 23, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content {
-    height: 600px;
+    height: 530px;
   }
-  /* line 42, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+  /* line 50, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content:before {
     content: '';
     position: none;
@@ -5094,48 +5106,48 @@ section#about-us-hero .transparent-bg-content:before {
     border-right: none;
   }
 }
-/* line 53, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+/* line 61, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
 section#about-us-hero .transparent-bg-content h2 {
   color: #fff;
   padding-bottom: 0 !important;
 }
 @media (min-width: 1142px) {
-  /* line 53, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+  /* line 61, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content h2 {
     padding: 50px 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 53, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+  /* line 61, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content h2 {
     padding: 40px 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 53, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+  /* line 61, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content h2 {
     padding: 30px 10px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 58, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+  /* line 66, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content .description {
     padding: 50px 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 58, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+  /* line 66, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content .description {
     padding: 40px 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 58, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+  /* line 66, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
   section#about-us-hero .transparent-bg-content .description {
     padding: 30px 10px;
   }
 }
-/* line 60, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
+/* line 68, ../../../src/components/about-us-Inpage/sass/_about-us-hero.scss */
 section#about-us-hero .transparent-bg-content .description p {
   color: #fff;
 }
