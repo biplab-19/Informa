@@ -9,6 +9,9 @@
 	.header {
 		text-align: center;
 		width: 40%;
+		@include desktop{
+			visibility: hidden;
+		}
 		@include mobile {
 			width: 100%;
 		}
@@ -175,6 +178,9 @@
 	.header {
 		display: block;
 		width: 100%;
+		@include desktop{
+			visibility: visible;
+		}
 		.date-field {
 			float: left;
 			margin: 26px 15px 0 20px;
