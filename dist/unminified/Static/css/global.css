@@ -7418,21 +7418,18 @@ button.close {
   cursor: pointer;
   color: transparent;
   border: none;
-  outline: none;
   background: transparent;
 }
 
-/* line 41, ../../../src/sass/global/_slick-theme.scss */
+/* line 40, ../../../src/sass/global/_slick-theme.scss */
 .slick-prev:hover,
-.slick-prev:focus,
-.slick-next:hover,
-.slick-next:focus {
+.slick-next:hover {
   color: transparent;
   outline: none;
   background: transparent;
 }
 
-/* line 50, ../../../src/sass/global/_slick-theme.scss */
+/* line 47, ../../../src/sass/global/_slick-theme.scss */
 .slick-prev:hover:before,
 .slick-prev:focus:before,
 .slick-next:hover:before,
@@ -7440,13 +7437,13 @@ button.close {
   opacity: 1;
 }
 
-/* line 57, ../../../src/sass/global/_slick-theme.scss */
+/* line 54, ../../../src/sass/global/_slick-theme.scss */
 .slick-prev.slick-disabled:before,
 .slick-next.slick-disabled:before {
   opacity: .25;
 }
 
-/* line 63, ../../../src/sass/global/_slick-theme.scss */
+/* line 60, ../../../src/sass/global/_slick-theme.scss */
 .slick-prev:before,
 .slick-next:before {
   font-family: 'slick';
@@ -7458,55 +7455,55 @@ button.close {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 77, ../../../src/sass/global/_slick-theme.scss */
+/* line 74, ../../../src/sass/global/_slick-theme.scss */
 .slick-prev {
   left: -25px;
 }
 
-/* line 81, ../../../src/sass/global/_slick-theme.scss */
+/* line 78, ../../../src/sass/global/_slick-theme.scss */
 [dir='rtl'] .slick-prev {
   right: -25px;
   left: auto;
 }
 
-/* line 86, ../../../src/sass/global/_slick-theme.scss */
+/* line 83, ../../../src/sass/global/_slick-theme.scss */
 .slick-prev:before {
   content: 'ΓåÉ';
 }
 
-/* line 90, ../../../src/sass/global/_slick-theme.scss */
+/* line 87, ../../../src/sass/global/_slick-theme.scss */
 [dir='rtl'] .slick-prev:before {
   content: 'ΓåÆ';
 }
 
-/* line 95, ../../../src/sass/global/_slick-theme.scss */
+/* line 92, ../../../src/sass/global/_slick-theme.scss */
 .slick-next {
   right: -25px;
 }
 
-/* line 99, ../../../src/sass/global/_slick-theme.scss */
+/* line 96, ../../../src/sass/global/_slick-theme.scss */
 [dir='rtl'] .slick-next {
   right: auto;
   left: -25px;
 }
 
-/* line 104, ../../../src/sass/global/_slick-theme.scss */
+/* line 101, ../../../src/sass/global/_slick-theme.scss */
 .slick-next:before {
   content: 'ΓåÆ';
 }
 
-/* line 108, ../../../src/sass/global/_slick-theme.scss */
+/* line 105, ../../../src/sass/global/_slick-theme.scss */
 [dir='rtl'] .slick-next:before {
   content: 'ΓåÉ';
 }
 
 /* Dots */
-/* line 114, ../../../src/sass/global/_slick-theme.scss */
+/* line 111, ../../../src/sass/global/_slick-theme.scss */
 .slick-slider {
   margin-bottom: 30px;
 }
 
-/* line 119, ../../../src/sass/global/_slick-theme.scss */
+/* line 116, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots {
   position: absolute;
   bottom: -45px;
@@ -7517,7 +7514,7 @@ button.close {
   text-align: center;
 }
 
-/* line 133, ../../../src/sass/global/_slick-theme.scss */
+/* line 130, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots li {
   position: relative;
   display: inline-block;
@@ -7528,7 +7525,7 @@ button.close {
   cursor: pointer;
 }
 
-/* line 146, ../../../src/sass/global/_slick-theme.scss */
+/* line 143, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots li button {
   font-size: 0;
   line-height: 0;
@@ -7539,23 +7536,21 @@ button.close {
   cursor: pointer;
   color: transparent;
   border: 0;
-  outline: none;
   background: transparent;
 }
 
-/* line 164, ../../../src/sass/global/_slick-theme.scss */
-.slick-dots li button:hover,
-.slick-dots li button:focus {
+/* line 160, ../../../src/sass/global/_slick-theme.scss */
+.slick-dots li button:hover {
   outline: none;
 }
 
-/* line 169, ../../../src/sass/global/_slick-theme.scss */
+/* line 164, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots li button:hover:before,
 .slick-dots li button:focus:before {
   opacity: 1;
 }
 
-/* line 174, ../../../src/sass/global/_slick-theme.scss */
+/* line 169, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots li button:before {
   font-family: 'slick';
   font-size: 6px;
@@ -7573,7 +7568,7 @@ button.close {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 196, ../../../src/sass/global/_slick-theme.scss */
+/* line 191, ../../../src/sass/global/_slick-theme.scss */
 .slick-dots li.slick-active button:before {
   opacity: .75;
   color: black;
@@ -12134,10 +12129,10 @@ body {
 body .chosen-container-active .chosen-single {
   outline: 1px dotted #ccc !important;
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (-webkit-min-device-pixel-ratio: 0) {
   /* line 484, ../../../src/sass/global/_common-components.scss */
   body .chosen-container-active .chosen-single {
-    outline: 2px solid #3566b8 !important;
+    outline: 2px solid #6397e0 !important;
   }
 }
 
