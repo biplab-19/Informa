@@ -525,17 +525,17 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (IsProductPage && SectorHidden.length > 0) {
                 var SVal = SectorHidden.val(),
                     SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
-                if (SVal) {
+                //if (SVal) {
                     var SectorSelect = ProductFinderSection.find("select.Sector");
                     UpdateResultPage(SectorSelect, SVal, SubSecVal);
-                }
+                //}
             }
             if ((IsSearchPage && SearchHidden.length > 0) || (ProductSearchText)) {
                 var SearchVal = SearchHidden.val(),
                     SearchText = (ProductSearchText.length > 0) ? ProductSearchText.val() : null;
-                if (SearchVal) {
+                //if (SearchVal) {
                     SetSearchState(SearchVal);
-                }
+                //}
                 if (SearchText) {
                     $('.search:visible').trigger('click');
                 }
