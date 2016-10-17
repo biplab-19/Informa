@@ -1184,41 +1184,28 @@ header {
             &:before {
                 content: '';
             }
-            @include mobile {
+            @include not-desktop {
                 float: none;
                 overflow: auto;
                 border-bottom: 1px solid #777b87;
-                &:first-child,&:last-child {
+                &.heading{
+                    border-bottom: none;
+                    margin-bottom: -10px;
+                }
+                &:nth-last-of-type(2){
                     border-bottom: none;
                 }
+            }
+            @include mobile {
                 .labels {
                     padding-left: 20px;
                 }
             }
-            @include tablet {
-                float: none;
-                overflow: auto;
-                border-bottom: 1px solid #777b87;
-                &:first-child,&:last-child {
-                    border-bottom: none;
-                }
-            }
-            /*
-            @include desktop {
-                &:nth-last-child(2) {
-                    .top {
-                        padding-right: 15px !important;
-                    }
-                    li {
-                        padding-right: 15px !important;
-                    }
-                }
-            }*/
         }
         .heading {
             .top {
                 @include not-desktop {
-                    padding: 30px 0;
+                    padding: 25px 0;
                 }
                 a {
                     color: $grey-color07;
@@ -1250,12 +1237,12 @@ header {
                 }
                 @include mobile {
                     li {
-                        padding: 30px 0;
+                        padding: 25px 0;
                     }
                 }
                 @include tablet {
                     li {
-                        padding: 30px 0;
+                        padding: 25px 0;
                     }
                 }
             }
@@ -1278,13 +1265,13 @@ header {
                 width: 40%;
                 float: left;
                 border-bottom: none;
-                padding: 30px 0;
+                padding: 25px 0;
             }
             @include tablet {
                 width: 50%;
                 float: left;
                 border-bottom: none;
-                padding: 30px 0;
+                padding: 25px 0;
             }
             a.head {
                 position: relative;
@@ -1367,9 +1354,9 @@ header {
                 @include not-desktop {
                     padding: 0;
                     &:first-child{
-                        padding-top: 30px;
+                        padding-top: 25px;
                     }
-                    padding-bottom: 40px;
+                    padding-bottom: 25px;
                 }
             }
             @include not-desktop {
