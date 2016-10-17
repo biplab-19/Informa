@@ -10188,18 +10188,18 @@ form.request-a-demo .terms-and-conditions span.help-block {
 form.get-in-touch .normal-checkbox label,
 form.register-myinterests-form .normal-checkbox label,
 form.request-a-demo .normal-checkbox label {
-  display: inline-block;
+  /* display: inline-block; */
   max-width: 100%;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   font-weight: normal;
 }
 /* line 530, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .preselected-checkbox label,
 form.register-myinterests-form .preselected-checkbox label,
 form.request-a-demo .preselected-checkbox label {
-  display: inline-block;
+  /* display: inline-block; */
   max-width: 100%;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   font-weight: normal;
 }
 /* line 537, ../../../src/components/form-wffm/sass/form-wffm.scss */
@@ -10707,6 +10707,51 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   -webkit-transform: translate3d(0, -300px, 0);
   transform: translate3d(0, -300px, 0);
   opacity: 1;
+}
+
+/* line 943, ../../../src/components/form-wffm/sass/form-wffm.scss */
+.wffm-form .custom-checkbox {
+  color: #434854;
+  position: relative;
+}
+/* line 946, ../../../src/components/form-wffm/sass/form-wffm.scss */
+.wffm-form .custom-checkbox label {
+  font-family: "FSMe";
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 25px;
+  white-space: normal;
+}
+/* line 953, ../../../src/components/form-wffm/sass/form-wffm.scss */
+.wffm-form .custom-checkbox label span:before {
+  background: #fff none repeat scroll 0 0;
+  content: "";
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 18px;
+}
+/* line 963, ../../../src/components/form-wffm/sass/form-wffm.scss */
+.wffm-form .custom-checkbox label input:checked + span:before {
+  background: #fff url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
+  background-size: 100%;
+}
+/* line 967, ../../../src/components/form-wffm/sass/form-wffm.scss */
+.wffm-form .custom-checkbox label input:disabled + span:before {
+  background: #e1e3e7 none;
+  background-size: 100%;
+}
+/* line 973, ../../../src/components/form-wffm/sass/form-wffm.scss */
+.wffm-form .custom-checkbox input {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /* line 2, ../../../src/components/form-wffm/sass/form-registration.scss */
