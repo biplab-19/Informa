@@ -567,6 +567,10 @@ INFORMA.forms = (function(window, $, namespace) {
                         $(this).val($(this).val().trim());
                     }
                 });
+
+                $(this).on('change', '.terms-and-conditions input[type=checkbox]', function() {
+                    $(this).val(this.checked ? true : false);
+                });
             });
         }
     }
@@ -575,7 +579,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _formId = $(el).data('modal');
         _resetForm($(_formId).find('form'));
         var ProductName = $('.product-name').val();
-        if (ProductName == "") {
+        if (ProductName == "" || ProductName == undefined) {
             if ($(el).attr('data-productid')) {
                 productId = {
                     'guid': $(el).attr('data-productid')
