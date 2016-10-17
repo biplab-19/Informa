@@ -1,4 +1,4 @@
-/*! 2016-10-15 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-17 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3984,7 +3984,21 @@ var INFORMA = window.INFORMA || {};
                                         '<span>{{Product}}</span>'+
                                     '</p>'+
                                 '{{/compare}}'+
-                                '<h4>{{Title}}</h4>'+
+                                '{{#if EcommerceLink}}'+
+                                    '{{#if EcommerceLink.Url}}'+
+                                        '<h4><a href="{{EcommerceLink.Url}}" target="{{EcommerceLink.Target}}">{{Title}}</a></h4>'+
+                                    '{{/if}}'+
+                                '{{/if}}'+
+                                '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                    '{{#if LinkText}}'+
+                                        '<h4><a href="{{PageURL}}" target="_self">{{Title}}</a></h4>'+
+                                    '{{/if}}'+
+                                '{{/compare}}'+
+                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                    '{{#if LinkText}}'+
+                                        '<h4><a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{Title}}</a></h4>'+
+                                    '{{/if}}'+
+                                '{{/compare}}'+
                                 '<p class="publish">{{#if Profile}}{{ByKeyword}} <strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
                                 '{{#compare Description null operator="!="}}'+
                                     '<p class="description">{{Description}}</p>'+
@@ -4404,7 +4418,30 @@ var INFORMA = window.INFORMA || {};
                                         '<p class="type">'+
                                             '<span>{{results.Product}}</span>'+
                                         '</p>'+
-                                        '<h4>{{results.Title}}</h4>'+
+                                        '{{#if results.EcommerceLink}}'+
+                                            '{{#if results.EcommerceLink.Url}}'+
+                                                '<h4><a href="{{results.EcommerceLink.Url}}" target="{{results.EcommerceLink.Target}}">{{results.Title}}</a></h4>'+
+                                            '{{/if}}'+
+                                        '{{/if}}'+
+                                        '{{#if results.ProductLink}}'+
+                                            '{{#compare results.ProductLink null operator="!="}}'+
+                                            '{{#if results.ProductLink.Url}}'+
+                                                '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
+                                            '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/if}}'+
+                                        '{{#compare results.LinkText null operator="!="}}'+
+                                            '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                '{{#if results.LinkText}}'+
+                                                    '<h4><a href="{{results.PageURL}}" target="{{results.LinkTarget}}">{{results.Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                '{{#if results.LinkText}}'+
+                                                    '<h4><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
                                         '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
@@ -5557,17 +5594,31 @@ INFORMA.freearticle = (function(window, $, namespace) {
     var init,
         _setFreearticlePadding;
     _setFreearticlePadding = function() {
-        var freearticleSection = $('#productDetails section.articlepage-freearticle');
+        var freearticleSection = $('#productDetails').find('.articlepage-freearticle'),
+            freearticleH2 = freearticleSection.find('h2'),
+            freearticleH3 = freearticleSection.find('h3');
         if (freearticleSection.length > 0) {
             if (INFORMA.global.device.viewportN == 1) {
-                freearticleSection.first().css('padding-top', '40px');
-                freearticleSection.last().css('padding-bottom', '40px');
+                freearticleSection.first().css('padding-top', '35px');
+                freearticleSection.last().css('padding-bottom', '35px');
+                freearticleH2.first().css('padding-top', '0');
+                freearticleH2.last().css('padding-bottom', '35px');
+                freearticleH3.first().css('padding-top', '0');
+                freearticleH3.last().css('padding-bottom', '25px');
             } else if (INFORMA.global.device.viewportN == 2) {
-                freearticleSection.first().css('padding-top', '30px');
-                freearticleSection.last().css('padding-bottom', '30px');
+                freearticleSection.first().css('padding-top', '25px');
+                freearticleSection.last().css('padding-bottom', '25px');
+                freearticleH2.first().css('padding-top', '0');
+                freearticleH2.last().css('padding-bottom', '25px');
+                freearticleH3.first().css('padding-top', '0');
+                freearticleH3.last().css('padding-bottom', '20px');
             } else {
-                freearticleSection.first().css('padding-top', '50px');
-                freearticleSection.last().css('padding-bottom', '50px');
+                freearticleSection.first().css('padding-top', '45px');
+                freearticleSection.last().css('padding-bottom', '45px');
+                freearticleH2.first().css('padding-top', '0');
+                freearticleH2.last().css('padding-bottom', '45px');
+                freearticleH3.first().css('padding-top', '0');
+                freearticleH3.last().css('padding-bottom', '30px');
             }
         }
     }
