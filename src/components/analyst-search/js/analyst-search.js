@@ -283,11 +283,11 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 success_callback: function(data) {
                     if (typeof SCallback === "function") {
                         SCallback.call(this, data, SearchType);
-                         jQuery('.load-spinner').delay(500).remove();
+                         jQuery('.load-spinner').delay(600).remove();
                     }
                 },
                 error_callback: function() {
-                    jQuery('.load-spinner').delay(500).remove();
+                    jQuery('.load-spinner').delay(600).remove();
                     if (typeof Errcallback === "function") {
                         Errcallback.call(this, data, SearchType);
                     }
