@@ -115,6 +115,11 @@
     		padding: 10px 0;
     		a{
     			color: $grey-color05;
+    			word-wrap: break-word;
+    			cursor: pointer;
+    			&:focus{
+    				text-decoration: none;
+    			}
     		}
 		}
 		.type {

@@ -36,7 +36,21 @@ var INFORMA = window.INFORMA || {};
                                         '<span>{{Product}}</span>'+
                                     '</p>'+
                                 '{{/compare}}'+
-                                '<h4>{{Title}}</h4>'+
+                                '{{#if EcommerceLink}}'+
+                                    '{{#if EcommerceLink.Url}}'+
+                                        '<h4><a href="{{EcommerceLink.Url}}" target="{{EcommerceLink.Target}}">{{Title}}</a></h4>'+
+                                    '{{/if}}'+
+                                '{{/if}}'+
+                                '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                    '{{#if LinkText}}'+
+                                        '<h4><a href="{{PageURL}}" target="_self">{{Title}}</a></h4>'+
+                                    '{{/if}}'+
+                                '{{/compare}}'+
+                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                    '{{#if LinkText}}'+
+                                        '<h4><a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{Title}}</a></h4>'+
+                                    '{{/if}}'+
+                                '{{/compare}}'+
                                 '<p class="publish">{{#if Profile}}{{ByKeyword}} <strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
                                 '{{#compare Description null operator="!="}}'+
                                     '<p class="description">{{Description}}</p>'+
@@ -456,7 +470,30 @@ var INFORMA = window.INFORMA || {};
                                         '<p class="type">'+
                                             '<span>{{results.Product}}</span>'+
                                         '</p>'+
-                                        '<h4>{{results.Title}}</h4>'+
+                                        '{{#if results.EcommerceLink}}'+
+                                            '{{#if results.EcommerceLink.Url}}'+
+                                                '<h4><a href="{{results.EcommerceLink.Url}}" target="{{results.EcommerceLink.Target}}">{{results.Title}}</a></h4>'+
+                                            '{{/if}}'+
+                                        '{{/if}}'+
+                                        '{{#if results.ProductLink}}'+
+                                            '{{#compare results.ProductLink null operator="!="}}'+
+                                            '{{#if results.ProductLink.Url}}'+
+                                                '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
+                                            '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/if}}'+
+                                        '{{#compare results.LinkText null operator="!="}}'+
+                                            '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                '{{#if results.LinkText}}'+
+                                                    '<h4><a href="{{results.PageURL}}" target="{{results.LinkTarget}}">{{results.Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                '{{#if results.LinkText}}'+
+                                                    '<h4><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
                                         '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
