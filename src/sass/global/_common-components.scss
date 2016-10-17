@@ -482,7 +482,10 @@ body{
 	}*/
 	.chosen-container-active {
 		.chosen-single{
-			@include border-focus;
+			outline:1px dotted #ccc !important;
+		    @media only screen and (-webkit-min-device-pixel-ratio: 0) {
+		        outline:2px solid #6397e0 !important;
+		    }
 		}
 	}
 }
