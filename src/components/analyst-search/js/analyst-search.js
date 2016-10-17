@@ -276,15 +276,18 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
           });
         },
         GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+            INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
                 data: JSON.stringify({ data: data }),
                 success_callback: function(data) {
                     if (typeof SCallback === "function") {
                         SCallback.call(this, data, SearchType);
+                         jQuery('.load-spinner').delay(500).remove();
                     }
                 },
                 error_callback: function() {
+                    jQuery('.load-spinner').delay(500).remove();
                     if (typeof Errcallback === "function") {
                         Errcallback.call(this, data, SearchType);
                     }
