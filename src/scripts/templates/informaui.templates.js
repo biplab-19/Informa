@@ -264,14 +264,18 @@ var INFORMA = window.INFORMA || {};
                                                     '<div class="analyst-footer-content clearfix">' +
                                                         '<ul class="nav-links">'+
                                                             '{{#if LinkedInProfileID}}'+
+                                                                '{{#compare LinkedInProfileID.length "1" operator=">"}}'+
                                                                 '<li>'+
                                                                     '<a class="addthis_button_linkedin_follow" addthis:userid="{{LinkedInProfileID}}"></a>'+
                                                                 '</li>'+
+                                                                '{{/compare}}'+
                                                             '{{/if}}'+
                                                             '{{#if TwitterHandleID}}'+
+                                                                '{{#compare TwitterHandleID.length "1" operator=">"}}'+
                                                                 '<li>'+
                                                                     '<a class="addthis_button_twitter_follow" addthis:userid="{{TwitterHandleID}}"></a>'+
                                                                 '</li>'+
+                                                                '{{/compare}}'+
                                                             '{{/if}}'+
                                                             '{{#if EmailAddressLink.Url}}'+
                                                                 '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
@@ -332,14 +336,18 @@ var INFORMA = window.INFORMA || {};
                                             '<div class="analyst-footer-content clearfix">' +
                                                     '<ul class="nav-links">'+
                                                         '{{#if results.LinkedInProfileID}}'+
+                                                            '{{#compare results.LinkedInProfileID.length "1" operator=">"}}'+
                                                             '<li>'+
                                                                 '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
                                                             '</li>'+
+                                                            '{{/compare}}'+
                                                         '{{/if}}'+
                                                         '{{#if results.TwitterHandleID}}'+
+                                                            '{{#compare results.TwitterHandleID.length "1" operator=">"}}'+
                                                             '<li>'+
                                                                 '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
                                                             '</li>'+
+                                                            '{{/compare}}'+
                                                         '{{/if}}'+
                                                         '{{#if results.EmailAddressLink.Url}}'+
                                                             '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
@@ -654,14 +662,18 @@ var INFORMA = window.INFORMA || {};
                                                                 '<div class="analyst-footer-content clearfix">'+
                                                                     '<ul class="nav-links">'+
                                                                         '{{#if results.LinkedInProfileID}}'+
+                                                                            '{{#compare results.LinkedInProfileID.length "1" operator=">"}}'+
                                                                             '<li>'+
                                                                                 '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
                                                                             '</li>'+
+                                                                            '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.TwitterHandleID}}'+
+                                                                            '{{#compare results.TwitterHandleID.length "1" operator=">"}}'+
                                                                             '<li>'+
                                                                                 '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
                                                                             '</li>'+
+                                                                            '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
                                                                             '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +

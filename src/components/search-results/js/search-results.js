@@ -151,7 +151,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 SubmitBtn = ProductFinderSection.find(".sector-search li.button"),
                 SubSectorSelect = ProductFinderSection.find("select.SubSector");
 
-            ProductFinderSection.find("input[type=radio]").eq(1).trigger("click");
+            ProductFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
             if (SectorSelect.length && SectorArray) {
                 MakeDropPreSelected(SectorArray, SectorSelect);
                 INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
