@@ -338,8 +338,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 "start": new Date(data[key].EventDate),
                 "State": data[key].State,
                 "Country": data[key].Country,
-                "Link": data[key].FullDetail.Url,
-                "Target": data[key].FullDetail.Target
+                "Link": (data[key].FullDetail != null) ? (data[key].FullDetail.Url): null,
+                "Target": (data[key].FullDetail != null) ? (data[key].FullDetail.Target): null
             })
         }
         if(_vp === 1 || _vp === 2) {
