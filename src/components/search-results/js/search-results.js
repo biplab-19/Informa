@@ -123,15 +123,15 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         },
         SetSearchState = function(sVal) {
-            if (sVal) {
+            //if (sVal) {
                 var SearchField = $(".site-search input[type=text]"),
                     SearchSubmitBtn = $(".site-search li.button");
 
-                SearchField.val(sVal);
+                //SearchField.val(sVal);
                 SearchSubmitBtn.removeClass("disabled");
-                ProductFinderSection.find("input[type=radio]").eq(0).trigger("click");
+                ProductFinderSection.find("input[type=radio][data-show='site-search']").trigger("click");
                 //SearchSubmitBtn.trigger("click");
-            }
+            //}
         },
         ResetPageSize = function() {
             PageNo = 2;
@@ -525,17 +525,17 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (IsProductPage && SectorHidden.length > 0) {
                 var SVal = SectorHidden.val(),
                     SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
-                //if (SVal) {
+                if (IsProductPage) {
                     var SectorSelect = ProductFinderSection.find("select.Sector");
                     UpdateResultPage(SectorSelect, SVal, SubSecVal);
-                //}
+                }
             }
             if ((IsSearchPage && SearchHidden.length > 0) || (ProductSearchText)) {
                 var SearchVal = SearchHidden.val(),
                     SearchText = (ProductSearchText.length > 0) ? ProductSearchText.val() : null;
-                //if (SearchVal) {
+                if (IsSearchPage) {
                     SetSearchState(SearchVal);
-                //}
+                }
                 if (SearchText) {
                     $('.search:visible').trigger('click');
                 }

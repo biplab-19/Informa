@@ -25,8 +25,8 @@
 			font-weight: 700;
 			padding: 0;
 			@include mobile {
-				margin: 5px 0;
-				font-size: 20px;
+			    margin: 10px 0;
+    			font-size: 28px;
 			}
 		}
 		.arrows {
@@ -41,6 +41,10 @@
 				width: 35px;
 				height: 60px;
 			}
+			@include mobile {
+				width: 30px;
+    			height: 50px;
+			}
 			&:before {
 				position: absolute;
 				font-family: 'InformaIcons';
@@ -54,6 +58,8 @@
 			    text-indent: 0;
 			    @include mobile {
 			    	font-size: 20px;
+			        margin-top: -15px;
+    				margin-left: -10px;
 			    }
 			}
 			&.previous {
