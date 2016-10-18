@@ -598,6 +598,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     $(this).parent().trigger('mouseover');
                     var Id = $(this).data('subnav');
                     $($('#' + Id).find('a')[0]).focus();
+                    return false;
                 }
                 
             });
