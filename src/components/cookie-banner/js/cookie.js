@@ -93,11 +93,11 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
         init = function() {
             var getCookieExpiryDate = ($("input.cookieDuration").val()) ? $("input.cookieDuration").val() : 365;
             cookieDuration = parseInt(getCookieExpiryDate);
-            window.onload = function() {
+            //window.onload = function() {
                 if (CheckCookie(cookieName) !== cookieValue) {
                     ShowBanner();
                 }
-            };
+           //};
         }
 
     return {
