@@ -7598,8 +7598,14 @@ INFORMA.forms = (function(window, $, namespace) {
         $form.find('input[type=text], input[type=password], input[type=number], input[type=email], input[type=tel], select, textarea').val('');
         $form.find('input[type=radio]').removeAttr('checked');
         $form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
-        $form.find('.preselected-checkbox input[type=checkbox]').prop('checked', true);
+        $form.find('.preselected-checkbox input[type=checkbox]').attr('checked', 'checked');
         $form.find('select.chosen-select').find('option:first-child').prop('selected', true).end().trigger('chosen:updated');
+        var preselected = $form.find('.preselected-checkbox input[type=checkbox]');
+        if(preselected.length > 0){
+          $.each(preselected, function(){
+            $(this).val(this.checked ? true : false);
+          });
+        }
     }
 
     _showHideInlineForm = function() {

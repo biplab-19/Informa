@@ -10201,21 +10201,37 @@ form.request-a-demo .three-column .required-field {
 form.get-in-touch .terms-and-conditions,
 form.register-myinterests-form .terms-and-conditions,
 form.request-a-demo .terms-and-conditions {
-  margin-top: 10px;
+  margin-top: 30px;
 }
-/* line 514, ../../../src/components/form-wffm/sass/form-wffm.scss */
+@media (max-width: 767px) {
+  /* line 511, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  form.get-in-touch .terms-and-conditions,
+  form.register-myinterests-form .terms-and-conditions,
+  form.request-a-demo .terms-and-conditions {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 511, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  form.get-in-touch .terms-and-conditions,
+  form.register-myinterests-form .terms-and-conditions,
+  form.request-a-demo .terms-and-conditions {
+    margin-top: 25px;
+  }
+}
+/* line 519, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .terms-and-conditions legend,
 form.register-myinterests-form .terms-and-conditions legend,
 form.request-a-demo .terms-and-conditions legend {
   display: none;
 }
-/* line 518, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 523, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .terms-and-conditions span.help-block,
 form.register-myinterests-form .terms-and-conditions span.help-block,
 form.request-a-demo .terms-and-conditions span.help-block {
   color: inherit;
 }
-/* line 523, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 528, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .normal-checkbox label,
 form.register-myinterests-form .normal-checkbox label,
 form.request-a-demo .normal-checkbox label {
@@ -10224,7 +10240,7 @@ form.request-a-demo .normal-checkbox label {
   /* margin-bottom: 5px; */
   font-weight: normal;
 }
-/* line 530, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 535, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .preselected-checkbox label,
 form.register-myinterests-form .preselected-checkbox label,
 form.request-a-demo .preselected-checkbox label {
@@ -10233,19 +10249,19 @@ form.request-a-demo .preselected-checkbox label {
   /* margin-bottom: 5px; */
   font-weight: normal;
 }
-/* line 537, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 542, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .right-inner,
 form.register-myinterests-form .right-inner,
 form.request-a-demo .right-inner {
   position: relative;
 }
-/* line 540, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 545, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .right-inner .icon-calender,
 form.register-myinterests-form .right-inner .icon-calender,
 form.request-a-demo .right-inner .icon-calender {
   pointer-events: none;
 }
-/* line 543, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 548, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .right-inner .icon-calender:before,
 form.register-myinterests-form .right-inner .icon-calender:before,
 form.request-a-demo .right-inner .icon-calender:before {
@@ -10257,7 +10273,7 @@ form.request-a-demo .right-inner .icon-calender:before {
   top: 10px;
   right: 5px;
 }
-/* line 555, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 560, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom,
 form.register-myinterests-form .radio-custom,
 form.request-a-demo .radio-custom {
@@ -10269,7 +10285,7 @@ form.request-a-demo .radio-custom {
   position: relative;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 555, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 560, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .radio-custom,
   form.register-myinterests-form .radio-custom,
   form.request-a-demo .radio-custom {
@@ -10277,14 +10293,14 @@ form.request-a-demo .radio-custom {
   }
 }
 @media (max-width: 767px) {
-  /* line 555, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 560, ../../../src/components/form-wffm/sass/form-wffm.scss */
   form.get-in-touch .radio-custom,
   form.register-myinterests-form .radio-custom,
   form.request-a-demo .radio-custom {
     width: 100%;
   }
 }
-/* line 570, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 575, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom label,
 form.register-myinterests-form .radio-custom label,
 form.request-a-demo .radio-custom label {
@@ -10294,7 +10310,7 @@ form.request-a-demo .radio-custom label {
   padding-left: 12px;
   font-weight: normal !important;
 }
-/* line 578, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 583, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom label::before,
 form.register-myinterests-form .radio-custom label::before,
 form.request-a-demo .radio-custom label::before {
@@ -10312,7 +10328,7 @@ form.request-a-demo .radio-custom label::before {
   -o-transition: border 0.15s ease-in-out;
   transition: border 0.15s ease-in-out;
 }
-/* line 594, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 599, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom label::after,
 form.register-myinterests-form .radio-custom label::after,
 form.request-a-demo .radio-custom label::after {
@@ -10335,7 +10351,7 @@ form.request-a-demo .radio-custom label::after {
   -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
   transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
 }
-/* line 615, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 620, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"],
 form.register-myinterests-form .radio-custom input[type="radio"],
 form.request-a-demo .radio-custom input[type="radio"] {
@@ -10345,7 +10361,7 @@ form.request-a-demo .radio-custom input[type="radio"] {
   top: -1px;
   position: absolute;
 }
-/* line 629, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 634, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"]:checked + label::after,
 form.register-myinterests-form .radio-custom input[type="radio"]:checked + label::after,
 form.request-a-demo .radio-custom input[type="radio"]:checked + label::after {
@@ -10354,35 +10370,35 @@ form.request-a-demo .radio-custom input[type="radio"]:checked + label::after {
   -o-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 636, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 641, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"]:disabled + label,
 form.register-myinterests-form .radio-custom input[type="radio"]:disabled + label,
 form.request-a-demo .radio-custom input[type="radio"]:disabled + label {
   opacity: 0.65;
 }
-/* line 640, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 645, ../../../src/components/form-wffm/sass/form-wffm.scss */
 form.get-in-touch .radio-custom input[type="radio"]:disabled + label::before,
 form.register-myinterests-form .radio-custom input[type="radio"]:disabled + label::before,
 form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   cursor: not-allowed;
 }
 
-/* line 645, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 650, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .has-error {
   display: none;
 }
 
-/* line 649, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 654, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .has-error .bg-warning {
   display: block;
 }
 
-/* line 653, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 658, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .bg-warning {
   display: block !important;
   background-color: initial !important;
 }
-/* line 657, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 662, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .bg-warning li.list-group-item.list-group-item-warning {
   background-color: initial !important;
   font-size: 24px;
@@ -10390,36 +10406,36 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   margin-left: -30px;
 }
 @media (max-width: 767px) {
-  /* line 657, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 662, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .bg-warning li.list-group-item.list-group-item-warning {
     font-size: 14px;
     margin-left: -30px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 657, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 662, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .bg-warning li.list-group-item.list-group-item-warning {
     font-size: 16px;
     margin-left: -30px;
   }
 }
-/* line 672, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 677, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .bg-warning .list-group-item {
   border: none;
   padding: 0 !important;
 }
-/* line 677, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 682, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .bg-warning .list-group-item-warning {
   color: inherit !important;
 }
 
-/* line 682, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 687, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-btn-container {
   width: 20%;
   margin: 10px auto;
 }
 
-/* line 688, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 693, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-dialog {
   padding-top: 10%;
   padding-bottom: 10%;
@@ -10427,37 +10443,37 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   margin: 0 auto;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 688, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 693, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 85%;
   }
 }
 @media (max-width: 767px) {
-  /* line 688, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 693, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-dialog {
     width: 100%;
   }
 }
-/* line 702, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 707, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container {
   margin-top: 5%;
   margin-bottom: 5%;
 }
 @media (max-width: 767px) {
-  /* line 702, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 707, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container {
     margin-top: 4%;
     margin-bottom: 4%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 702, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 707, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container {
     margin-top: 6%;
     margin-bottom: 6%;
   }
 }
-/* line 714, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 719, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response,
 .form-modal .modal-body .form-inline-container .submit-response {
   background-color: #444957;
@@ -10467,20 +10483,20 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   font-size: 20px;
 }
 @media (max-width: 767px) {
-  /* line 714, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 719, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response,
   .form-modal .modal-body .form-inline-container .submit-response {
     padding: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 714, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 719, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response,
   .form-modal .modal-body .form-inline-container .submit-response {
     padding: 20px 20%;
   }
 }
-/* line 728, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 733, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response h2,
 .form-modal .modal-body .form-inline-container .submit-response h2 {
   font-family: "FSMe-bold";
@@ -10488,7 +10504,7 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   position: relative;
 }
 @media (max-width: 767px) {
-  /* line 728, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 733, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response h2,
   .form-modal .modal-body .form-inline-container .submit-response h2 {
     padding-right: 20px;
@@ -10496,7 +10512,7 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
     width: calc(100% - 50px);
   }
 }
-/* line 738, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 743, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response h2:before,
 .form-modal .modal-body .form-inline-container .submit-response h2:before {
   position: absolute;
@@ -10505,7 +10521,7 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   content: "\e914";
 }
 @media (min-width: 1142px) {
-  /* line 738, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 743, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response h2:before,
   .form-modal .modal-body .form-inline-container .submit-response h2:before {
     font-size: 35px;
@@ -10514,7 +10530,7 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 738, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 743, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response h2:before,
   .form-modal .modal-body .form-inline-container .submit-response h2:before {
     font-size: 35px;
@@ -10522,7 +10538,7 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   }
 }
 @media (max-width: 767px) {
-  /* line 738, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 743, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-modal .modal-body .form-inline-container .error-response h2:before,
   .form-modal .modal-body .form-inline-container .submit-response h2:before {
     font-size: 35px;
@@ -10530,12 +10546,12 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
     left: 100%;
   }
 }
-/* line 760, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 765, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response img,
 .form-modal .modal-body .form-inline-container .submit-response img {
   opacity: 0.5;
 }
-/* line 764, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 769, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response p,
 .form-modal .modal-body .form-inline-container .submit-response p {
   margin-bottom: 25px;
@@ -10550,7 +10566,7 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   border-radius: 0;
   padding: 0;
 }
-/* line 777, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 782, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-body .form-inline-container .error-response p:after,
 .form-modal .modal-body .form-inline-container .submit-response p:after {
   content: '';
@@ -10561,22 +10577,22 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   height: 0;
   border: 0;
 }
-/* line 791, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 796, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-content {
   border-radius: 0;
   background-color: #444957;
   color: #fff;
 }
-/* line 804, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 809, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header {
   border-bottom: 0;
 }
-/* line 807, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 812, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .close {
   color: #fff;
   opacity: 2;
 }
-/* line 812, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 817, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal .modal-header .form-modal-close-icon:after {
   content: "\e906";
   visibility: visible;
@@ -10587,14 +10603,14 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   margin-left: -5px;
 }
 
-/* line 824, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 829, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border {
   padding-top: 56px;
   position: relative;
   padding-bottom: 40px;
   margin-top: 25px;
 }
-/* line 830, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 835, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border .btn {
   border: 0 !important;
   color: #fff !important;
@@ -10604,18 +10620,18 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   bottom: 35px;
 }
 @media (min-width: 768px) {
-  /* line 830, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 835, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 121px;
   }
 }
 @media (max-width: 767px) {
-  /* line 830, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 835, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .form-submit-border .btn {
     width: 100% !important;
   }
 }
-/* line 847, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 852, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border::after {
   position: absolute;
   font-family: 'InformaIcons';
@@ -10625,7 +10641,7 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   font-weight: bold;
 }
 
-/* line 857, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 862, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-submit-border.disabled {
   cursor: not-allowed;
   pointer-events: none;
@@ -10633,17 +10649,17 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   box-shadow: none;
 }
 
-/* line 864, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 869, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-horizontal .form-group {
   margin-left: 0 !important;
 }
 
-/* line 868, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 873, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade.in.centreAlign .modal-dialog {
   transform: translate3d(0, -50%, 0);
 }
 
-/* line 873, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 878, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .tab-pane .error-response,
 .tab-pane .submit-response {
   background-color: #444957;
@@ -10653,20 +10669,20 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   padding-bottom: 20px;
 }
 @media (max-width: 767px) {
-  /* line 873, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 878, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response,
   .tab-pane .submit-response {
     padding-left: 7px;
     padding-right: 5px;
   }
 }
-/* line 885, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 890, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .tab-pane .error-response h2,
 .tab-pane .submit-response h2 {
   color: #fff;
   position: relative;
 }
-/* line 889, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 894, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .tab-pane .error-response h2:before,
 .tab-pane .submit-response h2:before {
   content: "\e914";
@@ -10674,27 +10690,27 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   position: absolute;
 }
 @media (max-width: 767px) {
-  /* line 889, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 894, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response h2:before,
   .tab-pane .submit-response h2:before {
     right: 0;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 889, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 894, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response h2:before,
   .tab-pane .submit-response h2:before {
     left: -60px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 889, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 894, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response h2:before,
   .tab-pane .submit-response h2:before {
     left: -60px;
   }
 }
-/* line 905, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 910, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .tab-pane .error-response p,
 .tab-pane .submit-response p {
   font-size: 24px;
@@ -10702,21 +10718,21 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   line-height: normal;
 }
 @media (max-width: 767px) {
-  /* line 905, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 910, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response p,
   .tab-pane .submit-response p {
     font-size: 14px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 905, ../../../src/components/form-wffm/sass/form-wffm.scss */
+  /* line 910, ../../../src/components/form-wffm/sass/form-wffm.scss */
   .tab-pane .error-response p,
   .tab-pane .submit-response p {
     font-size: 16px;
   }
 }
 
-/* line 919, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 924, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade .modal-dialog {
   -webkit-transform: scale(0.1);
   -moz-transform: scale(0.1);
@@ -10729,7 +10745,7 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   transition: all 0.3s;
 }
 
-/* line 931, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 936, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .form-modal.modal.fade.in .modal-dialog {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -10740,12 +10756,12 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   opacity: 1;
 }
 
-/* line 943, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 948, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox {
   color: #434854;
   position: relative;
 }
-/* line 946, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 951, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label {
   font-family: "FSMe";
   font-size: 14px;
@@ -10755,11 +10771,11 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   display: block;
   text-align: left;
 }
-/* line 954, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 959, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label span {
   position: relative;
 }
-/* line 955, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 960, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label span:before {
   background: #fff none repeat scroll 0 0;
   content: "";
@@ -10769,17 +10785,17 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   top: 0px;
   width: 18px;
 }
-/* line 966, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 971, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label input:checked + span:before {
   background: #fff url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 970, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 975, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label input:disabled + span:before {
   background: #e1e3e7 none;
   background-size: 100%;
 }
-/* line 976, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 981, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox input {
   border: 0;
   clip: rect(0 0 0 0);
@@ -10897,28 +10913,7 @@ form.single-step-form .preselected-checkbox label {
 /* line 95, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .about-you-details legend {
   position: relative;
-}
-@media (max-width: 767px) {
-  /* line 98, ../../../src/components/form-wffm/sass/form-registration.scss */
-  form.single-step-form .about-you-details legend:first-child {
-    margin-left: 40px;
-  }
-}
-/* line 103, ../../../src/components/form-wffm/sass/form-registration.scss */
-form.single-step-form .about-you-details legend:first-child:before {
-  content: "\e91a";
-  font-family: 'InformaIcons';
-  position: absolute;
-  left: -35px;
-  top: 0;
-  font-size: 30px;
-  color: #c3c7cf;
-}
-@media (max-width: 767px) {
-  /* line 103, ../../../src/components/form-wffm/sass/form-registration.scss */
-  form.single-step-form .about-you-details legend:first-child:before {
-    top: 0;
-  }
+  margin-bottom: 0px;
 }
 /* line 123, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .about-you-details .required-field:nth-child(1) {
