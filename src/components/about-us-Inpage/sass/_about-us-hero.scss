@@ -61,11 +61,12 @@ section#about-us-hero{
     h2 {
       color: $white;
       padding-bottom: 0 !important;
+      @include heading-line-height(46px,42px,36px);
       @include heading-padding((50px 20px),(40px 20px),(30px 10px));
     }
     .description {
         @include heading-padding((50px 20px),(40px 20px),(30px 10px));
-        p{
+        p,ul,li{
           color: $white;
         }
     }

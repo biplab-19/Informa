@@ -1,6 +1,13 @@
 .article-list {
     background-color: $white;
     position: relative;
+    padding-bottom: 45px;
+    @include mobile{
+        padding-bottom: 25px;
+    }
+    @include mobile{
+        padding-bottom: 35px;
+    }
     .container{
         padding:0 15px;
     }
