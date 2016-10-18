@@ -7139,6 +7139,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
     _showRegisterFormPopupSingleStep = function(){
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
         _clearFormInput(_myinterestForm);
         var chosenSelect = $("form.register-myinterests-form .chosen-select"),
         chosenCotainer = $('form.register-myinterests-form .chosen-container');
