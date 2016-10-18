@@ -586,7 +586,8 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
-    _showModal = function(el)  {         
+    _showModal = function(el)  {       
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
         _formId = $(el).data('modal');
         _resetForm($(_formId).find('form'));
         var ProductName = $('.product-name').val();
