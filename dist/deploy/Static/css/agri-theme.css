@@ -10724,27 +10724,31 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   display: block;
   text-align: left;
 }
+/* line 954, ../../../src/components/form-wffm/sass/form-wffm.scss */
+.wffm-form .custom-checkbox label span {
+  position: relative;
+}
 /* line 955, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label span:before {
   background: #fff none repeat scroll 0 0;
   content: "";
   height: 18px;
-  left: 0;
+  left: -30px;
   position: absolute;
-  top: 3px;
+  top: 0px;
   width: 18px;
 }
-/* line 965, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 966, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label input:checked + span:before {
   background: #fff url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 969, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 970, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label input:disabled + span:before {
   background: #e1e3e7 none;
   background-size: 100%;
 }
-/* line 975, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 976, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox input {
   border: 0;
   clip: rect(0 0 0 0);
