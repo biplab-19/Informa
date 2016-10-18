@@ -956,11 +956,12 @@ form.request-a-demo {
                   background: #fff none repeat scroll 0 0;
                   content: "";
                   height: 18px;
-                  left: 0;
+                  left: -30px;
                   position: absolute;
-                  top: 3px;
+                  top:0px;
                   width: 18px;
               }
+              position: relative;
           }
           input:checked + span:before {
               background: $white url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
