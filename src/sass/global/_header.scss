@@ -674,24 +674,32 @@ header {
                         box-sizing: border-box;
                         position: relative;
                         @include not-desktop{
-                            padding: 15px;
+                            padding: 15px 0;
                             width: 50%;
                             text-align: center;
-                            &:first-child{
-                                float: left;
-                                border-right: 1px solid #666666;
-                            }
-                            &:last-child{
-                                float: right;
-                            }
+                            border-right: 2px solid $nav-link-color;
+                            float: left;
+                            border-bottom: 2px solid $nav-link-color;
                             a{
                                 @include anchor-font(14px,13px,12px);
+                            }
+                            &.one{
+                                width: 100%;
+                            }
+                            &.two,&.four{
+                                width: 50%;
+                            }
+                            &.three{
+                                width: 33.33%;
+                            }
+                            &:last-child{
+                                border-right: none;
                             }
                         }
                         &:nth-child(even) {
                             :after {
                                 content: '';
-                                border-left: 2px solid #666666;
+                                border-left: 2px solid $nav-link-color;
                                 height: 45%;
                                 position: absolute;
                                 top: 10px;
@@ -727,7 +735,7 @@ header {
                         padding: 10px 17px;
                     }
                     @include not-desktop{
-                        height: 50px;
+                        height: auto;
                     }
                 }
             }
