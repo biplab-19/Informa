@@ -8020,10 +8020,11 @@ select.form-control option {
     padding: 0 0 0 8px;
     height: 35px;
     border: 2px solid #aaa;
+    background: transparent;
   }
 }
 
-/* line 25, ../../../src/sass/global/_form.scss */
+/* line 26, ../../../src/sass/global/_form.scss */
 .load-spinner {
   background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -8031,16 +8032,16 @@ select.form-control option {
   height: 100%;
   z-index: 99999;
 }
-/* line 31, ../../../src/sass/global/_form.scss */
+/* line 32, ../../../src/sass/global/_form.scss */
 .load-spinner .loading {
   position: fixed;
   display: block;
 }
-/* line 34, ../../../src/sass/global/_form.scss */
+/* line 35, ../../../src/sass/global/_form.scss */
 .load-spinner .loading img {
   display: block;
 }
-/* line 37, ../../../src/sass/global/_form.scss */
+/* line 38, ../../../src/sass/global/_form.scss */
 .load-spinner .loading em {
   display: block;
   text-align: center;
@@ -8050,16 +8051,16 @@ select.form-control option {
   color: #fff;
 }
 
-/* line 49, ../../../src/sass/global/_form.scss */
+/* line 50, ../../../src/sass/global/_form.scss */
 .form .disabled {
   opacity: 0.5;
   pointer-events: none;
 }
-/* line 53, ../../../src/sass/global/_form.scss */
+/* line 54, ../../../src/sass/global/_form.scss */
 .form .textbox {
   background-color: #fff;
 }
-/* line 55, ../../../src/sass/global/_form.scss */
+/* line 56, ../../../src/sass/global/_form.scss */
 .form .textbox input {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -8070,25 +8071,25 @@ select.form-control option {
   font-weight: 400;
   width: 100%;
 }
-/* line 65, ../../../src/sass/global/_form.scss */
+/* line 66, ../../../src/sass/global/_form.scss */
 .form .textbox label {
   margin-bottom: 0;
   width: 100%;
 }
-/* line 70, ../../../src/sass/global/_form.scss */
+/* line 71, ../../../src/sass/global/_form.scss */
 .form label.label {
   font-family: FSMe-Light;
   font-size: 1em;
   font-weight: 400;
   padding: 0;
 }
-/* line 76, ../../../src/sass/global/_form.scss */
+/* line 77, ../../../src/sass/global/_form.scss */
 .form :not(.lt-ie9) {
   /* HTML5 Boilerplate accessible hidden styles */
   /* the basic, unchecked style */
   /* the checked style using the :checked pseudo class */
 }
-/* line 78, ../../../src/sass/global/_form.scss */
+/* line 79, ../../../src/sass/global/_form.scss */
 .form :not(.lt-ie9) .custom-checkbox input,
 .form :not(.lt-ie9) .custom-radio input {
   border: 0;
@@ -8100,7 +8101,7 @@ select.form-control option {
   position: absolute;
   width: 1px;
 }
-/* line 90, ../../../src/sass/global/_form.scss */
+/* line 91, ../../../src/sass/global/_form.scss */
 .form :not(.lt-ie9) .custom-radio input + span::before {
   content: '';
   display: inline-block;
@@ -8115,20 +8116,20 @@ select.form-control option {
   position: relative;
   top: -2px;
 }
-/* line 105, ../../../src/sass/global/_form.scss */
+/* line 106, ../../../src/sass/global/_form.scss */
 .form :not(.lt-ie9) .custom-radio input:checked + span::before {
   background: #f07d00;
 }
-/* line 109, ../../../src/sass/global/_form.scss */
+/* line 110, ../../../src/sass/global/_form.scss */
 .form .custom-checkbox {
   color: #434854;
   position: relative;
 }
-/* line 112, ../../../src/sass/global/_form.scss */
+/* line 113, ../../../src/sass/global/_form.scss */
 .form .custom-checkbox label {
   margin-left: 25px;
 }
-/* line 115, ../../../src/sass/global/_form.scss */
+/* line 116, ../../../src/sass/global/_form.scss */
 .form .custom-checkbox label span:before {
   background: #fff none repeat scroll 0 0;
   content: "";
@@ -8138,35 +8139,35 @@ select.form-control option {
   top: 0;
   width: 16px;
 }
-/* line 125, ../../../src/sass/global/_form.scss */
+/* line 126, ../../../src/sass/global/_form.scss */
 .form .custom-checkbox label input:checked + span:before {
   background: #fff url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 129, ../../../src/sass/global/_form.scss */
+/* line 130, ../../../src/sass/global/_form.scss */
 .form .custom-checkbox label input:disabled + span:before {
   background: #e1e3e7 none;
   background-size: 100%;
 }
-/* line 136, ../../../src/sass/global/_form.scss */
+/* line 137, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect a {
   padding: 0 !important;
 }
-/* line 139, ../../../src/sass/global/_form.scss */
+/* line 140, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect label {
   color: #434854;
 }
-/* line 142, ../../../src/sass/global/_form.scss */
+/* line 143, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect input {
   opacity: 0;
   width: 16px;
   height: 16px;
 }
-/* line 147, ../../../src/sass/global/_form.scss */
+/* line 148, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group {
   width: 100%;
 }
-/* line 149, ../../../src/sass/global/_form.scss */
+/* line 150, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .caret {
   content: "\e901";
   border: none;
@@ -8174,28 +8175,28 @@ select.form-control option {
   position: absolute;
   right: 30px;
 }
-/* line 155, ../../../src/sass/global/_form.scss */
+/* line 156, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .caret:before {
   font: 400 15px 'InformaIcons';
   content: "\e901";
   color: #a7a9b6;
 }
-/* line 161, ../../../src/sass/global/_form.scss */
+/* line 162, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-toggle {
   width: 100%;
   background: #fff;
   border: none;
   padding: 10px;
 }
-/* line 166, ../../../src/sass/global/_form.scss */
+/* line 167, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-toggle:after {
   content: '';
 }
-/* line 169, ../../../src/sass/global/_form.scss */
+/* line 170, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-toggle:hover {
   background: #fff;
 }
-/* line 173, ../../../src/sass/global/_form.scss */
+/* line 174, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-menu {
   border-radius: 0;
   border: none;
@@ -8206,13 +8207,13 @@ select.form-control option {
   -moz-box-shadow: 1px -1px -1px 1px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 1px -1px -1px 1px rgba(0, 0, 0, 0.75);
 }
-/* line 182, ../../../src/sass/global/_form.scss */
+/* line 183, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-menu label {
   color: #434854;
   white-space: normal;
   word-wrap: break-word;
 }
-/* line 186, ../../../src/sass/global/_form.scss */
+/* line 187, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-menu label:before {
   background: #fff none repeat scroll 0 0;
   content: "";
@@ -8222,12 +8223,12 @@ select.form-control option {
   top: 6px;
   width: 16px;
 }
-/* line 198, ../../../src/sass/global/_form.scss */
+/* line 199, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-menu .active label:before {
   background: #fff url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 203, ../../../src/sass/global/_form.scss */
+/* line 204, ../../../src/sass/global/_form.scss */
 .form .custom-multiselect .btn-group .dropdown-menu .active a {
   background-color: transparent;
 }
