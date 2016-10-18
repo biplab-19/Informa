@@ -8279,6 +8279,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _mainNavigation = $('.mainNavigation'),
         _mobileNavigation = $('.mobileNavigation'),
         _mobileHeaderNavigation = $('#mobile-header-navigation'),
+        _mainNavLink = $('.informaNav .mainNavigation .header-links'),
         _cookieBanner =  $('#cookieBanner'),
         _navHeight = _mainNavigation.height(),
         _headerPos = 0,
@@ -8988,7 +8989,23 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       $('#pdp-sections').find('.navbar-nav').html(Html);
     }
     init = function() {
-        //if(INFORMA.global.device.viewport!='mobile'){
+        if(_mainNavLink.length > 0){
+            if(INFORMA.global.device.isMobile || INFORMA.global.device.isTablet){
+                if(_mainNavLink.length == 1){
+                    $(_mainNavLink).addClass('one')
+                }
+                else if(_mainNavLink.length == 3){
+                    $(_mainNavLink).addClass('three')
+                }
+                else if(_mainNavLink.length == 4){
+                    $(_mainNavLink).addClass('four')
+                }
+                else{
+                    $(_mainNavLink).addClass('two')
+                }
+            }
+        }
+
         if (_pdpNavigation.length > 0) {
             _pdpsectionSubnavigationInit();
             if (!INFORMA.global.siteCore.isExperience) {
@@ -9726,7 +9743,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                         document.activeElement.blur();
                     }
                     if(SearchTextField.val().length >= SearchTextField.data('length')){
-                        return true;
+                        SearchTextField.parents('.site-search').find('button[data-submit="site-search"]').trigger('click');
                     }else{
                         return false;
                     }

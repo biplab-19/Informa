@@ -368,6 +368,9 @@ td.fc-day.fc-widget-content {
 }
 .fc-toolbar {
 	width: 40%;
+	@include desktop {
+		visibility: hidden;
+	}
 	@include mobile {
 		width: 100%;
 	}

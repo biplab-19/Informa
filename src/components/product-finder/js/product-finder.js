@@ -171,7 +171,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                         document.activeElement.blur();
                     }
                     if(SearchTextField.val().length >= SearchTextField.data('length')){
-                        return true;
+                        SearchTextField.parents('.site-search').find('button[data-submit="site-search"]').trigger('click');
                     }else{
                         return false;
                     }
