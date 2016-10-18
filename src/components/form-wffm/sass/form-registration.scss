@@ -94,30 +94,30 @@ form.single-step-form {
     .about-you-details {
         legend {
             position: relative;
-
-            &:first-child {
-                @include mobile {
-                    margin-left: 40px;
-                }
-
-                &:before {
-                    content: "\e91a";
-                    font-family: 'InformaIcons';
-                    position: absolute;
-                    left: -35px;
-                    top: 0;
-                    font-size: 30px;
-                    color: $grey-color08;
-                    @include mobile {
-                        top: 0;
-                        //left: 8px;
-                    }
-                    @include tablet {
-                        // left: -30px;
-                        // top: 20px;
-                    }
-                }
-            }
+            margin-bottom: 0px;
+            // &:first-child {
+            //     @include mobile {
+            //         margin-left: 40px;
+            //     }
+            //
+            //     &:before {
+            //         content: "\e91a";
+            //         font-family: 'InformaIcons';
+            //         position: absolute;
+            //         left: -35px;
+            //         top: 0;
+            //         font-size: 30px;
+            //         color: $grey-color08;
+            //         @include mobile {
+            //             top: 0;
+            //             //left: 8px;
+            //         }
+            //         @include tablet {
+            //             // left: -30px;
+            //             // top: 20px;
+            //         }
+            //     }
+            // }
         }
 
         .required-field:nth-child(1) {
