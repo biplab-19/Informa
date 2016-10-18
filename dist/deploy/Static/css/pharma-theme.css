@@ -10718,31 +10718,33 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
 .wffm-form .custom-checkbox label {
   font-family: "FSMe";
   font-size: 14px;
-  line-height: 24px;
+  line-height: 18px;
   margin-left: 25px;
   white-space: normal;
+  display: block;
+  text-align: left;
 }
-/* line 953, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 955, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label span:before {
   background: #fff none repeat scroll 0 0;
   content: "";
   height: 18px;
   left: 0;
   position: absolute;
-  top: 0;
+  top: 3px;
   width: 18px;
 }
-/* line 963, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 965, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label input:checked + span:before {
   background: #fff url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 967, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 969, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label input:disabled + span:before {
   background: #e1e3e7 none;
   background-size: 100%;
 }
-/* line 973, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 975, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox input {
   border: 0;
   clip: rect(0 0 0 0);
@@ -10849,16 +10851,12 @@ form.single-step-form label.control-label {
 }
 /* line 80, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .normal-checkbox label {
-  display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
   font-weight: normal;
 }
 /* line 87, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .preselected-checkbox label {
-  display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
   font-weight: normal;
 }
 /* line 95, ../../../src/components/form-wffm/sass/form-registration.scss */
@@ -14031,16 +14029,12 @@ section.recommended-products .recom-prod-carousel .recom-products .button-links 
 }
 /* line 384, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .normal-checkbox label {
-  display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
   font-weight: normal;
 }
 /* line 391, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
 .register-myinterests-section .preselected-checkbox label {
-  display: inline-block;
   max-width: 100%;
-  margin-bottom: 5px;
   font-weight: normal;
 }
 /* line 398, ../../../src/components/form-registration-myinterests/sass/form-registration-myinterests.scss */
