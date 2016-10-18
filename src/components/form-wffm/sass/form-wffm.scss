@@ -509,8 +509,13 @@ form.request-a-demo {
     }
 
     .terms-and-conditions {
-        margin-top: 10px;
-
+        margin-top: 30px;
+        @include mobile {
+          margin-top: 20px;
+        }
+        @include tablet {
+          margin-top: 25px;
+        }
         legend {
             display: none;
         }
