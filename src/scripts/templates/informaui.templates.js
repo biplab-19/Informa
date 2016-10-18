@@ -508,10 +508,18 @@ var INFORMA = window.INFORMA || {};
                                         '{{/compare}}'+
                                         '{{#compare results.Video null operator="!="}}'+
                                             '<div class="video-container">'+
-                                                '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_blank">'+
-                                                    '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
-                                                    '<span class="play-icon icon-play"></span>'+
-                                                '</a>'+
+                                                '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                    '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                        '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                        '<span class="play-icon icon-play"></span>'+
+                                                    '</a>'+
+                                                '{{/compare}}'+
+                                                '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                    '<a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.Video.Url}}">'+
+                                                        '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                        '<span class="play-icon icon-play"></span>'+
+                                                    '</a>'+
+                                                '{{/compare}}'+
                                             '</div>'+
                                         '{{/compare}}'+
                                     '</div>'+
