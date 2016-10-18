@@ -570,6 +570,11 @@ INFORMA.forms = (function(window, $, namespace) {
 
                 $(this).on('change', '.terms-and-conditions input[type=checkbox]', function() {
                     $(this).val(this.checked ? true : false);
+                    if(this.checked){
+                      $(this).attr('checked', 'checked');
+                    }else{
+                      $(this).removeAttr('checked');
+                    }
                 });
             });
         }
