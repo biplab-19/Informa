@@ -388,7 +388,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             IsShowFlag = false;
             SearchContent.find('.container').append(FinalHTml);
-            EqualHeight();
+            setTimeout(function() {
+                EqualHeight();
+            }, 800);
             if (SearchType === "ProductSearch") {
                 DoPagination();
             } else {
@@ -422,7 +424,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
                 // debugger;
                 $(Button).parents('.product-results').find(".list").append(Html);
-                EqualHeight();
+                setTimeout(function() {
+                    EqualHeight();
+                }, 800);
 
                 if (SearchType != "ProductSearch") {
                     if (RemainingCount < 1) {

@@ -138,7 +138,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             }
 
             GetAjaxData(Urls.AnalystSearchDropDown, "Post", _value, RenderChangeResult, null, null);
-            INFORMA.Spinner.Show(SubSector);
+            
             SubSector.trigger("chosen:updated");
 
         })
@@ -167,6 +167,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             AnalystSearch.find('#name').val('');
             //$('select[name="Sector"]').prop('selectedIndex',0);
             Sector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
+            SubSector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
             //$('select[name="SubSector"]').prop('selectedIndex',0);
             GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
             $(this).hide();

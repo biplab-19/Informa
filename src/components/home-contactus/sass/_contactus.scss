@@ -260,6 +260,19 @@
     }
 }
 #contactus-section {
+    .contactus-list .panel-group .panel {
+        &:before {
+            @include desktop {
+                content: '';
+                width: 100%;
+                position: absolute;
+                height: 80px;
+                top: 0;
+                left: 0;
+                z-index: 2;
+            }
+        }
+    }
     a {
         color: $orange;
         &.btn {
