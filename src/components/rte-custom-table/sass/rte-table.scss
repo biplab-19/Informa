@@ -1,17 +1,15 @@
 .rte-custom-table {
-	padding: 40px 0 100px;
+	padding: 0 0 100px;
 	@include mobile {
-		padding: 20px 0 60px;
+		padding: 0 0 60px;
 	}
 	h2 {
 		color: $rte-h1-gray-draker;
 		font-size: 24px;
 		line-height: 25px;
 		font-family: FSMe-Light;
-		margin-bottom: 20px;
-		@include mobile {
-			margin-bottom: 10px;
-		}
+		margin-bottom: 25px;
+		padding-bottom: 0 !important;
 		strong {
 			text-align: right;
 			color: $grey-color05;
@@ -22,6 +20,7 @@
 			@include mobile {
 				display: block;
 				float: none;
+				margin-bottom: 20px;
 				text-align: left;
 			}
 		}
@@ -42,7 +41,7 @@
 				line-height: 30px;
 				border-top: none;
 				border-bottom: 1px solid $rte-b-btm-gray-light;
-				padding: 14px 10px;
+				padding: 10px;
 				font-weight: 700;
 				&:before {
 					content: '';
