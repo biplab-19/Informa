@@ -1,4 +1,4 @@
-/*! 2016-10-18 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-19 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4606,12 +4606,14 @@ var INFORMA = window.INFORMA || {};
                                                                         '<li>{{this}}</li>'+
                                                                         '{{/each}}'+
                                                                     '</ul>'+
-                                                                    '<p class="heading"> {{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
-                                                                    '<ul class="track-analyst clearfix">'+
-                                                                        '{{#each results.ProductDetails}}' +
-                                                                            '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
-                                                                        '{{/each}}' +
-                                                                    '</ul>'+
+                                                                    '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
+                                                                    '{{#compare results.ProductDetails.length "0" operator=">"}}'+
+                                                                        '<ul class="track-analyst clearfix">'+
+                                                                            '{{#each results.ProductDetails}}' +
+                                                                                '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
+                                                                            '{{/each}}' +
+                                                                        '</ul>'+
+                                                                    '{{/compare}}'+
                                                                 '</div>'+
                                                             '</div>'+
                                                             '<div class="analyst-footer">'+
@@ -5192,7 +5194,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             }
 
             GetAjaxData(Urls.AnalystSearchDropDown, "Post", _value, RenderChangeResult, null, null);
-            INFORMA.Spinner.Show(SubSector);
+            
             SubSector.trigger("chosen:updated");
 
         })
@@ -5221,6 +5223,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             AnalystSearch.find('#name').val('');
             //$('select[name="Sector"]').prop('selectedIndex',0);
             Sector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
+            SubSector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
             //$('select[name="SubSector"]').prop('selectedIndex',0);
             GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
             $(this).hide();
@@ -11294,7 +11297,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             IsShowFlag = false;
             SearchContent.find('.container').append(FinalHTml);
-            EqualHeight();
+            setTimeout(function() {
+                EqualHeight();
+            }, 800);
             if (SearchType === "ProductSearch") {
                 DoPagination();
             } else {
@@ -11328,7 +11333,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 }
                 // debugger;
                 $(Button).parents('.product-results').find(".list").append(Html);
-                EqualHeight();
+                setTimeout(function() {
+                    EqualHeight();
+                }, 800);
 
                 if (SearchType != "ProductSearch") {
                     if (RemainingCount < 1) {

@@ -1,4 +1,4 @@
-/*! 2016-10-18 */@charset "UTF-8";
+/*! 2016-10-19 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -1719,30 +1719,42 @@ section#agri-report .agri-report-wrapper .orange-bd {
   clear: both;
 }
 
-/* line 263, ../../../src/components/home-contactus/sass/_contactus.scss */
+@media (min-width: 1142px) {
+  /* line 264, ../../../src/components/home-contactus/sass/_contactus.scss */
+  #contactus-section .contactus-list .panel-group .panel:before {
+    content: '';
+    width: 100%;
+    position: absolute;
+    height: 80px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+}
+/* line 276, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a {
   color: #ef7c00;
 }
-/* line 265, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 278, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a.btn {
   color: #fff;
 }
-/* line 270, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 283, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.three .contactus-list .panel-group .panel {
   width: 31%;
 }
-/* line 275, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 288, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.four .contactus-list .panel-group .panel {
   width: 22.5%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 275, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 288, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.four .contactus-list .panel-group .panel {
     width: 30.5%;
   }
 }
 @media (max-width: 767px) {
-  /* line 284, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 297, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.three .contactus-list .panel-group .panel, #contactus-section.four .contactus-list .panel-group .panel {
     width: 100%;
   }
@@ -6888,6 +6900,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
 .text-center.NoRecords {
   background: #fff;
   padding: 50px 0;
+  margin: 0;
 }
 
 /* line 1, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
@@ -10957,7 +10970,7 @@ form.single-step-form .terms-and-conditions {
 @media (max-width: 767px) {
   /* line 139, ../../../src/components/form-wffm/sass/form-registration.scss */
   form.single-step-form .terms-and-conditions {
-    margin-top: 0px;
+    margin-top: 10px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
@@ -11289,12 +11302,12 @@ section.samplecontent-freearticle .quick-facts ul li:before {
 
 /* line 1, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table {
-  padding: 40px 0 100px;
+  padding: 0 0 100px;
 }
 @media (max-width: 767px) {
   /* line 1, ../../../src/components/rte-custom-table/sass/rte-table.scss */
   .rte-custom-table {
-    padding: 20px 0 60px;
+    padding: 0 0 60px;
   }
 }
 /* line 6, ../../../src/components/rte-custom-table/sass/rte-table.scss */
@@ -11303,15 +11316,10 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   font-size: 24px;
   line-height: 25px;
   font-family: FSMe-Light;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 0 !important;
 }
-@media (max-width: 767px) {
-  /* line 6, ../../../src/components/rte-custom-table/sass/rte-table.scss */
-  .rte-custom-table h2 {
-    margin-bottom: 10px;
-  }
-}
-/* line 15, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 13, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table h2 strong {
   text-align: right;
   color: #6a7285;
@@ -11321,37 +11329,38 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   font-family: FSMe-bold;
 }
 @media (max-width: 767px) {
-  /* line 15, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+  /* line 13, ../../../src/components/rte-custom-table/sass/rte-table.scss */
   .rte-custom-table h2 strong {
     display: block;
     float: none;
+    margin-bottom: 20px;
     text-align: left;
   }
 }
-/* line 30, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 29, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table {
   width: 100%;
 }
-/* line 32, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 31, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table tr:nth-of-type(even) {
   background-color: #f0f1f3;
 }
-/* line 35, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 34, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table tr:first-child td:first-child {
   font-weight: 700;
   color: #fff;
 }
-/* line 39, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 38, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table tr:first-child td {
   background: #6a7184;
   color: #fff;
   line-height: 30px;
   border-top: none;
   border-bottom: 1px solid #c2c6d1;
-  padding: 14px 10px;
+  padding: 10px;
   font-weight: 700;
 }
-/* line 47, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 46, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table tr:first-child td:before {
   content: '';
   border-left: 1px solid #c3c6cf;
@@ -11360,16 +11369,16 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   margin-right: 10px;
 }
 @media (max-width: 767px) {
-  /* line 47, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+  /* line 46, ../../../src/components/rte-custom-table/sass/rte-table.scss */
   .rte-custom-table .table-responsive table.table tr:first-child td:before {
     display: none;
   }
 }
-/* line 57, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 56, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table tr:first-child td:first-child:before {
   display: none;
 }
-/* line 61, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 60, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table td {
   line-height: 30px;
   border-top: none;
@@ -11379,19 +11388,19 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   vertical-align: middle;
   color: #6a7285;
 }
-/* line 69, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 68, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table td .rteTable-rightText {
   display: block;
   width: 75%;
   float: right;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 69, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+  /* line 68, ../../../src/components/rte-custom-table/sass/rte-table.scss */
   .rte-custom-table .table-responsive table.table td .rteTable-rightText {
     width: 70%;
   }
 }
-/* line 77, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 76, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table td:before {
   content: '';
   border-left: 1px solid #c3c6cf;
@@ -11400,37 +11409,37 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   margin-right: 10px;
 }
 @media (max-width: 767px) {
-  /* line 77, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+  /* line 76, ../../../src/components/rte-custom-table/sass/rte-table.scss */
   .rte-custom-table .table-responsive table.table td:before {
     display: none;
   }
 }
-/* line 87, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 86, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table td:first-child {
   font-weight: 700;
   color: #444957;
 }
-/* line 91, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 90, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .table-responsive table.table td:first-child:before {
   display: none;
 }
 @media (max-width: 767px) {
-  /* line 29, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+  /* line 28, ../../../src/components/rte-custom-table/sass/rte-table.scss */
   .rte-custom-table .table-responsive {
     display: none;
   }
 }
-/* line 100, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 99, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .responsiveTable {
   display: none;
 }
 @media (max-width: 767px) {
-  /* line 100, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+  /* line 99, ../../../src/components/rte-custom-table/sass/rte-table.scss */
   .rte-custom-table .responsiveTable {
     display: block;
   }
 }
-/* line 106, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 105, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .responsiveTable table.table tr {
   background-color: #f0f1f3;
   border-bottom: 1px solid #c2c6d1;
@@ -11438,7 +11447,7 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   margin-bottom: 25px;
   display: block;
 }
-/* line 112, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 111, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .responsiveTable table.table tr td {
   color: #6a7285;
   padding: 12px 10px;
@@ -11448,31 +11457,31 @@ section.samplecontent-freearticle .quick-facts ul li:before {
   display: block;
   vertical-align: middle;
 }
-/* line 120, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 119, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .responsiveTable table.table tr td:first-child {
   font-weight: 700;
   background: #6a7184;
   color: #fff;
   font-size: 16px;
 }
-/* line 126, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 125, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .responsiveTable table.table tr td .rteValues {
   width: 50%;
   display: inline-block;
   vertical-align: middle;
   color: #6a7285;
 }
-/* line 132, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 131, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .responsiveTable table.table tr td .rteTitles {
   width: 50%;
   display: inline-block;
   color: #6a7285;
 }
-/* line 136, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 135, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .responsiveTable table.table tr td .rteTitles .rteValues {
   width: 100%;
 }
-/* line 140, ../../../src/components/rte-custom-table/sass/rte-table.scss */
+/* line 139, ../../../src/components/rte-custom-table/sass/rte-table.scss */
 .rte-custom-table .responsiveTable table.table tr td .rteTable-rightText {
   display: inline-block;
   margin-left: 30px;
