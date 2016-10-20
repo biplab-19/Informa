@@ -13,7 +13,7 @@ $desktop-width: 1142px;
     /* IE 9 */
     -webkit-transform: rotate($param);
     /* Chrome, Safari, Opera */
-    transform: rotate($param);
+    transform: rotate($param);  
 }
 
 @mixin limitHeight($height) {
@@ -166,7 +166,12 @@ $desktop-width: 1142px;
             }
         }
         .menuFollower {
-            @extend .background-link;
+            @if($name==agri-theme) {
+                background-color: $navlinkagricolor;
+            }
+            @else {
+                background-color: $white;
+            }
         }
         //Pharma and Agri primary color
         .primary-color {
@@ -259,10 +264,10 @@ $desktop-width: 1142px;
                 background: $secondarycolorlight;
             }
             @else {
-                background-color: $grey-color09;
+                background-color: $secondarycolorlight;
                 #pdp-sections-heading,
                 a {
-                    color: $grey-color03;
+                    color: $white;
                     &:active {
                         outline: none;
                     }
