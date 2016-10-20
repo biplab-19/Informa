@@ -7,7 +7,7 @@
 
     .clear-all {
         //color:$orange;
-        display: none;
+        visibility: hidden;
         &:after {
             content: 'X';
             margin-left: 5px;
@@ -19,7 +19,7 @@
             display: none;
         }
         &.noOpaque{
-            display:block;
+            visibility: visible;
         }
     }
 
