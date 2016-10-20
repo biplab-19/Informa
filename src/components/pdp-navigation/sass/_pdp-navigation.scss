@@ -2,8 +2,7 @@ nav#pdp-navigation {
       @include desktop{
             padding: 12px 0;
       }
-      border-bottom: 1px solid $grey-color08;
-      background: $grey-color09;
+      border-bottom: 0;
       @include not-desktop{
             .nav-pdp-col{
                   padding: 0;
@@ -46,6 +45,7 @@ nav#pdp-navigation {
             position: absolute;
             transition: .3s ease-in;
             display: none;
+            border-bottom: 1px solid $grey-color08;
       }
 
       @include desktop{
@@ -213,11 +213,11 @@ nav#pdp-navigation {
                               }
                               #pdp-sections-heading{
                                     text-align: left;
-                                    border-bottom: 1px solid $grey-color08;
                                     margin: 0;
                                     &.move-left{
                                           padding: 20px 0;
                                           font-family: FSMe-Bold;
+                                          border-bottom: 1px solid $grey-color08;
 
                                     }
                               }
