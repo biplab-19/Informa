@@ -29,6 +29,9 @@
         margin: 0;
         position: relative;
         padding-left: 40px;
+        @include desktop {
+            margin: 0 -15px;
+        }
         hr {
             height: 1px;
             background: $grey-color05;
@@ -40,6 +43,10 @@
             position: absolute;
             left: 0;
             top: 0;
+            @include mobile {
+                position: static;
+                float: left;
+            }
         }
         @include mobile {
           padding-left: 0px;
@@ -125,7 +132,7 @@
             font-family: Fsme-bold;
             color: $grey-color04;
             @include mobile {
-              margin-left: 45px;
+              margin-left: 0;
             }
         }
         .contact-descrip {

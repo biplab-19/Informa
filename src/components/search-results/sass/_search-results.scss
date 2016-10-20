@@ -328,6 +328,12 @@
                     width: 100%;
                     min-width: initial;
                     min-width: auto;
+                    @include desktop {
+                        padding-left: 10px;
+                        &:after {
+                            right: 10px;
+                        }
+                    }
                 }
             }
             .button-links {
@@ -353,6 +359,17 @@
                     }
                     @include tablet {
                         padding: 15px 25px;
+                    }
+                    
+                    @include desktop {
+                        .col-xs-6 {
+                            &:first-child {
+                                padding-right: 5px;
+                            }
+                            &:last-child {
+                                padding-left: 5px;
+                            }
+                        }
                     }
                 }
             }
