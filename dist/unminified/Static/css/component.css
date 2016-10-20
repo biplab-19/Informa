@@ -6430,7 +6430,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
 }
 /* line 8, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .clear-all {
-  display: none;
+  visibility: hidden;
 }
 /* line 11, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .clear-all:after {
@@ -6451,7 +6451,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
 }
 /* line 21, ../../../src/components/search-results/sass/_search-refine.scss */
 .refine-container .clear-all.noOpaque {
-  display: block;
+  visibility: visible;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
   /* line 1, ../../../src/components/search-results/sass/_search-refine.scss */

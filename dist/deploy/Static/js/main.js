@@ -1,4 +1,4 @@
-/*! 2016-10-19 */s = new AppMeasurement()
+/*! 2016-10-20 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -9867,18 +9867,28 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             });
             $(".product-finder form").on("keydown",function(e){
                 var SearchTextField = $(".site-search input[name=SearchText]"),
+                    SiteSearchRadio = ProductFinderSection.find("input[type=radio][data-show='site-search']:checked"),
                     ViewPort = INFORMA.global.device.viewportN;
-                if (e.keyCode === 13 || e.which===13) {
-                     if(ViewPort===1|| ViewPort===2){
-                        SearchTextField.trigger("blur");
-                        document.activeElement.blur();
+                    if (e.keyCode === 13 || e.which===13) {
+
+                         if(ViewPort===1|| ViewPort===2){
+                            SearchTextField.trigger("blur");
+                            document.activeElement.blur();
+                        }
+                        if((SearchTextField.val().length >= SearchTextField.data('length')) && (SiteSearchRadio)){
+                            var SearchSbmtBtn = $('button[data-submit="site-search"]').parent();
+                            if(!SearchSbmtBtn.hasClass('disabled')) {
+                                SearchTextField.parents('.site-search').find('button[data-submit="site-search"]').trigger('click');
+                            }
+                            return false;
+                        }else{
+                            var ProductSbmtBtn = $("button[data-submit='sector-search']").parent();
+                            if(!ProductSbmtBtn.hasClass('disabled')) {
+                                return true;
+                            }
+                            return false;
+                        }
                     }
-                    if(SearchTextField.val().length >= SearchTextField.data('length')){
-                        SearchTextField.parents('.site-search').find('button[data-submit="site-search"]').trigger('click');
-                    }else{
-                        return false;
-                    }
-                }
             });
         },
         ShowHideSearch = function(ele) {
