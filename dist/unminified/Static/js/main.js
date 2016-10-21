@@ -1,4 +1,4 @@
-/*! 2016-10-20 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-21 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4318,7 +4318,7 @@ var INFORMA = window.INFORMA || {};
                                                 '<div class="header clearfix">'+
                                                     '<div class="date">{{DateField}}</div>'+
                                                     '<p class="country">'+
-                                                        '{{#compare State null operator="!="}}{{State}}{{/compare}} {{#if State}}{{#if Country}},{{/if}}{{/if}}<strong>{{#compare Country null operator="!="}}{{Country}}{{/compare}}</strong></p>'+
+                                                        '{{#compare State null operator="!="}}{{State}}{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}} <strong>{{#compare Country null operator="!="}}{{Country}}{{/compare}}</strong></p>'+
                                                 '</div>'+
                                                 '<div class="content-wrap">'+
                                                     '<p><span class="type">{{EventType}}</span></p>'+
@@ -4350,10 +4350,18 @@ var INFORMA = window.INFORMA || {};
                                                 '</div>'+
                                                 '<div class="footer clearfix">'+
                                                     '{{#compare FullDetail null operator="!="}}' +
-                                                      '<a href="{{FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
+                                                        '{{#compare FullDetail.Url null operator="!="}}' +
+                                                            '{{#compare FullDetail.Url.length "0" operator=">"}}' +
+                                                            '<a href="{{FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
                                                     '{{/compare}}'+
-                                                    '{{#compare Register null operator="!="}}' + 
-                                                       '<a href="{{Register.Url}}" class="btn btn-primary pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
+                                                    '{{#compare Register null operator="!="}}' +
+                                                        '{{#compare Register.Url null operator="!="}}' +
+                                                            '{{#compare Register.Url.length "0" operator=">"}}' + 
+                                                               '<a href="{{Register.Url}}" class="btn btn-primary pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
                                                     '{{/compare}}'+
                                                 '</div>'+
                                             '</div>'+
