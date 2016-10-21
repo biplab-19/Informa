@@ -6,6 +6,9 @@ section#about-us-hero{
   .sample{
     position: relative;
     margin: 0;
+    @include mobile {
+      overflow: hidden;
+    }
   }
   .container {
     overflow: hidden;

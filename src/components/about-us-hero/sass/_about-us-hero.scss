@@ -9,6 +9,9 @@ section#about-us-hero{
   .sample{
     position: relative;
     margin: 0;
+    @include mobile {
+      overflow: hidden;
+    }
     .col-xs-12{
       padding-left: 0px;
       padding-right: 0px;
