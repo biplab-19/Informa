@@ -1,4 +1,4 @@
-/*! 2016-10-21 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-24 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4193,12 +4193,14 @@ var INFORMA = window.INFORMA || {};
                                                     '</div>' +
                                                 '</div>' +
                                                 '<div class="analyst-description">' +
-                                                    '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
-                                                    '<ul class="yellow-bullets">' +
-                                                        '{{#each Specialization}}' +
-                                                            '<li>{{this}}</li>' +
-                                                        '{{/each}}' +
-                                                    '</ul>' +
+                                                    '{{#compare Specialization.length 0 operator=">"}}' +
+                                                        '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
+                                                        '<ul class="yellow-bullets">' +
+                                                            '{{#each Specialization}}' +
+                                                                '<li>{{this}}</li>' +
+                                                            '{{/each}}' +
+                                                        '</ul>' +
+                                                    '{{/compare}}'+
                                                     '<p class="heading">+{{YearsOfExperience}} {{ExperienceText}}</p>' +
                                                     '{{#compare ProductDetails.length 0 operator=">"}}' +
                                                         '<ul class="track-analyst clearfix">' +
@@ -4265,12 +4267,14 @@ var INFORMA = window.INFORMA || {};
                                             '</div>' +
                                         '</div>' +
                                         '<div class="analyst-description">' +
-                                            '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>' +
-                                            '<ul class="yellow-bullets">' +
-                                                '{{#each results.Specialization}}' +
-                                                    '<li>{{this}}</li>' +
-                                                '{{/each}}' +
-                                            '</ul>' +
+                                            '{{#compare results.Specialization.length "0" operator=">"}}' +
+                                                '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>' +
+                                                '<ul class="yellow-bullets">' +
+                                                    '{{#each results.Specialization}}' +
+                                                        '<li>{{this}}</li>' +
+                                                    '{{/each}}' +
+                                                '</ul>' +
+                                            '{{/compare}}'+
                                             '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>' +
                                             '{{#compare results.ProductDetails.length "0" operator=">"}}' +
                                                 '<ul class="track-analyst clearfix">' +
@@ -4608,12 +4612,14 @@ var INFORMA = window.INFORMA || {};
                                                                     '</div>'+
                                                                 '</div>'+
                                                                 '<div class="analyst-description">'+
+                                                                    '{{#compare results.Specialization.length "0" operator=">"}}'+
                                                                     '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>'+
                                                                     '<ul class="yellow-bullets">'+
                                                                         '{{#each results.Specialization}}'+
                                                                         '<li>{{this}}</li>'+
                                                                         '{{/each}}'+
                                                                     '</ul>'+
+                                                                    '{{/compare}}'+
                                                                     '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
                                                                     '{{#compare results.ProductDetails.length "0" operator=">"}}'+
                                                                         '<ul class="track-analyst clearfix">'+
@@ -5597,7 +5603,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             }
             if (_HeadlinesLists.length > 0) {
                 CreateSlider(_HeadlinesLists,2,4);
-                headLineEqualHeight();
+                //headLineEqualHeight();
             }
             if (FilterMenu && !isExperienceMode) {
                 $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
@@ -7501,7 +7507,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _customPhoneErrorMsg,
         _reCaptchaAccessbility,
         _updateHiddenProductVerticalName,
-        _resetFormOnRefresh;
+        _resetFormOnRefresh,
+        _resetDefaultTitle;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -7511,6 +7518,19 @@ INFORMA.forms = (function(window, $, namespace) {
     //         $(this).valid();
     //     });
     // }
+    _resetDefaultTitle = function() {
+        var SecondaryHeading = $('.form-secondary-title');
+
+        SecondaryHeading.each(function() {
+            var GetTitle = $(this).val(),
+                Parent = $(this).parents('.modal'),
+                isHeading = Parent.find('.product-name-holder').text();
+
+            if(isHeading.length === 0) {
+                Parent.find('h2').text(GetTitle);
+            }
+        });
+    },
     _updateHiddenProductVerticalName = function() {
         $(document).ready(function() {
             var ProductName = $('.product-name').val(),
@@ -7525,6 +7545,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('.tc-product-name').html(ProductName);
                 } else {
                     $('.tc-product-name').html(VerticalName);
+                    _resetDefaultTitle();
                 }
             }
         });
@@ -8150,6 +8171,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
         _resetFormOnRefresh();
+        //_resetDefaultTitle();
     };
 
     return {
@@ -11483,7 +11505,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 DoLinksEvents();
             }
             ToggleView();
-            EqualHeight();
+            $(window).on('load', function() {
+                EqualHeight();
+            });
             GetSortValue();
         };
     return {
