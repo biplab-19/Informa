@@ -556,7 +556,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 DoLinksEvents();
             }
             ToggleView();
-            EqualHeight();
+            $(window).on('load', function() {
+                EqualHeight();
+            });
             GetSortValue();
         };
     return {

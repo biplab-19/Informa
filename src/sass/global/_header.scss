@@ -1358,6 +1358,9 @@ header {
                 padding: 0px 50px 20px 0;
                 @include desktop{
                     padding: 20px 40px 0 0;
+                    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+                    page-break-inside: avoid; /* Firefox */
+                    break-inside: avoid; /* IE 10+ */ 
                 }
                 @include not-desktop {
                     padding: 0;

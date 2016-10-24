@@ -245,12 +245,14 @@ var INFORMA = window.INFORMA || {};
                                                     '</div>' +
                                                 '</div>' +
                                                 '<div class="analyst-description">' +
-                                                    '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
-                                                    '<ul class="yellow-bullets">' +
-                                                        '{{#each Specialization}}' +
-                                                            '<li>{{this}}</li>' +
-                                                        '{{/each}}' +
-                                                    '</ul>' +
+                                                    '{{#compare Specialization.length 0 operator=">"}}' +
+                                                        '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
+                                                        '<ul class="yellow-bullets">' +
+                                                            '{{#each Specialization}}' +
+                                                                '<li>{{this}}</li>' +
+                                                            '{{/each}}' +
+                                                        '</ul>' +
+                                                    '{{/compare}}'+
                                                     '<p class="heading">+{{YearsOfExperience}} {{ExperienceText}}</p>' +
                                                     '{{#compare ProductDetails.length 0 operator=">"}}' +
                                                         '<ul class="track-analyst clearfix">' +
@@ -317,12 +319,14 @@ var INFORMA = window.INFORMA || {};
                                             '</div>' +
                                         '</div>' +
                                         '<div class="analyst-description">' +
-                                            '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>' +
-                                            '<ul class="yellow-bullets">' +
-                                                '{{#each results.Specialization}}' +
-                                                    '<li>{{this}}</li>' +
-                                                '{{/each}}' +
-                                            '</ul>' +
+                                            '{{#compare results.Specialization.length "0" operator=">"}}' +
+                                                '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>' +
+                                                '<ul class="yellow-bullets">' +
+                                                    '{{#each results.Specialization}}' +
+                                                        '<li>{{this}}</li>' +
+                                                    '{{/each}}' +
+                                                '</ul>' +
+                                            '{{/compare}}'+
                                             '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>' +
                                             '{{#compare results.ProductDetails.length "0" operator=">"}}' +
                                                 '<ul class="track-analyst clearfix">' +
@@ -660,12 +664,14 @@ var INFORMA = window.INFORMA || {};
                                                                     '</div>'+
                                                                 '</div>'+
                                                                 '<div class="analyst-description">'+
+                                                                    '{{#compare results.Specialization.length "0" operator=">"}}'+
                                                                     '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>'+
                                                                     '<ul class="yellow-bullets">'+
                                                                         '{{#each results.Specialization}}'+
                                                                         '<li>{{this}}</li>'+
                                                                         '{{/each}}'+
                                                                     '</ul>'+
+                                                                    '{{/compare}}'+
                                                                     '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
                                                                     '{{#compare results.ProductDetails.length "0" operator=">"}}'+
                                                                         '<ul class="track-analyst clearfix">'+

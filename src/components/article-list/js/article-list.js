@@ -210,7 +210,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             }
             if (_HeadlinesLists.length > 0) {
                 CreateSlider(_HeadlinesLists,2,4);
-                headLineEqualHeight();
+                //headLineEqualHeight();
             }
             if (FilterMenu && !isExperienceMode) {
                 $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
