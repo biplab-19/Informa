@@ -6536,15 +6536,20 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                             CountryText = event.Country;
                         }
 
-                    if(moment(CurrentDate) > moment(ItemDate)) {
-                        if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                            return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                        if(!event.EventText) {
+
+                            if(moment(CurrentDate) > moment(ItemDate)) {
+                                if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
+                                    return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                                } else {
+                                    return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                                }
+                            } else {
+                                return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                            }
                         } else {
                             return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                         }
-                    } else {
-                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
-                    }
                 }
         });
         CheckEvents(data);
@@ -6595,7 +6600,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 "State": data[key].State,
                 "Country": data[key].Country,
                 "Link": (data[key].FullDetail != null) ? (data[key].FullDetail.Url): null,
-                "Target": (data[key].FullDetail != null) ? (data[key].FullDetail.Target): null
+                "Target": (data[key].FullDetail != null) ? (data[key].FullDetail.Target): null,
+                "EventText": (data[key].EventText == "FullyBooked") ? true: false
             })
         }
         if(_vp === 1 || _vp === 2) {
