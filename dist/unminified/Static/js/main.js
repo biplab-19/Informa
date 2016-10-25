@@ -1,4 +1,4 @@
-/*! 2016-10-24 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-25 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -7521,15 +7521,18 @@ INFORMA.forms = (function(window, $, namespace) {
     _resetDefaultTitle = function() {
         var SecondaryHeading = $('.form-secondary-title');
 
-        SecondaryHeading.each(function() {
-            var GetTitle = $(this).val(),
-                Parent = $(this).parents('.modal'),
-                isHeading = Parent.find('.product-name-holder').text();
-
-            if(isHeading.length === 0) {
-                Parent.find('h2').text(GetTitle);
-            }
-        });
+        if(SecondaryHeading.length > 0) {
+            SecondaryHeading.each(function() {
+                var GetTitle = $(this).val();
+                var Parent = $(this).parents('.modal');
+                if(Parent.length > 0) {
+                    var isHeading = Parent.find('.product-name-holder').text();
+                    if(isHeading.length === 0) {
+                        Parent.find('h2').text(GetTitle);
+                    }
+                }
+            });
+        }
     },
     _updateHiddenProductVerticalName = function() {
         $(document).ready(function() {
