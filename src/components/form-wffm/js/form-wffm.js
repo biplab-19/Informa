@@ -55,15 +55,18 @@ INFORMA.forms = (function(window, $, namespace) {
     _resetDefaultTitle = function() {
         var SecondaryHeading = $('.form-secondary-title');
 
-        SecondaryHeading.each(function() {
-            var GetTitle = $(this).val(),
-                Parent = $(this).parents('.modal'),
-                isHeading = Parent.find('.product-name-holder').text();
-
-            if(isHeading.length === 0) {
-                Parent.find('h2').text(GetTitle);
-            }
-        });
+        if(SecondaryHeading.length > 0) {
+            SecondaryHeading.each(function() {
+                var GetTitle = $(this).val();
+                var Parent = $(this).parents('.modal');
+                if(Parent.length > 0) {
+                    var isHeading = Parent.find('.product-name-holder').text();
+                    if(isHeading.length === 0) {
+                        Parent.find('h2').text(GetTitle);
+                    }
+                }
+            });
+        }
     },
     _updateHiddenProductVerticalName = function() {
         $(document).ready(function() {
