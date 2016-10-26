@@ -168,6 +168,8 @@ module.exports = function(grunt) {
                       '<%= config.dist %>/unminified/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
                       '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
                       '<%= config.dist %>/unminified/Static/css/pharma-theme.css': ['<%= config.tmp %>/Static/css/pharma-theme.css'],
+                      '<%= config.dist %>/unminified/Static/css/finance-theme.css': ['<%= config.tmp %>/Static/css/finance-theme.css'],
+                      '<%= config.dist %>/unminified/Static/css/tmt-theme.css': ['<%= config.tmp %>/Static/css/tmt-theme.css'],
 
 
                       '<%= config.dist %>/unminified/Static/css/marketing-module.css': ['src/sass/marketing-module.css'],
@@ -180,6 +182,8 @@ module.exports = function(grunt) {
                       '<%= config.dist %>/deploy/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
                       '<%= config.dist %>/deploy/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/agri-theme.css'],
                       '<%= config.dist %>/deploy/Static/css/pharma-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/pharma-theme.css'],
+                      '<%= config.dist %>/deploy/Static/css/finance-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/finance-theme.css'],
+                      '<%= config.dist %>/deploy/Static/css/tmt-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/tmt-theme.css'],
                       '<%= config.dist %>/deploy/Static/css/marketing-module.css': ['src/sass/marketing-module.css']
                 }
             }
@@ -406,7 +410,14 @@ module.exports = function(grunt) {
                 },
                 {
                   '<%= config.dist %>/minified/Static/css/pharma-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/pharma-theme.css']
-                },{
+                },
+                {
+                  '<%= config.dist %>/minified/Static/css/finance-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/finance-theme.css']
+                },
+                {
+                  '<%= config.dist %>/minified/Static/css/tmt-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/tmt-theme.css']
+                }
+                ,{
                     '<%= config.dist %>/minified/Static/css/marketing-module.css': ['src/sass/marketing-module.css'],
                 }
               ]

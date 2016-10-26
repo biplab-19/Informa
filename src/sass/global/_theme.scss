@@ -3,22 +3,23 @@
    2. Primary Color
    3. Secondary Color Darker Version
    4. Secondary Color Lighter Version
+   5. NavLink Color
 */
 
 //Agri Theme
-@include theme(agri-theme, $agriprimarycolor, $agrisecondrydarkcolor, $agrisecondarylightcolor);
+@include theme(agri-theme, $agriprimarycolor, $agrisecondrydarkcolor, $agrisecondarylightcolor, $navlinkagricolor);
 
 //Pharma Theme
-@include theme(pharma-theme, $pharmaprimarycolor, $pharmasecondrydarkcolor, $pharmasecondarylightcolor);
+@include theme(pharma-theme, $pharmaprimarycolor, $pharmasecondrydarkcolor, $pharmasecondarylightcolor, $navlinkpharmacolor);
 
 //Business Theme
-@include theme(business-theme, $businessprimarycolor, $businesssecondrydarkcolor, $businesssecondarylightcolor);
+@include theme(business-theme, $businessprimarycolor, $businesssecondrydarkcolor, $businesssecondarylightcolor,'');
 
 //Finance Theme
-@include theme(finance-theme, $financeprimarycolor, $financesecondrydarkcolor, $financesecondarylightcolor);
+@include theme(finance-theme, $financeprimarycolor, $financesecondrydarkcolor, $financesecondarylightcolor,$navlinkfinancecolor);
 
 //TMT Theme
-@include theme(tmt-theme, $tmtprimarycolor, $tmtsecondrydarkcolor, $tmtsecondarylightcolor);
+@include theme(tmt-theme, $tmtprimarycolor, $tmtsecondrydarkcolor, $tmtsecondarylightcolor, $navlinktmtcolor);
 
 //Maritime
-@include theme(maritime-theme, $maritimeprimarycolor, $marisecondrydarkcolor, $maritimesecondarylightcolor);
+@include theme(maritime-theme, $maritimeprimarycolor, $marisecondrydarkcolor, $maritimesecondarylightcolor, $navlinkmaritimecolor);
