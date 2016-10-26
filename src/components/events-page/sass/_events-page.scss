@@ -293,7 +293,10 @@
 }
 .no-result {
 	background: $white;
-	padding: 50px 0;
+	padding: 0 0 30px;
+	@include desktop{
+		margin-top: -30px;
+	}
 }
 section[data-view="list-view"], section[data-view="calendar-view"] {
 	@include mobile {
