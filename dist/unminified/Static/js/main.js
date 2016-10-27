@@ -1,4 +1,4 @@
-/*! 2016-10-21 */var INFORMA = window.INFORMA || {};
+/*! 2016-10-27 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4061,11 +4061,11 @@ var INFORMA = window.INFORMA || {};
                     '{{/compare}}'+
                     '<p class="date">{{PublicationDate}}</p>'+
                     '<div class="list-content">'+
-                        '<h4 class="poduct-brand-subheading"><a href="{{Link.Url}}">{{Title}}</a></h4>'+
+                        '<h4 class="poduct-brand-subheading"><a href="{{ProductLink.Url}}" target="{{ProductLink.Target}}">{{Title}}</a></h4>'+
                     '</div>'+
                     '<div class="link">'+
-                        '<a role="button" href="{{Link.Url}}" title="External Link" target="{{Link.Target}}">'+
-                        '<span class="icon-external-link">{{Link.LinkText}}<span class="access-link">Link</span></span></a>'+
+                        '<a role="button" href="{{ProductLink.Url}}" title="External Link" target="{{ProductLink.Target}}">'+
+                        '<span class="icon-external-link">{{ProductLink.LinkText}}<span class="access-link">Link</span></span></a>'+
                     '</div>'+
                 '</li>'+
             '{{/each}}',
@@ -11878,8 +11878,18 @@ INFORMA.videoBackground = (function(window, $, namespace) {
     };
 
     function onYTPlayerReady(event) {
-        event.target.playVideo();
-        event.target.setVolume(_youTubeSound);
+        if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+            event.target.playVideo();
+            event.target.setVolume(_youTubeSound);
+        } else {
+            var playButton = $(".videoBG_wrapper");
+            if(playButton.length > 0 ){
+              playButton.on("click", function() {
+                  ytPlayer.playVideo();
+                  ytPlayer.setVolume(_youTubeSound);
+              });
+            }
+        }
     }
 
     init = function() {
@@ -11909,7 +11919,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
         _videoPlayBtnWrapper.click(function() {
             var videoImg = $(this).parent().find('img');
             if (videoImg.attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>';
             } else if (videoImg .attr('data-videotype') == "vimeo") {
                 video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if (videoImg.attr('data-videotype') == "wistia") {
@@ -11924,7 +11934,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
         _videoFullWrapper.click(function() {
 
             if ($(this).attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1&autoplay=1" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "vimeo") {
                 video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "wistia") {

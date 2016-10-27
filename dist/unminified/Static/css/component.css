@@ -1,4 +1,4 @@
-/*! 2016-10-21 */@charset "UTF-8";
+/*! 2016-10-27 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -9481,19 +9481,6 @@ section.hero-banner .videoBG {
   height: 0;
   padding-bottom: 56.25%;
   /* 16:9 */
-  pointer-events: none;
-}
-@media (max-width: 767px) {
-  /* line 64, ../../../src/components/videos/sass/_video-background.scss */
-  section.hero-banner .videoBG {
-    pointer-events: auto;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 64, ../../../src/components/videos/sass/_video-background.scss */
-  section.hero-banner .videoBG {
-    pointer-events: auto;
-  }
 }
 /* line 77, ../../../src/components/videos/sass/_video-background.scss */
 section.hero-banner .videoBG:after {
