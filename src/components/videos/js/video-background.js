@@ -90,6 +90,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
                 'autoplay': 1,
                 'controls': 1,
                 'loop': 1,
+                'wmode':'opaque',
                 'playlist': _youTubeId,
                 'showinfo': 0
             },

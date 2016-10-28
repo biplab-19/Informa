@@ -1110,7 +1110,7 @@ header {
     z-index: 9999;
     padding: 0;
     background-color: $grey-color04;
-    position: relative;
+    position: absolute;
     width: 100%;
     min-height: 0;
     -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
@@ -1131,9 +1131,6 @@ header {
         @include desktop {
             padding: 50px 0;
             padding-right: 15px;
-            position: relative;
-            width: 100%;
-            float: left;
         }
         @include tablet {
             width: 94%;
@@ -1381,7 +1378,7 @@ header {
         }
     }
     .subnav-close {
-        //float: right;
+        float: right;
         height: 15px;
         width: 15px;
         a {
@@ -1389,7 +1386,6 @@ header {
             text-decoration: none;
             position: absolute;
             top: 50px;
-            right: 15px;
             .access-link{
                 font-size: 0;
                 line-height: 0;
