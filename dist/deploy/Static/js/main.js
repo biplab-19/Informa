@@ -4164,7 +4164,7 @@ var INFORMA = window.INFORMA || {};
         'HeadlinesListItems':
             '{{#each Headlines}}'+
                 '<li>'+
-                    '{{#compare Product null operator="!="}}'+
+                    '{{#compare Products null operator="!="}}'+
                         '<p class="type">'+
                             '{{#each Products}}'+
                                 '<span>{{this}}</span>'+
@@ -4547,9 +4547,9 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/each}}'+
                                             '</p>'+
                                         '{{/compare}}'+
-                                        '{{#compare Products.length "0" operator=">"}}'+
+                                        '{{#compare results.Products null operator="!="}}'+
                                             '<p class="type">'+
-                                                '{{#each Products}}'+
+                                                '{{#each results.Products}}'+
                                                     '<span>{{this}}</span>'+
                                                 '{{/each}}'+
                                             '</p>'+
