@@ -11910,7 +11910,15 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
                 var vimeoPlayer = new Vimeo.Player('vimeoPlayer', options);
                 vimeoPlayer.setVolume(_vimeoSound);
-
+                if (INFORMA.global.device.viewportN == 2 ) {
+                  $('.videoBG_wrapper').css('height', '80%');
+                  $('.block-centered').css('transform','translateY(-40%)');
+                }
+                if (INFORMA.global.device.viewportN == 1) {
+                  $('section.hero-banner').addClass('vimeo-video-banner');
+                  $('.videoBG_wrapper').css('height', '80%');
+                  $('.block-centered').css('transform','translateY(-25%)');
+                }
             } else if (_urlType == "wistia") {
 
                 _wistiaUrl = $(this).attr('data-videourl')
@@ -11918,9 +11926,21 @@ INFORMA.videoBackground = (function(window, $, namespace) {
                 _wistiaSound = $(this).attr('data-videosound');
 
                 var iframeWSElement = document.createElement('iframe');
+                iframeWSElement.id = "wistiaEmbed",
+                iframeWSElement.class = "wistia_embed",
+                iframeWSElement.name = "wistia_embed";
                 iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
                 $(this).append(iframeWSElement);
 
+                  if (INFORMA.global.device.viewportN == 1 || INFORMA.global.device.viewportN == 2 ) {
+                    var playButton = $(".videoBG_wrapper");
+                    if(playButton.length > 0 ){
+                      playButton.on("click", function() {
+                            var wistiaEmbed = document.getElementById("wistiaEmbed").wistiaApi;
+                                wistiaEmbed.play();
+                      });
+                    }
+                  }
             }
 
         });
@@ -11963,7 +11983,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
     init = function() {
         _addOptions();
-        _setHeroVideoHeight();
+      //  _setHeroVideoHeight();
     };
 
     return {

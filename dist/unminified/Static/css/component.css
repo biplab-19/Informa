@@ -9526,6 +9526,37 @@ section.hero-banner .fourBYthree {
     height: 210px;
   }
 }
+/* line 108, ../../../src/components/videos/sass/_video-background.scss */
+section.hero-banner-video .cf-img {
+  display: none;
+}
+@media (max-width: 767px) {
+  /* line 113, ../../../src/components/videos/sass/_video-background.scss */
+  section.hero-banner-video .videoBG {
+    display: none;
+  }
+  /* line 116, ../../../src/components/videos/sass/_video-background.scss */
+  section.hero-banner-video .cf-img {
+    display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 122, ../../../src/components/videos/sass/_video-background.scss */
+  section.hero-banner-video .videoBG {
+    display: none;
+  }
+  /* line 125, ../../../src/components/videos/sass/_video-background.scss */
+  section.hero-banner-video .cf-img {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 130, ../../../src/components/videos/sass/_video-background.scss */
+  section.vimeo-video-banner {
+    height: 425px !important;
+  }
+}
 
 /* line 2, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .tab-pane form.get-in-touch,
