@@ -1,4 +1,4 @@
-/*! 2016-10-28 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-07 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3979,11 +3979,14 @@ var INFORMA = window.INFORMA || {};
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
-                                '{{#compare Product null operator="!="}}'+
-                                    '<p class="type">'+
-                                        '<span>{{Product}}</span>'+
-                                    '</p>'+
-                                '{{/compare}}'+
+                                        '{{#compare Products null operator="!="}}'+
+                                            '<p class="type">'+
+                                                '{{#each Products}}'+
+                                                '<span>{{this}}</span>'+
+                                                '{{/each}}'+
+                                            '</p>'+
+                                        '{{/compare}}'+
+
                                 '{{#if EcommerceLink}}'+
                                     '{{#if EcommerceLink.Url}}'+
                                         '<h4><a href="{{EcommerceLink.Url}}" target="{{EcommerceLink.Target}}">{{Title}}</a></h4>'+
@@ -4056,7 +4059,9 @@ var INFORMA = window.INFORMA || {};
                 '<li>'+
                     '{{#compare Product null operator="!="}}'+
                         '<p class="type">'+
-                            '<span>{{Product}}</span>'+
+                            '{{#each Products}}'+
+                                '<span>{{this}}</span>'+
+                            '{{/each}}'+
                         '</p>'+
                     '{{/compare}}'+
                     '<p class="date">{{PublicationDate}}</p>'+
@@ -4435,20 +4440,36 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/each}}'+
                                             '</p>'+
                                         '{{/compare}}'+
-                                        '<p class="type">'+
-                                            '<span>{{results.Product}}</span>'+
-                                        '</p>'+
+                                        '{{#compare Products.length "0" operator=">"}}'+
+                                            '<p class="type">'+
+                                                '{{#each Products}}'+
+                                                    '<span>{{this}}</span>'+
+                                                '{{/each}}'+
+                                            '</p>'+
+                                        '{{/compare}}'+
+                                        '{{#if results.IsPaidContent}}'+
+                                            '{{#if results.ProductLink}}'+
+                                                '{{#compare results.ProductLink null operator="!="}}'+
+                                                '{{#if results.ProductLink.Url}}'+
+                                                    '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/if}}'+
+                                            '{{else}}' +
+                                            '{{#compare results.ContentTypeGuid.[0] results.HeadLinesGuid operator="=="}}'+
+                                                '{{#if results.ProductLink}}'+
+                                                    '{{#compare results.ProductLink null operator="!="}}'+
+                                                    '{{#if results.ProductLink.Url}}'+
+                                                        '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
+                                                    '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/if}}'+
                                         '{{#if results.EcommerceLink}}'+
                                             '{{#if results.EcommerceLink.Url}}'+
                                                 '<h4><a href="{{results.EcommerceLink.Url}}" target="{{results.EcommerceLink.Target}}">{{results.Title}}</a></h4>'+
                                             '{{/if}}'+
-                                        '{{/if}}'+
-                                        '{{#if results.ProductLink}}'+
-                                            '{{#compare results.ProductLink null operator="!="}}'+
-                                            '{{#if results.ProductLink.Url}}'+
-                                                '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
-                                            '{{/if}}'+
-                                            '{{/compare}}'+
                                         '{{/if}}'+
                                         '{{#compare results.LinkText null operator="!="}}'+
                                             '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
@@ -4496,21 +4517,35 @@ var INFORMA = window.INFORMA || {};
                                     '{{#compare results.Price null operator="!="}}'+
                                             '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
                                     '{{/compare}}'+
+                                    '{{#if results.IsPaidContent}}'+
+                                            '{{#if results.ProductLink}}'+
+                                                '{{#compare results.ProductLink null operator="!="}}'+
+                                                '{{#if results.ProductLink.Url}}'+
+                                                    '<div class="btn-container text-right">'+
+                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
+                                            '</div>'+
+                                                '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/if}}'+
+                                            '{{else}}' +
+                                            '{{#compare results.ContentTypeGuid.[0] results.HeadLinesGuid operator="=="}}'+
+                                                '{{#if results.ProductLink}}'+
+                                                    '{{#compare results.ProductLink null operator="!="}}'+
+                                                    '{{#if results.ProductLink.Url}}'+
+                                                        '<div class="btn-container text-right">'+
+                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
+                                            '</div>'+
+                                                    '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                    '{{/if}}'+
                                     '{{#if results.EcommerceLink}}'+
                                         '{{#if results.EcommerceLink.Url}}'+
                                             '<div class="btn-container text-right">'+
                                                 '<a href="{{results.EcommerceLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.EcommerceLink.Target}}">{{results.EcommerceLink.LinkText}}</a>'+
                                             '</div>'+
                                         '{{/if}}'+
-                                    '{{/if}}'+
-                                    '{{#if results.ProductLink}}'+
-                                        '{{#compare results.ProductLink null operator="!="}}'+
-                                        '{{#if results.ProductLink.Url}}'+
-                                            '<div class="btn-container text-right">'+
-                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
-                                            '</div>'+
-                                        '{{/if}}'+
-                                        '{{/compare}}'+
                                     '{{/if}}'+
                                     '{{#compare results.LinkText null operator="!="}}'+
                                         '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
