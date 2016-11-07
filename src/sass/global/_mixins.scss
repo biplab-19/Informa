@@ -941,6 +941,31 @@ $desktop-width: 1142px;
                 color:$secondarycolordark;
             }
     }
+
+
+    .table-bordered{
+        margin:20px auto;
+        > thead{
+            > tr{
+                > th{
+                    background-color:$secondarycolordark;
+                    color:#fff;
+                }
+            }
+        }
+        > tbody{
+            tr:nth-child(even) {
+                background-color: $grey-color09;
+            }
+            td{
+                color:$grey-color04;
+            }
+        }
+    }
+    .table-hover > tbody > tr:hover > td,
+    .table-hover > tbody > tr:hover > th{
+         background-color: $grey-color10;
+    }
 }
 
 @mixin opacity($opacity) {

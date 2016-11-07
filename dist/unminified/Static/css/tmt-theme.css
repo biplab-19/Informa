@@ -1,4 +1,4 @@
-/*! 2016-10-28 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-11-07 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -746,4 +746,28 @@
 /* line 940, ../../../src/sass/global/_mixins.scss */
 .more-stories .feature li:before {
   color: #8c073d;
+}
+
+/* line 946, ../../../src/sass/global/_mixins.scss */
+.table-bordered {
+  margin: 20px auto;
+}
+/* line 950, ../../../src/sass/global/_mixins.scss */
+.table-bordered > thead > tr > th {
+  background-color: #8c073d;
+  color: #fff;
+}
+/* line 957, ../../../src/sass/global/_mixins.scss */
+.table-bordered > tbody tr:nth-child(even) {
+  background-color: #e1e3e7;
+}
+/* line 960, ../../../src/sass/global/_mixins.scss */
+.table-bordered > tbody td {
+  color: #565c6b;
+}
+
+/* line 965, ../../../src/sass/global/_mixins.scss */
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #f0f1f3;
 }
