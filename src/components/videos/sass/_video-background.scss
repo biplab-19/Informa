@@ -105,4 +105,30 @@ section.hero-banner-video{
   @include mobile {
       height: 210px;
   }
+  .cf-img {
+    display: none;
+  }
+
+  @include mobile {
+    .videoBG {
+      display: none;
+    }
+    .cf-img {
+      display: block;
+    }
+  }
+
+  @include tablet {
+    .videoBG {
+      display: none;
+    }
+    .cf-img {
+      display: block;
+    }
+  }
+}
+section.vimeo-video-banner{
+  @include tablet {
+    height: 425px !important;
+  }
 }
