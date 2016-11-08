@@ -1,4 +1,4 @@
-/*! 2016-11-07 */@charset "UTF-8";
+/*! 2016-11-08 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -9524,6 +9524,37 @@ section.hero-banner .fourBYthree {
   /* line 103, ../../../src/components/videos/sass/_video-background.scss */
   section.hero-banner-video {
     height: 210px;
+  }
+}
+/* line 108, ../../../src/components/videos/sass/_video-background.scss */
+section.hero-banner-video .cf-img {
+  display: none;
+}
+@media (max-width: 767px) {
+  /* line 113, ../../../src/components/videos/sass/_video-background.scss */
+  section.hero-banner-video .videoBG {
+    display: none;
+  }
+  /* line 116, ../../../src/components/videos/sass/_video-background.scss */
+  section.hero-banner-video .cf-img {
+    display: block;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 122, ../../../src/components/videos/sass/_video-background.scss */
+  section.hero-banner-video .videoBG {
+    display: none;
+  }
+  /* line 125, ../../../src/components/videos/sass/_video-background.scss */
+  section.hero-banner-video .cf-img {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 130, ../../../src/components/videos/sass/_video-background.scss */
+  section.vimeo-video-banner {
+    height: 425px !important;
   }
 }
 
