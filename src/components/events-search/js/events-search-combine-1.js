@@ -35,10 +35,20 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         _previousDate = null,
         //methods
         init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents,
-        SetCalendarEvents, RenderParticularMonth, RenderChange,
+        SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData,
         SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents;
 
-
+    GetEventData = function (monthType) {
+    	var eventID = $("section#events"),
+    		obj = {
+              data:JSON.stringify({ MonthYear: monthType,
+              SectorId: SectorSelect.val(),
+              eventType: Type.val(),
+              Country: Country.val(),
+              CurrentPage:eventID.data("CurrentPage")})
+            } 
+    	return obj;
+    },
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
 
         INFORMA.Spinner.Show($('body'));
@@ -139,11 +149,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     RenderOnLoad = function() {
         jQuery('body').addClass('list-view');
         var date = new Date(),
-            DatePass = moment(date).format('MMMM YYYY');
+            DatePass = moment(date).format('MMMM YYYY'),
+            PageTemplate = $("section#events").data("currentpage");
             EqualHeight();
         var obj = {
             data:JSON.stringify({MonthYear: DatePass,SectorId: SectorSelect.val(), eventType: Type.val(),
-            Country: Country.val()})
+            Country: Country.val(),CurrentPage:PageTemplate})
         }
         _previousDate = date;
         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderLoadEvents, null, null);
@@ -300,15 +311,15 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SetCalendarEvents(data);
     },
     RenderParticularMonth = function(date) { 
-        var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY'); 
-                
-                var obj = { 
-                     data:JSON.stringify({MonthYear: NextMonth, 
-                        SectorId: SectorSelect.val(),
-                        eventType: Type.val()
-                        })
-                } 
-
+        var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY'),
+		PageTemplate = $("section#events").data("CurrentPage");
+            var obj = { 
+		          data:JSON.stringify({MonthYear: NextMonth, 
+		                        SectorId: SectorSelect.val(),
+		            eventType: Type.val(),
+		            CurrentPage:PageTemplate
+		         })
+           } 
         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
 
     },
@@ -380,60 +391,69 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
 
         MonthSelect.on('change', function() {
-            var value = jQuery(this).val();
-            var check = moment(new Date('1 '+value));
+            var value = jQuery(this).val(),
+            	check = moment(new Date('1 '+value));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
-            var obj = {
-              data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
-                SectorId: SectorSelect.val(),
-                eventType: Type.val(),
-              Country: Country.val()})
-            } 
+            var MonthYear = check.format('MMMM YYYY'),
+            	obj = GetEventData(MonthYear);
+
+            // var obj = {
+            //   data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
+            //     SectorId: SectorSelect.val(),
+            //     eventType: Type.val(),
+            //   Country: Country.val()})
+            // } 
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
             NoEventsFound();
-        })
+        });
+
         Country.on('change', function() {
-            var value = jQuery(this).val();
-            var check = moment(new Date('1 '+MonthSelect.val()));
+            var value = jQuery(this).val(),
+            	check = moment(new Date('1 '+MonthSelect.val()));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
-            var obj = {
-               data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
-                SectorId: SectorSelect.val(),
-                eventType: Type.val(),
-               Country: jQuery(this).val()})
-            }
+            // var obj = {
+            //    data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
+            //     SectorId: SectorSelect.val(),
+            //     eventType: Type.val(),
+            //    Country: jQuery(this).val()})
+            // }
 
+            var MonthYear = check.format('MMMM YYYY'),
+            	obj = GetEventData(MonthYear);
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
             NoEventsFound();
-        })
+        });
 
         Type.on('change', function() {
-            var value = jQuery(this).val();
-            var check = moment(new Date('1 '+MonthSelect.val()));
+            var value = jQuery(this).val(),
+            	check = moment(new Date('1 '+MonthSelect.val()));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
-            var obj = {
-               data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
-                SectorId: SectorSelect.val(),
-                eventType: jQuery(this).val(),
-               Country: Country.val()})
-            }
 
+            var MonthYear = check.format('MMMM YYYY'),
+            	obj = GetEventData(MonthYear);
+
+            // var obj = {
+            //    data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
+            //     SectorId: SectorSelect.val(),
+            //     eventType: jQuery(this).val(),
+            //    Country: Country.val()})
+            // }
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
@@ -442,12 +462,16 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
 
         SectorSelect.on('change', function(){
-            var obj = {
-              data:JSON.stringify({  MonthYear: MonthSelect.val(),
-                SectorId: jQuery(this).val(),
-                eventType: Type.val(),
-              Country: Country.val()})
-            }
+
+        	var MonthYear = MonthSelect.val(),
+            	obj = GetEventData(MonthYear);
+
+            // var obj = {
+            //   data:JSON.stringify({  MonthYear: MonthSelect.val(),
+            //     SectorId: jQuery(this).val(),
+            //     eventType: Type.val(),
+            //   Country: Country.val()})
+            // }
 
             _previousDate = new Date(MonthSelect.val());
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
@@ -485,12 +509,14 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', 1).format('MMMM YYYY');
 
-                    var obj = {
-                       data:JSON.stringify({  MonthYear: prevMonth,
-                        SectorId: SectorSelect.val(),
-                       Country: Country.val(),
-                        eventType: Type.val()})
-                    }
+                    var MonthYear = prevMonth,
+            			obj = GetEventData(MonthYear);
+                    // var obj = {
+                    //    data:JSON.stringify({  MonthYear: prevMonth,
+                    //     SectorId: SectorSelect.val(),
+                    //    Country: Country.val(),
+                    //     eventType: Type.val()})
+                    // }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', 1));
                     jQuery('section[data-view="calendar-view"]').hide();
@@ -506,12 +532,15 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
 
-                    var obj = {
-                      data:JSON.stringify({   MonthYear: prevMonth,
-                        SectorId: SectorSelect.val(),
-                      Country: Country.val(),
-                        eventType: Type.val()})
-                    }
+                    var MonthYear = prevMonth,
+            			obj = GetEventData(MonthYear);
+
+                    // var obj = {
+                    //   data:JSON.stringify({   MonthYear: prevMonth,
+                    //     SectorId: SectorSelect.val(),
+                    //   Country: Country.val(),
+                    //     eventType: Type.val()})
+                    // }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', -1));
                     jQuery('section[data-view="calendar-view"]').hide();
