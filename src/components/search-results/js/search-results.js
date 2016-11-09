@@ -366,14 +366,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if (Lists[j].Category) {
                             ContentType = Lists[j].Category;
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
-                            if(ContentType == 'SampleContent') {
-                                if(Lists[j].Price != null){
-                                    if(Lists[j].Price){
-                                        var replacezeroWidthSpace = Lists[j].Price.replace(/\u200B/g,'');
-                                        Lists[j].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                    }
-                                }
-                            }
                             ListTemplate = Handlebars.compile(TemplateName);
                             Html += ListTemplate({ results: Lists[j] });
                         }
