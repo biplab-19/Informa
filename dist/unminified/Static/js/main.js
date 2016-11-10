@@ -1,4 +1,4 @@
-/*! 2016-11-07 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-10 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3979,28 +3979,30 @@ var INFORMA = window.INFORMA || {};
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
-                                        '{{#compare Products null operator="!="}}'+
-                                            '<p class="type">'+
-                                                '{{#each Products}}'+
-                                                '<span>{{this}}</span>'+
-                                                '{{/each}}'+
-                                            '</p>'+
-                                        '{{/compare}}'+
-
-                                '{{#if EcommerceLink}}'+
-                                    '{{#if EcommerceLink.Url}}'+
-                                        '<h4><a href="{{EcommerceLink.Url}}" target="{{EcommerceLink.Target}}">{{Title}}</a></h4>'+
-                                    '{{/if}}'+
-                                '{{/if}}'+
-                                '{{#compare IsAuthenticatedUser true operator="=="}}'+
-                                    '{{#if LinkText}}'+
-                                        '<h4><a href="{{PageURL}}" target="_self">{{Title}}</a></h4>'+
-                                    '{{/if}}'+
+                                '{{#compare Products null operator="!="}}'+
+                                    '<p class="type">'+
+                                        '{{#each Products}}'+
+                                        '<span>{{this}}</span>'+
+                                        '{{/each}}'+
+                                    '</p>'+
                                 '{{/compare}}'+
-                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
-                                    '{{#if LinkText}}'+
-                                        '<h4><a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{Title}}</a></h4>'+
-                                    '{{/if}}'+
+
+                                '{{#if HasExternalLink}}'+
+                                    '{{#compare HasExternalLink true operator="=="}}'+
+                                        '<h4><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
+                                    '{{/compare}}'+
+                                '{{/if}}'+
+                                 '{{#compare HasExternalLink false operator="=="}}'+
+                                    '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                        '{{#if LinkText}}'+
+                                            '<h4><a href="{{PageURL}}" target="_self">{{Title}}</a></h4>'+
+                                        '{{/if}}'+
+                                    '{{/compare}}'+
+                                    '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                        '{{#if LinkText}}'+
+                                            '<h4><a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{Title}}</a></h4>'+
+                                        '{{/if}}'+
+                                    '{{/compare}}'+
                                 '{{/compare}}'+
                                 '<p class="publish">{{#if Profile}}{{ByKeyword}} <strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
                                 '{{#compare Description null operator="!="}}'+
@@ -4028,26 +4030,28 @@ var INFORMA = window.INFORMA || {};
                             '{{#compare Price null operator="!="}}'+
                                     '<div class="recomended-currency"><strong>{{Price}}</strong></div>'+
                             '{{/compare}}'+
-                            '{{#if EcommerceLink}}'+
-                                '{{#if EcommerceLink.Url}}'+
+                            '{{#if HasExternalLink}}'+
+                                '{{#compare HasExternalLink true operator="=="}}'+
                                     '<div class="btn-container text-right">'+
-                                        '<a href="{{EcommerceLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{EcommerceLink.Target}}">{{EcommerceLink.LinkText}}</a>'+
+                                        '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{LinkText}}</a>'+
                                     '</div>'+
-                                '{{/if}}'+
+                                '{{/compare}}'+
                             '{{/if}}'+
-                            '{{#compare IsAuthenticatedUser true operator="=="}}'+
-                            '{{#if LinkText}}'+
-                                '<div class="btn-container text-right">'+
-                                    '<a href="{{PageURL}}" class="btn btn-primary full-width-btn" target="_self">{{LinkText}}</a>'+
-                                '</div>'+
-                            '{{/if}}'+
-                            '{{/compare}}'+
-                            '{{#compare IsAuthenticatedUser false operator="=="}}'+
-                            '{{#if LinkText}}'+
-                                '<div class="btn-container text-right">'+
-                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{LinkText}}</a>'+
-                                '</div>'+
-                            '{{/if}}'+
+                            '{{#compare HasExternalLink false operator="=="}}'+
+                                '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                    '{{#if LinkText}}'+
+                                        '<div class="btn-container text-right">'+
+                                            '<a href="{{PageURL}}" class="btn btn-primary full-width-btn" target="_self">{{LinkText}}</a>'+
+                                        '</div>'+
+                                    '{{/if}}'+
+                                '{{/compare}}'+
+                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                    '{{#if LinkText}}'+
+                                        '<div class="btn-container text-right">'+
+                                            '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{LinkText}}</a>'+
+                                        '</div>'+
+                                    '{{/if}}'+
+                                '{{/compare}}'+
                             '{{/compare}}'+
                         '</div>'+
                     '</div>'+
@@ -4447,34 +4451,15 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/each}}'+
                                             '</p>'+
                                         '{{/compare}}'+
-                                        '{{#if results.IsPaidContent}}'+
-                                            '{{#if results.ProductLink}}'+
-                                                '{{#compare results.ProductLink null operator="!="}}'+
-                                                '{{#if results.ProductLink.Url}}'+
-                                                    '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
-                                                '{{/if}}'+
-                                                '{{/compare}}'+
-                                            '{{/if}}'+
-                                            '{{else}}' +
-                                            '{{#compare results.ContentTypeGuid.[0] results.HeadLinesGuid operator="=="}}'+
-                                                '{{#if results.ProductLink}}'+
-                                                    '{{#compare results.ProductLink null operator="!="}}'+
-                                                    '{{#if results.ProductLink.Url}}'+
-                                                        '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
-                                                    '{{/if}}'+
-                                                    '{{/compare}}'+
-                                                '{{/if}}'+
+                                        '{{#if results.HasExternalLink}}'+
+                                            '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
                                             '{{/compare}}'+
                                         '{{/if}}'+
-                                        '{{#if results.EcommerceLink}}'+
-                                            '{{#if results.EcommerceLink.Url}}'+
-                                                '<h4><a href="{{results.EcommerceLink.Url}}" target="{{results.EcommerceLink.Target}}">{{results.Title}}</a></h4>'+
-                                            '{{/if}}'+
-                                        '{{/if}}'+
-                                        '{{#compare results.LinkText null operator="!="}}'+
+                                        '{{#compare results.HasExternalLink false operator="=="}}'+
                                             '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
                                                 '{{#if results.LinkText}}'+
-                                                    '<h4><a href="{{results.PageURL}}" target="{{results.LinkTarget}}">{{results.Title}}</a></h4>'+
+                                                    '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
                                                 '{{/if}}'+
                                             '{{/compare}}'+
                                             '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
@@ -4517,53 +4502,26 @@ var INFORMA = window.INFORMA || {};
                                     '{{#compare results.Price null operator="!="}}'+
                                             '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
                                     '{{/compare}}'+
-                                    '{{#if results.IsPaidContent}}'+
-                                            '{{#if results.ProductLink}}'+
-                                                '{{#compare results.ProductLink null operator="!="}}'+
-                                                '{{#if results.ProductLink.Url}}'+
-                                                    '<div class="btn-container text-right">'+
-                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
-                                            '</div>'+
-                                                '{{/if}}'+
-                                                '{{/compare}}'+
-                                            '{{/if}}'+
-                                            '{{else}}' +
-                                            '{{#compare results.ContentTypeGuid.[0] results.HeadLinesGuid operator="=="}}'+
-                                                '{{#if results.ProductLink}}'+
-                                                    '{{#compare results.ProductLink null operator="!="}}'+
-                                                    '{{#if results.ProductLink.Url}}'+
-                                                        '<div class="btn-container text-right">'+
-                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
-                                            '</div>'+
-                                                    '{{/if}}'+
-                                                    '{{/compare}}'+
-                                                '{{/if}}'+
-                                            '{{/compare}}'+
-                                    '{{/if}}'+
-                                    '{{#if results.EcommerceLink}}'+
-                                        '{{#if results.EcommerceLink.Url}}'+
+                                    '{{#if results.HasExternalLink}}'+
+                                        '{{#compare results.HasExternalLink true operator="=="}}'+
                                             '<div class="btn-container text-right">'+
-                                                '<a href="{{results.EcommerceLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.EcommerceLink.Target}}">{{results.EcommerceLink.LinkText}}</a>'+
+                                                '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
                                             '</div>'+
-                                        '{{/if}}'+
+                                        '{{/compare}}'+
                                     '{{/if}}'+
-                                    '{{#compare results.LinkText null operator="!="}}'+
+                                    '{{#compare results.HasExternalLink false operator="=="}}'+
                                         '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
                                             '{{#if results.LinkText}}'+
-
                                                 '<div class="btn-container text-right">'+
-                                                    '<a href="{{results.PageURL}}" class="btn btn-primary full-width-btn" target="{{results.LinkTarget}}">{{results.LinkText}}</a>'+
+                                                    '<a href="{{results.PageURL}}" class="btn btn-primary full-width-btn" target="_self">{{results.LinkText}}</a>'+
                                                 '</div>'+
-
                                             '{{/if}}'+
-                                            '{{/compare}}'+
-                                            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
                                             '{{#if results.LinkText}}'+
-
                                                 '<div class="btn-container text-right">'+
                                                     '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
                                                 '</div>'+
-
                                             '{{/if}}'+
                                         '{{/compare}}'+
                                     '{{/compare}}'+
@@ -5508,14 +5466,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 data: data,
                 success_callback: function(data) {
                     if (data.Articles !== undefined && data.Articles.length > 0) {
-                        for(var i=0 ; i < data.Articles.length ; i++ ){
-                            if(data.Articles[i].Price != null){
-                                if(data.Articles[i].Price){
-                                    var replacezeroWidthSpace = data.Articles[i].Price.replace(/\u200B/g,'');
-                                    data.Articles[i].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                }
-                            }
-                        }
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
@@ -6219,10 +6169,20 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         _previousDate = null,
         //methods
         init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents,
-        SetCalendarEvents, RenderParticularMonth, RenderChange,
+        SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData,
         SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents;
 
-
+    GetEventData = function (monthType) {
+    	var eventID = $("section#events"),
+    		obj = {
+              data:JSON.stringify({ MonthYear: monthType,
+              SectorId: SectorSelect.val(),
+              eventType: Type.val(),
+              Country: Country.val(),
+              CurrentPage:eventID.data("CurrentPage")})
+            } 
+    	return obj;
+    },
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
 
         INFORMA.Spinner.Show($('body'));
@@ -6323,11 +6283,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     RenderOnLoad = function() {
         jQuery('body').addClass('list-view');
         var date = new Date(),
-            DatePass = moment(date).format('MMMM YYYY');
+            DatePass = moment(date).format('MMMM YYYY'),
+            PageTemplate = $("section#events").data("currentpage");
             EqualHeight();
         var obj = {
             data:JSON.stringify({MonthYear: DatePass,SectorId: SectorSelect.val(), eventType: Type.val(),
-            Country: Country.val()})
+            Country: Country.val(),CurrentPage:PageTemplate})
         }
         _previousDate = date;
         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderLoadEvents, null, null);
@@ -6484,15 +6445,15 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SetCalendarEvents(data);
     },
     RenderParticularMonth = function(date) { 
-        var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY'); 
-                
-                var obj = { 
-                     data:JSON.stringify({MonthYear: NextMonth, 
-                        SectorId: SectorSelect.val(),
-                        eventType: Type.val()
-                        })
-                } 
-
+        var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY'),
+		PageTemplate = $("section#events").data("CurrentPage");
+            var obj = { 
+		          data:JSON.stringify({MonthYear: NextMonth, 
+		                        SectorId: SectorSelect.val(),
+		            eventType: Type.val(),
+		            CurrentPage:PageTemplate
+		         })
+           } 
         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
 
     },
@@ -6564,60 +6525,69 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
 
         MonthSelect.on('change', function() {
-            var value = jQuery(this).val();
-            var check = moment(new Date('1 '+value));
+            var value = jQuery(this).val(),
+            	check = moment(new Date('1 '+value));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
-            var obj = {
-              data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
-                SectorId: SectorSelect.val(),
-                eventType: Type.val(),
-              Country: Country.val()})
-            } 
+            var MonthYear = check.format('MMMM YYYY'),
+            	obj = GetEventData(MonthYear);
+
+            // var obj = {
+            //   data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
+            //     SectorId: SectorSelect.val(),
+            //     eventType: Type.val(),
+            //   Country: Country.val()})
+            // } 
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
             NoEventsFound();
-        })
+        });
+
         Country.on('change', function() {
-            var value = jQuery(this).val();
-            var check = moment(new Date('1 '+MonthSelect.val()));
+            var value = jQuery(this).val(),
+            	check = moment(new Date('1 '+MonthSelect.val()));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
-            var obj = {
-               data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
-                SectorId: SectorSelect.val(),
-                eventType: Type.val(),
-               Country: jQuery(this).val()})
-            }
+            // var obj = {
+            //    data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
+            //     SectorId: SectorSelect.val(),
+            //     eventType: Type.val(),
+            //    Country: jQuery(this).val()})
+            // }
 
+            var MonthYear = check.format('MMMM YYYY'),
+            	obj = GetEventData(MonthYear);
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
             NoEventsFound();
-        })
+        });
 
         Type.on('change', function() {
-            var value = jQuery(this).val();
-            var check = moment(new Date('1 '+MonthSelect.val()));
+            var value = jQuery(this).val(),
+            	check = moment(new Date('1 '+MonthSelect.val()));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
-            var obj = {
-               data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
-                SectorId: SectorSelect.val(),
-                eventType: jQuery(this).val(),
-               Country: Country.val()})
-            }
 
+            var MonthYear = check.format('MMMM YYYY'),
+            	obj = GetEventData(MonthYear);
+
+            // var obj = {
+            //    data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
+            //     SectorId: SectorSelect.val(),
+            //     eventType: jQuery(this).val(),
+            //    Country: Country.val()})
+            // }
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
@@ -6626,12 +6596,16 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
 
         SectorSelect.on('change', function(){
-            var obj = {
-              data:JSON.stringify({  MonthYear: MonthSelect.val(),
-                SectorId: jQuery(this).val(),
-                eventType: Type.val(),
-              Country: Country.val()})
-            }
+
+        	var MonthYear = MonthSelect.val(),
+            	obj = GetEventData(MonthYear);
+
+            // var obj = {
+            //   data:JSON.stringify({  MonthYear: MonthSelect.val(),
+            //     SectorId: jQuery(this).val(),
+            //     eventType: Type.val(),
+            //   Country: Country.val()})
+            // }
 
             _previousDate = new Date(MonthSelect.val());
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
@@ -6669,12 +6643,14 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', 1).format('MMMM YYYY');
 
-                    var obj = {
-                       data:JSON.stringify({  MonthYear: prevMonth,
-                        SectorId: SectorSelect.val(),
-                       Country: Country.val(),
-                        eventType: Type.val()})
-                    }
+                    var MonthYear = prevMonth,
+            			obj = GetEventData(MonthYear);
+                    // var obj = {
+                    //    data:JSON.stringify({  MonthYear: prevMonth,
+                    //     SectorId: SectorSelect.val(),
+                    //    Country: Country.val(),
+                    //     eventType: Type.val()})
+                    // }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', 1));
                     jQuery('section[data-view="calendar-view"]').hide();
@@ -6690,12 +6666,15 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
 
-                    var obj = {
-                      data:JSON.stringify({   MonthYear: prevMonth,
-                        SectorId: SectorSelect.val(),
-                      Country: Country.val(),
-                        eventType: Type.val()})
-                    }
+                    var MonthYear = prevMonth,
+            			obj = GetEventData(MonthYear);
+
+                    // var obj = {
+                    //   data:JSON.stringify({   MonthYear: prevMonth,
+                    //     SectorId: SectorSelect.val(),
+                    //   Country: Country.val(),
+                    //     eventType: Type.val()})
+                    // }
                     jQuery('section[data-view="calendar-view"]').show();
                     Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', -1));
                     jQuery('section[data-view="calendar-view"]').hide();
@@ -9807,6 +9786,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 if(SearchType === "SearchResult") { 
                     Data.IsSearch = true;
                     Data.PageNo = 1;
+                    Data.CurrentPage = $(".search-container").data("currentpage");
                 }
                 GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), function(data){RenderSearchResult(data,SearchType)}, null);
                 INFORMA.SearchResults.ResetPaging();
@@ -11050,6 +11030,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     data[NameSearchType] = Value;
                 }
             }
+            if (SearchType === "ProductSearch") {
+            	data.SearchTextSampleContent = ($('input[name="SearchTextSampleContent"]') && $('input[name="SearchTextSampleContent"]').length > 0) ? $('input[name="SearchTextSampleContent"]').val().split(",") : null;
+            	data.SearchTextProducts = ($('input[name="SearchTextProducts"]') && $('input[name="SearchTextProducts"]').length > 0) ? $('input[name="SearchTextProducts"]').val().split(",") : null;
+            }
             return data;
         },
         DoLinksEvents = function() {
@@ -11258,14 +11242,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         },
         LoadMoreProducts = function(){
-            var Data, TileList = jQuery('.search-container .product-results [data-type="Product"]'),
+            var Data, TileList = jQuery('.search-container .product-results .list-items'),
                 PData = GetPaginationData(TileList),
                 FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                 DefaultData = GetDefaultValues(),
                 ProdData = INFORMA.ProductFinder.GetProductData();
                 Data = INFORMA.ProductFinder.MergeData(FilterData, DefaultData,ProdData);
                 Data.PageNo = 1;
-                Data.ExcludedProduct = PData["Product"];
+                Data.ExcludedProduct = PData;
                 GetAjaxData(Urls["GetMoreProducts"], "Post", Data, ParseSearchData, null, $(this));
         },
         DoGlobalShowMore = function() {
@@ -11359,14 +11343,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if (Lists[j].Category) {
                             ContentType = Lists[j].Category;
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
-                            if(ContentType == 'SampleContent') {
-                                if(Lists[j].Price != null){
-                                    if(Lists[j].Price){
-                                        var replacezeroWidthSpace = Lists[j].Price.replace(/\u200B/g,'');
-                                        Lists[j].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                    }
-                                }
-                            }
                             ListTemplate = Handlebars.compile(TemplateName);
                             Html += ListTemplate({ results: Lists[j] });
                         }
@@ -11403,14 +11379,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     if (Lists[j].Category) {
                         ContentType = Lists[j].Category;
                         TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
-                        if(ContentType == 'SampleContent') {
-                            if(Lists[j].Price != null){
-                                if(Lists[j].Price){
-                                    var replacezeroWidthSpace = Lists[j].Price.replace(/\u200B/g,'');
-                                    Lists[j].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                }
-                            }
-                        }
                         ListTemplate = Handlebars.compile(TemplateName);
                         Html += ListTemplate({ results: Lists[j] });
                     }
