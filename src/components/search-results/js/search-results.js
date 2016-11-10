@@ -57,6 +57,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     data[NameSearchType] = Value;
                 }
             }
+            if (SearchType === "ProductSearch") {
+            	data.SearchTextSampleContent = ($('input[name="SearchTextSampleContent"]') && $('input[name="SearchTextSampleContent"]').length > 0) ? $('input[name="SearchTextSampleContent"]').val().split(",") : null;
+            	data.SearchTextProducts = ($('input[name="SearchTextProducts"]') && $('input[name="SearchTextProducts"]').length > 0) ? $('input[name="SearchTextProducts"]').val().split(",") : null;
+            }
             return data;
         },
         DoLinksEvents = function() {
