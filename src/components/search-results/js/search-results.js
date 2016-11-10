@@ -265,14 +265,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         },
         LoadMoreProducts = function(){
-            var Data, TileList = jQuery('.search-container .product-results [data-type="Product"]'),
+            var Data, TileList = jQuery('.search-container .product-results .list-items'),
                 PData = GetPaginationData(TileList),
                 FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                 DefaultData = GetDefaultValues(),
                 ProdData = INFORMA.ProductFinder.GetProductData();
                 Data = INFORMA.ProductFinder.MergeData(FilterData, DefaultData,ProdData);
                 Data.PageNo = 1;
-                Data.ExcludedProduct = PData["Product"];
+                Data.ExcludedProduct = PData;
                 GetAjaxData(Urls["GetMoreProducts"], "Post", Data, ParseSearchData, null, $(this));
         },
         DoGlobalShowMore = function() {
@@ -402,14 +402,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     if (Lists[j].Category) {
                         ContentType = Lists[j].Category;
                         TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
-                        if(ContentType == 'SampleContent') {
-                            if(Lists[j].Price != null){
-                                if(Lists[j].Price){
-                                    var replacezeroWidthSpace = Lists[j].Price.replace(/\u200B/g,'');
-                                    Lists[j].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                }
-                            }
-                        }
                         ListTemplate = Handlebars.compile(TemplateName);
                         Html += ListTemplate({ results: Lists[j] });
                     }

@@ -137,6 +137,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 if(SearchType === "SearchResult") { 
                     Data.IsSearch = true;
                     Data.PageNo = 1;
+                    Data.CurrentPage = $(".search-container").data("currentpage");
                 }
                 GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), function(data){RenderSearchResult(data,SearchType)}, null);
                 INFORMA.SearchResults.ResetPaging();
