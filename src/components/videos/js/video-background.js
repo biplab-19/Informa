@@ -125,14 +125,6 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
             event.target.playVideo();
             event.target.setVolume(_youTubeSound);
-        } else {
-            var playButton = $(".videoBG_wrapper");
-            if(playButton.length > 0 ){
-              playButton.on("click", function() {
-                  ytPlayer.playVideo();
-                  ytPlayer.setVolume(_youTubeSound);
-              });
-            }
         }
     }
 
