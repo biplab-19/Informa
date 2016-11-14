@@ -45,7 +45,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
               SectorId: SectorSelect.val(),
               eventType: Type.val(),
               Country: Country.val(),
-              CurrentPage:eventID.data("CurrentPage")})
+              CurrentPage:eventID.data("currentpage")})
             } 
     	return obj;
     },
