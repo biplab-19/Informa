@@ -122,11 +122,11 @@ var INFORMA = window.INFORMA || {};
                     '{{/compare}}'+
                     '<p class="date">{{PublicationDate}}</p>'+
                     '<div class="list-content">'+
-                        '<h4 class="poduct-brand-subheading"><a href="{{Link.Url}}">{{Title}}</a></h4>'+
+                        '<h4 class="poduct-brand-subheading"><a href="{{PageUrl}}">{{Title}}</a></h4>'+
                     '</div>'+
                     '<div class="link">'+
-                        '<a role="button" href="{{Link.Url}}" title="External Link" target="{{Link.Target}}">'+
-                        '<span class="icon-external-link">{{Link.LinkText}}<span class="access-link">Link</span></span></a>'+
+                        '<a role="button" href="{{PageUrl}}" title="External Link" target="_blank">'+
+                        '<span class="icon-external-link">{{LinkText}}<span class="access-link">Link</span></span></a>'+
                     '</div>'+
                 '</li>'+
             '{{/each}}',
