@@ -1,4 +1,4 @@
-/*! 2016-11-10 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-11-14 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -770,4 +770,28 @@
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
+}
+
+/* line 972, ../../../src/sass/global/_mixins.scss */
+.fc-unthemed .fc-today {
+  background: #00703d;
+}
+
+@media (max-width: 1141px) {
+  /* line 977, ../../../src/sass/global/_mixins.scss */
+  .container .row {
+    position: relative;
+  }
+  /* line 980, ../../../src/sass/global/_mixins.scss */
+  .container .row .nav-pdp-nondesktop.move-left {
+    background: #008a4b;
+  }
+  /* line 984, ../../../src/sass/global/_mixins.scss */
+  .container .row #pdp-sections {
+    background: #008a4b;
+  }
+}
+/* line 991, ../../../src/sass/global/_mixins.scss */
+body svg.spinner-loader {
+  stroke: #438424;
 }
