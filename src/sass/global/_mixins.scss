@@ -969,6 +969,24 @@ $desktop-width: 1142px;
     .table-hover > tbody > tr:hover > th{
          background-color: $grey-color10;
     }
+    .fc-unthemed .fc-today {
+        background: $secondarycolorlight;
+    }
+    @include not-desktop{
+        .container{
+              .row{
+                position: relative;
+                .nav-pdp-nondesktop{
+                      &.move-left{
+                        background: lighten( $secondarycolorlight, 5%);
+                      }
+                }
+                #pdp-sections{
+                     background: lighten( $secondarycolorlight, 5%);
+                }
+              }
+        }
+    }
 }
 
 @mixin opacity($opacity) {
