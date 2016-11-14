@@ -4074,7 +4074,7 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                     '<div class="link">'+
                         '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
-                        '<span class="icon-external-link">{{LinkText}}<span class="access-link">Link</span></span></a>'+
+                        '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
                     '</div>'+
                 '</li>'+
             '{{/each}}',

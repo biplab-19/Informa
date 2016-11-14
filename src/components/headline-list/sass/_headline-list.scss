@@ -34,7 +34,7 @@
     .list-container {
         list-style-type: none;
         padding: 20px 0 0;
-        margin: 0;
+        margin: 0 0 20px;
         background-color: $grey-color10;
         @include mobile{
             padding-bottom: 20px;
@@ -107,7 +107,7 @@
             border-right: 1px solid transparent;
         }
         ul.slick-dots {
-            margin: 15px 0 20px;
+            margin: 15px 0 0;
             background: $white;
             padding: 20px 0;
             @include mobile{
