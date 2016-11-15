@@ -13,7 +13,7 @@ $desktop-width: 1142px;
     /* IE 9 */
     -webkit-transform: rotate($param);
     /* Chrome, Safari, Opera */
-    transform: rotate($param);  
+    transform: rotate($param);
 }
 
 @mixin limitHeight($height) {
@@ -443,6 +443,11 @@ $desktop-width: 1142px;
         .chosen-container .chosen-results li.highlighted {
             background-color: $secondarycolorlight;
             @extend .color-text;
+        }
+        .contactUsPage-contactUs {
+          a {
+            color: $primary;
+          }
         }
         .contactUsPage-contactUs li.active {
             &:after {
