@@ -1,4 +1,4 @@
-/*! 2016-11-14 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-15 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4074,7 +4074,7 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                     '<div class="link">'+
                         '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
-                        '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
+                        '<span class="icon-external-link">{{LinkText}}<span class="access-link">Link</span></span></a>'+
                     '</div>'+
                 '</li>'+
             '{{/each}}',
@@ -9738,6 +9738,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     .removeProp("disabled")
                     .html(html);
                 SubSectorList.multiselect('rebuild');
+            }else{
+                $("ul.sector-search li.button").removeClass("disabled");
             }
         },
         RenderSearchResult = function(data,type) {

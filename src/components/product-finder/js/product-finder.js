@@ -89,6 +89,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     .removeProp("disabled")
                     .html(html);
                 SubSectorList.multiselect('rebuild');
+            }else{
+                $("ul.sector-search li.button").removeClass("disabled");
             }
         },
         RenderSearchResult = function(data,type) {
