@@ -1,4 +1,4 @@
-/*! 2016-11-14 */@charset "UTF-8";
+/*! 2016-11-16 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -740,6 +740,17 @@ section#hero-banner .analyst-single-image .image-margin {
   }
 }
 
+/*Experience Mode FAQs*/
+/* line 568, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+.experience-mode .hero-banner .cf-img {
+  position: relative;
+}
+/* line 571, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+.experience-mode .hero-banner .vertical-align {
+  position: relative;
+  top: -100px;
+}
+
 /* line 2, ../../../src/components/home-sector-list/sass/_sector-list.scss */
 .sector-list .card-col {
   margin-top: 15px;
@@ -995,6 +1006,26 @@ section#hero-banner .analyst-single-image .image-margin {
   display: inline-block;
 }
 /* line 75, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .card .caption ul {
+  padding-left: 40px;
+  padding-top: 20px;
+}
+/* line 79, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .card .caption li {
+  list-style-type: none;
+  padding-bottom: 20px;
+  position: relative;
+  font-family: 'FSMe-Bold' !important;
+  color: #565c6b;
+}
+/* line 85, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .card .caption li:before {
+  position: absolute;
+  left: -28px;
+  font-size: 20px;
+  top: -5px;
+}
+/* line 93, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore {
   min-height: 90px;
   overflow: hidden;
@@ -1002,7 +1033,7 @@ section#hero-banner .analyst-single-image .image-margin {
   padding: 15px;
   background-color: #e1e3e7;
 }
-/* line 83, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 101, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore:before {
   content: '';
   position: absolute;
@@ -1017,68 +1048,68 @@ section#hero-banner .analyst-single-image .image-margin {
   transform: rotate(-5deg);
   height: 100%;
 }
-/* line 95, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 113, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore .btn-container {
   bottom: 15px;
   float: right;
   padding-top: 45px;
 }
-/* line 102, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 120, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .view-all-mobile-container {
   display: none;
 }
-/* line 105, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 123, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading {
   padding: 0;
   text-align: right;
 }
-/* line 108, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 126, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading h2 {
   color: #fff;
   text-align: left;
 }
-/* line 112, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 130, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading .btn.btn-default {
   color: #fff;
   margin: 30px 0;
 }
 @media (max-width: 767px) {
-  /* line 112, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 130, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .card-col-heading .btn.btn-default {
     width: 100%;
   }
 }
-/* line 118, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 136, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading .btn.btn-default:after {
   color: #fff;
 }
-/* line 124, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 142, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .show-more-btn-container .btn, .product-brands-list .btn-container .btn {
   padding-right: 40px;
   font-family: 'FSMe-Bold';
 }
 @media (max-width: 767px) {
-  /* line 130, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 148, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(1) {
     display: block;
   }
-  /* line 133, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 151, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(2) {
     display: block;
   }
-  /* line 136, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 154, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 139, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 157, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 146, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 164, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .show-more-btn-container .btn {
     width: 50%;
   }
-  /* line 150, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 168, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .view-all-mobile-container {
     display: block;
     color: #fff;
@@ -1087,75 +1118,75 @@ section#hero-banner .analyst-single-image .image-margin {
     padding: 5px;
     cursor: pointer;
   }
-  /* line 159, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 177, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .informa-icon {
     font-size: 30px;
   }
-  /* line 163, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 181, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .btn-container {
     width: 100%;
     margin: 0 auto;
   }
 }
 
-/* line 169, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 187, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products {
   background: #fff;
 }
-/* line 171, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 189, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .product-brands-list {
   background-color: #fff;
 }
-/* line 173, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 191, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .product-brands-list h2 {
   color: #6a7285;
 }
-/* line 177, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 195, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card {
   background: #f0f1f3;
 }
-/* line 180, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 198, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card .image-thumbnail:after {
   background-color: #f0f1f3;
 }
-/* line 185, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 203, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card .showmore:before {
   background-color: #f0f1f3;
 }
-/* line 190, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 208, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card .caption h2::after {
   content: '';
 }
-/* line 195, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 213, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .view-all-mobile-container {
   display: none;
   color: #434854;
 }
 @media (max-width: 767px) {
-  /* line 200, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 218, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .related-products .container > .row > .card-col:nth-child(n+4) {
     display: none;
   }
-  /* line 203, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 221, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .related-products .view-all-mobile-container {
     display: block;
   }
 }
-/* line 207, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 225, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link {
   margin: 30px auto 0;
   text-align: center;
   width: 100%;
 }
-/* line 211, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 229, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link p {
   font-size: 19px;
 }
-/* line 213, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 231, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link p a {
   font-weight: 700;
 }
-/* line 216, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 234, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link p a:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -1166,24 +1197,24 @@ section#hero-banner .analyst-single-image .image-margin {
   left: 3px;
 }
 
-/* line 230, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 248, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 237, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 255, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list .btn-showMore .more {
   display: block;
 }
-/* line 240, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 258, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list .btn-showMore .less {
   display: none;
 }
-/* line 246, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 264, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list.showLess .btn-showMore .more {
   display: none;
 }
-/* line 249, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 267, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list.showLess .btn-showMore .less {
   display: block;
 }
@@ -3645,7 +3676,7 @@ nav#pdp-navigation .menuFollower {
 }
 /* line 130, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions {
-  min-height: 106px;
+  min-height: 110px;
   overflow: hidden;
   padding-right: 45px;
   margin-bottom: 40px;
@@ -3669,45 +3700,46 @@ nav#pdp-navigation .menuFollower {
 #analyst-profile .descriptions p {
   margin: 0;
   color: #444957;
+  word-wrap: break-word;
 }
-/* line 150, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 151, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content {
   height: auto !important;
 }
-/* line 152, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 153, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content .bold + div {
   height: auto !important;
 }
-/* line 157, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 158, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .show-options:after {
   content: "\e913";
 }
-/* line 161, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 162, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .more {
   display: none;
 }
-/* line 164, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 165, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions.show-content + .btn-container .less {
   display: block;
 }
-/* line 169, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 170, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .descriptions .bold {
   margin-bottom: 10px;
 }
-/* line 173, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 174, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .btn-container {
   padding-right: 45px;
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 173, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 174, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .btn-container {
     text-align: center;
     padding-right: 0;
     margin-bottom: 0;
   }
 }
-/* line 182, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 183, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options {
   min-width: 105px;
   padding: 5px 30px 5px 0;
@@ -3721,13 +3753,13 @@ nav#pdp-navigation .menuFollower {
   margin-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 182, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 183, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .show-options {
     padding: 0 0 45px 0;
     text-align: center;
   }
 }
-/* line 197, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 198, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options:after {
   content: "\e912";
   position: absolute;
@@ -3737,83 +3769,83 @@ nav#pdp-navigation .menuFollower {
   font-family: 'InformaIcons';
 }
 @media (max-width: 767px) {
-  /* line 197, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 198, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .show-options:after {
     top: 20px;
     right: 50%;
     margin-right: -10px;
   }
 }
-/* line 210, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 211, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .more {
   display: block;
 }
-/* line 213, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 214, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .less {
   display: none;
 }
-/* line 217, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 218, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories {
   margin-top: 0;
 }
 @media (max-width: 767px) {
-  /* line 217, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 218, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 35px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 217, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 218, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories {
     margin-top: 30px;
   }
 }
-/* line 225, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 226, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading {
   font-size: 18px;
   margin-top: 20px;
   margin-bottom: 15px;
 }
-/* line 229, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 230, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading i {
   margin-right: 5px;
 }
-/* line 233, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 234, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature {
   list-style-type: none;
   padding-left: 32px;
   margin-bottom: 20px;
 }
-/* line 237, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 238, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li {
   padding: 3px 0;
   position: relative;
   color: #444957;
 }
-/* line 241, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 242, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li a {
   color: #565c6b;
 }
 @media (min-width: 1142px) {
-  /* line 237, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 238, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     width: 50%;
     float: left;
   }
 }
 @media (max-width: 767px) {
-  /* line 237, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 238, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     margin-bottom: 10px;
   }
 }
-/* line 252, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 253, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature:after {
   content: '';
   clear: both;
   display: block;
 }
-/* line 260, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 261, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .place:before {
   width: 18px;
   height: 26px;
@@ -3822,7 +3854,7 @@ nav#pdp-navigation .menuFollower {
   top: -5px;
   background-position: -5px -313px;
 }
-/* line 268, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 269, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .experience:before {
   width: 20px;
   height: 28px;
@@ -3832,12 +3864,12 @@ nav#pdp-navigation .menuFollower {
   background-position: -5px -345px;
 }
 
-/* line 277, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 278, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .bold {
   font-weight: bold;
 }
 
-/* line 280, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 281, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset {
   display: inline-block;
   padding: 5px;
@@ -3850,7 +3882,7 @@ nav#pdp-navigation .menuFollower {
   padding-right: 40px;
   position: relative;
 }
-/* line 291, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 292, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset:after {
   content: 'x';
   position: absolute;
@@ -3860,7 +3892,7 @@ nav#pdp-navigation .menuFollower {
   border-left: 1px solid #fff;
   padding: 0 6px;
 }
-/* line 302, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 303, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset .details .social-links .at-icon-wrapper {
   line-height: 56px;
   background-color: transparent !important;

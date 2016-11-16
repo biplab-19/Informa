@@ -1,4 +1,4 @@
-/*! 2016-11-15 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-16 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
