@@ -126,7 +126,7 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                     '<div class="link">'+
                         '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
-                        '<span class="icon-external-link">{{LinkText}}<span class="access-link">Link</span></span></a>'+
+                        '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
                     '</div>'+
                 '</li>'+
             '{{/each}}',
@@ -289,7 +289,9 @@ var INFORMA = window.INFORMA || {};
                                                                 '{{/compare}}'+
                                                             '{{/if}}'+
                                                             '{{#if EmailAddressLink.Url}}'+
-                                                                '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                '{{#compare EmailAddressLink.Url null operator="!="}}'+
+                                                                    '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                '{{/compare}}'
                                                             '{{/if}}'+
                                                         '</ul>'+
                                                         '<a href="{{ProfileUrl}}" class="btn btn-primary pull-right">Full Profile</a>' +
@@ -363,7 +365,9 @@ var INFORMA = window.INFORMA || {};
                                                             '{{/compare}}'+
                                                         '{{/if}}'+
                                                         '{{#if results.EmailAddressLink.Url}}'+
-                                                            '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                            '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
+                                                                '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                            '{{/compare}}'
                                                         '{{/if}}'+
                                                     '</ul>'+
                                                 '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLabel}}</a>' +
@@ -693,7 +697,9 @@ var INFORMA = window.INFORMA || {};
                                                                             '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
-                                                                            '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                            '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
+                                                                                '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                            '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                     '</ul>'+
                                                                     '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
