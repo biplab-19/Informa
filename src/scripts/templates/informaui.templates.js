@@ -291,7 +291,7 @@ var INFORMA = window.INFORMA || {};
                                                             '{{#if EmailAddressLink.Url}}'+
                                                                 '{{#compare EmailAddressLink.Url null operator="!="}}'+
                                                                     '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
-                                                                '{{/compare}}'
+                                                                '{{/compare}}'+
                                                             '{{/if}}'+
                                                         '</ul>'+
                                                         '<a href="{{ProfileUrl}}" class="btn btn-primary pull-right">Full Profile</a>' +
@@ -367,7 +367,7 @@ var INFORMA = window.INFORMA || {};
                                                         '{{#if results.EmailAddressLink.Url}}'+
                                                             '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
                                                                 '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
-                                                            '{{/compare}}'
+                                                            '{{/compare}}'+
                                                         '{{/if}}'+
                                                     '</ul>'+
                                                 '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLabel}}</a>' +
