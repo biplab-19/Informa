@@ -1,4 +1,4 @@
-/*! 2016-11-16 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-21 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4237,7 +4237,9 @@ var INFORMA = window.INFORMA || {};
                                                                 '{{/compare}}'+
                                                             '{{/if}}'+
                                                             '{{#if EmailAddressLink.Url}}'+
-                                                                '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                '{{#compare EmailAddressLink.Url null operator="!="}}'+
+                                                                    '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                '{{/compare}}'
                                                             '{{/if}}'+
                                                         '</ul>'+
                                                         '<a href="{{ProfileUrl}}" class="btn btn-primary pull-right">Full Profile</a>' +
@@ -4311,7 +4313,9 @@ var INFORMA = window.INFORMA || {};
                                                             '{{/compare}}'+
                                                         '{{/if}}'+
                                                         '{{#if results.EmailAddressLink.Url}}'+
-                                                            '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                            '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
+                                                                '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                            '{{/compare}}'
                                                         '{{/if}}'+
                                                     '</ul>'+
                                                 '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLabel}}</a>' +
@@ -4641,7 +4645,9 @@ var INFORMA = window.INFORMA || {};
                                                                             '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
-                                                                            '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                            '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
+                                                                                '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                            '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                     '</ul>'+
                                                                     '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
@@ -6425,7 +6431,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                             CountryText = event.Country;
                         }
 
-                        if(!event.EventText && event.Link!==null) {
+                        if(!event.EventText) {
 
                             if(moment(CurrentDate) > moment(ItemDate)) {
                                 if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
