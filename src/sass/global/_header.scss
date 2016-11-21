@@ -67,6 +67,9 @@ header {
                 font-family: 'FSMe-Bold';
                 display: block;
                 padding-right: 20px;
+                @include not-desktop{
+                    z-index: 1;
+                }
                 &::after {
                     content: "";
                     display: inline-block;
