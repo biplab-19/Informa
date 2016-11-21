@@ -195,7 +195,26 @@ $desktop-width: 1142px;
         .nav-active {
             a {
                 @extend .color-link;
+                .selected-nav{
+                  @extend .color-link;
+                  text-decoration: none;
+                }
             }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .subnav-container{
+          a{
+            .selected-nav{
+              @extend .color-link;
+              text-decoration: none;
+            }
+            &:hover {
+                @extend .color-link;
+                text-decoration: underline;
+            }
+          }
         }
         //bright banner
         .bright-banner {
@@ -490,7 +509,7 @@ $desktop-width: 1142px;
         section.customer-quote {
             background: $secondarycolordark;
         }
-       
+
         .twitter-carousel .slick-arrow {
             background: $white;
             &:before {
@@ -669,6 +688,14 @@ $desktop-width: 1142px;
                             border: none;
                         }
                     }
+                }
+
+                .subnav-items{
+                  ul{
+                    li.selected-nav{
+                      @extend .color-link;
+                    }
+                  }
                 }
             }
         }
