@@ -1,4 +1,4 @@
-/*! 2016-11-21 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-11-22 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -808,20 +808,20 @@
 }
 
 @media (max-width: 1141px) {
-  /* line 1028, ../../../src/sass/global/_mixins.scss */
-  .container .row {
+  /* line 1029, ../../../src/sass/global/_mixins.scss */
+  nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1031, ../../../src/sass/global/_mixins.scss */
-  .container .row .nav-pdp-nondesktop.move-left {
+  /* line 1032, ../../../src/sass/global/_mixins.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #a40848;
   }
-  /* line 1035, ../../../src/sass/global/_mixins.scss */
-  .container .row #pdp-sections {
+  /* line 1036, ../../../src/sass/global/_mixins.scss */
+  nav#pdp-navigation .container .row #pdp-sections {
     background: #a40848;
   }
 }
-/* line 1042, ../../../src/sass/global/_mixins.scss */
+/* line 1044, ../../../src/sass/global/_mixins.scss */
 body svg.spinner-loader {
   stroke: #DB0A35;
 }

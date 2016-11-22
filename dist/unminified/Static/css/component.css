@@ -1,4 +1,4 @@
-/*! 2016-11-16 */@charset "UTF-8";
+/*! 2016-11-22 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -3679,7 +3679,6 @@ nav#pdp-navigation .menuFollower {
   min-height: 110px;
   overflow: hidden;
   padding-right: 45px;
-  margin-bottom: 40px;
 }
 @media (max-width: 767px) {
   /* line 130, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
@@ -3729,17 +3728,15 @@ nav#pdp-navigation .menuFollower {
 /* line 174, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .btn-container {
   padding-right: 45px;
-  margin-bottom: 30px;
 }
 @media (max-width: 767px) {
   /* line 174, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .btn-container {
     text-align: center;
     padding-right: 0;
-    margin-bottom: 0;
   }
 }
-/* line 183, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 181, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options {
   min-width: 105px;
   padding: 5px 30px 5px 0;
@@ -3751,15 +3748,16 @@ nav#pdp-navigation .menuFollower {
   text-align: left;
   text-decoration: none;
   margin-bottom: 30px;
+  margin-top: 30px;
 }
 @media (max-width: 767px) {
-  /* line 183, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 181, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .show-options {
     padding: 0 0 45px 0;
     text-align: center;
   }
 }
-/* line 198, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 197, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options:after {
   content: "\e912";
   position: absolute;
@@ -3769,83 +3767,71 @@ nav#pdp-navigation .menuFollower {
   font-family: 'InformaIcons';
 }
 @media (max-width: 767px) {
-  /* line 198, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 197, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .show-options:after {
     top: 20px;
     right: 50%;
     margin-right: -10px;
   }
 }
-/* line 211, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 210, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .more {
   display: block;
 }
-/* line 214, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 213, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .show-options .less {
   display: none;
 }
-/* line 218, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 217, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories {
   margin-top: 0;
 }
-@media (max-width: 767px) {
-  /* line 218, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
-  #analyst-profile .more-stories {
-    margin-top: 35px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 218, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
-  #analyst-profile .more-stories {
-    margin-top: 30px;
-  }
-}
-/* line 226, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 219, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading {
   font-size: 18px;
   margin-top: 20px;
   margin-bottom: 15px;
 }
-/* line 230, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 223, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .heading i {
   margin-right: 5px;
 }
-/* line 234, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 227, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature {
   list-style-type: none;
   padding-left: 32px;
   margin-bottom: 20px;
 }
-/* line 238, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 231, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li {
   padding: 3px 0;
   position: relative;
   color: #444957;
 }
-/* line 242, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 235, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature li a {
   color: #565c6b;
 }
 @media (min-width: 1142px) {
-  /* line 238, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 231, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     width: 50%;
     float: left;
   }
 }
 @media (max-width: 767px) {
-  /* line 238, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+  /* line 231, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
     margin-bottom: 10px;
   }
 }
-/* line 253, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 246, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature:after {
   content: '';
   clear: both;
   display: block;
 }
-/* line 261, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 254, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .place:before {
   width: 18px;
   height: 26px;
@@ -3854,7 +3840,7 @@ nav#pdp-navigation .menuFollower {
   top: -5px;
   background-position: -5px -313px;
 }
-/* line 269, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 262, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .experience:before {
   width: 20px;
   height: 28px;
@@ -3864,12 +3850,12 @@ nav#pdp-navigation .menuFollower {
   background-position: -5px -345px;
 }
 
-/* line 278, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 271, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .bold {
   font-weight: bold;
 }
 
-/* line 281, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 274, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset {
   display: inline-block;
   padding: 5px;
@@ -3882,7 +3868,7 @@ nav#pdp-navigation .menuFollower {
   padding-right: 40px;
   position: relative;
 }
-/* line 292, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 285, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset:after {
   content: 'x';
   position: absolute;
@@ -3892,7 +3878,7 @@ nav#pdp-navigation .menuFollower {
   border-left: 1px solid #fff;
   padding: 0 6px;
 }
-/* line 303, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 296, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset .details .social-links .at-icon-wrapper {
   line-height: 56px;
   background-color: transparent !important;
@@ -12574,7 +12560,7 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
   margin-bottom: 20px;
 }
 /* line 184, ../../../src/components/recomended-articles/sass/recomended-content.scss */
-.recomended-wrapper .content .video-container .video-link {
+.recomended-wrapper .content .video-container .video-link, .recomended-wrapper .content .video-container a {
   cursor: pointer;
 }
 /* line 187, ../../../src/components/recomended-articles/sass/recomended-content.scss */
