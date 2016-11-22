@@ -132,7 +132,7 @@
 		min-height: 110px;
 		overflow: hidden;
 		padding-right: 45px;
-		margin-bottom: 40px;
+		//margin-bottom: 30px;
 		@include mobile {
 			padding-right: 0;
 		}
@@ -173,11 +173,9 @@
 	}
 	.btn-container {
 		padding-right: 45px;
-		margin-bottom: 30px;
 		@include mobile {
 			text-align: center;
 			padding-right: 0;
-			margin-bottom: 0;
 		}
 	}
 	.show-options {
@@ -191,6 +189,7 @@
 		text-align: left;
 		text-decoration: none;
 		margin-bottom: 30px;
+		margin-top: 30px;
 		@include mobile {
 			padding: 0 0 45px 0;
 			text-align: center;
@@ -217,12 +216,6 @@
 	}
 	.more-stories {
 		margin-top: 0;
-		@include mobile {
-			margin-top: 35px;
-		}
-		@include tablet {
-			margin-top: 30px;
-		}
 		.heading {
 			font-size: 18px;
 			margin-top: 20px;
