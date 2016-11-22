@@ -1,4 +1,4 @@
-/*! 2016-11-21 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-22 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4168,8 +4168,20 @@ var INFORMA = window.INFORMA || {};
                                         '</div>'+
                                     '</div>'+
                                 '<div class="footer clearfix">'+
-                                    '{{#if Register}}<a  href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{Register.LinkText}}</a>{{/if}}'+
-                                    '{{#if FullDetail}}<a href="{{FullDetail.Url}}" class="btn btn-default full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>{{/if}}'+
+                                    '{{#compare Register null operator="!="}}' +
+                                        '{{#compare Register.Url null operator="!="}}' +
+                                            '{{#compare Register.Url.length "0" operator=">"}}' +
+                                                '<a href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{Register.LinkText}}</a>'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                    '{{#compare FullDetail null operator="!="}}' +
+                                        '{{#compare FullDetail.Url null operator="!="}}' +
+                                            '{{#compare FullDetail.Url.length "0" operator=">"}}' + 
+                                                '<a href="{{FullDetail.Url}}" class="btn btn-default full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
                                 '</div>'+
                             '</div>'+
                         '</div>'+
@@ -4370,16 +4382,16 @@ var INFORMA = window.INFORMA || {};
                                                         '{{#compare FullDetail.Url null operator="!="}}' +
                                                             '{{#compare FullDetail.Url.length "0" operator=">"}}' +
                                                             '<a href="{{FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
-                                                            '{{/compare}}'+
                                                         '{{/compare}}'+
+                                                    '{{/compare}}'+
                                                     '{{/compare}}'+
                                                     '{{#compare Register null operator="!="}}' +
                                                         '{{#compare Register.Url null operator="!="}}' +
                                                             '{{#compare Register.Url.length "0" operator=">"}}' + 
-                                                               '<a href="{{Register.Url}}" class="btn btn-primary pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
+                                                                '<a href="{{Register.Url}}" class="btn btn-primary pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
                                                             '{{/compare}}'+
                                                         '{{/compare}}'+
-                                                    '{{/compare}}'+
+                                                    '{{/compare}}'+
                                                 '</div>'+
                                             '</div>'+
                                         '</div>'+
@@ -4560,12 +4572,20 @@ var INFORMA = window.INFORMA || {};
                                 '<div class="button-links">'+
                                     '<div class="button-links-wrap row">'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-default">{{results.DetailText}}</a>'+
+                                            '{{#compare results.PageURL null operator="!="}}' +
+                                                '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                                    '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-default">{{results.DetailText}}</a>'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
                                         '</div>'+
                                         '<div class="col-xs-6">'+
-                                            '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.FreeTrialLink.CTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
-                                                '{{results.CtaText}}'+
-                                            '</a>'+
+                                            '{{#compare results.CtaText null operator="!="}}' +
+                                                '{{#compare results.CtaText.length "0" operator=">"}}' +
+                                                    '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.FreeTrialLink.CTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
+                                                        '{{results.CtaText}}'+
+                                                    '</a>'+
+                                                '{{/compare}}'+    
+                                            '{{/compare}}'+    
                                         '</div>'+
                                     '</div>'+
                                 '</div>'+
@@ -4703,12 +4723,24 @@ var INFORMA = window.INFORMA || {};
                                                         '</div>'+
                                                     '</div>'+
                                                     '<div class="footer clearfix">'+
-                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-default register results.EventText">'+
-                                                            '{{results.EventStatus}}'+
-                                                        '</a>'+
-                                                        '<a href="{{results.FullDetail.Url}}" target="{{results.FullDetail.Target}}" class="btn btn-primary full-detail">'+
-                                                            '{{results.FullDetail.LinkText}}'+
-                                                        '</a>'+
+                                                        '{{#compare results.Register null operator="!="}}' +
+                                                            '{{#compare results.Register.Url null operator="!="}}' +
+                                                                '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                    '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-default register {{results.EventText}}">'+
+                                                                        '{{results.EventStatus}}'+
+                                                                    '</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.FullDetail null operator="!="}}' +
+                                                            '{{#compare results.FullDetail.Url null operator="!="}}' +
+                                                                '{{#compare results.FullDetail.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{results.FullDetail.Url}}" target="{{results.FullDetail.Target}}" class="btn btn-primary full-detail">'+
+                                                                        '{{results.FullDetail.LinkText}}'+
+                                                                    '</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+
@@ -4728,8 +4760,10 @@ var INFORMA = window.INFORMA || {};
                                                     '</div>'+
                                                     '<div class="footer">'+
                                                         '<div class="btn-container text-right">'+
-                                                            '{{#compare results.LinkText null operator="!="}}'+
-                                                                '<a href="{{results.PageURL}}" class="btn btn-primary" target="{{results.LinkTarget}}">{{results.DetailText}}</a>'+
+                                                            '{{#compare results.PageURL null operator="!="}}'+
+                                                                '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                                                    '<a href="{{results.PageURL}}" class="btn btn-primary" target="{{results.LinkTarget}}">{{results.DetailText}}</a>'+
+                                                                '{{/compare}}'+
                                                             '{{/compare}}'+
                                                         '</div>'+
                                                     '</div>'+
@@ -4973,7 +5007,16 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         // methods
         init,
         EqualHeight,
-        ShowMore;
+        ShowMore,
+        UnbindEvent;
+
+        UnbindEvent = function() {
+            $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+                if (e.keyCode === 13 || e.which===13) {
+                    e.preventDefault();
+                }   
+            })
+        },
 
         EqualHeight = function(){
                var highestBox = 0,
@@ -5000,6 +5043,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         if (_AnalystEventLists.length > 0) {
             EqualHeight();
             ShowMore();
+            UnbindEvent();
         }
     };
 
@@ -6176,8 +6220,16 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         //methods
         init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents,
         SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData,
-        SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents;
+        SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent;
 
+    UnbindEvent = function() {
+        $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+            if (e.keyCode === 13 || e.which===13) {
+                e.preventDefault();
+            }   
+        })
+    },
+            
     GetEventData = function (monthType) {
     	var eventID = $("section#events"),
     		obj = {
@@ -6695,6 +6747,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             RenderOnLoad();
             MoreEventsFunc();
             ListChangeEvents();
+            UnbindEvent();
         }
     };
 
