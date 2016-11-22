@@ -1024,19 +1024,21 @@ $desktop-width: 1142px;
         background: $secondarycolorlight;
     }
     @include not-desktop{
-        .container{
-              .row{
-                position: relative;
-                .nav-pdp-nondesktop{
-                      &.move-left{
-                        background: lighten( $secondarycolorlight, 5%);
-                      }
-                }
-                #pdp-sections{
-                     background: lighten( $secondarycolorlight, 5%);
-                }
-              }
-        }
+        nav#pdp-navigation{
+            .container{
+                  .row{
+                    position: relative;
+                    .nav-pdp-nondesktop{
+                          &.move-left{
+                            background: lighten( $secondarycolorlight, 5%);
+                          }
+                    }
+                    #pdp-sections{
+                         background: lighten( $secondarycolorlight, 5%);
+                    }
+                  }
+            }
+        }    
     }
     body{
         svg.spinner-loader{
