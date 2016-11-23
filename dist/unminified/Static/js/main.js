@@ -1,4 +1,4 @@
-/*! 2016-11-22 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-23 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4061,6 +4061,13 @@ var INFORMA = window.INFORMA || {};
         'HeadlinesListItems':
             '{{#each Headlines}}'+
                 '<li>'+
+                    '{{#compare ProductBrandName null operator="!="}}'+
+                        '<p class="type">'+
+                            '{{#each ProductBrandName}}'+
+                                '<span>{{this}}</span>'+
+                            '{{/each}}'+
+                        '</p>'+
+                    '{{/compare}}'+
                     '{{#compare Products null operator="!="}}'+
                         '<p class="type">'+
                             '{{#each Products}}'+
