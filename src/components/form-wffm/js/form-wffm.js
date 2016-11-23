@@ -42,7 +42,10 @@ INFORMA.forms = (function(window, $, namespace) {
         _reCaptchaAccessbility,
         _updateHiddenProductVerticalName,
         _resetFormOnRefresh,
-        _resetDefaultTitle;
+        _resetDefaultTitle,
+        _UpdateHiddenFields,
+        _RemoveStatus,
+        RemoveParameterFromUrl;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -52,6 +55,25 @@ INFORMA.forms = (function(window, $, namespace) {
     //         $(this).valid();
     //     });
     // }
+    RemoveParameterFromUrl = function( url, parameter ) {
+
+        if( typeof parameter == "undefined" || parameter == null || parameter == "" ) throw new Error( "parameter is required" );
+        var regex =new RegExp( "\\b" + parameter + "=[^&;]+[&;]?", "gi" );
+
+        url = url.replace(regex, "" );
+
+        // remove any leftover crud
+        url = url.replace( /[&;]$/, "" );
+
+        var NewUrl = url.split('?');
+
+        if(NewUrl.length === 1) {
+            url = NewUrl; 
+        } 
+
+        return url;
+    };
+    
     _resetDefaultTitle = function() {
         var SecondaryHeading = $('.form-secondary-title');
 
@@ -105,7 +127,18 @@ INFORMA.forms = (function(window, $, namespace) {
             Parent.find('.submit-response, .error-response').addClass('hide');
 
             Parent.find('form').removeClass('hide');
+            _RemoveStatus();
         })
+    }
+
+    _RemoveStatus = function() {
+        //Updating the status of the url
+        var url = window.location.href,
+            Title = document.title,
+            RemoveStatus = RemoveParameterFromUrl(url, "sc_wffm_status"),
+            NewUrl = RemoveParameterFromUrl(RemoveStatus, "sc_wffm_clientid");
+
+        window.history.pushState('', Title, NewUrl);
     }
 
     _reCaptchaHandler = function() {
@@ -685,7 +718,23 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
+    _UpdateHiddenFields = function() {
+        if($('.wffm-form').length > 0) {
+            $('.wffm-form').each(function() {
+                var clientId = $(this).attr('id')
+                var inputClientIdEl = $(this).find('.form-clientid');
+                if(inputClientIdEl.length){
+                    inputClientIdEl.val(clientId); 
+                }
+             });
+        }
+    }
+
     init = function() {
+        //Update hidden fields on load
+
+        _UpdateHiddenFields();
+
         //todo: No null check, dont execute these bindings if forms are not there
         _destroyChosenInDevice();
         _bindNumber();
