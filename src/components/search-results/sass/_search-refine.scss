@@ -233,9 +233,13 @@
     background: #fff;
     padding: 20px 10px 0;
     .clear-all {
+        visibility: hidden;
         &:after {
             content: 'X';
             margin-left: 5px;
+        }
+        &.noOpaque{
+            visibility: visible;
         }
     }
 }

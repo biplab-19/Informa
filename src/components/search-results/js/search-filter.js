@@ -22,7 +22,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         ShowMoreLinks = RefineSection.find("a.show-more"),
         RefineCheckBox = $(".refine-container .panel-body .custom-checkbox input"),
         CheckedRefineCheckBox = $(".refine-container .panel-body .custom-checkbox input:checked"),
-        ClearAllLink = $(".refine-container a.clear-all"),
+        ClearAllLink,
         ProductFinderSection = $('#product-finder-section'),
         SearchType = '',
 
@@ -250,6 +250,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     });
                     $(".refine-container").addClass("showRefine");
                 }
+                ClearAllLink = $(".product-finder-results a.clear-all");
                 SelectAllCheckBox();
                 BindRefineEvents();
                 var ClearMobileLink = $("body").find(".clear-mobile a");
