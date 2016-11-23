@@ -113,7 +113,7 @@ var INFORMA = window.INFORMA || {};
         'HeadlinesListItems':
             '{{#each Headlines}}'+
                 '<li>'+
-                    '{{#compare ProductBrandName null operator="!="}}'+
+                    '{{#compare ProductBrandName.length "0" operator=">"}}'+
                         '<p class="type">'+
                             '<span>{{ProductBrandName}}</span>'+
                         '</p>'+
