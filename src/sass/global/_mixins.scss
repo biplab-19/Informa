@@ -939,6 +939,46 @@ $desktop-width: 1142px;
             height: 100px;
             background-color: $secondarycolorlight80;
         }
+        //Pattern Image Changes as per the theme
+
+        @if($name==financial-theme) {
+            .product-login .login-links {
+                background: url(/Static/images/finance-pattern.png) no-repeat bottom right #444957;
+                background-size: 20%;
+            }
+            .dashboard {
+                background: url(/Static/images/finance-pattern.png) no-repeat right 100% #444957;
+                background-size:15%;
+            }
+            #formRegistration .modal-body {
+                background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
+                background-size: 24%;
+            }
+            // .register-myinterests-form, .registration-form-single-section .container {
+            //     background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color03;
+            //     background-size: 20%;
+            // }
+
+        }
+        @else if($name==tmt-theme){
+            .product-login .login-links {
+                background: url(/Static/images/tmt-pattern.png) no-repeat bottom right #444957;
+                background-size: 20%;
+            }
+            .dashboard {
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 100% #444957;
+                background-size:15%;
+            }
+            #formRegistration .modal-body {
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
+                background-size: 24%;
+            }
+            // .register-myinterests-form, .registration-form-single-section .container {
+            //     background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
+            //     background-size: 20%;
+            // }
+            
+        }
     }
     .tab-pane {
         .error-response,
