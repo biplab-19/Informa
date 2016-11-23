@@ -4061,7 +4061,7 @@ var INFORMA = window.INFORMA || {};
         'HeadlinesListItems':
             '{{#each Headlines}}'+
                 '<li>'+
-                    '{{#compare ProductBrandName null operator="!="}}'+
+                    '{{#compare ProductBrandName.length "0" operator=">"}}'+
                         '<p class="type">'+
                             '<span>{{ProductBrandName}}</span>'+
                         '</p>'+
@@ -6488,7 +6488,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                             CountryText = event.Country;
                         }
 
-                        if(!event.EventText) {
+                        if(!event.EventText && event.Link!==null) {
 
                             if(moment(CurrentDate) > moment(ItemDate)) {
                                 if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
@@ -6719,11 +6719,11 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     jQuery('section[data-view="calendar-view"]').hide();
                     GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-        })
+        });
         $(document).on('click','.fc-next-button, .fc-prev-button', function(){
             var currentMonth = jQuery(this).parents('.fc-toolbar').find('h2').text();
             RenderParticularMonth(currentMonth);
-        })
+        });
         $(document).on('click', 'section[data-view="list-view"] .previous', function() {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
@@ -6743,7 +6743,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     jQuery('section[data-view="calendar-view"]').hide();
                     GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-        })
+        });
     }
 
     init = function() {
@@ -10841,7 +10841,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         ShowMoreLinks = RefineSection.find("a.show-more"),
         RefineCheckBox = $(".refine-container .panel-body .custom-checkbox input"),
         CheckedRefineCheckBox = $(".refine-container .panel-body .custom-checkbox input:checked"),
-        ClearAllLink = $(".refine-container a.clear-all"),
+        ClearAllLink,
         ProductFinderSection = $('#product-finder-section'),
         SearchType = '',
 
@@ -11069,6 +11069,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     });
                     $(".refine-container").addClass("showRefine");
                 }
+                ClearAllLink = $(".product-finder-results a.clear-all");
                 SelectAllCheckBox();
                 BindRefineEvents();
                 var ClearMobileLink = $("body").find(".clear-mobile a");
