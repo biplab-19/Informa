@@ -115,9 +115,7 @@ var INFORMA = window.INFORMA || {};
                 '<li>'+
                     '{{#compare ProductBrandName null operator="!="}}'+
                         '<p class="type">'+
-                            '{{#each ProductBrandName}}'+
-                                '<span>{{this}}</span>'+
-                            '{{/each}}'+
+                            '<span>{{ProductBrandName}}</span>'+
                         '</p>'+
                     '{{/compare}}'+
                     '{{#compare Products null operator="!="}}'+
