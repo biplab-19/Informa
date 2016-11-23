@@ -11289,6 +11289,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 Wrapper = SearchContent.find('.list-items');
 
             if ($(".search-container").hasClass("tileView")) {
+
+                $('.search-container .list-items[data-type="SampleContent"]').each(function() {
+                    var IsVideoComponent = $(this).find('.video-container');
+
+                    if(IsVideoComponent.length > 0) {
+                        $(this).find('.content').css('padding-right', '0');
+                    }
+                });
                 var MaxHeight = 0,
                     maxWrapperHeight = 0;
 
@@ -11306,9 +11314,18 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     }
                 })
                 Wrapper.height(maxWrapperHeight);
+
             } else {
                 Wrapper.css("height", "auto");
                 Items.css("height", "auto");
+
+                $('.search-container .list-items[data-type="SampleContent"]').each(function() {
+                    var IsVideoComponent = $(this).find('.video-container');
+
+                    if(IsVideoComponent.length > 0) {
+                        $(this).find('.content').css('padding-right', IsVideoComponent.width());
+                    }
+                });
             }
         },
         GetPaginationData = function(List, Section) {
