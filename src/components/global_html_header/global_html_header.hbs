@@ -85,19 +85,25 @@ component: global_html_header
 <body>
   <script> 
         var theme= "agri-theme";
+        var language ="en";
         if(window.location.href.indexOf("agri") > -1) {
               theme="agri-theme";
               jQuery('body').addClass(theme);
+              jQuery('body').addClass(language);
         }else if(window.location.href.indexOf("pharma") > -1) {
               theme="pharma-theme";
               jQuery('body').addClass(theme);
+              jQuery('body').addClass(language);
         }else if(window.location.href.indexOf("finance") > -1) {
               theme="financial-theme";
               jQuery('body').addClass(theme);
+              jQuery('body').addClass(language);
         }else if(window.location.href.indexOf("tmt") > -1) {
               theme="tmt-theme";
               jQuery('body').addClass(theme);
+              jQuery('body').addClass(language);
         }else {
               jQuery('body').addClass(theme);
+              jQuery('body').addClass(language);
         }
   </script>
