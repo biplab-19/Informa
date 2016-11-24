@@ -1,4 +1,4 @@
-/*! 2016-11-23 */@charset "UTF-8";
+/*! 2016-11-24 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -10998,22 +10998,28 @@ form.single-step-form .page-header h2 {
   font-family: FSMe-Light !important;
 }
 @media (min-width: 1142px) {
+  /* line 53, ../../../src/components/form-wffm/sass/form-registration.scss */
+  form.single-step-form .page-header h2 {
+    font-size: 32px;
+  }
+}
+@media (min-width: 1142px) {
   /* line 50, ../../../src/components/form-wffm/sass/form-registration.scss */
   form.single-step-form {
     background-color: transparent;
   }
 }
-/* line 62, ../../../src/components/form-wffm/sass/form-registration.scss */
+/* line 65, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form h1 {
   padding: 0;
   color: #fff;
 }
-/* line 67, ../../../src/components/form-wffm/sass/form-registration.scss */
+/* line 70, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form h2 {
   padding: 0;
   color: #fff;
 }
-/* line 72, ../../../src/components/form-wffm/sass/form-registration.scss */
+/* line 75, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form label.control-label {
   font-family: FSMe-light !important;
   font-weight: normal !important;
@@ -11021,52 +11027,52 @@ form.single-step-form label.control-label {
   display: block;
   margin-top: 20px;
 }
-/* line 80, ../../../src/components/form-wffm/sass/form-registration.scss */
+/* line 83, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .normal-checkbox label {
   max-width: 100%;
   font-weight: normal;
 }
-/* line 87, ../../../src/components/form-wffm/sass/form-registration.scss */
+/* line 90, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .preselected-checkbox label {
   max-width: 100%;
   font-weight: normal;
 }
-/* line 95, ../../../src/components/form-wffm/sass/form-registration.scss */
+/* line 98, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .about-you-details legend {
   position: relative;
   margin-bottom: 0px;
 }
-/* line 123, ../../../src/components/form-wffm/sass/form-registration.scss */
+/* line 126, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .about-you-details .required-field:nth-child(1) {
   display: table-cell;
   width: 48%;
   float: left;
 }
-/* line 129, ../../../src/components/form-wffm/sass/form-registration.scss */
+/* line 132, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .about-you-details .required-field:nth-child(2) {
   display: table-cell;
   width: 48%;
   padding-left: 20px;
 }
 @media (max-width: 767px) {
-  /* line 129, ../../../src/components/form-wffm/sass/form-registration.scss */
+  /* line 132, ../../../src/components/form-wffm/sass/form-registration.scss */
   form.single-step-form .about-you-details .required-field:nth-child(2) {
     display: block;
     padding-left: 0;
   }
 }
-/* line 139, ../../../src/components/form-wffm/sass/form-registration.scss */
+/* line 142, ../../../src/components/form-wffm/sass/form-registration.scss */
 form.single-step-form .terms-and-conditions {
   margin-top: 0px;
 }
 @media (max-width: 767px) {
-  /* line 139, ../../../src/components/form-wffm/sass/form-registration.scss */
+  /* line 142, ../../../src/components/form-wffm/sass/form-registration.scss */
   form.single-step-form .terms-and-conditions {
     margin-top: 10px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 139, ../../../src/components/form-wffm/sass/form-registration.scss */
+  /* line 142, ../../../src/components/form-wffm/sass/form-registration.scss */
   form.single-step-form .terms-and-conditions {
     margin-top: 0px;
   }
