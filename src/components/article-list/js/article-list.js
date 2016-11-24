@@ -201,7 +201,15 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 CreateSlider(_ArticleLists,1,2);
             }
             if (_HeadlinesLists.length > 0) {
-                CreateSlider(_HeadlinesLists,2,4);
+                var headlineListItems = _HeadlinesLists.find('li');
+                var HeadlinesListItemsLength = headlineListItems.length;
+                var _vp = INFORMA.global.device.viewportN;
+                if((_vp == 2 & HeadlinesListItemsLength >= 2) || (_vp == 1 & HeadlinesListItemsLength >= 4) || (_vp == 0 & HeadlinesListItemsLength >= 6)) {
+                    CreateSlider(_HeadlinesLists,2,4);
+                }
+                else{
+                    CreateSlider(_HeadlinesLists,HeadlinesListItemsLength,HeadlinesListItemsLength);
+                }   
                 //headLineEqualHeight();
             }
             if (FilterMenu && !isExperienceMode) {
