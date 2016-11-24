@@ -717,7 +717,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
-                                                                            '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
+                                                                            '{{#compare results.EmailAddressLink.Url.length "0" operator=">"}}'+
                                                                                 '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                             '{{/compare}}'+
                                                                         '{{/if}}'+
