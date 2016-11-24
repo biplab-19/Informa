@@ -191,11 +191,12 @@ $desktop-width: 1142px;
                 @extend .color-link;
             }
             &:hover {
-                text-decoration: none;
+                color: $navlinkcolor !important;
+                text-decoration: underline;
             }
         }
         //Navigation active color
-        .nav-active {
+        .nav-active, .activate {
             a {
                 @extend .color-link;
                 .selected-nav{
