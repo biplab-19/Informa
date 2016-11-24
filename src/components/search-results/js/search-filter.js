@@ -98,8 +98,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 if (CurrentShowMoreLink) {
                     CurrentShowMoreLink.trigger("click");
                 }
-                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked");
-                if(IsAnyCheckBoxChecked.length>0){
+                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked"),
+                    isLinkFilterExist = jQuery(".search-container .items-found li").size();
+                if(IsAnyCheckBoxChecked.length>0 || isLinkFilterExist===1){
                     ClearAllLink.addClass("noOpaque");
                 }else{
                     ClearAllLink.removeClass("noOpaque");
@@ -158,8 +159,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 } else {
                     CurrentSelectAllCheckBox.prop("checked", false);
                 }
-                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked");
-                if(IsAnyCheckBoxChecked.length>0){
+                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked"),
+                    isLinkFilterExist = jQuery(".search-container .items-found li").size();
+                if(IsAnyCheckBoxChecked.length>0 || isLinkFilterExist===1){
                     ClearAllLink.addClass("noOpaque");
                 }else{
                     ClearAllLink.removeClass("noOpaque");
