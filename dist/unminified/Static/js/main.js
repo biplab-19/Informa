@@ -1,4 +1,4 @@
-/*! 2016-11-23 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-24 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3979,14 +3979,11 @@ var INFORMA = window.INFORMA || {};
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
-                                '{{#compare Products null operator="!="}}'+
+                                '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
                                     '<p class="type">'+
-                                        '{{#each Products}}'+
-                                        '<span>{{this}}</span>'+
-                                        '{{/each}}'+
+                                        '<span>{{SamplecontentProducts}}</span>'+
                                     '</p>'+
                                 '{{/compare}}'+
-
                                 '{{#if HasExternalLink}}'+
                                     '{{#compare HasExternalLink true operator="=="}}'+
                                         '<h4><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
@@ -4465,11 +4462,9 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/each}}'+
                                             '</p>'+
                                         '{{/compare}}'+
-                                        '{{#compare results.Products null operator="!="}}'+
+                                        '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
                                             '<p class="type">'+
-                                                '{{#each results.Products}}'+
-                                                    '<span>{{this}}</span>'+
-                                                '{{/each}}'+
+                                                '<span>{{results.SamplecontentProducts}}</span>'+
                                             '</p>'+
                                         '{{/compare}}'+
                                         '{{#if results.HasExternalLink}}'+
@@ -5642,7 +5637,15 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 CreateSlider(_ArticleLists,1,2);
             }
             if (_HeadlinesLists.length > 0) {
-                CreateSlider(_HeadlinesLists,2,4);
+                var headlineListItems = _HeadlinesLists.find('li');
+                var HeadlinesListItemsLength = headlineListItems.length;
+                var _vp = INFORMA.global.device.viewportN;
+                if((_vp == 2 & HeadlinesListItemsLength >= 2) || (_vp == 1 & HeadlinesListItemsLength >= 4) || (_vp == 0 & HeadlinesListItemsLength >= 6)) {
+                    CreateSlider(_HeadlinesLists,2,4);
+                }
+                else{
+                    CreateSlider(_HeadlinesLists,HeadlinesListItemsLength,HeadlinesListItemsLength);
+                }   
                 //headLineEqualHeight();
             }
             if (FilterMenu && !isExperienceMode) {
