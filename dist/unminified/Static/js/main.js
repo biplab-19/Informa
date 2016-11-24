@@ -1,4 +1,4 @@
-/*! 2016-11-24 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-25 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4665,7 +4665,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
-                                                                            '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
+                                                                            '{{#compare results.EmailAddressLink.Url.length "0" operator=">"}}'+
                                                                                 '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                             '{{/compare}}'+
                                                                         '{{/if}}'+
