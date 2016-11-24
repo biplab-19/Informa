@@ -31,14 +31,11 @@ var INFORMA = window.INFORMA || {};
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
-                                '{{#compare Products null operator="!="}}'+
+                                '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
                                     '<p class="type">'+
-                                        '{{#each Products}}'+
-                                        '<span>{{this}}</span>'+
-                                        '{{/each}}'+
+                                        '<span>{{SamplecontentProducts}}</span>'+
                                     '</p>'+
                                 '{{/compare}}'+
-
                                 '{{#if HasExternalLink}}'+
                                     '{{#compare HasExternalLink true operator="=="}}'+
                                         '<h4><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
@@ -517,11 +514,9 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/each}}'+
                                             '</p>'+
                                         '{{/compare}}'+
-                                        '{{#compare results.Products null operator="!="}}'+
+                                        '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
                                             '<p class="type">'+
-                                                '{{#each results.Products}}'+
-                                                    '<span>{{this}}</span>'+
-                                                '{{/each}}'+
+                                                '<span>{{results.SamplecontentProducts}}</span>'+
                                             '</p>'+
                                         '{{/compare}}'+
                                         '{{#if results.HasExternalLink}}'+
