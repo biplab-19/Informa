@@ -304,7 +304,7 @@ var INFORMA = window.INFORMA || {};
                                                             '{{/if}}'+
                                                             '{{#if EmailAddressLink.Url}}'+
                                                                 '{{#compare EmailAddressLink.Url null operator="!="}}'+
-                                                                    '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                    '<li><a href="{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                 '{{/compare}}'+
                                                             '{{/if}}'+
                                                         '</ul>'+
@@ -380,7 +380,7 @@ var INFORMA = window.INFORMA || {};
                                                         '{{/if}}'+
                                                         '{{#if results.EmailAddressLink.Url}}'+
                                                             '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
-                                                                '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                             '{{/compare}}'+
                                                         '{{/if}}'+
                                                     '</ul>'+
@@ -718,7 +718,7 @@ var INFORMA = window.INFORMA || {};
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
                                                                             '{{#compare results.EmailAddressLink.Url.length "0" operator=">"}}'+
-                                                                                '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                                '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                             '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                     '</ul>'+
