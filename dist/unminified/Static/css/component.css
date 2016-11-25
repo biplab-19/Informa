@@ -1,4 +1,4 @@
-/*! 2016-11-24 */@charset "UTF-8";
+/*! 2016-11-25 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -10912,17 +10912,21 @@ form.request-a-demo .radio-custom input[type="radio"]:disabled + label::before {
   top: 0px;
   width: 18px;
 }
-/* line 971, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 970, ../../../src/components/form-wffm/sass/form-wffm.scss */
+.wffm-form .custom-checkbox label span.tc-product-name:before {
+  display: none;
+}
+/* line 974, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label input:checked + span:before {
   background: #fff url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
   background-size: 100%;
 }
-/* line 975, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 978, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox label input:disabled + span:before {
   background: #e1e3e7 none;
   background-size: 100%;
 }
-/* line 981, ../../../src/components/form-wffm/sass/form-wffm.scss */
+/* line 984, ../../../src/components/form-wffm/sass/form-wffm.scss */
 .wffm-form .custom-checkbox input {
   border: 0;
   clip: rect(0 0 0 0);
