@@ -350,24 +350,43 @@
         .topic-name{
             padding:0 10px;
             margin-left:0;
-            padding-left: 50px;
+            //padding-left: 50px;
             @include mobile{
-                padding:0;
+                padding: 0 0 5px 0 !important;
+                float: left;
             }
         }
         .topic-pipe{
             @include mobile{
                 padding:0 10px;
+                float: left;
             }
         }
         .topic-pipe:last-of-type{
             display:none;
         }
-        .topic-mob{
-            @include mobile{
-                display:-webkit-box;
+        .topic{
+            .date{
+                @include mobile{
+                    float: left;
+                    width: 100%;
+                    padding-bottom: 0;
+                }
+            }
+            .topic-mob{
+                a{
+                    &:first-child{
+                        span{
+                            padding-left: 50px;
+                             @include mobile{
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
             }
         }
+        
         span.by{
           text-decoration: underline;
         }
@@ -381,6 +400,9 @@
             }
             @include tablet {
                 padding-bottom: 30px;
+            }
+            p{
+                color: $white;
             }
         }
         .already-a-customer{
