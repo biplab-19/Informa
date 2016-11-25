@@ -4063,11 +4063,9 @@ var INFORMA = window.INFORMA || {};
                             '<span>{{ProductBrandName}}</span>'+
                         '</p>'+
                     '{{/compare}}'+
-                    '{{#compare Products null operator="!="}}'+
+                    '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
                         '<p class="type">'+
-                            '{{#each Products}}'+
-                                '<span>{{this}}</span>'+
-                            '{{/each}}'+
+                            '<span>{{SamplecontentProducts}}</span>'+
                         '</p>'+
                     '{{/compare}}'+
                     '<p class="date">{{PublicationDate}}</p>'+
@@ -4252,7 +4250,7 @@ var INFORMA = window.INFORMA || {};
                                                             '{{/if}}'+
                                                             '{{#if EmailAddressLink.Url}}'+
                                                                 '{{#compare EmailAddressLink.Url null operator="!="}}'+
-                                                                    '<li><a href="mailto:{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                    '<li><a href="{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                 '{{/compare}}'+
                                                             '{{/if}}'+
                                                         '</ul>'+
@@ -4328,7 +4326,7 @@ var INFORMA = window.INFORMA || {};
                                                         '{{/if}}'+
                                                         '{{#if results.EmailAddressLink.Url}}'+
                                                             '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
-                                                                '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                             '{{/compare}}'+
                                                         '{{/if}}'+
                                                     '</ul>'+
@@ -4666,7 +4664,7 @@ var INFORMA = window.INFORMA || {};
                                                                         '{{/if}}'+
                                                                         '{{#if results.EmailAddressLink}}'+
                                                                             '{{#compare results.EmailAddressLink.Url.length "0" operator=">"}}'+
-                                                                                '<li><a href="mailto:{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                                '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
                                                                             '{{/compare}}'+
                                                                         '{{/if}}'+
                                                                     '</ul>'+
@@ -10920,8 +10918,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 if (CurrentShowMoreLink) {
                     CurrentShowMoreLink.trigger("click");
                 }
-                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked");
-                if(IsAnyCheckBoxChecked.length>0){
+                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked"),
+                    isLinkFilterExist = jQuery(".search-container .items-found li").size();
+                if(IsAnyCheckBoxChecked.length>0 || isLinkFilterExist===1){
                     ClearAllLink.addClass("noOpaque");
                 }else{
                     ClearAllLink.removeClass("noOpaque");
@@ -10980,8 +10979,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 } else {
                     CurrentSelectAllCheckBox.prop("checked", false);
                 }
-                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked");
-                if(IsAnyCheckBoxChecked.length>0){
+                var IsAnyCheckBoxChecked = $(".refine-container .panel-body input[type=checkbox]:checked"),
+                    isLinkFilterExist = jQuery(".search-container .items-found li").size();
+                if(IsAnyCheckBoxChecked.length>0 || isLinkFilterExist===1){
                     ClearAllLink.addClass("noOpaque");
                 }else{
                     ClearAllLink.removeClass("noOpaque");
