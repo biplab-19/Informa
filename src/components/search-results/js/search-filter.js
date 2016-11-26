@@ -117,7 +117,8 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         ClearAllLinkBinding = function(obj){
             obj.on("click", function(e) {
                 e.preventDefault();
-                var AllCheckBox = $(".refine-container .custom-checkbox input");
+                var AllCheckBox = $(".refine-container .custom-checkbox input"),
+                    UnfilterCheckbox = ($(".UnFilterCheckbox").length > 0) ? $(".UnFilterCheckbox").val() : "";
                 if($('#hdnSearchType').length > 0) {
                     $('#hdnSearchType').attr('name', '');
                     $('#hdnSearchType').attr('value', '');
@@ -126,6 +127,9 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 $.each(AllCheckBox, function() {
                     $(this).prop("checked", false);
                 });
+                if(UnfilterCheckbox.length > 0) {
+                    $(".refine-container .custom-checkbox input#"+UnfilterCheckbox).prop("checked", true);
+                }
                 DoRefine();
             });
 

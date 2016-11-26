@@ -212,7 +212,8 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _showHideInlineForm = function() {
-        var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active');
+        var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active'),
+            _formSubmitStatus = $('.contactUsPage-contactUs .tab-pane .submit-status');
         if (formInlineActiveTab.length > 0) {
             var inlineTabError = formInlineActiveTab.find('.error-response'),
                 inlineTabErrorForm = inlineTabError.parents('.tab-pane.active').find('form');
@@ -228,6 +229,26 @@ INFORMA.forms = (function(window, $, namespace) {
             } else {
                 inlineTabSucessForm.removeClass('hide');
             }
+
+            _formSubmitStatus.each(function() {
+                var Status = $(this).attr('data-status'),
+                    Parent = $(this).parents('.tab-pane');
+                if (Status.length > 0) {
+                    Parent.find('form').addClass('hide');
+                    
+                    if (Status == 'success') {
+                        Parent.find('.submit-response').removeClass('hide');
+                        Parent.find('.error-response').addClass('hide');
+                    } else {
+                        Parent.find('.error-response').removeClass('hide');
+                        Parent.find('.submit-response').addClass('hide');
+                    }
+
+                } else {
+                    Parent.find('form').removeClass('hide');
+                    Parent.find('.submit-response, .error-response').addClass('hide');
+                }
+            })
         }
     }
 
@@ -285,6 +306,8 @@ INFORMA.forms = (function(window, $, namespace) {
                         Parent.find('.submit-response').addClass('hide');
                     }
 
+                } else {
+                    Parent.find('.submit-response, .error-response').addClass('hide');
                 }
             })
 
