@@ -8,6 +8,15 @@ section.recommended-products {
              font-family: 'FSMe-Light';
         }
     }
+    h3 {
+        margin-top: -20px;
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: $white;
+        @include mobile {
+            font-size: 22px;
+        }
+    }
     .container {
         padding: 0;
     }
