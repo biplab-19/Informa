@@ -45,7 +45,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _resetDefaultTitle,
         _UpdateHiddenFields,
         _RemoveStatus,
-        RemoveParameterFromUrl;
+        RemoveParameterFromUrl,
+        _productDropdownUpdate;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -346,6 +347,10 @@ INFORMA.forms = (function(window, $, namespace) {
         $('.tc-product-name').html(data.ProductName);
         if (data.ProductName != null) {
             $('.tc-product-name').html(data.ProductName);
+        }
+        // Listing product dropdown update
+        if($('.product-finder-results .search-container').length > 0) {
+            _productDropdownUpdate(data.ProductName);
         }
     }
 
@@ -677,6 +682,15 @@ INFORMA.forms = (function(window, $, namespace) {
             show: 'true'         
         })
         _showOverlay();
+        
+    };
+    _productDropdownUpdate = function(name) {
+        var ProductDropdown = jQuery('.form-modal select.product-list');
+        ProductDropdown.append('<option val="' +name+ '">' +name+ '</option>');
+        ProductDropdown.val(name);
+        ProductDropdown.trigger('chosen:updated');
+        ProductDropdown.parents('.form-group:first').addClass('disable-dropdown');
+        
     };
 
     _bindProductId = function() {
@@ -709,7 +723,7 @@ INFORMA.forms = (function(window, $, namespace) {
     _destroyChosenInDevice = function() {
         if (INFORMA.global.device.isTablet || INFORMA.global.device.isMobile) {
             if ($('form.wffm-form .chosen-select').length > 0) {
-                $('form.wffm-form .chosen-select').chosen('destroy');
+                $('form.wffm-form .chose[n-select').chosen('destroy');
                 $("form.get-in-touch .form-group .chosen-select, form.request-a-demo .form-group .chosen-select, form.register-myinterests-form .form-group .chosen-select").wrap("<div class='select-wrapper'></div>");
             }
         }
