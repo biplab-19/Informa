@@ -723,7 +723,7 @@ INFORMA.forms = (function(window, $, namespace) {
     _destroyChosenInDevice = function() {
         if (INFORMA.global.device.isTablet || INFORMA.global.device.isMobile) {
             if ($('form.wffm-form .chosen-select').length > 0) {
-                $('form.wffm-form .chose[n-select').chosen('destroy');
+                $('form.wffm-form .chosen-select').chosen('destroy');
                 $("form.get-in-touch .form-group .chosen-select, form.request-a-demo .form-group .chosen-select, form.register-myinterests-form .form-group .chosen-select").wrap("<div class='select-wrapper'></div>");
             }
         }
