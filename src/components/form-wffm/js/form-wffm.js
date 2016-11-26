@@ -689,7 +689,7 @@ INFORMA.forms = (function(window, $, namespace) {
         ProductDropdown.append('<option val="' +name+ '">' +name+ '</option>');
         ProductDropdown.val(name);
         ProductDropdown.trigger('chosen:updated');
-        ProductDropdown.parents('.form-group:first').addClass('disable-dropdown');
+        ProductDropdown.parents('.form-group').addClass('disable-dropdown');
         
     };
 
