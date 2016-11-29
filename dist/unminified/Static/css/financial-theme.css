@@ -789,103 +789,110 @@
   background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
   background-size: 24%;
 }
-/* line 994, ../../../src/sass/global/_mixins.scss */
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 990, ../../../src/sass/global/_mixins.scss */
+  .financial-theme #formRegistration .modal-body {
+    background: none;
+    padding: 0;
+  }
+}
+/* line 998, ../../../src/sass/global/_mixins.scss */
 .financial-theme .registration-form-single-section .container {
   background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
   background-size: 20%;
 }
 
-/* line 1032, ../../../src/sass/global/_mixins.scss */
+/* line 1040, ../../../src/sass/global/_mixins.scss */
 .tab-pane .error-response h2:before,
 .tab-pane .submit-response h2:before {
   color: #00703d;
 }
 
-/* line 1044, ../../../src/sass/global/_mixins.scss */
+/* line 1052, ../../../src/sass/global/_mixins.scss */
 .form-modal .modal-body .form-inline-container .error-response h2:before,
 .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #00703d;
 }
 
-/* line 1052, ../../../src/sass/global/_mixins.scss */
+/* line 1060, ../../../src/sass/global/_mixins.scss */
 .infograph .number-container {
   color: #4c9d78;
 }
 
-/* line 1057, ../../../src/sass/global/_mixins.scss */
+/* line 1065, ../../../src/sass/global/_mixins.scss */
 .welcome-description .tool p a {
   color: #4c9d78;
 }
 
-/* line 1063, ../../../src/sass/global/_mixins.scss */
+/* line 1071, ../../../src/sass/global/_mixins.scss */
 .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
 
-/* line 1070, ../../../src/sass/global/_mixins.scss */
+/* line 1078, ../../../src/sass/global/_mixins.scss */
 .marketing-banner.Variation2 .btn, .marketing-banner.Variation1 .btn {
   background: #438424;
 }
-/* line 1072, ../../../src/sass/global/_mixins.scss */
+/* line 1080, ../../../src/sass/global/_mixins.scss */
 .marketing-banner.Variation2 .btn:after, .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
 
-/* line 1080, ../../../src/sass/global/_mixins.scss */
+/* line 1088, ../../../src/sass/global/_mixins.scss */
 .more-stories .feature li:before {
   color: #004f21;
 }
 
-/* line 1086, ../../../src/sass/global/_mixins.scss */
+/* line 1094, ../../../src/sass/global/_mixins.scss */
 .table-bordered {
   margin: 20px auto;
 }
-/* line 1090, ../../../src/sass/global/_mixins.scss */
+/* line 1098, ../../../src/sass/global/_mixins.scss */
 .table-bordered > thead > tr > th {
   background-color: #004f21;
   color: #fff;
 }
-/* line 1097, ../../../src/sass/global/_mixins.scss */
+/* line 1105, ../../../src/sass/global/_mixins.scss */
 .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1100, ../../../src/sass/global/_mixins.scss */
+/* line 1108, ../../../src/sass/global/_mixins.scss */
 .table-bordered > tbody td {
   color: #565c6b;
 }
 
-/* line 1105, ../../../src/sass/global/_mixins.scss */
+/* line 1113, ../../../src/sass/global/_mixins.scss */
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
 
-/* line 1109, ../../../src/sass/global/_mixins.scss */
+/* line 1117, ../../../src/sass/global/_mixins.scss */
 .fc-unthemed .fc-today {
   background: #00703d;
 }
 
 @media (max-width: 1141px) {
-  /* line 1115, ../../../src/sass/global/_mixins.scss */
+  /* line 1123, ../../../src/sass/global/_mixins.scss */
   nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1118, ../../../src/sass/global/_mixins.scss */
+  /* line 1126, ../../../src/sass/global/_mixins.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #008a4b;
   }
-  /* line 1122, ../../../src/sass/global/_mixins.scss */
+  /* line 1130, ../../../src/sass/global/_mixins.scss */
   nav#pdp-navigation .container .row #pdp-sections {
     background: #008a4b;
   }
 }
-/* line 1130, ../../../src/sass/global/_mixins.scss */
+/* line 1138, ../../../src/sass/global/_mixins.scss */
 body svg.spinner-loader {
   stroke: #438424;
 }
 
-/* line 1134, ../../../src/sass/global/_mixins.scss */
+/* line 1142, ../../../src/sass/global/_mixins.scss */
 #contactus-section a {
   color: #4c9d78;
 }
