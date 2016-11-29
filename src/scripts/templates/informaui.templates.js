@@ -124,10 +124,14 @@ var INFORMA = window.INFORMA || {};
                     '<div class="list-content">'+
                         '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}">{{Title}}</a></h4>'+
                     '</div>'+
-                    '<div class="link">'+
-                        '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
-                        '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
-                    '</div>'+
+                    '{{#compare PageURL null operator="!="}}' +
+                        '{{#compare PageURL.length "0" operator=">"}}' +
+                            '<div class="link">'+
+                                '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
+                                '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
+                            '</div>'+
+                        '{{/compare}}'+
+                    '{{/compare}}'+
                 '</li>'+
             '{{/each}}',
         'SubSectorList':

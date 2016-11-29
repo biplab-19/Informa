@@ -1,4 +1,4 @@
-/*! 2016-11-28 */var INFORMA = window.INFORMA || {};
+/*! 2016-11-29 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4072,10 +4072,14 @@ var INFORMA = window.INFORMA || {};
                     '<div class="list-content">'+
                         '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}">{{Title}}</a></h4>'+
                     '</div>'+
-                    '<div class="link">'+
-                        '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
-                        '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
-                    '</div>'+
+                    '{{#compare PageURL null operator="!="}}' +
+                        '{{#compare PageURL.length "0" operator=">"}}' +
+                            '<div class="link">'+
+                                '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
+                                '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
+                            '</div>'+
+                        '{{/compare}}'+
+                    '{{/compare}}'+
                 '</li>'+
             '{{/each}}',
         'SubSectorList':
