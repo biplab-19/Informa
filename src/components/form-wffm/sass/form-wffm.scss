@@ -893,10 +893,12 @@ form.request-a-demo {
         h2 {
             color: $white;
             position: relative;
-
+            @include mobile{
+              padding-right: 25px;
+            }
             &:before {
                 @include mobile {
-                    right: 0;
+                    right: 10px;
                 }
                 @include tablet {
                     left: -60px;
