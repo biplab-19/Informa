@@ -990,6 +990,10 @@ $desktop-width: 1142px;
             #formRegistration .modal-body {
                 background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
                 background-size: 24%;
+                @include tablet {
+                  background: none;
+                  padding: 0;
+                }
             }
             .registration-form-single-section .container {
                 background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
@@ -1013,6 +1017,10 @@ $desktop-width: 1142px;
             #formRegistration .modal-body {
                 background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
                 background-size: 24%;
+                @include tablet {
+                  background: none;
+                  padding: 0;
+                }
             }
             .registration-form-single-section .container {
                 background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
@@ -1022,7 +1030,7 @@ $desktop-width: 1142px;
             //     background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
             //     background-size: 20%;
             // }
-            
+
         }
     }
     .tab-pane {
@@ -1124,7 +1132,7 @@ $desktop-width: 1142px;
                     }
                   }
             }
-        }    
+        }
     }
     body{
         svg.spinner-loader{
