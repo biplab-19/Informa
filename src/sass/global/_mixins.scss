@@ -194,8 +194,25 @@ $desktop-width: 1142px;
                 @extend .color-link;
             }
             &:hover {
+                @include desktop {
+                    color: $navlinkcolor !important;
+                    text-decoration: underline !important;
+                }
+            }
+            &.btn {
+                &:hover {
+                    @include desktop {
+                        color: $white !important;
+                        text-decoration: none !important;
+                    }
+                }
+            }
+        }
+        //Links
+        #resource-finder-section ul.dropdown-menu li a label,
+        #product-finder-section ul.dropdown-menu li a label{
+            &:hover {
                 color: $navlinkcolor !important;
-                text-decoration: underline !important;
             }
         }
         //Navigation active color
