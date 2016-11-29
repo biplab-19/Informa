@@ -196,27 +196,6 @@ $desktop-width: 1142px;
             &:active {
                 @extend .color-link;
             }
-            &:hover {
-                @include desktop {
-                    color: $navlinkcolor !important;
-                    text-decoration: underline !important;
-                }
-            }
-            &.btn {
-                &:hover {
-                    @include desktop {
-                        color: $white !important;
-                        text-decoration: none !important;
-                    }
-                }
-            }
-        }
-        //Links
-        #resource-finder-section ul.dropdown-menu li a label,
-        #product-finder-section ul.dropdown-menu li a label{
-            &:hover {
-                color: $navlinkcolor !important;
-            }
         }
         //Navigation active color
         .nav-active, .activate {
@@ -227,10 +206,6 @@ $desktop-width: 1142px;
                   text-decoration: none;
                 }
             }
-            &:hover {
-                text-decoration: underline;
-                text-decoration-color: $navlinkcolor;
-            }
         }
         .subnav-container{
           a{
@@ -240,7 +215,6 @@ $desktop-width: 1142px;
             }
             &:hover {
                 @extend .color-link;
-                text-decoration: underline;
             }
           }
         }
