@@ -59,6 +59,14 @@ h3 {
             padding: 10px 0;
 
           }
+          &.yellow {
+            a:after {
+              color: $sub-yellow;
+            }
+            a {
+              border-color: $sub-yellow;
+            }
+          }
           &.pink {
             a:after {
               color: $sub-pink;
