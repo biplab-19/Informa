@@ -330,7 +330,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _bindToolTip = function() {
-        $('form.get-in-touch legend, form.request-a-demo legend').on("click", function(e) {
+        $('form.get-in-touch legend, form.request-a-demo legend, form.wffm-form legend').on("click", function(e) {
             $(this).toggleClass('active');
             $(this).parent().children('p').toggleClass('show');
         });
