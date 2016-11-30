@@ -7637,22 +7637,22 @@ INFORMA.forms = (function(window, $, namespace) {
         return url;
     };
     
-    _resetDefaultTitle = function() {
-        var SecondaryHeading = $('.form-secondary-title');
+    // _resetDefaultTitle = function() {
+    //     var SecondaryHeading = $('.form-secondary-title');
 
-        if(SecondaryHeading.length > 0) {
-            SecondaryHeading.each(function() {
-                var GetTitle = $(this).val();
-                var Parent = $(this).parents('.modal');
-                if(Parent.length > 0) {
-                    var isHeading = Parent.find('.product-name-holder').text();
-                    if(isHeading.length === 0) {
-                        Parent.find('h2').text(GetTitle);
-                    }
-                }
-            });
-        }
-    },
+    //     if(SecondaryHeading.length > 0) {
+    //         SecondaryHeading.each(function() {
+    //             var GetTitle = $(this).val();
+    //             var Parent = $(this).parents('.modal');
+    //             if(Parent.length > 0) {
+    //                 var isHeading = Parent.find('.product-name-holder').text();
+    //                 if(isHeading.length === 0) {
+    //                     Parent.find('h2').text(GetTitle);
+    //                 }
+    //             }
+    //         });
+    //     }
+    // },
     _updateHiddenProductVerticalName = function() {
         $(document).ready(function() {
             var ProductName = $('.product-name').val(),
@@ -7667,7 +7667,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('.tc-product-name').html(ProductName);
                 } else {
                     $('.tc-product-name').html(VerticalName);
-                    _resetDefaultTitle();
+                    //_resetDefaultTitle();
                 }
             }
         });
