@@ -121,9 +121,16 @@ var INFORMA = window.INFORMA || {};
                         '</p>'+
                     '{{/compare}}'+
                     '<p class="date">{{PublicationDate}}</p>'+
-                    '<div class="list-content">'+
-                        '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}">{{Title}}</a></h4>'+
-                    '</div>'+
+                    '{{#compare PageURL.length "0" operator=">"}}' +
+                        '<div class="list-content">'+
+                            '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}">{{Title}}</a></h4>'+
+                        '</div>'+
+                    '{{/compare}}'+
+                    '{{#compare PageURL.length "0" operator="=="}}' +
+                        '<div class="list-content">'+
+                            '<h4 class="poduct-brand-subheading"><span>{{Title}}</span></h4>'+
+                        '</div>'+
+                    '{{/compare}}'+
                     '{{#compare PageURL null operator="!="}}' +
                         '{{#compare PageURL.length "0" operator=">"}}' +
                             '<div class="link">'+
