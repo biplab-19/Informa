@@ -335,7 +335,7 @@ INFORMA.forms = (function(window, $, namespace) {
             $(this).parent().children('p').toggleClass('show');
         });
 
-        $('form.get-in-touch legend, form.request-a-demo legend').each(function() {
+        $('form.get-in-touch legend, form.request-a-demo legend, form.wffm-form legend').each(function() {
             if ($(this).next().is('p'))
                 $(this).addClass('tool_tip');
         });
