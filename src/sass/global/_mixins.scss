@@ -337,6 +337,23 @@ $desktop-width: 1142px;
         section#hero-banner.analyst {
             background-color: $secondarycolordark;
         }
+        .product-brands-list{
+            .intro-text{
+                color: $white;
+                padding-left: 10px;
+            }
+            ul.yellow-bullets {
+                padding-left: 20px;
+                padding-top:0;
+                li {
+                   padding-bottom: 5px;
+                   &:before {
+                    top: 6px;
+                    left: -20px;
+                   } 
+                }
+            }
+        }
         //Bullet color
         .yellow-bullets {
             list-style-type: none;
