@@ -367,7 +367,7 @@
                     @include tablet {
                         padding: 15px 25px;
                     }
-                    
+
                     @include desktop {
                         .col-xs-6 {
                             &:first-child {
@@ -399,6 +399,9 @@
                     display: inline;
                 }
             }
+            .recomended-currency{
+              bottom: 35px;
+            }
             .content {
                 h4 {
                     font-size: 24px;
@@ -422,6 +425,8 @@
                 .btn-container {
                     text-align: right;
                     margin: 5px 0 0;
+                    position: relative;
+                    bottom: 10px;
                     .btn {
                         min-width: initial;
                         min-width: auto;
@@ -714,6 +719,8 @@
         margin-top: 11px;
         .btn-container {
             margin: 0;
+            position: relative;
+            bottom: 5px;
             .btn {
                 float: right;
             }
