@@ -8237,12 +8237,12 @@ INFORMA.forms = (function(window, $, namespace) {
                     'guid': $(el).attr('data-productid')
                 };
                 _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
-            } 
-        } else {
-            _resetDefaultTitle();
+            } else {
+                _resetDefaultTitle();
+            }
         }
-        $(_formId).modal({         
-            show: 'true'         
+        $(_formId).modal({
+          show: 'true'         
         })
         _showOverlay();
 
