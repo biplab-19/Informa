@@ -1,4 +1,4 @@
-/*! 2016-11-30 */@charset "UTF-8";
+/*! 2016-12-01 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -11610,10 +11610,18 @@ section.pageNotFound a {
   color: #2a6496 !important;
 }
 /* line 4, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+section.pageNotFound a.btn {
+  color: #fff !important;
+}
+/* line 6, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+section.pageNotFound a.btn:hover {
+  color: #fff !important;
+}
+/* line 10, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
 section.pageNotFound a:hover {
   color: #2a6496 !important;
 }
-/* line 8, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+/* line 14, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
 section.pageNotFound .logo {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -11621,48 +11629,48 @@ section.pageNotFound .logo {
   margin: 0 auto;
 }
 @media (max-width: 767px) {
-  /* line 8, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+  /* line 14, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
   section.pageNotFound .logo {
     width: 92%;
   }
 }
-/* line 17, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+/* line 23, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
 section.pageNotFound .error-msg {
   padding: 50px 0;
 }
-/* line 19, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+/* line 25, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
 section.pageNotFound .error-msg h2 {
   color: #444957;
   font-family: FSMe-bold;
 }
-/* line 23, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+/* line 29, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
 section.pageNotFound .error-msg .sub-text {
   color: #444957;
 }
-/* line 27, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+/* line 33, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
 section.pageNotFound .go-to-home {
   width: 19%;
   font-family: FSMe-bold;
 }
-/* line 30, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+/* line 36, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
 section.pageNotFound .go-to-home a {
   width: 173px;
   color: #fff;
 }
 @media (max-width: 767px) {
-  /* line 30, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+  /* line 36, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
   section.pageNotFound .go-to-home a {
     width: 100%;
   }
 }
-/* line 37, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+/* line 43, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
 section.pageNotFound .go-to-home .btn:after {
   font-family: "InformaIcons";
   content: "\e900";
   right: 10px;
 }
 @media (max-width: 767px) {
-  /* line 27, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
+  /* line 33, ../../../src/components/pageNotFound/sass/_pageNotFound.scss */
   section.pageNotFound .go-to-home {
     width: 92%;
   }
