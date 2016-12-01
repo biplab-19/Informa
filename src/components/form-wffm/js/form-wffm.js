@@ -69,28 +69,28 @@ INFORMA.forms = (function(window, $, namespace) {
         var NewUrl = url.split('?');
 
         if(NewUrl.length === 1) {
-            url = NewUrl; 
-        } 
+            url = NewUrl;
+        }
 
         return url;
     };
-    
-    // _resetDefaultTitle = function() {
-    //     var SecondaryHeading = $('.form-secondary-title');
 
-    //     if(SecondaryHeading.length > 0) {
-    //         SecondaryHeading.each(function() {
-    //             var GetTitle = $(this).val();
-    //             var Parent = $(this).parents('.modal');
-    //             if(Parent.length > 0) {
-    //                 var isHeading = Parent.find('.product-name-holder').text();
-    //                 if(isHeading.length === 0) {
-    //                     Parent.find('h2').text(GetTitle);
-    //                 }
-    //             }
-    //         });
-    //     }
-    // },
+    _resetDefaultTitle = function() {
+        var SecondaryHeading = $('.form-secondary-title');
+
+        if(SecondaryHeading.length > 0) {
+            SecondaryHeading.each(function() {
+                var GetTitle = $(this).val();
+                var Parent = $(this).parents('.modal');
+                if(Parent.length > 0) {
+                    var isHeading = Parent.find('.product-name-holder').text();
+                    if(isHeading.length === 0) {
+                        Parent.find('h2').text(GetTitle);
+                    }
+                }
+            });
+        }
+    },
     _updateHiddenProductVerticalName = function() {
         $(document).ready(function() {
             var ProductName = $('.product-name').val(),
@@ -105,7 +105,6 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('.tc-product-name').html(ProductName);
                 } else {
                     $('.tc-product-name').html(VerticalName);
-                    //_resetDefaultTitle();
                 }
             }
         });
@@ -236,7 +235,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     Parent = $(this).parents('.tab-pane');
                 if (Status.length > 0) {
                     Parent.find('form').addClass('hide');
-                    
+
                     if (Status == 'success') {
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
@@ -677,12 +676,14 @@ INFORMA.forms = (function(window, $, namespace) {
                 };
                 _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
             } 
+        } else {
+            _resetDefaultTitle();
         }
         $(_formId).modal({         
             show: 'true'         
         })
         _showOverlay();
-        
+
     };
     _productDropdownUpdate = function(name) {
         var ProductDropdown = jQuery('.form-modal select.product-list');
@@ -690,7 +691,7 @@ INFORMA.forms = (function(window, $, namespace) {
         ProductDropdown.val(name);
         ProductDropdown.trigger('chosen:updated');
         ProductDropdown.parents('.form-group').addClass('disable-dropdown');
-        
+
     };
 
     _bindProductId = function() {
