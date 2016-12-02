@@ -1,4 +1,4 @@
-/*! 2016-12-01 */var INFORMA = window.INFORMA || {};
+/*! 2016-12-02 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -7608,7 +7608,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _UpdateHiddenFields,
         _RemoveStatus,
         RemoveParameterFromUrl,
-        _productDropdownUpdate;
+        _productDropdownUpdate,
+        _setFormModalFocus;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -7618,6 +7619,22 @@ INFORMA.forms = (function(window, $, namespace) {
     //         $(this).valid();
     //     });
     // }
+    _setFormModalFocus = function(){
+          $(".wffm-form .product-list").on('change', function() {
+              var scrollHeight = $('body').scrollTop();
+              if(scrollHeight){
+                $('body').scrollTop(scrollHeight);
+              }
+              //$('.wffm-form').filter(':input:first').focus();
+          });
+          $(".wffm-form .country-list").on('change', function() {
+              var scrollHeight = $('body').scrollTop();
+              if(scrollHeight){
+                $('body').scrollTop(scrollHeight);
+              }
+              //$('.wffm-form').filter(':input:first').focus();
+          });
+    }
     RemoveParameterFromUrl = function( url, parameter ) {
 
         if( typeof parameter == "undefined" || parameter == null || parameter == "" ) throw new Error( "parameter is required" );
@@ -8358,6 +8375,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _reCaptchaAccessbility();
         _resetFormOnRefresh();
         //_resetDefaultTitle();
+        _setFormModalFocus();
     };
 
     return {
