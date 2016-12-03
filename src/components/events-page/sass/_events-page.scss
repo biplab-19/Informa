@@ -188,9 +188,10 @@
 			visibility: visible;
 		}
 		.date-field {
-			float: left;
+			float: none;
 			margin: 26px 15px 0 20px;
 			text-align: left;
+			color:$grey-color04;
 			strong, span {
 				float: left;
 			}
@@ -206,13 +207,8 @@
 			float: left;
 		}
 		.country {
-			float: right;
-			margin: 25px 20px;
-			position: absolute;
-			right: 0;
-			span {
-				float: left;
-			}
+			margin:10px 20px 0;
+			text-align:left;
 		}
 	}
 	.content-wrap {
