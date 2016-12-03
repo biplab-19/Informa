@@ -25,24 +25,19 @@ INFORMA.analystProfile = (function(window, $, namespace) {
             $(this).parents('#analyst-profile').find('.descriptions').toggleClass("show-content");
         });
     }
-
     _checkButton = function () {
         var ContentHeight = $('.descriptions').height(),
             TotalHeight = $('.descriptions').addClass('show-content').height();
 
+        $('.descriptions').removeClass('show-content')
         if(TotalHeight <= ContentHeight) {
             jQuery('.show-options').addClass('hidden');
         }
-        var Height = $($('.descriptions').find('p')[0]).height();
-        $('#analyst-profile .descriptions .bold+div').height(Height);
-        $('.descriptions').removeClass('show-content');
     }
-
-    init = function() {
+   init = function() {
         //if (_analystList.length > 0) {
             _bindShowMore();
             _checkButton();
-
             if(INFORMA.global.siteCore.isExperience) {
                 $('#analyst-profile .show-options').hide();
                 $('#analyst-profile .descriptions').addClass('show-content')
