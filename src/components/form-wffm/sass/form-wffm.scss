@@ -358,6 +358,15 @@ form.request-a-demo {
     .hide-title {
         p {
             display: none;
+            &.tc-product-name {
+                display: inline;
+                color: $white;
+                background: transparent;
+                padding: 0;
+                &:after {
+                    display: none;
+                }
+            }
         }
 
         label.control-label {

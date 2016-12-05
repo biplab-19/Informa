@@ -1,4 +1,4 @@
-/*! 2016-12-02 */var INFORMA = window.INFORMA || {};
+/*! 2016-12-05 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -5097,24 +5097,19 @@ INFORMA.analystProfile = (function(window, $, namespace) {
             $(this).parents('#analyst-profile').find('.descriptions').toggleClass("show-content");
         });
     }
-
     _checkButton = function () {
         var ContentHeight = $('.descriptions').height(),
             TotalHeight = $('.descriptions').addClass('show-content').height();
 
+        $('.descriptions').removeClass('show-content')
         if(TotalHeight <= ContentHeight) {
             jQuery('.show-options').addClass('hidden');
         }
-        var Height = $($('.descriptions').find('p')[0]).height();
-        $('#analyst-profile .descriptions .bold+div').height(Height);
-        $('.descriptions').removeClass('show-content');
     }
-
-    init = function() {
+   init = function() {
         //if (_analystList.length > 0) {
             _bindShowMore();
             _checkButton();
-
             if(INFORMA.global.siteCore.isExperience) {
                 $('#analyst-profile .show-options').hide();
                 $('#analyst-profile .descriptions').addClass('show-content')
@@ -7617,7 +7612,9 @@ INFORMA.forms = (function(window, $, namespace) {
         _RemoveStatus,
         RemoveParameterFromUrl,
         _productDropdownUpdate,
-        _setFormModalFocus;
+        _setFormModalFocus,
+         _UpdateProductName,
+        _changeProductDropdown;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -7642,7 +7639,17 @@ INFORMA.forms = (function(window, $, namespace) {
               }
               //$('.wffm-form').filter(':input:first').focus();
           });
-    }
+    };
+
+     _changeProductDropdown = function() {
+        $('.product-list').on('change', function() {
+            var Parent = $(this).parents('form'),
+                Value = $(this).val();
+
+            Parent.find('.tc-product-name').html(Value);
+        })
+    };
+
     RemoveParameterFromUrl = function( url, parameter ) {
 
         if( typeof parameter == "undefined" || parameter == null || parameter == "" ) throw new Error( "parameter is required" );
@@ -7662,18 +7669,21 @@ INFORMA.forms = (function(window, $, namespace) {
         return url;
     };
 
-    _resetDefaultTitle = function() {
+    _resetDefaultTitle = function(elem) {
         var SecondaryHeading = $('.form-secondary-title');
 
         if(SecondaryHeading.length > 0) {
             SecondaryHeading.each(function() {
                 var GetTitle = $(this).val();
                 var Parent = $(this).parents('.modal');
+                var ParentId = $(elem).attr('data-modal');
                 if(Parent.length > 0) {
-                    var isHeading = Parent.find('.product-name-holder').text();
-                    if(isHeading.length === 0) {
-                        Parent.find('h2').text(GetTitle);
-                    }
+                    // var isHeading = Parent.find('.product-name-holder').text();
+                    // if(isHeading.length === 0) {
+                     Parent.find('h2').text(GetTitle);
+                    // }
+                    var Product = $(ParentId).find('.product-list').val();
+                    $(ParentId).find('.tc-product-name').text(Product);
                 }
             });
         }
@@ -7694,6 +7704,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('.tc-product-name').html(VerticalName);
                 }
             }
+             _UpdateProductName();
         });
     }
     _bindNumber = function() {
@@ -8251,23 +8262,20 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
-    _showModal = function(el)  {       
-        $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
+    _showModal = function(el) {
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };
         _formId = $(el).data('modal');
         _resetForm($(_formId).find('form'));
-        var ProductName = $('.product-name').val();
-        if (ProductName == "" || ProductName == undefined) {
-            if ($(el).attr('data-productid')) {
-                productId = {
-                    'guid': $(el).attr('data-productid')
-                };
-                _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
-            } else {
-                _resetDefaultTitle();
-            }
+        if ($(el).attr('data-productid')) {
+            productId = {
+                'guid': $(el).attr('data-productid')
+            };
+            _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
+        } else {
+            _resetDefaultTitle(el);
         }
         $(_formId).modal({
-          show: 'true'         
+            show: 'true'
         })
         _showOverlay();
 
@@ -8355,6 +8363,16 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
+    _UpdateProductName = function() {
+        var ProductList = $('.product-list');
+        ProductList.each(function() {
+            var Parent = $(this).parents('form'),
+                SelectedItem = $(this).val();
+
+            Parent.find('.tc-product-name').text(SelectedItem);
+        })
+    }
+
     init = function() {
         //Update hidden fields on load
 
@@ -8384,6 +8402,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _resetFormOnRefresh();
         //_resetDefaultTitle();
         _setFormModalFocus();
+        _changeProductDropdown();
     };
 
     return {
