@@ -36,8 +36,14 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         //methods
         init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents,
         SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData,
-        SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent;
+        SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent;
 
+    disabledEvent = function(){
+        $('.FullyBooked,.EventFinished').click(function(e){
+            e.preventDefault();
+        });
+    },
+        
     UnbindEvent = function() {
         $('.FullyBooked,.EventFinished').on('keydown', function(e) {
             if (e.keyCode === 13 || e.which===13) {
@@ -564,6 +570,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             MoreEventsFunc();
             ListChangeEvents();
             UnbindEvent();
+            disabledEvent();
         }
     };
 

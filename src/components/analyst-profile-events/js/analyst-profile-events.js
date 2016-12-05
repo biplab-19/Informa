@@ -22,13 +22,13 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         EqualHeight,
         ShowMore,
         UnbindEvent,
-        FullyBookedEventDisable;
+        disabledEvent;
 
-        FullyBookedEventDisable = function(){
-          $(document).on('click', '.FullyBooked', function(e){
-            e.preventDefault();
-          });
-        }
+        disabledEvent = function(){
+            $('.FullyBooked,.EventFinished').click(function(e){
+                e.preventDefault();
+            });
+        },
 
         UnbindEvent = function() {
             $('.FullyBooked,.EventFinished').on('keydown', function(e) {
@@ -64,7 +64,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
             EqualHeight();
             ShowMore();
             UnbindEvent();
-            FullyBookedEventDisable();
+            disabledEvent();
         }
     };
 

@@ -5018,13 +5018,13 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         EqualHeight,
         ShowMore,
         UnbindEvent,
-        FullyBookedEventDisable;
+        disabledEvent;
 
-        FullyBookedEventDisable = function(){
-          $(document).on('click', '.FullyBooked', function(e){
-            e.preventDefault();
-          });
-        }
+        disabledEvent = function(){
+            $('.FullyBooked,.EventFinished').click(function(e){
+                e.preventDefault();
+            });
+        },
 
         UnbindEvent = function() {
             $('.FullyBooked,.EventFinished').on('keydown', function(e) {
@@ -5060,7 +5060,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
             EqualHeight();
             ShowMore();
             UnbindEvent();
-            FullyBookedEventDisable();
+            disabledEvent();
         }
     };
 
@@ -6240,8 +6240,14 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         //methods
         init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents,
         SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData,
-        SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent;
+        SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent;
 
+    disabledEvent = function(){
+        $('.FullyBooked,.EventFinished').click(function(e){
+            e.preventDefault();
+        });
+    },
+        
     UnbindEvent = function() {
         $('.FullyBooked,.EventFinished').on('keydown', function(e) {
             if (e.keyCode === 13 || e.which===13) {
@@ -6768,6 +6774,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             MoreEventsFunc();
             ListChangeEvents();
             UnbindEvent();
+            disabledEvent();
         }
     };
 
@@ -11227,7 +11234,22 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
-        DoLinksEvents, GetDefaultValues, LoadMoreProducts;
+        DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent;
+
+    disabledEvent = function(){
+        $('.FullyBooked,.EventFinished').click(function(e){
+            e.preventDefault();
+        });
+    },
+    
+    UnbindEvent = function() {
+        $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+            if (e.keyCode === 13 || e.which===13) {
+                e.preventDefault();
+            }   
+        })
+    },
+
     GetDefaultValues = function() {
             var data = {};
             data.Sorting = ($('select[name="sorting"]')) ? $('select[name="sorting"]').val() : null;
@@ -11293,7 +11315,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ResetPageSize();
             });
         }
-    GetSortValue = function(value) {
+        GetSortValue = function(value) {
             SortValue = (value) ? value : SortDropDown.val();
 
             SortDropDown.on("change", function(e) {
@@ -11755,6 +11777,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 EqualHeight();
             });
             GetSortValue();
+            UnbindEvent();
+            disabledEvent();
         };
     return {
         init: init,
