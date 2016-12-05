@@ -167,6 +167,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
             }
+            else{
+                $(this).attr('href', $(this).attr('data-url'));
+            }
         });
     }
 

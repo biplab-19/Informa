@@ -6665,7 +6665,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
         Country.on('change', function() {
             var value = jQuery(this).val(),
-            	check = moment(new Date('1 '+MonthSelect.val()));
+                check = moment(new Date('1 '+MonthSelect.val()));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
@@ -7289,6 +7289,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
+            }else{
+                $(this).attr('href', $(this).attr('data-url'));
             }
         });
     }
@@ -7985,7 +7987,7 @@ INFORMA.forms = (function(window, $, namespace) {
             $('.tc-product-name').html(data.ProductName);
         }
         // Listing product dropdown update
-        if($('.product-finder-results .search-container').length > 0) {
+        if($('.product-finder-results .search-container').length > 0 || $('.recom-prod-carousel').length > 0) {
             _productDropdownUpdate(data.ProductName);
         }
     }

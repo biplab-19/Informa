@@ -381,7 +381,7 @@ INFORMA.forms = (function(window, $, namespace) {
             $('.tc-product-name').html(data.ProductName);
         }
         // Listing product dropdown update
-        if($('.product-finder-results .search-container').length > 0) {
+        if($('.product-finder-results .search-container').length > 0 || $('.recom-prod-carousel').length > 0) {
             _productDropdownUpdate(data.ProductName);
         }
     }
