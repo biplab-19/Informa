@@ -1,4 +1,4 @@
-/*! 2016-12-05 */var INFORMA = window.INFORMA || {};
+/*! 2016-12-06 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -6561,17 +6561,21 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SetCalendarEvents(data);
     },
     RenderParticularMonth = function(date) { 
-        var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY'),
-		PageTemplate = $("section#events").data("CurrentPage");
-            var obj = { 
-		          data:JSON.stringify({MonthYear: NextMonth, 
-		                        SectorId: SectorSelect.val(),
-		            eventType: Type.val(),
-		            CurrentPage:PageTemplate
-		         })
-           } 
-        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
-
+        var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY');
+// 		PageTemplate = $("section#events").data("CurrentPage");
+//             var obj = { 
+// 		          data:JSON.stringify({MonthYear: NextMonth, 
+// 		                        SectorId: SectorSelect.val(),
+// 		            eventType: Type.val(),
+// 		            CurrentPage:PageTemplate
+// 		         })
+//             } 
+//         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
+        $('#Eventmonth').val(NextMonth);
+        $('#Eventmonth').trigger("chosen:updated");
+        var MonthYear = NextMonth,
+        obj = GetEventData(NextMonth);
+        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
     },
 
     CheckEvents = function(data) {
@@ -6665,7 +6669,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
         Country.on('change', function() {
             var value = jQuery(this).val(),
-                check = moment(new Date('1 '+MonthSelect.val()));
+            	check = moment(new Date('1 '+MonthSelect.val()));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
@@ -6758,7 +6762,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', 1).format('MMMM YYYY');
-
+                    $('#Eventmonth').val(prevMonth);
+                    $('#Eventmonth').trigger("chosen:updated");
                     var MonthYear = prevMonth,
             			obj = GetEventData(MonthYear);
                     // var obj = {
@@ -6781,7 +6786,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
-
+                    $('#Eventmonth').val(prevMonth);
+                    $('#Eventmonth').trigger("chosen:updated");
                     var MonthYear = prevMonth,
             			obj = GetEventData(MonthYear);
 
@@ -7289,7 +7295,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
-            }else{
+            }
+            else{
                 $(this).attr('href', $(this).attr('data-url'));
             }
         });
