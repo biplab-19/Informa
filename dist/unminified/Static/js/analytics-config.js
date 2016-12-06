@@ -5,7 +5,7 @@ var config = {
             "gaKey": "UA-81001424-2",
             "host": "int.pharmahub.com",
             "name": "Pharma Intelligence",
-            "theme": "pharma-theme",
+            "theme": "pharma",
             "google": true,
             "adobe": true
         },
@@ -13,7 +13,7 @@ var config = {
             "gaKey": "UA-81001424-2",
             "host": "int.tmt.com",
             "name": "TMT Intelligence",
-            "theme": "tmt-theme",
+            "theme": "tmt",
             "google": true,
             "adobe": true
         },
@@ -21,7 +21,7 @@ var config = {
             "gaKey": "UA-81001424-2",
             "host": "int.financialhub.com",
             "name": "Financial Intelligence",
-            "theme": "financial-theme",
+            "theme": "financial",
             "google": true,
             "adobe": true
         },
@@ -29,7 +29,7 @@ var config = {
             "gaKey": "UA-81001424-2",
             "host": "qa.pharmahub.com",
             "name": "Pharma Intelligence",
-            "theme": "pharma-theme",
+            "theme": "pharma",
             "google": true,
             "adobe": true
         },
@@ -37,7 +37,7 @@ var config = {
             "gaKey": "UA-81001424-2",
             "host": "qa.agrihub.com",
             "name": "Agri Intelligence",
-            "theme": "agri-theme",
+            "theme": "agri",
             "google": true,
             "adobe": true
         },
@@ -45,7 +45,7 @@ var config = {
             "gaKey": "UA-81001424-2",
             "host": "qa.maritimehub.com",
             "name": "Maritime Intelligence",
-            "theme": "maritime-theme",
+            "theme": "maritime",
             "google": true,
             "adobe": true
         },
@@ -53,7 +53,7 @@ var config = {
             "gaKey": "UA-81001424-2",
             "host": "qa.tmt.com",
             "name": "TMT Intelligence",
-            "theme": "tmt-theme",
+            "theme": "tmt",
             "google": true,
             "adobe": true
         },
@@ -61,7 +61,7 @@ var config = {
             "gaKey": "UA-81001424-2",
             "host": "qa.financialhub.com",
             "name": "Financial Intelligence",
-            "theme": "financial-themee",
+            "theme": "financial",
             "google": true,
             "adobe": true
         },
@@ -69,7 +69,7 @@ var config = {
              "gaKey": "UA-81001424-1",
              "host": "istage-pharmaintelligence.informa.com",
              "name": "Pharma Intelligence",
-             "theme": "pharma-theme",
+             "theme": "pharma",
              "google": true,
              "adobe": true
          },
@@ -77,7 +77,7 @@ var config = {
             "gaKey": "UA-81001424-1",
             "host": "istage-tmtintelligence.informa.com",
             "name": "TMT Intelligence",
-            "theme": "tmt-theme",
+            "theme": "tmt",
             "google": true,
             "adobe": true
         },
@@ -85,7 +85,7 @@ var config = {
             "gaKey": "UA-81001424-1",
             "host": "istage-financialintelligence.informa.com",
             "name": "Financial Intelligence",
-            "theme": "financial-theme",
+            "theme": "financial",
             "google": true,
             "adobe": true
         },
@@ -93,7 +93,7 @@ var config = {
             "gaKey": "UA-81001424-1",
             "host": "istage-agriintelligence.informa.com",
             "name": "Agri Intelligence",
-            "theme": "agri-theme",
+            "theme": "agri",
             "google": true,
             "adobe": true
         },
@@ -101,7 +101,7 @@ var config = {
             "gaKey": "UA-81001424-1",
             "host": "istage-maritimeintelligence.informa.com",
             "name": "Maritime Intelligence",
-            "theme": "maritime-theme",
+            "theme": "maritime",
             "google": true,
             "adobe": true
         },
@@ -109,7 +109,7 @@ var config = {
             "gaKey": "UA-81001424-1",
             "host": "iprod-pharmaintelligence.informa.com",
             "name": "Pharma Intelligence",
-            "theme": "pharma-theme",
+            "theme": "pharma",
             "google": true,
             "adobe": true
         },
@@ -117,7 +117,7 @@ var config = {
             "gaKey": "UA-81001424-1",
             "host": "iprod-tmtintelligence.informa.com",
             "name": "TMT Intelligence",
-            "theme": "tmt-theme",
+            "theme": "tmt",
             "google": true,
             "adobe": true
         },
@@ -125,7 +125,7 @@ var config = {
             "gaKey": "UA-81001424-1",
             "host": "iprod-financialintelligence.informa.com",
             "name": "Financial Intelligence",
-            "theme": "financial-theme",
+            "theme": "financial",
             "google": true,
             "adobe": true
         },
@@ -133,7 +133,7 @@ var config = {
              "gaKey": "UA-81001424-1",
              "host": "iprod-agriintelligence.informa.com",
              "name": "Agri Intelligence",
-             "theme": "agri-theme",
+             "theme": "agri",
              "google": true,
              "adobe": true
          },
@@ -141,7 +141,7 @@ var config = {
             "gaKey": "UA-81001424-1",
             "host": "iprod-maritimeintelligence.informa.com",
             "name": "Maritime Intelligence",
-            "theme": "maritime-theme",
+            "theme": "maritime",
             "google": true,
             "adobe": true
         },
@@ -149,7 +149,7 @@ var config = {
             "gaKey": "UA-81001424-3",
             "host": "pharmaintelligence.informa.com",
             "name": "Pharma Intelligence",
-            "theme": "pharma-theme",
+            "theme": "pharma",
             "google": true,
             "adobe": true
         },
@@ -157,7 +157,7 @@ var config = {
             "gaKey": "UA-81001424-3",
             "host": "tmtintelligence.informa.com",
             "name": "TMT Intelligence",
-            "theme": "tmt-theme",
+            "theme": "tmt",
             "google": true,
             "adobe": true
         },
@@ -165,7 +165,7 @@ var config = {
             "gaKey": "UA-81001424-3",
             "host": "financialintelligence.informa.com",
             "name": "Financial Intelligence",
-            "theme": "financial-theme",
+            "theme": "financial",
             "google": true,
             "adobe": true
         },
@@ -173,7 +173,7 @@ var config = {
             "gaKey": "UA-81001424-3",
             "host": "agriintelligence.informa.com",
             "name": "Agri Intelligence",
-            "theme": "agri-theme",
+            "theme": "agri",
             "google": true,
             "adobe": true
         },
@@ -181,7 +181,7 @@ var config = {
             "gaKey": "UA-81001424-3",
             "host": "maritimeintelligence.informa.com",
             "name": "Maritime Intelligence",
-            "theme": "maritime-theme",
+            "theme": "maritime",
             "google": true,
             "adobe": true
         }
@@ -189,14 +189,15 @@ var config = {
 }
 
 
-var domain = jQuery.grep(config.gaConfig, function (n, i) {
+var item = jQuery.grep(config.gaConfig, function (n, i) {
     return n.host === window.location.host;
 });
 
+var domain = item[0];
 
-if (domain.length > 0) {
+if (domain) {
 
-    var url = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + domain.host;
+    var url = ('https:' == document.location.protocol ? 'https://' : 'http://') + domain.host;
 
     //google analytics script
     if (domain.google) {
@@ -227,10 +228,10 @@ if (domain.length > 0) {
 
     //theme 
     var theme = document.createElement("link");
-    theme.href = url + '/static/css/' + domain.theme + '.css';
+    theme.href = url + '/static/css/' + domain.theme + '-theme.css';
     theme.type = "text/css";
     theme.rel = "stylesheet";
-    document.getElementsByTagName("head")[0].appendChild(theme);
+    jQuery('head').append(theme);
 
     jQuery('body').attr('class', ''); jQuery('body').addClass(domain.theme)
 
@@ -239,7 +240,7 @@ if (domain.length > 0) {
     favIcon.href = url + '/static/images/' + domain.theme + '/favicon.ico';
     favIcon.type = "image/x-icon";
     favIcon.rel = "shortcut icon";
-    document.getElementsByTagName("head")[0].appendChild(favIcon);
+    jQuery('head').append(favIcon);
 }
 
 

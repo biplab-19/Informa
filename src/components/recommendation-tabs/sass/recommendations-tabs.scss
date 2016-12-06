@@ -139,4 +139,13 @@
             font-size: 22px;
         }
     }
+    .intro-text{
+        margin-bottom: 20px;
+        @include desktop{
+            margin-top: -30px;
+        }
+        @include not-desktop{
+            margin-top: -20px;
+        }
+    }
 }
