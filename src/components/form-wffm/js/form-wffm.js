@@ -61,18 +61,12 @@ INFORMA.forms = (function(window, $, namespace) {
     // }
     _setFormModalFocus = function(){
           $(".wffm-form .product-list").on('change', function() {
-              var scrollHeight = $('body').scrollTop();
-              if(scrollHeight){
-                $('body').scrollTop(scrollHeight);
-              }
-              //$('.wffm-form').filter(':input:first').focus();
+            $('body').scrollTop(300);
+            $('.wffm-form').filter(':input:first').focus();
           });
           $(".wffm-form .country-list").on('change', function() {
-              var scrollHeight = $('body').scrollTop();
-              if(scrollHeight){
-                $('body').scrollTop(scrollHeight);
-              }
-              //$('.wffm-form').filter(':input:first').focus();
+              $('body').scrollTop(300);
+              $('.wffm-form').filter(':input:first').focus();
           });
     };
 
