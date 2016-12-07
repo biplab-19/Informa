@@ -11016,6 +11016,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             }
         },
         DoRefine = function() {
+            if (SearchType === "ResourceResult") {
+                var ProductData = INFORMA.ResourceFilter.GetResourceData();
+            } else {
+                var ProductData = INFORMA.ProductFinder.GetProductData();
+            } 
             var ProductData = INFORMA.ProductFinder.GetProductData(),
                 FilterData = GetSelectedFilter(),
                 DefaultData = INFORMA.SearchResults.DefaultParameters(),
