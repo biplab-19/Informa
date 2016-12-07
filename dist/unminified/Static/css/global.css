@@ -1,4 +1,4 @@
-/*! 2016-12-05 */@charset "UTF-8";
+/*! 2016-12-07 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -12722,94 +12722,113 @@ body.ja {
   display: none;
 }
 @media (max-width: 767px) {
-  /* line 369, ../../../src/sass/global/_banner.scss */
-  .hero-banner-texture.dark-banner-subscribe .topic .date {
+  /* line 368, ../../../src/sass/global/_banner.scss */
+  .hero-banner-texture.dark-banner-subscribe .topic {
+    padding-bottom: 5px !important;
+  }
+}
+@media (max-width: 767px) {
+  /* line 374, ../../../src/sass/global/_banner.scss */
+  .hero-banner-texture.dark-banner-subscribe .provided .date {
     float: left;
     width: 100%;
     padding-bottom: 0;
   }
 }
-/* line 379, ../../../src/sass/global/_banner.scss */
-.hero-banner-texture.dark-banner-subscribe .topic .topic-mob a:first-child span {
-  padding-left: 50px;
-}
 @media (max-width: 767px) {
-  /* line 379, ../../../src/sass/global/_banner.scss */
-  .hero-banner-texture.dark-banner-subscribe .topic .topic-mob a:first-child span {
-    padding: 0;
+  /* line 383, ../../../src/sass/global/_banner.scss */
+  .hero-banner-texture.dark-banner-subscribe .provided .topic-mob a .topic-name {
+    padding: 0 !important;
   }
 }
 /* line 389, ../../../src/sass/global/_banner.scss */
+.hero-banner-texture.dark-banner-subscribe .provided .topic-mob a:first-child span {
+  padding-left: 50px;
+}
+@media (max-width: 767px) {
+  /* line 389, ../../../src/sass/global/_banner.scss */
+  .hero-banner-texture.dark-banner-subscribe .provided .topic-mob a:first-child span {
+    padding: 0;
+  }
+}
+/* line 399, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .list-mob {
   padding-left: 10px;
 }
-/* line 391, ../../../src/sass/global/_banner.scss */
+/* line 401, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .list-mob a {
   text-decoration: underline !important;
   margin: 0 10px;
   font-family: 'FSMe-Bold';
 }
-/* line 397, ../../../src/sass/global/_banner.scss */
+@media (max-width: 767px) {
+  /* line 401, ../../../src/sass/global/_banner.scss */
+  .hero-banner-texture.dark-banner-subscribe .list-mob a {
+    margin: 0;
+    float: left;
+  }
+}
+/* line 412, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe span.by {
   text-decoration: underline;
 }
-/* line 400, ../../../src/sass/global/_banner.scss */
+/* line 415, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .description {
   font-family: FSMe-Light;
   font-size: 14px;
   padding-bottom: 30px;
 }
 @media (max-width: 767px) {
-  /* line 400, ../../../src/sass/global/_banner.scss */
+  /* line 415, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .description {
     font-size: 12px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 400, ../../../src/sass/global/_banner.scss */
+  /* line 415, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .description {
     padding-bottom: 30px;
   }
 }
-/* line 411, ../../../src/sass/global/_banner.scss */
+/* line 426, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .description p {
   color: #fff;
 }
-/* line 415, ../../../src/sass/global/_banner.scss */
+/* line 430, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .already-a-customer {
   padding: 15px 15px 0;
   position: relative;
   z-index: 9;
 }
-/* line 420, ../../../src/sass/global/_banner.scss */
+/* line 435, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .already-a-customer span:first-child {
   font-family: FSMe-Light;
   margin-right: 10px;
 }
-/* line 424, ../../../src/sass/global/_banner.scss */
+/* line 439, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .already-a-customer span a {
   text-decoration: underline;
   font-family: FSMe-Bold;
 }
-/* line 430, ../../../src/sass/global/_banner.scss */
+/* line 445, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe ul {
   padding-top: 123px;
   list-style-type: none;
   font-size: 18px;
 }
-/* line 434, ../../../src/sass/global/_banner.scss */
+/* line 449, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe ul li {
   position: relative;
   margin-bottom: 20px;
   padding-left: 20px;
 }
 @media (max-width: 767px) {
-  /* line 434, ../../../src/sass/global/_banner.scss */
+  /* line 449, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe ul li {
     padding-left: 35px;
   }
 }
-/* line 442, ../../../src/sass/global/_banner.scss */
+/* line 457, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe ul li:before {
   margin-right: 10px;
   font-family: "InformaIcons";
@@ -12820,106 +12839,106 @@ body.ja {
   top: -3px;
 }
 @media (max-width: 767px) {
-  /* line 442, ../../../src/sass/global/_banner.scss */
+  /* line 457, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe ul li:before {
     left: -1px;
     padding-left: 0px;
   }
 }
 @media (max-width: 767px) {
-  /* line 430, ../../../src/sass/global/_banner.scss */
+  /* line 445, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe ul {
     padding-top: 27px;
     padding-left: 0px;
   }
 }
-/* line 461, ../../../src/sass/global/_banner.scss */
+/* line 476, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .priceCTA {
   padding: 0;
   font-size: 14px;
   color: #fff;
   font-family: FSMe-Light;
 }
-/* line 467, ../../../src/sass/global/_banner.scss */
+/* line 482, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .priceCTA .priceDetails span.price {
   font-size: 24px;
   font-family: FSMe-Bold;
 }
-/* line 470, ../../../src/sass/global/_banner.scss */
+/* line 485, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .priceCTA .priceDetails span.price:before {
   content: "\00a3";
   font-weight: bold;
 }
-/* line 476, ../../../src/sass/global/_banner.scss */
+/* line 491, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .priceCTA .headline {
   font-family: FSMe-Bold;
 }
 @media (max-width: 767px) {
-  /* line 476, ../../../src/sass/global/_banner.scss */
+  /* line 491, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .priceCTA .headline {
     margin-top: 5px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 461, ../../../src/sass/global/_banner.scss */
+  /* line 476, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .priceCTA {
     margin-bottom: 10px;
   }
 }
-/* line 486, ../../../src/sass/global/_banner.scss */
+/* line 501, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .cta1,
 .hero-banner-texture.dark-banner-subscribe .cta2 {
   font-size: 14px;
 }
-/* line 490, ../../../src/sass/global/_banner.scss */
+/* line 505, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .cta2 {
   min-width: auto;
   min-width: initial;
   font-family: FSMe;
 }
 @media (max-width: 767px) {
-  /* line 490, ../../../src/sass/global/_banner.scss */
+  /* line 505, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .cta2 {
     margin-left: -7.5px;
     margin-top: 15px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 490, ../../../src/sass/global/_banner.scss */
+  /* line 505, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .cta2 {
     margin-left: -15px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 490, ../../../src/sass/global/_banner.scss */
+  /* line 505, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .cta2 {
     margin-left: -15px;
   }
 }
 @media (max-width: 767px) {
-  /* line 505, ../../../src/sass/global/_banner.scss */
+  /* line 520, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .cta1, .hero-banner-texture.dark-banner-subscribe .cta2, .hero-banner-texture.dark-banner-subscribe .cta3 {
     margin-left: -7.5px;
     padding-left: 20px;
   }
-  /* line 509, ../../../src/sass/global/_banner.scss */
+  /* line 524, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .cta1:after, .hero-banner-texture.dark-banner-subscribe .cta2:after, .hero-banner-texture.dark-banner-subscribe .cta3:after {
     right: 20px;
   }
 }
-/* line 514, ../../../src/sass/global/_banner.scss */
+/* line 529, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .cta3 {
   font-family: FSMe-Light;
   font-size: 16px;
   color: #ef7c00;
 }
 @media (max-width: 767px) {
-  /* line 514, ../../../src/sass/global/_banner.scss */
+  /* line 529, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .cta3 {
     font-size: 14px;
   }
 }
-/* line 522, ../../../src/sass/global/_banner.scss */
+/* line 537, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .share {
   font-family: FSME-bold;
   text-align: center;
@@ -12927,7 +12946,7 @@ body.ja {
   display: inline-block;
   position: relative;
 }
-/* line 529, ../../../src/sass/global/_banner.scss */
+/* line 544, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .share:after {
   font-family: "InformaIcons";
   content: "\e917";
@@ -12938,33 +12957,33 @@ body.ja {
   left: 44px;
 }
 @media (max-width: 1023px) and (min-width: 768px) {
-  /* line 529, ../../../src/sass/global/_banner.scss */
+  /* line 544, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .share:after {
     top: 9px;
   }
 }
 @media (max-width: 1023px) and (min-width: 768px) {
-  /* line 541, ../../../src/sass/global/_banner.scss */
+  /* line 556, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .share-tab {
     padding-top: 10px;
   }
 }
-/* line 547, ../../../src/sass/global/_banner.scss */
+/* line 562, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .topic {
   padding-top: 15px;
 }
 @media (max-width: 767px) {
-  /* line 547, ../../../src/sass/global/_banner.scss */
+  /* line 562, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .topic {
     padding-bottom: 5px;
   }
 }
-/* line 554, ../../../src/sass/global/_banner.scss */
+/* line 569, ../../../src/sass/global/_banner.scss */
 .hero-banner-texture.dark-banner-subscribe .provided {
   padding-bottom: 15px;
 }
 @media (max-width: 767px) {
-  /* line 554, ../../../src/sass/global/_banner.scss */
+  /* line 569, ../../../src/sass/global/_banner.scss */
   .hero-banner-texture.dark-banner-subscribe .provided {
     font-size: 14px;
     padding-top: 0px;
@@ -12972,27 +12991,27 @@ body.ja {
   }
 }
 
-/* line 566, ../../../src/sass/global/_banner.scss */
+/* line 581, ../../../src/sass/global/_banner.scss */
 .italics {
   font-style: italic;
 }
 
-/* line 571, ../../../src/sass/global/_banner.scss */
+/* line 586, ../../../src/sass/global/_banner.scss */
 .provided-by p {
   margin-bottom: 0;
 }
-/* line 574, ../../../src/sass/global/_banner.scss */
+/* line 589, ../../../src/sass/global/_banner.scss */
 .provided-by .heading {
   width: 100px;
   float: left;
   color: #80838c;
 }
-/* line 579, ../../../src/sass/global/_banner.scss */
+/* line 594, ../../../src/sass/global/_banner.scss */
 .provided-by .content {
   width: calc(100% - 100px);
   float: left;
 }
-/* line 583, ../../../src/sass/global/_banner.scss */
+/* line 598, ../../../src/sass/global/_banner.scss */
 .provided-by a {
   color: #fff;
   font-family: 'FSMe-Bold';
@@ -13000,32 +13019,32 @@ body.ja {
   text-decoration: underline;
 }
 
-/* line 591, ../../../src/sass/global/_banner.scss */
+/* line 606, ../../../src/sass/global/_banner.scss */
 .marketing-banner {
   position: relative;
   overflow: hidden;
 }
 @media (min-width: 1142px) {
-  /* line 591, ../../../src/sass/global/_banner.scss */
+  /* line 606, ../../../src/sass/global/_banner.scss */
   .marketing-banner {
     height: 550px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 591, ../../../src/sass/global/_banner.scss */
+  /* line 606, ../../../src/sass/global/_banner.scss */
   .marketing-banner {
     padding: 0 30px;
   }
 }
-/* line 603, ../../../src/sass/global/_banner.scss */
+/* line 618, ../../../src/sass/global/_banner.scss */
 .marketing-banner a:hover {
   text-decoration: none;
 }
-/* line 606, ../../../src/sass/global/_banner.scss */
+/* line 621, ../../../src/sass/global/_banner.scss */
 .marketing-banner a:focus {
   text-decoration: none;
 }
-/* line 609, ../../../src/sass/global/_banner.scss */
+/* line 624, ../../../src/sass/global/_banner.scss */
 .marketing-banner .close {
   position: absolute;
   top: 10px;
@@ -13034,30 +13053,30 @@ body.ja {
   z-index: 1;
   opacity: 1;
 }
-/* line 617, ../../../src/sass/global/_banner.scss */
+/* line 632, ../../../src/sass/global/_banner.scss */
 .marketing-banner .cf-img {
   position: absolute;
   right: 0;
   bottom: 0;
 }
 @media (max-width: 767px) {
-  /* line 617, ../../../src/sass/global/_banner.scss */
+  /* line 632, ../../../src/sass/global/_banner.scss */
   .marketing-banner .cf-img {
     right: -115px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 617, ../../../src/sass/global/_banner.scss */
+  /* line 632, ../../../src/sass/global/_banner.scss */
   .marketing-banner .cf-img {
     right: -115px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 628, ../../../src/sass/global/_banner.scss */
+  /* line 643, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row {
     padding: 80px;
   }
-  /* line 632, ../../../src/sass/global/_banner.scss */
+  /* line 647, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row .image img {
     max-width: 650px;
     max-height: 400px;
@@ -13065,72 +13084,72 @@ body.ja {
   }
 }
 @media (max-width: 767px) {
-  /* line 628, ../../../src/sass/global/_banner.scss */
+  /* line 643, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row {
     padding: 50px 15px;
   }
-  /* line 641, ../../../src/sass/global/_banner.scss */
+  /* line 656, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row .content {
     margin-bottom: 15px;
     padding-right: 25px;
   }
-  /* line 645, ../../../src/sass/global/_banner.scss */
+  /* line 660, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row .image {
     margin-bottom: 30px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 628, ../../../src/sass/global/_banner.scss */
+  /* line 643, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row {
     padding: 20px;
   }
-  /* line 651, ../../../src/sass/global/_banner.scss */
+  /* line 666, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row .content {
     margin-bottom: 20px;
     padding-right: 50px;
   }
-  /* line 655, ../../../src/sass/global/_banner.scss */
+  /* line 670, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row .image {
     margin-bottom: 30px;
   }
 }
-/* line 660, ../../../src/sass/global/_banner.scss */
+/* line 675, ../../../src/sass/global/_banner.scss */
 .marketing-banner .row .content h1 {
   margin-top: 0;
   margin-bottom: 0;
 }
-/* line 664, ../../../src/sass/global/_banner.scss */
+/* line 679, ../../../src/sass/global/_banner.scss */
 .marketing-banner .row .content h2 {
   margin-top: 0;
   margin-bottom: 0;
   color: #fff;
 }
-/* line 669, ../../../src/sass/global/_banner.scss */
+/* line 684, ../../../src/sass/global/_banner.scss */
 .marketing-banner .row .content h3 {
   margin-top: 40px;
   font-family: 'FSMe-Bold';
   color: #fff;
 }
 @media (max-width: 767px) {
-  /* line 669, ../../../src/sass/global/_banner.scss */
+  /* line 684, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row .content h3 {
     margin-top: 15px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 669, ../../../src/sass/global/_banner.scss */
+  /* line 684, ../../../src/sass/global/_banner.scss */
   .marketing-banner .row .content h3 {
     margin-top: 15px;
   }
 }
-/* line 680, ../../../src/sass/global/_banner.scss */
+/* line 695, ../../../src/sass/global/_banner.scss */
 .marketing-banner .row .content .btn {
   padding-right: 40px;
   font-family: 'FSMe-Bold';
   min-width: 275px;
   width: auto;
 }
-/* line 686, ../../../src/sass/global/_banner.scss */
+/* line 701, ../../../src/sass/global/_banner.scss */
 .marketing-banner .row .content .btn:after {
   font-family: "InformaIcons";
   content: "\e904";
@@ -13139,131 +13158,131 @@ body.ja {
   margin-top: -12px;
   font-size: 16px;
 }
-/* line 698, ../../../src/sass/global/_banner.scss */
+/* line 713, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation1 {
   background-color: #ffd500;
 }
-/* line 700, ../../../src/sass/global/_banner.scss */
+/* line 715, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation1 .Variant1-description {
   display: block;
 }
-/* line 703, ../../../src/sass/global/_banner.scss */
+/* line 718, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation1 .Variant2-description {
   display: none;
 }
-/* line 707, ../../../src/sass/global/_banner.scss */
+/* line 722, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation1 .image img {
   border: 5px solid #fff;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 707, ../../../src/sass/global/_banner.scss */
+  /* line 722, ../../../src/sass/global/_banner.scss */
   .marketing-banner.Variation1 .image img {
     margin: 0 auto;
     width: 100%;
   }
 }
-/* line 715, ../../../src/sass/global/_banner.scss */
+/* line 730, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation1 .description {
   font-size: 18px;
   padding: 40px 0;
 }
 @media (max-width: 767px) {
-  /* line 715, ../../../src/sass/global/_banner.scss */
+  /* line 730, ../../../src/sass/global/_banner.scss */
   .marketing-banner.Variation1 .description {
     padding: 15px 0;
   }
 }
-/* line 723, ../../../src/sass/global/_banner.scss */
+/* line 738, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 {
   background-color: #444957;
   color: #fff;
 }
-/* line 726, ../../../src/sass/global/_banner.scss */
+/* line 741, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .Variant2-description {
   display: block;
 }
-/* line 728, ../../../src/sass/global/_banner.scss */
+/* line 743, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .Variant2-description p {
   color: #fff;
 }
-/* line 731, ../../../src/sass/global/_banner.scss */
+/* line 746, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .Variant2-description h3 {
   font-family: 'FSMe-Light';
   line-height: 1.2;
 }
-/* line 736, ../../../src/sass/global/_banner.scss */
+/* line 751, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .Variant1-description {
   display: none;
 }
-/* line 739, ../../../src/sass/global/_banner.scss */
+/* line 754, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 h2 {
   font-size: 30px;
   font-family: 'FSMe-Light';
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 744, ../../../src/sass/global/_banner.scss */
+  /* line 759, ../../../src/sass/global/_banner.scss */
   .marketing-banner.Variation2 .image img {
     margin: 0 auto;
     width: 100%;
   }
 }
-/* line 751, ../../../src/sass/global/_banner.scss */
+/* line 766, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .description {
   font-size: 14px;
   padding: 20px 0 40px 0;
 }
-/* line 755, ../../../src/sass/global/_banner.scss */
+/* line 770, ../../../src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .btn {
   color: #fff;
 }
 
-/* line 761, ../../../src/sass/global/_banner.scss */
+/* line 776, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox {
   margin-left: 15px;
   display: inline-block;
 }
 @media (max-width: 767px) {
-  /* line 761, ../../../src/sass/global/_banner.scss */
+  /* line 776, ../../../src/sass/global/_banner.scss */
   div.addthis_sharing_toolbox {
     margin-left: 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 761, ../../../src/sass/global/_banner.scss */
+  /* line 776, ../../../src/sass/global/_banner.scss */
   div.addthis_sharing_toolbox {
     margin-left: 8px;
   }
 }
-/* line 770, ../../../src/sass/global/_banner.scss */
+/* line 785, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox a.at-share-btn {
   padding-right: 5px;
   border-radius: 100% !important;
   background-color: #4a4f5e !important;
 }
 @media (max-width: 767px) {
-  /* line 770, ../../../src/sass/global/_banner.scss */
+  /* line 785, ../../../src/sass/global/_banner.scss */
   div.addthis_sharing_toolbox a.at-share-btn {
     padding-right: 0px;
   }
 }
-/* line 779, ../../../src/sass/global/_banner.scss */
+/* line 794, ../../../src/sass/global/_banner.scss */
 div.addthis_sharing_toolbox a.at-share-btn span.at-icon-wrapper {
   height: 40px !important;
   width: 37px !important;
   padding: 5px;
 }
 
-/* line 787, ../../../src/sass/global/_banner.scss */
+/* line 802, ../../../src/sass/global/_banner.scss */
 div.at4-share-outer {
   display: none !important;
 }
 
-/* line 790, ../../../src/sass/global/_banner.scss */
+/* line 805, ../../../src/sass/global/_banner.scss */
 .details .social-links,
 .follow-button {
   display: inline-block;
 }
-/* line 793, ../../../src/sass/global/_banner.scss */
+/* line 808, ../../../src/sass/global/_banner.scss */
 .details .social-links a,
 .follow-button a {
   text-transform: none;
@@ -13271,7 +13290,7 @@ div.at4-share-outer {
   transform: translateY(0px);
   display: inline-block;
 }
-/* line 798, ../../../src/sass/global/_banner.scss */
+/* line 813, ../../../src/sass/global/_banner.scss */
 .details .social-links a .at-icon-wrapper,
 .follow-button a .at-icon-wrapper {
   width: 40px !important;
@@ -13280,13 +13299,13 @@ div.at4-share-outer {
   border-radius: 100%;
   background-color: #4a4f5e !important;
 }
-/* line 804, ../../../src/sass/global/_banner.scss */
+/* line 819, ../../../src/sass/global/_banner.scss */
 .details .social-links a .at-icon-wrapper .at-icon,
 .follow-button a .at-icon-wrapper .at-icon {
   width: 40px !important;
   height: 32px !important;
 }
-/* line 809, ../../../src/sass/global/_banner.scss */
+/* line 824, ../../../src/sass/global/_banner.scss */
 .details .social-links a:hover,
 .follow-button a:hover {
   outline-offset: -1px;

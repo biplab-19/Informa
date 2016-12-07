@@ -366,6 +366,11 @@
             display:none;
         }
         .topic{
+           @include mobile{
+                padding-bottom: 5px !important;
+            } 
+        }
+        .provided{
             .date{
                 @include mobile{
                     float: left;
@@ -375,6 +380,11 @@
             }
             .topic-mob{
                 a{
+                    .topic-name{
+                        @include mobile{
+                            padding: 0 !important;
+                        }
+                    }
                     &:first-child{
                         span{
                             padding-left: 50px;
@@ -392,6 +402,11 @@
                 text-decoration:underline !important;
                 margin:0 10px;
                 font-family:'FSMe-Bold';
+                @include mobile{
+                    margin: 0;
+                    float: left;
+                }
+                  
             }
         }
         span.by{
