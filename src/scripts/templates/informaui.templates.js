@@ -115,7 +115,7 @@ var INFORMA = window.INFORMA || {};
                             '{{/compare}}'+
                             '{{#compare PageURL.length "0" operator="=="}}' +
                                 '<div class="btn-container text-right">'+
-                                    '<span>{{LinkText}}</span>'+
+                                    '<a class="btn btn-primary" disabled>{{LinkText}}</a>'+
                                 '</div>'+
                             '{{/compare}}'+
                         '</div>'+
@@ -631,7 +631,7 @@ var INFORMA = window.INFORMA || {};
                                     '{{/compare}}'+
                                     '{{#compare results.PageURL.length "0" operator="=="}}' +
                                         '<div class="btn-container text-right">'+
-                                            '<span>{{results.LinkText}}</span>'+
+                                            '<a class="btn btn-primary" disabled>{{results.LinkText}}</a>'+
                                         '</div>'+
                                     '{{/compare}}'+
                                 '</div>'+
