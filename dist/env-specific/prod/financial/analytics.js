@@ -1,7 +1,7 @@
 s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 //s.account="informashopwindowpharmapreprod" // UAT
-s.account="informashopwindowpharmaprod" // Prod
+s.account="informashopwindowfinancialprod" // Prod
 
 
 s.trackingServer="informa.122.2o7.net" // Non Secure

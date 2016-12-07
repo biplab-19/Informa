@@ -1,6 +1,6 @@
 s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
-s.account="informashopwindowpharmapreprod" // UAT
+s.account="informashopwindowtmtpreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
 
 
