@@ -216,7 +216,7 @@ if (domain) {
     if (domain.adobe) { // adobe analytics script
         var adobeScript = document.createElement('script');
         adobeScript.type = 'text/javascript'; adobeScript.async = true;
-        adobeScript.src = url + '/static/js/analytics.js';
+        adobeScript.src = url + '/static/js/' + domain.theme + '/analytics.js';
 
         jQuery('body').append(adobeScript);
 
