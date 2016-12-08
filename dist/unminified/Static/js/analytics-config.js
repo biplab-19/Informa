@@ -213,7 +213,7 @@ if (domain) {
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(ga, s);
     }
-    else if (domain.adobe) { // adobe analytics script
+    if (domain.adobe) { // adobe analytics script
         var adobeScript = document.createElement('script');
         adobeScript.type = 'text/javascript'; adobeScript.async = true;
         adobeScript.src = url + '/static/js/analytics.js';
@@ -242,5 +242,4 @@ if (domain) {
     favIcon.rel = "shortcut icon";
     jQuery('head').append(favIcon);
 }
-
 
