@@ -233,7 +233,7 @@ if (domain) {
     theme.rel = "stylesheet";
     jQuery('head').append(theme);
 
-    jQuery('body').attr('class', ''); jQuery('body').addClass(domain.theme)
+    jQuery('body').attr('class', ''); jQuery('body').addClass(domain.theme + '-theme')
 
     //favicon
     var favIcon = document.createElement("link");
