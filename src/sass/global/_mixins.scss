@@ -1125,6 +1125,34 @@ $desktop-width: 1142px;
     .fc-unthemed .fc-today {
         background: $secondarycolorlight;
     }
+    @if($name==tmt-theme) {
+        #mobile-header-navigation .navbar-image .logo-img-big{
+            @include not-desktop{
+                width: auto!important;
+                transform: translate(0, -40%);
+                -webkit-transform: translate(0, -40%);
+            }
+        }
+        header section.informaNav .navbar-brand .logo-img-big{
+            @include not-desktop{
+                width: auto!important;
+                transform: translate(-50%,-60%);
+                -webkit-transform: translate(-50%,-60%);
+            }
+            @include desktop{
+                top: -15px;
+                left: 10px;
+                width: 115px;
+                height: 64px;
+            }
+        }
+        @include tablet{
+            .navbar>.container .navbar-brand{
+                margin-left: 0;
+            }
+        }
+    }
+   
     @include not-desktop{
         nav#pdp-navigation{
             .container{

@@ -1,4 +1,4 @@
-/*! 2016-12-06 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-12-09 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -886,25 +886,58 @@
 }
 
 @media (max-width: 1141px) {
-  /* line 1131, ../../../src/sass/global/_mixins.scss */
+  /* line 1129, ../../../src/sass/global/_mixins.scss */
+  #mobile-header-navigation .navbar-image .logo-img-big {
+    width: auto !important;
+    transform: translate(0, -40%);
+    -webkit-transform: translate(0, -40%);
+  }
+}
+
+@media (max-width: 1141px) {
+  /* line 1136, ../../../src/sass/global/_mixins.scss */
+  header section.informaNav .navbar-brand .logo-img-big {
+    width: auto !important;
+    transform: translate(-50%, -60%);
+    -webkit-transform: translate(-50%, -60%);
+  }
+}
+@media (min-width: 1142px) {
+  /* line 1136, ../../../src/sass/global/_mixins.scss */
+  header section.informaNav .navbar-brand .logo-img-big {
+    top: -15px;
+    left: 10px;
+    width: 115px;
+    height: 64px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 1150, ../../../src/sass/global/_mixins.scss */
+  .navbar > .container .navbar-brand {
+    margin-left: 0;
+  }
+}
+@media (max-width: 1141px) {
+  /* line 1159, ../../../src/sass/global/_mixins.scss */
   nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1134, ../../../src/sass/global/_mixins.scss */
+  /* line 1162, ../../../src/sass/global/_mixins.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #d11361;
   }
-  /* line 1138, ../../../src/sass/global/_mixins.scss */
+  /* line 1166, ../../../src/sass/global/_mixins.scss */
   nav#pdp-navigation .container .row #pdp-sections {
     background: #d11361;
   }
 }
-/* line 1146, ../../../src/sass/global/_mixins.scss */
+/* line 1174, ../../../src/sass/global/_mixins.scss */
 body svg.spinner-loader {
   stroke: #DB0A35;
 }
 
-/* line 1150, ../../../src/sass/global/_mixins.scss */
+/* line 1178, ../../../src/sass/global/_mixins.scss */
 #contactus-section a {
   color: #f5708c;
 }
