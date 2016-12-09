@@ -122,7 +122,9 @@
             margin-left: 0px;
         }
         .row .col-sm-6:last-child{
-            width: 51%;
+            @include tablet{
+                width: 51%;
+            }
         }
     }
     .contactus-content {

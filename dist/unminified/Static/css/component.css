@@ -1,4 +1,4 @@
-/*! 2016-12-07 */@charset "UTF-8";
+/*! 2016-12-09 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -7139,33 +7139,35 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
     margin-left: 0px;
   }
 }
-/* line 124, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
-.contactUsPage-contactUs .contactus-box .row .col-sm-6:last-child {
-  width: 51%;
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 124, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  .contactUsPage-contactUs .contactus-box .row .col-sm-6:last-child {
+    width: 51%;
+  }
 }
-/* line 128, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 130, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content {
   margin-left: 10px;
 }
 @media (max-width: 767px) {
-  /* line 128, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 130, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content {
     margin-left: 0px;
   }
 }
-/* line 133, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 135, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content strong {
   font-size: 24px;
   font-family: Fsme-bold;
   color: #565c6b;
 }
 @media (max-width: 767px) {
-  /* line 133, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 135, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content strong {
     margin-left: 0;
   }
 }
-/* line 141, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 143, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content .contact-descrip {
   font-family: Fsme-bold;
   color: #565c6b;
@@ -7174,29 +7176,29 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   line-height: 24px;
   text-align: left;
 }
-/* line 148, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 150, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content .contact-descrip ul {
   padding-left: 18px;
 }
 @media (max-width: 767px) {
-  /* line 141, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 143, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content .contact-descrip {
     padding-right: 10px;
   }
 }
-/* line 155, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 157, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content p {
   margin-top: 20px;
   font-family: Fsme-bold;
 }
-/* line 156, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 158, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content p:first-child {
   font-size: 16px;
   line-height: 24px;
   font-family: Fsme-bold;
   color: #565c6b;
 }
-/* line 164, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 166, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content p span.contact-number {
   margin-top: 5px;
   font-size: 24px;
@@ -7204,36 +7206,36 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   margin-bottom: 20px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 164, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 166, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content p span.contact-number {
     font-size: 22px;
   }
 }
 @media (max-width: 767px) {
-  /* line 164, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 166, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content p span.contact-number {
     font-size: 22px;
   }
 }
-/* line 178, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 180, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .form-introduction {
   top: 0;
   line-height: 24px;
 }
 @media (max-width: 767px) {
-  /* line 178, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 180, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .form-introduction {
     line-height: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 178, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 180, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .form-introduction {
     line-height: 22px;
   }
 }
 
-/* line 194, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 196, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .experience-mode .contactUsPage-contactUs .tab-pane {
   display: block !important;
 }
@@ -7792,7 +7794,7 @@ section.articlepage-quote .container figure figcaption {
   text-align: left;
   color: #565c6b;
 }
-/* line 199, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 196, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .header .date {
   width: 60px;
   height: 50px;
@@ -7803,18 +7805,18 @@ section.articlepage-quote .container figure figcaption {
   padding: 7px;
   float: left;
 }
-/* line 209, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 206, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .header .country {
   margin: 10px 20px 0;
   text-align: left;
   display: block;
   float: left;
 }
-/* line 217, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 213, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap {
   padding: 10px 20px;
 }
-/* line 219, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 215, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .type {
   margin-bottom: 10px;
   font-size: 18px;
@@ -7822,7 +7824,7 @@ section.articlepage-quote .container figure figcaption {
   color: #565c6b;
   font-family: 'FSMe';
 }
-/* line 226, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 222, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .title {
   font-size: 30px;
   color: #6a7287;
@@ -7830,59 +7832,59 @@ section.articlepage-quote .container figure figcaption {
   margin: 0;
 }
 @media (max-width: 767px) {
-  /* line 226, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 222, ../../../src/components/events-page/sass/_events-page.scss */
   .events-wrap .content-wrap .title {
     height: auto;
   }
 }
-/* line 235, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 231, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content {
   margin-top: 20px;
 }
-/* line 237, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 233, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-content {
   width: 90px;
   padding-right: 10px;
   float: left;
   color: #565c6b;
 }
-/* line 246, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 242, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body {
   width: calc(100% - 90px);
   float: left;
   font-family: 'FSMe-Bold';
 }
-/* line 250, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 246, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body ul {
   padding: 0;
   list-style-type: none;
 }
-/* line 253, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 249, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body ul li {
   float: left;
   margin-right: 3px;
   color: #565c6b;
 }
-/* line 257, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 253, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body ul li:after {
   content: ",";
 }
-/* line 261, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 257, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body ul li:last-child:after {
   content: "";
 }
 @media (max-width: 767px) {
-  /* line 217, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 213, ../../../src/components/events-page/sass/_events-page.scss */
   .events-wrap .content-wrap {
     height: auto !important;
   }
 }
-/* line 273, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 269, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer {
   padding: 25px 20px;
   width: 100%;
 }
-/* line 276, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 272, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer .btn {
   padding-right: 40px;
   font-weight: 700;
@@ -7890,49 +7892,49 @@ section.articlepage-quote .container figure figcaption {
   width: 40%;
 }
 @media (max-width: 767px) {
-  /* line 276, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 272, ../../../src/components/events-page/sass/_events-page.scss */
   .events-wrap .footer .btn {
     font-size: 12px;
   }
 }
-/* line 284, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 280, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer .btn.register {
   float: left;
 }
-/* line 287, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 283, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer .btn.full-detail {
   float: right;
 }
 
-/* line 293, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 289, ../../../src/components/events-page/sass/_events-page.scss */
 .no-result {
   background: #fff;
   padding: 0 0 30px;
 }
 @media (min-width: 1142px) {
-  /* line 293, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 289, ../../../src/components/events-page/sass/_events-page.scss */
   .no-result {
     margin-top: -30px;
   }
 }
 
 @media (max-width: 767px) {
-  /* line 300, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 296, ../../../src/components/events-page/sass/_events-page.scss */
   section[data-view="list-view"], section[data-view="calendar-view"] {
     padding-top: 95px;
   }
 }
 
-/* line 306, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 302, ../../../src/components/events-page/sass/_events-page.scss */
 section.event-profile-container .header {
   text-align: -webkit-auto;
   width: auto;
 }
-/* line 310, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 306, ../../../src/components/events-page/sass/_events-page.scss */
 section.event-profile-container .date-field .bold {
   float: none;
 }
-/* line 313, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 309, ../../../src/components/events-page/sass/_events-page.scss */
 section.event-profile-container .content-wrap {
   padding: 0px 15px 15px 15px;
 }
