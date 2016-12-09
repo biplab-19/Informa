@@ -1,4 +1,4 @@
-/*! 2016-12-07 */var INFORMA = window.INFORMA || {};
+/*! 2016-12-09 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4167,10 +4167,11 @@ var INFORMA = window.INFORMA || {};
                                     '<div class="header clearfix">'+
                                         '<p class="date-field">'+
                                             '{{#compare EventDate null operator="!="}}<span class="bold">{{EventDate}}</span>{{/compare}}{{#if EventDate}}{{#if Time}}, {{/if}}{{/if}}{{#compare Time null operator="!="}}<span>{{Time}}</span>{{/compare}}</p>'+
-                                        '<p class="country">'+
-                                            '{{#compare State null operator="!="}}<span>{{State}}</span>{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}}{{#compare Country null operator="!="}}<span class="bold">{{Country}}</span>{{/compare}}</p>'+
                                     '</div>'+
-                                    '<div class="content-wrap">'+
+                                    '<div class="content-wrap">'+ 
+                                        '<p class="country">'+
+                                            '{{#compare State null operator="!="}}<span>{{State}}</span>{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}}{{#compare Country null operator="!="}}<span class="bold">{{Country}}</span>{{/compare}}'+
+                                        '</p>'+
                                         '<p><span class="type">{{EventType}}</span></p>'+
                                         '<h3 class="title">{{Title}}</h3>'+
                                         '<div class="content clearfix">'+
@@ -4373,10 +4374,11 @@ var INFORMA = window.INFORMA || {};
                                             '<div class="events-wrap">'+
                                                 '<div class="header clearfix">'+
                                                     '<div class="date">{{DateField}}</div>'+
-                                                    '<p class="country">'+
-                                                        '{{#compare State null operator="!="}}{{State}}{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}} <strong>{{#compare Country null operator="!="}}{{Country}}{{/compare}}</strong></p>'+
                                                 '</div>'+
                                                 '<div class="content-wrap">'+
+                                                    '<p class="country">'+
+                                                        '{{#compare State null operator="!="}}{{State}}{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}} <strong>{{#compare Country null operator="!="}}{{Country}}{{/compare}}</strong>'+
+                                                    '</p>'+
                                                     '<p><span class="type">{{EventType}}</span></p>'+
                                                     '<h3 class="title">{{Title}}</h3>'+
                                                     '{{#compare Presenters.length 0 operator=">"}}'+
@@ -4724,13 +4726,13 @@ var INFORMA = window.INFORMA || {};
                                                 '<div class="wrap-content">'+
                                                     '<div class="header clearfix">'+
                                                         '<div class="date-field">{{results.EventDate}}</div>'+
+                                                    '</div>'+
+                                                    '<div class="content-wrap">'+
                                                         '<p class="country">'+
                                                             '<span>{{results.State}}</span>'+
                                                             '{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}}'+
                                                             '<strong> {{results.Country}}</strong>'+
-                                                       ' </p>'+
-                                                    '</div>'+
-                                                    '<div class="content-wrap">'+
+                                                        '</p>'+
                                                         '<p><span class="type">{{results.EventType}}</span></p>'+
                                                         '<h3 class="title">{{results.Title}}</h3>'+
                                                             '{{#compare results.Presenters.length 0 operator=">"}}'+
@@ -10474,7 +10476,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
     //variables
     var RecomendedWrapper = $('.recomended-content'),
         RecomendedCount = $(".tab-content .recomended-content").data("maximumnumberofarticles"),
-        MaxArticleCount = (RecomendedCount!=="") ? RecomendedCount : 0,
+        MaxArticleCount = (RecomendedCount !=="") ? RecomendedCount : 0,
         BtnMore = RecomendedWrapper.find('.btn-showMore'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,

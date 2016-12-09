@@ -7805,16 +7805,15 @@ section.articlepage-quote .container figure figcaption {
   padding: 7px;
   float: left;
 }
-/* line 206, ../../../src/components/events-page/sass/_events-page.scss */
-.events-wrap .header .country {
-  margin: 10px 20px 0;
-  text-align: left;
-  display: block;
-  float: left;
-}
-/* line 213, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 208, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap {
   padding: 10px 20px;
+}
+/* line 210, ../../../src/components/events-page/sass/_events-page.scss */
+.events-wrap .content-wrap .country {
+  margin-bottom: 10px;
+  text-align: left;
+  display: block;
 }
 /* line 215, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .type {
@@ -7874,7 +7873,7 @@ section.articlepage-quote .container figure figcaption {
   content: "";
 }
 @media (max-width: 767px) {
-  /* line 213, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 208, ../../../src/components/events-page/sass/_events-page.scss */
   .events-wrap .content-wrap {
     height: auto !important;
   }
