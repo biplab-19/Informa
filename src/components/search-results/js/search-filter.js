@@ -65,8 +65,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             } else {
                 var ProductData = INFORMA.ProductFinder.GetProductData();
             } 
-            var ProductData = INFORMA.ProductFinder.GetProductData(),
-                FilterData = GetSelectedFilter(),
+            var FilterData = GetSelectedFilter(),
                 DefaultData = INFORMA.SearchResults.DefaultParameters(),
                 Data = INFORMA.ProductFinder.MergeData(ProductData, FilterData, DefaultData);
 

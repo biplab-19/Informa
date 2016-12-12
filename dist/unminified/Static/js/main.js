@@ -1,4 +1,4 @@
-/*! 2016-12-09 */var INFORMA = window.INFORMA || {};
+/*! 2016-12-12 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -11025,8 +11025,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             } else {
                 var ProductData = INFORMA.ProductFinder.GetProductData();
             } 
-            var ProductData = INFORMA.ProductFinder.GetProductData(),
-                FilterData = GetSelectedFilter(),
+            var FilterData = GetSelectedFilter(),
                 DefaultData = INFORMA.SearchResults.DefaultParameters(),
                 Data = INFORMA.ProductFinder.MergeData(ProductData, FilterData, DefaultData);
 
