@@ -1,7 +1,14 @@
+.product-detail-page{
+    @include desktop {
+        background: $white;
+    }    
+}
 .product-finder-results {
     background: $white;
     @include desktop {
         padding: 0 15px;
+        width: 1172px;
+        margin: 0 auto;
     }
     .container {
         @include mobile {
@@ -16,6 +23,10 @@
         background-color: $white;
         width: 75%;
         float: left;
+        @include desktop {
+            width: 80%;
+            padding: 35px 0 20px 15px;
+        }
         @include tablet {
             width: 100%;
             padding: 20px 0;
@@ -351,7 +362,7 @@
                 width: 116%;
                 padding-right: 8%;
                 @include mobile {
-                    margin: 10px 0 0 -20px;
+                    margin: 10px 0 0 -13px;
                 }
                 @include tablet {
                     margin: 10px 0 0 -20px;
@@ -367,7 +378,13 @@
                     @include tablet {
                         padding: 15px 25px;
                     }
-
+                    .col-xs-6 {
+                        position: relative;
+                        bottom: 10px;
+                        @include not-desktop{
+                            bottom: 5px;
+                        }
+                    }
                     @include desktop {
                         .col-xs-6 {
                             &:first-child {
