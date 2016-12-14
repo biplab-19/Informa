@@ -373,6 +373,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                                         $(this).removeAttr("disabled");
                                      }else{
                                         $(this).attr("disabled","disabled");
+                                        $(this).prop("checked",false);
                                      }
                             });
                             SelectAllChkBox.removeAttr("disabled");
@@ -381,6 +382,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if(CheckBoxes && Facet && RefineObj.length<1){
                             $.each(CheckBoxes, function() {         
                                  $(this).attr("disabled","disabled");
+                                 $(this).prop("checked",false);
                             });
                             SelectAllChkBox.attr("disabled","disabled");
                             Links.addClass("disabled");
