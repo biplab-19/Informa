@@ -285,8 +285,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     PData = GetPaginationData(TileList, currentSection),
                     ProdData = INFORMA.ProductFinder.GetProductData(),
                     GetDefaultData = GetDefaultValues(),
-                    FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                    Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
+                    FilterData = INFORMA.SearchResultFilter.GetRefineData();
+
+                    if((SearchType === "ProductSearch") && ('Product' in PData)) {
+                        PData['CurrentProduct'] = PData.Product;
+                    } 
+                    var Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
 
                 if (!$(currentSection).hasClass('showLess')) {
                     $(currentSection).addClass('showLess');

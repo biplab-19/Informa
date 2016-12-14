@@ -1,4 +1,4 @@
-/*! 2016-12-12 */var INFORMA = window.INFORMA || {};
+/*! 2016-12-14 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -10821,6 +10821,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 if ($(option).parent().hasClass("Sector") === true) {
                     if (checked) {
                         SectorList.push($(option).val());
+                        ResourceSbmtBtn.removeClass("disabled");
                     } else {
                         var index = SectorList.indexOf($(option).val());
                         if (index >= 0) {
@@ -11525,8 +11526,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     PData = GetPaginationData(TileList, currentSection),
                     ProdData = INFORMA.ProductFinder.GetProductData(),
                     GetDefaultData = GetDefaultValues(),
-                    FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                    Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
+                    FilterData = INFORMA.SearchResultFilter.GetRefineData();
+
+                    if((SearchType === "ProductSearch") && ('Product' in PData)) {
+                        PData['CurrentProduct'] = PData.Product;
+                    } 
+                    var Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
 
                 if (!$(currentSection).hasClass('showLess')) {
                     $(currentSection).addClass('showLess');

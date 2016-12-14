@@ -86,6 +86,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 if ($(option).parent().hasClass("Sector") === true) {
                     if (checked) {
                         SectorList.push($(option).val());
+                        ResourceSbmtBtn.removeClass("disabled");
                     } else {
                         var index = SectorList.indexOf($(option).val());
                         if (index >= 0) {
