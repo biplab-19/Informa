@@ -161,6 +161,9 @@
         right: 0;
         height: 100%;
         width:35%;
+        @include greater-desktop{
+            width: 42%;
+        }
          img {
             vertical-align: text-bottom;
             position: absolute;
@@ -240,6 +243,9 @@
             .cf-img {
                 background-color: transparent;
                 width: 20%;
+                @include greater-desktop{
+                    width: 42%;
+                }
             }
             .btn {
                 margin-bottom: 20px;
@@ -279,6 +285,9 @@
             opacity: 0.5;
             background-color: $grey-color01;
             width:35%;
+            @include greater-desktop{
+                width: 42%;
+            }
             img
             {
                 vertical-align: text-bottom;
