@@ -161,6 +161,10 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
+                var dataModal = $(this).data('modal'),
+                    replaceValue = dataModal.replace('#',''),
+                    value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+                INFORMA.Analytics.trackFormEvents('Form', 'open' , value);
                 e.preventDefault();
                 e.stopPropagation();
                 $('.redirect-url-field').val($(this).attr('data-url'));

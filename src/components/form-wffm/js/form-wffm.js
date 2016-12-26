@@ -720,6 +720,10 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _bindProductId = function() {
         $(document).on('click', '.wffm-elq-form-btn', function() {
+            var dataModal = $(this).data('modal'),
+                    replaceValue = dataModal.replace('#',''),
+                    value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+                INFORMA.Analytics.trackFormEvents('Form', 'open' , value);
             _showModal(this);
         });
     }
