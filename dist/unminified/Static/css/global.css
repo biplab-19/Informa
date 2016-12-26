@@ -1,4 +1,4 @@
-/*! 2016-12-19 */@charset "UTF-8";
+/*! 2016-12-26 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -16872,3 +16872,79 @@ yx-axis
 }
 
 /* ---------------------------------------- */
+@media print {
+  /* line 2, ../../../src/sass/global/_print.scss */
+  .cookieBanner, .slick-next, .slick-prev, .slick-arrow, header, footer, .arrows, .fc-left, .fc-right,
+  #pdp-navigation {
+    display: none !important;
+  }
+
+  /* line 6, ../../../src/sass/global/_print.scss */
+  .img-responsive, img {
+    width: auto !important;
+  }
+
+  /* line 9, ../../../src/sass/global/_print.scss */
+  a[href]:after {
+    content: '';
+  }
+
+  /* line 12, ../../../src/sass/global/_print.scss */
+  section {
+    border-bottom: 1px solid #000;
+  }
+  /* line 15, ../../../src/sass/global/_print.scss */
+  section.sectorpage-strengths .yellow-container, section.sectorpage-strengths .wrap {
+    position: relative;
+    float: left;
+  }
+  /* line 19, ../../../src/sass/global/_print.scss */
+  section.sectorpage-strengths .slant {
+    display: none !important;
+  }
+  /* line 24, ../../../src/sass/global/_print.scss */
+  section .analyst-footer:after {
+    background-color: transparent !important;
+  }
+  /* line 29, ../../../src/sass/global/_print.scss */
+  section .events-search .col-xs-12 {
+    width: auto;
+  }
+  /* line 34, ../../../src/sass/global/_print.scss */
+  section .product-results .list-items, section .product-results .recomend-content, section .product-results .wrap-content {
+    height: 100% !important;
+  }
+  /* line 37, ../../../src/sass/global/_print.scss */
+  section .product-results .button-links-wrap {
+    margin: 0 !important;
+  }
+  /* line 39, ../../../src/sass/global/_print.scss */
+  section .product-results .button-links-wrap a {
+    width: 98% !important;
+  }
+  /* line 45, ../../../src/sass/global/_print.scss */
+  section .product-brands-list .caption {
+    height: 100% !important;
+  }
+  /* line 49, ../../../src/sass/global/_print.scss */
+  section .btn-container {
+    padding: 0 !important;
+  }
+  /* line 53, ../../../src/sass/global/_print.scss */
+  section .contactus-list .panel-default {
+    height: 100% !important;
+  }
+  /* line 58, ../../../src/sass/global/_print.scss */
+  section .meet-anlyst-section .analyst-description {
+    height: 100% !important;
+  }
+
+  /* line 63, ../../../src/sass/global/_print.scss */
+  .btn-default {
+    border: 2px solid #000 !important;
+  }
+  /* line 65, ../../../src/sass/global/_print.scss */
+  .btn-default:after {
+    color: #000 !important;
+  }
+}
