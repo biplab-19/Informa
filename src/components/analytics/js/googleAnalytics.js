@@ -17,7 +17,8 @@ INFORMA.Analytics = (function(window, $, namespace) {
     var trackFormEvents,
     trackEvents,
     trackFormWithoutModal,
-    url;
+    url,
+    bannerText = $('#banner').find("a");
 
     trackFormEvents = function(obj, action, label, url){
       url = window.location.href;
@@ -45,6 +46,14 @@ INFORMA.Analytics = (function(window, $, namespace) {
         url = window.location.href;
         trackEvents('Form', action, obj.target.text, url)
     }
+
+    bannerText.click(function (event) {
+        var text = $(this).text();
+        url = window.location.href;
+        if(text === 'Product login'){
+           trackEvents('Form', 'Open', 'ProductLogin', url)
+        }
+    });
 
     $('body').on('click', '.register,.product-login', function(e) {
         url = window.location.href;
