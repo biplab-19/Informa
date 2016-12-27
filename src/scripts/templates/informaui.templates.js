@@ -22,9 +22,9 @@ var INFORMA = window.INFORMA || {};
                     '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
                         '<div class="recomend-content">'+
                             '<div class="content">'+
-                                '{{#compare SectorTags.length 0 operator=">"}}'+
+                                '{{#compare SubSectorTags.length 0 operator=">"}}'+
                                     '<p>'+
-                                        '{{#each SectorTags}}'+
+                                        '{{#each SubSectorTags}}'+
                                             '<span class="category">'+
                                                 '<strong>{{this}}</strong>'+
                                             '</span>'+
@@ -532,9 +532,9 @@ var INFORMA = window.INFORMA || {};
                             '<div class="recomended-wrapper">'+
                                 '<div class="recomend-content wrap-content">'+
                                     '<div class="content">'+
-                                        '{{#compare results.SectorTags.length 0 operator=">"}}'+
+                                        '{{#compare results.SubSectorTags.length 0 operator=">"}}'+
                                             '<p>'+
-                                                '{{#each results.SectorTags}}'+
+                                                '{{#each results.SubSectorTags}}'+
                                                     '<span class="category">'+
                                                         '<strong>{{this}}</strong>'+
                                                     '</span>'+

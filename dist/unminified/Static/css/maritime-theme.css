@@ -1,0 +1,876 @@
+/*! 2016-12-27 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/* 1. Body Class Name
+   2. Primary Color
+   3. Secondary Color Darker Version
+   4. Secondary Color Lighter Version
+   5. NavLink Color
+*/
+/* line 147, ../../../src/sass/global/_mixins.scss */
+.maritime-theme {
+  color: #6a7285;
+}
+/* line 150, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .color-link, .maritime-theme a:active, .maritime-theme .nav-active a, .maritime-theme .activate a, .maritime-theme .nav-active a .selected-nav, .maritime-theme .activate a .selected-nav, .maritime-theme .subnav-container a .selected-nav, .maritime-theme .subnav-container a:hover, .maritime-theme .quick-facts ul li:before,
+.maritime-theme .dark-banner-subscribe ul li:before,
+.maritime-theme .pdp-brochure ul li:before,
+.maritime-theme .signup-container span.bold:before, .maritime-theme .feature li:before, .maritime-theme #sub-nav .subnav-container .subnav-items ul li.selected-nav,
+.maritime-theme .cookieBanner p a {
+  color: #8fc4de;
+}
+/* line 154, ../../../src/sass/global/_mixins.scss */
+.maritime-theme section#services-list a {
+  color: #8fc4de;
+}
+/* line 157, ../../../src/sass/global/_mixins.scss */
+.maritime-theme section#services-list a.btn {
+  color: #fff;
+}
+/* line 160, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .glyphicon {
+  font-family: 'Glyphicons Halflings' !important;
+}
+/* line 164, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .background-link, .maritime-theme .yellow-bullets li:before {
+  background-color: #8fc4de;
+}
+/* line 167, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .menuFollower {
+  background-color: #fff;
+}
+/* line 171, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .primary-color, .maritime-theme .headline-list .link a {
+  color: #0374ac;
+}
+/* line 175, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .primary-background, .maritime-theme ul.slick-dots li.slick-active, .maritime-theme .form:not(.lt-ie9) .custom-radio input:checked + span::before, .maritime-theme .register-myinterests-section .triangle-nav li.active a, .maritime-theme .search.inactive {
+  background: #0374ac !important;
+}
+/* line 179, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .secondry-light-bg, .maritime-theme section.newsFlash .newsbox, .maritime-theme .carousel-lists .slick-arrow,
+.maritime-theme .customers_list_slider .slick-arrow {
+  background: #0f5487;
+}
+/* line 183, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .secondry-light-color, .maritime-theme section.customer-quote .slick-initialized .slick-arrow:before, .maritime-theme .twitter-carousel .slick-arrow:before {
+  color: #0f5487;
+}
+/* line 187, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .primary-btn-hover, .maritime-theme .btn-primary:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #0f5487;
+  border-color: #0f5487;
+}
+/* line 194, ../../../src/sass/global/_mixins.scss */
+.maritime-theme a {
+  color: #fff;
+}
+/* line 204, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .nav-active a .selected-nav, .maritime-theme .activate a .selected-nav {
+  text-decoration: none;
+}
+/* line 212, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .subnav-container a .selected-nav {
+  text-decoration: none;
+}
+/* line 222, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .bright-banner {
+  background-color: #002d4f;
+  color: #fff;
+}
+/* line 225, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .bright-banner h2,
+.maritime-theme .bright-banner em,
+.maritime-theme .bright-banner span,
+.maritime-theme .bright-banner a,
+.maritime-theme .bright-banner p,
+.maritime-theme .bright-banner div {
+  color: #fff;
+}
+/* line 236, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .bg-gray-dark .btn-default {
+  border: 2px solid #fff;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 236, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme .bg-gray-dark .btn-default {
+    width: 130%;
+  }
+}
+/* line 241, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .bg-gray-dark .btn-default:after {
+  color: #fff;
+}
+/* line 244, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .bg-gray-dark .btn-default:hover {
+  border: 2px solid #0f5487;
+}
+/* line 246, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .bg-gray-dark .btn-default:hover:after {
+  color: #0f5487;
+}
+/* line 251, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .bg-gray-dark .intro-text {
+  color: #fff;
+}
+/* line 256, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .page-ui, .maritime-theme #services-navigation,
+.maritime-theme #pdp-navigation {
+  background-color: #0f5487;
+}
+/* line 258, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .page-ui #pdp-sections-heading, .maritime-theme #services-navigation #pdp-sections-heading,
+.maritime-theme #pdp-navigation #pdp-sections-heading,
+.maritime-theme .page-ui a,
+.maritime-theme #services-navigation a,
+.maritime-theme #pdp-navigation a {
+  color: #fff;
+}
+/* line 261, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .page-ui #pdp-sections-heading:active, .maritime-theme #services-navigation #pdp-sections-heading:active,
+.maritime-theme #pdp-navigation #pdp-sections-heading:active,
+.maritime-theme .page-ui a:active,
+.maritime-theme #services-navigation a:active,
+.maritime-theme #pdp-navigation a:active {
+  outline: none;
+}
+/* line 267, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .quote, .maritime-theme #customer-quote-slider .saying:before, .maritime-theme .articlepage-quote blockquote:before {
+  color: #b3a8c6;
+}
+/* line 277, ../../../src/sass/global/_mixins.scss */
+.maritime-theme section.newsFlash .newsbox .news-desc,
+.maritime-theme section.newsFlash .newsbox .news-title,
+.maritime-theme section.newsFlash .newsbox span,
+.maritime-theme section.newsFlash .newsbox strong,
+.maritime-theme section.newsFlash .newsbox .read,
+.maritime-theme section.newsFlash .newsbox .read:after {
+  color: #fff;
+}
+/* line 289, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #services-navigation .btn,
+.maritime-theme #pdp-navigation .btn {
+  color: #fff !important;
+}
+/* line 295, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #contact-us-brand .panel-group .panel-heading.collapsed:after {
+  background-color: #0f5487;
+}
+/* line 299, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .panel-group .panel .panel-heading .panel-title a:after {
+  color: #0f5487 !important;
+}
+/* line 302, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #Faqs .panel-group .panel .panel-heading .panel-title a:after {
+  color: #c3c7cf !important;
+}
+/* line 305, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #Faqs .panel-group .panel .panel-heading .panel-title a.collapsed:after {
+  color: #0374ac !important;
+}
+/* line 308, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .dashboard .panel .panel-heading a.collapsed:before {
+  color: #8fc4de !important;
+}
+/* line 312, ../../../src/sass/global/_mixins.scss */
+.maritime-theme section.training-section .training-material .carousel-lists .slick-arrow {
+  background-color: #0f5487;
+  color: #fff;
+}
+/* line 317, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .EventFinished,
+.maritime-theme .FullyBooked {
+  background-color: rgba(3, 116, 172, 0.4) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  position: relative;
+  pointer-events: none;
+}
+/* line 324, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .EventFinished:before,
+.maritime-theme .FullyBooked:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+/* line 333, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .EventFinished:after,
+.maritime-theme .FullyBooked:after {
+  color: #fff !important;
+}
+/* line 338, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .CurrentDate .events-wrap .header .date {
+  background-color: #0374ac !important;
+}
+/* line 343, ../../../src/sass/global/_mixins.scss */
+.maritime-theme section#hero-banner.analyst {
+  background-color: #002d4f;
+}
+/* line 347, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .product-brands-list .intro-text {
+  padding-left: 10px;
+}
+/* line 350, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .product-brands-list ul.yellow-bullets {
+  padding-left: 20px;
+  padding-top: 0;
+}
+/* line 353, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .product-brands-list ul.yellow-bullets li {
+  padding-bottom: 5px;
+}
+/* line 355, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .product-brands-list ul.yellow-bullets li:before {
+  top: 6px;
+  left: -20px;
+}
+/* line 363, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .yellow-bullets {
+  list-style-type: none;
+  padding-left: 20px;
+}
+/* line 366, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .yellow-bullets li {
+  margin-bottom: 5px;
+  position: relative;
+  color: #565c6b;
+}
+/* line 370, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .yellow-bullets li:before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  width: 5px;
+  height: 5px;
+  top: 7px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-family: 'FS Me Bold';
+}
+/* line 406, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .related-products .productfinder-link a {
+  color: #0374ac;
+}
+/* line 413, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .accordian-structure#Faqs a {
+  color: #565c6b;
+}
+/* line 417, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .accordian-structure a {
+  color: #0374ac;
+}
+/* line 429, ../../../src/sass/global/_mixins.scss */
+.maritime-theme form.wffm-form .email-validation-message {
+  color: #8fc4de !important;
+}
+/* line 435, ../../../src/sass/global/_mixins.scss */
+.maritime-theme form.request-a-demo p, .maritime-theme form.register-myinterests-form p,
+.maritime-theme form.get-in-touch p {
+  background-color: #0f5487;
+  color: #fff;
+}
+/* line 438, ../../../src/sass/global/_mixins.scss */
+.maritime-theme form.request-a-demo p:after, .maritime-theme form.register-myinterests-form p:after,
+.maritime-theme form.get-in-touch p:after {
+  border-left: 10px solid #0f5487;
+}
+/* line 443, ../../../src/sass/global/_mixins.scss */
+.maritime-theme form.request-a-demo .checkbox.active label, .maritime-theme form.register-myinterests-form .checkbox.active label,
+.maritime-theme form.get-in-touch .checkbox.active label {
+  border: 3px solid #0f5487;
+}
+/* line 446, ../../../src/sass/global/_mixins.scss */
+.maritime-theme form.request-a-demo .checkbox.active:after, .maritime-theme form.register-myinterests-form .checkbox.active:after,
+.maritime-theme form.get-in-touch .checkbox.active:after {
+  color: #0374ac;
+}
+/* line 455, ../../../src/sass/global/_mixins.scss */
+.maritime-theme div form.get-in-touch input:focus,
+.maritime-theme div form.get-in-touch select:focus,
+.maritime-theme div form.get-in-touch textarea:focus,
+.maritime-theme div form.request-a-demo input:focus,
+.maritime-theme div form.request-a-demo select:focus,
+.maritime-theme div form.request-a-demo textarea:focus,
+.maritime-theme div form.register-myinterests-form input:focus,
+.maritime-theme div form.register-myinterests-form select:focus,
+.maritime-theme div form.register-myinterests-form textarea:focus {
+  outline: none !important;
+  border: 2px solid #0374ac;
+}
+/* line 461, ../../../src/sass/global/_mixins.scss */
+.maritime-theme div form.get-in-touch label.error,
+.maritime-theme div form.request-a-demo label.error,
+.maritime-theme div form.register-myinterests-form label.error {
+  color: #8fc4de !important;
+}
+/* line 464, ../../../src/sass/global/_mixins.scss */
+.maritime-theme div form.get-in-touch .field-validation-error,
+.maritime-theme div form.request-a-demo .field-validation-error,
+.maritime-theme div form.register-myinterests-form .field-validation-error {
+  color: #8fc4de !important;
+}
+/* line 469, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .icon-calender {
+  color: #0374ac;
+}
+/* line 473, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .icon-tick:before {
+  color: #0f5487;
+}
+/* line 478, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .refine-container .clear-all,
+.maritime-theme .refine-container .show-more {
+  color: #0374ac;
+}
+/* line 484, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .clear-mobile .clear-all {
+  color: #0374ac;
+}
+/* line 488, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .cookieBanner p a {
+  color: #0374ac;
+}
+/* line 491, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .register-myinterests-section .select-wrapper label {
+  color: #0374ac;
+}
+/* line 494, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .flip .tile .back .triangle {
+  border-top: 50px solid #0374ac;
+}
+/* line 498, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .chosen-container .chosen-results li.highlighted {
+  background-color: #0f5487;
+}
+/* line 504, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .contactUsPage-contactUs .nav-tabs a {
+  color: #fff;
+}
+/* line 508, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .contactUsPage-contactUs a {
+  color: #8fc4de;
+}
+/* line 511, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .contactUsPage-contactUs a.chosen-single {
+  color: #565c6b !important;
+}
+/* line 516, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .contactUsPage-contactUs li.active:after {
+  background: #8fc4de;
+}
+/* line 520, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .color-text, .maritime-theme .chosen-container .chosen-results li.highlighted {
+  color: #fff;
+}
+/* line 531, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .anlyst-heading {
+  background-color: #002d4f;
+}
+/* line 533, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .anlyst-heading:after {
+  background-color: #002d4f;
+}
+/* line 537, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .yellow-container {
+  background: rgba(15, 84, 135, 0.9);
+}
+/* line 539, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .yellow-container h3 {
+  color: #fff;
+}
+/* line 543, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .carousel-lists .slick-arrow,
+.maritime-theme .customers_list_slider .slick-arrow {
+  color: #fff;
+}
+/* line 553, ../../../src/sass/global/_mixins.scss */
+.maritime-theme section.customer-quote {
+  background: #002d4f;
+}
+/* line 557, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .twitter-carousel .slick-arrow {
+  background: #fff;
+}
+/* line 563, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .view-all-sectors-btn-container {
+  border-bottom: 1px solid #0f5487;
+}
+/* line 565, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .view-all-sectors-btn-container .informa-icon {
+  color: #0f5487;
+}
+/* line 573, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .events-list .CurrentDate .events-wrap .header .date {
+  background-color: #0374ac;
+}
+/* line 579, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .events-list .btn-more-events {
+  border: 0;
+  border-bottom: 2px solid #0374ac !important;
+  min-width: auto;
+  width: 140px;
+  margin-top: 20px;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  /* line 579, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme .events-list .btn-more-events {
+    padding: 0;
+    text-align: left;
+    padding-left: 15px;
+  }
+}
+/* line 593, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .events-list .btn-more-events .more:after,
+.maritime-theme .events-list .btn-more-events .less:after {
+  right: 15px;
+  color: #0374ac;
+}
+/* line 599, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .events-list .events p.title:before {
+  background: #0374ac !important;
+}
+/* line 603, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .events-list .header .arrows {
+  background: #0f5487;
+}
+/* line 605, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .events-list .header .arrows.arrow-desabled {
+  background-color: grey;
+}
+/* line 611, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .event-present.fc-future:before {
+  background: #0374ac !important;
+}
+/* line 614, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .fc-state-default.fc-corner-right,
+.maritime-theme .fc-state-default.fc-corner-left {
+  background: #0f5487;
+}
+/* line 617, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .fc-state-default.fc-corner-right.disabled,
+.maritime-theme .fc-state-default.fc-corner-left.disabled {
+  background-color: grey;
+}
+/* line 621, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .fc .events-wrap .events.current p.title:before {
+  background: #0374ac !important;
+}
+/* line 625, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .fc-center h2 {
+  padding: 0;
+}
+/* line 631, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .twitter-carousel .feed-heading span {
+  color: #fff;
+}
+/* line 636, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .twitter-carousel .message a {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  word-wrap: break-word;
+}
+/* line 643, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .view-all-mobile-container {
+  border-bottom: solid 1px #0f5487;
+}
+/* line 645, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .view-all-mobile-container .informa-icon {
+  color: #0f5487;
+}
+/* line 653, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .register-myinterests-section .triangle-nav li.active a:after {
+  border-left: 30px solid #0374ac;
+}
+/* line 659, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .font-color, .maritime-theme .register-myinterests-section .triangle-nav li.active a {
+  color: #fff;
+}
+/* line 671, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .feature li:before {
+  content: "\e914";
+  font-family: 'InformaIcons';
+  position: absolute;
+  left: -32px;
+  top: 0;
+  font-size: 16px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-weight: normal;
+}
+/* line 684, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .sprite-image, .maritime-theme .product-brands-list .card .caption h4:after,
+.maritime-theme .product-results .list-items .products h4:after {
+  background-position: -6px -480px;
+  width: 29px;
+  height: 36px;
+}
+/* line 712, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .product-login .login-links .list ul li::after {
+  color: #8fc4de;
+}
+/* line 718, ../../../src/sass/global/_mixins.scss */
+.maritime-theme ul.nav-tabs li.active {
+  border-bottom: 5px solid #0374ac;
+}
+/* line 723, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #mobile-header-navigation .nav-subnav-heading {
+  color: #8fc4de;
+}
+@media (min-width: 1142px) {
+  /* line 728, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme #sub-nav .subnav-container .content {
+    margin-left: 30px;
+  }
+  /* line 731, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme #sub-nav .subnav-container .content:first-child, .maritime-theme #sub-nav .subnav-container .content:last-child {
+    margin-left: 0px;
+  }
+}
+@media (min-width: 1142px) {
+  /* line 738, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme #sub-nav .subnav-container .heading .top {
+    padding: 0 0 15px 0;
+  }
+}
+/* line 742, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #sub-nav .subnav-container .heading .top:first-child {
+  border: none;
+}
+/* line 758, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #analyst-profile .show-options {
+  border-bottom: 2px solid #0f5487;
+}
+/* line 760, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #analyst-profile .show-options:after {
+  color: #0f5487;
+}
+/* line 765, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .popover {
+  background: #0f5487;
+  width: 175px;
+  top: -36px;
+}
+/* line 769, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .popover .popover-content {
+  color: #fff;
+  font-family: 'FSMe-bold';
+}
+/* line 778, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .popover.right .arrow:after {
+  border-right-color: #0f5487;
+}
+/* line 782, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn {
+  width: 180px;
+  background: transparent;
+  color: #565c6b;
+  border-color: #0374ac;
+  border-radius: 0;
+  border-width: 2px;
+}
+/* line 790, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-faq-more {
+  border-bottom: 2px solid #0f5487 !important;
+}
+/* line 792, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-faq-more:after {
+  color: #0f5487;
+}
+/* line 796, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-showMore,
+.maritime-theme .btn-plus {
+  background: none;
+  width: 120px;
+  padding: 10px 0;
+  margin: 0 auto 25px;
+  text-align: left;
+  color: #444957;
+  border: none;
+  border-bottom: 2px solid #0f5487;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+/* line 810, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-showMore:after,
+.maritime-theme .btn-plus:after {
+  font-family: 'InformaIcons';
+  content: '\e912';
+  position: absolute;
+  color: #0f5487;
+  right: 0;
+  border-radius: 14px;
+  font-size: 30px;
+  top: -2px;
+}
+/* line 820, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-showMore:hover,
+.maritime-theme .btn-plus:hover {
+  border-bottom: 2px solid #0374ac;
+  text-decoration: none;
+}
+/* line 824, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-showMore span.more,
+.maritime-theme .btn-showMore span.less,
+.maritime-theme .btn-plus span.more,
+.maritime-theme .btn-plus span.less {
+  text-decoration: none;
+}
+/* line 831, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .meet-anlyst-section .analyst-details h4,
+.maritime-theme .meet-anlyst-section .analyst-details h3,
+.maritime-theme .meet-anlyst-section .analyst-details h5,
+.maritime-theme .meet-anlyst-section .analyst-details p {
+  color: #fff;
+}
+/* line 839, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .contactus-list {
+  background: #444957;
+}
+/* line 849, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .headline-list h4 a {
+  color: #565c6b;
+}
+/* line 854, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-default {
+  min-width: 230px;
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: #0374ac;
+  position: relative;
+}
+/* line 861, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-default:after {
+  content: "\e900";
+  font-family: 'InformaIcons';
+  right: 15px;
+  position: absolute;
+  color: #0374ac;
+}
+/* line 868, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-default:hover {
+  border: 2px solid #0f5487;
+}
+/* line 870, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-default:hover:after {
+  color: #0f5487;
+}
+/* line 876, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-container .btn-default {
+  border: 2px solid #0374ac;
+}
+/* line 878, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-container .btn-default:after {
+  color: #0374ac;
+}
+/* line 881, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-container .btn-default:hover {
+  border: 2px solid #0f5487;
+}
+/* line 883, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-container .btn-default:hover:after {
+  color: #0f5487;
+}
+/* line 889, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-primary {
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: #0374ac;
+  background-color: #0374ac;
+  color: #fff;
+  position: relative;
+}
+/* line 897, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-primary:after {
+  content: "\e900";
+  font-family: 'InformaIcons';
+  right: 15px;
+  font-weight: bold;
+  position: absolute;
+}
+/* line 904, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-primary a {
+  color: #fff;
+}
+/* line 911, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-previous {
+  color: #fff;
+  min-width: 180px;
+  text-align: right;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: #6a7285;
+  background: #6a7285;
+  position: relative;
+  z-index: 9;
+}
+/* line 921, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-previous:before {
+  content: "\e900";
+  font-family: 'InformaIcons';
+  left: 15px;
+  font-weight: bold;
+  position: absolute;
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+/* line 933, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .btn-previous:hover {
+  border-color: #6a7285;
+}
+/* line 938, ../../../src/sass/global/_mixins.scss */
+.maritime-theme section.articlepage-freearticle a {
+  color: #8fc4de;
+}
+/* line 940, ../../../src/sass/global/_mixins.scss */
+.maritime-theme section.articlepage-freearticle a:hover {
+  color: #8fc4de;
+}
+/* line 946, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #contactus-section .phone-number a,
+.maritime-theme #contactus-section .phone-number,
+.maritime-theme #contactus-section .email a,
+.maritime-theme #contactus-section .email {
+  color: #0374ac;
+  font-weight: bold;
+}
+/* line 953, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #contactus-section a.btn {
+  color: #fff;
+  width: 100%;
+}
+@media (min-width: 1142px) {
+  /* line 953, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme #contactus-section a.btn {
+    width: auto;
+    min-width: 220px;
+  }
+}
+/* line 960, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #contactus-section a.btn:after {
+  color: #fff;
+}
+/* line 964, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #contactus-section .subscribe-link {
+  background: #0374ac url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
+}
+/* line 966, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #contactus-section .subscribe-link:after {
+  color: #fff;
+}
+/* line 971, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .open-quote {
+  color: rgba(15, 84, 135, 0.8);
+}
+/* line 975, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .demo-item {
+  height: 100px;
+  background-color: rgba(15, 84, 135, 0.8);
+}
+
+/* line 1048, ../../../src/sass/global/_mixins.scss */
+.tab-pane .error-response h2:before,
+.tab-pane .submit-response h2:before {
+  color: #0f5487;
+}
+
+/* line 1060, ../../../src/sass/global/_mixins.scss */
+.form-modal .modal-body .form-inline-container .error-response h2:before,
+.form-modal .modal-body .form-inline-container .submit-response h2:before {
+  color: #0f5487;
+}
+
+/* line 1068, ../../../src/sass/global/_mixins.scss */
+.infograph .number-container {
+  color: #8fc4de;
+}
+
+/* line 1073, ../../../src/sass/global/_mixins.scss */
+.welcome-description .tool p a {
+  color: #8fc4de;
+}
+
+/* line 1079, ../../../src/sass/global/_mixins.scss */
+.product-login .create-profile a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* line 1086, ../../../src/sass/global/_mixins.scss */
+.marketing-banner.Variation2 .btn, .marketing-banner.Variation1 .btn {
+  background: #0374ac;
+}
+/* line 1088, ../../../src/sass/global/_mixins.scss */
+.marketing-banner.Variation2 .btn:after, .marketing-banner.Variation1 .btn:after {
+  color: #fff;
+}
+
+/* line 1096, ../../../src/sass/global/_mixins.scss */
+.more-stories .feature li:before {
+  color: #002d4f;
+}
+
+/* line 1102, ../../../src/sass/global/_mixins.scss */
+.table-bordered {
+  margin: 20px auto;
+}
+/* line 1106, ../../../src/sass/global/_mixins.scss */
+.table-bordered > thead > tr > th {
+  background-color: #002d4f;
+  color: #fff;
+}
+/* line 1113, ../../../src/sass/global/_mixins.scss */
+.table-bordered > tbody tr:nth-child(even) {
+  background-color: #e1e3e7;
+}
+/* line 1116, ../../../src/sass/global/_mixins.scss */
+.table-bordered > tbody td {
+  color: #565c6b;
+}
+
+/* line 1121, ../../../src/sass/global/_mixins.scss */
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #f0f1f3;
+}
+
+/* line 1125, ../../../src/sass/global/_mixins.scss */
+.fc-unthemed .fc-today {
+  background: #0f5487;
+}
+
+@media (max-width: 1141px) {
+  /* line 1159, ../../../src/sass/global/_mixins.scss */
+  nav#pdp-navigation .container .row {
+    position: relative;
+  }
+  /* line 1162, ../../../src/sass/global/_mixins.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
+    background: #12629e;
+  }
+  /* line 1166, ../../../src/sass/global/_mixins.scss */
+  nav#pdp-navigation .container .row #pdp-sections {
+    background: #12629e;
+  }
+}
+/* line 1174, ../../../src/sass/global/_mixins.scss */
+body svg.spinner-loader {
+  stroke: #0374ac;
+}
+
+/* line 1178, ../../../src/sass/global/_mixins.scss */
+#contactus-section a {
+  color: #8fc4de;
+}
