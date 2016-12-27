@@ -33,6 +33,8 @@ INFORMA.ContactUs = (function(window, $, namespace) {
             _updateRedirectUrl();
         }
         $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            // To track Google Analytics on Open
+            INFORMA.Analytics.trackFormWithoutModal(e, 'Open');
             window.location.hash = e.target.hash.replace("#", "#" + prefix);
             _updateRedirectUrl();
         });

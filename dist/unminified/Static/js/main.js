@@ -5996,6 +5996,8 @@ INFORMA.ContactUs = (function(window, $, namespace) {
             _updateRedirectUrl();
         }
         $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            // To track Google Analytics on Open
+            INFORMA.Analytics.trackFormWithoutModal(e, 'Open');
             window.location.hash = e.target.hash.replace("#", "#" + prefix);
             _updateRedirectUrl();
         });
@@ -7292,10 +7294,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
-                var dataModal = $(this).data('modal'),
-                    replaceValue = dataModal.replace('#',''),
-                    value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
-                INFORMA.Analytics.trackFormEvents('Form', 'open' , value);
+                // To track Google Analytics on Open
+                INFORMA.Analytics.trackFormEvents($(this), 'Open');
                 e.preventDefault();
                 e.stopPropagation();
                 $('.redirect-url-field').val($(this).attr('data-url'));
@@ -7790,6 +7790,8 @@ INFORMA.forms = (function(window, $, namespace) {
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").submit(function() {
             var widgetId, captcha_response, g_captchaId = $(this).find('.g-recaptcha').attr('id');
+            // To track Google Analytics on Submit
+            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
             if (window.gRecaptchaWidget) {
                 widgetId = $.grep(window.gRecaptchaWidget, function(obj) {
                     return obj.captchaElementId === g_captchaId;
@@ -7804,7 +7806,7 @@ INFORMA.forms = (function(window, $, namespace) {
                 captchaMsgContainer.css('display', 'block').html('The captcha field is required.').addClass('field-validation-error');
                 return false;
             } else {
-                // Captcha is Passed
+                // Captcha is passed
                 captchaMsgContainer.css('display', 'none');
                 return true;
             }
@@ -7883,6 +7885,8 @@ INFORMA.forms = (function(window, $, namespace) {
                     Parent.find('form').addClass('hide');
 
                     if (Status == 'success') {
+                        // To track Google Analytics on Submit
+                        INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
                     } else {
@@ -7925,6 +7929,8 @@ INFORMA.forms = (function(window, $, namespace) {
                 //Checking The status and Displaying that section
 
                 if (_formSubmitStatus.attr('data-status') == 'success') {
+                    // To track Google Analytics on Submit
+                    INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                     $('.submit-response').removeClass('hide');
                     $('.error-response').addClass('hide');
                 } else {
@@ -7945,6 +7951,8 @@ INFORMA.forms = (function(window, $, namespace) {
                     })
 
                     if (Status == 'success') {
+                        // To track Google Analytics on Submit
+                        INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
                     } else {
@@ -8339,10 +8347,8 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _bindProductId = function() {
         $(document).on('click', '.wffm-elq-form-btn', function() {
-            var dataModal = $(this).data('modal'),
-                    replaceValue = dataModal.replace('#',''),
-                    value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
-                INFORMA.Analytics.trackFormEvents('Form', 'open' , value);
+            // To track Google Analytics on Open
+            INFORMA.Analytics.trackFormEvents($(this), 'Open');
             _showModal(this);
         });
     }
@@ -9413,16 +9419,69 @@ var INFORMA = window.INFORMA || {};
 INFORMA.Analytics = (function(window, $, namespace) {
     'use strict';
     //variables
-    var trackFormEvents;
-    
-    trackFormEvents = function( category, action, label){
-      //check if _gaq is set too
+    var trackFormEvents,
+    trackEvents,
+    trackFormWithoutModal,
+    url;
+
+    trackFormEvents = function(obj, action, label, url){
+      url = window.location.href;
+      if(typeof obj === 'object'){
+        var dataModal,
+          Parent;
+        if(action === 'Open'){
+          dataModal = obj.data('modal');
+          var replaceValue = dataModal.replace('#',''),
+              value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+        }
+        else{
+          Parent =  obj.parents('.modal');
+          dataModal = Parent .attr('id');
+          var value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
+        }
+
+        if(dataModal){
+          trackEvents('Form', action, value, url)
+        }
+      }
+    }
+
+    trackFormWithoutModal = function(obj, action, label, url){
+        url = window.location.href;
+        trackEvents('Form', action, obj.target.text, url)
+    }
+
+    $('body').on('click', '.register,.product-login', function(e) {
+        url = window.location.href;
+        if($(this).hasClass('EventRegister')){
+           trackEvents('Form', 'Open', 'EventRegister', url)
+        }
+        else if($(this).hasClass('product-login')){
+          trackEvents('Form', 'Open', 'ProductLogin', url)
+        }
+    })
+
+    trackEvents = function( category, action, label, url){
+      //check if ga is set (latest version)
+      if (typeof ga !== 'undefined') {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: category,
+          eventAction: action,
+          eventLabel: label,
+          eventValue: url
+        });
+      }
+
+      //check if _gaq is set (legacy version)
       if (typeof _gaq !== 'undefined') {
         _gaq.push(['_trackEvent', category, action, label]);
       }
+     
     }
     return {
-        trackFormEvents: trackFormEvents
+        trackFormEvents: trackFormEvents,
+        trackFormWithoutModal: trackFormWithoutModal
     };
 }(this, jQuery, 'INFORMA'));
 

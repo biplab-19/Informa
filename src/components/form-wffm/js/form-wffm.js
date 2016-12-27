@@ -171,6 +171,8 @@ INFORMA.forms = (function(window, $, namespace) {
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").submit(function() {
             var widgetId, captcha_response, g_captchaId = $(this).find('.g-recaptcha').attr('id');
+            // To track Google Analytics on Submit
+            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
             if (window.gRecaptchaWidget) {
                 widgetId = $.grep(window.gRecaptchaWidget, function(obj) {
                     return obj.captchaElementId === g_captchaId;
@@ -185,7 +187,7 @@ INFORMA.forms = (function(window, $, namespace) {
                 captchaMsgContainer.css('display', 'block').html('The captcha field is required.').addClass('field-validation-error');
                 return false;
             } else {
-                // Captcha is Passed
+                // Captcha is passed
                 captchaMsgContainer.css('display', 'none');
                 return true;
             }
@@ -264,6 +266,8 @@ INFORMA.forms = (function(window, $, namespace) {
                     Parent.find('form').addClass('hide');
 
                     if (Status == 'success') {
+                        // To track Google Analytics on Submit
+                        INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
                     } else {
@@ -306,6 +310,8 @@ INFORMA.forms = (function(window, $, namespace) {
                 //Checking The status and Displaying that section
 
                 if (_formSubmitStatus.attr('data-status') == 'success') {
+                    // To track Google Analytics on Submit
+                    INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                     $('.submit-response').removeClass('hide');
                     $('.error-response').addClass('hide');
                 } else {
@@ -326,6 +332,8 @@ INFORMA.forms = (function(window, $, namespace) {
                     })
 
                     if (Status == 'success') {
+                        // To track Google Analytics on Submit
+                        INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
                     } else {
@@ -720,10 +728,8 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _bindProductId = function() {
         $(document).on('click', '.wffm-elq-form-btn', function() {
-            var dataModal = $(this).data('modal'),
-                    replaceValue = dataModal.replace('#',''),
-                    value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
-                INFORMA.Analytics.trackFormEvents('Form', 'open' , value);
+            // To track Google Analytics on Open
+            INFORMA.Analytics.trackFormEvents($(this), 'Open');
             _showModal(this);
         });
     }
