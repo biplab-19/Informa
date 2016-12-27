@@ -17,9 +17,11 @@ INFORMA.Analytics = (function(window, $, namespace) {
     var trackFormEvents;
     
     trackFormEvents = function( category, action, label){
-      _gaq.push(['_trackEvent', category, action, label]);
+      //check if _gaq is set too
+      if (typeof _gaq !== 'undefined') {
+        _gaq.push(['_trackEvent', category, action, label]);
+      }
     }
-
     return {
         trackFormEvents: trackFormEvents
     };

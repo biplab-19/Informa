@@ -1,4 +1,4 @@
-/*! 2016-12-12 */var INFORMA = window.INFORMA || {};
+/*! 2016-12-27 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -7292,6 +7292,10 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
+                var dataModal = $(this).data('modal'),
+                    replaceValue = dataModal.replace('#',''),
+                    value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+                INFORMA.Analytics.trackFormEvents('Form', 'open' , value);
                 e.preventDefault();
                 e.stopPropagation();
                 $('.redirect-url-field').val($(this).attr('data-url'));
@@ -8335,6 +8339,10 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _bindProductId = function() {
         $(document).on('click', '.wffm-elq-form-btn', function() {
+            var dataModal = $(this).data('modal'),
+                    replaceValue = dataModal.replace('#',''),
+                    value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+                INFORMA.Analytics.trackFormEvents('Form', 'open' , value);
             _showModal(this);
         });
     }
@@ -9388,6 +9396,35 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.globalHeader.init());
+
+/*
+ * global-footer.js
+ *
+ *
+ * @project:    Informa
+ * @date:       2016-Dec-26
+ * @author:     Nupur Goyal
+ * @licensor:   SAPIENNITRO
+ * @namespaces: INFORMA
+ *
+ */
+
+var INFORMA = window.INFORMA || {};
+INFORMA.Analytics = (function(window, $, namespace) {
+    'use strict';
+    //variables
+    var trackFormEvents;
+    
+    trackFormEvents = function( category, action, label){
+      //check if _gaq is set too
+      if (typeof _gaq !== 'undefined') {
+        _gaq.push(['_trackEvent', category, action, label]);
+      }
+    }
+    return {
+        trackFormEvents: trackFormEvents
+    };
+}(this, jQuery, 'INFORMA'));
 
 // {{compare unicorns ponies operator="<"}}
 // 	I knew it, unicorns are just low-quality ponies!
