@@ -17,11 +17,9 @@ INFORMA.Analytics = (function(window, $, namespace) {
     var trackFormEvents,
     trackEvents,
     trackFormWithoutModal,
-    url,
     bannerText = $('#banner').find("a");
 
-    trackFormEvents = function(obj, action, label, url){
-      url = window.location.href;
+    trackFormEvents = function(obj, action, label){
       if(typeof obj === 'object'){
         var dataModal,
           Parent;
@@ -37,43 +35,39 @@ INFORMA.Analytics = (function(window, $, namespace) {
         }
 
         if(dataModal){
-          trackEvents('Form', action, value, url)
+          trackEvents('Form', action, value)
         }
       }
     }
 
-    trackFormWithoutModal = function(obj, action, label, url){
-        url = window.location.href;
-        trackEvents('Form', action, obj.target.text, url)
+    trackFormWithoutModal = function(obj, action, label){
+        trackEvents('Form', action, obj.target.text)
     }
 
     bannerText.click(function (event) {
         var text = $(this).text();
-        url = window.location.href;
         if(text === 'Product login'){
-           trackEvents('Form', 'Open', 'ProductLogin', url)
+           trackEvents('Form', 'Open', 'ProductLogin')
         }
     });
 
     $('body').on('click', '.register,.product-login', function(e) {
-        url = window.location.href;
         if($(this).hasClass('EventRegister')){
-           trackEvents('Form', 'Open', 'EventRegister', url)
+           trackEvents('Form', 'Open', 'EventRegister')
         }
         else if($(this).hasClass('product-login')){
-          trackEvents('Form', 'Open', 'ProductLogin', url)
+          trackEvents('Form', 'Open', 'ProductLogin')
         }
     })
 
-    trackEvents = function( category, action, label, url){
+    trackEvents = function( category, action, label){
       //check if ga is set (latest version)
       if (typeof ga !== 'undefined') {
         ga('send', {
           hitType: 'event',
           eventCategory: category,
           eventAction: action,
-          eventLabel: label,
-          eventValue: url
+          eventLabel: label
         });
       }
 
