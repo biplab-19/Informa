@@ -1,4 +1,4 @@
-/*! 2016-12-27 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2016-12-28 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -873,4 +873,881 @@ body svg.spinner-loader {
 /* line 1178, ../../../src/sass/global/_mixins.scss */
 #contactus-section a {
   color: #8fc4de;
+}
+
+/*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/* 1. Body Class Name
+   2. Primary Color
+   3. Secondary Color Darker Version
+   4. Secondary Color Lighter Version
+   5. NavLink Color
+*/
+/* line 147, ../../../src/sass/global/_mixins.scss */
+.law-theme {
+  color: #6a7285;
+}
+/* line 150, ../../../src/sass/global/_mixins.scss */
+.law-theme .color-link, .law-theme a:active, .law-theme .nav-active a, .law-theme .activate a, .law-theme .nav-active a .selected-nav, .law-theme .activate a .selected-nav, .law-theme .subnav-container a .selected-nav, .law-theme .subnav-container a:hover, .law-theme .quick-facts ul li:before,
+.law-theme .dark-banner-subscribe ul li:before,
+.law-theme .pdp-brochure ul li:before,
+.law-theme .signup-container span.bold:before, .law-theme .feature li:before, .law-theme #sub-nav .subnav-container .subnav-items ul li.selected-nav,
+.law-theme .cookieBanner p a {
+  color: #e291b1;
+}
+/* line 154, ../../../src/sass/global/_mixins.scss */
+.law-theme section#services-list a {
+  color: #e291b1;
+}
+/* line 157, ../../../src/sass/global/_mixins.scss */
+.law-theme section#services-list a.btn {
+  color: #fff;
+}
+/* line 160, ../../../src/sass/global/_mixins.scss */
+.law-theme .glyphicon {
+  font-family: 'Glyphicons Halflings' !important;
+}
+/* line 164, ../../../src/sass/global/_mixins.scss */
+.law-theme .background-link, .law-theme .yellow-bullets li:before {
+  background-color: #e291b1;
+}
+/* line 167, ../../../src/sass/global/_mixins.scss */
+.law-theme .menuFollower {
+  background-color: #fff;
+}
+/* line 171, ../../../src/sass/global/_mixins.scss */
+.law-theme .primary-color, .law-theme .headline-list .link a {
+  color: #B83166;
+}
+/* line 175, ../../../src/sass/global/_mixins.scss */
+.law-theme .primary-background, .law-theme ul.slick-dots li.slick-active, .law-theme .form:not(.lt-ie9) .custom-radio input:checked + span::before, .law-theme .register-myinterests-section .triangle-nav li.active a, .law-theme .search.inactive {
+  background: #B83166 !important;
+}
+/* line 179, ../../../src/sass/global/_mixins.scss */
+.law-theme .secondry-light-bg, .law-theme section.newsFlash .newsbox, .law-theme .carousel-lists .slick-arrow,
+.law-theme .customers_list_slider .slick-arrow {
+  background: #62428b;
+}
+/* line 183, ../../../src/sass/global/_mixins.scss */
+.law-theme .secondry-light-color, .law-theme section.customer-quote .slick-initialized .slick-arrow:before, .law-theme .twitter-carousel .slick-arrow:before {
+  color: #62428b;
+}
+/* line 187, ../../../src/sass/global/_mixins.scss */
+.law-theme .primary-btn-hover, .law-theme .btn-primary:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #62428b;
+  border-color: #62428b;
+}
+/* line 194, ../../../src/sass/global/_mixins.scss */
+.law-theme a {
+  color: #fff;
+}
+/* line 204, ../../../src/sass/global/_mixins.scss */
+.law-theme .nav-active a .selected-nav, .law-theme .activate a .selected-nav {
+  text-decoration: none;
+}
+/* line 212, ../../../src/sass/global/_mixins.scss */
+.law-theme .subnav-container a .selected-nav {
+  text-decoration: none;
+}
+/* line 222, ../../../src/sass/global/_mixins.scss */
+.law-theme .bright-banner {
+  background-color: #5b4476;
+  color: #fff;
+}
+/* line 225, ../../../src/sass/global/_mixins.scss */
+.law-theme .bright-banner h2,
+.law-theme .bright-banner em,
+.law-theme .bright-banner span,
+.law-theme .bright-banner a,
+.law-theme .bright-banner p,
+.law-theme .bright-banner div {
+  color: #fff;
+}
+/* line 236, ../../../src/sass/global/_mixins.scss */
+.law-theme .bg-gray-dark .btn-default {
+  border: 2px solid #fff;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 236, ../../../src/sass/global/_mixins.scss */
+  .law-theme .bg-gray-dark .btn-default {
+    width: 130%;
+  }
+}
+/* line 241, ../../../src/sass/global/_mixins.scss */
+.law-theme .bg-gray-dark .btn-default:after {
+  color: #fff;
+}
+/* line 244, ../../../src/sass/global/_mixins.scss */
+.law-theme .bg-gray-dark .btn-default:hover {
+  border: 2px solid #62428b;
+}
+/* line 246, ../../../src/sass/global/_mixins.scss */
+.law-theme .bg-gray-dark .btn-default:hover:after {
+  color: #62428b;
+}
+/* line 251, ../../../src/sass/global/_mixins.scss */
+.law-theme .bg-gray-dark .intro-text {
+  color: #fff;
+}
+/* line 256, ../../../src/sass/global/_mixins.scss */
+.law-theme .page-ui, .law-theme #services-navigation,
+.law-theme #pdp-navigation {
+  background-color: #62428b;
+}
+/* line 258, ../../../src/sass/global/_mixins.scss */
+.law-theme .page-ui #pdp-sections-heading, .law-theme #services-navigation #pdp-sections-heading,
+.law-theme #pdp-navigation #pdp-sections-heading,
+.law-theme .page-ui a,
+.law-theme #services-navigation a,
+.law-theme #pdp-navigation a {
+  color: #fff;
+}
+/* line 261, ../../../src/sass/global/_mixins.scss */
+.law-theme .page-ui #pdp-sections-heading:active, .law-theme #services-navigation #pdp-sections-heading:active,
+.law-theme #pdp-navigation #pdp-sections-heading:active,
+.law-theme .page-ui a:active,
+.law-theme #services-navigation a:active,
+.law-theme #pdp-navigation a:active {
+  outline: none;
+}
+/* line 267, ../../../src/sass/global/_mixins.scss */
+.law-theme .quote, .law-theme #customer-quote-slider .saying:before, .law-theme .articlepage-quote blockquote:before {
+  color: #b3a8c6;
+}
+/* line 277, ../../../src/sass/global/_mixins.scss */
+.law-theme section.newsFlash .newsbox .news-desc,
+.law-theme section.newsFlash .newsbox .news-title,
+.law-theme section.newsFlash .newsbox span,
+.law-theme section.newsFlash .newsbox strong,
+.law-theme section.newsFlash .newsbox .read,
+.law-theme section.newsFlash .newsbox .read:after {
+  color: #fff;
+}
+/* line 289, ../../../src/sass/global/_mixins.scss */
+.law-theme #services-navigation .btn,
+.law-theme #pdp-navigation .btn {
+  color: #fff !important;
+}
+/* line 295, ../../../src/sass/global/_mixins.scss */
+.law-theme #contact-us-brand .panel-group .panel-heading.collapsed:after {
+  background-color: #62428b;
+}
+/* line 299, ../../../src/sass/global/_mixins.scss */
+.law-theme .panel-group .panel .panel-heading .panel-title a:after {
+  color: #62428b !important;
+}
+/* line 302, ../../../src/sass/global/_mixins.scss */
+.law-theme #Faqs .panel-group .panel .panel-heading .panel-title a:after {
+  color: #c3c7cf !important;
+}
+/* line 305, ../../../src/sass/global/_mixins.scss */
+.law-theme #Faqs .panel-group .panel .panel-heading .panel-title a.collapsed:after {
+  color: #B83166 !important;
+}
+/* line 308, ../../../src/sass/global/_mixins.scss */
+.law-theme .dashboard .panel .panel-heading a.collapsed:before {
+  color: #e291b1 !important;
+}
+/* line 312, ../../../src/sass/global/_mixins.scss */
+.law-theme section.training-section .training-material .carousel-lists .slick-arrow {
+  background-color: #62428b;
+  color: #fff;
+}
+/* line 317, ../../../src/sass/global/_mixins.scss */
+.law-theme .EventFinished,
+.law-theme .FullyBooked {
+  background-color: rgba(184, 49, 102, 0.4) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  position: relative;
+  pointer-events: none;
+}
+/* line 324, ../../../src/sass/global/_mixins.scss */
+.law-theme .EventFinished:before,
+.law-theme .FullyBooked:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+/* line 333, ../../../src/sass/global/_mixins.scss */
+.law-theme .EventFinished:after,
+.law-theme .FullyBooked:after {
+  color: #fff !important;
+}
+/* line 338, ../../../src/sass/global/_mixins.scss */
+.law-theme .CurrentDate .events-wrap .header .date {
+  background-color: #B83166 !important;
+}
+/* line 343, ../../../src/sass/global/_mixins.scss */
+.law-theme section#hero-banner.analyst {
+  background-color: #5b4476;
+}
+/* line 347, ../../../src/sass/global/_mixins.scss */
+.law-theme .product-brands-list .intro-text {
+  padding-left: 10px;
+}
+/* line 350, ../../../src/sass/global/_mixins.scss */
+.law-theme .product-brands-list ul.yellow-bullets {
+  padding-left: 20px;
+  padding-top: 0;
+}
+/* line 353, ../../../src/sass/global/_mixins.scss */
+.law-theme .product-brands-list ul.yellow-bullets li {
+  padding-bottom: 5px;
+}
+/* line 355, ../../../src/sass/global/_mixins.scss */
+.law-theme .product-brands-list ul.yellow-bullets li:before {
+  top: 6px;
+  left: -20px;
+}
+/* line 363, ../../../src/sass/global/_mixins.scss */
+.law-theme .yellow-bullets {
+  list-style-type: none;
+  padding-left: 20px;
+}
+/* line 366, ../../../src/sass/global/_mixins.scss */
+.law-theme .yellow-bullets li {
+  margin-bottom: 5px;
+  position: relative;
+  color: #565c6b;
+}
+/* line 370, ../../../src/sass/global/_mixins.scss */
+.law-theme .yellow-bullets li:before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  width: 5px;
+  height: 5px;
+  top: 7px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-family: 'FS Me Bold';
+}
+/* line 406, ../../../src/sass/global/_mixins.scss */
+.law-theme .related-products .productfinder-link a {
+  color: #B83166;
+}
+/* line 413, ../../../src/sass/global/_mixins.scss */
+.law-theme .accordian-structure#Faqs a {
+  color: #565c6b;
+}
+/* line 417, ../../../src/sass/global/_mixins.scss */
+.law-theme .accordian-structure a {
+  color: #B83166;
+}
+/* line 429, ../../../src/sass/global/_mixins.scss */
+.law-theme form.wffm-form .email-validation-message {
+  color: #e291b1 !important;
+}
+/* line 435, ../../../src/sass/global/_mixins.scss */
+.law-theme form.request-a-demo p, .law-theme form.register-myinterests-form p,
+.law-theme form.get-in-touch p {
+  background-color: #62428b;
+  color: #fff;
+}
+/* line 438, ../../../src/sass/global/_mixins.scss */
+.law-theme form.request-a-demo p:after, .law-theme form.register-myinterests-form p:after,
+.law-theme form.get-in-touch p:after {
+  border-left: 10px solid #62428b;
+}
+/* line 443, ../../../src/sass/global/_mixins.scss */
+.law-theme form.request-a-demo .checkbox.active label, .law-theme form.register-myinterests-form .checkbox.active label,
+.law-theme form.get-in-touch .checkbox.active label {
+  border: 3px solid #62428b;
+}
+/* line 446, ../../../src/sass/global/_mixins.scss */
+.law-theme form.request-a-demo .checkbox.active:after, .law-theme form.register-myinterests-form .checkbox.active:after,
+.law-theme form.get-in-touch .checkbox.active:after {
+  color: #B83166;
+}
+/* line 455, ../../../src/sass/global/_mixins.scss */
+.law-theme div form.get-in-touch input:focus,
+.law-theme div form.get-in-touch select:focus,
+.law-theme div form.get-in-touch textarea:focus,
+.law-theme div form.request-a-demo input:focus,
+.law-theme div form.request-a-demo select:focus,
+.law-theme div form.request-a-demo textarea:focus,
+.law-theme div form.register-myinterests-form input:focus,
+.law-theme div form.register-myinterests-form select:focus,
+.law-theme div form.register-myinterests-form textarea:focus {
+  outline: none !important;
+  border: 2px solid #B83166;
+}
+/* line 461, ../../../src/sass/global/_mixins.scss */
+.law-theme div form.get-in-touch label.error,
+.law-theme div form.request-a-demo label.error,
+.law-theme div form.register-myinterests-form label.error {
+  color: #e291b1 !important;
+}
+/* line 464, ../../../src/sass/global/_mixins.scss */
+.law-theme div form.get-in-touch .field-validation-error,
+.law-theme div form.request-a-demo .field-validation-error,
+.law-theme div form.register-myinterests-form .field-validation-error {
+  color: #e291b1 !important;
+}
+/* line 469, ../../../src/sass/global/_mixins.scss */
+.law-theme .icon-calender {
+  color: #B83166;
+}
+/* line 473, ../../../src/sass/global/_mixins.scss */
+.law-theme .icon-tick:before {
+  color: #62428b;
+}
+/* line 478, ../../../src/sass/global/_mixins.scss */
+.law-theme .refine-container .clear-all,
+.law-theme .refine-container .show-more {
+  color: #B83166;
+}
+/* line 484, ../../../src/sass/global/_mixins.scss */
+.law-theme .clear-mobile .clear-all {
+  color: #B83166;
+}
+/* line 488, ../../../src/sass/global/_mixins.scss */
+.law-theme .cookieBanner p a {
+  color: #B83166;
+}
+/* line 491, ../../../src/sass/global/_mixins.scss */
+.law-theme .register-myinterests-section .select-wrapper label {
+  color: #B83166;
+}
+/* line 494, ../../../src/sass/global/_mixins.scss */
+.law-theme .flip .tile .back .triangle {
+  border-top: 50px solid #B83166;
+}
+/* line 498, ../../../src/sass/global/_mixins.scss */
+.law-theme .chosen-container .chosen-results li.highlighted {
+  background-color: #62428b;
+}
+/* line 504, ../../../src/sass/global/_mixins.scss */
+.law-theme .contactUsPage-contactUs .nav-tabs a {
+  color: #fff;
+}
+/* line 508, ../../../src/sass/global/_mixins.scss */
+.law-theme .contactUsPage-contactUs a {
+  color: #e291b1;
+}
+/* line 511, ../../../src/sass/global/_mixins.scss */
+.law-theme .contactUsPage-contactUs a.chosen-single {
+  color: #565c6b !important;
+}
+/* line 516, ../../../src/sass/global/_mixins.scss */
+.law-theme .contactUsPage-contactUs li.active:after {
+  background: #e291b1;
+}
+/* line 520, ../../../src/sass/global/_mixins.scss */
+.law-theme .color-text, .law-theme .chosen-container .chosen-results li.highlighted {
+  color: #fff;
+}
+/* line 531, ../../../src/sass/global/_mixins.scss */
+.law-theme .anlyst-heading {
+  background-color: #5b4476;
+}
+/* line 533, ../../../src/sass/global/_mixins.scss */
+.law-theme .anlyst-heading:after {
+  background-color: #5b4476;
+}
+/* line 537, ../../../src/sass/global/_mixins.scss */
+.law-theme .yellow-container {
+  background: rgba(98, 66, 139, 0.9);
+}
+/* line 539, ../../../src/sass/global/_mixins.scss */
+.law-theme .yellow-container h3 {
+  color: #fff;
+}
+/* line 543, ../../../src/sass/global/_mixins.scss */
+.law-theme .carousel-lists .slick-arrow,
+.law-theme .customers_list_slider .slick-arrow {
+  color: #fff;
+}
+/* line 553, ../../../src/sass/global/_mixins.scss */
+.law-theme section.customer-quote {
+  background: #5b4476;
+}
+/* line 557, ../../../src/sass/global/_mixins.scss */
+.law-theme .twitter-carousel .slick-arrow {
+  background: #fff;
+}
+/* line 563, ../../../src/sass/global/_mixins.scss */
+.law-theme .view-all-sectors-btn-container {
+  border-bottom: 1px solid #62428b;
+}
+/* line 565, ../../../src/sass/global/_mixins.scss */
+.law-theme .view-all-sectors-btn-container .informa-icon {
+  color: #62428b;
+}
+/* line 573, ../../../src/sass/global/_mixins.scss */
+.law-theme .events-list .CurrentDate .events-wrap .header .date {
+  background-color: #B83166;
+}
+/* line 579, ../../../src/sass/global/_mixins.scss */
+.law-theme .events-list .btn-more-events {
+  border: 0;
+  border-bottom: 2px solid #B83166 !important;
+  min-width: auto;
+  width: 140px;
+  margin-top: 20px;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  /* line 579, ../../../src/sass/global/_mixins.scss */
+  .law-theme .events-list .btn-more-events {
+    padding: 0;
+    text-align: left;
+    padding-left: 15px;
+  }
+}
+/* line 593, ../../../src/sass/global/_mixins.scss */
+.law-theme .events-list .btn-more-events .more:after,
+.law-theme .events-list .btn-more-events .less:after {
+  right: 15px;
+  color: #B83166;
+}
+/* line 599, ../../../src/sass/global/_mixins.scss */
+.law-theme .events-list .events p.title:before {
+  background: #B83166 !important;
+}
+/* line 603, ../../../src/sass/global/_mixins.scss */
+.law-theme .events-list .header .arrows {
+  background: #62428b;
+}
+/* line 605, ../../../src/sass/global/_mixins.scss */
+.law-theme .events-list .header .arrows.arrow-desabled {
+  background-color: grey;
+}
+/* line 611, ../../../src/sass/global/_mixins.scss */
+.law-theme .event-present.fc-future:before {
+  background: #B83166 !important;
+}
+/* line 614, ../../../src/sass/global/_mixins.scss */
+.law-theme .fc-state-default.fc-corner-right,
+.law-theme .fc-state-default.fc-corner-left {
+  background: #62428b;
+}
+/* line 617, ../../../src/sass/global/_mixins.scss */
+.law-theme .fc-state-default.fc-corner-right.disabled,
+.law-theme .fc-state-default.fc-corner-left.disabled {
+  background-color: grey;
+}
+/* line 621, ../../../src/sass/global/_mixins.scss */
+.law-theme .fc .events-wrap .events.current p.title:before {
+  background: #B83166 !important;
+}
+/* line 625, ../../../src/sass/global/_mixins.scss */
+.law-theme .fc-center h2 {
+  padding: 0;
+}
+/* line 631, ../../../src/sass/global/_mixins.scss */
+.law-theme .twitter-carousel .feed-heading span {
+  color: #fff;
+}
+/* line 636, ../../../src/sass/global/_mixins.scss */
+.law-theme .twitter-carousel .message a {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  word-wrap: break-word;
+}
+/* line 643, ../../../src/sass/global/_mixins.scss */
+.law-theme .view-all-mobile-container {
+  border-bottom: solid 1px #62428b;
+}
+/* line 645, ../../../src/sass/global/_mixins.scss */
+.law-theme .view-all-mobile-container .informa-icon {
+  color: #62428b;
+}
+/* line 653, ../../../src/sass/global/_mixins.scss */
+.law-theme .register-myinterests-section .triangle-nav li.active a:after {
+  border-left: 30px solid #B83166;
+}
+/* line 659, ../../../src/sass/global/_mixins.scss */
+.law-theme .font-color, .law-theme .register-myinterests-section .triangle-nav li.active a {
+  color: #fff;
+}
+/* line 671, ../../../src/sass/global/_mixins.scss */
+.law-theme .feature li:before {
+  content: "\e914";
+  font-family: 'InformaIcons';
+  position: absolute;
+  left: -32px;
+  top: 0;
+  font-size: 16px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  font-weight: normal;
+}
+/* line 684, ../../../src/sass/global/_mixins.scss */
+.law-theme .sprite-image, .law-theme .product-brands-list .card .caption h4:after,
+.law-theme .product-results .list-items .products h4:after {
+  background-position: -6px -480px;
+  width: 29px;
+  height: 36px;
+}
+/* line 712, ../../../src/sass/global/_mixins.scss */
+.law-theme .product-login .login-links .list ul li::after {
+  color: #e291b1;
+}
+/* line 718, ../../../src/sass/global/_mixins.scss */
+.law-theme ul.nav-tabs li.active {
+  border-bottom: 5px solid #B83166;
+}
+/* line 723, ../../../src/sass/global/_mixins.scss */
+.law-theme #mobile-header-navigation .nav-subnav-heading {
+  color: #e291b1;
+}
+@media (min-width: 1142px) {
+  /* line 728, ../../../src/sass/global/_mixins.scss */
+  .law-theme #sub-nav .subnav-container .content {
+    margin-left: 30px;
+  }
+  /* line 731, ../../../src/sass/global/_mixins.scss */
+  .law-theme #sub-nav .subnav-container .content:first-child, .law-theme #sub-nav .subnav-container .content:last-child {
+    margin-left: 0px;
+  }
+}
+@media (min-width: 1142px) {
+  /* line 738, ../../../src/sass/global/_mixins.scss */
+  .law-theme #sub-nav .subnav-container .heading .top {
+    padding: 0 0 15px 0;
+  }
+}
+/* line 742, ../../../src/sass/global/_mixins.scss */
+.law-theme #sub-nav .subnav-container .heading .top:first-child {
+  border: none;
+}
+/* line 758, ../../../src/sass/global/_mixins.scss */
+.law-theme #analyst-profile .show-options {
+  border-bottom: 2px solid #62428b;
+}
+/* line 760, ../../../src/sass/global/_mixins.scss */
+.law-theme #analyst-profile .show-options:after {
+  color: #62428b;
+}
+/* line 765, ../../../src/sass/global/_mixins.scss */
+.law-theme .popover {
+  background: #62428b;
+  width: 175px;
+  top: -36px;
+}
+/* line 769, ../../../src/sass/global/_mixins.scss */
+.law-theme .popover .popover-content {
+  color: #fff;
+  font-family: 'FSMe-bold';
+}
+/* line 778, ../../../src/sass/global/_mixins.scss */
+.law-theme .popover.right .arrow:after {
+  border-right-color: #62428b;
+}
+/* line 782, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn {
+  width: 180px;
+  background: transparent;
+  color: #565c6b;
+  border-color: #B83166;
+  border-radius: 0;
+  border-width: 2px;
+}
+/* line 790, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-faq-more {
+  border-bottom: 2px solid #62428b !important;
+}
+/* line 792, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-faq-more:after {
+  color: #62428b;
+}
+/* line 796, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-showMore,
+.law-theme .btn-plus {
+  background: none;
+  width: 120px;
+  padding: 10px 0;
+  margin: 0 auto 25px;
+  text-align: left;
+  color: #444957;
+  border: none;
+  border-bottom: 2px solid #62428b;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+/* line 810, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-showMore:after,
+.law-theme .btn-plus:after {
+  font-family: 'InformaIcons';
+  content: '\e912';
+  position: absolute;
+  color: #62428b;
+  right: 0;
+  border-radius: 14px;
+  font-size: 30px;
+  top: -2px;
+}
+/* line 820, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-showMore:hover,
+.law-theme .btn-plus:hover {
+  border-bottom: 2px solid #B83166;
+  text-decoration: none;
+}
+/* line 824, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-showMore span.more,
+.law-theme .btn-showMore span.less,
+.law-theme .btn-plus span.more,
+.law-theme .btn-plus span.less {
+  text-decoration: none;
+}
+/* line 831, ../../../src/sass/global/_mixins.scss */
+.law-theme .meet-anlyst-section .analyst-details h4,
+.law-theme .meet-anlyst-section .analyst-details h3,
+.law-theme .meet-anlyst-section .analyst-details h5,
+.law-theme .meet-anlyst-section .analyst-details p {
+  color: #fff;
+}
+/* line 839, ../../../src/sass/global/_mixins.scss */
+.law-theme .contactus-list {
+  background: #444957;
+}
+/* line 849, ../../../src/sass/global/_mixins.scss */
+.law-theme .headline-list h4 a {
+  color: #565c6b;
+}
+/* line 854, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-default {
+  min-width: 230px;
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: #B83166;
+  position: relative;
+}
+/* line 861, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-default:after {
+  content: "\e900";
+  font-family: 'InformaIcons';
+  right: 15px;
+  position: absolute;
+  color: #B83166;
+}
+/* line 868, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-default:hover {
+  border: 2px solid #62428b;
+}
+/* line 870, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-default:hover:after {
+  color: #62428b;
+}
+/* line 876, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-container .btn-default {
+  border: 2px solid #B83166;
+}
+/* line 878, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-container .btn-default:after {
+  color: #B83166;
+}
+/* line 881, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-container .btn-default:hover {
+  border: 2px solid #62428b;
+}
+/* line 883, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-container .btn-default:hover:after {
+  color: #62428b;
+}
+/* line 889, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-primary {
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: #B83166;
+  background-color: #B83166;
+  color: #fff;
+  position: relative;
+}
+/* line 897, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-primary:after {
+  content: "\e900";
+  font-family: 'InformaIcons';
+  right: 15px;
+  font-weight: bold;
+  position: absolute;
+}
+/* line 904, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-primary a {
+  color: #fff;
+}
+/* line 911, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-previous {
+  color: #fff;
+  min-width: 180px;
+  text-align: right;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: #6a7285;
+  background: #6a7285;
+  position: relative;
+  z-index: 9;
+}
+/* line 921, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-previous:before {
+  content: "\e900";
+  font-family: 'InformaIcons';
+  left: 15px;
+  font-weight: bold;
+  position: absolute;
+  -webkit-transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+/* line 933, ../../../src/sass/global/_mixins.scss */
+.law-theme .btn-previous:hover {
+  border-color: #6a7285;
+}
+/* line 938, ../../../src/sass/global/_mixins.scss */
+.law-theme section.articlepage-freearticle a {
+  color: #e291b1;
+}
+/* line 940, ../../../src/sass/global/_mixins.scss */
+.law-theme section.articlepage-freearticle a:hover {
+  color: #e291b1;
+}
+/* line 946, ../../../src/sass/global/_mixins.scss */
+.law-theme #contactus-section .phone-number a,
+.law-theme #contactus-section .phone-number,
+.law-theme #contactus-section .email a,
+.law-theme #contactus-section .email {
+  color: #B83166;
+  font-weight: bold;
+}
+/* line 953, ../../../src/sass/global/_mixins.scss */
+.law-theme #contactus-section a.btn {
+  color: #fff;
+  width: 100%;
+}
+@media (min-width: 1142px) {
+  /* line 953, ../../../src/sass/global/_mixins.scss */
+  .law-theme #contactus-section a.btn {
+    width: auto;
+    min-width: 220px;
+  }
+}
+/* line 960, ../../../src/sass/global/_mixins.scss */
+.law-theme #contactus-section a.btn:after {
+  color: #fff;
+}
+/* line 964, ../../../src/sass/global/_mixins.scss */
+.law-theme #contactus-section .subscribe-link {
+  background: #B83166 url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
+}
+/* line 966, ../../../src/sass/global/_mixins.scss */
+.law-theme #contactus-section .subscribe-link:after {
+  color: #fff;
+}
+/* line 971, ../../../src/sass/global/_mixins.scss */
+.law-theme .open-quote {
+  color: rgba(98, 66, 139, 0.8);
+}
+/* line 975, ../../../src/sass/global/_mixins.scss */
+.law-theme .demo-item {
+  height: 100px;
+  background-color: rgba(98, 66, 139, 0.8);
+}
+
+/* line 1048, ../../../src/sass/global/_mixins.scss */
+.tab-pane .error-response h2:before,
+.tab-pane .submit-response h2:before {
+  color: #62428b;
+}
+
+/* line 1060, ../../../src/sass/global/_mixins.scss */
+.form-modal .modal-body .form-inline-container .error-response h2:before,
+.form-modal .modal-body .form-inline-container .submit-response h2:before {
+  color: #62428b;
+}
+
+/* line 1068, ../../../src/sass/global/_mixins.scss */
+.infograph .number-container {
+  color: #e291b1;
+}
+
+/* line 1073, ../../../src/sass/global/_mixins.scss */
+.welcome-description .tool p a {
+  color: #e291b1;
+}
+
+/* line 1079, ../../../src/sass/global/_mixins.scss */
+.product-login .create-profile a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* line 1086, ../../../src/sass/global/_mixins.scss */
+.marketing-banner.Variation2 .btn, .marketing-banner.Variation1 .btn {
+  background: #B83166;
+}
+/* line 1088, ../../../src/sass/global/_mixins.scss */
+.marketing-banner.Variation2 .btn:after, .marketing-banner.Variation1 .btn:after {
+  color: #fff;
+}
+
+/* line 1096, ../../../src/sass/global/_mixins.scss */
+.more-stories .feature li:before {
+  color: #5b4476;
+}
+
+/* line 1102, ../../../src/sass/global/_mixins.scss */
+.table-bordered {
+  margin: 20px auto;
+}
+/* line 1106, ../../../src/sass/global/_mixins.scss */
+.table-bordered > thead > tr > th {
+  background-color: #5b4476;
+  color: #fff;
+}
+/* line 1113, ../../../src/sass/global/_mixins.scss */
+.table-bordered > tbody tr:nth-child(even) {
+  background-color: #e1e3e7;
+}
+/* line 1116, ../../../src/sass/global/_mixins.scss */
+.table-bordered > tbody td {
+  color: #565c6b;
+}
+
+/* line 1121, ../../../src/sass/global/_mixins.scss */
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #f0f1f3;
+}
+
+/* line 1125, ../../../src/sass/global/_mixins.scss */
+.fc-unthemed .fc-today {
+  background: #62428b;
+}
+
+@media (max-width: 1141px) {
+  /* line 1159, ../../../src/sass/global/_mixins.scss */
+  nav#pdp-navigation .container .row {
+    position: relative;
+  }
+  /* line 1162, ../../../src/sass/global/_mixins.scss */
+  nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
+    background: #6e4a9c;
+  }
+  /* line 1166, ../../../src/sass/global/_mixins.scss */
+  nav#pdp-navigation .container .row #pdp-sections {
+    background: #6e4a9c;
+  }
+}
+/* line 1174, ../../../src/sass/global/_mixins.scss */
+body svg.spinner-loader {
+  stroke: #B83166;
+}
+
+/* line 1178, ../../../src/sass/global/_mixins.scss */
+#contactus-section a {
+  color: #e291b1;
 }
