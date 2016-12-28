@@ -22,16 +22,39 @@ INFORMA.Analytics = (function(window, $, namespace) {
     trackFormEvents = function(obj, action, label){
       if(typeof obj === 'object'){
         var dataModal,
-          Parent;
+          Parent,
+          replaceValue,
+          value,
+          newReplaceValue;
         if(action === 'Open'){
           dataModal = obj.data('modal');
-          var replaceValue = dataModal.replace('#',''),
-              value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+          if(dataModal === '#Intelligence'){
+            replaceValue = dataModal.replace(dataModal,'#formRequestADemo');
+            newReplaceValue = replaceValue.replace('#','');
+            value = newReplaceValue.charAt(0).toUpperCase() + newReplaceValue.substr(1);
+          }else if(dataModal === '#Insight'){
+            replaceValue = dataModal.replace(dataModal,'#formRequestATrial');
+            newReplaceValue = replaceValue.replace('#','');
+            value = newReplaceValue.charAt(0).toUpperCase() + newReplaceValue.substr(1);
+          }else{
+            replaceValue = dataModal.replace('#',''),
+            value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1); 
+          }  
         }
         else{
           Parent =  obj.parents('.modal');
           dataModal = Parent .attr('id');
-          var value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
+          if(dataModal === 'Intelligence'){
+            replaceValue = dataModal.replace(dataModal,'formRequestADemo');
+            value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+          }
+          else if(dataModal === 'Insight'){
+            replaceValue = dataModal.replace(dataModal,'formRequestATrial');
+            value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+          }
+          else{
+            value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
+          }  
         }
 
         if(dataModal){
