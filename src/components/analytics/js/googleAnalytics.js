@@ -70,39 +70,40 @@ INFORMA.Analytics = (function(window, $, namespace) {
         }
 
         if(dataModal || contactUsForm){
-          trackEvents('Form', action, value)
+          trackEvents('Form', action, value,1)
         }
       }
     }
 
     trackFormWithoutModal = function(obj, action, label){
-        trackEvents('Form', action, obj.target.text)
+        trackEvents('Form', action, obj.target.text,1)
     }
 
     bannerText.click(function (event) {
         var text = $(this).text();
         if(text === 'Product login'){
-           trackEvents('Form', 'Open', 'ProductLogin')
+           trackEvents('Form', 'Open', 'ProductLogin',1)
         }
     });
 
     $('body').on('click', '.register,.product-login', function(e) {
         if($(this).hasClass('EventRegister')){
-           trackEvents('Form', 'Open', 'EventRegister')
+           trackEvents('Form', 'Open', 'EventRegister',1)
         }
         else if($(this).hasClass('product-login')){
-          trackEvents('Form', 'Open', 'ProductLogin')
+          trackEvents('Form', 'Open', 'ProductLogin',1)
         }
     })
 
-    trackEvents = function( category, action, label){
+    trackEvents = function( category, action, label,value){
       //check if ga is set (latest version)
       if (typeof ga !== 'undefined') {
         ga('send', {
           hitType: 'event',
           eventCategory: category,
           eventAction: action,
-          eventLabel: label
+          eventLabel: label,
+          eventValue:value
         });
       }
 
