@@ -210,7 +210,26 @@
 				text-decoration: underline;
 			}
 			&:after {
-				content: '|';
+				content: ' | ';
+				margin-right: 5px;
+			}
+			&:last-child {
+				&:after {
+					content: '';
+				}
+			}
+		}
+	}
+	.brands {
+		padding-top: 0px;
+		span {
+			//display: inline-block;
+			a{
+				color: $grey-color04;
+				text-decoration: underline;
+			}
+			&:after {
+				content: ' | ';
 				margin-right: 5px;
 			}
 			&:last-child {
