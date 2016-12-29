@@ -1,4 +1,4 @@
-/*! 2016-12-28 */var INFORMA = window.INFORMA || {};
+/*! 2016-12-29 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3970,6 +3970,7 @@ var INFORMA = window.INFORMA || {};
                     '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
                         '<div class="recomend-content">'+
                             '<div class="content">'+
+                            '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
                                 '{{#compare SubSectorTags.length 0 operator=">"}}'+
                                     '<p>'+
                                         '{{#each SubSectorTags}}'+
@@ -3979,6 +3980,7 @@ var INFORMA = window.INFORMA || {};
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
+                            '{{/compare}}'+
                                 '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
                                     '<p class="type">'+
                                         '<span>{{SamplecontentProducts}}</span>'+
@@ -4021,6 +4023,13 @@ var INFORMA = window.INFORMA || {};
                                     '</div>'+
                                 '{{/compare}}'+
                             '</div>'+
+                            '{{#compare Brand.length 0 operator=">"}}'+
+                                    '<p class="brands">'+
+                                        '{{#each Brand}}'+
+                                                '<span>{{this}}</span>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                            '{{/compare}}'+
                             '{{#compare TopicURLS.length "0" operator=">"}}'+
                                 '<p class="topics">'+
                                     '{{TopicKeyword}} '+
@@ -4480,14 +4489,16 @@ var INFORMA = window.INFORMA || {};
                             '<div class="recomended-wrapper">'+
                                 '<div class="recomend-content wrap-content">'+
                                     '<div class="content">'+
-                                        '{{#compare results.SubSectorTags.length 0 operator=">"}}'+
-                                            '<p>'+
-                                                '{{#each results.SubSectorTags}}'+
-                                                    '<span class="category">'+
-                                                        '<strong>{{this}}</strong>'+
-                                                    '</span>'+
-                                                '{{/each}}'+
-                                            '</p>'+
+                                        '{{#compare results.ShowSubSectorOnSampleContentPage true operator="=="}}'+
+                                            '{{#compare results.SubSectorTags.length 0 operator=">"}}'+
+                                                '<p>'+
+                                                    '{{#each results.SubSectorTags}}'+
+                                                        '<span class="category">'+
+                                                            '<strong>{{this}}</strong>'+
+                                                        '</span>'+
+                                                    '{{/each}}'+
+                                                '</p>'+
+                                            '{{/compare}}'+
                                         '{{/compare}}'+
                                         '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
                                             '<p class="type">'+
@@ -4539,6 +4550,13 @@ var INFORMA = window.INFORMA || {};
                                             '</div>'+
                                         '{{/compare}}'+
                                     '</div>'+
+                                    '{{#compare Brand.length 0 operator=">"}}'+
+                                            '<p class="brands">'+
+                                                '{{#each Brand}}'+
+                                                    '<span>{{this}}</span>'+
+                                                '{{/each}}'+
+                                            '</p>'+
+                                    '{{/compare}}'+
                                     '{{#compare results.TopicURLS.length 0 operator=">"}}'+
                                         '<p class="topics">'+
                                             '{{results.TopicKeyword}} '+
