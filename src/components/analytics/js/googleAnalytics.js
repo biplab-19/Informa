@@ -25,7 +25,8 @@ INFORMA.Analytics = (function(window, $, namespace) {
           Parent,
           replaceValue,
           value,
-          newReplaceValue;
+          newReplaceValue,
+          contactUsForm;
         if(action === 'Open'){
           dataModal = obj.data('modal');
           if(dataModal === '#Intelligence'){
@@ -44,6 +45,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
         else{
           Parent =  obj.parents('.modal');
           dataModal = Parent .attr('id');
+          contactUsForm = obj.parents('.contactUsPage-contactUs');
           if(dataModal === 'Intelligence'){
             replaceValue = dataModal.replace(dataModal,'formRequestADemo');
             value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
@@ -52,12 +54,22 @@ INFORMA.Analytics = (function(window, $, namespace) {
             replaceValue = dataModal.replace(dataModal,'formRequestATrial');
             value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
           }
+          else if(contactUsForm.length > 0){
+             if(contactUsForm.find('.get-in-touch')){
+                replaceValue = 'formHeaderGetInTouch';
+                value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+             }
+             else if(contactUsForm.find('.request-a-demo')){
+                replaceValue = 'formRequestADemo';
+                value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+             }
+          }
           else{
             value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
           }  
         }
 
-        if(dataModal){
+        if(dataModal || contactUsForm){
           trackEvents('Form', action, value)
         }
       }
