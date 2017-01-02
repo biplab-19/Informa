@@ -9489,7 +9489,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
     }
 
     trackFormWithoutModal = function(obj, action, label){
-        trackEvents('Form', action, obj.target.text,1)
+        trackEvents('Form', action, obj.target.text.trim(), 1)
     }
 
     bannerText.click(function (event) {
