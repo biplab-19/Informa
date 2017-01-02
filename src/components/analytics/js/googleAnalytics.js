@@ -26,7 +26,8 @@ INFORMA.Analytics = (function(window, $, namespace) {
           replaceValue,
           value,
           newReplaceValue,
-          contactUsForm;
+          contactUsForm,
+          singleStepRegistrationForm;
         if(action === 'Open'){
           dataModal = obj.data('modal');
           if(dataModal === '#Intelligence'){
@@ -46,6 +47,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
           Parent =  obj.parents('.modal');
           dataModal = Parent .attr('id');
           contactUsForm = obj.parents('.contactUsPage-contactUs');
+          singleStepRegistrationForm = obj.parents('.registration-form-single-section');
           if(dataModal === 'Intelligence'){
             replaceValue = dataModal.replace(dataModal,'formRequestADemo');
             value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
@@ -61,6 +63,12 @@ INFORMA.Analytics = (function(window, $, namespace) {
              }
              else if(contactUsForm.find('.request-a-demo')){
                 replaceValue = 'formRequestADemo';
+                value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+             }
+          }
+          else if(singleStepRegistrationForm.length > 0){
+              if(singleStepRegistrationForm.find('.register-myinterests-form')){
+                replaceValue = 'formRegistration';
                 value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
              }
           }
