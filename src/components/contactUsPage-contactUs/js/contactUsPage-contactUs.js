@@ -34,7 +34,7 @@ INFORMA.ContactUs = (function(window, $, namespace) {
         }
         $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
             // To track Google Analytics on Open
-            INFORMA.Analytics.trackFormWithoutModal(e, 'Open');
+            INFORMA.Analytics.trackFormEvents($(this), 'Open');
             window.location.hash = e.target.hash.replace("#", "#" + prefix);
             _updateRedirectUrl();
         });

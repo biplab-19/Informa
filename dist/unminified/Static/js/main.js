@@ -1,4 +1,4 @@
-/*! 2017-01-02 */var INFORMA = window.INFORMA || {};
+/*! 2017-01-03 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -5997,7 +5997,7 @@ INFORMA.ContactUs = (function(window, $, namespace) {
         }
         $('.contactUsPage-contactUs a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
             // To track Google Analytics on Open
-            INFORMA.Analytics.trackFormWithoutModal(e, 'Open');
+            INFORMA.Analytics.trackFormEvents($(this), 'Open');
             window.location.hash = e.target.hash.replace("#", "#" + prefix);
             _updateRedirectUrl();
         });
@@ -9431,28 +9431,31 @@ INFORMA.Analytics = (function(window, $, namespace) {
           replaceValue,
           value,
           newReplaceValue,
-          contactUsForm,
-          singleStepRegistrationForm;
+          contactUsForm = obj.parents('.contactUsPage-contactUs'),
+          singleStepRegistrationForm = obj.parents('.registration-form-single-section');
         if(action === 'Open'){
           dataModal = obj.data('modal');
           if(dataModal === '#Intelligence'){
             replaceValue = dataModal.replace(dataModal,'#formRequestADemo');
             newReplaceValue = replaceValue.replace('#','');
             value = newReplaceValue.charAt(0).toUpperCase() + newReplaceValue.substr(1);
-          }else if(dataModal === '#Insight'){
+          }
+          else if(dataModal === '#Insight'){
             replaceValue = dataModal.replace(dataModal,'#formRequestATrial');
             newReplaceValue = replaceValue.replace('#','');
             value = newReplaceValue.charAt(0).toUpperCase() + newReplaceValue.substr(1);
-          }else{
+          }
+          else if(contactUsForm.length > 0){
+            value = trackFormWithoutModal(contactUsForm);
+          }
+          else{
             replaceValue = dataModal.replace('#',''),
             value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1); 
           }  
         }
         else{
-          Parent =  obj.parents('.modal');
+          Parent =  obj.parents('.modal');
           dataModal = Parent .attr('id');
-          contactUsForm = obj.parents('.contactUsPage-contactUs');
-          singleStepRegistrationForm = obj.parents('.registration-form-single-section');
           if(dataModal === 'Intelligence'){
             replaceValue = dataModal.replace(dataModal,'formRequestADemo');
             value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
@@ -9462,20 +9465,11 @@ INFORMA.Analytics = (function(window, $, namespace) {
             value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
           }
           else if(contactUsForm.length > 0){
-             if(contactUsForm.find('.get-in-touch')){
-                replaceValue = 'formHeaderGetInTouch';
-                value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
-             }
-             else if(contactUsForm.find('.request-a-demo')){
-                replaceValue = 'formRequestADemo';
-                value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
-             }
+            value = trackFormWithoutModal(contactUsForm);
           }
           else if(singleStepRegistrationForm.length > 0){
-              if(singleStepRegistrationForm.find('.register-myinterests-form')){
-                replaceValue = 'formRegistration';
-                value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
-             }
+            dataModal = singleStepRegistrationForm.find('.form-inline-container').attr('data-modal');
+            value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
           }
           else{
             value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
@@ -9488,8 +9482,12 @@ INFORMA.Analytics = (function(window, $, namespace) {
       }
     }
 
-    trackFormWithoutModal = function(obj, action, label){
-        trackEvents('Form', action, obj.target.text.trim(), 1)
+    trackFormWithoutModal = function(contactUsForm){
+      var dataModal = contactUsForm.find('.tab-pane.active').find('.form-inline-container').attr('data-modal');
+      if(dataModal){
+        var value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
+      }
+      return value;
     }
 
     bannerText.click(function (event) {
@@ -9527,8 +9525,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
      
     }
     return {
-        trackFormEvents: trackFormEvents,
-        trackFormWithoutModal: trackFormWithoutModal
+        trackFormEvents: trackFormEvents
     };
 }(this, jQuery, 'INFORMA'));
 
