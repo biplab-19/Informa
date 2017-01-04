@@ -1,5 +1,5 @@
 /*! 2017-01-04 *//*
- * global-footer.js
+ * google-analytics.js
  *
  *
  * @project:    Informa
@@ -14,7 +14,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.Analytics = (function(window, $, namespace) {
     'use strict';
     //variables
-    var init, trackFormEvents,
+    var trackFormEvents,
     trackEvents,
     trackFormWithoutModal,
     bannerText = $('#banner').find("a");
@@ -106,7 +106,6 @@ INFORMA.Analytics = (function(window, $, namespace) {
      
     }
 
-    //init = function(){
       bannerText.click(function (event) {
         var text = $(this).text();
         if(text === 'Product login'){
@@ -122,7 +121,6 @@ INFORMA.Analytics = (function(window, $, namespace) {
             trackEvents('Form', 'Open', 'ProductLogin',1)
           }
       })
-   // }
     return {
         trackFormEvents: trackFormEvents
     };
