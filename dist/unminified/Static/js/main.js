@@ -1,4 +1,4 @@
-/*! 2016-12-29 */var INFORMA = window.INFORMA || {};
+/*! 2017-01-04 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -3970,17 +3970,6 @@ var INFORMA = window.INFORMA || {};
                     '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
                         '<div class="recomend-content">'+
                             '<div class="content">'+
-                            '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
-                                '{{#compare SubSectorTags.length 0 operator=">"}}'+
-                                    '<p>'+
-                                        '{{#each SubSectorTags}}'+
-                                            '<span class="category">'+
-                                                '<strong>{{this}}</strong>'+
-                                            '</span>'+
-                                        '{{/each}}'+
-                                    '</p>'+
-                                '{{/compare}}'+
-                            '{{/compare}}'+
                                 '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
                                     '<p class="type">'+
                                         '<span>{{SamplecontentProducts}}</span>'+
@@ -4030,14 +4019,25 @@ var INFORMA = window.INFORMA || {};
                                         '{{/each}}'+
                                     '</p>'+
                             '{{/compare}}'+
-                            '{{#compare TopicURLS.length "0" operator=">"}}'+
-                                '<p class="topics">'+
-                                    '{{TopicKeyword}} '+
-                                    '{{#each TopicURLS}}'+
-                                        '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
-                                    '{{/each}}'+
-                                '</p>'+
-                            '{{/compare}}'+
+                                '{{#compare TopicURLS.length "0" operator=">"}}'+
+                                    '<p class="topics">'+
+                                        '{{TopicKeyword}} '+
+                                        '{{#each TopicURLS}}'+
+                                            '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                                '{{/compare}}'+
+                                '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
+                                    '{{#compare SubSectorTags.length 0 operator=">"}}'+
+                                        '<p class="SubSectors">'+
+                                            '{{#each SubSectorTags}}'+
+                                                '<span>'+
+                                                    '{{this}}'+
+                                                '</span>'+
+                                            '{{/each}}'+
+                                        '</p>'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
                         '</div>'+
                         '<div class="footer">'+
                             '{{#compare Price null operator="!="}}'+
@@ -4489,17 +4489,6 @@ var INFORMA = window.INFORMA || {};
                             '<div class="recomended-wrapper">'+
                                 '<div class="recomend-content wrap-content">'+
                                     '<div class="content">'+
-                                        '{{#compare results.ShowSubSectorOnSampleContentPage true operator="=="}}'+
-                                            '{{#compare results.SubSectorTags.length 0 operator=">"}}'+
-                                                '<p>'+
-                                                    '{{#each results.SubSectorTags}}'+
-                                                        '<span class="category">'+
-                                                            '<strong>{{this}}</strong>'+
-                                                        '</span>'+
-                                                    '{{/each}}'+
-                                                '</p>'+
-                                            '{{/compare}}'+
-                                        '{{/compare}}'+
                                         '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
                                             '<p class="type">'+
                                                 '<span>{{results.SamplecontentProducts}}</span>'+
@@ -4556,6 +4545,17 @@ var INFORMA = window.INFORMA || {};
                                                     '<span>{{this}}</span>'+
                                                 '{{/each}}'+
                                             '</p>'+
+                                    '{{/compare}}'+
+                                    '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
+                                            '{{#compare SubSectorTags.length 0 operator=">"}}'+
+                                                '<p class="SubSectors">'+
+                                                    '{{#each SubSectorTags}}'+
+                                                        '<span>'+
+                                                            '{{this}}'+
+                                                        '</span>'+
+                                                    '{{/each}}'+
+                                                '</p>'+
+                                            '{{/compare}}'+
                                     '{{/compare}}'+
                                     '{{#compare results.TopicURLS.length 0 operator=">"}}'+
                                         '<p class="topics">'+
@@ -5606,7 +5606,8 @@ INFORMA.ArticleList = (function(window, $, namespace) {
            var Items = Article.find('.recomended-wrapper'),
                 MaxHeight = 0,
                 MaxWrapperHeight = 0,
-                MaxTopicHeight = 0;
+                MaxTopicHeight = 0,
+                MaxSubSectorHeight = 0;
 
                 Items.each(function () {
                     var ContentHeight = $(this).find('.content').height();
@@ -5622,6 +5623,13 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                     }
                 })
                 Items.find('.topics').height(MaxTopicHeight);
+                Items.each(function(){
+                    var TopicHeight = $(this).find('.SubSectors').outerHeight();
+                    if(TopicHeight > MaxSubSectorHeight) {
+                        MaxSubSectorHeight = TopicHeight;
+                    }
+                })
+                Items.find('.SubSectors').height(MaxSubSectorHeight);
                 Items.each(function(){
                     var WrapperHeight = $(this).find('.recomend-content').outerHeight();
                     if(WrapperHeight > MaxWrapperHeight) {
@@ -10635,7 +10643,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         var Items = Parent.find('.recomended-wrapper'),
             MaxHeight = 0,
             MaxWrapperHeight = 0,
-            MaxTopicHeight = 0;
+            MaxTopicHeight = 0,
+            MaxSubSectorHeight = 0;
             Items.each(function () {
                 var ContentHeight = $(this).find('.content').height();
                 if(ContentHeight > MaxHeight) {
@@ -10650,6 +10659,13 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                 }
             })
             Items.find('.topics').height(MaxTopicHeight);
+            Items.each(function(){
+                var TopicHeight = $(this).find('.SubSectors').outerHeight();
+                if(TopicHeight > MaxSubSectorHeight) {
+                    MaxSubSectorHeight = TopicHeight;
+                }
+            })
+            Items.find('.SubSectors').height(MaxSubSectorHeight);
             Items.each(function(){
                 var WrapperHeight = $(this).find('.recomend-content').outerHeight();
                 if(WrapperHeight > MaxWrapperHeight) {
