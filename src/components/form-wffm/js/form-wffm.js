@@ -264,7 +264,6 @@ INFORMA.forms = (function(window, $, namespace) {
                     Parent = $(this).parents('.tab-pane');
                 if (Status.length > 0) {
                     Parent.find('form').addClass('hide');
-
                     if (Status == 'success') {
                         // To track Google Analytics on Submit
                         INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
@@ -308,10 +307,7 @@ INFORMA.forms = (function(window, $, namespace) {
                 }
 
                 //Checking The status and Displaying that section
-
                 if (_formSubmitStatus.attr('data-status') == 'success') {
-                    // To track Google Analytics on Submit
-                    INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                     $('.submit-response').removeClass('hide');
                     $('.error-response').addClass('hide');
                 } else {
@@ -320,7 +316,6 @@ INFORMA.forms = (function(window, $, namespace) {
                 }
 
             }
-
             _formSubmitStatus.each(function() {
                 var Status = $(this).attr('data-status'),
                     Parent = $(this).parents('.modal');
@@ -330,7 +325,6 @@ INFORMA.forms = (function(window, $, namespace) {
                         show: true,
                         backdrop: "static"
                     })
-
                     if (Status == 'success') {
                         // To track Google Analytics on Submit
                         INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');

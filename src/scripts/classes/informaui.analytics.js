@@ -1,5 +1,5 @@
 /*
- * global-footer.js
+ * google-analytics.js
  *
  *
  * @project:    Informa
@@ -14,7 +14,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.Analytics = (function(window, $, namespace) {
     'use strict';
     //variables
-    var trackFormEvents,
+    var init, trackFormEvents,
     trackEvents,
     trackFormWithoutModal,
     bannerText = $('#banner').find("a");
@@ -85,21 +85,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
       return value;
     }
 
-    bannerText.click(function (event) {
-        var text = $(this).text();
-        if(text === 'Product login'){
-           trackEvents('Form', 'Open', 'ProductLogin',1)
-        }
-    });
-
-    $('body').on('click', '.register,.product-login', function(e) {
-        if($(this).hasClass('EventRegister')){
-           trackEvents('Form', 'Open', 'EventRegister',1)
-        }
-        else if($(this).hasClass('product-login')){
-          trackEvents('Form', 'Open', 'ProductLogin',1)
-        }
-    })
+ 
 
     trackEvents = function( category, action, label,value){
       //check if ga is set (latest version)
@@ -119,7 +105,27 @@ INFORMA.Analytics = (function(window, $, namespace) {
       }
      
     }
+
+    //init = function(){
+      bannerText.click(function (event) {
+        var text = $(this).text();
+        if(text === 'Product login'){
+           trackEvents('Form', 'Open', 'ProductLogin',1)
+        }
+      });
+
+      $('body').on('click', '.register,.product-login', function(e) {
+          if($(this).hasClass('EventRegister')){
+             trackEvents('Form', 'Open', 'EventRegister',1)
+          }
+          else if($(this).hasClass('product-login')){
+            trackEvents('Form', 'Open', 'ProductLogin',1)
+          }
+      })
+   // }
     return {
         trackFormEvents: trackFormEvents
     };
-}(this, jQuery, 'INFORMA'));
+}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+jQuery(INFORMA.Analytics.trackFormEvents());
+
