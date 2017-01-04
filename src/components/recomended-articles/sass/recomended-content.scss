@@ -151,6 +151,10 @@
 		}
 
 		.category {
+			display:none !important;
+			> p{
+				margin:0;
+			}
             //padding-bottom: 10px;
     		strong {
     			display: inline-block;
@@ -221,7 +225,26 @@
 		}
 	}
 	.brands {
-		padding-top: 0px;
+		padding-top: 0;
+		span {
+			//display: inline-block;
+			a{
+				color: $grey-color04;
+				text-decoration: underline;
+			}
+			&:after {
+				content: ' | ';
+				margin-right: 5px;
+			}
+			&:last-child {
+				&:after {
+					content: '';
+				}
+			}
+		}
+	}
+	.SubSectors{
+		padding-top: 0;
 		span {
 			//display: inline-block;
 			a{
