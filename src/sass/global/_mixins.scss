@@ -702,12 +702,11 @@ $desktop-width: 1142px;
                 width: 29px;
                 height: 38px;
             }
-             @else if($name==law-theme){
+            @else if($name==law-theme){
                 background-position: -5px -584px;
                 width: 29px;
                 height: 38px;
             }
-
             @else {
                 background-position: -6px -480px;
                 width: 29px;
@@ -1188,6 +1187,17 @@ $desktop-width: 1142px;
     }
     #contactus-section a{
         color:$navlinkcolor;
+    }
+    section#market-focus{
+        .market-list-wrapper {
+            .market-content{
+                a{
+                    &:after{
+                        color:$secondarycolordark;
+                    }
+                }
+            }
+        }
     }
 }
 

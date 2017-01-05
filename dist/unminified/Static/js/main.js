@@ -1,4 +1,4 @@
-/*! 2017-01-04 */var INFORMA = window.INFORMA || {};
+/*! 2017-01-05 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4012,13 +4012,6 @@ var INFORMA = window.INFORMA || {};
                                     '</div>'+
                                 '{{/compare}}'+
                             '</div>'+
-                            '{{#compare Brand.length 0 operator=">"}}'+
-                                    '<p class="brands">'+
-                                        '{{#each Brand}}'+
-                                                '<span>{{this}}</span>'+
-                                        '{{/each}}'+
-                                    '</p>'+
-                            '{{/compare}}'+
                                 '{{#compare TopicURLS.length "0" operator=">"}}'+
                                     '<p class="topics">'+
                                         '{{TopicKeyword}} '+
@@ -4539,13 +4532,6 @@ var INFORMA = window.INFORMA || {};
                                             '</div>'+
                                         '{{/compare}}'+
                                     '</div>'+
-                                    '{{#compare Brand.length 0 operator=">"}}'+
-                                            '<p class="brands">'+
-                                                '{{#each Brand}}'+
-                                                    '<span>{{this}}</span>'+
-                                                '{{/each}}'+
-                                            '</p>'+
-                                    '{{/compare}}'+
                                     '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
                                             '{{#compare SubSectorTags.length 0 operator=">"}}'+
                                                 '<p class="SubSectors">'+
