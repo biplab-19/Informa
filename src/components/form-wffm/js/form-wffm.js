@@ -265,8 +265,6 @@ INFORMA.forms = (function(window, $, namespace) {
                 if (Status.length > 0) {
                     Parent.find('form').addClass('hide');
                     if (Status == 'success') {
-                        // To track Google Analytics on Submit
-                        INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
                     } else {

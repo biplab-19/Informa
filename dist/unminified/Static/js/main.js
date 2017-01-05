@@ -1,4 +1,4 @@
-/*! 2017-01-04 *//*
+/*! 2017-01-05 *//*
  * google-analytics.js
  *
  *
@@ -7940,6 +7940,7 @@ INFORMA.forms = (function(window, $, namespace) {
                 captchaMsgContainer.css('display', 'none');
                 return true;
             }
+            
         });
 
         // grecaptcha.render('captcha-wrapper', {
@@ -8014,8 +8015,6 @@ INFORMA.forms = (function(window, $, namespace) {
                 if (Status.length > 0) {
                     Parent.find('form').addClass('hide');
                     if (Status == 'success') {
-                        // To track Google Analytics on Submit
-                        INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
                     } else {
