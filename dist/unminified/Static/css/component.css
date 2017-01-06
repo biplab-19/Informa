@@ -1,4 +1,4 @@
-/*! 2017-01-05 */@charset "UTF-8";
+/*! 2017-01-06 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -3216,18 +3216,22 @@ nav#pdp-navigation {
   }
 }
 @media (max-width: 1141px) {
-  /* line 7, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 1, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  nav#pdp-navigation {
+    margin-top: -1px;
+  }
+  /* line 8, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .nav-pdp-col {
     padding: 0;
   }
 }
-/* line 11, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 12, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation.navbar-fixed-top {
   position: fixed;
   width: 100%;
   z-index: 99;
 }
-/* line 16, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 17, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation.navbar-fixed-top.deviceactive {
   height: 95%;
   -moz-transition: height 1s ease;
@@ -3235,45 +3239,45 @@ nav#pdp-navigation.navbar-fixed-top.deviceactive {
   -o-transition: height 1s ease;
   transition: height 1s ease;
 }
-/* line 22, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 23, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation.navbar-fixed-top.deviceactive #pdp-sections {
   position: fixed;
   height: 95%;
   overflow: scroll;
 }
-/* line 28, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 29, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul {
   margin: 0;
   position: relative;
 }
-/* line 31, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 32, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul li {
   margin-right: 20px;
 }
-/* line 33, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 34, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation ul li a {
   padding: 0;
   padding-top: 5px;
 }
 @media (min-width: 1142px) {
-  /* line 33, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 34, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation ul li a {
     font-size: 14px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 33, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 34, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation ul li a {
     font-size: 13px;
   }
 }
 @media (max-width: 767px) {
-  /* line 33, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 34, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation ul li a {
     font-size: 12px;
   }
 }
-/* line 40, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+/* line 41, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
 nav#pdp-navigation .menuFollower {
   height: 5px;
   margin-top: 7px;
@@ -3284,21 +3288,21 @@ nav#pdp-navigation .menuFollower {
   border-bottom: 1px solid #c3c7cf;
 }
 @media (min-width: 1142px) {
-  /* line 52, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 53, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .nav-pdp-nondesktop {
     display: none;
   }
-  /* line 55, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 56, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections {
     display: block;
     padding-left: 0;
   }
-  /* line 58, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 59, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky {
     float: right;
     opacity: 0;
   }
-  /* line 61, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 62, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky a {
     margin-top: -10px;
     margin-bottom: 10px;
@@ -3308,29 +3312,29 @@ nav#pdp-navigation .menuFollower {
     padding-right: 25px;
     color: #444957;
   }
-  /* line 69, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 70, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky a:after {
     position: absolute;
     right: 5px;
     content: "\e900";
     font-family: "InformaIcons" !important;
   }
-  /* line 76, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 77, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky.move-left {
     opacity: 1;
     transition: opacity 2s ease-in;
   }
-  /* line 81, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 82, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky .try-stick.btn {
     color: #fff;
     background: #ef7c00 !important;
   }
-  /* line 87, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 88, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .nav-pdp-desktop-sticky .subscribe-stick.btn {
     color: #343742;
     background: none !important;
   }
-  /* line 94, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 95, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections #pdp-sections-heading {
     margin: 0;
     opacity: 0;
@@ -3339,7 +3343,7 @@ nav#pdp-navigation .menuFollower {
     display: inline-block;
     float: left;
   }
-  /* line 101, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 102, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections #pdp-sections-heading.move-left {
     opacity: 1;
     transition: opacity 2s ease-in;
@@ -3347,13 +3351,13 @@ nav#pdp-navigation .menuFollower {
     position: relative;
     top: 2px;
   }
-  /* line 109, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 110, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .navbar-nav {
     display: block;
     width: auto;
     margin: 0;
   }
-  /* line 114, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 115, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation #pdp-sections .navbar-nav > li {
     float: none;
     display: inline-block;
@@ -3361,11 +3365,11 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (max-width: 1141px) {
-  /* line 125, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 126, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 127, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 128, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop {
     display: inline-block;
     height: 50px;
@@ -3375,46 +3379,46 @@ nav#pdp-navigation .menuFollower {
     padding-left: 15px;
     transition: width 2s, left 2s;
   }
-  /* line 135, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 136, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     width: 28%;
     padding-left: 20px;
   }
 }
 @media (max-width: 1141px) and (min-width: 768px) and (max-width: 1141px) {
-  /* line 135, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 136, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     width: 13%;
     padding-left: 20px;
   }
 }
 @media (max-width: 1141px) {
-  /* line 143, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 144, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
     position: relative;
     color: #fff;
   }
 }
 @media (max-width: 1141px) and (min-width: 1142px) {
-  /* line 143, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 144, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
     font-size: 14px;
   }
 }
 @media (max-width: 1141px) and (min-width: 768px) and (max-width: 1141px) {
-  /* line 143, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 144, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
     font-size: 13px;
   }
 }
 @media (max-width: 1141px) and (max-width: 767px) {
-  /* line 143, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 144, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a {
     font-size: 12px;
   }
 }
 @media (max-width: 1141px) {
-  /* line 147, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 148, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a:after {
     content: '>';
     position: absolute;
@@ -3425,22 +3429,22 @@ nav#pdp-navigation .menuFollower {
     right: -15px;
     font-family: FSMe-Bold;
   }
-  /* line 157, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 158, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a:hover {
     text-decoration: none;
   }
-  /* line 160, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 161, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop > a:focus {
     text-decoration: none;
   }
-  /* line 165, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 166, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop-sticky {
     position: absolute;
     top: 0;
     right: 0;
     opacity: 0;
   }
-  /* line 171, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 172, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop-sticky a {
     height: 30px;
     padding: 5px;
@@ -3448,43 +3452,43 @@ nav#pdp-navigation .menuFollower {
     margin-bottom: 10px;
     margin-right: 10px;
   }
-  /* line 178, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 179, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row .nav-pdp-nondesktop-sticky.move-left {
     opacity: 1;
     transition: opacity 2s ease-in;
   }
-  /* line 183, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 184, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections {
     display: none;
     padding: 0 15px;
   }
-  /* line 186, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 187, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul {
     margin-top: 0;
     margin-bottom: 0;
     float: none;
   }
-  /* line 190, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 191, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul li {
     width: 100%;
     display: block;
   }
 }
 @media (max-width: 1141px) and (max-width: 1141px) {
-  /* line 194, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 195, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul li a {
     padding: 0;
     padding-bottom: 20px;
   }
-  /* line 197, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 198, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul li a:first-child {
     padding-top: 20px;
   }
-  /* line 200, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 201, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul li a:last-child {
     padding-bottom: 30px;
   }
-  /* line 203, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 204, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections ul li a:after {
     content: ">";
     display: block;
@@ -3493,18 +3497,18 @@ nav#pdp-navigation .menuFollower {
   }
 }
 @media (max-width: 1141px) {
-  /* line 214, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 215, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections #pdp-sections-heading {
     text-align: left;
     margin: 0;
   }
-  /* line 217, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 218, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .container .row #pdp-sections #pdp-sections-heading.move-left {
     padding: 20px 0;
     font-family: FSMe-Bold;
     border-bottom: 1px solid #c3c7cf;
   }
-  /* line 228, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
+  /* line 229, ../../../src/components/pdp-navigation/sass/_pdp-navigation.scss */
   nav#pdp-navigation .menuFollower {
     display: none !important;
   }
