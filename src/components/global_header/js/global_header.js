@@ -115,7 +115,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _bindClickEvents,
         _bindNavigationEvents,
         _cookieBannerExist,
-        _PdpNavReArrange;
+        _PdpNavReArrange,
+        _addClassFixed,
+        _removeClassFixed;
 
 
 
@@ -165,8 +167,24 @@ INFORMA.globalHeader = (function(window, $, namespace) {
               _cookieHeight =  0;
         }
    }
-    // both pdp nav and main nav handled here
 
+   //Add fixed class for Mobile and Tablet
+   _addClassFixed = function(){
+        _mobileNavigation.addClass(_fixed);
+        _cookieBanner.addClass(_fixed);
+        _mobileNavigation.css('top', _cookieHeight);
+        $('body').css('padding-top', _navHeightMobile);
+   }
+   
+   //Remove fixed class for Mobile and Tablet
+   _removeClassFixed = function(){
+        _mobileNavigation.removeClass(_fixed);
+        _cookieBanner.removeClass(_fixed);
+        _mobileNavigation.css('top', 0);
+        $('body').css('padding-top', 0);
+   }
+
+    // both pdp nav and main nav handled here
     _whenScrolling = function() {
         $(window).on('scroll', function() {
 
@@ -207,18 +225,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         var _windowPosMobile = $(window).scrollTop();
         _cookieBannerExist();
         if (_windowPosMobile > _headerPosMobile + _cookieHeight) {
-            _mobileNavigation.addClass(_fixed);
-            _cookieBanner.addClass(_fixed);
-            _mobileNavigation.css('top', _cookieHeight);
-            $('body').css('padding-top', _navHeightMobile);
+            _addClassFixed();
             _mobileHeaderNavigation.css({
                 'z-index': '2000'
             });
         } else {
-            _mobileNavigation.removeClass(_fixed);
-            _cookieBanner.removeClass(_fixed);
-            _mobileNavigation.css('top', 0);
-            $('body').css('padding-top', 0);
+            _removeClassFixed();
             _mobileHeaderNavigation.css({
                 'z-index': '2'
             });
@@ -339,6 +351,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.nav-pdp-nondesktop').addClass('move-left');
 
             if (!INFORMA.global.device.isDesktop && !_pdpStickyMobileFlag) {
+              _addClassFixed();
               var leftOfPdpMover = _pdpMenuFollower.css('left');
                 _tryStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _subscribeStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
@@ -383,6 +396,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                 if (!INFORMA.global.device.isDesktop){
                     _pdpStickyMobileFlag = false;
+                    _removeClassFixed();
                     $('.nav-pdp-nondesktop-sticky').empty();
                     $('#pdp-sections-heading').text('');
                     $('#pdp-sections-heading').removeClass('move-left');
