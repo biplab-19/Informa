@@ -1,4 +1,4 @@
-/*! 2017-01-05 */var INFORMA = window.INFORMA || {};
+/*! 2017-01-09 */var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -4012,6 +4012,13 @@ var INFORMA = window.INFORMA || {};
                                     '</div>'+
                                 '{{/compare}}'+
                             '</div>'+
+                            // '{{#compare Brand.length 0 operator=">"}}'+
+                            //         '<p class="brands">'+
+                            //             '{{#each Brand}}'+
+                            //                     '<span>{{this}}</span>'+
+                            //             '{{/each}}'+
+                            //         '</p>'+
+                            // '{{/compare}}'+
                                 '{{#compare TopicURLS.length "0" operator=">"}}'+
                                     '<p class="topics">'+
                                         '{{TopicKeyword}} '+
@@ -4021,11 +4028,12 @@ var INFORMA = window.INFORMA || {};
                                     '</p>'+
                                 '{{/compare}}'+
                                 '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
-                                    '{{#compare SubSectorTags.length 0 operator=">"}}'+
+                                    '{{#compare SubSectorsUrlDetails.length 0 operator=">"}}'+
                                         '<p class="SubSectors">'+
-                                            '{{#each SubSectorTags}}'+
+                                            '<span>{{SubSectorKeyword}}</span>'+
+                                            '{{#each SubSectorsUrlDetails}}'+
                                                 '<span>'+
-                                                    '{{this}}'+
+                                                    '<a href="{{this.Value}}">{{this.Key}}</a>'+
                                                 '</span>'+
                                             '{{/each}}'+
                                         '</p>'+
@@ -4532,12 +4540,20 @@ var INFORMA = window.INFORMA || {};
                                             '</div>'+
                                         '{{/compare}}'+
                                     '</div>'+
+                                    // '{{#compare Brand.length 0 operator=">"}}'+
+                                    //         '<p class="brands">'+
+                                    //             '{{#each Brand}}'+
+                                    //                 '<span>{{this}}</span>'+
+                                    //             '{{/each}}'+
+                                    //         '</p>'+
+                                    // '{{/compare}}'+
                                     '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
-                                            '{{#compare SubSectorTags.length 0 operator=">"}}'+
+                                            '{{#compare SubSectorsUrlDetails.length 0 operator=">"}}'+
                                                 '<p class="SubSectors">'+
-                                                    '{{#each SubSectorTags}}'+
+                                                    '<span>{{SubSectorKeyword}}</span>'+
+                                                    '{{#each SubSectorsUrlDetails}}'+
                                                         '<span>'+
-                                                            '{{this}}'+
+                                                            '<a href="{{this.Value}}">{{this.Key}}</a>'+
                                                         '</span>'+
                                                     '{{/each}}'+
                                                 '</p>'+
