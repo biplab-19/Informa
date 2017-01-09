@@ -64,13 +64,13 @@ var INFORMA = window.INFORMA || {};
                                     '</div>'+
                                 '{{/compare}}'+
                             '</div>'+
-                            '{{#compare Brand.length 0 operator=">"}}'+
-                                    '<p class="brands">'+
-                                        '{{#each Brand}}'+
-                                                '<span>{{this}}</span>'+
-                                        '{{/each}}'+
-                                    '</p>'+
-                            '{{/compare}}'+
+                            // '{{#compare Brand.length 0 operator=">"}}'+
+                            //         '<p class="brands">'+
+                            //             '{{#each Brand}}'+
+                            //                     '<span>{{this}}</span>'+
+                            //             '{{/each}}'+
+                            //         '</p>'+
+                            // '{{/compare}}'+
                                 '{{#compare TopicURLS.length "0" operator=">"}}'+
                                     '<p class="topics">'+
                                         '{{TopicKeyword}} '+
@@ -80,11 +80,12 @@ var INFORMA = window.INFORMA || {};
                                     '</p>'+
                                 '{{/compare}}'+
                                 '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
-                                    '{{#compare SubSectorTags.length 0 operator=">"}}'+
+                                    '{{#compare SubSectorsUrlDetails.length 0 operator=">"}}'+
                                         '<p class="SubSectors">'+
-                                            '{{#each SubSectorTags}}'+
+                                            '<span>{{SubSectorKeyword}}</span>'+
+                                            '{{#each SubSectorsUrlDetails}}'+
                                                 '<span>'+
-                                                    '{{this}}'+
+                                                    '<a href="{{this.Value}}">{{this.Key}}</a>'+
                                                 '</span>'+
                                             '{{/each}}'+
                                         '</p>'+
@@ -591,19 +592,20 @@ var INFORMA = window.INFORMA || {};
                                             '</div>'+
                                         '{{/compare}}'+
                                     '</div>'+
-                                    '{{#compare Brand.length 0 operator=">"}}'+
-                                            '<p class="brands">'+
-                                                '{{#each Brand}}'+
-                                                    '<span>{{this}}</span>'+
-                                                '{{/each}}'+
-                                            '</p>'+
-                                    '{{/compare}}'+
+                                    // '{{#compare Brand.length 0 operator=">"}}'+
+                                    //         '<p class="brands">'+
+                                    //             '{{#each Brand}}'+
+                                    //                 '<span>{{this}}</span>'+
+                                    //             '{{/each}}'+
+                                    //         '</p>'+
+                                    // '{{/compare}}'+
                                     '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
-                                            '{{#compare SubSectorTags.length 0 operator=">"}}'+
+                                            '{{#compare SubSectorsUrlDetails.length 0 operator=">"}}'+
                                                 '<p class="SubSectors">'+
-                                                    '{{#each SubSectorTags}}'+
+                                                    '<span>{{SubSectorKeyword}}</span>'+
+                                                    '{{#each SubSectorsUrlDetails}}'+
                                                         '<span>'+
-                                                            '{{this}}'+
+                                                            '<a href="{{this.Value}}">{{this.Key}}</a>'+
                                                         '</span>'+
                                                     '{{/each}}'+
                                                 '</p>'+
