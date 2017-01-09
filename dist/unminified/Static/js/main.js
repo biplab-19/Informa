@@ -4540,25 +4540,13 @@ var INFORMA = window.INFORMA || {};
                                             '</div>'+
                                         '{{/compare}}'+
                                     '</div>'+
-                                    // '{{#compare Brand.length 0 operator=">"}}'+
+                                    // '{{#compare results.Brand.length 0 operator=">"}}'+
                                     //         '<p class="brands">'+
-                                    //             '{{#each Brand}}'+
+                                    //             '{{#each results.Brand}}'+
                                     //                 '<span>{{this}}</span>'+
                                     //             '{{/each}}'+
                                     //         '</p>'+
                                     // '{{/compare}}'+
-                                    '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
-                                            '{{#compare SubSectorsUrlDetails.length 0 operator=">"}}'+
-                                                '<p class="SubSectors">'+
-                                                    '<span>{{SubSectorKeyword}}</span>'+
-                                                    '{{#each SubSectorsUrlDetails}}'+
-                                                        '<span>'+
-                                                            '<a href="{{this.Value}}">{{this.Key}}</a>'+
-                                                        '</span>'+
-                                                    '{{/each}}'+
-                                                '</p>'+
-                                            '{{/compare}}'+
-                                    '{{/compare}}'+
                                     '{{#compare results.TopicURLS.length 0 operator=">"}}'+
                                         '<p class="topics">'+
                                             '{{results.TopicKeyword}} '+
@@ -4566,6 +4554,18 @@ var INFORMA = window.INFORMA || {};
                                                 '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
                                             '{{/each}}'+
                                         '</p>'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.ShowSubSectorOnSampleContentPage true operator="=="}}'+
+                                            '{{#compare results.SubSectorsUrlDetails.length 0 operator=">"}}'+
+                                                '<p class="SubSectors">'+
+                                                    '<span>{{results.SubSectorKeyword}}</span>'+
+                                                    '{{#each results.SubSectorsUrlDetails}}'+
+                                                        '<span>'+
+                                                            '<a href="{{this.Value}}">{{this.Key}}</a>'+
+                                                        '</span>'+
+                                                    '{{/each}}'+
+                                                '</p>'+
+                                            '{{/compare}}'+
                                     '{{/compare}}'+
                                 '</div>'+
                                 '<div class="footer">'+
