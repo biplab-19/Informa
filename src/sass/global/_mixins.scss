@@ -1010,7 +1010,7 @@ $desktop-width: 1142px;
                 }
             }
             .registration-form-single-section .container {
-                background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
+                background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color03;
                 background-size: 20%;
             }
             // .register-myinterests-form, .registration-form-single-section .container {
@@ -1021,25 +1021,33 @@ $desktop-width: 1142px;
         }
         @else if($name==agri-theme){
             .product-login .login-links {
-                background: url(/Static/images/agri-pattern.png) no-repeat bottom right #444957;
+                background: url(/Static/images/agri-pattern.png) no-repeat bottom right $grey-color03;
+            }
+            .registration-form-single-section .container {
+                background: url("/Static/images/agri-pattern.png") no-repeat right 105% $grey-color03;
+                background-size: 20%;
             }
         }
         @else if($name==maritime-theme){
             .product-login .login-links {
-                background: url(/Static/images/maritime-pattern.png) no-repeat bottom right #444957;
+                background: url(/Static/images/maritime-pattern.png) no-repeat bottom right $grey-color03;
+            }
+            .registration-form-single-section .container {
+                background: url("/Static/images/maritime-pattern.png") no-repeat right 105% $grey-color03;
+                background-size: 20%;
             }
         }
         @else if($name==tmt-theme){
             .product-login .login-links {
-                background: url(/Static/images/tmt-pattern.png) no-repeat bottom right #444957;
+                background: url(/Static/images/tmt-pattern.png) no-repeat bottom right $grey-color03;
                 background-size: 20%;
             }
             .dashboard {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 100% #444957;
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 100% $grey-color03;
                 background-size:15%;
             }
             #formRegistration .modal-body {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
                 background-size: 24%;
                 @include tablet {
                   background: none;
@@ -1051,7 +1059,7 @@ $desktop-width: 1142px;
                 }
             }
             .registration-form-single-section .container {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
                 background-size: 20%;
             }
             // .register-myinterests-form, .registration-form-single-section .container {
@@ -1060,155 +1068,154 @@ $desktop-width: 1142px;
             // }
 
         }
-    }
-    .tab-pane {
-        .error-response,
-        .submit-response {
-            h2 {
-                &:before {
-                    color: $secondarycolorlight;
+        .tab-pane {
+            .error-response,
+            .submit-response {
+                h2 {
+                    &:before {
+                        color: $secondarycolorlight;
+                    }
                 }
             }
         }
-    }
-    .form-modal {
-        .modal-body {
-            .form-inline-container {
-                .error-response,
-                .submit-response {
-                    h2 {
-                        &:before {
-                            color: $secondarycolorlight;
+        .form-modal {
+            .modal-body {
+                .form-inline-container {
+                    .error-response,
+                    .submit-response {
+                        h2 {
+                            &:before {
+                                color: $secondarycolorlight;
+                            }
                         }
                     }
                 }
             }
         }
-    }
-    .infograph .number-container{
-        color:$navlinkcolor;
-    }
-    .welcome-description{
-        .tool{
-            p a{
-                color:$navlinkcolor;
-            }
+        .infograph .number-container{
+            color:$navlinkcolor;
         }
-    }
-    .product-login{
-        .create-profile a{
-            color: $white;
-            text-decoration: underline;
-        }
-    }
-    .marketing-banner{
-        &.Variation2,&.Variation1{
-            .btn{
-                background: $primarycolor;
-                &:after {
-                    color: $white;
+        .welcome-description{
+            .tool{
+                p a{
+                    color:$navlinkcolor;
                 }
             }
         }
-    }
-
-    .more-stories .feature li {
-            &:before {
-                color:$secondarycolordark;
+        .product-login{
+            .create-profile a{
+                color: $white;
+                text-decoration: underline;
             }
-    }
-
-
-    .table-bordered{
-        margin:20px auto;
-        > thead{
-            > tr{
-                > th{
-                    background-color:$secondarycolordark;
-                    color:#fff;
+        }
+        .marketing-banner{
+            &.Variation2,&.Variation1{
+                .btn{
+                    background: $primarycolor;
+                    &:after {
+                        color: $white;
+                    }
                 }
             }
         }
-        > tbody{
-            tr:nth-child(even) {
-                background-color: $grey-color09;
+
+        .more-stories .feature li {
+                &:before {
+                    color:$secondarycolordark;
+                }
+        }
+
+        .table-bordered{
+            margin:20px auto;
+            > thead{
+                > tr{
+                    > th{
+                        background-color:$secondarycolordark;
+                        color:#fff;
+                    }
+                }
             }
-            td{
-                color:$grey-color04;
+            > tbody{
+                tr:nth-child(even) {
+                    background-color: $grey-color09;
+                }
+                td{
+                    color:$grey-color04;
+                }
             }
         }
-    }
-    .table-hover > tbody > tr:hover > td,
-    .table-hover > tbody > tr:hover > th{
-         background-color: $grey-color10;
-    }
-    .fc-unthemed .fc-today {
-        background: $secondarycolorlight;
-    }
-    @if($name==tmt-theme) {
-        #mobile-header-navigation .navbar-image .logo-img-big{
-            @include not-desktop{
-                width: auto!important;
-                transform: translate(0, -40%);
-                -webkit-transform: translate(0, -40%);
+        .table-hover > tbody > tr:hover > td,
+        .table-hover > tbody > tr:hover > th{
+             background-color: $grey-color10;
+        }
+        .fc-unthemed .fc-today {
+            background: $secondarycolorlight;
+        }
+        @if($name==tmt-theme) {
+            #mobile-header-navigation .navbar-image .logo-img-big{
+                @include not-desktop{
+                    width: auto!important;
+                    transform: translate(0, -40%);
+                    -webkit-transform: translate(0, -40%);
+                }
+            }
+            header section.informaNav .navbar-brand .logo-img-big{
+                @include not-desktop{
+                    width: auto!important;
+                    transform: translate(-50%,-60%);
+                    -webkit-transform: translate(-50%,-60%);
+                }
+                @include desktop{
+                    top: -15px;
+                    left: 10px;
+                    width: 115px;
+                    height: 64px;
+                }
+            }
+            @include tablet{
+                .navbar>.container .navbar-brand{
+                    margin-left: 0;
+                }
             }
         }
-        header section.informaNav .navbar-brand .logo-img-big{
-            @include not-desktop{
-                width: auto!important;
-                transform: translate(-50%,-60%);
-                -webkit-transform: translate(-50%,-60%);
-            }
-            @include desktop{
-                top: -15px;
-                left: 10px;
-                width: 115px;
-                height: 64px;
-            }
-        }
-        @include tablet{
-            .navbar>.container .navbar-brand{
-                margin-left: 0;
-            }
-        }
-    }
    
-    @include not-desktop{
-        nav#pdp-navigation{
-            .container{
-                  .row{
-                    position: relative;
-                    .nav-pdp-nondesktop{
-                          &.move-left{
-                            background: lighten( $secondarycolorlight, 5%);
-                          }
-                    }
-                    #pdp-sections{
-                         background: lighten( $secondarycolorlight, 5%);
-                    }
-                  }
+        @include not-desktop{
+            nav#pdp-navigation{
+                .container{
+                      .row{
+                        position: relative;
+                        .nav-pdp-nondesktop{
+                              &.move-left{
+                                background: lighten( $secondarycolorlight, 5%);
+                              }
+                        }
+                        #pdp-sections{
+                             background: lighten( $secondarycolorlight, 5%);
+                        }
+                      }
+                }
             }
         }
-    }
-    body{
-        svg.spinner-loader{
-            stroke:$primarycolor;
+        body{
+            svg.spinner-loader{
+                stroke:$primarycolor;
+            }
         }
-    }
-    #contactus-section a{
-        color:$navlinkcolor;
-    }
-    section#market-focus{
-        .market-list-wrapper {
-            .market-content{
-                a{
-                    &:after{
-                        color:$secondarycolordark;
+        #contactus-section a{
+            color:$navlinkcolor;
+        }
+        section#market-focus{
+            .market-list-wrapper {
+                .market-content{
+                    a{
+                        &:after{
+                            color:$secondarycolordark;
+                        }
                     }
                 }
             }
         }
-    }
+    }    
 }
 
 @mixin opacity($opacity) {

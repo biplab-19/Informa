@@ -1,4 +1,4 @@
-/*! 2017-01-06 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2017-01-09 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -783,103 +783,95 @@
 .agri-theme .product-login .login-links {
   background: url(/Static/images/agri-pattern.png) no-repeat bottom right #444957;
 }
-
-/* line 1068, ../../../src/sass/global/_mixins.scss */
-.tab-pane .error-response h2:before,
-.tab-pane .submit-response h2:before {
+/* line 1026, ../../../src/sass/global/_mixins.scss */
+.agri-theme .registration-form-single-section .container {
+  background: url("/Static/images/agri-pattern.png") no-repeat right 105% #444957;
+  background-size: 20%;
+}
+/* line 1075, ../../../src/sass/global/_mixins.scss */
+.agri-theme .tab-pane .error-response h2:before,
+.agri-theme .tab-pane .submit-response h2:before {
   color: #ffd600;
 }
-
-/* line 1080, ../../../src/sass/global/_mixins.scss */
-.form-modal .modal-body .form-inline-container .error-response h2:before,
-.form-modal .modal-body .form-inline-container .submit-response h2:before {
+/* line 1087, ../../../src/sass/global/_mixins.scss */
+.agri-theme .form-modal .modal-body .form-inline-container .error-response h2:before,
+.agri-theme .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #ffd600;
 }
-
-/* line 1088, ../../../src/sass/global/_mixins.scss */
-.infograph .number-container {
+/* line 1095, ../../../src/sass/global/_mixins.scss */
+.agri-theme .infograph .number-container {
   color: #edb657;
 }
-
-/* line 1093, ../../../src/sass/global/_mixins.scss */
-.welcome-description .tool p a {
+/* line 1100, ../../../src/sass/global/_mixins.scss */
+.agri-theme .welcome-description .tool p a {
   color: #edb657;
 }
-
-/* line 1099, ../../../src/sass/global/_mixins.scss */
-.product-login .create-profile a {
+/* line 1106, ../../../src/sass/global/_mixins.scss */
+.agri-theme .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
-
-/* line 1106, ../../../src/sass/global/_mixins.scss */
-.marketing-banner.Variation2 .btn, .marketing-banner.Variation1 .btn {
+/* line 1113, ../../../src/sass/global/_mixins.scss */
+.agri-theme .marketing-banner.Variation2 .btn, .agri-theme .marketing-banner.Variation1 .btn {
   background: #c44c0a;
 }
-/* line 1108, ../../../src/sass/global/_mixins.scss */
-.marketing-banner.Variation2 .btn:after, .marketing-banner.Variation1 .btn:after {
+/* line 1115, ../../../src/sass/global/_mixins.scss */
+.agri-theme .marketing-banner.Variation2 .btn:after, .agri-theme .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
-
-/* line 1116, ../../../src/sass/global/_mixins.scss */
-.more-stories .feature li:before {
+/* line 1123, ../../../src/sass/global/_mixins.scss */
+.agri-theme .more-stories .feature li:before {
   color: #9e3005;
 }
-
-/* line 1122, ../../../src/sass/global/_mixins.scss */
-.table-bordered {
+/* line 1128, ../../../src/sass/global/_mixins.scss */
+.agri-theme .table-bordered {
   margin: 20px auto;
 }
-/* line 1126, ../../../src/sass/global/_mixins.scss */
-.table-bordered > thead > tr > th {
+/* line 1132, ../../../src/sass/global/_mixins.scss */
+.agri-theme .table-bordered > thead > tr > th {
   background-color: #9e3005;
   color: #fff;
 }
-/* line 1133, ../../../src/sass/global/_mixins.scss */
-.table-bordered > tbody tr:nth-child(even) {
+/* line 1139, ../../../src/sass/global/_mixins.scss */
+.agri-theme .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1136, ../../../src/sass/global/_mixins.scss */
-.table-bordered > tbody td {
+/* line 1142, ../../../src/sass/global/_mixins.scss */
+.agri-theme .table-bordered > tbody td {
   color: #565c6b;
 }
-
-/* line 1141, ../../../src/sass/global/_mixins.scss */
-.table-hover > tbody > tr:hover > td,
-.table-hover > tbody > tr:hover > th {
+/* line 1147, ../../../src/sass/global/_mixins.scss */
+.agri-theme .table-hover > tbody > tr:hover > td,
+.agri-theme .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
-
-/* line 1145, ../../../src/sass/global/_mixins.scss */
-.fc-unthemed .fc-today {
+/* line 1151, ../../../src/sass/global/_mixins.scss */
+.agri-theme .fc-unthemed .fc-today {
   background: #ffd600;
 }
-
 @media (max-width: 1141px) {
-  /* line 1179, ../../../src/sass/global/_mixins.scss */
-  nav#pdp-navigation .container .row {
+  /* line 1185, ../../../src/sass/global/_mixins.scss */
+  .agri-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1182, ../../../src/sass/global/_mixins.scss */
-  nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
+  /* line 1188, ../../../src/sass/global/_mixins.scss */
+  .agri-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #ffda1a;
   }
-  /* line 1186, ../../../src/sass/global/_mixins.scss */
-  nav#pdp-navigation .container .row #pdp-sections {
+  /* line 1192, ../../../src/sass/global/_mixins.scss */
+  .agri-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #ffda1a;
   }
 }
-/* line 1194, ../../../src/sass/global/_mixins.scss */
-body svg.spinner-loader {
+/* line 1200, ../../../src/sass/global/_mixins.scss */
+.agri-theme body svg.spinner-loader {
   stroke: #c44c0a;
 }
-
-/* line 1198, ../../../src/sass/global/_mixins.scss */
-#contactus-section a {
+/* line 1204, ../../../src/sass/global/_mixins.scss */
+.agri-theme #contactus-section a {
   color: #edb657;
 }
-
-/* line 1205, ../../../src/sass/global/_mixins.scss */
-section#market-focus .market-list-wrapper .market-content a:after {
+/* line 1211, ../../../src/sass/global/_mixins.scss */
+.agri-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #9e3005;
 }

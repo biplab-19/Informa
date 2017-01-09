@@ -1,4 +1,4 @@
-/*! 2017-01-06 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2017-01-09 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -779,108 +779,100 @@
   height: 100px;
   background-color: rgba(15, 84, 135, 0.8);
 }
-/* line 1028, ../../../src/sass/global/_mixins.scss */
+/* line 1032, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .product-login .login-links {
   background: url(/Static/images/maritime-pattern.png) no-repeat bottom right #444957;
 }
-
-/* line 1068, ../../../src/sass/global/_mixins.scss */
-.tab-pane .error-response h2:before,
-.tab-pane .submit-response h2:before {
+/* line 1035, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .registration-form-single-section .container {
+  background: url("/Static/images/maritime-pattern.png") no-repeat right 105% #444957;
+  background-size: 20%;
+}
+/* line 1075, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .tab-pane .error-response h2:before,
+.maritime-theme .tab-pane .submit-response h2:before {
   color: #0f5487;
 }
-
-/* line 1080, ../../../src/sass/global/_mixins.scss */
-.form-modal .modal-body .form-inline-container .error-response h2:before,
-.form-modal .modal-body .form-inline-container .submit-response h2:before {
+/* line 1087, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .form-modal .modal-body .form-inline-container .error-response h2:before,
+.maritime-theme .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #0f5487;
 }
-
-/* line 1088, ../../../src/sass/global/_mixins.scss */
-.infograph .number-container {
+/* line 1095, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .infograph .number-container {
   color: #8fc4de;
 }
-
-/* line 1093, ../../../src/sass/global/_mixins.scss */
-.welcome-description .tool p a {
+/* line 1100, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .welcome-description .tool p a {
   color: #8fc4de;
 }
-
-/* line 1099, ../../../src/sass/global/_mixins.scss */
-.product-login .create-profile a {
+/* line 1106, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
-
-/* line 1106, ../../../src/sass/global/_mixins.scss */
-.marketing-banner.Variation2 .btn, .marketing-banner.Variation1 .btn {
+/* line 1113, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .marketing-banner.Variation2 .btn, .maritime-theme .marketing-banner.Variation1 .btn {
   background: #0374ac;
 }
-/* line 1108, ../../../src/sass/global/_mixins.scss */
-.marketing-banner.Variation2 .btn:after, .marketing-banner.Variation1 .btn:after {
+/* line 1115, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .marketing-banner.Variation2 .btn:after, .maritime-theme .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
-
-/* line 1116, ../../../src/sass/global/_mixins.scss */
-.more-stories .feature li:before {
+/* line 1123, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .more-stories .feature li:before {
   color: #002d4f;
 }
-
-/* line 1122, ../../../src/sass/global/_mixins.scss */
-.table-bordered {
+/* line 1128, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .table-bordered {
   margin: 20px auto;
 }
-/* line 1126, ../../../src/sass/global/_mixins.scss */
-.table-bordered > thead > tr > th {
+/* line 1132, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .table-bordered > thead > tr > th {
   background-color: #002d4f;
   color: #fff;
 }
-/* line 1133, ../../../src/sass/global/_mixins.scss */
-.table-bordered > tbody tr:nth-child(even) {
+/* line 1139, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1136, ../../../src/sass/global/_mixins.scss */
-.table-bordered > tbody td {
+/* line 1142, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .table-bordered > tbody td {
   color: #565c6b;
 }
-
-/* line 1141, ../../../src/sass/global/_mixins.scss */
-.table-hover > tbody > tr:hover > td,
-.table-hover > tbody > tr:hover > th {
+/* line 1147, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .table-hover > tbody > tr:hover > td,
+.maritime-theme .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
-
-/* line 1145, ../../../src/sass/global/_mixins.scss */
-.fc-unthemed .fc-today {
+/* line 1151, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .fc-unthemed .fc-today {
   background: #0f5487;
 }
-
 @media (max-width: 1141px) {
-  /* line 1179, ../../../src/sass/global/_mixins.scss */
-  nav#pdp-navigation .container .row {
+  /* line 1185, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1182, ../../../src/sass/global/_mixins.scss */
-  nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
+  /* line 1188, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #12629e;
   }
-  /* line 1186, ../../../src/sass/global/_mixins.scss */
-  nav#pdp-navigation .container .row #pdp-sections {
+  /* line 1192, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #12629e;
   }
 }
-/* line 1194, ../../../src/sass/global/_mixins.scss */
-body svg.spinner-loader {
+/* line 1200, ../../../src/sass/global/_mixins.scss */
+.maritime-theme body svg.spinner-loader {
   stroke: #0374ac;
 }
-
-/* line 1198, ../../../src/sass/global/_mixins.scss */
-#contactus-section a {
+/* line 1204, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #contactus-section a {
   color: #8fc4de;
 }
-
-/* line 1205, ../../../src/sass/global/_mixins.scss */
-section#market-focus .market-list-wrapper .market-content a:after {
+/* line 1211, ../../../src/sass/global/_mixins.scss */
+.maritime-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #002d4f;
 }
 
@@ -1665,103 +1657,90 @@ section#market-focus .market-list-wrapper .market-content a:after {
   height: 100px;
   background-color: rgba(98, 66, 139, 0.8);
 }
-
-/* line 1068, ../../../src/sass/global/_mixins.scss */
-.tab-pane .error-response h2:before,
-.tab-pane .submit-response h2:before {
+/* line 1075, ../../../src/sass/global/_mixins.scss */
+.law-theme .tab-pane .error-response h2:before,
+.law-theme .tab-pane .submit-response h2:before {
   color: #62428b;
 }
-
-/* line 1080, ../../../src/sass/global/_mixins.scss */
-.form-modal .modal-body .form-inline-container .error-response h2:before,
-.form-modal .modal-body .form-inline-container .submit-response h2:before {
+/* line 1087, ../../../src/sass/global/_mixins.scss */
+.law-theme .form-modal .modal-body .form-inline-container .error-response h2:before,
+.law-theme .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #62428b;
 }
-
-/* line 1088, ../../../src/sass/global/_mixins.scss */
-.infograph .number-container {
+/* line 1095, ../../../src/sass/global/_mixins.scss */
+.law-theme .infograph .number-container {
   color: #e291b1;
 }
-
-/* line 1093, ../../../src/sass/global/_mixins.scss */
-.welcome-description .tool p a {
+/* line 1100, ../../../src/sass/global/_mixins.scss */
+.law-theme .welcome-description .tool p a {
   color: #e291b1;
 }
-
-/* line 1099, ../../../src/sass/global/_mixins.scss */
-.product-login .create-profile a {
+/* line 1106, ../../../src/sass/global/_mixins.scss */
+.law-theme .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
-
-/* line 1106, ../../../src/sass/global/_mixins.scss */
-.marketing-banner.Variation2 .btn, .marketing-banner.Variation1 .btn {
+/* line 1113, ../../../src/sass/global/_mixins.scss */
+.law-theme .marketing-banner.Variation2 .btn, .law-theme .marketing-banner.Variation1 .btn {
   background: #B83166;
 }
-/* line 1108, ../../../src/sass/global/_mixins.scss */
-.marketing-banner.Variation2 .btn:after, .marketing-banner.Variation1 .btn:after {
+/* line 1115, ../../../src/sass/global/_mixins.scss */
+.law-theme .marketing-banner.Variation2 .btn:after, .law-theme .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
-
-/* line 1116, ../../../src/sass/global/_mixins.scss */
-.more-stories .feature li:before {
+/* line 1123, ../../../src/sass/global/_mixins.scss */
+.law-theme .more-stories .feature li:before {
   color: #5b4476;
 }
-
-/* line 1122, ../../../src/sass/global/_mixins.scss */
-.table-bordered {
+/* line 1128, ../../../src/sass/global/_mixins.scss */
+.law-theme .table-bordered {
   margin: 20px auto;
 }
-/* line 1126, ../../../src/sass/global/_mixins.scss */
-.table-bordered > thead > tr > th {
+/* line 1132, ../../../src/sass/global/_mixins.scss */
+.law-theme .table-bordered > thead > tr > th {
   background-color: #5b4476;
   color: #fff;
 }
-/* line 1133, ../../../src/sass/global/_mixins.scss */
-.table-bordered > tbody tr:nth-child(even) {
+/* line 1139, ../../../src/sass/global/_mixins.scss */
+.law-theme .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1136, ../../../src/sass/global/_mixins.scss */
-.table-bordered > tbody td {
+/* line 1142, ../../../src/sass/global/_mixins.scss */
+.law-theme .table-bordered > tbody td {
   color: #565c6b;
 }
-
-/* line 1141, ../../../src/sass/global/_mixins.scss */
-.table-hover > tbody > tr:hover > td,
-.table-hover > tbody > tr:hover > th {
+/* line 1147, ../../../src/sass/global/_mixins.scss */
+.law-theme .table-hover > tbody > tr:hover > td,
+.law-theme .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
-
-/* line 1145, ../../../src/sass/global/_mixins.scss */
-.fc-unthemed .fc-today {
+/* line 1151, ../../../src/sass/global/_mixins.scss */
+.law-theme .fc-unthemed .fc-today {
   background: #62428b;
 }
-
 @media (max-width: 1141px) {
-  /* line 1179, ../../../src/sass/global/_mixins.scss */
-  nav#pdp-navigation .container .row {
+  /* line 1185, ../../../src/sass/global/_mixins.scss */
+  .law-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1182, ../../../src/sass/global/_mixins.scss */
-  nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
+  /* line 1188, ../../../src/sass/global/_mixins.scss */
+  .law-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #6e4a9c;
   }
-  /* line 1186, ../../../src/sass/global/_mixins.scss */
-  nav#pdp-navigation .container .row #pdp-sections {
+  /* line 1192, ../../../src/sass/global/_mixins.scss */
+  .law-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #6e4a9c;
   }
 }
-/* line 1194, ../../../src/sass/global/_mixins.scss */
-body svg.spinner-loader {
+/* line 1200, ../../../src/sass/global/_mixins.scss */
+.law-theme body svg.spinner-loader {
   stroke: #B83166;
 }
-
-/* line 1198, ../../../src/sass/global/_mixins.scss */
-#contactus-section a {
+/* line 1204, ../../../src/sass/global/_mixins.scss */
+.law-theme #contactus-section a {
   color: #e291b1;
 }
-
-/* line 1205, ../../../src/sass/global/_mixins.scss */
-section#market-focus .market-list-wrapper .market-content a:after {
+/* line 1211, ../../../src/sass/global/_mixins.scss */
+.law-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #5b4476;
 }
