@@ -171,8 +171,6 @@ INFORMA.forms = (function(window, $, namespace) {
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").submit(function() {
             var widgetId, captcha_response, g_captchaId = $(this).find('.g-recaptcha').attr('id');
-            // To track Google Analytics on Submit
-            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
             if (window.gRecaptchaWidget) {
                 widgetId = $.grep(window.gRecaptchaWidget, function(obj) {
                     return obj.captchaElementId === g_captchaId;
@@ -182,6 +180,13 @@ INFORMA.forms = (function(window, $, namespace) {
                 captcha_response = grecaptcha.getResponse(widgetId[0].captchaWidgetId);
             }
             var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid');
+            // To track Google Analytics on Submit
+            if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
+                if($('form.register-myinterests-form').find('.field-validation-error').length === 1 && captcha_response.length > 0){
+                    INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                }
+            }
+
             if (captcha_response.length == 0) {
                 // Captcha failed
                 captchaMsgContainer.css('display', 'block').html('The captcha field is required.').addClass('field-validation-error');
