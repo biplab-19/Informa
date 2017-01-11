@@ -8872,7 +8872,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _cookieBannerExist,
         _PdpNavReArrange,
         _addClassFixed,
-        _removeClassFixed;
+        _removeClassFixed,
+        _pdpListItemScroll;
 
 
 
@@ -8937,6 +8938,23 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _cookieBanner.removeClass(_fixed);
         _mobileNavigation.css('top', 0);
         $('body').css('padding-top', 0);
+   }
+
+   //scroll pdp list item
+   _pdpListItemScroll = function(){
+        var pdpListHeight = $('#pdp-sections ul li').height()*$('#pdp-sections ul li').length;
+        var pdpSectionheight = $(window).height() - _navHeightMobile - $('#pdp-navigation .nav-pdp-nondesktop').outerHeight() - _cookieHeight;
+        var pdpHeadingHeight = $('#pdp-sections-heading').height();
+        if((pdpListHeight + pdpHeadingHeight) > pdpSectionheight){
+            $('#pdp-sections').height(pdpSectionheight);
+            $('#pdp-sections').css('overflow' , 'auto');
+        } 
+        else{
+            $('#pdp-sections').css({
+                'height':'auto',
+                'overflow':'hidden'
+            })
+        }
    }
 
     // both pdp nav and main nav handled here
@@ -9008,19 +9026,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 $('#pdp-sections').slideDown(function() {
                     if(!INFORMA.global.device.isDesktop){
                         if(_pdpNavigation.hasClass(_fixed)){
-                            var pdpHeight = $('#pdp-sections ul li').height()*$('#pdp-sections ul li').length;
-                            var height = $(window).height() - _navHeightMobile - $('#pdp-navigation .nav-pdp-nondesktop').outerHeight() - _cookieHeight;
-                            var pdpHeadingHeight = $('#pdp-sections-heading').height();
-                            if((pdpHeight + pdpHeadingHeight) > height){
-                                $('#pdp-sections').height(height);
-                                $('#pdp-sections').css('overflow' , 'auto');
-                            } 
-                            else{
-                                $('#pdp-sections').css({
-                                    'height':'auto',
-                                    'overflow':'hidden'
-                                })
-                            }
+                            _pdpListItemScroll();
                             $('#pdp-sections').animate({
                                     scrollTop: 0
                             }, 500);
@@ -9140,13 +9146,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 }
                 $('.nav-pdp-nondesktop-sticky').addClass('move-left');
                 _pdpMenuFollower.css('left', leftOfPdpMover + $('#pdp-sections-heading').outerWidth());
-                var pdpHeight = $('#pdp-sections ul li').height()*$('#pdp-sections ul li').length;
-                var height = $(window).height() - _navHeightMobile - $('#pdp-navigation .nav-pdp-nondesktop').outerHeight() - _cookieHeight;
-                if(pdpHeight > height){
-                    $('#pdp-sections').height(height);
-                    $('#pdp-sections').css('overflow' , 'auto');
-                } 
-                   
+                _pdpListItemScroll();
             }
 
             if (_arrayFlag) {
