@@ -157,7 +157,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         var Items = Parent.find('.recomended-wrapper'),
             MaxHeight = 0,
             MaxWrapperHeight = 0,
-            MaxTopicHeight = 0;
+            MaxTopicHeight = 0,
+            MaxSubSectorHeight = 0;
             Items.each(function () {
                 var ContentHeight = $(this).find('.content').height();
                 if(ContentHeight > MaxHeight) {
@@ -172,6 +173,13 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                 }
             })
             Items.find('.topics').height(MaxTopicHeight);
+            Items.each(function(){
+                var TopicHeight = $(this).find('.SubSectors').outerHeight();
+                if(TopicHeight > MaxSubSectorHeight) {
+                    MaxSubSectorHeight = TopicHeight;
+                }
+            })
+            Items.find('.SubSectors').height(MaxSubSectorHeight);
             Items.each(function(){
                 var WrapperHeight = $(this).find('.recomend-content').outerHeight();
                 if(WrapperHeight > MaxWrapperHeight) {
