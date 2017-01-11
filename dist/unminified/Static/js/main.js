@@ -1,5 +1,4 @@
-
-/*! 2017-01-06 *//*
+/*! 2017-01-11 *//*
  * google-analytics.js
  *
  *
@@ -130,7 +129,6 @@ jQuery(INFORMA.Analytics.trackFormEvents());
 
 
 var INFORMA = window.INFORMA || {};
->>>>>>> R2.0_hotfix_1.0
 (function(window, $, namespace) {
     'use strict';
     var env = (window.location.href.indexOf("127.0.0.1") > -1) ? "local" : "dev",
@@ -8979,14 +8977,37 @@ INFORMA.globalHeader = (function(window, $, namespace) {
               // }
               // }
             }else{
-                $('#pdp-sections').slideDown();
+                $('#pdp-sections').slideDown(function() {
+                    if(!INFORMA.global.device.isDesktop){
+                        if(_pdpNavigation.hasClass(_fixed)){
+                            var pdpHeight = $('#pdp-sections ul li').height()*$('#pdp-sections ul li').length;
+                            var height = $(window).height() - _navHeightMobile - $('#pdp-navigation .nav-pdp-nondesktop').outerHeight() - _cookieHeight;
+                            var pdpHeadingHeight = $('#pdp-sections-heading').height();
+                            if((pdpHeight + pdpHeadingHeight) > height){
+                                $('#pdp-sections').height(height);
+                                $('#pdp-sections').css('overflow' , 'auto');
+                            } 
+                            else{
+                                $('#pdp-sections').css({
+                                    'height':'auto',
+                                    'overflow':'hidden'
+                                })
+                            }
+                            $('#pdp-sections').animate({
+                                    scrollTop: 0
+                            }, 500);
+                        }
+                    }
+                });
+                
+                
               //   if(_pdpLinksCont>6){
               //   //$('nav#pdp-navigation').addClass('deviceactive');
               //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
               //   $('body').addClass('global-no-scroll');
               // }
               // }
-            }
+            } 
         });
     }
 
@@ -9091,6 +9112,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 }
                 $('.nav-pdp-nondesktop-sticky').addClass('move-left');
                 _pdpMenuFollower.css('left', leftOfPdpMover + $('#pdp-sections-heading').outerWidth());
+                var pdpHeight = $('#pdp-sections ul li').height()*$('#pdp-sections ul li').length;
+                var height = $(window).height() - _navHeightMobile - $('#pdp-navigation .nav-pdp-nondesktop').outerHeight() - _cookieHeight;
+                if(pdpHeight > height){
+                    $('#pdp-sections').height(height);
+                    $('#pdp-sections').css('overflow' , 'auto');
+                } 
+                   
             }
 
             if (_arrayFlag) {
@@ -9130,6 +9158,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     $('#pdp-sections-heading').text('');
                     $('#pdp-sections-heading').removeClass('move-left');
                     $('.nav-pdp-nondesktop').removeClass('move-left');
+                    $('#pdp-sections').css({
+                        'height':'auto',
+                        'overflow':'hidden'
+                    })
                 }
             }
 
