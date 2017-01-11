@@ -233,9 +233,19 @@
                     margin: 0;
                 }
             }
+            .topic-name{
+                padding-left: 0;
+                padding: 0 10px;
+            }
             .cf-img {
                 background-color: transparent;
                 width: 20%;
+            }
+            .btn {
+                margin-bottom: 20px;
+                @include mobile {
+                    margin-bottom: 10px;
+                }
             }
         }
         .from{
@@ -340,22 +350,63 @@
         .topic-name{
             padding:0 10px;
             margin-left:0;
-            padding-left: 50px;
+            //padding-left: 50px;
             @include mobile{
-                padding:0;
+                padding: 0 0 5px 0 !important;
+                float: left;
             }
         }
         .topic-pipe{
             @include mobile{
                 padding:0 10px;
+                float: left;
             }
         }
         .topic-pipe:last-of-type{
             display:none;
         }
-        .topic-mob{
-            @include mobile{
-                display:-webkit-box;
+        .topic{
+           @include mobile{
+                padding-bottom: 5px !important;
+            } 
+        }
+        .provided{
+            .date{
+                @include mobile{
+                    float: left;
+                    width: 100%;
+                    padding-bottom: 0;
+                }
+            }
+            .topic-mob{
+                a{
+                    .topic-name{
+                        @include mobile{
+                            padding: 0 !important;
+                        }
+                    }
+                    &:first-child{
+                        span{
+                            padding-left: 50px;
+                             @include mobile{
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .list-mob {
+            padding-left: 10px;
+            a {
+                text-decoration:underline !important;
+                margin:0 10px;
+                font-family:'FSMe-Bold';
+                @include mobile{
+                    margin: 0;
+                    float: left;
+                }
+                  
             }
         }
         span.by{
@@ -371,6 +422,9 @@
             }
             @include tablet {
                 padding-bottom: 30px;
+            }
+            p{
+                color: $white;
             }
         }
         .already-a-customer{

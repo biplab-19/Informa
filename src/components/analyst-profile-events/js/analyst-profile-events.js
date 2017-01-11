@@ -20,7 +20,23 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         // methods
         init,
         EqualHeight,
-        ShowMore;
+        ShowMore,
+        UnbindEvent,
+        disabledEvent;
+
+        disabledEvent = function(){
+            $('.FullyBooked,.EventFinished').click(function(e){
+                e.preventDefault();
+            });
+        },
+
+        UnbindEvent = function() {
+            $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+                if (e.keyCode === 13 || e.which===13) {
+                    e.preventDefault();
+                }
+            });
+        },
 
         EqualHeight = function(){
                var highestBox = 0,
@@ -47,6 +63,8 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         if (_AnalystEventLists.length > 0) {
             EqualHeight();
             ShowMore();
+            UnbindEvent();
+            disabledEvent();
         }
     };
 

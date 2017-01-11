@@ -1,0 +1,13 @@
+@import "variables";
+@import "theme-variables";
+@import "mixins";
+//parameters have to be sent accordingly
+/* 1. Body Class Name
+   2. Primary Color
+   3. Secondary Color Darker Version
+   4. Secondary Color Lighter Version
+   5. NavLink Color
+*/
+
+//TMT Theme
+@include theme(tmt-theme, $tmtprimarycolor, $tmtsecondrydarkcolor, $tmtsecondarylightcolor, $navlinktmtcolor);

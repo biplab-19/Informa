@@ -89,6 +89,8 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                     .removeProp("disabled")
                     .html(html);
                 SubSectorList.multiselect('rebuild');
+            }else{
+                $("ul.sector-search li.button").removeClass("disabled");
             }
         },
         RenderSearchResult = function(data,type) {
@@ -137,6 +139,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 if(SearchType === "SearchResult") { 
                     Data.IsSearch = true;
                     Data.PageNo = 1;
+                    Data.CurrentPage = $(".search-container").data("currentpage");
                 }
                 GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), function(data){RenderSearchResult(data,SearchType)}, null);
                 INFORMA.SearchResults.ResetPaging();

@@ -131,4 +131,21 @@
             font-family: 'FSMe-Light';
         }
     }
+    h3 {
+        margin-top: -20px;
+        margin-bottom: 20px;
+        font-size: 26px;
+        @include mobile {
+            font-size: 22px;
+        }
+    }
+    .intro-text{
+        margin-bottom: 20px;
+        @include desktop{
+            margin-top: -30px;
+        }
+        @include not-desktop{
+            margin-top: -20px;
+        }
+    }
 }

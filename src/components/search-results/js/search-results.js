@@ -37,7 +37,22 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
-        DoLinksEvents, GetDefaultValues, LoadMoreProducts;
+        DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent;
+
+    disabledEvent = function(){
+        $('.FullyBooked,.EventFinished').click(function(e){
+            e.preventDefault();
+        });
+    },
+    
+    UnbindEvent = function() {
+        $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+            if (e.keyCode === 13 || e.which===13) {
+                e.preventDefault();
+            }   
+        })
+    },
+
     GetDefaultValues = function() {
             var data = {};
             data.Sorting = ($('select[name="sorting"]')) ? $('select[name="sorting"]').val() : null;
@@ -56,6 +71,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                                     
                     data[NameSearchType] = Value;
                 }
+            }
+            if (SearchType === "ProductSearch") {
+            	data.SearchTextSampleContent = ($('input[name="SearchTextSampleContent"]') && $('input[name="SearchTextSampleContent"]').length > 0) ? $('input[name="SearchTextSampleContent"]').val().split(",") : null;
+            	data.SearchTextProducts = ($('input[name="SearchTextProducts"]') && $('input[name="SearchTextProducts"]').length > 0) ? $('input[name="SearchTextProducts"]').val().split(",") : null;
             }
             return data;
         },
@@ -76,7 +95,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (SearchType === "SearchResult") {
                     ProdData = INFORMA.ProductFinder.GetProductData();
                 }
-                $(".refine-container a.clear-all").addClass("noOpaque");
+                $(".product-finder-results a.clear-all").addClass("noOpaque");
                 FilterData = INFORMA.SearchResultFilter.GetRefineData();
                 DefaultData = GetDefaultValues();
                 Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
@@ -99,7 +118,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ResetPageSize();
             });
         }
-    GetSortValue = function(value) {
+        GetSortValue = function(value) {
             SortValue = (value) ? value : SortDropDown.val();
 
             SortDropDown.on("change", function(e) {
@@ -196,6 +215,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 Wrapper = SearchContent.find('.list-items');
 
             if ($(".search-container").hasClass("tileView")) {
+
+                $('.search-container .list-items[data-type="SampleContent"]').each(function() {
+                    var IsVideoComponent = $(this).find('.video-container');
+
+                    if(IsVideoComponent.length > 0) {
+                        $(this).find('.content').css('padding-right', '0');
+                    }
+                });
                 var MaxHeight = 0,
                     maxWrapperHeight = 0;
 
@@ -213,9 +240,18 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     }
                 })
                 Wrapper.height(maxWrapperHeight);
+
             } else {
                 Wrapper.css("height", "auto");
                 Items.css("height", "auto");
+
+                $('.search-container .list-items[data-type="SampleContent"]').each(function() {
+                    var IsVideoComponent = $(this).find('.video-container');
+
+                    if(IsVideoComponent.length > 0) {
+                        $(this).find('.content').css('padding-right', IsVideoComponent.width());
+                    }
+                });
             }
         },
         GetPaginationData = function(List, Section) {
@@ -265,14 +301,14 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         },
         LoadMoreProducts = function(){
-            var Data, TileList = jQuery('.search-container .product-results [data-type="Product"]'),
+            var Data, TileList = jQuery('.search-container .product-results .list-items'),
                 PData = GetPaginationData(TileList),
                 FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                 DefaultData = GetDefaultValues(),
                 ProdData = INFORMA.ProductFinder.GetProductData();
                 Data = INFORMA.ProductFinder.MergeData(FilterData, DefaultData,ProdData);
                 Data.PageNo = 1;
-                Data.ExcludedProduct = PData["Product"];
+                Data.ExcludedProduct = PData;
                 GetAjaxData(Urls["GetMoreProducts"], "Post", Data, ParseSearchData, null, $(this));
         },
         DoGlobalShowMore = function() {
@@ -366,14 +402,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if (Lists[j].Category) {
                             ContentType = Lists[j].Category;
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
-                            if(ContentType == 'SampleContent') {
-                                if(Lists[j].Price != null){
-                                    if(Lists[j].Price){
-                                        var replacezeroWidthSpace = Lists[j].Price.replace(/\u200B/g,'');
-                                        Lists[j].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                    }
-                                }
-                            }
                             ListTemplate = Handlebars.compile(TemplateName);
                             Html += ListTemplate({ results: Lists[j] });
                         }
@@ -410,14 +438,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     if (Lists[j].Category) {
                         ContentType = Lists[j].Category;
                         TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
-                        if(ContentType == 'SampleContent') {
-                            if(Lists[j].Price != null){
-                                if(Lists[j].Price){
-                                    var replacezeroWidthSpace = Lists[j].Price.replace(/\u200B/g,'');
-                                    Lists[j].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                }
-                            }
-                        }
                         ListTemplate = Handlebars.compile(TemplateName);
                         Html += ListTemplate({ results: Lists[j] });
                     }
@@ -556,8 +576,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 DoLinksEvents();
             }
             ToggleView();
-            EqualHeight();
+            $(window).on('load', function() {
+                EqualHeight();
+            });
             GetSortValue();
+            UnbindEvent();
+            disabledEvent();
         };
     return {
         init: init,

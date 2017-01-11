@@ -128,7 +128,7 @@
 		    color:$grey-color04;
 		    span {
 		    	&:after {
-		    		content: ',';
+		    		content: ', ';
 		    	}
 		    	&:last-child {
 		    		&:after {
@@ -181,6 +181,9 @@
             overflow: hidden;
             position: relative;
             margin-bottom: 20px;
+            .video-link, a {
+            	cursor: pointer;
+            }
             img {
                 width: 100%;
                 height: auto;

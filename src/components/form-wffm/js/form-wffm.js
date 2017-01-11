@@ -42,9 +42,14 @@ INFORMA.forms = (function(window, $, namespace) {
         _reCaptchaAccessbility,
         _updateHiddenProductVerticalName,
         _resetFormOnRefresh,
+        _resetDefaultTitle,
         _UpdateHiddenFields,
         _RemoveStatus,
-        RemoveParameterFromUrl;
+        RemoveParameterFromUrl,
+        _productDropdownUpdate,
+        _setFormModalFocus,
+         _UpdateProductName,
+        _changeProductDropdown;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -55,8 +60,27 @@ INFORMA.forms = (function(window, $, namespace) {
     //     });
     // }
 
+    _setFormModalFocus = function(){
+          $(".wffm-form .product-list").on('change', function() {
+            $('body').scrollTop(300);
+            $('.wffm-form').filter(':input:first').focus();
+          });
+          $(".wffm-form .country-list").on('change', function() {
+              $('body').scrollTop(300);
+              $('.wffm-form').filter(':input:first').focus();
+          });
+    };
 
-    var RemoveParameterFromUrl = function( url, parameter ) {
+     _changeProductDropdown = function() {
+        $('.product-list').on('change', function() {
+            var Parent = $(this).parents('form'),
+                Value = $(this).val();
+
+            Parent.find('.tc-product-name').html(Value);
+        })
+    };
+
+    RemoveParameterFromUrl = function( url, parameter ) {
 
         if( typeof parameter == "undefined" || parameter == null || parameter == "" ) throw new Error( "parameter is required" );
         var regex =new RegExp( "\\b" + parameter + "=[^&;]+[&;]?", "gi" );
@@ -69,11 +93,32 @@ INFORMA.forms = (function(window, $, namespace) {
         var NewUrl = url.split('?');
 
         if(NewUrl.length === 1) {
-            url = NewUrl; 
-        } 
+
+            url = NewUrl;
+        }
 
         return url;
     };
+
+    _resetDefaultTitle = function(elem) {
+        var SecondaryHeading = $('.form-secondary-title');
+
+        if(SecondaryHeading.length > 0) {
+            SecondaryHeading.each(function() {
+                var GetTitle = $(this).val();
+                var Parent = $(this).parents('.modal');
+                var ParentId = $(elem).attr('data-modal');
+                if(Parent.length > 0) {
+                    // var isHeading = Parent.find('.product-name-holder').text();
+                    // if(isHeading.length === 0) {
+                     Parent.find('h2').text(GetTitle);
+                    // }
+                    var Product = $(ParentId).find('.product-list').val();
+                    $(ParentId).find('.tc-product-name').text(Product);
+                }
+            });
+        }
+    },
     _updateHiddenProductVerticalName = function() {
         $(document).ready(function() {
             var ProductName = $('.product-name').val(),
@@ -90,6 +135,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('.tc-product-name').html(VerticalName);
                 }
             }
+             _UpdateProductName();
         });
     }
     _bindNumber = function() {
@@ -137,12 +183,19 @@ INFORMA.forms = (function(window, $, namespace) {
                 captcha_response = grecaptcha.getResponse(widgetId[0].captchaWidgetId);
             }
             var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid');
+            // To track Google Analytics on Submit
+            if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
+                if($('form.register-myinterests-form').find('.field-validation-error').length === 1 && captcha_response.length > 0){
+                    INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                }
+            }
+
             if (captcha_response.length == 0) {
                 // Captcha failed
                 captchaMsgContainer.css('display', 'block').html('The captcha field is required.').addClass('field-validation-error');
                 return false;
             } else {
-                // Captcha is Passed
+                // Captcha is passed
                 captchaMsgContainer.css('display', 'none');
                 return true;
             }
@@ -196,7 +249,8 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _showHideInlineForm = function() {
-        var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active');
+        var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active'),
+            _formSubmitStatus = $('.contactUsPage-contactUs .tab-pane .submit-status');
         if (formInlineActiveTab.length > 0) {
             var inlineTabError = formInlineActiveTab.find('.error-response'),
                 inlineTabErrorForm = inlineTabError.parents('.tab-pane.active').find('form');
@@ -212,6 +266,25 @@ INFORMA.forms = (function(window, $, namespace) {
             } else {
                 inlineTabSucessForm.removeClass('hide');
             }
+
+            _formSubmitStatus.each(function() {
+                var Status = $(this).attr('data-status'),
+                    Parent = $(this).parents('.tab-pane');
+                if (Status.length > 0) {
+                    Parent.find('form').addClass('hide');
+                    if (Status == 'success') {
+                        Parent.find('.submit-response').removeClass('hide');
+                        Parent.find('.error-response').addClass('hide');
+                    } else {
+                        Parent.find('.error-response').removeClass('hide');
+                        Parent.find('.submit-response').addClass('hide');
+                    }
+
+                } else {
+                    Parent.find('form').removeClass('hide');
+                    Parent.find('.submit-response, .error-response').addClass('hide');
+                }
+            })
         }
     }
 
@@ -240,7 +313,6 @@ INFORMA.forms = (function(window, $, namespace) {
                 }
 
                 //Checking The status and Displaying that section
-
                 if (_formSubmitStatus.attr('data-status') == 'success') {
                     $('.submit-response').removeClass('hide');
                     $('.error-response').addClass('hide');
@@ -250,7 +322,6 @@ INFORMA.forms = (function(window, $, namespace) {
                 }
 
             }
-
             _formSubmitStatus.each(function() {
                 var Status = $(this).attr('data-status'),
                     Parent = $(this).parents('.modal');
@@ -260,8 +331,9 @@ INFORMA.forms = (function(window, $, namespace) {
                         show: true,
                         backdrop: "static"
                     })
-
                     if (Status == 'success') {
+                        // To track Google Analytics on Submit
+                        INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
                     } else {
@@ -269,6 +341,8 @@ INFORMA.forms = (function(window, $, namespace) {
                         Parent.find('.submit-response').addClass('hide');
                     }
 
+                } else {
+                    Parent.find('.submit-response, .error-response').addClass('hide');
                 }
             })
 
@@ -290,12 +364,12 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _bindToolTip = function() {
-        $('form.get-in-touch legend, form.request-a-demo legend').on("click", function(e) {
+        $('form.get-in-touch legend, form.request-a-demo legend, form.wffm-form legend').on("click", function(e) {
             $(this).toggleClass('active');
             $(this).parent().children('p').toggleClass('show');
         });
 
-        $('form.get-in-touch legend, form.request-a-demo legend').each(function() {
+        $('form.get-in-touch legend, form.request-a-demo legend, form.wffm-form legend').each(function() {
             if ($(this).next().is('p'))
                 $(this).addClass('tool_tip');
         });
@@ -307,6 +381,10 @@ INFORMA.forms = (function(window, $, namespace) {
         $('.tc-product-name').html(data.ProductName);
         if (data.ProductName != null) {
             $('.tc-product-name').html(data.ProductName);
+        }
+        // Listing product dropdown update
+        if($('.product-finder-results .search-container').length > 0 || $('.recom-prod-carousel').length > 0) {
+            _productDropdownUpdate(data.ProductName);
         }
     }
 
@@ -621,27 +699,37 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
-    _showModal = function(el)  {       
-        $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
+    _showModal = function(el) {
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };
         _formId = $(el).data('modal');
         _resetForm($(_formId).find('form'));
-        var ProductName = $('.product-name').val();
-        if (ProductName == "" || ProductName == undefined) {
-            if ($(el).attr('data-productid')) {
-                productId = {
-                    'guid': $(el).attr('data-productid')
-                };
-                _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
-            } 
+        if ($(el).attr('data-productid')) {
+            productId = {
+                'guid': $(el).attr('data-productid')
+            };
+            _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
+        } else {
+            _resetDefaultTitle(el);
         }
-        $(_formId).modal({         
-            show: 'true'         
+        $(_formId).modal({
+            show: 'true'
         })
         _showOverlay();
+
+    };
+    _productDropdownUpdate = function(name) {
+        var ProductDropdown = jQuery('.form-modal select.product-list');
+        ProductDropdown.append('<option val="' +name+ '">' +name+ '</option>');
+        ProductDropdown.val(name);
+        ProductDropdown.trigger('chosen:updated');
+        ProductDropdown.parents('.form-group').addClass('disable-dropdown');
+
     };
 
     _bindProductId = function() {
         $(document).on('click', '.wffm-elq-form-btn', function() {
+            // To track Google Analytics on Open
+            INFORMA.Analytics.trackFormEvents($(this), 'Open');
             _showModal(this);
         });
     }
@@ -714,11 +802,22 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
-    init = function() {
 
+    _UpdateProductName = function() {
+        var ProductList = $('.product-list');
+        ProductList.each(function() {
+            var Parent = $(this).parents('form'),
+                SelectedItem = $(this).val();
+
+            Parent.find('.tc-product-name').text(SelectedItem);
+        })
+    }
+
+    init = function() {
         //Update hidden fields on load
 
         _UpdateHiddenFields();
+
         //todo: No null check, dont execute these bindings if forms are not there
         _destroyChosenInDevice();
         _bindNumber();
@@ -741,6 +840,9 @@ INFORMA.forms = (function(window, $, namespace) {
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
         _resetFormOnRefresh();
+        //_resetDefaultTitle();
+        _setFormModalFocus();
+        _changeProductDropdown();
     };
 
     return {

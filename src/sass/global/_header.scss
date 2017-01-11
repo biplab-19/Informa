@@ -67,6 +67,9 @@ header {
                 font-family: 'FSMe-Bold';
                 display: block;
                 padding-right: 20px;
+                @include not-desktop{
+                    z-index: 1;
+                }
                 &::after {
                     content: "";
                     display: inline-block;
@@ -78,7 +81,7 @@ header {
                     margin-left: 8px;
                     position: absolute;
                     top: 14px;
-                    right: auto;
+                    right: 0;
                 }
                 img {
                     width: 74px;
@@ -112,7 +115,7 @@ header {
                 border-color: transparent transparent $white transparent;
                 position: absolute;
                 top: 14px;
-                right: auto;
+                right: 0;
             }
             & .header-copyright-content {
                 max-height: initial;
@@ -204,7 +207,7 @@ header {
     section.informaNav {
         //padding-top: 36px;
         a {
-            text-decoration: none !important;
+            //text-decoration: none !important;
         }
         .navbar {
             border: none;
@@ -895,6 +898,18 @@ header {
                     padding: 10px 20px;
                     height: 52px;
                 }
+                &.disabled {
+                    position: relative;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 2;
+                        top: 0;
+                        left: 0;
+                    }
+                }
             }
         }
         ul.sector-search {
@@ -906,6 +921,18 @@ header {
                 margin: 25px 0 0 0;
             }
             li {
+                &.disabled {
+                    position: relative;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 2;
+                        top: 0;
+                        left: 0;
+                    }
+                }
                 .label-text {
                     background-color: $grey-color09;
                     float: left;
@@ -1358,6 +1385,9 @@ header {
                 padding: 0px 50px 20px 0;
                 @include desktop{
                     padding: 20px 40px 0 0;
+                    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+                    page-break-inside: avoid; /* Firefox */
+                    break-inside: avoid; /* IE 10+ */ 
                 }
                 @include not-desktop {
                     padding: 0;

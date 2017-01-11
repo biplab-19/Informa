@@ -52,6 +52,9 @@ form.single-step-form {
         //padding: 20px 0;
         h2 {
             font-family: FSMe-Light !important;
+            @include desktop{
+                font-size: 32px;
+            }
         }
     }
     @include desktop {

@@ -1,7 +1,17 @@
 <script src="https://player.vimeo.com/api/player.js"></script>
 <script src="http://fast.wistia.com/static/concat/E-v1.js"></script>
 {{#each videos}}
-    <section class="hero-banner home-page">
+    <section class="hero-banner home-page hero-banner-video">
+      <div class="cf-img">
+
+                        <picture>
+                            <source media="(min-width: 1280px)" srcset="https://qa.pharmahub.com/~/media/Informa-Shop-Window/Pharma/Images/Hero-Banners/homepage-pharma-image.jpg?w=1600">
+                            <source media="(min-width: 768px)" srcset="https://qa.pharmahub.com/~/media/Informa-Shop-Window/Pharma/Images/Hero-Banners/homepage-pharma-image.jpg?h=340">
+                            <source media="(min-width: 320px)" srcset="https://qa.pharmahub.com/~/media/Informa-Shop-Window/Pharma/Images/Hero-Banners/homepage-pharma-image.jpg?h=320">
+                            <img srcset="https://qa.pharmahub.com/~/media/Informa-Shop-Window/Pharma/Images/Hero-Banners/homepage-pharma-image.jpg" title="" alt="homepage">
+                        </picture>
+
+        </div>
         <div class="vertical-align">
             <div class="videoBG_wrapper">
                 <div class="container">
@@ -15,7 +25,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="videoBG" data-videotype="{{type}}" data-videourl="{{url}}" data-videoid="{{id}}" data-videosound="{{sound}}">
             </div>
         </div>

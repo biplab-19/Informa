@@ -168,6 +168,13 @@
         .items-found {
             padding-left: 0;
             padding-bottom: 20px;
+            &:after {
+                display: block;
+                 font-size: 0;
+                 content: " ";
+                 clear: both;
+                 height: 0;
+            }
             li {
                 a {
                     color: $grey-color05;
@@ -177,8 +184,8 @@
                     }
                 }
                 list-style-type: none;
-                display: inline-block;
-                padding-right: 7px;
+                float: left;
+                padding-right: 10px;
                 position: relative;
                 strong {
                     margin: 0 5px 0 0;
@@ -186,7 +193,7 @@
                 }
                 &:after {
                     content: '|';
-                    margin: 0 10px;
+                    margin: 0 12px;
                     position: absolute;
                     right: -7px;
                     top: -1px;
@@ -360,7 +367,7 @@
                     @include tablet {
                         padding: 15px 25px;
                     }
-                    
+
                     @include desktop {
                         .col-xs-6 {
                             &:first-child {
@@ -386,11 +393,14 @@
         }
         .recomended-wrapper {
             background-color: $grey-color10;
-            padding: 20px;
+            padding: 20px 20px 10px;
             .topics {
                 strong {
                     display: inline;
                 }
+            }
+            .recomended-currency{
+              bottom: 35px;
             }
             .content {
                 h4 {
@@ -411,14 +421,18 @@
                 padding: 0;
                 float: left;
                 width: 100%;
+                margin-top: 22px;
                 .btn-container {
                     text-align: right;
                     margin: 5px 0 0;
+                    position: relative;
+                    bottom: 10px;
                     .btn {
                         min-width: initial;
                         min-width: auto;
                         padding-right: 32px;
                         width: 190px;
+                        padding: 14px;
                     }
                 }
             }
@@ -429,14 +443,18 @@
         height: auto;
     }
     .events-wrap .footer .btn {
-        padding-left: 7px;
-        min-width: 47%;
+        padding-left: 5px;
+        min-width: 48%;
         &:after {
             right: 5px;
         }
     }
 }
-
+.tileView {
+    .events-wrap .footer {
+        padding: 36px 20px 20px;
+    }
+}
 .listView {
     .see-all {
         border-top: none !important;
@@ -701,6 +719,8 @@
         margin-top: 11px;
         .btn-container {
             margin: 0;
+            position: relative;
+            bottom: 5px;
             .btn {
                 float: right;
             }

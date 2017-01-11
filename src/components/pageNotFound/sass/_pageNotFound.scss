@@ -1,4 +1,16 @@
-.pageNotFound{
+section.pageNotFound{
+  a {
+    color: #2a6496 !important;
+    &.btn{
+      color: $white !important;
+      &:hover{
+        color: $white !important;
+      }
+    }
+    &:hover {
+      color: #2a6496 !important;
+    }
+  } 
   .logo{
     padding-top: 50px;
     padding-bottom: 50px;
@@ -9,7 +21,7 @@
     }
   }
   .error-msg{
-    padding-top: 50px;
+    padding: 50px 0;
     h2{
       color: $grey-color03;
       font-family: FSMe-bold;

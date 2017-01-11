@@ -188,12 +188,10 @@
 			visibility: visible;
 		}
 		.date-field {
-			float: left;
+			float: none;
 			margin: 26px 15px 0 20px;
 			text-align: left;
-			strong, span {
-				float: left;
-			}
+			color:$grey-color04;
 		}
 		.date {
 			width: 60px;
@@ -205,18 +203,15 @@
 			padding: 7px;
 			float: left;
 		}
-		.country {
-			float: right;
-			margin: 25px 20px;
-			position: absolute;
-			right: 0;
-			span {
-				float: left;
-			}
-		}
+		
 	}
 	.content-wrap {
 		padding: 10px 20px;
+		.country {
+			margin-bottom:10px;
+			text-align:left;
+			display: block;
+		}
 		.type {
 		    margin-bottom: 10px;
 		    font-size: 18px;
@@ -293,7 +288,10 @@
 }
 .no-result {
 	background: $white;
-	padding: 50px 0;
+	padding: 0 0 30px;
+	@include desktop{
+		margin-top: -30px;
+	}
 }
 section[data-view="list-view"], section[data-view="calendar-view"] {
 	@include mobile {

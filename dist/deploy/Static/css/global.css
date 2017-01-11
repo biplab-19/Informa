@@ -1,4 +1,4 @@
-/*! 2016-10-21 */@charset "UTF-8";
+/*! 2016-11-07 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -10877,6 +10877,12 @@ header section.informaNav .nav-main {
   /* line 1357, ../../../src/sass/global/_header.scss */
   #sub-nav .subnav-container .labels li {
     padding: 20px 40px 0 0;
+    -webkit-column-break-inside: avoid;
+    /* Chrome, Safari, Opera */
+    page-break-inside: avoid;
+    /* Firefox */
+    break-inside: avoid;
+    /* IE 10+ */
   }
 }
 @media (max-width: 1141px) {
@@ -10885,7 +10891,7 @@ header section.informaNav .nav-main {
     padding: 0;
     padding-bottom: 25px;
   }
-  /* line 1364, ../../../src/sass/global/_header.scss */
+  /* line 1367, ../../../src/sass/global/_header.scss */
   #sub-nav .subnav-container .labels li:first-child {
     padding-top: 25px;
   }
@@ -10897,32 +10903,32 @@ header section.informaNav .nav-main {
     float: left;
   }
 }
-/* line 1377, ../../../src/sass/global/_header.scss */
+/* line 1380, ../../../src/sass/global/_header.scss */
 #sub-nav .subnav-close {
   float: right;
   height: 15px;
   width: 15px;
 }
-/* line 1381, ../../../src/sass/global/_header.scss */
+/* line 1384, ../../../src/sass/global/_header.scss */
 #sub-nav .subnav-close a {
   padding: 0;
   text-decoration: none;
   position: absolute;
   top: 50px;
 }
-/* line 1386, ../../../src/sass/global/_header.scss */
+/* line 1389, ../../../src/sass/global/_header.scss */
 #sub-nav .subnav-close a .access-link {
   font-size: 0;
   line-height: 0;
 }
 @media (max-width: 1141px) {
-  /* line 1377, ../../../src/sass/global/_header.scss */
+  /* line 1380, ../../../src/sass/global/_header.scss */
   #sub-nav .subnav-close {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 1397, ../../../src/sass/global/_header.scss */
+  /* line 1400, ../../../src/sass/global/_header.scss */
   #sub-nav .container {
     padding-left: 15px !important;
     padding-right: 15px !important;
@@ -10946,21 +10952,21 @@ header section.informaNav .nav-main {
     -o-transition: 1s;
     -webkit-backface-visibility: hidden;
   }
-  /* line 1417, ../../../src/sass/global/_header.scss */
+  /* line 1420, ../../../src/sass/global/_header.scss */
   #sub-nav .nav-mobile-header {
     list-style-type: none;
     background-color: #4c5161;
   }
 }
 
-/* line 1424, ../../../src/sass/global/_header.scss */
+/* line 1427, ../../../src/sass/global/_header.scss */
 .global-no-scroll {
   overflow: hidden;
   position: relative;
   height: 100%;
 }
 
-/* line 1430, ../../../src/sass/global/_header.scss */
+/* line 1433, ../../../src/sass/global/_header.scss */
 #mobile-header-navigation .navbar-image .logo-img-big {
   left: 50%;
   position: absolute;
@@ -10971,19 +10977,19 @@ header section.informaNav .nav-main {
   top: 50%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 1430, ../../../src/sass/global/_header.scss */
+  /* line 1433, ../../../src/sass/global/_header.scss */
   #mobile-header-navigation .navbar-image .logo-img-big {
     left: 66%;
   }
 }
 @media (min-width: 1142px) {
-  /* line 1430, ../../../src/sass/global/_header.scss */
+  /* line 1433, ../../../src/sass/global/_header.scss */
   #mobile-header-navigation .navbar-image .logo-img-big {
     display: none;
   }
 }
 
-/* line 1447, ../../../src/sass/global/_header.scss */
+/* line 1450, ../../../src/sass/global/_header.scss */
 body a.skip-navigation {
   position: absolute;
   top: -1000px;
@@ -10995,7 +11001,7 @@ body a.skip-navigation {
   color: #444957;
   padding: 1px 4px;
 }
-/* line 1458, ../../../src/sass/global/_header.scss */
+/* line 1461, ../../../src/sass/global/_header.scss */
 body a.skip-navigation:active,
 body a.skip-navigation:focus,
 body a.skip-navigation:hover {
@@ -11012,7 +11018,7 @@ body a.skip-navigation:hover {
   padding: 1px 4px;
 }
 
-/* line 1473, ../../../src/sass/global/_header.scss */
+/* line 1476, ../../../src/sass/global/_header.scss */
 .subnav-container .top a[href="javascript:void(0)"] {
   pointer-events: none;
 }

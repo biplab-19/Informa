@@ -80,14 +80,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 data: data,
                 success_callback: function(data) {
                     if (data.Articles !== undefined && data.Articles.length > 0) {
-                        for(var i=0 ; i < data.Articles.length ; i++ ){
-                            if(data.Articles[i].Price != null){
-                                if(data.Articles[i].Price){
-                                    var replacezeroWidthSpace = data.Articles[i].Price.replace(/\u200B/g,'');
-                                    data.Articles[i].Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                }
-                            }
-                        }
                         var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
@@ -209,8 +201,16 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 CreateSlider(_ArticleLists,1,2);
             }
             if (_HeadlinesLists.length > 0) {
-                CreateSlider(_HeadlinesLists,2,4);
-                headLineEqualHeight();
+                var headlineListItems = _HeadlinesLists.find('li');
+                var HeadlinesListItemsLength = headlineListItems.length;
+                var _vp = INFORMA.global.device.viewportN;
+                if((_vp == 2 & HeadlinesListItemsLength >= 2) || (_vp == 1 & HeadlinesListItemsLength >= 4) || (_vp == 0 & HeadlinesListItemsLength >= 6)) {
+                    CreateSlider(_HeadlinesLists,2,4);
+                }
+                else{
+                    CreateSlider(_HeadlinesLists,HeadlinesListItemsLength,HeadlinesListItemsLength);
+                }   
+                //headLineEqualHeight();
             }
             if (FilterMenu && !isExperienceMode) {
                 $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });

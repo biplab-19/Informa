@@ -161,11 +161,16 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
+                // To track Google Analytics on Open
+                INFORMA.Analytics.trackFormEvents($(this), 'Open');
                 e.preventDefault();
                 e.stopPropagation();
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
+            }
+            else{
+                $(this).attr('href', $(this).attr('data-url'));
             }
         });
     }

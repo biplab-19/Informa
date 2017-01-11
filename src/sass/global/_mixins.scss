@@ -13,7 +13,7 @@ $desktop-width: 1142px;
     /* IE 9 */
     -webkit-transform: rotate($param);
     /* Chrome, Safari, Opera */
-    transform: rotate($param);  
+    transform: rotate($param);
 }
 
 @mixin limitHeight($height) {
@@ -136,7 +136,7 @@ $desktop-width: 1142px;
     }
 }
 
-@mixin theme($name, $primarycolor, $secondarycolordark, $secondarycolorlight) {
+@mixin theme($name, $primarycolor, $secondarycolordark, $secondarycolorlight, $navlinkcolor) {
     $primary: $primarycolor;
     $secondarycolordark: $secondarycolordark;
     $secondarycolorlight: $secondarycolorlight;
@@ -149,29 +149,23 @@ $desktop-width: 1142px;
         //For navlink ang bullet point color
         .color-link,
         .cookieBanner p a {
-            @if($name==agri-theme) {
-                color: $navlinkagricolor;
-            }
-            @else {
-                color: $navlinkpharmacolor;
-            }
+            color: $navlinkcolor;
+        }
+        section#services-list a{
+            color: $navlinkcolor;
+        }
+        section#services-list a.btn{
+            color: #fff;
+        }
+        .glyphicon{
+            font-family: 'Glyphicons Halflings' !important;
         }
         //For navlink ang bullet point backgroundcolor
         .background-link {
-            @if($name==agri-theme) {
-                background-color: $navlinkagricolor;
-            }
-            @else {
-                background-color: $navlinkpharmacolor;
-            }
+            background-color: $navlinkcolor;
         }
         .menuFollower {
-            @if($name==agri-theme) {
-                background-color: $navlinkagricolor;
-            }
-            @else {
-                background-color: $white;
-            }
+            background-color: $white;
         }
         //Pharma and Agri primary color
         .primary-color {
@@ -193,14 +187,8 @@ $desktop-width: 1142px;
         .primary-btn-hover {
             color: $white;
             text-decoration: none;
-            @if($name==agri-theme) {
-                background-color: $secondarycolordark;
-                border-color: $secondarycolordark;
-            }
-            @else {
-                background-color: $secondarycolorlight;
-                border-color: $secondarycolorlight;
-            }
+            background-color: $secondarycolorlight;
+            border-color: $secondarycolorlight;
         }
         //Anchor link color and active color
         a {
@@ -208,45 +196,48 @@ $desktop-width: 1142px;
             &:active {
                 @extend .color-link;
             }
-            &:hover {
-                text-decoration: none;
-            }
         }
         //Navigation active color
-        .nav-active {
+        .nav-active, .activate {
             a {
                 @extend .color-link;
+                .selected-nav{
+                  @extend .color-link;
+                  text-decoration: none;
+                }
             }
+        }
+        .subnav-container{
+          a{
+            .selected-nav{
+              @extend .color-link;
+              text-decoration: none;
+            }
+            &:hover {
+                @extend .color-link;
+            }
+          }
         }
         //bright banner
         .bright-banner {
-            @if($name==agri-theme) {
-                background-color: $navlinkagricolor;
-                em,
-                span {
-                    color: $grey-color03;
-                }
-                a {
-                    color: $text-gray;
-                }
-            }
-            @else {
-                background-color: $pharmalargebg;
+            background-color: $secondarycolordark;
+            color: $white;
+            h2,
+            em,
+            span,
+            a,
+            p,
+            div {
                 color: $white;
-                h2,
-                em,
-                span,
-                a,
-                p,
-                div {
-                    color: $white;
-                }
             }
         }
         //For dark gray background
         .bg-gray-dark {
             .btn-default {
                 border: 2px solid $white;
+                @include tablet {
+                  width: 130%;
+                }
                 &:after {
                     color: $white;
                 }
@@ -257,20 +248,18 @@ $desktop-width: 1142px;
                     }
                 }
             }
+            .intro-text{
+              color: $white;
+            }
         }
         //For pharma and agri page-ui
         .page-ui {
-            @if($name==agri-theme) {
-                background: $secondarycolorlight;
-            }
-            @else {
-                background-color: $secondarycolorlight;
-                #pdp-sections-heading,
-                a {
-                    color: $white;
-                    &:active {
-                        outline: none;
-                    }
+            background-color: $secondarycolorlight;
+            #pdp-sections-heading,
+            a {
+                color: $white;
+                &:active {
+                    outline: none;
                 }
             }
         }
@@ -285,15 +274,13 @@ $desktop-width: 1142px;
         }
         section.newsFlash .newsbox {
             @extend .secondry-light-bg;
-            @if($name==pharma-theme) {
-                .news-desc,
-                .news-title,
-                span,
-                strong,
-                .read,
-                .read:after {
-                    color: $white;
-                }
+            .news-desc,
+            .news-title,
+            span,
+            strong,
+            .read,
+            .read:after {
+                color: $white;
             }
         }
         #services-navigation,
@@ -319,7 +306,7 @@ $desktop-width: 1142px;
             color: $primary!important;
         }
         .dashboard .panel .panel-heading a.collapsed:before {
-            color: $navlinkpharmacolor !important;
+            color: $navlinkcolor !important;
         }
         //Training Material
         section.training-section .training-material .carousel-lists .slick-arrow {
@@ -331,6 +318,18 @@ $desktop-width: 1142px;
         .FullyBooked {
             background-color: rgba($primary, 0.4) !important;
             color: $white !important;
+            border-color: transparent !important;
+            position: relative;
+            pointer-events: none;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+            }
             &:after {
                 color: $white !important;
             }
@@ -342,7 +341,23 @@ $desktop-width: 1142px;
         }
         //Analyst Banner
         section#hero-banner.analyst {
-            background-color: $pharmalargebg;
+            background-color: $secondarycolordark;
+        }
+        .product-brands-list{
+            .intro-text{
+                padding-left: 10px;
+            }
+            ul.yellow-bullets {
+                padding-left: 20px;
+                padding-top:0;
+                li {
+                   padding-bottom: 5px;
+                   &:before {
+                    top: 6px;
+                    left: -20px;
+                   }
+                }
+            }
         }
         //Bullet color
         .yellow-bullets {
@@ -412,16 +427,14 @@ $desktop-width: 1142px;
         }
         form.wffm-form{
           .email-validation-message{
-            color: $navlinkpharmacolor !important;
+            color: $navlinkcolor !important;
           }
         }
-        form.request-a-demo,
+        form.request-a-demo, form.register-myinterests-form,
         form.get-in-touch {
             p {
                 background-color: $secondarycolorlight;
-                @if($name==pharma-theme) {
-                    color: $white;
-                }
+                color: $white;
                 &:after {
                     border-left: 10px solid $secondarycolorlight;
                 }
@@ -446,10 +459,10 @@ $desktop-width: 1142px;
                     border: 2px solid $primary;
                 }
                 label.error {
-                    color: $navlinkpharmacolor !important;
+                    color: $navlinkcolor !important;
                 }
                 .field-validation-error {
-                    color: $navlinkpharmacolor !important;
+                    color: $navlinkcolor !important;
                 }
             }
         }
@@ -486,11 +499,22 @@ $desktop-width: 1142px;
             background-color: $secondarycolorlight;
             @extend .color-text;
         }
+        .contactUsPage-contactUs {
+          .nav-tabs{
+            a {
+              color: $white;
+            }
+          }
+          a {
+            color: $navlinkcolor;
+          }
+          a.chosen-single{
+              color: $grey-color04 !important;
+          }
+        }
         .contactUsPage-contactUs li.active {
             &:after {
-                @if($name==pharma-theme) {
-                    background: $navlinkpharmacolor;
-                }
+                background: $navlinkcolor;
             }
         }
         .color-text {
@@ -505,25 +529,15 @@ $desktop-width: 1142px;
             @extend .primary-background;
         }
         .anlyst-heading {
-            @if($name==agri-theme) {
-                background-color: $secondarycolorlight;
-                &:after {
-                    background-color: $secondarycolorlight;
-                }
-            }
-            @else {
-                background-color: $pharmalargebg;
-                &:after {
-                    background-color: $pharmalargebg;
-                }
+            background-color: $secondarycolordark;
+            &:after {
+                background-color: $secondarycolordark;
             }
         }
         .yellow-container {
             background: rgba($secondarycolorlight, 0.9);
-            @if($name==pharma-theme) {
-                h3 {
-                    color: $white;
-                }
+            h3 {
+                color: $white;
             }
         }
         .carousel-lists .slick-arrow,
@@ -537,10 +551,9 @@ $desktop-width: 1142px;
             }
         }
         section.customer-quote {
-            @if($name==pharma-theme) {
-                background: $pharmalargebg;
-            }
+            background: $secondarycolordark;
         }
+
         .twitter-carousel .slick-arrow {
             background: $white;
             &:before {
@@ -614,18 +627,16 @@ $desktop-width: 1142px;
             }
         }
         .twitter-carousel {
-            @if($name==pharma-theme) {
-                .feed-heading {
-                    span {
-                        color: $white;
-                    }
+            .feed-heading {
+                span {
+                    color: $white;
                 }
-                .message {
-                    a {
-                        color: $white;
-                        border-bottom: 1px solid $white;
-                        word-wrap: break-word;
-                    }
+            }
+            .message {
+                a {
+                    color: $white;
+                    border-bottom: 1px solid $white;
+                    word-wrap: break-word;
                 }
             }
         }
@@ -640,12 +651,7 @@ $desktop-width: 1142px;
                 @extend .primary-background;
                 @extend .font-color;
                 &:after {
-                    @if($name==agri-theme) {
-                        border-left: 30px solid $primary;
-                    }
-                    @else {
-                        border-left: 30px solid $primary;
-                    }
+                    border-left: 30px solid $primary;
                 }
             }
         }
@@ -673,17 +679,28 @@ $desktop-width: 1142px;
                 @include border-radius(50%);
                 font-weight: normal;
             }
-            // a{
-            //    color: $primary !important;
-            // }
         }
         //Sprite image position
         .sprite-image {
             @if($name==agri-theme) {
-                background-position: -5px -232px;
+                background-position: -7px -435px;
+                width: 27px;
+                height: 34px;
+            }
+            @else if($name==tmt-theme){
+                background-position: -7px -233px;
+                width: 25px;
+                height: 34px;
+            }
+            @else if($name==financial-theme){
+                background-position: -6px -272px;
+                width: 29px;
+                height: 36px;
             }
             @else {
-                background-position: -5px -270px;
+                background-position: -6px -480px;
+                width: 29px;
+                height: 36px;
             }
         }
         .product-brands-list .card .caption h4,
@@ -693,18 +710,18 @@ $desktop-width: 1142px;
             }
         }
         .product-login .login-links .list ul li::after{
-            color: $navlinkpharmacolor;
+            color: $navlinkcolor;
         }
         //tab theming
         ul.nav-tabs {
             li {
                 &.active {
-                    border-bottom: 5px solid $pharmaprimarycolor;
+                    border-bottom: 5px solid $primarycolor;
                 }
             }
         }
         #mobile-header-navigation .nav-subnav-heading {
-            color: $navlinkpharmacolor;
+            color: $navlinkcolor;
         }
         #sub-nav {
             .subnav-container {
@@ -726,6 +743,14 @@ $desktop-width: 1142px;
                             border: none;
                         }
                     }
+                }
+
+                .subnav-items{
+                  ul{
+                    li.selected-nav{
+                      @extend .color-link;
+                    }
+                  }
                 }
             }
         }
@@ -781,6 +806,7 @@ $desktop-width: 1142px;
             display: block;
             cursor: pointer;
             position: relative;
+            text-decoration: none;
             &:after {
                 font-family: 'InformaIcons';
                 content: '\e912';
@@ -802,20 +828,16 @@ $desktop-width: 1142px;
         }
         .meet-anlyst-section {
             .analyst-details {
-                @if($name==pharma-theme) {
-                    h4,
-                    h3,
-                    h5,
-                    p {
-                        color: $white;
-                    }
+                h4,
+                h3,
+                h5,
+                p {
+                    color: $white;
                 }
             }
         }
         .contactus-list {
-            @if($name==pharma-theme) {
-                background: $grey-color03;
-            }
+            background: $grey-color03;
         }
         .headline-list {
             .link {
@@ -914,9 +936,9 @@ $desktop-width: 1142px;
         }
         section.articlepage-freearticle {
           a {
-            color: $navlinkpharmacolor;
+            color: $navlinkcolor;
             &:hover {
-              color: $navlinkpharmacolor;
+              color: $navlinkcolor;
             }
           }
         }
@@ -954,6 +976,70 @@ $desktop-width: 1142px;
             height: 100px;
             background-color: $secondarycolorlight80;
         }
+        //Pattern Image Changes as per the theme
+
+        @if($name==financial-theme) {
+            .product-login .login-links {
+                background: url(/Static/images/finance-pattern.png) no-repeat bottom right #444957;
+                background-size: 20%;
+            }
+            .dashboard {
+                background: url(/Static/images/finance-pattern.png) no-repeat right 100% #444957;
+                background-size:15%;
+            }
+            #formRegistration .modal-body {
+                background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
+                background-size: 24%;
+                @include tablet {
+                  background: none;
+                  padding: 0;
+                }
+                @include mobile {
+                  background: none;
+                  padding: 0;
+                }
+            }
+            .registration-form-single-section .container {
+                background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
+                background-size: 20%;
+            }
+            // .register-myinterests-form, .registration-form-single-section .container {
+            //     background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color03;
+            //     background-size: 20%;
+            // }
+
+        }
+        @else if($name==tmt-theme){
+            .product-login .login-links {
+                background: url(/Static/images/tmt-pattern.png) no-repeat bottom right #444957;
+                background-size: 20%;
+            }
+            .dashboard {
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 100% #444957;
+                background-size:15%;
+            }
+            #formRegistration .modal-body {
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
+                background-size: 24%;
+                @include tablet {
+                  background: none;
+                  padding: 0;
+                }
+                @include mobile {
+                  background: none;
+                  padding: 0;
+                }
+            }
+            .registration-form-single-section .container {
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
+                background-size: 20%;
+            }
+            // .register-myinterests-form, .registration-form-single-section .container {
+            //     background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
+            //     background-size: 20%;
+            // }
+
+        }
     }
     .tab-pane {
         .error-response,
@@ -980,24 +1066,25 @@ $desktop-width: 1142px;
         }
     }
     .infograph .number-container{
-        color:$navlinkpharmacolor;
+        color:$navlinkcolor;
     }
     .welcome-description{
         .tool{
             p a{
-                color:$navlinkpharmacolor;
+                color:$navlinkcolor;
             }
         }
     }
     .product-login{
         .create-profile a{
-            color:$navlinkpharmacolor;
+            color: $white;
+            text-decoration: underline;
         }
     }
     .marketing-banner{
         &.Variation2,&.Variation1{
             .btn{
-                background: $pharmaprimarycolor;
+                background: $primarycolor;
                 &:after {
                     color: $white;
                 }
@@ -1009,6 +1096,87 @@ $desktop-width: 1142px;
             &:before {
                 color:$secondarycolordark;
             }
+    }
+
+
+    .table-bordered{
+        margin:20px auto;
+        > thead{
+            > tr{
+                > th{
+                    background-color:$secondarycolordark;
+                    color:#fff;
+                }
+            }
+        }
+        > tbody{
+            tr:nth-child(even) {
+                background-color: $grey-color09;
+            }
+            td{
+                color:$grey-color04;
+            }
+        }
+    }
+    .table-hover > tbody > tr:hover > td,
+    .table-hover > tbody > tr:hover > th{
+         background-color: $grey-color10;
+    }
+    .fc-unthemed .fc-today {
+        background: $secondarycolorlight;
+    }
+    @if($name==tmt-theme) {
+        #mobile-header-navigation .navbar-image .logo-img-big{
+            @include not-desktop{
+                width: auto!important;
+                transform: translate(0, -40%);
+                -webkit-transform: translate(0, -40%);
+            }
+        }
+        header section.informaNav .navbar-brand .logo-img-big{
+            @include not-desktop{
+                width: auto!important;
+                transform: translate(-50%,-60%);
+                -webkit-transform: translate(-50%,-60%);
+            }
+            @include desktop{
+                top: -15px;
+                left: 10px;
+                width: 115px;
+                height: 64px;
+            }
+        }
+        @include tablet{
+            .navbar>.container .navbar-brand{
+                margin-left: 0;
+            }
+        }
+    }
+   
+    @include not-desktop{
+        nav#pdp-navigation{
+            .container{
+                  .row{
+                    position: relative;
+                    .nav-pdp-nondesktop{
+                          &.move-left{
+                            background: lighten( $secondarycolorlight, 5%);
+                          }
+                    }
+                    #pdp-sections{
+                         background: lighten( $secondarycolorlight, 5%);
+                    }
+                  }
+            }
+        }
+    }
+    body{
+        svg.spinner-loader{
+            stroke:$primarycolor;
+        }
+    }
+    #contactus-section a{
+        color:$navlinkcolor;
     }
 }
 

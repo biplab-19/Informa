@@ -129,10 +129,10 @@
 		}
 	.descriptions {
 		// height: 190px;
-		min-height: 106px;
+		min-height: 110px;
 		overflow: hidden;
 		padding-right: 45px;
-		margin-bottom: 40px;
+		margin-bottom: 30px;
 		@include mobile {
 			padding-right: 0;
 		}
@@ -140,12 +140,14 @@
 			color: $grey-color03;
 		}
 		.bold + div {
-			height: 55px;
+			height: 45px;
+			overflow:hidden;
 			color: $grey-color03;
 		}
 		p{
 			margin: 0;
 			color: $grey-color03;
+			word-wrap: break-word;
 		}
 		&.show-content {
 			height: auto !important;
@@ -172,11 +174,9 @@
 	}
 	.btn-container {
 		padding-right: 45px;
-		margin-bottom: 30px;
 		@include mobile {
 			text-align: center;
 			padding-right: 0;
-			margin-bottom: 0;
 		}
 	}
 	.show-options {
@@ -216,12 +216,6 @@
 	}
 	.more-stories {
 		margin-top: 0;
-		@include mobile {
-			margin-top: 35px;
-		}
-		@include tablet {
-			margin-top: 30px;
-		}
 		.heading {
 			font-size: 18px;
 			margin-top: 20px;

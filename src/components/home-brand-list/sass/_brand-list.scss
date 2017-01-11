@@ -71,6 +71,24 @@
                 background-position: -5px -232px;
                 display: inline-block;
             }
+
+            ul {
+                padding-left: 40px;
+                padding-top: 20px;
+            }
+            li {
+                list-style-type: none;
+                padding-bottom: 20px;
+                position: relative;
+                font-family: 'FSMe-Bold' !important;
+                color:$grey-color04;
+                &:before {
+                    position: absolute;
+                    left: -28px;
+                    font-size: 20px;
+                    top: -5px;
+                }
+            }
         }
         .showmore {
 

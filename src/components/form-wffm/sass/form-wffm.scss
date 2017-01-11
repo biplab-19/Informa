@@ -1,3 +1,15 @@
+.form-group.disable-dropdown {
+    pointer-events: none;
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
 .tab-pane {
     form.get-in-touch,
     form.register-myinterests-form,
@@ -202,6 +214,9 @@ form.request-a-demo {
         font-family: "InformaIcons";
         margin-left: -10px;
         font-size: 16px;
+        @include tablet {
+          display: none;
+        }
     }
 
     .chosen-container .chosen-results li {
@@ -352,6 +367,15 @@ form.request-a-demo {
     .hide-title {
         p {
             display: none;
+            &.tc-product-name {
+                display: inline;
+                color: $white;
+                background: transparent;
+                padding: 0;
+                &:after {
+                    display: none;
+                }
+            }
         }
 
         label.control-label {
@@ -890,10 +914,12 @@ form.request-a-demo {
         h2 {
             color: $white;
             position: relative;
-
+            @include mobile{
+              padding-right: 25px;
+            }
             &:before {
                 @include mobile {
-                    right: 0;
+                    right: 10px;
                 }
                 @include tablet {
                     left: -60px;
@@ -967,6 +993,9 @@ form.request-a-demo {
                   width: 18px;
               }
               position: relative;
+              &.tc-product-name:before {
+                display: none;
+              }
           }
           input:checked + span:before {
               background: $white url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;

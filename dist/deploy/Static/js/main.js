@@ -1,4 +1,4 @@
-/*! 2016-10-21 */s = new AppMeasurement()
+/*! 2016-11-07 */s = new AppMeasurement()
 //s.account="informashopwindowpharmadev" // QA
 s.account="informashopwindowpharmapreprod" // UAT
 //s.account="informashopwindowpharmaprod" // Prod
@@ -4086,11 +4086,14 @@ var INFORMA = window.INFORMA || {};
                                         '{{/each}}'+
                                     '</p>'+
                                 '{{/compare}}'+
-                                '{{#compare Product null operator="!="}}'+
-                                    '<p class="type">'+
-                                        '<span>{{Product}}</span>'+
-                                    '</p>'+
-                                '{{/compare}}'+
+                                        '{{#compare Products null operator="!="}}'+
+                                            '<p class="type">'+
+                                                '{{#each Products}}'+
+                                                '<span>{{this}}</span>'+
+                                                '{{/each}}'+
+                                            '</p>'+
+                                        '{{/compare}}'+
+
                                 '{{#if EcommerceLink}}'+
                                     '{{#if EcommerceLink.Url}}'+
                                         '<h4><a href="{{EcommerceLink.Url}}" target="{{EcommerceLink.Target}}">{{Title}}</a></h4>'+
@@ -4161,9 +4164,11 @@ var INFORMA = window.INFORMA || {};
         'HeadlinesListItems':
             '{{#each Headlines}}'+
                 '<li>'+
-                    '{{#compare Product null operator="!="}}'+
+                    '{{#compare Products null operator="!="}}'+
                         '<p class="type">'+
-                            '<span>{{Product}}</span>'+
+                            '{{#each Products}}'+
+                                '<span>{{this}}</span>'+
+                            '{{/each}}'+
                         '</p>'+
                     '{{/compare}}'+
                     '<p class="date">{{PublicationDate}}</p>'+
@@ -4300,12 +4305,14 @@ var INFORMA = window.INFORMA || {};
                                                     '</div>' +
                                                 '</div>' +
                                                 '<div class="analyst-description">' +
-                                                    '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
-                                                    '<ul class="yellow-bullets">' +
-                                                        '{{#each Specialization}}' +
-                                                            '<li>{{this}}</li>' +
-                                                        '{{/each}}' +
-                                                    '</ul>' +
+                                                    '{{#compare Specialization.length 0 operator=">"}}' +
+                                                        '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
+                                                        '<ul class="yellow-bullets">' +
+                                                            '{{#each Specialization}}' +
+                                                                '<li>{{this}}</li>' +
+                                                            '{{/each}}' +
+                                                        '</ul>' +
+                                                    '{{/compare}}'+
                                                     '<p class="heading">+{{YearsOfExperience}} {{ExperienceText}}</p>' +
                                                     '{{#compare ProductDetails.length 0 operator=">"}}' +
                                                         '<ul class="track-analyst clearfix">' +
@@ -4372,12 +4379,14 @@ var INFORMA = window.INFORMA || {};
                                             '</div>' +
                                         '</div>' +
                                         '<div class="analyst-description">' +
-                                            '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>' +
-                                            '<ul class="yellow-bullets">' +
-                                                '{{#each results.Specialization}}' +
-                                                    '<li>{{this}}</li>' +
-                                                '{{/each}}' +
-                                            '</ul>' +
+                                            '{{#compare results.Specialization.length "0" operator=">"}}' +
+                                                '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>' +
+                                                '<ul class="yellow-bullets">' +
+                                                    '{{#each results.Specialization}}' +
+                                                        '<li>{{this}}</li>' +
+                                                    '{{/each}}' +
+                                                '</ul>' +
+                                            '{{/compare}}'+
                                             '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>' +
                                             '{{#compare results.ProductDetails.length "0" operator=">"}}' +
                                                 '<ul class="track-analyst clearfix">' +
@@ -4538,20 +4547,36 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/each}}'+
                                             '</p>'+
                                         '{{/compare}}'+
-                                        '<p class="type">'+
-                                            '<span>{{results.Product}}</span>'+
-                                        '</p>'+
+                                        '{{#compare results.Products null operator="!="}}'+
+                                            '<p class="type">'+
+                                                '{{#each results.Products}}'+
+                                                    '<span>{{this}}</span>'+
+                                                '{{/each}}'+
+                                            '</p>'+
+                                        '{{/compare}}'+
+                                        '{{#if results.IsPaidContent}}'+
+                                            '{{#if results.ProductLink}}'+
+                                                '{{#compare results.ProductLink null operator="!="}}'+
+                                                '{{#if results.ProductLink.Url}}'+
+                                                    '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/if}}'+
+                                            '{{else}}' +
+                                            '{{#compare results.ContentTypeGuid.[0] results.HeadLinesGuid operator="=="}}'+
+                                                '{{#if results.ProductLink}}'+
+                                                    '{{#compare results.ProductLink null operator="!="}}'+
+                                                    '{{#if results.ProductLink.Url}}'+
+                                                        '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
+                                                    '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/if}}'+
                                         '{{#if results.EcommerceLink}}'+
                                             '{{#if results.EcommerceLink.Url}}'+
                                                 '<h4><a href="{{results.EcommerceLink.Url}}" target="{{results.EcommerceLink.Target}}">{{results.Title}}</a></h4>'+
                                             '{{/if}}'+
-                                        '{{/if}}'+
-                                        '{{#if results.ProductLink}}'+
-                                            '{{#compare results.ProductLink null operator="!="}}'+
-                                            '{{#if results.ProductLink.Url}}'+
-                                                '<h4><a href="{{results.ProductLink.Url}}" target="{{results.ProductLink.Target}}">{{results.Title}}</a></h4>'+
-                                            '{{/if}}'+
-                                            '{{/compare}}'+
                                         '{{/if}}'+
                                         '{{#compare results.LinkText null operator="!="}}'+
                                             '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
@@ -4599,21 +4624,35 @@ var INFORMA = window.INFORMA || {};
                                     '{{#compare results.Price null operator="!="}}'+
                                             '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
                                     '{{/compare}}'+
+                                    '{{#if results.IsPaidContent}}'+
+                                            '{{#if results.ProductLink}}'+
+                                                '{{#compare results.ProductLink null operator="!="}}'+
+                                                '{{#if results.ProductLink.Url}}'+
+                                                    '<div class="btn-container text-right">'+
+                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
+                                            '</div>'+
+                                                '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/if}}'+
+                                            '{{else}}' +
+                                            '{{#compare results.ContentTypeGuid.[0] results.HeadLinesGuid operator="=="}}'+
+                                                '{{#if results.ProductLink}}'+
+                                                    '{{#compare results.ProductLink null operator="!="}}'+
+                                                    '{{#if results.ProductLink.Url}}'+
+                                                        '<div class="btn-container text-right">'+
+                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
+                                            '</div>'+
+                                                    '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                    '{{/if}}'+
                                     '{{#if results.EcommerceLink}}'+
                                         '{{#if results.EcommerceLink.Url}}'+
                                             '<div class="btn-container text-right">'+
                                                 '<a href="{{results.EcommerceLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.EcommerceLink.Target}}">{{results.EcommerceLink.LinkText}}</a>'+
                                             '</div>'+
                                         '{{/if}}'+
-                                    '{{/if}}'+
-                                    '{{#if results.ProductLink}}'+
-                                        '{{#compare results.ProductLink null operator="!="}}'+
-                                        '{{#if results.ProductLink.Url}}'+
-                                            '<div class="btn-container text-right">'+
-                                                '<a href="{{results.ProductLink.Url}}" class="btn btn-primary btn-ecommerce full-width-btn" target="{{results.ProductLink.Target}}">{{results.ProductLink.LinkText}}</a>'+
-                                            '</div>'+
-                                        '{{/if}}'+
-                                        '{{/compare}}'+
                                     '{{/if}}'+
                                     '{{#compare results.LinkText null operator="!="}}'+
                                         '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
@@ -4715,12 +4754,14 @@ var INFORMA = window.INFORMA || {};
                                                                     '</div>'+
                                                                 '</div>'+
                                                                 '<div class="analyst-description">'+
+                                                                    '{{#compare results.Specialization.length "0" operator=">"}}'+
                                                                     '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>'+
                                                                     '<ul class="yellow-bullets">'+
                                                                         '{{#each results.Specialization}}'+
                                                                         '<li>{{this}}</li>'+
                                                                         '{{/each}}'+
                                                                     '</ul>'+
+                                                                    '{{/compare}}'+
                                                                     '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
                                                                     '{{#compare results.ProductDetails.length "0" operator=">"}}'+
                                                                         '<ul class="track-analyst clearfix">'+
@@ -5704,7 +5745,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             }
             if (_HeadlinesLists.length > 0) {
                 CreateSlider(_HeadlinesLists,2,4);
-                headLineEqualHeight();
+                //headLineEqualHeight();
             }
             if (FilterMenu && !isExperienceMode) {
                 $(".chosen-select").chosen({ disable_search_threshold: 10, width: "100%" });
@@ -6530,15 +6571,20 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                             CountryText = event.Country;
                         }
 
-                    if(moment(CurrentDate) > moment(ItemDate)) {
-                        if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                            return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                        if(!event.EventText) {
+
+                            if(moment(CurrentDate) > moment(ItemDate)) {
+                                if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
+                                    return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                                } else {
+                                    return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                                }
+                            } else {
+                                return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                            }
                         } else {
                             return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                         }
-                    } else {
-                        return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
-                    }
                 }
         });
         CheckEvents(data);
@@ -6589,7 +6635,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 "State": data[key].State,
                 "Country": data[key].Country,
                 "Link": (data[key].FullDetail != null) ? (data[key].FullDetail.Url): null,
-                "Target": (data[key].FullDetail != null) ? (data[key].FullDetail.Target): null
+                "Target": (data[key].FullDetail != null) ? (data[key].FullDetail.Target): null,
+                "EventText": (data[key].EventText == "FullyBooked") ? true: false
             })
         }
         if(_vp === 1 || _vp === 2) {
@@ -7608,7 +7655,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _customPhoneErrorMsg,
         _reCaptchaAccessbility,
         _updateHiddenProductVerticalName,
-        _resetFormOnRefresh;
+        _resetFormOnRefresh,
+        _resetDefaultTitle;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -7618,6 +7666,22 @@ INFORMA.forms = (function(window, $, namespace) {
     //         $(this).valid();
     //     });
     // }
+    _resetDefaultTitle = function() {
+        var SecondaryHeading = $('.form-secondary-title');
+
+        if(SecondaryHeading.length > 0) {
+            SecondaryHeading.each(function() {
+                var GetTitle = $(this).val();
+                var Parent = $(this).parents('.modal');
+                if(Parent.length > 0) {
+                    var isHeading = Parent.find('.product-name-holder').text();
+                    if(isHeading.length === 0) {
+                        Parent.find('h2').text(GetTitle);
+                    }
+                }
+            });
+        }
+    },
     _updateHiddenProductVerticalName = function() {
         $(document).ready(function() {
             var ProductName = $('.product-name').val(),
@@ -7632,6 +7696,7 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('.tc-product-name').html(ProductName);
                 } else {
                     $('.tc-product-name').html(VerticalName);
+                    _resetDefaultTitle();
                 }
             }
         });
@@ -8257,6 +8322,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
         _resetFormOnRefresh();
+        //_resetDefaultTitle();
     };
 
     return {
@@ -11590,7 +11656,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 DoLinksEvents();
             }
             ToggleView();
-            EqualHeight();
+            $(window).on('load', function() {
+                EqualHeight();
+            });
             GetSortValue();
         };
     return {
@@ -11974,6 +12042,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
                 'autoplay': 1,
                 'controls': 1,
                 'loop': 1,
+                'wmode':'opaque',
                 'playlist': _youTubeId,
                 'showinfo': 0
             },
@@ -11985,8 +12054,18 @@ INFORMA.videoBackground = (function(window, $, namespace) {
     };
 
     function onYTPlayerReady(event) {
-        event.target.playVideo();
-        event.target.setVolume(_youTubeSound);
+        if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+            event.target.playVideo();
+            event.target.setVolume(_youTubeSound);
+        } else {
+            var playButton = $(".videoBG_wrapper");
+            if(playButton.length > 0 ){
+              playButton.on("click", function() {
+                  ytPlayer.playVideo();
+                  ytPlayer.setVolume(_youTubeSound);
+              });
+            }
+        }
     }
 
     init = function() {
@@ -12016,7 +12095,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
         _videoPlayBtnWrapper.click(function() {
             var videoImg = $(this).parent().find('img');
             if (videoImg.attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>';
             } else if (videoImg .attr('data-videotype') == "vimeo") {
                 video = '<iframe width="100%" src="' +  videoImg.attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if (videoImg.attr('data-videotype') == "wistia") {
@@ -12031,7 +12110,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
         _videoFullWrapper.click(function() {
 
             if ($(this).attr('data-videotype') == "youtube") {
-                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1&autoplay=1" frameborder="0" allowfullscreen></iframe>';
+                video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1&rel=0" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "vimeo") {
                 video = '<iframe width="100%" height="' + $(this).attr('height') + '" src="' + $(this).attr('data-videourl') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
             } else if ($(this).attr('data-videotype') == "wistia") {

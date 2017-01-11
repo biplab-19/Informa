@@ -121,6 +121,11 @@
             margin-top: 0px;
             margin-left: 0px;
         }
+        .row .col-sm-6:last-child{
+            @include tablet{
+                width: 51%;
+            }
+        }
     }
     .contactus-content {
         margin-left: 10px;
@@ -142,6 +147,9 @@
             padding-right: 10px;
             line-height: 24px;
             text-align: left;
+            ul {
+                padding-left: 18px;
+            }
             @include mobile {
                 padding-right: 10px;
             }
