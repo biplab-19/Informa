@@ -180,12 +180,19 @@ INFORMA.forms = (function(window, $, namespace) {
                 captcha_response = grecaptcha.getResponse(widgetId[0].captchaWidgetId);
             }
             var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid');
+            // To track Google Analytics on Submit
+            if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
+                if($('form.register-myinterests-form').find('.field-validation-error').length === 1 && captcha_response.length > 0){
+                    INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                }
+            }
+
             if (captcha_response.length == 0) {
                 // Captcha failed
                 captchaMsgContainer.css('display', 'block').html('The captcha field is required.').addClass('field-validation-error');
                 return false;
             } else {
-                // Captcha is Passed
+                // Captcha is passed
                 captchaMsgContainer.css('display', 'none');
                 return true;
             }
@@ -262,7 +269,6 @@ INFORMA.forms = (function(window, $, namespace) {
                     Parent = $(this).parents('.tab-pane');
                 if (Status.length > 0) {
                     Parent.find('form').addClass('hide');
-
                     if (Status == 'success') {
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
@@ -304,7 +310,6 @@ INFORMA.forms = (function(window, $, namespace) {
                 }
 
                 //Checking The status and Displaying that section
-
                 if (_formSubmitStatus.attr('data-status') == 'success') {
                     $('.submit-response').removeClass('hide');
                     $('.error-response').addClass('hide');
@@ -314,7 +319,6 @@ INFORMA.forms = (function(window, $, namespace) {
                 }
 
             }
-
             _formSubmitStatus.each(function() {
                 var Status = $(this).attr('data-status'),
                     Parent = $(this).parents('.modal');
@@ -324,8 +328,9 @@ INFORMA.forms = (function(window, $, namespace) {
                         show: true,
                         backdrop: "static"
                     })
-
                     if (Status == 'success') {
+                        // To track Google Analytics on Submit
+                        INFORMA.Analytics.trackFormEvents(_formSubmitStatus, 'Submit');
                         Parent.find('.submit-response').removeClass('hide');
                         Parent.find('.error-response').addClass('hide');
                     } else {
@@ -720,6 +725,8 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _bindProductId = function() {
         $(document).on('click', '.wffm-elq-form-btn', function() {
+            // To track Google Analytics on Open
+            INFORMA.Analytics.trackFormEvents($(this), 'Open');
             _showModal(this);
         });
     }
