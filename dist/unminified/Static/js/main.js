@@ -1,4 +1,4 @@
-/*! 2017-01-11 *//*
+/*! 2017-01-13 *//*
  * google-analytics.js
  *
  *
@@ -17,7 +17,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
     var trackFormEvents,
     trackEvents,
     trackFormWithoutModal,
-    bannerText = $('#banner').find("a");
+    bannerText = $('#banner').find("a.subscribe-stick");
 
     trackFormEvents = function(obj, action, label){
       if(typeof obj === 'object'){
@@ -106,21 +106,22 @@ INFORMA.Analytics = (function(window, $, namespace) {
      
     }
 
-      bannerText.click(function (event) {
-        var text = $(this).text();
-        if(text === 'Product login'){
-           trackEvents('Form', 'Open', 'ProductLogin',1)
-        }
-      });
+    bannerText.click(function (event) {
+      var input = $(this).text();
+      var output = input.replace(/\w+/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1);
+      }).replace(/\s/g, '');
+      trackEvents('Form', 'Open', output,1)
+    });
 
-      $('body').on('click', '.register,.product-login', function(e) {
-          if($(this).hasClass('EventRegister')){
-             trackEvents('Form', 'Open', 'EventRegister',1)
-          }
-          else if($(this).hasClass('product-login')){
-            trackEvents('Form', 'Open', 'ProductLogin',1)
-          }
-      })
+    $('body').on('click', '.register,.product-login', function(e) {
+      if($(this).hasClass('register')){
+         trackEvents('Form', 'Open', 'EventRegister',1)
+      }
+      else if($(this).hasClass('product-login')){
+        trackEvents('Form', 'Open', 'ProductLogin',1)
+      }
+    })
     return {
         trackFormEvents: trackFormEvents
     };
