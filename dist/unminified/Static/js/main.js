@@ -1,4 +1,4 @@
-/*! 2017-01-11 *//*
+/*! 2017-01-13 *//*
  * google-analytics.js
  *
  *
@@ -17,7 +17,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
     var trackFormEvents,
     trackEvents,
     trackFormWithoutModal,
-    bannerText = $('#banner').find("a");
+    bannerText = $('#banner').find("a.subscribe-stick");
 
     trackFormEvents = function(obj, action, label){
       if(typeof obj === 'object'){
@@ -106,21 +106,22 @@ INFORMA.Analytics = (function(window, $, namespace) {
      
     }
 
-      bannerText.click(function (event) {
-        var text = $(this).text();
-        if(text === 'Product login'){
-           trackEvents('Form', 'Open', 'ProductLogin',1)
-        }
-      });
+    bannerText.click(function (event) {
+      var input = $(this).text();
+      var output = input.replace(/\w+/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1);
+      }).replace(/\s/g, '');
+      trackEvents('Form', 'Open', output,1)
+    });
 
-      $('body').on('click', '.register,.product-login', function(e) {
-          if($(this).hasClass('EventRegister')){
-             trackEvents('Form', 'Open', 'EventRegister',1)
-          }
-          else if($(this).hasClass('product-login')){
-            trackEvents('Form', 'Open', 'ProductLogin',1)
-          }
-      })
+    $('body').on('click', '.register,.product-login', function(e) {
+      if($(this).hasClass('register')){
+         trackEvents('Form', 'Open', 'EventRegister',1)
+      }
+      else if($(this).hasClass('product-login')){
+        trackEvents('Form', 'Open', 'ProductLogin',1)
+      }
+    })
     return {
         trackFormEvents: trackFormEvents
     };
@@ -4336,13 +4337,24 @@ var INFORMA = window.INFORMA || {};
                                         '</div>'+
                                     '</div>'+
                                 '<div class="footer clearfix">'+
-                                    '{{#compare Register null operator="!="}}' +
-                                        '{{#compare Register.Url null operator="!="}}' +
-                                            '{{#compare Register.Url.length "0" operator=">"}}' +
-                                                '<a href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{Register.LinkText}}</a>'+
+                                    '{{#compare StatusEnabled  true operator="=="}}'+
+                                        '{{#compare Register null operator="!="}}' +
+                                            '{{#compare Register.Url null operator="!="}}' +
+                                                '{{#compare Register.Url.length "0" operator=">"}}' +
+                                                    '<a href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                '{{/compare}}'+
                                             '{{/compare}}'+
                                         '{{/compare}}'+
-                                    '{{/compare}}'+
+                                    '{{/compare}}'+ 
+                                    '{{#compare StatusEnabled  false operator="=="}}'+   
+                                        '{{#compare Register null operator="!="}}' +
+                                            '{{#compare Register.Url null operator="!="}}' +
+                                                '{{#compare Register.Url.length "0" operator=">"}}' +
+                                                    '<a href="{{Register.Url}}" class="btn btn-default register disabled" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+ 
                                     '{{#compare FullDetail null operator="!="}}' +
                                         '{{#compare FullDetail.Url null operator="!="}}' +
                                             '{{#compare FullDetail.Url.length "0" operator=">"}}' + 
@@ -4554,10 +4566,21 @@ var INFORMA = window.INFORMA || {};
                                                         '{{/compare}}'+
                                                     '{{/compare}}'+
                                                     '{{/compare}}'+
-                                                    '{{#compare Register null operator="!="}}' +
-                                                        '{{#compare Register.Url null operator="!="}}' +
-                                                            '{{#compare Register.Url.length "0" operator=">"}}' + 
-                                                                '<a href="{{Register.Url}}" class="btn btn-primary pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
+                                                    '{{#compare StatusEnabled  true operator="=="}}'+
+                                                        '{{#compare Register null operator="!="}}' +
+                                                            '{{#compare Register.Url null operator="!="}}' +
+                                                                '{{#compare Register.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{Register.Url}}" class="btn btn-primary pull-right register" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare StatusEnabled  false operator="=="}}'+
+                                                        '{{#compare Register null operator="!="}}' +
+                                                            '{{#compare Register.Url null operator="!="}}' +
+                                                                '{{#compare Register.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{Register.Url}}" class="btn btn-primary pull-right register disabled" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                                '{{/compare}}'+
                                                             '{{/compare}}'+
                                                         '{{/compare}}'+
                                                     '{{/compare}}'+
@@ -4925,15 +4948,28 @@ var INFORMA = window.INFORMA || {};
                                                                 '{{/compare}}'+
                                                             '{{/compare}}'+
                                                         '{{/compare}}'+
-                                                        '{{#compare results.Register null operator="!="}}' +
-                                                            '{{#compare results.Register.Url null operator="!="}}' +
-                                                                '{{#compare results.Register.Url.length "0" operator=">"}}' +
-                                                                    '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right {{results.EventText}}">'+
-                                                                        '{{results.EventStatus}}'+
-                                                                    '</a>'+
+                                                        '{{#compare results.StatusEnabled  true operator="=="}}'+
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right disabled">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
                                                                 '{{/compare}}'+
                                                             '{{/compare}}'+
-                                                        '{{/compare}}'+
+                                                        '{{/compare}}'+ 
+                                                        '{{#compare results.StatusEnabled  false operator="=="}}'+  
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right disabled">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+ 
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+
@@ -5205,17 +5241,17 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         disabledEvent;
 
         disabledEvent = function(){
-            $('.FullyBooked,.EventFinished').click(function(e){
+            $('.register.disabled').click(function(e){
                 e.preventDefault();
             });
         },
-
+        
         UnbindEvent = function() {
-            $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+            $('.register.disabled').on('keydown', function(e) {
                 if (e.keyCode === 13 || e.which===13) {
                     e.preventDefault();
-                }
-            });
+                }   
+            })
         },
 
         EqualHeight = function(){
@@ -6437,13 +6473,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent;
 
     disabledEvent = function(){
-        $('.FullyBooked,.EventFinished').click(function(e){
+        $('.register.disabled').click(function(e){
             e.preventDefault();
         });
     },
-        
+    
     UnbindEvent = function() {
-        $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+        $('.register.disabled').on('keydown', function(e) {
             if (e.keyCode === 13 || e.which===13) {
                 e.preventDefault();
             }   
@@ -11506,13 +11542,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent;
 
     disabledEvent = function(){
-        $('.FullyBooked,.EventFinished').click(function(e){
+        $('.register.disabled').click(function(e){
             e.preventDefault();
         });
     },
     
     UnbindEvent = function() {
-        $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+        $('.register.disabled').on('keydown', function(e) {
             if (e.keyCode === 13 || e.which===13) {
                 e.preventDefault();
             }   

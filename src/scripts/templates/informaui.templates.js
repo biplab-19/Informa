@@ -258,13 +258,24 @@ var INFORMA = window.INFORMA || {};
                                         '</div>'+
                                     '</div>'+
                                 '<div class="footer clearfix">'+
-                                    '{{#compare Register null operator="!="}}' +
-                                        '{{#compare Register.Url null operator="!="}}' +
-                                            '{{#compare Register.Url.length "0" operator=">"}}' +
-                                                '<a href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{Register.LinkText}}</a>'+
+                                    '{{#compare StatusEnabled  true operator="=="}}'+
+                                        '{{#compare Register null operator="!="}}' +
+                                            '{{#compare Register.Url null operator="!="}}' +
+                                                '{{#compare Register.Url.length "0" operator=">"}}' +
+                                                    '<a href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                '{{/compare}}'+
                                             '{{/compare}}'+
                                         '{{/compare}}'+
-                                    '{{/compare}}'+
+                                    '{{/compare}}'+ 
+                                    '{{#compare StatusEnabled  false operator="=="}}'+   
+                                        '{{#compare Register null operator="!="}}' +
+                                            '{{#compare Register.Url null operator="!="}}' +
+                                                '{{#compare Register.Url.length "0" operator=">"}}' +
+                                                    '<a href="{{Register.Url}}" class="btn btn-default register disabled" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+ 
                                     '{{#compare FullDetail null operator="!="}}' +
                                         '{{#compare FullDetail.Url null operator="!="}}' +
                                             '{{#compare FullDetail.Url.length "0" operator=">"}}' + 
@@ -476,10 +487,21 @@ var INFORMA = window.INFORMA || {};
                                                         '{{/compare}}'+
                                                     '{{/compare}}'+
                                                     '{{/compare}}'+
-                                                    '{{#compare Register null operator="!="}}' +
-                                                        '{{#compare Register.Url null operator="!="}}' +
-                                                            '{{#compare Register.Url.length "0" operator=">"}}' + 
-                                                                '<a href="{{Register.Url}}" class="btn btn-primary pull-right register {{EventText}}" target="{{Register.Target}}">{{EventStatus}}</a>'+
+                                                    '{{#compare StatusEnabled  true operator="=="}}'+
+                                                        '{{#compare Register null operator="!="}}' +
+                                                            '{{#compare Register.Url null operator="!="}}' +
+                                                                '{{#compare Register.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{Register.Url}}" class="btn btn-primary pull-right register" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare StatusEnabled  false operator="=="}}'+
+                                                        '{{#compare Register null operator="!="}}' +
+                                                            '{{#compare Register.Url null operator="!="}}' +
+                                                                '{{#compare Register.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{Register.Url}}" class="btn btn-primary pull-right register disabled" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                                '{{/compare}}'+
                                                             '{{/compare}}'+
                                                         '{{/compare}}'+
                                                     '{{/compare}}'+
@@ -847,15 +869,28 @@ var INFORMA = window.INFORMA || {};
                                                                 '{{/compare}}'+
                                                             '{{/compare}}'+
                                                         '{{/compare}}'+
-                                                        '{{#compare results.Register null operator="!="}}' +
-                                                            '{{#compare results.Register.Url null operator="!="}}' +
-                                                                '{{#compare results.Register.Url.length "0" operator=">"}}' +
-                                                                    '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right {{results.EventText}}">'+
-                                                                        '{{results.EventStatus}}'+
-                                                                    '</a>'+
+                                                        '{{#compare results.StatusEnabled  true operator="=="}}'+
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right disabled">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
                                                                 '{{/compare}}'+
                                                             '{{/compare}}'+
-                                                        '{{/compare}}'+
+                                                        '{{/compare}}'+ 
+                                                        '{{#compare results.StatusEnabled  false operator="=="}}'+  
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right disabled">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+ 
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+

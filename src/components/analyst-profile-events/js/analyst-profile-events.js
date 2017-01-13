@@ -25,17 +25,17 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         disabledEvent;
 
         disabledEvent = function(){
-            $('.FullyBooked,.EventFinished').click(function(e){
+            $('.register.disabled').click(function(e){
                 e.preventDefault();
             });
         },
-
+        
         UnbindEvent = function() {
-            $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+            $('.register.disabled').on('keydown', function(e) {
                 if (e.keyCode === 13 || e.which===13) {
                     e.preventDefault();
-                }
-            });
+                }   
+            })
         },
 
         EqualHeight = function(){
