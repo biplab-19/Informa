@@ -873,7 +873,7 @@ var INFORMA = window.INFORMA || {};
                                                             '{{#compare results.Register null operator="!="}}' +
                                                                 '{{#compare results.Register.Url null operator="!="}}' +
                                                                     '{{#compare results.Register.Url.length "0" operator=">"}}' +
-                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right disabled">'+
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right">'+
                                                                             '{{results.EventCTAText}}'+
                                                                         '</a>'+
                                                                     '{{/compare}}'+

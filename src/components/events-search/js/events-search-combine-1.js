@@ -107,6 +107,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         CheckEvents(data);
         SetCalendarEvents(data);
         SetListEvents(data);
+        UnbindEvent();
+        disabledEvent();
     },
 
     SetListEvents    = function(data) {
