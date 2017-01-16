@@ -165,7 +165,12 @@ $desktop-width: 1142px;
             background-color: $navlinkcolor;
         }
         .menuFollower {
-            background-color: $white;
+            @if($name==agri-theme) {
+                background-color: $grey-color04;
+            }
+            @else {
+                background-color: $white;
+            }
         }
         //Pharma and Agri primary color
         .primary-color {
@@ -185,7 +190,12 @@ $desktop-width: 1142px;
         }
         //primary button hover
         .primary-btn-hover {
-            color: $white;
+            @if($name==agri-theme) {
+                color: $grey-color04;
+            }
+            @else {
+                color: $white;
+            }
             text-decoration: none;
             background-color: $secondarycolorlight;
             border-color: $secondarycolorlight;
@@ -257,7 +267,12 @@ $desktop-width: 1142px;
             background-color: $secondarycolorlight;
             #pdp-sections-heading,
             a {
-                color: $white;
+                @if($name==agri-theme) {
+                    color: $grey-color04;
+                }
+                @else {
+                    color: $white;
+                }
                 &:active {
                     outline: none;
                 }
@@ -543,7 +558,11 @@ $desktop-width: 1142px;
         .carousel-lists .slick-arrow,
         .customers_list_slider .slick-arrow {
             @extend .secondry-light-bg;
-            color: $white;
+            &:before{
+                @if($name==agri-theme) {
+                    color: $grey-color04;
+                }
+            }
         }
         section.customer-quote .slick-initialized .slick-arrow {
             &:before {
@@ -1023,6 +1042,22 @@ $desktop-width: 1142px;
             .product-login .login-links {
                 background: url(/Static/images/agri-pattern.png) no-repeat bottom right $grey-color03;
             }
+            .dashboard {
+                background: url(/Static/images/agri-pattern.png) no-repeat right 100% #444957;
+                background-size:15%;
+            }
+            #formRegistration .modal-body {
+                background: url(/Static/images/agri-pattern.png) no-repeat right 105% #444957;
+                background-size: 24%;
+                @include tablet {
+                  background: none;
+                  padding: 0;
+                }
+                @include mobile {
+                  background: none;
+                  padding: 0;
+                }
+            }
             .registration-form-single-section .container {
                 background: url("/Static/images/agri-pattern.png") no-repeat right 105% $grey-color03;
                 background-size: 20%;
@@ -1031,6 +1066,22 @@ $desktop-width: 1142px;
         @else if($name==maritime-theme){
             .product-login .login-links {
                 background: url(/Static/images/maritime-pattern.png) no-repeat bottom right $grey-color03;
+            }
+            .dashboard {
+                background: url(/Static/images/maritime-pattern.png) no-repeat right 100% #444957;
+                background-size:15%;
+            }
+            #formRegistration .modal-body {
+                background: url(/Static/images/maritime-pattern.png) no-repeat right 105% #444957;
+                background-size: 24%;
+                @include tablet {
+                  background: none;
+                  padding: 0;
+                }
+                @include mobile {
+                  background: none;
+                  padding: 0;
+                }
             }
             .registration-form-single-section .container {
                 background: url("/Static/images/maritime-pattern.png") no-repeat right 105% $grey-color03;
