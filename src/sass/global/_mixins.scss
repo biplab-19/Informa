@@ -1201,6 +1201,12 @@ $desktop-width: 1142px;
         }
         .fc-unthemed .fc-today {
             background: $secondarycolorlight;
+            @if($name==agri-theme) {
+                color: $grey-color04 !important;
+            }
+            @else{
+                color: $white !important;
+            }
         }
         @if($name==tmt-theme) {
             #mobile-header-navigation .navbar-image .logo-img-big{
