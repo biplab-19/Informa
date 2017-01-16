@@ -147,10 +147,19 @@ var INFORMA = window.INFORMA || {};
                         '</p>'+
                     '{{/compare}}'+
                     '<p class="date">{{PublicationDate}}</p>'+
-                    '{{#compare PageURL.length "0" operator=">"}}' +
-                        '<div class="list-content">'+
-                            '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}">{{Title}}</a></h4>'+
-                        '</div>'+
+                    '{{#compare PageURL null operator="!="}}' +
+                        '{{#compare PageURL.length "0" operator=">"}}' +
+                            '{{#compare HasExternalLink true operator="=="}}'+
+                                '<div class="list-content">'+
+                                    '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
+                                '</div>'+
+                            '{{/compare}}'+
+                            '{{#compare HasExternalLink false operator="=="}}'+
+                                '<div class="list-content">'+
+                                    '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}" target="_self">{{Title}}</a></h4>'+
+                                '</div>'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
                     '{{/compare}}'+
                     '{{#compare PageURL.length "0" operator="=="}}' +
                         '<div class="list-content">'+
@@ -159,10 +168,18 @@ var INFORMA = window.INFORMA || {};
                     '{{/compare}}'+
                     '{{#compare PageURL null operator="!="}}' +
                         '{{#compare PageURL.length "0" operator=">"}}' +
-                            '<div class="link">'+
-                                '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
-                                '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
-                            '</div>'+
+                            '{{#compare HasExternalLink true operator="=="}}'+
+                                '<div class="link">'+
+                                    '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
+                                    '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
+                                '</div>'+
+                            '{{/compare}}'+  
+                             '{{#compare HasExternalLink false operator="=="}}'+
+                                '<div class="link">'+
+                                    '<a role="button" href="{{PageURL}}" title="Internal Link" target="_self">'+
+                                    '<span class="icon-internal-link"><span class="access-link">Link</span></span></a>'+
+                                '</div>'+
+                            '{{/compare}}'+  
                         '{{/compare}}'+
                     '{{/compare}}'+
                 '</li>'+
