@@ -1,4 +1,4 @@
-/*! 2017-01-13 */@charset "UTF-8";
+/*! 2017-01-16 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -12741,45 +12741,50 @@ section#Pharma-ourproducts .products-carousel .slick-prev:before {
 .recomended-wrapper .SubSectors {
   padding-top: 0;
 }
-/* line 248, ../../../src/components/recomended-articles/sass/recomended-content.scss */
-.recomended-wrapper .SubSectors a {
+/* line 249, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+.recomended-wrapper .SubSectors span a {
   color: #565c6b;
   text-decoration: underline;
+  font-weight: 700;
 }
-/* line 252, ../../../src/components/recomended-articles/sass/recomended-content.scss */
-.recomended-wrapper .SubSectors a:after {
+/* line 254, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+.recomended-wrapper .SubSectors span:after {
   content: ' | ';
   margin-right: 5px;
 }
-/* line 257, ../../../src/components/recomended-articles/sass/recomended-content.scss */
-.recomended-wrapper .SubSectors a:last-child:after {
+/* line 259, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+.recomended-wrapper .SubSectors span:first-child:after {
   content: '';
 }
-/* line 263, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 264, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+.recomended-wrapper .SubSectors span:last-child:after {
+  content: '';
+}
+/* line 270, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .footer {
   padding: 0;
   margin-top: 15px;
   float: left;
   width: 100%;
 }
-/* line 268, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 275, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 .recomended-wrapper .footer .btn {
   width: 190px;
 }
 
-/* line 274, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 281, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .search-tile {
   margin-bottom: 15px;
 }
-/* line 277, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 284, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products .btn-ShowMore {
   margin-bottom: 30px;
 }
-/* line 281, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 288, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .more {
   display: none;
 }
-/* line 284, ../../../src/components/recomended-articles/sass/recomended-content.scss */
+/* line 291, ../../../src/components/recomended-articles/sass/recomended-content.scss */
 #relevant-products.showLess .less {
   display: block;
 }

@@ -245,13 +245,20 @@
 	}
 	.SubSectors{
 		padding-top: 0;
-		a {
-			//display: inline-block;
-			color: $grey-color04;
-			text-decoration: underline;
+		span {
+			a{
+				color: $grey-color04;
+				text-decoration: underline;
+				font-weight:700;
+			}
 			&:after {
 				content: ' | ';
 				margin-right: 5px;
+			}
+			&:first-child {
+				&:after {
+					content: '';
+				}
 			}
 			&:last-child {
 				&:after {
