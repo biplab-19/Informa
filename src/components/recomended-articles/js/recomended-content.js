@@ -18,6 +18,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         RecomendedCount = $(".tab-content .recomended-content").data("maximumnumberofarticles"),
         MaxArticleCount = (RecomendedCount !=="") ? RecomendedCount : 0,
         BtnMore = RecomendedWrapper.find('.btn-showMore'),
+        VViewPort = INFORMA.global.device.viewport,
+        DefaultArticleCount = $(".tab-content .recomended-content").attr('data-' + VViewPort),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
@@ -57,12 +59,6 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                         var Data = Articles[key],
                             TemplateName = (Templates.SampleContent !== "undefined") ? Templates.SampleContent : "",
                             ListTemplate = Handlebars.compile(TemplateName);
-                            if(Data.Price != null){
-                                if(Data.Price){
-                                    var replacezeroWidthSpace = Data.Price.replace(/\u200B/g,'');
-                                    Data.Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                }
-                            }
                             if($('.recommendation-tabs').length > 0) {
                                 if($('.welcome-description').hasClass('Authenticated')) {
                                     Data.IsAuthenticatedUser = true;
@@ -90,7 +86,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     }
                     equalHeight(RecomendedWrapper);
 
-                    if(RecomendedWrapper.find('.recomended-wrapper').length < MaxArticleCount || MaxArticleCount===0) {
+
+                    if(Articles.length > DefaultArticleCount && RecomendedWrapper.find('.recomended-wrapper').length < MaxArticleCount) {
                         BtnMore.removeClass('hidden');
                     } else {
                         BtnMore.addClass('hidden');
