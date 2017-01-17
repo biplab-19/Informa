@@ -1218,14 +1218,16 @@ $desktop-width: 1142px;
         .table-hover > tbody > tr:hover > th{
              background-color: $grey-color10;
         }
-        .fc-unthemed .fc-today {
-            background: $secondarycolorlight;
+        .fc-unthemed td.fc-today {
             @if($name==agri-theme) {
                 color: $grey-color04 !important;
             }
             @else{
                 color: $white !important;
             }
+        }
+        .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight{
+            background: $secondarycolorlight;
         }
         @if($name==tmt-theme) {
             #mobile-header-navigation .navbar-image .logo-img-big{

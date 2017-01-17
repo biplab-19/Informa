@@ -870,12 +870,15 @@
   background-color: #f0f1f3;
 }
 /* line 1221, ../../../src/sass/global/_mixins.scss */
-.tmt-theme .fc-unthemed .fc-today {
-  background: #ba1156;
+.tmt-theme .fc-unthemed td.fc-today {
   color: #fff !important;
 }
+/* line 1229, ../../../src/sass/global/_mixins.scss */
+.tmt-theme .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
+  background: #ba1156;
+}
 @media (max-width: 1141px) {
-  /* line 1231, ../../../src/sass/global/_mixins.scss */
+  /* line 1233, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #mobile-header-navigation .navbar-image .logo-img-big {
     width: auto !important;
     transform: translate(0, -40%);
@@ -883,7 +886,7 @@
   }
 }
 @media (max-width: 1141px) {
-  /* line 1238, ../../../src/sass/global/_mixins.scss */
+  /* line 1240, ../../../src/sass/global/_mixins.scss */
   .tmt-theme header section.informaNav .navbar-brand .logo-img-big {
     width: auto !important;
     transform: translate(-50%, -60%);
@@ -891,7 +894,7 @@
   }
 }
 @media (min-width: 1142px) {
-  /* line 1238, ../../../src/sass/global/_mixins.scss */
+  /* line 1240, ../../../src/sass/global/_mixins.scss */
   .tmt-theme header section.informaNav .navbar-brand .logo-img-big {
     top: -15px;
     left: 10px;
@@ -900,34 +903,34 @@
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 1252, ../../../src/sass/global/_mixins.scss */
+  /* line 1254, ../../../src/sass/global/_mixins.scss */
   .tmt-theme .navbar > .container .navbar-brand {
     margin-left: 0;
   }
 }
 @media (max-width: 1141px) {
-  /* line 1261, ../../../src/sass/global/_mixins.scss */
+  /* line 1263, ../../../src/sass/global/_mixins.scss */
   .tmt-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1264, ../../../src/sass/global/_mixins.scss */
+  /* line 1266, ../../../src/sass/global/_mixins.scss */
   .tmt-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #d11361;
   }
-  /* line 1280, ../../../src/sass/global/_mixins.scss */
+  /* line 1282, ../../../src/sass/global/_mixins.scss */
   .tmt-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #d11361;
   }
 }
-/* line 1288, ../../../src/sass/global/_mixins.scss */
+/* line 1290, ../../../src/sass/global/_mixins.scss */
 .tmt-theme body svg.spinner-loader {
   stroke: #DB0A35;
 }
-/* line 1292, ../../../src/sass/global/_mixins.scss */
+/* line 1294, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section a {
   color: #f5708c;
 }
-/* line 1299, ../../../src/sass/global/_mixins.scss */
+/* line 1301, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #8c073d;
 }
