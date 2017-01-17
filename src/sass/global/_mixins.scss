@@ -1169,6 +1169,25 @@ $desktop-width: 1142px;
                 }
             }
         }
+        .product-finder form button[type=submit]{
+            @if($name==agri-theme){
+                &:hover{
+                    color: $grey-color04;
+                }
+            }
+        }
+        
+
+        .hover-arrow{
+            .btn, &:after{
+                @if($name==agri-theme){
+                    color: $grey-color04 !important;
+                }
+                else{
+                    color: $white;
+                }
+            }
+        }
 
         .more-stories .feature li {
                 &:before {
@@ -1245,6 +1264,18 @@ $desktop-width: 1142px;
                               &.move-left{
                                 background: lighten( $secondarycolorlight, 5%);
                               }
+                              a{
+                                @if($name==agri-theme){
+                                    color: $grey-color04;
+                                }
+                              }
+                        }
+                        .nav-pdp-nondesktop-sticky{
+                            .subscribe-stick{
+                                @if($name==agri-theme){
+                                    color: $grey-color04;
+                                }
+                            }
                         }
                         #pdp-sections{
                              background: lighten( $secondarycolorlight, 5%);

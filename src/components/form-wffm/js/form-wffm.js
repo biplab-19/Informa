@@ -49,7 +49,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _productDropdownUpdate,
         _setFormModalFocus,
          _UpdateProductName,
-        _changeProductDropdown;
+        _changeProductDropdown,
+        _formBtnOnHover;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -357,6 +358,15 @@ INFORMA.forms = (function(window, $, namespace) {
             } else {
                 return false;
             }
+        });
+    }
+
+    _formBtnOnHover = function(){
+        $('.form-submit-border .btn').on('mouseover', function() {
+            $('.form-submit-border').addClass('hover-arrow');
+        });
+        $('.form-submit-border .btn').on('mouseout', function() {
+            $('.form-submit-border').removeClass('hover-arrow');
         });
     }
 
@@ -839,6 +849,7 @@ INFORMA.forms = (function(window, $, namespace) {
         //_resetDefaultTitle();
         _setFormModalFocus();
         _changeProductDropdown();
+        _formBtnOnHover();
     };
 
     return {
