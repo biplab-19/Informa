@@ -621,8 +621,18 @@ $desktop-width: 1142px;
             .header {
                 .arrows {
                     background: $secondarycolorlight;
+                    @if($name==agri-theme){
+                        &:before{
+                            color: $grey-color04;
+                        }
+                    }
                     &.arrow-desabled {
                         background-color: grey;
+                        @if($name==agri-theme){
+                            &:before{
+                                color: $white;
+                            }
+                        }
                     }
                 }
             }
@@ -633,8 +643,18 @@ $desktop-width: 1142px;
         .fc-state-default.fc-corner-right,
         .fc-state-default.fc-corner-left {
             background: $secondarycolorlight;
+            @if($name==agri-theme){
+                .fc-icon{
+                    color: $grey-color04;
+                }
+            }
             &.disabled {
                 background-color: grey;
+                 @if($name==agri-theme){
+                    .fc-icon{
+                        color: $white;
+                    }
+                }
             }
         }
         .fc .events-wrap .events.current p.title:before {
