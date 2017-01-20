@@ -1,4 +1,4 @@
-/*! 2017-01-17 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2017-01-20 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -90,12 +90,9 @@
 /* line 246, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .bg-gray-dark .btn-default {
   border: 2px solid #fff;
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 246, ../../../src/sass/global/_mixins.scss */
-  .tmt-theme .bg-gray-dark .btn-default {
+  /*@include tablet {
     width: 130%;
-  }
+  }*/
 }
 /* line 251, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .bg-gray-dark .btn-default:after {
@@ -434,59 +431,59 @@
 .tmt-theme .events-list .header .arrows {
   background: #ba1156;
 }
-/* line 624, ../../../src/sass/global/_mixins.scss */
+/* line 629, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .events-list .header .arrows.arrow-desabled {
   background-color: grey;
 }
-/* line 630, ../../../src/sass/global/_mixins.scss */
+/* line 640, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .event-present.fc-future:before {
   background: #DB0A35 !important;
 }
-/* line 633, ../../../src/sass/global/_mixins.scss */
+/* line 643, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-state-default.fc-corner-right,
 .tmt-theme .fc-state-default.fc-corner-left {
   background: #ba1156;
 }
-/* line 636, ../../../src/sass/global/_mixins.scss */
+/* line 651, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-state-default.fc-corner-right.disabled,
 .tmt-theme .fc-state-default.fc-corner-left.disabled {
   background-color: grey;
 }
-/* line 640, ../../../src/sass/global/_mixins.scss */
+/* line 660, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc .events-wrap .events.current p.title:before {
   background: #DB0A35 !important;
 }
-/* line 644, ../../../src/sass/global/_mixins.scss */
+/* line 664, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-center h2 {
   padding: 0;
 }
-/* line 650, ../../../src/sass/global/_mixins.scss */
+/* line 670, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .twitter-carousel .feed-heading span {
   color: #fff;
 }
-/* line 655, ../../../src/sass/global/_mixins.scss */
+/* line 675, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .twitter-carousel .message a {
   color: #fff;
   border-bottom: 1px solid #fff;
   word-wrap: break-word;
 }
-/* line 662, ../../../src/sass/global/_mixins.scss */
+/* line 682, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .view-all-mobile-container {
   border-bottom: solid 1px #ba1156;
 }
-/* line 664, ../../../src/sass/global/_mixins.scss */
+/* line 684, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .view-all-mobile-container .informa-icon {
   color: #ba1156;
 }
-/* line 672, ../../../src/sass/global/_mixins.scss */
+/* line 692, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .register-myinterests-section .triangle-nav li.active a:after {
   border-left: 30px solid #DB0A35;
 }
-/* line 678, ../../../src/sass/global/_mixins.scss */
+/* line 698, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .font-color, .tmt-theme .register-myinterests-section .triangle-nav li.active a {
   color: #fff;
 }
-/* line 690, ../../../src/sass/global/_mixins.scss */
+/* line 710, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .feature li:before {
   content: "\e914";
   font-family: 'InformaIcons';
@@ -499,69 +496,69 @@
   border-radius: 50%;
   font-weight: normal;
 }
-/* line 703, ../../../src/sass/global/_mixins.scss */
+/* line 723, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .sprite-image, .tmt-theme .product-brands-list .card .caption h4:after,
 .tmt-theme .product-results .list-items .products h4:after {
   background-position: -7px -233px;
   width: 25px;
   height: 34px;
 }
-/* line 741, ../../../src/sass/global/_mixins.scss */
+/* line 761, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-login .login-links .list ul li::after {
   color: #f5708c;
 }
-/* line 747, ../../../src/sass/global/_mixins.scss */
+/* line 767, ../../../src/sass/global/_mixins.scss */
 .tmt-theme ul.nav-tabs li.active {
   border-bottom: 5px solid #DB0A35;
 }
-/* line 752, ../../../src/sass/global/_mixins.scss */
+/* line 772, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #mobile-header-navigation .nav-subnav-heading {
   color: #f5708c;
 }
 @media (min-width: 1142px) {
-  /* line 757, ../../../src/sass/global/_mixins.scss */
+  /* line 777, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #sub-nav .subnav-container .content {
     margin-left: 30px;
   }
-  /* line 760, ../../../src/sass/global/_mixins.scss */
+  /* line 780, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #sub-nav .subnav-container .content:first-child, .tmt-theme #sub-nav .subnav-container .content:last-child {
     margin-left: 0px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 767, ../../../src/sass/global/_mixins.scss */
+  /* line 787, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #sub-nav .subnav-container .heading .top {
     padding: 0 0 15px 0;
   }
 }
-/* line 771, ../../../src/sass/global/_mixins.scss */
+/* line 791, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #sub-nav .subnav-container .heading .top:first-child {
   border: none;
 }
-/* line 787, ../../../src/sass/global/_mixins.scss */
+/* line 807, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #analyst-profile .show-options {
   border-bottom: 2px solid #ba1156;
 }
-/* line 789, ../../../src/sass/global/_mixins.scss */
+/* line 809, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #analyst-profile .show-options:after {
   color: #ba1156;
 }
-/* line 794, ../../../src/sass/global/_mixins.scss */
+/* line 814, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .popover {
   background: #ba1156;
   width: 175px;
   top: -36px;
 }
-/* line 798, ../../../src/sass/global/_mixins.scss */
+/* line 818, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .popover .popover-content {
   color: #fff;
   font-family: 'FSMe-bold';
 }
-/* line 807, ../../../src/sass/global/_mixins.scss */
+/* line 827, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .popover.right .arrow:after {
   border-right-color: #ba1156;
 }
-/* line 811, ../../../src/sass/global/_mixins.scss */
+/* line 831, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn {
   width: 180px;
   background: transparent;
@@ -570,15 +567,15 @@
   border-radius: 0;
   border-width: 2px;
 }
-/* line 819, ../../../src/sass/global/_mixins.scss */
+/* line 839, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-faq-more {
   border-bottom: 2px solid #ba1156 !important;
 }
-/* line 821, ../../../src/sass/global/_mixins.scss */
+/* line 841, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-faq-more:after {
   color: #ba1156;
 }
-/* line 825, ../../../src/sass/global/_mixins.scss */
+/* line 845, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-showMore,
 .tmt-theme .btn-plus {
   background: none;
@@ -594,7 +591,7 @@
   position: relative;
   text-decoration: none;
 }
-/* line 839, ../../../src/sass/global/_mixins.scss */
+/* line 859, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-showMore:after,
 .tmt-theme .btn-plus:after {
   font-family: 'InformaIcons';
@@ -606,35 +603,35 @@
   font-size: 30px;
   top: -2px;
 }
-/* line 849, ../../../src/sass/global/_mixins.scss */
+/* line 869, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-showMore:hover,
 .tmt-theme .btn-plus:hover {
   border-bottom: 2px solid #DB0A35;
   text-decoration: none;
 }
-/* line 853, ../../../src/sass/global/_mixins.scss */
+/* line 873, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-showMore span.more,
 .tmt-theme .btn-showMore span.less,
 .tmt-theme .btn-plus span.more,
 .tmt-theme .btn-plus span.less {
   text-decoration: none;
 }
-/* line 860, ../../../src/sass/global/_mixins.scss */
+/* line 880, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .meet-anlyst-section .analyst-details h4,
 .tmt-theme .meet-anlyst-section .analyst-details h3,
 .tmt-theme .meet-anlyst-section .analyst-details h5,
 .tmt-theme .meet-anlyst-section .analyst-details p {
   color: #fff;
 }
-/* line 868, ../../../src/sass/global/_mixins.scss */
+/* line 888, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .contactus-list {
   background: #444957;
 }
-/* line 878, ../../../src/sass/global/_mixins.scss */
+/* line 898, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .headline-list h4 a {
   color: #565c6b;
 }
-/* line 883, ../../../src/sass/global/_mixins.scss */
+/* line 903, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-default {
   min-width: 230px;
   text-align: left;
@@ -643,7 +640,7 @@
   border-color: #DB0A35;
   position: relative;
 }
-/* line 890, ../../../src/sass/global/_mixins.scss */
+/* line 910, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-default:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -651,31 +648,31 @@
   position: absolute;
   color: #DB0A35;
 }
-/* line 897, ../../../src/sass/global/_mixins.scss */
+/* line 917, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-default:hover {
   border: 2px solid #ba1156;
 }
-/* line 899, ../../../src/sass/global/_mixins.scss */
+/* line 919, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-default:hover:after {
   color: #ba1156;
 }
-/* line 905, ../../../src/sass/global/_mixins.scss */
+/* line 925, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-container .btn-default {
   border: 2px solid #DB0A35;
 }
-/* line 907, ../../../src/sass/global/_mixins.scss */
+/* line 927, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-container .btn-default:after {
   color: #DB0A35;
 }
-/* line 910, ../../../src/sass/global/_mixins.scss */
+/* line 930, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-container .btn-default:hover {
   border: 2px solid #ba1156;
 }
-/* line 912, ../../../src/sass/global/_mixins.scss */
+/* line 932, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-container .btn-default:hover:after {
   color: #ba1156;
 }
-/* line 918, ../../../src/sass/global/_mixins.scss */
+/* line 938, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-primary {
   text-align: left;
   padding-top: 15px;
@@ -685,7 +682,7 @@
   color: #fff;
   position: relative;
 }
-/* line 926, ../../../src/sass/global/_mixins.scss */
+/* line 946, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-primary:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -693,11 +690,11 @@
   font-weight: bold;
   position: absolute;
 }
-/* line 933, ../../../src/sass/global/_mixins.scss */
+/* line 953, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-primary a {
   color: #fff;
 }
-/* line 940, ../../../src/sass/global/_mixins.scss */
+/* line 960, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-previous {
   color: #fff;
   min-width: 180px;
@@ -709,7 +706,7 @@
   position: relative;
   z-index: 9;
 }
-/* line 950, ../../../src/sass/global/_mixins.scss */
+/* line 970, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-previous:before {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -721,19 +718,19 @@
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 962, ../../../src/sass/global/_mixins.scss */
+/* line 982, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-previous:hover {
   border-color: #6a7285;
 }
-/* line 967, ../../../src/sass/global/_mixins.scss */
+/* line 987, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.articlepage-freearticle a {
   color: #f5708c;
 }
-/* line 969, ../../../src/sass/global/_mixins.scss */
+/* line 989, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.articlepage-freearticle a:hover {
   color: #f5708c;
 }
-/* line 975, ../../../src/sass/global/_mixins.scss */
+/* line 995, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section .phone-number a,
 .tmt-theme #contactus-section .phone-number,
 .tmt-theme #contactus-section .email a,
@@ -741,144 +738,144 @@
   color: #DB0A35;
   font-weight: bold;
 }
-/* line 982, ../../../src/sass/global/_mixins.scss */
+/* line 1002, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section a.btn {
   color: #fff;
   width: 100%;
 }
 @media (min-width: 1142px) {
-  /* line 982, ../../../src/sass/global/_mixins.scss */
+  /* line 1002, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #contactus-section a.btn {
     width: auto;
     min-width: 220px;
   }
 }
-/* line 989, ../../../src/sass/global/_mixins.scss */
+/* line 1009, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section a.btn:after {
   color: #fff;
 }
-/* line 993, ../../../src/sass/global/_mixins.scss */
+/* line 1013, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section .subscribe-link {
   background: #DB0A35 url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
 }
-/* line 995, ../../../src/sass/global/_mixins.scss */
+/* line 1015, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section .subscribe-link:after {
   color: #fff;
 }
-/* line 1000, ../../../src/sass/global/_mixins.scss */
+/* line 1020, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .open-quote {
   color: rgba(186, 17, 86, 0.8);
 }
-/* line 1004, ../../../src/sass/global/_mixins.scss */
+/* line 1024, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .demo-item {
   height: 100px;
   background-color: rgba(186, 17, 86, 0.8);
 }
-/* line 1092, ../../../src/sass/global/_mixins.scss */
+/* line 1112, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-login .login-links {
   background: url(/Static/images/tmt-pattern.png) no-repeat bottom right #444957;
   background-size: 20%;
 }
-/* line 1096, ../../../src/sass/global/_mixins.scss */
+/* line 1116, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .dashboard {
   background: url(/Static/images/tmt-pattern.png) no-repeat right 100% #444957;
   background-size: 15%;
 }
-/* line 1100, ../../../src/sass/global/_mixins.scss */
+/* line 1120, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #formRegistration .modal-body {
   background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
   background-size: 24%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 1100, ../../../src/sass/global/_mixins.scss */
+  /* line 1120, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #formRegistration .modal-body {
     background: none;
     padding: 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 1100, ../../../src/sass/global/_mixins.scss */
+  /* line 1120, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #formRegistration .modal-body {
     background: none;
     padding: 0;
   }
 }
-/* line 1112, ../../../src/sass/global/_mixins.scss */
+/* line 1132, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .registration-form-single-section .container {
   background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
   background-size: 20%;
 }
-/* line 1126, ../../../src/sass/global/_mixins.scss */
+/* line 1146, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .tab-pane .error-response h2:before,
 .tmt-theme .tab-pane .submit-response h2:before {
   color: #ba1156;
 }
-/* line 1138, ../../../src/sass/global/_mixins.scss */
+/* line 1158, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .form-modal .modal-body .form-inline-container .error-response h2:before,
 .tmt-theme .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #ba1156;
 }
-/* line 1146, ../../../src/sass/global/_mixins.scss */
+/* line 1166, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .infograph .number-container {
   color: #f5708c;
 }
-/* line 1151, ../../../src/sass/global/_mixins.scss */
+/* line 1171, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .welcome-description .tool p a {
   color: #f5708c;
 }
-/* line 1157, ../../../src/sass/global/_mixins.scss */
+/* line 1177, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
-/* line 1164, ../../../src/sass/global/_mixins.scss */
+/* line 1184, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .marketing-banner.Variation2 .btn, .tmt-theme .marketing-banner.Variation1 .btn {
   background: #DB0A35;
 }
-/* line 1166, ../../../src/sass/global/_mixins.scss */
+/* line 1186, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .marketing-banner.Variation2 .btn:after, .tmt-theme .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
-/* line 1186, ../../../src/sass/global/_mixins.scss */
+/* line 1206, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .hover-arrow .btn else, .tmt-theme .hover-arrow:after else {
   color: #fff;
 }
-/* line 1193, ../../../src/sass/global/_mixins.scss */
+/* line 1213, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .more-stories .feature li:before {
   color: #8c073d;
 }
-/* line 1198, ../../../src/sass/global/_mixins.scss */
+/* line 1218, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-bordered {
   margin: 20px auto;
 }
-/* line 1202, ../../../src/sass/global/_mixins.scss */
+/* line 1222, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-bordered > thead > tr > th {
   background-color: #8c073d;
   color: #fff;
 }
-/* line 1209, ../../../src/sass/global/_mixins.scss */
+/* line 1229, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1212, ../../../src/sass/global/_mixins.scss */
+/* line 1232, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-bordered > tbody td {
   color: #565c6b;
 }
-/* line 1217, ../../../src/sass/global/_mixins.scss */
+/* line 1237, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-hover > tbody > tr:hover > td,
 .tmt-theme .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
-/* line 1221, ../../../src/sass/global/_mixins.scss */
+/* line 1241, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-unthemed td.fc-today {
   color: #fff !important;
 }
-/* line 1229, ../../../src/sass/global/_mixins.scss */
+/* line 1249, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
   background: #ba1156;
 }
 @media (max-width: 1141px) {
-  /* line 1233, ../../../src/sass/global/_mixins.scss */
+  /* line 1253, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #mobile-header-navigation .navbar-image .logo-img-big {
     width: auto !important;
     transform: translate(0, -40%);
@@ -886,7 +883,7 @@
   }
 }
 @media (max-width: 1141px) {
-  /* line 1240, ../../../src/sass/global/_mixins.scss */
+  /* line 1260, ../../../src/sass/global/_mixins.scss */
   .tmt-theme header section.informaNav .navbar-brand .logo-img-big {
     width: auto !important;
     transform: translate(-50%, -60%);
@@ -894,7 +891,7 @@
   }
 }
 @media (min-width: 1142px) {
-  /* line 1240, ../../../src/sass/global/_mixins.scss */
+  /* line 1260, ../../../src/sass/global/_mixins.scss */
   .tmt-theme header section.informaNav .navbar-brand .logo-img-big {
     top: -15px;
     left: 10px;
@@ -903,34 +900,34 @@
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 1254, ../../../src/sass/global/_mixins.scss */
+  /* line 1274, ../../../src/sass/global/_mixins.scss */
   .tmt-theme .navbar > .container .navbar-brand {
     margin-left: 0;
   }
 }
 @media (max-width: 1141px) {
-  /* line 1263, ../../../src/sass/global/_mixins.scss */
+  /* line 1283, ../../../src/sass/global/_mixins.scss */
   .tmt-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1266, ../../../src/sass/global/_mixins.scss */
+  /* line 1286, ../../../src/sass/global/_mixins.scss */
   .tmt-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #d11361;
   }
-  /* line 1282, ../../../src/sass/global/_mixins.scss */
+  /* line 1302, ../../../src/sass/global/_mixins.scss */
   .tmt-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #d11361;
   }
 }
-/* line 1290, ../../../src/sass/global/_mixins.scss */
+/* line 1310, ../../../src/sass/global/_mixins.scss */
 .tmt-theme body svg.spinner-loader {
   stroke: #DB0A35;
 }
-/* line 1294, ../../../src/sass/global/_mixins.scss */
+/* line 1314, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section a {
   color: #f5708c;
 }
-/* line 1301, ../../../src/sass/global/_mixins.scss */
+/* line 1321, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #8c073d;
 }

@@ -1,4 +1,4 @@
-/*! 2017-01-18 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2017-01-20 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -90,12 +90,9 @@
 /* line 246, ../../../src/sass/global/_mixins.scss */
 .agri-theme .bg-gray-dark .btn-default {
   border: 2px solid #fff;
-}
-@media (min-width: 768px) and (max-width: 1141px) {
-  /* line 246, ../../../src/sass/global/_mixins.scss */
-  .agri-theme .bg-gray-dark .btn-default {
+  /*@include tablet {
     width: 130%;
-  }
+  }*/
 }
 /* line 251, ../../../src/sass/global/_mixins.scss */
 .agri-theme .bg-gray-dark .btn-default:after {
