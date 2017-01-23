@@ -1,0 +1,69 @@
+@media print {
+	.cookieBanner,.slick-next,.slick-prev,.slick-arrow,header,footer,.arrows,.fc-left,.fc-right,
+	 #pdp-navigation{
+	  	display: none !important;
+	}
+	.img-responsive, img{
+		width: auto !important;
+	}
+	a[href]:after{
+		content: '';
+	}
+	section{
+		border-bottom: 1px solid $black;
+		&.sectorpage-strengths{
+			.yellow-container,.wrap{
+				position: relative;
+				float: left;
+			}
+			.slant {
+				display: none !important;
+			}
+		}
+		.analyst-footer{
+			&:after{
+				background-color: transparent !important;
+		    }		
+		}
+		.events-search{
+			.col-xs-12{
+				width: auto;
+			}
+		}
+		.product-results{
+			.list-items,.recomend-content,.wrap-content{
+				height: 100% !important;
+			}
+			.button-links-wrap{
+				margin: 0 !important;
+				a{
+					width: 98% !important;
+				}
+			}
+		}
+		.product-brands-list{
+			.caption{
+				height: 100% !important;
+			}
+		}
+		.btn-container{
+			padding: 0 !important;
+		}
+		.contactus-list{
+			.panel-default{
+				height: 100% !important;
+			}
+		}
+		.meet-anlyst-section{
+			.analyst-description{
+				height: 100% !important;
+			}
+		}
+	}
+	.btn-default{
+		border: 2px solid $black !important;
+		&:after{
+			color: $black !important;
+		}
+	}
+}

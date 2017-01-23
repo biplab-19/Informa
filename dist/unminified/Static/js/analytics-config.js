@@ -74,7 +74,7 @@ var config = {
              "adobe": true
          },
         {
-            "gaKey": "UA-81001424-1",
+            "gaKey": "UA-81001424-4",
             "host": "istage-tmtintelligence.informa.com",
             "name": "TMT Intelligence",
             "theme": "tmt",
@@ -82,7 +82,7 @@ var config = {
             "adobe": true
         },
         {
-            "gaKey": "UA-81001424-1",
+            "gaKey": "UA-81001424-7",
             "host": "istage-financialintelligence.informa.com",
             "name": "Financial Intelligence",
             "theme": "financial",
@@ -114,7 +114,7 @@ var config = {
             "adobe": true
         },
         {
-            "gaKey": "UA-81001424-1",
+            "gaKey": "UA-81001424-4",
             "host": "iprod-tmtintelligence.informa.com",
             "name": "TMT Intelligence",
             "theme": "tmt",
@@ -122,7 +122,7 @@ var config = {
             "adobe": true
         },
         {
-            "gaKey": "UA-81001424-1",
+            "gaKey": "UA-81001424-7",
             "host": "iprod-financialintelligence.informa.com",
             "name": "Financial Intelligence",
             "theme": "financial",
@@ -154,15 +154,15 @@ var config = {
             "adobe": true
         },
         {
-            "gaKey": "UA-81001424-3",
-            "host": "tmtintelligence.informa.com",
+            "gaKey": "UA-81001424-5",
+            "host": "ovum.informa.com",
             "name": "TMT Intelligence",
             "theme": "tmt",
             "google": true,
             "adobe": true
         },
         {
-            "gaKey": "UA-81001424-3",
+            "gaKey": "UA-81001424-6",
             "host": "financialintelligence.informa.com",
             "name": "Financial Intelligence",
             "theme": "financial",

@@ -285,8 +285,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     PData = GetPaginationData(TileList, currentSection),
                     ProdData = INFORMA.ProductFinder.GetProductData(),
                     GetDefaultData = GetDefaultValues(),
-                    FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                    Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
+                    FilterData = INFORMA.SearchResultFilter.GetRefineData();
+
+                    if((SearchType === "ProductSearch") && ('Product' in PData)) {
+                        PData['CurrentProduct'] = PData.Product;
+                    } 
+                    var Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
 
                 if (!$(currentSection).hasClass('showLess')) {
                     $(currentSection).addClass('showLess');
@@ -369,6 +373,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                                         $(this).removeAttr("disabled");
                                      }else{
                                         $(this).attr("disabled","disabled");
+                                        $(this).prop("checked",false);
                                      }
                             });
                             SelectAllChkBox.removeAttr("disabled");
@@ -377,6 +382,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if(CheckBoxes && Facet && RefineObj.length<1){
                             $.each(CheckBoxes, function() {         
                                  $(this).attr("disabled","disabled");
+                                 $(this).prop("checked",false);
                             });
                             SelectAllChkBox.attr("disabled","disabled");
                             Links.addClass("disabled");

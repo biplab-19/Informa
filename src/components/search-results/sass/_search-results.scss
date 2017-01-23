@@ -16,6 +16,10 @@
         background-color: $white;
         width: 75%;
         float: left;
+        @include desktop {
+            width: 80%;
+            padding: 35px 0 20px 15px;
+        }
         @include tablet {
             width: 100%;
             padding: 20px 0;
@@ -351,7 +355,7 @@
                 width: 116%;
                 padding-right: 8%;
                 @include mobile {
-                    margin: 10px 0 0 -20px;
+                    margin: 10px 0 0 -13px;
                 }
                 @include tablet {
                     margin: 10px 0 0 -20px;
@@ -363,11 +367,16 @@
                     padding: 14px 20px;
                     @include mobile {
                         padding: 15px 30px;
+                        margin-top: 0;
                     }
                     @include tablet {
                         padding: 15px 25px;
+                        margin-top: 0;
                     }
-
+                    .col-xs-6 {
+                        position: relative;
+                        bottom: 10px;
+                    }
                     @include desktop {
                         .col-xs-6 {
                             &:first-child {
@@ -393,7 +402,7 @@
         }
         .recomended-wrapper {
             background-color: $grey-color10;
-            padding: 20px 20px 10px;
+            padding: 25px 20px 10px;
             .topics {
                 strong {
                     display: inline;
@@ -426,7 +435,7 @@
                     text-align: right;
                     margin: 5px 0 0;
                     position: relative;
-                    bottom: 10px;
+                    bottom: 15px;
                     .btn {
                         min-width: initial;
                         min-width: auto;

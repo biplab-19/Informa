@@ -1,5 +1,5 @@
 
-/*! 2017-01-06 *//*
+/*! 2017-01-13 *//*
  * google-analytics.js
  *
  *
@@ -18,7 +18,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
     var trackFormEvents,
     trackEvents,
     trackFormWithoutModal,
-    bannerText = $('#banner').find("a");
+    bannerText = $('#banner').find("a.subscribe-stick");
 
     trackFormEvents = function(obj, action, label){
       if(typeof obj === 'object'){
@@ -107,21 +107,22 @@ INFORMA.Analytics = (function(window, $, namespace) {
      
     }
 
-      bannerText.click(function (event) {
-        var text = $(this).text();
-        if(text === 'Product login'){
-           trackEvents('Form', 'Open', 'ProductLogin',1)
-        }
-      });
+    bannerText.click(function (event) {
+      var input = $(this).text();
+      var output = input.replace(/\w+/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1);
+      }).replace(/\s/g, '');
+      trackEvents('Form', 'Open', output,1)
+    });
 
-      $('body').on('click', '.register,.product-login', function(e) {
-          if($(this).hasClass('EventRegister')){
-             trackEvents('Form', 'Open', 'EventRegister',1)
-          }
-          else if($(this).hasClass('product-login')){
-            trackEvents('Form', 'Open', 'ProductLogin',1)
-          }
-      })
+    $('body').on('click', '.register,.product-login', function(e) {
+      if($(this).hasClass('register')){
+         trackEvents('Form', 'Open', 'EventRegister',1)
+      }
+      else if($(this).hasClass('product-login')){
+        trackEvents('Form', 'Open', 'ProductLogin',1)
+      }
+    })
     return {
         trackFormEvents: trackFormEvents
     };
@@ -8844,7 +8845,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _bindClickEvents,
         _bindNavigationEvents,
         _cookieBannerExist,
-        _PdpNavReArrange;
+        _PdpNavReArrange,
+        _addClassFixed,
+        _removeClassFixed,
+        _pdpListItemScroll;
 
 
 
@@ -8894,8 +8898,41 @@ INFORMA.globalHeader = (function(window, $, namespace) {
               _cookieHeight =  0;
         }
    }
-    // both pdp nav and main nav handled here
 
+   //Add fixed class for Mobile and Tablet
+   _addClassFixed = function(){
+        _mobileNavigation.addClass(_fixed);
+        _cookieBanner.addClass(_fixed);
+        _mobileNavigation.css('top', _cookieHeight);
+        $('body').css('padding-top', _navHeightMobile);
+   }
+   
+   //Remove fixed class for Mobile and Tablet
+   _removeClassFixed = function(){
+        _mobileNavigation.removeClass(_fixed);
+        _cookieBanner.removeClass(_fixed);
+        _mobileNavigation.css('top', 0);
+        $('body').css('padding-top', 0);
+   }
+
+   //scroll pdp list item
+   _pdpListItemScroll = function(){
+        var pdpListHeight = $('#pdp-sections ul li').height()*$('#pdp-sections ul li').length;
+        var pdpSectionheight = $(window).height() - _navHeightMobile - $('#pdp-navigation .nav-pdp-nondesktop').outerHeight() - _cookieHeight;
+        var pdpHeadingHeight = $('#pdp-sections-heading').height();
+        if((pdpListHeight + pdpHeadingHeight) > pdpSectionheight){
+            $('#pdp-sections').height(pdpSectionheight);
+            $('#pdp-sections').css('overflow' , 'auto');
+        } 
+        else{
+            $('#pdp-sections').css({
+                'height':'auto',
+                'overflow':'hidden'
+            })
+        }
+   }
+
+    // both pdp nav and main nav handled here
     _whenScrolling = function() {
         $(window).on('scroll', function() {
 
@@ -8936,18 +8973,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         var _windowPosMobile = $(window).scrollTop();
         _cookieBannerExist();
         if (_windowPosMobile > _headerPosMobile + _cookieHeight) {
-            _mobileNavigation.addClass(_fixed);
-            _cookieBanner.addClass(_fixed);
-            _mobileNavigation.css('top', _cookieHeight);
-            $('body').css('padding-top', _navHeightMobile);
+            _addClassFixed();
             _mobileHeaderNavigation.css({
                 'z-index': '2000'
             });
         } else {
-            _mobileNavigation.removeClass(_fixed);
-            _cookieBanner.removeClass(_fixed);
-            _mobileNavigation.css('top', 0);
-            $('body').css('padding-top', 0);
+            _removeClassFixed();
             _mobileHeaderNavigation.css({
                 'z-index': '2'
             });
@@ -8967,14 +8998,25 @@ INFORMA.globalHeader = (function(window, $, namespace) {
               // }
               // }
             }else{
-                $('#pdp-sections').slideDown();
+                $('#pdp-sections').slideDown(function() {
+                    if(!INFORMA.global.device.isDesktop){
+                        if(_pdpNavigation.hasClass(_fixed)){
+                            _pdpListItemScroll();
+                            $('#pdp-sections').animate({
+                                    scrollTop: 0
+                            }, 500);
+                        }
+                    }
+                });
+                
+                
               //   if(_pdpLinksCont>6){
               //   //$('nav#pdp-navigation').addClass('deviceactive');
               //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
               //   $('body').addClass('global-no-scroll');
               // }
               // }
-            }
+            } 
         });
     }
 
@@ -9068,6 +9110,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.nav-pdp-nondesktop').addClass('move-left');
 
             if (!INFORMA.global.device.isDesktop && !_pdpStickyMobileFlag) {
+              _addClassFixed();
               var leftOfPdpMover = _pdpMenuFollower.css('left');
                 _tryStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _subscribeStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
@@ -9078,6 +9121,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 }
                 $('.nav-pdp-nondesktop-sticky').addClass('move-left');
                 _pdpMenuFollower.css('left', leftOfPdpMover + $('#pdp-sections-heading').outerWidth());
+                _pdpListItemScroll();
             }
 
             if (_arrayFlag) {
@@ -9112,10 +9156,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                 if (!INFORMA.global.device.isDesktop){
                     _pdpStickyMobileFlag = false;
+                    _removeClassFixed();
                     $('.nav-pdp-nondesktop-sticky').empty();
                     $('#pdp-sections-heading').text('');
                     $('#pdp-sections-heading').removeClass('move-left');
                     $('.nav-pdp-nondesktop').removeClass('move-left');
+                    $('#pdp-sections').css({
+                        'height':'auto',
+                        'overflow':'hidden'
+                    })
                 }
             }
 
@@ -10964,6 +11013,7 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
                 if ($(option).parent().hasClass("Sector") === true) {
                     if (checked) {
                         SectorList.push($(option).val());
+                        ResourceSbmtBtn.removeClass("disabled");
                     } else {
                         var index = SectorList.indexOf($(option).val());
                         if (index >= 0) {
@@ -11668,8 +11718,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     PData = GetPaginationData(TileList, currentSection),
                     ProdData = INFORMA.ProductFinder.GetProductData(),
                     GetDefaultData = GetDefaultValues(),
-                    FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                    Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
+                    FilterData = INFORMA.SearchResultFilter.GetRefineData();
+
+                    if((SearchType === "ProductSearch") && ('Product' in PData)) {
+                        PData['CurrentProduct'] = PData.Product;
+                    } 
+                    var Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
 
                 if (!$(currentSection).hasClass('showLess')) {
                     $(currentSection).addClass('showLess');
@@ -11752,6 +11806,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                                         $(this).removeAttr("disabled");
                                      }else{
                                         $(this).attr("disabled","disabled");
+                                        $(this).prop("checked",false);
                                      }
                             });
                             SelectAllChkBox.removeAttr("disabled");
@@ -11760,6 +11815,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if(CheckBoxes && Facet && RefineObj.length<1){
                             $.each(CheckBoxes, function() {         
                                  $(this).attr("disabled","disabled");
+                                 $(this).prop("checked",false);
                             });
                             SelectAllChkBox.attr("disabled","disabled");
                             Links.addClass("disabled");
