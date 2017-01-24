@@ -711,7 +711,7 @@ var INFORMA = window.INFORMA || {};
                                                     '<strong>{{this}}</strong>'+
                                                 '{{/each}}'+
                                             '</p>'+
-                                            '<h4>{{results.Title}}</h4>'+
+                                            '<h4 class={{results.SubSiteTheme}}>{{results.Title}}</h4>'+
                                         '</div>'+
                                     '</div>'+
                                     '<div class="body">'+
