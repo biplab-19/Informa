@@ -110,12 +110,12 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 MaxSubSectorHeight = 0;
 
                 Items.each(function () {
-                    var ContentHeight = $(this).find('.content').height();
+                    var ContentHeight = $(this).find('.content').outerHeight();
                     if(ContentHeight > MaxHeight) {
                         MaxHeight = ContentHeight;
                     }
                 })
-                Items.find('.content').height(MaxHeight);
+                Items.find('.content').css('min-height' , MaxHeight);
                 Items.each(function(){
                     var TopicHeight = $(this).find('.topics').outerHeight();
                     if(TopicHeight > MaxTopicHeight) {
@@ -136,7 +136,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                         MaxWrapperHeight = WrapperHeight;
                     }
                 })
-                Items.find('.recomend-content').height(MaxWrapperHeight);
+                Items.find('.recomend-content').css('min-height' , MaxWrapperHeight);
         },
 
         headLineEqualHeight = function () {
