@@ -1253,7 +1253,12 @@ $desktop-width: 1142px;
             }
         }
         .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight{
-            background: $primarycolor;
+            @if($name==maritime-theme) {
+                background: #1191d1;
+            }
+            @else{
+                background: $primarycolor;
+            }
         }
         @if($name==tmt-theme) {
             #mobile-header-navigation .navbar-image .logo-img-big{
