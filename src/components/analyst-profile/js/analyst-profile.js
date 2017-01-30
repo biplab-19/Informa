@@ -30,7 +30,7 @@ INFORMA.analystProfile = (function(window, $, namespace) {
             TotalHeight = $('.descriptions').addClass('show-content').height();
 
         $('.descriptions').removeClass('show-content')
-        if(TotalHeight <= ContentHeight) {
+        if(TotalHeight < ContentHeight) {
             jQuery('.show-options').addClass('hidden');
         }
     }
