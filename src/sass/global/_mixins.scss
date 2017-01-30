@@ -191,7 +191,10 @@ $desktop-width: 1142px;
         //primary button hover
         .primary-btn-hover {
             @if($name==agri-theme) {
-                color: $grey-color04;
+                color: $grey-color04 !important;
+                &:after{
+                    color: $grey-color04 !important;
+                }
             }
             @else {
                 color: $white;
