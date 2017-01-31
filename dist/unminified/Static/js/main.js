@@ -8194,12 +8194,12 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     _formBtnOnHover = function(){
-        $('.form-submit-border .btn').on('mouseover', function() {
+       $('.form-submit-border .btn').on('mouseover click', function(event) {
             $('.form-submit-border').addClass('hover-arrow');
         });
-        $('.form-submit-border .btn').on('mouseout', function() {
+        $('.form-submit-border .btn').on('mouseout blur', function() {
             $('.form-submit-border').removeClass('hover-arrow');
-        });
+        }); 
     }
 
     _bindToolTip = function() {
