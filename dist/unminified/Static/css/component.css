@@ -1,4 +1,4 @@
-/*! 2017-01-30 */@charset "UTF-8";
+/*! 2017-02-02 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -3818,8 +3818,9 @@ nav#pdp-navigation .menuFollower {
 @media (min-width: 1142px) {
   /* line 231, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
   #analyst-profile .more-stories .feature li {
-    width: 50%;
+    width: 49%;
     float: left;
+    padding-right: 30px;
   }
 }
 @media (max-width: 767px) {
@@ -3828,13 +3829,13 @@ nav#pdp-navigation .menuFollower {
     margin-bottom: 10px;
   }
 }
-/* line 246, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 247, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .more-stories .feature:after {
   content: '';
   clear: both;
   display: block;
 }
-/* line 254, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 255, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .place:before {
   width: 18px;
   height: 26px;
@@ -3843,7 +3844,7 @@ nav#pdp-navigation .menuFollower {
   top: -5px;
   background-position: -5px -313px;
 }
-/* line 262, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 263, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 #analyst-profile .experience:before {
   width: 20px;
   height: 28px;
@@ -3853,12 +3854,12 @@ nav#pdp-navigation .menuFollower {
   background-position: -5px -345px;
 }
 
-/* line 271, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 272, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .bold {
   font-weight: bold;
 }
 
-/* line 274, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 275, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset {
   display: inline-block;
   padding: 5px;
@@ -3871,7 +3872,7 @@ nav#pdp-navigation .menuFollower {
   padding-right: 40px;
   position: relative;
 }
-/* line 285, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 286, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset:after {
   content: 'x';
   position: absolute;
@@ -3881,7 +3882,7 @@ nav#pdp-navigation .menuFollower {
   border-left: 1px solid #fff;
   padding: 0 6px;
 }
-/* line 296, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
+/* line 297, ../../../src/components/analyst-profile/sass/_analyst-profile.scss */
 .btn-reset .details .social-links .at-icon-wrapper {
   line-height: 56px;
   background-color: transparent !important;
