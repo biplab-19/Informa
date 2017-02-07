@@ -714,7 +714,7 @@ INFORMA.forms = (function(window, $, namespace) {
             show: 'true'
         })
         _showOverlay();
-
+        _validateCountry();
     };
     _productDropdownUpdate = function(name) {
         var ProductDropdown = jQuery('.form-modal select.product-list');

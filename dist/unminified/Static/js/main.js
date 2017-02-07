@@ -7441,15 +7441,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
     }
-    _validateCountry = function() {
-        $('.wffm-form .chosen-container').on('click mousedown', function(e) {
-            e.preventDefault();
-            var selectform = $(this).find('.select-default');
-            if(selectform.text()){
-                selectform.css('display','none');
-            }
-        });    
-    }
+   
     _showRegisterFormPopupSingleStep = function(){
         $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
         _clearFormInput(_myinterestForm);
@@ -7468,6 +7460,17 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $('#formRegistration').modal('show');
         _validateCountry();
     }
+
+     _validateCountry = function() {
+        $('.wffm-form .chosen-container').on('click mousedown', function(e) {
+            e.preventDefault();
+            var selectform = $(this).find('.select-default');
+            if(selectform.text()){
+                selectform.css('display','none');
+            }
+        });    
+    }
+    
     _renderRecommendedTips = function() {
         _recommendedTipsContainer.append(_recommendedTips);
         _recommendedTipCol.css('display', 'none');
@@ -8477,7 +8480,7 @@ INFORMA.forms = (function(window, $, namespace) {
             show: 'true'
         })
         _showOverlay();
-
+        _validateCountry();
     };
     _productDropdownUpdate = function(name) {
         var ProductDropdown = jQuery('.form-modal select.product-list');
