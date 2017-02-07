@@ -35,15 +35,17 @@ var INFORMA = window.INFORMA || {};
                                             '{{/compare}}'+
                                         '{{/if}}'+
                                          '{{#compare HasExternalLink false operator="=="}}'+
-                                            '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                            '{{#compare TeaserContentAvailable true operator="=="}}'+
                                                 '{{#if LinkText}}'+
                                                     '<h4><a href="{{PageURL}}" target="_self">{{Title}}</a></h4>'+
                                                 '{{/if}}'+
                                             '{{/compare}}'+
-                                            '{{#compare IsAuthenticatedUser false operator="=="}}'+
-                                                '{{#if LinkText}}'+
-                                                    '<h4><a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{Title}}</a></h4>'+
-                                                '{{/if}}'+
+                                            '{{#compare TeaserContentAvailable false operator="=="}}'+
+                                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                    '{{#if LinkText}}'+
+                                                        '<h4><a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{Title}}</a></h4>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
                                             '{{/compare}}'+
                                         '{{/compare}}'+
                                     '{{/compare}}'+
@@ -106,19 +108,21 @@ var INFORMA = window.INFORMA || {};
                                         '{{/compare}}'+
                                     '{{/if}}'+
                                     '{{#compare HasExternalLink false operator="=="}}'+
-                                        '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                        '{{#compare TeaserContentAvailable true operator="=="}}'+
                                             '{{#if LinkText}}'+
                                                 '<div class="btn-container text-right">'+
-                                                    '<a href="{{PageURL}}" class="btn btn-primary full-width-btn" target="_self">{{LinkText}}</a>'+
+                                                    '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_self">{{LinkText}}</a>'+
                                                 '</div>'+
                                             '{{/if}}'+
                                         '{{/compare}}'+
-                                        '{{#compare IsAuthenticatedUser false operator="=="}}'+
-                                            '{{#if LinkText}}'+
-                                                '<div class="btn-container text-right">'+
-                                                    '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{LinkText}}</a>'+
-                                                '</div>'+
-                                            '{{/if}}'+
+                                        '{{#compare TeaserContentAvailable false operator="=="}}'+
+                                            '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                '{{#if LinkText}}'+
+                                                    '<div class="btn-container text-right">'+
+                                                        '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{LinkText}}</a>'+
+                                                    '</div>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
                                         '{{/compare}}'+
                                     '{{/compare}}'+
                                 '{{/compare}}'+
@@ -594,15 +598,19 @@ var INFORMA = window.INFORMA || {};
                                                     '{{/compare}}'+
                                                 '{{/if}}'+
                                                 '{{#compare results.HasExternalLink false operator="=="}}'+
-                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-                                                        '{{#if results.LinkText}}'+
-                                                            '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
-                                                        '{{/if}}'+
+                                                    '{{#compare results.TeaserContentAvailable true operator="=="}}'+
+                                                        //'{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        //'{{/compare}}'+
                                                     '{{/compare}}'+
-                                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-                                                        '{{#if results.LinkText}}'+
-                                                            '<h4><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
-                                                        '{{/if}}'+
+                                                    '{{#compare results.TeaserContentAvailable false operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
                                                     '{{/compare}}'+
                                                 '{{/compare}}'+
                                             '{{/compare}}'+
@@ -673,19 +681,23 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/compare}}'+
                                             '{{/if}}'+
                                             '{{#compare results.HasExternalLink false operator="=="}}'+
-                                                '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-                                                    '{{#if results.LinkText}}'+
-                                                        '<div class="btn-container text-right">'+
-                                                            '<a href="{{results.PageURL}}" class="btn btn-primary full-width-btn" target="_self">{{results.LinkText}}</a>'+
-                                                        '</div>'+
-                                                    '{{/if}}'+
+                                                '{{#compare results.TeaserContentAvailable true operator="=="}}'+
+                                                    ///'{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_self">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    //'{{/compare}}'+
                                                 '{{/compare}}'+
-                                                '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-                                                    '{{#if results.LinkText}}'+
-                                                        '<div class="btn-container text-right">'+
-                                                            '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
-                                                        '</div>'+
-                                                    '{{/if}}'+
+                                                '{{#compare results.TeaserContentAvailable false operator="=="}}'+
+                                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
                                                 '{{/compare}}'+
                                             '{{/compare}}'+
                                         '{{/compare}}'+
