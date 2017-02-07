@@ -47,7 +47,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _destroyMultiSelect,
         _addTabNumbers,
         _closeMyInterestModal,
-        _showRegisterFormPopupSingleStep;
+        _showRegisterFormPopupSingleStep,
+        _validateCountry;
 
     //methods
 
@@ -162,9 +163,11 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
                 // To track Google Analytics on Open
+
                 INFORMA.Analytics.trackFormEvents($(this), 'Open');
                 e.preventDefault();
                 e.stopPropagation();
+                
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
@@ -174,7 +177,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
     }
-
+   
     _showRegisterFormPopupSingleStep = function(){
         $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
         _clearFormInput(_myinterestForm);
@@ -191,7 +194,19 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
           });
         }
         $('#formRegistration').modal('show');
+        _validateCountry();
     }
+
+     _validateCountry = function() {
+        $('.wffm-form .chosen-container').on('click mousedown', function(e) {
+            e.preventDefault();
+            var selectform = $(this).find('.select-default');
+            if(selectform.text()){
+                selectform.css('display','none');
+            }
+        });    
+    }
+    
     _renderRecommendedTips = function() {
         _recommendedTipsContainer.append(_recommendedTips);
         _recommendedTipCol.css('display', 'none');
@@ -421,6 +436,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             //_validateMultiSelct();
             _showRegisterForm();
             _closeMyInterestModal();
+            _validateCountry();
         } else {
             _myinterestsSection.css('display', 'none');
 

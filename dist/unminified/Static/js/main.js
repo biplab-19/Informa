@@ -1,4 +1,4 @@
-/*! 2017-01-23 *//*
+/*! 2017-02-07 *//*
  * google-analytics.js
  *
  *
@@ -7311,7 +7311,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _destroyMultiSelect,
         _addTabNumbers,
         _closeMyInterestModal,
-        _showRegisterFormPopupSingleStep;
+        _showRegisterFormPopupSingleStep,
+        _validateCountry;
 
     //methods
 
@@ -7426,9 +7427,11 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
                 // To track Google Analytics on Open
+
                 INFORMA.Analytics.trackFormEvents($(this), 'Open');
                 e.preventDefault();
                 e.stopPropagation();
+                
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
@@ -7438,7 +7441,15 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
     }
-
+    _validateCountry = function() {
+        $('.wffm-form .chosen-container').on('click mousedown', function(e) {
+            e.preventDefault();
+            var selectform = $(this).find('.select-default');
+            if(selectform.text()){
+                selectform.css('display','none');
+            }
+        });    
+    }
     _showRegisterFormPopupSingleStep = function(){
         $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
         _clearFormInput(_myinterestForm);
@@ -7455,6 +7466,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
           });
         }
         $('#formRegistration').modal('show');
+        _validateCountry();
     }
     _renderRecommendedTips = function() {
         _recommendedTipsContainer.append(_recommendedTips);
@@ -7685,6 +7697,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             //_validateMultiSelct();
             _showRegisterForm();
             _closeMyInterestModal();
+            _validateCountry();
         } else {
             _myinterestsSection.css('display', 'none');
 
@@ -7786,7 +7799,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _showFormIntro,
         _bindNumber,
         _updateProductVerticalName,
-        //_validateChoosenSelect,
+        _validateChoosenSelect,
         _destroyChosenInDevice,
         _customPhoneErrorMsg,
         _reCaptchaAccessbility,
@@ -7799,16 +7812,18 @@ INFORMA.forms = (function(window, $, namespace) {
         _productDropdownUpdate,
         _setFormModalFocus,
          _UpdateProductName,
-        _changeProductDropdown;
+        _changeProductDropdown,
+        _validateCountry;
 
-    // _validateChoosenSelect = function() {
-    //     $.validator.setDefaults({
-    //         ignore: ":hidden:not(.chosen-select)"
-    //     });
-    //     $(".wffm-form .chosen-select").on('change', function() {
-    //         $(this).valid();
-    //     });
-    // }
+    _validateChoosenSelect = function() {
+        $.validator.setDefaults({
+            ignore: ":hidden:not(.chosen-select)"
+        });
+        $(document).on('change','.wffm-form .chosen-select', function() {
+            $(this).valid();
+        });
+    }
+
     _setFormModalFocus = function(){
           $(".wffm-form .product-list").on('change', function() {
             $('body').scrollTop(300);
@@ -8520,6 +8535,16 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
+    _validateCountry = function() {
+        $('.wffm-form .chosen-container').on('click mousedown', function(e) {
+            e.preventDefault();
+            var selectform = $(this).find('.select-default');
+            if(selectform.text()){
+                selectform.css('display','none');
+            }
+        });    
+    }
+
     _reCaptchaAccessbility = function() {
         $(window).load(function() {
             $('.g-recaptcha-response').attr('aria-labelledby', 'g-recaptcha-response');
@@ -8582,13 +8607,14 @@ INFORMA.forms = (function(window, $, namespace) {
         _showFormIntro();
         //_updateProductVerticalName();
         _updateHiddenProductVerticalName();
-        //_validateChoosenSelect();
+        _validateChoosenSelect();
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
         _resetFormOnRefresh();
         //_resetDefaultTitle();
         _setFormModalFocus();
         _changeProductDropdown();
+        _validateCountry();
     };
 
     return {

@@ -36,7 +36,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _showFormIntro,
         _bindNumber,
         _updateProductVerticalName,
-        //_validateChoosenSelect,
+        _validateChoosenSelect,
         _destroyChosenInDevice,
         _customPhoneErrorMsg,
         _reCaptchaAccessbility,
@@ -49,16 +49,18 @@ INFORMA.forms = (function(window, $, namespace) {
         _productDropdownUpdate,
         _setFormModalFocus,
          _UpdateProductName,
-        _changeProductDropdown;
+        _changeProductDropdown,
+        _validateCountry;
 
-    // _validateChoosenSelect = function() {
-    //     $.validator.setDefaults({
-    //         ignore: ":hidden:not(.chosen-select)"
-    //     });
-    //     $(".wffm-form .chosen-select").on('change', function() {
-    //         $(this).valid();
-    //     });
-    // }
+    _validateChoosenSelect = function() {
+        $.validator.setDefaults({
+            ignore: ":hidden:not(.chosen-select)"
+        });
+        $(document).on('change','.wffm-form .chosen-select', function() {
+            $(this).valid();
+        });
+    }
+
     _setFormModalFocus = function(){
           $(".wffm-form .product-list").on('change', function() {
             $('body').scrollTop(300);
@@ -770,6 +772,16 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
+    _validateCountry = function() {
+        $('.wffm-form .chosen-container').on('click mousedown', function(e) {
+            e.preventDefault();
+            var selectform = $(this).find('.select-default');
+            if(selectform.text()){
+                selectform.css('display','none');
+            }
+        });    
+    }
+
     _reCaptchaAccessbility = function() {
         $(window).load(function() {
             $('.g-recaptcha-response').attr('aria-labelledby', 'g-recaptcha-response');
@@ -832,13 +844,14 @@ INFORMA.forms = (function(window, $, namespace) {
         _showFormIntro();
         //_updateProductVerticalName();
         _updateHiddenProductVerticalName();
-        //_validateChoosenSelect();
+        _validateChoosenSelect();
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
         _resetFormOnRefresh();
         //_resetDefaultTitle();
         _setFormModalFocus();
         _changeProductDropdown();
+        _validateCountry();
     };
 
     return {
