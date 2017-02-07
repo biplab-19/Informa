@@ -1340,7 +1340,29 @@ $desktop-width: 1142px;
                 }
             }
         }
-    }    
+    } 
+    section.customer-quote {
+        &:after{
+            @if($name==agri-theme) {
+                background: url("/Static/images/agri/testimonial-pattern.png");
+            }
+            @else if($name==maritime-theme){
+                background: url("/Static/images/maritime/testimonial-pattern.png");
+            }
+            @else if($name==financial-theme){
+                background: url("/Static/images/financial/testimonial-pattern.png");
+            }
+            @else if($name==tmt-theme){
+                background: url("/Static/images/tmt/testimonial-pattern.png");
+            }
+            @else if($name==law-theme){
+                background: url("/Static/images/law/testimonial-pattern.png");
+            }
+            @else {
+                background: url("/Static/images/testimonial-pattern.png");
+            }
+        }
+    }   
 }
 
 @mixin opacity($opacity) {
