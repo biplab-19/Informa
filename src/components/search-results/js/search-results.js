@@ -63,7 +63,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.SearchTexts = ($('input[name="SearchTexts"]') && $('input[name="SearchTexts"]').length > 0) ? $('input[name="SearchTexts"]').val().split(",") : null;
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
             data.WhoWeHelp = ($('input[name="WhoWeHelp"]')) ? $('input[name="WhoWeHelp"]').val() : null,
-            data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null,
+            //data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null,
             data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
             if (SearchType != "ProductSearch") {
                 if($('#hdnSearchType').length > 0) {
