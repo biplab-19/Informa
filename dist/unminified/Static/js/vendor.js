@@ -10228,7 +10228,7 @@ return /******/ (function(modules) { // webpackBootstrap
         this.container.html('<ul class="chosen-choices"><li class="search-field"><input type="text" value="' + this.default_text + '" aria-labelledby="' + randomString + '" class="default" autocomplete="off" style="width:25px;" /></li></ul><div class="chosen-drop"><ul class="chosen-results"></ul></div>');
       } else {
         var randomString = ((0|Math.random()*9e6).toString(36));
-        this.container.html('<a class="chosen-single chosen-default"><span>' + this.default_text + '</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search"><input type="text" autocomplete="off" aria-labelledby="' + randomString + '" /></div><ul class="chosen-results"></ul></div>');
+        this.container.html('<a class="chosen-single chosen-default"><span>' + this.default_text + '</span><div><b></b></div></a><div class="chosen-drop"><div class="chosen-search" id="' + randomString + '"><input type="text" autocomplete="off" aria-labelledby="' + randomString + '" aria-describedby="' + randomString + '"/></div><ul class="chosen-results"></ul></div>');
       }
       this.form_field_jq.hide().after(this.container);
       this.dropdown = this.container.find('div.chosen-drop').first();
