@@ -391,6 +391,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     }
                 }
             }
+            if( SearchType === "ResourceResult"){
+                var getSelectedCheckBoxID = $("input.UnFilterCheckbox").val();
+                if(getSelectedCheckBoxID!==undefined){
+                    var getCheckBox = jQuery("#"+getSelectedCheckBoxID);
+                    if(typeof getCheckBox!==undefined){
+                        getCheckBox.removeAttr("disabled");
+                        getCheckBox.prop("checked","checked");
+                    }
+                }
+            }
         },
         CreateSearchResult = function(Data) {
             var FinalHTml = '',

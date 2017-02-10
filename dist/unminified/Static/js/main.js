@@ -11494,6 +11494,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             if (CheckedRefineCheckBox.length > 0) {
                 //DoRefine();
             }
+
             if (SelectAll && RefineCheckBox) {
                 var ViewPort = INFORMA.global.device.viewportN;
 
@@ -11934,6 +11935,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             SelectAllChkBox.attr("disabled","disabled");
                             Links.addClass("disabled");
                         }
+                    }
+                }
+            }
+            if( SearchType === "ResourceResult"){
+                var getSelectedCheckBoxID = $("input.UnFilterCheckbox").val();
+                if(getSelectedCheckBoxID!==undefined){
+                    var getCheckBox = jQuery("#"+getSelectedCheckBoxID);
+                    if(typeof getCheckBox!==undefined){
+                        getCheckBox.removeAttr("disabled");
+                        getCheckBox.prop("checked","checked");
                     }
                 }
             }
