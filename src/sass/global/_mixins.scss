@@ -1117,6 +1117,12 @@ $desktop-width: 1142px;
                 background-size: 20%;
             }
         }
+        @else if($name==law-theme){
+            .registration-form-single-section .container {
+                background: none;
+                background-size: 20%;
+            }
+        }
         @else if($name==tmt-theme){
             .product-login .login-links {
                 background: url(/Static/images/tmt-pattern.png) no-repeat bottom right $grey-color03;
