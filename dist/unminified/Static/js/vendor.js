@@ -3407,7 +3407,10 @@ void 0!==c?e&&"set"in e&&void 0!==(d=e.set(a,c,b))?d:a[b]=c:e&&"get"in e&&null!=
             var describedBySlideId = _.options.centerMode ? i : Math.floor(i / _.options.slidesToShow);
             
             if (_.options.dots === true) {
-                $(this).attr('aria-describedby', 'slick-slide' + _.instanceUid + describedBySlideId + '');
+                $(this).attr({
+                    'aria-describedby': 'slick-slide' + _.instanceUid + describedBySlideId + '',
+                    'id': 'slick-slide' + _.instanceUid + describedBySlideId + ''
+                });
             }
         });
 
