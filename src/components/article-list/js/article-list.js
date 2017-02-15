@@ -106,15 +106,16 @@ INFORMA.ArticleList = (function(window, $, namespace) {
            var Items = Article.find('.recomended-wrapper'),
                 MaxHeight = 0,
                 MaxWrapperHeight = 0,
-                MaxTopicHeight = 0;
+                MaxTopicHeight = 0,
+                MaxSubSectorHeight = 0;
 
                 Items.each(function () {
-                    var ContentHeight = $(this).find('.content').height();
+                    var ContentHeight = $(this).find('.content').outerHeight();
                     if(ContentHeight > MaxHeight) {
                         MaxHeight = ContentHeight;
                     }
                 })
-                Items.find('.content').height(MaxHeight);
+                Items.find('.content').css('min-height' , MaxHeight);
                 Items.each(function(){
                     var TopicHeight = $(this).find('.topics').outerHeight();
                     if(TopicHeight > MaxTopicHeight) {
@@ -123,12 +124,19 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 })
                 Items.find('.topics').height(MaxTopicHeight);
                 Items.each(function(){
+                    var TopicHeight = $(this).find('.SubSectors').outerHeight();
+                    if(TopicHeight > MaxSubSectorHeight) {
+                        MaxSubSectorHeight = TopicHeight;
+                    }
+                })
+                Items.find('.SubSectors').height(MaxSubSectorHeight);
+                Items.each(function(){
                     var WrapperHeight = $(this).find('.recomend-content').outerHeight();
                     if(WrapperHeight > MaxWrapperHeight) {
                         MaxWrapperHeight = WrapperHeight;
                     }
                 })
-                Items.find('.recomend-content').height(MaxWrapperHeight);
+                Items.find('.recomend-content').css('min-height' , MaxWrapperHeight);
         },
 
         headLineEqualHeight = function () {

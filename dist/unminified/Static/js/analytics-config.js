@@ -90,15 +90,15 @@ var config = {
             "adobe": true
         },
         {
-            "gaKey": "UA-81001424-1",
-            "host": "istage-agriintelligence.informa.com",
+            "gaKey": "UA-81001424-8",
+            "host": "istage-agribusinessintelligence.informa.com",
             "name": "Agri Intelligence",
             "theme": "agri",
             "google": true,
             "adobe": true
         },
         {
-            "gaKey": "UA-81001424-1",
+            "gaKey": "UA-81001424-10",
             "host": "istage-maritimeintelligence.informa.com",
             "name": "Maritime Intelligence",
             "theme": "maritime",
@@ -130,15 +130,15 @@ var config = {
             "adobe": true
         },
          {
-             "gaKey": "UA-81001424-1",
-             "host": "iprod-agriintelligence.informa.com",
+             "gaKey": "UA-81001424-8",
+             "host": "iprod-agribusinessintelligence.informa.com",
              "name": "Agri Intelligence",
              "theme": "agri",
              "google": true,
              "adobe": true
          },
         {
-            "gaKey": "UA-81001424-1",
+            "gaKey": "UA-81001424-10",
             "host": "iprod-maritimeintelligence.informa.com",
             "name": "Maritime Intelligence",
             "theme": "maritime",
@@ -170,15 +170,15 @@ var config = {
             "adobe": true
         },
         {
-            "gaKey": "UA-81001424-3",
-            "host": "agriintelligence.informa.com",
+            "gaKey": "UA-81001424-9",
+            "host": "agribusinessintelligence.informa.com",
             "name": "Agri Intelligence",
             "theme": "agri",
             "google": true,
             "adobe": true
         },
         {
-            "gaKey": "UA-81001424-3",
+            "gaKey": "UA-81001424-11",
             "host": "maritimeintelligence.informa.com",
             "name": "Maritime Intelligence",
             "theme": "maritime",

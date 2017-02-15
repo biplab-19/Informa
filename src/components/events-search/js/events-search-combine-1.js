@@ -39,13 +39,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent;
 
     disabledEvent = function(){
-        $('.FullyBooked,.EventFinished').click(function(e){
+        $('.register.disabled').click(function(e){
             e.preventDefault();
         });
     },
-        
+    
     UnbindEvent = function() {
-        $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+        $('.register.disabled').on('keydown', function(e) {
             if (e.keyCode === 13 || e.which===13) {
                 e.preventDefault();
             }   
@@ -107,6 +107,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         CheckEvents(data);
         SetCalendarEvents(data);
         SetListEvents(data);
+        UnbindEvent();
+        disabledEvent();
     },
 
     SetListEvents    = function(data) {

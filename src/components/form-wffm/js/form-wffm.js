@@ -49,7 +49,8 @@ INFORMA.forms = (function(window, $, namespace) {
         _productDropdownUpdate,
         _setFormModalFocus,
          _UpdateProductName,
-        _changeProductDropdown;
+        _changeProductDropdown,
+        _formBtnOnHover;
 
     // _validateChoosenSelect = function() {
     //     $.validator.setDefaults({
@@ -361,6 +362,15 @@ INFORMA.forms = (function(window, $, namespace) {
                 return false;
             }
         });
+    }
+
+    _formBtnOnHover = function(){
+       $('.form-submit-border .btn').on('mouseover click', function(event) {
+            $('.form-submit-border').addClass('hover-arrow');
+        });
+        $('.form-submit-border .btn').on('mouseout blur', function() {
+            $('.form-submit-border').removeClass('hover-arrow');
+        }); 
     }
 
     _bindToolTip = function() {
@@ -843,6 +853,7 @@ INFORMA.forms = (function(window, $, namespace) {
         //_resetDefaultTitle();
         _setFormModalFocus();
         _changeProductDropdown();
+        _formBtnOnHover();
     };
 
     return {

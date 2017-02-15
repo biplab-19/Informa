@@ -64,3 +64,41 @@ section.articlepage-quote {
 		}
 	}
 }
+section.articlepage-freearticle{
+	.container{
+		.article-row{
+			.btn{
+				margin-top: 20px;
+				@include mobile{
+					width: 100%;
+				}
+				@include desktop{
+					min-width: 230px;
+				}
+				@include tablet{
+					min-width: 230px;
+				}
+				&.btn-default{
+					color: $grey-color05;
+				}
+			}
+		}
+		
+		.tableContent{
+			 background: #f3f3f3 none repeat scroll 0 0;
+   			 margin-top: 20px;
+    		 padding: 0 20px 20px;
+    		 
+			h3{
+				padding-bottom:10px !important;
+			}
+			h4{
+				font-family: FSMe-Light;
+			}
+			h5{
+				font-size: 16px;
+				margin: auto;
+			}
+		}
+	}
+}
