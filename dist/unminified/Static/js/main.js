@@ -1,5 +1,4 @@
-
-/*! 2017-01-13 *//*
+/*! 2017-02-15 *//*
  * google-analytics.js
  *
  *
@@ -7905,6 +7904,7 @@ INFORMA.forms = (function(window, $, namespace) {
     //         $(this).valid();
     //     });
     // }
+
     _setFormModalFocus = function(){
           $(".wffm-form .product-list").on('change', function() {
             $('body').scrollTop(300);
@@ -7938,6 +7938,7 @@ INFORMA.forms = (function(window, $, namespace) {
         var NewUrl = url.split('?');
 
         if(NewUrl.length === 1) {
+
             url = NewUrl;
         }
 
@@ -8000,6 +8001,7 @@ INFORMA.forms = (function(window, $, namespace) {
             Parent.find('.submit-response, .error-response').addClass('hide');
 
             Parent.find('form').removeClass('hide');
+
             _RemoveStatus();
         })
     }
@@ -8653,6 +8655,7 @@ INFORMA.forms = (function(window, $, namespace) {
              });
         }
     }
+
 
     _UpdateProductName = function() {
         var ProductList = $('.product-list');
@@ -11495,7 +11498,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             if (CheckedRefineCheckBox.length > 0) {
                 //DoRefine();
             }
-
             if (SelectAll && RefineCheckBox) {
                 var ViewPort = INFORMA.global.device.viewportN;
 
