@@ -18,6 +18,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         RecomendedCount = $(".tab-content .recomended-content").data("maximumnumberofarticles"),
         MaxArticleCount = (RecomendedCount !=="") ? RecomendedCount : 0,
         BtnMore = RecomendedWrapper.find('.btn-showMore'),
+        VViewPort = INFORMA.global.device.viewport,
+        DefaultArticleCount = $(".tab-content .recomended-content").attr('data-' + VViewPort),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
@@ -57,12 +59,6 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                         var Data = Articles[key],
                             TemplateName = (Templates.SampleContent !== "undefined") ? Templates.SampleContent : "",
                             ListTemplate = Handlebars.compile(TemplateName);
-                            if(Data.Price != null){
-                                if(Data.Price){
-                                    var replacezeroWidthSpace = Data.Price.replace(/\u200B/g,'');
-                                    Data.Price = (replacezeroWidthSpace.length > 0) ? replacezeroWidthSpace : null;
-                                }
-                            }
                             if($('.recommendation-tabs').length > 0) {
                                 if($('.welcome-description').hasClass('Authenticated')) {
                                     Data.IsAuthenticatedUser = true;
@@ -90,7 +86,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     }
                     equalHeight(RecomendedWrapper);
 
-                    if(RecomendedWrapper.find('.recomended-wrapper').length < MaxArticleCount || MaxArticleCount===0) {
+
+                    if(Articles.length > DefaultArticleCount && RecomendedWrapper.find('.recomended-wrapper').length < MaxArticleCount) {
                         BtnMore.removeClass('hidden');
                     } else {
                         BtnMore.addClass('hidden');
@@ -157,7 +154,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         var Items = Parent.find('.recomended-wrapper'),
             MaxHeight = 0,
             MaxWrapperHeight = 0,
-            MaxTopicHeight = 0;
+            MaxTopicHeight = 0,
+            MaxSubSectorHeight = 0;
             Items.each(function () {
                 var ContentHeight = $(this).find('.content').height();
                 if(ContentHeight > MaxHeight) {
@@ -172,6 +170,13 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                 }
             })
             Items.find('.topics').height(MaxTopicHeight);
+            Items.each(function(){
+                var TopicHeight = $(this).find('.SubSectors').outerHeight();
+                if(TopicHeight > MaxSubSectorHeight) {
+                    MaxSubSectorHeight = TopicHeight;
+                }
+            })
+            Items.find('.SubSectors').height(MaxSubSectorHeight);
             Items.each(function(){
                 var WrapperHeight = $(this).find('.recomend-content').outerHeight();
                 if(WrapperHeight > MaxWrapperHeight) {

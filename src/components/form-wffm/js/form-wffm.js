@@ -50,6 +50,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _setFormModalFocus,
          _UpdateProductName,
         _changeProductDropdown,
+        _formBtnOnHover,
         _validateCountry;
 
     _validateChoosenSelect = function() {
@@ -60,7 +61,7 @@ INFORMA.forms = (function(window, $, namespace) {
             $(this).valid();
         });
     }
-
+        
     _setFormModalFocus = function(){
           $(".wffm-form .product-list").on('change', function() {
             $('body').scrollTop(300);
@@ -94,6 +95,7 @@ INFORMA.forms = (function(window, $, namespace) {
         var NewUrl = url.split('?');
 
         if(NewUrl.length === 1) {
+
             url = NewUrl;
         }
 
@@ -156,6 +158,7 @@ INFORMA.forms = (function(window, $, namespace) {
             Parent.find('.submit-response, .error-response').addClass('hide');
 
             Parent.find('form').removeClass('hide');
+
             _RemoveStatus();
         })
     }
@@ -360,6 +363,15 @@ INFORMA.forms = (function(window, $, namespace) {
                 return false;
             }
         });
+    }
+
+    _formBtnOnHover = function(){
+       $('.form-submit-border .btn').on('mouseover click', function(event) {
+            $('.form-submit-border').addClass('hover-arrow');
+        });
+        $('.form-submit-border .btn').on('mouseout blur', function() {
+            $('.form-submit-border').removeClass('hover-arrow');
+        }); 
     }
 
     _bindToolTip = function() {
@@ -811,6 +823,7 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
+
     _UpdateProductName = function() {
         var ProductList = $('.product-list');
         ProductList.each(function() {
@@ -852,6 +865,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _setFormModalFocus();
         _changeProductDropdown();
         _validateCountry();
+        _formBtnOnHover();
     };
 
     return {

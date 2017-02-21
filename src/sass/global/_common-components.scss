@@ -405,6 +405,26 @@
 /*=========================================
 	Search Flip Tile End
 ==========================================*/
+
+.product-brands-list .card .caption h4.maritime,
+    .product-results .list-items .products h4.maritime {
+        &:after {
+           	background-position: -5px -538px !important;
+            width: 29px !important;
+            height: 38px !important;
+     }
+}
+
+.product-brands-list .card .caption h4.law,
+    .product-results .list-items .products h4.law {
+        &:after {
+           	background-position: -5px -584px !important;
+            width: 29px !important;
+            height: 38px !important;
+        }
+}
+
+
 /*===================================================
 	Image Fit to screen
 ====================================================*/
@@ -503,4 +523,15 @@ body.ja{
 }
 .intro-text {
 	text-align: left;
+}
+.icon-internal-link{
+	&:before{
+		 content: "\e904";
+		-webkit-transform: rotate(180deg);
+	  	-moz-transform: rotate(180deg);
+	  	-ms-transform: rotate(180deg);
+	  	-o-transform: rotate(180deg);
+	  	transform: rotate(180deg);
+	  	display: inline-block;
+	}
 }

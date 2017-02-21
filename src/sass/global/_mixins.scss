@@ -165,7 +165,12 @@ $desktop-width: 1142px;
             background-color: $navlinkcolor;
         }
         .menuFollower {
-            background-color: $white;
+            @if($name==agri-theme) {
+                background-color: $grey-color04;
+            }
+            @else {
+                background-color: $white;
+            }
         }
         //Pharma and Agri primary color
         .primary-color {
@@ -185,7 +190,15 @@ $desktop-width: 1142px;
         }
         //primary button hover
         .primary-btn-hover {
-            color: $white;
+            @if($name==agri-theme) {
+                color: $grey-color04 !important;
+                &:after{
+                    color: $grey-color04 !important;
+                }
+            }
+            @else {
+                color: $white;
+            }
             text-decoration: none;
             background-color: $secondarycolorlight;
             border-color: $secondarycolorlight;
@@ -235,9 +248,9 @@ $desktop-width: 1142px;
         .bg-gray-dark {
             .btn-default {
                 border: 2px solid $white;
-                @include tablet {
+                /*@include tablet {
                   width: 130%;
-                }
+                }*/
                 &:after {
                     color: $white;
                 }
@@ -257,7 +270,12 @@ $desktop-width: 1142px;
             background-color: $secondarycolorlight;
             #pdp-sections-heading,
             a {
-                color: $white;
+                @if($name==agri-theme) {
+                    color: $grey-color04;
+                }
+                @else {
+                    color: $white;
+                }
                 &:active {
                     outline: none;
                 }
@@ -543,7 +561,11 @@ $desktop-width: 1142px;
         .carousel-lists .slick-arrow,
         .customers_list_slider .slick-arrow {
             @extend .secondry-light-bg;
-            color: $white;
+            &:before{
+                @if($name==agri-theme) {
+                    color: $grey-color04;
+                }
+            }
         }
         section.customer-quote .slick-initialized .slick-arrow {
             &:before {
@@ -602,8 +624,18 @@ $desktop-width: 1142px;
             .header {
                 .arrows {
                     background: $secondarycolorlight;
+                    @if($name==agri-theme){
+                        &:before{
+                            color: $grey-color04;
+                        }
+                    }
                     &.arrow-desabled {
                         background-color: grey;
+                        @if($name==agri-theme){
+                            &:before{
+                                color: $white;
+                            }
+                        }
                     }
                 }
             }
@@ -614,8 +646,18 @@ $desktop-width: 1142px;
         .fc-state-default.fc-corner-right,
         .fc-state-default.fc-corner-left {
             background: $secondarycolorlight;
+            @if($name==agri-theme){
+                .fc-icon{
+                    color: $grey-color04;
+                }
+            }
             &.disabled {
                 background-color: grey;
+                 @if($name==agri-theme){
+                    .fc-icon{
+                        color: $white;
+                    }
+                }
             }
         }
         .fc .events-wrap .events.current p.title:before {
@@ -696,6 +738,16 @@ $desktop-width: 1142px;
                 background-position: -6px -272px;
                 width: 29px;
                 height: 36px;
+            }
+            @else if($name==maritime-theme){
+                background-position: -5px -538px;
+                width: 29px;
+                height: 38px;
+            }
+            @else if($name==law-theme){
+                background-position: -5px -584px;
+                width: 29px;
+                height: 38px;
             }
             @else {
                 background-position: -6px -480px;
@@ -941,6 +993,12 @@ $desktop-width: 1142px;
               color: $navlinkcolor;
             }
           }
+          .btn{
+                color: $white;
+                &:hover{
+                    color: $white;
+                }
+            }
         }
         #contactus-section {
             .phone-number a,
@@ -1000,7 +1058,7 @@ $desktop-width: 1142px;
                 }
             }
             .registration-form-single-section .container {
-                background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
+                background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color03;
                 background-size: 20%;
             }
             // .register-myinterests-form, .registration-form-single-section .container {
@@ -1009,17 +1067,16 @@ $desktop-width: 1142px;
             // }
 
         }
-        @else if($name==tmt-theme){
+        @else if($name==agri-theme){
             .product-login .login-links {
-                background: url(/Static/images/tmt-pattern.png) no-repeat bottom right #444957;
-                background-size: 20%;
+                background: url(/Static/images/agri-pattern.png) no-repeat bottom right $grey-color03;
             }
             .dashboard {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 100% #444957;
+                background: url(/Static/images/agri-pattern.png) no-repeat right 100% #444957;
                 background-size:15%;
             }
             #formRegistration .modal-body {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
+                background: url(/Static/images/agri-pattern.png) no-repeat right 105% #444957;
                 background-size: 24%;
                 @include tablet {
                   background: none;
@@ -1031,7 +1088,63 @@ $desktop-width: 1142px;
                 }
             }
             .registration-form-single-section .container {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #444957;
+                background: url("/Static/images/agri-pattern.png") no-repeat right 105% $grey-color03;
+                background-size: 20%;
+            }
+        }
+        @else if($name==maritime-theme){
+            .product-login .login-links {
+                background: url(/Static/images/maritime-pattern.png) no-repeat bottom right $grey-color03;
+            }
+            .dashboard {
+                background: url(/Static/images/maritime-pattern.png) no-repeat right 100% #444957;
+                background-size:15%;
+            }
+            #formRegistration .modal-body {
+                background: url(/Static/images/maritime-pattern.png) no-repeat right 105% #444957;
+                background-size: 24%;
+                @include tablet {
+                  background: none;
+                  padding: 0;
+                }
+                @include mobile {
+                  background: none;
+                  padding: 0;
+                }
+            }
+            .registration-form-single-section .container {
+                background: url("/Static/images/maritime-pattern.png") no-repeat right 105% $grey-color03;
+                background-size: 20%;
+            }
+        }
+        @else if($name==law-theme){
+            .registration-form-single-section .container {
+                background: $grey-color03;
+            }
+        }
+        @else if($name==tmt-theme){
+            .product-login .login-links {
+                background: url(/Static/images/tmt-pattern.png) no-repeat bottom right $grey-color03;
+                background-size: 20%;
+            }
+            .dashboard {
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 100% $grey-color03;
+                background-size:15%;
+            }
+            #formRegistration .modal-body {
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
+                background-size: 24%;
+                @include tablet {
+                  background: none;
+                  padding: 0;
+                }
+                @include mobile {
+                  background: none;
+                  padding: 0;
+                }
+            }
+            .registration-form-single-section .container {
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
                 background-size: 20%;
             }
             // .register-myinterests-form, .registration-form-single-section .container {
@@ -1040,144 +1153,236 @@ $desktop-width: 1142px;
             // }
 
         }
-    }
-    .tab-pane {
-        .error-response,
-        .submit-response {
-            h2 {
-                &:before {
-                    color: $secondarycolorlight;
+        .tab-pane {
+            .error-response,
+            .submit-response {
+                h2 {
+                    &:before {
+                        color: $secondarycolorlight;
+                    }
                 }
             }
         }
-    }
-    .form-modal {
-        .modal-body {
-            .form-inline-container {
-                .error-response,
-                .submit-response {
-                    h2 {
-                        &:before {
-                            color: $secondarycolorlight;
+        .form-modal {
+            .modal-body {
+                .form-inline-container {
+                    .error-response,
+                    .submit-response {
+                        h2 {
+                            &:before {
+                                color: $secondarycolorlight;
+                            }
                         }
                     }
                 }
             }
         }
-    }
-    .infograph .number-container{
-        color:$navlinkcolor;
-    }
-    .welcome-description{
-        .tool{
-            p a{
+        .infograph .number-container{
+            color:$navlinkcolor;
+        }
+        .welcome-description{
+            a{
                 color:$navlinkcolor;
             }
+            .tool{
+                p a{
+                    color:$navlinkcolor;
+                }
+            }
         }
-    }
-    .product-login{
-        .create-profile a{
-            color: $white;
-            text-decoration: underline;
+        .product-login{
+            .create-profile a{
+                color: $white;
+                text-decoration: underline;
+            }
         }
-    }
-    .marketing-banner{
-        &.Variation2,&.Variation1{
-            .btn{
-                background: $primarycolor;
-                &:after {
+        .marketing-banner{
+            &.Variation2,&.Variation1{
+                .btn{
+                    background: $primarycolor;
+                    &:after {
+                        color: $white;
+                    }
+                }
+            }
+        }
+        .product-finder form button[type=submit]{
+            @if($name==agri-theme){
+                &:hover{
+                    color: $grey-color04;
+                }
+            }
+        }
+        
+
+        .hover-arrow{
+            .btn, &:after{
+                @if($name==agri-theme){
+                    color: $grey-color04 !important;
+                    background: $secondarycolorlight !important;
+                }
+                else{
                     color: $white;
                 }
             }
         }
-    }
 
-    .more-stories .feature li {
-            &:before {
-                color:$secondarycolordark;
+        .more-stories .feature li {
+                &:before {
+                    color:$secondarycolordark;
+                }
+        }
+
+        .table-bordered{
+            margin:20px auto;
+            > thead{
+                > tr{
+                    > th{
+                        background-color:$secondarycolordark;
+                        color:#fff;
+                    }
+                }
             }
-    }
-
-
-    .table-bordered{
-        margin:20px auto;
-        > thead{
-            > tr{
-                > th{
-                    background-color:$secondarycolordark;
-                    color:#fff;
+            > tbody{
+                tr:nth-child(even) {
+                    background-color: $grey-color09;
+                }
+                td{
+                    color:$grey-color04;
                 }
             }
         }
-        > tbody{
-            tr:nth-child(even) {
-                background-color: $grey-color09;
+        .table-hover > tbody > tr:hover > td,
+        .table-hover > tbody > tr:hover > th{
+             background-color: $grey-color10;
+        }
+        .fc-unthemed td.fc-today {
+            @if($name==agri-theme) {
+                color: $grey-color04 !important;
             }
-            td{
-                color:$grey-color04;
+            @else{
+                color: $white !important;
             }
         }
-    }
-    .table-hover > tbody > tr:hover > td,
-    .table-hover > tbody > tr:hover > th{
-         background-color: $grey-color10;
-    }
-    .fc-unthemed .fc-today {
-        background: $secondarycolorlight;
-    }
-    @if($name==tmt-theme) {
-        #mobile-header-navigation .navbar-image .logo-img-big{
-            @include not-desktop{
-                width: auto!important;
-                transform: translate(0, -40%);
-                -webkit-transform: translate(0, -40%);
+        .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight{
+            @if($name==maritime-theme) {
+                background: #1191d1;
+            }
+            @else{
+                background: $primarycolor;
             }
         }
-        header section.informaNav .navbar-brand .logo-img-big{
-            @include not-desktop{
-                width: auto!important;
-                transform: translate(-50%,-60%);
-                -webkit-transform: translate(-50%,-60%);
+        @if($name==tmt-theme) {
+            #mobile-header-navigation .navbar-image .logo-img-big{
+                @include not-desktop{
+                    width: auto!important;
+                    transform: translate(0, -40%);
+                    -webkit-transform: translate(0, -40%);
+                }
             }
-            @include desktop{
-                top: -15px;
-                left: 10px;
-                width: 115px;
-                height: 64px;
+            header section.informaNav .navbar-brand .logo-img-big{
+                @include not-desktop{
+                    width: auto!important;
+                    transform: translate(-50%,-60%);
+                    -webkit-transform: translate(-50%,-60%);
+                }
+                @include desktop{
+                    top: -15px;
+                    left: 10px;
+                    width: 115px;
+                    height: 64px;
+                }
+            }
+            @include tablet{
+                .navbar>.container .navbar-brand{
+                    margin-left: 0;
+                }
             }
         }
-        @include tablet{
-            .navbar>.container .navbar-brand{
-                margin-left: 0;
-            }
-        }
-    }
    
-    @include not-desktop{
-        nav#pdp-navigation{
-            .container{
-                  .row{
-                    position: relative;
-                    .nav-pdp-nondesktop{
-                          &.move-left{
-                            background: lighten( $secondarycolorlight, 5%);
-                          }
-                    }
-                    #pdp-sections{
-                         background: lighten( $secondarycolorlight, 5%);
-                    }
-                  }
+        @include not-desktop{
+            nav#pdp-navigation{
+                .container{
+                      .row{
+                        position: relative;
+                        .nav-pdp-nondesktop{
+                              &.move-left{
+                                background: lighten( $secondarycolorlight, 5%);
+                              }
+                              a{
+                                @if($name==agri-theme){
+                                    color: $grey-color04;
+                                }
+                              }
+                        }
+                        .nav-pdp-nondesktop-sticky{
+                            .btn{
+                                @if($name==agri-theme){
+                                    color: $grey-color04 !important;
+                                }
+                            }
+                        }
+                        #pdp-sections{
+                             background: lighten( $secondarycolorlight, 5%);
+                        }
+                      }
+                }
             }
         }
-    }
-    body{
-        svg.spinner-loader{
-            stroke:$primarycolor;
+        body{
+            svg.spinner-loader{
+                stroke:$primarycolor;
+            }
         }
-    }
-    #contactus-section a{
-        color:$primarycolor;
-    }
+        #contactus-section a{
+            color:$navlinkcolor;
+        }
+        section#market-focus{
+            .market-list-wrapper {
+                .market-content{
+                    a{
+                        &:after{
+                            color:$secondarycolordark;
+                        }
+                    }
+                }
+            }
+        }
+        section.customer-quote {
+            &:after{
+                @if($name==agri-theme) {
+                    background: url("/Static/images/agri/testimonial-pattern.png");
+                    background-repeat: no-repeat;
+                    background-position: right -100px top 100%;
+                    background-size: 80%;
+                }
+                @else if($name==maritime-theme){
+                    background: url("/Static/images/maritime/testimonial-pattern.png");
+                    background-repeat: no-repeat;
+                    background-position: right -100px top 100%;
+                    background-size: 80%;
+                }
+                @else if($name==financial-theme){
+                    background: url("/Static/images/financial/testimonial-pattern.png");
+                    background-repeat: no-repeat;
+                    background-position: right -100px top 100%;
+                    background-size: 80%;
+                }
+                @else if($name==tmt-theme){
+                    background: url("/Static/images/tmt/testimonial-pattern.png");
+                    background-repeat: no-repeat;
+                    background-position: right -100px top 100%;
+                    background-size: 80%;
+                }
+                @else {
+                    background: url("/Static/images/testimonial-pattern.png");
+                    background-repeat: no-repeat;
+                    background-position: right -100px top 100%;
+                    background-size: 80%;
+                }
+            }
+        }
+    }    
 }
 
 @mixin opacity($opacity) {

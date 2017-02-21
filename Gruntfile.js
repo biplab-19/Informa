@@ -99,19 +99,6 @@ module.exports = function(grunt) {
                 files: {
                     '<%= config.tmp %>/': ['<%= config.src %>/templates/pages/**/*.hbs']
                 }
-            },
-            prod : {
-                options: {
-                    flatten: true,
-                    assets: '<%= config.dist %>',
-                    layout: 'main-layout.hbs',
-                    layoutdir: '<%= config.src %>/templates/layouts',
-                    data: ['<%= config.src %>/components/**/*.{json,yml}'],
-                    partials: ['<%= config.src %>/components/**/*.hbs']
-                },
-                files: {
-                    '<%= config.dist %>/deploy/': ['<%= config.src %>/templates/pages/*.hbs']
-                }
             }
         },
 
@@ -132,62 +119,26 @@ module.exports = function(grunt) {
                     relativeAssets: false,
                     assetCacheBuster: false
                 }
-            },
-            prod: {
-                options: {
-                    sassDir: ['<%= config.src %>/sass'],
-                    environment: 'production',
-                    importPath: 'bower_components',
-                    httpImagesPath: '/images',
-                    httpGeneratedImagesPath: '/images',
-                    httpFontsPath: '/fonts',
-                    relativeAssets: false,
-                    assetCacheBuster: false,
-                    noLineComments: true,
-                    outputStyle: 'compact'
-                }
             }
         },
 
         concat: {
-
             options: {
                 banner: '/*! <%= grunt.template.today("yyyy-mm-dd") %> */',
             },
             prod: {
                 files: {
                     '<%= config.dist %>/unminified/Static/js/main.js': ['<%= config.tmp %>/Static/js/*.js','!<%= config.tmp %>/Static/js/analytics.js', '<%= config.tmp %>/Static/js/components/*.js'],
-                    //'<%= config.dist %>/unminified/Static/js/components.js': ['<%= config.tmp %>/Static/js/components/*.js'],
-
                     '<%= config.dist %>/unminified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js','bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js', 'bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js'],
-
-
-                  //  '<%= config.dist %>/unminified/Static/js/analytics/':['<%= config.tmp %>/Static/js/analytics/**'],
-
-                      '<%= config.dist %>/unminified/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
-                      '<%= config.dist %>/unminified/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
-                      '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
-                      '<%= config.dist %>/unminified/Static/css/pharma-theme.css': ['<%= config.tmp %>/Static/css/pharma-theme.css'],
-                      '<%= config.dist %>/unminified/Static/css/financial-theme.css': ['<%= config.tmp %>/Static/css/financial-theme.css'],
-                      '<%= config.dist %>/unminified/Static/css/tmt-theme.css': ['<%= config.tmp %>/Static/css/tmt-theme.css'],
-                       '<%= config.dist %>/unminified/Static/css/maritime-theme.css': ['<%= config.tmp %>/Static/css/maritime-theme.css'],
-                      '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
-
-                      '<%= config.dist %>/unminified/Static/css/marketing-module.css': ['src/sass/marketing-module.css'],
-
-                      '<%= config.dist %>/deploy/Static/js/main.js': ['<%= config.tmp %>/Static/js/*.js', '<%= config.tmp %>/Static/js/components/*.js'],
-                    //  '<%= config.dist %>/deploy/Static/js/components.js': ['<%= config.tmp %>/Static/js/components/*.js'],
-                      '<%= config.dist %>/deploy/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js','bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js','bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js'],
-
-                      //'<%= config.dist %>/deploy/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
-                      '<%= config.dist %>/deploy/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
-                      '<%= config.dist %>/deploy/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/agri-theme.css'],
-                      '<%= config.dist %>/deploy/Static/css/pharma-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/pharma-theme.css'],
-                      '<%= config.dist %>/deploy/Static/css/financial-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/financial-theme.css'],
-                      '<%= config.dist %>/deploy/Static/css/tmt-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/tmt-theme.css'],
-                      '<%= config.dist %>/deploy/Static/css/maritime-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/maritime-theme.css'],
-                      '<%= config.dist %>/deploy/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/agri-theme.css'],
-                      '<%= config.dist %>/deploy/Static/css/marketing-module.css': ['src/sass/marketing-module.css']
+                    '<%= config.dist %>/unminified/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
+                    '<%= config.dist %>/unminified/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
+                    '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
+                    '<%= config.dist %>/unminified/Static/css/pharma-theme.css': ['<%= config.tmp %>/Static/css/pharma-theme.css'],
+                    '<%= config.dist %>/unminified/Static/css/financial-theme.css': ['<%= config.tmp %>/Static/css/financial-theme.css'],
+                    '<%= config.dist %>/unminified/Static/css/tmt-theme.css': ['<%= config.tmp %>/Static/css/tmt-theme.css'],
+                    '<%= config.dist %>/unminified/Static/css/maritime-theme.css': ['<%= config.tmp %>/Static/css/maritime-theme.css', '<%= config.tmp %>/Static/css/law-theme.css'],
+                    '<%= config.dist %>/unminified/Static/css/law-theme.css': ['<%= config.tmp %>/Static/css/law-theme.css'],
+                    '<%= config.dist %>/unminified/Static/css/marketing-module.css': ['src/sass/marketing-module.css'],
                 }
             }
         },
@@ -306,21 +257,11 @@ module.exports = function(grunt) {
                         expand: true,
                         cwd: '<%= config.src %>',
                         dest: '<%= config.dist %>',
-                        src: [
-                            'favicon.ico',
-                            'videos/**/*'
-                        ]
+                        src: ['favicon.ico','videos/**/*']
                     },
-                    {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/minified/Static/images'},
-                    {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/minified/Static/fonts'},
                     {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/unminified/Static/images'},
                     {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/unminified/Static/fonts'},
-                    {expand: true, cwd: '<%= config.src %>/scripts/analytics', src: ['**/*.*'], dest: '<%= config.dist %>/env-specific'},
-                    {expand: true, cwd: '<%= config.src %>/Static/images', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/Static/images'},
-                    {expand: true, cwd: '<%= config.tmp %>/Static/fonts', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/Static/fonts'},
-                    {expand: true, cwd: '<%= config.src %>/cms-images', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/cms-images'},
-                    {expand: true, cwd: '<%= config.tmp %>/data', src: ['**/*.*'], dest: '<%= config.dist %>/deploy/data'},
-
+                    {expand: true, cwd: '<%= config.src %>/scripts/analytics', src: ['**/*.*'], dest: '<%= config.dist %>/env-specific'}
                 ]
             }
         },
@@ -339,15 +280,6 @@ module.exports = function(grunt) {
                 compress: {
                     drop_console: true
                 }
-            },
-            prod: {
-                files: {
-                    //'<%= config.dist %>/minified/Static/js/components.js':['<%= config.tmp %>/Static/js/components/*.js'],
-                    '<%= config.dist %>/minified/Static/js/main.js':['<%= config.tmp %>/Static/js/*.js','<%= config.tmp %>/Static/js/components/*.js','!<%= config.tmp %>/Static/js/analytics.js'],
-                    '<%= config.dist %>/minified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js', 'bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js',
-                      'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
-                     'bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js']
-                }
             }
         },
         useminPrepare: {
@@ -363,95 +295,6 @@ module.exports = function(grunt) {
             },
             html: ['<%= config.dist %>/{,*/}*.html']
         },
-
-        imagemin: {
-            prod: {
-                options : {
-                    optimizationLevel: 3
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.src %>/cms-images',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: '<%= config.dist %>/Static/cms-images'
-                }]
-            }
-        },
-
-        svgmin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.src %>/images',
-                    src: '{,*/}*.svg',
-                    dest: '<%= config.dist %>/images'
-                }]
-            }
-        },
-
-        autoprefixer: {
-            options: {
-                browsers: ['last 1 version']
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.tmp %>/css/',
-                    src: '{,*/}*.css',
-                    dest: '<%= config.tmp %>/css/'
-                }]
-            }
-        },
-        cssmin  : {
-          prod: {
-              files:  [
-                {
-                  '<%= config.dist %>/minified/Static/css/global.css':['<%= config.tmp %>/Static/css/global.css']
-                },
-                {
-                  '<%= config.dist %>/minified/Static/css/agri-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/agri-theme.css']
-                },
-                {
-                  '<%= config.dist %>/minified/Static/css/pharma-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/pharma-theme.css']
-                },
-                {
-                  '<%= config.dist %>/minified/Static/css/financial-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/financial-theme.css']
-                },
-                {
-                  '<%= config.dist %>/minified/Static/css/tmt-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/tmt-theme.css']
-                },
-                {
-                  '<%= config.dist %>/minified/Static/css/maritime-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/maritime-theme.css']
-                },
-                {
-                  '<%= config.dist %>/minified/Static/css/agri-theme.css':['<%= config.tmp %>/Static/css/component.css', '<%= config.tmp %>/Static/css/agri-theme.css']
-                }
-                ,{
-                    '<%= config.dist %>/minified/Static/css/marketing-module.css': ['src/sass/marketing-module.css'],
-                }
-              ]
-          }
-        },
-        concurrent: {
-            server: [
-                'compass:dev'
-            ],
-            prod: [
-                'compass:prod',
-                'imagemin'
-            ],
-            werk: [
-                'compass'
-            ]
-        },
-
-        // modernizr: {
-        //     dist: {
-        //         'devFile' : 'bower_components/modernizr/modernizr.js',
-        //         'outputFile' : '<%= config.dist %>/minified/Static/js/modernizr.js',
-        //         'uglify' : true
-        //     }
-        // },
 
        compress: {
             main: {
@@ -507,8 +350,8 @@ module.exports = function(grunt) {
           }
         },
         eslint: {
-                  target: ['<%= config.src %>/components/**/js/*.js']
-          }
+            target: ['<%= config.src %>/components/**/js/*.js']
+        }
 
     });
 
@@ -530,14 +373,10 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'clean:prod',
-        'assemble:prod',
         'useminPrepare',
         'copy:prod',
-      //  'concurrent:prod',
         'concat:prod',
-        'uglify:prod',
         'usemin',
-        'cssmin',
         'concat'
         //'modernizr'
         //'eslint',

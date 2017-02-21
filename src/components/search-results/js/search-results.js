@@ -40,13 +40,13 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent;
 
     disabledEvent = function(){
-        $('.FullyBooked,.EventFinished').click(function(e){
+        $('.register.disabled').click(function(e){
             e.preventDefault();
         });
     },
     
     UnbindEvent = function() {
-        $('.FullyBooked,.EventFinished').on('keydown', function(e) {
+        $('.register.disabled').on('keydown', function(e) {
             if (e.keyCode === 13 || e.which===13) {
                 e.preventDefault();
             }   
@@ -63,6 +63,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.SearchTexts = ($('input[name="SearchTexts"]') && $('input[name="SearchTexts"]').length > 0) ? $('input[name="SearchTexts"]').val().split(",") : null;
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
             data.WhoWeHelp = ($('input[name="WhoWeHelp"]')) ? $('input[name="WhoWeHelp"]').val() : null,
+            //data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null,
             data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
             if (SearchType != "ProductSearch") {
                 if($('#hdnSearchType').length > 0) {
@@ -387,6 +388,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             SelectAllChkBox.attr("disabled","disabled");
                             Links.addClass("disabled");
                         }
+                    }
+                }
+            }
+            if( SearchType === "ResourceResult"){
+                var getSelectedCheckBoxID = $("input.UnFilterCheckbox").val();
+                if(getSelectedCheckBoxID!==undefined){
+                    var getCheckBox = jQuery("#"+getSelectedCheckBoxID);
+                    if(typeof getCheckBox!==undefined){
+                        getCheckBox.removeAttr("disabled");
+                        getCheckBox.prop("checked","checked");
                     }
                 }
             }

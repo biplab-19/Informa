@@ -56,6 +56,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     }
 
                 });
+                if(Data.Brand == undefined) {
+                    Data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null
+                } else {
+                    Data.Brand.push($('input[name="Brand"]').val());
+                }
                 return Data;
             }
         },
