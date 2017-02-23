@@ -1355,28 +1355,19 @@ $desktop-width: 1142px;
         section.customer-quote {
             &:after{
                 @if($name==agri-theme) {
-                    background: url("/Static/images/agri/testimonial-pattern.png");
-                    background-repeat: no-repeat;
-                    background-position: right -100px top 100%;
-                    background-size: 80%;
+                    background: none;
                 }
                 @else if($name==maritime-theme){
-                    background: url("/Static/images/maritime/testimonial-pattern.png");
-                    background-repeat: no-repeat;
-                    background-position: right -100px top 100%;
-                    background-size: 80%;
+                    background: none;
                 }
                 @else if($name==financial-theme){
-                    background: url("/Static/images/financial/testimonial-pattern.png");
-                    background-repeat: no-repeat;
-                    background-position: right -100px top 100%;
-                    background-size: 80%;
+                    background: none;
                 }
                 @else if($name==tmt-theme){
-                    background: url("/Static/images/tmt/testimonial-pattern.png");
-                    background-repeat: no-repeat;
-                    background-position: right -100px top 100%;
-                    background-size: 80%;
+                    background: none;
+                }
+                @else if($name==law-theme){
+                    background: none;
                 }
                 @else {
                     background: url("/Static/images/testimonial-pattern.png");
