@@ -1,4 +1,4 @@
-/*! 2017-02-15 *//*
+/*! 2017-02-23 *//*
  * google-analytics.js
  *
  *
@@ -4053,7 +4053,7 @@ jQuery(INFORMA.global.init());
                 var IsSpinnerExist = objectContainer.find(".load-spinner");
 
                 if (!IsSpinnerExist.length) {
-                    control = $("<div class='load-spinner'><span class='loading'><em>Loading...</em><img src='/Static/images/loader.svg' /></span></div>").hide();
+                    control = $("<div class='load-spinner'><span class='loading'><em>Loading...</em><img src='/Static/images/loader.svg' alt='loading'/></span></div>").hide();
                     control.prependTo(objectContainer);
                     control.fadeIn("slow");
                 }
@@ -7921,7 +7921,7 @@ INFORMA.forms = (function(window, $, namespace) {
             $(this).valid();
         });
     }
-
+        
     _setFormModalFocus = function(){
           $(".wffm-form .product-list").on('change', function() {
             $('body').scrollTop(300);
