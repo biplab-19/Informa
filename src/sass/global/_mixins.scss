@@ -561,6 +561,7 @@ $desktop-width: 1142px;
         .carousel-lists .slick-arrow,
         .customers_list_slider .slick-arrow {
             @extend .secondry-light-bg;
+            color: $white;
             &:before{
                 @if($name==agri-theme) {
                     color: $grey-color04;
@@ -1335,7 +1336,10 @@ $desktop-width: 1142px;
             }
         }
         #contactus-section a{
-            color:$navlinkcolor;
+            color:$primarycolor;
+            span{
+                color:$primarycolor !important;
+            }
         }
         section#market-focus{
             .market-list-wrapper {

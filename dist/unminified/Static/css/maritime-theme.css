@@ -1,4 +1,4 @@
-/*! 2017-02-15 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2017-02-23 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -380,27 +380,32 @@
 .maritime-theme .yellow-container h3 {
   color: #fff;
 }
-/* line 575, ../../../src/sass/global/_mixins.scss */
+/* line 561, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .carousel-lists .slick-arrow,
+.maritime-theme .customers_list_slider .slick-arrow {
+  color: #fff;
+}
+/* line 576, ../../../src/sass/global/_mixins.scss */
 .maritime-theme section.customer-quote {
   background: #002d4f;
 }
-/* line 579, ../../../src/sass/global/_mixins.scss */
+/* line 580, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .twitter-carousel .slick-arrow {
   background: #fff;
 }
-/* line 585, ../../../src/sass/global/_mixins.scss */
+/* line 586, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .view-all-sectors-btn-container {
   border-bottom: 1px solid #0f5487;
 }
-/* line 587, ../../../src/sass/global/_mixins.scss */
+/* line 588, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .view-all-sectors-btn-container .informa-icon {
   color: #0f5487;
 }
-/* line 595, ../../../src/sass/global/_mixins.scss */
+/* line 596, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .events-list .CurrentDate .events-wrap .header .date {
   background-color: #0374ac;
 }
-/* line 601, ../../../src/sass/global/_mixins.scss */
+/* line 602, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .events-list .btn-more-events {
   border: 0;
   border-bottom: 2px solid #0374ac !important;
@@ -410,80 +415,80 @@
   text-align: center;
 }
 @media (max-width: 767px) {
-  /* line 601, ../../../src/sass/global/_mixins.scss */
+  /* line 602, ../../../src/sass/global/_mixins.scss */
   .maritime-theme .events-list .btn-more-events {
     padding: 0;
     text-align: left;
     padding-left: 15px;
   }
 }
-/* line 615, ../../../src/sass/global/_mixins.scss */
+/* line 616, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .events-list .btn-more-events .more:after,
 .maritime-theme .events-list .btn-more-events .less:after {
   right: 15px;
   color: #0374ac;
 }
-/* line 621, ../../../src/sass/global/_mixins.scss */
+/* line 622, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .events-list .events p.title:before {
   background: #0374ac !important;
 }
-/* line 625, ../../../src/sass/global/_mixins.scss */
+/* line 626, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .events-list .header .arrows {
   background: #0f5487;
 }
-/* line 632, ../../../src/sass/global/_mixins.scss */
+/* line 633, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .events-list .header .arrows.arrow-desabled {
   background-color: grey;
 }
-/* line 643, ../../../src/sass/global/_mixins.scss */
+/* line 644, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .event-present.fc-future:before {
   background: #0374ac !important;
 }
-/* line 646, ../../../src/sass/global/_mixins.scss */
+/* line 647, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .fc-state-default.fc-corner-right,
 .maritime-theme .fc-state-default.fc-corner-left {
   background: #0f5487;
 }
-/* line 654, ../../../src/sass/global/_mixins.scss */
+/* line 655, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .fc-state-default.fc-corner-right.disabled,
 .maritime-theme .fc-state-default.fc-corner-left.disabled {
   background-color: grey;
 }
-/* line 663, ../../../src/sass/global/_mixins.scss */
+/* line 664, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .fc .events-wrap .events.current p.title:before {
   background: #0374ac !important;
 }
-/* line 667, ../../../src/sass/global/_mixins.scss */
+/* line 668, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .fc-center h2 {
   padding: 0;
 }
-/* line 673, ../../../src/sass/global/_mixins.scss */
+/* line 674, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .twitter-carousel .feed-heading span {
   color: #fff;
 }
-/* line 678, ../../../src/sass/global/_mixins.scss */
+/* line 679, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .twitter-carousel .message a {
   color: #fff;
   border-bottom: 1px solid #fff;
   word-wrap: break-word;
 }
-/* line 685, ../../../src/sass/global/_mixins.scss */
+/* line 686, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .view-all-mobile-container {
   border-bottom: solid 1px #0f5487;
 }
-/* line 687, ../../../src/sass/global/_mixins.scss */
+/* line 688, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .view-all-mobile-container .informa-icon {
   color: #0f5487;
 }
-/* line 695, ../../../src/sass/global/_mixins.scss */
+/* line 696, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .register-myinterests-section .triangle-nav li.active a:after {
   border-left: 30px solid #0374ac;
 }
-/* line 701, ../../../src/sass/global/_mixins.scss */
+/* line 702, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .font-color, .maritime-theme .register-myinterests-section .triangle-nav li.active a {
   color: #fff;
 }
-/* line 713, ../../../src/sass/global/_mixins.scss */
+/* line 714, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .feature li:before {
   content: "\e914";
   font-family: 'InformaIcons';
@@ -496,69 +501,69 @@
   border-radius: 50%;
   font-weight: normal;
 }
-/* line 726, ../../../src/sass/global/_mixins.scss */
+/* line 727, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .sprite-image, .maritime-theme .product-brands-list .card .caption h4:after,
 .maritime-theme .product-results .list-items .products h4:after {
   background-position: -5px -538px;
   width: 29px;
   height: 38px;
 }
-/* line 764, ../../../src/sass/global/_mixins.scss */
+/* line 765, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .product-login .login-links .list ul li::after {
   color: #8fc4de;
 }
-/* line 770, ../../../src/sass/global/_mixins.scss */
+/* line 771, ../../../src/sass/global/_mixins.scss */
 .maritime-theme ul.nav-tabs li.active {
   border-bottom: 5px solid #0374ac;
 }
-/* line 775, ../../../src/sass/global/_mixins.scss */
+/* line 776, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #mobile-header-navigation .nav-subnav-heading {
   color: #8fc4de;
 }
 @media (min-width: 1142px) {
-  /* line 780, ../../../src/sass/global/_mixins.scss */
+  /* line 781, ../../../src/sass/global/_mixins.scss */
   .maritime-theme #sub-nav .subnav-container .content {
     margin-left: 30px;
   }
-  /* line 783, ../../../src/sass/global/_mixins.scss */
+  /* line 784, ../../../src/sass/global/_mixins.scss */
   .maritime-theme #sub-nav .subnav-container .content:first-child, .maritime-theme #sub-nav .subnav-container .content:last-child {
     margin-left: 0px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 790, ../../../src/sass/global/_mixins.scss */
+  /* line 791, ../../../src/sass/global/_mixins.scss */
   .maritime-theme #sub-nav .subnav-container .heading .top {
     padding: 0 0 15px 0;
   }
 }
-/* line 794, ../../../src/sass/global/_mixins.scss */
+/* line 795, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #sub-nav .subnav-container .heading .top:first-child {
   border: none;
 }
-/* line 810, ../../../src/sass/global/_mixins.scss */
+/* line 811, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #analyst-profile .show-options {
   border-bottom: 2px solid #0f5487;
 }
-/* line 812, ../../../src/sass/global/_mixins.scss */
+/* line 813, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #analyst-profile .show-options:after {
   color: #0f5487;
 }
-/* line 817, ../../../src/sass/global/_mixins.scss */
+/* line 818, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .popover {
   background: #0f5487;
   width: 175px;
   top: -36px;
 }
-/* line 821, ../../../src/sass/global/_mixins.scss */
+/* line 822, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .popover .popover-content {
   color: #fff;
   font-family: 'FSMe-bold';
 }
-/* line 830, ../../../src/sass/global/_mixins.scss */
+/* line 831, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .popover.right .arrow:after {
   border-right-color: #0f5487;
 }
-/* line 834, ../../../src/sass/global/_mixins.scss */
+/* line 835, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn {
   width: 180px;
   background: transparent;
@@ -567,15 +572,15 @@
   border-radius: 0;
   border-width: 2px;
 }
-/* line 842, ../../../src/sass/global/_mixins.scss */
+/* line 843, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-faq-more {
   border-bottom: 2px solid #0f5487 !important;
 }
-/* line 844, ../../../src/sass/global/_mixins.scss */
+/* line 845, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-faq-more:after {
   color: #0f5487;
 }
-/* line 848, ../../../src/sass/global/_mixins.scss */
+/* line 849, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-showMore,
 .maritime-theme .btn-plus {
   background: none;
@@ -591,7 +596,7 @@
   position: relative;
   text-decoration: none;
 }
-/* line 862, ../../../src/sass/global/_mixins.scss */
+/* line 863, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-showMore:after,
 .maritime-theme .btn-plus:after {
   font-family: 'InformaIcons';
@@ -603,35 +608,35 @@
   font-size: 30px;
   top: -2px;
 }
-/* line 872, ../../../src/sass/global/_mixins.scss */
+/* line 873, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-showMore:hover,
 .maritime-theme .btn-plus:hover {
   border-bottom: 2px solid #0374ac;
   text-decoration: none;
 }
-/* line 876, ../../../src/sass/global/_mixins.scss */
+/* line 877, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-showMore span.more,
 .maritime-theme .btn-showMore span.less,
 .maritime-theme .btn-plus span.more,
 .maritime-theme .btn-plus span.less {
   text-decoration: none;
 }
-/* line 883, ../../../src/sass/global/_mixins.scss */
+/* line 884, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .meet-anlyst-section .analyst-details h4,
 .maritime-theme .meet-anlyst-section .analyst-details h3,
 .maritime-theme .meet-anlyst-section .analyst-details h5,
 .maritime-theme .meet-anlyst-section .analyst-details p {
   color: #fff;
 }
-/* line 891, ../../../src/sass/global/_mixins.scss */
+/* line 892, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .contactus-list {
   background: #444957;
 }
-/* line 901, ../../../src/sass/global/_mixins.scss */
+/* line 902, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .headline-list h4 a {
   color: #565c6b;
 }
-/* line 906, ../../../src/sass/global/_mixins.scss */
+/* line 907, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-default {
   min-width: 230px;
   text-align: left;
@@ -640,7 +645,7 @@
   border-color: #0374ac;
   position: relative;
 }
-/* line 913, ../../../src/sass/global/_mixins.scss */
+/* line 914, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-default:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -648,31 +653,31 @@
   position: absolute;
   color: #0374ac;
 }
-/* line 920, ../../../src/sass/global/_mixins.scss */
+/* line 921, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-default:hover {
   border: 2px solid #0f5487;
 }
-/* line 922, ../../../src/sass/global/_mixins.scss */
+/* line 923, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-default:hover:after {
   color: #0f5487;
 }
-/* line 928, ../../../src/sass/global/_mixins.scss */
+/* line 929, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-container .btn-default {
   border: 2px solid #0374ac;
 }
-/* line 930, ../../../src/sass/global/_mixins.scss */
+/* line 931, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-container .btn-default:after {
   color: #0374ac;
 }
-/* line 933, ../../../src/sass/global/_mixins.scss */
+/* line 934, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-container .btn-default:hover {
   border: 2px solid #0f5487;
 }
-/* line 935, ../../../src/sass/global/_mixins.scss */
+/* line 936, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-container .btn-default:hover:after {
   color: #0f5487;
 }
-/* line 941, ../../../src/sass/global/_mixins.scss */
+/* line 942, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-primary {
   text-align: left;
   padding-top: 15px;
@@ -682,7 +687,7 @@
   color: #fff;
   position: relative;
 }
-/* line 949, ../../../src/sass/global/_mixins.scss */
+/* line 950, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-primary:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -690,11 +695,11 @@
   font-weight: bold;
   position: absolute;
 }
-/* line 956, ../../../src/sass/global/_mixins.scss */
+/* line 957, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-primary a {
   color: #fff;
 }
-/* line 963, ../../../src/sass/global/_mixins.scss */
+/* line 964, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-previous {
   color: #fff;
   min-width: 180px;
@@ -706,7 +711,7 @@
   position: relative;
   z-index: 9;
 }
-/* line 973, ../../../src/sass/global/_mixins.scss */
+/* line 974, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-previous:before {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -718,27 +723,27 @@
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 985, ../../../src/sass/global/_mixins.scss */
+/* line 986, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .btn-previous:hover {
   border-color: #6a7285;
 }
-/* line 990, ../../../src/sass/global/_mixins.scss */
+/* line 991, ../../../src/sass/global/_mixins.scss */
 .maritime-theme section.articlepage-freearticle a {
   color: #8fc4de;
 }
-/* line 992, ../../../src/sass/global/_mixins.scss */
+/* line 993, ../../../src/sass/global/_mixins.scss */
 .maritime-theme section.articlepage-freearticle a:hover {
   color: #8fc4de;
 }
-/* line 996, ../../../src/sass/global/_mixins.scss */
+/* line 997, ../../../src/sass/global/_mixins.scss */
 .maritime-theme section.articlepage-freearticle .btn {
   color: #fff;
 }
-/* line 998, ../../../src/sass/global/_mixins.scss */
+/* line 999, ../../../src/sass/global/_mixins.scss */
 .maritime-theme section.articlepage-freearticle .btn:hover {
   color: #fff;
 }
-/* line 1004, ../../../src/sass/global/_mixins.scss */
+/* line 1005, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #contactus-section .phone-number a,
 .maritime-theme #contactus-section .phone-number,
 .maritime-theme #contactus-section .email a,
@@ -746,172 +751,176 @@
   color: #0374ac;
   font-weight: bold;
 }
-/* line 1011, ../../../src/sass/global/_mixins.scss */
+/* line 1012, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #contactus-section a.btn {
   color: #fff;
   width: 100%;
 }
 @media (min-width: 1142px) {
-  /* line 1011, ../../../src/sass/global/_mixins.scss */
+  /* line 1012, ../../../src/sass/global/_mixins.scss */
   .maritime-theme #contactus-section a.btn {
     width: auto;
     min-width: 220px;
   }
 }
-/* line 1018, ../../../src/sass/global/_mixins.scss */
+/* line 1019, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #contactus-section a.btn:after {
   color: #fff;
 }
-/* line 1022, ../../../src/sass/global/_mixins.scss */
+/* line 1023, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #contactus-section .subscribe-link {
   background: #0374ac url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
 }
-/* line 1024, ../../../src/sass/global/_mixins.scss */
+/* line 1025, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #contactus-section .subscribe-link:after {
   color: #fff;
 }
-/* line 1029, ../../../src/sass/global/_mixins.scss */
+/* line 1030, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .open-quote {
   color: rgba(15, 84, 135, 0.8);
 }
-/* line 1033, ../../../src/sass/global/_mixins.scss */
+/* line 1034, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .demo-item {
   height: 100px;
   background-color: rgba(15, 84, 135, 0.8);
 }
-/* line 1096, ../../../src/sass/global/_mixins.scss */
+/* line 1097, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .product-login .login-links {
   background: url(/Static/images/maritime-pattern.png) no-repeat bottom right #444957;
 }
-/* line 1099, ../../../src/sass/global/_mixins.scss */
+/* line 1100, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .dashboard {
   background: url(/Static/images/maritime-pattern.png) no-repeat right 100% #444957;
   background-size: 15%;
 }
-/* line 1103, ../../../src/sass/global/_mixins.scss */
+/* line 1104, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #formRegistration .modal-body {
   background: url(/Static/images/maritime-pattern.png) no-repeat right 105% #444957;
   background-size: 24%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 1103, ../../../src/sass/global/_mixins.scss */
+  /* line 1104, ../../../src/sass/global/_mixins.scss */
   .maritime-theme #formRegistration .modal-body {
     background: none;
     padding: 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 1103, ../../../src/sass/global/_mixins.scss */
+  /* line 1104, ../../../src/sass/global/_mixins.scss */
   .maritime-theme #formRegistration .modal-body {
     background: none;
     padding: 0;
   }
 }
-/* line 1115, ../../../src/sass/global/_mixins.scss */
+/* line 1116, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .registration-form-single-section .container {
   background: url("/Static/images/maritime-pattern.png") no-repeat right 105% #444957;
   background-size: 20%;
 }
-/* line 1160, ../../../src/sass/global/_mixins.scss */
+/* line 1161, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .tab-pane .error-response h2:before,
 .maritime-theme .tab-pane .submit-response h2:before {
   color: #0f5487;
 }
-/* line 1172, ../../../src/sass/global/_mixins.scss */
+/* line 1173, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .form-modal .modal-body .form-inline-container .error-response h2:before,
 .maritime-theme .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #0f5487;
 }
-/* line 1180, ../../../src/sass/global/_mixins.scss */
+/* line 1181, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .infograph .number-container {
   color: #8fc4de;
 }
-/* line 1184, ../../../src/sass/global/_mixins.scss */
+/* line 1185, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .welcome-description a {
   color: #8fc4de;
 }
-/* line 1188, ../../../src/sass/global/_mixins.scss */
+/* line 1189, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .welcome-description .tool p a {
   color: #8fc4de;
 }
-/* line 1194, ../../../src/sass/global/_mixins.scss */
+/* line 1195, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
-/* line 1201, ../../../src/sass/global/_mixins.scss */
+/* line 1202, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .marketing-banner.Variation2 .btn, .maritime-theme .marketing-banner.Variation1 .btn {
   background: #0374ac;
 }
-/* line 1203, ../../../src/sass/global/_mixins.scss */
+/* line 1204, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .marketing-banner.Variation2 .btn:after, .maritime-theme .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
-/* line 1224, ../../../src/sass/global/_mixins.scss */
+/* line 1225, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .hover-arrow .btn else, .maritime-theme .hover-arrow:after else {
   color: #fff;
 }
-/* line 1231, ../../../src/sass/global/_mixins.scss */
+/* line 1232, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .more-stories .feature li:before {
   color: #002d4f;
 }
-/* line 1236, ../../../src/sass/global/_mixins.scss */
+/* line 1237, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-bordered {
   margin: 20px auto;
 }
-/* line 1240, ../../../src/sass/global/_mixins.scss */
+/* line 1241, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-bordered > thead > tr > th {
   background-color: #002d4f;
   color: #fff;
 }
-/* line 1247, ../../../src/sass/global/_mixins.scss */
+/* line 1248, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1250, ../../../src/sass/global/_mixins.scss */
+/* line 1251, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-bordered > tbody td {
   color: #565c6b;
 }
-/* line 1255, ../../../src/sass/global/_mixins.scss */
+/* line 1256, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-hover > tbody > tr:hover > td,
 .maritime-theme .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
-/* line 1259, ../../../src/sass/global/_mixins.scss */
+/* line 1260, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .fc-unthemed td.fc-today {
   color: #fff !important;
 }
-/* line 1267, ../../../src/sass/global/_mixins.scss */
+/* line 1268, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
   background: #1191d1;
 }
 @media (max-width: 1141px) {
-  /* line 1306, ../../../src/sass/global/_mixins.scss */
+  /* line 1307, ../../../src/sass/global/_mixins.scss */
   .maritime-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1309, ../../../src/sass/global/_mixins.scss */
+  /* line 1310, ../../../src/sass/global/_mixins.scss */
   .maritime-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #12629e;
   }
-  /* line 1325, ../../../src/sass/global/_mixins.scss */
+  /* line 1326, ../../../src/sass/global/_mixins.scss */
   .maritime-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #12629e;
   }
 }
-/* line 1333, ../../../src/sass/global/_mixins.scss */
+/* line 1334, ../../../src/sass/global/_mixins.scss */
 .maritime-theme body svg.spinner-loader {
   stroke: #0374ac;
 }
-/* line 1337, ../../../src/sass/global/_mixins.scss */
+/* line 1338, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #contactus-section a {
-  color: #8fc4de;
+  color: #0374ac;
 }
-/* line 1344, ../../../src/sass/global/_mixins.scss */
+/* line 1340, ../../../src/sass/global/_mixins.scss */
+.maritime-theme #contactus-section a span {
+  color: #0374ac !important;
+}
+/* line 1348, ../../../src/sass/global/_mixins.scss */
 .maritime-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #002d4f;
 }
-/* line 1352, ../../../src/sass/global/_mixins.scss */
+/* line 1356, ../../../src/sass/global/_mixins.scss */
 .maritime-theme section.customer-quote:after {
   background: url("/Static/images/maritime/testimonial-pattern.png");
   background-repeat: no-repeat;
@@ -1301,27 +1310,32 @@
 .law-theme .yellow-container h3 {
   color: #fff;
 }
-/* line 575, ../../../src/sass/global/_mixins.scss */
+/* line 561, ../../../src/sass/global/_mixins.scss */
+.law-theme .carousel-lists .slick-arrow,
+.law-theme .customers_list_slider .slick-arrow {
+  color: #fff;
+}
+/* line 576, ../../../src/sass/global/_mixins.scss */
 .law-theme section.customer-quote {
   background: #b0163b;
 }
-/* line 579, ../../../src/sass/global/_mixins.scss */
+/* line 580, ../../../src/sass/global/_mixins.scss */
 .law-theme .twitter-carousel .slick-arrow {
   background: #fff;
 }
-/* line 585, ../../../src/sass/global/_mixins.scss */
+/* line 586, ../../../src/sass/global/_mixins.scss */
 .law-theme .view-all-sectors-btn-container {
   border-bottom: 1px solid #d1425f;
 }
-/* line 587, ../../../src/sass/global/_mixins.scss */
+/* line 588, ../../../src/sass/global/_mixins.scss */
 .law-theme .view-all-sectors-btn-container .informa-icon {
   color: #d1425f;
 }
-/* line 595, ../../../src/sass/global/_mixins.scss */
+/* line 596, ../../../src/sass/global/_mixins.scss */
 .law-theme .events-list .CurrentDate .events-wrap .header .date {
   background-color: #d61f2b;
 }
-/* line 601, ../../../src/sass/global/_mixins.scss */
+/* line 602, ../../../src/sass/global/_mixins.scss */
 .law-theme .events-list .btn-more-events {
   border: 0;
   border-bottom: 2px solid #d61f2b !important;
@@ -1331,80 +1345,80 @@
   text-align: center;
 }
 @media (max-width: 767px) {
-  /* line 601, ../../../src/sass/global/_mixins.scss */
+  /* line 602, ../../../src/sass/global/_mixins.scss */
   .law-theme .events-list .btn-more-events {
     padding: 0;
     text-align: left;
     padding-left: 15px;
   }
 }
-/* line 615, ../../../src/sass/global/_mixins.scss */
+/* line 616, ../../../src/sass/global/_mixins.scss */
 .law-theme .events-list .btn-more-events .more:after,
 .law-theme .events-list .btn-more-events .less:after {
   right: 15px;
   color: #d61f2b;
 }
-/* line 621, ../../../src/sass/global/_mixins.scss */
+/* line 622, ../../../src/sass/global/_mixins.scss */
 .law-theme .events-list .events p.title:before {
   background: #d61f2b !important;
 }
-/* line 625, ../../../src/sass/global/_mixins.scss */
+/* line 626, ../../../src/sass/global/_mixins.scss */
 .law-theme .events-list .header .arrows {
   background: #d1425f;
 }
-/* line 632, ../../../src/sass/global/_mixins.scss */
+/* line 633, ../../../src/sass/global/_mixins.scss */
 .law-theme .events-list .header .arrows.arrow-desabled {
   background-color: grey;
 }
-/* line 643, ../../../src/sass/global/_mixins.scss */
+/* line 644, ../../../src/sass/global/_mixins.scss */
 .law-theme .event-present.fc-future:before {
   background: #d61f2b !important;
 }
-/* line 646, ../../../src/sass/global/_mixins.scss */
+/* line 647, ../../../src/sass/global/_mixins.scss */
 .law-theme .fc-state-default.fc-corner-right,
 .law-theme .fc-state-default.fc-corner-left {
   background: #d1425f;
 }
-/* line 654, ../../../src/sass/global/_mixins.scss */
+/* line 655, ../../../src/sass/global/_mixins.scss */
 .law-theme .fc-state-default.fc-corner-right.disabled,
 .law-theme .fc-state-default.fc-corner-left.disabled {
   background-color: grey;
 }
-/* line 663, ../../../src/sass/global/_mixins.scss */
+/* line 664, ../../../src/sass/global/_mixins.scss */
 .law-theme .fc .events-wrap .events.current p.title:before {
   background: #d61f2b !important;
 }
-/* line 667, ../../../src/sass/global/_mixins.scss */
+/* line 668, ../../../src/sass/global/_mixins.scss */
 .law-theme .fc-center h2 {
   padding: 0;
 }
-/* line 673, ../../../src/sass/global/_mixins.scss */
+/* line 674, ../../../src/sass/global/_mixins.scss */
 .law-theme .twitter-carousel .feed-heading span {
   color: #fff;
 }
-/* line 678, ../../../src/sass/global/_mixins.scss */
+/* line 679, ../../../src/sass/global/_mixins.scss */
 .law-theme .twitter-carousel .message a {
   color: #fff;
   border-bottom: 1px solid #fff;
   word-wrap: break-word;
 }
-/* line 685, ../../../src/sass/global/_mixins.scss */
+/* line 686, ../../../src/sass/global/_mixins.scss */
 .law-theme .view-all-mobile-container {
   border-bottom: solid 1px #d1425f;
 }
-/* line 687, ../../../src/sass/global/_mixins.scss */
+/* line 688, ../../../src/sass/global/_mixins.scss */
 .law-theme .view-all-mobile-container .informa-icon {
   color: #d1425f;
 }
-/* line 695, ../../../src/sass/global/_mixins.scss */
+/* line 696, ../../../src/sass/global/_mixins.scss */
 .law-theme .register-myinterests-section .triangle-nav li.active a:after {
   border-left: 30px solid #d61f2b;
 }
-/* line 701, ../../../src/sass/global/_mixins.scss */
+/* line 702, ../../../src/sass/global/_mixins.scss */
 .law-theme .font-color, .law-theme .register-myinterests-section .triangle-nav li.active a {
   color: #fff;
 }
-/* line 713, ../../../src/sass/global/_mixins.scss */
+/* line 714, ../../../src/sass/global/_mixins.scss */
 .law-theme .feature li:before {
   content: "\e914";
   font-family: 'InformaIcons';
@@ -1417,69 +1431,69 @@
   border-radius: 50%;
   font-weight: normal;
 }
-/* line 726, ../../../src/sass/global/_mixins.scss */
+/* line 727, ../../../src/sass/global/_mixins.scss */
 .law-theme .sprite-image, .law-theme .product-brands-list .card .caption h4:after,
 .law-theme .product-results .list-items .products h4:after {
   background-position: -5px -584px;
   width: 29px;
   height: 38px;
 }
-/* line 764, ../../../src/sass/global/_mixins.scss */
+/* line 765, ../../../src/sass/global/_mixins.scss */
 .law-theme .product-login .login-links .list ul li::after {
   color: #f6bcca;
 }
-/* line 770, ../../../src/sass/global/_mixins.scss */
+/* line 771, ../../../src/sass/global/_mixins.scss */
 .law-theme ul.nav-tabs li.active {
   border-bottom: 5px solid #d61f2b;
 }
-/* line 775, ../../../src/sass/global/_mixins.scss */
+/* line 776, ../../../src/sass/global/_mixins.scss */
 .law-theme #mobile-header-navigation .nav-subnav-heading {
   color: #f6bcca;
 }
 @media (min-width: 1142px) {
-  /* line 780, ../../../src/sass/global/_mixins.scss */
+  /* line 781, ../../../src/sass/global/_mixins.scss */
   .law-theme #sub-nav .subnav-container .content {
     margin-left: 30px;
   }
-  /* line 783, ../../../src/sass/global/_mixins.scss */
+  /* line 784, ../../../src/sass/global/_mixins.scss */
   .law-theme #sub-nav .subnav-container .content:first-child, .law-theme #sub-nav .subnav-container .content:last-child {
     margin-left: 0px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 790, ../../../src/sass/global/_mixins.scss */
+  /* line 791, ../../../src/sass/global/_mixins.scss */
   .law-theme #sub-nav .subnav-container .heading .top {
     padding: 0 0 15px 0;
   }
 }
-/* line 794, ../../../src/sass/global/_mixins.scss */
+/* line 795, ../../../src/sass/global/_mixins.scss */
 .law-theme #sub-nav .subnav-container .heading .top:first-child {
   border: none;
 }
-/* line 810, ../../../src/sass/global/_mixins.scss */
+/* line 811, ../../../src/sass/global/_mixins.scss */
 .law-theme #analyst-profile .show-options {
   border-bottom: 2px solid #d1425f;
 }
-/* line 812, ../../../src/sass/global/_mixins.scss */
+/* line 813, ../../../src/sass/global/_mixins.scss */
 .law-theme #analyst-profile .show-options:after {
   color: #d1425f;
 }
-/* line 817, ../../../src/sass/global/_mixins.scss */
+/* line 818, ../../../src/sass/global/_mixins.scss */
 .law-theme .popover {
   background: #d1425f;
   width: 175px;
   top: -36px;
 }
-/* line 821, ../../../src/sass/global/_mixins.scss */
+/* line 822, ../../../src/sass/global/_mixins.scss */
 .law-theme .popover .popover-content {
   color: #fff;
   font-family: 'FSMe-bold';
 }
-/* line 830, ../../../src/sass/global/_mixins.scss */
+/* line 831, ../../../src/sass/global/_mixins.scss */
 .law-theme .popover.right .arrow:after {
   border-right-color: #d1425f;
 }
-/* line 834, ../../../src/sass/global/_mixins.scss */
+/* line 835, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn {
   width: 180px;
   background: transparent;
@@ -1488,15 +1502,15 @@
   border-radius: 0;
   border-width: 2px;
 }
-/* line 842, ../../../src/sass/global/_mixins.scss */
+/* line 843, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-faq-more {
   border-bottom: 2px solid #d1425f !important;
 }
-/* line 844, ../../../src/sass/global/_mixins.scss */
+/* line 845, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-faq-more:after {
   color: #d1425f;
 }
-/* line 848, ../../../src/sass/global/_mixins.scss */
+/* line 849, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-showMore,
 .law-theme .btn-plus {
   background: none;
@@ -1512,7 +1526,7 @@
   position: relative;
   text-decoration: none;
 }
-/* line 862, ../../../src/sass/global/_mixins.scss */
+/* line 863, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-showMore:after,
 .law-theme .btn-plus:after {
   font-family: 'InformaIcons';
@@ -1524,35 +1538,35 @@
   font-size: 30px;
   top: -2px;
 }
-/* line 872, ../../../src/sass/global/_mixins.scss */
+/* line 873, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-showMore:hover,
 .law-theme .btn-plus:hover {
   border-bottom: 2px solid #d61f2b;
   text-decoration: none;
 }
-/* line 876, ../../../src/sass/global/_mixins.scss */
+/* line 877, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-showMore span.more,
 .law-theme .btn-showMore span.less,
 .law-theme .btn-plus span.more,
 .law-theme .btn-plus span.less {
   text-decoration: none;
 }
-/* line 883, ../../../src/sass/global/_mixins.scss */
+/* line 884, ../../../src/sass/global/_mixins.scss */
 .law-theme .meet-anlyst-section .analyst-details h4,
 .law-theme .meet-anlyst-section .analyst-details h3,
 .law-theme .meet-anlyst-section .analyst-details h5,
 .law-theme .meet-anlyst-section .analyst-details p {
   color: #fff;
 }
-/* line 891, ../../../src/sass/global/_mixins.scss */
+/* line 892, ../../../src/sass/global/_mixins.scss */
 .law-theme .contactus-list {
   background: #444957;
 }
-/* line 901, ../../../src/sass/global/_mixins.scss */
+/* line 902, ../../../src/sass/global/_mixins.scss */
 .law-theme .headline-list h4 a {
   color: #565c6b;
 }
-/* line 906, ../../../src/sass/global/_mixins.scss */
+/* line 907, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-default {
   min-width: 230px;
   text-align: left;
@@ -1561,7 +1575,7 @@
   border-color: #d61f2b;
   position: relative;
 }
-/* line 913, ../../../src/sass/global/_mixins.scss */
+/* line 914, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-default:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -1569,31 +1583,31 @@
   position: absolute;
   color: #d61f2b;
 }
-/* line 920, ../../../src/sass/global/_mixins.scss */
+/* line 921, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-default:hover {
   border: 2px solid #d1425f;
 }
-/* line 922, ../../../src/sass/global/_mixins.scss */
+/* line 923, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-default:hover:after {
   color: #d1425f;
 }
-/* line 928, ../../../src/sass/global/_mixins.scss */
+/* line 929, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-container .btn-default {
   border: 2px solid #d61f2b;
 }
-/* line 930, ../../../src/sass/global/_mixins.scss */
+/* line 931, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-container .btn-default:after {
   color: #d61f2b;
 }
-/* line 933, ../../../src/sass/global/_mixins.scss */
+/* line 934, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-container .btn-default:hover {
   border: 2px solid #d1425f;
 }
-/* line 935, ../../../src/sass/global/_mixins.scss */
+/* line 936, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-container .btn-default:hover:after {
   color: #d1425f;
 }
-/* line 941, ../../../src/sass/global/_mixins.scss */
+/* line 942, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-primary {
   text-align: left;
   padding-top: 15px;
@@ -1603,7 +1617,7 @@
   color: #fff;
   position: relative;
 }
-/* line 949, ../../../src/sass/global/_mixins.scss */
+/* line 950, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-primary:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -1611,11 +1625,11 @@
   font-weight: bold;
   position: absolute;
 }
-/* line 956, ../../../src/sass/global/_mixins.scss */
+/* line 957, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-primary a {
   color: #fff;
 }
-/* line 963, ../../../src/sass/global/_mixins.scss */
+/* line 964, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-previous {
   color: #fff;
   min-width: 180px;
@@ -1627,7 +1641,7 @@
   position: relative;
   z-index: 9;
 }
-/* line 973, ../../../src/sass/global/_mixins.scss */
+/* line 974, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-previous:before {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -1639,27 +1653,27 @@
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 985, ../../../src/sass/global/_mixins.scss */
+/* line 986, ../../../src/sass/global/_mixins.scss */
 .law-theme .btn-previous:hover {
   border-color: #6a7285;
 }
-/* line 990, ../../../src/sass/global/_mixins.scss */
+/* line 991, ../../../src/sass/global/_mixins.scss */
 .law-theme section.articlepage-freearticle a {
   color: #f6bcca;
 }
-/* line 992, ../../../src/sass/global/_mixins.scss */
+/* line 993, ../../../src/sass/global/_mixins.scss */
 .law-theme section.articlepage-freearticle a:hover {
   color: #f6bcca;
 }
-/* line 996, ../../../src/sass/global/_mixins.scss */
+/* line 997, ../../../src/sass/global/_mixins.scss */
 .law-theme section.articlepage-freearticle .btn {
   color: #fff;
 }
-/* line 998, ../../../src/sass/global/_mixins.scss */
+/* line 999, ../../../src/sass/global/_mixins.scss */
 .law-theme section.articlepage-freearticle .btn:hover {
   color: #fff;
 }
-/* line 1004, ../../../src/sass/global/_mixins.scss */
+/* line 1005, ../../../src/sass/global/_mixins.scss */
 .law-theme #contactus-section .phone-number a,
 .law-theme #contactus-section .phone-number,
 .law-theme #contactus-section .email a,
@@ -1667,143 +1681,147 @@
   color: #d61f2b;
   font-weight: bold;
 }
-/* line 1011, ../../../src/sass/global/_mixins.scss */
+/* line 1012, ../../../src/sass/global/_mixins.scss */
 .law-theme #contactus-section a.btn {
   color: #fff;
   width: 100%;
 }
 @media (min-width: 1142px) {
-  /* line 1011, ../../../src/sass/global/_mixins.scss */
+  /* line 1012, ../../../src/sass/global/_mixins.scss */
   .law-theme #contactus-section a.btn {
     width: auto;
     min-width: 220px;
   }
 }
-/* line 1018, ../../../src/sass/global/_mixins.scss */
+/* line 1019, ../../../src/sass/global/_mixins.scss */
 .law-theme #contactus-section a.btn:after {
   color: #fff;
 }
-/* line 1022, ../../../src/sass/global/_mixins.scss */
+/* line 1023, ../../../src/sass/global/_mixins.scss */
 .law-theme #contactus-section .subscribe-link {
   background: #d61f2b url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
 }
-/* line 1024, ../../../src/sass/global/_mixins.scss */
+/* line 1025, ../../../src/sass/global/_mixins.scss */
 .law-theme #contactus-section .subscribe-link:after {
   color: #fff;
 }
-/* line 1029, ../../../src/sass/global/_mixins.scss */
+/* line 1030, ../../../src/sass/global/_mixins.scss */
 .law-theme .open-quote {
   color: rgba(209, 66, 95, 0.8);
 }
-/* line 1033, ../../../src/sass/global/_mixins.scss */
+/* line 1034, ../../../src/sass/global/_mixins.scss */
 .law-theme .demo-item {
   height: 100px;
   background-color: rgba(209, 66, 95, 0.8);
 }
-/* line 1121, ../../../src/sass/global/_mixins.scss */
+/* line 1122, ../../../src/sass/global/_mixins.scss */
 .law-theme .registration-form-single-section .container {
   background: #444957;
 }
-/* line 1160, ../../../src/sass/global/_mixins.scss */
+/* line 1161, ../../../src/sass/global/_mixins.scss */
 .law-theme .tab-pane .error-response h2:before,
 .law-theme .tab-pane .submit-response h2:before {
   color: #d1425f;
 }
-/* line 1172, ../../../src/sass/global/_mixins.scss */
+/* line 1173, ../../../src/sass/global/_mixins.scss */
 .law-theme .form-modal .modal-body .form-inline-container .error-response h2:before,
 .law-theme .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #d1425f;
 }
-/* line 1180, ../../../src/sass/global/_mixins.scss */
+/* line 1181, ../../../src/sass/global/_mixins.scss */
 .law-theme .infograph .number-container {
   color: #f6bcca;
 }
-/* line 1184, ../../../src/sass/global/_mixins.scss */
+/* line 1185, ../../../src/sass/global/_mixins.scss */
 .law-theme .welcome-description a {
   color: #f6bcca;
 }
-/* line 1188, ../../../src/sass/global/_mixins.scss */
+/* line 1189, ../../../src/sass/global/_mixins.scss */
 .law-theme .welcome-description .tool p a {
   color: #f6bcca;
 }
-/* line 1194, ../../../src/sass/global/_mixins.scss */
+/* line 1195, ../../../src/sass/global/_mixins.scss */
 .law-theme .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
-/* line 1201, ../../../src/sass/global/_mixins.scss */
+/* line 1202, ../../../src/sass/global/_mixins.scss */
 .law-theme .marketing-banner.Variation2 .btn, .law-theme .marketing-banner.Variation1 .btn {
   background: #d61f2b;
 }
-/* line 1203, ../../../src/sass/global/_mixins.scss */
+/* line 1204, ../../../src/sass/global/_mixins.scss */
 .law-theme .marketing-banner.Variation2 .btn:after, .law-theme .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
-/* line 1224, ../../../src/sass/global/_mixins.scss */
+/* line 1225, ../../../src/sass/global/_mixins.scss */
 .law-theme .hover-arrow .btn else, .law-theme .hover-arrow:after else {
   color: #fff;
 }
-/* line 1231, ../../../src/sass/global/_mixins.scss */
+/* line 1232, ../../../src/sass/global/_mixins.scss */
 .law-theme .more-stories .feature li:before {
   color: #b0163b;
 }
-/* line 1236, ../../../src/sass/global/_mixins.scss */
+/* line 1237, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-bordered {
   margin: 20px auto;
 }
-/* line 1240, ../../../src/sass/global/_mixins.scss */
+/* line 1241, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-bordered > thead > tr > th {
   background-color: #b0163b;
   color: #fff;
 }
-/* line 1247, ../../../src/sass/global/_mixins.scss */
+/* line 1248, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1250, ../../../src/sass/global/_mixins.scss */
+/* line 1251, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-bordered > tbody td {
   color: #565c6b;
 }
-/* line 1255, ../../../src/sass/global/_mixins.scss */
+/* line 1256, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-hover > tbody > tr:hover > td,
 .law-theme .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
-/* line 1259, ../../../src/sass/global/_mixins.scss */
+/* line 1260, ../../../src/sass/global/_mixins.scss */
 .law-theme .fc-unthemed td.fc-today {
   color: #fff !important;
 }
-/* line 1267, ../../../src/sass/global/_mixins.scss */
+/* line 1268, ../../../src/sass/global/_mixins.scss */
 .law-theme .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
   background: #d61f2b;
 }
 @media (max-width: 1141px) {
-  /* line 1306, ../../../src/sass/global/_mixins.scss */
+  /* line 1307, ../../../src/sass/global/_mixins.scss */
   .law-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1309, ../../../src/sass/global/_mixins.scss */
+  /* line 1310, ../../../src/sass/global/_mixins.scss */
   .law-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #d65770;
   }
-  /* line 1325, ../../../src/sass/global/_mixins.scss */
+  /* line 1326, ../../../src/sass/global/_mixins.scss */
   .law-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #d65770;
   }
 }
-/* line 1333, ../../../src/sass/global/_mixins.scss */
+/* line 1334, ../../../src/sass/global/_mixins.scss */
 .law-theme body svg.spinner-loader {
   stroke: #d61f2b;
 }
-/* line 1337, ../../../src/sass/global/_mixins.scss */
+/* line 1338, ../../../src/sass/global/_mixins.scss */
 .law-theme #contactus-section a {
-  color: #f6bcca;
+  color: #d61f2b;
 }
-/* line 1344, ../../../src/sass/global/_mixins.scss */
+/* line 1340, ../../../src/sass/global/_mixins.scss */
+.law-theme #contactus-section a span {
+  color: #d61f2b !important;
+}
+/* line 1348, ../../../src/sass/global/_mixins.scss */
 .law-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #b0163b;
 }
-/* line 1352, ../../../src/sass/global/_mixins.scss */
+/* line 1356, ../../../src/sass/global/_mixins.scss */
 .law-theme section.customer-quote:after {
   background: url("/Static/images/testimonial-pattern.png");
   background-repeat: no-repeat;
