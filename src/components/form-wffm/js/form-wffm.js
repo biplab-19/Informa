@@ -187,7 +187,7 @@ INFORMA.forms = (function(window, $, namespace) {
             var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid');
             // To track Google Analytics on Submit
             if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
-                if($('form.register-myinterests-form').find('.field-validation-error').length === 1 && captcha_response.length > 0){
+                if($(this).valid() === true && captcha_response.length > 0){
                     INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                 }
             }

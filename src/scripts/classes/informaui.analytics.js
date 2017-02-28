@@ -49,7 +49,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
           }  
         }
         else{
-          Parent =  obj.parents('.modal');
+          Parent =  obj.parents('.modal.in');
           dataModal = Parent .attr('id');
           if(dataModal === 'Intelligence'){
             replaceValue = dataModal.replace(dataModal,'formRequestADemo');
