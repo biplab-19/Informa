@@ -1,4 +1,4 @@
-/*! 2017-02-09 *//*
+/*! 2017-02-28 *//*
  * google-analytics.js
  *
  *
@@ -49,7 +49,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
           }  
         }
         else{
-          Parent =  obj.parents('.modal');
+          Parent =  obj.parents('.modal.in');
           dataModal = Parent .attr('id');
           if(dataModal === 'Intelligence'){
             replaceValue = dataModal.replace(dataModal,'formRequestADemo');
@@ -8027,7 +8027,7 @@ INFORMA.forms = (function(window, $, namespace) {
             var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid');
             // To track Google Analytics on Submit
             if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
-                if($('form.register-myinterests-form').find('.field-validation-error').length === 1 && captcha_response.length > 0){
+                if($(this).valid() === true && captcha_response.length > 0){
                     INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                 }
             }
@@ -11494,7 +11494,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             if (CheckedRefineCheckBox.length > 0) {
                 //DoRefine();
             }
-
             if (SelectAll && RefineCheckBox) {
                 var ViewPort = INFORMA.global.device.viewportN;
 
