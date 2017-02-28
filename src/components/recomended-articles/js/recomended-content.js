@@ -49,6 +49,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
            
             var results = data,
                 html = "",
+                ArticleCounts = results.ArticleCount,
                 Articles = results.Articles;
 
                 if(Articles != null) {
@@ -87,7 +88,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     equalHeight(RecomendedWrapper);
 
 
-                    if(Articles.length > DefaultArticleCount && RecomendedWrapper.find('.recomended-wrapper').length < MaxArticleCount) {
+                    if(ArticleCounts > DefaultArticleCount && RecomendedWrapper.find('.recomended-wrapper').length < MaxArticleCount) {
                         BtnMore.removeClass('hidden');
                     } else {
                         BtnMore.addClass('hidden');
