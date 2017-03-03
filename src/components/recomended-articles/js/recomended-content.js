@@ -97,7 +97,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     if($('#tabs-1 .recommended-products').length > 0) {
                         var _DashBoardObject = {
                             SearchTexts: ($('.SearchTextsPDPTemplateIds').length) ? $('.SearchTextsPDPTemplateIds').val().split('|') : "",
-                            PageSize: $('.recomended-content').data('maximumnumberofarticles')
+                            PageSize: $('.recomended-content').data('maximumnumberofarticles'),
+                            SubSubSectorFlagForRecomendations: $('input.SubSubSectorFlagForRecomendations').val()
                         }
                         GetAjaxData(Urls.GetRecomendedProductItems, "Post", _DashBoardObject, INFORMA.RecomendedTabs.RenderDashboardProduct, null, null);
                     }

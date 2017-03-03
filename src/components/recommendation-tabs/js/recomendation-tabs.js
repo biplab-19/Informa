@@ -49,7 +49,8 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
                 PageSize: DefaultCount,
                 GetContentBasedOnContentType:true,
                 SearchTexts: $('.SearchTextsSampleContent').val().split('|'),
-                ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|')
+                ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|'),
+                SubSubSectorFlagForRecomendations :$('input.SubSubSectorFlagForRecomendations').val()
             }
             
             GetAjaxData(Urls.GetRecomendedItems, "Post", object, INFORMA.RecomendedContent.RenderRecomendResult, null, "PreferenceUpdate");
