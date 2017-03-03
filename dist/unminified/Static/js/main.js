@@ -10901,7 +10901,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     ExcludeContentGuids: Ids,
                     PageSize: Count,
                     SearchTexts: $('.SearchTextsSampleContent').val().split('|'),
-                    ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|')
+                    ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|'),
+                    SubSubSectorFlagForRecomendations: $('input.SubSubSectorFlagForRecomendations').val()
                 };
 
             GetAjaxData(Urls.GetRecomendedItems, "Post", _Object, RenderRecomendResult, null, null);
