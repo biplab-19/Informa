@@ -1,5 +1,4 @@
-
-/*! 2017-02-28 *//*
+/*! 2017-03-06 *//*
  * google-analytics.js
  *
  *
@@ -10712,7 +10711,8 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
                 PageSize: DefaultCount,
                 GetContentBasedOnContentType:true,
                 SearchTexts: $('.SearchTextsSampleContent').val().split('|'),
-                ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|')
+                ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|'),
+                SubSubSectorFlagForRecomendations :$('input.SubSubSectorFlagForRecomendations').val()
             }
             
             GetAjaxData(Urls.GetRecomendedItems, "Post", object, INFORMA.RecomendedContent.RenderRecomendResult, null, "PreferenceUpdate");
@@ -10837,6 +10837,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
            
             var results = data,
                 html = "",
+                ArticleCounts = results.ArticleCount,
                 Articles = results.Articles;
 
                 if(Articles != null) {
@@ -10875,7 +10876,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     equalHeight(RecomendedWrapper);
 
 
-                    if(Articles.length > DefaultArticleCount && RecomendedWrapper.find('.recomended-wrapper').length < MaxArticleCount) {
+                    if(ArticleCounts > DefaultArticleCount && RecomendedWrapper.find('.recomended-wrapper').length < MaxArticleCount) {
                         BtnMore.removeClass('hidden');
                     } else {
                         BtnMore.addClass('hidden');
@@ -10884,7 +10885,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     if($('#tabs-1 .recommended-products').length > 0) {
                         var _DashBoardObject = {
                             SearchTexts: ($('.SearchTextsPDPTemplateIds').length) ? $('.SearchTextsPDPTemplateIds').val().split('|') : "",
-                            PageSize: $('.recomended-content').data('maximumnumberofarticles')
+                            PageSize: $('.recomended-content').data('maximumnumberofarticles'),
+                            SubSubSectorFlagForRecomendations: $('input.SubSubSectorFlagForRecomendations').val()
                         }
                         GetAjaxData(Urls.GetRecomendedProductItems, "Post", _DashBoardObject, INFORMA.RecomendedTabs.RenderDashboardProduct, null, null);
                     }
@@ -10931,7 +10933,8 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     ExcludeContentGuids: Ids,
                     PageSize: Count,
                     SearchTexts: $('.SearchTextsSampleContent').val().split('|'),
-                    ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|')
+                    ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|'),
+                    SubSubSectorFlagForRecomendations: $('input.SubSubSectorFlagForRecomendations').val()
                 };
 
             GetAjaxData(Urls.GetRecomendedItems, "Post", _Object, RenderRecomendResult, null, null);

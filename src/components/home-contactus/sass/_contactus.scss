@@ -5,11 +5,14 @@
               max-width: 30px;
               max-height: 30px;
               margin-right: 15px;
+              float:left;
             }
         }
         h4 {
             @include mobile {
               margin: 0;
+              width:80%;
+              word-wrap:break-word;
             }
         }
     }
@@ -27,6 +30,8 @@
                 margin: 0;
                 @include tablet {
                     font-size: 22px;
+                    width:80%;
+                    word-wrap:break-word;
                 }
                 img {
                   max-width: 30px;
