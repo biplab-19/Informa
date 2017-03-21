@@ -169,20 +169,36 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         }
    }
 
-   //Add fixed class for Mobile and Tablet
+   //Add fixed class for Desktop Mobile and Tablet
    _addClassFixed = function(){
-        _mobileNavigation.addClass(_fixed);
-        _cookieBanner.addClass(_fixed);
-        _mobileNavigation.css('top', _cookieHeight);
-        $('body').css('padding-top', _navHeightMobile);
+        if (!INFORMA.global.device.isDesktop){
+            _mobileNavigation.addClass(_fixed);
+            _cookieBanner.addClass(_fixed);
+            _mobileNavigation.css('top', _cookieHeight);
+            $('body').css('padding-top', _navHeightMobile);
+        }
+        else{
+            _mainNavigation.addClass(_fixed);
+            _cookieBanner.addClass(_fixed);
+            _mainNavigation.css('top', _cookieHeight);
+            $('body').css('padding-top', _navHeight);
+        }
    }
    
-   //Remove fixed class for Mobile and Tablet
+   //Remove fixed class for Desktop Mobile and Tablet
    _removeClassFixed = function(){
-        _mobileNavigation.removeClass(_fixed);
-        _cookieBanner.removeClass(_fixed);
-        _mobileNavigation.css('top', 0);
-        $('body').css('padding-top', 0);
+        if (!INFORMA.global.device.isDesktop){
+            _mobileNavigation.removeClass(_fixed);
+            _cookieBanner.removeClass(_fixed);
+            _mobileNavigation.css('top', 0);
+            $('body').css('padding-top', 0);
+        }
+        else{
+            _mainNavigation.removeClass(_fixed);
+            _cookieBanner.removeClass(_fixed);
+            _mainNavigation.css('top', 0);
+            $('body').css('padding-top', 0);
+        }
    }
 
    //scroll pdp list item
@@ -222,19 +238,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _cookieBannerExist();
         if (_windowPos > _headerPos + _cookieHeight) {
             if (!_mainNavigation.hasClass(_fixed)) {
-                _mainNavigation.addClass(_fixed);
-                _cookieBanner.addClass(_fixed);
-                _mainNavigation.css('top', _cookieHeight);
+               _addClassFixed();
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
-                $('body').css('padding-top', _navHeight);
             }
         } else {
             if (_mainNavigation.hasClass(_fixed)) {
-                _mainNavigation.removeClass(_fixed);
-                _cookieBanner.removeClass(_fixed);
-                _mainNavigation.css('top', 0);
+               _removeClassFixed();
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
-                $('body').css('padding-top', 0);
             }
         }
     };
@@ -376,11 +386,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _pdpNavigation.css('top', _fixedNavHeight + _cookieHeight + 'px');
             _pdpWrapper.css('padding-top', _pdpNavigationHeight);
             _pdpFixed = true;
-
             $('.nav-pdp-nondesktop').addClass('move-left');
-
+            _addClassFixed();
             if (!INFORMA.global.device.isDesktop && !_pdpStickyMobileFlag) {
-              _addClassFixed();
               var leftOfPdpMover = _pdpMenuFollower.css('left');
                 _tryStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _subscribeStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
@@ -423,10 +431,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpFixed = false;
                 _arrayFlag = true;
                 _initialPdpHdrPos = _pdpNavigation.offset().top;
-
+                _removeClassFixed();
                 if (!INFORMA.global.device.isDesktop){
                     _pdpStickyMobileFlag = false;
-                    _removeClassFixed();
                     $('.nav-pdp-nondesktop-sticky').empty();
                     $('#pdp-sections-heading').text('');
                     $('#pdp-sections-heading').removeClass('move-left');
