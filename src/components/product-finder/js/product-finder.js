@@ -158,7 +158,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             }
             SearchField.on("keyup",function(e){
                 var MaxLength = $(this).data('length');
-                if($(this).val().length >= MaxLength){
+                if($(this).val().trim().length >= MaxLength){
                     SearchSubmitBtn.removeClass("disabled");
                 }
                 else{
