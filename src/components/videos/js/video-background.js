@@ -17,7 +17,8 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         _wistiaSound,
         _vimeoSound,
         _addOptions,
-        _setHeroVideoHeight;
+        _setHeroVideoHeight,
+        _heroBannerList = $('.hero-banner-carousel .slider-component');
     _setHeroVideoHeight = function(){
       var videoBGContainer = $('.hero-banner').find('.videoBG');
       if(videoBGContainer.length > 0){
@@ -28,7 +29,9 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
     }
     _addOptions = function() {
+        
         //$('.videoBG_wrapper').parent().css( "height", "auto" );
+        if(_heroBannerList.length == 0){
         _iFrameElement.each(function(i, e) {
             _urlType = $(this).attr('data-videotype');
 
@@ -99,10 +102,12 @@ INFORMA.videoBackground = (function(window, $, namespace) {
             }
 
         });
+       } 
 
     }
 
-    window.onYouTubeIframeAPIReady = function() {
+    if(_heroBannerList.length == 0){
+   window.onYouTubeIframeAPIReady = function() {
         ytPlayer = new YT.Player('youtubePlayer', {
             videoId: _youTubeId,
             playerVars: {
@@ -120,7 +125,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
             }
         });
     };
-
+}
     function onYTPlayerReady(event) {
         if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
             event.target.playVideo();
