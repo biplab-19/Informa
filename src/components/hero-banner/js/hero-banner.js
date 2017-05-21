@@ -31,7 +31,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _youTubeSound,
         _wistiaSound,
         _vimeoSound,
-        currentPlayer;
+        currentPlayer,
+        ytPlayers=[];
        
 
     _bindIframe = function(){
@@ -79,7 +80,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         };
         _heroBannerList.on('init', function(event, slick){
             var _iFrameElement = $('.hero-banner-carousel .slick-slide .videoBG');
-            // var index= $('.hero-banner-carousel .slick-slide.slick-active').attr('data-slick-index');
+            
              _iFrameElement.each(function(i, e) {
                 _urlType = $(this).attr('data-videotype');
 
@@ -171,23 +172,43 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         },
                          events: {
                             'onReady': onCarouselYTPlayerReady
+                            // ,
+                            // 'onStateChange': onPlayerStateChange
                         }
                     });
+                    ytPlayers.push(ytPlayer);
                 });
             }    
         }
 
         function onCarouselYTPlayerReady(event) {
             if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
-                event.target.playVideo();
-                event.target.setVolume(_youTubeSound);
+               event.target.playVideo();
+               event.target.setVolume(_youTubeSound);
+            }
+        }
+       
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                var temp = event.target.a.src;
+                for (var i = 0; i < ytPlayers.length; i++) {
+                    if (ytPlayers[i].a.src != temp) ytPlayers[i].stopVideo();
+                }
             }
         }
 
        _heroBannerList.on('afterChange', function(event, slick, currentSlide, nextSlide){
-            ytPlayer.pauseVideo();
-            if(slick.$slides[currentSlide]){
-                ytPlayer.playVideo();
+            var video = slick.$slides[currentSlide].hasChildNodes('iframe');
+            var temp = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].src;
+            if(video){
+                 for (var i = 0; i < ytPlayers.length; i++) {
+                    if (ytPlayers[i].a.src == temp) {
+                        ytPlayers[i].playVideo();
+                    }   
+                    else{
+                        ytPlayers[i].pauseVideo();
+                    }
+                }
             }
         });
 
