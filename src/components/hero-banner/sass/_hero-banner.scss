@@ -581,8 +581,6 @@ section#hero-banner {
     height: 100%;
     .hero-items {
       position: relative;
-    }
-    .vertical-align {
       &:after{
         content: '';
         position: absolute;
@@ -593,48 +591,6 @@ section#hero-banner {
         z-index: 2;
       }
     }
-    .videoBG_wrapper {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        z-index: 3;
-        .block-centered {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-        }
-        article {
-            color: $white;
-            text-align: left;
-            @include mobile{
-                margin-left:15px;
-                text-align: left;
-            }
-            @include tablet{
-                margin-left:15px;
-            }
-            button {
-                background-color: $black;
-            }
-            h1{
-                 font-family: 'FSMe-Light';
-                 display: inline-block;
-                 font-size: 60px;
-                 @include mobile{
-                    font-size: 30px;
-                 }
-                 @include tablet{
-                    font-size: 40px;
-                 }
-            }
-            p{
-                display: inline-block;
-            }
-        }
-       } 
     .slick-arrow {
         height: 60px;
         width: 40px;

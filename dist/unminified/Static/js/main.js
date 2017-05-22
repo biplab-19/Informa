@@ -1,4 +1,4 @@
-/*! 2017-05-21 *//*
+/*! 2017-05-22 *//*
  * google-analytics.js
  *
  *
@@ -10077,18 +10077,20 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         }
 
        _heroBannerList.on('afterChange', function(event, slick, currentSlide, nextSlide){
-            var video = slick.$slides[currentSlide].hasChildNodes('iframe');
-            var temp = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].src;
-            if(video){
-                 for (var i = 0; i < ytPlayers.length; i++) {
-                    if (ytPlayers[i].a.src == temp) {
-                        ytPlayers[i].playVideo();
-                    }   
-                    else{
-                        ytPlayers[i].pauseVideo();
+            if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+                var video = slick.$slides[currentSlide].getElementsByClassName('videoBG');
+                if(video.length > 0){
+                    var temp = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].src;
+                    for (var i = 0; i < ytPlayers.length; i++) {
+                        if (ytPlayers[i].a.src == temp) {
+                            ytPlayers[i].playVideo();
+                        }   
+                        else{
+                            ytPlayers[i].pauseVideo();
+                        }
                     }
                 }
-            }
+            }   
         });
 
         init = function() {
