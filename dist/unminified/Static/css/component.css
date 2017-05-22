@@ -764,7 +764,11 @@ section#hero-banner .analyst-single-image .image-margin {
   opacity: 0.4;
   z-index: 2;
 }
-/* line 594, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 593, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+.hero-banner-carousel .slick-initialized .hero-items .cf.hero-cf-image, .hero-banner-carousel .slick-list .hero-items .cf.hero-cf-image, .hero-banner-carousel .slick-track .hero-items .cf.hero-cf-image {
+  display: block !important;
+}
+/* line 597, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-arrow, .hero-banner-carousel .slick-list .slick-arrow, .hero-banner-carousel .slick-track .slick-arrow {
   height: 60px;
   width: 40px;
@@ -773,7 +777,7 @@ section#hero-banner .analyst-single-image .image-margin {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 594, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 597, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-arrow, .hero-banner-carousel .slick-list .slick-arrow, .hero-banner-carousel .slick-track .slick-arrow {
     height: 40px;
     width: 20px;
@@ -782,7 +786,7 @@ section#hero-banner .analyst-single-image .image-margin {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 594, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 597, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-arrow, .hero-banner-carousel .slick-list .slick-arrow, .hero-banner-carousel .slick-track .slick-arrow {
     height: 40px;
     width: 25px;
@@ -790,7 +794,7 @@ section#hero-banner .analyst-single-image .image-margin {
     margin-left: -25px;
   }
 }
-/* line 612, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 615, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-arrow:before, .hero-banner-carousel .slick-list .slick-arrow:before, .hero-banner-carousel .slick-track .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -802,7 +806,7 @@ section#hero-banner .analyst-single-image .image-margin {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 612, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 615, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-arrow:before, .hero-banner-carousel .slick-list .slick-arrow:before, .hero-banner-carousel .slick-track .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -810,38 +814,38 @@ section#hero-banner .analyst-single-image .image-margin {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 612, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 615, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-arrow:before, .hero-banner-carousel .slick-list .slick-arrow:before, .hero-banner-carousel .slick-track .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 633, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 636, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-next, .hero-banner-carousel .slick-list .slick-next, .hero-banner-carousel .slick-track .slick-next {
   left: 100%;
   margin-left: -40px;
 }
 @media (max-width: 1141px) {
-  /* line 633, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 636, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-next, .hero-banner-carousel .slick-list .slick-next, .hero-banner-carousel .slick-track .slick-next {
     margin-left: -20px;
   }
 }
-/* line 639, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 642, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-next:before, .hero-banner-carousel .slick-list .slick-next:before, .hero-banner-carousel .slick-track .slick-next:before {
   content: "\e902";
 }
-/* line 643, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 646, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-prev, .hero-banner-carousel .slick-list .slick-prev, .hero-banner-carousel .slick-track .slick-prev {
   left: 0%;
   margin-left: 0;
 }
-/* line 646, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 649, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-prev:before, .hero-banner-carousel .slick-list .slick-prev:before, .hero-banner-carousel .slick-track .slick-prev:before {
   content: "\e903";
 }
-/* line 650, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 653, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots, .hero-banner-carousel .slick-list ul.slick-dots, .hero-banner-carousel .slick-track ul.slick-dots {
   text-align: center;
   width: 100%;
@@ -850,7 +854,7 @@ section#hero-banner .analyst-single-image .image-margin {
   z-index: 2;
   margin: 15px 0;
 }
-/* line 657, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 660, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots li, .hero-banner-carousel .slick-list ul.slick-dots li, .hero-banner-carousel .slick-track ul.slick-dots li {
   height: 10px;
   width: 10px;
@@ -859,15 +863,15 @@ section#hero-banner .analyst-single-image .image-margin {
   background: #565c6b;
   padding: 0;
 }
-/* line 664, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 667, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots li.slick-active, .hero-banner-carousel .slick-list ul.slick-dots li.slick-active, .hero-banner-carousel .slick-track ul.slick-dots li.slick-active {
   background: #fff;
 }
-/* line 667, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 670, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots li button, .hero-banner-carousel .slick-list ul.slick-dots li button, .hero-banner-carousel .slick-track ul.slick-dots li button {
   color: #fff;
 }
-/* line 669, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 672, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots li button:before, .hero-banner-carousel .slick-list ul.slick-dots li button:before, .hero-banner-carousel .slick-track ul.slick-dots li button:before {
   content: " ";
 }
