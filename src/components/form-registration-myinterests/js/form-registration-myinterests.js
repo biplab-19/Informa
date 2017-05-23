@@ -48,7 +48,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _addTabNumbers,
         _closeMyInterestModal,
         _showRegisterFormPopupSingleStep,
-        _validateCountry;
+        _validateCountry,
+        _showContentFirstTime,
+        Urls = INFORMA.Configs.urls.webservices;
 
     //methods
 
@@ -158,7 +160,16 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         });
         _myinterestsModal.modal('show');
     }
-
+    _showContentFirstTime = function(){
+        $('body').on('click', '.show-content-first-time', function(e) {
+            e.preventDefault();
+            var value = $(this).attr('href');
+            var data = $(this).attr('data-firstcontent');
+            _getAjaxData(Urls.SetUserTypeValue, "Post", JSON.stringify({"firstContent": data}), null, null, null);
+            window.location.href = value;
+        })
+    }
+    
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
@@ -437,6 +448,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _showRegisterForm();
             _closeMyInterestModal();
             _validateCountry();
+            _showContentFirstTime();
         } else {
             _myinterestsSection.css('display', 'none');
 

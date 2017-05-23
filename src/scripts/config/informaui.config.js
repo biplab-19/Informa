@@ -51,7 +51,9 @@ var INFORMA = window.INFORMA || {};
             "GetFormItems": "/client/ajax/GetModifiedWffmFormItems",
             "GetRecomendedItems": "/client/Account/GetRemainingContent",
             "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent",
-            "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct"
+            "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct",
+            "SetUserTypeValue" :"/client/Ajax/SetUserTypeValue" 
+
         }
     };
 

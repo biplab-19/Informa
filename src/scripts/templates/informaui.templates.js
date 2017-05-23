@@ -36,11 +36,14 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/if}}'+
                                             '{{/compare}}'+
                                         '{{/if}}'+
+
                                         '{{#compare HasExternalLink false operator="=="}}'+
                                             '{{#compare ShowForm false operator="=="}}'+
-                                                '{{#if LinkText}}'+
-                                                    '<h4><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
-                                                '{{/if}}'+
+                                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                    '{{#if LinkText}}'+
+                                                        '<h4><a href="{{PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_blank">{{Title}}</a></h4>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
                                             '{{/compare}}'+
                                             '{{#compare ShowForm true operator="=="}}'+
                                                 '{{#compare IsAuthenticatedUser false operator="=="}}'+
@@ -66,7 +69,6 @@ var INFORMA = window.INFORMA || {};
                                 '{{/compare}}'+
                                 '{{#compare Video null operator="!="}}'+
                                     '<div class="video-container">'+
-                                        // Nupur changes start-2
                                         '{{#compare HasExternalLink false operator="=="}}'+
                                             '{{#compare ShowForm true operator="=="}}'+
                                                 '{{#compare IsAuthenticatedUser false operator="=="}}'+
@@ -84,10 +86,12 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/compare}}'+
                                             '{{/compare}}'+
                                             '{{#compare ShowForm false operator="=="}}'+
-                                                '<a href="{{Video.Url}}" class="video-link" tabindex="0">'+
-                                                    '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
-                                                    '<span class="play-icon icon-play"></span>'+
-                                                '</a>'+
+                                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                    '<a href="{{Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0">'+
+                                                        '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                                        '<span class="play-icon icon-play"></span>'+
+                                                    '</a>'+
+                                                '{{/compare}}'+    
                                             '{{/compare}}'+
                                         '{{/compare}}'+  
                                          '{{#compare HasExternalLink true operator="=="}}'+
@@ -147,11 +151,13 @@ var INFORMA = window.INFORMA || {};
 
                                     '{{#compare HasExternalLink false operator="=="}}'+
                                         '{{#compare ShowForm false operator="=="}}'+
-                                            '{{#if LinkText}}'+
-                                                '<div class="btn-container text-right">'+
-                                                    '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_self">{{LinkText}}</a>'+
-                                                '</div>'+
-                                            '{{/if}}'+
+                                            '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                '{{#if LinkText}}'+
+                                                    '<div class="btn-container text-right">'+
+                                                        '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn show-content-first-time" data-firstcontent="true" target="_self">{{LinkText}}</a>'+
+                                                    '</div>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
                                         '{{/compare}}'+
                                         '{{#compare ShowForm true operator="=="}}'+
                                             '{{#compare IsAuthenticatedUser false operator="=="}}'+
@@ -646,9 +652,11 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/if}}'+
                                                 '{{#compare results.HasExternalLink false operator="=="}}'+
                                                     '{{#compare results.ShowForm false operator="=="}}'+
-                                                        '{{#if results.LinkText}}'+
-                                                            '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
-                                                        '{{/if}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
                                                     '{{/compare}}'+
                                                     '{{#compare results.ShowForm true operator="=="}}'+
                                                         '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
@@ -684,10 +692,12 @@ var INFORMA = window.INFORMA || {};
                                                 '{{/if}}'+
                                                 '{{#compare results.HasExternalLink false operator="=="}}'+
                                                     '{{#compare results.ShowForm false operator="=="}}'+
-                                                        '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
-                                                            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
-                                                            '<span class="play-icon icon-play"></span>'+
-                                                        '</a>'+
+                                                            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                                '<a href="{{results.Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0" target="_self">'+
+                                                                    '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                    '<span class="play-icon icon-play"></span>'+
+                                                                '</a>'+
+                                                        '{{/compare}}'+
                                                     '{{/compare}}'+
                                                     '{{#compare results.ShowForm true operator="=="}}'+
                                                         '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
@@ -752,11 +762,13 @@ var INFORMA = window.INFORMA || {};
                                             '{{/if}}'+
                                             '{{#compare results.HasExternalLink false operator="=="}}'+
                                                 '{{#compare results.ShowForm false operator="=="}}'+
-                                                    '{{#if results.LinkText}}'+
-                                                        '<div class="btn-container text-right">'+
-                                                            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
-                                                        '</div>'+
-                                                    '{{/if}}'+
+                                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn show-content-first-time" data-firstcontent="true" target="_blank">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
                                                 '{{/compare}}'+
                                                 '{{#compare results.ShowForm true operator="=="}}'+
                                                     '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
