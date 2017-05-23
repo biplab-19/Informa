@@ -590,8 +590,19 @@ section#hero-banner {
         opacity: 0.4;
         z-index: 2;
       }
-      .cf.hero-cf-image{
-        display: block !important;
+      &.hero-items-video{
+        &:after{
+          display:none;
+        } 
+      }
+    }
+   /* @media only screen and (min-width: 1024px) and (max-width: 1360px) {
+      margin-left: 70px;
+    }*/
+   .hero-cf-image{
+      display: block !important;
+      img{
+        width: 100%;
       }
     }
     .slick-arrow {
@@ -632,6 +643,10 @@ section#hero-banner {
                 margin-left: -8px;
             }
         }
+    }
+    .disable-arrow {
+      pointer-events: none;
+      opacity: 0.4;
     }
     .slick-next {
         left: 100%;

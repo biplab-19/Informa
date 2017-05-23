@@ -31,8 +31,9 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _youTubeSound,
         _wistiaSound,
         _vimeoSound,
-        currentPlayer,
-        ytPlayers=[];
+        currentPlayer = false,
+        ytPlayers=[],
+        palyCount = 0;
        
 
     _bindIframe = function(){
@@ -40,7 +41,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _videoElem.parent().html('<iframe width="100%" height="auto" src="'+videoUrl+'" frameborder="0" allowfullscreen volume="0"></iframe>');
 
     };
-     _createSlider = function(container){
+
+    _createSlider = function(container){
         var _slideCount = 1,//container.data('itemsperframe'), Evil laugh when the author tries to change config,
             _autoplay = container.data('autorotate'),
             _speed = container.data('transitionspeed'), // speed of transition
@@ -78,10 +80,12 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                swipe: INFORMA.global.device.isDesktop ? false : true
            });
         };
+
         _heroBannerList.on('init', function(event, slick){
             var _iFrameElement = $('.hero-banner-carousel .slick-slide .videoBG');
-            
-             _iFrameElement.each(function(i, e) {
+               
+            _iFrameElement.each(function(i, e) {
+                
                 _urlType = $(this).attr('data-videotype');
 
                 if (_urlType == "youtube") {
@@ -152,12 +156,13 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 }
             });
         });
+
         if(_heroBannerList.length > 0){
             window.onYouTubeIframeAPIReady = function(){
                 var _iFrameElement = $('.hero-banner-carousel .slick-slide .videoBG');
                 _iFrameElement.each(function(i, e) {
                     _youTubeId = $(this).attr('data-videoid');
-                     _youTubeSound = $(this).attr('data-videosound');
+                    _youTubeSound = $(this).attr('data-videosound');
                     var id = document.getElementById('youtubePlayer'+i);
                     ytPlayer = new YT.Player(id, {
                         videoId: _youTubeId,
@@ -172,8 +177,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         },
                          events: {
                             'onReady': onCarouselYTPlayerReady
-                            // ,
-                            // 'onStateChange': onPlayerStateChange
                         }
                     });
                     ytPlayers.push(ytPlayer);
@@ -183,24 +186,25 @@ INFORMA.heroBanner = (function(window, $, namespace) {
 
         function onCarouselYTPlayerReady(event) {
             if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
-               event.target.playVideo();
-               event.target.setVolume(_youTubeSound);
-            }
-        }
-       
-        function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING) {
-                var temp = event.target.a.src;
-                for (var i = 0; i < ytPlayers.length; i++) {
-                    if (ytPlayers[i].a.src != temp) ytPlayers[i].stopVideo();
+                event.target.pauseVideo();
+                event.target.setVolume(_youTubeSound);
+                palyCount++;
+                if(ytPlayers.length == palyCount) {
+                    $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
+                        if(_heroBannerList.find('.hero-items.slick-active .videoBG').length > 0) {
+                            ytPlayers[0].playVideo();
+                        }
+                } else {
+                    $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
                 }
             }
         }
-
+       
        _heroBannerList.on('afterChange', function(event, slick, currentSlide, nextSlide){
             if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
                 var video = slick.$slides[currentSlide].getElementsByClassName('videoBG');
                 if(video.length > 0){
+                    $(video).parents('.hero-items').addClass("hero-items-video");
                     var temp = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].src;
                     for (var i = 0; i < ytPlayers.length; i++) {
                         if (ytPlayers[i].a.src == temp) {
@@ -211,7 +215,12 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         }
                     }
                 }
-            }   
+                else{
+                    for (var i = 0; i < ytPlayers.length; i++) {
+                        ytPlayers[i].pauseVideo();
+                    }
+                } 
+           }   
         });
 
         init = function() {
@@ -220,7 +229,11 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             }
             if (_heroBannerList.length > 0) {
                 _createSlider(_heroBannerList);
-                 // _playPauseVideo();
+                if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+                    if($('.hero-banner-carousel .videoBG').length>0){
+                        $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
+                    }
+                }    
             }
         };
 
