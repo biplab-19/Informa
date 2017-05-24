@@ -52,7 +52,7 @@ var INFORMA = window.INFORMA || {};
             "GetRecomendedItems": "/client/Account/GetRemainingContent",
             "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent",
             "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct",
-            "SetUserTypeValue" :"/client/Ajax/SetUserTypeValue" 
+            "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie" 
 
         }
     };

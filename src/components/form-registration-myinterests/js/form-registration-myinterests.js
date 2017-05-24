@@ -165,7 +165,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             e.preventDefault();
             var value = $(this).attr('href');
             var data = $(this).attr('data-firstcontent');
-            _getAjaxData(Urls.SetUserTypeValue, "Post", JSON.stringify({"firstContent": data}), null, null, null);
+            _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
             window.location.href = value;
         })
     }
