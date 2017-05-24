@@ -591,13 +591,13 @@ section#hero-banner {
         z-index: 2;
       }
     }
-   /* @media only screen and (min-width: 1024px) and (max-width: 1360px) {
-      margin-left: 70px;
-    }*/
    .hero-cf-image{
       display: block !important;
       img{
         width: 100%;
+        @media only screen and (min-width: 1024px) and (max-width: 1380px){
+          height: 100%;
+        }
       }
     }
     .slick-arrow {
