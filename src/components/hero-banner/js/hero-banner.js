@@ -31,9 +31,13 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _youTubeSound,
         _wistiaSound,
         _vimeoSound,
-        currentPlayer = false,
         ytPlayers=[],
-        palyCount = 0;
+        playCount = 0,
+        vimeoCount = 0,
+        vimeoPlayers=[],
+        vimeoPlayer,
+        wistiaPlayers=[],
+        _pauseAllVideos;
        
 
     _bindIframe = function(){
@@ -103,23 +107,22 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     $(this).append(node);
 
                 } else if (_urlType == "vimeo") {
-
+                    $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
                     _vimeoUrl = $(this).attr('data-videourl')
                     _vimeoId = $(this).attr('data-videoid');
                     _vimeoSound = $(this).attr('data-videosound');
 
                     var playerVMElement = document.createElement('div');
-                    playerVMElement.id = "vimeoPlayer";
+                    playerVMElement.id = "vimeoPlayer"+i;
                     $(this).append(playerVMElement);
-
+                    var id = document.getElementById('vimeoPlayer'+i);
                     var options = {
                       id: _vimeoId,
-                      autoplay: true,
-                      loop: true
+                      loop: true,
+                      autoplay: true
                     };
-
-                    var vimeoPlayer = new Vimeo.Player('vimeoPlayer'+i, options);
-                    vimeoPlayer.setVolume(_vimeoSound);
+                    vimeoPlayer = new Vimeo.Player(id, options);
+                    vimeoPlayers.push(vimeoPlayer);
                     if (INFORMA.global.device.viewportN == 2 ) {
                       $('.videoBG_wrapper').css('height', '80%');
                       $('.block-centered').css('transform','translateY(-40%)');
@@ -136,61 +139,109 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     _wistiaSound = $(this).attr('data-videosound');
 
                     var iframeWSElement = document.createElement('iframe');
-                    iframeWSElement.id = "wistiaEmbed",
+                    iframeWSElement.id = "wistiaEmbed" + i,
                     iframeWSElement.class = "wistia_embed",
                     iframeWSElement.name = "wistia_embed";
                     iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
                     $(this).append(iframeWSElement);
-
+                    var id = document.getElementById('wistiaEmbed'+i);
+                    var options = {
+                      id: _wistiaId
+                    };
+                    wistiaPlayers.push(options);
                     if (INFORMA.global.device.viewportN == 1 || INFORMA.global.device.viewportN == 2 ) {
                         var playButton = $(".videoBG_wrapper");
                         if(playButton.length > 0 ){
                           playButton.on("click", function() {
-                                var wistiaEmbed = document.getElementById("wistiaEmbed").wistiaApi;
+                                var wistiaEmbed = document.getElementById("wistiaEmbed"+i).wistiaApi;
                                     wistiaEmbed.play();
                           });
                         }
                     }
                 }
             });
+            onVimeoIframeAPIReady();
+            //onWistiaIframeAPIReady();
         });
 
         if(_heroBannerList.length > 0){
             window.onYouTubeIframeAPIReady = function(){
                 var _iFrameElement = $('.hero-banner-carousel .slick-slide .videoBG');
                 _iFrameElement.each(function(i, e) {
-                    _youTubeId = $(this).attr('data-videoid');
-                    _youTubeSound = $(this).attr('data-videosound');
-                    var id = document.getElementById('youtubePlayer'+i);
-                    ytPlayer = new YT.Player(id, {
-                        videoId: _youTubeId,
-                        playerVars: {
-                            'modestbranding': 0,
-                            'autoplay': 1,
-                            'controls': 1,
-                            'loop': 1,
-                            'wmode':'opaque',
-                            'playlist': _youTubeId,
-                            'showinfo': 0
-                        },
-                         events: {
-                            'onReady': onCarouselYTPlayerReady
+                    _urlType = $(this).attr('data-videotype');
+                    if (_urlType == "youtube") {
+                        _youTubeId = $(this).attr('data-videoid');
+                        _youTubeSound = $(this).attr('data-videosound');
+                        var id = document.getElementById('youtubePlayer'+i);
+                        ytPlayer = new YT.Player(id, {
+                            videoId: _youTubeId,
+                            playerVars: {
+                                'modestbranding': 0,
+                                'autoplay': 1,
+                                'controls': 1,
+                                'loop': 1,
+                                'wmode':'opaque',
+                                'playlist': _youTubeId,
+                                'showinfo': 0
+                            },
+                             events: {
+                                'onReady': onCarouselYTPlayerReady
+                            }
+                        });
+                        ytPlayers.push(ytPlayer);
+                    }  
+                });
+            }  
+            window.onVimeoIframeAPIReady = function(){
+                $.each(vimeoPlayers, function(key, value) {
+                    var player = value;
+                    player.ready().then(function() {
+                        player.pause();
+                        player.setVolume(_vimeoSound);
+                        vimeoCount++;
+                        if(vimeoPlayers.length == vimeoCount) {
+                            $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
+                            setTimeout(function(){
+                                _heroBannerList.find('.hero-items.slick-active .videoBG iframe').css('display','block');
+                            },100)
+                            if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='vimeo') { 
+                                var VimeoId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe').parent()[0].id;
+                                for(var i=0; i<vimeoPlayers.length;i++){
+                                    if(vimeoPlayers[i].element.parentElement.id === VimeoId){
+                                        vimeoPlayers[i].play();
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
+                            _heroBannerList.find('.hero-items.slick-active .videoBG iframe').css('display','none');
                         }
                     });
-                    ytPlayers.push(ytPlayer);
                 });
-            }    
+            }
+            // window.onWistiaIframeAPIReady = function(){
+            //    $.each(wistiaPlayers, function(key, value) {
+            //    }); 
+            // }
         }
 
         function onCarouselYTPlayerReady(event) {
             if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
-                event.target.pauseVideo();
-                event.target.setVolume(_youTubeSound);
-                palyCount++;
-                if(ytPlayers.length == palyCount) {
+                setTimeout(function(){
+                    event.target.pauseVideo();
+                    event.target.setVolume(_youTubeSound);
+                },10)
+                playCount++;
+                if(ytPlayers.length == playCount) {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
-                        if(_heroBannerList.find('.hero-items.slick-active .videoBG').length > 0) {
-                            ytPlayers[0].playVideo();
+                        if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='youtube') {
+                            var ytubeId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe')[0].id;
+                            for(var i=0; i<ytPlayers.length;i++){
+                                if(ytPlayers[i].a.id === ytubeId){
+                                    ytPlayers[i].playVideo();
+                                }
+                            }
                         }
                 } else {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
@@ -200,26 +251,41 @@ INFORMA.heroBanner = (function(window, $, namespace) {
        
        _heroBannerList.on('afterChange', function(event, slick, currentSlide, nextSlide){
             if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
-                var video = slick.$slides[currentSlide].getElementsByClassName('videoBG');
+                var video = slick.$slides[currentSlide].getElementsByClassName('videoBG'),
+                   _urlType = $(event.target).find('.slick-active .videoBG').attr('data-videotype');
                 if(video.length > 0){
-                    $(video).parents('.hero-items').addClass("hero-items-video");
-                    var temp = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].src;
-                    for (var i = 0; i < ytPlayers.length; i++) {
-                        if (ytPlayers[i].a.src == temp) {
-                            ytPlayers[i].playVideo();
-                        }   
-                        else{
-                            ytPlayers[i].pauseVideo();
-                        }
+                    if(_urlType === 'youtube'){
+                        _pauseAllVideos();
+                        var ytubeId = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].id;
+                        for(var i=0; i<ytPlayers.length;i++){
+                            if(ytPlayers[i].a.id === ytubeId ){
+                                ytPlayers[i].playVideo();
+                            }
+                        }    
+                    }
+                    else if(_urlType === 'vimeo'){
+                        _pauseAllVideos();
+                        var VimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent()[0].id
+                        for(var i=0; i<vimeoPlayers.length;i++){
+                            if(vimeoPlayers[i].element.parentElement.id === VimeoId){
+                                vimeoPlayers[i].play();
+                            }
+                        } 
                     }
                 }
                 else{
-                    for (var i = 0; i < ytPlayers.length; i++) {
-                        ytPlayers[i].pauseVideo();
-                    }
+                   _pauseAllVideos();
                 } 
            }   
         });
+        _pauseAllVideos = function(){
+            for(var i=0; i<ytPlayers.length; i++){
+                ytPlayers[i].pauseVideo();
+            }    
+            for(var i =0; i<vimeoPlayers.length; i++){
+                vimeoPlayers[i].pause();
+            }
+        },
 
         init = function() {
             if (_videoElem.length > 0) {
@@ -240,3 +306,4 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.heroBanner.init());
+
