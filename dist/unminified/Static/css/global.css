@@ -1,4 +1,4 @@
-/*! 2017-03-06 */@charset "UTF-8";
+/*! 2017-06-02 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -12336,6 +12336,18 @@ body.ja {
 /* line 65, ../../../src/sass/global/_banner.scss */
 .hero-banner .hero-banner-content .row .hero-how-col {
   padding: 45px 20px;
+  /*.btn-primary{
+      background: $white;
+      border: transparent;
+      color: grey;
+      width: 160px;
+      &:after{
+          content: '';
+          font-size: 24px;
+          font-family: FSMe-Bold;
+          top: 10px;
+      }
+  }*/
 }
 @media (max-width: 767px) {
   /* line 65, ../../../src/sass/global/_banner.scss */
@@ -12348,20 +12360,6 @@ body.ja {
   .hero-banner .hero-banner-content .row .hero-how-col {
     padding: 40px 20px;
   }
-}
-/* line 74, ../../../src/sass/global/_banner.scss */
-.hero-banner .hero-banner-content .row .hero-how-col .btn-primary {
-  background: #fff;
-  border: transparent;
-  color: grey;
-  width: 160px;
-}
-/* line 79, ../../../src/sass/global/_banner.scss */
-.hero-banner .hero-banner-content .row .hero-how-col .btn-primary:after {
-  content: '?';
-  font-size: 24px;
-  font-family: FSMe-Bold;
-  top: 10px;
 }
 /* line 89, ../../../src/sass/global/_banner.scss */
 .hero-banner .vertical-align {

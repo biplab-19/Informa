@@ -1,4 +1,4 @@
-/*! 2017-05-24 */@charset "UTF-8";
+/*! 2017-06-02 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -9731,23 +9731,22 @@ section.hero-banner .videoBG_wrapper article p {
 }
 /* line 47, ../../../src/components/videos/sass/_video-background.scss */
 section.hero-banner .videoBG_wrapper .btn-primary {
-  background: #fff none repeat scroll 0 0;
+  /*background: #fff none repeat scroll 0 0;
   border: medium none transparent;
-  color: #6a7285;
-  width: 160px;
+  color:$grey-color05;
+  width: 160px;*/
+  /* &:after{
+       content: '?';
+       font-size: 24px;
+       font-family: FSMe-Bold;
+       top: 10px;
+   }*/
 }
 @media (min-width: 1142px) {
   /* line 47, ../../../src/components/videos/sass/_video-background.scss */
   section.hero-banner .videoBG_wrapper .btn-primary {
     margin-bottom: 20px;
   }
-}
-/* line 55, ../../../src/components/videos/sass/_video-background.scss */
-section.hero-banner .videoBG_wrapper .btn-primary:after {
-  content: '?';
-  font-size: 24px;
-  font-family: FSMe-Bold;
-  top: 10px;
 }
 /* line 64, ../../../src/components/videos/sass/_video-background.scss */
 section.hero-banner .videoBG {
