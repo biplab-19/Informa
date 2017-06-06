@@ -5598,7 +5598,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
 
     EventsFunctions = function() {
         txtField.on('keyup', function() {
-            var calcLength = jQuery(this).val().trim().length,
+            var calcLength = jQuery(this).val().length,
                 SectorValue = Sector.val();
             if (calcLength < 3 && SectorValue == 'default') {
                 submitBtn.addClass('disabled');
@@ -5608,17 +5608,6 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             if (calcLength > 0) {
                 resetBtn.show();
             } else {
-                var _Object = {
-                    "Name": null,
-                    "Sector": null,
-                    "SearchText": $('.SearchTextSpecialist').val()
-                }
-                AnalystSearch.find('#name').val('');
-                //$('select[name="Sector"]').prop('selectedIndex',0);
-                Sector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
-                SubSector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
-                //$('select[name="SubSector"]').prop('selectedIndex',0);
-                GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
                 resetBtn.hide();
             }
         })
@@ -9965,8 +9954,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
     //variables
     var _videoElem = $('img[data-video]'),
         _heroBannerList = $('.hero-banner-carousel .slider-component'),
-        _heroBannerFull = $('.hero-banner-texture'),
-        _heroBannerImage = $('.hero-banner-texture .cf-img'),
 
     // methods
         init,
@@ -9989,8 +9976,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         vimeoPlayers=[],
         vimeoPlayer,
         wistiaPlayers=[],
-        _pauseAllVideos,
-        resizeHeroBanner;
+        _pauseAllVideos;
        
 
     _bindIframe = function(){
@@ -10240,20 +10226,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             }
         },
 
-        resizeHeroBanner = function(){
-            if ($(window).width() > 1360) {
-                var width = _heroBannerFull.width() - _heroBannerImage.width();
-                var innerWidth = (_heroBannerFull.width() - 1172)/2;
-                var finalWidth = (width - innerWidth) - 15;
-                $('.hero-banner-texture .h1-styles, .hero-banner-texture .subtext, .hero-banner-texture .description').css({
-                    'width' : finalWidth
-                })
-            }  
-            else{
-                $('.hero-banner-texture .h1-styles,.hero-banner-texture .subtext, .hero-banner-texture .description').css('width','auto');
-            }
-        },
-
         init = function() {
             if (_videoElem.length > 0) {
                _bindIframe();
@@ -10266,16 +10238,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     }
                 }    
             }
-            if(_heroBannerFull.length > 0){
-                resizeHeroBanner();
-            }
-
-            $(window).on("resize", function() {
-               if(_heroBannerFull.length > 0){
-                    resizeHeroBanner();
-               }
-            });
-
         };
 
         return {
