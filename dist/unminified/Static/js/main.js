@@ -7643,9 +7643,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             e.preventDefault();
             var value = $(this).attr('href');
             var data = $(this).attr('data-firstcontent');
-            setTimeout(function(){
+            if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+                setTimeout(function(){
+                    _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
+                },100)    
+            }
+            else{
                 _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
-            },100)
+            }
             window.location.href = value;
         })
     }
