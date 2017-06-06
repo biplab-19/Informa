@@ -104,7 +104,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
 
     EventsFunctions = function() {
         txtField.on('keyup', function() {
-            var calcLength = jQuery(this).val().length,
+            var calcLength = jQuery(this).val().trim().length,
                 SectorValue = Sector.val();
             if (calcLength < 3 && SectorValue == 'default') {
                 submitBtn.addClass('disabled');
@@ -114,6 +114,17 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             if (calcLength > 0) {
                 resetBtn.show();
             } else {
+                var _Object = {
+                    "Name": null,
+                    "Sector": null,
+                    "SearchText": $('.SearchTextSpecialist').val()
+                }
+                AnalystSearch.find('#name').val('');
+                //$('select[name="Sector"]').prop('selectedIndex',0);
+                Sector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
+                SubSector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
+                //$('select[name="SubSector"]').prop('selectedIndex',0);
+                GetAjaxData(Urls.AnalystSearch, "Post", JSON.stringify(_Object), RenderSearchResult, null, null);
                 resetBtn.hide();
             }
         })
