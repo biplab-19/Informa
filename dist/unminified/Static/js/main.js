@@ -1,4 +1,4 @@
-/*! 2017-06-06 *//*
+/*! 2017-06-07 *//*
  * google-analytics.js
  *
  *
@@ -10268,6 +10268,10 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             }
             if(_heroBannerFull.length > 0){
                 resizeHeroBanner();
+                if(INFORMA.global.device.viewport === "mobile"){
+                    var height = $('.hero-banner-texture .container').outerHeight();
+                    $('.hero-banner-texture').height(height);
+                }
             }
 
             $(window).on("resize", function() {
