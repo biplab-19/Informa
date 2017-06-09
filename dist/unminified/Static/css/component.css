@@ -1,4 +1,4 @@
-/*! 2017-06-02 */@charset "UTF-8";
+/*! 2017-06-09 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -764,21 +764,28 @@ section#hero-banner .analyst-single-image .image-margin {
   opacity: 0.4;
   z-index: 2;
 }
-/* line 594, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-.hero-banner-carousel .slick-initialized .hero-cf-image, .hero-banner-carousel .slick-list .hero-cf-image, .hero-banner-carousel .slick-track .hero-cf-image {
-  display: block !important;
-}
-/* line 596, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-.hero-banner-carousel .slick-initialized .hero-cf-image img, .hero-banner-carousel .slick-list .hero-cf-image img, .hero-banner-carousel .slick-track .hero-cf-image img {
-  width: 100%;
-}
-@media only screen and (min-width: 1024px) and (max-width: 1380px) {
-  /* line 596, ../../../src/components/hero-banner/sass/_hero-banner.scss */
-  .hero-banner-carousel .slick-initialized .hero-cf-image img, .hero-banner-carousel .slick-list .hero-cf-image img, .hero-banner-carousel .slick-track .hero-cf-image img {
+@media (max-width: 1141px) {
+  /* line 595, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  .hero-banner-carousel .slick-initialized .cf-img img, .hero-banner-carousel .slick-list .cf-img img, .hero-banner-carousel .slick-track .cf-img img {
+    width: 100%;
     height: 100%;
   }
 }
+/* line 601, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+.hero-banner-carousel .slick-initialized .cf-img.hero-cf-image, .hero-banner-carousel .slick-list .cf-img.hero-cf-image, .hero-banner-carousel .slick-track .cf-img.hero-cf-image {
+  display: block !important;
+}
 /* line 603, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+.hero-banner-carousel .slick-initialized .cf-img.hero-cf-image img, .hero-banner-carousel .slick-list .cf-img.hero-cf-image img, .hero-banner-carousel .slick-track .cf-img.hero-cf-image img {
+  width: 100%;
+}
+@media only screen and (min-width: 1024px) and (max-width: 1380px) {
+  /* line 603, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  .hero-banner-carousel .slick-initialized .cf-img.hero-cf-image img, .hero-banner-carousel .slick-list .cf-img.hero-cf-image img, .hero-banner-carousel .slick-track .cf-img.hero-cf-image img {
+    height: 100%;
+  }
+}
+/* line 611, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-arrow, .hero-banner-carousel .slick-list .slick-arrow, .hero-banner-carousel .slick-track .slick-arrow {
   height: 60px;
   width: 40px;
@@ -787,7 +794,7 @@ section#hero-banner .analyst-single-image .image-margin {
   top: 50%;
 }
 @media (max-width: 767px) {
-  /* line 603, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 611, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-arrow, .hero-banner-carousel .slick-list .slick-arrow, .hero-banner-carousel .slick-track .slick-arrow {
     height: 40px;
     width: 20px;
@@ -796,7 +803,7 @@ section#hero-banner .analyst-single-image .image-margin {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 603, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 611, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-arrow, .hero-banner-carousel .slick-list .slick-arrow, .hero-banner-carousel .slick-track .slick-arrow {
     height: 40px;
     width: 25px;
@@ -804,7 +811,7 @@ section#hero-banner .analyst-single-image .image-margin {
     margin-left: -25px;
   }
 }
-/* line 621, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 629, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-arrow:before, .hero-banner-carousel .slick-list .slick-arrow:before, .hero-banner-carousel .slick-track .slick-arrow:before {
   font-family: 'InformaIcons';
   position: absolute;
@@ -816,7 +823,7 @@ section#hero-banner .analyst-single-image .image-margin {
   margin-left: -13px;
 }
 @media (max-width: 767px) {
-  /* line 621, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 629, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-arrow:before, .hero-banner-carousel .slick-list .slick-arrow:before, .hero-banner-carousel .slick-track .slick-arrow:before {
     font-size: 14px;
     margin-top: -7px;
@@ -824,43 +831,43 @@ section#hero-banner .analyst-single-image .image-margin {
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 621, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 629, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-arrow:before, .hero-banner-carousel .slick-list .slick-arrow:before, .hero-banner-carousel .slick-track .slick-arrow:before {
     font-size: 16px;
     margin-top: -8px;
     margin-left: -8px;
   }
 }
-/* line 642, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 650, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .disable-arrow, .hero-banner-carousel .slick-list .disable-arrow, .hero-banner-carousel .slick-track .disable-arrow {
   pointer-events: none;
   opacity: 0.4;
 }
-/* line 646, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 654, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-next, .hero-banner-carousel .slick-list .slick-next, .hero-banner-carousel .slick-track .slick-next {
   left: 100%;
   margin-left: -40px;
 }
 @media (max-width: 1141px) {
-  /* line 646, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 654, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-carousel .slick-initialized .slick-next, .hero-banner-carousel .slick-list .slick-next, .hero-banner-carousel .slick-track .slick-next {
     margin-left: -20px;
   }
 }
-/* line 652, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 660, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-next:before, .hero-banner-carousel .slick-list .slick-next:before, .hero-banner-carousel .slick-track .slick-next:before {
   content: "\e902";
 }
-/* line 656, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 664, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-prev, .hero-banner-carousel .slick-list .slick-prev, .hero-banner-carousel .slick-track .slick-prev {
   left: 0%;
   margin-left: 0;
 }
-/* line 659, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 667, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized .slick-prev:before, .hero-banner-carousel .slick-list .slick-prev:before, .hero-banner-carousel .slick-track .slick-prev:before {
   content: "\e903";
 }
-/* line 663, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 671, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots, .hero-banner-carousel .slick-list ul.slick-dots, .hero-banner-carousel .slick-track ul.slick-dots {
   text-align: center;
   width: 100%;
@@ -869,7 +876,7 @@ section#hero-banner .analyst-single-image .image-margin {
   z-index: 2;
   margin: 15px 0;
 }
-/* line 670, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 678, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots li, .hero-banner-carousel .slick-list ul.slick-dots li, .hero-banner-carousel .slick-track ul.slick-dots li {
   height: 10px;
   width: 10px;
@@ -878,15 +885,15 @@ section#hero-banner .analyst-single-image .image-margin {
   background: #565c6b;
   padding: 0;
 }
-/* line 677, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 685, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots li.slick-active, .hero-banner-carousel .slick-list ul.slick-dots li.slick-active, .hero-banner-carousel .slick-track ul.slick-dots li.slick-active {
   background: #fff;
 }
-/* line 680, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 688, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots li button, .hero-banner-carousel .slick-list ul.slick-dots li button, .hero-banner-carousel .slick-track ul.slick-dots li button {
   color: #fff;
 }
-/* line 682, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 690, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-carousel .slick-initialized ul.slick-dots li button:before, .hero-banner-carousel .slick-list ul.slick-dots li button:before, .hero-banner-carousel .slick-track ul.slick-dots li button:before {
   content: " ";
 }
