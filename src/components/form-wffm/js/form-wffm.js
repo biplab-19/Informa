@@ -188,6 +188,15 @@ INFORMA.forms = (function(window, $, namespace) {
             // To track Google Analytics on Submit
             if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
                 if($(this).valid() === true && captcha_response.length > 0){
+                    var value = $('.close-download-form').attr('data-url');
+                    if(value !== ""){
+                        if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
+                            _showOverlay();
+                            _formModal.modal('hide');
+                            $('.close-download-form').attr('data-show-register',false);
+                            $('.close-download-form').attr('target',"_blank");
+                        }    
+                    }
                     INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                 }
             }
