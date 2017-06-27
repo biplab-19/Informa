@@ -1,4 +1,4 @@
-/*! 2017-06-12 *//*
+/*! 2017-06-21 *//*
  * google-analytics.js
  *
  *
@@ -8187,18 +8187,21 @@ INFORMA.forms = (function(window, $, namespace) {
             // To track Google Analytics on Submit
             if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
                 if($(this).valid() === true && captcha_response.length > 0){
-                    var value = $('.close-download-form').attr('data-url');
+                    var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
                     if(value !== ""){
                         if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
                             _showOverlay();
+                            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                             _formModal.modal('hide');
                             $('.close-download-form').attr('data-show-register',false);
                             $('.close-download-form').attr('target',"_blank");
                         }    
                     }
-                    INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                    else{
+                        INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                    }
                 }
-            }
+            }    
 
             if (captcha_response.length == 0) {
                 // Captcha failed
