@@ -300,6 +300,19 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     }
                 }    
             }
+            if(_heroBannerFull.length > 0){
+                resizeHeroBanner();
+                if(INFORMA.global.device.viewport === "mobile"){
+                    var height = $('.hero-banner-texture .container').outerHeight();
+                    $('.hero-banner-texture').height(height);
+                }
+            }
+
+            $(window).on("resize", function() {
+               if(_heroBannerFull.length > 0){
+                    resizeHeroBanner();
+               }
+            });
         };
 
         return {
