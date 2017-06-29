@@ -1,4 +1,4 @@
-/*! 2017-06-21 *//*
+/*! 2017-06-29 *//*
  * google-analytics.js
  *
  *
@@ -9971,6 +9971,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
     //variables
     var _videoElem = $('img[data-video]'),
         _heroBannerList = $('.hero-banner-carousel .slider-component'),
+        _heroBannerFull = $('.hero-banner-texture'),
 
     // methods
         init,

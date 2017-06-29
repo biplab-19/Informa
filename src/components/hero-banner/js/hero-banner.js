@@ -16,6 +16,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
     //variables
     var _videoElem = $('img[data-video]'),
         _heroBannerList = $('.hero-banner-carousel .slider-component'),
+        _heroBannerFull = $('.hero-banner-texture'),
 
     // methods
         init,
