@@ -1,4 +1,4 @@
-/*! 2017-06-29 *//*
+/*! 2017-06-30 *//*
  * google-analytics.js
  *
  *
@@ -9972,6 +9972,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
     var _videoElem = $('img[data-video]'),
         _heroBannerList = $('.hero-banner-carousel .slider-component'),
         _heroBannerFull = $('.hero-banner-texture'),
+        _heroBannerImage = $('.hero-banner-texture .cf-img'),
 
     // methods
         init,
@@ -9994,7 +9995,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         vimeoPlayers=[],
         vimeoPlayer,
         wistiaPlayers=[],
-        _pauseAllVideos;
+        _pauseAllVideos,
+        resizeHeroBanner;
        
 
     _bindIframe = function(){
@@ -10244,6 +10246,20 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             }
         },
 
+        resizeHeroBanner = function(){
+            if ($(window).width() > 1360) {
+                var width = _heroBannerFull.width() - _heroBannerImage.width();
+                var innerWidth = (_heroBannerFull.width() - 1172)/2;
+                var finalWidth = (width - innerWidth) - 15;
+                $('.hero-banner-texture .h1-styles, .hero-banner-texture .subtext, .hero-banner-texture .description').css({
+                    'width' : finalWidth
+                })
+            }  
+            else{
+                $('.hero-banner-texture .h1-styles,.hero-banner-texture .subtext, .hero-banner-texture .description').css('width','auto');
+            }
+        },
+
         init = function() {
             if (_videoElem.length > 0) {
                _bindIframe();
@@ -10269,6 +10285,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     resizeHeroBanner();
                }
             });
+
         };
 
         return {
