@@ -16,8 +16,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
     //variables
     var _videoElem = $('img[data-video]'),
         _heroBannerList = $('.hero-banner-carousel .slider-component'),
-        _heroBannerFull = $('.hero-banner-texture'),
-        _heroBannerImage = $('.hero-banner-texture .cf-img'),
+        _heroBannerFull = $('.hero-banner-texture,.hero-banner'),
+        _heroBannerImage = $('.hero-banner-texture .cf-img,.hero-banner .cf-img'),
 
     // methods
         init,
@@ -320,8 +320,9 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             if(_heroBannerFull.length > 0){
                 resizeHeroBanner();
                 if(INFORMA.global.device.viewport === "mobile"){
-                    var height = $('.hero-banner-texture .container').outerHeight();
-                    $('.hero-banner-texture').height(height);
+                    var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight();
+                    $('.hero-banner,.hero-banner-texture').height(height);
+                    $('.hero-banner').css('min-height','275px');
                 }
             }
 
