@@ -10284,12 +10284,12 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 }    
             }
             if(_heroBannerFull.length > 0){
-                resizeHeroBanner();
                 if(INFORMA.global.device.viewport === "mobile"){
                     var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight();
                     $('.hero-banner,.hero-banner-texture').height(height);
                     $('.hero-banner').css('min-height','275px');
                 }
+                resizeHeroBanner();
             }
 
             $(window).on("resize", function() {
