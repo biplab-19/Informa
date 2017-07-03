@@ -10258,16 +10258,18 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         },
 
         resizeHeroBanner = function(){
-            if ($(window).width() > 1360) {
-                var width = _heroBannerFull.width() - _heroBannerImage.width();
-                var innerWidth = (_heroBannerFull.width() - 1172)/2;
-                var finalWidth = (width - innerWidth) - 15;
-                $('.hero-banner-texture .h1-styles, .hero-banner-texture .subtext, .hero-banner-texture .description').css({
-                    'width' : finalWidth
-                })
-            }  
-            else{
-                $('.hero-banner-texture .h1-styles,.hero-banner-texture .subtext, .hero-banner-texture .description').css('width','auto');
+            if($('.hero-banner-texture').length > 0){
+                if ($(window).width() > 1360) {
+                    var width = _heroBannerFull.width() - _heroBannerImage.width();
+                    var innerWidth = (_heroBannerFull.width() - 1172)/2;
+                    var finalWidth = (width - innerWidth) - 15;
+                    $('.hero-banner-texture .h1-styles, .hero-banner-texture .subtext, .hero-banner-texture .description').css({
+                        'width' : finalWidth
+                    })
+                }  
+                else{
+                    $('.hero-banner-texture .h1-styles,.hero-banner-texture .subtext, .hero-banner-texture .description').css('width','auto');
+                }
             }
         },
 
@@ -10284,16 +10286,26 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 }    
             }
             if(_heroBannerFull.length > 0){
-                if(INFORMA.global.device.viewport === "mobile"){
-                    var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight();
-                    $('.hero-banner,.hero-banner-texture').height(height);
-                    $('.hero-banner').css('min-height','275px');
+                resizeHeroBanner();  
+            }    
+            $(window).on("load", function() {
+                if(_heroBannerFull.length > 0){
+                    if(INFORMA.global.device.viewport === "mobile"){
+                        var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight();
+                        $('.hero-banner,.hero-banner-texture').height(height);
+                        $('.hero-banner').css('min-height','275px');
+                    }
                 }
-                resizeHeroBanner();
-            }
+            });
+           
 
             $(window).on("resize", function() {
-               if(_heroBannerFull.length > 0){
+                if(_heroBannerFull.length > 0){
+                    if(INFORMA.global.device.viewport === "mobile"){
+                        var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight();
+                        $('.hero-banner,.hero-banner-texture').height(height);
+                        $('.hero-banner').css('min-height','275px');
+                    }
                     resizeHeroBanner();
                }
             });
