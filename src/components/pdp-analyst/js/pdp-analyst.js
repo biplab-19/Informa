@@ -47,26 +47,35 @@ INFORMA.analystList = (function(window, $, namespace) {
 
     _equalHeight = function(items) {
         var EachView = jQuery('.analyst-views');
-        EachView.each(function () {
+        EachView.each(function() {
             var Items = jQuery(this).find('.analyst-list-container .analyst-description'),
                 ItemsHeader = jQuery(this).find('.analyst-list-container .analyst-details'),
+                ItemsFooter = jQuery(this).find('.analyst-list-container .analyst-footer-content'),
                 _maxHeight = 0,
                 _maxHeightHeader = 0,
+                _maxHeightFooter = 0,
                 _padding = 50;
-            ItemsHeader.each(function () {
+            ItemsHeader.each(function() {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeightHeader) {
                     _maxHeightHeader = Height;
                 }
             })
             ItemsHeader.css('height', _maxHeightHeader);
-            Items.each(function () {
+            Items.each(function() {
                 var Height = jQuery(this).height();
                 if (Height > _maxHeight) {
                     _maxHeight = Height;
                 }
             })
             Items.css('height', _maxHeight + _padding);
+            ItemsFooter.each(function() {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeightFooter) {
+                    _maxHeightFooter = Height;
+                }
+            })
+            ItemsFooter.css('height', _maxHeightFooter);
         })
     }
     _bindShowLess = function () {
