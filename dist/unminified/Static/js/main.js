@@ -1,4 +1,4 @@
-/*! 2017-08-12 *//*
+/*! 2017-09-20 *//*
  * google-analytics.js
  *
  *
@@ -7710,6 +7710,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
           });
         }
         $('#formRegistration').modal('show');
+        var a = Math.ceil(Math.random() * 9)+ '';
+        var b = Math.ceil(Math.random() * 9)+ '';
+        var c = Math.ceil(Math.random() * 9)+ '';
+        var d = Math.ceil(Math.random() * 9)+ '';
+        var e = Math.ceil(Math.random() * 9)+ '';
+        var code = a + b + c + d + e;
+        $('.txtCaptcha').val(code);
+        $(".CaptchaDiv").html(code);
         _validateCountry();
     }
 
@@ -8194,67 +8202,43 @@ INFORMA.forms = (function(window, $, namespace) {
 
     _reCaptchaHandler = function() {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").submit(function() {
-            var widgetId, captcha_response, g_captchaId = $(this).find('.g-recaptcha').attr('id');
-            if (window.gRecaptchaWidget) {
-                widgetId = $.grep(window.gRecaptchaWidget, function(obj) {
-                    return obj.captchaElementId === g_captchaId;
-                })
-            }
-            if (widgetId) {
-                captcha_response = grecaptcha.getResponse(widgetId[0].captchaWidgetId);
-            }
-            var captchaMsgContainer = $(this).find('.captcha-wrapper .field-validation-valid');
-            // To track Google Analytics on Submit
-            if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
-                if($(this).valid() === true && captcha_response.length > 0){
-                    var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
-                    if(value !== ""){
-                        if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
-                            _showOverlay();
-                            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
-                            _formModal.modal('hide');
-                            $('.close-download-form').attr('data-show-register',false);
-                            $('.close-download-form').attr('target',"_blank");
-                        }    
+            var theform = $(this);
+            if($(".CaptchaDiv").is(':visible')){
+                if($.trim(theform.find('.CaptchaInput:visible').val()).length == 0){
+                    theform.find('.captcha-field').html('The captcha field is required.');
+                    return false;
+                }
+                if(theform.find('.CaptchaInput:visible').val() != ""){
+                    var str1 = $.trim($('.txtCaptcha').val()), str2 = $.trim($('.CaptchaInput:visible').val());
+                    if (str1 !== str2){
+                        theform.find('.captcha-field').html('The captcha code does not match.');
+                        return false;
                     }
                     else{
-                        INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                        theform.find('.captcha-field').hide();
+                        // To track Google Analytics on Submit
+                        if((theform.parents('.modal').attr('id') == 'formRegistration') || (theform.parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
+                            if(theform.valid() === true){
+                                var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
+                                if(value !== ""){
+                                    if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
+                                        _showOverlay();
+                                        INFORMA.Analytics.trackFormEvents(theform, 'Submit');
+                                        _formModal.modal('hide');
+                                        $('.close-download-form').attr('data-show-register',false);
+                                        $('.close-download-form').attr('target',"_blank");
+                                    }    
+                                }
+                                else{
+                                    INFORMA.Analytics.trackFormEvents(theform, 'Submit');
+                                }
+                            }
+                        } 
                     }
                 }
-            }    
-
-            if (captcha_response.length == 0) {
-                // Captcha failed
-                captchaMsgContainer.css('display', 'block').html('The captcha field is required.').addClass('field-validation-error');
-                return false;
-            } else {
-                // Captcha is passed
-                captchaMsgContainer.css('display', 'none');
-                return true;
             }
+               
         });
-
-        // grecaptcha.render('captcha-wrapper', {
-        //     'sitekey': '6LezlCQTAAAAALwyoWgTPjpFlBYTWy7pfSAXbPfn', //enter sitekey here
-        //     'callback': function(e) {
-        //         if (e.length > 0) {
-        //             $('#hiddenRecaptcha-error').hide();
-        //         }
-        //     }
-        // });
-        //
-        // $('#hiddenRecaptcha').rules('add', {
-        //     required: function() {
-        //         if (grecaptcha.getResponse().length !== 0) {
-        //             return false;
-        //         } else {
-        //             return true;
-        //         }
-        //     },
-        //     messages: {
-        //         required: "Enter valid captcha"
-        //     }
-        // });
     }
 
     _showOverlayQueryString = function(container) {
@@ -8377,6 +8361,15 @@ INFORMA.forms = (function(window, $, namespace) {
                 } else {
                     Parent.find('.submit-response, .error-response').addClass('hide');
                 }
+                var a = Math.ceil(Math.random() * 9)+ '';
+                var b = Math.ceil(Math.random() * 9)+ '';
+                var c = Math.ceil(Math.random() * 9)+ '';
+                var d = Math.ceil(Math.random() * 9)+ '';
+                var e = Math.ceil(Math.random() * 9)+ '';
+
+                var code = a + b + c + d + e;
+                $('.txtCaptcha').val(code);
+                $(".CaptchaDiv").html(code);
             })
 
         }
