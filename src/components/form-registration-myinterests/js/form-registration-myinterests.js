@@ -50,7 +50,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _showRegisterFormPopupSingleStep,
         _validateCountry,
         _showContentFirstTime,
-        Urls = INFORMA.Configs.urls.webservices;
+        Urls = INFORMA.Configs.urls.webservices,
+        iOSversion;
 
     //methods
 
@@ -195,7 +196,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
     }
-   
+
+    iOSversion = function(){
+        if (/iP(hone|od|ad)/.test(navigator.platform)) {
+            var appVer = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+            return [parseInt(appVer[1], 10), parseInt(appVer[2], 10), parseInt(appVer[3] || 0, 10)];
+        }
+    }
+    
     _showRegisterFormPopupSingleStep = function(){
         $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
         _clearFormInput(_myinterestForm);
@@ -211,7 +219,24 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
               width: "100%"
           });
         }
-        $('#formRegistration').modal('show');
+        var version = iOSversion();
+        if (version !== undefined) {
+            if(version[0] >= 11){
+                $('#formRegistration').on('show.bs.modal', function () {
+                    $('body').addClass('body-fixed');
+                });
+                $('#formRegistration').modal({
+                    show: 'true'
+                })
+                $('#formRegistration').on('hide.bs.modal', function () {
+                    $('body').removeClass('body-fixed');
+                });
+            }
+        }
+        else {
+           $('#formRegistration').modal('show'); 
+        }
+        
         var a = Math.ceil(Math.random() * 9)+ '';
         var b = Math.ceil(Math.random() * 9)+ '';
         var c = Math.ceil(Math.random() * 9)+ '';
@@ -222,6 +247,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $(".CaptchaDiv").html(code);
         _validateCountry();
     }
+
 
      _validateCountry = function() {
         $('.wffm-form .chosen-container').on('click mousedown', function(e) {

@@ -1,4 +1,4 @@
-/*! 2017-09-20 *//*
+/*! 2017-09-29 *//*
  * google-analytics.js
  *
  *
@@ -7548,7 +7548,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _showRegisterFormPopupSingleStep,
         _validateCountry,
         _showContentFirstTime,
-        Urls = INFORMA.Configs.urls.webservices;
+        Urls = INFORMA.Configs.urls.webservices,
+        iOSversion;
 
     //methods
 
@@ -7693,7 +7694,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         });
     }
-   
+
+    iOSversion = function(){
+        if (/iP(hone|od|ad)/.test(navigator.platform)) {
+            var appVer = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+            return [parseInt(appVer[1], 10), parseInt(appVer[2], 10), parseInt(appVer[3] || 0, 10)];
+        }
+    }
+    
     _showRegisterFormPopupSingleStep = function(){
         $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
         _clearFormInput(_myinterestForm);
@@ -7709,7 +7717,24 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
               width: "100%"
           });
         }
-        $('#formRegistration').modal('show');
+        var version = iOSversion();
+        if (version !== undefined) {
+            if(version[0] >= 11){
+                $('#formRegistration').on('show.bs.modal', function () {
+                    $('body').addClass('body-fixed');
+                });
+                $('#formRegistration').modal({
+                    show: 'true'
+                })
+                $('#formRegistration').on('hide.bs.modal', function () {
+                    $('body').removeClass('body-fixed');
+                });
+            }
+        }
+        else {
+           $('#formRegistration').modal('show'); 
+        }
+        
         var a = Math.ceil(Math.random() * 9)+ '';
         var b = Math.ceil(Math.random() * 9)+ '';
         var c = Math.ceil(Math.random() * 9)+ '';
@@ -7720,6 +7745,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $(".CaptchaDiv").html(code);
         _validateCountry();
     }
+
 
      _validateCountry = function() {
         $('.wffm-form .chosen-container').on('click mousedown', function(e) {
@@ -8078,7 +8104,9 @@ INFORMA.forms = (function(window, $, namespace) {
          _UpdateProductName,
         _changeProductDropdown,
         _formBtnOnHover,
-        _validateCountry;
+        _validateCountry,
+        _trackCaptchaAnalytics,
+        iOSversion;
 
     _validateChoosenSelect = function() {
         $.validator.setDefaults({
@@ -8100,7 +8128,7 @@ INFORMA.forms = (function(window, $, namespace) {
           });
     };
 
-     _changeProductDropdown = function() {
+    _changeProductDropdown = function() {
         $('.product-list').on('change', function() {
             var Parent = $(this).parents('form'),
                 Value = $(this).val();
@@ -8215,30 +8243,37 @@ INFORMA.forms = (function(window, $, namespace) {
                         return false;
                     }
                     else{
-                        theform.find('.captcha-field').hide();
+                        theform.find('.captcha-field').html('');
                         // To track Google Analytics on Submit
-                        if((theform.parents('.modal').attr('id') == 'formRegistration') || (theform.parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
-                            if(theform.valid() === true){
-                                var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
-                                if(value !== ""){
-                                    if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
-                                        _showOverlay();
-                                        INFORMA.Analytics.trackFormEvents(theform, 'Submit');
-                                        _formModal.modal('hide');
-                                        $('.close-download-form').attr('data-show-register',false);
-                                        $('.close-download-form').attr('target',"_blank");
-                                    }    
-                                }
-                                else{
-                                    INFORMA.Analytics.trackFormEvents(theform, 'Submit');
-                                }
-                            }
-                        } 
+                        _trackCaptchaAnalytics(theform);
                     }
                 }
             }
-               
+            else{
+                // To track Google Analytics on Submit
+                _trackCaptchaAnalytics(theform);
+            }
         });
+    }
+
+    _trackCaptchaAnalytics = function(theform){
+        if((theform.parents('.modal').attr('id') == 'formRegistration') || (theform.parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
+            if(theform.valid() === true){
+                var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
+                if(value !== ""){
+                    if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
+                        _showOverlay();
+                        INFORMA.Analytics.trackFormEvents(theform, 'Submit');
+                        _formModal.modal('hide');
+                        $('.close-download-form').attr('data-show-register',false);
+                        $('.close-download-form').attr('target',"_blank");
+                    }    
+                }
+                else{
+                    INFORMA.Analytics.trackFormEvents(theform, 'Submit');
+                }
+            }
+        } 
     }
 
     _showOverlayQueryString = function(container) {
@@ -8734,6 +8769,13 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
+    iOSversion = function(){
+        if (/iP(hone|od|ad)/.test(navigator.platform)) {
+            var appVer = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+            return [parseInt(appVer[1], 10), parseInt(appVer[2], 10), parseInt(appVer[3] || 0, 10)];
+        }
+    }
+
     _showModal = function(el) {
         $.fn.modal.Constructor.prototype.enforceFocus = function () { };
         _formId = $(el).data('modal');
@@ -8746,9 +8788,25 @@ INFORMA.forms = (function(window, $, namespace) {
         } else {
             _resetDefaultTitle(el);
         }
-        $(_formId).modal({
-            show: 'true'
-        })
+        var version = iOSversion();
+        if (version !== undefined) {
+            if(version[0] >= 11){
+                $(_formId).on('show.bs.modal', function () {
+                    $('body').addClass('body-fixed');
+                });
+                $(_formId).modal({
+                    show: 'true'
+                })
+                $(_formId).on('hide.bs.modal', function () {
+                    $('body').removeClass('body-fixed');
+                });
+            }
+        }
+        else {
+           $(_formId).modal({
+                show: 'true'
+            }) 
+        }
         _showOverlay();
         _validateCountry();
     };
