@@ -538,9 +538,18 @@ body.ja{
 
 //Simple recaptcha changes
 .capbox {
-    width: 50%;
-    height: 30px;
-    display: inline-block;
+  width: 50%;
+  margin-bottom: 30px;
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+	.capbox {
+	  margin-bottom: 25px;
+	}
+}
+@media (max-width: 767px) {
+	.capbox {
+		margin-bottom: 17px
+	}
 }
 #CaptchaDiv {
     font-weight: bold;
