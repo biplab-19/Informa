@@ -1,4 +1,4 @@
-/*! 2017-10-10 */@charset "UTF-8";
+/*! 2017-10-16 */@charset "UTF-8";
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, ../../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -6989,19 +6989,22 @@ button.close {
 }
 @font-face {
   font-family: 'FSMe';
-  src: url("../fonts/FSMe.eot?#iefix") format("embedded-opentype"), url("../fonts/FSMe.ttf") format("truetype"), url("../fonts/FSMe.woff") format("woff");
+  src: url("../fonts/FSMeWeb-Regular.eot");
+  src: url("../fonts/FSMeWeb-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/FSMe.ttf") format("truetype"), url("../fonts/FSMe.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'FSMe-Bold';
-  src: url("../fonts/FSMe-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/FSMe-Bold.ttf") format("truetype"), url("../fonts/FSMe-Bold.woff") format("woff");
+  src: url("../fonts/FSMeWeb-Bold.eot");
+  src: url("../fonts/FSMeWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/FSMe-Bold.ttf") format("truetype"), url("../fonts/FSMe-Bold.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'FSMe-Light';
-  src: url("../fonts/FSMe-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/FSMe-Light.ttf") format("truetype"), url("../fonts/FSMe-Light.woff") format("woff");
+  src: url("../fonts/FSMeWeb-Light.eot");
+  src: url("../fonts/FSMeWeb-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/FSMe-Light.ttf") format("truetype"), url("../fonts/FSMe-Light.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -7012,7 +7015,7 @@ button.close {
   font-weight: normal;
   font-style: normal;
 }
-/* line 37, ../../../src/sass/global/_fonts.scss */
+/* line 40, ../../../src/sass/global/_fonts.scss */
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'InformaIcons' !important;
@@ -7027,7 +7030,7 @@ button.close {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 53, ../../../src/sass/global/_fonts.scss */
+/* line 56, ../../../src/sass/global/_fonts.scss */
 [data-icon]:before {
   font-family: "InformaIcons" !important;
   content: attr(data-icon);
@@ -7041,7 +7044,7 @@ button.close {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 66, ../../../src/sass/global/_fonts.scss */
+/* line 69, ../../../src/sass/global/_fonts.scss */
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "InformaIcons" !important;
