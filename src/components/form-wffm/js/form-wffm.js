@@ -52,8 +52,9 @@ INFORMA.forms = (function(window, $, namespace) {
         _changeProductDropdown,
         _formBtnOnHover,
         _validateCountry,
-        _trackCaptchaAnalytics,
-        iOSversion;
+        //_trackCaptchaAnalytics,
+        iOSversion,
+        getCurrentform;
 
     _validateChoosenSelect = function() {
         $.validator.setDefaults({
@@ -175,53 +176,86 @@ INFORMA.forms = (function(window, $, namespace) {
         window.history.pushState('', Title, NewUrl);
     }
 
-    _reCaptchaHandler = function() {
-        $("form.get-in-touch, form.request-a-demo, form.single-step-form").submit(function() {
-            var theform = $(this);
-            if($(".CaptchaDiv").is(':visible')){
-                if($.trim(theform.find('.CaptchaInput:visible').val()).length == 0){
-                    theform.find('.captcha-field').html('The captcha field is required.');
-                    return false;
-                }
-                if(theform.find('.CaptchaInput:visible').val() != ""){
-                    var str1 = $.trim($('.txtCaptcha').val()), str2 = $.trim($('.CaptchaInput:visible').val());
-                    if (str1 !== str2){
-                        theform.find('.captcha-field').html('The captcha code does not match.');
-                        return false;
+     //Recaptcha handler on click of submit and google analytics changes
+    _reCaptchaHandler = function () {
+        $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click','input[type="submit"]',function(e) {
+            getCurrentform = $(this).parents('form');
+            if(getCurrentform.valid() === true){
+                e.preventDefault();
+                grecaptcha.reset();
+                grecaptcha.execute();
+                //Google analytics changes on submit of registration form
+                if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
+                    var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
+                    if(value !== ""){
+                        if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
+                            _showOverlay();
+                            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                            _formModal.modal('hide');
+                            $('.close-download-form').attr('data-show-register',false);
+                            $('.close-download-form').attr('target',"_blank");
+                        }    
                     }
                     else{
-                        theform.find('.captcha-field').html('');
-                        // To track Google Analytics on Submit
-                        _trackCaptchaAnalytics(theform);
+                        INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                     }
-                }
+                } 
             }
-            else{
-                // To track Google Analytics on Submit
-                _trackCaptchaAnalytics(theform);
-            }
-        });
+        });   
     }
 
-    _trackCaptchaAnalytics = function(theform){
-        if((theform.parents('.modal').attr('id') == 'formRegistration') || (theform.parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
-            if(theform.valid() === true){
-                var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
-                if(value !== ""){
-                    if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
-                        _showOverlay();
-                        INFORMA.Analytics.trackFormEvents(theform, 'Submit');
-                        _formModal.modal('hide');
-                        $('.close-download-form').attr('data-show-register',false);
-                        $('.close-download-form').attr('target',"_blank");
-                    }    
-                }
-                else{
-                    INFORMA.Analytics.trackFormEvents(theform, 'Submit');
-                }
-            }
-        } 
+    //Success callback
+    window.onSubmit = function(token){
+        getCurrentform.submit();
     }
+
+    // _reCaptchaHandler = function() {
+    //     $("form.get-in-touch, form.request-a-demo, form.single-step-form").submit(function() {
+    //         var theform = $(this);
+    //         if($(".CaptchaDiv").is(':visible')){
+    //             if($.trim(theform.find('.CaptchaInput:visible').val()).length == 0){
+    //                 theform.find('.captcha-field').html('The captcha field is required.');
+    //                 return false;
+    //             }
+    //             if(theform.find('.CaptchaInput:visible').val() != ""){
+    //                 var str1 = $.trim($('.txtCaptcha').val()), str2 = $.trim($('.CaptchaInput:visible').val());
+    //                 if (str1 !== str2){
+    //                     theform.find('.captcha-field').html('The captcha code does not match.');
+    //                     return false;
+    //                 }
+    //                 else{
+    //                     theform.find('.captcha-field').html('');
+    //                     // To track Google Analytics on Submit
+    //                     _trackCaptchaAnalytics(theform);
+    //                 }
+    //             }
+    //         }
+    //         else{
+    //             // To track Google Analytics on Submit
+    //             _trackCaptchaAnalytics(theform);
+    //         }
+    //     });
+    // }
+
+    // _trackCaptchaAnalytics = function(theform){
+    //     if((theform.parents('.modal').attr('id') == 'formRegistration') || (theform.parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
+    //         if(theform.valid() === true){
+    //             var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
+    //             if(value !== ""){
+    //                 if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
+    //                     _showOverlay();
+    //                     INFORMA.Analytics.trackFormEvents(theform, 'Submit');
+    //                     _formModal.modal('hide');
+    //                     $('.close-download-form').attr('data-show-register',false);
+    //                     $('.close-download-form').attr('target',"_blank");
+    //                 }    
+    //             }
+    //             else{
+    //                 INFORMA.Analytics.trackFormEvents(theform, 'Submit');
+    //             }
+    //         }
+    //     } 
+    // }
 
     _showOverlayQueryString = function(container) {
         var url = window.location.href;
