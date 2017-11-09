@@ -575,3 +575,13 @@ body.ja{
 .email-validation-message{
 	display: none !important;
 }
+.btn-primary.download-report{
+	&:after{
+	  font-family: "InformaIcons";
+	  content: "\e905" !important;
+	  position: absolute;
+	  right: 15px;
+	  top: 28%;
+	  font-size: 16px;
+	}
+}
