@@ -141,6 +141,23 @@
     height: 330px;
     clear: both;
 
+    .hero-cta-btn{
+        margin: 20px 0;
+       .col{
+            padding-left: 0;
+            @include mobile{
+                padding-bottom: 15px;
+            }
+            @include tablet{
+                margin-right: 20px;
+            }
+            .btn.btn-primary{
+                @include mobile{
+                    width: 100%;
+                }
+            }
+       }
+    }
     @include tablet {
         height: 230px;
     }
