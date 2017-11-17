@@ -43,7 +43,18 @@
         }
     }
 }
-
+form.register-myinterests-form{
+    .form-group {
+        @include mobile{
+            margin-bottom: 15px !important;
+        }
+    }
+    fieldset{
+        @include mobile{
+            padding-bottom: 10px !important;
+        }
+    }
+}
 form.get-in-touch,
 form.register-myinterests-form,
 form.request-a-demo {
