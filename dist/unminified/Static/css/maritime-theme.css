@@ -1,4 +1,4 @@
-/*! 2017-10-17 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2017-11-20 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -795,134 +795,134 @@
   background-size: 15%;
 }
 /* line 1105, ../../../src/sass/global/_mixins.scss */
-.maritime-theme #formRegistration .modal-body {
-  background: url(/Static/images/maritime-pattern.png) no-repeat right 105% #444957;
-  background-size: 24%;
+.maritime-theme #formRegistration .modal-body, .maritime-theme #formRequestADemo .modal-body, .maritime-theme #formRequestACallback .modal-body, .maritime-theme #formHeaderGetInTouch .modal-body, .maritime-theme #formRequestATrial .modal-body {
+  background: url(/Static/images/maritime-pattern.png) no-repeat right 105% #6a7285;
+  background-size: 28%;
 }
-@media (min-width: 768px) and (max-width: 1141px) {
+@media (max-width: 1141px) {
   /* line 1105, ../../../src/sass/global/_mixins.scss */
-  .maritime-theme #formRegistration .modal-body {
+  .maritime-theme #formRegistration .modal-body, .maritime-theme #formRequestADemo .modal-body, .maritime-theme #formRequestACallback .modal-body, .maritime-theme #formHeaderGetInTouch .modal-body, .maritime-theme #formRequestATrial .modal-body {
     background: none;
     padding: 0;
   }
 }
-@media (max-width: 767px) {
-  /* line 1105, ../../../src/sass/global/_mixins.scss */
-  .maritime-theme #formRegistration .modal-body {
-    background: none;
-    padding: 0;
-  }
-}
-/* line 1117, ../../../src/sass/global/_mixins.scss */
+/* line 1113, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .registration-form-single-section .container {
-  background: url("/Static/images/maritime-pattern.png") no-repeat right 105% #444957;
+  background: url("/Static/images/maritime-pattern.png") no-repeat right 105% #6a7285;
   background-size: 20%;
 }
-/* line 1162, ../../../src/sass/global/_mixins.scss */
+@media (max-width: 1141px) {
+  /* line 1113, ../../../src/sass/global/_mixins.scss */
+  .maritime-theme .registration-form-single-section .container {
+    background: none;
+    padding: 0;
+  }
+}
+/* line 1183, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .tab-pane .error-response h2:before,
 .maritime-theme .tab-pane .submit-response h2:before {
   color: #0f5487;
 }
-/* line 1174, ../../../src/sass/global/_mixins.scss */
+/* line 1195, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .form-modal .modal-body .form-inline-container .error-response h2:before,
 .maritime-theme .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #0f5487;
 }
-/* line 1182, ../../../src/sass/global/_mixins.scss */
+/* line 1203, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .infograph .number-container {
   color: #8fc4de;
 }
-/* line 1186, ../../../src/sass/global/_mixins.scss */
+/* line 1207, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .welcome-description a {
   color: #8fc4de;
 }
-/* line 1190, ../../../src/sass/global/_mixins.scss */
+/* line 1211, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .welcome-description .tool p a {
   color: #8fc4de;
 }
-/* line 1196, ../../../src/sass/global/_mixins.scss */
+/* line 1217, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
-/* line 1203, ../../../src/sass/global/_mixins.scss */
+/* line 1224, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .marketing-banner.Variation2 .btn, .maritime-theme .marketing-banner.Variation1 .btn {
   background: #0374ac;
 }
-/* line 1205, ../../../src/sass/global/_mixins.scss */
+/* line 1226, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .marketing-banner.Variation2 .btn:after, .maritime-theme .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
-/* line 1226, ../../../src/sass/global/_mixins.scss */
+/* line 1247, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .hover-arrow .btn else, .maritime-theme .hover-arrow:after else {
   color: #fff;
 }
-/* line 1233, ../../../src/sass/global/_mixins.scss */
+/* line 1254, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .more-stories .feature li:before {
   color: #002d4f;
 }
-/* line 1238, ../../../src/sass/global/_mixins.scss */
+/* line 1259, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-bordered {
   margin: 20px auto;
 }
-/* line 1242, ../../../src/sass/global/_mixins.scss */
+/* line 1263, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-bordered > thead > tr > th {
   background-color: #002d4f;
   color: #fff;
 }
-/* line 1249, ../../../src/sass/global/_mixins.scss */
+/* line 1270, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1252, ../../../src/sass/global/_mixins.scss */
+/* line 1273, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-bordered > tbody td {
   color: #565c6b;
 }
-/* line 1257, ../../../src/sass/global/_mixins.scss */
+/* line 1278, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .table-hover > tbody > tr:hover > td,
 .maritime-theme .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
-/* line 1261, ../../../src/sass/global/_mixins.scss */
+/* line 1282, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .fc-unthemed td.fc-today {
   color: #fff !important;
 }
-/* line 1269, ../../../src/sass/global/_mixins.scss */
+/* line 1290, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
   background: #1191d1;
 }
 @media (max-width: 1141px) {
-  /* line 1308, ../../../src/sass/global/_mixins.scss */
+  /* line 1329, ../../../src/sass/global/_mixins.scss */
   .maritime-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1311, ../../../src/sass/global/_mixins.scss */
+  /* line 1332, ../../../src/sass/global/_mixins.scss */
   .maritime-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #12629e;
   }
-  /* line 1327, ../../../src/sass/global/_mixins.scss */
+  /* line 1348, ../../../src/sass/global/_mixins.scss */
   .maritime-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #12629e;
   }
 }
-/* line 1335, ../../../src/sass/global/_mixins.scss */
+/* line 1356, ../../../src/sass/global/_mixins.scss */
 .maritime-theme body svg.spinner-loader {
   stroke: #0374ac;
 }
-/* line 1339, ../../../src/sass/global/_mixins.scss */
+/* line 1360, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #contactus-section a {
   color: #0374ac;
   word-wrap: break-word;
 }
-/* line 1341, ../../../src/sass/global/_mixins.scss */
+/* line 1362, ../../../src/sass/global/_mixins.scss */
 .maritime-theme #contactus-section a span {
   color: #0374ac !important;
 }
-/* line 1350, ../../../src/sass/global/_mixins.scss */
+/* line 1371, ../../../src/sass/global/_mixins.scss */
 .maritime-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #002d4f;
 }
-/* line 1358, ../../../src/sass/global/_mixins.scss */
+/* line 1379, ../../../src/sass/global/_mixins.scss */
 .maritime-theme section.customer-quote:after {
   background: none;
 }
@@ -1715,114 +1715,144 @@
   background-color: rgba(209, 66, 95, 0.8);
 }
 /* line 1123, ../../../src/sass/global/_mixins.scss */
-.law-theme .registration-form-single-section .container {
-  background: #444957;
+.law-theme .product-login .login-links {
+  background: url(/Static/images/tmt-pattern.png) no-repeat bottom right #444957;
+  background-size: 20%;
 }
-/* line 1162, ../../../src/sass/global/_mixins.scss */
+/* line 1127, ../../../src/sass/global/_mixins.scss */
+.law-theme .dashboard {
+  background: url(/Static/images/tmt-pattern.png) no-repeat right 100% #444957;
+  background-size: 15%;
+}
+/* line 1131, ../../../src/sass/global/_mixins.scss */
+.law-theme #formRegistration .modal-body, .law-theme #formRequestADemo .modal-body, .law-theme #formRequestACallback .modal-body, .law-theme #formHeaderGetInTouch .modal-body, .law-theme #formRequestATrial .modal-body {
+  background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #6a7285;
+  background-size: 28%;
+}
+@media (max-width: 1141px) {
+  /* line 1131, ../../../src/sass/global/_mixins.scss */
+  .law-theme #formRegistration .modal-body, .law-theme #formRequestADemo .modal-body, .law-theme #formRequestACallback .modal-body, .law-theme #formHeaderGetInTouch .modal-body, .law-theme #formRequestATrial .modal-body {
+    background: none;
+    padding: 0;
+  }
+}
+/* line 1139, ../../../src/sass/global/_mixins.scss */
+.law-theme .registration-form-single-section .container {
+  background: url(/Static/images/tmt-pattern.png) no-repeat right 105% #6a7285;
+  background-size: 20%;
+}
+@media (max-width: 1141px) {
+  /* line 1139, ../../../src/sass/global/_mixins.scss */
+  .law-theme .registration-form-single-section .container {
+    background: none;
+    padding: 0;
+  }
+}
+/* line 1183, ../../../src/sass/global/_mixins.scss */
 .law-theme .tab-pane .error-response h2:before,
 .law-theme .tab-pane .submit-response h2:before {
   color: #d1425f;
 }
-/* line 1174, ../../../src/sass/global/_mixins.scss */
+/* line 1195, ../../../src/sass/global/_mixins.scss */
 .law-theme .form-modal .modal-body .form-inline-container .error-response h2:before,
 .law-theme .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #d1425f;
 }
-/* line 1182, ../../../src/sass/global/_mixins.scss */
+/* line 1203, ../../../src/sass/global/_mixins.scss */
 .law-theme .infograph .number-container {
   color: #f6bcca;
 }
-/* line 1186, ../../../src/sass/global/_mixins.scss */
+/* line 1207, ../../../src/sass/global/_mixins.scss */
 .law-theme .welcome-description a {
   color: #f6bcca;
 }
-/* line 1190, ../../../src/sass/global/_mixins.scss */
+/* line 1211, ../../../src/sass/global/_mixins.scss */
 .law-theme .welcome-description .tool p a {
   color: #f6bcca;
 }
-/* line 1196, ../../../src/sass/global/_mixins.scss */
+/* line 1217, ../../../src/sass/global/_mixins.scss */
 .law-theme .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
-/* line 1203, ../../../src/sass/global/_mixins.scss */
+/* line 1224, ../../../src/sass/global/_mixins.scss */
 .law-theme .marketing-banner.Variation2 .btn, .law-theme .marketing-banner.Variation1 .btn {
   background: #d61f2b;
 }
-/* line 1205, ../../../src/sass/global/_mixins.scss */
+/* line 1226, ../../../src/sass/global/_mixins.scss */
 .law-theme .marketing-banner.Variation2 .btn:after, .law-theme .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
-/* line 1226, ../../../src/sass/global/_mixins.scss */
+/* line 1247, ../../../src/sass/global/_mixins.scss */
 .law-theme .hover-arrow .btn else, .law-theme .hover-arrow:after else {
   color: #fff;
 }
-/* line 1233, ../../../src/sass/global/_mixins.scss */
+/* line 1254, ../../../src/sass/global/_mixins.scss */
 .law-theme .more-stories .feature li:before {
   color: #b0163b;
 }
-/* line 1238, ../../../src/sass/global/_mixins.scss */
+/* line 1259, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-bordered {
   margin: 20px auto;
 }
-/* line 1242, ../../../src/sass/global/_mixins.scss */
+/* line 1263, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-bordered > thead > tr > th {
   background-color: #b0163b;
   color: #fff;
 }
-/* line 1249, ../../../src/sass/global/_mixins.scss */
+/* line 1270, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1252, ../../../src/sass/global/_mixins.scss */
+/* line 1273, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-bordered > tbody td {
   color: #565c6b;
 }
-/* line 1257, ../../../src/sass/global/_mixins.scss */
+/* line 1278, ../../../src/sass/global/_mixins.scss */
 .law-theme .table-hover > tbody > tr:hover > td,
 .law-theme .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
-/* line 1261, ../../../src/sass/global/_mixins.scss */
+/* line 1282, ../../../src/sass/global/_mixins.scss */
 .law-theme .fc-unthemed td.fc-today {
   color: #fff !important;
 }
-/* line 1269, ../../../src/sass/global/_mixins.scss */
+/* line 1290, ../../../src/sass/global/_mixins.scss */
 .law-theme .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
   background: #d61f2b;
 }
 @media (max-width: 1141px) {
-  /* line 1308, ../../../src/sass/global/_mixins.scss */
+  /* line 1329, ../../../src/sass/global/_mixins.scss */
   .law-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1311, ../../../src/sass/global/_mixins.scss */
+  /* line 1332, ../../../src/sass/global/_mixins.scss */
   .law-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #d65770;
   }
-  /* line 1327, ../../../src/sass/global/_mixins.scss */
+  /* line 1348, ../../../src/sass/global/_mixins.scss */
   .law-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #d65770;
   }
 }
-/* line 1335, ../../../src/sass/global/_mixins.scss */
+/* line 1356, ../../../src/sass/global/_mixins.scss */
 .law-theme body svg.spinner-loader {
   stroke: #d61f2b;
 }
-/* line 1339, ../../../src/sass/global/_mixins.scss */
+/* line 1360, ../../../src/sass/global/_mixins.scss */
 .law-theme #contactus-section a {
   color: #d61f2b;
   word-wrap: break-word;
 }
-/* line 1341, ../../../src/sass/global/_mixins.scss */
+/* line 1362, ../../../src/sass/global/_mixins.scss */
 .law-theme #contactus-section a span {
   color: #d61f2b !important;
 }
-/* line 1350, ../../../src/sass/global/_mixins.scss */
+/* line 1371, ../../../src/sass/global/_mixins.scss */
 .law-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #b0163b;
 }
-/* line 1358, ../../../src/sass/global/_mixins.scss */
+/* line 1379, ../../../src/sass/global/_mixins.scss */
 .law-theme section.customer-quote:after {
   background: none;
 }

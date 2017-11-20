@@ -1047,21 +1047,21 @@ $desktop-width: 1142px;
                 background: url(/Static/images/finance-pattern.png) no-repeat right 100% #444957;
                 background-size:15%;
             }
-            #formRegistration .modal-body {
-                background: url(/Static/images/finance-pattern.png) no-repeat right 105% #444957;
-                background-size: 24%;
-                @include tablet {
-                  background: none;
-                  padding: 0;
-                }
-                @include mobile {
+            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body, #formRequestATrial .modal-body {
+                background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color05;
+                background-size: 28%;
+                @include not-desktop {
                   background: none;
                   padding: 0;
                 }
             }
             .registration-form-single-section .container {
-                background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color03;
+                background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color05;
                 background-size: 20%;
+                @include not-desktop {
+                  background: none;
+                  padding: 0;
+                }
             }
             // .register-myinterests-form, .registration-form-single-section .container {
             //     background: url(/Static/images/finance-pattern.png) no-repeat right 105% $grey-color03;
@@ -1077,21 +1077,21 @@ $desktop-width: 1142px;
                 background: url(/Static/images/agri-pattern.png) no-repeat right 100% #444957;
                 background-size:15%;
             }
-            #formRegistration .modal-body {
-                background: url(/Static/images/agri-pattern.png) no-repeat right 105% #444957;
-                background-size: 24%;
-                @include tablet {
-                  background: none;
-                  padding: 0;
-                }
-                @include mobile {
+            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body, #formRequestATrial .modal-body {
+                background: url(/Static/images/agri-pattern.png) no-repeat right 105% $grey-color05;
+                background-size: 28%;
+                @include not-desktop {
                   background: none;
                   padding: 0;
                 }
             }
             .registration-form-single-section .container {
-                background: url("/Static/images/agri-pattern.png") no-repeat right 105% $grey-color03;
+                background: url("/Static/images/agri-pattern.png") no-repeat right 105% $grey-color05;
                 background-size: 20%;
+                @include not-desktop {
+                  background: none;
+                  padding: 0;
+                }
             }
         }
         @else if($name==maritime-theme){
@@ -1102,26 +1102,47 @@ $desktop-width: 1142px;
                 background: url(/Static/images/maritime-pattern.png) no-repeat right 100% #444957;
                 background-size:15%;
             }
-            #formRegistration .modal-body {
-                background: url(/Static/images/maritime-pattern.png) no-repeat right 105% #444957;
-                background-size: 24%;
-                @include tablet {
-                  background: none;
-                  padding: 0;
-                }
-                @include mobile {
+            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body, #formRequestATrial .modal-body {
+                background: url(/Static/images/maritime-pattern.png) no-repeat right 105% $grey-color05;
+                background-size: 28%;
+                @include not-desktop {
                   background: none;
                   padding: 0;
                 }
             }
             .registration-form-single-section .container {
-                background: url("/Static/images/maritime-pattern.png") no-repeat right 105% $grey-color03;
+                background: url("/Static/images/maritime-pattern.png") no-repeat right 105% $grey-color05;
                 background-size: 20%;
+                @include not-desktop {
+                  background: none;
+                  padding: 0;
+                }
             }
         }
         @else if($name==law-theme){
+            .product-login .login-links {
+                background: url(/Static/images/tmt-pattern.png) no-repeat bottom right $grey-color03;
+                background-size: 20%;
+            }
+            .dashboard {
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 100% $grey-color03;
+                background-size:15%;
+            }
+            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body,#formRequestATrial .modal-body{
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color05;
+                background-size: 28%;
+                @include not-desktop {
+                  background: none;
+                  padding: 0;
+                }
+            }
             .registration-form-single-section .container {
-                background: $grey-color03;
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color05;
+                background-size: 20%;
+                @include not-desktop {
+                  background: none;
+                  padding: 0;
+                }
             }
         }
         @else if($name==tmt-theme){
@@ -1133,21 +1154,21 @@ $desktop-width: 1142px;
                 background: url(/Static/images/tmt-pattern.png) no-repeat right 100% $grey-color03;
                 background-size:15%;
             }
-            #formRegistration .modal-body {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
-                background-size: 24%;
-                @include tablet {
-                  background: none;
-                  padding: 0;
-                }
-                @include mobile {
+            #formRegistration .modal-body,#formRequestADemo .modal-body, #formRequestACallback .modal-body, #formHeaderGetInTouch .modal-body,#formRequestATrial .modal-body{
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color05;
+                background-size: 28%;
+                @include not-desktop {
                   background: none;
                   padding: 0;
                 }
             }
             .registration-form-single-section .container {
-                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;
+                background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color05;
                 background-size: 20%;
+                @include not-desktop {
+                  background: none;
+                  padding: 0;
+                }
             }
             // .register-myinterests-form, .registration-form-single-section .container {
             //     background: url(/Static/images/tmt-pattern.png) no-repeat right 105% $grey-color03;

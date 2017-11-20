@@ -1,15 +1,16 @@
 .registration-form-single-section {
     .container {
-        background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color03;
+        background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color05;
         background-size: 20%;
-        padding: 5px 0 100px;
-        @include mobile {
-            padding: 0;
-            background-size: 0;
+        @include desktop{
+            padding-top: 0;
+            padding-bottom: 3%;
+            width: 40%;
+            margin: 0 auto;
         }
-        @include tablet {
-            padding: 0;
-            background-size: 0;
+        @include not-desktop {
+          background: none;
+          padding: 0;
         }
     }
 
@@ -23,26 +24,28 @@
             padding-right: 40px;
         }
     }
-    form.register-myinterests-form{
-        @include desktop{
-            padding-left: 25%;
-            padding-right: 25%
+    @include desktop{
+        form.register-myinterests-form{
+            padding-left: 0;
+            padding-right: 0;
         }
-    }
+        .page-header{
+            padding-bottom: 0;
+            h2{
+                padding: 20px 0;
+            }
+        }
+    }    
 }
 
-#formRegistration {
+#formRegistration, #formRequestADemo, #formRequestACallback, #formHeaderGetInTouch, #formRequestATrial {
     .modal-body {
-        background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color03;
-        background-size: 24%;
+        background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color05;
+        background-size: 28%;
         //  padding: 5px 0 100px;
-        @include mobile {
-            background: none;
-            padding: 0;
-        }
-        @include tablet {
-            background: none;
-            padding: 0;
+        @include not-desktop {
+           background: none;
+           padding: 0;
         }
 
         .form-inline-container {
@@ -138,7 +141,8 @@ form.single-step-form {
         .required-field:nth-child(2) {
             display: table-cell;
             width: 48%;
-            padding-left: 20px;
+            padding-left: 0px;
+            float: right;
             @include mobile {
                 display: block;
                 padding-left: 0;

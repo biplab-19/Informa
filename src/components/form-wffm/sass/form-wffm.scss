@@ -51,6 +51,9 @@ form.register-myinterests-form{
     }
     fieldset{
         @include mobile{
+            &.about-you-details{
+                padding-bottom: 0 !important;
+            }
             padding-bottom: 10px !important;
         }
     }
@@ -82,7 +85,7 @@ form.request-a-demo {
             }
         } 
     }
-    background-color: $grey-color03;
+    background-color: $grey-color05;
     color: $white;
     padding-left: 0;
     padding-right: 0;
@@ -192,6 +195,7 @@ form.request-a-demo {
         span {
             margin-top: 6px;
             font-size: 14px;
+            color: $grey-color05;
         }
     }
 
@@ -233,6 +237,7 @@ form.request-a-demo {
         font-family: "InformaIcons";
         margin-left: -10px;
         font-size: 16px;
+        color: $grey-color05;
         @include tablet {
           display: none;
         }
@@ -766,7 +771,7 @@ form.request-a-demo {
 
             .error-response,
             .submit-response {
-                background-color: $grey-color03;
+                background-color: $grey-color05;
                 color: $white;
                 padding: 30px 25%;
                 @include mobile {
@@ -843,7 +848,7 @@ form.request-a-demo {
 
     .modal-content {
         border-radius: 0;
-        background-color: $grey-color03;
+        background-color: $grey-color05;
         color: $white;
         //margin-top: 20%;
         @include tablet {
@@ -925,7 +930,7 @@ form.request-a-demo {
 .tab-pane {
     .error-response,
     .submit-response {
-        background-color: $grey-color03;
+        background-color: $grey-color05;
         color: $white;
         padding-left: 85px;
         padding-right: 30px;
