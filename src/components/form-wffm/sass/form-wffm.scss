@@ -14,10 +14,13 @@
     form.get-in-touch,
     form.register-myinterests-form,
     form.request-a-demo {
+        background: url(/Static/images/pattern.png) no-repeat right 105% $grey-color05;
+        background-size: 24% !important;
         h2 {
             color: $white;
         }
         padding-top: 30px;
+        padding-bottom: 30px;
         @include desktop {
             padding-left: 10% !important;
             padding-right: 10% !important;
@@ -25,12 +28,13 @@
         @include mobile {
             padding-left: 15px !important;
             padding-right: 15px !important;
+            background: $grey-color05 !important;
         }
         @include tablet {
             padding-left: 50px !important;
             padding-right: 50px !important;
+            background: $grey-color05 !important;
         }
-
         .page-header {
             margin-top: 0 !important;
 

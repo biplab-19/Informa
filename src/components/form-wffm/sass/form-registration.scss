@@ -1,7 +1,7 @@
 .registration-form-single-section {
     .container {
         background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color05;
-        background-size: 20%;
+        background-size: 24% !important;
         @include desktop{
             padding-top: 0;
             padding-bottom: 3%;
@@ -9,7 +9,7 @@
             margin: 0 auto;
         }
         @include not-desktop {
-          background: none;
+          background: none !important;
           padding: 0;
         }
     }
@@ -41,10 +41,10 @@
 #formRegistration, #formRequestADemo, #formRequestACallback, #formHeaderGetInTouch, #formRequestATrial {
     .modal-body {
         background: url("/Static/images/pattern.png") no-repeat right 105% $grey-color05;
-        background-size: 28%;
+        background-size: 24% !important;
         //  padding: 5px 0 100px;
         @include not-desktop {
-           background: none;
+           background: none !important;
            padding: 0;
         }
 
