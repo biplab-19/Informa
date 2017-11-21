@@ -7168,15 +7168,12 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   padding-left: 0px;
   padding-right: 0px;
 }
-@media (max-width: 767px) {
-  /* line 5, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
-  .contactUsPage-contactUs .contactus-left .col-xs-12 {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+/* line 5, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+.contactUsPage-contactUs .contactus-left .col-xs-12 {
+  padding: 0;
 }
 @media (max-width: 767px) {
-  /* line 13, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 10, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-right .col-xs-12 {
     padding-left: 0px;
     padding-right: 0px;
@@ -7188,7 +7185,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
     padding: 20px 0 0;
   }
 }
-/* line 26, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 23, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .call-image-pos {
   color: #6a7285;
   padding-bottom: 50px;
@@ -7197,19 +7194,19 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   padding-left: 40px;
 }
 @media (min-width: 1142px) {
-  /* line 26, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 23, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .call-image-pos {
     margin: 0 -15px;
   }
 }
-/* line 35, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 32, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .call-image-pos hr {
   height: 1px;
   background: #6a7285;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/* line 41, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 38, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .call-image-pos img {
   margin-right: 10px;
   position: absolute;
@@ -7217,34 +7214,34 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   top: 0;
 }
 @media (max-width: 767px) {
-  /* line 41, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 38, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .call-image-pos img {
     position: static;
     float: left;
   }
 }
 @media (max-width: 767px) {
-  /* line 26, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 23, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .call-image-pos {
     padding-left: 0px;
     padding-bottom: 30px;
   }
 }
-/* line 56, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 53, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .nav-tabs {
   border-bottom: none;
 }
-/* line 58, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 55, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .nav-tabs li.active {
   border-bottom: none !important;
 }
-/* line 62, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 59, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .pos {
   position: relative;
   background-color: #343742;
   height: 50px;
 }
-/* line 67, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 64, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .nav-tabs > li.active > a,
 .contactUsPage-contactUs .nav-tabs > li.active > a:focus,
 .contactUsPage-contactUs .nav-tabs > li.active > a:hover {
@@ -7252,7 +7249,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   background: none;
   border: none;
 }
-/* line 74, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 71, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .nav > li > a {
   position: relative;
   display: block;
@@ -7260,12 +7257,12 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   border: none;
 }
 @media (max-width: 767px) {
-  /* line 74, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 71, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .nav > li > a {
     padding: 15px 7px;
   }
 }
-/* line 83, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 80, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs li.active:after {
   content: " ";
   position: absolute;
@@ -7274,7 +7271,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   bottom: 0;
   left: 5%;
 }
-/* line 91, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 88, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .email-image-pos {
   color: #6a7285;
   margin-top: 40px;
@@ -7282,39 +7279,39 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   padding-left: 40px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 91, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 88, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .email-image-pos {
     margin-top: 0;
   }
 }
-/* line 99, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 96, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .email-image-pos hr {
   height: 1px;
   background: #6a7285;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-/* line 105, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 102, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .email-image-pos img {
   margin-right: 10px;
   position: absolute;
   left: 0;
   top: 0;
 }
-/* line 112, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 109, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-box {
   padding-left: 50px;
   text-align: justify;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 112, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 109, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-box {
     padding-left: 0px;
     padding-top: 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 112, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 109, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-box {
     padding-left: 0px;
     margin-top: 0px;
@@ -7322,34 +7319,34 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 124, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 121, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-box .row .col-sm-6:last-child {
     width: 51%;
   }
 }
-/* line 130, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 127, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content {
   margin-left: 10px;
 }
 @media (max-width: 767px) {
-  /* line 130, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 127, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content {
     margin-left: 0px;
   }
 }
-/* line 135, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 132, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content strong {
   font-size: 24px;
   font-family: Fsme-bold;
   color: #565c6b;
 }
 @media (max-width: 767px) {
-  /* line 135, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 132, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content strong {
     margin-left: 0;
   }
 }
-/* line 143, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 140, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content .contact-descrip {
   font-family: Fsme-bold;
   color: #565c6b;
@@ -7358,29 +7355,29 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   line-height: 24px;
   text-align: left;
 }
-/* line 150, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 147, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content .contact-descrip ul {
   padding-left: 18px;
 }
 @media (max-width: 767px) {
-  /* line 143, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 140, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content .contact-descrip {
     padding-right: 10px;
   }
 }
-/* line 157, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 154, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content p {
   margin-top: 20px;
   font-family: Fsme-bold;
 }
-/* line 158, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 155, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content p:first-child {
   font-size: 16px;
   line-height: 24px;
   font-family: Fsme-bold;
   color: #565c6b;
 }
-/* line 166, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 163, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .contactus-content p span.contact-number {
   margin-top: 5px;
   font-size: 24px;
@@ -7388,36 +7385,36 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   margin-bottom: 20px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 166, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 163, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content p span.contact-number {
     font-size: 22px;
   }
 }
 @media (max-width: 767px) {
-  /* line 166, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 163, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .contactus-content p span.contact-number {
     font-size: 22px;
   }
 }
-/* line 180, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 177, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .contactUsPage-contactUs .form-introduction {
   top: 0;
   line-height: 24px;
 }
 @media (max-width: 767px) {
-  /* line 180, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 177, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .form-introduction {
     line-height: 20px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 180, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+  /* line 177, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
   .contactUsPage-contactUs .form-introduction {
     line-height: 22px;
   }
 }
 
-/* line 196, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
+/* line 193, ../../../src/components/contactUsPage-contactUs/sass/_contactUsPage-contactUs.scss */
 .experience-mode .contactUsPage-contactUs .tab-pane {
   display: block !important;
 }
@@ -9870,8 +9867,8 @@ section.hero-banner-video .cf-img {
   .tab-pane form.get-in-touch,
   .tab-pane form.register-myinterests-form,
   .tab-pane form.request-a-demo {
-    padding-left: 10% !important;
-    padding-right: 10% !important;
+    padding-left: 5% !important;
+    padding-right: 5% !important;
   }
 }
 @media (max-width: 767px) {
@@ -9889,8 +9886,8 @@ section.hero-banner-video .cf-img {
   .tab-pane form.get-in-touch,
   .tab-pane form.register-myinterests-form,
   .tab-pane form.request-a-demo {
-    padding-left: 50px !important;
-    padding-right: 50px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
     background: #6a7285 !important;
   }
 }
