@@ -939,9 +939,14 @@ form.request-a-demo {
         padding-left: 85px;
         padding-right: 30px;
         padding-bottom: 20px;
+        background: url("/Static/images/pattern.png") no-repeat right 103% $grey-color05;
+        background-size: 24% !important;
         @include mobile {
             padding-left: 7px;
             padding-right: 5px;
+        }
+        @include not-desktop{
+            background: $grey-color05 !important;
         }
 
         h2 {
