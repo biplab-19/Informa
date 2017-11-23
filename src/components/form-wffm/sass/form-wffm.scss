@@ -267,6 +267,11 @@ form.request-a-demo {
         border-bottom: none !important;
         margin-top: 0;
         margin-bottom: 0;
+        padding-bottom: 0;
+        h2{
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
     }
 
     .form-group {
@@ -865,10 +870,13 @@ form.request-a-demo {
 
     .modal-header {
         border-bottom: 0;
-
+        position: relative;
+        z-index: 9999;
+        padding-top: 10px;
         .close {
             color: $white;
             opacity: 2;
+            margin-top: 10px;
         }
 
         .form-modal-close-icon:after {
