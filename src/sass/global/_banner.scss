@@ -62,8 +62,13 @@
                    padding: 40px 20px;
                 }
             }
+            .hero-banner-descp p{
+                @include tablet{
+                    padding: 0 20px;
+                }
+            }
             .hero-how-col{
-                padding: 45px 20px;
+                padding: 45px 0px;
                 @include mobile{
                     padding: 20px 0;
                 }
@@ -862,16 +867,15 @@ div.at4-share-outer {
     }
     .hero-col-btn-cls{
         width: auto;
-        padding: 45px 20px;
+        padding: 45px 15px;
         @include mobile{
-            padding: 20px;
+            padding: 20px 15px;
         }
         @include tablet{
-           padding: 40px 20px;
+           padding: 40px 15px;
         }
     }
     .block-centered{
-        transform: translateY(-50%) !important;
         h1{
             padding: 40px 0px;
             @include mobile{
@@ -888,15 +892,15 @@ div.at4-share-outer {
            padding: 40px 0px;
         }
     }
-    .hero-how-col .hero-col-btn-block{
-        @inlcude desktop{
-            padding: 45px 20px;
+    .hero-how-col{
+        @include desktop{
+            padding: 45px 0 !important;
         }
-        @inlcude tablet{
-            padding: 40px 20px;
+        @include tablet{
+            padding: 40px 20px !important;
         }
-        @include mobile{
-             padding: 0px 20px;
-        }
+    }
+    .hero-how-heading, .hero-how-col .col{
+        padding-left: 20px;
     }
 }
