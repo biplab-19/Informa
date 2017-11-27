@@ -763,6 +763,12 @@ form.request-a-demo {
         @include mobile {
             width: 100%;
         }
+        @media only screen and (min-width: 1600px) and (max-width: 1920px){
+            width: 30%;
+        }
+        @media only screen and (min-width: 1920px){
+            width: 20%;
+        }
     }
 
     .modal-body {
