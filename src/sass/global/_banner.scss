@@ -63,12 +63,12 @@
                 }
             }
             .hero-how-col{
-                padding: 30px 0px;
+                padding: 45px 20px;
                 @include mobile{
                     padding: 20px 0;
                 }
                 @include tablet{
-                   padding: 40px 0;
+                   padding: 40px 20px;
                 }
                 
                 .btn-primary{
@@ -847,13 +847,56 @@ div.at4-share-outer {
         }
     }
 }
-.hero-col-heading,.hero-col-btn-cls{
-    width: auto;
-}
 .hero-banner.hero-banner-carousel{
-    .hero-how-col{
-        @include desktop{
-            padding: 45px 0 !important;
+    .hero-col-heading{
+        width: auto;
+        h1{
+            font-family: FSMe-Light;
+            padding: 40px 0px;
+            @include mobile{
+                padding: 0;
+            }
+        }
+        
+
+    }
+    .hero-col-btn-cls{
+        width: auto;
+        padding: 45px 20px;
+        @include mobile{
+            padding: 20px;
+        }
+        @include tablet{
+           padding: 40px 20px;
+        }
+    }
+    .block-centered{
+        transform: translateY(-50%) !important;
+        h1{
+            padding: 40px 0px;
+            @include mobile{
+                padding: 0;
+            }
+        } 
+    }
+    .hero-col-btn-block{
+        padding: 45px 0px;
+        @include mobile{
+            padding: 0px;
+        }
+        @include tablet{
+           padding: 40px 0px;
+        }
+    }
+    .hero-how-col .hero-col-btn-block{
+        @inlcude desktop{
+            padding: 45px 20px;
+        }
+        @inlcude tablet{
+            padding: 40px 20px;
+        }
+        @include mobile{
+             padding: 0px 20px;
         }
     }
 }
