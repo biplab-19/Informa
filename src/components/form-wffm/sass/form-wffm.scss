@@ -385,7 +385,20 @@ form.request-a-demo {
         padding: 10px;
         //margin-top: 15px;
         color: $grey-color05;
-
+        &.form-recaptcha-text{
+            display: block;
+            background-color: $grey-color05 !important;
+            margin-bottom: -15px;
+            padding: 0;
+            font-family: 'FSMe';
+            a{
+                text-decoration: underline;
+                color: $white;
+            }
+            &:after{
+                border: none;
+            }
+        }
         &:after {
             content: '';
             position: absolute;
