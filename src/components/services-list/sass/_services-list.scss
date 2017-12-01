@@ -125,8 +125,21 @@ section#services-list {
             }
         }
         .service-list-btn{
-            margin-top: 50px;
             padding-left:0;
+            @include mobile{
+                &:first-child{
+                    margin-top: 30px;
+                }
+                &:not(:first-child){
+                    margin-top: 15px;
+                }
+            }
+            @include not-mobile{
+                margin-top: 30px;
+            }
+            @include not-desktop{
+                padding-left: 10px;
+            }
         }
         .single-image-thumbnail,.image-thumbnail {
             overflow: hidden;
