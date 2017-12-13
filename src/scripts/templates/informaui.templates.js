@@ -519,6 +519,73 @@ var INFORMA = window.INFORMA || {};
                                         '</div>' +
                                     '</div>' +
                                 '</div>',
+    'EventListingPage':
+            '<div class="col-xs-12 col-sm-6 col-md-4 events-section {{results.DateType}}">'+
+                '<div class="events-wrap">'+
+                    '<div class="header clearfix">'+
+                        '<div class="date">{{results.DateField}}</div>'+
+                        '<div class="date month">{{results.MonthField}}</div>'+
+                    '</div>'+
+                    '<div class="content-wrap">'+
+                        '<p class="country">'+
+                            '{{#compare results.State null operator="!="}}{{results.State}}{{/compare}}{{#if results.State}}{{#if results.Country}},{{/if}}{{/if}} <strong>{{#compare results.Country null operator="!="}}{{results.Country}}{{/compare}}</strong>'+
+                        '</p>'+
+                        '<p><span class="type">{{results.EventType}}</span></p>'+
+                        '<h3 class="title">{{results.Title}}</h3>'+
+                        '{{#compare results.Presenters.length 0 operator=">"}}'+
+                        '<div class="content clearfix">'+
+                            '<div class="title-content">{{results.PresentersLabel}}</div>'+
+                            '<div class="title-body">'+
+                                '<ul class="clearfix">'+
+                                    '{{#each results.Presenters}}'+
+                                    '<li>{{this}}</li>'+
+                                        '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                        '</div>'+
+                        '{{/compare}}'+
+                        '{{#compare results.Themes.length 0 operator=">"}}'+
+                        '<div class="content clearfix">'+
+                            '<div class="title-content">{{results.ThemeLabel}}</div>'+
+                            '<div class="title-body">'+
+                                '<ul class="clearfix">'+
+                                    '{{#each results.Themes}}'+
+                                    '<li>{{this}}</li>'+
+                                        '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                        '</div>'+
+                        '{{/compare}}'+
+                    '</div>'+
+                    '<div class="footer clearfix">'+
+                        '{{#compare results.FullDetail null operator="!="}}' +
+                            '{{#compare results.FullDetail.Url null operator="!="}}' +
+                                '{{#compare results.FullDetail.Url.length "0" operator=">"}}' +
+                                '<a href="{{results.FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{results.FullDetail.Target}}">{{results.FullDetail.LinkText}}</a>'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                        '{{/compare}}'+
+                        '{{#compare results.StatusEnabled  true operator="=="}}'+
+                            '{{#compare results.Register null operator="!="}}' +
+                                '{{#compare results.Register.Url null operator="!="}}' +
+                                    '{{#compare results.Register.Url.length "0" operator=">"}}' + 
+                                        '<a href="{{results.Register.Url}}" class="btn btn-primary pull-right register" target="{{results.Register.Target}}">{{results.EventCTAText}}</a>'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                        '{{#compare results.StatusEnabled  false operator="=="}}'+
+                            '{{#compare results.Register null operator="!="}}' +
+                                '{{#compare results.Register.Url null operator="!="}}' +
+                                    '{{#compare results.Register.Url.length "0" operator=">"}}' + 
+                                        '<a href="{{results.Register.Url}}" class="btn btn-primary pull-right register disabled" target="{{results.Register.Target}}">{{results.EventCTAText}}</a>'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                    '</div>'+
+                '</div>'+
+            '</div>',                      
     'EventpageListviewTemplate':'<div class="header clearfix">'+
                                   '<a href="javascript:void(0)" class="arrows previous">Previous Arrow</a>'+
                                   '<h2>{{results.Month}}</h2>'+

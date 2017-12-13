@@ -25,18 +25,17 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         Country = $('select[name="country"]'),
         Type = $('select[name="eventType"]'),
         NextButton = $('.fc-next-button'),
-
-
         MoreEvents = $('.btn-more-events'),
        _Start = moment(new Date()).format('MMMM YYYY'),
        _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
         _previousDate = null,
+        PageNo = 2,
         //methods
-        init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents,
-        SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData,
-        SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent;
+        init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents,LoadMoreEvents,
+        SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData, GetDefaultEventData,
+        SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent,SetLoadMoreEvents;
 
     disabledEvent = function(){
         $('.register.disabled').click(function(e){
@@ -52,19 +51,73 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         })
     },
             
-    GetEventData = function (monthType) {
-    	var eventID = $("section#events"),
-    		obj = {
-              data:JSON.stringify({ MonthYear: monthType,
-              SectorId: SectorSelect.val(),
-              eventType: Type.val(),
-              Country: Country.val(),
-              CurrentPage:eventID.data("currentpage")})
-            } 
-    	return obj;
+    GetEventData = function(monthType) {
+        var eventID = $("section#events"),
+            eventsEndDate = $("select[name='month'] option:last-child")[0].value,
+            obj;
+            if($('body').hasClass('list-view')){
+                obj = {
+                    data:JSON.stringify({ MonthYear:  monthType,
+                       SectorId: SectorSelect.val(),
+                       eventType: Type.val(),
+                       Country: Country.val(),
+                       CurrentPage:eventID.data("currentpage"),
+                       PageNo: 1,
+                       EventsEndDate: eventsEndDate,
+                       PageSize: List.data('count'),
+                       ViewMode: 'list'
+                    })
+                }
+            }    
+            else{
+                obj = {
+                   data:JSON.stringify({ MonthYear:  monthType,
+                       SectorId: SectorSelect.val(),
+                       eventType: Type.val(),
+                       Country: Country.val(),
+                       CurrentPage:eventID.data("currentpage"),
+                       ViewMode: 'calendar'
+                    })
+                }
+            }   
+            return obj;        
     },
+    
+    GetDefaultEventData  = function(monthType) {
+        var eventID = $("section#events"),
+            eventsEndDate = $("select[name='month'] option:last-child")[0].value,
+            obj;
+            if($('body').hasClass('list-view')){
+                obj = {
+                   data:JSON.stringify({ 
+                       MonthYear:  monthType,
+                       SectorId: SectorSelect.val(),
+                       eventType: Type.val(),
+                       Country: Country.val(),
+                       CurrentPage:eventID.data("currentpage"),
+                       PageNo: PageNo,
+                       EventsEndDate: eventsEndDate,
+                       PageSize: List.data('count'),
+                       ViewMode: 'list'
+                    })
+                }
+            }    
+            else{
+                obj = {
+                   data:JSON.stringify({ 
+                       MonthYear:  monthType,
+                       SectorId: SectorSelect.val(),
+                       eventType: Type.val(),
+                       Country: Country.val(),
+                       CurrentPage:eventID.data("currentpage"),
+                       ViewMode: 'calendar'
+                    })
+                }
+            }   
+        return obj;        
+    },
+    
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
-
         INFORMA.Spinner.Show($('body'));
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
@@ -83,26 +136,25 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
 
     EqualHeight = function(){
-           var highestBox = 0,
-            EachItem = List.find(".content-wrap"),
-            padding = 0;
+       var highestBox = 0,
+        EachItem = List.find(".content-wrap"),
+        padding = 0;
+        jQuery('section[data-view="list-view"]').show();
+        EachItem.each(function(){
+            if(jQuery(this).height() > highestBox){
+                highestBox = jQuery(this).height();
+            }
+        });
+        if(jQuery('body').hasClass('calendar-view')) {
+            jQuery('section[data-view="list-view"]').hide();
+        }
 
-            jQuery('section[data-view="list-view"]').show();
-          EachItem.each(function(){
-                  if(jQuery(this).height() > highestBox){
-                  highestBox = jQuery(this).height();
-                }
-          });
-          if(jQuery('body').hasClass('calendar-view')) {
-              jQuery('section[data-view="list-view"]').hide();
-          }
-
-          EachItem.height(highestBox + padding);
-          if(INFORMA.global.device.viewportN == 2) {
+        EachItem.height(highestBox + padding);
+        if(INFORMA.global.device.viewportN == 2) {
             EachItem.height("auto");
-          }
+        }
     },
-
+    
     RenderChange = function(data) {
         CheckEvents(data);
         SetCalendarEvents(data);
@@ -111,70 +163,115 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         disabledEvent();
     },
 
-    SetListEvents    = function(data) {
-        var results = data.SearchDictionary,
-              html = "";
+    LoadMoreEvents = function(data){
+        CheckEvents(data);
+        SetCalendarEvents(data);
+        SetLoadMoreEvents(data);
+        UnbindEvent();
+        disabledEvent();
+        PageNo++;
+    },
 
-          for (var key in results) {
-              if (results.hasOwnProperty(key)) {
-                  var Data = results[key],
-                      HeaderText = key,
-                      TemplateName = (Templates.EventpageListviewTemplate !== "undefined") ? Templates.EventpageListviewTemplate : "",
-                      ListTemplate = Handlebars.compile(TemplateName);
-                  Data.Month = HeaderText;
-                  html += ListTemplate({ results: Data });
-              }
-          }
-          List.html(html);
-           NoEventsFound();
-           EqualHeight();
+    SetLoadMoreEvents = function(data){
+        var results = data.Events,
+            html = "";
+            for (var key in results) {
+                if (results.hasOwnProperty(key)) {
+                    var Data = results[key],
+                        HeaderText = key,
+                        TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
+                        ListTemplate = Handlebars.compile(TemplateName);
+                        Data.Month = HeaderText;
+                        Data.MonthField = (Data.MonthYearField.substring(0,3));
+                        html += ListTemplate({ results: Data });
+                }
+            }
+            List.find('.events-container').append(html);
+            NoEventsFound();
+            EqualHeight();
+            List.attr('total-count',data.TotalResults);
+            CheckCount();
 
-          CheckCount();
-
-          var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
+            var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
                 ViewDate = moment(new Date('1 '+ViewDateText));
 
-          if(ViewDate.format('MMMM YYYY') == _Start) {
-            List.find('.previous').addClass('arrow-desabled');
-          } else {
-             List.find('.previous').removeClass('arrow-desabled');
-          }
+            if(ViewDate.format('MMMM YYYY') == _Start) {
+                List.find('.previous').addClass('arrow-desabled');
+            } else {
+                List.find('.previous').removeClass('arrow-desabled');
+            }
 
-          if(ViewDate.format('MMMM YYYY') == _end) {
-            List.find('.next').addClass('arrow-desabled');
-          } else {
-             List.find('.next').removeClass('arrow-desabled');
-          }
+            if(ViewDate.format('MMMM YYYY') == _end) {
+                List.find('.next').addClass('arrow-desabled');
+            } else {
+                List.find('.next').removeClass('arrow-desabled');
+            }
+    }
 
+    SetListEvents    = function(data) {
+        var results = data.Events,
+              html = "";
+
+            for (var key in results) {
+                if (results.hasOwnProperty(key)) {
+                    var Data = results[key],
+                      HeaderText = key,
+                      TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
+                      ListTemplate = Handlebars.compile(TemplateName);
+                    Data.Month = HeaderText;
+                    html += ListTemplate({ results: Data });
+                }
+            }
+            List.find('.events-container').html(html);
+            NoEventsFound();
+            EqualHeight();
+            List.attr('total-count',data.TotalResults);
+            CheckCount();
+            var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
+                ViewDate = moment(new Date('1 '+ViewDateText));
+
+            if(ViewDate.format('MMMM YYYY') == _Start) {
+                List.find('.previous').addClass('arrow-desabled');
+            } else {
+                List.find('.previous').removeClass('arrow-desabled');
+            }
+
+            if(ViewDate.format('MMMM YYYY') == _end) {
+                List.find('.next').addClass('arrow-desabled');
+            } else {
+                List.find('.next').removeClass('arrow-desabled');
+            }
           //RenderClickEvents();
     },
+
     CheckCount = function() {
         List.each(function() {
 
-            var Count = jQuery(this).data('count'),
-                Items = List.find('.events-section').length;
+            var Count = $(this).data('count'),
+                Items = $(this).attr('total-count');
 
             if(Items > Count) {
-                jQuery(this).find('.events-section:nth-child(n+'+(Count+1)+')').hide();
-                jQuery(this).next('.more-events').find('.btn-more-events').removeClass('hidden');
+                $(this).next('.more-events').find('.btn-more-events').removeClass('hidden');
             } else {
-                jQuery(this).next('.more-events').find('.btn-more-events').addClass('hidden');
+                $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
             }
+            if(Items === 0){
+                $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
+            } 
         })
     },
+
     RenderOnLoad = function() {
         jQuery('body').addClass('list-view');
         var date = new Date(),
             DatePass = moment(date).format('MMMM YYYY'),
-            PageTemplate = $("section#events").data("currentpage");
+            PageTemplate = $("section#events").data("currentpage"),
+            MonthYear = MonthSelect.val(),
+            obj = GetEventData(MonthYear);
             EqualHeight();
-        var obj = {
-            data:JSON.stringify({MonthYear: DatePass,SectorId: SectorSelect.val(), eventType: Type.val(),
-            Country: Country.val(),CurrentPage:PageTemplate})
-        }
-        _previousDate = date;
-        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderLoadEvents, null, null);
-        CheckCount();
+            CheckCount();
+            _previousDate = date;
+            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderLoadEvents, null, null);
     },
 
     RenderLoadEvents = function(data) {
@@ -328,13 +425,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     },
     RenderParticularMonth = function(date) { 
         var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY');
-// 		PageTemplate = $("section#events").data("CurrentPage");
+//      PageTemplate = $("section#events").data("CurrentPage");
 //             var obj = { 
-// 		          data:JSON.stringify({MonthYear: NextMonth, 
-// 		                        SectorId: SectorSelect.val(),
-// 		            eventType: Type.val(),
-// 		            CurrentPage:PageTemplate
-// 		         })
+//                data:JSON.stringify({MonthYear: NextMonth, 
+//                              SectorId: SectorSelect.val(),
+//                  eventType: Type.val(),
+//                  CurrentPage:PageTemplate
+//               })
 //             } 
 //         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
         $('#Eventmonth').val(NextMonth);
@@ -346,7 +443,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
     CheckEvents = function(data) {
 
-        var results = data.SearchDictionary,
+        var results = data.Events,
             List = [];
 
         for(var key in results) {
@@ -362,8 +459,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
     SetCalendarEvents = function(list) {
         Calendar.fullCalendar('removeEvents');
-        var Month = Object.keys(list.SearchDictionary)[0],
-            data = list.SearchDictionary[Month].ModelItem,
+        var data = list.Events,
             _vp = INFORMA.global.device.viewportN;
 
         var EventList = [];
@@ -402,40 +498,38 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             jQuery('body').removeClass('calendar-view');
             jQuery('.events-list').hide();
             jQuery('body').addClass(ViewMode);
-            jQuery('section[data-view="'+ViewMode+'"]').show();
 
-            NoEventsFound();
-
+            var date = new Date(),
+                DatePass = moment(date).format('MMMM YYYY'),
+                PageTemplate = $("section#events").data("currentpage"),
+                MonthYear = MonthSelect.val();
+                EqualHeight();
+                CheckCount();
+                var obj = GetEventData(MonthYear);
+                _previousDate = date;
+                GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+                NoEventsFound();
         })
 
 
 
         MonthSelect.on('change', function() {
             var value = jQuery(this).val(),
-            	check = moment(new Date('1 '+value));
+                check = moment(new Date('1 '+value));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
             var MonthYear = check.format('MMMM YYYY'),
-            	obj = GetEventData(MonthYear);
-
-            // var obj = {
-            //   data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
-            //     SectorId: SectorSelect.val(),
-            //     eventType: Type.val(),
-            //   Country: Country.val()})
-            // } 
-
+                obj = GetEventData(MonthYear); 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
-
             NoEventsFound();
         });
 
         Country.on('change', function() {
             var value = jQuery(this).val(),
-            	check = moment(new Date('1 '+MonthSelect.val()));
+                check = moment(new Date('1 '+MonthSelect.val()));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
@@ -449,7 +543,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             // }
 
             var MonthYear = check.format('MMMM YYYY'),
-            	obj = GetEventData(MonthYear);
+                obj = GetEventData(MonthYear);
 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
@@ -458,7 +552,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
         Type.on('change', function() {
             var value = jQuery(this).val(),
-            	check = moment(new Date('1 '+MonthSelect.val()));
+                check = moment(new Date('1 '+MonthSelect.val()));
             jQuery('section[data-view="calendar-view"]').show();
             Calendar.fullCalendar('gotoDate', check);
             if(jQuery('body').hasClass('list-view')) {
@@ -466,7 +560,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             }
 
             var MonthYear = check.format('MMMM YYYY'),
-            	obj = GetEventData(MonthYear);
+                obj = GetEventData(MonthYear);
 
             // var obj = {
             //    data:JSON.stringify({ MonthYear: check.format('MMMM YYYY'),
@@ -483,8 +577,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
         SectorSelect.on('change', function(){
 
-        	var MonthYear = MonthSelect.val(),
-            	obj = GetEventData(MonthYear);
+            var MonthYear = MonthSelect.val(),
+                obj = GetEventData(MonthYear);
 
             // var obj = {
             //   data:JSON.stringify({  MonthYear: MonthSelect.val(),
@@ -500,8 +594,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         })
 
     },
-    NoEventsFound = function() {
-
+     NoEventsFound = function() {
         var Container = jQuery('.events-container'),
             Items = Container.find('.events-section');
 
@@ -516,13 +609,13 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     MoreEventsFunc = function() {
         MoreEvents.on('click', function() {
             var Parent = jQuery(this).parents('section'),
-                Count = Parent.find('.container').data('count');
-                //
-            Parent.find('.events-container').find('.events-section:nth-child(n+' + (Count + 1) + ')').slideToggle();
-            jQuery(this).toggleClass('showLess');
+                Count = Parent.find('.container').data('count'),
+                MonthYear = MonthSelect.val(),
+                obj = GetDefaultEventData(MonthYear);
+                GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), LoadMoreEvents, null, $(this));
         });
     },
-
+    
     ListChangeEvents = function() {
         $(document).on('click', 'section[data-view="list-view"] .next', function() {
             var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
@@ -531,7 +624,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     $('#Eventmonth').val(prevMonth);
                     $('#Eventmonth').trigger("chosen:updated");
                     var MonthYear = prevMonth,
-            			obj = GetEventData(MonthYear);
+                        obj = GetEventData(MonthYear);
                     // var obj = {
                     //    data:JSON.stringify({  MonthYear: prevMonth,
                     //     SectorId: SectorSelect.val(),
@@ -555,7 +648,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     $('#Eventmonth').val(prevMonth);
                     $('#Eventmonth').trigger("chosen:updated");
                     var MonthYear = prevMonth,
-            			obj = GetEventData(MonthYear);
+                        obj = GetEventData(MonthYear);
 
                     // var obj = {
                     //   data:JSON.stringify({   MonthYear: prevMonth,
@@ -573,8 +666,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 
     init = function() {
         if(EventsLists.length > 0) {
-            SwitchEvents();
             RenderOnLoad();
+            SwitchEvents();
             MoreEventsFunc();
             ListChangeEvents();
             UnbindEvent();
