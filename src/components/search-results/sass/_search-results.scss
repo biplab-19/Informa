@@ -555,6 +555,9 @@
             }
             .content {
                 margin-bottom: 0;
+                @include mobile{
+                    padding-right: 0 !important;
+                }
                 > p {
                     display: inline-block;
                     &.description {
@@ -573,6 +576,9 @@
                     position: absolute;
                     bottom: 0;
                     right: 0;
+                    @include mobile{
+                        position: relative;
+                    }
                 }
             }
             .footer {
@@ -675,7 +681,7 @@
                 width: 100%;
             }
             .country {
-                float: left;
+                //float: left;
                 margin: 10px 0;
                 position: static;
             }
@@ -695,6 +701,10 @@
                     width: 175px;
                     float: left;
                     margin-right: 25px;
+                    @include mobile{
+                        width: 48%;
+                        margin-right: 0px;
+                    }
                 }
             }
         }
@@ -713,6 +723,25 @@
             }
         }
     }
+    @media only screen and (max-width: 480px) {
+        .meet-anlyst-section{
+            .yellow-bullets{
+                    float: left;
+                }
+            .track-analyst{
+                float: left;
+                position: relative !important;
+                top: 0 !important;
+                left: 0 !important;
+            }
+            .analyst-footer{
+                margin-top: 0 !important;
+            }
+            .analyst-footer-content{
+                margin-top: 25px !important;
+            }
+        }
+    }    
 }
 
 .others-wrapper {
