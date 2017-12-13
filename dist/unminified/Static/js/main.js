@@ -1,4 +1,4 @@
-/*! 2017-10-31 *//*
+/*! 2017-12-13 *//*
  * google-analytics.js
  *
  *
@@ -50,7 +50,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
         }
         else{
           Parent =  obj.parents('.modal.in');
-          dataModal = Parent .attr('id');
+          dataModal = Parent.data('formcapture');
           if(dataModal === 'Intelligence'){
             replaceValue = dataModal.replace(dataModal,'formRequestADemo');
             value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
@@ -63,7 +63,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
             value = trackFormWithoutModal(contactUsForm);
           }
           else if(singleStepRegistrationForm.length > 0){
-            dataModal = singleStepRegistrationForm.find('.form-inline-container').attr('data-modal');
+            dataModal = singleStepRegistrationForm.find('.form-inline-container').data('formcapture');
             value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
           }
           else{
@@ -78,7 +78,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
     }
 
     trackFormWithoutModal = function(contactUsForm){
-      var dataModal = contactUsForm.find('.tab-pane.active').find('.form-inline-container').attr('data-modal');
+      var dataModal = contactUsForm.find('.tab-pane.active').find('.form-inline-container').data('formcapture');
       if(dataModal){
         var value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
       }
