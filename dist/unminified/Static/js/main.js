@@ -1,4 +1,4 @@
-/*! 2017-12-13 *//*
+/*! 2017-12-14 *//*
  * google-analytics.js
  *
  *
@@ -6885,11 +6885,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             for (var key in results) {
                 if (results.hasOwnProperty(key)) {
                     var Data = results[key],
-                      HeaderText = key,
-                      TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
-                      ListTemplate = Handlebars.compile(TemplateName);
-                    Data.Month = HeaderText;
-                    html += ListTemplate({ results: Data });
+                        HeaderText = key,
+                        TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
+                        ListTemplate = Handlebars.compile(TemplateName);
+                        Data.Month = HeaderText;
+                        Data.MonthField = (Data.MonthYearField.substring(0,3));
+                        html += ListTemplate({ results: Data });
                 }
             }
             List.find('.events-container').html(html);
@@ -6918,7 +6919,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         List.each(function() {
 
             var Count = $(this).data('count'),
-                Items = $(this).attr('total-count');
+                Items = parseInt($(this).attr('total-count')),
+                listCount = $(this).find('.events-section').length;
 
             if(Items > Count) {
                 $(this).next('.more-events').find('.btn-more-events').removeClass('hidden');
@@ -6928,6 +6930,9 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             if(Items === 0){
                 $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
             } 
+            if(Items === listCount){
+                $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
+            }
         })
     },
 
