@@ -1,4 +1,4 @@
-/*! 2017-12-13 */@charset "UTF-8";
+/*! 2017-12-14 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -8079,17 +8079,22 @@ section.articlepage-freearticle .container .tableContent h5 {
   padding: 7px;
   float: left;
 }
-/* line 208, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 206, ../../../src/components/events-page/sass/_events-page.scss */
+.events-wrap .header .month {
+  font-size: 24px;
+  padding: 10px;
+}
+/* line 212, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap {
   padding: 10px 20px;
 }
-/* line 210, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 214, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .country {
   margin-bottom: 10px;
   text-align: left;
   display: block;
 }
-/* line 215, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 219, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .type {
   margin-bottom: 10px;
   font-size: 18px;
@@ -8097,7 +8102,7 @@ section.articlepage-freearticle .container .tableContent h5 {
   color: #565c6b;
   font-family: 'FSMe';
 }
-/* line 222, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 226, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .title {
   font-size: 30px;
   color: #6a7287;
@@ -8105,59 +8110,59 @@ section.articlepage-freearticle .container .tableContent h5 {
   margin: 0;
 }
 @media (max-width: 767px) {
-  /* line 222, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 226, ../../../src/components/events-page/sass/_events-page.scss */
   .events-wrap .content-wrap .title {
     height: auto;
   }
 }
-/* line 231, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 235, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content {
   margin-top: 20px;
 }
-/* line 233, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 237, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-content {
   width: 90px;
   padding-right: 10px;
   float: left;
   color: #565c6b;
 }
-/* line 242, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 246, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body {
   width: calc(100% - 90px);
   float: left;
   font-family: 'FSMe-Bold';
 }
-/* line 246, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 250, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body ul {
   padding: 0;
   list-style-type: none;
 }
-/* line 249, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 253, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body ul li {
   float: left;
   margin-right: 3px;
   color: #565c6b;
 }
-/* line 253, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 257, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body ul li:after {
   content: ",";
 }
-/* line 257, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 261, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .content-wrap .content .title-body ul li:last-child:after {
   content: "";
 }
 @media (max-width: 767px) {
-  /* line 208, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 212, ../../../src/components/events-page/sass/_events-page.scss */
   .events-wrap .content-wrap {
     height: auto !important;
   }
 }
-/* line 269, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 273, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer {
   padding: 25px 20px;
   width: 100%;
 }
-/* line 272, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 276, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer .btn {
   padding-right: 40px;
   font-weight: 700;
@@ -8165,49 +8170,49 @@ section.articlepage-freearticle .container .tableContent h5 {
   width: 40%;
 }
 @media (max-width: 767px) {
-  /* line 272, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 276, ../../../src/components/events-page/sass/_events-page.scss */
   .events-wrap .footer .btn {
     font-size: 12px;
   }
 }
-/* line 280, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 284, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer .btn.register {
   float: left;
 }
-/* line 283, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 287, ../../../src/components/events-page/sass/_events-page.scss */
 .events-wrap .footer .btn.full-detail {
   float: right;
 }
 
-/* line 289, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 293, ../../../src/components/events-page/sass/_events-page.scss */
 .no-result {
   background: #fff;
   padding: 0 0 30px;
 }
 @media (min-width: 1142px) {
-  /* line 289, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 293, ../../../src/components/events-page/sass/_events-page.scss */
   .no-result {
     margin-top: -30px;
   }
 }
 
 @media (max-width: 767px) {
-  /* line 296, ../../../src/components/events-page/sass/_events-page.scss */
+  /* line 300, ../../../src/components/events-page/sass/_events-page.scss */
   section[data-view="list-view"], section[data-view="calendar-view"] {
     padding-top: 95px;
   }
 }
 
-/* line 302, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 306, ../../../src/components/events-page/sass/_events-page.scss */
 section.event-profile-container .header {
   text-align: -webkit-auto;
   width: auto;
 }
-/* line 306, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 310, ../../../src/components/events-page/sass/_events-page.scss */
 section.event-profile-container .date-field .bold {
   float: none;
 }
-/* line 309, ../../../src/components/events-page/sass/_events-page.scss */
+/* line 313, ../../../src/components/events-page/sass/_events-page.scss */
 section.event-profile-container .content-wrap {
   padding: 0px 15px 15px 15px;
 }
