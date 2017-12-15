@@ -1,4 +1,4 @@
-/*! 2017-12-14 *//*
+/*! 2017-12-15 *//*
  * google-analytics.js
  *
  *
@@ -6727,7 +6727,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             obj;
             if($('body').hasClass('list-view')){
                 obj = {
-                    data:JSON.stringify({ MonthYear:  monthType,
+                    data:JSON.stringify({ EventStartDate:  monthType,
                        SectorId: SectorSelect.val(),
                        eventType: Type.val(),
                        Country: Country.val(),
@@ -6760,7 +6760,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             if($('body').hasClass('list-view')){
                 obj = {
                    data:JSON.stringify({ 
-                       MonthYear:  monthType,
+                       EventStartDate:  monthType,
                        SectorId: SectorSelect.val(),
                        eventType: Type.val(),
                        Country: Country.val(),
