@@ -325,17 +325,17 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         ViewDate = moment(view.title).format('MMMM YYYY'),
                         End = moment(new Date()).add(11, 'months').format('MMMM YYYY');
                         //
-                    if(view.title == Current) {
-                        jQuery('.fc-prev-button').addClass('disabled');
-                    } else {
-                        jQuery('.fc-prev-button').removeClass('disabled');
+                    // if(view.title == Current) {
+                    //     jQuery('.fc-prev-button').addClass('disabled');
+                    // } else {
+                    //     jQuery('.fc-prev-button').removeClass('disabled');
 
-                    }
-                    if(view.title === End) {
-                        jQuery('.fc-next-button').addClass('disabled');
-                    } else {
-                        jQuery('.fc-next-button').removeClass('disabled');
-                    }
+                    // }
+                    // if(view.title === End) {
+                    //     jQuery('.fc-next-button').addClass('disabled');
+                    // } else {
+                    //     jQuery('.fc-next-button').removeClass('disabled');
+                    // }
                 },
                 dayNamesShort: _dayView,
                 dayClick: function(date, jsEvent, view) {
