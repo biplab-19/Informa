@@ -1,4 +1,4 @@
-/*! 2017-10-31 *//*
+/*! 2017-12-18 *//*
  * google-analytics.js
  *
  *
@@ -8815,6 +8815,10 @@ INFORMA.forms = (function(window, $, namespace) {
         _formId = $(el).data('modal');
         _resetForm($(_formId).find('form'));
         if ($(el).attr('data-productid')) {
+            if($(_formId + ' .page-header h2').find('.product-name-holder').length === 0){
+                $(_formId + ' .page-header h2').text($(_formId + ' .page-header h2').text() + ' for ')
+                $(_formId + ' .page-header h2').append('<span class="product-name-holder"></span>');
+            } 
             productId = {
                 'guid': $(el).attr('data-productid')
             };
