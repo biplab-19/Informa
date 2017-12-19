@@ -6727,7 +6727,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             obj;
             if($('body').hasClass('list-view')){
                 obj = {
-                    data:JSON.stringify({ EventStartDate:  monthType,
+                    data:JSON.stringify({ EventsStartDate:  monthType,
                        SectorId: SectorSelect.val(),
                        eventType: Type.val(),
                        Country: Country.val(),
@@ -6760,7 +6760,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             if($('body').hasClass('list-view')){
                 obj = {
                    data:JSON.stringify({ 
-                       EventStartDate:  monthType,
+                       EventsStartDate:  monthType,
                        SectorId: SectorSelect.val(),
                        eventType: Type.val(),
                        Country: Country.val(),
