@@ -6852,7 +6852,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
                         ListTemplate = Handlebars.compile(TemplateName);
                         Data.Month = HeaderText;
-                        Data.MonthField = (Data.MonthYearField.substring(0,3));
+                        Data.MonthField = Data.MonthYearField.split(" ")[0];
                         html += ListTemplate({ results: Data });
                 }
             }
@@ -6889,7 +6889,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
                         ListTemplate = Handlebars.compile(TemplateName);
                         Data.Month = HeaderText;
-                        Data.MonthField = (Data.MonthYearField.substring(0,3));
+                        Data.MonthField = Data.MonthYearField.split(" ")[0];
                         html += ListTemplate({ results: Data });
                 }
             }
