@@ -173,9 +173,12 @@ $desktop-width: 1142px;
             }
         }
         //Pharma and Agri primary color
-        .primary-color {
+        .primary-color,.typed-text-primary{
             color: $primary;
         }
+        .typed-text-primary{
+            color: $primary !important;
+        } 
         //Pharma and Agri primary background color
         .primary-background {
             background: $primary !important;

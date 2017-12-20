@@ -695,3 +695,59 @@ section#hero-banner {
       }
     }
 } 
+.hero-banner-texture{
+    .key-template-title{
+      padding-top: 0;
+      @include not-mobile{
+          padding-top: 27px;
+      }
+    }
+    
+    .key-logo-div{
+      height: 60%;
+      img{
+          top: 20px;
+          width: 75%; 
+          height: auto;
+          vertical-align: middle !important;
+          left: 13% !important;
+      }
+    }
+    .pattern-div{
+      height: 40%;
+      bottom: 0;
+      position: relative;
+      img{
+        bottom: 0 !important;
+        left: 50% !important;
+        @include tablet{
+          left: 30% !important;
+        }
+        @include desktop{
+          width: 75%;
+          bottom: -80px !important;
+        }
+      }
+     
+    }
+    .key-logo-img-mobile{
+      @include not-mobile{
+        display: none;
+      }
+    }
+    @include mobile{
+      .key-logo-vertical-align{
+        top: 40%;
+      }
+      .cf-img{
+        display: none;
+      }
+      .key-logo-img-mobile{
+        padding: 40px 0;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }  
+}    
