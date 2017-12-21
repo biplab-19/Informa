@@ -6982,7 +6982,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         //     }
         // }
 
-        //List.find('.previous').addClass('arrow-desabled');
+        // List.find('.previous').addClass('arrow-desabled');
         NoEventsFound();
         Calendar.html("");
         Calendar.fullCalendar({
@@ -7319,7 +7319,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             RenderParticularMonth(currentMonth);
         });
         $(document).on('click', 'section[data-view="list-view"] .previous', function() {
-            var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
+            var DateText = $(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
                     $(this).parents('section[data-view="list-view"]').find('.header h2').text(prevMonth)
