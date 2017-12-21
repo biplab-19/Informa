@@ -311,15 +311,18 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             if (_videoElem.length > 0) {
                _bindIframe();
             }
-            var animatedText = $('.animatedText ').val(),
-            title = animatedText.split(',');
-            $(".typed-text-primary").typed({
-                strings: title,
-                typeSpeed: 50,
-                backDelay: 1200,
-                loop: true,
-                cursorChar: "",
-            });
+            var animatedText = $('.animatedText ').val();
+            if(animatedText){
+                var title = animatedText.split(',');
+                $(".typed-text-primary").typed({
+                    strings: title,
+                    typeSpeed: 50,
+                    backDelay: 1200,
+                    loop: true,
+                    cursorChar: "",
+                });
+            }
+           
             if (_heroBannerList.length > 0) {
                 _createSlider(_heroBannerList);
                 if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
