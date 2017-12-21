@@ -1,4 +1,4 @@
-/*! 2017-12-20 *//*
+/*! 2017-12-21 *//*
  * google-analytics.js
  *
  *
@@ -10542,54 +10542,15 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             if (_videoElem.length > 0) {
                _bindIframe();
             }
-            // var title = ['India' ,'China' ,'America'],
             var animatedText = $('.animatedText ').val(),
-            title = animatedText.split(','),
-            index = 0,
-            i=0,
-            str='',newStr,
-            newTitle = title[i];
-            setTimeout(function() { 
-                if(newStr){
-                    str = newStr;
-                    document.getElementById('typed-text').innerHTML = str;
-                    if(newStr.length === index){
-                        var removetitle = newStr.split('');
-                        removetitle.pop(index);
-                        newStr = removetitle.join('');
-                        document.getElementById('typed-text').innerHTML = newStr;
-                        index = index-2;
-                    }
-                    index++;
-                    if(newStr === ''){
-                        str='';
-                        i++;
-                        newTitle = title[i];
-                    }
-                    if (i == title.length){
-                       i = 0;
-                       newTitle = title[i]
-                    } 
-                }
-                else{
-                    str += newTitle[index]; 
-                    document.getElementById('typed-text').innerHTML = str;
-                    if(newTitle.length === index){
-                        var removetitle = newTitle.split('');
-                        removetitle.pop(index);
-                        newStr = removetitle.join('');
-                        document.getElementById('typed-text').innerHTML = newStr;
-                        index = index-2;
-                    }
-                    index++;
-                }
-            }, 200); 
-            // setTimeout(function() { 
-            //     document.getElementById('fruit').innerHTML = title[i++];   
-            //      if (i == title.length){
-            //         i = 0;
-            //      }    
-            //  }, 40); 
+            title = animatedText.split(',');
+            $(".typed-text-primary").typed({
+                strings: title,
+                typeSpeed: 50,
+                backDelay: 1200,
+                loop: true,
+                cursorChar: "",
+            });
             if (_heroBannerList.length > 0) {
                 _createSlider(_heroBannerList);
                 if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
