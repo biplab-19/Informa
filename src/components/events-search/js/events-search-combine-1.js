@@ -27,7 +27,8 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         NextButton = $('.fc-next-button'),
         MoreEvents = $('.btn-more-events'),
        _Start = moment(new Date()).format('MMMM YYYY'),
-       _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
+        _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
+        _previous = moment(_Start).add(-11, 'months').format('MMMM YYYY'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
         _previousDate = null,
@@ -195,7 +196,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
                 ViewDate = moment(new Date('1 '+ViewDateText));
 
-            if(ViewDate.format('MMMM YYYY') == _Start) {
+            if(ViewDate.format('MMMM YYYY') == _previous) {
                 List.find('.previous').addClass('arrow-desabled');
             } else {
                 List.find('.previous').removeClass('arrow-desabled');
@@ -231,7 +232,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
                 ViewDate = moment(new Date('1 '+ViewDateText));
 
-            if(ViewDate.format('MMMM YYYY') == _Start) {
+            if(ViewDate.format('MMMM YYYY') == _previous) {
                 List.find('.previous').addClass('arrow-desabled');
             } else {
                 List.find('.previous').removeClass('arrow-desabled');
@@ -311,7 +312,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         //     }
         // }
 
-        List.find('.previous').addClass('arrow-desabled');
+        // List.find('.previous').addClass('arrow-desabled');
         NoEventsFound();
         Calendar.html("");
         Calendar.fullCalendar({
@@ -623,9 +624,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
     
     ListChangeEvents = function() {
         $(document).on('click', 'section[data-view="list-view"] .next', function() {
-            var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
+            var DateText = $(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', 1).format('MMMM YYYY');
+                    $(this).parents('section[data-view="list-view"]').find('.header h2').text(prevMonth)
                     $('#Eventmonth').val(prevMonth);
                     $('#Eventmonth').trigger("chosen:updated");
                     var MonthYear = prevMonth,
@@ -647,9 +649,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             RenderParticularMonth(currentMonth);
         });
         $(document).on('click', 'section[data-view="list-view"] .previous', function() {
-            var DateText = jQuery(this).parents('section[data-view="list-view"]').find('.header h2').text(),
+            var DateText = $(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
+                    $(this).parents('section[data-view="list-view"]').find('.header h2').text(prevMonth)
                     $('#Eventmonth').val(prevMonth);
                     $('#Eventmonth').trigger("chosen:updated");
                     var MonthYear = prevMonth,
