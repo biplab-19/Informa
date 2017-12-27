@@ -695,18 +695,39 @@ section#hero-banner {
       }
     }
 } 
-.hero-banner-texture{
+.hero-banner-texture.dark-banner-subscribe{
+    &.white-banner{
+      background-color: $white;
+      h1{
+        color: $grey-color05;
+      }
+      .subtext, .description{
+        color: $grey-color04;
+      }
+      .cf-img{
+        background-color: $white;
+      }
+    }
     .key-template-title{
       padding-top: 0;
       @include not-mobile{
-          padding-top: 27px;
+          padding-top: 45px;
+          padding-bottom: 10px;
       }
     }
-    
+    .cf-img{
+      opacity: 1;
+    }
+    .subtext{
+      padding-bottom: 18px !important;
+    }
+    .description{
+      padding-bottom: 25px !important;
+    }
     .key-logo-div{
       height: 60%;
       img{
-          top: 20px;
+          top: 40px;
           width: 75%; 
           height: auto;
           vertical-align: middle !important;
