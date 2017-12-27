@@ -1,4 +1,4 @@
-/*! 2017-12-21 *//*
+/*! 2017-12-27 *//*
  * google-analytics.js
  *
  *
@@ -10397,12 +10397,12 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             $(window).on("load", function() {
                 if(_heroBannerFull.length > 0){
                     if(INFORMA.global.device.viewport === "mobile"){
-                        var imageHeight = $('.key-logo-img-mobile'),
-                        padding = 20;
+                        var imageHeight = $('.key-logo-img-mobile');
                         if(imageHeight){
-                            var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight() + imageHeight.outerHeight() + padding;
+                            var height = $('.hero-banner .container,.hero-banner-texture .container').height() + imageHeight.height();
                             $('.hero-banner,.hero-banner-texture').height(height);
-                        }else{
+                        }
+                        else{
                             $('.hero-banner,.hero-banner-texture').height(height);
                         }
                         $('.hero-banner').css('min-height','275px');
