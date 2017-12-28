@@ -248,12 +248,9 @@ $desktop-width: 1142px;
             }
         }
         //For dark gray background
-        .bg-gray-dark {
+        .bg-gray-dark , .dark-banner.key-acocunt-landing-section, .bright-banner.key-acocunt-landing-section{
             .btn-default {
                 border: 2px solid $white;
-                /*@include tablet {
-                  width: 130%;
-                }*/
                 &:after {
                     color: $white;
                 }
@@ -268,6 +265,26 @@ $desktop-width: 1142px;
               color: $white;
             }
         }
+        .key-acocunt-landing-section{
+            &.white-banner{
+                .btn-default {
+                    color: $primary;
+                    &:hover {
+                        color: $secondarycolorlight;
+                    }
+                }  
+            }
+            @if($name== financial-theme) {
+                .pattern-div img{
+                    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+                        left: -18%;
+                        bottom: 0;
+                    } 
+                }
+                
+            }
+        }
+
         //For pharma and agri page-ui
         .page-ui {
             background-color: $secondarycolorlight;

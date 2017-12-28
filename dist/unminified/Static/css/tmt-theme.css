@@ -1,4 +1,4 @@
-/*! 2017-12-20 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2017-12-28 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -92,34 +92,39 @@
   color: #fff;
 }
 /* line 252, ../../../src/sass/global/_mixins.scss */
-.tmt-theme .bg-gray-dark .btn-default {
+.tmt-theme .bg-gray-dark .btn-default, .tmt-theme .dark-banner.key-acocunt-landing-section .btn-default, .tmt-theme .bright-banner.key-acocunt-landing-section .btn-default {
   border: 2px solid #fff;
-  /*@include tablet {
-    width: 130%;
-  }*/
+}
+/* line 254, ../../../src/sass/global/_mixins.scss */
+.tmt-theme .bg-gray-dark .btn-default:after, .tmt-theme .dark-banner.key-acocunt-landing-section .btn-default:after, .tmt-theme .bright-banner.key-acocunt-landing-section .btn-default:after {
+  color: #fff;
 }
 /* line 257, ../../../src/sass/global/_mixins.scss */
-.tmt-theme .bg-gray-dark .btn-default:after {
-  color: #fff;
-}
-/* line 260, ../../../src/sass/global/_mixins.scss */
-.tmt-theme .bg-gray-dark .btn-default:hover {
+.tmt-theme .bg-gray-dark .btn-default:hover, .tmt-theme .dark-banner.key-acocunt-landing-section .btn-default:hover, .tmt-theme .bright-banner.key-acocunt-landing-section .btn-default:hover {
   border: 2px solid #ba1156;
 }
-/* line 262, ../../../src/sass/global/_mixins.scss */
-.tmt-theme .bg-gray-dark .btn-default:hover:after {
+/* line 259, ../../../src/sass/global/_mixins.scss */
+.tmt-theme .bg-gray-dark .btn-default:hover:after, .tmt-theme .dark-banner.key-acocunt-landing-section .btn-default:hover:after, .tmt-theme .bright-banner.key-acocunt-landing-section .btn-default:hover:after {
   color: #ba1156;
 }
-/* line 267, ../../../src/sass/global/_mixins.scss */
-.tmt-theme .bg-gray-dark .intro-text {
+/* line 264, ../../../src/sass/global/_mixins.scss */
+.tmt-theme .bg-gray-dark .intro-text, .tmt-theme .dark-banner.key-acocunt-landing-section .intro-text, .tmt-theme .bright-banner.key-acocunt-landing-section .intro-text {
   color: #fff;
 }
+/* line 270, ../../../src/sass/global/_mixins.scss */
+.tmt-theme .key-acocunt-landing-section.white-banner .btn-default {
+  color: #DB0A35;
+}
 /* line 272, ../../../src/sass/global/_mixins.scss */
+.tmt-theme .key-acocunt-landing-section.white-banner .btn-default:hover {
+  color: #ba1156;
+}
+/* line 289, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .page-ui, .tmt-theme #services-navigation,
 .tmt-theme #pdp-navigation {
   background-color: #ba1156;
 }
-/* line 274, ../../../src/sass/global/_mixins.scss */
+/* line 291, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .page-ui #pdp-sections-heading, .tmt-theme #services-navigation #pdp-sections-heading,
 .tmt-theme #pdp-navigation #pdp-sections-heading,
 .tmt-theme .page-ui a,
@@ -127,7 +132,7 @@
 .tmt-theme #pdp-navigation a {
   color: #fff;
 }
-/* line 282, ../../../src/sass/global/_mixins.scss */
+/* line 299, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .page-ui #pdp-sections-heading:active, .tmt-theme #services-navigation #pdp-sections-heading:active,
 .tmt-theme #pdp-navigation #pdp-sections-heading:active,
 .tmt-theme .page-ui a:active,
@@ -135,11 +140,11 @@
 .tmt-theme #pdp-navigation a:active {
   outline: none;
 }
-/* line 288, ../../../src/sass/global/_mixins.scss */
+/* line 305, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .quote, .tmt-theme #customer-quote-slider .saying:before, .tmt-theme .articlepage-quote blockquote:before {
   color: #b3a8c6;
 }
-/* line 298, ../../../src/sass/global/_mixins.scss */
+/* line 315, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.newsFlash .newsbox .news-desc,
 .tmt-theme section.newsFlash .newsbox .news-title,
 .tmt-theme section.newsFlash .newsbox span,
@@ -148,37 +153,37 @@
 .tmt-theme section.newsFlash .newsbox .read:after {
   color: #fff;
 }
-/* line 310, ../../../src/sass/global/_mixins.scss */
+/* line 327, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #services-navigation .btn,
 .tmt-theme #pdp-navigation .btn {
   color: #fff !important;
 }
-/* line 316, ../../../src/sass/global/_mixins.scss */
+/* line 333, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contact-us-brand .panel-group .panel-heading.collapsed:after {
   background-color: #ba1156;
 }
-/* line 320, ../../../src/sass/global/_mixins.scss */
+/* line 337, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .panel-group .panel .panel-heading .panel-title a:after {
   color: #ba1156 !important;
 }
-/* line 323, ../../../src/sass/global/_mixins.scss */
+/* line 340, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #Faqs .panel-group .panel .panel-heading .panel-title a:after {
   color: #c3c7cf !important;
 }
-/* line 326, ../../../src/sass/global/_mixins.scss */
+/* line 343, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #Faqs .panel-group .panel .panel-heading .panel-title a.collapsed:after {
   color: #DB0A35 !important;
 }
-/* line 329, ../../../src/sass/global/_mixins.scss */
+/* line 346, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .dashboard .panel .panel-heading a.collapsed:before {
   color: #f5708c !important;
 }
-/* line 333, ../../../src/sass/global/_mixins.scss */
+/* line 350, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.training-section .training-material .carousel-lists .slick-arrow {
   background-color: #ba1156;
   color: #fff;
 }
-/* line 338, ../../../src/sass/global/_mixins.scss */
+/* line 355, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .EventFinished,
 .tmt-theme .FullyBooked {
   background-color: rgba(219, 10, 53, 0.4) !important;
@@ -187,7 +192,7 @@
   position: relative;
   pointer-events: none;
 }
-/* line 345, ../../../src/sass/global/_mixins.scss */
+/* line 362, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .EventFinished:before,
 .tmt-theme .FullyBooked:before {
   content: '';
@@ -198,49 +203,49 @@
   height: 100%;
   z-index: 2;
 }
-/* line 354, ../../../src/sass/global/_mixins.scss */
+/* line 371, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .EventFinished:after,
 .tmt-theme .FullyBooked:after {
   color: #fff !important;
 }
-/* line 359, ../../../src/sass/global/_mixins.scss */
+/* line 376, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .CurrentDate .events-wrap .header .date {
   background-color: #DB0A35 !important;
 }
-/* line 364, ../../../src/sass/global/_mixins.scss */
+/* line 381, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section#hero-banner.analyst {
   background-color: #8c073d;
 }
-/* line 368, ../../../src/sass/global/_mixins.scss */
+/* line 385, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-brands-list .intro-text {
   padding-left: 10px;
 }
-/* line 371, ../../../src/sass/global/_mixins.scss */
+/* line 388, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-brands-list ul.yellow-bullets {
   padding-left: 20px;
   padding-top: 0;
 }
-/* line 374, ../../../src/sass/global/_mixins.scss */
+/* line 391, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-brands-list ul.yellow-bullets li {
   padding-bottom: 5px;
 }
-/* line 376, ../../../src/sass/global/_mixins.scss */
+/* line 393, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-brands-list ul.yellow-bullets li:before {
   top: 6px;
   left: -20px;
 }
-/* line 384, ../../../src/sass/global/_mixins.scss */
+/* line 401, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .yellow-bullets {
   list-style-type: none;
   padding-left: 20px;
 }
-/* line 387, ../../../src/sass/global/_mixins.scss */
+/* line 404, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .yellow-bullets li {
   margin-bottom: 5px;
   position: relative;
   color: #565c6b;
 }
-/* line 391, ../../../src/sass/global/_mixins.scss */
+/* line 408, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .yellow-bullets li:before {
   content: '';
   position: absolute;
@@ -253,44 +258,44 @@
   border-radius: 50%;
   font-family: 'FS Me Bold';
 }
-/* line 427, ../../../src/sass/global/_mixins.scss */
+/* line 444, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .related-products .productfinder-link a {
   color: #DB0A35;
 }
-/* line 434, ../../../src/sass/global/_mixins.scss */
+/* line 451, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .accordian-structure#Faqs a {
   color: #565c6b;
 }
-/* line 438, ../../../src/sass/global/_mixins.scss */
+/* line 455, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .accordian-structure a {
   color: #DB0A35;
 }
-/* line 450, ../../../src/sass/global/_mixins.scss */
+/* line 467, ../../../src/sass/global/_mixins.scss */
 .tmt-theme form.wffm-form .email-validation-message {
   color: #f5708c !important;
 }
-/* line 456, ../../../src/sass/global/_mixins.scss */
+/* line 473, ../../../src/sass/global/_mixins.scss */
 .tmt-theme form.request-a-demo p, .tmt-theme form.register-myinterests-form p,
 .tmt-theme form.get-in-touch p {
   background-color: #ba1156;
   color: #fff;
 }
-/* line 459, ../../../src/sass/global/_mixins.scss */
+/* line 476, ../../../src/sass/global/_mixins.scss */
 .tmt-theme form.request-a-demo p:after, .tmt-theme form.register-myinterests-form p:after,
 .tmt-theme form.get-in-touch p:after {
   border-left: 10px solid #ba1156;
 }
-/* line 464, ../../../src/sass/global/_mixins.scss */
+/* line 481, ../../../src/sass/global/_mixins.scss */
 .tmt-theme form.request-a-demo .checkbox.active label, .tmt-theme form.register-myinterests-form .checkbox.active label,
 .tmt-theme form.get-in-touch .checkbox.active label {
   border: 3px solid #ba1156;
 }
-/* line 467, ../../../src/sass/global/_mixins.scss */
+/* line 484, ../../../src/sass/global/_mixins.scss */
 .tmt-theme form.request-a-demo .checkbox.active:after, .tmt-theme form.register-myinterests-form .checkbox.active:after,
 .tmt-theme form.get-in-touch .checkbox.active:after {
   color: #DB0A35;
 }
-/* line 476, ../../../src/sass/global/_mixins.scss */
+/* line 493, ../../../src/sass/global/_mixins.scss */
 .tmt-theme div form.get-in-touch input:focus,
 .tmt-theme div form.get-in-touch select:focus,
 .tmt-theme div form.get-in-touch textarea:focus,
@@ -303,113 +308,113 @@
   outline: none !important;
   border: 2px solid #DB0A35;
 }
-/* line 482, ../../../src/sass/global/_mixins.scss */
+/* line 499, ../../../src/sass/global/_mixins.scss */
 .tmt-theme div form.get-in-touch label.error,
 .tmt-theme div form.request-a-demo label.error,
 .tmt-theme div form.register-myinterests-form label.error {
   color: #f5708c !important;
 }
-/* line 485, ../../../src/sass/global/_mixins.scss */
+/* line 502, ../../../src/sass/global/_mixins.scss */
 .tmt-theme div form.get-in-touch .field-validation-error,
 .tmt-theme div form.request-a-demo .field-validation-error,
 .tmt-theme div form.register-myinterests-form .field-validation-error {
   color: #f5708c !important;
 }
-/* line 490, ../../../src/sass/global/_mixins.scss */
+/* line 507, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .icon-calender {
   color: #DB0A35;
 }
-/* line 494, ../../../src/sass/global/_mixins.scss */
+/* line 511, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .icon-tick:before {
   color: #ba1156;
 }
-/* line 499, ../../../src/sass/global/_mixins.scss */
+/* line 516, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .refine-container .clear-all,
 .tmt-theme .refine-container .show-more {
   color: #DB0A35;
 }
-/* line 505, ../../../src/sass/global/_mixins.scss */
+/* line 522, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .clear-mobile .clear-all {
   color: #DB0A35;
 }
-/* line 509, ../../../src/sass/global/_mixins.scss */
+/* line 526, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .cookieBanner p a {
   color: #DB0A35;
 }
-/* line 512, ../../../src/sass/global/_mixins.scss */
+/* line 529, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .register-myinterests-section .select-wrapper label {
   color: #DB0A35;
 }
-/* line 515, ../../../src/sass/global/_mixins.scss */
+/* line 532, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .flip .tile .back .triangle {
   border-top: 50px solid #DB0A35;
 }
-/* line 519, ../../../src/sass/global/_mixins.scss */
+/* line 536, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .chosen-container .chosen-results li.highlighted {
   background-color: #ba1156;
 }
-/* line 525, ../../../src/sass/global/_mixins.scss */
+/* line 542, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .contactUsPage-contactUs .nav-tabs a {
   color: #fff;
 }
-/* line 529, ../../../src/sass/global/_mixins.scss */
+/* line 546, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .contactUsPage-contactUs a {
   color: #f5708c;
 }
-/* line 532, ../../../src/sass/global/_mixins.scss */
+/* line 549, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .contactUsPage-contactUs a.chosen-single {
   color: #565c6b !important;
 }
-/* line 537, ../../../src/sass/global/_mixins.scss */
+/* line 554, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .contactUsPage-contactUs li.active:after {
   background: #f5708c;
 }
-/* line 541, ../../../src/sass/global/_mixins.scss */
+/* line 558, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .color-text, .tmt-theme .chosen-container .chosen-results li.highlighted {
   color: #fff;
 }
-/* line 552, ../../../src/sass/global/_mixins.scss */
+/* line 569, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .anlyst-heading {
   background-color: #8c073d;
 }
-/* line 554, ../../../src/sass/global/_mixins.scss */
+/* line 571, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .anlyst-heading:after {
   background-color: #8c073d;
 }
-/* line 558, ../../../src/sass/global/_mixins.scss */
+/* line 575, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .yellow-container {
   background: rgba(186, 17, 86, 0.9);
 }
-/* line 560, ../../../src/sass/global/_mixins.scss */
+/* line 577, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .yellow-container h3 {
   color: #fff;
 }
-/* line 564, ../../../src/sass/global/_mixins.scss */
+/* line 581, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .carousel-lists .slick-arrow,
 .tmt-theme .customers_list_slider .slick-arrow {
   color: #fff;
 }
-/* line 579, ../../../src/sass/global/_mixins.scss */
+/* line 596, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.customer-quote {
   background: #8c073d;
 }
-/* line 583, ../../../src/sass/global/_mixins.scss */
+/* line 600, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .twitter-carousel .slick-arrow {
   background: #fff;
 }
-/* line 589, ../../../src/sass/global/_mixins.scss */
+/* line 606, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .view-all-sectors-btn-container {
   border-bottom: 1px solid #ba1156;
 }
-/* line 591, ../../../src/sass/global/_mixins.scss */
+/* line 608, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .view-all-sectors-btn-container .informa-icon {
   color: #ba1156;
 }
-/* line 599, ../../../src/sass/global/_mixins.scss */
+/* line 616, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .events-list .CurrentDate .events-wrap .header .date {
   background-color: #DB0A35;
 }
-/* line 605, ../../../src/sass/global/_mixins.scss */
+/* line 622, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .events-list .btn-more-events {
   border: 0;
   border-bottom: 2px solid #DB0A35 !important;
@@ -419,80 +424,80 @@
   text-align: center;
 }
 @media (max-width: 767px) {
-  /* line 605, ../../../src/sass/global/_mixins.scss */
+  /* line 622, ../../../src/sass/global/_mixins.scss */
   .tmt-theme .events-list .btn-more-events {
     padding: 0;
     text-align: left;
     padding-left: 15px;
   }
 }
-/* line 619, ../../../src/sass/global/_mixins.scss */
+/* line 636, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .events-list .btn-more-events .more:after,
 .tmt-theme .events-list .btn-more-events .less:after {
   right: 15px;
   color: #DB0A35;
 }
-/* line 625, ../../../src/sass/global/_mixins.scss */
+/* line 642, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .events-list .events p.title:before {
   background: #DB0A35 !important;
 }
-/* line 629, ../../../src/sass/global/_mixins.scss */
+/* line 646, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .events-list .header .arrows {
   background: #ba1156;
 }
-/* line 636, ../../../src/sass/global/_mixins.scss */
+/* line 653, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .events-list .header .arrows.arrow-desabled {
   background-color: grey;
 }
-/* line 647, ../../../src/sass/global/_mixins.scss */
+/* line 664, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .event-present.fc-future:before {
   background: #DB0A35 !important;
 }
-/* line 650, ../../../src/sass/global/_mixins.scss */
+/* line 667, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-state-default.fc-corner-right,
 .tmt-theme .fc-state-default.fc-corner-left {
   background: #ba1156;
 }
-/* line 658, ../../../src/sass/global/_mixins.scss */
+/* line 675, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-state-default.fc-corner-right.disabled,
 .tmt-theme .fc-state-default.fc-corner-left.disabled {
   background-color: grey;
 }
-/* line 667, ../../../src/sass/global/_mixins.scss */
+/* line 684, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc .events-wrap .events.current p.title:before {
   background: #DB0A35 !important;
 }
-/* line 671, ../../../src/sass/global/_mixins.scss */
+/* line 688, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-center h2 {
   padding: 0;
 }
-/* line 677, ../../../src/sass/global/_mixins.scss */
+/* line 694, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .twitter-carousel .feed-heading span {
   color: #fff;
 }
-/* line 682, ../../../src/sass/global/_mixins.scss */
+/* line 699, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .twitter-carousel .message a {
   color: #fff;
   border-bottom: 1px solid #fff;
   word-wrap: break-word;
 }
-/* line 689, ../../../src/sass/global/_mixins.scss */
+/* line 706, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .view-all-mobile-container {
   border-bottom: solid 1px #ba1156;
 }
-/* line 691, ../../../src/sass/global/_mixins.scss */
+/* line 708, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .view-all-mobile-container .informa-icon {
   color: #ba1156;
 }
-/* line 699, ../../../src/sass/global/_mixins.scss */
+/* line 716, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .register-myinterests-section .triangle-nav li.active a:after {
   border-left: 30px solid #DB0A35;
 }
-/* line 705, ../../../src/sass/global/_mixins.scss */
+/* line 722, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .font-color, .tmt-theme .register-myinterests-section .triangle-nav li.active a {
   color: #fff;
 }
-/* line 717, ../../../src/sass/global/_mixins.scss */
+/* line 734, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .feature li:before {
   content: "\e914";
   font-family: 'InformaIcons';
@@ -505,69 +510,69 @@
   border-radius: 50%;
   font-weight: normal;
 }
-/* line 730, ../../../src/sass/global/_mixins.scss */
+/* line 747, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .sprite-image, .tmt-theme .product-brands-list .card .caption h4:after,
 .tmt-theme .product-results .list-items .products h4:after {
   background-position: -7px -233px;
   width: 25px;
   height: 34px;
 }
-/* line 768, ../../../src/sass/global/_mixins.scss */
+/* line 785, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-login .login-links .list ul li::after {
   color: #f5708c;
 }
-/* line 774, ../../../src/sass/global/_mixins.scss */
+/* line 791, ../../../src/sass/global/_mixins.scss */
 .tmt-theme ul.nav-tabs li.active {
   border-bottom: 5px solid #DB0A35;
 }
-/* line 779, ../../../src/sass/global/_mixins.scss */
+/* line 796, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #mobile-header-navigation .nav-subnav-heading {
   color: #f5708c;
 }
 @media (min-width: 1142px) {
-  /* line 784, ../../../src/sass/global/_mixins.scss */
+  /* line 801, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #sub-nav .subnav-container .content {
     margin-left: 30px;
   }
-  /* line 787, ../../../src/sass/global/_mixins.scss */
+  /* line 804, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #sub-nav .subnav-container .content:first-child, .tmt-theme #sub-nav .subnav-container .content:last-child {
     margin-left: 0px;
   }
 }
 @media (min-width: 1142px) {
-  /* line 794, ../../../src/sass/global/_mixins.scss */
+  /* line 811, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #sub-nav .subnav-container .heading .top {
     padding: 0 0 15px 0;
   }
 }
-/* line 798, ../../../src/sass/global/_mixins.scss */
+/* line 815, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #sub-nav .subnav-container .heading .top:first-child {
   border: none;
 }
-/* line 814, ../../../src/sass/global/_mixins.scss */
+/* line 831, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #analyst-profile .show-options {
   border-bottom: 2px solid #ba1156;
 }
-/* line 816, ../../../src/sass/global/_mixins.scss */
+/* line 833, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #analyst-profile .show-options:after {
   color: #ba1156;
 }
-/* line 821, ../../../src/sass/global/_mixins.scss */
+/* line 838, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .popover {
   background: #ba1156;
   width: 175px;
   top: -36px;
 }
-/* line 825, ../../../src/sass/global/_mixins.scss */
+/* line 842, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .popover .popover-content {
   color: #fff;
   font-family: 'FSMe-bold';
 }
-/* line 834, ../../../src/sass/global/_mixins.scss */
+/* line 851, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .popover.right .arrow:after {
   border-right-color: #ba1156;
 }
-/* line 838, ../../../src/sass/global/_mixins.scss */
+/* line 855, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn {
   width: 180px;
   background: transparent;
@@ -577,15 +582,15 @@
   border-width: 2px;
   height: 53px;
 }
-/* line 847, ../../../src/sass/global/_mixins.scss */
+/* line 864, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-faq-more {
   border-bottom: 2px solid #ba1156 !important;
 }
-/* line 849, ../../../src/sass/global/_mixins.scss */
+/* line 866, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-faq-more:after {
   color: #ba1156;
 }
-/* line 853, ../../../src/sass/global/_mixins.scss */
+/* line 870, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-showMore,
 .tmt-theme .btn-plus {
   background: none;
@@ -601,7 +606,7 @@
   position: relative;
   text-decoration: none;
 }
-/* line 867, ../../../src/sass/global/_mixins.scss */
+/* line 884, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-showMore:after,
 .tmt-theme .btn-plus:after {
   font-family: 'InformaIcons';
@@ -613,35 +618,35 @@
   font-size: 30px;
   top: -2px;
 }
-/* line 877, ../../../src/sass/global/_mixins.scss */
+/* line 894, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-showMore:hover,
 .tmt-theme .btn-plus:hover {
   border-bottom: 2px solid #DB0A35;
   text-decoration: none;
 }
-/* line 881, ../../../src/sass/global/_mixins.scss */
+/* line 898, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-showMore span.more,
 .tmt-theme .btn-showMore span.less,
 .tmt-theme .btn-plus span.more,
 .tmt-theme .btn-plus span.less {
   text-decoration: none;
 }
-/* line 888, ../../../src/sass/global/_mixins.scss */
+/* line 905, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .meet-anlyst-section .analyst-details h4,
 .tmt-theme .meet-anlyst-section .analyst-details h3,
 .tmt-theme .meet-anlyst-section .analyst-details h5,
 .tmt-theme .meet-anlyst-section .analyst-details p {
   color: #fff;
 }
-/* line 896, ../../../src/sass/global/_mixins.scss */
+/* line 913, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .contactus-list {
   background: #444957;
 }
-/* line 906, ../../../src/sass/global/_mixins.scss */
+/* line 923, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .headline-list h4 a {
   color: #565c6b;
 }
-/* line 911, ../../../src/sass/global/_mixins.scss */
+/* line 928, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-default {
   min-width: 230px;
   text-align: left;
@@ -650,7 +655,7 @@
   border-color: #DB0A35;
   position: relative;
 }
-/* line 918, ../../../src/sass/global/_mixins.scss */
+/* line 935, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-default:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -658,31 +663,31 @@
   position: absolute;
   color: #DB0A35;
 }
-/* line 925, ../../../src/sass/global/_mixins.scss */
+/* line 942, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-default:hover {
   border: 2px solid #ba1156;
 }
-/* line 927, ../../../src/sass/global/_mixins.scss */
+/* line 944, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-default:hover:after {
   color: #ba1156;
 }
-/* line 933, ../../../src/sass/global/_mixins.scss */
+/* line 950, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-container .btn-default {
   border: 2px solid #DB0A35;
 }
-/* line 935, ../../../src/sass/global/_mixins.scss */
+/* line 952, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-container .btn-default:after {
   color: #DB0A35;
 }
-/* line 938, ../../../src/sass/global/_mixins.scss */
+/* line 955, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-container .btn-default:hover {
   border: 2px solid #ba1156;
 }
-/* line 940, ../../../src/sass/global/_mixins.scss */
+/* line 957, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-container .btn-default:hover:after {
   color: #ba1156;
 }
-/* line 946, ../../../src/sass/global/_mixins.scss */
+/* line 963, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-primary {
   text-align: left;
   padding-top: 15px;
@@ -692,7 +697,7 @@
   color: #fff;
   position: relative;
 }
-/* line 954, ../../../src/sass/global/_mixins.scss */
+/* line 971, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-primary:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -700,11 +705,11 @@
   font-weight: bold;
   position: absolute;
 }
-/* line 961, ../../../src/sass/global/_mixins.scss */
+/* line 978, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-primary a {
   color: #fff;
 }
-/* line 968, ../../../src/sass/global/_mixins.scss */
+/* line 985, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-previous {
   color: #fff;
   min-width: 180px;
@@ -716,7 +721,7 @@
   position: relative;
   z-index: 9;
 }
-/* line 978, ../../../src/sass/global/_mixins.scss */
+/* line 995, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-previous:before {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -728,27 +733,27 @@
   -ms-transform: scale(-1, 1);
   transform: scale(-1, 1);
 }
-/* line 990, ../../../src/sass/global/_mixins.scss */
+/* line 1007, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .btn-previous:hover {
   border-color: #6a7285;
 }
-/* line 995, ../../../src/sass/global/_mixins.scss */
+/* line 1012, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.articlepage-freearticle a {
   color: #f5708c;
 }
-/* line 997, ../../../src/sass/global/_mixins.scss */
+/* line 1014, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.articlepage-freearticle a:hover {
   color: #f5708c;
 }
-/* line 1001, ../../../src/sass/global/_mixins.scss */
+/* line 1018, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.articlepage-freearticle .btn {
   color: #fff;
 }
-/* line 1003, ../../../src/sass/global/_mixins.scss */
+/* line 1020, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.articlepage-freearticle .btn:hover {
   color: #fff;
 }
-/* line 1009, ../../../src/sass/global/_mixins.scss */
+/* line 1026, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section .phone-number a,
 .tmt-theme #contactus-section .phone-number,
 .tmt-theme #contactus-section .email a,
@@ -756,136 +761,136 @@
   color: #DB0A35;
   font-weight: bold;
 }
-/* line 1016, ../../../src/sass/global/_mixins.scss */
+/* line 1033, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section a.btn {
   color: #fff;
   width: 100%;
 }
 @media (min-width: 1142px) {
-  /* line 1016, ../../../src/sass/global/_mixins.scss */
+  /* line 1033, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #contactus-section a.btn {
     width: auto;
     min-width: 220px;
   }
 }
-/* line 1023, ../../../src/sass/global/_mixins.scss */
+/* line 1040, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section a.btn:after {
   color: #fff;
 }
-/* line 1027, ../../../src/sass/global/_mixins.scss */
+/* line 1044, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section .subscribe-link {
   background: #DB0A35 url(/Static/images/subscribe/subscribe.png) no-repeat 5% 50%;
 }
-/* line 1029, ../../../src/sass/global/_mixins.scss */
+/* line 1046, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section .subscribe-link:after {
   color: #fff;
 }
-/* line 1034, ../../../src/sass/global/_mixins.scss */
+/* line 1051, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .open-quote {
   color: rgba(186, 17, 86, 0.8);
 }
-/* line 1038, ../../../src/sass/global/_mixins.scss */
+/* line 1055, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .demo-item {
   height: 100px;
   background-color: rgba(186, 17, 86, 0.8);
 }
-/* line 1134, ../../../src/sass/global/_mixins.scss */
+/* line 1151, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-login .login-links {
   background: url(/Static/images/tmt-pattern.png) no-repeat bottom right #444957;
   background-size: 20%;
 }
-/* line 1138, ../../../src/sass/global/_mixins.scss */
+/* line 1155, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .dashboard {
   background: url(/Static/images/tmt-pattern.png) no-repeat right 100% #444957;
   background-size: 15%;
 }
-/* line 1142, ../../../src/sass/global/_mixins.scss */
+/* line 1159, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #formRegistration .modal-body, .tmt-theme #formRequestADemo .modal-body, .tmt-theme #formRequestACallback .modal-body, .tmt-theme #formHeaderGetInTouch .modal-body, .tmt-theme #formRequestATrial .modal-body {
   background: url(/Static/images/tmt-pattern.png) no-repeat right 103% #6a7285;
 }
-/* line 1145, ../../../src/sass/global/_mixins.scss */
+/* line 1162, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .registration-form-single-section .container {
   background: url(/Static/images/tmt-pattern.png) no-repeat right 103% #6a7285;
 }
-/* line 1149, ../../../src/sass/global/_mixins.scss */
+/* line 1166, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .tab-pane form.get-in-touch, .tmt-theme .tab-pane form.register-myinterests-form, .tmt-theme .tab-pane form.request-a-demo, .tmt-theme .tab-pane .error-response, .tmt-theme .tab-pane .submit-response {
   background: url(/Static/images/tmt-pattern.png) no-repeat right 103% #6a7285;
 }
-/* line 1163, ../../../src/sass/global/_mixins.scss */
+/* line 1180, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .tab-pane .error-response h2:before,
 .tmt-theme .tab-pane .submit-response h2:before {
   color: #ba1156;
 }
-/* line 1175, ../../../src/sass/global/_mixins.scss */
+/* line 1192, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .form-modal .modal-body .form-inline-container .error-response h2:before,
 .tmt-theme .form-modal .modal-body .form-inline-container .submit-response h2:before {
   color: #ba1156;
 }
-/* line 1183, ../../../src/sass/global/_mixins.scss */
+/* line 1200, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .infograph .number-container {
   color: #f5708c;
 }
-/* line 1187, ../../../src/sass/global/_mixins.scss */
+/* line 1204, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .welcome-description a {
   color: #f5708c;
 }
-/* line 1191, ../../../src/sass/global/_mixins.scss */
+/* line 1208, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .welcome-description .tool p a {
   color: #f5708c;
 }
-/* line 1197, ../../../src/sass/global/_mixins.scss */
+/* line 1214, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .product-login .create-profile a {
   color: #fff;
   text-decoration: underline;
 }
-/* line 1204, ../../../src/sass/global/_mixins.scss */
+/* line 1221, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .marketing-banner.Variation2 .btn, .tmt-theme .marketing-banner.Variation1 .btn {
   background: #DB0A35;
 }
-/* line 1206, ../../../src/sass/global/_mixins.scss */
+/* line 1223, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .marketing-banner.Variation2 .btn:after, .tmt-theme .marketing-banner.Variation1 .btn:after {
   color: #fff;
 }
-/* line 1227, ../../../src/sass/global/_mixins.scss */
+/* line 1244, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .hover-arrow .btn else, .tmt-theme .hover-arrow:after else {
   color: #fff;
 }
-/* line 1234, ../../../src/sass/global/_mixins.scss */
+/* line 1251, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .more-stories .feature li:before {
   color: #8c073d;
 }
-/* line 1239, ../../../src/sass/global/_mixins.scss */
+/* line 1256, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-bordered {
   margin: 20px auto;
 }
-/* line 1243, ../../../src/sass/global/_mixins.scss */
+/* line 1260, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-bordered > thead > tr > th {
   background-color: #8c073d;
   color: #fff;
 }
-/* line 1250, ../../../src/sass/global/_mixins.scss */
+/* line 1267, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-bordered > tbody tr:nth-child(even) {
   background-color: #e1e3e7;
 }
-/* line 1253, ../../../src/sass/global/_mixins.scss */
+/* line 1270, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-bordered > tbody td {
   color: #565c6b;
 }
-/* line 1258, ../../../src/sass/global/_mixins.scss */
+/* line 1275, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .table-hover > tbody > tr:hover > td,
 .tmt-theme .table-hover > tbody > tr:hover > th {
   background-color: #f0f1f3;
 }
-/* line 1262, ../../../src/sass/global/_mixins.scss */
+/* line 1279, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-unthemed td.fc-today {
   color: #fff !important;
 }
-/* line 1270, ../../../src/sass/global/_mixins.scss */
+/* line 1287, ../../../src/sass/global/_mixins.scss */
 .tmt-theme .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
   background: #DB0A35;
 }
 @media (max-width: 1141px) {
-  /* line 1279, ../../../src/sass/global/_mixins.scss */
+  /* line 1296, ../../../src/sass/global/_mixins.scss */
   .tmt-theme #mobile-header-navigation .navbar-image .logo-img-big {
     width: auto !important;
     transform: translate(0, -40%);
@@ -893,7 +898,7 @@
   }
 }
 @media (max-width: 1141px) {
-  /* line 1286, ../../../src/sass/global/_mixins.scss */
+  /* line 1303, ../../../src/sass/global/_mixins.scss */
   .tmt-theme header section.informaNav .navbar-brand .logo-img-big {
     width: auto !important;
     transform: translate(-50%, -60%);
@@ -901,7 +906,7 @@
   }
 }
 @media (min-width: 1142px) {
-  /* line 1286, ../../../src/sass/global/_mixins.scss */
+  /* line 1303, ../../../src/sass/global/_mixins.scss */
   .tmt-theme header section.informaNav .navbar-brand .logo-img-big {
     top: -15px;
     left: 10px;
@@ -910,43 +915,43 @@
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 1300, ../../../src/sass/global/_mixins.scss */
+  /* line 1317, ../../../src/sass/global/_mixins.scss */
   .tmt-theme .navbar > .container .navbar-brand {
     margin-left: 0;
   }
 }
 @media (max-width: 1141px) {
-  /* line 1309, ../../../src/sass/global/_mixins.scss */
+  /* line 1326, ../../../src/sass/global/_mixins.scss */
   .tmt-theme nav#pdp-navigation .container .row {
     position: relative;
   }
-  /* line 1312, ../../../src/sass/global/_mixins.scss */
+  /* line 1329, ../../../src/sass/global/_mixins.scss */
   .tmt-theme nav#pdp-navigation .container .row .nav-pdp-nondesktop.move-left {
     background: #d11361;
   }
-  /* line 1328, ../../../src/sass/global/_mixins.scss */
+  /* line 1345, ../../../src/sass/global/_mixins.scss */
   .tmt-theme nav#pdp-navigation .container .row #pdp-sections {
     background: #d11361;
   }
 }
-/* line 1336, ../../../src/sass/global/_mixins.scss */
+/* line 1353, ../../../src/sass/global/_mixins.scss */
 .tmt-theme body svg.spinner-loader {
   stroke: #DB0A35;
 }
-/* line 1340, ../../../src/sass/global/_mixins.scss */
+/* line 1357, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section a {
   color: #DB0A35;
   word-wrap: break-word;
 }
-/* line 1342, ../../../src/sass/global/_mixins.scss */
+/* line 1359, ../../../src/sass/global/_mixins.scss */
 .tmt-theme #contactus-section a span {
   color: #DB0A35 !important;
 }
-/* line 1351, ../../../src/sass/global/_mixins.scss */
+/* line 1368, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section#market-focus .market-list-wrapper .market-content a:after {
   color: #8c073d;
 }
-/* line 1359, ../../../src/sass/global/_mixins.scss */
+/* line 1376, ../../../src/sass/global/_mixins.scss */
 .tmt-theme section.customer-quote:after {
   background: none;
 }

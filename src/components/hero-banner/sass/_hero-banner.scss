@@ -695,7 +695,7 @@ section#hero-banner {
       }
     }
 } 
-.hero-banner-texture.dark-banner-subscribe{
+.hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section{
     &.white-banner{
       background-color: $white;
       h1{
@@ -739,14 +739,10 @@ section#hero-banner {
       bottom: 0;
       position: relative;
       img{
-        bottom: 0 !important;
-        left: 50% !important;
-        @include tablet{
-          left: 30% !important;
-        }
         @include desktop{
-          width: 75%;
-          bottom: -80px !important;
+          width: 50%;
+          bottom: -50px !important;
+          left: 50% !important;
         }
       }
      
