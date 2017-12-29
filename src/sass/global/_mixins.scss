@@ -271,8 +271,15 @@ $desktop-width: 1142px;
                     }
                 }  
             }
-            .typed-text-primary,.description a{
+            .typed-text-primary{
                 color: $primary !important;
+            }
+            .description a{
+                color: $primary;
+                text-decoration: underline;
+                &:hover {
+                    color: $secondarycolorlight;
+                }
             }
             @if($name== financial-theme) {
                 .pattern-div img{
