@@ -173,12 +173,9 @@ $desktop-width: 1142px;
             }
         }
         //Pharma and Agri primary color
-        .primary-color,.typed-text-primary{
+        .primary-color{
             color: $primary;
         }
-        .typed-text-primary{
-            color: $primary !important;
-        } 
         //Pharma and Agri primary background color
         .primary-background {
             background: $primary !important;
@@ -273,6 +270,9 @@ $desktop-width: 1142px;
                         color: $secondarycolorlight;
                     }
                 }  
+            }
+            .typed-text-primary,.description a{
+                color: $primary !important;
             }
             @if($name== financial-theme) {
                 .pattern-div img{

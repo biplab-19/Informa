@@ -1,4 +1,4 @@
-/*! 2017-12-28 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2017-12-29 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -38,51 +38,47 @@
   background-color: #fff;
 }
 /* line 176, ../../../src/sass/global/_mixins.scss */
-.maritime-theme .primary-color, .maritime-theme .headline-list .link a, .maritime-theme .typed-text-primary {
+.maritime-theme .primary-color, .maritime-theme .headline-list .link a {
   color: #0374ac;
 }
-/* line 179, ../../../src/sass/global/_mixins.scss */
-.maritime-theme .typed-text-primary {
-  color: #0374ac !important;
-}
-/* line 183, ../../../src/sass/global/_mixins.scss */
+/* line 180, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .primary-background, .maritime-theme ul.slick-dots li.slick-active, .maritime-theme .form:not(.lt-ie9) .custom-radio input:checked + span::before, .maritime-theme .register-myinterests-section .triangle-nav li.active a, .maritime-theme .search.inactive {
   background: #0374ac !important;
 }
-/* line 187, ../../../src/sass/global/_mixins.scss */
+/* line 184, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .secondry-light-bg, .maritime-theme section.newsFlash .newsbox, .maritime-theme .carousel-lists .slick-arrow,
 .maritime-theme .customers_list_slider .slick-arrow {
   background: #0f5487;
 }
-/* line 191, ../../../src/sass/global/_mixins.scss */
+/* line 188, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .secondry-light-color, .maritime-theme section.customer-quote .slick-initialized .slick-arrow:before, .maritime-theme section.hero-banner-carousel .slick-initialized .slick-arrow:before, .maritime-theme .twitter-carousel .slick-arrow:before {
   color: #0f5487;
 }
-/* line 195, ../../../src/sass/global/_mixins.scss */
+/* line 192, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .primary-btn-hover, .maritime-theme .btn-primary:hover {
   color: #fff;
   text-decoration: none;
   background-color: #0f5487;
   border-color: #0f5487;
 }
-/* line 210, ../../../src/sass/global/_mixins.scss */
+/* line 207, ../../../src/sass/global/_mixins.scss */
 .maritime-theme a {
   color: #fff;
 }
-/* line 220, ../../../src/sass/global/_mixins.scss */
+/* line 217, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .nav-active a .selected-nav, .maritime-theme .activate a .selected-nav {
   text-decoration: none;
 }
-/* line 228, ../../../src/sass/global/_mixins.scss */
+/* line 225, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .subnav-container a .selected-nav {
   text-decoration: none;
 }
-/* line 238, ../../../src/sass/global/_mixins.scss */
+/* line 235, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .bright-banner {
   background-color: #002d4f;
   color: #fff;
 }
-/* line 241, ../../../src/sass/global/_mixins.scss */
+/* line 238, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .bright-banner h2,
 .maritime-theme .bright-banner em,
 .maritime-theme .bright-banner span,
@@ -91,33 +87,37 @@
 .maritime-theme .bright-banner div {
   color: #fff;
 }
-/* line 252, ../../../src/sass/global/_mixins.scss */
+/* line 249, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .bg-gray-dark .btn-default, .maritime-theme .dark-banner.key-acocunt-landing-section .btn-default, .maritime-theme .bright-banner.key-acocunt-landing-section .btn-default {
   border: 2px solid #fff;
 }
-/* line 254, ../../../src/sass/global/_mixins.scss */
+/* line 251, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .bg-gray-dark .btn-default:after, .maritime-theme .dark-banner.key-acocunt-landing-section .btn-default:after, .maritime-theme .bright-banner.key-acocunt-landing-section .btn-default:after {
   color: #fff;
 }
-/* line 257, ../../../src/sass/global/_mixins.scss */
+/* line 254, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .bg-gray-dark .btn-default:hover, .maritime-theme .dark-banner.key-acocunt-landing-section .btn-default:hover, .maritime-theme .bright-banner.key-acocunt-landing-section .btn-default:hover {
   border: 2px solid #0f5487;
 }
-/* line 259, ../../../src/sass/global/_mixins.scss */
+/* line 256, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .bg-gray-dark .btn-default:hover:after, .maritime-theme .dark-banner.key-acocunt-landing-section .btn-default:hover:after, .maritime-theme .bright-banner.key-acocunt-landing-section .btn-default:hover:after {
   color: #0f5487;
 }
-/* line 264, ../../../src/sass/global/_mixins.scss */
+/* line 261, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .bg-gray-dark .intro-text, .maritime-theme .dark-banner.key-acocunt-landing-section .intro-text, .maritime-theme .bright-banner.key-acocunt-landing-section .intro-text {
   color: #fff;
 }
-/* line 270, ../../../src/sass/global/_mixins.scss */
+/* line 267, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .key-acocunt-landing-section.white-banner .btn-default {
   color: #0374ac;
 }
-/* line 272, ../../../src/sass/global/_mixins.scss */
+/* line 269, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .key-acocunt-landing-section.white-banner .btn-default:hover {
   color: #0f5487;
+}
+/* line 274, ../../../src/sass/global/_mixins.scss */
+.maritime-theme .key-acocunt-landing-section .typed-text-primary, .maritime-theme .key-acocunt-landing-section .description a {
+  color: #0374ac !important;
 }
 /* line 289, ../../../src/sass/global/_mixins.scss */
 .maritime-theme .page-ui, .maritime-theme #services-navigation,
@@ -965,51 +965,47 @@
   background-color: #fff;
 }
 /* line 176, ../../../src/sass/global/_mixins.scss */
-.law-theme .primary-color, .law-theme .headline-list .link a, .law-theme .typed-text-primary {
+.law-theme .primary-color, .law-theme .headline-list .link a {
   color: #d61f2b;
 }
-/* line 179, ../../../src/sass/global/_mixins.scss */
-.law-theme .typed-text-primary {
-  color: #d61f2b !important;
-}
-/* line 183, ../../../src/sass/global/_mixins.scss */
+/* line 180, ../../../src/sass/global/_mixins.scss */
 .law-theme .primary-background, .law-theme ul.slick-dots li.slick-active, .law-theme .form:not(.lt-ie9) .custom-radio input:checked + span::before, .law-theme .register-myinterests-section .triangle-nav li.active a, .law-theme .search.inactive {
   background: #d61f2b !important;
 }
-/* line 187, ../../../src/sass/global/_mixins.scss */
+/* line 184, ../../../src/sass/global/_mixins.scss */
 .law-theme .secondry-light-bg, .law-theme section.newsFlash .newsbox, .law-theme .carousel-lists .slick-arrow,
 .law-theme .customers_list_slider .slick-arrow {
   background: #d1425f;
 }
-/* line 191, ../../../src/sass/global/_mixins.scss */
+/* line 188, ../../../src/sass/global/_mixins.scss */
 .law-theme .secondry-light-color, .law-theme section.customer-quote .slick-initialized .slick-arrow:before, .law-theme section.hero-banner-carousel .slick-initialized .slick-arrow:before, .law-theme .twitter-carousel .slick-arrow:before {
   color: #d1425f;
 }
-/* line 195, ../../../src/sass/global/_mixins.scss */
+/* line 192, ../../../src/sass/global/_mixins.scss */
 .law-theme .primary-btn-hover, .law-theme .btn-primary:hover {
   color: #fff;
   text-decoration: none;
   background-color: #d1425f;
   border-color: #d1425f;
 }
-/* line 210, ../../../src/sass/global/_mixins.scss */
+/* line 207, ../../../src/sass/global/_mixins.scss */
 .law-theme a {
   color: #fff;
 }
-/* line 220, ../../../src/sass/global/_mixins.scss */
+/* line 217, ../../../src/sass/global/_mixins.scss */
 .law-theme .nav-active a .selected-nav, .law-theme .activate a .selected-nav {
   text-decoration: none;
 }
-/* line 228, ../../../src/sass/global/_mixins.scss */
+/* line 225, ../../../src/sass/global/_mixins.scss */
 .law-theme .subnav-container a .selected-nav {
   text-decoration: none;
 }
-/* line 238, ../../../src/sass/global/_mixins.scss */
+/* line 235, ../../../src/sass/global/_mixins.scss */
 .law-theme .bright-banner {
   background-color: #b0163b;
   color: #fff;
 }
-/* line 241, ../../../src/sass/global/_mixins.scss */
+/* line 238, ../../../src/sass/global/_mixins.scss */
 .law-theme .bright-banner h2,
 .law-theme .bright-banner em,
 .law-theme .bright-banner span,
@@ -1018,33 +1014,37 @@
 .law-theme .bright-banner div {
   color: #fff;
 }
-/* line 252, ../../../src/sass/global/_mixins.scss */
+/* line 249, ../../../src/sass/global/_mixins.scss */
 .law-theme .bg-gray-dark .btn-default, .law-theme .dark-banner.key-acocunt-landing-section .btn-default, .law-theme .bright-banner.key-acocunt-landing-section .btn-default {
   border: 2px solid #fff;
 }
-/* line 254, ../../../src/sass/global/_mixins.scss */
+/* line 251, ../../../src/sass/global/_mixins.scss */
 .law-theme .bg-gray-dark .btn-default:after, .law-theme .dark-banner.key-acocunt-landing-section .btn-default:after, .law-theme .bright-banner.key-acocunt-landing-section .btn-default:after {
   color: #fff;
 }
-/* line 257, ../../../src/sass/global/_mixins.scss */
+/* line 254, ../../../src/sass/global/_mixins.scss */
 .law-theme .bg-gray-dark .btn-default:hover, .law-theme .dark-banner.key-acocunt-landing-section .btn-default:hover, .law-theme .bright-banner.key-acocunt-landing-section .btn-default:hover {
   border: 2px solid #d1425f;
 }
-/* line 259, ../../../src/sass/global/_mixins.scss */
+/* line 256, ../../../src/sass/global/_mixins.scss */
 .law-theme .bg-gray-dark .btn-default:hover:after, .law-theme .dark-banner.key-acocunt-landing-section .btn-default:hover:after, .law-theme .bright-banner.key-acocunt-landing-section .btn-default:hover:after {
   color: #d1425f;
 }
-/* line 264, ../../../src/sass/global/_mixins.scss */
+/* line 261, ../../../src/sass/global/_mixins.scss */
 .law-theme .bg-gray-dark .intro-text, .law-theme .dark-banner.key-acocunt-landing-section .intro-text, .law-theme .bright-banner.key-acocunt-landing-section .intro-text {
   color: #fff;
 }
-/* line 270, ../../../src/sass/global/_mixins.scss */
+/* line 267, ../../../src/sass/global/_mixins.scss */
 .law-theme .key-acocunt-landing-section.white-banner .btn-default {
   color: #d61f2b;
 }
-/* line 272, ../../../src/sass/global/_mixins.scss */
+/* line 269, ../../../src/sass/global/_mixins.scss */
 .law-theme .key-acocunt-landing-section.white-banner .btn-default:hover {
   color: #d1425f;
+}
+/* line 274, ../../../src/sass/global/_mixins.scss */
+.law-theme .key-acocunt-landing-section .typed-text-primary, .law-theme .key-acocunt-landing-section .description a {
+  color: #d61f2b !important;
 }
 /* line 289, ../../../src/sass/global/_mixins.scss */
 .law-theme .page-ui, .law-theme #services-navigation,

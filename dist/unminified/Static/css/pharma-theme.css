@@ -1,4 +1,4 @@
-/*! 2017-12-28 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
+/*! 2017-12-29 *//*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* 1. Body Class Name
    2. Primary Color
    3. Secondary Color Darker Version
@@ -38,51 +38,47 @@
   background-color: #fff;
 }
 /* line 176, ../../../src/sass/global/_mixins.scss */
-.pharma-theme .primary-color, .pharma-theme .headline-list .link a, .pharma-theme .typed-text-primary {
+.pharma-theme .primary-color, .pharma-theme .headline-list .link a {
   color: #B83166;
 }
-/* line 179, ../../../src/sass/global/_mixins.scss */
-.pharma-theme .typed-text-primary {
-  color: #B83166 !important;
-}
-/* line 183, ../../../src/sass/global/_mixins.scss */
+/* line 180, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .primary-background, .pharma-theme ul.slick-dots li.slick-active, .pharma-theme .form:not(.lt-ie9) .custom-radio input:checked + span::before, .pharma-theme .register-myinterests-section .triangle-nav li.active a, .pharma-theme .search.inactive {
   background: #B83166 !important;
 }
-/* line 187, ../../../src/sass/global/_mixins.scss */
+/* line 184, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .secondry-light-bg, .pharma-theme section.newsFlash .newsbox, .pharma-theme .carousel-lists .slick-arrow,
 .pharma-theme .customers_list_slider .slick-arrow {
   background: #62428b;
 }
-/* line 191, ../../../src/sass/global/_mixins.scss */
+/* line 188, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .secondry-light-color, .pharma-theme section.customer-quote .slick-initialized .slick-arrow:before, .pharma-theme section.hero-banner-carousel .slick-initialized .slick-arrow:before, .pharma-theme .twitter-carousel .slick-arrow:before {
   color: #62428b;
 }
-/* line 195, ../../../src/sass/global/_mixins.scss */
+/* line 192, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .primary-btn-hover, .pharma-theme .btn-primary:hover {
   color: #fff;
   text-decoration: none;
   background-color: #62428b;
   border-color: #62428b;
 }
-/* line 210, ../../../src/sass/global/_mixins.scss */
+/* line 207, ../../../src/sass/global/_mixins.scss */
 .pharma-theme a {
   color: #fff;
 }
-/* line 220, ../../../src/sass/global/_mixins.scss */
+/* line 217, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .nav-active a .selected-nav, .pharma-theme .activate a .selected-nav {
   text-decoration: none;
 }
-/* line 228, ../../../src/sass/global/_mixins.scss */
+/* line 225, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .subnav-container a .selected-nav {
   text-decoration: none;
 }
-/* line 238, ../../../src/sass/global/_mixins.scss */
+/* line 235, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .bright-banner {
   background-color: #5b4476;
   color: #fff;
 }
-/* line 241, ../../../src/sass/global/_mixins.scss */
+/* line 238, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .bright-banner h2,
 .pharma-theme .bright-banner em,
 .pharma-theme .bright-banner span,
@@ -91,33 +87,37 @@
 .pharma-theme .bright-banner div {
   color: #fff;
 }
-/* line 252, ../../../src/sass/global/_mixins.scss */
+/* line 249, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .bg-gray-dark .btn-default, .pharma-theme .dark-banner.key-acocunt-landing-section .btn-default, .pharma-theme .bright-banner.key-acocunt-landing-section .btn-default {
   border: 2px solid #fff;
 }
-/* line 254, ../../../src/sass/global/_mixins.scss */
+/* line 251, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .bg-gray-dark .btn-default:after, .pharma-theme .dark-banner.key-acocunt-landing-section .btn-default:after, .pharma-theme .bright-banner.key-acocunt-landing-section .btn-default:after {
   color: #fff;
 }
-/* line 257, ../../../src/sass/global/_mixins.scss */
+/* line 254, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .bg-gray-dark .btn-default:hover, .pharma-theme .dark-banner.key-acocunt-landing-section .btn-default:hover, .pharma-theme .bright-banner.key-acocunt-landing-section .btn-default:hover {
   border: 2px solid #62428b;
 }
-/* line 259, ../../../src/sass/global/_mixins.scss */
+/* line 256, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .bg-gray-dark .btn-default:hover:after, .pharma-theme .dark-banner.key-acocunt-landing-section .btn-default:hover:after, .pharma-theme .bright-banner.key-acocunt-landing-section .btn-default:hover:after {
   color: #62428b;
 }
-/* line 264, ../../../src/sass/global/_mixins.scss */
+/* line 261, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .bg-gray-dark .intro-text, .pharma-theme .dark-banner.key-acocunt-landing-section .intro-text, .pharma-theme .bright-banner.key-acocunt-landing-section .intro-text {
   color: #fff;
 }
-/* line 270, ../../../src/sass/global/_mixins.scss */
+/* line 267, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .key-acocunt-landing-section.white-banner .btn-default {
   color: #B83166;
 }
-/* line 272, ../../../src/sass/global/_mixins.scss */
+/* line 269, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .key-acocunt-landing-section.white-banner .btn-default:hover {
   color: #62428b;
+}
+/* line 274, ../../../src/sass/global/_mixins.scss */
+.pharma-theme .key-acocunt-landing-section .typed-text-primary, .pharma-theme .key-acocunt-landing-section .description a {
+  color: #B83166 !important;
 }
 /* line 289, ../../../src/sass/global/_mixins.scss */
 .pharma-theme .page-ui, .pharma-theme #services-navigation,
