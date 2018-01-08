@@ -1,4 +1,4 @@
-/*! 2017-12-27 *//*
+/*! 2018-01-08 *//*
  * google-analytics.js
  *
  *
@@ -6832,6 +6832,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SetListEvents(data);
         UnbindEvent();
         disabledEvent();
+        PageNo = 2;
     },
 
     LoadMoreEvents = function(data){

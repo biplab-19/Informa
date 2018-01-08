@@ -162,6 +162,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         SetListEvents(data);
         UnbindEvent();
         disabledEvent();
+        PageNo = 2;
     },
 
     LoadMoreEvents = function(data){
