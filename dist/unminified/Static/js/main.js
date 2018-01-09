@@ -1,4 +1,4 @@
-/*! 2018-01-08 *//*
+/*! 2018-01-09 *//*
  * google-analytics.js
  *
  *
@@ -49,7 +49,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
           }  
         }
         else{
-          Parent =  obj.parents('.modal.in');
+          Parent =  obj.parents('.modal.in form');
           dataModal = Parent.data('formcapture');
           if(dataModal === 'Intelligence'){
             replaceValue = dataModal.replace(dataModal,'formRequestADemo');
@@ -63,7 +63,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
             value = trackFormWithoutModal(contactUsForm);
           }
           else if(singleStepRegistrationForm.length > 0){
-            dataModal = singleStepRegistrationForm.find('.form-inline-container').data('formcapture');
+            dataModal = singleStepRegistrationForm.find('.form-inline-container form').data('formcapture');
             value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
           }
           else{
@@ -78,7 +78,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
     }
 
     trackFormWithoutModal = function(contactUsForm){
-      var dataModal = contactUsForm.find('.tab-pane.active').find('.form-inline-container').data('formcapture');
+      var dataModal = contactUsForm.find('.tab-pane.active').find('.form-inline-container form').data('formcapture');
       if(dataModal){
         var value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
       }
