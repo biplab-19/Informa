@@ -717,6 +717,7 @@ section#hero-banner {
     }
     .cf-img{
       opacity: 1;
+      background: transparent;
     }
     .subtext{
       padding-bottom: 18px !important;
@@ -728,11 +729,6 @@ section#hero-banner {
       height: 60%;
       position: relative;
       img{
-          /*top: 40px;
-          width: 75%; 
-          height: auto;
-          vertical-align: middle !important;
-          left: 13% !important;*/
           max-width: 100%;
           max-height: 100%;
           left: 50%;
@@ -742,14 +738,14 @@ section#hero-banner {
     }
     .pattern-div{
       height: 40%;
-      bottom: 0;
       position: relative;
-      left: 20%;
       img{
-        @include desktop{
-          /*width: 50%;*/
-          bottom: -50px !important;
-          left: 50% !important;
+        left: 50%;
+        top: 50%;
+        transform: translate(0%, -35%);
+        @include tablet{
+          top: 10%;
+          transform: translate(-10%, -30%);
         }
       }
      
@@ -778,14 +774,4 @@ section#hero-banner {
         }
       }
     }  
-     /*.key-account-cta{
-        @include not-mobile{
-          margin-right: -30px;
-          margin-left: -30px;
-        }
-        @include mobile{
-          margin-right: -15px;
-          margin-left: -15px;
-        }
-      }*/
 }    
