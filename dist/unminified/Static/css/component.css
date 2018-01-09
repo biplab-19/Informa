@@ -1,4 +1,4 @@
-/*! 2017-12-28 */@charset "UTF-8";
+/*! 2018-01-09 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -953,52 +953,63 @@ section#hero-banner .analyst-single-image .image-margin {
 /* line 727, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-div {
   height: 60%;
+  position: relative;
 }
-/* line 729, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 730, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-div img {
-  top: 40px;
-  width: 75%;
+  /*top: 40px;
+  width: 75%; 
   height: auto;
   vertical-align: middle !important;
-  left: 13% !important;
+  left: 13% !important;*/
+  max-width: 100%;
+  max-height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
-/* line 737, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 743, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .pattern-div {
   height: 40%;
   bottom: 0;
   position: relative;
+  left: 20%;
 }
 @media (min-width: 1142px) {
-  /* line 741, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 748, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .pattern-div img {
-    width: 50%;
+    /*width: 50%;*/
     bottom: -50px !important;
     left: 50% !important;
   }
 }
 @media (min-width: 768px) {
-  /* line 750, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 757, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-img-mobile {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 756, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 763, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-vertical-align {
     top: 40%;
   }
-  /* line 759, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 766, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .cf-img {
     display: none;
   }
-  /* line 762, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 769, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-img-mobile {
     padding: 40px 0;
   }
-  /* line 764, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 771, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-img-mobile img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+    position: relative;
   }
 }
 
