@@ -1,4 +1,4 @@
-/*! 2018-01-09 *//*
+/*! 2018-01-12 *//*
  * google-analytics.js
  *
  *
@@ -9021,7 +9021,7 @@ INFORMA.forms = (function(window, $, namespace) {
         ProductDropdown.append('<option val="' +name+ '">' +name+ '</option>');
         ProductDropdown.val(name);
         ProductDropdown.trigger('chosen:updated');
-        ProductDropdown.parents('.form-group').addClass('disable-dropdown');
+        //ProductDropdown.parents('.form-group').addClass('disable-dropdown');
 
     };
 
