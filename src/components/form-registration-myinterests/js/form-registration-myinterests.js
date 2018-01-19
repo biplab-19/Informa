@@ -237,14 +237,14 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
            $('#formRegistration').modal('show'); 
         }
         
-        var a = Math.ceil(Math.random() * 9)+ '';
-        var b = Math.ceil(Math.random() * 9)+ '';
-        var c = Math.ceil(Math.random() * 9)+ '';
-        var d = Math.ceil(Math.random() * 9)+ '';
-        var e = Math.ceil(Math.random() * 9)+ '';
-        var code = a + b + c + d + e;
-        $('.txtCaptcha').val(code);
-        $(".CaptchaDiv").html(code);
+        // var a = Math.ceil(Math.random() * 9)+ '';
+        // var b = Math.ceil(Math.random() * 9)+ '';
+        // var c = Math.ceil(Math.random() * 9)+ '';
+        // var d = Math.ceil(Math.random() * 9)+ '';
+        // var e = Math.ceil(Math.random() * 9)+ '';
+        // var code = a + b + c + d + e;
+        // $('.txtCaptcha').val(code);
+        // $(".CaptchaDiv").html(code);
         _validateCountry();
     }
 
