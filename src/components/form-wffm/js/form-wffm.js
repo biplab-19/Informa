@@ -89,20 +89,22 @@ INFORMA.forms = (function(window, $, namespace) {
 
         if( typeof parameter == "undefined" || parameter == null || parameter == "" ) throw new Error( "parameter is required" );
         var regex =new RegExp( "\\b" + parameter + "=[^&;]+[&;]?", "gi" );
+        if(regex.test(url)){
+            url = url.replace(regex, "" );
 
-        url = url.replace(regex, "" );
+            // remove any leftover crud
+            url = url.replace( /[&;]$/, "" );
 
-        // remove any leftover crud
-        url = url.replace( /[&;]$/, "" );
+            var NewUrl = url.split('?');
 
-        var NewUrl = url.split('?');
+            if(NewUrl.length === 1) {
 
-        if(NewUrl.length === 1) {
+                url = NewUrl;
+            }
 
-            url = NewUrl;
+            return url;
         }
-
-        return url;
+        
     };
 
     _resetDefaultTitle = function(elem) {
@@ -188,13 +190,13 @@ INFORMA.forms = (function(window, $, namespace) {
                 if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
                     var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
                     if(value !== ""){
-                        if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
+                        // if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
                             _showOverlay();
                             INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                             _formModal.modal('hide');
                             $('.close-download-form').attr('data-show-register',false);
                             $('.close-download-form').attr('target',"_blank");
-                        }    
+                        // }    
                     }
                     else{
                         INFORMA.Analytics.trackFormEvents($(this), 'Submit');
