@@ -61,7 +61,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
 
     init = function() {
         if (_AnalystEventLists.length > 0) {
-            EqualHeight();
+           // EqualHeight();
             ShowMore();
             UnbindEvent();
             disabledEvent();
