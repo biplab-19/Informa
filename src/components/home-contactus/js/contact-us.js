@@ -85,7 +85,7 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     init = function() {
         if (_contactUs.length > 0) {
             _openAccordian(_contactUs);
-             _equalHeight();
+             // _equalHeight();
              _marginBottomWrapperCta();
         }
     };

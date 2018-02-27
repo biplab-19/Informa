@@ -47,6 +47,14 @@ section.feature-list-section {
           //  padding-bottom: 40px;
         }
     }
+    .feature-list-items{
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        width:100%;
+    }
     .feature-list-container {
         float: left;
         width: 25%;
