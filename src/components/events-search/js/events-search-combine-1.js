@@ -150,7 +150,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             jQuery('section[data-view="list-view"]').hide();
         }
 
-        EachItem.height(highestBox + padding);
+     //   EachItem.height(highestBox + padding);
         if(INFORMA.global.device.viewportN == 2) {
             EachItem.height("auto");
         }

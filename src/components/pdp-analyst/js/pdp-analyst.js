@@ -95,7 +95,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         if (_listItems.length > 0) {
             _listItems.each(function() {
                 var items = jQuery(this).find('.analyst-list-container');
-                _equalHeight(items);
+               // _equalHeight(items);
             });
         }
     };

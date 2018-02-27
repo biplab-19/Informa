@@ -17,18 +17,15 @@
 	.events-container{
 		display: inline-flex;
 		flex-wrap: wrap;
+		.events-section, .events-wrap{
+			display: flex;
+			flex-direction: column;
+		} 
 		.events-wrap{
 			height: 100%;
-		.footer{
-				height: 103px;
-				.footer-container{
-					position: absolute;
-					width: 100%;
-					bottom: 0;
-					left: 0;
-					padding: 25px 20px;
-				}
-				}
+			.content-wrap{
+				flex: 1 0 auto;
+			}
 		}
 	}
 
