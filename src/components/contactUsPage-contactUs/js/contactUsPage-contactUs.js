@@ -2,9 +2,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.ContactUs = (function(window, $, namespace) {
     'use strict';
     //variables
-    var Tabs = $('.pos ul.nav li'),
-        tabcontent = $('.tab-content .tab-pane'),
-        _updateRedirectUrl,
+    var _updateRedirectUrl,
         _showSelectedTab,
         init;
 

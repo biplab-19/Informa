@@ -14,9 +14,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.SearchResultFilter = (function(window, $, namespace) {
     'use strict';
     //variables
-    var Templates = INFORMA.Templates,
-        Utils = INFORMA.Utils,
-        Urls = INFORMA.Configs.urls.webservices,
+    var Urls = INFORMA.Configs.urls.webservices,
         SelectAll = $(".refine-container .panel-heading .custom-checkbox input"),
         RefineSection = $(".refine-container .panel-body"),
         ShowMoreLinks = RefineSection.find("a.show-more"),
@@ -45,7 +43,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 $.each(RefineSection, function() {
                     var GetSectionID = $(this).parent().attr("id"),
                         SelectedCheckBox = $(this).find("input[type=checkbox]:checked").not(":disabled"),
-                        EnabledCheckBox = $(this).find('input[type="checkbox"]').not(":disabled"),
                         uniqueArr = [];
 
                     if (SelectedCheckBox.length) {

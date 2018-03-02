@@ -14,13 +14,13 @@ var INFORMA = window.INFORMA || {};
 INFORMA.CookiePolicy = (function(window, $, namespace) {
     'use strict';
     //variables
-    var dropCookie = true, // false disables the Cookie, allowing you to style the banner
-        cookieDuration = 0, // Number of days before the cookie expires, banner reappears
+    /* dropCookie variable removed */
+    var cookieDuration = 0, // Number of days before the cookie expires, banner reappears
         cookieName = 'cookiepolicyaccepted', // Name of our cookie
         cookieValue = 'yes', // Value of cookie
         // methods
         init,
-        ShowBanner, CreateCookie, CheckCookie, EraseCookie, RemoveMe;
+        ShowBanner, CreateCookie, CheckCookie, RemoveMe;
 
 
     ShowBanner = function(name, value, days) {
@@ -75,9 +75,7 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
             }
             return null;
         },
-        EraseCookie = function(xhtml, ele) {
-            CreateCookie(name, "", -1);
-        },
+        /* unused EraseCookie function removed */
         RemoveMe = function(data) {
             $("body").find("#cookieBanner").hide();
             if($('.mainNavigation').hasClass('navbar-fixed-top')) {

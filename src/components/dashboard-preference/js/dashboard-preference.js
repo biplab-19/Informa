@@ -17,7 +17,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     var PreferenceCheckbox = $(".preference .panel-body li .custom-checkbox"),
          CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
          SelectAll = $(".preference .panel-heading .custom-checkbox input"),
-        init, BindCheckboxes, CheckParentSectorCheckBox, ReadPref,CreatePref, UpdatePref, PrefValue = {},Count=0,
+        init, BindCheckboxes, CheckParentSectorCheckBox, ReadPref,CreatePref, UpdatePref, Count=0,
     
 
 
@@ -49,9 +49,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
          return result;
     },
     UpdatePref = function(obj, isHeading){
-                var getCookie = ReadPref("USR_DETAIL"),
-                    CheckBoxVal = obj.val(),
-                    ParentEle = obj.parents(".panel-default").eq(0),
+                var ParentEle = obj.parents(".panel-default").eq(0),
                     CountSpan = ParentEle.find("span.count"),
                     SelectedCount = ParentEle.find(".panel-body input[type=checkbox]:checked"),
                     CurrentCheckBoxs = ParentEle.find(".panel-body input[type=checkbox]"),

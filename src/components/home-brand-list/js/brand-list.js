@@ -68,8 +68,6 @@ INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
     var DynamicBrandList = $('.product-brands-list'),
         init, HideOnLoad, _equalHeight, ClickEvents,
-        Count = 1,
-        BtnShowMore = DynamicBrandList.find('.btn-showMore');
 
     _equalHeight = function(container) {
         var captionItems = container.find('.caption'),

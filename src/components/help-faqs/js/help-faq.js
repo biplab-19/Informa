@@ -3,14 +3,12 @@ INFORMA.helpfaq = (function(window, $, namespace) {
     'use strict';
     //variables
     var _helpfaqSelect = $('.help-faq-select'),
-        _faqItemsWrapper = $('.help-faq-wrapper'),
         // methods
         init,
         _showHideFaq;
 
     _showHideFaq = function() {
         _helpfaqSelect.change(function() {
-            var target = $(this).data('target');
             $(this).parents('.accordian-structure').find('.help-faq-wrapper').children().removeClass('show').addClass('hide');
             var show = $("option:selected", this).data('show');
             $(show).removeClass('hide').addClass('show');
