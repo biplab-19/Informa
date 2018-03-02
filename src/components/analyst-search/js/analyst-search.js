@@ -23,9 +23,8 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         productAnalystResults = $('.product-analyst-results'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
-        _template = "",
         //methods
-        init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults,
+        init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, RenderAllSubSectorResults,
         emptyData,_bindShowLess;
 
     emptyData = function() {
@@ -236,27 +235,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         addthis.toolbox('.analyst-views');
         return html;
     }
-
-    AppendSearchResult = function(data) {
-        var results = data.SearchDictionary,
-            html = "";
-
-        for (var key in results) {
-            if (results.hasOwnProperty(key)) {
-                var Data = results[key],
-                    HeaderText = key,
-                    TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
-                    ListTemplate = Handlebars.compile(TemplateName);
-                Data.header = HeaderText;
-                html += ListTemplate({ results: Data });
-
-            }
-        }
-        productAnalystResults.html(html);
-        addthis.toolbox('.analyst-views');
-        equalHeight();
-        return html;
-    }
+/* removed unused AppendSearchResult function */
 
     ajaxCallonSector = function() {
             var SectorBtn = jQuery('.btn-plus');

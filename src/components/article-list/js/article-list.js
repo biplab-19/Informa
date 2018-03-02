@@ -20,7 +20,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         FilterMenu = $(".category-filter-list .categoryFilter"),
         ArticleCont = $("section .article-list"),
         HeadlineCont = $("section .headline-list"),
-        Templates = INFORMA.Templates,
         isExperienceMode = INFORMA.global.siteCore.isExperience,
         Urls = INFORMA.Configs.urls.webservices,
         // methods
@@ -212,7 +211,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 var headlineListItems = _HeadlinesLists.find('li');
                 var HeadlinesListItemsLength = headlineListItems.length;
                 var _vp = INFORMA.global.device.viewportN;
-                if((_vp == 2 & HeadlinesListItemsLength >= 2) || (_vp == 1 & HeadlinesListItemsLength >= 4) || (_vp == 0 & HeadlinesListItemsLength >= 6)) {
+                if((_vp == 2 && HeadlinesListItemsLength >= 2) || (_vp == 1 && HeadlinesListItemsLength >= 4) || (_vp == 0 && HeadlinesListItemsLength >= 6)) {
                     CreateSlider(_HeadlinesLists,2,4);
                 }
                 else{

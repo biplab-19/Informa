@@ -20,12 +20,9 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         CustomSelect = ProductFinderSection.find(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
         SearchField = $(".site-search input"),
-        ResultContainer = $(".search-container #results"),
-        SearchTabHidden = $(".site-search input.search-tab"),
         SearchSubmitBtn = $(".site-search li.button"),
         //SearchIcon = $(".navbar-default .search a"),
         SearchIcon = $(".search:visible"),
-        SearchPage = $("#search-page"),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
 

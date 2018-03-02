@@ -20,10 +20,7 @@ INFORMA.formRequestForDemo = (function(window, $, namespace) {
       _bindToolTip,
         _showOverlay;
 
-    _showOverlay = function(container){
-
-      //alert(1);
-    }
+    /* unused _showOverlay function removed */
 
     init = function() {
           //todo: No null check, dont execute these bindings if forms are not there
@@ -33,13 +30,7 @@ INFORMA.formRequestForDemo = (function(window, $, namespace) {
 
     };
 
-    _bindToolTip = function(){
-          _toolTip.on('click',function(){
-                $(this).toggleClass('active');
-                $(this).parent().parent() // .hasToolTip
-                        .children('.tooltip-placeholder').slideToggle();
-          })
-   }
+    /* unused _bindToolTip function removed */
 
 
     return {

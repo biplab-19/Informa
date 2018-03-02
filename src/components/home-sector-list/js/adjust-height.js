@@ -11,9 +11,8 @@ _adjustHeigt = function(){
       return $(this).height();
   }).get());
 
-  var maxHeightLink = Math.max.apply(null, el.find('.sector-card .btn-container').map(function() {
-      return $(this).height();
-  }).get());
+  /* removed unused maxHeightLink */
+
   el.find('.sector-card h2').height(maxHeightTitle);
   el.find('.sector-card .content').height(maxHeightDesc);
   el.find('.sector-card .sector-list-products').height(maxHeightSubSector);

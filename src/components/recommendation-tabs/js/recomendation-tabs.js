@@ -58,8 +58,7 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
     },
 
     SmallDeviceFunction = function (Parent) {
-        var Select = Parent.find('select[name="RecommendTabs"]'),
-            SelectFirst = $(Select.find('option')[0]);
+        var Select = Parent.find('select[name="RecommendTabs"]');
 
         Select.val('#tabs-1').trigger('change');
 

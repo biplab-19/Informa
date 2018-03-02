@@ -20,8 +20,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         init,
         _bindShowMore,
         _bindShowLess,
-        _equalHeight,
-        _lists = null;
+        _equalHeight;
 
     _bindShowMore = function(container){
 
@@ -29,8 +28,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         var _showMore = $('.btn-showMore');
         _showMore.on('click',function(){
 
-            var _vp = INFORMA.global.device.viewportN,
-                VisibleItem = $(this).parents('section').find('.analyst-list-container:visible');
+            var _vp = INFORMA.global.device.viewportN;
 
             if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
                 _vp = 2; //to emulate nth-child(n+3)
@@ -78,14 +76,8 @@ INFORMA.analystList = (function(window, $, namespace) {
             ItemsFooter.css('height', _maxHeightFooter);
         })
     }
-    _bindShowLess = function () {
-      var _showLess = _analystList.find('.btn.btn-showMore .less');
-      _showLess.on('click',function(){
-            $('html, body').animate({
-                scrollTop: _analystList.offset().top - 35
-            },700);
-      });
-    }
+    /* unused _bindShowLess function removed */
+     
     init = function() {
         if (_analystList.length > 0) {
            // _bindElement();

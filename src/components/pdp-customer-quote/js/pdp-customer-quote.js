@@ -40,8 +40,6 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
       }
       if(_rtl === true && _autoplay === true) {
                 container.on('init', function() {
-                    var $slickList = container.find('.slick-list');
-
                     window.setInterval(function() {
                         container.slick('slickPrev');
                     }, _duration);

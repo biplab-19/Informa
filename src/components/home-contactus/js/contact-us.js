@@ -15,7 +15,6 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     'use strict';
     //variables
     var _contactUs = $('#contactus-section'),
-        _accordianTile = _contactUs.find('.panel-default'),
         _eachTile = _contactUs.find('.panel-heading'),
         _eachTileBtnMargin =_contactUs.find('.panel-body'),
     // methods

@@ -30,7 +30,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _headerPosMobile = 0,
         _cookieHeight =  $('#cookieBanner').outerHeight(),
         _fixed = 'navbar-fixed-top',
-        _isHeaderFixed = false,
         _heroBannerHeading = $('#banner h1').text(),
         _marketingClose = $('.marketing-banner .close a'),
 
@@ -39,7 +38,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpNavigationScrollTo,
         _pdpSectionActions,
         _pdpNavigationHeight = 0,
-        _pdpNavigationPos = 0,
         _pdpSectionsHeight = 0,
         _isPdpPage = _pdpNavigation.data("productpage"),
         _pdpWrapper = $('.product-detail-page'),
@@ -62,22 +60,19 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpStickyIconDesktopFlag = false,
         _pdpStickyHeadingDesktopFlag = false,
         _initialPdpHdrPos = 0,
-        _expandedPdpNav = false,
-
+        
 
 
         // for sticky nav of services-navigation
         _servicesNavigation = $('#services-navigation'),
         _servicesNavigationScrollTo,
         _servicesNavigationHeight = 0,
-        _servicesNavigationPos = 0,
         //_servicesWrapper = $('.services-page'),
         _servicesMenuFollower = $('#services-navigation .menuFollower'),
         _servicesMenuActive = true,
 
         _servicesLink = $('#services-navigation ul > li > a'),
         _servicesLinkSpan = $('#services-navigation ul > li > a > span'),
-        _servicesFixed = false,
         _servicesMenuPos = [],
         _servicesMenuWidth = [],
         _servicesMenuleft = [],
@@ -102,7 +97,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _navtoggle = $('.informaNav .navbar-toggle'),
         _navclose = $('#mobile-header-navigation .nav-close'),
         _navback = $('#mobile-header-navigation .nav-back'),
-        _stickAnimation = $('.informaNav .hide-stick'),
 
 
         //functions
@@ -127,7 +121,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
      
     if (_pdpNavigation.length > 0) {
         _pdpNavigationHeight = _pdpNavigation.height(),
-        _pdpNavigationPos = _pdpNavigation.offset().top;
         $('#pdp-sections ul li').each(function(){
            var idname = '#' + $(this).find('a').data("target");
            if($(idname).length == 0) {
@@ -142,8 +135,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     if (_servicesNavigation.length > 0) {
         _servicesNavigationHeight = _servicesNavigation.height();
-        _servicesNavigationPos = _servicesNavigation.offset().top;
-
+        
         // To show the menu follower with right width and position, todo: remove harcode
         _servicesMenuFollower.css('width', $(_servicesLinkSpan[0]).width())
                              .css('left', $(_servicesLinkSpan[0]).offset().left)
@@ -268,7 +260,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
-            var _pdpLinksCont = $('#pdp-navigation ul > li > a > span').length;
+            //var _pdpLinksCont = $('#pdp-navigation ul > li > a > span').length;
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
               // if(_pdpLinksCont>6){
@@ -312,7 +304,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     _activatePdpFixedHeader = function() {
         var _windowPos = $(window).scrollTop(),
-            PdpNavTop = null;
 
         if (_pdpFirst) {
             _initialPdpHdrPos = _pdpNavigation.offset().top;
@@ -533,7 +524,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _servicesNavigation.addClass(_fixed);
             _servicesNavigation.css('top', _fixedNavHeight + 'px');
             _servicesWrapper.css('padding-top', _servicesNavigationHeight);
-            _servicesFixed = true;
+            /* removed unused variable _servicesFixed*/
 
             if (_arrayServicesFlag) {
                 _servicesMenuPos = [];
@@ -552,7 +543,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _servicesNavigation.removeClass(_fixed);
             _servicesNavigation.css('top', '0px');
             _servicesWrapper.css('padding-top', 0);
-            _servicesFixed = false;
+            /* removed unused variable _servicesFixed*/
             _arrayServicesFlag = true;
             _initialServicesHdrPos = _servicesNavigation.offset().top;
         }
@@ -846,8 +837,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _expandedServicesNav = false;
 
             //$('#pdp-navigation ul > li:first-child').addClass('selected');
-            _expandedPdpNav = false;
-
+            /* removed unused _expandedPdpNav variab */
         }
 
     };
