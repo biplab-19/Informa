@@ -9,14 +9,14 @@ INFORMA.freearticle = (function(window, $, namespace) {
             freearticleH2 = freearticleSection.find('h2'),
             freearticleH3 = freearticleSection.find('h3');
         if (freearticleSection.length > 0) {
-            if (INFORMA.global.device.viewportN == 1) {
+            if (INFORMA.global.device.viewportN === 1) {
                 freearticleSection.first().css('padding-top', '35px');
                 freearticleSection.last().css('padding-bottom', '35px');
                 freearticleH2.first().css('padding-top', '0');
                 freearticleH2.last().css('padding-bottom', '35px');
                 freearticleH3.first().css('padding-top', '0');
                 freearticleH3.last().css('padding-bottom', '25px');
-            } else if (INFORMA.global.device.viewportN == 2) {
+            } else if (INFORMA.global.device.viewportN === 2) {
                 freearticleSection.first().css('padding-top', '25px');
                 freearticleSection.last().css('padding-bottom', '25px');
                 freearticleH2.first().css('padding-top', '0');

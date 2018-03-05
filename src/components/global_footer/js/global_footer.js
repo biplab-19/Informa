@@ -36,11 +36,11 @@ INFORMA.globalFooter = (function(window, $, namespace) {
                 _autoplay = false;
                 _infinite = false;
             }
-            if(INFORMA.global.device.viewportN == 1){
+            if(INFORMA.global.device.viewportN === 1){
                   _slideCount = 4;
                   _dots = true;
             }
-            else if (INFORMA.global.device.viewportN == 2){
+            else if (INFORMA.global.device.viewportN === 2){
                   _slideCount = 2;
                   _dots = true;
             }

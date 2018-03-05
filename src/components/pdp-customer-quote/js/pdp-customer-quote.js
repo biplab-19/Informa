@@ -30,7 +30,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            _dots = Boolean(container.data('dots')),
            _rtl;
 
-          if(container.data('rtl') != undefined) {
+          if(container.data('rtl') !== undefined) {
               _rtl = container.data('rtl');
           }
 

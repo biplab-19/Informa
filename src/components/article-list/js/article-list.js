@@ -88,10 +88,10 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                         ArticleCont.hide();
                     }
                     if (data.Articles !== undefined && data.Headlines.length > 0) {
-                        var html = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
+                        var HeadelinesListHtml = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
                         HeadlineCont.show();
-                        RenderCarousel(html, _HeadlinesLists,2,4);
+                        RenderCarousel(HeadelinesListHtml, _HeadlinesLists,2,4);
                     }else{
                         HeadlineCont.hide();
                     }
@@ -212,7 +212,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 var headlineListItems = _HeadlinesLists.find('li');
                 var HeadlinesListItemsLength = headlineListItems.length;
                 var _vp = INFORMA.global.device.viewportN;
-                if((_vp == 2 & HeadlinesListItemsLength >= 2) || (_vp == 1 & HeadlinesListItemsLength >= 4) || (_vp == 0 & HeadlinesListItemsLength >= 6)) {
+                if((_vp === 2 & HeadlinesListItemsLength >= 2) || (_vp === 1 & HeadlinesListItemsLength >= 4) || (_vp === 0 & HeadlinesListItemsLength >= 6)) {
                     CreateSlider(_HeadlinesLists,2,4);
                 }
                 else{

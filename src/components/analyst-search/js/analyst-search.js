@@ -115,7 +115,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         txtField.on('keyup', function() {
             var calcLength = jQuery(this).val().trim().length,
                 SectorValue = Sector.val();
-            if (calcLength < 3 && SectorValue == 'default') {
+            if (calcLength < 3 && SectorValue === 'default') {
                 submitBtn.addClass('disabled');
             } else {
                 submitBtn.removeClass('disabled');
@@ -149,7 +149,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 resetBtn.show();
             }
 
-            if (_value == "default") {
+            if (_value === "default") {
                 SubSector.parents('.sub-sector').addClass('disabled');
                 SubSector.parents('.form-group').find('label').html('By Sub-Sector');
             } else {
@@ -166,7 +166,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         submitBtn.on('click', function() {
             var FieldArray = AnalystSearch.find("form").serializeArray();
             for (var key in FieldArray) {
-                if (FieldArray[key].value == "default") {
+                if (FieldArray[key].value === "default") {
                     FieldArray[key].value = null;
                 }
             }
@@ -273,7 +273,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 _Object.SectorID = sectorId;
                 _Object.SearchText = $('.SearchTextSpecialist').val()
                 for (var key in _Object) {
-                    if (_Object[key] == "default") {
+                    if (_Object[key] === "default") {
                         _Object[key] = null;
                     }
                 }
@@ -325,7 +325,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 _bindShowLess();
                 emptyData();
                 txtField.on("keypress", function(e) {
-                    if (e.which == 13) {
+                    if (e.which === 13) {
                         e.preventDefault();
                         if(txtField.val()){
                             submitBtn.trigger("click");

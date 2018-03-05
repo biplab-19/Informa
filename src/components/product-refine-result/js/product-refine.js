@@ -21,7 +21,7 @@ INFORMA.ProductRefine = (function(window, $, namespace) {
     DropDownEvents = function () {
         var _vp = INFORMA.global.device.viewport;
 
-        if(_vp != "desktop") {
+        if(_vp !== "desktop") {
             RefineHeading.on('click', function () {
                 $(this).parents('.refine-wrapper').find('.accordian-container').slideToggle();
                 $(this).toggleClass('open');

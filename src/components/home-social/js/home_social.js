@@ -48,7 +48,7 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             _dots = Boolean(container.data('pagination')),
             _rtl;
 
-            if(container.data('rtl') != undefined) {
+            if(container.data('rtl') !== undefined) {
                 _rtl = container.data('rtl');
             }
             //chk for sitecore preview
@@ -59,10 +59,10 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             //     _autoplay = false;
             //     _infinite = false;
             // }
-            if(INFORMA.global.device.viewportN == 1){
+            if(INFORMA.global.device.viewportN === 1){
                   _slideCount = 2;
             }
-            else if (INFORMA.global.device.viewportN == 2){
+            else if (INFORMA.global.device.viewportN === 2){
                   _slideCount = 1;
                   _dots = true;
             }

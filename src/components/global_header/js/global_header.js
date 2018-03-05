@@ -134,7 +134,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
               $(this).remove();
            }
         });
-        var _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
+        _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
         _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
                         .css('left', $(_pdpLinkSpan[0]).offset().left)
                         .show();
@@ -303,7 +303,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _initPdpMenuBarFollow = function() {
         _pdpLink = $('#pdp-navigation ul > li > a');
 
-        if (_pdpLink.length == 0) {
+        if (_pdpLink.length === 0) {
             _pdpNavigation.remove();
             _pdpMenuActive = false;
         }
@@ -448,15 +448,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         }
 
         var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
-        var i = _pdpMenuPos.length - 1;
-        for (; i >= 0; i--) {
-            if (_windowPos + _fixedHeights >= _pdpMenuPos[i]) {
+        var j = _pdpMenuPos.length - 1;
+        for (; j >= 0; j--) {
+            if (_windowPos + _fixedHeights >= _pdpMenuPos[j]) {
 
                 if (INFORMA.global.device.isDesktop) {
-                    _pdpMenuFollower.css('width', _pdpMenuWidth[i]);
-                    _pdpMenuFollower.css('left', _pdpMenuleft[i]);
+                    _pdpMenuFollower.css('width', _pdpMenuWidth[j]);
+                    _pdpMenuFollower.css('left', _pdpMenuleft[j]);
                 }
-                i = -1;
+                j = -1;
             }
         }
 
@@ -465,11 +465,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpNavigationScrollTo = function() {
         _pdpLink.on('click', function(e) {
             e.preventDefault();
-            var _fixedNavHeight;
+            var _fixedNavHeight, _target, _scrollTopPixels;
 
             if (!INFORMA.global.device.isDesktop) {
 
-                    var _target = $(this).data('target');
+                    _target = $(this).data('target');
 
                     $('#pdp-sections').slideUp();
                     _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
@@ -480,20 +480,20 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                         _pdpSectionsHeight = 0;
 
                     _fixedNavHeight = _navHeightMobile;
-                    var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
+                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
 
                     $('html, body').stop().animate({
                         scrollTop: _scrollTopPixels
                     }, 1000);
 
             }else{
-                var _target = $(this).data('target');
+                _target = $(this).data('target');
                 $('#pdp-navigation li').removeClass('selected');
                 $('#pdp-navigation li').addClass('select-options');
                 _pdpNavigationHeight = _pdpNavigation.height();
                 _fixedNavHeight = _navHeight;
 
-                var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
+                _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
                 $('html, body').stop().animate({
                     scrollTop: _scrollTopPixels
                 }, 1000);
@@ -506,7 +506,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _initServicesMenuBarFollow = function() {
         _servicesLink = $('#services-navigation ul > li > a');
 
-        if (_servicesLink.length == 0) {
+        if (_servicesLink.length === 0) {
             _servicesNavigation.remove();
             _servicesMenuActive = false;
         }
@@ -559,19 +559,19 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         var _fixedHeights = _fixedNavHeight + _servicesNavigationHeight + 7;
 
-        var i = _servicesMenuPos.length - 1;
-        for (; i >= 0; i--) {
-            if (_windowPos + _fixedHeights >= _servicesMenuPos[i]) {
+        var j = _servicesMenuPos.length - 1;
+        for (; j >= 0; j--) {
+            if (_windowPos + _fixedHeights >= _servicesMenuPos[j]) {
 
                 if (INFORMA.global.device.isDesktop) {
-                    _servicesMenuFollower.css('width', _servicesMenuWidth[i]);
-                    _servicesMenuFollower.css('left', _servicesMenuleft[i]);
+                    _servicesMenuFollower.css('width', _servicesMenuWidth[j]);
+                    _servicesMenuFollower.css('left', _servicesMenuleft[j]);
                 } else {
                     $('#services-navigation li').removeClass('selected');
                     $('#services-navigation li').removeClass('select-options');
-                    $($('#services-navigation li')[i]).addClass('selected');
+                    $($('#services-navigation li')[j]).addClass('selected');
                 }
-                i = -1;
+                j = -1;
             }
         }
     };
@@ -579,12 +579,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _servicesNavigationScrollTo = function() {
         _servicesLink.on('click', function(e) {
             e.preventDefault();
-            var _fixedNavHeight;
+            var _fixedNavHeight, _target, _scrollTopPixels;
 
             if (!INFORMA.global.device.isDesktop) {
 
                 if (_expandedServicesNav) {
-                    var _target = $(this).data('target');
+                    _target = $(this).data('target');
 
                     $('#services-navigation li').removeClass('selected');
                     $('#services-navigation li').removeClass('select-options');
@@ -595,7 +595,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     _servicesNavigationHeight = _servicesNavigation.height();
                     _fixedNavHeight = _navHeightMobile;
 
-                    var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
+                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
                     $('html, body').stop().animate({
                         scrollTop: _scrollTopPixels
                     }, 1000);
@@ -607,13 +607,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 }
 
             } else {
-                var _target = $(this).data('target');
+                _target = $(this).data('target');
                 $('#services-navigation li').removeClass('selected');
                 $('#services-navigation li').addClass('select-options');
                 _servicesNavigationHeight = _servicesNavigation.height();
                 _fixedNavHeight = _navHeight;
 
-                var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
+                _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
                 $('html, body').stop().animate({
                     scrollTop: _scrollTopPixels
                 }, 1000);
@@ -751,14 +751,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpsectionSubnavigationInit = function(){
       $('#pdp-sections ul li').each(function(){
        var idname = '#' + $(this).find('a').data("target");
-       if($(idname).length == 0) {
+       if($(idname).length === 0) {
           $(this).remove();
        }
       });
     }
     _selectDocClickEvents=function(){
       $(document).on('touchstart',function(event) {
-        if(event.target.class != 'selectMenu' && !$('.selectMenu').find(event.target).length){
+        if(event.target.class !== 'selectMenu' && !$('.selectMenu').find(event.target).length){
            $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
         }
        });
@@ -779,7 +779,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       $('.pdp-item-id').each(function() {
           var _Id = $(this).attr("id");
           for(var i = 0; i < _ArrayOfPdpElements.length; i++) {
-              if(_ArrayOfPdpElements[i].Target == _Id) {
+              if(_ArrayOfPdpElements[i].Target === _Id) {
                   Html += '<li><a href="#" data-target="' +_ArrayOfPdpElements[i].Target+ '"><span>' +_ArrayOfPdpElements[i].Name+ '</span></a></li>';
               }
           }
@@ -789,13 +789,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     init = function() {
         if(_mainNavLink.length > 0){
             if(INFORMA.global.device.isMobile || INFORMA.global.device.isTablet){
-                if(_mainNavLink.length == 1){
+                if(_mainNavLink.length === 1){
                     $(_mainNavLink).addClass('one')
                 }
-                else if(_mainNavLink.length == 3){
+                else if(_mainNavLink.length === 3){
                     $(_mainNavLink).addClass('three')
                 }
-                else if(_mainNavLink.length == 4){
+                else if(_mainNavLink.length === 4){
                     $(_mainNavLink).addClass('four')
                 }
                 else{

@@ -32,9 +32,9 @@ INFORMA.analystList = (function(window, $, namespace) {
             var _vp = INFORMA.global.device.viewportN,
                 VisibleItem = $(this).parents('section').find('.analyst-list-container:visible');
 
-            if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
+            if(_vp === 2) {// This is mobile, toggle everything except first twbs-font-path
                 _vp = 2; //to emulate nth-child(n+3)
-            } else if(_vp == 3) {
+            } else if(_vp === 3) {
                 _vp = 3;
             }
             else {

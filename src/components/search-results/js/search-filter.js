@@ -56,7 +56,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     }
 
                 });
-                if(Data.Brand == undefined) {
+                if(Data.Brand === undefined) {
                     Data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null
                 } else {
                     Data.Brand.push($('input[name="Brand"]').val());
@@ -65,10 +65,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             }
         },
         DoRefine = function() {
+            var ProductData;
             if (SearchType === "ResourceResult") {
-                var ProductData = INFORMA.ResourceFilter.GetResourceData();
+                ProductData = INFORMA.ResourceFilter.GetResourceData();
             } else {
-                var ProductData = INFORMA.ProductFinder.GetProductData();
+                ProductData = INFORMA.ProductFinder.GetProductData();
             } 
             var FilterData = GetSelectedFilter(),
                 DefaultData = INFORMA.SearchResults.DefaultParameters(),
@@ -191,13 +192,14 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
             ShowMoreLinks.on("click", function(e) {
                 e.preventDefault();
+                var text;
                 if($(this).hasClass("SeeLess")!==true){
-                    var text = $(this).data("lesstext");
+                    text = $(this).data("lesstext");
                     $(this).parent().find("ul li").removeClass("hidden");
                     $(this).addClass("SeeLess");
                     $(this).text(text);
                 }else{
-                    var text = $(this).data("moretext"),
+                    text = $(this).data("moretext"),
                         defaultCount = $(this).parent().data('defaultcount'),
                         listItem = $(this).parent().find("li");
                         $(this).removeClass("SeeLess");
