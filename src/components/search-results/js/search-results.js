@@ -388,7 +388,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 var getSelectedCheckBoxID = $("input.UnFilterCheckbox").val();
                 if(getSelectedCheckBoxID!==undefined){
                     var getCheckBox = jQuery("#"+getSelectedCheckBoxID);
-                    if(typeof getCheckBox!==undefined){
+                    if(typeof getCheckBox != undefined){
                         getCheckBox.removeAttr("disabled");
                         getCheckBox.prop("checked","checked");
                     }

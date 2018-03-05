@@ -80,7 +80,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                slidesToShow: _slideCount,
                slidesToScroll: _slideCount,
                speed: _speed,
-               dots: (_dots!==null || _dots!==undefined) ? _dots : true,
+               dots: (_dots != null || _dots != undefined) ? _dots : true,
                swipe: INFORMA.global.device.isDesktop ? false : true
            });
         };
@@ -145,7 +145,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     iframeWSElement.name = "wistia_embed";
                     iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
                     $(this).append(iframeWSElement);
-                    var id = document.getElementById('wistiaEmbed'+i);
                     var options = {
                       id: _wistiaId
                     };

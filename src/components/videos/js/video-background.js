@@ -11,7 +11,6 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         _wistiaId,
         _vimeoId,
         _wistiaUrl,
-        ytPlayer,
         _youTubeSound,
         _wistiaSound,
         _vimeoSound,
@@ -98,7 +97,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
     if(_heroBannerList.length == 0){
    window.onYouTubeIframeAPIReady = function() {
-        ytPlayer = new YT.Player('youtubePlayer', {
+      var ytPlayer = new YT.Player('youtubePlayer', {
             videoId: _youTubeId,
             playerVars: {
                 'modestbranding': 0,

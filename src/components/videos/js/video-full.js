@@ -4,7 +4,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
     //variables
     var _videoFullWrapper = $('.video-full-container .video-img'),
         _videoPlayBtnWrapper = $('.video-full-container .play-icon'),
-        video, player,
+        video,
         // methods
         init,
         _playFullVideoWrapper,
@@ -37,7 +37,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
             }
             $(this).replaceWith(video);
             function onYouTubePlayerAPIReady() {
-                player = new YT.Player('video', {
+               var player = new YT.Player('video', {
                   autoplay: 1
                 });
             }
