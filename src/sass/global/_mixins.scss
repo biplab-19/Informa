@@ -205,7 +205,8 @@ $desktop-width: 1142px;
         }
         //Anchor link color and active color
         a {
-            color: $white;
+            color: $primary;
+            text-decoration: none;
             &:active {
                 @extend .color-link;
             }
@@ -581,8 +582,9 @@ $desktop-width: 1142px;
         }
         .yellow-container {
             background: rgba($secondarycolorlight, 0.9);
-            h3 {
+            h3, a{
                 color: $white;
+                text-decoration: none;
             }
         }
         .carousel-lists .slick-arrow,
