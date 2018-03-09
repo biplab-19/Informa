@@ -1,4 +1,4 @@
-/*! 2018-02-06 *//*
+/*! 2018-03-09 *//*
  * google-analytics.js
  *
  *
@@ -5385,13 +5385,11 @@ var INFORMA = window.INFORMA || {};
 INFORMA.welcome_description= (function(window, $, namespace) {
     'use strict';
     //variables
-    var _welcomedescription = $('.welcome-description'),
+    //var _welcomedescription = $('.welcome-description'),
         // _tooltip = _welcomedescription.find('.anonymous,.registered'),
     // methods
-        init,
-        _closeTip,
+      var  init,
         _closeTip = function(){
-          var closetip = $('#closetip');
            $('#closetip').on('click', function(){
 		            $('.tool').remove();
 		        });
@@ -5421,9 +5419,8 @@ _adjustHeigt = function(){
       return $(this).height();
   }).get());
 
-  var maxHeightLink = Math.max.apply(null, el.find('.sector-card .btn-container').map(function() {
-      return $(this).height();
-  }).get());
+  /* removed unused maxHeightLink */
+
   el.find('.sector-card h2').height(maxHeightTitle);
   el.find('.sector-card .content').height(maxHeightDesc);
   el.find('.sector-card .sector-list-products').height(maxHeightSubSector);
@@ -5584,9 +5581,8 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         productAnalystResults = $('.product-analyst-results'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
-        _template = "",
         //methods
-        init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, AppendSearchResult, RenderAllSubSectorResults,
+        init, GetAjaxData, RenderSearchResult, EventsFunctions, checkButtonMore, equalHeight, RenderChangeResult, ajaxCallonSector, AppendItems, RenderAllSubSectorResults,
         emptyData,_bindShowLess;
 
     emptyData = function() {
@@ -5797,27 +5793,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         addthis.toolbox('.analyst-views');
         return html;
     }
-
-    AppendSearchResult = function(data) {
-        var results = data.SearchDictionary,
-            html = "";
-
-        for (var key in results) {
-            if (results.hasOwnProperty(key)) {
-                var Data = results[key],
-                    HeaderText = key,
-                    TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
-                    ListTemplate = Handlebars.compile(TemplateName);
-                Data.header = HeaderText;
-                html += ListTemplate({ results: Data });
-
-            }
-        }
-        productAnalystResults.html(html);
-        addthis.toolbox('.analyst-views');
-        equalHeight();
-        return html;
-    }
+/* removed unused AppendSearchResult function */
 
     ajaxCallonSector = function() {
             var SectorBtn = jQuery('.btn-plus');
@@ -5924,7 +5900,6 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         FilterMenu = $(".category-filter-list .categoryFilter"),
         ArticleCont = $("section .article-list"),
         HeadlineCont = $("section .headline-list"),
-        Templates = INFORMA.Templates,
         isExperienceMode = INFORMA.global.siteCore.isExperience,
         Urls = INFORMA.Configs.urls.webservices,
         // methods
@@ -6116,7 +6091,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 var headlineListItems = _HeadlinesLists.find('li');
                 var HeadlinesListItemsLength = headlineListItems.length;
                 var _vp = INFORMA.global.device.viewportN;
-                if((_vp == 2 & HeadlinesListItemsLength >= 2) || (_vp == 1 & HeadlinesListItemsLength >= 4) || (_vp == 0 & HeadlinesListItemsLength >= 6)) {
+                if((_vp == 2 && HeadlinesListItemsLength >= 2) || (_vp == 1 && HeadlinesListItemsLength >= 4) || (_vp == 0 && HeadlinesListItemsLength >= 6)) {
                     CreateSlider(_HeadlinesLists,2,4);
                 }
                 else{
@@ -6261,8 +6236,6 @@ INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
     var DynamicBrandList = $('.product-brands-list'),
         init, HideOnLoad, _equalHeight, ClickEvents,
-        Count = 1,
-        BtnShowMore = DynamicBrandList.find('.btn-showMore');
 
     _equalHeight = function(container) {
         var captionItems = container.find('.caption'),
@@ -6310,7 +6283,6 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     'use strict';
     //variables
     var _contactUs = $('#contactus-section'),
-        _accordianTile = _contactUs.find('.panel-default'),
         _eachTile = _contactUs.find('.panel-heading'),
         _eachTileBtnMargin =_contactUs.find('.panel-body'),
     // methods
@@ -6395,9 +6367,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.ContactUs = (function(window, $, namespace) {
     'use strict';
     //variables
-    var Tabs = $('.pos ul.nav li'),
-        tabcontent = $('.tab-content .tab-pane'),
-        _updateRedirectUrl,
+    var _updateRedirectUrl,
         _showSelectedTab,
         init;
 
@@ -6455,13 +6425,13 @@ var INFORMA = window.INFORMA || {};
 INFORMA.CookiePolicy = (function(window, $, namespace) {
     'use strict';
     //variables
-    var dropCookie = true, // false disables the Cookie, allowing you to style the banner
-        cookieDuration = 0, // Number of days before the cookie expires, banner reappears
+    /* dropCookie variable removed */
+    var cookieDuration = 0, // Number of days before the cookie expires, banner reappears
         cookieName = 'cookiepolicyaccepted', // Name of our cookie
         cookieValue = 'yes', // Value of cookie
         // methods
         init,
-        ShowBanner, CreateCookie, CheckCookie, EraseCookie, RemoveMe;
+        ShowBanner, CreateCookie, CheckCookie, RemoveMe;
 
 
     ShowBanner = function(name, value, days) {
@@ -6516,9 +6486,7 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
             }
             return null;
         },
-        EraseCookie = function(xhtml, ele) {
-            CreateCookie(name, "", -1);
-        },
+        /* unused EraseCookie function removed */
         RemoveMe = function(data) {
             $("body").find("#cookieBanner").hide();
             if($('.mainNavigation').hasClass('navbar-fixed-top')) {
@@ -6566,7 +6534,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     var PreferenceCheckbox = $(".preference .panel-body li .custom-checkbox"),
          CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
          SelectAll = $(".preference .panel-heading .custom-checkbox input"),
-        init, BindCheckboxes, CheckParentSectorCheckBox, ReadPref,CreatePref, UpdatePref, PrefValue = {},Count=0,
+        init, BindCheckboxes, CheckParentSectorCheckBox, ReadPref,CreatePref, UpdatePref, Count=0,
     
 
 
@@ -6598,9 +6566,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
          return result;
     },
     UpdatePref = function(obj, isHeading){
-                var getCookie = ReadPref("USR_DETAIL"),
-                    CheckBoxVal = obj.val(),
-                    ParentEle = obj.parents(".panel-default").eq(0),
+                var ParentEle = obj.parents(".panel-default").eq(0),
                     CountSpan = ParentEle.find("span.count"),
                     SelectedCount = ParentEle.find(".panel-body input[type=checkbox]:checked"),
                     CurrentCheckBoxs = ParentEle.find(".panel-body input[type=checkbox]"),
@@ -7366,7 +7332,6 @@ INFORMA.FAQs = (function (window, $, namespace) {
     var FaqMoreBtn = $('.btn-faq-more'),
         pageNo = 0,
         AccordianWrapper = $('.accordian-structure'),
-        PanelWrapper = AccordianWrapper.find('.panel-group'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
@@ -7504,9 +7469,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.featureList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _featureList = $('.feature-list'),
-        _featureListContainer = $('.feature-list-container'),
-        _featureListSection = $('.feature-list-section-pharma, .feature-list-section'),
+    var _featureListSection = $('.feature-list-section-pharma, .feature-list-section'),
         // methods
         init,
         _hideList,
@@ -7518,8 +7481,7 @@ INFORMA.featureList = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.feature-list-section .btn-showMore');
         _showMore.on('click', function() {
-            var _vp = INFORMA.global.device.viewport,
-                _limit = $(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1,
+            var _limit = $(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1,
                 Parent = $(this).parents('.feature-list-section'),
                 Children = Parent.find('.feature-list-container');
             $(Children.slice((_limit - 1), Children.length)).slideToggle();
@@ -8191,10 +8153,7 @@ INFORMA.formRequestForDemo = (function(window, $, namespace) {
       _bindToolTip,
         _showOverlay;
 
-    _showOverlay = function(container){
-
-      //alert(1);
-    }
+    /* unused _showOverlay function removed */
 
     init = function() {
           //todo: No null check, dont execute these bindings if forms are not there
@@ -8204,13 +8163,7 @@ INFORMA.formRequestForDemo = (function(window, $, namespace) {
 
     };
 
-    _bindToolTip = function(){
-          _toolTip.on('click',function(){
-                $(this).toggleClass('active');
-                $(this).parent().parent() // .hasToolTip
-                        .children('.tooltip-placeholder').slideToggle();
-          })
-   }
+    /* unused _bindToolTip function removed */
 
 
     return {
@@ -9325,7 +9278,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _headerPosMobile = 0,
         _cookieHeight =  $('#cookieBanner').outerHeight(),
         _fixed = 'navbar-fixed-top',
-        _isHeaderFixed = false,
         _heroBannerHeading = $('#banner h1').text(),
         _marketingClose = $('.marketing-banner .close a'),
 
@@ -9334,7 +9286,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpNavigationScrollTo,
         _pdpSectionActions,
         _pdpNavigationHeight = 0,
-        _pdpNavigationPos = 0,
         _pdpSectionsHeight = 0,
         _isPdpPage = _pdpNavigation.data("productpage"),
         _pdpWrapper = $('.product-detail-page'),
@@ -9357,22 +9308,19 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpStickyIconDesktopFlag = false,
         _pdpStickyHeadingDesktopFlag = false,
         _initialPdpHdrPos = 0,
-        _expandedPdpNav = false,
-
+        
 
 
         // for sticky nav of services-navigation
         _servicesNavigation = $('#services-navigation'),
         _servicesNavigationScrollTo,
         _servicesNavigationHeight = 0,
-        _servicesNavigationPos = 0,
         //_servicesWrapper = $('.services-page'),
         _servicesMenuFollower = $('#services-navigation .menuFollower'),
         _servicesMenuActive = true,
 
         _servicesLink = $('#services-navigation ul > li > a'),
         _servicesLinkSpan = $('#services-navigation ul > li > a > span'),
-        _servicesFixed = false,
         _servicesMenuPos = [],
         _servicesMenuWidth = [],
         _servicesMenuleft = [],
@@ -9397,7 +9345,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _navtoggle = $('.informaNav .navbar-toggle'),
         _navclose = $('#mobile-header-navigation .nav-close'),
         _navback = $('#mobile-header-navigation .nav-back'),
-        _stickAnimation = $('.informaNav .hide-stick'),
 
 
         //functions
@@ -9422,7 +9369,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
      
     if (_pdpNavigation.length > 0) {
         _pdpNavigationHeight = _pdpNavigation.height(),
-        _pdpNavigationPos = _pdpNavigation.offset().top;
         $('#pdp-sections ul li').each(function(){
            var idname = '#' + $(this).find('a').data("target");
            if($(idname).length == 0) {
@@ -9437,8 +9383,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     if (_servicesNavigation.length > 0) {
         _servicesNavigationHeight = _servicesNavigation.height();
-        _servicesNavigationPos = _servicesNavigation.offset().top;
-
+        
         // To show the menu follower with right width and position, todo: remove harcode
         _servicesMenuFollower.css('width', $(_servicesLinkSpan[0]).width())
                              .css('left', $(_servicesLinkSpan[0]).offset().left)
@@ -9563,7 +9508,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpSectionActions = function(){
         _pdpSectionsButton.on('click', function(e) {
             e.preventDefault();
-            var _pdpLinksCont = $('#pdp-navigation ul > li > a > span').length;
+            //var _pdpLinksCont = $('#pdp-navigation ul > li > a > span').length;
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
               // if(_pdpLinksCont>6){
@@ -9607,7 +9552,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     _activatePdpFixedHeader = function() {
         var _windowPos = $(window).scrollTop(),
-            PdpNavTop = null;
 
         if (_pdpFirst) {
             _initialPdpHdrPos = _pdpNavigation.offset().top;
@@ -9828,7 +9772,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _servicesNavigation.addClass(_fixed);
             _servicesNavigation.css('top', _fixedNavHeight + 'px');
             _servicesWrapper.css('padding-top', _servicesNavigationHeight);
-            _servicesFixed = true;
+            /* removed unused variable _servicesFixed*/
 
             if (_arrayServicesFlag) {
                 _servicesMenuPos = [];
@@ -9847,7 +9791,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _servicesNavigation.removeClass(_fixed);
             _servicesNavigation.css('top', '0px');
             _servicesWrapper.css('padding-top', 0);
-            _servicesFixed = false;
+            /* removed unused variable _servicesFixed*/
             _arrayServicesFlag = true;
             _initialServicesHdrPos = _servicesNavigation.offset().top;
         }
@@ -10141,8 +10085,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _expandedServicesNav = false;
 
             //$('#pdp-navigation ul > li:first-child').addClass('selected');
-            _expandedPdpNav = false;
-
+            /* removed unused _expandedPdpNav variab */
         }
 
     };
@@ -10205,14 +10148,12 @@ INFORMA.helpfaq = (function(window, $, namespace) {
     'use strict';
     //variables
     var _helpfaqSelect = $('.help-faq-select'),
-        _faqItemsWrapper = $('.help-faq-wrapper'),
         // methods
         init,
         _showHideFaq;
 
     _showHideFaq = function() {
         _helpfaqSelect.change(function() {
-            var target = $(this).data('target');
             $(this).parents('.accordian-structure').find('.help-faq-wrapper').children().removeClass('show').addClass('hide');
             var show = $("option:selected", this).data('show');
             $(show).removeClass('hide').addClass('show');
@@ -10263,7 +10204,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _wistiaId,
         _vimeoId,
         _wistiaUrl,
-        _vimeoUrl,
         ytPlayer,
         _youTubeSound,
         _wistiaSound,
@@ -10303,7 +10243,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             }
             if(_rtl === true && _autoplay === true) {
                 container.on('init', function() {
-                    var $slickList = container.find('.slick-list');
                     window.setInterval(function() {
                         container.slick('slickPrev');
                     }, _duration);
@@ -10316,7 +10255,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                slidesToShow: _slideCount,
                slidesToScroll: _slideCount,
                speed: _speed,
-               dots: (_dots!==null || _dots!==undefined) ? _dots : true,
+               dots: (_dots != null || _dots != undefined) ? _dots : true,
                swipe: INFORMA.global.device.isDesktop ? false : true
            });
         };
@@ -10346,7 +10285,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
 
                 } else if (_urlType == "vimeo") {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
-                    _vimeoUrl = $(this).attr('data-videourl')
                     _vimeoId = $(this).attr('data-videoid');
                     _vimeoSound = $(this).attr('data-videosound');
 
@@ -10382,7 +10320,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     iframeWSElement.name = "wistia_embed";
                     iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
                     $(this).append(iframeWSElement);
-                    var id = document.getElementById('wistiaEmbed'+i);
                     var options = {
                       id: _wistiaId
                     };
@@ -10676,8 +10613,6 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
 
             if(_rtl === true && _autoplay === true) {
                 container.on('init', function() {
-                    var $slickList = container.find('.slick-list');
-
                     window.setInterval(function() {
                         container.slick('slickPrev');
                     }, _duration);
@@ -10731,8 +10666,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         init,
         _bindShowMore,
         _bindShowLess,
-        _equalHeight,
-        _lists = null;
+        _equalHeight;
 
     _bindShowMore = function(container){
 
@@ -10740,8 +10674,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         var _showMore = $('.btn-showMore');
         _showMore.on('click',function(){
 
-            var _vp = INFORMA.global.device.viewportN,
-                VisibleItem = $(this).parents('section').find('.analyst-list-container:visible');
+            var _vp = INFORMA.global.device.viewportN;
 
             if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
                 _vp = 2; //to emulate nth-child(n+3)
@@ -10789,14 +10722,8 @@ INFORMA.analystList = (function(window, $, namespace) {
             ItemsFooter.css('height', _maxHeightFooter);
         })
     }
-    _bindShowLess = function () {
-      var _showLess = _analystList.find('.btn.btn-showMore .less');
-      _showLess.on('click',function(){
-            $('html, body').animate({
-                scrollTop: _analystList.offset().top - 35
-            },700);
-      });
-    }
+    /* unused _bindShowLess function removed */
+     
     init = function() {
         if (_analystList.length > 0) {
            // _bindElement();
@@ -10894,8 +10821,6 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
       }
       if(_rtl === true && _autoplay === true) {
                 container.on('init', function() {
-                    var $slickList = container.find('.slick-list');
-
                     window.setInterval(function() {
                         container.slick('slickPrev');
                     }, _duration);
@@ -10908,7 +10833,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
                slidesToShow: _slideCount,
                slidesToScroll: _slideCount,
                speed: _speed,
-               dots: (_dots!==null || _dots!==undefined) ? _dots : true,
+               dots: (_dots != null || _dots != undefined) ? _dots : true,
                swipe: INFORMA.global.device.isDesktop ? false : true
            });
       }
@@ -11028,12 +10953,9 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         CustomSelect = ProductFinderSection.find(".custom-multiselect select"),
         CloseIcon = $(".search-options .close-finder"),
         SearchField = $(".site-search input"),
-        ResultContainer = $(".search-container #results"),
-        SearchTabHidden = $(".site-search input.search-tab"),
         SearchSubmitBtn = $(".site-search li.button"),
         //SearchIcon = $(".navbar-default .search a"),
         SearchIcon = $(".search:visible"),
-        SearchPage = $("#search-page"),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
 
@@ -11500,8 +11422,7 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
     },
 
     SmallDeviceFunction = function (Parent) {
-        var Select = Parent.find('select[name="RecommendTabs"]'),
-            SelectFirst = $(Select.find('option')[0]);
+        var Select = Parent.find('select[name="RecommendTabs"]');
 
         Select.val('#tabs-1').trigger('change');
 
@@ -11995,17 +11916,15 @@ INFORMA.news_flash = (function(window, $, namespace) {
         init,
         _closeNews,
         _createSlider;
-        _closeNews = function(){
-          var closenews = $('#close-news');
 
+        _closeNews = function(){
            $('#close-news').on('click', function(){
 		            $('.newsFlash').remove();
 		        });
         }
         _createSlider = function(container){
             // if data-items, data-infinite is defined, used it
-            var _slideCount = 1,
-                _autoplay = container.data('autorotate'),
+            var _autoplay = container.data('autorotate'),
                 _speed = container.data('transitionspeed'), // speed of transition
                 _duration = container.data('slideduration'), // how long the slider will be displayed
                 _infinite = true,
@@ -12091,9 +12010,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.SearchResultFilter = (function(window, $, namespace) {
     'use strict';
     //variables
-    var Templates = INFORMA.Templates,
-        Utils = INFORMA.Utils,
-        Urls = INFORMA.Configs.urls.webservices,
+    var Urls = INFORMA.Configs.urls.webservices,
         SelectAll = $(".refine-container .panel-heading .custom-checkbox input"),
         RefineSection = $(".refine-container .panel-body"),
         ShowMoreLinks = RefineSection.find("a.show-more"),
@@ -12122,7 +12039,6 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                 $.each(RefineSection, function() {
                     var GetSectionID = $(this).parent().attr("id"),
                         SelectedCheckBox = $(this).find("input[type=checkbox]:checked").not(":disabled"),
-                        EnabledCheckBox = $(this).find('input[type="checkbox"]').not(":disabled"),
                         uniqueArr = [];
 
                     if (SelectedCheckBox.length) {
@@ -12378,13 +12294,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     //Default variables and cached html elements
     var Templates = INFORMA.Templates,
         Config = INFORMA.Configs,
-        PageSize = parseInt(Config.searchResult.pageSize),
         Urls = INFORMA.Configs.urls.webservices,
-        Utils = INFORMA.Utils,
         SearchType = '',
         SearchContent = $(".search-container"),
         ProductFinderSection = $('#product-finder-section'),
-        Data = {},
         ShowMoreLink = SearchContent.find(".btn-showMore"),
         SearchHidden = $("input.search-hidden"),
         SectorHidden = $("input.sector-list"),
@@ -12395,7 +12308,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SeeAllButton = SearchContent.find(".see-all"),
         IsShowFlag = false,
         PageNo = 2,
-        SortValue = null,
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
@@ -12482,10 +12394,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         }
         GetSortValue = function(value) {
-            SortValue = (value) ? value : SortDropDown.val();
 
             SortDropDown.on("change", function(e) {
-                SortValue = $(this).find("option:selected").val();
 
                 var ProdData, FilterData, Data, DefaultData;
                 if (SearchType === "ResourceResult") {
@@ -12506,8 +12416,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         SetSearchState = function(sVal) {
             //if (sVal) {
-                var SearchField = $(".site-search input[type=text]"),
-                    SearchSubmitBtn = $(".site-search li.button");
+                /* unused variable SearchField removed */
+                var SearchSubmitBtn = $(".site-search li.button");
 
                 //SearchField.val(sVal);
                 SearchSubmitBtn.removeClass("disabled");
@@ -12530,7 +12440,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             var SectorArray = SecValue.split(","),
                 SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
                 SectorIDs = 'SectorIDs=' + SecValue,
-                SubmitBtn = ProductFinderSection.find(".sector-search li.button"),
+                /* unused variable SubmitBtn removed */
                 SubSectorSelect = ProductFinderSection.find("select.SubSector");
 
             ProductFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
@@ -12683,8 +12593,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             ShowMoreLink.off("click").on("click", function(e) {
                 e.preventDefault();
-                var Section = $(this).parents(".product-results").eq(0),
-                    ProdData = INFORMA.ResourceFilter.GetResourceData(),
+                var ProdData = INFORMA.ResourceFilter.GetResourceData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     DefaultData = GetDefaultValues(),
                     Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
@@ -12757,7 +12666,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 var getSelectedCheckBoxID = $("input.UnFilterCheckbox").val();
                 if(getSelectedCheckBoxID!==undefined){
                     var getCheckBox = jQuery("#"+getSelectedCheckBoxID);
-                    if(typeof getCheckBox!==undefined){
+                    if(typeof getCheckBox != undefined){
                         getCheckBox.removeAttr("disabled");
                         getCheckBox.prop("checked","checked");
                     }
@@ -12805,13 +12714,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
         },
         CreateSubItems = function(Data, Button, RemainingCount) {
-            var FinalHTml = '',
-                Title, ShowMoreText;
+            var Title;
             var Results = Data[0],
                 TemplateName, ListTemplate, Html = '',
                 ContentType,
                 Lists = Results.Results;
-            ShowMoreText = (Results.ShowMoreText) ? Results.ShowMoreText : "";
+            /* unused ShowMoreText variable removed */
             if (Lists) {
                 for (var j = 0; j < Lists.length; j++) {
                     if (Lists[j].Category) {
@@ -13264,23 +13172,13 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         _wistiaId,
         _vimeoId,
         _wistiaUrl,
-        _vimeoUrl,
-        ytPlayer,
         _youTubeSound,
         _wistiaSound,
         _vimeoSound,
         _addOptions,
-        _setHeroVideoHeight,
         _heroBannerList = $('.hero-banner-carousel .slider-component');
-    _setHeroVideoHeight = function(){
-      var videoBGContainer = $('.hero-banner').find('.videoBG');
-      if(videoBGContainer.length > 0){
-        $('.hero-banner').addClass('hero-banner-video');
-      }else{
-        $('.hero-banner').removeClass('hero-banner-video');
-      }
+        /* unused _setHeroVideoHeight function removed */
 
-    }
     _addOptions = function() {
         
         //$('.videoBG_wrapper').parent().css( "height", "auto" );
@@ -13305,7 +13203,6 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
             } else if (_urlType == "vimeo") {
 
-                _vimeoUrl = $(this).attr('data-videourl')
                 _vimeoId = $(this).attr('data-videoid');
                 _vimeoSound = $(this).attr('data-videosound');
 
@@ -13361,7 +13258,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
     if(_heroBannerList.length == 0){
    window.onYouTubeIframeAPIReady = function() {
-        ytPlayer = new YT.Player('youtubePlayer', {
+      var ytPlayer = new YT.Player('youtubePlayer', {
             videoId: _youTubeId,
             playerVars: {
                 'modestbranding': 0,
@@ -13403,7 +13300,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
     //variables
     var _videoFullWrapper = $('.video-full-container .video-img'),
         _videoPlayBtnWrapper = $('.video-full-container .play-icon'),
-        video, player,
+        video,
         // methods
         init,
         _playFullVideoWrapper,
@@ -13436,7 +13333,7 @@ INFORMA.videoFull = (function(window, $, namespace) {
             }
             $(this).replaceWith(video);
             function onYouTubePlayerAPIReady() {
-                player = new YT.Player('video', {
+               var player = new YT.Player('video', {
                   autoplay: 1
                 });
             }
