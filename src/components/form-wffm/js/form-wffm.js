@@ -136,7 +136,7 @@ INFORMA.forms = (function(window, $, namespace) {
                 $('.vertical-name-holder').val(VerticalName);
                 $('.tc-product-name').html(ProductName);
                 $('.tc-vertical-name').html(VerticalName);
-                if (ProductName.length > 0) {
+                if ( ProductName && ProductName.length > 0) {
                     $('.tc-product-name').html(ProductName);
                 } else {
                     $('.tc-product-name').html(VerticalName);
