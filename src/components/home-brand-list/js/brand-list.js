@@ -29,7 +29,7 @@ INFORMA.brandList = (function(window, $, namespace) {
                 maxHeight = height;
             }
         })
-        if(INFORMA.global.device.viewportN != 2) {
+        if(INFORMA.global.device.viewportN !== 2) {
             captionItems.css('height', maxHeight);
         } else {
             captionItems.css('height', 'auto');
@@ -41,7 +41,7 @@ INFORMA.brandList = (function(window, $, namespace) {
         var _showMore = $('.product-brands-list .view-all-mobile-container');
         _showMore.on('click',function(){
             var _vp = INFORMA.global.device.viewportN;
-            if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
+            if(_vp === 2) {// This is mobile, toggle everything except first twbs-font-path
 
               //$('.product-brands-list .container > .row > .card-col:nth-child(n+4), .card-col-heading').show();
               $(this).prev().find(".col-xs-12 ").show();
@@ -63,7 +63,6 @@ INFORMA.brandList = (function(window, $, namespace) {
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.brandList.init());
 
-var INFORMA = window.INFORMA || {};
 INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
     var DynamicBrandList = $('.product-brands-list'),
@@ -80,7 +79,7 @@ INFORMA.brandList = (function(window, $, namespace) {
                 maxHeight = height;
             }
         })
-        if(INFORMA.global.device.viewportN != 2) {
+        if(INFORMA.global.device.viewportN !== 2) {
             captionItems.css('height', maxHeight + padding);
         } else {
             captionItems.css('height', 'auto');

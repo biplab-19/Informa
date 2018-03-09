@@ -18,7 +18,8 @@ INFORMA.welcome_description= (function(window, $, namespace) {
     //var _welcomedescription = $('.welcome-description'),
         // _tooltip = _welcomedescription.find('.anonymous,.registered'),
     // methods
-      var  init,
+      var  init,_closeTip;
+      
         _closeTip = function(){
            $('#closetip').on('click', function(){
 		            $('.tool').remove();

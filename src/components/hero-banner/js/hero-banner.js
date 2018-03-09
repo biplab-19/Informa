@@ -58,7 +58,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             _dots = Boolean(container.data('dots')),
             _rtl;
 
-            if(container.data('rtl') != undefined) {
+            if(container.data('rtl') !== undefined) {
               _rtl = container.data('rtl');
             }
 
@@ -92,7 +92,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 
                 _urlType = $(this).attr('data-videotype');
 
-                if (_urlType == "youtube") {
+                if (_urlType === "youtube") {
 
                     _youTubeId = $(this).attr('data-videoid');
                     _youTubeSound = $(this).attr('data-videosound');
@@ -108,7 +108,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     var node = ytTag.parentNode.insertBefore(scriptTag, ytTag.nextSibling);
                     $(this).append(node);
 
-                } else if (_urlType == "vimeo") {
+                } else if (_urlType === "vimeo") {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
                     _vimeoId = $(this).attr('data-videoid');
                     _vimeoSound = $(this).attr('data-videosound');
@@ -124,16 +124,16 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     };
                     vimeoPlayer = new Vimeo.Player(id, options);
                     vimeoPlayers.push(vimeoPlayer);
-                    if (INFORMA.global.device.viewportN == 2 ) {
+                    if (INFORMA.global.device.viewportN === 2 ) {
                       $('.videoBG_wrapper').css('height', '80%');
                       $('.block-centered').css('transform','translateY(-40%)');
                     }
-                    if (INFORMA.global.device.viewportN == 1) {
+                    if (INFORMA.global.device.viewportN === 1) {
                       $('section.hero-banner').addClass('vimeo-video-banner');
                       $('.videoBG_wrapper').css('height', '80%');
                       $('.block-centered').css('transform','translateY(-25%)');
                     }
-                } else if (_urlType == "wistia") {
+                } else if (_urlType === "wistia") {
 
                     _wistiaUrl = $(this).attr('data-videourl')
                     _wistiaId = $(this).attr('data-videoid');
@@ -145,11 +145,11 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     iframeWSElement.name = "wistia_embed";
                     iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
                     $(this).append(iframeWSElement);
-                    var options = {
+                    var wistiaOptions = {
                       id: _wistiaId
                     };
-                    wistiaPlayers.push(options);
-                    if (INFORMA.global.device.viewportN == 1 || INFORMA.global.device.viewportN == 2 ) {
+                    wistiaPlayers.push(wistiaOptions);
+                    if (INFORMA.global.device.viewportN === 1 || INFORMA.global.device.viewportN === 2 ) {
                         var playButton = $(".videoBG_wrapper");
                         if(playButton.length > 0 ){
                           playButton.on("click", function() {
@@ -169,7 +169,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 var _iFrameElement = $('.hero-banner-carousel .slick-slide .videoBG');
                 _iFrameElement.each(function(i, e) {
                     _urlType = $(this).attr('data-videotype');
-                    if (_urlType == "youtube") {
+                    if (_urlType === "youtube") {
                         _youTubeId = $(this).attr('data-videoid');
                         _youTubeSound = $(this).attr('data-videosound');
                         var id = document.getElementById('youtubePlayer'+i);
@@ -199,7 +199,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         player.pause();
                         player.setVolume(_vimeoSound);
                         vimeoCount++;
-                        if(vimeoPlayers.length == vimeoCount) {
+                        if(vimeoPlayers.length === vimeoCount) {
                             $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
                             setTimeout(function(){
                                 _heroBannerList.find('.hero-items.slick-active .videoBG iframe').css('display','block');
@@ -227,13 +227,13 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         }
 
         function onCarouselYTPlayerReady(event) {
-            if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+            if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
                 setTimeout(function(){
                     event.target.pauseVideo();
                     event.target.setVolume(_youTubeSound);
                 },10)
                 playCount++;
-                if(ytPlayers.length == playCount) {
+                if(ytPlayers.length === playCount) {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
                         if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='youtube') {
                             var ytubeId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe')[0].id;
@@ -250,7 +250,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         }
        
        _heroBannerList.on('afterChange', function(event, slick, currentSlide, nextSlide){
-            if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+            if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
                 var video = slick.$slides[currentSlide].getElementsByClassName('videoBG'),
                    _urlType = $(event.target).find('.slick-active .videoBG').attr('data-videotype');
                 if(video.length > 0){
@@ -266,9 +266,9 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     else if(_urlType === 'vimeo'){
                         _pauseAllVideos();
                         var VimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent()[0].id
-                        for(var i=0; i<vimeoPlayers.length;i++){
-                            if(vimeoPlayers[i].element.parentElement.id === VimeoId){
-                                vimeoPlayers[i].play();
+                        for(var j=0; j<vimeoPlayers.length;j++){
+                            if(vimeoPlayers[j].element.parentElement.id === VimeoId){
+                                vimeoPlayers[j].play();
                             }
                         } 
                     }
@@ -282,8 +282,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             for(var i=0; i<ytPlayers.length; i++){
                 ytPlayers[i].pauseVideo();
             }    
-            for(var i =0; i<vimeoPlayers.length; i++){
-                vimeoPlayers[i].pause();
+            for(var j =0; j<vimeoPlayers.length; j++){
+                vimeoPlayers[j].pause();
             }
         },
 
@@ -321,7 +321,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
            
             if (_heroBannerList.length > 0) {
                 _createSlider(_heroBannerList);
-                if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+                if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
                     if($('.hero-banner-carousel .videoBG').length>0){
                         $('.hero-banner-carousel .slick-next, .hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
                     }

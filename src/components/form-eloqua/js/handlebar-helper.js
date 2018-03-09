@@ -10,14 +10,14 @@ Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
   var operator = options.hash.operator || "==";
 
   var operators = {
-    '==':		function(l,r) { return l == r; },
+    '==':		function(l,r) { return l === r; },
     '===':	function(l,r) { return l === r; },
-    '!=':		function(l,r) { return l != r; },
+    '!=':		function(l,r) { return l !== r; },
     '<':		function(l,r) { return l < r; },
     '>':		function(l,r) { return l > r; },
     '<=':		function(l,r) { return l <= r; },
     '>=':		function(l,r) { return l >= r; },
-    'typeof':	function(l,r) { return typeof l == r; }
+    'typeof':	function(l,r) { return typeof l === r; }
   }
 
   if (!operators[operator])

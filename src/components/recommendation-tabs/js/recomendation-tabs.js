@@ -109,7 +109,7 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         if(RecomendedTab.length > 0) {
             var Viewport = INFORMA.global.device.viewport;
 
-            if(Viewport == "mobile") {
+            if(Viewport === "mobile") {
                 SmallDeviceFunction(RecomendedTab);
             } else {
                 LargeDeviceFunction(RecomendedTab);
