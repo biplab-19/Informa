@@ -1,4 +1,4 @@
-/*! 2018-02-06 *//*
+/*! 2018-03-09 *//*
  * google-analytics.js
  *
  *
@@ -5389,7 +5389,6 @@ INFORMA.welcome_description= (function(window, $, namespace) {
         // _tooltip = _welcomedescription.find('.anonymous,.registered'),
     // methods
         init,
-        _closeTip,
         _closeTip = function(){
           var closetip = $('#closetip');
            $('#closetip').on('click', function(){
@@ -5676,7 +5675,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         txtField.on('keyup', function() {
             var calcLength = jQuery(this).val().trim().length,
                 SectorValue = Sector.val();
-            if (calcLength < 3 && SectorValue == 'default') {
+            if (calcLength < 3 && SectorValue === 'default') {
                 submitBtn.addClass('disabled');
             } else {
                 submitBtn.removeClass('disabled');
@@ -5710,7 +5709,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 resetBtn.show();
             }
 
-            if (_value == "default") {
+            if (_value === "default") {
                 SubSector.parents('.sub-sector').addClass('disabled');
                 SubSector.parents('.form-group').find('label').html('By Sub-Sector');
             } else {
@@ -5727,7 +5726,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         submitBtn.on('click', function() {
             var FieldArray = AnalystSearch.find("form").serializeArray();
             for (var key in FieldArray) {
-                if (FieldArray[key].value == "default") {
+                if (FieldArray[key].value === "default") {
                     FieldArray[key].value = null;
                 }
             }
@@ -5834,7 +5833,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 _Object.SectorID = sectorId;
                 _Object.SearchText = $('.SearchTextSpecialist').val()
                 for (var key in _Object) {
-                    if (_Object[key] == "default") {
+                    if (_Object[key] === "default") {
                         _Object[key] = null;
                     }
                 }
@@ -5886,7 +5885,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 _bindShowLess();
                 emptyData();
                 txtField.on("keypress", function(e) {
-                    if (e.which == 13) {
+                    if (e.which === 13) {
                         e.preventDefault();
                         if(txtField.val()){
                             submitBtn.trigger("click");
@@ -5992,10 +5991,10 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                         ArticleCont.hide();
                     }
                     if (data.Articles !== undefined && data.Headlines.length > 0) {
-                        var html = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
+                        var HeadelinesListHtml = GetCarouselUpdatedHtml(INFORMA.Templates.HeadlinesListItems, { Headlines: data.Headlines });
                         _HeadlinesLists.slick('unslick');
                         HeadlineCont.show();
-                        RenderCarousel(html, _HeadlinesLists,2,4);
+                        RenderCarousel(HeadelinesListHtml, _HeadlinesLists,2,4);
                     }else{
                         HeadlineCont.hide();
                     }
@@ -6116,7 +6115,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 var headlineListItems = _HeadlinesLists.find('li');
                 var HeadlinesListItemsLength = headlineListItems.length;
                 var _vp = INFORMA.global.device.viewportN;
-                if((_vp == 2 & HeadlinesListItemsLength >= 2) || (_vp == 1 & HeadlinesListItemsLength >= 4) || (_vp == 0 & HeadlinesListItemsLength >= 6)) {
+                if((_vp === 2 & HeadlinesListItemsLength >= 2) || (_vp === 1 & HeadlinesListItemsLength >= 4) || (_vp === 0 & HeadlinesListItemsLength >= 6)) {
                     CreateSlider(_HeadlinesLists,2,4);
                 }
                 else{
@@ -6157,14 +6156,14 @@ INFORMA.freearticle = (function(window, $, namespace) {
             freearticleH2 = freearticleSection.find('h2'),
             freearticleH3 = freearticleSection.find('h3');
         if (freearticleSection.length > 0) {
-            if (INFORMA.global.device.viewportN == 1) {
+            if (INFORMA.global.device.viewportN === 1) {
                 freearticleSection.first().css('padding-top', '35px');
                 freearticleSection.last().css('padding-bottom', '35px');
                 freearticleH2.first().css('padding-top', '0');
                 freearticleH2.last().css('padding-bottom', '35px');
                 freearticleH3.first().css('padding-top', '0');
                 freearticleH3.last().css('padding-bottom', '25px');
-            } else if (INFORMA.global.device.viewportN == 2) {
+            } else if (INFORMA.global.device.viewportN === 2) {
                 freearticleSection.first().css('padding-top', '25px');
                 freearticleSection.last().css('padding-bottom', '25px');
                 freearticleH2.first().css('padding-top', '0');
@@ -6222,7 +6221,7 @@ INFORMA.brandList = (function(window, $, namespace) {
                 maxHeight = height;
             }
         })
-        if(INFORMA.global.device.viewportN != 2) {
+        if(INFORMA.global.device.viewportN !== 2) {
             captionItems.css('height', maxHeight);
         } else {
             captionItems.css('height', 'auto');
@@ -6234,7 +6233,7 @@ INFORMA.brandList = (function(window, $, namespace) {
         var _showMore = $('.product-brands-list .view-all-mobile-container');
         _showMore.on('click',function(){
             var _vp = INFORMA.global.device.viewportN;
-            if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
+            if(_vp === 2) {// This is mobile, toggle everything except first twbs-font-path
 
               //$('.product-brands-list .container > .row > .card-col:nth-child(n+4), .card-col-heading').show();
               $(this).prev().find(".col-xs-12 ").show();
@@ -6256,7 +6255,6 @@ INFORMA.brandList = (function(window, $, namespace) {
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.brandList.init());
 
-var INFORMA = window.INFORMA || {};
 INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
     var DynamicBrandList = $('.product-brands-list'),
@@ -6275,7 +6273,7 @@ INFORMA.brandList = (function(window, $, namespace) {
                 maxHeight = height;
             }
         })
-        if(INFORMA.global.device.viewportN != 2) {
+        if(INFORMA.global.device.viewportN !== 2) {
             captionItems.css('height', maxHeight + padding);
         } else {
             captionItems.css('height', 'auto');
@@ -6511,8 +6509,8 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
             var ca = document.cookie.split(';');
             for (var i = 0; i < ca.length; i++) {
                 var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
             }
             return null;
         },
@@ -6566,7 +6564,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     var PreferenceCheckbox = $(".preference .panel-body li .custom-checkbox"),
          CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
          SelectAll = $(".preference .panel-heading .custom-checkbox input"),
-        init, BindCheckboxes, CheckParentSectorCheckBox, ReadPref,CreatePref, UpdatePref, PrefValue = {},Count=0,
+        init, BindCheckboxes, CheckParentSectorCheckBox, ReadPref,CreatePref, UpdatePref, PrefValue = {},Count=0;
     
 
 
@@ -9261,11 +9259,11 @@ INFORMA.globalFooter = (function(window, $, namespace) {
                 _autoplay = false;
                 _infinite = false;
             }
-            if(INFORMA.global.device.viewportN == 1){
+            if(INFORMA.global.device.viewportN === 1){
                   _slideCount = 4;
                   _dots = true;
             }
-            else if (INFORMA.global.device.viewportN == 2){
+            else if (INFORMA.global.device.viewportN === 2){
                   _slideCount = 2;
                   _dots = true;
             }
@@ -9429,7 +9427,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
               $(this).remove();
            }
         });
-        var _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
+        _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
         _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
                         .css('left', $(_pdpLinkSpan[0]).offset().left)
                         .show();
@@ -9598,7 +9596,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _initPdpMenuBarFollow = function() {
         _pdpLink = $('#pdp-navigation ul > li > a');
 
-        if (_pdpLink.length == 0) {
+        if (_pdpLink.length === 0) {
             _pdpNavigation.remove();
             _pdpMenuActive = false;
         }
@@ -9743,15 +9741,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         }
 
         var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
-        var i = _pdpMenuPos.length - 1;
-        for (; i >= 0; i--) {
-            if (_windowPos + _fixedHeights >= _pdpMenuPos[i]) {
+        var j = _pdpMenuPos.length - 1;
+        for (; j >= 0; j--) {
+            if (_windowPos + _fixedHeights >= _pdpMenuPos[j]) {
 
                 if (INFORMA.global.device.isDesktop) {
-                    _pdpMenuFollower.css('width', _pdpMenuWidth[i]);
-                    _pdpMenuFollower.css('left', _pdpMenuleft[i]);
+                    _pdpMenuFollower.css('width', _pdpMenuWidth[j]);
+                    _pdpMenuFollower.css('left', _pdpMenuleft[j]);
                 }
-                i = -1;
+                j = -1;
             }
         }
 
@@ -9760,11 +9758,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpNavigationScrollTo = function() {
         _pdpLink.on('click', function(e) {
             e.preventDefault();
-            var _fixedNavHeight;
+            var _fixedNavHeight, _target, _scrollTopPixels;
 
             if (!INFORMA.global.device.isDesktop) {
 
-                    var _target = $(this).data('target');
+                    _target = $(this).data('target');
 
                     $('#pdp-sections').slideUp();
                     _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
@@ -9775,20 +9773,20 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                         _pdpSectionsHeight = 0;
 
                     _fixedNavHeight = _navHeightMobile;
-                    var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
+                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
 
                     $('html, body').stop().animate({
                         scrollTop: _scrollTopPixels
                     }, 1000);
 
             }else{
-                var _target = $(this).data('target');
+                _target = $(this).data('target');
                 $('#pdp-navigation li').removeClass('selected');
                 $('#pdp-navigation li').addClass('select-options');
                 _pdpNavigationHeight = _pdpNavigation.height();
                 _fixedNavHeight = _navHeight;
 
-                var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
+                _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
                 $('html, body').stop().animate({
                     scrollTop: _scrollTopPixels
                 }, 1000);
@@ -9801,7 +9799,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _initServicesMenuBarFollow = function() {
         _servicesLink = $('#services-navigation ul > li > a');
 
-        if (_servicesLink.length == 0) {
+        if (_servicesLink.length === 0) {
             _servicesNavigation.remove();
             _servicesMenuActive = false;
         }
@@ -9854,19 +9852,19 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         var _fixedHeights = _fixedNavHeight + _servicesNavigationHeight + 7;
 
-        var i = _servicesMenuPos.length - 1;
-        for (; i >= 0; i--) {
-            if (_windowPos + _fixedHeights >= _servicesMenuPos[i]) {
+        var j = _servicesMenuPos.length - 1;
+        for (; j >= 0; j--) {
+            if (_windowPos + _fixedHeights >= _servicesMenuPos[j]) {
 
                 if (INFORMA.global.device.isDesktop) {
-                    _servicesMenuFollower.css('width', _servicesMenuWidth[i]);
-                    _servicesMenuFollower.css('left', _servicesMenuleft[i]);
+                    _servicesMenuFollower.css('width', _servicesMenuWidth[j]);
+                    _servicesMenuFollower.css('left', _servicesMenuleft[j]);
                 } else {
                     $('#services-navigation li').removeClass('selected');
                     $('#services-navigation li').removeClass('select-options');
-                    $($('#services-navigation li')[i]).addClass('selected');
+                    $($('#services-navigation li')[j]).addClass('selected');
                 }
-                i = -1;
+                j = -1;
             }
         }
     };
@@ -9874,12 +9872,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _servicesNavigationScrollTo = function() {
         _servicesLink.on('click', function(e) {
             e.preventDefault();
-            var _fixedNavHeight;
+            var _fixedNavHeight, _target, _scrollTopPixels;
 
             if (!INFORMA.global.device.isDesktop) {
 
                 if (_expandedServicesNav) {
-                    var _target = $(this).data('target');
+                    _target = $(this).data('target');
 
                     $('#services-navigation li').removeClass('selected');
                     $('#services-navigation li').removeClass('select-options');
@@ -9890,7 +9888,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     _servicesNavigationHeight = _servicesNavigation.height();
                     _fixedNavHeight = _navHeightMobile;
 
-                    var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
+                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
                     $('html, body').stop().animate({
                         scrollTop: _scrollTopPixels
                     }, 1000);
@@ -9902,13 +9900,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 }
 
             } else {
-                var _target = $(this).data('target');
+                _target = $(this).data('target');
                 $('#services-navigation li').removeClass('selected');
                 $('#services-navigation li').addClass('select-options');
                 _servicesNavigationHeight = _servicesNavigation.height();
                 _fixedNavHeight = _navHeight;
 
-                var _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
+                _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
                 $('html, body').stop().animate({
                     scrollTop: _scrollTopPixels
                 }, 1000);
@@ -10046,14 +10044,14 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     _pdpsectionSubnavigationInit = function(){
       $('#pdp-sections ul li').each(function(){
        var idname = '#' + $(this).find('a').data("target");
-       if($(idname).length == 0) {
+       if($(idname).length === 0) {
           $(this).remove();
        }
       });
     }
     _selectDocClickEvents=function(){
       $(document).on('touchstart',function(event) {
-        if(event.target.class != 'selectMenu' && !$('.selectMenu').find(event.target).length){
+        if(event.target.class !== 'selectMenu' && !$('.selectMenu').find(event.target).length){
            $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
         }
        });
@@ -10074,7 +10072,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
       $('.pdp-item-id').each(function() {
           var _Id = $(this).attr("id");
           for(var i = 0; i < _ArrayOfPdpElements.length; i++) {
-              if(_ArrayOfPdpElements[i].Target == _Id) {
+              if(_ArrayOfPdpElements[i].Target === _Id) {
                   Html += '<li><a href="#" data-target="' +_ArrayOfPdpElements[i].Target+ '"><span>' +_ArrayOfPdpElements[i].Name+ '</span></a></li>';
               }
           }
@@ -10084,13 +10082,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     init = function() {
         if(_mainNavLink.length > 0){
             if(INFORMA.global.device.isMobile || INFORMA.global.device.isTablet){
-                if(_mainNavLink.length == 1){
+                if(_mainNavLink.length === 1){
                     $(_mainNavLink).addClass('one')
                 }
-                else if(_mainNavLink.length == 3){
+                else if(_mainNavLink.length === 3){
                     $(_mainNavLink).addClass('three')
                 }
-                else if(_mainNavLink.length == 4){
+                else if(_mainNavLink.length === 4){
                     $(_mainNavLink).addClass('four')
                 }
                 else{
@@ -10165,14 +10163,14 @@ Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
   var operator = options.hash.operator || "==";
 
   var operators = {
-    '==':		function(l,r) { return l == r; },
+    '==':		function(l,r) { return l === r; },
     '===':	function(l,r) { return l === r; },
-    '!=':		function(l,r) { return l != r; },
+    '!=':		function(l,r) { return l !== r; },
     '<':		function(l,r) { return l < r; },
     '>':		function(l,r) { return l > r; },
     '<=':		function(l,r) { return l <= r; },
     '>=':		function(l,r) { return l >= r; },
-    'typeof':	function(l,r) { return typeof l == r; }
+    'typeof':	function(l,r) { return typeof l === r; }
   }
 
   if (!operators[operator])
@@ -10293,7 +10291,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             _dots = Boolean(container.data('dots')),
             _rtl;
 
-            if(container.data('rtl') != undefined) {
+            if(container.data('rtl') !== undefined) {
               _rtl = container.data('rtl');
             }
 
@@ -10328,7 +10326,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 
                 _urlType = $(this).attr('data-videotype');
 
-                if (_urlType == "youtube") {
+                if (_urlType === "youtube") {
 
                     _youTubeId = $(this).attr('data-videoid');
                     _youTubeSound = $(this).attr('data-videosound');
@@ -10344,7 +10342,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     var node = ytTag.parentNode.insertBefore(scriptTag, ytTag.nextSibling);
                     $(this).append(node);
 
-                } else if (_urlType == "vimeo") {
+                } else if (_urlType === "vimeo") {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
                     _vimeoUrl = $(this).attr('data-videourl')
                     _vimeoId = $(this).attr('data-videoid');
@@ -10361,16 +10359,16 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     };
                     vimeoPlayer = new Vimeo.Player(id, options);
                     vimeoPlayers.push(vimeoPlayer);
-                    if (INFORMA.global.device.viewportN == 2 ) {
+                    if (INFORMA.global.device.viewportN === 2 ) {
                       $('.videoBG_wrapper').css('height', '80%');
                       $('.block-centered').css('transform','translateY(-40%)');
                     }
-                    if (INFORMA.global.device.viewportN == 1) {
+                    if (INFORMA.global.device.viewportN === 1) {
                       $('section.hero-banner').addClass('vimeo-video-banner');
                       $('.videoBG_wrapper').css('height', '80%');
                       $('.block-centered').css('transform','translateY(-25%)');
                     }
-                } else if (_urlType == "wistia") {
+                } else if (_urlType === "wistia") {
 
                     _wistiaUrl = $(this).attr('data-videourl')
                     _wistiaId = $(this).attr('data-videoid');
@@ -10382,12 +10380,12 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     iframeWSElement.name = "wistia_embed";
                     iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
                     $(this).append(iframeWSElement);
-                    var id = document.getElementById('wistiaEmbed'+i);
-                    var options = {
+                    //var id = document.getElementById('wistiaEmbed'+i);
+                    var wistiaOptions = {
                       id: _wistiaId
                     };
-                    wistiaPlayers.push(options);
-                    if (INFORMA.global.device.viewportN == 1 || INFORMA.global.device.viewportN == 2 ) {
+                    wistiaPlayers.push(wistiaOptions);
+                    if (INFORMA.global.device.viewportN === 1 || INFORMA.global.device.viewportN === 2 ) {
                         var playButton = $(".videoBG_wrapper");
                         if(playButton.length > 0 ){
                           playButton.on("click", function() {
@@ -10407,7 +10405,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 var _iFrameElement = $('.hero-banner-carousel .slick-slide .videoBG');
                 _iFrameElement.each(function(i, e) {
                     _urlType = $(this).attr('data-videotype');
-                    if (_urlType == "youtube") {
+                    if (_urlType === "youtube") {
                         _youTubeId = $(this).attr('data-videoid');
                         _youTubeSound = $(this).attr('data-videosound');
                         var id = document.getElementById('youtubePlayer'+i);
@@ -10437,7 +10435,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         player.pause();
                         player.setVolume(_vimeoSound);
                         vimeoCount++;
-                        if(vimeoPlayers.length == vimeoCount) {
+                        if(vimeoPlayers.length === vimeoCount) {
                             $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
                             setTimeout(function(){
                                 _heroBannerList.find('.hero-items.slick-active .videoBG iframe').css('display','block');
@@ -10465,13 +10463,13 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         }
 
         function onCarouselYTPlayerReady(event) {
-            if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+            if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
                 setTimeout(function(){
                     event.target.pauseVideo();
                     event.target.setVolume(_youTubeSound);
                 },10)
                 playCount++;
-                if(ytPlayers.length == playCount) {
+                if(ytPlayers.length === playCount) {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
                         if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='youtube') {
                             var ytubeId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe')[0].id;
@@ -10488,7 +10486,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         }
        
        _heroBannerList.on('afterChange', function(event, slick, currentSlide, nextSlide){
-            if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+            if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
                 var video = slick.$slides[currentSlide].getElementsByClassName('videoBG'),
                    _urlType = $(event.target).find('.slick-active .videoBG').attr('data-videotype');
                 if(video.length > 0){
@@ -10504,9 +10502,9 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     else if(_urlType === 'vimeo'){
                         _pauseAllVideos();
                         var VimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent()[0].id
-                        for(var i=0; i<vimeoPlayers.length;i++){
-                            if(vimeoPlayers[i].element.parentElement.id === VimeoId){
-                                vimeoPlayers[i].play();
+                        for(var j=0; j<vimeoPlayers.length;j++){
+                            if(vimeoPlayers[j].element.parentElement.id === VimeoId){
+                                vimeoPlayers[j].play();
                             }
                         } 
                     }
@@ -10520,8 +10518,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             for(var i=0; i<ytPlayers.length; i++){
                 ytPlayers[i].pauseVideo();
             }    
-            for(var i =0; i<vimeoPlayers.length; i++){
-                vimeoPlayers[i].pause();
+            for(var j =0; j<vimeoPlayers.length; j++){
+                vimeoPlayers[j].pause();
             }
         },
 
@@ -10559,7 +10557,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
            
             if (_heroBannerList.length > 0) {
                 _createSlider(_heroBannerList);
-                if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
+                if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
                     if($('.hero-banner-carousel .videoBG').length>0){
                         $('.hero-banner-carousel .slick-next, .hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
                     }
@@ -10655,7 +10653,7 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             _dots = Boolean(container.data('pagination')),
             _rtl;
 
-            if(container.data('rtl') != undefined) {
+            if(container.data('rtl') !== undefined) {
                 _rtl = container.data('rtl');
             }
             //chk for sitecore preview
@@ -10666,10 +10664,10 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             //     _autoplay = false;
             //     _infinite = false;
             // }
-            if(INFORMA.global.device.viewportN == 1){
+            if(INFORMA.global.device.viewportN === 1){
                   _slideCount = 2;
             }
-            else if (INFORMA.global.device.viewportN == 2){
+            else if (INFORMA.global.device.viewportN === 2){
                   _slideCount = 1;
                   _dots = true;
             }
@@ -10743,9 +10741,9 @@ INFORMA.analystList = (function(window, $, namespace) {
             var _vp = INFORMA.global.device.viewportN,
                 VisibleItem = $(this).parents('section').find('.analyst-list-container:visible');
 
-            if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
+            if(_vp === 2) {// This is mobile, toggle everything except first twbs-font-path
                 _vp = 2; //to emulate nth-child(n+3)
-            } else if(_vp == 3) {
+            } else if(_vp === 3) {
                 _vp = 3;
             }
             else {
@@ -10884,7 +10882,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
            _dots = Boolean(container.data('dots')),
            _rtl;
 
-          if(container.data('rtl') != undefined) {
+          if(container.data('rtl') !== undefined) {
               _rtl = container.data('rtl');
           }
 
@@ -11312,7 +11310,7 @@ INFORMA.ProductRefine = (function(window, $, namespace) {
     DropDownEvents = function () {
         var _vp = INFORMA.global.device.viewport;
 
-        if(_vp != "desktop") {
+        if(_vp !== "desktop") {
             RefineHeading.on('click', function () {
                 $(this).parents('.refine-wrapper').find('.accordian-container').slideToggle();
                 $(this).toggleClass('open');
@@ -11552,7 +11550,7 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         if(RecomendedTab.length > 0) {
             var Viewport = INFORMA.global.device.viewport;
 
-            if(Viewport == "mobile") {
+            if(Viewport === "mobile") {
                 SmallDeviceFunction(RecomendedTab);
             } else {
                 LargeDeviceFunction(RecomendedTab);
@@ -12133,7 +12131,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                     }
 
                 });
-                if(Data.Brand == undefined) {
+                if(Data.Brand === undefined) {
                     Data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null
                 } else {
                     Data.Brand.push($('input[name="Brand"]').val());
@@ -12142,10 +12140,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             }
         },
         DoRefine = function() {
+            var ProductData;
             if (SearchType === "ResourceResult") {
-                var ProductData = INFORMA.ResourceFilter.GetResourceData();
+                ProductData = INFORMA.ResourceFilter.GetResourceData();
             } else {
-                var ProductData = INFORMA.ProductFinder.GetProductData();
+                ProductData = INFORMA.ProductFinder.GetProductData();
             } 
             var FilterData = GetSelectedFilter(),
                 DefaultData = INFORMA.SearchResults.DefaultParameters(),
@@ -12268,13 +12267,14 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
             ShowMoreLinks.on("click", function(e) {
                 e.preventDefault();
+                var text;
                 if($(this).hasClass("SeeLess")!==true){
-                    var text = $(this).data("lesstext");
+                    text = $(this).data("lesstext");
                     $(this).parent().find("ul li").removeClass("hidden");
                     $(this).addClass("SeeLess");
                     $(this).text(text);
                 }else{
-                    var text = $(this).data("moretext"),
+                    text = $(this).data("moretext"),
                         defaultCount = $(this).parent().data('defaultcount'),
                         listItem = $(this).parent().find("li");
                         $(this).removeClass("SeeLess");
