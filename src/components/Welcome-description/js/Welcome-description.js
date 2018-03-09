@@ -15,13 +15,11 @@ var INFORMA = window.INFORMA || {};
 INFORMA.welcome_description= (function(window, $, namespace) {
     'use strict';
     //variables
-    var _welcomedescription = $('.welcome-description'),
+    //var _welcomedescription = $('.welcome-description'),
         // _tooltip = _welcomedescription.find('.anonymous,.registered'),
     // methods
-        init,
-        _closeTip,
+      var  init,
         _closeTip = function(){
-          var closetip = $('#closetip');
            $('#closetip').on('click', function(){
 		            $('.tool').remove();
 		        });

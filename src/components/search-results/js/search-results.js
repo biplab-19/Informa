@@ -16,13 +16,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
     //Default variables and cached html elements
     var Templates = INFORMA.Templates,
         Config = INFORMA.Configs,
-        PageSize = parseInt(Config.searchResult.pageSize),
         Urls = INFORMA.Configs.urls.webservices,
-        Utils = INFORMA.Utils,
         SearchType = '',
         SearchContent = $(".search-container"),
         ProductFinderSection = $('#product-finder-section'),
-        Data = {},
         ShowMoreLink = SearchContent.find(".btn-showMore"),
         SearchHidden = $("input.search-hidden"),
         SectorHidden = $("input.sector-list"),
@@ -33,7 +30,6 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SeeAllButton = SearchContent.find(".see-all"),
         IsShowFlag = false,
         PageNo = 2,
-        SortValue = null,
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
@@ -120,10 +116,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
         }
         GetSortValue = function(value) {
-            SortValue = (value) ? value : SortDropDown.val();
 
             SortDropDown.on("change", function(e) {
-                SortValue = $(this).find("option:selected").val();
 
                 var ProdData, FilterData, Data, DefaultData;
                 if (SearchType === "ResourceResult") {
@@ -144,8 +138,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         SetSearchState = function(sVal) {
             //if (sVal) {
-                var SearchField = $(".site-search input[type=text]"),
-                    SearchSubmitBtn = $(".site-search li.button");
+                /* unused variable SearchField removed */
+                var SearchSubmitBtn = $(".site-search li.button");
 
                 //SearchField.val(sVal);
                 SearchSubmitBtn.removeClass("disabled");
@@ -168,7 +162,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             var SectorArray = SecValue.split(","),
                 SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
                 SectorIDs = 'SectorIDs=' + SecValue,
-                SubmitBtn = ProductFinderSection.find(".sector-search li.button"),
+                /* unused variable SubmitBtn removed */
                 SubSectorSelect = ProductFinderSection.find("select.SubSector");
 
             ProductFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
@@ -321,8 +315,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
             ShowMoreLink.off("click").on("click", function(e) {
                 e.preventDefault();
-                var Section = $(this).parents(".product-results").eq(0),
-                    ProdData = INFORMA.ResourceFilter.GetResourceData(),
+                var ProdData = INFORMA.ResourceFilter.GetResourceData(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                     DefaultData = GetDefaultValues(),
                     Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
@@ -395,7 +388,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 var getSelectedCheckBoxID = $("input.UnFilterCheckbox").val();
                 if(getSelectedCheckBoxID!==undefined){
                     var getCheckBox = jQuery("#"+getSelectedCheckBoxID);
-                    if(typeof getCheckBox!==undefined){
+                    if(typeof getCheckBox != undefined){
                         getCheckBox.removeAttr("disabled");
                         getCheckBox.prop("checked","checked");
                     }
@@ -443,13 +436,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
         },
         CreateSubItems = function(Data, Button, RemainingCount) {
-            var FinalHTml = '',
-                Title, ShowMoreText;
+            var Title;
             var Results = Data[0],
                 TemplateName, ListTemplate, Html = '',
                 ContentType,
                 Lists = Results.Results;
-            ShowMoreText = (Results.ShowMoreText) ? Results.ShowMoreText : "";
+            /* unused ShowMoreText variable removed */
             if (Lists) {
                 for (var j = 0; j < Lists.length; j++) {
                     if (Lists[j].Category) {

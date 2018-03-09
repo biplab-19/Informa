@@ -11,23 +11,13 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         _wistiaId,
         _vimeoId,
         _wistiaUrl,
-        _vimeoUrl,
-        ytPlayer,
         _youTubeSound,
         _wistiaSound,
         _vimeoSound,
         _addOptions,
-        _setHeroVideoHeight,
         _heroBannerList = $('.hero-banner-carousel .slider-component');
-    _setHeroVideoHeight = function(){
-      var videoBGContainer = $('.hero-banner').find('.videoBG');
-      if(videoBGContainer.length > 0){
-        $('.hero-banner').addClass('hero-banner-video');
-      }else{
-        $('.hero-banner').removeClass('hero-banner-video');
-      }
+        /* unused _setHeroVideoHeight function removed */
 
-    }
     _addOptions = function() {
         
         //$('.videoBG_wrapper').parent().css( "height", "auto" );
@@ -52,7 +42,6 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
             } else if (_urlType == "vimeo") {
 
-                _vimeoUrl = $(this).attr('data-videourl')
                 _vimeoId = $(this).attr('data-videoid');
                 _vimeoSound = $(this).attr('data-videosound');
 
@@ -108,7 +97,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
     if(_heroBannerList.length == 0){
    window.onYouTubeIframeAPIReady = function() {
-        ytPlayer = new YT.Player('youtubePlayer', {
+      var ytPlayer = new YT.Player('youtubePlayer', {
             videoId: _youTubeId,
             playerVars: {
                 'modestbranding': 0,

@@ -20,17 +20,15 @@ INFORMA.news_flash = (function(window, $, namespace) {
         init,
         _closeNews,
         _createSlider;
-        _closeNews = function(){
-          var closenews = $('#close-news');
 
+        _closeNews = function(){
            $('#close-news').on('click', function(){
 		            $('.newsFlash').remove();
 		        });
         }
         _createSlider = function(container){
             // if data-items, data-infinite is defined, used it
-            var _slideCount = 1,
-                _autoplay = container.data('autorotate'),
+            var _autoplay = container.data('autorotate'),
                 _speed = container.data('transitionspeed'), // speed of transition
                 _duration = container.data('slideduration'), // how long the slider will be displayed
                 _infinite = true,

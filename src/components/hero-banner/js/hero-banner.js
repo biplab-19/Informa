@@ -29,7 +29,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _wistiaId,
         _vimeoId,
         _wistiaUrl,
-        _vimeoUrl,
         ytPlayer,
         _youTubeSound,
         _wistiaSound,
@@ -69,7 +68,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             }
             if(_rtl === true && _autoplay === true) {
                 container.on('init', function() {
-                    var $slickList = container.find('.slick-list');
                     window.setInterval(function() {
                         container.slick('slickPrev');
                     }, _duration);
@@ -82,7 +80,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                slidesToShow: _slideCount,
                slidesToScroll: _slideCount,
                speed: _speed,
-               dots: (_dots!==null || _dots!==undefined) ? _dots : true,
+               dots: (_dots != null || _dots != undefined) ? _dots : true,
                swipe: INFORMA.global.device.isDesktop ? false : true
            });
         };
@@ -112,7 +110,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
 
                 } else if (_urlType == "vimeo") {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
-                    _vimeoUrl = $(this).attr('data-videourl')
                     _vimeoId = $(this).attr('data-videoid');
                     _vimeoSound = $(this).attr('data-videosound');
 
@@ -148,7 +145,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     iframeWSElement.name = "wistia_embed";
                     iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
                     $(this).append(iframeWSElement);
-                    var id = document.getElementById('wistiaEmbed'+i);
                     var options = {
                       id: _wistiaId
                     };

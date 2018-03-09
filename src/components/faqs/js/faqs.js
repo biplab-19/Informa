@@ -5,7 +5,6 @@ INFORMA.FAQs = (function (window, $, namespace) {
     var FaqMoreBtn = $('.btn-faq-more'),
         pageNo = 0,
         AccordianWrapper = $('.accordian-structure'),
-        PanelWrapper = AccordianWrapper.find('.panel-group'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
     //methods
