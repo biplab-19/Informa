@@ -303,7 +303,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     };
 
     _activatePdpFixedHeader = function() {
-        var _windowPos = $(window).scrollTop(),
+        var _windowPos = $(window).scrollTop();
 
         if (_pdpFirst) {
             _initialPdpHdrPos = _pdpNavigation.offset().top;
