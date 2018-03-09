@@ -1,4 +1,4 @@
-/*! 2018-02-06 *//*
+/*! 2018-02-27 *//*
  * google-analytics.js
  *
  *
@@ -5493,7 +5493,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
 
     init = function() {
         if (_AnalystEventLists.length > 0) {
-            EqualHeight();
+            // EqualHeight();
             ShowMore();
             UnbindEvent();
             disabledEvent();
@@ -6380,7 +6380,7 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     init = function() {
         if (_contactUs.length > 0) {
             _openAccordian(_contactUs);
-             _equalHeight();
+             // _equalHeight();
              _marginBottomWrapperCta();
         }
     };
@@ -7587,7 +7587,7 @@ INFORMA.featureList = (function(window, $, namespace) {
                 _hideList(_featureListSection);
             }
             _bindShowMore();
-            _equalHeight();
+            // _equalHeight();
             _bindShowLess();
         }
     };
@@ -13130,9 +13130,9 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
             _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
             _bindShowLess();
-            $(window).on('load', function() {
-                equalHeight();
-            });
+            // $(window).on('load', function() {
+            //     equalHeight();
+            // });
         }
     };
 

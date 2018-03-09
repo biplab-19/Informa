@@ -104,9 +104,9 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
             _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
             _bindShowLess();
-            $(window).on('load', function() {
-                equalHeight();
-            });
+            // $(window).on('load', function() {
+            //     equalHeight();
+            // });
         }
     };
 

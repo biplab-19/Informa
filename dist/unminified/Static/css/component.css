@@ -1,4 +1,4 @@
-/*! 2018-03-06 */@charset "UTF-8";
+/*! 2018-02-27 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -1676,6 +1676,15 @@ section#agri-report .agri-report-wrapper .orange-bd {
     word-wrap: break-word;
   }
 }
+/* line 19, ../../../src/components/home-contactus/sass/_contactus.scss */
+.contactus-list .panel-group {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+}
 @media (max-width: 767px) {
   /* line 19, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-group {
@@ -1684,18 +1693,18 @@ section#agri-report .agri-report-wrapper .orange-bd {
   }
 }
 @media (min-width: 768px) {
-  /* line 26, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 32, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-heading {
     pointer-events: none;
   }
-  /* line 28, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 34, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-heading h4 {
     color: #444957;
     margin: 0;
   }
 }
 @media (min-width: 768px) and (min-width: 768px) and (max-width: 1141px) {
-  /* line 28, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 34, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-heading h4 {
     font-size: 22px;
     width: 80%;
@@ -1703,19 +1712,19 @@ section#agri-report .agri-report-wrapper .orange-bd {
   }
 }
 @media (min-width: 768px) {
-  /* line 36, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 42, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-heading h4 img {
     max-width: 30px;
     max-height: 30px;
     margin-right: 15px;
     float: left;
   }
-  /* line 44, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 50, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-group {
     margin: 0 -1.25%;
     padding-bottom: 29px;
   }
-  /* line 47, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 53, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-group:after {
     content: " ";
     clear: both;
@@ -1723,13 +1732,13 @@ section#agri-report .agri-report-wrapper .orange-bd {
   }
 }
 @media (min-width: 768px) and (min-width: 768px) and (max-width: 1141px) {
-  /* line 44, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 50, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-group {
     padding-bottom: 19px;
   }
 }
 @media (min-width: 768px) {
-  /* line 56, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 62, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-group .panel {
     overflow: hidden;
     float: left;
@@ -1740,45 +1749,45 @@ section#agri-report .agri-report-wrapper .orange-bd {
   }
 }
 @media (min-width: 768px) and (min-width: 768px) and (max-width: 1141px) {
-  /* line 56, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 62, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-group .panel {
     width: 30.5%;
   }
 }
 @media (min-width: 768px) {
-  /* line 69, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 75, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel-group .panel-heading + .panel-collapse > .panel-body {
     border: none;
   }
-  /* line 72, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 78, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .accordion-toggle.collapsed:after,
   .contactus-list .accordion-toggle:after {
     display: none;
   }
 }
-/* line 77, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 83, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .white-color {
   color: #fff;
 }
-/* line 83, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 89, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .contactus-sub-header {
   padding-bottom: 30px;
   margin-top: -5px;
 }
-/* line 87, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 93, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .contactus-header-desc {
   margin: 0;
   padding-bottom: 30px;
 }
-/* line 91, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 97, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .contactus-header-normal {
   font-family: "Fsme";
 }
-/* line 94, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 100, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .accordion-toggle {
   position: relative;
 }
-/* line 97, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 103, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .accordion-toggle:after {
   font-family: 'InformaIcons' !important;
   content: "\e913";
@@ -1790,18 +1799,18 @@ section#agri-report .agri-report-wrapper .orange-bd {
   color: #fff;
   transform: translateY(-50%);
 }
-/* line 108, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 114, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .accordion-toggle.collapsed:after {
   content: "\e912";
   right: 15px;
   font-size: 35px;
   color: #888e9f;
 }
-/* line 114, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 120, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel {
   position: relative;
 }
-/* line 117, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 123, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-heading {
   padding: 25px 20px;
   background-color: #e1e3e7;
@@ -1809,82 +1818,82 @@ section#agri-report .agri-report-wrapper .orange-bd {
   display: block;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 117, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 123, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-heading {
     padding: 25px 15px;
   }
 }
 @media (max-width: 767px) {
-  /* line 117, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 123, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-heading {
     padding: 25px 15px;
   }
 }
-/* line 129, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 135, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body {
   padding: 25px 20px;
   .phone-number: nth-of-type(1);
   .phone-number-padding-top: 0px !important;
 }
-/* line 134, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 140, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body p {
   word-break: break-word;
 }
-/* line 137, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 143, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number {
   padding-top: 13px;
   font-size: 32px;
 }
-/* line 140, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 146, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number p {
   font-size: 17px;
   margin-bottom: 0px !important;
 }
-/* line 147, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 153, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number a {
   font-size: 20px;
   text-decoration: none;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 147, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 153, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .phone-number a {
     font-size: 26px;
   }
 }
 @media (max-width: 767px) {
-  /* line 137, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 143, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .phone-number {
     padding-top: 0;
   }
 }
-/* line 158, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 164, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body a {
   font-size: 14px;
   text-decoration: none;
 }
-/* line 162, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 168, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-number {
   font-size: 18px;
 }
 @media (max-width: 767px) {
-  /* line 162, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 168, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-number {
     display: none;
   }
 }
-/* line 169, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 175, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-cta {
   min-height: 90px;
   margin-bottom: 100px;
 }
 @media (max-width: 767px) {
-  /* line 169, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 175, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-cta {
     min-height: auto;
     margin-bottom: 15px;
   }
 }
-/* line 177, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 183, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .subscribe-link {
   width: 100%;
   background: #ef7c00 url(/Static/images/subscribe/subscribe.png) no-repeat 8px 50%;
@@ -1893,28 +1902,28 @@ section#agri-report .agri-report-wrapper .orange-bd {
   min-width: 222px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 177, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 183, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .subscribe-link {
     min-width: auto;
   }
 }
-/* line 185, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 191, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .subscribe-link:hover {
   border: none;
 }
-/* line 190, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 196, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with {
   padding: 15px 0;
   font-size: 12px;
   display: table;
 }
-/* line 194, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 200, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with .copy {
   display: table-cell;
   vertical-align: middle;
   width: 50px;
 }
-/* line 199, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 205, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment {
   padding-right: 10px;
   height: 34px;
@@ -1922,27 +1931,27 @@ section#agri-report .agri-report-wrapper .orange-bd {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 205, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 211, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.amex {
   background: url(/Static/images/subscribe/amex.svg) no-repeat -25px center;
   background-size: auto 100%;
 }
-/* line 209, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 215, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.visa {
   background: url(/Static/images/subscribe/visa.svg) no-repeat center;
 }
-/* line 212, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 218, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.mastercard {
   background: url(/Static/images/subscribe/MasterCard.svg) no-repeat center;
   background-size: 155% 100%;
 }
 @media (max-width: 767px) {
-  /* line 190, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 196, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .pay-with {
     padding: 10px 0;
   }
 }
-/* line 222, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 228, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container select.subscribe-options {
   width: 100%;
   font-size: 13px;
@@ -1954,7 +1963,7 @@ section#agri-report .agri-report-wrapper .orange-bd {
   -o-appearance: none;
   background: #e1e3e7 url(/Static/images/subscribe/drop-down.png) no-repeat 95% 50%;
 }
-/* line 233, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 239, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container:last-child {
   width: 100%;
   padding: 15px 20px 25px;
@@ -1963,48 +1972,48 @@ section#agri-report .agri-report-wrapper .orange-bd {
   left: 0;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 233, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 239, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container:last-child {
     padding: 15px 15px 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 233, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 239, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container:last-child {
     position: static;
     padding: 20px 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 221, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 227, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container {
     position: relative;
     padding: 0px;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 129, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 135, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body {
     padding: 20px 15px;
   }
 }
 @media (max-width: 767px) {
-  /* line 129, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 135, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body {
     padding: 20px 15px;
   }
 }
-/* line 259, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 265, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .icon {
   padding-right: 8px;
 }
-/* line 263, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 269, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .clear-fix {
   clear: both;
 }
 
 @media (min-width: 1142px) {
-  /* line 269, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 275, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section .contactus-list .panel-group .panel:before {
     content: '';
     width: 100%;
@@ -2015,30 +2024,30 @@ section#agri-report .agri-report-wrapper .orange-bd {
     z-index: 2;
   }
 }
-/* line 281, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 287, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a {
   color: #ef7c00;
 }
-/* line 283, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 289, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a.btn {
   color: #fff;
 }
-/* line 288, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 294, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.three .contactus-list .panel-group .panel {
   width: 31%;
 }
-/* line 293, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 299, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.four .contactus-list .panel-group .panel {
   width: 22.5%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 293, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 299, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.four .contactus-list .panel-group .panel {
     width: 30.5%;
   }
 }
 @media (max-width: 767px) {
-  /* line 302, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 308, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.three .contactus-list .panel-group .panel, #contactus-section.four .contactus-list .panel-group .panel {
     width: 100%;
   }
@@ -2660,27 +2669,37 @@ section.feature-list-section .text-right {
   }
 }
 /* line 50, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .feature-list-items,
+section.feature-list-section .feature-list-items {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+}
+/* line 58, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container,
 section.feature-list-section .feature-list-container {
   float: left;
   width: 25%;
   padding: 0 15px 15px 15px;
 }
-/* line 55, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 63, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section.feature-list-section .feature-list-container .feature-image {
   width: 80px;
   height: 80px;
   margin: 0 auto;
 }
-/* line 59, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 67, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image img,
 section.feature-list-section .feature-list-container .feature-image img {
   width: 100%;
   height: 100%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 55, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 63, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 80px;
@@ -2688,14 +2707,14 @@ section.feature-list-section .feature-list-container .feature-image img {
   }
 }
 @media (max-width: 767px) {
-  /* line 55, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 63, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 60px;
     height: 60px;
   }
 }
-/* line 72, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 80, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
 section#feature-list .feature-list-container p,
@@ -2704,14 +2723,14 @@ section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 83, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 91, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container p,
 section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
   font-size: 14px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 50, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 58, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 25%;
@@ -2719,61 +2738,61 @@ section.feature-list-section .feature-list-container p {
   }
 }
 @media (max-width: 767px) {
-  /* line 50, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 58, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 50%;
     padding: 10px 15px;
   }
-  /* line 94, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 102, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .headText,
   section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 97, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 105, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container p,
   section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 102, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 110, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore,
 section.feature-list-section .btn-showMore {
   width: 150px;
 }
-/* line 104, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 112, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:focus,
 section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 107, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 115, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.more,
 section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 110, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 118, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.less,
 section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 116, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 124, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.more,
 section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 119, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 127, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.less,
 section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 122, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 130, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore:after,
 section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e913';
 }
 @media (min-width: 1142px) {
-  /* line 128, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 136, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-showMore-container,
   section.feature-list-section .btn-showMore-container {
     padding-top: 30px;
@@ -4820,12 +4839,36 @@ nav#pdp-navigation .menuFollower {
   margin: 0;
   padding: 0;
 }
-/* line 18, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+/* line 17, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .events-container {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* line 23, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .events-container .events-wrap {
+  height: 100%;
+}
+/* line 25, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .events-container .events-wrap .footer {
+  height: 103px;
+}
+/* line 27, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .events-container .events-wrap .footer .footer-container {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 25px 20px;
+}
+/* line 38, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
 .analyst-profile-events .btn-container .btn-default {
   padding-right: 40px;
 }
 @media (max-width: 767px) {
-  /* line 18, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+  /* line 38, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
   .analyst-profile-events .btn-container .btn-default {
     width: 100%;
     min-width: auto;
@@ -5635,15 +5678,39 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   margin: 50px 0;
 }
 /* line 7, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.sectorpage-strengths .sectorpage-strenghts-list {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/* line 13, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.sectorpage-strengths .sectorpage-strenghts-list .sectorpage-strenghts-list-item {
+  background-color: white;
+  height: 100%;
+}
+/* line 16, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.sectorpage-strengths .sectorpage-strenghts-list .sectorpage-strenghts-list-item .btn-container {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+}
+/* line 21, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.sectorpage-strengths .sectorpage-strenghts-list .sectorpage-strenghts-list-item .bottom-container {
+  height: 93px;
+  display: inline-block;
+}
+/* line 27, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .main-container {
   position: relative;
 }
-/* line 13, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 33, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .main-container h3 {
   font-size: 24px;
   font-family: FSMe-light;
 }
-/* line 18, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 38, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .yellow-container {
   position: absolute;
   bottom: 0;
@@ -5651,7 +5718,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   vertical-align: middle;
   padding: 25px 20px;
 }
-/* line 27, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 47, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .text-description {
   line-height: 22px;
   background: white;
@@ -5659,19 +5726,19 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   position: relative;
   overflow: hidden;
 }
-/* line 35, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 55, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .marg1 {
   margin-bottom: 20px;
   overflow: hidden;
   float: left;
 }
 @media (max-width: 767px) {
-  /* line 35, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 55, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .sectorpage-strengths .marg1 {
     margin-bottom: 20px;
   }
 }
-/* line 43, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 63, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .slant {
   padding-top: 5%;
   position: absolute;
@@ -5680,12 +5747,12 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   width: 100%;
 }
 @media (max-width: 767px) {
-  /* line 43, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 63, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .sectorpage-strengths .slant {
     width: 104%;
   }
 }
-/* line 52, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 72, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .slant:before {
   content: "";
   position: absolute;
@@ -5696,7 +5763,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   top: 50%;
   left: -9px;
 }
-/* line 64, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 84, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .view-all-sectors-btn-container {
   display: block;
   width: 100px;
@@ -5705,31 +5772,31 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   cursor: pointer;
   margin-bottom: 25px;
 }
-/* line 72, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 92, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .view-all-sectors-btn-container .container > .row + .row > .marg1:nth-child(n+4) {
   display: none;
 }
-/* line 76, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 96, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .view-all-sectors-btn-container .informa-icon {
   font-size: 30px;
 }
-/* line 83, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 103, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .more {
   display: block;
 }
-/* line 86, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 106, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .less {
   display: none;
 }
-/* line 90, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 110, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths.showLess .more {
   display: none;
 }
-/* line 93, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 113, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths.showLess .less {
   display: block;
 }
-/* line 97, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 117, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .sectorpage-strengths .btn-container {
   padding: 15px;
   background: #fff;
