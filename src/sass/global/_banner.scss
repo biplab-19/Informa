@@ -566,6 +566,20 @@
                 font-size: 14px;
             }
         }
+        .prod-cta-btn{
+            a{
+                @include mobile{
+                    margin-left: -7.5px;
+                    margin-top: 15px;
+                }
+                @include desktop{
+                    margin-left: -15px;
+                }
+                @include tablet{
+                    margin-left: -15px;
+                }
+            }
+        }
         .share {
             font-family: FSME-bold;
             text-align: center;
