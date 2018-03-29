@@ -21,7 +21,6 @@ INFORMA.featureList = (function(window, $, namespace) {
         init,
         _hideList,
         _bindShowMore,
-        _equalHeight,
         _bindShowLess;
 
     _bindShowMore = function() {
@@ -58,29 +57,8 @@ INFORMA.featureList = (function(window, $, namespace) {
             });
         }
     }
-    _equalHeight = function() {
-        var EachView = jQuery('.feature-list-section-pharma, .feature-list-section');
-        EachView.each(function() {
-            var Items = jQuery(this).find('.feature-list-container'),
-                InnerItems = jQuery(this).find('.feature-list-container h4'),
-                _maxHeight = 0,
-                _maxInnerHeight = 0;
-            InnerItems.each(function() {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _maxInnerHeight) {
-                    _maxInnerHeight = Height;
-                }
-            })
-            InnerItems.css('height', _maxInnerHeight);
-            Items.each(function() {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _maxHeight) {
-                    _maxHeight = Height;
-                }
-            })
-            Items.css('height', _maxHeight);
-        })
-    }
+// removed equal height function;
+
 
     _bindShowLess = function () {
       var _showLess = $('.feature-list-section').find('.btn-showMore .less');
@@ -97,7 +75,7 @@ INFORMA.featureList = (function(window, $, namespace) {
                 _hideList(_featureListSection);
             }
             _bindShowMore();
-          //  _equalHeight();
+          
             _bindShowLess();
         }
     };
