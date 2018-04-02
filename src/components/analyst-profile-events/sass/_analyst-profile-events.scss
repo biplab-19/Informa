@@ -14,6 +14,21 @@
 	    margin: 0;
 	    padding: 0;
 	}
+	.events-container{
+		display: inline-flex;
+		flex-wrap: wrap;
+		.events-section, .events-wrap{
+			display: flex;
+			flex-direction: column;
+		} 
+		.events-wrap{
+			height: 100%;
+			.content-wrap{
+				flex: 1 0 auto;
+			}
+		}
+	}
+
 	.btn-container {
 		.btn-default {
 			padding-right: 40px;

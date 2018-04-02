@@ -18,9 +18,16 @@
 			    }
 			}
 		}
-    }
+	}
+	
+	.analyst-items{
+		display: flex;
+		flex-wrap: wrap;
+	}
 		
 	.analyst-list-container {
+		display: flex;
+		flex-direction: column;
 		@include mobile {
 			&:nth-child(n+2) {
 				display: none;
@@ -83,6 +90,9 @@
 	overflow: hidden;
 	background-color: $grey-color11;
 	margin-bottom:20px;
+	display: flex;
+	flex-direction: column;
+	height: calc(100% - 20px);
 	.anlyst-heading {
 		padding: 20px;
 		//background-color: $yellow;
@@ -174,6 +184,7 @@
 	}
 	.analyst-description {
 		padding: 20px;
+		flex: 1 0 auto;
 		.heading {
 			color: $text-gray;
 			font-weight: bold;
