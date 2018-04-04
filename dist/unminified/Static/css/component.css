@@ -1,4 +1,4 @@
-/*! 2018-03-09 */@charset "UTF-8";
+/*! 2018-04-04 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -1185,6 +1185,24 @@ section#hero-banner .analyst-single-image .image-margin {
   }
 }
 /* line 18, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .product-brand-list-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* line 21, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .product-brand-list-items .card-col, .product-brands-list .product-brand-list-items .card {
+  display: flex;
+  flex-direction: column;
+}
+/* line 25, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .product-brand-list-items .card {
+  height: calc(100% - 15px);
+}
+/* line 27, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+.product-brands-list .product-brand-list-items .card .caption {
+  flex: 1 0 auto;
+}
+/* line 32, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card {
   word-wrap: break-word;
   position: relative;
@@ -1193,23 +1211,23 @@ section#hero-banner .analyst-single-image .image-margin {
   margin-bottom: 15px;
   overflow: hidden;
 }
-/* line 26, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 40, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .image-thumbnail {
   overflow: hidden;
   position: relative;
 }
-/* line 30, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 44, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .image-thumbnail img {
   width: 100%;
   height: auto;
 }
 @media (max-width: 767px) {
-  /* line 26, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 40, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .card .image-thumbnail {
     height: auto;
   }
 }
-/* line 37, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 51, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .image-thumbnail:after {
   content: '';
   width: 110%;
@@ -1224,26 +1242,26 @@ section#hero-banner .analyst-single-image .image-margin {
   top: calc(100% - 20px);
   left: 0;
 }
-/* line 50, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 64, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption {
   padding: 0 15px;
   word-wrap: break-word;
   overflow: hidden;
 }
 @media (max-width: 767px) {
-  /* line 50, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 64, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .card .caption {
     height: auto;
   }
 }
-/* line 58, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 72, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption h4 {
   color: #6a7285;
   font-family: FSMe-Bold;
   margin: 0;
   padding: 20px 0;
 }
-/* line 65, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 79, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption h4::after {
   content: '';
   background: url(/Static/images/spritesheet.png) no-repeat;
@@ -1253,12 +1271,12 @@ section#hero-banner .analyst-single-image .image-margin {
   background-position: -5px -232px;
   display: inline-block;
 }
-/* line 75, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 89, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption ul {
   padding-left: 40px;
   padding-top: 20px;
 }
-/* line 79, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 93, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption li {
   list-style-type: none;
   padding-bottom: 20px;
@@ -1266,14 +1284,14 @@ section#hero-banner .analyst-single-image .image-margin {
   font-family: 'FSMe-Bold' !important;
   color: #565c6b;
 }
-/* line 85, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 99, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .caption li:before {
   position: absolute;
   left: -28px;
   font-size: 20px;
   top: -5px;
 }
-/* line 93, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 107, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore {
   min-height: 90px;
   overflow: hidden;
@@ -1281,7 +1299,7 @@ section#hero-banner .analyst-single-image .image-margin {
   padding: 15px;
   background-color: #e1e3e7;
 }
-/* line 101, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 115, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore:before {
   content: '';
   position: absolute;
@@ -1296,68 +1314,68 @@ section#hero-banner .analyst-single-image .image-margin {
   transform: rotate(-5deg);
   height: 100%;
 }
-/* line 113, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 127, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card .showmore .btn-container {
   bottom: 15px;
   float: right;
   padding-top: 45px;
 }
-/* line 120, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 134, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .view-all-mobile-container {
   display: none;
 }
-/* line 123, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 137, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading {
   padding: 0;
   text-align: right;
 }
-/* line 126, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 140, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading h2 {
   color: #fff;
   text-align: left;
 }
-/* line 130, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 144, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading .btn.btn-default {
   color: #fff;
   margin: 30px 0;
 }
 @media (max-width: 767px) {
-  /* line 130, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 144, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .card-col-heading .btn.btn-default {
     width: 100%;
   }
 }
-/* line 136, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 150, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .card-col-heading .btn.btn-default:after {
   color: #fff;
 }
-/* line 142, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 156, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .product-brands-list .show-more-btn-container .btn, .product-brands-list .btn-container .btn {
   padding-right: 40px;
   font-family: 'FSMe-Bold';
 }
 @media (max-width: 767px) {
-  /* line 148, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 162, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(1) {
     display: block;
   }
-  /* line 151, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 165, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading:nth-child(2) {
     display: block;
   }
-  /* line 154, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 168, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 157, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 171, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .container > .row > .card-col-heading {
     display: none;
   }
-  /* line 164, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 178, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .show-more-btn-container .btn {
     width: 50%;
   }
-  /* line 168, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 182, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .view-all-mobile-container {
     display: block;
     color: #fff;
@@ -1366,75 +1384,75 @@ section#hero-banner .analyst-single-image .image-margin {
     padding: 5px;
     cursor: pointer;
   }
-  /* line 177, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 191, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .informa-icon {
     font-size: 30px;
   }
-  /* line 181, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 195, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .product-brands-list .btn-container {
     width: 100%;
     margin: 0 auto;
   }
 }
 
-/* line 187, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 201, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products {
   background: #fff;
 }
-/* line 189, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 203, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .product-brands-list {
   background-color: #fff;
 }
-/* line 191, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 205, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .product-brands-list h2 {
   color: #6a7285;
 }
-/* line 195, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 209, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card {
   background: #f0f1f3;
 }
-/* line 198, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 212, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card .image-thumbnail:after {
   background-color: #f0f1f3;
 }
-/* line 203, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 217, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card .showmore:before {
   background-color: #f0f1f3;
 }
-/* line 208, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 222, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .card .caption h2::after {
   content: '';
 }
-/* line 213, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 227, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .view-all-mobile-container {
   display: none;
   color: #434854;
 }
 @media (max-width: 767px) {
-  /* line 218, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 232, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .related-products .container > .row > .card-col:nth-child(n+4) {
     display: none;
   }
-  /* line 221, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+  /* line 235, ../../../src/components/home-brand-list/sass/_brand-list.scss */
   .related-products .view-all-mobile-container {
     display: block;
   }
 }
-/* line 225, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 239, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link {
   margin: 30px auto 0;
   text-align: center;
   width: 100%;
 }
-/* line 229, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 243, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link p {
   font-size: 19px;
 }
-/* line 231, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 245, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link p a {
   font-weight: 700;
 }
-/* line 234, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 248, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 .related-products .productfinder-link p a:after {
   content: "\e900";
   font-family: 'InformaIcons';
@@ -1445,24 +1463,24 @@ section#hero-banner .analyst-single-image .image-margin {
   left: 3px;
 }
 
-/* line 248, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 262, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 a:hover {
   text-decoration: none;
 }
 
-/* line 255, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 269, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list .btn-showMore .more {
   display: block;
 }
-/* line 258, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 272, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list .btn-showMore .less {
   display: none;
 }
-/* line 264, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 278, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list.showLess .btn-showMore .more {
   display: none;
 }
-/* line 267, ../../../src/components/home-brand-list/sass/_brand-list.scss */
+/* line 281, ../../../src/components/home-brand-list/sass/_brand-list.scss */
 #dynamic-product-list.showLess .btn-showMore .less {
   display: block;
 }
@@ -1832,68 +1850,70 @@ section#agri-report .agri-report-wrapper .orange-bd {
 /* line 135, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body {
   padding: 25px 20px;
-  .phone-number: nth-of-type(1);
-  .phone-number-padding-top: 0px !important;
 }
-/* line 140, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 139, ../../../src/components/home-contactus/sass/_contactus.scss */
+.contactus-list .panel .panel-body .phone-number:nth-of-type(1) {
+  padding-top: 0px !important;
+}
+/* line 143, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body p {
   word-break: break-word;
 }
-/* line 143, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 146, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number {
   padding-top: 13px;
   font-size: 32px;
 }
-/* line 146, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 149, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number p {
   font-size: 17px;
   margin-bottom: 0px !important;
 }
-/* line 153, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 156, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .phone-number a {
   font-size: 20px;
   text-decoration: none;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 153, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 156, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .phone-number a {
     font-size: 26px;
   }
 }
 @media (max-width: 767px) {
-  /* line 143, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 146, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .phone-number {
     padding-top: 0;
   }
 }
-/* line 164, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 167, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body a {
   font-size: 14px;
   text-decoration: none;
 }
-/* line 168, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 171, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-number {
   font-size: 18px;
 }
 @media (max-width: 767px) {
-  /* line 168, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 171, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-number {
     display: none;
   }
 }
-/* line 175, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 178, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .content-wrapper-cta {
   min-height: 90px;
   margin-bottom: 100px;
 }
 @media (max-width: 767px) {
-  /* line 175, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 178, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .content-wrapper-cta {
     min-height: auto;
     margin-bottom: 15px;
   }
 }
-/* line 183, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 186, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .subscribe-link {
   width: 100%;
   background: #ef7c00 url(/Static/images/subscribe/subscribe.png) no-repeat 8px 50%;
@@ -1902,28 +1922,28 @@ section#agri-report .agri-report-wrapper .orange-bd {
   min-width: 222px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 183, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 186, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .subscribe-link {
     min-width: auto;
   }
 }
-/* line 191, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 194, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .subscribe-link:hover {
   border: none;
 }
-/* line 196, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 199, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with {
   padding: 15px 0;
   font-size: 12px;
   display: table;
 }
-/* line 200, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 203, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with .copy {
   display: table-cell;
   vertical-align: middle;
   width: 50px;
 }
-/* line 205, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 208, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment {
   padding-right: 10px;
   height: 34px;
@@ -1931,27 +1951,27 @@ section#agri-report .agri-report-wrapper .orange-bd {
   display: table-cell;
   vertical-align: middle;
 }
-/* line 211, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 214, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.amex {
   background: url(/Static/images/subscribe/amex.svg) no-repeat -25px center;
   background-size: auto 100%;
 }
-/* line 215, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 218, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.visa {
   background: url(/Static/images/subscribe/visa.svg) no-repeat center;
 }
-/* line 218, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 221, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .pay-with span.payment.mastercard {
   background: url(/Static/images/subscribe/MasterCard.svg) no-repeat center;
   background-size: 155% 100%;
 }
 @media (max-width: 767px) {
-  /* line 196, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 199, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .pay-with {
     padding: 10px 0;
   }
 }
-/* line 228, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 231, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container select.subscribe-options {
   width: 100%;
   font-size: 13px;
@@ -1963,7 +1983,7 @@ section#agri-report .agri-report-wrapper .orange-bd {
   -o-appearance: none;
   background: #e1e3e7 url(/Static/images/subscribe/drop-down.png) no-repeat 95% 50%;
 }
-/* line 239, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 242, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .panel-body .btn-container:last-child {
   width: 100%;
   padding: 15px 20px 25px;
@@ -1972,20 +1992,20 @@ section#agri-report .agri-report-wrapper .orange-bd {
   left: 0;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 239, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 242, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container:last-child {
     padding: 15px 15px 20px;
   }
 }
 @media (max-width: 767px) {
-  /* line 239, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 242, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container:last-child {
     position: static;
     padding: 20px 0;
   }
 }
 @media (max-width: 767px) {
-  /* line 227, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 230, ../../../src/components/home-contactus/sass/_contactus.scss */
   .contactus-list .panel .panel-body .btn-container {
     position: relative;
     padding: 0px;
@@ -2003,17 +2023,17 @@ section#agri-report .agri-report-wrapper .orange-bd {
     padding: 20px 15px;
   }
 }
-/* line 265, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 268, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .panel .icon {
   padding-right: 8px;
 }
-/* line 269, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 272, ../../../src/components/home-contactus/sass/_contactus.scss */
 .contactus-list .clear-fix {
   clear: both;
 }
 
 @media (min-width: 1142px) {
-  /* line 275, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 278, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section .contactus-list .panel-group .panel:before {
     content: '';
     width: 100%;
@@ -2024,30 +2044,30 @@ section#agri-report .agri-report-wrapper .orange-bd {
     z-index: 2;
   }
 }
-/* line 287, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 290, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a {
   color: #ef7c00;
 }
-/* line 289, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 292, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section a.btn {
   color: #fff;
 }
-/* line 294, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 297, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.three .contactus-list .panel-group .panel {
   width: 31%;
 }
-/* line 299, ../../../src/components/home-contactus/sass/_contactus.scss */
+/* line 302, ../../../src/components/home-contactus/sass/_contactus.scss */
 #contactus-section.four .contactus-list .panel-group .panel {
   width: 22.5%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 299, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 302, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.four .contactus-list .panel-group .panel {
     width: 30.5%;
   }
 }
 @media (max-width: 767px) {
-  /* line 308, ../../../src/components/home-contactus/sass/_contactus.scss */
+  /* line 311, ../../../src/components/home-contactus/sass/_contactus.scss */
   #contactus-section.three .contactus-list .panel-group .panel, #contactus-section.four .contactus-list .panel-group .panel {
     width: 100%;
   }
@@ -2678,28 +2698,28 @@ section.feature-list-section .feature-list-items {
   flex-wrap: wrap;
   width: 100%;
 }
-/* line 58, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 59, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container,
 section.feature-list-section .feature-list-container {
   float: left;
   width: 25%;
   padding: 0 15px 15px 15px;
 }
-/* line 63, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 64, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section.feature-list-section .feature-list-container .feature-image {
   width: 80px;
   height: 80px;
   margin: 0 auto;
 }
-/* line 67, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 68, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image img,
 section.feature-list-section .feature-list-container .feature-image img {
   width: 100%;
   height: 100%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 63, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 64, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 80px;
@@ -2707,14 +2727,14 @@ section.feature-list-section .feature-list-container .feature-image img {
   }
 }
 @media (max-width: 767px) {
-  /* line 63, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 64, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 60px;
     height: 60px;
   }
 }
-/* line 80, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 81, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
 section#feature-list .feature-list-container p,
@@ -2723,14 +2743,14 @@ section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 91, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 92, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container p,
 section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
   font-size: 14px;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 58, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 59, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 25%;
@@ -2738,61 +2758,61 @@ section.feature-list-section .feature-list-container p {
   }
 }
 @media (max-width: 767px) {
-  /* line 58, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 59, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container,
   section.feature-list-section .feature-list-container {
     width: 50%;
     padding: 10px 15px;
   }
-  /* line 102, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 103, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .headText,
   section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 105, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 106, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container p,
   section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 110, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 111, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore,
 section.feature-list-section .btn-showMore {
   width: 150px;
 }
-/* line 112, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 113, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:focus,
 section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 115, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 116, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.more,
 section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 118, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 119, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.less,
 section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 124, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 125, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.more,
 section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 127, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 128, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.less,
 section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 130, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 131, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore:after,
 section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e913';
 }
 @media (min-width: 1142px) {
-  /* line 136, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 137, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-showMore-container,
   section.feature-list-section .btn-showMore-container {
     padding-top: 30px;
@@ -4488,82 +4508,95 @@ nav#pdp-navigation .menuFollower {
 .analyst-views.showLess .btn-container .btn-showMore:after, .analyst-views .btn-plus .btn-container .btn-showMore:after {
   content: '\e913';
 }
+/* line 23, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+/* line 28, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+.analyst-views .analyst-list-container {
+  display: flex;
+  flex-direction: column;
+}
 @media (max-width: 767px) {
-  /* line 25, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 32, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .analyst-views .analyst-list-container:nth-child(n+2) {
     display: none;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 30, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 37, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .analyst-views .analyst-list-container:nth-child(n+3) {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 36, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 43, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .analyst-views .btn-container .btn-default {
     min-width: auto;
     min-width: initial;
     width: 100%;
   }
 }
-/* line 43, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 50, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn-showMore {
   min-width: 230px;
   padding-right: 40px;
 }
-/* line 46, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 53, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn-showMore .less {
   display: none;
 }
-/* line 49, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 56, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn-showMore .more {
   display: block;
 }
-/* line 53, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 60, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .analyst-views .btn-container .btn-plus {
   margin-top: 10px;
   margin-bottom: 0;
 }
 
-/* line 59, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 66, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .author-bio {
   padding-top: 50px;
   padding-bottom: 50px;
   background-color: #f6f6f7;
 }
-/* line 63, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 70, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .author-bio img {
   border-radius: 50%;
   max-width: 130px;
   max-height: 130px;
 }
-/* line 68, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 75, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .author-bio .details {
   padding-left: 20px;
 }
-/* line 70, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 77, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .author-bio .details h3 {
   font-size: 30px;
 }
-/* line 73, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 80, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .author-bio .details p {
   font-size: 14px;
   font-family: FSMe-light;
 }
-/* line 78, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 85, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .author-bio .content {
   padding-top: 20px;
 }
 
-/* line 82, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 89, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section {
   overflow: hidden;
   background-color: #f6f6f7;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 20px);
 }
-/* line 86, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 96, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading {
   padding: 20px;
   position: relative;
@@ -4572,7 +4605,7 @@ nav#pdp-navigation .menuFollower {
   transform: skewY(-4deg);
   position: relative;
 }
-/* line 95, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 105, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading:after {
   content: '';
   width: 100%;
@@ -4581,19 +4614,19 @@ nav#pdp-navigation .menuFollower {
   left: 0;
   top: -97%;
 }
-/* line 104, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 114, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-heading-content {
   -ms-transform: skewY(4deg);
   -webkit-transform: skewY(4deg);
   transform: skewY(4deg);
 }
-/* line 108, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 118, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-heading-content:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 114, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 124, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-img {
   width: 75px;
   height: 75px;
@@ -4606,7 +4639,7 @@ nav#pdp-navigation .menuFollower {
   top: 10px;
   margin-top: 20px;
 }
-/* line 123, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 133, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-img img {
   width: 100%;
   height: 100%;
@@ -4614,13 +4647,13 @@ nav#pdp-navigation .menuFollower {
   -moz-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 129, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 139, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-details {
   width: calc(100% - 85px);
   float: left;
   margin-right: 10px;
 }
-/* line 130, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 140, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-details .analyst-type {
   display: inline-block;
   padding: 3px 8px;
@@ -4631,7 +4664,7 @@ nav#pdp-navigation .menuFollower {
   margin-bottom: 10px;
   background-color: #6a7285;
 }
-/* line 143, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 153, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-details h4 {
   font-size: 22px;
   padding: 0;
@@ -4639,25 +4672,25 @@ nav#pdp-navigation .menuFollower {
   font-weight: normal;
   font-family: 'FSMe-Bold';
 }
-/* line 150, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 160, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-details h5 {
   margin: 0;
 }
-/* line 153, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 163, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-details h3 {
   color: #7f828c;
   font-size: 16px;
   margin-top: 0;
   line-height: 15px;
 }
-/* line 159, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 169, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-details .location {
   padding-left: 20px;
   position: relative;
   margin-top: 15px;
   margin-bottom: 0;
 }
-/* line 164, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 174, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .anlyst-heading .analyst-details .location:before {
   content: '\e918';
   font-family: 'InformaIcons';
@@ -4666,23 +4699,24 @@ nav#pdp-navigation .menuFollower {
   font-size: 20px;
   top: -2px;
 }
-/* line 175, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 185, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-description {
   padding: 20px;
+  flex: 1 0 auto;
 }
-/* line 177, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 188, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-description .heading {
   color: #434854;
   font-weight: bold;
   padding: 10px 0;
   margin: 0;
 }
-/* line 184, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 195, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .track-analyst {
   list-style-type: none;
   position: relative;
 }
-/* line 187, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 198, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .track-analyst:before {
   content: '\e919';
   position: absolute;
@@ -4693,26 +4727,26 @@ nav#pdp-navigation .menuFollower {
   font-size: 31px;
   font-weight: normal;
 }
-/* line 197, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 208, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .track-analyst li {
   float: left;
 }
-/* line 199, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 210, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .track-analyst li:after {
   content: '/';
   color: #444957;
   padding: 0 7px;
   font-weight: bold;
 }
-/* line 206, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 217, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .track-analyst li:last-child:after {
   content: '';
 }
-/* line 210, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 221, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .track-analyst li a {
   color: #434854;
 }
-/* line 215, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 226, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer {
   margin-top: 5px;
   padding: 25px 15px;
@@ -4723,7 +4757,7 @@ nav#pdp-navigation .menuFollower {
   transform: skewY(-5deg);
   position: relative;
 }
-/* line 224, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 235, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer:after {
   content: '';
   width: 100%;
@@ -4733,20 +4767,20 @@ nav#pdp-navigation .menuFollower {
   left: 0;
   top: 90%;
 }
-/* line 233, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 244, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .analyst-footer-content {
   -ms-transform: skewY(5deg);
   -webkit-transform: skewY(5deg);
   transform: skewY(5deg);
 }
-/* line 238, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 249, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links {
   list-style-type: none;
   padding-left: 0;
   float: left;
   margin-top: 18px;
 }
-/* line 243, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 254, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -4760,7 +4794,7 @@ nav#pdp-navigation .menuFollower {
   text-align: center;
   position: relative;
 }
-/* line 253, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 264, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a {
   vertical-align: middle;
   font-size: 18px;
@@ -4772,54 +4806,54 @@ nav#pdp-navigation .menuFollower {
   font-size: 0;
   line-height: 0;
 }
-/* line 263, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 274, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email {
   top: 15px;
   left: 15px;
 }
-/* line 266, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 277, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_linkedin_follow svg, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_twitter_follow svg, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.addthis_button_email svg, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email .at-icon-wrapper, .meet-anlyst-section .analyst-footer .nav-links li a.custom_email svg {
   height: 24px !important;
   width: 24px !important;
 }
-/* line 271, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 282, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a:active, .meet-anlyst-section .analyst-footer .nav-links li a:hover {
   outline: 0;
   border: 0;
   text-decoration: initial;
 }
-/* line 277, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 288, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a:before {
   font-size: 18px;
   line-height: 20px;
 }
-/* line 282, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 293, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li a.icon-email:visited, .meet-anlyst-section .analyst-footer .nav-links li a.icon-email:active, .meet-anlyst-section .analyst-footer .nav-links li a.icon-email:hover {
   text-decoration: none;
 }
-/* line 289, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 300, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .nav-links li:last-child {
   margin-right: 0;
 }
-/* line 294, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 305, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .full-profile {
   float: right;
   font-size: 16px;
   color: #ffd500;
 }
-/* line 299, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+/* line 310, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
 .meet-anlyst-section .analyst-footer .btn {
   min-width: 50%;
   width: auto;
 }
 @media (max-width: 767px) {
-  /* line 299, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 310, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 299, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
+  /* line 310, ../../../src/components/pdp-analyst/sass/_pdp-analyst.scss */
   .meet-anlyst-section .analyst-footer .btn {
     width: 60%;
   }
@@ -4844,27 +4878,24 @@ nav#pdp-navigation .menuFollower {
   flex-wrap: wrap;
 }
 /* line 23, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .events-container .events-section, .analyst-profile-events .events-container .events-wrap {
+  display: flex;
+  flex-direction: column;
+}
+/* line 27, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
 .analyst-profile-events .events-container .events-wrap {
   height: 100%;
 }
-/* line 25, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .events-container .events-wrap .footer {
-  height: 103px;
+/* line 29, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+.analyst-profile-events .events-container .events-wrap .content-wrap {
+  flex: 1 0 auto;
 }
-/* line 27, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
-.analyst-profile-events .events-container .events-wrap .footer .footer-container {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  padding: 25px 20px;
-}
-/* line 38, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+/* line 36, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
 .analyst-profile-events .btn-container .btn-default {
   padding-right: 40px;
 }
 @media (max-width: 767px) {
-  /* line 38, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
+  /* line 36, ../../../src/components/analyst-profile-events/sass/_analyst-profile-events.scss */
   .analyst-profile-events .btn-container .btn-default {
     width: 100%;
     min-width: auto;

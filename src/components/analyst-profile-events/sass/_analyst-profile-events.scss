@@ -15,25 +15,23 @@
 	    padding: 0;
 	}
 	.events-container{
-		 display: -webkit-inline-flex;
+        display: -webkit-inline-flex;
         display: -ms-inline-flexbox;
         display: inline-flex;
         -webkit-flex-wrap: wrap;
         flex-wrap: wrap;
+		.events-section, .events-wrap{
+			display: flex;
+			flex-direction: column;
+		} 
 		.events-wrap{
-		height: 100%;
-		.footer{
-				height: 103px;
-				.footer-container{
-					position: absolute;
-					width: 100%;
-					bottom: 0;
-					left: 0;
-					padding: 25px 20px;
-				}
-				}
+			height: 100%;
+			.content-wrap{
+				flex: 1 0 auto;
+			}
 		}
 	}
+
 	.btn-container {
 		.btn-default {
 			padding-right: 40px;
