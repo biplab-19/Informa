@@ -969,6 +969,10 @@ $desktop-width: 1142px;
                 }
             }
         }
+
+        .open .btn-primary{
+            @extend .primary-btn-hover;
+        }
         .btn-primary {
             text-align: left;
             padding-top: 15px;

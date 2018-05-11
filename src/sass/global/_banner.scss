@@ -142,7 +142,6 @@
 
 .hero-banner-texture {
     position: relative;
-    overflow: hidden;
     height: 330px;
     clear: both;
 
@@ -274,6 +273,9 @@
                     margin-bottom: 10px;
                 }
             }
+            .request-freetrial-CTA .btn{
+                margin-bottom: 0;
+            }
         }
         .from{
           width: auto;
@@ -302,6 +304,7 @@
             height: auto;
         }
         .cf-img {
+            overflow:hidden;
             position: absolute;
             right: 0;
             opacity: 0.5;
@@ -926,3 +929,88 @@ div.at4-share-outer {
         padding-left: 20px;
     }
 }
+
+.product-detail-page{
+    .request-freetrial-CTA{
+						
+        width: 100%;
+        padding: 0;
+        .custom-multiselect{
+
+            .btn-group{
+                width: 100%;
+            }		
+
+        }
+            li{
+                padding-left:0;
+            }
+            .cta2{
+                margin-left: -15px;
+                margin-bottom: 0;
+            }			
+            .multiselect-container.dropdown-menu.cta2{
+                background: #565c6b;
+                width: 110%;
+                padding-top: 0;
+            }
+            ul li{
+                margin-bottom: 0;
+                padding-left:0;
+                &:before{
+                    margin-right: 10px;
+                    font-family: "InformaIcons";
+                     content: unset; 
+                    font-size: 25px;
+                    position: absolute;
+                    left: -13px;
+                    top: -3px;
+                }
+                &:hover{
+                    label{
+                        color:#000;
+                    }
+                }
+                label{
+                    padding:5px 20px 5px 15px;
+                    color:#fff;
+                    }
+            }
+            .dropdown-menu.cta2{
+                padding:0;
+            }
+            .btn:after {
+                font-family: "InformaIcons";
+                content: "\E901";
+                right: 10px;
+            }
+        }
+        .contactus-list {
+            .request-freetrial-CTA{
+                .multiselect-container.dropdown-menu.cta2{
+                    width:100%;
+                }
+                .cta2{
+                    margin-left: 0px;
+                    width:100%;
+                }
+            }
+            .panel-group .panel{
+                overflow:inherit;
+            }
+        }
+        
+        
+} 
+.hero-cta-btn {
+    .request-freetrial-CTA { 
+        .cta2{
+          margin-left:0px;
+        }
+        .multiselect-container.dropdown-menu.cta2{
+            width:180px;
+            padding-left: 0 !important;
+        }
+    }
+}
+  
