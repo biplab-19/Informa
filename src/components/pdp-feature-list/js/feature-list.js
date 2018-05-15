@@ -94,7 +94,7 @@ INFORMA.featureList = (function(window, $, namespace) {
                 _hideList(_featureListSection);
             }
             _bindShowMore();
-          //  _equalHeight();
+            _equalHeight();
             _bindShowLess();
         }
     };

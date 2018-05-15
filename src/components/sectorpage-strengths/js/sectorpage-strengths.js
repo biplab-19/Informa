@@ -105,7 +105,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
             _bindShowMore(_sectorPageStrengths);
             _bindShowLess();
             $(window).on('load', function() {
-               // equalHeight();
+                equalHeight();
             });
         }
     };
