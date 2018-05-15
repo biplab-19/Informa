@@ -26,7 +26,7 @@ INFORMA.brandList = (function(window, $, namespace) {
         captionItems.each(function() {
             var height = jQuery(this).height();
             if(height > maxHeight) {
-                maxHeight = height; 
+                maxHeight = height;
             }
         })
         if(INFORMA.global.device.viewportN != 2) {
@@ -52,7 +52,7 @@ INFORMA.brandList = (function(window, $, namespace) {
 
     init = function() {
         if (_brandList.length > 0) {
-           // _equalHeight(_brandList);
+            _equalHeight(_brandList);
             _bindShowMore(_brandList);
         }
     };
@@ -90,7 +90,7 @@ INFORMA.brandList = (function(window, $, namespace) {
 
     init = function () {
         if(DynamicBrandList.length > 0) {
-           // _equalHeight(DynamicBrandList);
+            _equalHeight(DynamicBrandList);
         }
     }
 
