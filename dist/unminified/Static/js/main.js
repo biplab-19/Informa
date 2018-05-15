@@ -1,4 +1,4 @@
-/*! 2018-04-04 *//*
+/*! 2018-05-15 *//*
  * google-analytics.js
  *
  *
@@ -5449,6 +5449,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         ShowMoreBtn = _AnalystEventLists.find('.btn-more-events'),
         // methods
         init,
+        EqualHeight,
         ShowMore,
         UnbindEvent,
         disabledEvent;
@@ -5467,7 +5468,19 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
             })
         },
 
-// removed equal height function;
+        EqualHeight = function(){
+               var highestBox = 0,
+                EachItem = List.find(".content-wrap"),
+                padding = 0;
+
+                jQuery('section[data-view="list-view"]').show();
+              EachItem.each(function(){
+                      if(jQuery(this).height() > highestBox){
+                      highestBox = jQuery(this).height();
+                    }
+              });
+              EachItem.height(highestBox + padding);
+        },
 
         ShowMore = function () {
             ShowMoreBtn.on('click', function () {
@@ -5478,6 +5491,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
 
     init = function() {
         if (_AnalystEventLists.length > 0) {
+            EqualHeight();
             ShowMore();
             UnbindEvent();
             disabledEvent();
@@ -6172,9 +6186,24 @@ INFORMA.brandList = (function(window, $, namespace) {
     var _brandList = $('#product-brands-list-section, #related-products-section'),
     // methods
         init,
-        _bindShowMore;
+        _bindShowMore,
+        _equalHeight;
+    _equalHeight = function(container) {
+        var captionItems = container.find('.caption'),
+            maxHeight = 0;
 
-        // removed equal height function;
+        captionItems.each(function() {
+            var height = jQuery(this).height();
+            if(height > maxHeight) {
+                maxHeight = height;
+            }
+        })
+        if(INFORMA.global.device.viewportN != 2) {
+            captionItems.css('height', maxHeight);
+        } else {
+            captionItems.css('height', 'auto');
+        }
+    }
 
     _bindShowMore = function(container){
         // if data-items, data-infinite is defined, used it
@@ -6192,6 +6221,7 @@ INFORMA.brandList = (function(window, $, namespace) {
 
     init = function() {
         if (_brandList.length > 0) {
+            _equalHeight(_brandList);
             _bindShowMore(_brandList);
         }
     };
@@ -6205,13 +6235,32 @@ jQuery(INFORMA.brandList.init());
 INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
     var DynamicBrandList = $('.product-brands-list'),
-        init, HideOnLoad, ClickEvents,
+        init, HideOnLoad, _equalHeight, ClickEvents,
         Count = 1,
         BtnShowMore = DynamicBrandList.find('.btn-showMore');
 
-// removed equal height function;
+    _equalHeight = function(container) {
+        var captionItems = container.find('.caption'),
+            maxHeight = 0,
+            padding = 50;
 
-init = function () {
+        captionItems.each(function() {
+            var height = jQuery(this).height();
+            if(height > maxHeight) {
+                maxHeight = height;
+            }
+        })
+        if(INFORMA.global.device.viewportN != 2) {
+            captionItems.css('height', maxHeight + padding);
+        } else {
+            captionItems.css('height', 'auto');
+        }
+    }
+
+    init = function () {
+        if(DynamicBrandList.length > 0) {
+            _equalHeight(DynamicBrandList);
+        }
     }
 
      return {
@@ -6241,7 +6290,8 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     // methods
         init,
         _openAccordian,
-        _marginBottomWrapperCta;
+        _marginBottomWrapperCta,
+        _equalHeight;
 
         _marginBottomWrapperCta = function(){
           var _vp = INFORMA.global.device.viewportN;
@@ -6283,12 +6333,28 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
         }
     })
 
-// removed equal height function;
-
+    _equalHeight = function () {
+        var EachView = jQuery('#contactus-section'),
+         _vp = INFORMA.global.device.viewportN;
+         if(_vp === 0 || _vp === 1) {
+            EachView.each(function () {
+                var Items = jQuery(this).find('.panel-default'),
+                    _maxHeight = 0;
+                Items.each(function () {
+                    var Height = jQuery(this).height();
+                    if (Height > _maxHeight) {
+                        _maxHeight = Height;
+                    }
+                })
+                Items.css('height', _maxHeight);
+            })
+        }
+    }
 
     init = function() {
         if (_contactUs.length > 0) {
             _openAccordian(_contactUs);
+             _equalHeight();
              _marginBottomWrapperCta();
         }
     };
@@ -7409,6 +7475,7 @@ INFORMA.featureList = (function(window, $, namespace) {
         init,
         _hideList,
         _bindShowMore,
+        _equalHeight,
         _bindShowLess;
 
     _bindShowMore = function() {
@@ -7444,8 +7511,29 @@ INFORMA.featureList = (function(window, $, namespace) {
             });
         }
     }
-// removed equal height function;
-
+    _equalHeight = function() {
+        var EachView = jQuery('.feature-list-section-pharma, .feature-list-section');
+        EachView.each(function() {
+            var Items = jQuery(this).find('.feature-list-container'),
+                InnerItems = jQuery(this).find('.feature-list-container h4'),
+                _maxHeight = 0,
+                _maxInnerHeight = 0;
+            InnerItems.each(function() {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _maxInnerHeight) {
+                    _maxInnerHeight = Height;
+                }
+            })
+            InnerItems.css('height', _maxInnerHeight);
+            Items.each(function() {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _maxHeight) {
+                    _maxHeight = Height;
+                }
+            })
+            Items.css('height', _maxHeight);
+        })
+    }
 
     _bindShowLess = function () {
       var _showLess = $('.feature-list-section').find('.btn-showMore .less');
@@ -7462,7 +7550,7 @@ INFORMA.featureList = (function(window, $, namespace) {
                 _hideList(_featureListSection);
             }
             _bindShowMore();
-          
+            _equalHeight();
             _bindShowLess();
         }
     };
@@ -10621,7 +10709,8 @@ INFORMA.analystList = (function(window, $, namespace) {
         if (_listItems.length > 0) {
             _listItems.each(function() {
                 var items = jQuery(this).find('.analyst-list-container');
-               });
+                _equalHeight(items);
+            });
         }
     };
 
@@ -12843,7 +12932,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
     // methods
         init,
         _bindShowMore,_bindShowLess,
-        _adjustHeigt, _checkElemnt ;
+        _adjustHeigt, _checkElemnt , equalHeight;
 
 
     _checkElemnt = function () {
@@ -12881,8 +12970,39 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
         });
     }
 
-  // removed equal height function;
+    equalHeight = function () {
+        var EachView = jQuery('.sectorpage-strengths');
+        EachView.each(function () {
+            var Items = jQuery(this).find('.text-description'),
+                Description = jQuery(this).find('.yellow-container'),
+                MainContainer = jQuery(this).find('.main-container'),
+                _maxHeight = 0,
+                _mainMaxHeight = 0,
+                _descHeight = 0;
+            Items.each(function () {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _maxHeight) {
+                    _maxHeight = Height;
+                }
+            })
+            Items.css('height', _maxHeight );
+            Description.each(function () {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _descHeight) {
+                    _descHeight = Height;
+                }
+            })
+            Description.css('height', _descHeight );
+            MainContainer.each(function () {
+                var Height = jQuery(this).outerHeight();
+                if (Height > _mainMaxHeight) {
+                    _mainMaxHeight = Height;
+                }
+            })
+            MainContainer.css('height', _mainMaxHeight );
 
+        })
+    }
     _bindShowLess = function () {
       var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
@@ -12896,6 +13016,9 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
             _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
             _bindShowLess();
+            $(window).on('load', function() {
+                equalHeight();
+            });
         }
     };
 
