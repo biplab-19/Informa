@@ -17,9 +17,24 @@ INFORMA.brandList = (function(window, $, namespace) {
     var _brandList = $('#product-brands-list-section, #related-products-section'),
     // methods
         init,
-        _bindShowMore;
+        _bindShowMore,
+        _equalHeight;
+    _equalHeight = function(container) {
+        var captionItems = container.find('.caption'),
+            maxHeight = 0;
 
-        // removed equal height function;
+        captionItems.each(function() {
+            var height = jQuery(this).height();
+            if(height > maxHeight) {
+                maxHeight = height; 
+            }
+        })
+        if(INFORMA.global.device.viewportN != 2) {
+            captionItems.css('height', maxHeight);
+        } else {
+            captionItems.css('height', 'auto');
+        }
+    }
 
     _bindShowMore = function(container){
         // if data-items, data-infinite is defined, used it
@@ -37,6 +52,7 @@ INFORMA.brandList = (function(window, $, namespace) {
 
     init = function() {
         if (_brandList.length > 0) {
+           // _equalHeight(_brandList);
             _bindShowMore(_brandList);
         }
     };
@@ -50,13 +66,32 @@ jQuery(INFORMA.brandList.init());
 INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
     var DynamicBrandList = $('.product-brands-list'),
-        init, HideOnLoad, ClickEvents,
+        init, HideOnLoad, _equalHeight, ClickEvents,
         Count = 1,
         BtnShowMore = DynamicBrandList.find('.btn-showMore');
 
-// removed equal height function;
+    _equalHeight = function(container) {
+        var captionItems = container.find('.caption'),
+            maxHeight = 0,
+            padding = 50;
 
-init = function () {
+        captionItems.each(function() {
+            var height = jQuery(this).height();
+            if(height > maxHeight) {
+                maxHeight = height;
+            }
+        })
+        if(INFORMA.global.device.viewportN != 2) {
+            captionItems.css('height', maxHeight + padding);
+        } else {
+            captionItems.css('height', 'auto');
+        }
+    }
+
+    init = function () {
+        if(DynamicBrandList.length > 0) {
+           // _equalHeight(DynamicBrandList);
+        }
     }
 
      return {

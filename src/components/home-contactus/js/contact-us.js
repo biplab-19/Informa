@@ -20,7 +20,8 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     // methods
         init,
         _openAccordian,
-        _marginBottomWrapperCta;
+        _marginBottomWrapperCta,
+        _equalHeight;
 
         _marginBottomWrapperCta = function(){
           var _vp = INFORMA.global.device.viewportN;
@@ -62,12 +63,28 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
         }
     })
 
-// removed equal height function;
-
+    _equalHeight = function () {
+        var EachView = jQuery('#contactus-section'),
+         _vp = INFORMA.global.device.viewportN;
+         if(_vp === 0 || _vp === 1) {
+            EachView.each(function () {
+                var Items = jQuery(this).find('.panel-default'),
+                    _maxHeight = 0;
+                Items.each(function () {
+                    var Height = jQuery(this).height();
+                    if (Height > _maxHeight) {
+                        _maxHeight = Height;
+                    }
+                })
+                Items.css('height', _maxHeight);
+            })
+        }
+    }
 
     init = function() {
         if (_contactUs.length > 0) {
             _openAccordian(_contactUs);
+          //   _equalHeight();
              _marginBottomWrapperCta();
         }
     };
