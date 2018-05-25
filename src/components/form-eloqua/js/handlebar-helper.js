@@ -45,3 +45,14 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
         "%": lvalue % rvalue
     }[operator];
 });
+
+Handlebars.registerHelper('splitURL', function(string, substring) {
+  var u = string.split("?");
+  var s = u[0].toString().split("/");
+  var i = s.lastIndexOf(substring);
+  if(i == -1){  
+    return false;
+  }else{
+    return true;
+  }
+});

@@ -930,14 +930,25 @@ var INFORMA = window.INFORMA || {};
                                             '{{/compare}}'+
                                         '</div>'+
                                         '<div class="col-xs-6">'+
-                                            '{{#compare results.CtaText null operator="!="}}' +
-                                                '{{#compare results.CtaText.length "0" operator=">"}}' +
-                                                    '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.FreeTrialLink.CTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
-                                                        '{{results.CtaText}}'+
+                                        '{{#if results.ProductSearchCTAType}}' +
+                                            '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="=="}}'+    
+                                                '{{#if (splitURL results.SalesforceLink.Url "registration")}}'+
+                                                        '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>'+
+                                                '{{else}}'+
+                                                    '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
+                                                        '{{results.SearchCTAName}}'+
                                                     '</a>'+
-                                                '{{/compare}}'+    
-                                            '{{/compare}}'+    
-                                        '</div>'+
+                                                '{{/if}}'+                                     
+                                            '{{/compare}}'+
+                                            '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="!="}}'+ 
+                                                '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
+                                                    '{{results.SearchCTAName}}'+
+                                                '</a>'+
+                                            '{{/compare}}'+
+                                        '{{else}}'+                                 
+                                        '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>'+
+                                        '{{/if}}'+  
+                                    '</div>'+
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
