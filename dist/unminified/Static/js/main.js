@@ -1,4 +1,4 @@
-/*! 2018-05-25 *//*
+/*! 2018-05-28 *//*
  * google-analytics.js
  *
  *
@@ -10689,6 +10689,7 @@ INFORMA.analystList = (function(window, $, namespace) {
         init,
         _bindShowMore,
         _bindShowLess,
+        _equalHeight,
         _lists = null;
 
     _bindShowMore = function(container){
@@ -10712,8 +10713,39 @@ INFORMA.analystList = (function(window, $, namespace) {
         });
     }
 
-    // removed equal height function
-
+    _equalHeight = function(items) {
+        var EachView = jQuery('.analyst-views');
+        EachView.each(function() {
+            var Items = jQuery(this).find('.analyst-list-container .analyst-description'),
+                ItemsHeader = jQuery(this).find('.analyst-list-container .analyst-details'),
+                ItemsFooter = jQuery(this).find('.analyst-list-container .analyst-footer-content'),
+                _maxHeight = 0,
+                _maxHeightHeader = 0,
+                _maxHeightFooter = 0,
+                _padding = 50;
+            ItemsHeader.each(function() {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeightHeader) {
+                    _maxHeightHeader = Height;
+                }
+            })
+            ItemsHeader.css('height', _maxHeightHeader);
+            Items.each(function() {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeight) {
+                    _maxHeight = Height;
+                }
+            })
+            Items.css('height', _maxHeight + _padding);
+            ItemsFooter.each(function() {
+                var Height = jQuery(this).height();
+                if (Height > _maxHeightFooter) {
+                    _maxHeightFooter = Height;
+                }
+            })
+            ItemsFooter.css('height', _maxHeightFooter);
+        })
+    }
     _bindShowLess = function () {
       var _showLess = _analystList.find('.btn.btn-showMore .less');
       _showLess.on('click',function(){
