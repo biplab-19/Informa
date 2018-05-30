@@ -1,4 +1,4 @@
-/*! 2018-05-28 *//*
+/*! 2018-05-30 *//*
  * google-analytics.js
  *
  *
@@ -10157,13 +10157,17 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
 });
 
 Handlebars.registerHelper('splitURL', function(string, substring) {
-  var u = string.split("?");
-  var s = u[0].toString().split("/");
-  var i = s.lastIndexOf(substring);
-  if(i == -1){  
-    return false;
+  if(string){
+    var u = string.split("?");
+    var s = u[0].toString().split("/");
+    var i = s.lastIndexOf(substring);
+    if(i == -1){  
+      return false;
+    }else{
+      return true;
+    }
   }else{
-    return true;
+    return false;
   }
 });
 var INFORMA = window.INFORMA || {};

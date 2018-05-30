@@ -47,12 +47,16 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
 });
 
 Handlebars.registerHelper('splitURL', function(string, substring) {
-  var u = string.split("?");
-  var s = u[0].toString().split("/");
-  var i = s.lastIndexOf(substring);
-  if(i == -1){  
-    return false;
+  if(string){
+    var u = string.split("?");
+    var s = u[0].toString().split("/");
+    var i = s.lastIndexOf(substring);
+    if(i == -1){  
+      return false;
+    }else{
+      return true;
+    }
   }else{
-    return true;
+    return false;
   }
 });
