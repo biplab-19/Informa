@@ -1,4 +1,4 @@
-/*! 2018-05-31 *//*
+/*! 2018-06-01 *//*
  * google-analytics.js
  *
  *
@@ -6440,7 +6440,7 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
     //variables
     /* dropCookie variable removed */
     var cookieDuration = 0, // Number of days before the cookie expires, banner reappears
-        cookieName = 'bannercookiepolicyaccepted', // Name of our cookie
+        cookieName = 'cookiepolicybanneraccepted', // Name of our cookie
         cookieValue = 'yes', // Value of cookie
         // methods
         init,
