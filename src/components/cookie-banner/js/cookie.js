@@ -16,7 +16,7 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
     //variables
     /* dropCookie variable removed */
     var cookieDuration = 0, // Number of days before the cookie expires, banner reappears
-        cookieName = 'dismisscookiepolicyaccepted', // Name of our cookie
+        cookieName = 'cookiepolicybanneraccepted', // Name of our cookie
         cookieValue = 'yes', // Value of cookie
         // methods
         init,
