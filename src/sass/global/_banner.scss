@@ -570,7 +570,6 @@
             }
         }
         .prod-cta-btn{
-            display: inline-table;
             a{
                 @include mobile{
                     margin-left: -7.5px;
@@ -1011,6 +1010,15 @@ div.at4-share-outer {
         .multiselect-container.dropdown-menu.cta2{
             width:180px;
             padding-left: 0 !important;
+        }
+    }
+    .prod-cta-btn{
+        display: inline-table;
+        @include not-mobile{
+            margin-top: 30px;
+        }
+        @include not-desktop{
+            padding-left: 10px;
         }
     }
 }
