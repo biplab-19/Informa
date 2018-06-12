@@ -1,4 +1,4 @@
-/*! 2018-03-09 *//*
+/*! 2018-06-12 *//*
  * google-analytics.js
  *
  *
@@ -8741,17 +8741,17 @@ INFORMA.forms = (function(window, $, namespace) {
             $(this).blur(function() {
                 var emailDomainMsg = $(this).parent().find('span.email-validation-message'),
                     emailValidMsg = $(this).parent().find('span.field-validation-error');
-                if (_validateEmail($(this).val())) {
-                    if (emailDomainMsg.length > 0 && emailValidMsg.length == 0) {
-                        emailDomainMsg.removeClass('hide').addClass('show');
-                    } else {
-                        emailDomainMsg.addClass('hide').removeClass('show');
-                    }
-                } else {
-                    if (emailDomainMsg.length > 0) {
-                        emailDomainMsg.addClass('hide').removeClass('show');
-                    }
-                }
+                // if (_validateEmail($(this).val())) {
+                //     if (emailDomainMsg.length > 0 && emailValidMsg.length == 0) {
+                //         emailDomainMsg.removeClass('hide').addClass('show');
+                //     } else {
+                //         emailDomainMsg.addClass('hide').removeClass('show');
+                //     }
+                // } else {
+                //     if (emailDomainMsg.length > 0) {
+                //         emailDomainMsg.addClass('hide').removeClass('show');
+                //     }
+                // }
             });
         });
     }
