@@ -19,6 +19,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         ShowMoreBtn = _AnalystEventLists.find('.btn-more-events'),
         // methods
         init,
+        EqualHeight,
         ShowMore,
         UnbindEvent,
         disabledEvent;
@@ -37,7 +38,19 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
             })
         },
 
-// removed equal height function;
+        EqualHeight = function(){
+               var highestBox = 0,
+                EachItem = List.find(".content-wrap"),
+                padding = 0;
+
+                jQuery('section[data-view="list-view"]').show();
+              EachItem.each(function(){
+                      if(jQuery(this).height() > highestBox){
+                      highestBox = jQuery(this).height();
+                    }
+              });
+              EachItem.height(highestBox + padding);
+        },
 
         ShowMore = function () {
             ShowMoreBtn.on('click', function () {
@@ -48,6 +61,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
 
     init = function() {
         if (_AnalystEventLists.length > 0) {
+            EqualHeight();
             ShowMore();
             UnbindEvent();
             disabledEvent();
