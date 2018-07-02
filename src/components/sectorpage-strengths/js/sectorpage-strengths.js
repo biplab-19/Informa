@@ -20,7 +20,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
     // methods
         init,
         _bindShowMore,_bindShowLess,
-        _adjustHeigt, _checkElemnt , equalHeight;
+        _adjustHeigt, _checkElemnt;
 
 
     _checkElemnt = function () {
@@ -57,40 +57,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
               $(this).parents('.sectorpage-strengths').toggleClass('showLess');
         });
     }
-
-    equalHeight = function () {
-        var EachView = jQuery('.sectorpage-strengths');
-        EachView.each(function () {
-            var Items = jQuery(this).find('.text-description'),
-                Description = jQuery(this).find('.yellow-container'),
-                MainContainer = jQuery(this).find('.main-container'),
-                _maxHeight = 0,
-                _mainMaxHeight = 0,
-                _descHeight = 0;
-            Items.each(function () {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _maxHeight) {
-                    _maxHeight = Height;
-                }
-            })
-            Items.css('height', _maxHeight );
-            Description.each(function () {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _descHeight) {
-                    _descHeight = Height;
-                }
-            })
-            Description.css('height', _descHeight );
-            MainContainer.each(function () {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _mainMaxHeight) {
-                    _mainMaxHeight = Height;
-                }
-            })
-            MainContainer.css('height', _mainMaxHeight );
-
-        })
-    }
+// equal height function removed
     _bindShowLess = function () {
       var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
@@ -104,9 +71,6 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
             _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
             _bindShowLess();
-            $(window).on('load', function() {
-                equalHeight();
-            });
         }
     };
 

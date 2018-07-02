@@ -4,6 +4,26 @@
     h1 {
       margin: 50px 0;
     }
+    .sectorpage-strengths-list{
+      display: -webkit-inline-flex;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-flex-wrap: wrap;
+      flex-wrap: wrap;
+      .sectorpage-strengths-list-item{
+        background-color: white;
+        height: 100%;
+        .btn-container{
+          position: absolute;
+          bottom: 0;
+          right: 15px;  
+        }
+        .bottom-container{
+          height: 93px;
+          display: inline-block;
+        }
+      }
+    }
       .main-container{
         position: relative;
         //height: 277px;
