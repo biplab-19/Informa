@@ -1,4 +1,4 @@
-/*! 2018-06-15 *//*
+/*! 2018-07-02 *//*
  * google-analytics.js
  *
  *
@@ -5460,7 +5460,6 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         ShowMoreBtn = _AnalystEventLists.find('.btn-more-events'),
         // methods
         init,
-        EqualHeight,
         ShowMore,
         UnbindEvent,
         disabledEvent;
@@ -5479,19 +5478,7 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
             })
         },
 
-        EqualHeight = function(){
-               var highestBox = 0,
-                EachItem = List.find(".content-wrap"),
-                padding = 0;
-
-                jQuery('section[data-view="list-view"]').show();
-              EachItem.each(function(){
-                      if(jQuery(this).height() > highestBox){
-                      highestBox = jQuery(this).height();
-                    }
-              });
-              EachItem.height(highestBox + padding);
-        },
+// removed equal height function;
 
         ShowMore = function () {
             ShowMoreBtn.on('click', function () {
@@ -5502,7 +5489,6 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
 
     init = function() {
         if (_AnalystEventLists.length > 0) {
-            EqualHeight();
             ShowMore();
             UnbindEvent();
             disabledEvent();
@@ -6197,31 +6183,16 @@ INFORMA.brandList = (function(window, $, namespace) {
     var _brandList = $('#product-brands-list-section, #related-products-section'),
     // methods
         init,
-        _bindShowMore,
-        _equalHeight;
-    _equalHeight = function(container) {
-        var captionItems = container.find('.caption'),
-            maxHeight = 0;
+        _bindShowMore;
 
-        captionItems.each(function() {
-            var height = jQuery(this).height();
-            if(height > maxHeight) {
-                maxHeight = height;
-            }
-        })
-        if(INFORMA.global.device.viewportN != 2) {
-            captionItems.css('height', maxHeight);
-        } else {
-            captionItems.css('height', 'auto');
-        }
-    }
+        // removed equal height function;
 
     _bindShowMore = function(container){
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.product-brands-list .view-all-mobile-container');
         _showMore.on('click',function(){
             var _vp = INFORMA.global.device.viewportN;
-            if(_vp === 2) {// This is mobile, toggle everything except first twbs-font-path
+            if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
 
               //$('.product-brands-list .container > .row > .card-col:nth-child(n+4), .card-col-heading').show();
               $(this).prev().find(".col-xs-12 ").show();
@@ -6232,7 +6203,6 @@ INFORMA.brandList = (function(window, $, namespace) {
 
     init = function() {
         if (_brandList.length > 0) {
-            _equalHeight(_brandList);
             _bindShowMore(_brandList);
         }
     };
@@ -6243,35 +6213,17 @@ INFORMA.brandList = (function(window, $, namespace) {
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.brandList.init());
 
+var INFORMA = window.INFORMA || {};
 INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
     var DynamicBrandList = $('.product-brands-list'),
-        init, HideOnLoad, _equalHeight, ClickEvents,
+        init, HideOnLoad, ClickEvents,
         Count = 1,
         BtnShowMore = DynamicBrandList.find('.btn-showMore');
 
-    _equalHeight = function(container) {
-        var captionItems = container.find('.caption'),
-            maxHeight = 0,
-            padding = 50;
+// removed equal height function;
 
-        captionItems.each(function() {
-            var height = jQuery(this).height();
-            if(height > maxHeight) {
-                maxHeight = height;
-            }
-        })
-        if(INFORMA.global.device.viewportN != 2) {
-            captionItems.css('height', maxHeight + padding);
-        } else {
-            captionItems.css('height', 'auto');
-        }
-    }
-
-    init = function () {
-        if(DynamicBrandList.length > 0) {
-            _equalHeight(DynamicBrandList);
-        }
+init = function () {
     }
 
      return {
@@ -6296,13 +6248,13 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     'use strict';
     //variables
     var _contactUs = $('#contactus-section'),
+        _accordianTile = _contactUs.find('.panel-default'),
         _eachTile = _contactUs.find('.panel-heading'),
         _eachTileBtnMargin =_contactUs.find('.panel-body'),
     // methods
         init,
         _openAccordian,
-        _marginBottomWrapperCta,
-        _equalHeight;
+        _marginBottomWrapperCta;
 
         _marginBottomWrapperCta = function(){
           var _vp = INFORMA.global.device.viewportN;
@@ -6344,28 +6296,12 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
         }
     })
 
-    _equalHeight = function () {
-        var EachView = jQuery('#contactus-section'),
-         _vp = INFORMA.global.device.viewportN;
-         if(_vp === 0 || _vp === 1) {
-            EachView.each(function () {
-                var Items = jQuery(this).find('.panel-default'),
-                    _maxHeight = 0;
-                Items.each(function () {
-                    var Height = jQuery(this).height();
-                    if (Height > _maxHeight) {
-                        _maxHeight = Height;
-                    }
-                })
-                Items.css('height', _maxHeight);
-            })
-        }
-    }
+// removed equal height function;
+
 
     init = function() {
         if (_contactUs.length > 0) {
             _openAccordian(_contactUs);
-             _equalHeight();
              _marginBottomWrapperCta();
         }
     };
@@ -7481,19 +7417,21 @@ var INFORMA = window.INFORMA || {};
 INFORMA.featureList = (function(window, $, namespace) {
     'use strict';
     //variables
-    var _featureListSection = $('.feature-list-section-pharma, .feature-list-section'),
+    var _featureList = $('.feature-list'),
+        _featureListContainer = $('.feature-list-container'),
+        _featureListSection = $('.feature-list-section-pharma, .feature-list-section'),
         // methods
         init,
         _hideList,
         _bindShowMore,
-        _equalHeight,
         _bindShowLess;
 
     _bindShowMore = function() {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.feature-list-section .btn-showMore');
         _showMore.on('click', function() {
-            var _limit = $(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1,
+            var _vp = INFORMA.global.device.viewport,
+                _limit = $(this).parents('.feature-list-section').data(INFORMA.global.device.viewport) + 1,
                 Parent = $(this).parents('.feature-list-section'),
                 Children = Parent.find('.feature-list-container');
             $(Children.slice((_limit - 1), Children.length)).slideToggle();
@@ -7522,29 +7460,8 @@ INFORMA.featureList = (function(window, $, namespace) {
             });
         }
     }
-    _equalHeight = function() {
-        var EachView = jQuery('.feature-list-section-pharma, .feature-list-section');
-        EachView.each(function() {
-            var Items = jQuery(this).find('.feature-list-container'),
-                InnerItems = jQuery(this).find('.feature-list-container h4'),
-                _maxHeight = 0,
-                _maxInnerHeight = 0;
-            InnerItems.each(function() {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _maxInnerHeight) {
-                    _maxInnerHeight = Height;
-                }
-            })
-            InnerItems.css('height', _maxInnerHeight);
-            Items.each(function() {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _maxHeight) {
-                    _maxHeight = Height;
-                }
-            })
-            Items.css('height', _maxHeight);
-        })
-    }
+// removed equal height function;
+
 
     _bindShowLess = function () {
       var _showLess = $('.feature-list-section').find('.btn-showMore .less');
@@ -7561,7 +7478,7 @@ INFORMA.featureList = (function(window, $, namespace) {
                 _hideList(_featureListSection);
             }
             _bindShowMore();
-            _equalHeight();
+          
             _bindShowLess();
         }
     };
@@ -12990,7 +12907,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
     // methods
         init,
         _bindShowMore,_bindShowLess,
-        _adjustHeigt, _checkElemnt , equalHeight;
+        _adjustHeigt, _checkElemnt;
 
 
     _checkElemnt = function () {
@@ -13027,40 +12944,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
               $(this).parents('.sectorpage-strengths').toggleClass('showLess');
         });
     }
-
-    equalHeight = function () {
-        var EachView = jQuery('.sectorpage-strengths');
-        EachView.each(function () {
-            var Items = jQuery(this).find('.text-description'),
-                Description = jQuery(this).find('.yellow-container'),
-                MainContainer = jQuery(this).find('.main-container'),
-                _maxHeight = 0,
-                _mainMaxHeight = 0,
-                _descHeight = 0;
-            Items.each(function () {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _maxHeight) {
-                    _maxHeight = Height;
-                }
-            })
-            Items.css('height', _maxHeight );
-            Description.each(function () {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _descHeight) {
-                    _descHeight = Height;
-                }
-            })
-            Description.css('height', _descHeight );
-            MainContainer.each(function () {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _mainMaxHeight) {
-                    _mainMaxHeight = Height;
-                }
-            })
-            MainContainer.css('height', _mainMaxHeight );
-
-        })
-    }
+// equal height function removed
     _bindShowLess = function () {
       var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
@@ -13074,9 +12958,6 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
             _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
             _bindShowLess();
-            $(window).on('load', function() {
-                equalHeight();
-            });
         }
     };
 
