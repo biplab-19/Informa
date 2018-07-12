@@ -8102,6 +8102,7 @@ INFORMA.formRequestForDemo = (function(window, $, namespace) {
 jQuery(INFORMA.formRequestForDemo.init());
 
 var INFORMA = window.INFORMA || {};
+var modal_Id = '';
 INFORMA.forms = (function(window, $, namespace) {
     'use strict';
     var _formModal = $('.form-modal'),
@@ -8534,6 +8535,11 @@ INFORMA.forms = (function(window, $, namespace) {
     _parseVerticalName = function(data) {
         $('span.product-name-holder').html(data.ProductName);
         $('.product-name-holder').val(data.ProductName);
+        if(modal_Id && !data.ProductName){
+            var current_text = $(modal_Id + ' .page-header h2').text();
+			var new_text = current_text.replace(' for ', '');
+			$(modal_Id + ' .page-header h2').text(new_text);
+        }
         $('.tc-product-name').html(data.ProductName);
         if (data.ProductName != null) {
             $('.tc-product-name').html(data.ProductName);
@@ -8865,6 +8871,7 @@ INFORMA.forms = (function(window, $, namespace) {
     _showModal = function(el) {
         $.fn.modal.Constructor.prototype.enforceFocus = function () { };
         _formId = $(el).data('modal');
+        modal_Id = _formId;
         _resetForm($(_formId).find('form'));
         if ($(el).attr('data-productid')) {
             if($(_formId + ' .page-header h2').find('.product-name-holder').length === 0){
