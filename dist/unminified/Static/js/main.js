@@ -1,4 +1,4 @@
-/*! 2018-07-12 *//*
+/*! 2018-07-18 *//*
  * google-analytics.js
  *
  *
@@ -12914,7 +12914,7 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
     // methods
         init,
         _bindShowMore,_bindShowLess,
-        _adjustHeigt, _checkElemnt;
+        _adjustHeigt, _checkElemnt, equalHeight;
 
 
     _checkElemnt = function () {
@@ -12951,7 +12951,23 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
               $(this).parents('.sectorpage-strengths').toggleClass('showLess');
         });
     }
-// equal height function removed
+// equal height function removed for maincontainer and text-description
+equalHeight = function () {
+    var EachView = jQuery('.sectorpage-strengths');
+    EachView.each(function () {
+        var Description = jQuery(this).find('.yellow-container'),
+            _descHeight = 0;
+        Description.each(function () {
+            var Height = jQuery(this).outerHeight();
+            if (Height > _descHeight) {
+                _descHeight = Height;
+            }
+        })
+        Description.css('height', _descHeight );
+
+    })
+}
+
     _bindShowLess = function () {
       var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
       _showLess.on('click',function(){
@@ -12965,7 +12981,9 @@ INFORMA.sectorPageStrengths = (function(window, $, namespace) {
             _checkElemnt();
             _bindShowMore(_sectorPageStrengths);
             _bindShowLess();
-        }
+            $(window).on('load', function() {
+                equalHeight();
+            });        }
     };
 
     return {
