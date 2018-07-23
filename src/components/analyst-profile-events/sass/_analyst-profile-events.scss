@@ -14,6 +14,24 @@
 	    margin: 0;
 	    padding: 0;
 	}
+	.events-container{
+		display: inline-flex;
+		flex-wrap: wrap;
+		.events-wrap{
+			height: 100%;
+		.footer{
+				height: 103px;
+				.footer-container{
+					position: absolute;
+					width: 100%;
+					bottom: 0;
+					left: 0;
+					padding: 25px 20px;
+				}
+				}
+		}
+	}
+
 	.btn-container {
 		.btn-default {
 			padding-right: 40px;

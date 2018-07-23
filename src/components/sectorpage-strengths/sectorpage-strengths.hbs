@@ -5,18 +5,25 @@
                 <h2>Our unique strengths</h2>
             </div>
         </div>
-        <div class="row">
+        <div class="row  sectorpage-strengths-list">
             {{#each data}}
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 marg1">
-                    <div class="main-container">
-                        <img src="cms-images/sectorpage-strengths/image-2.jpg" alt="" class="img-responsive sector-responisve-img" />
-                        <div class="yellow-container">
-                            <h3>{{title}}</h3>
+                    <div class="sectorpage-strengths-list-item">
+                        <div class="main-container">
+                            <img src="cms-images/sectorpage-strengths/image-2.jpg" alt="" class="img-responsive sector-responisve-img" />
+                            <div class="yellow-container">
+                                <h3>{{title}}</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="text-description">
-                        {{description}}
-                        <div class="slant">test here</div>
+                        <div class="text-description">
+                            {{description}}
+                        </div>
+                        <div class="bottom-container">
+                            <div class="btn-container text-right">
+                                <a href="/who-we-help/how/market-analysis-price-reporting-and-forecasting" target="" class="btn btn-primary">Read more</a>
+                            </div>
+                        </div>
+                        <div class="slant"></div>
                     </div>
                 </div>
             {{/each}}

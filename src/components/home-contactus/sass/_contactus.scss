@@ -17,6 +17,12 @@
         }
     }
       .panel-group {
+        display: -webkit-inline-flex;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        width: 100%;
         @include mobile {
             padding-bottom:30px;
             margin-bottom:0;
@@ -128,11 +134,8 @@
         }
         .panel-body {
             padding:25px 20px;
-            .phone-number{
-
-                &:nth-of-type(1) {
-                    padding-top: 0px !important;
-                }     
+            .phone-number: nth-of-type(1) {
+                padding-top: 0px !important;
             }
             p{
                 word-break: break-word;
