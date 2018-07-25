@@ -569,7 +569,7 @@
                 font-size: 14px;
             }
         }
-        /*.prod-cta-btn{
+        .prod-cta-btn{
             a{
                 @include mobile{
                     margin-left: -7.5px;
@@ -583,7 +583,7 @@
                 }
 				font-family: FSMe;
             }
-        }*/
+        }
         .share {
             font-family: FSME-bold;
             text-align: center;
@@ -593,7 +593,7 @@
         }
         .share:after {
             font-family: "InformaIcons";
-            content: "\e917";
+            content: "\e917"; 
             color: $white;
             font-size: 20px;
             position: absolute;
