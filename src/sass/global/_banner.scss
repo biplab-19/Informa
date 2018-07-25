@@ -35,6 +35,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
+        overflow: hidden;
         img {
             position: absolute;
             top: 50%;
@@ -136,6 +137,7 @@
             position: absolute;
             right: 0;
             width: auto;
+            overflow: hidden;
         }
     }
 }
@@ -181,6 +183,7 @@
         right: 0;
         height: 100%;
         width:35%;
+        overflow: hidden;
         @include greater-desktop{
             width: 42%;
         }
@@ -683,6 +686,7 @@
         position: absolute;
         right: 0;
         bottom: 0;
+        overflow: hidden;
         @include mobile {
             right: -115px;
         }
