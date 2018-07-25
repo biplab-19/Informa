@@ -10987,7 +10987,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             if(type === "SearchResult") { 
                 var SearchValue = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
                 if (history.pushState) {
-                    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchText='+SearchValue;
+                    var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchtext='+SearchValue;
                     window.history.pushState({path:newurl},'',newurl);
                 }
             }
