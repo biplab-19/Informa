@@ -342,6 +342,44 @@ header {
                         box-sizing: border-box;
                         padding: 10px 20px;
                     }
+                    .multi-lang-cta{
+                        .dropdown-default-text:after{
+                            content: "\e901";
+                            font-family: 'InformaIcons';
+                            margin-left: 10px;
+                            vertical-align: middle;
+                        }
+                        .btn-group{
+                            .dropdown-toggle{
+                                background: none;
+                                border: 0px;
+                                width: 106px;
+                                box-shadow: none;
+                                padding: 5px 10px;
+                            }
+                            &.open{
+                            background: white;
+                            color: black;
+                            .dropdown-default-text{
+                                background:white;
+                                color:black;
+                                }
+                            .dropdown-toggle{
+                                box-shadow:none;
+                                }
+                            .dropdown-menu {
+                                display: block;
+                                min-width: 106px;
+                                border-radius: 0px;
+                                border: 0px;
+                                a {
+                                    color:black;
+                                    padding:5px 10px;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
             .nav-main {
