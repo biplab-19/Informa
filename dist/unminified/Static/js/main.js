@@ -1,4 +1,4 @@
-/*! 2018-07-25 *//*
+/*! 2018-08-24 *//*
  * google-analytics.js
  *
  *
@@ -4840,10 +4840,10 @@ var INFORMA = window.INFORMA || {};
                                         '{{#compare results.PageURL.length "0" operator="=="}}' +
                                             '<h4><span>{{results.Title}}</span></h4>'+
                                         '{{/compare}}'+
-                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong>{{results.Profile}}</strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> <a href="'+'{{AnalystData results.Profile "Name"}}'+'">'+'{{AnalystData results.Profile "Link"}}'+'</a></strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
-                                        '{{/compare}}'+
+                                        '{{/compare}}'+ 
                                         '{{#compare results.Video null operator="!="}}'+
                                             '<div class="video-container">'+
                                                 '{{#if results.HasExternalLink}}'+
@@ -10092,6 +10092,17 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
     }
   }else{
     return false;
+  }
+});
+
+Handlebars.registerHelper('AnalystData', function(profile, type) {
+  if(profile){
+    var u = profile.split("#");
+    if(type == "Name")
+        return u[1];
+    else if(type == "Link")
+        return u[0];
+    else return null;
   }
 });
 var INFORMA = window.INFORMA || {};
