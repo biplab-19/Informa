@@ -190,9 +190,30 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
+
+                if($(this).attr('pdf-data-url')){
+                    if(document.getElementsByClassName("showPdfUrl").length == 0){
+                        var x = document.createElement("INPUT");
+                        x.setAttribute("type", "hidden");
+                        x.setAttribute("value", $(this).attr('pdf-data-url'));
+                        x.setAttribute("id", "showPdfUrl");
+                        x.setAttribute("class", "showPdfUrl");
+                        document.body.appendChild(x);
+                    }else{
+                         $("#showPdfUrl").val($(this).attr('pdf-data-url'));   
+                    }
+                }
             }
             else{
-                $(this).attr('href', $(this).attr('data-url'));
+                if($(this).attr('pdf-data-url')){
+                    $("#loadPDFComponentModal").modal("show");
+                    $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
+                        PDFJS.webViewerLoad($("#showPdfUrl").val());
+                    })
+
+                }else{
+                    $(this).attr('href', $(this).attr('data-url'));
+                }
             }
         });
     }
@@ -234,7 +255,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         }
         else {
-           $('#formRegistration').modal('show'); 
+            if($('.show-register-form').attr('data-show-register') == 'true')
+               $('#formRegistration').modal('show'); 
         }
         
         // var a = Math.ceil(Math.random() * 9)+ '';

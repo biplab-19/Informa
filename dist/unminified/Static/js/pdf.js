@@ -1,4 +1,4 @@
-/*! 2018-08-24 *//**
+/*! 2018-08-27 *//**
  * Copyright (c) 2011-2013 Fabien Cazenave, Mozilla.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -14963,8 +14963,8 @@ PDFPrintService.prototype = {
      resolve();
      return;
     }
-	 printPDF('PDFtoPrint');
-//print.call(window);
+	// printPDF('PDFtoPrint');
+print.call(window);
     setTimeout(resolve, 20);
    }.bind(this), 0);
   }.bind(this));

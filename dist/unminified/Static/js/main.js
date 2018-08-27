@@ -1,4 +1,4 @@
-/*! 2018-07-25 *//*
+/*! 2018-08-27 *//*
  * google-analytics.js
  *
  *
@@ -7747,9 +7747,30 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
+
+                if($(this).attr('pdf-data-url')){
+                    if(document.getElementsByClassName("showPdfUrl").length == 0){
+                        var x = document.createElement("INPUT");
+                        x.setAttribute("type", "hidden");
+                        x.setAttribute("value", $(this).attr('pdf-data-url'));
+                        x.setAttribute("id", "showPdfUrl");
+                        x.setAttribute("class", "showPdfUrl");
+                        document.body.appendChild(x);
+                    }else{
+                         $("#showPdfUrl").val($(this).attr('pdf-data-url'));   
+                    }
+                }
             }
             else{
-                $(this).attr('href', $(this).attr('data-url'));
+                if($(this).attr('pdf-data-url')){
+                    $("#loadPDFComponentModal").modal("show");
+                    $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
+                        PDFJS.webViewerLoad($("#showPdfUrl").val());
+                    })
+
+                }else{
+                    $(this).attr('href', $(this).attr('data-url'));
+                }
             }
         });
     }
@@ -7791,7 +7812,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         }
         else {
-           $('#formRegistration').modal('show'); 
+            if($('.show-register-form').attr('data-show-register') == 'true')
+               $('#formRegistration').modal('show'); 
         }
         
         // var a = Math.ceil(Math.random() * 9)+ '';
@@ -8293,13 +8315,19 @@ INFORMA.forms = (function(window, $, namespace) {
                 //Google analytics changes on submit of registration form
                 if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
                     var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
-                    if(value !== ""){
+                    var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
+                    if(value !== "" || pdfValue != ""){
                         // if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
                             _showOverlay();
-                            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
-                            _formModal.modal('hide');
+                            if(pdfValue != ""){
+                            $('.close-download-form').removeClass('wffm-elq-form-btn');
+                            }
+                                INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                                _formModal.modal('hide');
+                            
                             $('.close-download-form').attr('data-show-register',false);
                             $('.close-download-form').attr('target',"_blank");
+
                         // }    
                     }
                     else{
@@ -8311,8 +8339,16 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     //Success callback
-    window.onSubmit = function(token){
-        getCurrentform.submit();
+    window.onSubmit = function (token) {
+        if (getCurrentform.submit()) {
+            if ($('.show-register-form').attr('pdf-data-url')) {
+                $("#loadPDFComponentModal").modal("show");
+                $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
+                    PDFJS.webViewerLoad($("#showPdfUrl").val());
+                })
+
+            }
+        }
     }
 
     // _reCaptchaHandler = function() {
