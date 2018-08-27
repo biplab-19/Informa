@@ -148,7 +148,7 @@ height: calc(100% - 50px);
       height: 100%;
       width: 100%;
       background-color: #404040;
-      background-image: url(../../cms-images/images/texture.png);
+      background-image: url(../../static/images/texture.png);
 
   .textLayer {
       position: absolute; 
@@ -367,7 +367,7 @@ height: calc(100% - 50px);
       overflow: visible;
       border: 9px solid transparent;
       background-clip: content-box;
-      border-image: url(../../cms-images/images/shadow.png) 9 9 repeat;
+      border-image: url(../../static/images/shadow.png) 9 9 repeat;
       background-color: white;
     }
     
@@ -401,7 +401,7 @@ height: calc(100% - 50px);
       top: 0;
       right: 0;
       bottom: 0;
-      background: url('../../cms-images/images/loading-icon.gif') center no-repeat;
+      background: url('../../static/images/loading-icon.gif') center no-repeat;
     }
     
     .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
@@ -644,7 +644,7 @@ height: calc(100% - 50px);
       width: 200px;
       height: 32px;
       background-color: #424242; /* fallback */
-      background-image: url(../../cms-images/images/texture.png),
+      background-image: url(../../static/images/texture.png),
                         linear-gradient(hsla(0,0%,30%,.99), hsla(0,0%,25%,.95));
     }
      #toolbarSidebar {
@@ -664,7 +664,7 @@ height: calc(100% - 50px);
       position: relative;
       height: 32px;
       background-color: #474747; /* fallback */
-      background-image: url(../../cms-images/images/texture.png),
+      background-image: url(../../static/images/texture.png),
                         linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));
     }
      #toolbarContainer, .findbar, .secondaryToolbar {
@@ -793,7 +793,7 @@ height: calc(100% - 50px);
       font-style: italic;
     }
     #findInput[data-status="pending"] {
-      background-image: url(../../cms-images/images/loading-small.png);
+      background-image: url(../../static/images/loading-small.png);
       background-repeat: no-repeat;
       background-position: right;
     }
@@ -1146,7 +1146,7 @@ height: calc(100% - 50px);
       max-width: 120px;
       padding: 0;
       overflow: hidden;
-      background: url(../../cms-images/images/toolbarButton-menuArrows.png) no-repeat;
+      background: url(../../static/images/toolbarButton-menuArrows.png) no-repeat;
     }
      .dropdownToolbarButton {
       background-position: 95%;
@@ -1228,73 +1228,73 @@ height: calc(100% - 50px);
     }
     
      .toolbarButton#sidebarToggle::before {
-      content: url(../../cms-images/images/toolbarButton-sidebarToggle.png);
+      content: url(../../static/images/toolbarButton-sidebarToggle.png);
     }
     html[dir='rtl'] .toolbarButton#sidebarToggle::before {
-      content: url(../../cms-images/images/toolbarButton-sidebarToggle-rtl.png);
+      content: url(../../static/images/toolbarButton-sidebarToggle-rtl.png);
     }
     
      .toolbarButton#secondaryToolbarToggle::before {
-      content: url(../../cms-images/images/toolbarButton-secondaryToolbarToggle.png);
+      content: url(../../static/images/toolbarButton-secondaryToolbarToggle.png);
     }
     html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
-      content: url(../../cms-images/images/toolbarButton-secondaryToolbarToggle-rtl.png);
+      content: url(../../static/images/toolbarButton-secondaryToolbarToggle-rtl.png);
     }
     
      .toolbarButton.findPrevious::before {
-      content: url(../../cms-images/images/findbarButton-previous.png);
+      content: url(../../static/images/findbarButton-previous.png);
     }
     html[dir='rtl'] .toolbarButton.findPrevious::before {
-      content: url(../../cms-images/images/findbarButton-previous-rtl.png);
+      content: url(../../static/images/findbarButton-previous-rtl.png);
     }
     
      .toolbarButton.findNext::before {
-      content: url(../../cms-images/images/findbarButton-next.png);
+      content: url(../../static/images/findbarButton-next.png);
     }
     html[dir='rtl'] .toolbarButton.findNext::before {
-      content: url(../../cms-images/images/findbarButton-next-rtl.png);
+      content: url(../../static/images/findbarButton-next-rtl.png);
     }
     
      .toolbarButton.pageUp::before {
-      content: url(../../cms-images/images/toolbarButton-pageUp.png);
+      content: url(../../static/images/toolbarButton-pageUp.png);
     }
     html[dir='rtl'] .toolbarButton.pageUp::before {
-      content: url(../../cms-images/images/toolbarButton-pageUp-rtl.png);
+      content: url(../../static/images/toolbarButton-pageUp-rtl.png);
     }
     
      .toolbarButton.pageDown::before {
-      content: url(../../cms-images/images/toolbarButton-pageDown.png);
+      content: url(../../static/images/toolbarButton-pageDown.png);
     }
     html[dir='rtl'] .toolbarButton.pageDown::before {
-      content: url(../../cms-images/images/toolbarButton-pageDown-rtl.png);
+      content: url(../../static/images/toolbarButton-pageDown-rtl.png);
     }
     
     .toolbarButton.zoomOut::before {
-      content: url(../../cms-images/images/toolbarButton-zoomOut.png);
+      content: url(../../static/images/toolbarButton-zoomOut.png);
     }
     
     .toolbarButton.zoomIn::before {
-      content: url(../../cms-images/images/toolbarButton-zoomIn.png);
+      content: url(../../static/images/toolbarButton-zoomIn.png);
     }
     
     .toolbarButton.presentationMode::before,
     .secondaryToolbarButton.presentationMode::before {
-      content: url(../../cms-images/images/toolbarButton-presentationMode.png);
+      content: url(../../static/images/toolbarButton-presentationMode.png);
     }
     
     .toolbarButton.print::before,
     .secondaryToolbarButton.print::before {
-      content: url(../../cms-images/images/toolbarButton-print.png);
+      content: url(../../static/images/toolbarButton-print.png);
     }
     
     .toolbarButton.openFile::before,
     .secondaryToolbarButton.openFile::before {
-      content: url(../../cms-images/images/toolbarButton-openFile.png);
+      content: url(../../static/images/toolbarButton-openFile.png);
     }
     
     .toolbarButton.download::before,
     .secondaryToolbarButton.download::before {
-      content: url(../../cms-images/images/toolbarButton-download.png);
+      content: url(../../static/images/toolbarButton-download.png);
     }
     
     .toolbarButton.bookmark,
@@ -1317,26 +1317,26 @@ height: calc(100% - 50px);
     
     .toolbarButton.bookmark::before,
     .secondaryToolbarButton.bookmark::before {
-      content: url(../../cms-images/images/toolbarButton-bookmark.png);
+      content: url(../../static/images/toolbarButton-bookmark.png);
     }
     
     #viewThumbnail.toolbarButton::before {
-      content: url(../../cms-images/images/toolbarButton-viewThumbnail.png);
+      content: url(../../static/images/toolbarButton-viewThumbnail.png);
     }
     
     html[dir="ltr"] #viewOutline.toolbarButton::before {
-      content: url(../../cms-images/images/toolbarButton-viewOutline.png);
+      content: url(../../static/images/toolbarButton-viewOutline.png);
     }
     html[dir="rtl"] #viewOutline.toolbarButton::before {
-      content: url(../../cms-images/images/toolbarButton-viewOutline-rtl.png);
+      content: url(../../static/images/toolbarButton-viewOutline-rtl.png);
     }
     
     #viewAttachments.toolbarButton::before {
-      content: url(../../cms-images/images/toolbarButton-viewAttachments.png);
+      content: url(../../static/images/toolbarButton-viewAttachments.png);
     }
     
     #viewFind.toolbarButton::before {
-      content: url(../../cms-images/images/toolbarButton-search.png);
+      content: url(../../static/images/toolbarButton-search.png);
     }
     
     .toolbarButton.pdfSidebarNotification::after {
@@ -1390,31 +1390,31 @@ height: calc(100% - 50px);
     }
     
     .secondaryToolbarButton.firstPage::before {
-      content: url(../../cms-images/images/secondaryToolbarButton-firstPage.png);
+      content: url(../../static/images/secondaryToolbarButton-firstPage.png);
     }
     
     .secondaryToolbarButton.lastPage::before {
-      content: url(../../cms-images/images/secondaryToolbarButton-lastPage.png);
+      content: url(../../static/images/secondaryToolbarButton-lastPage.png);
     }
     
     .secondaryToolbarButton.rotateCcw::before {
-      content: url(../../cms-images/images/secondaryToolbarButton-rotateCcw.png);
+      content: url(../../static/images/secondaryToolbarButton-rotateCcw.png);
     }
     
     .secondaryToolbarButton.rotateCw::before {
-      content: url(../../cms-images/images/secondaryToolbarButton-rotateCw.png);
+      content: url(../../static/images/secondaryToolbarButton-rotateCw.png);
     }
     
     .secondaryToolbarButton.selectTool::before {
-      content: url(../../cms-images/images/secondaryToolbarButton-selectTool.png);
+      content: url(../../static/images/secondaryToolbarButton-selectTool.png);
     }
     
     .secondaryToolbarButton.handTool::before {
-      content: url(../../cms-images/images/secondaryToolbarButton-handTool.png);
+      content: url(../../static/images/secondaryToolbarButton-handTool.png);
     }
     
     .secondaryToolbarButton.documentProperties::before {
-      content: url(../../cms-images/images/secondaryToolbarButton-documentProperties.png);
+      content: url(../../static/images/secondaryToolbarButton-documentProperties.png);
     }
     
     .verticalToolbarSeparator {
@@ -1475,7 +1475,7 @@ height: calc(100% - 50px);
     }
     
     .toolbarField.pageNumber.visiblePageIsLoading {
-      background-image: url(../../cms-images/images/loading-small.png);
+      background-image: url(../../static/images/loading-small.png);
       background-repeat: no-repeat;
       background-position: 1px;
     }
@@ -1660,15 +1660,15 @@ height: calc(100% - 50px);
       color: hsla(0,0%,100%,.5);
     }
     .outlineItemToggler::before {
-      content: url(../../cms-images/images/treeitem-expanded.png);
+      content: url(../../static/images/treeitem-expanded.png);
       display: inline-block;
       position: absolute;
     }
      .outlineItemToggler.outlineItemsHidden::before {
-      content: url(../../cms-images/images/treeitem-collapsed.png);
+      content: url(../../static/images/treeitem-collapsed.png);
     }
     html[dir='rtl'] .outlineItemToggler.outlineItemsHidden::before {
-      content: url(../../cms-images/images/treeitem-collapsed-rtl.png);
+      content: url(../../static/images/treeitem-collapsed-rtl.png);
     }
     .outlineItemToggler.outlineItemsHidden ~ .outlineItems {
       display: none;
@@ -1787,7 +1787,7 @@ height: calc(100% - 50px);
       font-size: 12px;
       line-height: 14px;
       background-color: #474747; /* fallback */
-      background-image: url(../../cms-images/images/texture.png),
+      background-image: url(../../static/images/texture.png),
                         linear-gradient(hsla(0,0%,32%,.99), hsla(0,0%,27%,.95));
       box-shadow: inset 1px 0 0 hsla(0,0%,100%,.08),
                   inset 0 1px 1px hsla(0,0%,0%,.15),
@@ -1953,7 +1953,7 @@ height: calc(100% - 50px);
     }
     
     .grab-to-pan-grab {
-      cursor: url("../../cms-images/images/grab.cur"), move !important;
+      cursor: url("../../static/images/grab.cur"), move !important;
       cursor: -webkit-grab !important;
       cursor: -moz-grab !important;
       cursor: grab !important;
@@ -1963,7 +1963,7 @@ height: calc(100% - 50px);
     }
     .grab-to-pan-grab:active,
     .grab-to-pan-grabbing {
-      cursor: url("../../cms-images/images/grabbing.cur"), move !important;
+      cursor: url("../../static/images/grabbing.cur"), move !important;
       cursor: -webkit-grabbing !important;
       cursor: -moz-grabbing !important;
       cursor: grabbing !important;
@@ -2012,148 +2012,148 @@ height: calc(100% - 50px);
     
       .toolbarField.pageNumber.visiblePageIsLoading,
       #findInput[data-status="pending"] {
-        background-image: url(../../cms-images/images/loading-small@2x.png);
+        background-image: url(../../static/images/loading-small@2x.png);
         background-size: 16px 17px;
       }
     
       .dropdownToolbarButton {
-        background: url(../../cms-images/images/toolbarButton-menuArrows@2x.png) no-repeat;
+        background: url(../../static/images/toolbarButton-menuArrows@2x.png) no-repeat;
         background-size: 7px 16px;
       }
     
        .toolbarButton#sidebarToggle::before {
-        content: url(../../cms-images/images/toolbarButton-sidebarToggle@2x.png);
+        content: url(../../static/images/toolbarButton-sidebarToggle@2x.png);
       }
       html[dir='rtl'] .toolbarButton#sidebarToggle::before {
-        content: url(../../cms-images/images/toolbarButton-sidebarToggle-rtl@2x.png);
+        content: url(../../static/images/toolbarButton-sidebarToggle-rtl@2x.png);
       }
     
        .toolbarButton#secondaryToolbarToggle::before {
-        content: url(../../cms-images/images/toolbarButton-secondaryToolbarToggle@2x.png);
+        content: url(../../static/images/toolbarButton-secondaryToolbarToggle@2x.png);
       }
       html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
-        content: url(../../cms-images/images/toolbarButton-secondaryToolbarToggle-rtl@2x.png);
+        content: url(../../static/images/toolbarButton-secondaryToolbarToggle-rtl@2x.png);
       }
     
        .toolbarButton.findPrevious::before {
-        content: url(../../cms-images/images/findbarButton-previous@2x.png);
+        content: url(../../static/images/findbarButton-previous@2x.png);
       }
       html[dir='rtl'] .toolbarButton.findPrevious::before {
-        content: url(../../cms-images/images/findbarButton-previous-rtl@2x.png);
+        content: url(../../static/images/findbarButton-previous-rtl@2x.png);
       }
     
        .toolbarButton.findNext::before {
-        content: url(../../cms-images/images/findbarButton-next@2x.png);
+        content: url(../../static/images/findbarButton-next@2x.png);
       }
       html[dir='rtl'] .toolbarButton.findNext::before {
-        content: url(../../cms-images/images/findbarButton-next-rtl@2x.png);
+        content: url(../../static/images/findbarButton-next-rtl@2x.png);
       }
     
        .toolbarButton.pageUp::before {
-        content: url(../../cms-images/images/toolbarButton-pageUp@2x.png);
+        content: url(../../static/images/toolbarButton-pageUp@2x.png);
       }
       html[dir='rtl'] .toolbarButton.pageUp::before {
-        content: url(../../cms-images/images/toolbarButton-pageUp-rtl@2x.png);
+        content: url(../../static/images/toolbarButton-pageUp-rtl@2x.png);
       }
     
        .toolbarButton.pageDown::before {
-        content: url(../../cms-images/images/toolbarButton-pageDown@2x.png);
+        content: url(../../static/images/toolbarButton-pageDown@2x.png);
       }
       html[dir='rtl'] .toolbarButton.pageDown::before {
-        content: url(../../cms-images/images/toolbarButton-pageDown-rtl@2x.png);
+        content: url(../../static/images/toolbarButton-pageDown-rtl@2x.png);
       }
     
       .toolbarButton.zoomIn::before {
-        content: url(../../cms-images/images/toolbarButton-zoomIn@2x.png);
+        content: url(../../static/images/toolbarButton-zoomIn@2x.png);
       }
     
       .toolbarButton.zoomOut::before {
-        content: url(../../cms-images/images/toolbarButton-zoomOut@2x.png);
+        content: url(../../static/images/toolbarButton-zoomOut@2x.png);
       }
     
       .toolbarButton.presentationMode::before,
       .secondaryToolbarButton.presentationMode::before {
-        content: url(../../cms-images/images/toolbarButton-presentationMode@2x.png);
+        content: url(../../static/images/toolbarButton-presentationMode@2x.png);
       }
     
       .toolbarButton.print::before,
       .secondaryToolbarButton.print::before {
-        content: url(../../cms-images/images/toolbarButton-print@2x.png);
+        content: url(../../static/images/toolbarButton-print@2x.png);
       }
     
       .toolbarButton.openFile::before,
       .secondaryToolbarButton.openFile::before {
-        content: url(../../cms-images/images/toolbarButton-openFile@2x.png);
+        content: url(../../static/images/toolbarButton-openFile@2x.png);
       }
     
       .toolbarButton.download::before,
       .secondaryToolbarButton.download::before {
-        content: url(../../cms-images/images/toolbarButton-download@2x.png);
+        content: url(../../static/images/toolbarButton-download@2x.png);
       }
     
       .toolbarButton.bookmark::before,
       .secondaryToolbarButton.bookmark::before {
-        content: url(../../cms-images/images/toolbarButton-bookmark@2x.png);
+        content: url(../../static/images/toolbarButton-bookmark@2x.png);
       }
     
       #viewThumbnail.toolbarButton::before {
-        content: url(../../cms-images/images/toolbarButton-viewThumbnail@2x.png);
+        content: url(../../static/images/toolbarButton-viewThumbnail@2x.png);
       }
     
       html[dir="ltr"] #viewOutline.toolbarButton::before {
-        content: url(../../cms-images/images/toolbarButton-viewOutline@2x.png);
+        content: url(../../static/images/toolbarButton-viewOutline@2x.png);
       }
       html[dir="rtl"] #viewOutline.toolbarButton::before {
-        content: url(../../cms-images/images/toolbarButton-viewOutline-rtl@2x.png);
+        content: url(../../static/images/toolbarButton-viewOutline-rtl@2x.png);
       }
     
       #viewAttachments.toolbarButton::before {
-        content: url(../../cms-images/images/toolbarButton-viewAttachments@2x.png);
+        content: url(../../static/images/toolbarButton-viewAttachments@2x.png);
       }
     
       #viewFind.toolbarButton::before {
-        content: url(../../cms-images/images/toolbarButton-search@2x.png);
+        content: url(../../static/images/toolbarButton-search@2x.png);
       }
     
       .secondaryToolbarButton.firstPage::before {
-        content: url(../../cms-images/images/secondaryToolbarButton-firstPage@2x.png);
+        content: url(../../static/images/secondaryToolbarButton-firstPage@2x.png);
       }
     
       .secondaryToolbarButton.lastPage::before {
-        content: url(../../cms-images/images/secondaryToolbarButton-lastPage@2x.png);
+        content: url(../../static/images/secondaryToolbarButton-lastPage@2x.png);
       }
     
       .secondaryToolbarButton.rotateCcw::before {
-        content: url(../../cms-images/images/secondaryToolbarButton-rotateCcw@2x.png);
+        content: url(../../static/images/secondaryToolbarButton-rotateCcw@2x.png);
       }
     
       .secondaryToolbarButton.rotateCw::before {
-        content: url(../../cms-images/images/secondaryToolbarButton-rotateCw@2x.png);
+        content: url(../../static/images/secondaryToolbarButton-rotateCw@2x.png);
       }
     
       .secondaryToolbarButton.selectTool::before {
-        content: url(../../cms-images/images/secondaryToolbarButton-selectTool@2x.png);
+        content: url(../../static/images/secondaryToolbarButton-selectTool@2x.png);
       }
     
       .secondaryToolbarButton.handTool::before {
-        content: url(../../cms-images/images/secondaryToolbarButton-handTool@2x.png);
+        content: url(../../static/images/secondaryToolbarButton-handTool@2x.png);
       }
     
       .secondaryToolbarButton.documentProperties::before {
-        content: url(../../cms-images/images/secondaryToolbarButton-documentProperties@2x.png);
+        content: url(../../static/images/secondaryToolbarButton-documentProperties@2x.png);
       }
     
       .outlineItemToggler::before {
         -webkit-transform: scale(0.5);
         transform: scale(0.5);
         top: -1px;
-        content: url(../../cms-images/images/treeitem-expanded@2x.png);
+        content: url(../../static/images/treeitem-expanded@2x.png);
       }
        .outlineItemToggler.outlineItemsHidden::before {
-        content: url(../../cms-images/images/treeitem-collapsed@2x.png);
+        content: url(../../static/images/treeitem-collapsed@2x.png);
       }
       html[dir='rtl'] .outlineItemToggler.outlineItemsHidden::before {
-        content: url(../../cms-images/images/treeitem-collapsed-rtl@2x.png);
+        content: url(../../static/images/treeitem-collapsed-rtl@2x.png);
       }
        .outlineItemToggler::before {
         right: 0;
