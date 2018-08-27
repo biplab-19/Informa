@@ -7761,17 +7761,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                     }
                 }
             }
-            else{
-                if($(this).attr('pdf-data-url')){
-                    $("#loadPDFComponentModal").modal("show");
-                    $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
-                        PDFJS.webViewerLoad($("#showPdfUrl").val());
-                    })
-
-                }else{
+            else if($(this).attr('pdf-data-url')){
                     $(this).attr('href', $(this).attr('data-url'));
                 }
-            }
         });
     }
 
