@@ -60,3 +60,14 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
     return false;
   }
 });
+
+Handlebars.registerHelper('AnalystData', function(profile, type) {
+  if(profile){
+    var u = profile.split("#");
+    if(type == "Name")
+        return u[1];
+    else if(type == "Link")
+        return u[0];
+    else return null;
+  }
+});
