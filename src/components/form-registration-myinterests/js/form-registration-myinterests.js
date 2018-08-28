@@ -174,7 +174,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             else{
                 _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
             }
-            window.location.href = value;
+            if(!$(this).attr('data-target') == "loadPDFComponentModal" )
+                window.location.href = value;
         })
     }
     
@@ -186,14 +187,32 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 INFORMA.Analytics.trackFormEvents($(this), 'Open');
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
+
+                if ($(this).attr('pdf-data-url')) {
+                    if (document.getElementsByClassName("showPdfUrl").length == 0) {
+                        var x = document.createElement("INPUT");
+                        x.setAttribute("type", "hidden");
+                        x.setAttribute("value", $(this).attr('pdf-data-url'));
+                        x.setAttribute("id", "showPdfUrl");
+                        x.setAttribute("class", "showPdfUrl");
+                        document.body.appendChild(x);
+                    } else {
+                        $("#showPdfUrl").val($(this).attr('pdf-data-url'));
+                    }
+                }
             }
-            else{
+            else if ($(this).attr('pdf-data-url')) {
+                $("#showPdfUrl").val($(this).attr('pdf-data-url'));
+                PDFJS.webViewerLoad($("#showPdfUrl").val());
+                document.getElementById("PDFtoPrint").setAttribute("src", $("#showPdfUrl").val());
+            } else {
                 $(this).attr('href', $(this).attr('data-url'));
             }
+            
         });
     }
 
@@ -234,7 +253,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         }
         else {
-           $('#formRegistration').modal('show'); 
+            if($('.show-register-form').attr('data-show-register') == 'true')
+               $('#formRegistration').modal('show'); 
         }
         
         // var a = Math.ceil(Math.random() * 9)+ '';
@@ -490,10 +510,12 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _closeMyInterestModal();
             _validateCountry();
             _showContentFirstTime();
+
         } else {
             _myinterestsSection.css('display', 'none');
 
         }
+        
 
     };
 
