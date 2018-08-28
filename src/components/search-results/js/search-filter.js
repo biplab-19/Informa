@@ -23,6 +23,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         ClearAllLink,
         ProductFinderSection = $('#product-finder-section'),
         SearchType = '',
+        newURL,
 
         // methods
         init, SelectAllCheckBox, BindRefineEvents, ClearAllLinkBinding, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
@@ -58,7 +59,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
                         }
                     }
                 });
-                console.log(ParamData.join("&"));
+                newURL = ParamData.join("&");
                 if(Data.Brand === undefined) {
                     Data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null
                 } else {
@@ -68,7 +69,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             }
         },
         DoRefine = function() {
-            var ProductData, searchText;
+            var ProductData, searchText, urlpath;
             if (SearchType === "ResourceResult") {
                 ProductData = INFORMA.ResourceFilter.GetResourceData();
             } else {
@@ -88,10 +89,16 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             if (SearchType === "ProductSearch") {
                 Data.IsProduct = true;
             }
-            if(Data.searchText){
-                searchText = Data.searchText;
+            if(Data.SearchText){
+                searchText = Data.SearchText;
             }
             GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null);
+            if(newURL)
+                urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchText='+searchText+"&"+newURL;
+            else
+                urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchText='+searchText;
+
+            window.history.pushState({path:urlpath},'',urlpath);
 
         },
         SelectAllCheckBox = function() {
@@ -199,7 +206,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
             ShowMoreLinks.on("click", function(e) {
                 e.preventDefault();
-                var text, defaultCount;
+                var text, defaultCount, listItem;
                 if($(this).hasClass("SeeLess")!==true){
                     text = $(this).data("lesstext");
                     $(this).parent().find("ul li").removeClass("hidden");
@@ -238,6 +245,36 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
             if (IsResourcePage && (!IsProductPage && !IsSearchPage)) {
                 SearchType = "ResourceResult";
+            }
+            if(IsSearchPage){
+                var QueryString,facets,newFacets,filterOptions, groupid, searchQueryStrings,subQuery, siteUrl = window.location.href;
+                QueryString = siteUrl.split("?");
+                if( QueryString[1]){
+                    searchQueryStrings = QueryString[1].split("&");
+                    $.each(searchQueryStrings, function() {
+                        if(this){
+                            subQuery = this.split("="); 
+                            groupid = subQuery[0];
+                            facets = subQuery[1].split(",");
+                            newFacets = [];
+                            $.each(facets, function(){
+                                newFacets.push(this.replace(/-/g, " "));
+                            });
+
+                            filterOptions = $("#"+groupid).find("input[type='checkbox']");
+                            filterOptions.filter(function(){
+                                if(newFacets.includes($(this).next().text())){
+                                    $(this).prop("checked", true);
+                                }
+                            });
+                            selectedFilterOptions = $("#"+groupid).find("input:checked");
+                            if(filterOptions.length == selectedFilterOptions.length){
+                                $("#"+groupid+"1").prop("checked", true);
+                            }
+                        }
+                    });
+
+                }
             }
             if (CheckedRefineCheckBox.length > 0) {
                 //DoRefine();
