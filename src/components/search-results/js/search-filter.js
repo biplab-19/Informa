@@ -39,20 +39,26 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
         },
         GetSelectedFilter = function() {
             var Data = {};
+            var ParamData = [];
             if (RefineSection) {
                 $.each(RefineSection, function() {
                     var GetSectionID = $(this).parent().attr("id"),
                         SelectedCheckBox = $(this).find("input[type=checkbox]:checked").not(":disabled"),
-                        uniqueArr = [];
-
+                        uniqueArr = [],
+                        parameters = [];
+                        
                     if (SelectedCheckBox.length) {
                         $.each(SelectedCheckBox, function() {
                             uniqueArr.push($(this).attr("value"));
+                            parameters.push($(this).next().text().replace(/ /g, '-'));
                             Data[GetSectionID] = uniqueArr;
                         });
+                        if(parameters.length >0){
+                            ParamData.push(GetSectionID+"="+ parameters.toString());
+                        }
                     }
-
                 });
+                console.log(ParamData.join("&"));
                 if(Data.Brand === undefined) {
                     Data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null
                 } else {
@@ -62,7 +68,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             }
         },
         DoRefine = function() {
-            var ProductData;
+            var ProductData, searchText;
             if (SearchType === "ResourceResult") {
                 ProductData = INFORMA.ResourceFilter.GetResourceData();
             } else {
@@ -82,7 +88,11 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
             if (SearchType === "ProductSearch") {
                 Data.IsProduct = true;
             }
+            if(Data.searchText){
+                searchText = Data.searchText;
+            }
             GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null);
+
         },
         SelectAllCheckBox = function() {
 
@@ -189,7 +199,7 @@ INFORMA.SearchResultFilter = (function(window, $, namespace) {
 
             ShowMoreLinks.on("click", function(e) {
                 e.preventDefault();
-                var text;
+                var text, defaultCount;
                 if($(this).hasClass("SeeLess")!==true){
                     text = $(this).data("lesstext");
                     $(this).parent().find("ul li").removeClass("hidden");
