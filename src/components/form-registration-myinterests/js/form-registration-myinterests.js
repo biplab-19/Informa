@@ -206,7 +206,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 }
             }
             else if ($(this).attr('pdf-data-url')) {
+                $("#showPdfUrl").val($(this).attr('pdf-data-url'));
                 PDFJS.webViewerLoad($("#showPdfUrl").val());
+                document.getElementById("PDFtoPrint").setAttribute("src", $("#showPdfUrl").val());
             } else {
                 $(this).attr('href', $(this).attr('data-url'));
             }
