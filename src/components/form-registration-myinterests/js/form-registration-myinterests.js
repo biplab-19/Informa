@@ -174,7 +174,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             else{
                 _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
             }
-            window.location.href = value;
+            if(!$(this).attr('data-target') == "loadPDFComponentModal" )
+                window.location.href = value;
         })
     }
     
@@ -507,10 +508,12 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _closeMyInterestModal();
             _validateCountry();
             _showContentFirstTime();
+
         } else {
             _myinterestsSection.css('display', 'none');
 
         }
+        
 
     };
 
