@@ -154,8 +154,8 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             }
             if ($('#SubSectorNames').val() && ($('#SubSector2').parent().find("button").attr("title") != "Please Select")) {
                 parameter = $("#SubSectorNames").val().trim().replace(/ /g, '-').toLowerCase();
-                cookieParams.push("subsectors=" + parameter.replace(/&/g, '%26'));
-                productSearchString = "subsectors"
+                cookieParams.push("subsector=" + parameter.replace(/&/g, '%26'));
+                productSearchString = "subsector"
             }
             return cookieParams;
         },
@@ -172,7 +172,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 resourceSearchParams.push("Sector=" + SectorNames.toString())
             }
             if (SubSectorNames.length != 0) {
-                resourceSearchParams.push("SubSectors=" + SubSectorNames.toString())
+                resourceSearchParams.push("subsector=" + SubSectorNames.toString())
             }
 
             return resourceSearchParams;
@@ -319,6 +319,13 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                     newSearch = true;
                     ClearAllLink.click();
                     var urlpath, cookieParams = getProductSearchParams();
+                    if(cookieParams.length==0){
+                        newSearch = false;
+                        if (sectorCookie)
+                            cookieParams.push(sectorCookie);
+                        if (subSectorCookie)
+                            cookieParams.push(subSectorCookie);
+                    }
                     urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?'+cookieParams.join("&");
                     window.history.pushState({ path: urlpath }, '', urlpath);
                 });
@@ -337,6 +344,13 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                     newSearch = true;
                     ClearAllLink.click();
                     var urlpath, cookieParams = getResourceResultParams();
+                    if(cookieParams.length==0){
+                        newSearch = false;
+                        if (sectorCookie)
+                            cookieParams.push(sectorCookie);
+                        if (subSectorCookie)
+                            cookieParams.push(subSectorCookie);
+                    }
                     urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&");
                     window.history.pushState({ path: urlpath }, '', urlpath);
                 });
@@ -351,7 +365,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                         if (searchQueryStrings[0] && (searchQueryStrings[0].split("=")[0] == "Sector" || searchQueryStrings[0].split("=")[0] == "sector")) {
                             sectorCookie = searchQueryStrings[0];
                         }
-                        if (searchQueryStrings[1] && (searchQueryStrings[1].split("=")[1] == "subsectors" || searchQueryStrings[1].split("=")[0] == "subsectors")) {
+                        if (searchQueryStrings[1] && (searchQueryStrings[1].split("=")[0] == "subsector" || searchQueryStrings[1].split("=")[0] == "subSector")) {
                             subSectorCookie = searchQueryStrings[1];
                         }
                     }
