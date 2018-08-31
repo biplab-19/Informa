@@ -1,4 +1,4 @@
-/*! 2018-08-28 *//*
+/*! 2018-08-31 *//*
  * google-analytics.js
  *
  *
@@ -11979,6 +11979,9 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         SearchType = '',
         newURL,
         siteSearch = $('button[data-submit="site-search"]'),
+        productSearchCTA = $('button[data-submit="sector-search"]'),
+        resourceProductSearchCTA = $('.resource-sector-search button[data-submit="sector-search"]'),
+        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorCookie, subSectorCookie,
         // methods
         init, SelectAllCheckBox, BindRefineEvents, ClearAllLinkBinding, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
 
@@ -11993,8 +11996,9 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         INFORMA.SearchResults.ResetPaging();
     },
         GetSelectedFilter = function () {
-            var Data = {};
-            var ParamData = [];
+            var Data = {},
+                ParamData = [];
+
             if (RefineSection) {
                 $.each(RefineSection, function () {
                     var GetSectionID = $(this).parent().attr("id"),
@@ -12007,7 +12011,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                         $.each(SelectedCheckBox, function () {
                             uniqueArr.push($(this).attr("value"));
                             parameter = $(this).next().text().replace(/ /g, '-').toLowerCase();
-                            parameters.push(parameter.replace(/&/g,'%26'));
+                            parameters.push(parameter.replace(/&/g, 'and'));
                             Data[GetSectionID] = uniqueArr;
                         });
                         if (parameters.length > 0) {
@@ -12016,6 +12020,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                     }
                 });
                 newURL = ParamData.join("&");
+
                 if (Data.Brand === undefined) {
                     Data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null
                 } else {
@@ -12048,14 +12053,83 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             if (Data.SearchText) {
                 searchText = Data.SearchText;
             }
+
             GetAjaxData(Urls.GetRefineResults, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null);
-            if (newURL)
-                urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchText=' + searchText + "&" + newURL;
-            else
-                urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchText=' + searchText;
 
-            window.history.pushState({ path: urlpath }, '', urlpath);
+            if (SearchType === "SearchResult") {
+                if (newURL)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchText=' + searchText + "&" + newURL;
+                else
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchText=' + searchText;
 
+                window.history.pushState({ path: urlpath }, '', urlpath);
+            } else if (SearchType === "ProductSearch") {
+                var cookieParams = [];
+                if (newSearch)
+                    cookieParams = getProductSearchParams();
+                else {
+                    if (sectorCookie)
+                        cookieParams.push(sectorCookie);
+                    if (subSectorCookie)
+                        cookieParams.push(subSectorCookie);
+                }
+                if (newURL && cookieParams.length != 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&") + '&' + newURL;
+                else if (newURL && cookieParams.length == 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + newURL;
+                else if (!newURL && cookieParams.length != 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&");
+                else
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?PageRequest=' + productSearchString;
+
+                window.history.pushState({ path: urlpath }, '', urlpath);
+            } else if (SearchType === "ResourceResult") {
+                var resourceSearchParams = getResourceResultParams();
+                if (newURL && resourceSearchParams.length != 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + resourceSearchParams.join("&") + "&" + newURL;
+                else if (newURL && resourceSearchParams.length == 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + newURL;
+                else if (!newURL && resourceSearchParams.length != 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + resourceSearchParams.join("&");
+                else
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.pushState({ path: urlpath }, '', urlpath);
+
+            }
+
+        },
+
+        getProductSearchParams = function () {
+            var parameter, cookieParams = [];
+            if ($('#SectorNames').val()) {
+                parameter = $("#SectorNames").val().trim().replace(/ /g, '-').toLowerCase();
+                cookieParams.push("Sector=" + parameter.replace(/&/g, '%26'));
+                productSearchString = "Sector"
+            }
+            if ($('#SubSectorNames').val() && ($('#SubSector2').parent().find("button").attr("title") != "Please Select")) {
+                parameter = $("#SubSectorNames").val().trim().replace(/ /g, '-').toLowerCase();
+                cookieParams.push("subsectors=" + parameter.replace(/&/g, '%26'));
+                productSearchString = "subsectors"
+            }
+            return cookieParams;
+        },
+
+        getResourceResultParams = function () {
+            var resourceSearchParams = [], SubSectorNames = [], SectorNames = [];
+            $("#Sector :selected").map(function (i, el) {
+                SectorNames.push($(el).text().trim().replace(/ /g, '-').toLowerCase().replace(/&/g, '%26'));
+            });
+            $("#sub-sector-list :selected").map(function (i, el) {
+                SubSectorNames.push($(el).text().trim().replace(/ /g, '-').toLowerCase().replace(/&/g, '%26'));
+            });
+            if (SectorNames.length != 0) {
+                resourceSearchParams.push("Sector=" + SectorNames.toString())
+            }
+            if (SubSectorNames.length != 0) {
+                resourceSearchParams.push("SubSectors=" + SubSectorNames.toString())
+            }
+
+            return resourceSearchParams;
         },
         SelectAllCheckBox = function () {
 
@@ -12195,19 +12269,46 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
 
             if (IsProductPage) {
                 SearchType = "ProductSearch";
+                productSearchCTA.on("click", function () {
+                    newSearch = true;
+                    ClearAllLink.click();
+                    var urlpath, cookieParams = getProductSearchParams();
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?'+cookieParams.join("&");
+                    window.history.pushState({ path: urlpath }, '', urlpath);
+                });
+
             }
             if (IsSearchPage) {
                 SearchType = "SearchResult";
+                siteSearch.on("click", function () {
+                    ClearAllLink.click();
+                });
             }
 
             if (IsResourcePage && (!IsProductPage && !IsSearchPage)) {
                 SearchType = "ResourceResult";
+                resourceProductSearchCTA.on("click", function () {
+                    newSearch = true;
+                    ClearAllLink.click();
+                    var urlpath, cookieParams = getResourceResultParams();
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&");
+                    window.history.pushState({ path: urlpath }, '', urlpath);
+                });
+
             }
-            if (IsSearchPage) {
-                var QueryString, selectedFilterOptions, facets, newFacets, filterOptions, groupid, searchQueryStrings, subQuery, siteUrl = window.location.href;
+            if (IsSearchPage || IsProductPage || IsResourcePage) {
+                var QueryString, selectedFilterOptions, filterOptionsList, facets, newFacets, filterOptions, groupid, searchQueryStrings, subQuery, siteUrl = window.location.href;
                 QueryString = siteUrl.split("?");
                 if (QueryString[1]) {
                     searchQueryStrings = QueryString[1].split("&");
+                    if (searchQueryStrings) {
+                        if (searchQueryStrings[0] && (searchQueryStrings[0].split("=")[0] == "Sector" || searchQueryStrings[0].split("=")[0] == "sector")) {
+                            sectorCookie = searchQueryStrings[0];
+                        }
+                        if (searchQueryStrings[1] && (searchQueryStrings[1].split("=")[1] == "subsectors" || searchQueryStrings[1].split("=")[0] == "subsectors")) {
+                            subSectorCookie = searchQueryStrings[1];
+                        }
+                    }
                     $.each(searchQueryStrings, function () {
                         if (this) {
                             subQuery = this.split("=");
@@ -12215,16 +12316,17 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                             facets = subQuery[1].split(",");
                             newFacets = [];
                             $.each(facets, function () {
-                                newFacets.push(this.replace(/-/g, " ").replace(/%26/g,"&"));
+                                newFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&"));
                             });
 
+                            filterOptionsList = $("#" + groupid).find("input[type='checkbox']");
                             filterOptions = $("#" + groupid).find("input[type='checkbox']").not(":disabled");
-                            filterOptions.filter(function () {
+                            filterOptionsList.filter(function () {
                                 if (newFacets.includes($(this).next().text().toLowerCase())) {
                                     $(this).prop("checked", true);
                                 }
                             });
-                            selectedFilterOptions = $("#" + groupid).find("input:checked").not(":disabled");
+                            selectedFilterOptions = $("#" + groupid.cap).find("input:checked").not(":disabled");
                             if (filterOptions.length == selectedFilterOptions.length) {
                                 $("#" + groupid + "1").prop("checked", true);
                             }
@@ -12276,10 +12378,18 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                     ClearAllLinkBinding(ClearMobileLink);
                 }
             }
-            siteSearch.on("click", function(){
-                ClearAllLink.click();
-            });
 
+            $(document).on('change', '.custom-multiselect input', function () {
+                var SubSectorNames = [], SectorNames = [];
+                $("#Sector2 :selected").map(function (i, el) {
+                    SectorNames.push($(el).text());
+                });
+                $("#SubSector2 :selected").map(function (i, el) {
+                    SubSectorNames.push($(el).text());
+                });
+                $("#SectorNames").val(SectorNames.toString());
+                $("#SubSectorNames").val(SubSectorNames.toString());
+            });
         };
     return {
         init: init,
