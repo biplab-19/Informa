@@ -118,7 +118,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
     return {
         init: init,
-        GetResourceData : GetProductFinderData
+        GetResourceData : GetProductFinderData,
+        UpdateSubSectorDropdown : UpdateSubSectorDropdown
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.ResourceFilter.init());

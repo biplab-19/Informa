@@ -57,7 +57,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                         $.each(SelectedCheckBox, function () {
                             uniqueArr.push($(this).attr("value"));
                             parameter = $(this).next().text().replace(/ /g, '-').toLowerCase();
-                            parameters.push(parameter.replace(/&/g, 'and'));
+                            parameters.push(parameter.replace(/&/g, '%26'));
                             Data[GetSectionID] = uniqueArr;
                         });
                         if (parameters.length > 0) {
@@ -377,10 +377,11 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                         if (this) {
                             subQuery = this.split("=");
                             groupid = subQuery[0];
-                            facets = subQuery[1].split(",");
+                            if(subQuery[0])
+                                facets = urlParameters.get(subQuery[0]).split(",");
                             newFacets = [];
                             $.each(facets, function () {
-                                newFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&")).toLowerCase();
+                                newFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&").toLowerCase());
                             });
 
                             filterOptionsList =  $("[id='"+groupid+"' i]").find("input[type='checkbox']");
@@ -390,13 +391,12 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                                     $(this).prop("checked", true);
                                 }
                             });
-                            selectedFilterOptions = $("[id='"+groupid.cap+"' i]").find("input:checked").not(":disabled");
+                            selectedFilterOptions = $("[id='"+groupid+"' i]").find("input:checked").not(":disabled");
                             if (filterOptions.length == selectedFilterOptions.length) {
                                 $("[id='"+groupid+"1' i]").prop("checked", true);
                             }
                         }
                     });
-
                 }
             }
             if (CheckedRefineCheckBox.length > 0) {
