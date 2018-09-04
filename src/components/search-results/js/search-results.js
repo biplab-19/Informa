@@ -31,7 +31,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         IsShowFlag = false,
         PageNo = 2,
         // methods
-        init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,
+        init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,getSubsectors,UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
         DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent;
 
@@ -157,8 +157,87 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
             DrpDwn.multiselect('rebuild');
         },
-        UpdateResultPage = function(SectorSelect, SecValue, SubSecValue) {
+        getSubsectors = function(searchbar, groupid, subsector=[]){
+            var dropDownId, QueryString,searchQueryStrings, urlParameters = new URLSearchParams(window.location.search);
+            QueryString = urlParameters.toString();
+            if (QueryString) {
+                searchQueryStrings = QueryString.split("&");
+                if (searchQueryStrings) {
+                    var sectorParam = urlParameters.get(groupid);
+                    if (sectorParam) {
+                        var hiddenSecotrList = [], sectorFilterOptionsList=[], sectorFscets = sectorParam.split(","), selctedSectorFacets = [];
+                        $.each(sectorFscets, function () {
+                            selctedSectorFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&").toLowerCase());
+                        });
 
+                        if (subsector.length > 0){
+                            $.each(subsector, function () {
+                                sectorFilterOptionsList.push(this);
+                            });
+                            $.each(sectorFilterOptionsList,function () {
+                                var item = this;
+                                if (selctedSectorFacets.includes(item.SubSectorName.toLowerCase())) {
+                                    hiddenSecotrList.push(this.SubSectorID);
+                                }
+                           });
+        
+                        }
+                        else{
+                            if(searchbar == 'sector-search')
+                            sectorFilterOptionsList = $("." + searchbar + " [id='" + groupid + "2' i]").next().find(".multiselect-container").find("input[type='checkbox']");
+                            else
+                            sectorFilterOptionsList = $("." + searchbar + " [id='" + groupid + "' i]").next().find(".multiselect-container").find("input[type='checkbox']");
+                            sectorFilterOptionsList.filter(function () {
+                                if (selctedSectorFacets.includes($(this).parent().text().trim().toLowerCase())) {
+                                    hiddenSecotrList.push($(this).val());
+                                }
+                            });
+    
+                        }
+                        if (hiddenSecotrList.length > 0) {
+                            return hiddenSecotrList.toString();
+                        }                    }
+                }else{
+                    return null;
+                }
+            }
+
+        },
+        UpdateResourceResultPage = function(SectorSelect) {
+            var URLSubSectorValue, URLSectorValue = getSubsectors('resource-sector-search','sector');
+            var SectorArray = URLSectorValue.split(","),
+                SubSectors,
+                SectorIDs = 'SectorIDs=' + URLSectorValue,resourceFinderSection = $("#resource-finder-section"),
+                /* unused variable SubmitBtn removed */
+                SubSectorSelect = resourceFinderSection.find("select.SubSector");
+                
+                resourceFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
+            if (SectorSelect.length && SectorArray) {
+                MakeDropPreSelected(SectorArray, SectorSelect);
+                INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
+                    method: "Get",
+                    data: SectorIDs,
+                    success_callback: function(data) {
+                        INFORMA.ResourceFilter.UpdateSubSectorDropdown(data);
+                        URLSubSectorValue = getSubsectors('resource-sector-search','subsector',data.SubSectors);
+                        if(URLSubSectorValue){
+                            SubSectors = URLSubSectorValue.split(",");
+                        }
+                        if (SubSectors) {
+                            MakeDropPreSelected(SubSectors, SubSectorSelect);
+                        }
+                    },
+                    error_callback: function() {
+
+                    }
+                });
+            }
+        },
+        UpdateResultPage = function(SectorSelect, SecValue, SubSecValue) {
+            var URLSubSectorValue, URLSectorValue = getSubsectors('sector-search','sector');
+            if(URLSectorValue){
+                SecValue = URLSectorValue;
+            }
             var SectorArray = SecValue.split(","),
                 SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
                 SectorIDs = 'SectorIDs=' + SecValue,
@@ -173,7 +252,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     data: SectorIDs,
                     success_callback: function(data) {
                         INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
-
+                        URLSubSectorValue = getSubsectors('sector-search','subsector');
+                        if(URLSubSectorValue){
+                            SubSectors = URLSubSectorValue.split(",");
+                        }
                         if (SubSectors) {
                             MakeDropPreSelected(SubSectors, SubSectorSelect);
                         }
@@ -553,9 +635,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             if (IsResourcePage && (!IsProductPage && !IsSearchPage)) {
                 SearchType = "ResourceResult";
+                var SectorSelect = $("#resource-finder-section").find("select.Sector");
+                UpdateResourceResultPage(SectorSelect);
             }
 
-            if (IsProductPage && SectorHidden.length > 0) {
+            if (IsProductPage) {
+
                 var SVal = SectorHidden.val(),
                     SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
                 if (IsProductPage) {

@@ -1,4 +1,4 @@
-/*! 2018-09-03 *//*
+/*! 2018-09-04 *//*
  * google-analytics.js
  *
  *
@@ -11895,7 +11895,8 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
 
     return {
         init: init,
-        GetResourceData : GetProductFinderData
+        GetResourceData : GetProductFinderData,
+        UpdateSubSectorDropdown : UpdateSubSectorDropdown
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.ResourceFilter.init());
@@ -12028,7 +12029,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         siteSearch = $('button[data-submit="site-search"]'),
         productSearchCTA = $('button[data-submit="sector-search"]'),
         resourceProductSearchCTA = $('.resource-sector-search button[data-submit="sector-search"]'),
-        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorCookie, subSectorCookie,
+        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorQuery, subsectorQuery,
         // methods
         init, SelectAllCheckBox, BindRefineEvents, ClearAllLinkBinding, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
 
@@ -12048,7 +12049,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
 
             if (RefineSection) {
                 $.each(RefineSection, function () {
-                    var GetSectionID = $(this).parent().attr("id"),
+                    var GetSectionID = $(this).parent().attr("id").toLowerCase(),
                         SelectedCheckBox = $(this).find("input[type=checkbox]:checked").not(":disabled"),
                         uniqueArr = [],
                         parameters = [],
@@ -12058,7 +12059,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                         $.each(SelectedCheckBox, function () {
                             uniqueArr.push($(this).attr("value"));
                             parameter = $(this).next().text().replace(/ /g, '-').toLowerCase();
-                            parameters.push(parameter.replace(/&/g, 'and'));
+                            parameters.push(parameter.replace(/&/g, '%26'));
                             Data[GetSectionID] = uniqueArr;
                         });
                         if (parameters.length > 0) {
@@ -12111,21 +12112,21 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
 
                 window.history.pushState({ path: urlpath }, '', urlpath);
             } else if (SearchType === "ProductSearch") {
-                var cookieParams = [];
+                var urlQueryStrings = [];
                 if (newSearch)
-                    cookieParams = getProductSearchParams();
+                    urlQueryStrings = getProductSearchParams();
                 else {
-                    if (sectorCookie)
-                        cookieParams.push(sectorCookie);
-                    if (subSectorCookie)
-                        cookieParams.push(subSectorCookie);
+                    if (sectorQuery)
+                        urlQueryStrings.push(sectorQuery);
+                    if (subsectorQuery)
+                        urlQueryStrings.push(subsectorQuery);
                 }
-                if (newURL && cookieParams.length != 0)
-                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&") + '&' + newURL;
-                else if (newURL && cookieParams.length == 0)
+                if (newURL && urlQueryStrings.length != 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlQueryStrings.join("&") + '&' + newURL;
+                else if (newURL && urlQueryStrings.length == 0)
                     urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + newURL;
-                else if (!newURL && cookieParams.length != 0)
-                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&");
+                else if (!newURL && urlQueryStrings.length != 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlQueryStrings.join("&");
                 else
                     urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?PageRequest=' + productSearchString;
 
@@ -12147,18 +12148,18 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         },
 
         getProductSearchParams = function () {
-            var parameter, cookieParams = [];
+            var parameter, urlQueryStrings = [];
             if ($('#SectorNames').val()) {
                 parameter = $("#SectorNames").val().trim().replace(/ /g, '-').toLowerCase();
-                cookieParams.push("Sector=" + parameter.replace(/&/g, '%26'));
+                urlQueryStrings.push("sector=" + parameter.replace(/&/g, '%26').toLowerCase());
                 productSearchString = "Sector"
             }
             if ($('#SubSectorNames').val() && ($('#SubSector2').parent().find("button").attr("title") != "Please Select")) {
                 parameter = $("#SubSectorNames").val().trim().replace(/ /g, '-').toLowerCase();
-                cookieParams.push("subsector=" + parameter.replace(/&/g, '%26'));
+                urlQueryStrings.push("subsector=" + parameter.replace(/&/g, '%26').toLowerCase());
                 productSearchString = "subsector"
             }
-            return cookieParams;
+            return urlQueryStrings;
         },
 
         getResourceResultParams = function () {
@@ -12170,7 +12171,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 SubSectorNames.push($(el).text().trim().replace(/ /g, '-').toLowerCase().replace(/&/g, '%26'));
             });
             if (SectorNames.length != 0) {
-                resourceSearchParams.push("Sector=" + SectorNames.toString())
+                resourceSearchParams.push("sector=" + SectorNames.toString())
             }
             if (SubSectorNames.length != 0) {
                 resourceSearchParams.push("subsector=" + SubSectorNames.toString())
@@ -12319,15 +12320,15 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 productSearchCTA.on("click", function () {
                     newSearch = true;
                     ClearAllLink.click();
-                    var urlpath, cookieParams = getProductSearchParams();
-                    if(cookieParams.length==0){
+                    var urlpath, urlQueryStrings = getProductSearchParams();
+                    if(urlQueryStrings.length==0){
                         newSearch = false;
-                        if (sectorCookie)
-                            cookieParams.push(sectorCookie);
-                        if (subSectorCookie)
-                            cookieParams.push(subSectorCookie);
+                        if (sectorQuery)
+                            urlQueryStrings.push(sectorQuery);
+                        if (subsectorQuery)
+                            urlQueryStrings.push(subsectorQuery);
                     }
-                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?'+cookieParams.join("&");
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?'+urlQueryStrings.join("&");
                     window.history.pushState({ path: urlpath }, '', urlpath);
                 });
 
@@ -12344,56 +12345,60 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 resourceProductSearchCTA.on("click", function () {
                     newSearch = true;
                     ClearAllLink.click();
-                    var urlpath, cookieParams = getResourceResultParams();
-                    if(cookieParams.length==0){
+                    var urlpath, urlQueryStrings = getResourceResultParams();
+                    if(urlQueryStrings.length==0){
                         newSearch = false;
-                        if (sectorCookie)
-                            cookieParams.push(sectorCookie);
-                        if (subSectorCookie)
-                            cookieParams.push(subSectorCookie);
+                        if (sectorQuery)
+                            urlQueryStrings.push(sectorQuery);
+                        if (subsectorQuery)
+                            urlQueryStrings.push(subsectorQuery);
                     }
-                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&");
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlQueryStrings.join("&");
                     window.history.pushState({ path: urlpath }, '', urlpath);
                 });
 
             }
             if (IsSearchPage || IsProductPage || IsResourcePage) {
                 var QueryString, selectedFilterOptions, filterOptionsList, facets, newFacets, filterOptions, groupid, searchQueryStrings, subQuery, siteUrl = window.location.href;
-                QueryString = siteUrl.split("?");
-                if (QueryString[1]) {
-                    searchQueryStrings = QueryString[1].split("&");
-                    if (searchQueryStrings) {
-                        if (searchQueryStrings[0] && (searchQueryStrings[0].split("=")[0] == "Sector" || searchQueryStrings[0].split("=")[0] == "sector")) {
-                            sectorCookie = searchQueryStrings[0];
+                var urlParameters = new URLSearchParams(window.location.search);
+                QueryString = urlParameters.toString();
+                if (QueryString) {
+                        searchQueryStrings = QueryString.split("&");
+                        if(searchQueryStrings){
+                        var sectorParam = urlParameters.get('Sector') || urlParameters.get('sector');
+                        var subSectorParam = urlParameters.get('SubSector') || urlParameters.get('subsector');
+                        if (sectorParam) {
+                            sectorQuery = "sector="+sectorParam;
                         }
-                        if (searchQueryStrings[1] && (searchQueryStrings[1].split("=")[0] == "subsector" || searchQueryStrings[1].split("=")[0] == "subSector")) {
-                            subSectorCookie = searchQueryStrings[1];
+                        if (subSectorParam) {
+                            subsectorQuery = "subsector="+subSectorParam;
                         }
                     }
+
                     $.each(searchQueryStrings, function () {
                         if (this) {
                             subQuery = this.split("=");
                             groupid = subQuery[0];
-                            facets = subQuery[1].split(",");
+                            if(subQuery[0])
+                                facets = urlParameters.get(subQuery[0]).split(",");
                             newFacets = [];
                             $.each(facets, function () {
-                                newFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&"));
+                                newFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&").toLowerCase());
                             });
 
-                            filterOptionsList = $("#" + groupid).find("input[type='checkbox']");
-                            filterOptions = $("#" + groupid).find("input[type='checkbox']").not(":disabled");
+                            filterOptionsList =  $("[id='"+groupid+"' i]").find("input[type='checkbox']");
+                            filterOptions = $("[id='"+groupid+"' i]").find("input[type='checkbox']").not(":disabled");
                             filterOptionsList.filter(function () {
                                 if (newFacets.includes($(this).next().text().toLowerCase())) {
                                     $(this).prop("checked", true);
                                 }
                             });
-                            selectedFilterOptions = $("#" + groupid.cap).find("input:checked").not(":disabled");
+                            selectedFilterOptions = $("[id='"+groupid+"' i]").find("input:checked").not(":disabled");
                             if (filterOptions.length == selectedFilterOptions.length) {
-                                $("#" + groupid + "1").prop("checked", true);
+                                $("[id='"+groupid+"1' i]").prop("checked", true);
                             }
                         }
                     });
-
                 }
             }
             if (CheckedRefineCheckBox.length > 0) {
@@ -12494,7 +12499,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         IsShowFlag = false,
         PageNo = 2,
         // methods
-        init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,
+        init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,getSubsectors,UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
         DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent;
 
@@ -12620,8 +12625,87 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
             DrpDwn.multiselect('rebuild');
         },
-        UpdateResultPage = function(SectorSelect, SecValue, SubSecValue) {
+        getSubsectors = function(searchbar, groupid, subsector=[]){
+            var dropDownId, QueryString,searchQueryStrings, urlParameters = new URLSearchParams(window.location.search);
+            QueryString = urlParameters.toString();
+            if (QueryString) {
+                searchQueryStrings = QueryString.split("&");
+                if (searchQueryStrings) {
+                    var sectorParam = urlParameters.get(groupid);
+                    if (sectorParam) {
+                        var hiddenSecotrList = [], sectorFilterOptionsList=[], sectorFscets = sectorParam.split(","), selctedSectorFacets = [];
+                        $.each(sectorFscets, function () {
+                            selctedSectorFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&").toLowerCase());
+                        });
 
+                        if (subsector.length > 0){
+                            $.each(subsector, function () {
+                                sectorFilterOptionsList.push(this);
+                            });
+                            $.each(sectorFilterOptionsList,function () {
+                                var item = this;
+                                if (selctedSectorFacets.includes(item.SubSectorName.toLowerCase())) {
+                                    hiddenSecotrList.push(this.SubSectorID);
+                                }
+                           });
+        
+                        }
+                        else{
+                            if(searchbar == 'sector-search')
+                            sectorFilterOptionsList = $("." + searchbar + " [id='" + groupid + "2' i]").next().find(".multiselect-container").find("input[type='checkbox']");
+                            else
+                            sectorFilterOptionsList = $("." + searchbar + " [id='" + groupid + "' i]").next().find(".multiselect-container").find("input[type='checkbox']");
+                            sectorFilterOptionsList.filter(function () {
+                                if (selctedSectorFacets.includes($(this).parent().text().trim().toLowerCase())) {
+                                    hiddenSecotrList.push($(this).val());
+                                }
+                            });
+    
+                        }
+                        if (hiddenSecotrList.length > 0) {
+                            return hiddenSecotrList.toString();
+                        }                    }
+                }else{
+                    return null;
+                }
+            }
+
+        },
+        UpdateResourceResultPage = function(SectorSelect) {
+            var URLSubSectorValue, URLSectorValue = getSubsectors('resource-sector-search','sector');
+            var SectorArray = URLSectorValue.split(","),
+                SubSectors,
+                SectorIDs = 'SectorIDs=' + URLSectorValue,resourceFinderSection = $("#resource-finder-section"),
+                /* unused variable SubmitBtn removed */
+                SubSectorSelect = resourceFinderSection.find("select.SubSector");
+                
+                resourceFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
+            if (SectorSelect.length && SectorArray) {
+                MakeDropPreSelected(SectorArray, SectorSelect);
+                INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
+                    method: "Get",
+                    data: SectorIDs,
+                    success_callback: function(data) {
+                        INFORMA.ResourceFilter.UpdateSubSectorDropdown(data);
+                        URLSubSectorValue = getSubsectors('resource-sector-search','subsector',data.SubSectors);
+                        if(URLSubSectorValue){
+                            SubSectors = URLSubSectorValue.split(",");
+                        }
+                        if (SubSectors) {
+                            MakeDropPreSelected(SubSectors, SubSectorSelect);
+                        }
+                    },
+                    error_callback: function() {
+
+                    }
+                });
+            }
+        },
+        UpdateResultPage = function(SectorSelect, SecValue, SubSecValue) {
+            var URLSubSectorValue, URLSectorValue = getSubsectors('sector-search','sector');
+            if(URLSectorValue){
+                SecValue = URLSectorValue;
+            }
             var SectorArray = SecValue.split(","),
                 SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
                 SectorIDs = 'SectorIDs=' + SecValue,
@@ -12636,7 +12720,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     data: SectorIDs,
                     success_callback: function(data) {
                         INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
-
+                        URLSubSectorValue = getSubsectors('sector-search','subsector');
+                        if(URLSubSectorValue){
+                            SubSectors = URLSubSectorValue.split(",");
+                        }
                         if (SubSectors) {
                             MakeDropPreSelected(SubSectors, SubSectorSelect);
                         }
@@ -13016,9 +13103,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             if (IsResourcePage && (!IsProductPage && !IsSearchPage)) {
                 SearchType = "ResourceResult";
+                var SectorSelect = $("#resource-finder-section").find("select.Sector");
+                UpdateResourceResultPage(SectorSelect);
             }
 
-            if (IsProductPage && SectorHidden.length > 0) {
+            if (IsProductPage) {
+
                 var SVal = SectorHidden.val(),
                     SubSecVal = (SubSectorHidden.length) ? SubSectorHidden.val() : false;
                 if (IsProductPage) {
