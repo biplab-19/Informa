@@ -205,71 +205,77 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         },
         UpdateResourceResultPage = function(SectorSelect) {
             var URLSubSectorValue, URLSectorValue = getSubsectors('resource-sector-search','sector');
-            var SectorArray = URLSectorValue.split(","),
-                SubSectors,
-                SectorIDs = 'SectorIDs=' + URLSectorValue,resourceFinderSection = $("#resource-finder-section"),
-                /* unused variable SubmitBtn removed */
-                SubSectorSelect = resourceFinderSection.find("select.SubSector");
-                
-                resourceFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
-            if (SectorSelect.length && SectorArray) {
-                MakeDropPreSelected(SectorArray, SectorSelect);
-                INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
-                    method: "Get",
-                    data: SectorIDs,
-                    success_callback: function(data) {
-                        INFORMA.ResourceFilter.UpdateSubSectorDropdown(data);
-                        URLSubSectorValue = getSubsectors('resource-sector-search','subsector',data.SubSectors);
-                        if(URLSubSectorValue){
-                            SubSectors = URLSubSectorValue.split(",");
-                        }
-                        if (SubSectors) {
-                            MakeDropPreSelected(SubSectors, SubSectorSelect);
-                        }
-                    },
-                    error_callback: function() {
 
-                    }
-                });
+            if (URLSectorValue) {
+
+                var SectorArray = URLSectorValue.split(","),
+                    SubSectors,
+                    SectorIDs = 'SectorIDs=' + URLSectorValue, resourceFinderSection = $("#resource-finder-section"),
+                    /* unused variable SubmitBtn removed */
+                    SubSectorSelect = resourceFinderSection.find("select.SubSector");
+
+                resourceFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
+                if (SectorSelect.length && SectorArray) {
+                    MakeDropPreSelected(SectorArray, SectorSelect);
+                    INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
+                        method: "Get",
+                        data: SectorIDs,
+                        success_callback: function (data) {
+                            INFORMA.ResourceFilter.UpdateSubSectorDropdown(data);
+                            URLSubSectorValue = getSubsectors('resource-sector-search', 'subsector', data.SubSectors);
+                            if (URLSubSectorValue) {
+                                SubSectors = URLSubSectorValue.split(",");
+                            }
+                            if (SubSectors) {
+                                MakeDropPreSelected(SubSectors, SubSectorSelect);
+                            }
+                        },
+                        error_callback: function () {
+
+                        }
+                    });
+                }
             }
-        },
+            },
         UpdateResultPage = function(SectorSelect, SecValue, SubSecValue) {
             var URLSubSectorValue, URLSectorValue = getSubsectors('sector-search','sector');
             if(URLSectorValue){
                 SecValue = URLSectorValue;
             }
-            var SectorArray = SecValue.split(","),
-                SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
-                SectorIDs = 'SectorIDs=' + SecValue,
-                /* unused variable SubmitBtn removed */
-                SubSectorSelect = ProductFinderSection.find("select.SubSector");
+            if (SecValue) {
+                var SectorArray = SecValue.split(","),
+                    SubSectors = (SubSecValue) ? SubSecValue.split(",") : "",
+                    SectorIDs = 'SectorIDs=' + SecValue,
+                    /* unused variable SubmitBtn removed */
+                    SubSectorSelect = ProductFinderSection.find("select.SubSector");
 
-            ProductFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
-            if (SectorSelect.length && SectorArray) {
-                MakeDropPreSelected(SectorArray, SectorSelect);
-                INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
-                    method: "Get",
-                    data: SectorIDs,
-                    success_callback: function(data) {
-                        INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
-                        URLSubSectorValue = getSubsectors('sector-search','subsector');
-                        if(URLSubSectorValue){
-                            SubSectors = URLSubSectorValue.split(",");
+                ProductFinderSection.find("input[type=radio][data-show='sector-search']").trigger("click");
+                if (SectorSelect.length && SectorArray) {
+                    MakeDropPreSelected(SectorArray, SectorSelect);
+                    INFORMA.DataLoader.GetServiceData(Urls.GetSubSectorList, {
+                        method: "Get",
+                        data: SectorIDs,
+                        success_callback: function (data) {
+                            INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
+                            URLSubSectorValue = getSubsectors('sector-search', 'subsector');
+                            if (URLSubSectorValue) {
+                                SubSectors = URLSubSectorValue.split(",");
+                            }
+                            if (SubSectors) {
+                                MakeDropPreSelected(SubSectors, SubSectorSelect);
+                            }
+
+                            //ProductFinderSection.slideDown();
+                            $('.search:visible').trigger('click');
+                            //SubmitBtn.trigger("click");
+                        },
+                        error_callback: function () {
+
                         }
-                        if (SubSectors) {
-                            MakeDropPreSelected(SubSectors, SubSectorSelect);
-                        }
-
-                        //ProductFinderSection.slideDown();
-                         $('.search:visible').trigger('click');
-                        //SubmitBtn.trigger("click");
-                    },
-                    error_callback: function() {
-
-                    }
-                });
+                    });
+                }
             }
-        },
+            },
         GetAjaxData = function(url, method, data, SCallback, Errcallback, Item) {
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(url, {
