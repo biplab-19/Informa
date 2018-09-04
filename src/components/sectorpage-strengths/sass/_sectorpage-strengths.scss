@@ -124,10 +124,17 @@
 
 
 .modal-dialog.pdf-model-dailog{
-      width:100%;
-      height: 100%;
-      margin: 0px;
-      padding: 0px;
+  @include desktop{
+    height: 600px;
+    width: 1172px;
+    top:80px;
+  }
+  @include not-desktop{
+    width: 100%;
+    height: 100%;
+    margin:0px;
+    padding:0px
+    }
 }
 
 .pdf-model-dailog{
@@ -892,6 +899,9 @@ height: calc(100% - 50px);
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
+      @include mobile{
+        display: none !important;
+      }
     }
     
      #toolbarViewerLeft,
