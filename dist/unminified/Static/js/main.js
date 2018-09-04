@@ -13299,6 +13299,10 @@ equalHeight = function () {
             $(window).on('load', function() {
                 equalHeight();
             });        }
+
+            $("#loadPDFComponentModal").on('hidden.bs.modal', function(){
+                $("#hiddenIframe").html("");
+            });
     };
 
     return {

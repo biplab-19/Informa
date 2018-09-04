@@ -1,4 +1,4 @@
-/*! 2018-08-28 *//**
+/*! 2018-09-04 *//**
  * Copyright (c) 2011-2013 Fabien Cazenave, Mozilla.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -13547,6 +13547,13 @@ var PDFViewerApplication = {
   }
   var pagesOverview = this.pdfViewer.getPagesOverview();
   var printContainer = this.appConfig.printContainer;
+  var iframe = document.createElement("iframe");
+      iframe.setAttribute("src",this.baseUrl);
+      iframe.setAttribute("id","PDFtoPrint");
+      iframe.setAttribute("width","100%");
+      iframe.setAttribute("height","100%");
+      document.getElementById('hiddenIframe').appendChild(iframe);
+//  document.getElementById("PDFtoPrint").src = this.baseUrl;
   var printService = PDFPrintServiceFactory.instance.createPrintService(this.pdfDocument, pagesOverview, printContainer);
   this.printService = printService;
   this.forceRendering();
