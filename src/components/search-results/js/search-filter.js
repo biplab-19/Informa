@@ -27,7 +27,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         siteSearch = $('button[data-submit="site-search"]'),
         productSearchCTA = $('button[data-submit="sector-search"]'),
         resourceProductSearchCTA = $('.resource-sector-search button[data-submit="sector-search"]'),
-        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorCookie, subSectorCookie,
+        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorQuery, subsectorQuery,
         // methods
         init, SelectAllCheckBox, BindRefineEvents, ClearAllLinkBinding, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
 
@@ -47,7 +47,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
 
             if (RefineSection) {
                 $.each(RefineSection, function () {
-                    var GetSectionID = $(this).parent().attr("id"),
+                    var GetSectionID = $(this).parent().attr("id").toLowerCase(),
                         SelectedCheckBox = $(this).find("input[type=checkbox]:checked").not(":disabled"),
                         uniqueArr = [],
                         parameters = [],
@@ -110,21 +110,21 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
 
                 window.history.pushState({ path: urlpath }, '', urlpath);
             } else if (SearchType === "ProductSearch") {
-                var cookieParams = [];
+                var urlQueryStrings = [];
                 if (newSearch)
-                    cookieParams = getProductSearchParams();
+                    urlQueryStrings = getProductSearchParams();
                 else {
-                    if (sectorCookie)
-                        cookieParams.push(sectorCookie);
-                    if (subSectorCookie)
-                        cookieParams.push(subSectorCookie);
+                    if (sectorQuery)
+                        urlQueryStrings.push(sectorQuery);
+                    if (subsectorQuery)
+                        urlQueryStrings.push(subsectorQuery);
                 }
-                if (newURL && cookieParams.length != 0)
-                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&") + '&' + newURL;
-                else if (newURL && cookieParams.length == 0)
+                if (newURL && urlQueryStrings.length != 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlQueryStrings.join("&") + '&' + newURL;
+                else if (newURL && urlQueryStrings.length == 0)
                     urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + newURL;
-                else if (!newURL && cookieParams.length != 0)
-                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&");
+                else if (!newURL && urlQueryStrings.length != 0)
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlQueryStrings.join("&");
                 else
                     urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?PageRequest=' + productSearchString;
 
@@ -146,18 +146,18 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         },
 
         getProductSearchParams = function () {
-            var parameter, cookieParams = [];
+            var parameter, urlQueryStrings = [];
             if ($('#SectorNames').val()) {
                 parameter = $("#SectorNames").val().trim().replace(/ /g, '-').toLowerCase();
-                cookieParams.push("Sector=" + parameter.replace(/&/g, '%26'));
+                urlQueryStrings.push("sector=" + parameter.replace(/&/g, '%26').toLowerCase());
                 productSearchString = "Sector"
             }
             if ($('#SubSectorNames').val() && ($('#SubSector2').parent().find("button").attr("title") != "Please Select")) {
                 parameter = $("#SubSectorNames").val().trim().replace(/ /g, '-').toLowerCase();
-                cookieParams.push("subsector=" + parameter.replace(/&/g, '%26'));
+                urlQueryStrings.push("subsector=" + parameter.replace(/&/g, '%26').toLowerCase());
                 productSearchString = "subsector"
             }
-            return cookieParams;
+            return urlQueryStrings;
         },
 
         getResourceResultParams = function () {
@@ -169,7 +169,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 SubSectorNames.push($(el).text().trim().replace(/ /g, '-').toLowerCase().replace(/&/g, '%26'));
             });
             if (SectorNames.length != 0) {
-                resourceSearchParams.push("Sector=" + SectorNames.toString())
+                resourceSearchParams.push("sector=" + SectorNames.toString())
             }
             if (SubSectorNames.length != 0) {
                 resourceSearchParams.push("subsector=" + SubSectorNames.toString())
@@ -318,15 +318,15 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 productSearchCTA.on("click", function () {
                     newSearch = true;
                     ClearAllLink.click();
-                    var urlpath, cookieParams = getProductSearchParams();
-                    if(cookieParams.length==0){
+                    var urlpath, urlQueryStrings = getProductSearchParams();
+                    if(urlQueryStrings.length==0){
                         newSearch = false;
-                        if (sectorCookie)
-                            cookieParams.push(sectorCookie);
-                        if (subSectorCookie)
-                            cookieParams.push(subSectorCookie);
+                        if (sectorQuery)
+                            urlQueryStrings.push(sectorQuery);
+                        if (subsectorQuery)
+                            urlQueryStrings.push(subsectorQuery);
                     }
-                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?'+cookieParams.join("&");
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?'+urlQueryStrings.join("&");
                     window.history.pushState({ path: urlpath }, '', urlpath);
                 });
 
@@ -343,32 +343,36 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 resourceProductSearchCTA.on("click", function () {
                     newSearch = true;
                     ClearAllLink.click();
-                    var urlpath, cookieParams = getResourceResultParams();
-                    if(cookieParams.length==0){
+                    var urlpath, urlQueryStrings = getResourceResultParams();
+                    if(urlQueryStrings.length==0){
                         newSearch = false;
-                        if (sectorCookie)
-                            cookieParams.push(sectorCookie);
-                        if (subSectorCookie)
-                            cookieParams.push(subSectorCookie);
+                        if (sectorQuery)
+                            urlQueryStrings.push(sectorQuery);
+                        if (subsectorQuery)
+                            urlQueryStrings.push(subsectorQuery);
                     }
-                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + cookieParams.join("&");
+                    urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + urlQueryStrings.join("&");
                     window.history.pushState({ path: urlpath }, '', urlpath);
                 });
 
             }
             if (IsSearchPage || IsProductPage || IsResourcePage) {
                 var QueryString, selectedFilterOptions, filterOptionsList, facets, newFacets, filterOptions, groupid, searchQueryStrings, subQuery, siteUrl = window.location.href;
-                QueryString = siteUrl.split("?");
-                if (QueryString[1]) {
-                    searchQueryStrings = QueryString[1].split("&");
-                    if (searchQueryStrings) {
-                        if (searchQueryStrings[0] && (searchQueryStrings[0].split("=")[0] == "Sector" || searchQueryStrings[0].split("=")[0] == "sector")) {
-                            sectorCookie = searchQueryStrings[0];
+                var urlParameters = new URLSearchParams(window.location.search);
+                QueryString = urlParameters.toString();
+                if (QueryString) {
+                        searchQueryStrings = QueryString.split("&");
+                        if(searchQueryStrings){
+                        var sectorParam = urlParameters.get('Sector') || urlParameters.get('sector');
+                        var subSectorParam = urlParameters.get('SubSector') || urlParameters.get('subsector');
+                        if (sectorParam) {
+                            sectorQuery = "sector="+sectorParam;
                         }
-                        if (searchQueryStrings[1] && (searchQueryStrings[1].split("=")[0] == "subsector" || searchQueryStrings[1].split("=")[0] == "subSector")) {
-                            subSectorCookie = searchQueryStrings[1];
+                        if (subSectorParam) {
+                            subsectorQuery = "subsector="+subSectorParam;
                         }
                     }
+
                     $.each(searchQueryStrings, function () {
                         if (this) {
                             subQuery = this.split("=");
@@ -376,19 +380,19 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                             facets = subQuery[1].split(",");
                             newFacets = [];
                             $.each(facets, function () {
-                                newFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&"));
+                                newFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&")).toLowerCase();
                             });
 
-                            filterOptionsList = $("#" + groupid).find("input[type='checkbox']");
-                            filterOptions = $("#" + groupid).find("input[type='checkbox']").not(":disabled");
+                            filterOptionsList =  $("[id='"+groupid+"' i]").find("input[type='checkbox']");
+                            filterOptions = $("[id='"+groupid+"' i]").find("input[type='checkbox']").not(":disabled");
                             filterOptionsList.filter(function () {
                                 if (newFacets.includes($(this).next().text().toLowerCase())) {
                                     $(this).prop("checked", true);
                                 }
                             });
-                            selectedFilterOptions = $("#" + groupid.cap).find("input:checked").not(":disabled");
+                            selectedFilterOptions = $("[id='"+groupid.cap+"' i]").find("input:checked").not(":disabled");
                             if (filterOptions.length == selectedFilterOptions.length) {
-                                $("#" + groupid + "1").prop("checked", true);
+                                $("[id='"+groupid+"1' i]").prop("checked", true);
                             }
                         }
                     });
