@@ -61,13 +61,13 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
   }
 });
 
-Handlebars.registerHelper('AnalystData', function(profile, type) {
+Handlebars.registerHelper('AnalystData', function(profile) {
   if(profile){
     var u = profile.split("#");
-    if(type == "Name")
-        return u[1];
-    else if(type == "Link")
-        return u[0];
-    else return null;
+    if(profile.includes('#') && u[1]){
+          return "<a href="+u[1]+">"+u[0]+"</a>";
+    }else{
+      return profile;
+    }
   }
 });

@@ -759,7 +759,7 @@ var INFORMA = window.INFORMA || {};
                                         '{{#compare results.PageURL.length "0" operator="=="}}' +
                                             '<h4><span>{{results.Title}}</span></h4>'+
                                         '{{/compare}}'+
-                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> <a href="'+'{{AnalystData results.Profile "Name"}}'+'">'+'{{AnalystData results.Profile "Link"}}'+'</a></strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
                                         '{{/compare}}'+ 

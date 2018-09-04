@@ -1,4 +1,4 @@
-/*! 2018-08-24 *//*
+/*! 2018-09-04 *//*
  * google-analytics.js
  *
  *
@@ -4840,7 +4840,7 @@ var INFORMA = window.INFORMA || {};
                                         '{{#compare results.PageURL.length "0" operator="=="}}' +
                                             '<h4><span>{{results.Title}}</span></h4>'+
                                         '{{/compare}}'+
-                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> <a href="'+'{{AnalystData results.Profile "Name"}}'+'">'+'{{AnalystData results.Profile "Link"}}'+'</a></strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
                                         '{{/compare}}'+ 
@@ -10095,14 +10095,14 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
   }
 });
 
-Handlebars.registerHelper('AnalystData', function(profile, type) {
+Handlebars.registerHelper('AnalystData', function(profile) {
   if(profile){
     var u = profile.split("#");
-    if(type == "Name")
-        return u[1];
-    else if(type == "Link")
-        return u[0];
-    else return null;
+    if(profile.includes('#') && u[1]){
+          return "<a href="+u[1]+">"+u[0]+"</a>";
+    }else{
+      return profile;
+    }
   }
 });
 var INFORMA = window.INFORMA || {};
