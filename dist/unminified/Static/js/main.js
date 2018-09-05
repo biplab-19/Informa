@@ -1,4 +1,4 @@
-/*! 2018-09-04 *//*
+/*! 2018-09-05 *//*
  * google-analytics.js
  *
  *
@@ -12319,7 +12319,8 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 SearchType = "ProductSearch";
                 productSearchCTA.on("click", function () {
                     newSearch = true;
-                    ClearAllLink.click();
+                    if(ClearAllLink)
+                        ClearAllLink.click();
                     var urlpath, urlQueryStrings = getProductSearchParams();
                     if(urlQueryStrings.length==0){
                         newSearch = false;
@@ -12359,7 +12360,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
 
             }
             if (IsSearchPage || IsProductPage || IsResourcePage) {
-                var QueryString, selectedFilterOptions, filterOptionsList, facets, newFacets, filterOptions, groupid, searchQueryStrings, subQuery, siteUrl = window.location.href;
+                var QueryString, japaneseFacets, selectedFilterOptions, filterOptionsList, facets, newFacets, filterOptions, groupid, searchQueryStrings, subQuery, siteUrl = window.location.href;
                 var urlParameters = new URLSearchParams(window.location.search);
                 QueryString = urlParameters.toString();
                 if (QueryString) {
@@ -12368,31 +12369,49 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                         var sectorParam = urlParameters.get('Sector') || urlParameters.get('sector');
                         var subSectorParam = urlParameters.get('SubSector') || urlParameters.get('subsector');
                         if (sectorParam) {
-                            sectorQuery = "sector="+sectorParam;
+                            sectorQuery = "sector="+(sectorParam.replace(/&/g,'%26'));
                         }
                         if (subSectorParam) {
-                            subsectorQuery = "subsector="+subSectorParam;
+                            subsectorQuery = "subsector="+(subSectorParam.replace(/&/g,'%26'));
                         }
                     }
 
                     $.each(searchQueryStrings, function () {
                         if (this) {
+                            var facets=[];
                             subQuery = this.split("=");
                             groupid = subQuery[0];
-                            if(subQuery[0])
-                                facets = urlParameters.get(subQuery[0]).split(",");
-                            newFacets = [];
+                            if(subQuery[0] && urlParameters.get(subQuery[0])){
+                                if(urlParameters.get(subQuery[0]).includes(','))
+                                    facets = urlParameters.get(subQuery[0]).split(",");
+                                 else
+                                     facets.push(urlParameters.get(subQuery[0]));
+                            }
+                            newFacets = [];japaneseFacets=[];
                             $.each(facets, function () {
                                 newFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&").toLowerCase());
                             });
-
+                            $.each(facets, function () {
+                                japaneseFacets.push(this.replace(/%26/g, "&").toLowerCase());
+                            });
+                            
                             filterOptionsList =  $("[id='"+groupid+"' i]").find("input[type='checkbox']");
                             filterOptions = $("[id='"+groupid+"' i]").find("input[type='checkbox']").not(":disabled");
-                            filterOptionsList.filter(function () {
-                                if (newFacets.includes($(this).next().text().toLowerCase())) {
-                                    $(this).prop("checked", true);
-                                }
-                            });
+                            if(newFacets.length >0){
+                                filterOptionsList.filter(function () {
+                                    if (newFacets.includes($(this).next().text().toLowerCase())) {
+                                        $(this).prop("checked", true);
+                                    }
+                                });
+                            }
+                            if(japaneseFacets.length > 0){
+                                filterOptionsList.filter(function () {
+                                    if (japaneseFacets.includes($(this).next().text().toLowerCase())) {
+                                        $(this).prop("checked", true);
+                                    }
+                                });
+
+                            }
                             selectedFilterOptions = $("[id='"+groupid+"' i]").find("input:checked").not(":disabled");
                             if (filterOptions.length == selectedFilterOptions.length) {
                                 $("[id='"+groupid+"1' i]").prop("checked", true);
@@ -12725,7 +12744,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         data: SectorIDs,
                         success_callback: function (data) {
                             INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
-                            URLSubSectorValue = getSubsectors('sector-search', 'subsector');
+                            URLSubSectorValue = getSubsectors('sector-search', 'subsector',data.SubSectors);
                             if (URLSubSectorValue) {
                                 SubSectors = URLSubSectorValue.split(",");
                             }

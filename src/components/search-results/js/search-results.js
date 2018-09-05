@@ -257,7 +257,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         data: SectorIDs,
                         success_callback: function (data) {
                             INFORMA.ProductFinder.UpdateSubSectorDropdown(data);
-                            URLSubSectorValue = getSubsectors('sector-search', 'subsector');
+                            URLSubSectorValue = getSubsectors('sector-search', 'subsector',data.SubSectors);
                             if (URLSubSectorValue) {
                                 SubSectors = URLSubSectorValue.split(",");
                             }
