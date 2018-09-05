@@ -13547,13 +13547,15 @@ var PDFViewerApplication = {
   }
   var pagesOverview = this.pdfViewer.getPagesOverview();
   var printContainer = this.appConfig.printContainer;
-  var iframe = document.createElement("iframe");
-      iframe.setAttribute("src",this.baseUrl);
-      iframe.setAttribute("id","PDFtoPrint");
-      iframe.setAttribute("width","100%");
-      iframe.setAttribute("height","100%");
-      document.getElementById('hiddenIframe').appendChild(iframe);
-//  document.getElementById("PDFtoPrint").src = this.baseUrl;
+  if(navigator.userAgent.indexOf('Edge') == -1){
+    var iframe = document.createElement("iframe");
+        iframe.setAttribute("src",this.baseUrl);
+        iframe.setAttribute("id","PDFtoPrint");
+        iframe.setAttribute("width","100%");
+        iframe.setAttribute("height","100%");
+        document.getElementById('hiddenIframe').appendChild(iframe);
+      
+    }//  document.getElementById("PDFtoPrint").src = this.baseUrl;
   var printService = PDFPrintServiceFactory.instance.createPrintService(this.pdfDocument, pagesOverview, printContainer);
   this.printService = printService;
   this.forceRendering();
@@ -14979,7 +14981,7 @@ PDFPrintService.prototype = {
       if( !isIE && !!window.StyleMedia) {
           isEdge = true;
       }
-      if (isIE || isEdge) {
+      if (isIE) {
           document.getElementById('PDFtoPrint').contentWindow.document.execCommand('print', false, null);
       } else {
           objFra.contentWindow.focus();
