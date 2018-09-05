@@ -12337,7 +12337,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             if (IsSearchPage) {
                 SearchType = "SearchResult";
                 siteSearch.on("click", function () {
-                    ClearAllLink.click();
+                    if(ClearAllLink) ClearAllLink.click();
                 });
             }
 
@@ -12345,7 +12345,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 SearchType = "ResourceResult";
                 resourceProductSearchCTA.on("click", function () {
                     newSearch = true;
-                    ClearAllLink.click();
+                    if(ClearAllLink.click) ClearAllLink.click();
                     var urlpath, urlQueryStrings = getResourceResultParams();
                     if(urlQueryStrings.length==0){
                         newSearch = false;
