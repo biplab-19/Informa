@@ -15007,10 +15007,10 @@ PDFPrintService.prototype = {
 };
 var print = window.print;
 window.print = function print() {
-//  if (activeService) {
-//   console.warn('Ignored window.print() because of a pending print job.');
-//   return;
-//  }
+ if (activeService) {
+  window.alert('Ignored window.print() because of a pending print job.');
+  return;
+ }
  ensureOverlay().then(function () {
   if (activeService) {
    OverlayManager.open('printServiceOverlay');
