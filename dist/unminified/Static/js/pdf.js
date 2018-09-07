@@ -1,4 +1,4 @@
-/*! 2018-09-06 *//**
+/*! 2018-09-07 *//**
  * Copyright (c) 2011-2013 Fabien Cazenave, Mozilla.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -13551,9 +13551,11 @@ var PDFViewerApplication = {
     var iframe = document.createElement("iframe");
         iframe.setAttribute("src",this.baseUrl);
         iframe.setAttribute("id","PDFtoPrint");
+        iframe.setAttribute("class","PDFtoPrintIframe");
         iframe.setAttribute("width","100%");
         iframe.setAttribute("height","100%");
-        document.getElementById('hiddenIframe').appendChild(iframe);
+        if(document.getElementsByClassName('PDFtoPrintIframe').length == 0)          
+            document.getElementById('hiddenIframe').appendChild(iframe);
       
     }//  document.getElementById("PDFtoPrint").src = this.baseUrl;
   var printService = PDFPrintServiceFactory.instance.createPrintService(this.pdfDocument, pagesOverview, printContainer);
@@ -15005,10 +15007,10 @@ PDFPrintService.prototype = {
 };
 var print = window.print;
 window.print = function print() {
- if (activeService) {
-  console.warn('Ignored window.print() because of a pending print job.');
-  return;
- }
+//  if (activeService) {
+//   console.warn('Ignored window.print() because of a pending print job.');
+//   return;
+//  }
  ensureOverlay().then(function () {
   if (activeService) {
    OverlayManager.open('printServiceOverlay');
@@ -15043,7 +15045,6 @@ function dispatchEvent(eventType) {
 function abort() {
  if (activeService) {
   activeService.destroy();
-  document.getElementById('hiddenIframe').innerHTML = "";
   dispatchEvent('afterprint');
  }
 }

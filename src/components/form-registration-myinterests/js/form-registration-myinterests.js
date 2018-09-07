@@ -174,9 +174,15 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             else{
                 _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
             }
-            if(!$(this).attr('data-target') == "loadPDFComponentModal" )
-                window.location.href = value;
-        })
+
+            if ($(this).attr('data-target') != "loadPDFComponentModal") {
+                if (typeof $(this).attr('download') != typeof undefined && $(this).attr('download') !== false) {
+                    $(this).unbind(e);
+                } else {
+                    window.location.href = value;
+                }
+            }
+    })
     }
     
     _showRegisterForm = function() {
@@ -209,10 +215,10 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 $("#showPdfUrl").val($(this).attr('pdf-data-url'));
                 PDFJS.webViewerLoad($("#showPdfUrl").val());
                 document.getElementById("PDFtoPrint").setAttribute("src", $("#showPdfUrl").val());
-            } else {
+            }
+            else {
                 $(this).attr('href', $(this).attr('data-url'));
             }
-            
         });
     }
 
