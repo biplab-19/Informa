@@ -157,7 +157,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             });
             DrpDwn.multiselect('rebuild');
         },
-        getSubsectors = function(searchbar, groupid, subsector=[]){
+        getSubsectors = function(searchbar, groupid, subsector){
             var dropDownId, QueryString,searchQueryStrings, urlParameters = new URLSearchParams(window.location.search);
             QueryString = urlParameters.toString();
             if (QueryString) {
@@ -204,7 +204,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
         },
         UpdateResourceResultPage = function(SectorSelect) {
-            var URLSubSectorValue, URLSectorValue = getSubsectors('resource-sector-search','sector');
+            var URLSubSectorValue, URLSectorValue = getSubsectors('resource-sector-search','sector',[]);
 
             if (URLSectorValue) {
 
@@ -238,7 +238,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             }
             },
         UpdateResultPage = function(SectorSelect, SecValue, SubSecValue) {
-            var URLSubSectorValue, URLSectorValue = getSubsectors('sector-search','sector');
+            var URLSubSectorValue, URLSectorValue = getSubsectors('sector-search','sector',[]);
             if(URLSectorValue){
                 SecValue = URLSectorValue;
             }
