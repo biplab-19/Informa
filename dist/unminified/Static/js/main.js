@@ -1,4 +1,4 @@
-/*! 2018-09-07 *//*
+/*! 2018-09-10 *//*
  * google-analytics.js
  *
  *
@@ -7718,28 +7718,24 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         });
         _myinterestsModal.modal('show');
     }
-    _showContentFirstTime = function(){
-        $('body').on('click', '.show-content-first-time', function(e) {
-            e.preventDefault();
+    _showContentFirstTime = function () {
+        $('body').on('click', '.show-content-first-time', function (e) {
             var value = $(this).attr('href');
             var data = $(this).attr('data-firstcontent');
-            if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-                setTimeout(function(){
-                    _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
-                },100)    
+            if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                setTimeout(function () {
+                    _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({ "firstContent": data }), null, null, null);
+                }, 100)
             }
-            else{
-                _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
+            else {
+                _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({ "firstContent": data }), null, null, null);
             }
 
-            if ($(this).attr('data-target') != "loadPDFComponentModal") {
-                if (typeof $(this).attr('download') != typeof undefined && $(this).attr('download') !== false) {
-                    $(this).unbind(e);
-                } else {
-                    window.location.href = value;
-                }
+            if ($(this).attr('data-target') != "loadPDFComponentModal" && (typeof $(this).attr('download') == typeof undefined && $(this).attr('download') === false)) {
+                e.preventDefault();
+                window.location.href = value;
             }
-    })
+        })
     }
     
     _showRegisterForm = function() {
@@ -7756,24 +7752,32 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 _showRegisterFormPopupSingleStep();
 
                 if ($(this).attr('pdf-data-url')) {
+                    var pdfCtaId = '';
+                    if (typeof $(this).attr('download') != typeof undefined && $(this).attr('download') !== false) {
+                        pdfCtaId = 'id@'+$(this).attr('id');
+                    }
                     if (document.getElementsByClassName("showPdfUrl").length == 0) {
                         var x = document.createElement("INPUT");
                         x.setAttribute("type", "hidden");
-                        x.setAttribute("value", $(this).attr('pdf-data-url'));
+                        x.setAttribute("value", $(this).attr('pdf-data-url')+pdfCtaId);
                         x.setAttribute("id", "showPdfUrl");
                         x.setAttribute("class", "showPdfUrl");
                         document.body.appendChild(x);
                     } else {
-                        $("#showPdfUrl").val($(this).attr('pdf-data-url'));
+                        $("#showPdfUrl").val($(this).attr('pdf-data-url')+pdfCtaId);
                     }
                 }
             }
             else if ($(this).attr('pdf-data-url')) {
-                $("#showPdfUrl").val($(this).attr('pdf-data-url'));
-                PDFJS.webViewerLoad($("#showPdfUrl").val());
-                document.getElementById("PDFtoPrint").setAttribute("src", $("#showPdfUrl").val());
-            }
-            else {
+                if (typeof $(this).attr('download') == typeof undefined && $(this).attr('download') === false){
+                    $("#showPdfUrl").val($(this).attr('pdf-data-url'));
+                    PDFJS.webViewerLoad($("#showPdfUrl").val());
+                    //document.getElementById("PDFtoPrint").setAttribute("src", $("#showPdfUrl").val());
+                }else{
+                    $(this).attr('href', $(this).attr('pdf-data-url'));
+                    $("#showPdfUrl").val($(this).attr('pdf-data-url')+"id@"+$(this).attr('id'));
+                }
+            } else {
                 $(this).attr('href', $(this).attr('data-url'));
             }
         });
@@ -8348,11 +8352,18 @@ INFORMA.forms = (function(window, $, namespace) {
     window.onSubmit = function (token) {
         if (getCurrentform.submit()) {
             if ($('.show-register-form').attr('pdf-data-url')) {
-                $("#loadPDFComponentModal").modal("show");
-                $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
-                    PDFJS.webViewerLoad($("#showPdfUrl").val());
-                })
-
+                if (typeof $('.close-download-form').attr('download') != typeof undefined && $('.close-download-form').attr('download') !== false) {
+                    var getCTAID = $("#showPdfUrl").val();
+                    if (getCTAID && getCTAID.includes('id@')) {
+                        var ctaId = getCTAID.split('id@')[1];
+                        $("#" + ctaId)[0].click();
+                    }
+                } else {
+                    $("#loadPDFComponentModal").modal("show");
+                    $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
+                        PDFJS.webViewerLoad($("#showPdfUrl").val());
+                    })
+                }
             }
         }
     }

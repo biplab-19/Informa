@@ -1,4 +1,4 @@
-/*! 2018-09-07 *//**
+/*! 2018-09-10 *//**
  * Copyright (c) 2011-2013 Fabien Cazenave, Mozilla.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -13074,18 +13074,23 @@ var PDFViewerApplication = {
  zoomIn: function pdfViewZoomIn(ticks) {
   var newScale = this.pdfViewer.currentScale;
   do {
-   newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
-   newScale = Math.ceil(newScale * 10) / 10;
-   newScale = Math.min(MAX_SCALE, newScale);
+   // newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
+    newScale = Math.ceil(newScale * 10) / 10;
+   // newScale = Math.min(MAX_SCALE, newScale);
+   
+   newScale = newScale + 0.1;
   } while (--ticks > 0 && newScale < MAX_SCALE);
   this.pdfViewer.currentScaleValue = newScale;
  },
  zoomOut: function pdfViewZoomOut(ticks) {
   var newScale = this.pdfViewer.currentScale;
   do {
-   newScale = (newScale / DEFAULT_SCALE_DELTA).toFixed(2);
-   newScale = Math.floor(newScale * 10) / 10;
-   newScale = Math.max(MIN_SCALE, newScale);
+   // newScale = (newScale / DEFAULT_SCALE_DELTA).toFixed(2);
+    newScale = Math.floor(newScale * 10) / 10;
+   // newScale = Math.max(MIN_SCALE, newScale);
+   
+   newScale = newScale - 0.1;
+
   } while (--ticks > 0 && newScale > MIN_SCALE);
   this.pdfViewer.currentScaleValue = newScale;
  },
@@ -15008,7 +15013,7 @@ PDFPrintService.prototype = {
 var print = window.print;
 window.print = function print() {
  if (activeService) {
-  window.alert('Ignored window.print() because of a pending print job.');
+  console.warn('Ignored window.print() because of a pending print job.');
   return;
  }
  ensureOverlay().then(function () {

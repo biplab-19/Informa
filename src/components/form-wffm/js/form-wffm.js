@@ -217,11 +217,18 @@ INFORMA.forms = (function(window, $, namespace) {
     window.onSubmit = function (token) {
         if (getCurrentform.submit()) {
             if ($('.show-register-form').attr('pdf-data-url')) {
-                $("#loadPDFComponentModal").modal("show");
-                $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
-                    PDFJS.webViewerLoad($("#showPdfUrl").val());
-                })
-
+                if (typeof $('.close-download-form').attr('download') != typeof undefined && $('.close-download-form').attr('download') !== false) {
+                    var getCTAID = $("#showPdfUrl").val();
+                    if (getCTAID && getCTAID.includes('id@')) {
+                        var ctaId = getCTAID.split('id@')[1];
+                        $("#" + ctaId)[0].click();
+                    }
+                } else {
+                    $("#loadPDFComponentModal").modal("show");
+                    $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
+                        PDFJS.webViewerLoad($("#showPdfUrl").val());
+                    })
+                }
             }
         }
     }
