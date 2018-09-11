@@ -1,4 +1,4 @@
-/*! 2018-09-10 *//**
+/*! 2018-09-11 *//**
  * Copyright (c) 2011-2013 Fabien Cazenave, Mozilla.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -12867,7 +12867,8 @@ var PDFViewerApplication = {
   renderer: 'canvas',
   enhanceTextSelection: false,
   renderInteractiveForms: false,
-  enablePrintAutoRotate: false
+  enablePrintAutoRotate: false,
+  secondloadPDF : false
  },
  isViewerEmbedded: window.parent !== window,
  url: '',
@@ -12883,7 +12884,8 @@ var PDFViewerApplication = {
   return this._readPreferences().then(function () {
    return self._initializeViewerComponents();
   }).then(function () {
-   self.bindEvents();
+if(!self.secondloadPDF)
+	self.bindEvents();
    self.bindWindowEvents();
    localized.then(function () {
     self.eventBus.dispatch('localized');
@@ -12982,6 +12984,10 @@ var PDFViewerApplication = {
    self.downloadManager = downloadManager;
    var container = appConfig.mainContainer;
    var viewer = appConfig.viewerContainer;
+   	  if(document.getElementById("viewer").hasChildNodes()){
+		self.secondloadPDF  = true;  
+	  }
+
    self.pdfViewer = new PDFViewer({
     container: container,
     viewer: viewer,
@@ -13036,7 +13042,9 @@ var PDFViewerApplication = {
     eventBus: eventBus
    });
    self.pdfDocumentProperties = new PDFDocumentProperties(appConfig.documentProperties);
-   self.toolbar = new Toolbar(appConfig.toolbar, container, eventBus);
+   
+   if(!self.secondloadPDF) self.toolbar = new Toolbar(appConfig.toolbar, container, eventBus);
+   
    self.secondaryToolbar = new SecondaryToolbar(appConfig.secondaryToolbar, container, eventBus);
    if (self.supportsFullscreen) {
     self.pdfPresentationMode = new PDFPresentationMode({
@@ -13074,22 +13082,19 @@ var PDFViewerApplication = {
  zoomIn: function pdfViewZoomIn(ticks) {
   var newScale = this.pdfViewer.currentScale;
   do {
-   // newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
+    newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
     newScale = Math.ceil(newScale * 10) / 10;
-   // newScale = Math.min(MAX_SCALE, newScale);
+    newScale = Math.min(MAX_SCALE, newScale);
    
-   newScale = newScale + 0.1;
   } while (--ticks > 0 && newScale < MAX_SCALE);
   this.pdfViewer.currentScaleValue = newScale;
  },
  zoomOut: function pdfViewZoomOut(ticks) {
   var newScale = this.pdfViewer.currentScale;
   do {
-   // newScale = (newScale / DEFAULT_SCALE_DELTA).toFixed(2);
+    newScale = (newScale / DEFAULT_SCALE_DELTA).toFixed(2);
     newScale = Math.floor(newScale * 10) / 10;
-   // newScale = Math.max(MIN_SCALE, newScale);
-   
-   newScale = newScale - 0.1;
+    newScale = Math.max(MIN_SCALE, newScale);
 
   } while (--ticks > 0 && newScale > MIN_SCALE);
   this.pdfViewer.currentScaleValue = newScale;
@@ -13561,7 +13566,6 @@ var PDFViewerApplication = {
         iframe.setAttribute("height","100%");
         if(document.getElementsByClassName('PDFtoPrintIframe').length == 0)          
             document.getElementById('hiddenIframe').appendChild(iframe);
-      
     }//  document.getElementById("PDFtoPrint").src = this.baseUrl;
   var printService = PDFPrintServiceFactory.instance.createPrintService(this.pdfDocument, pagesOverview, printContainer);
   this.printService = printService;
@@ -13601,6 +13605,7 @@ var PDFViewerApplication = {
  },
  bindEvents: function pdfViewBindEvents() {
   var eventBus = this.eventBus;
+  
   eventBus.on('resize', webViewerResize);
   eventBus.on('hashchange', webViewerHashchange);
   eventBus.on('beforeprint', this.beforePrint.bind(this));
@@ -13632,7 +13637,7 @@ var PDFViewerApplication = {
   eventBus.on('find', webViewerFind);
   eventBus.on('findfromurlhash', webViewerFindFromUrlHash);
   eventBus.on('fileinputchange', webViewerFileInputChange);
- },
+  },
  bindWindowEvents: function pdfViewBindWindowEvents() {
   var eventBus = this.eventBus;
   window.addEventListener('wheel', webViewerWheel);
@@ -15063,6 +15068,7 @@ function renderProgress(index, total) {
 }
 var hasAttachEvent = !!document.attachEvent;
 window.addEventListener('keydown', function (event) {
+ if(document.getElementById('loadPDFComponentModal').style.display == "block"){
  if (event.keyCode === 80 && (event.ctrlKey || event.metaKey) && !event.altKey && (!event.shiftKey || window.chrome || window.opera)) {
   window.print();
   if (hasAttachEvent) {
@@ -15076,6 +15082,7 @@ window.addEventListener('keydown', function (event) {
   }
   return;
  }
+}
 }, true);
 if (hasAttachEvent) {
  document.attachEvent('onkeydown', function (event) {
