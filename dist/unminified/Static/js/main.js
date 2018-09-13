@@ -1,4 +1,4 @@
-/*! 2018-09-10 *//*
+/*! 2018-09-13 *//*
  * google-analytics.js
  *
  *
@@ -8352,9 +8352,9 @@ INFORMA.forms = (function(window, $, namespace) {
     window.onSubmit = function (token) {
         if (getCurrentform.submit()) {
             if ($('.show-register-form').attr('pdf-data-url')) {
-                if (typeof $('.close-download-form').attr('download') != typeof undefined && $('.close-download-form').attr('download') !== false) {
-                    var getCTAID = $("#showPdfUrl").val();
-                    if (getCTAID && getCTAID.includes('id@')) {
+                var getCTAID = $("#showPdfUrl").val();
+                if (getCTAID && getCTAID.includes('id@')) {
+                    if (typeof $('.close-download-form').attr('download') != typeof undefined && $('.close-download-form').attr('download') !== false) {
                         var ctaId = getCTAID.split('id@')[1];
                         $("#" + ctaId)[0].click();
                     }
