@@ -1,4 +1,4 @@
-/*! 2018-09-10 */@charset "UTF-8";
+/*! 2018-09-14 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -5862,8 +5862,9 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
      so we can override the opaque grey background when the window is inactive;
      see https://bugzilla.mozilla.org/show_bug.cgi?id=706209 */
 }
-/* line 157, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
-.pdf-container .textLayer {
+/* line 156, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .section
+.textLayer {
   position: absolute;
   left: 0;
   top: 0;
@@ -5937,8 +5938,9 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
 /* line 226, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer section {
   position: absolute;
+  background: inherit !important;
 }
-/* line 230, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 231, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .linkAnnotation > a {
   position: absolute;
   font-size: 1em;
@@ -5947,22 +5949,20 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   width: 100%;
   height: 100%;
 }
-/* line 239, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 240, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .linkAnnotation > a {
   background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") 0 0 repeat;
 }
-/* line 243, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 244, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .linkAnnotation > a:hover {
   opacity: 0.2;
-  background: #ff0;
-  box-shadow: 0px 2px 10px #ff0;
 }
-/* line 249, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 248, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .textAnnotation img {
   position: absolute;
   cursor: pointer;
 }
-/* line 254, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 253, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .textWidgetAnnotation input,
 .pdf-container .annotationLayer .textWidgetAnnotation textarea,
 .pdf-container .annotationLayer .choiceWidgetAnnotation select,
@@ -5977,13 +5977,13 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   vertical-align: top;
   width: 100%;
 }
-/* line 269, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 268, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .textWidgetAnnotation textarea {
   font: message-box;
   font-size: 9px;
   resize: none;
 }
-/* line 275, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 274, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .textWidgetAnnotation input[disabled],
 .pdf-container .annotationLayer .textWidgetAnnotation textarea[disabled],
 .pdf-container .annotationLayer .choiceWidgetAnnotation select[disabled],
@@ -5993,7 +5993,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   border: 1px solid transparent;
   cursor: not-allowed;
 }
-/* line 285, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 284, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .textWidgetAnnotation input:hover,
 .pdf-container .annotationLayer .textWidgetAnnotation textarea:hover,
 .pdf-container .annotationLayer .choiceWidgetAnnotation select:hover,
@@ -6001,20 +6001,20 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
 .pdf-container .annotationLayer .buttonWidgetAnnotation.radioButton input:hover {
   border: 1px solid #000;
 }
-/* line 293, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 292, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .textWidgetAnnotation input:focus,
 .pdf-container .annotationLayer .textWidgetAnnotation textarea:focus,
 .pdf-container .annotationLayer .choiceWidgetAnnotation select:focus {
   background: none;
   border: 1px solid transparent;
 }
-/* line 300, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 299, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .textWidgetAnnotation input.comb {
   font-family: monospace;
   padding-left: 2px;
   padding-right: 0;
 }
-/* line 306, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 305, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .textWidgetAnnotation input.comb:focus {
   /*
    * Letter spacing is placed on the right side of each character. Hence, the
@@ -6024,7 +6024,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
    */
   width: 115%;
 }
-/* line 316, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 315, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .buttonWidgetAnnotation.checkBox input,
 .pdf-container .annotationLayer .buttonWidgetAnnotation.radioButton input {
   -webkit-appearance: none;
@@ -6032,12 +6032,12 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   -ms-appearance: none;
   appearance: none;
 }
-/* line 324, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 323, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .popupWrapper {
   position: absolute;
   width: 20em;
 }
-/* line 329, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 328, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .popup {
   position: absolute;
   z-index: 200;
@@ -6050,17 +6050,17 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   cursor: pointer;
   word-wrap: break-word;
 }
-/* line 342, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 341, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .popup h1 {
   font-size: 1em;
   border-bottom: 1px solid #000000;
   padding-bottom: 0.2em;
 }
-/* line 348, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 347, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .popup p {
   padding-top: 0.2em;
 }
-/* line 352, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 351, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .annotationLayer .highlightAnnotation,
 .pdf-container .annotationLayer .underlineAnnotation,
 .pdf-container .annotationLayer .squigglyAnnotation,
@@ -6069,16 +6069,16 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
 .pdf-container .annotationLayer .fileAttachmentAnnotation {
   cursor: pointer;
 }
-/* line 361, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 360, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfViewer .canvasWrapper {
   overflow: hidden;
 }
-/* line 365, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 364, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfViewer .page {
   direction: ltr;
   width: 816px;
   height: 1056px;
-  margin: 1px auto -8px auto;
+  margin: 1px auto 12px auto;
   position: relative;
   overflow: visible;
   border: 9px solid transparent;
@@ -6086,30 +6086,30 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   border-image: url(../../static/images/shadow.png) 9 9 repeat;
   background-color: white;
 }
-/* line 378, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 377, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfViewer.removePageBorders .page {
   margin: 0px auto 10px auto;
   border: none;
 }
-/* line 383, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 382, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfViewer.singlePageView {
   display: inline-block;
 }
-/* line 387, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 386, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfViewer.singlePageView .page {
   margin: 0;
   border: none;
 }
-/* line 392, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 391, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfViewer .page canvas {
   margin: 0;
   display: block;
 }
-/* line 397, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 396, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfViewer .page canvas[hidden] {
   display: none;
 }
-/* line 401, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 400, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfViewer .page .loadingIcon {
   position: absolute;
   display: block;
@@ -6119,39 +6119,39 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   bottom: 0;
   background: url("../../static/images/loading-icon.gif") center no-repeat;
 }
-/* line 411, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 410, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
   margin-bottom: 100%;
   border: 0;
 }
-/* line 416, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 415, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
   margin-bottom: 100%;
   border: 0;
 }
-/* line 421, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 420, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:-ms-fullscreen .pdfViewer .page {
   margin-bottom: 100% !important;
   border: 0;
 }
-/* line 426, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 425, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:fullscreen .pdfViewer .page {
   margin-bottom: 100%;
   border: 0;
 }
-/* line 431, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 430, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container * {
   padding: 0;
   margin: 0;
 }
-/* line 436, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 435, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html {
   height: 100%;
   width: 100%;
   /* Font size is needed to make the activity bar the correct size. */
   font-size: 10px;
 }
-/* line 444, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 443, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container body,
 .pdf-container input,
 .pdf-container button,
@@ -6159,15 +6159,15 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   font: message-box;
   outline: none;
 }
-/* line 452, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 451, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .hidden {
   display: none !important;
 }
-/* line 455, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 454, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container [hidden] {
   display: none !important;
 }
-/* line 459, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 458, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewerContainer.pdfPresentationMode:-webkit-full-screen {
   top: 0px;
   border-top: 2px solid transparent;
@@ -6178,7 +6178,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   cursor: none;
   -webkit-user-select: none;
 }
-/* line 470, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 469, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewerContainer.pdfPresentationMode:-moz-full-screen {
   top: 0px;
   border-top: 2px solid transparent;
@@ -6189,7 +6189,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   cursor: none;
   -moz-user-select: none;
 }
-/* line 481, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 480, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewerContainer.pdfPresentationMode:-ms-fullscreen {
   top: 0px !important;
   border-top: 2px solid transparent;
@@ -6199,11 +6199,11 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   cursor: none;
   -ms-user-select: none;
 }
-/* line 491, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 490, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewerContainer.pdfPresentationMode:-ms-fullscreen::-ms-backdrop {
   background-color: #000;
 }
-/* line 495, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 494, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewerContainer.pdfPresentationMode:fullscreen {
   top: 0px;
   border-top: 2px solid transparent;
@@ -6216,50 +6216,50 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   -moz-user-select: none;
   -ms-user-select: none;
 }
-/* line 508, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 507, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:-webkit-full-screen a:not(.internalLink) {
   display: none;
 }
-/* line 512, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 511, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:-moz-full-screen a:not(.internalLink) {
   display: none;
 }
-/* line 516, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 515, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:-ms-fullscreen a:not(.internalLink) {
   display: none !important;
 }
-/* line 520, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 519, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:fullscreen a:not(.internalLink) {
   display: none;
 }
-/* line 524, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 523, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:-webkit-full-screen .textLayer > div {
   cursor: none;
 }
-/* line 528, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 527, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:-moz-full-screen .textLayer > div {
   cursor: none;
 }
-/* line 532, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 531, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:-ms-fullscreen .textLayer > div {
   cursor: none;
 }
-/* line 536, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 535, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode:fullscreen .textLayer > div {
   cursor: none;
 }
-/* line 540, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 539, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .pdfPresentationMode.pdfPresentationModeControls > *,
 .pdf-container .pdfPresentationMode.pdfPresentationModeControls .textLayer > div {
   cursor: default;
 }
-/* line 545, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 544, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #outerContainer {
   width: 100%;
   height: 100%;
   position: relative;
 }
-/* line 551, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 550, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #sidebarContainer {
   position: absolute;
   top: 0;
@@ -6271,22 +6271,22 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   transition-duration: 200ms;
   transition-timing-function: ease;
 }
-/* line 563, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 562, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #sidebarContainer {
   -webkit-transition-property: left;
   transition-property: left;
   left: -200px;
 }
-/* line 569, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 568, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #outerContainer.sidebarMoving > #sidebarContainer,
 .pdf-container #outerContainer.sidebarOpen > #sidebarContainer {
   visibility: visible;
 }
-/* line 573, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 572, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #outerContainer.sidebarOpen > #sidebarContainer {
   left: 0px;
 }
-/* line 577, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 576, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #mainContainer {
   position: absolute;
   top: 0;
@@ -6299,19 +6299,19 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   transition-duration: 200ms;
   transition-timing-function: ease;
 }
-/* line 589, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 588, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #outerContainer.sidebarOpen > #mainContainer {
   -webkit-transition-property: left;
   transition-property: left;
   left: 200px;
 }
-/* line 594, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 593, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #outerContainer.sidebarOpen > #mainContainer {
   -webkit-transition-property: right;
   transition-property: right;
   right: 200px;
 }
-/* line 600, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 599, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #sidebarContent {
   top: 32px;
   bottom: 0;
@@ -6321,17 +6321,17 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   width: 200px;
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 609, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 608, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #sidebarContent {
   left: 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
 }
-/* line 613, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 612, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #sidebarContent {
   right: 0;
   box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.25);
 }
-/* line 618, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 617, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewerContainer {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
@@ -6342,15 +6342,15 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   left: 0;
   outline: none;
 }
-/* line 628, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 627, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewerContainer {
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.05);
 }
-/* line 631, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 630, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #viewerContainer {
   box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.05);
 }
-/* line 635, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 634, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbar {
   position: relative;
   left: 0;
@@ -6358,15 +6358,15 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   z-index: 9999;
   cursor: default;
 }
-/* line 643, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 642, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarContainer {
   width: 100%;
 }
-/* line 645, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 644, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarContainer button {
   cursor: pointer;
 }
-/* line 650, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 649, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarSidebar {
   width: 200px;
   height: 32px;
@@ -6374,15 +6374,15 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   /* fallback */
   background-image: url(../../static/images/texture.png), linear-gradient(rgba(77, 77, 77, 0.99), rgba(64, 64, 64, 0.95));
 }
-/* line 657, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 656, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarSidebar {
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1);
 }
-/* line 663, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 662, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #toolbarSidebar {
   box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1);
 }
-/* line 670, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 669, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarContainer, .pdf-container .findbar, .pdf-container .secondaryToolbar {
   position: relative;
   height: 32px;
@@ -6390,19 +6390,19 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   /* fallback */
   background-image: url(../../static/images/texture.png), linear-gradient(rgba(82, 82, 82, 0.99), rgba(69, 69, 69, 0.95));
 }
-/* line 677, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 676, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarContainer, .pdf-container .findbar, .pdf-container .secondaryToolbar {
   box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.08), inset 0 1px 1px rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 684, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 683, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #toolbarContainer, .pdf-container .findbar, .pdf-container .secondaryToolbar {
   box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.08), inset 0 1px 1px rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
 }
-/* line 692, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 691, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarViewer {
   height: 32px;
 }
-/* line 696, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 695, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #loadingBar {
   position: relative;
   width: 100%;
@@ -6410,7 +6410,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   background-color: #333;
   border-bottom: 1px solid #333;
 }
-/* line 704, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 703, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #loadingBar .progress {
   position: absolute;
   top: 0;
@@ -6438,13 +6438,13 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
     left: 0;
   }
 }
-/* line 726, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 725, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #loadingBar .progress.indeterminate {
   background-color: #999;
   -webkit-transition: none;
   transition: none;
 }
-/* line 732, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 731, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #loadingBar .progress.indeterminate .glimmer {
   position: absolute;
   top: 0;
@@ -6455,7 +6455,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   -webkit-animation: progressIndeterminate 950ms linear infinite;
   animation: progressIndeterminate 950ms linear infinite;
 }
-/* line 748, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 747, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .findbar, .pdf-container .secondaryToolbar {
   top: 32px;
   position: absolute;
@@ -6470,80 +6470,80 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   text-align: left;
   cursor: default;
 }
-/* line 763, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 762, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .findbar {
   min-width: 300px;
 }
-/* line 766, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 765, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .findbar > div {
   height: 32px;
 }
-/* line 769, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 768, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .findbar.wrapContainers > div {
   clear: both;
 }
-/* line 772, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 771, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .findbar.wrapContainers > div#findbarMessageContainer {
   height: auto;
 }
-/* line 775, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 774, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .findbar {
   left: 68px;
 }
-/* line 778, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 777, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .findbar {
   right: 68px;
 }
-/* line 782, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 781, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .findbar label {
   -webkit-user-select: none;
   -moz-user-select: none;
 }
-/* line 787, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 786, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findInput {
   width: 200px;
 }
-/* line 790, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 789, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findInput::-webkit-input-placeholder {
   font-style: italic;
 }
-/* line 793, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 792, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findInput::-moz-placeholder {
   font-style: italic;
 }
-/* line 796, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 795, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findInput:-ms-input-placeholder {
   font-style: italic;
 }
-/* line 799, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 798, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findInput::placeholder {
   font-style: italic;
 }
-/* line 802, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 801, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findInput[data-status="pending"] {
   background-image: url(../../static/images/loading-small.png);
   background-repeat: no-repeat;
   background-position: right;
 }
-/* line 807, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 806, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #findInput[data-status="pending"] {
   background-position: left;
 }
-/* line 811, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 810, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbar {
   padding: 6px;
   height: auto;
   z-index: 30000;
 }
-/* line 816, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 815, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbar {
   right: 4px;
 }
-/* line 819, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 818, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .secondaryToolbar {
   left: 4px;
 }
-/* line 823, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 822, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #secondaryToolbarButtonContainer {
   max-width: 200px;
   max-height: 400px;
@@ -6551,14 +6551,14 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   -webkit-overflow-scrolling: touch;
   margin-bottom: -4px;
 }
-/* line 831, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 830, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .doorHanger,
 .pdf-container .doorHangerRight {
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 2px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
-/* line 837, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 836, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .doorHanger:after, .pdf-container .doorHanger:before,
 .pdf-container .doorHangerRight:after, .pdf-container .doorHangerRight:before {
   bottom: 100%;
@@ -6569,85 +6569,85 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   position: absolute;
   pointer-events: none;
 }
-/* line 847, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 846, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .doorHanger:after,
 .pdf-container .doorHangerRight:after {
   border-bottom-color: rgba(82, 82, 82, 0.99);
   border-width: 8px;
 }
-/* line 852, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 851, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .doorHanger:before,
 .pdf-container .doorHangerRight:before {
   border-bottom-color: rgba(0, 0, 0, 0.5);
   border-width: 9px;
 }
-/* line 858, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 857, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .doorHanger:after,
 .pdf-container html[dir='rtl'] .doorHangerRight:after {
   left: 13px;
   margin-left: -8px;
 }
-/* line 864, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 863, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .doorHanger:before,
 .pdf-container html[dir='rtl'] .doorHangerRight:before {
   left: 13px;
   margin-left: -9px;
 }
-/* line 870, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 869, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .doorHanger:after,
 .pdf-container .doorHangerRight:after {
   right: 13px;
   margin-right: -8px;
 }
-/* line 876, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 875, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .doorHanger:before,
 .pdf-container .doorHangerRight:before {
   right: 13px;
   margin-right: -9px;
 }
-/* line 882, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 881, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findResultsCount {
   background-color: #d9d9d9;
   color: #525252;
   text-align: center;
   padding: 3px 4px;
 }
-/* line 889, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 888, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findMsg {
   font-style: italic;
   color: #A6B7D0;
 }
-/* line 893, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 892, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findMsg:empty {
   display: none;
 }
-/* line 897, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 896, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findInput.notFound {
   background-color: #ff6666;
 }
-/* line 901, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 900, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarViewerMiddle {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 @media (max-width: 767px) {
-  /* line 901, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 900, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #toolbarViewerMiddle {
     display: none !important;
   }
 }
-/* line 910, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 909, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarViewerLeft,
 .pdf-container html[dir='rtl'] #toolbarViewerRight {
   float: left;
 }
-/* line 914, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 913, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarViewerRight,
 .pdf-container html[dir='rtl'] #toolbarViewerLeft {
   float: right;
 }
-/* line 918, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 917, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #toolbarViewerLeft > *,
 .pdf-container #toolbarViewerMiddle > *,
 .pdf-container #toolbarViewerRight > *,
@@ -6655,7 +6655,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   position: relative;
   float: left;
 }
-/* line 925, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 924, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #toolbarViewerLeft > *,
 .pdf-container html[dir='rtl'] #toolbarViewerMiddle > *,
 .pdf-container html[dir='rtl'] #toolbarViewerRight > *,
@@ -6663,27 +6663,27 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   position: relative;
   float: right;
 }
-/* line 933, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 932, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton {
   margin: 3px 2px 4px 0;
   display: inline-block;
 }
-/* line 937, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 936, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .splitToolbarButton {
   margin: 3px 0 4px 2px;
   display: inline-block;
 }
-/* line 941, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 940, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton > .toolbarButton {
   border-radius: 0;
   float: left;
 }
-/* line 945, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 944, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .splitToolbarButton > .toolbarButton {
   border-radius: 0;
   float: right;
 }
-/* line 950, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 949, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton,
 .pdf-container .secondaryToolbarButton,
 .pdf-container .overlayButton {
@@ -6692,24 +6692,24 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   width: 32px;
   height: 25px;
 }
-/* line 959, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 958, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton > span {
   display: inline-block;
   width: 0;
   height: 0;
   overflow: hidden;
 }
-/* line 966, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 965, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton[disabled],
 .pdf-container .secondaryToolbarButton[disabled],
 .pdf-container .overlayButton[disabled] {
   opacity: .5;
 }
-/* line 972, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 971, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton.toggled .toolbarButton {
   margin: 0;
 }
-/* line 976, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 975, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton:hover > .toolbarButton,
 .pdf-container .splitToolbarButton:focus > .toolbarButton,
 .pdf-container .splitToolbarButton.toggled > .toolbarButton,
@@ -6727,7 +6727,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   transition-duration: 150ms;
   transition-timing-function: ease;
 }
-/* line 996, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 995, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton > .toolbarButton:hover,
 .pdf-container .splitToolbarButton > .toolbarButton:focus,
 .pdf-container .dropdownToolbarButton:hover,
@@ -6739,11 +6739,11 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 0 1px rgba(0, 0, 0, 0.05);
   z-index: 199;
 }
-/* line 1009, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1008, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton > .toolbarButton {
   position: relative;
 }
-/* line 1012, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1011, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton > .toolbarButton:first-child,
 .pdf-container html[dir='rtl'] .splitToolbarButton > .toolbarButton:last-child {
   position: relative;
@@ -6753,7 +6753,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   border-bottom-left-radius: 2px;
   border-right-color: transparent;
 }
-/* line 1021, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1020, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton > .toolbarButton:last-child,
 .pdf-container html[dir='rtl'] .splitToolbarButton > .toolbarButton:first-child {
   position: relative;
@@ -6763,7 +6763,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   border-bottom-right-radius: 2px;
   border-left-color: transparent;
 }
-/* line 1030, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1029, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButtonSeparator {
   padding: 8px 0;
   width: 1px;
@@ -6773,15 +6773,15 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   display: inline-block;
   margin: 5px 0;
 }
-/* line 1039, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1038, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButtonSeparator {
   float: left;
 }
-/* line 1042, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1041, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .splitToolbarButtonSeparator {
   float: right;
 }
-/* line 1045, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1044, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton:hover > .splitToolbarButtonSeparator,
 .pdf-container .splitToolbarButton.toggled > .splitToolbarButtonSeparator {
   padding: 12px 0;
@@ -6794,7 +6794,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   transition-duration: 10ms;
   transition-timing-function: ease;
 }
-/* line 1058, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1057, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton,
 .pdf-container .dropdownToolbarButton,
 .pdf-container .secondaryToolbarButton,
@@ -6818,19 +6818,19 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   transition-duration: 150ms;
   transition-timing-function: ease;
 }
-/* line 1082, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1081, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton,
 .pdf-container .overlayButton,
 .pdf-container .dropdownToolbarButton {
   margin: 3px 2px 4px 0;
 }
-/* line 1087, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1086, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .toolbarButton,
 .pdf-container html[dir='rtl'] .overlayButton,
 .pdf-container html[dir='rtl'] .dropdownToolbarButton {
   margin: 3px 0 4px 2px;
 }
-/* line 1093, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1092, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton:hover,
 .pdf-container .toolbarButton:focus,
 .pdf-container .dropdownToolbarButton,
@@ -6844,7 +6844,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 0 rgba(255, 255, 255, 0.05);
 }
-/* line 1109, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1108, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton:hover:active,
 .pdf-container .overlayButton:hover:active,
 .pdf-container .dropdownToolbarButton:hover:active,
@@ -6860,7 +6860,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   transition-duration: 10ms;
   transition-timing-function: linear;
 }
-/* line 1127, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1126, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.toggled,
 .pdf-container .splitToolbarButton.toggled > .toolbarButton.toggled,
 .pdf-container .secondaryToolbarButton.toggled {
@@ -6875,7 +6875,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   transition-duration: 10ms;
   transition-timing-function: linear;
 }
-/* line 1144, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1143, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.toggled:hover:active,
 .pdf-container .splitToolbarButton.toggled > .toolbarButton.toggled:hover:active,
 .pdf-container .secondaryToolbarButton.toggled:hover:active {
@@ -6883,7 +6883,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   border-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.55);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset, 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.05);
 }
-/* line 1154, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1153, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dropdownToolbarButton {
   width: 120px;
   max-width: 120px;
@@ -6891,15 +6891,15 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   overflow: hidden;
   background: url(../../static/images/toolbarButton-menuArrows.png) no-repeat;
 }
-/* line 1161, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1160, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dropdownToolbarButton {
   background-position: 95%;
 }
-/* line 1164, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1163, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .dropdownToolbarButton {
   background-position: 5%;
 }
-/* line 1168, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1167, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dropdownToolbarButton > select {
   min-width: 140px;
   font-size: 12px;
@@ -6910,55 +6910,55 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   background: transparent;
   /* Opera does not support 'transparent' <select> background */
 }
-/* line 1178, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1177, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dropdownToolbarButton > select > option {
   background: #3d3d3d;
 }
-/* line 1182, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1181, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #customScaleOption {
   display: none;
 }
-/* line 1186, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1185, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #pageWidthOption {
   border-bottom: 1px rgba(255, 255, 255, 0.5) solid;
 }
-/* line 1190, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1189, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton:first-child,
 .pdf-container .toolbarButton:first-child,
 .pdf-container html[dir='rtl'] .splitToolbarButton:last-child,
 .pdf-container html[dir='rtl'] .toolbarButton:last-child {
   margin-left: 4px;
 }
-/* line 1196, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1195, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .splitToolbarButton:last-child,
 .pdf-container .toolbarButton:last-child,
 .pdf-container html[dir='rtl'] .splitToolbarButton:first-child,
 .pdf-container html[dir='rtl'] .toolbarButton:first-child {
   margin-right: 4px;
 }
-/* line 1203, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1202, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButtonSpacer {
   width: 30px;
   display: inline-block;
   height: 1px;
 }
-/* line 1209, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1208, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findPrevious {
   margin-left: 3px;
 }
-/* line 1212, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1211, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #findNext {
   margin-right: 3px;
 }
-/* line 1216, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1215, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #findPrevious {
   margin-right: 3px;
 }
-/* line 1219, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1218, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #findNext {
   margin-left: 3px;
 }
-/* line 1223, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1222, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton::before,
 .pdf-container .secondaryToolbarButton::before {
   /* All matching images have a size of 16x16
@@ -6968,91 +6968,91 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   top: 4px;
   left: 7px;
 }
-/* line 1233, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1232, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="ltr"] .secondaryToolbarButton::before {
   left: 4px;
 }
-/* line 1236, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1235, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="rtl"] .secondaryToolbarButton::before {
   right: 4px;
 }
-/* line 1240, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1239, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton#sidebarToggle::before {
   content: url(../../static/images/toolbarButton-sidebarToggle.png);
 }
-/* line 1243, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1242, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .toolbarButton#sidebarToggle::before {
   content: url(../../static/images/toolbarButton-sidebarToggle-rtl.png);
 }
-/* line 1247, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1246, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton#secondaryToolbarToggle::before {
   content: url(../../static/images/toolbarButton-secondaryToolbarToggle.png);
 }
-/* line 1250, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1249, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
   content: url(../../static/images/toolbarButton-secondaryToolbarToggle-rtl.png);
 }
-/* line 1254, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1253, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.findPrevious::before {
   content: url(../../static/images/findbarButton-previous.png);
 }
-/* line 1257, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1256, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .toolbarButton.findPrevious::before {
   content: url(../../static/images/findbarButton-previous-rtl.png);
 }
-/* line 1261, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1260, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.findNext::before {
   content: url(../../static/images/findbarButton-next.png);
 }
-/* line 1264, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1263, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .toolbarButton.findNext::before {
   content: url(../../static/images/findbarButton-next-rtl.png);
 }
-/* line 1268, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1267, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.pageUp::before {
   content: url(../../static/images/toolbarButton-pageUp.png);
 }
-/* line 1271, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1270, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .toolbarButton.pageUp::before {
   content: url(../../static/images/toolbarButton-pageUp-rtl.png);
 }
-/* line 1275, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1274, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.pageDown::before {
   content: url(../../static/images/toolbarButton-pageDown.png);
 }
-/* line 1278, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1277, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .toolbarButton.pageDown::before {
   content: url(../../static/images/toolbarButton-pageDown-rtl.png);
 }
-/* line 1282, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1281, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.zoomOut::before {
   content: url(../../static/images/toolbarButton-zoomOut.png);
 }
-/* line 1286, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1285, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.zoomIn::before {
   content: url(../../static/images/toolbarButton-zoomIn.png);
 }
-/* line 1290, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1289, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.presentationMode::before,
 .pdf-container .secondaryToolbarButton.presentationMode::before {
   content: url(../../static/images/toolbarButton-presentationMode.png);
 }
-/* line 1295, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1294, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.print::before,
 .pdf-container .secondaryToolbarButton.print::before {
   content: url(../../static/images/toolbarButton-print.png);
 }
-/* line 1300, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1299, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.openFile::before,
 .pdf-container .secondaryToolbarButton.openFile::before {
   content: url(../../static/images/toolbarButton-openFile.png);
 }
-/* line 1305, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1304, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.download::before,
 .pdf-container .secondaryToolbarButton.download::before {
   content: url(../../static/images/toolbarButton-download.png);
 }
-/* line 1310, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1309, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.bookmark,
 .pdf-container .secondaryToolbarButton.bookmark {
   -webkit-box-sizing: border-box;
@@ -7062,41 +7062,41 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   padding-top: 4px;
   text-decoration: none;
 }
-/* line 1319, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1318, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbarButton.bookmark {
   padding-top: 5px;
 }
-/* line 1323, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1322, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .bookmark[href='#'] {
   opacity: .5;
   pointer-events: none;
 }
-/* line 1328, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1327, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.bookmark::before,
 .pdf-container .secondaryToolbarButton.bookmark::before {
   content: url(../../static/images/toolbarButton-bookmark.png);
 }
-/* line 1333, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1332, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewThumbnail.toolbarButton::before {
   content: url(../../static/images/toolbarButton-viewThumbnail.png);
 }
-/* line 1337, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1336, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="ltr"] #viewOutline.toolbarButton::before {
   content: url(../../static/images/toolbarButton-viewOutline.png);
 }
-/* line 1340, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1339, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="rtl"] #viewOutline.toolbarButton::before {
   content: url(../../static/images/toolbarButton-viewOutline-rtl.png);
 }
-/* line 1344, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1343, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewAttachments.toolbarButton::before {
   content: url(../../static/images/toolbarButton-viewAttachments.png);
 }
-/* line 1348, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1347, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewFind.toolbarButton::before {
   content: url(../../static/images/toolbarButton-search.png);
 }
-/* line 1352, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1351, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.pdfSidebarNotification::after {
   position: absolute;
   display: inline-block;
@@ -7108,15 +7108,15 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   width: 9px;
   border-radius: 50%;
 }
-/* line 1363, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1362, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarButton.pdfSidebarNotification::after {
   left: 17px;
 }
-/* line 1366, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1365, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .toolbarButton.pdfSidebarNotification::after {
   right: 17px;
 }
-/* line 1370, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1369, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbarButton {
   position: relative;
   margin: 0 0 4px 0;
@@ -7127,61 +7127,61 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   min-width: 100%;
   white-space: normal;
 }
-/* line 1380, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1379, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="ltr"] .secondaryToolbarButton {
   padding-left: 24px;
   text-align: left;
 }
-/* line 1384, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1383, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="rtl"] .secondaryToolbarButton {
   padding-right: 24px;
   text-align: right;
 }
-/* line 1388, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1387, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="ltr"] .secondaryToolbarButton.bookmark {
   padding-left: 27px;
 }
-/* line 1391, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1390, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="rtl"] .secondaryToolbarButton.bookmark {
   padding-right: 27px;
 }
-/* line 1395, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1394, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="ltr"] .secondaryToolbarButton > span {
   padding-right: 4px;
 }
-/* line 1398, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1397, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir="rtl"] .secondaryToolbarButton > span {
   padding-left: 4px;
 }
-/* line 1402, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1401, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbarButton.firstPage::before {
   content: url(../../static/images/secondaryToolbarButton-firstPage.png);
 }
-/* line 1406, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1405, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbarButton.lastPage::before {
   content: url(../../static/images/secondaryToolbarButton-lastPage.png);
 }
-/* line 1410, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1409, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbarButton.rotateCcw::before {
   content: url(../../static/images/secondaryToolbarButton-rotateCcw.png);
 }
-/* line 1414, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1413, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbarButton.rotateCw::before {
   content: url(../../static/images/secondaryToolbarButton-rotateCw.png);
 }
-/* line 1418, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1417, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbarButton.selectTool::before {
   content: url(../../static/images/secondaryToolbarButton-selectTool.png);
 }
-/* line 1422, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1421, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbarButton.handTool::before {
   content: url(../../static/images/secondaryToolbarButton-handTool.png);
 }
-/* line 1426, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1425, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .secondaryToolbarButton.documentProperties::before {
   content: url(../../static/images/secondaryToolbarButton-documentProperties.png);
 }
-/* line 1430, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1429, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .verticalToolbarSeparator {
   display: block;
   padding: 8px 0;
@@ -7190,15 +7190,15 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
-/* line 1438, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1437, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .verticalToolbarSeparator {
   margin-left: 2px;
 }
-/* line 1441, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1440, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .verticalToolbarSeparator {
   margin-right: 2px;
 }
-/* line 1445, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1444, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .horizontalToolbarSeparator {
   display: block;
   margin: 0 0 4px 0;
@@ -7207,7 +7207,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
-/* line 1454, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1453, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarField {
   padding: 3px 6px;
   margin: 4px 0 4px 0;
@@ -7227,12 +7227,12 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   transition-duration: 150ms;
   transition-timing-function: ease;
 }
-/* line 1475, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1474, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarField[type=checkbox] {
   display: inline-block;
   margin: 8px 0px;
 }
-/* line 1480, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1479, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarField.pageNumber {
   -moz-appearance: textfield;
   /* hides the spinner in moz */
@@ -7240,29 +7240,29 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   text-align: right;
   width: 40px;
 }
-/* line 1487, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1486, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarField.pageNumber.visiblePageIsLoading {
   background-image: url(../../static/images/loading-small.png);
   background-repeat: no-repeat;
   background-position: 1px;
 }
-/* line 1493, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1492, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarField.pageNumber::-webkit-inner-spin-button,
 .pdf-container .toolbarField.pageNumber::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-/* line 1499, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1498, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarField:hover {
   background-color: rgba(255, 255, 255, 0.11);
   border-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.43) rgba(0, 0, 0, 0.45);
 }
-/* line 1504, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1503, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarField:focus {
   background-color: rgba(255, 255, 255, 0.15);
   border-color: rgba(77, 184, 255, 0.8) rgba(77, 184, 255, 0.85) rgba(77, 184, 255, 0.9);
 }
-/* line 1509, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1508, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .toolbarLabel {
   min-width: 16px;
   padding: 3px 6px 3px 2px;
@@ -7277,7 +7277,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   -moz-user-select: none;
   cursor: default;
 }
-/* line 1524, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1523, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #thumbnailView {
   position: absolute;
   width: 120px;
@@ -7287,25 +7287,25 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-/* line 1534, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1533, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .thumbnail {
   float: left;
   margin-bottom: 5px;
 }
-/* line 1539, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1538, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #thumbnailView > a:last-of-type > .thumbnail {
   margin-bottom: 10px;
 }
-/* line 1543, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1542, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #thumbnailView > a:last-of-type > .thumbnail:not([data-loaded]) {
   margin-bottom: 9px;
 }
-/* line 1547, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1546, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .thumbnail:not([data-loaded]) {
   border: 1px dashed rgba(255, 255, 255, 0.5);
   margin: -1px -1px 4px -1px;
 }
-/* line 1552, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1551, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .thumbnailImage {
   border: 1px solid transparent;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -7314,17 +7314,17 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   background-color: white;
   background-clip: content-box;
 }
-/* line 1561, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1560, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .thumbnailSelectionRing {
   border-radius: 2px;
   padding: 7px;
 }
-/* line 1566, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1565, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container a:focus > .thumbnail > .thumbnailSelectionRing > .thumbnailImage,
 .pdf-container .thumbnail:hover > .thumbnailSelectionRing > .thumbnailImage {
   opacity: .9;
 }
-/* line 1571, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1570, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container a:focus > .thumbnail > .thumbnailSelectionRing,
 .pdf-container .thumbnail:hover > .thumbnailSelectionRing {
   background-color: rgba(255, 255, 255, 0.15);
@@ -7333,12 +7333,12 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.2) inset, 0 0 1px rgba(0, 0, 0, 0.2);
   color: rgba(255, 255, 255, 0.9);
 }
-/* line 1582, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1581, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .thumbnail.selected > .thumbnailSelectionRing > .thumbnailImage {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
   opacity: 1;
 }
-/* line 1587, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1586, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .thumbnail.selected > .thumbnailSelectionRing {
   background-color: rgba(255, 255, 255, 0.3);
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
@@ -7346,7 +7346,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.2);
   color: white;
 }
-/* line 1597, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1596, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #outlineView,
 .pdf-container #attachmentsView {
   position: absolute;
@@ -7358,25 +7358,25 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   -webkit-user-select: none;
   -moz-user-select: none;
 }
-/* line 1609, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1608, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #outlineView {
   padding: 4px 4px 0;
 }
-/* line 1612, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1611, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #attachmentsView {
   padding: 3px 4px 0;
 }
-/* line 1616, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1615, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineWithDeepNesting > .outlineItem,
 .pdf-container .outlineItem > .outlineItems {
   margin-left: 20px;
 }
-/* line 1621, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1620, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .outlineWithDeepNesting > .outlineItem,
 .pdf-container html[dir='rtl'] .outlineItem > .outlineItems {
   margin-right: 20px;
 }
-/* line 1626, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1625, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItem > a,
 .pdf-container .attachmentsItem > button {
   text-decoration: none;
@@ -7394,73 +7394,73 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   -moz-user-select: none;
   white-space: normal;
 }
-/* line 1643, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1642, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .attachmentsItem > button {
   border: 0 none;
   background: none;
   cursor: pointer;
   width: 100%;
 }
-/* line 1650, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1649, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItem > a {
   padding: 2px 0 5px 4px;
 }
-/* line 1653, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1652, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .attachmentsItem > button {
   padding: 2px 0 3px 7px;
   text-align: left;
 }
-/* line 1658, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1657, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .outlineItem > a {
   padding: 2px 4px 5px 0;
 }
-/* line 1661, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1660, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .attachmentsItem > button {
   padding: 2px 7px 3px 0;
   text-align: right;
 }
-/* line 1666, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1665, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItemToggler {
   position: relative;
   height: 0;
   width: 0;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 1672, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1671, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItemToggler::before {
   content: url(../../static/images/treeitem-expanded.png);
   display: inline-block;
   position: absolute;
 }
-/* line 1677, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1676, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItemToggler.outlineItemsHidden::before {
   content: url(../../static/images/treeitem-collapsed.png);
 }
-/* line 1680, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1679, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .outlineItemToggler.outlineItemsHidden::before {
   content: url(../../static/images/treeitem-collapsed-rtl.png);
 }
-/* line 1683, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1682, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItemToggler.outlineItemsHidden ~ .outlineItems {
   display: none;
 }
-/* line 1686, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1685, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItemToggler {
   float: left;
 }
-/* line 1689, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1688, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .outlineItemToggler {
   float: right;
 }
-/* line 1692, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1691, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItemToggler::before {
   right: 4px;
 }
-/* line 1695, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1694, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] .outlineItemToggler::before {
   left: 4px;
 }
-/* line 1699, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1698, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItemToggler:hover,
 .pdf-container .outlineItemToggler:hover + a,
 .pdf-container .outlineItemToggler:hover ~ .outlineItems,
@@ -7473,7 +7473,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   border-radius: 2px;
   color: rgba(255, 255, 255, 0.9);
 }
-/* line 1714, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1713, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .outlineItem.selected {
   background-color: rgba(255, 255, 255, 0.08);
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
@@ -7481,22 +7481,22 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.2);
   color: white;
 }
-/* line 1724, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1723, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .noResults {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.8);
   font-style: italic;
   cursor: default;
 }
-/* line 1734, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1733, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container ::selection {
   background: rgba(0, 0, 255, 0.3);
 }
-/* line 1735, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1734, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container ::-moz-selection {
   background: rgba(0, 0, 255, 0.3);
 }
-/* line 1737, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1736, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #errorWrapper {
   background: none repeat scroll 0 0 #FF5555;
   color: white;
@@ -7507,19 +7507,19 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   padding: 3px;
   font-size: 0.8em;
 }
-/* line 1747, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1746, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .loadingInProgress #errorWrapper {
   top: 37px;
 }
-/* line 1751, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1750, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #errorMessageLeft {
   float: left;
 }
-/* line 1755, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1754, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #errorMessageRight {
   float: right;
 }
-/* line 1759, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1758, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #errorMoreInfo {
   background-color: #FFFFFF;
   color: black;
@@ -7527,13 +7527,13 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   margin: 3px;
   width: 98%;
 }
-/* line 1767, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1766, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .overlayButton {
   width: auto;
   margin: 3px 4px 2px 4px !important;
   padding: 2px 6px 3px 6px;
 }
-/* line 1773, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1772, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #overlayContainer {
   display: table;
   position: absolute;
@@ -7542,18 +7542,18 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 40000;
 }
-/* line 1781, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1780, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #overlayContainer > * {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
-/* line 1786, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1785, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #overlayContainer > .container {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
 }
-/* line 1792, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1791, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #overlayContainer > .container > .dialog {
   display: inline-block;
   padding: 15px;
@@ -7569,19 +7569,19 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   border-radius: 4px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
-/* line 1812, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1811, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dialog > .row {
   display: table-row;
 }
-/* line 1816, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1815, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dialog > .row > * {
   display: table-cell;
 }
-/* line 1820, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1819, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dialog .toolbarField {
   margin: 5px 0;
 }
-/* line 1824, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1823, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dialog .separator {
   display: block;
   margin: 4px 0 4px 0;
@@ -7590,58 +7590,58 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
-/* line 1833, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1832, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dialog .buttonRow {
   text-align: center;
   vertical-align: middle;
 }
-/* line 1838, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1837, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .dialog :link {
   color: white;
 }
-/* line 1842, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1841, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #passwordOverlay > .dialog {
   text-align: center;
 }
-/* line 1845, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1844, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #passwordOverlay .toolbarField {
   width: 200px;
 }
-/* line 1849, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1848, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #documentPropertiesOverlay > .dialog {
   text-align: left;
 }
-/* line 1852, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1851, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #documentPropertiesOverlay .row > * {
   min-width: 100px;
 }
-/* line 1855, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1854, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #documentPropertiesOverlay .row > * {
   text-align: left;
 }
-/* line 1858, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1857, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container html[dir='rtl'] #documentPropertiesOverlay .row > * {
   text-align: right;
 }
-/* line 1861, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1860, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #documentPropertiesOverlay .row > span {
   width: 125px;
   word-wrap: break-word;
 }
-/* line 1865, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1864, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #documentPropertiesOverlay .row > p {
   max-width: 225px;
   word-wrap: break-word;
 }
-/* line 1869, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1868, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #documentPropertiesOverlay .buttonRow {
   margin-top: 10px;
 }
-/* line 1873, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1872, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .clearBoth {
   clear: both;
 }
-/* line 1877, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1876, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .fileInput {
   background: white;
   color: black;
@@ -7651,7 +7651,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   right: 0;
   top: 0;
 }
-/* line 1887, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1886, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #PDFBug {
   background: none repeat scroll 0 0 white;
   border: 1px solid #666666;
@@ -7663,13 +7663,13 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   padding: 0;
   width: 300px;
 }
-/* line 1898, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1897, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #PDFBug .controls {
   background: #EEEEEE;
   border-bottom: 1px solid #666666;
   padding: 3px;
 }
-/* line 1903, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1902, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #PDFBug .panels {
   bottom: 0;
   left: 0;
@@ -7679,46 +7679,46 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   right: 0;
   top: 27px;
 }
-/* line 1912, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1911, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #PDFBug button.active {
   font-weight: bold;
 }
-/* line 1915, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1914, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .debuggerShowText {
   background: none repeat scroll 0 0 yellow;
   color: blue;
 }
-/* line 1919, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1918, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .debuggerHideText:hover {
   background: none repeat scroll 0 0 yellow;
 }
-/* line 1922, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1921, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #PDFBug .stats {
   font-family: courier;
   font-size: 10px;
   white-space: pre;
 }
-/* line 1927, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1926, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #PDFBug .stats .title {
   font-weight: bold;
 }
-/* line 1930, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1929, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #PDFBug table {
   font-size: 10px;
 }
-/* line 1934, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1933, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewer.textLayer-visible .textLayer {
   opacity: 1.0;
 }
-/* line 1938, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1937, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewer.textLayer-visible .canvasWrapper {
   background-color: #80ff80;
 }
-/* line 1942, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1941, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewer.textLayer-visible .canvasWrapper canvas {
   mix-blend-mode: screen;
 }
-/* line 1946, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1945, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewer.textLayer-visible .textLayer > div {
   background-color: rgba(255, 255, 0, 0.1);
   color: black;
@@ -7727,28 +7727,28 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 1955, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1954, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewer.textLayer-hover .textLayer > div:hover {
   background-color: white;
   color: black;
 }
-/* line 1960, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1959, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #viewer.textLayer-shadow .textLayer > div {
   background-color: rgba(255, 255, 255, 0.6);
   color: black;
 }
-/* line 1965, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1964, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .grab-to-pan-grab {
   cursor: url("../../static/images/grab.cur"), move !important;
   cursor: -webkit-grab !important;
   cursor: -moz-grab !important;
   cursor: grab !important;
 }
-/* line 1971, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1970, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .grab-to-pan-grab *:not(input):not(textarea):not(button):not(select):not(:link) {
   cursor: inherit !important;
 }
-/* line 1974, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1973, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .grab-to-pan-grab:active,
 .pdf-container .grab-to-pan-grabbing {
   cursor: url("../../static/images/grabbing.cur"), move !important;
@@ -7766,7 +7766,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   z-index: 50000;
   /* should be higher than anything else in PDF.js! */
 }
-/* line 1993, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 1992, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container #printContainer {
   display: none;
 }
@@ -7775,191 +7775,191 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   .pdf-container {
     /* Rules for Retina screens */
   }
-  /* line 1999, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 1998, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton::before {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     top: -5px;
   }
-  /* line 2005, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2004, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .secondaryToolbarButton::before {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     top: -4px;
   }
-  /* line 2011, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2010, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton::before,
   .pdf-container html[dir='rtl'] .toolbarButton::before {
     left: -1px;
   }
-  /* line 2016, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2015, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .secondaryToolbarButton::before {
     left: -2px;
   }
-  /* line 2019, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2018, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .secondaryToolbarButton::before {
     left: 186px;
   }
-  /* line 2023, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2022, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarField.pageNumber.visiblePageIsLoading,
   .pdf-container #findInput[data-status="pending"] {
     background-image: url(../../static/images/loading-small@2x.png);
     background-size: 16px 17px;
   }
-  /* line 2029, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2028, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .dropdownToolbarButton {
     background: url(../../static/images/toolbarButton-menuArrows@2x.png) no-repeat;
     background-size: 7px 16px;
   }
-  /* line 2034, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2033, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton#sidebarToggle::before {
     content: url(../../static/images/toolbarButton-sidebarToggle@2x.png);
   }
-  /* line 2037, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2036, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .toolbarButton#sidebarToggle::before {
     content: url(../../static/images/toolbarButton-sidebarToggle-rtl@2x.png);
   }
-  /* line 2041, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2040, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton#secondaryToolbarToggle::before {
     content: url(../../static/images/toolbarButton-secondaryToolbarToggle@2x.png);
   }
-  /* line 2044, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2043, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
     content: url(../../static/images/toolbarButton-secondaryToolbarToggle-rtl@2x.png);
   }
-  /* line 2048, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2047, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.findPrevious::before {
     content: url(../../static/images/findbarButton-previous@2x.png);
   }
-  /* line 2051, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2050, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .toolbarButton.findPrevious::before {
     content: url(../../static/images/findbarButton-previous-rtl@2x.png);
   }
-  /* line 2055, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2054, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.findNext::before {
     content: url(../../static/images/findbarButton-next@2x.png);
   }
-  /* line 2058, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2057, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .toolbarButton.findNext::before {
     content: url(../../static/images/findbarButton-next-rtl@2x.png);
   }
-  /* line 2062, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2061, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.pageUp::before {
     content: url(../../static/images/toolbarButton-pageUp@2x.png);
   }
-  /* line 2065, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2064, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .toolbarButton.pageUp::before {
     content: url(../../static/images/toolbarButton-pageUp-rtl@2x.png);
   }
-  /* line 2069, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2068, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.pageDown::before {
     content: url(../../static/images/toolbarButton-pageDown@2x.png);
   }
-  /* line 2072, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2071, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .toolbarButton.pageDown::before {
     content: url(../../static/images/toolbarButton-pageDown-rtl@2x.png);
   }
-  /* line 2076, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2075, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.zoomIn::before {
     content: url(../../static/images/toolbarButton-zoomIn@2x.png);
   }
-  /* line 2080, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2079, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.zoomOut::before {
     content: url(../../static/images/toolbarButton-zoomOut@2x.png);
   }
-  /* line 2084, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2083, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.presentationMode::before,
   .pdf-container .secondaryToolbarButton.presentationMode::before {
     content: url(../../static/images/toolbarButton-presentationMode@2x.png);
   }
-  /* line 2089, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2088, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.print::before,
   .pdf-container .secondaryToolbarButton.print::before {
     content: url(../../static/images/toolbarButton-print@2x.png);
   }
-  /* line 2094, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2093, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.openFile::before,
   .pdf-container .secondaryToolbarButton.openFile::before {
     content: url(../../static/images/toolbarButton-openFile@2x.png);
   }
-  /* line 2099, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2098, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.download::before,
   .pdf-container .secondaryToolbarButton.download::before {
     content: url(../../static/images/toolbarButton-download@2x.png);
   }
-  /* line 2104, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2103, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButton.bookmark::before,
   .pdf-container .secondaryToolbarButton.bookmark::before {
     content: url(../../static/images/toolbarButton-bookmark@2x.png);
   }
-  /* line 2109, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2108, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #viewThumbnail.toolbarButton::before {
     content: url(../../static/images/toolbarButton-viewThumbnail@2x.png);
   }
-  /* line 2113, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2112, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir="ltr"] #viewOutline.toolbarButton::before {
     content: url(../../static/images/toolbarButton-viewOutline@2x.png);
   }
-  /* line 2116, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2115, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir="rtl"] #viewOutline.toolbarButton::before {
     content: url(../../static/images/toolbarButton-viewOutline-rtl@2x.png);
   }
-  /* line 2120, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2119, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #viewAttachments.toolbarButton::before {
     content: url(../../static/images/toolbarButton-viewAttachments@2x.png);
   }
-  /* line 2124, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2123, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #viewFind.toolbarButton::before {
     content: url(../../static/images/toolbarButton-search@2x.png);
   }
-  /* line 2128, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2127, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .secondaryToolbarButton.firstPage::before {
     content: url(../../static/images/secondaryToolbarButton-firstPage@2x.png);
   }
-  /* line 2132, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2131, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .secondaryToolbarButton.lastPage::before {
     content: url(../../static/images/secondaryToolbarButton-lastPage@2x.png);
   }
-  /* line 2136, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2135, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .secondaryToolbarButton.rotateCcw::before {
     content: url(../../static/images/secondaryToolbarButton-rotateCcw@2x.png);
   }
-  /* line 2140, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2139, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .secondaryToolbarButton.rotateCw::before {
     content: url(../../static/images/secondaryToolbarButton-rotateCw@2x.png);
   }
-  /* line 2144, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2143, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .secondaryToolbarButton.selectTool::before {
     content: url(../../static/images/secondaryToolbarButton-selectTool@2x.png);
   }
-  /* line 2148, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2147, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .secondaryToolbarButton.handTool::before {
     content: url(../../static/images/secondaryToolbarButton-handTool@2x.png);
   }
-  /* line 2152, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2151, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .secondaryToolbarButton.documentProperties::before {
     content: url(../../static/images/secondaryToolbarButton-documentProperties@2x.png);
   }
-  /* line 2156, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2155, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .outlineItemToggler::before {
     -webkit-transform: scale(0.5);
     transform: scale(0.5);
     top: -1px;
     content: url(../../static/images/treeitem-expanded@2x.png);
   }
-  /* line 2162, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2161, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .outlineItemToggler.outlineItemsHidden::before {
     content: url(../../static/images/treeitem-collapsed@2x.png);
   }
-  /* line 2165, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2164, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .outlineItemToggler.outlineItemsHidden::before {
     content: url(../../static/images/treeitem-collapsed-rtl@2x.png);
   }
-  /* line 2168, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2167, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .outlineItemToggler::before {
     right: 0;
   }
-  /* line 2171, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2170, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .outlineItemToggler::before {
     left: 0;
   }
@@ -7971,21 +7971,21 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
     /* Rules for browsers that don't support mozPrintCallback. */
     /* wrapper around (scaled) print canvas elements */
   }
-  /* line 2179, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2178, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #sidebarContainer, .pdf-container #secondaryToolbar, .pdf-container .toolbar, .pdf-container #loadingBox, .pdf-container #errorWrapper, .pdf-container .textLayer {
     display: none;
   }
-  /* line 2182, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2181, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #viewerContainer {
     overflow: visible;
   }
-  /* line 2186, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2185, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #mainContainer, .pdf-container #viewerContainer, .pdf-container .page, .pdf-container .page canvas {
     position: static;
     padding: 0;
     margin: 0;
   }
-  /* line 2192, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2191, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .page {
     float: left;
     display: none;
@@ -7994,19 +7994,19 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
     background-clip: content-box;
     background-color: white;
   }
-  /* line 2201, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2200, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .page[data-loaded] {
     display: block;
   }
-  /* line 2205, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2204, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .fileInput {
     display: none;
   }
-  /* line 2209, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2208, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #printContainer {
     height: 100%;
   }
-  /* line 2213, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2212, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #printContainer > div {
     position: relative;
     top: 0;
@@ -8017,20 +8017,20 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
     page-break-after: always;
     page-break-inside: avoid;
   }
-  /* line 2223, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2222, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #printContainer canvas,
   .pdf-container #printContainer img {
     display: block;
   }
 }
-/* line 2229, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2228, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .pdf-container .visibleLargeView,
 .pdf-container .visibleMediumView,
 .pdf-container .visibleSmallView {
   display: none;
 }
 @media all and (max-width: 1040px) {
-  /* line 2236, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2235, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #outerContainer.sidebarMoving #toolbarViewerMiddle,
   .pdf-container #outerContainer.sidebarOpen #toolbarViewerMiddle {
     display: table;
@@ -8041,19 +8041,19 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   }
 }
 @media all and (max-width: 980px) {
-  /* line 2247, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2246, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .sidebarMoving .hiddenLargeView,
   .pdf-container .sidebarOpen .hiddenLargeView {
     display: none;
   }
-  /* line 2251, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2250, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .sidebarMoving .visibleLargeView,
   .pdf-container .sidebarOpen .visibleLargeView {
     display: inherit;
   }
 }
 @media all and (max-width: 900px) {
-  /* line 2258, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2257, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #toolbarViewerMiddle {
     display: table;
     margin: auto;
@@ -8061,95 +8061,95 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
     position: inherit;
     transform: none;
   }
-  /* line 2265, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2264, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .sidebarMoving .hiddenMediumView,
   .pdf-container .sidebarOpen .hiddenMediumView {
     display: none;
   }
-  /* line 2269, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2268, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .sidebarMoving .visibleMediumView,
   .pdf-container .sidebarOpen .visibleMediumView {
     display: inherit;
   }
 }
 @media all and (max-width: 840px) {
-  /* line 2276, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2275, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #sidebarContainer {
     top: 32px;
     z-index: 100;
   }
-  /* line 2280, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2279, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .loadingInProgress #sidebarContainer {
     top: 37px;
   }
-  /* line 2283, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2282, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #sidebarContent {
     top: 32px;
     background-color: rgba(0, 0, 0, 0.7);
   }
-  /* line 2288, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2287, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #outerContainer.sidebarOpen > #mainContainer {
     left: 0px;
   }
-  /* line 2291, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2290, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] #outerContainer.sidebarOpen > #mainContainer {
     right: 0px;
   }
-  /* line 2295, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2294, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #outerContainer .hiddenLargeView,
   .pdf-container #outerContainer .hiddenMediumView {
     display: inherit;
   }
-  /* line 2299, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2298, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #outerContainer .visibleLargeView,
   .pdf-container #outerContainer .visibleMediumView {
     display: none;
   }
 }
 @media all and (max-width: 770px) {
-  /* line 2306, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2305, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #outerContainer .hiddenLargeView {
     display: none;
   }
-  /* line 2309, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2308, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #outerContainer .visibleLargeView {
     display: inherit;
   }
 }
 @media all and (max-width: 700px) {
-  /* line 2315, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2314, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #outerContainer .hiddenMediumView {
     display: none;
   }
-  /* line 2318, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2317, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #outerContainer .visibleMediumView {
     display: inherit;
   }
 }
 @media all and (max-width: 640px) {
-  /* line 2324, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2323, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .hiddenSmallView, .pdf-container .hiddenSmallView * {
     display: none;
   }
-  /* line 2327, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2326, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .visibleSmallView {
     display: inherit;
   }
-  /* line 2330, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2329, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .toolbarButtonSpacer {
     width: 0;
   }
-  /* line 2333, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2332, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container .findbar {
     left: 38px;
   }
-  /* line 2336, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2335, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container html[dir='rtl'] .findbar {
     right: 38px;
   }
 }
 @media all and (max-width: 535px) {
-  /* line 2342, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2341, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container #scaleSelectContainer {
     display: none;
   }
@@ -8157,28 +8157,28 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
 
 @media print {
   /* General rules for printing. */
-  /* line 2350, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2349, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container {
     background: transparent none;
   }
 
   /* Rules for browsers that support PDF.js printing */
-  /* line 2356, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2355, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container[data-pdfjsprinting] #outerContainer {
     display: none;
   }
 
-  /* line 2359, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2358, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .pdf-container[data-pdfjsprinting] #printContainer {
     display: block;
   }
 }
-/* line 2363, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2362, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .social-share-links {
   position: relative;
   padding: 15px 0;
 }
-/* line 2366, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2365, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .social-share-links .nav-links {
   list-style-type: none;
   padding-left: 0;
@@ -8186,12 +8186,12 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   margin-top: 5px;
 }
 @media (min-width: 1142px) {
-  /* line 2366, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  /* line 2365, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
   .social-share-links .nav-links {
     transform: translate(0, -50%);
   }
 }
-/* line 2374, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2373, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .social-share-links .nav-links li {
   display: inline-block;
   margin-right: 15px;
@@ -8206,7 +8206,7 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   -moz-border-radius: 50%;
   border-radius: 50%;
 }
-/* line 2385, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2384, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .social-share-links .nav-links li a {
   vertical-align: middle;
   color: #fff;
@@ -8216,28 +8216,28 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   left: 50%;
   font-size: 0;
 }
-/* line 2393, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2392, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .social-share-links .nav-links li a.addthis_button_linkedin_follow, .social-share-links .nav-links li a.addthis_button_twitter_follow {
   line-height: 0;
   height: 22px !important;
   transform: translateY(-18px) translateX(-50%);
 }
-/* line 2398, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2397, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .social-share-links .nav-links li a:before {
   font-size: 24px;
 }
-/* line 2401, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2400, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .social-share-links .nav-links li a:hover, .social-share-links .nav-links li a:active {
   outline: 0;
   border: 0;
   text-decoration: initial;
 }
-/* line 2407, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2406, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .social-share-links .nav-links li:last-child {
   margin-right: 0;
 }
 
-/* line 2414, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+/* line 2413, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
 .hiddenIframe {
   height: 0;
   opacity: 0;

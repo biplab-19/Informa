@@ -195,13 +195,13 @@ INFORMA.forms = (function(window, $, namespace) {
                         // if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
                             _showOverlay();
                             if(pdfValue != ""){
-                            $('.close-download-form').removeClass('wffm-elq-form-btn');
+                            $('.close-download-form *').removeClass('wffm-elq-form-btn');
                             }
                                 INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                                 _formModal.modal('hide');
                             
-                            $('.close-download-form').attr('data-show-register',false);
-                            $('.close-download-form').attr('target',"_blank");
+                            $('.close-download-form *').attr('data-show-register',false);
+                            $('.close-download-form *').attr('target',"_blank");
 
                         // }    
                     }
@@ -215,22 +215,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     //Success callback
     window.onSubmit = function (token) {
-        if (getCurrentform.submit()) {
-            if ($('.show-register-form').attr('pdf-data-url')) {
-                if (typeof $('.close-download-form').attr('download') != typeof undefined && $('.close-download-form').attr('download') !== false) {
-                    var getCTAID = $("#showPdfUrl").val();
-                    if (getCTAID && getCTAID.includes('id@')) {
-                        var ctaId = getCTAID.split('id@')[1];
-                        $("#" + ctaId)[0].click();
-                    }
-                } else {
-                    $("#loadPDFComponentModal").modal("show");
-                    $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
-                        PDFJS.webViewerLoad($("#showPdfUrl").val());
-                    })
-                }
-            }
-        }
+        getCurrentform.submit();
     }
 
     // _reCaptchaHandler = function() {

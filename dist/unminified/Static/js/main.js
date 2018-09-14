@@ -1,4 +1,4 @@
-/*! 2018-09-10 *//*
+/*! 2018-09-14 *//*
  * google-analytics.js
  *
  *
@@ -7608,7 +7608,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _validateCountry,
         _showContentFirstTime,
         Urls = INFORMA.Configs.urls.webservices,
-        iOSversion;
+        iOSversion,
+        _loadPDFPopUp;
 
     //methods
 
@@ -8062,6 +8063,41 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             $("form.register-myinterests-form .chosen-select").chosen('destroy');
         });
     }
+    _loadPDFPopUp = function () {
+        var urlpath,urlParameters, pdf_url,isIE = false, isEdge = false;
+        if(/*@cc_on!@*/false || !!document.documentMode){
+          isIE = true
+        }
+        if( !isIE && !!window.StyleMedia) {
+            isEdge = true;
+        }
+       
+        if(isIE || isEdge){
+            urlParameters = window.location.href;
+        if(urlParameters.split('?')['1']){
+            var pdf_Url_Param  = urlParameters.split('?')['1'].split('&')['0'].split('=')[1];
+            if(pdf_Url_Param.indexOf('pdf')!=-1)
+                pdf_url = pdf_Url_Param;
+        }
+        }else{
+            urlParameters = new URLSearchParams(window.location.search);
+            pdf_url = urlParameters.get('pdf-url')
+
+        }
+        if ( pdf_url) {
+
+            if($('a[href$="'+pdf_url+'"]')[0]){
+                $('a[href$="'+pdf_url+'"]')[0].click();
+            }else{
+                $("#loadPDFComponentModal").modal("show");
+                PDFJS.webViewerLoad(pdf_url);
+            }
+            urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.pushState({ path: urlpath }, '', urlpath);
+
+        }
+    }
+
 
     init = function() {
         if (_myinterestForm.length > 0) {
@@ -8082,7 +8118,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _myinterestsSection.css('display', 'none');
 
         }
-        
+    
+        _loadPDFPopUp();
 
     };
 
@@ -8330,13 +8367,13 @@ INFORMA.forms = (function(window, $, namespace) {
                         // if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
                             _showOverlay();
                             if(pdfValue != ""){
-                            $('.close-download-form').removeClass('wffm-elq-form-btn');
+                            $('.close-download-form *').removeClass('wffm-elq-form-btn');
                             }
                                 INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                                 _formModal.modal('hide');
                             
-                            $('.close-download-form').attr('data-show-register',false);
-                            $('.close-download-form').attr('target',"_blank");
+                            $('.close-download-form *').attr('data-show-register',false);
+                            $('.close-download-form *').attr('target',"_blank");
 
                         // }    
                     }
@@ -8350,22 +8387,7 @@ INFORMA.forms = (function(window, $, namespace) {
 
     //Success callback
     window.onSubmit = function (token) {
-        if (getCurrentform.submit()) {
-            if ($('.show-register-form').attr('pdf-data-url')) {
-                if (typeof $('.close-download-form').attr('download') != typeof undefined && $('.close-download-form').attr('download') !== false) {
-                    var getCTAID = $("#showPdfUrl").val();
-                    if (getCTAID && getCTAID.includes('id@')) {
-                        var ctaId = getCTAID.split('id@')[1];
-                        $("#" + ctaId)[0].click();
-                    }
-                } else {
-                    $("#loadPDFComponentModal").modal("show");
-                    $('#loadPDFComponentModal').on('shown.bs.modal', function (e) {
-                        PDFJS.webViewerLoad($("#showPdfUrl").val());
-                    })
-                }
-            }
-        }
+        getCurrentform.submit();
     }
 
     // _reCaptchaHandler = function() {
