@@ -297,6 +297,46 @@ header {
                 }
             }
         }
+        .multi-lang-cta{
+            display: inline-block;
+            .dropdown-default-text:after{
+                content: "\e901";
+                font-family: 'InformaIcons';
+                margin-left: 10px;
+                vertical-align: middle;
+            }
+            .btn-group{
+                .dropdown-toggle{
+                    background: none;
+                    border: 0px;
+                    min-width: 106px;
+                    box-shadow: none;
+                    padding: 5px 10px;
+                }
+                &.open{
+                background: white;
+                color: black;
+                .dropdown-default-text{
+                    background:white;
+                    color:black;
+                    }
+                .dropdown-toggle{
+                    box-shadow:none;
+                    }
+                .dropdown-menu {
+                    display: block;
+                    min-width: 106px;
+                    border-radius: 0px;
+                    border: 0px;
+                    a {
+                        color:black;
+                        padding:5px 10px;
+                        }
+                    }
+                }
+            }
+        }
+
         @include desktop {
             .navbar {
                 padding-top: 20px;
@@ -532,6 +572,9 @@ header {
                         margin-left: -15px;
                         margin-right: 0;
                         height: inherit;
+                        @media (max-width: 500px) {
+                            height: 100px;
+                        }
                         .navbar-toggle {
                             display: block;
                             border: none;
@@ -546,7 +589,10 @@ header {
                         }
                         .action {
                             height: 50px;
-                            .login {
+                            @media (max-width: 500px) {
+                                margin-top: 50px;
+                            }
+                                .login {
                                 display: none;
                             }
                             .disp {
