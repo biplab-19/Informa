@@ -1,4 +1,4 @@
-/*! 2018-08-03 */@charset "UTF-8";
+/*! 2018-09-14 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -2705,20 +2705,25 @@ section.feature-list-section .feature-list-container {
   padding: 0 15px 15px 15px;
 }
 /* line 65, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+section#feature-list .feature-list-container a[data-target],
+section.feature-list-section .feature-list-container a[data-target] {
+  cursor: pointer;
+}
+/* line 68, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section.feature-list-section .feature-list-container .feature-image {
   width: 80px;
   height: 80px;
   margin: 0 auto;
 }
-/* line 69, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 72, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image img,
 section.feature-list-section .feature-list-container .feature-image img {
   width: 100%;
   height: 100%;
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 65, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 68, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 80px;
@@ -2726,14 +2731,14 @@ section.feature-list-section .feature-list-container .feature-image img {
   }
 }
 @media (max-width: 767px) {
-  /* line 65, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 68, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .feature-image,
   section.feature-list-section .feature-list-container .feature-image {
     width: 60px;
     height: 60px;
   }
 }
-/* line 82, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 85, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container .feature-image,
 section#feature-list .feature-list-container .headText,
 section#feature-list .feature-list-container p,
@@ -2742,7 +2747,7 @@ section.feature-list-section .feature-list-container .headText,
 section.feature-list-section .feature-list-container p {
   text-align: center;
 }
-/* line 93, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 96, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .feature-list-container p,
 section.feature-list-section .feature-list-container p {
   font-family: FSMe-Light;
@@ -2763,55 +2768,55 @@ section.feature-list-section .feature-list-container p {
     width: 50%;
     padding: 10px 15px;
   }
-  /* line 104, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 107, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container .headText,
   section.feature-list-section .feature-list-container .headText {
     font-size: 16px;
   }
-  /* line 107, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 110, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .feature-list-container p,
   section.feature-list-section .feature-list-container p {
     font-size: 12px;
   }
 }
-/* line 112, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 115, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore,
 section.feature-list-section .btn-showMore {
   width: 150px;
 }
-/* line 114, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 117, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore:focus,
 section.feature-list-section .btn-showMore:focus {
   outline: 0;
 }
-/* line 117, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 120, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.more,
 section.feature-list-section .btn-showMore span.more {
   display: block;
 }
-/* line 120, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 123, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list .btn-showMore span.less,
 section.feature-list-section .btn-showMore span.less {
   display: none;
 }
-/* line 126, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 129, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.more,
 section.feature-list-section.showLess .btn-showMore span.more {
   display: none;
 }
-/* line 129, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 132, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore span.less,
 section.feature-list-section.showLess .btn-showMore span.less {
   display: block;
 }
-/* line 132, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+/* line 135, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
 section#feature-list.showLess .btn-showMore:after,
 section.feature-list-section.showLess .btn-showMore:after {
   font-family: 'InformaIcons';
   content: '\e913';
 }
 @media (min-width: 1142px) {
-  /* line 138, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
+  /* line 141, ../../../src/components/pdp-feature-list/sass/_pdp-feature-list.scss */
   section#feature-list .btn-showMore-container,
   section.feature-list-section .btn-showMore-container {
     padding-top: 30px;
@@ -5823,6 +5828,2435 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
   padding-bottom: 30px;
 }
 
+@media (min-width: 1142px) {
+  /* line 126, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .modal-dialog.pdf-model-dailog {
+    height: 600px;
+    width: 1172px;
+    top: 80px;
+  }
+}
+@media (max-width: 1141px) {
+  /* line 126, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .modal-dialog.pdf-model-dailog {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+/* line 141, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-model-dailog .modal-content {
+  height: 100%;
+  border-radius: 0;
+  color: white;
+  overflow: auto;
+}
+/* line 147, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-model-dailog .modal-body {
+  height: calc(100% - 50px);
+}
+
+/* line 151, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container {
+  height: 100%;
+  width: 100%;
+  background-color: #404040;
+  background-image: url(../../static/images/texture.png);
+  /* TODO: file FF bug to support ::-moz-selection:window-inactive
+     so we can override the opaque grey background when the window is inactive;
+     see https://bugzilla.mozilla.org/show_bug.cgi?id=706209 */
+}
+/* line 156, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .section
+.textLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 0.2;
+  line-height: 1.0;
+}
+/* line 168, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer > div {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  -webkit-transform-origin: 0% 0%;
+  -moz-transform-origin: 0% 0%;
+  -o-transform-origin: 0% 0%;
+  -ms-transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
+}
+/* line 180, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer .highlight {
+  margin: -1px;
+  padding: 1px;
+  background-color: #b400aa;
+  border-radius: 4px;
+}
+/* line 188, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer .highlight.begin {
+  border-radius: 4px 0px 0px 4px;
+}
+/* line 192, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer .highlight.end {
+  border-radius: 0px 4px 4px 0px;
+}
+/* line 196, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer .highlight.middle {
+  border-radius: 0px;
+}
+/* line 200, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer .highlight.selected {
+  background-color: darkgreen;
+}
+/* line 204, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer ::selection {
+  background: blue;
+}
+/* line 205, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer ::-moz-selection {
+  background: blue;
+}
+/* line 207, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer .endOfContent {
+  display: block;
+  position: absolute;
+  left: 0px;
+  top: 100%;
+  right: 0px;
+  bottom: 0px;
+  z-index: -1;
+  cursor: default;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+}
+/* line 221, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .textLayer .endOfContent.active {
+  top: 0px;
+}
+/* line 226, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer section {
+  position: absolute;
+  background: inherit !important;
+}
+/* line 231, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .linkAnnotation > a {
+  position: absolute;
+  font-size: 1em;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 240, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .linkAnnotation > a {
+  background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7") 0 0 repeat;
+}
+/* line 244, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .linkAnnotation > a:hover {
+  opacity: 0.2;
+}
+/* line 248, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .textAnnotation img {
+  position: absolute;
+  cursor: pointer;
+}
+/* line 253, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .textWidgetAnnotation input,
+.pdf-container .annotationLayer .textWidgetAnnotation textarea,
+.pdf-container .annotationLayer .choiceWidgetAnnotation select,
+.pdf-container .annotationLayer .buttonWidgetAnnotation.checkBox input,
+.pdf-container .annotationLayer .buttonWidgetAnnotation.radioButton input {
+  background-color: rgba(0, 54, 255, 0.13);
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  font-size: 9px;
+  height: 100%;
+  padding: 0 3px;
+  vertical-align: top;
+  width: 100%;
+}
+/* line 268, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .textWidgetAnnotation textarea {
+  font: message-box;
+  font-size: 9px;
+  resize: none;
+}
+/* line 274, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .textWidgetAnnotation input[disabled],
+.pdf-container .annotationLayer .textWidgetAnnotation textarea[disabled],
+.pdf-container .annotationLayer .choiceWidgetAnnotation select[disabled],
+.pdf-container .annotationLayer .buttonWidgetAnnotation.checkBox input[disabled],
+.pdf-container .annotationLayer .buttonWidgetAnnotation.radioButton input[disabled] {
+  background: none;
+  border: 1px solid transparent;
+  cursor: not-allowed;
+}
+/* line 284, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .textWidgetAnnotation input:hover,
+.pdf-container .annotationLayer .textWidgetAnnotation textarea:hover,
+.pdf-container .annotationLayer .choiceWidgetAnnotation select:hover,
+.pdf-container .annotationLayer .buttonWidgetAnnotation.checkBox input:hover,
+.pdf-container .annotationLayer .buttonWidgetAnnotation.radioButton input:hover {
+  border: 1px solid #000;
+}
+/* line 292, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .textWidgetAnnotation input:focus,
+.pdf-container .annotationLayer .textWidgetAnnotation textarea:focus,
+.pdf-container .annotationLayer .choiceWidgetAnnotation select:focus {
+  background: none;
+  border: 1px solid transparent;
+}
+/* line 299, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .textWidgetAnnotation input.comb {
+  font-family: monospace;
+  padding-left: 2px;
+  padding-right: 0;
+}
+/* line 305, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .textWidgetAnnotation input.comb:focus {
+  /*
+   * Letter spacing is placed on the right side of each character. Hence, the
+   * letter spacing of the last character may be placed outside the visible
+   * area, causing horizontal scrolling. We avoid this by extending the width
+   * when the element has focus and revert this when it loses focus.
+   */
+  width: 115%;
+}
+/* line 315, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .buttonWidgetAnnotation.checkBox input,
+.pdf-container .annotationLayer .buttonWidgetAnnotation.radioButton input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
+/* line 323, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .popupWrapper {
+  position: absolute;
+  width: 20em;
+}
+/* line 328, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .popup {
+  position: absolute;
+  z-index: 200;
+  max-width: 20em;
+  background-color: #FFFF99;
+  box-shadow: 0px 2px 5px #333;
+  border-radius: 2px;
+  padding: 0.6em;
+  margin-left: 5px;
+  cursor: pointer;
+  word-wrap: break-word;
+}
+/* line 341, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .popup h1 {
+  font-size: 1em;
+  border-bottom: 1px solid #000000;
+  padding-bottom: 0.2em;
+}
+/* line 347, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .popup p {
+  padding-top: 0.2em;
+}
+/* line 351, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .annotationLayer .highlightAnnotation,
+.pdf-container .annotationLayer .underlineAnnotation,
+.pdf-container .annotationLayer .squigglyAnnotation,
+.pdf-container .annotationLayer .strikeoutAnnotation,
+.pdf-container .annotationLayer .lineAnnotation svg line,
+.pdf-container .annotationLayer .fileAttachmentAnnotation {
+  cursor: pointer;
+}
+/* line 360, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfViewer .canvasWrapper {
+  overflow: hidden;
+}
+/* line 364, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfViewer .page {
+  direction: ltr;
+  width: 816px;
+  height: 1056px;
+  margin: 1px auto 12px auto;
+  position: relative;
+  overflow: visible;
+  border: 9px solid transparent;
+  background-clip: content-box;
+  border-image: url(../../static/images/shadow.png) 9 9 repeat;
+  background-color: white;
+}
+/* line 377, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfViewer.removePageBorders .page {
+  margin: 0px auto 10px auto;
+  border: none;
+}
+/* line 382, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfViewer.singlePageView {
+  display: inline-block;
+}
+/* line 386, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfViewer.singlePageView .page {
+  margin: 0;
+  border: none;
+}
+/* line 391, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfViewer .page canvas {
+  margin: 0;
+  display: block;
+}
+/* line 396, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfViewer .page canvas[hidden] {
+  display: none;
+}
+/* line 400, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfViewer .page .loadingIcon {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../../static/images/loading-icon.gif") center no-repeat;
+}
+/* line 410, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:-webkit-full-screen .pdfViewer .page {
+  margin-bottom: 100%;
+  border: 0;
+}
+/* line 415, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:-moz-full-screen .pdfViewer .page {
+  margin-bottom: 100%;
+  border: 0;
+}
+/* line 420, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:-ms-fullscreen .pdfViewer .page {
+  margin-bottom: 100% !important;
+  border: 0;
+}
+/* line 425, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:fullscreen .pdfViewer .page {
+  margin-bottom: 100%;
+  border: 0;
+}
+/* line 430, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container * {
+  padding: 0;
+  margin: 0;
+}
+/* line 435, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html {
+  height: 100%;
+  width: 100%;
+  /* Font size is needed to make the activity bar the correct size. */
+  font-size: 10px;
+}
+/* line 443, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container body,
+.pdf-container input,
+.pdf-container button,
+.pdf-container select {
+  font: message-box;
+  outline: none;
+}
+/* line 451, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .hidden {
+  display: none !important;
+}
+/* line 454, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container [hidden] {
+  display: none !important;
+}
+/* line 458, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewerContainer.pdfPresentationMode:-webkit-full-screen {
+  top: 0px;
+  border-top: 2px solid transparent;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: none;
+  -webkit-user-select: none;
+}
+/* line 469, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewerContainer.pdfPresentationMode:-moz-full-screen {
+  top: 0px;
+  border-top: 2px solid transparent;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: none;
+  -moz-user-select: none;
+}
+/* line 480, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewerContainer.pdfPresentationMode:-ms-fullscreen {
+  top: 0px !important;
+  border-top: 2px solid transparent;
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+  cursor: none;
+  -ms-user-select: none;
+}
+/* line 490, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewerContainer.pdfPresentationMode:-ms-fullscreen::-ms-backdrop {
+  background-color: #000;
+}
+/* line 494, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewerContainer.pdfPresentationMode:fullscreen {
+  top: 0px;
+  border-top: 2px solid transparent;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+/* line 507, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:-webkit-full-screen a:not(.internalLink) {
+  display: none;
+}
+/* line 511, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:-moz-full-screen a:not(.internalLink) {
+  display: none;
+}
+/* line 515, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:-ms-fullscreen a:not(.internalLink) {
+  display: none !important;
+}
+/* line 519, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:fullscreen a:not(.internalLink) {
+  display: none;
+}
+/* line 523, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:-webkit-full-screen .textLayer > div {
+  cursor: none;
+}
+/* line 527, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:-moz-full-screen .textLayer > div {
+  cursor: none;
+}
+/* line 531, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:-ms-fullscreen .textLayer > div {
+  cursor: none;
+}
+/* line 535, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode:fullscreen .textLayer > div {
+  cursor: none;
+}
+/* line 539, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .pdfPresentationMode.pdfPresentationModeControls > *,
+.pdf-container .pdfPresentationMode.pdfPresentationModeControls .textLayer > div {
+  cursor: default;
+}
+/* line 544, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #outerContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+/* line 550, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #sidebarContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  visibility: hidden;
+  -webkit-transition-duration: 200ms;
+  -webkit-transition-timing-function: ease;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+/* line 562, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #sidebarContainer {
+  -webkit-transition-property: left;
+  transition-property: left;
+  left: -200px;
+}
+/* line 568, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #outerContainer.sidebarMoving > #sidebarContainer,
+.pdf-container #outerContainer.sidebarOpen > #sidebarContainer {
+  visibility: visible;
+}
+/* line 572, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #outerContainer.sidebarOpen > #sidebarContainer {
+  left: 0px;
+}
+/* line 576, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #mainContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 320px;
+  -webkit-transition-duration: 200ms;
+  -webkit-transition-timing-function: ease;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+/* line 588, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #outerContainer.sidebarOpen > #mainContainer {
+  -webkit-transition-property: left;
+  transition-property: left;
+  left: 200px;
+}
+/* line 593, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #outerContainer.sidebarOpen > #mainContainer {
+  -webkit-transition-property: right;
+  transition-property: right;
+  right: 200px;
+}
+/* line 599, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #sidebarContent {
+  top: 32px;
+  bottom: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/* line 608, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #sidebarContent {
+  left: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25);
+}
+/* line 612, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #sidebarContent {
+  right: 0;
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.25);
+}
+/* line 617, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewerContainer {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 32px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  outline: none;
+}
+/* line 627, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewerContainer {
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+/* line 630, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #viewerContainer {
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.05);
+}
+/* line 634, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbar {
+  position: relative;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  cursor: default;
+}
+/* line 642, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarContainer {
+  width: 100%;
+}
+/* line 644, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarContainer button {
+  cursor: pointer;
+}
+/* line 649, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarSidebar {
+  width: 200px;
+  height: 32px;
+  background-color: #424242;
+  /* fallback */
+  background-image: url(../../static/images/texture.png), linear-gradient(rgba(77, 77, 77, 0.99), rgba(64, 64, 64, 0.95));
+}
+/* line 656, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarSidebar {
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1);
+}
+/* line 662, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #toolbarSidebar {
+  box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.1);
+}
+/* line 669, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarContainer, .pdf-container .findbar, .pdf-container .secondaryToolbar {
+  position: relative;
+  height: 32px;
+  background-color: #474747;
+  /* fallback */
+  background-image: url(../../static/images/texture.png), linear-gradient(rgba(82, 82, 82, 0.99), rgba(69, 69, 69, 0.95));
+}
+/* line 676, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarContainer, .pdf-container .findbar, .pdf-container .secondaryToolbar {
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.08), inset 0 1px 1px rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 683, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #toolbarContainer, .pdf-container .findbar, .pdf-container .secondaryToolbar {
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.08), inset 0 1px 1px rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+/* line 691, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarViewer {
+  height: 32px;
+}
+/* line 695, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #loadingBar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background-color: #333;
+  border-bottom: 1px solid #333;
+}
+/* line 703, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #loadingBar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #ddd;
+  overflow: hidden;
+  -webkit-transition: width 200ms;
+  transition: width 200ms;
+}
+@-webkit-keyframes progressIndeterminate {
+  0% {
+    left: -142px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes progressIndeterminate {
+  0% {
+    left: -142px;
+  }
+  100% {
+    left: 0;
+  }
+}
+/* line 725, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #loadingBar .progress.indeterminate {
+  background-color: #999;
+  -webkit-transition: none;
+  transition: none;
+}
+/* line 731, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #loadingBar .progress.indeterminate .glimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: calc(100% + 150px);
+  background: repeating-linear-gradient(135deg, #bbb 0, #999 5px, #999 45px, #ddd 55px, #ddd 95px, #bbb 100px);
+  -webkit-animation: progressIndeterminate 950ms linear infinite;
+  animation: progressIndeterminate 950ms linear infinite;
+}
+/* line 747, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .findbar, .pdf-container .secondaryToolbar {
+  top: 32px;
+  position: absolute;
+  z-index: 10000;
+  height: auto;
+  min-width: 16px;
+  padding: 0px 6px 0px 6px;
+  margin: 4px 2px 4px 2px;
+  color: #d9d9d9;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  cursor: default;
+}
+/* line 762, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .findbar {
+  min-width: 300px;
+}
+/* line 765, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .findbar > div {
+  height: 32px;
+}
+/* line 768, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .findbar.wrapContainers > div {
+  clear: both;
+}
+/* line 771, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .findbar.wrapContainers > div#findbarMessageContainer {
+  height: auto;
+}
+/* line 774, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .findbar {
+  left: 68px;
+}
+/* line 777, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .findbar {
+  right: 68px;
+}
+/* line 781, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .findbar label {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+/* line 786, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findInput {
+  width: 200px;
+}
+/* line 789, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findInput::-webkit-input-placeholder {
+  font-style: italic;
+}
+/* line 792, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findInput::-moz-placeholder {
+  font-style: italic;
+}
+/* line 795, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findInput:-ms-input-placeholder {
+  font-style: italic;
+}
+/* line 798, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findInput::placeholder {
+  font-style: italic;
+}
+/* line 801, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findInput[data-status="pending"] {
+  background-image: url(../../static/images/loading-small.png);
+  background-repeat: no-repeat;
+  background-position: right;
+}
+/* line 806, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #findInput[data-status="pending"] {
+  background-position: left;
+}
+/* line 810, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbar {
+  padding: 6px;
+  height: auto;
+  z-index: 30000;
+}
+/* line 815, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbar {
+  right: 4px;
+}
+/* line 818, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .secondaryToolbar {
+  left: 4px;
+}
+/* line 822, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #secondaryToolbarButtonContainer {
+  max-width: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: -4px;
+}
+/* line 830, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .doorHanger,
+.pdf-container .doorHangerRight {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+/* line 836, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .doorHanger:after, .pdf-container .doorHanger:before,
+.pdf-container .doorHangerRight:after, .pdf-container .doorHangerRight:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+/* line 846, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .doorHanger:after,
+.pdf-container .doorHangerRight:after {
+  border-bottom-color: rgba(82, 82, 82, 0.99);
+  border-width: 8px;
+}
+/* line 851, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .doorHanger:before,
+.pdf-container .doorHangerRight:before {
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  border-width: 9px;
+}
+/* line 857, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .doorHanger:after,
+.pdf-container html[dir='rtl'] .doorHangerRight:after {
+  left: 13px;
+  margin-left: -8px;
+}
+/* line 863, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .doorHanger:before,
+.pdf-container html[dir='rtl'] .doorHangerRight:before {
+  left: 13px;
+  margin-left: -9px;
+}
+/* line 869, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .doorHanger:after,
+.pdf-container .doorHangerRight:after {
+  right: 13px;
+  margin-right: -8px;
+}
+/* line 875, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .doorHanger:before,
+.pdf-container .doorHangerRight:before {
+  right: 13px;
+  margin-right: -9px;
+}
+/* line 881, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findResultsCount {
+  background-color: #d9d9d9;
+  color: #525252;
+  text-align: center;
+  padding: 3px 4px;
+}
+/* line 888, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findMsg {
+  font-style: italic;
+  color: #A6B7D0;
+}
+/* line 892, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findMsg:empty {
+  display: none;
+}
+/* line 896, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findInput.notFound {
+  background-color: #ff6666;
+}
+/* line 900, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarViewerMiddle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media (max-width: 767px) {
+  /* line 900, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #toolbarViewerMiddle {
+    display: none !important;
+  }
+}
+/* line 909, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarViewerLeft,
+.pdf-container html[dir='rtl'] #toolbarViewerRight {
+  float: left;
+}
+/* line 913, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarViewerRight,
+.pdf-container html[dir='rtl'] #toolbarViewerLeft {
+  float: right;
+}
+/* line 917, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #toolbarViewerLeft > *,
+.pdf-container #toolbarViewerMiddle > *,
+.pdf-container #toolbarViewerRight > *,
+.pdf-container .findbar * {
+  position: relative;
+  float: left;
+}
+/* line 924, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #toolbarViewerLeft > *,
+.pdf-container html[dir='rtl'] #toolbarViewerMiddle > *,
+.pdf-container html[dir='rtl'] #toolbarViewerRight > *,
+.pdf-container html[dir='rtl'] .findbar * {
+  position: relative;
+  float: right;
+}
+/* line 932, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton {
+  margin: 3px 2px 4px 0;
+  display: inline-block;
+}
+/* line 936, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .splitToolbarButton {
+  margin: 3px 0 4px 2px;
+  display: inline-block;
+}
+/* line 940, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton > .toolbarButton {
+  border-radius: 0;
+  float: left;
+}
+/* line 944, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .splitToolbarButton > .toolbarButton {
+  border-radius: 0;
+  float: right;
+}
+/* line 949, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton,
+.pdf-container .secondaryToolbarButton,
+.pdf-container .overlayButton {
+  border: 0 none;
+  background: none;
+  width: 32px;
+  height: 25px;
+}
+/* line 958, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton > span {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+/* line 965, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton[disabled],
+.pdf-container .secondaryToolbarButton[disabled],
+.pdf-container .overlayButton[disabled] {
+  opacity: .5;
+}
+/* line 971, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton.toggled .toolbarButton {
+  margin: 0;
+}
+/* line 975, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton:hover > .toolbarButton,
+.pdf-container .splitToolbarButton:focus > .toolbarButton,
+.pdf-container .splitToolbarButton.toggled > .toolbarButton,
+.pdf-container .toolbarButton.textButton {
+  background-color: rgba(0, 0, 0, 0.12);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 0 rgba(255, 255, 255, 0.05);
+  -webkit-transition-property: background-color, border-color, box-shadow;
+  -webkit-transition-duration: 150ms;
+  -webkit-transition-timing-function: ease;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+/* line 995, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton > .toolbarButton:hover,
+.pdf-container .splitToolbarButton > .toolbarButton:focus,
+.pdf-container .dropdownToolbarButton:hover,
+.pdf-container .overlayButton:hover,
+.pdf-container .overlayButton:focus,
+.pdf-container .toolbarButton.textButton:hover,
+.pdf-container .toolbarButton.textButton:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 0 1px rgba(0, 0, 0, 0.05);
+  z-index: 199;
+}
+/* line 1008, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton > .toolbarButton {
+  position: relative;
+}
+/* line 1011, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton > .toolbarButton:first-child,
+.pdf-container html[dir='rtl'] .splitToolbarButton > .toolbarButton:last-child {
+  position: relative;
+  margin: 0;
+  margin-right: -1px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-right-color: transparent;
+}
+/* line 1020, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton > .toolbarButton:last-child,
+.pdf-container html[dir='rtl'] .splitToolbarButton > .toolbarButton:first-child {
+  position: relative;
+  margin: 0;
+  margin-left: -1px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-left-color: transparent;
+}
+/* line 1029, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButtonSeparator {
+  padding: 8px 0;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  display: inline-block;
+  margin: 5px 0;
+}
+/* line 1038, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButtonSeparator {
+  float: left;
+}
+/* line 1041, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .splitToolbarButtonSeparator {
+  float: right;
+}
+/* line 1044, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton:hover > .splitToolbarButtonSeparator,
+.pdf-container .splitToolbarButton.toggled > .splitToolbarButtonSeparator {
+  padding: 12px 0;
+  margin: 1px 0;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03);
+  -webkit-transition-property: padding;
+  -webkit-transition-duration: 10ms;
+  -webkit-transition-timing-function: ease;
+  transition-property: padding;
+  transition-duration: 10ms;
+  transition-timing-function: ease;
+}
+/* line 1057, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton,
+.pdf-container .dropdownToolbarButton,
+.pdf-container .secondaryToolbarButton,
+.pdf-container .overlayButton {
+  min-width: 16px;
+  padding: 2px 6px 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  line-height: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /* Opera does not support user-select, use <... unselectable="on"> instead */
+  cursor: default;
+  -webkit-transition-property: background-color, border-color, box-shadow;
+  -webkit-transition-duration: 150ms;
+  -webkit-transition-timing-function: ease;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+/* line 1081, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton,
+.pdf-container .overlayButton,
+.pdf-container .dropdownToolbarButton {
+  margin: 3px 2px 4px 0;
+}
+/* line 1086, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .toolbarButton,
+.pdf-container html[dir='rtl'] .overlayButton,
+.pdf-container html[dir='rtl'] .dropdownToolbarButton {
+  margin: 3px 0 4px 2px;
+}
+/* line 1092, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton:hover,
+.pdf-container .toolbarButton:focus,
+.pdf-container .dropdownToolbarButton,
+.pdf-container .overlayButton,
+.pdf-container .secondaryToolbarButton:hover,
+.pdf-container .secondaryToolbarButton:focus {
+  background-color: rgba(0, 0, 0, 0.12);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.15) inset, 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+/* line 1108, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton:hover:active,
+.pdf-container .overlayButton:hover:active,
+.pdf-container .dropdownToolbarButton:hover:active,
+.pdf-container .secondaryToolbarButton:hover:active {
+  background-color: rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  border-color: rgba(0, 0, 0, 0.35) rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.45);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.05);
+  -webkit-transition-property: background-color, border-color, box-shadow;
+  -webkit-transition-duration: 10ms;
+  -webkit-transition-timing-function: linear;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 10ms;
+  transition-timing-function: linear;
+}
+/* line 1126, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.toggled,
+.pdf-container .splitToolbarButton.toggled > .toolbarButton.toggled,
+.pdf-container .secondaryToolbarButton.toggled {
+  background-color: rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  border-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.45) rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.05);
+  -webkit-transition-property: background-color, border-color, box-shadow;
+  -webkit-transition-duration: 10ms;
+  -webkit-transition-timing-function: linear;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 10ms;
+  transition-timing-function: linear;
+}
+/* line 1143, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.toggled:hover:active,
+.pdf-container .splitToolbarButton.toggled > .toolbarButton.toggled:hover:active,
+.pdf-container .secondaryToolbarButton.toggled:hover:active {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.55);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset, 0 0 1px rgba(0, 0, 0, 0.3) inset, 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+/* line 1153, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dropdownToolbarButton {
+  width: 120px;
+  max-width: 120px;
+  padding: 0;
+  overflow: hidden;
+  background: url(../../static/images/toolbarButton-menuArrows.png) no-repeat;
+}
+/* line 1160, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dropdownToolbarButton {
+  background-position: 95%;
+}
+/* line 1163, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .dropdownToolbarButton {
+  background-position: 5%;
+}
+/* line 1167, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dropdownToolbarButton > select {
+  min-width: 140px;
+  font-size: 12px;
+  color: #f2f2f2;
+  margin: 0;
+  padding: 3px 2px 2px;
+  border: none;
+  background: transparent;
+  /* Opera does not support 'transparent' <select> background */
+}
+/* line 1177, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dropdownToolbarButton > select > option {
+  background: #3d3d3d;
+}
+/* line 1181, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #customScaleOption {
+  display: none;
+}
+/* line 1185, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #pageWidthOption {
+  border-bottom: 1px rgba(255, 255, 255, 0.5) solid;
+}
+/* line 1189, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton:first-child,
+.pdf-container .toolbarButton:first-child,
+.pdf-container html[dir='rtl'] .splitToolbarButton:last-child,
+.pdf-container html[dir='rtl'] .toolbarButton:last-child {
+  margin-left: 4px;
+}
+/* line 1195, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .splitToolbarButton:last-child,
+.pdf-container .toolbarButton:last-child,
+.pdf-container html[dir='rtl'] .splitToolbarButton:first-child,
+.pdf-container html[dir='rtl'] .toolbarButton:first-child {
+  margin-right: 4px;
+}
+/* line 1202, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButtonSpacer {
+  width: 30px;
+  display: inline-block;
+  height: 1px;
+}
+/* line 1208, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findPrevious {
+  margin-left: 3px;
+}
+/* line 1211, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #findNext {
+  margin-right: 3px;
+}
+/* line 1215, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #findPrevious {
+  margin-right: 3px;
+}
+/* line 1218, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #findNext {
+  margin-left: 3px;
+}
+/* line 1222, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton::before,
+.pdf-container .secondaryToolbarButton::before {
+  /* All matching images have a size of 16x16
+   * All relevant containers have a size of 32x25 */
+  position: absolute;
+  display: inline-block;
+  top: 4px;
+  left: 7px;
+}
+/* line 1232, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="ltr"] .secondaryToolbarButton::before {
+  left: 4px;
+}
+/* line 1235, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="rtl"] .secondaryToolbarButton::before {
+  right: 4px;
+}
+/* line 1239, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton#sidebarToggle::before {
+  content: url(../../static/images/toolbarButton-sidebarToggle.png);
+}
+/* line 1242, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .toolbarButton#sidebarToggle::before {
+  content: url(../../static/images/toolbarButton-sidebarToggle-rtl.png);
+}
+/* line 1246, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton#secondaryToolbarToggle::before {
+  content: url(../../static/images/toolbarButton-secondaryToolbarToggle.png);
+}
+/* line 1249, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
+  content: url(../../static/images/toolbarButton-secondaryToolbarToggle-rtl.png);
+}
+/* line 1253, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.findPrevious::before {
+  content: url(../../static/images/findbarButton-previous.png);
+}
+/* line 1256, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .toolbarButton.findPrevious::before {
+  content: url(../../static/images/findbarButton-previous-rtl.png);
+}
+/* line 1260, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.findNext::before {
+  content: url(../../static/images/findbarButton-next.png);
+}
+/* line 1263, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .toolbarButton.findNext::before {
+  content: url(../../static/images/findbarButton-next-rtl.png);
+}
+/* line 1267, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.pageUp::before {
+  content: url(../../static/images/toolbarButton-pageUp.png);
+}
+/* line 1270, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .toolbarButton.pageUp::before {
+  content: url(../../static/images/toolbarButton-pageUp-rtl.png);
+}
+/* line 1274, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.pageDown::before {
+  content: url(../../static/images/toolbarButton-pageDown.png);
+}
+/* line 1277, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .toolbarButton.pageDown::before {
+  content: url(../../static/images/toolbarButton-pageDown-rtl.png);
+}
+/* line 1281, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.zoomOut::before {
+  content: url(../../static/images/toolbarButton-zoomOut.png);
+}
+/* line 1285, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.zoomIn::before {
+  content: url(../../static/images/toolbarButton-zoomIn.png);
+}
+/* line 1289, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.presentationMode::before,
+.pdf-container .secondaryToolbarButton.presentationMode::before {
+  content: url(../../static/images/toolbarButton-presentationMode.png);
+}
+/* line 1294, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.print::before,
+.pdf-container .secondaryToolbarButton.print::before {
+  content: url(../../static/images/toolbarButton-print.png);
+}
+/* line 1299, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.openFile::before,
+.pdf-container .secondaryToolbarButton.openFile::before {
+  content: url(../../static/images/toolbarButton-openFile.png);
+}
+/* line 1304, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.download::before,
+.pdf-container .secondaryToolbarButton.download::before {
+  content: url(../../static/images/toolbarButton-download.png);
+}
+/* line 1309, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.bookmark,
+.pdf-container .secondaryToolbarButton.bookmark {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: none;
+  padding-top: 4px;
+  text-decoration: none;
+}
+/* line 1318, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbarButton.bookmark {
+  padding-top: 5px;
+}
+/* line 1322, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .bookmark[href='#'] {
+  opacity: .5;
+  pointer-events: none;
+}
+/* line 1327, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.bookmark::before,
+.pdf-container .secondaryToolbarButton.bookmark::before {
+  content: url(../../static/images/toolbarButton-bookmark.png);
+}
+/* line 1332, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewThumbnail.toolbarButton::before {
+  content: url(../../static/images/toolbarButton-viewThumbnail.png);
+}
+/* line 1336, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="ltr"] #viewOutline.toolbarButton::before {
+  content: url(../../static/images/toolbarButton-viewOutline.png);
+}
+/* line 1339, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="rtl"] #viewOutline.toolbarButton::before {
+  content: url(../../static/images/toolbarButton-viewOutline-rtl.png);
+}
+/* line 1343, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewAttachments.toolbarButton::before {
+  content: url(../../static/images/toolbarButton-viewAttachments.png);
+}
+/* line 1347, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewFind.toolbarButton::before {
+  content: url(../../static/images/toolbarButton-search.png);
+}
+/* line 1351, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.pdfSidebarNotification::after {
+  position: absolute;
+  display: inline-block;
+  top: 1px;
+  /* Create a filled circle, with a diameter of 9 pixels, using only CSS: */
+  content: '';
+  background-color: #70DB55;
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+}
+/* line 1362, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarButton.pdfSidebarNotification::after {
+  left: 17px;
+}
+/* line 1365, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .toolbarButton.pdfSidebarNotification::after {
+  right: 17px;
+}
+/* line 1369, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbarButton {
+  position: relative;
+  margin: 0 0 4px 0;
+  padding: 3px 0 1px 0;
+  height: auto;
+  min-height: 25px;
+  width: auto;
+  min-width: 100%;
+  white-space: normal;
+}
+/* line 1379, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="ltr"] .secondaryToolbarButton {
+  padding-left: 24px;
+  text-align: left;
+}
+/* line 1383, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="rtl"] .secondaryToolbarButton {
+  padding-right: 24px;
+  text-align: right;
+}
+/* line 1387, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="ltr"] .secondaryToolbarButton.bookmark {
+  padding-left: 27px;
+}
+/* line 1390, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="rtl"] .secondaryToolbarButton.bookmark {
+  padding-right: 27px;
+}
+/* line 1394, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="ltr"] .secondaryToolbarButton > span {
+  padding-right: 4px;
+}
+/* line 1397, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir="rtl"] .secondaryToolbarButton > span {
+  padding-left: 4px;
+}
+/* line 1401, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbarButton.firstPage::before {
+  content: url(../../static/images/secondaryToolbarButton-firstPage.png);
+}
+/* line 1405, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbarButton.lastPage::before {
+  content: url(../../static/images/secondaryToolbarButton-lastPage.png);
+}
+/* line 1409, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbarButton.rotateCcw::before {
+  content: url(../../static/images/secondaryToolbarButton-rotateCcw.png);
+}
+/* line 1413, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbarButton.rotateCw::before {
+  content: url(../../static/images/secondaryToolbarButton-rotateCw.png);
+}
+/* line 1417, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbarButton.selectTool::before {
+  content: url(../../static/images/secondaryToolbarButton-selectTool.png);
+}
+/* line 1421, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbarButton.handTool::before {
+  content: url(../../static/images/secondaryToolbarButton-handTool.png);
+}
+/* line 1425, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .secondaryToolbarButton.documentProperties::before {
+  content: url(../../static/images/secondaryToolbarButton-documentProperties.png);
+}
+/* line 1429, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .verticalToolbarSeparator {
+  display: block;
+  padding: 8px 0;
+  margin: 8px 4px;
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+/* line 1437, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .verticalToolbarSeparator {
+  margin-left: 2px;
+}
+/* line 1440, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .verticalToolbarSeparator {
+  margin-right: 2px;
+}
+/* line 1444, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .horizontalToolbarSeparator {
+  display: block;
+  margin: 0 0 4px 0;
+  height: 1px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+/* line 1453, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarField {
+  padding: 3px 6px;
+  margin: 4px 0 4px 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.09);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-color: rgba(0, 0, 0, 0.32) rgba(0, 0, 0, 0.38) rgba(0, 0, 0, 0.42);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05) inset, 0 1px 0 rgba(255, 255, 255, 0.05);
+  color: #f2f2f2;
+  font-size: 12px;
+  line-height: 14px;
+  outline-style: none;
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+/* line 1474, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarField[type=checkbox] {
+  display: inline-block;
+  margin: 8px 0px;
+}
+/* line 1479, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarField.pageNumber {
+  -moz-appearance: textfield;
+  /* hides the spinner in moz */
+  min-width: 16px;
+  text-align: right;
+  width: 40px;
+}
+/* line 1486, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarField.pageNumber.visiblePageIsLoading {
+  background-image: url(../../static/images/loading-small.png);
+  background-repeat: no-repeat;
+  background-position: 1px;
+}
+/* line 1492, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarField.pageNumber::-webkit-inner-spin-button,
+.pdf-container .toolbarField.pageNumber::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* line 1498, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarField:hover {
+  background-color: rgba(255, 255, 255, 0.11);
+  border-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.43) rgba(0, 0, 0, 0.45);
+}
+/* line 1503, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarField:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(77, 184, 255, 0.8) rgba(77, 184, 255, 0.85) rgba(77, 184, 255, 0.9);
+}
+/* line 1508, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .toolbarLabel {
+  min-width: 16px;
+  padding: 3px 6px 3px 2px;
+  margin: 4px 2px 4px 0;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #d9d9d9;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  cursor: default;
+}
+/* line 1523, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #thumbnailView {
+  position: absolute;
+  width: 120px;
+  top: 0;
+  bottom: 0;
+  padding: 10px 40px 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* line 1533, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .thumbnail {
+  float: left;
+  margin-bottom: 5px;
+}
+/* line 1538, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #thumbnailView > a:last-of-type > .thumbnail {
+  margin-bottom: 10px;
+}
+/* line 1542, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #thumbnailView > a:last-of-type > .thumbnail:not([data-loaded]) {
+  margin-bottom: 9px;
+}
+/* line 1546, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .thumbnail:not([data-loaded]) {
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+  margin: -1px -1px 4px -1px;
+}
+/* line 1551, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .thumbnailImage {
+  border: 1px solid transparent;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+  z-index: 99;
+  background-color: white;
+  background-clip: content-box;
+}
+/* line 1560, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .thumbnailSelectionRing {
+  border-radius: 2px;
+  padding: 7px;
+}
+/* line 1565, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container a:focus > .thumbnail > .thumbnailSelectionRing > .thumbnailImage,
+.pdf-container .thumbnail:hover > .thumbnailSelectionRing > .thumbnailImage {
+  opacity: .9;
+}
+/* line 1570, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container a:focus > .thumbnail > .thumbnailSelectionRing,
+.pdf-container .thumbnail:hover > .thumbnailSelectionRing {
+  background-color: rgba(255, 255, 255, 0.15);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background-clip: padding-box;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.2) inset, 0 0 1px rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+}
+/* line 1581, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .thumbnail.selected > .thumbnailSelectionRing > .thumbnailImage {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+/* line 1586, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .thumbnail.selected > .thumbnailSelectionRing {
+  background-color: rgba(255, 255, 255, 0.3);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background-clip: padding-box;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+/* line 1596, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #outlineView,
+.pdf-container #attachmentsView {
+  position: absolute;
+  width: 192px;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+/* line 1608, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #outlineView {
+  padding: 4px 4px 0;
+}
+/* line 1611, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #attachmentsView {
+  padding: 3px 4px 0;
+}
+/* line 1615, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineWithDeepNesting > .outlineItem,
+.pdf-container .outlineItem > .outlineItems {
+  margin-left: 20px;
+}
+/* line 1620, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .outlineWithDeepNesting > .outlineItem,
+.pdf-container html[dir='rtl'] .outlineItem > .outlineItems {
+  margin-right: 20px;
+}
+/* line 1625, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItem > a,
+.pdf-container .attachmentsItem > button {
+  text-decoration: none;
+  display: inline-block;
+  min-width: 95%;
+  min-width: calc(100% - 4px);
+  /* Subtract the right padding (left, in RTL mode)
+     of the container. */
+  height: auto;
+  margin-bottom: 1px;
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+  line-height: 15px;
+  -moz-user-select: none;
+  white-space: normal;
+}
+/* line 1642, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .attachmentsItem > button {
+  border: 0 none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+}
+/* line 1649, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItem > a {
+  padding: 2px 0 5px 4px;
+}
+/* line 1652, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .attachmentsItem > button {
+  padding: 2px 0 3px 7px;
+  text-align: left;
+}
+/* line 1657, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .outlineItem > a {
+  padding: 2px 4px 5px 0;
+}
+/* line 1660, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .attachmentsItem > button {
+  padding: 2px 7px 3px 0;
+  text-align: right;
+}
+/* line 1665, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItemToggler {
+  position: relative;
+  height: 0;
+  width: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+/* line 1671, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItemToggler::before {
+  content: url(../../static/images/treeitem-expanded.png);
+  display: inline-block;
+  position: absolute;
+}
+/* line 1676, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItemToggler.outlineItemsHidden::before {
+  content: url(../../static/images/treeitem-collapsed.png);
+}
+/* line 1679, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .outlineItemToggler.outlineItemsHidden::before {
+  content: url(../../static/images/treeitem-collapsed-rtl.png);
+}
+/* line 1682, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItemToggler.outlineItemsHidden ~ .outlineItems {
+  display: none;
+}
+/* line 1685, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItemToggler {
+  float: left;
+}
+/* line 1688, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .outlineItemToggler {
+  float: right;
+}
+/* line 1691, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItemToggler::before {
+  right: 4px;
+}
+/* line 1694, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] .outlineItemToggler::before {
+  left: 4px;
+}
+/* line 1698, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItemToggler:hover,
+.pdf-container .outlineItemToggler:hover + a,
+.pdf-container .outlineItemToggler:hover ~ .outlineItems,
+.pdf-container .outlineItem > a:hover,
+.pdf-container .attachmentsItem > button:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background-clip: padding-box;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.2) inset, 0 0 1px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.9);
+}
+/* line 1713, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .outlineItem.selected {
+  background-color: rgba(255, 255, 255, 0.08);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0));
+  background-clip: padding-box;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 1px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+/* line 1723, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .noResults {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+  cursor: default;
+}
+/* line 1733, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container ::selection {
+  background: rgba(0, 0, 255, 0.3);
+}
+/* line 1734, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container ::-moz-selection {
+  background: rgba(0, 0, 255, 0.3);
+}
+/* line 1736, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #errorWrapper {
+  background: none repeat scroll 0 0 #FF5555;
+  color: white;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  padding: 3px;
+  font-size: 0.8em;
+}
+/* line 1746, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .loadingInProgress #errorWrapper {
+  top: 37px;
+}
+/* line 1750, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #errorMessageLeft {
+  float: left;
+}
+/* line 1754, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #errorMessageRight {
+  float: right;
+}
+/* line 1758, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #errorMoreInfo {
+  background-color: #FFFFFF;
+  color: black;
+  padding: 3px;
+  margin: 3px;
+  width: 98%;
+}
+/* line 1766, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .overlayButton {
+  width: auto;
+  margin: 3px 4px 2px 4px !important;
+  padding: 2px 6px 3px 6px;
+}
+/* line 1772, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #overlayContainer {
+  display: table;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 40000;
+}
+/* line 1780, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #overlayContainer > * {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* line 1785, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #overlayContainer > .container {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+/* line 1791, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #overlayContainer > .container > .dialog {
+  display: inline-block;
+  padding: 15px;
+  border-spacing: 4px;
+  color: #d9d9d9;
+  font-size: 12px;
+  line-height: 14px;
+  background-color: #474747;
+  /* fallback */
+  background-image: url(../../static/images/texture.png), linear-gradient(rgba(82, 82, 82, 0.99), rgba(69, 69, 69, 0.95));
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.08), inset 0 1px 1px rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(255, 255, 255, 0.05), 0 1px 0 rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+/* line 1811, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dialog > .row {
+  display: table-row;
+}
+/* line 1815, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dialog > .row > * {
+  display: table-cell;
+}
+/* line 1819, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dialog .toolbarField {
+  margin: 5px 0;
+}
+/* line 1823, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dialog .separator {
+  display: block;
+  margin: 4px 0 4px 0;
+  height: 1px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+/* line 1832, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dialog .buttonRow {
+  text-align: center;
+  vertical-align: middle;
+}
+/* line 1837, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .dialog :link {
+  color: white;
+}
+/* line 1841, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #passwordOverlay > .dialog {
+  text-align: center;
+}
+/* line 1844, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #passwordOverlay .toolbarField {
+  width: 200px;
+}
+/* line 1848, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #documentPropertiesOverlay > .dialog {
+  text-align: left;
+}
+/* line 1851, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #documentPropertiesOverlay .row > * {
+  min-width: 100px;
+}
+/* line 1854, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #documentPropertiesOverlay .row > * {
+  text-align: left;
+}
+/* line 1857, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container html[dir='rtl'] #documentPropertiesOverlay .row > * {
+  text-align: right;
+}
+/* line 1860, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #documentPropertiesOverlay .row > span {
+  width: 125px;
+  word-wrap: break-word;
+}
+/* line 1864, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #documentPropertiesOverlay .row > p {
+  max-width: 225px;
+  word-wrap: break-word;
+}
+/* line 1868, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #documentPropertiesOverlay .buttonRow {
+  margin-top: 10px;
+}
+/* line 1872, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .clearBoth {
+  clear: both;
+}
+/* line 1876, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .fileInput {
+  background: white;
+  color: black;
+  margin-top: 5px;
+  visibility: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+/* line 1886, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #PDFBug {
+  background: none repeat scroll 0 0 white;
+  border: 1px solid #666666;
+  position: fixed;
+  top: 32px;
+  right: 0;
+  bottom: 0;
+  font-size: 10px;
+  padding: 0;
+  width: 300px;
+}
+/* line 1897, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #PDFBug .controls {
+  background: #EEEEEE;
+  border-bottom: 1px solid #666666;
+  padding: 3px;
+}
+/* line 1902, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #PDFBug .panels {
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  right: 0;
+  top: 27px;
+}
+/* line 1911, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #PDFBug button.active {
+  font-weight: bold;
+}
+/* line 1914, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .debuggerShowText {
+  background: none repeat scroll 0 0 yellow;
+  color: blue;
+}
+/* line 1918, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .debuggerHideText:hover {
+  background: none repeat scroll 0 0 yellow;
+}
+/* line 1921, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #PDFBug .stats {
+  font-family: courier;
+  font-size: 10px;
+  white-space: pre;
+}
+/* line 1926, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #PDFBug .stats .title {
+  font-weight: bold;
+}
+/* line 1929, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #PDFBug table {
+  font-size: 10px;
+}
+/* line 1933, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewer.textLayer-visible .textLayer {
+  opacity: 1.0;
+}
+/* line 1937, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewer.textLayer-visible .canvasWrapper {
+  background-color: #80ff80;
+}
+/* line 1941, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewer.textLayer-visible .canvasWrapper canvas {
+  mix-blend-mode: screen;
+}
+/* line 1945, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewer.textLayer-visible .textLayer > div {
+  background-color: rgba(255, 255, 0, 0.1);
+  color: black;
+  border: solid 1px rgba(255, 0, 0, 0.5);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 1954, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewer.textLayer-hover .textLayer > div:hover {
+  background-color: white;
+  color: black;
+}
+/* line 1959, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #viewer.textLayer-shadow .textLayer > div {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: black;
+}
+/* line 1964, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .grab-to-pan-grab {
+  cursor: url("../../static/images/grab.cur"), move !important;
+  cursor: -webkit-grab !important;
+  cursor: -moz-grab !important;
+  cursor: grab !important;
+}
+/* line 1970, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .grab-to-pan-grab *:not(input):not(textarea):not(button):not(select):not(:link) {
+  cursor: inherit !important;
+}
+/* line 1973, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .grab-to-pan-grab:active,
+.pdf-container .grab-to-pan-grabbing {
+  cursor: url("../../static/images/grabbing.cur"), move !important;
+  cursor: -webkit-grabbing !important;
+  cursor: -moz-grabbing !important;
+  cursor: grabbing !important;
+  position: fixed;
+  background: transparent;
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 50000;
+  /* should be higher than anything else in PDF.js! */
+}
+/* line 1992, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container #printContainer {
+  display: none;
+}
+@media screen and (min-resolution: 2dppx) {
+  /* line 151, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container {
+    /* Rules for Retina screens */
+  }
+  /* line 1998, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton::before {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    top: -5px;
+  }
+  /* line 2004, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .secondaryToolbarButton::before {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    top: -4px;
+  }
+  /* line 2010, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton::before,
+  .pdf-container html[dir='rtl'] .toolbarButton::before {
+    left: -1px;
+  }
+  /* line 2015, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .secondaryToolbarButton::before {
+    left: -2px;
+  }
+  /* line 2018, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .secondaryToolbarButton::before {
+    left: 186px;
+  }
+  /* line 2022, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarField.pageNumber.visiblePageIsLoading,
+  .pdf-container #findInput[data-status="pending"] {
+    background-image: url(../../static/images/loading-small@2x.png);
+    background-size: 16px 17px;
+  }
+  /* line 2028, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .dropdownToolbarButton {
+    background: url(../../static/images/toolbarButton-menuArrows@2x.png) no-repeat;
+    background-size: 7px 16px;
+  }
+  /* line 2033, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton#sidebarToggle::before {
+    content: url(../../static/images/toolbarButton-sidebarToggle@2x.png);
+  }
+  /* line 2036, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .toolbarButton#sidebarToggle::before {
+    content: url(../../static/images/toolbarButton-sidebarToggle-rtl@2x.png);
+  }
+  /* line 2040, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton#secondaryToolbarToggle::before {
+    content: url(../../static/images/toolbarButton-secondaryToolbarToggle@2x.png);
+  }
+  /* line 2043, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .toolbarButton#secondaryToolbarToggle::before {
+    content: url(../../static/images/toolbarButton-secondaryToolbarToggle-rtl@2x.png);
+  }
+  /* line 2047, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.findPrevious::before {
+    content: url(../../static/images/findbarButton-previous@2x.png);
+  }
+  /* line 2050, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .toolbarButton.findPrevious::before {
+    content: url(../../static/images/findbarButton-previous-rtl@2x.png);
+  }
+  /* line 2054, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.findNext::before {
+    content: url(../../static/images/findbarButton-next@2x.png);
+  }
+  /* line 2057, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .toolbarButton.findNext::before {
+    content: url(../../static/images/findbarButton-next-rtl@2x.png);
+  }
+  /* line 2061, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.pageUp::before {
+    content: url(../../static/images/toolbarButton-pageUp@2x.png);
+  }
+  /* line 2064, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .toolbarButton.pageUp::before {
+    content: url(../../static/images/toolbarButton-pageUp-rtl@2x.png);
+  }
+  /* line 2068, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.pageDown::before {
+    content: url(../../static/images/toolbarButton-pageDown@2x.png);
+  }
+  /* line 2071, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .toolbarButton.pageDown::before {
+    content: url(../../static/images/toolbarButton-pageDown-rtl@2x.png);
+  }
+  /* line 2075, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.zoomIn::before {
+    content: url(../../static/images/toolbarButton-zoomIn@2x.png);
+  }
+  /* line 2079, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.zoomOut::before {
+    content: url(../../static/images/toolbarButton-zoomOut@2x.png);
+  }
+  /* line 2083, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.presentationMode::before,
+  .pdf-container .secondaryToolbarButton.presentationMode::before {
+    content: url(../../static/images/toolbarButton-presentationMode@2x.png);
+  }
+  /* line 2088, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.print::before,
+  .pdf-container .secondaryToolbarButton.print::before {
+    content: url(../../static/images/toolbarButton-print@2x.png);
+  }
+  /* line 2093, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.openFile::before,
+  .pdf-container .secondaryToolbarButton.openFile::before {
+    content: url(../../static/images/toolbarButton-openFile@2x.png);
+  }
+  /* line 2098, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.download::before,
+  .pdf-container .secondaryToolbarButton.download::before {
+    content: url(../../static/images/toolbarButton-download@2x.png);
+  }
+  /* line 2103, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButton.bookmark::before,
+  .pdf-container .secondaryToolbarButton.bookmark::before {
+    content: url(../../static/images/toolbarButton-bookmark@2x.png);
+  }
+  /* line 2108, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #viewThumbnail.toolbarButton::before {
+    content: url(../../static/images/toolbarButton-viewThumbnail@2x.png);
+  }
+  /* line 2112, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir="ltr"] #viewOutline.toolbarButton::before {
+    content: url(../../static/images/toolbarButton-viewOutline@2x.png);
+  }
+  /* line 2115, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir="rtl"] #viewOutline.toolbarButton::before {
+    content: url(../../static/images/toolbarButton-viewOutline-rtl@2x.png);
+  }
+  /* line 2119, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #viewAttachments.toolbarButton::before {
+    content: url(../../static/images/toolbarButton-viewAttachments@2x.png);
+  }
+  /* line 2123, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #viewFind.toolbarButton::before {
+    content: url(../../static/images/toolbarButton-search@2x.png);
+  }
+  /* line 2127, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .secondaryToolbarButton.firstPage::before {
+    content: url(../../static/images/secondaryToolbarButton-firstPage@2x.png);
+  }
+  /* line 2131, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .secondaryToolbarButton.lastPage::before {
+    content: url(../../static/images/secondaryToolbarButton-lastPage@2x.png);
+  }
+  /* line 2135, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .secondaryToolbarButton.rotateCcw::before {
+    content: url(../../static/images/secondaryToolbarButton-rotateCcw@2x.png);
+  }
+  /* line 2139, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .secondaryToolbarButton.rotateCw::before {
+    content: url(../../static/images/secondaryToolbarButton-rotateCw@2x.png);
+  }
+  /* line 2143, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .secondaryToolbarButton.selectTool::before {
+    content: url(../../static/images/secondaryToolbarButton-selectTool@2x.png);
+  }
+  /* line 2147, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .secondaryToolbarButton.handTool::before {
+    content: url(../../static/images/secondaryToolbarButton-handTool@2x.png);
+  }
+  /* line 2151, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .secondaryToolbarButton.documentProperties::before {
+    content: url(../../static/images/secondaryToolbarButton-documentProperties@2x.png);
+  }
+  /* line 2155, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .outlineItemToggler::before {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    top: -1px;
+    content: url(../../static/images/treeitem-expanded@2x.png);
+  }
+  /* line 2161, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .outlineItemToggler.outlineItemsHidden::before {
+    content: url(../../static/images/treeitem-collapsed@2x.png);
+  }
+  /* line 2164, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .outlineItemToggler.outlineItemsHidden::before {
+    content: url(../../static/images/treeitem-collapsed-rtl@2x.png);
+  }
+  /* line 2167, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .outlineItemToggler::before {
+    right: 0;
+  }
+  /* line 2170, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .outlineItemToggler::before {
+    left: 0;
+  }
+}
+@media print {
+  /* line 151, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container {
+    /* General rules for printing. */
+    /* Rules for browsers that don't support mozPrintCallback. */
+    /* wrapper around (scaled) print canvas elements */
+  }
+  /* line 2178, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #sidebarContainer, .pdf-container #secondaryToolbar, .pdf-container .toolbar, .pdf-container #loadingBox, .pdf-container #errorWrapper, .pdf-container .textLayer {
+    display: none;
+  }
+  /* line 2181, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #viewerContainer {
+    overflow: visible;
+  }
+  /* line 2185, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #mainContainer, .pdf-container #viewerContainer, .pdf-container .page, .pdf-container .page canvas {
+    position: static;
+    padding: 0;
+    margin: 0;
+  }
+  /* line 2191, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .page {
+    float: left;
+    display: none;
+    border: none;
+    box-shadow: none;
+    background-clip: content-box;
+    background-color: white;
+  }
+  /* line 2200, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .page[data-loaded] {
+    display: block;
+  }
+  /* line 2204, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .fileInput {
+    display: none;
+  }
+  /* line 2208, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #printContainer {
+    height: 100%;
+  }
+  /* line 2212, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #printContainer > div {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    overflow: visible;
+    page-break-after: always;
+    page-break-inside: avoid;
+  }
+  /* line 2222, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #printContainer canvas,
+  .pdf-container #printContainer img {
+    display: block;
+  }
+}
+/* line 2228, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.pdf-container .visibleLargeView,
+.pdf-container .visibleMediumView,
+.pdf-container .visibleSmallView {
+  display: none;
+}
+@media all and (max-width: 1040px) {
+  /* line 2235, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #outerContainer.sidebarMoving #toolbarViewerMiddle,
+  .pdf-container #outerContainer.sidebarOpen #toolbarViewerMiddle {
+    display: table;
+    margin: auto;
+    left: auto;
+    position: inherit;
+    transform: none;
+  }
+}
+@media all and (max-width: 980px) {
+  /* line 2246, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .sidebarMoving .hiddenLargeView,
+  .pdf-container .sidebarOpen .hiddenLargeView {
+    display: none;
+  }
+  /* line 2250, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .sidebarMoving .visibleLargeView,
+  .pdf-container .sidebarOpen .visibleLargeView {
+    display: inherit;
+  }
+}
+@media all and (max-width: 900px) {
+  /* line 2257, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #toolbarViewerMiddle {
+    display: table;
+    margin: auto;
+    left: auto;
+    position: inherit;
+    transform: none;
+  }
+  /* line 2264, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .sidebarMoving .hiddenMediumView,
+  .pdf-container .sidebarOpen .hiddenMediumView {
+    display: none;
+  }
+  /* line 2268, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .sidebarMoving .visibleMediumView,
+  .pdf-container .sidebarOpen .visibleMediumView {
+    display: inherit;
+  }
+}
+@media all and (max-width: 840px) {
+  /* line 2275, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #sidebarContainer {
+    top: 32px;
+    z-index: 100;
+  }
+  /* line 2279, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .loadingInProgress #sidebarContainer {
+    top: 37px;
+  }
+  /* line 2282, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #sidebarContent {
+    top: 32px;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  /* line 2287, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #outerContainer.sidebarOpen > #mainContainer {
+    left: 0px;
+  }
+  /* line 2290, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] #outerContainer.sidebarOpen > #mainContainer {
+    right: 0px;
+  }
+  /* line 2294, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #outerContainer .hiddenLargeView,
+  .pdf-container #outerContainer .hiddenMediumView {
+    display: inherit;
+  }
+  /* line 2298, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #outerContainer .visibleLargeView,
+  .pdf-container #outerContainer .visibleMediumView {
+    display: none;
+  }
+}
+@media all and (max-width: 770px) {
+  /* line 2305, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #outerContainer .hiddenLargeView {
+    display: none;
+  }
+  /* line 2308, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #outerContainer .visibleLargeView {
+    display: inherit;
+  }
+}
+@media all and (max-width: 700px) {
+  /* line 2314, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #outerContainer .hiddenMediumView {
+    display: none;
+  }
+  /* line 2317, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #outerContainer .visibleMediumView {
+    display: inherit;
+  }
+}
+@media all and (max-width: 640px) {
+  /* line 2323, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .hiddenSmallView, .pdf-container .hiddenSmallView * {
+    display: none;
+  }
+  /* line 2326, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .visibleSmallView {
+    display: inherit;
+  }
+  /* line 2329, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .toolbarButtonSpacer {
+    width: 0;
+  }
+  /* line 2332, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container .findbar {
+    left: 38px;
+  }
+  /* line 2335, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container html[dir='rtl'] .findbar {
+    right: 38px;
+  }
+}
+@media all and (max-width: 535px) {
+  /* line 2341, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container #scaleSelectContainer {
+    display: none;
+  }
+}
+
+@media print {
+  /* General rules for printing. */
+  /* line 2349, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container {
+    background: transparent none;
+  }
+
+  /* Rules for browsers that support PDF.js printing */
+  /* line 2355, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container[data-pdfjsprinting] #outerContainer {
+    display: none;
+  }
+
+  /* line 2358, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .pdf-container[data-pdfjsprinting] #printContainer {
+    display: block;
+  }
+}
+/* line 2362, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.social-share-links {
+  position: relative;
+  padding: 15px 0;
+}
+/* line 2365, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.social-share-links .nav-links {
+  list-style-type: none;
+  padding-left: 0;
+  float: left;
+  margin-top: 5px;
+}
+@media (min-width: 1142px) {
+  /* line 2365, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+  .social-share-links .nav-links {
+    transform: translate(0, -50%);
+  }
+}
+/* line 2373, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.social-share-links .nav-links li {
+  display: inline-block;
+  margin-right: 15px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  position: relative;
+  background-color: #6a7285;
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+/* line 2384, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.social-share-links .nav-links li a {
+  vertical-align: middle;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  left: 50%;
+  font-size: 0;
+}
+/* line 2392, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.social-share-links .nav-links li a.addthis_button_linkedin_follow, .social-share-links .nav-links li a.addthis_button_twitter_follow {
+  line-height: 0;
+  height: 22px !important;
+  transform: translateY(-18px) translateX(-50%);
+}
+/* line 2397, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.social-share-links .nav-links li a:before {
+  font-size: 24px;
+}
+/* line 2400, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.social-share-links .nav-links li a:hover, .social-share-links .nav-links li a:active {
+  outline: 0;
+  border: 0;
+  text-decoration: initial;
+}
+/* line 2406, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.social-share-links .nav-links li:last-child {
+  margin-right: 0;
+}
+
+/* line 2413, ../../../src/components/sectorpage-strengths/sass/_sectorpage-strengths.scss */
+.hiddenIframe {
+  height: 0;
+  opacity: 0;
+}
+
+@media print {
+  @page {
+    size: auto;
+    /* auto is the initial value */
+    margin: 0mm;
+    /* this affects the margin in the printer settings */
+  }
+}
 /* line 1, ../../../src/components/search-results/sass/_search-results.scss */
 .product-finder-results {
   background: #fff;

@@ -7608,7 +7608,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _validateCountry,
         _showContentFirstTime,
         Urls = INFORMA.Configs.urls.webservices,
-        iOSversion;
+        iOSversion,
+        _loadPDFPopUp;
 
     //methods
 
@@ -7718,20 +7719,23 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         });
         _myinterestsModal.modal('show');
     }
-    _showContentFirstTime = function(){
-        $('body').on('click', '.show-content-first-time', function(e) {
-            e.preventDefault();
+    _showContentFirstTime = function () {
+        $('body').on('click', '.show-content-first-time', function (e) {
             var value = $(this).attr('href');
             var data = $(this).attr('data-firstcontent');
-            if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-                setTimeout(function(){
-                    _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
-                },100)    
+            if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+                setTimeout(function () {
+                    _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({ "firstContent": data }), null, null, null);
+                }, 100)
             }
-            else{
-                _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({"firstContent": data}), null, null, null);
+            else {
+                _getAjaxData(Urls.SetFirstContentDisplayedCookie, "Post", JSON.stringify({ "firstContent": data }), null, null, null);
             }
-            window.location.href = value;
+
+            if ($(this).attr('data-target') != "loadPDFComponentModal" && (typeof $(this).attr('download') == typeof undefined && $(this).attr('download') === false)) {
+                e.preventDefault();
+                window.location.href = value;
+            }
         })
     }
     
@@ -7743,12 +7747,38 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                 INFORMA.Analytics.trackFormEvents($(this), 'Open');
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 $('.redirect-url-field').val($(this).attr('data-url'));
                 //_showRegisterFormPopup();
                 _showRegisterFormPopupSingleStep();
+
+                if ($(this).attr('pdf-data-url')) {
+                    var pdfCtaId = '';
+                    if (typeof $(this).attr('download') != typeof undefined && $(this).attr('download') !== false) {
+                        pdfCtaId = 'id@'+$(this).attr('id');
+                    }
+                    if (document.getElementsByClassName("showPdfUrl").length == 0) {
+                        var x = document.createElement("INPUT");
+                        x.setAttribute("type", "hidden");
+                        x.setAttribute("value", $(this).attr('pdf-data-url')+pdfCtaId);
+                        x.setAttribute("id", "showPdfUrl");
+                        x.setAttribute("class", "showPdfUrl");
+                        document.body.appendChild(x);
+                    } else {
+                        $("#showPdfUrl").val($(this).attr('pdf-data-url')+pdfCtaId);
+                    }
+                }
             }
-            else{
+            else if ($(this).attr('pdf-data-url')) {
+                if (typeof $(this).attr('download') == typeof undefined && $(this).attr('download') === false){
+                    $("#showPdfUrl").val($(this).attr('pdf-data-url'));
+                    PDFJS.webViewerLoad($("#showPdfUrl").val());
+                    //document.getElementById("PDFtoPrint").setAttribute("src", $("#showPdfUrl").val());
+                }else{
+                    $(this).attr('href', $(this).attr('pdf-data-url'));
+                    $("#showPdfUrl").val($(this).attr('pdf-data-url')+"id@"+$(this).attr('id'));
+                }
+            } else {
                 $(this).attr('href', $(this).attr('data-url'));
             }
         });
@@ -7791,7 +7821,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         }
         else {
-           $('#formRegistration').modal('show'); 
+            if($('.show-register-form').attr('data-show-register') == 'true')
+               $('#formRegistration').modal('show'); 
         }
         
         // var a = Math.ceil(Math.random() * 9)+ '';
@@ -8032,6 +8063,41 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             $("form.register-myinterests-form .chosen-select").chosen('destroy');
         });
     }
+    _loadPDFPopUp = function () {
+        var urlpath,urlParameters, pdf_url,isIE = false, isEdge = false;
+        if(/*@cc_on!@*/false || !!document.documentMode){
+          isIE = true
+        }
+        if( !isIE && !!window.StyleMedia) {
+            isEdge = true;
+        }
+       
+        if(isIE || isEdge){
+            urlParameters = window.location.href;
+        if(urlParameters.split('?')['1']){
+            var pdf_Url_Param  = urlParameters.split('?')['1'].split('&')['0'].split('=')[1];
+            if(pdf_Url_Param.indexOf('pdf')!=-1)
+                pdf_url = pdf_Url_Param;
+        }
+        }else{
+            urlParameters = new URLSearchParams(window.location.search);
+            pdf_url = urlParameters.get('pdf-url')
+
+        }
+        if ( pdf_url) {
+
+            if($('a[href$="'+pdf_url+'"]')[0]){
+                $('a[href$="'+pdf_url+'"]')[0].click();
+            }else{
+                $("#loadPDFComponentModal").modal("show");
+                PDFJS.webViewerLoad(pdf_url);
+            }
+            urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.pushState({ path: urlpath }, '', urlpath);
+
+        }
+    }
+
 
     init = function() {
         if (_myinterestForm.length > 0) {
@@ -8047,10 +8113,13 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _closeMyInterestModal();
             _validateCountry();
             _showContentFirstTime();
+
         } else {
             _myinterestsSection.css('display', 'none');
 
         }
+    
+        _loadPDFPopUp();
 
     };
 
@@ -8293,13 +8362,19 @@ INFORMA.forms = (function(window, $, namespace) {
                 //Google analytics changes on submit of registration form
                 if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
                     var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
-                    if(value !== ""){
+                    var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
+                    if(value !== "" || pdfValue != ""){
                         // if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
                             _showOverlay();
-                            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
-                            _formModal.modal('hide');
-                            $('.close-download-form').attr('data-show-register',false);
-                            $('.close-download-form').attr('target',"_blank");
+                            if(pdfValue != ""){
+                            $('.close-download-form *').removeClass('wffm-elq-form-btn');
+                            }
+                                INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                                _formModal.modal('hide');
+                            
+                            $('.close-download-form *').attr('data-show-register',false);
+                            $('.close-download-form *').attr('target',"_blank");
+
                         // }    
                     }
                     else{
@@ -8311,7 +8386,7 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
     //Success callback
-    window.onSubmit = function(token){
+    window.onSubmit = function (token) {
         getCurrentform.submit();
     }
 
@@ -13277,6 +13352,10 @@ equalHeight = function () {
             $(window).on('load', function() {
                 equalHeight();
             });        }
+
+            $("#loadPDFComponentModal").on('hidden.bs.modal', function(){
+                $("#hiddenIframe").html("");
+            });
     };
 
     return {
