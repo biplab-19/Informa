@@ -51,7 +51,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _validateCountry,
         _showContentFirstTime,
         Urls = INFORMA.Configs.urls.webservices,
-        iOSversion;
+        iOSversion,
+        _loadPDFPopUp;
 
     //methods
 
@@ -505,6 +506,41 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             $("form.register-myinterests-form .chosen-select").chosen('destroy');
         });
     }
+    _loadPDFPopUp = function () {
+        var urlpath,urlParameters, pdf_url,isIE = false, isEdge = false;
+        if(/*@cc_on!@*/false || !!document.documentMode){
+          isIE = true
+        }
+        if( !isIE && !!window.StyleMedia) {
+            isEdge = true;
+        }
+       
+        if(isIE || isEdge){
+            urlParameters = window.location.href;
+        if(urlParameters.split('?')['1']){
+            var pdf_Url_Param  = urlParameters.split('?')['1'].split('&')['0'].split('=')[1];
+            if(pdf_Url_Param.indexOf('pdf')!=-1)
+                pdf_url = pdf_Url_Param;
+        }
+        }else{
+            urlParameters = new URLSearchParams(window.location.search);
+            pdf_url = urlParameters.get('pdf-url')
+
+        }
+        if ( pdf_url) {
+
+            if($('a[href$="'+pdf_url+'"]')[0]){
+                $('a[href$="'+pdf_url+'"]')[0].click();
+            }else{
+                $("#loadPDFComponentModal").modal("show");
+                PDFJS.webViewerLoad(pdf_url);
+            }
+            urlpath = window.location.protocol + "//" + window.location.host + window.location.pathname;
+            window.history.pushState({ path: urlpath }, '', urlpath);
+
+        }
+    }
+
 
     init = function() {
         if (_myinterestForm.length > 0) {
@@ -525,7 +561,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _myinterestsSection.css('display', 'none');
 
         }
-        
+    
+        _loadPDFPopUp();
 
     };
 

@@ -1,4 +1,4 @@
-/*! 2018-09-11 *//**
+/*! 2018-09-14 *//**
  * Copyright (c) 2011-2013 Fabien Cazenave, Mozilla.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -11642,7 +11642,7 @@ var PDFBug = (function PDFBugClosure() {
 
 var pdfjsLib = __webpack_require__(1);
 var CSS_UNITS = 96.0 / 72.0;
-var DEFAULT_SCALE_VALUE = 'auto';
+var DEFAULT_SCALE_VALUE = 'page-width';
 var DEFAULT_SCALE = 1.0;
 var MIN_SCALE = 0.25;
 var MAX_SCALE = 10.0;
@@ -15070,7 +15070,10 @@ var hasAttachEvent = !!document.attachEvent;
 window.addEventListener('keydown', function (event) {
  if(document.getElementById('loadPDFComponentModal').style.display == "block"){
  if (event.keyCode === 80 && (event.ctrlKey || event.metaKey) && !event.altKey && (!event.shiftKey || window.chrome || window.opera)) {
-  window.print();
+//  window.print();
+document.getElementById('print').click();
+
+
   if (hasAttachEvent) {
    return;
   }
