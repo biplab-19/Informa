@@ -1,4 +1,4 @@
-/*! 2018-08-24 *//* Copyright 2017 Mozilla Foundation
+/*! 2018-09-17 *//* Copyright 2017 Mozilla Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -12678,7 +12678,7 @@ var PDFFunction = function PDFFunctionClosure() {
    var range = IR[2];
    var code = IR[3];
    var compiled = new PostScriptCompiler().compile(code, domain, range);
-   if (compiled) {
+   if (!!PDFJS.isEvalSupported && compiled) {
     return new Function('src', 'srcOffset', 'dest', 'destOffset', compiled);
    }
    info('Unable to compile PS function');
@@ -34881,7 +34881,7 @@ function PDFNetworkStreamFullRequestReader(manager, options) {
  this._url = source.url;
  this._fullRequestId = manager.requestFull(args);
  this._headersReceivedCapability = createPromiseCapability();
- this._disableRange = options.disableRange || false;
+ this._disableRange = options.disableRange || true;
  this._contentLength = source.length;
  this._rangeChunkSize = source.rangeChunkSize;
  if (!this._rangeChunkSize && !this._disableRange) {
