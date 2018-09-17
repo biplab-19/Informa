@@ -528,7 +528,8 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
         }
         if ( pdf_url) {
-
+            if(pdf_url.indexOf('%60') != -1)
+                pdf_url = pdf_url.replace(/%60/g, '~');
             if($('a[href$="'+pdf_url+'"]')[0]){
                 $('a[href$="'+pdf_url+'"]')[0].click();
             }else{
