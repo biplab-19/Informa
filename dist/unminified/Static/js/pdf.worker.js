@@ -1,4 +1,4 @@
-/*! 2018-09-17 *//* Copyright 2017 Mozilla Foundation
+/*! 2018-09-20 *//* Copyright 2017 Mozilla Foundation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34881,7 +34881,7 @@ function PDFNetworkStreamFullRequestReader(manager, options) {
  this._url = source.url;
  this._fullRequestId = manager.requestFull(args);
  this._headersReceivedCapability = createPromiseCapability();
- this._disableRange = options.disableRange || true;
+ this._disableRange = options.disableRange || false;
  this._contentLength = source.length;
  this._rangeChunkSize = source.rangeChunkSize;
  if (!this._rangeChunkSize && !this._disableRange) {
@@ -49660,7 +49660,7 @@ if (typeof PDFJS === 'undefined' || !PDFJS.compatibilityChecked) {
  var isAndroidPre3 = /Android\s[0-2][^\d]/.test(userAgent);
  var isAndroidPre5 = /Android\s[0-4][^\d]/.test(userAgent);
  var isChrome = userAgent.indexOf('Chrom') >= 0;
- var isChromeWithRangeBug = /Chrome\/(39|40)\./.test(userAgent);
+ var isChromeWithRangeBug = true;
  var isIOSChrome = userAgent.indexOf('CriOS') >= 0;
  var isIE = userAgent.indexOf('Trident') >= 0;
  var isIOS = /\b(iPad|iPhone|iPod)(?=;)/.test(userAgent);
