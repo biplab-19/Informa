@@ -1,4 +1,4 @@
-/*! 2018-09-14 *//**
+/*! 2018-09-20 *//**
  * Copyright (c) 2011-2013 Fabien Cazenave, Mozilla.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -9482,7 +9482,7 @@ if (typeof PDFJS === 'undefined' || !PDFJS.compatibilityChecked) {
  var isAndroidPre3 = /Android\s[0-2][^\d]/.test(userAgent);
  var isAndroidPre5 = /Android\s[0-4][^\d]/.test(userAgent);
  var isChrome = userAgent.indexOf('Chrom') >= 0;
- var isChromeWithRangeBug = /Chrome\/(39|40)\./.test(userAgent);
+ var isChromeWithRangeBug = true;
  var isIOSChrome = userAgent.indexOf('CriOS') >= 0;
  var isIE = userAgent.indexOf('Trident') >= 0;
  var isIOS = /\b(iPad|iPhone|iPod)(?=;)/.test(userAgent);
@@ -16441,12 +16441,30 @@ var PDFPageView = function PDFPageViewClosure() {
    this.reset();
   },
   destroy: function PDFPageView_destroy() {
-   this.zoomLayer = null;
    this.reset();
    if (this.pdfPage) {
     this.pdfPage.cleanup();
    }
   },
+   /**
+     * @private
+     */
+    _resetZoomLayer: function(removeFromDOM) {
+      if (!this.zoomLayer) {
+        return;
+      }
+      var zoomLayerCanvas = this.zoomLayer.firstChild;
+      this.paintedViewportMap.delete(zoomLayerCanvas);
+      // Zeroing the width and height causes Firefox to release graphics
+      // resources immediately, which can greatly reduce memory consumption.
+      zoomLayerCanvas.width = 0;
+      zoomLayerCanvas.height = 0;
+       if (removeFromDOM) {
+        // Note: ChildNode.remove doesn't throw if the parentNode is undefined.
+        this.zoomLayer.remove();
+      }
+      this.zoomLayer = null;
+    },
   reset: function PDFPageView_reset(keepZoomLayer, keepAnnotations) {
    this.cancelRendering();
    var div = this.div;
@@ -16468,11 +16486,16 @@ var PDFPageView = function PDFPageViewClosure() {
    } else {
     this.annotationLayer = null;
    }
-   if (this.canvas && !currentZoomLayerNode) {
-    this.paintedViewportMap.delete(this.canvas);
-    this.canvas.width = 0;
-    this.canvas.height = 0;
-    delete this.canvas;
+   if (!currentZoomLayerNode) {
+    if (this.canvas) {
+      this.paintedViewportMap.delete(this.canvas);
+      // Zeroing the width and height causes Firefox to release graphics
+      // resources immediately, which can greatly reduce memory consumption.
+      this.canvas.width = 0;
+      this.canvas.height = 0;
+      delete this.canvas;
+    }
+    this._resetZoomLayer();
    }
    if (this.svg) {
     this.paintedViewportMap.delete(this.svg);
@@ -16667,16 +16690,7 @@ var PDFPageView = function PDFPageViewClosure() {
      div.removeChild(self.loadingIconDiv);
      delete self.loadingIconDiv;
     }
-    if (self.zoomLayer) {
-     var zoomLayerCanvas = self.zoomLayer.firstChild;
-     self.paintedViewportMap.delete(zoomLayerCanvas);
-     zoomLayerCanvas.width = 0;
-     zoomLayerCanvas.height = 0;
-     if (div.contains(self.zoomLayer)) {
-      div.removeChild(self.zoomLayer);
-     }
-     self.zoomLayer = null;
-    }
+    self._resetZoomLayer(/* removeFromDOM = */ true);
     self.error = error;
     self.stats = pdfPage.stats;
     if (self.onAfterDraw) {
