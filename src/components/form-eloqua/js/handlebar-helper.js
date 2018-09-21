@@ -63,11 +63,11 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
 
 Handlebars.registerHelper('AnalystData', function(profile) {
   if(profile){
-    var u = profile.split("#");
-    if(profile.includes('#') && u[1]){
-          return "<a href="+u[1]+">"+u[0]+"</a>";
+    if(profile.indexOf('#')!=-1){
+      var u = profile.split("#");
+      return u[0];
     }else{
       return profile;
     }
-  }
+  }else return null;
 });
