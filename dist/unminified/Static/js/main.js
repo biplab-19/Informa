@@ -1,4 +1,4 @@
-/*! 2018-09-07 *//*
+/*! 2018-09-21 *//*
  * google-analytics.js
  *
  *
@@ -12342,10 +12342,10 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                             }
                             newFacets = [];japaneseFacets=[];
                             $.each(facets, function () {
-                                newFacets.push(this.replace(/-/g, " ").replace(/%26/g, "&").toLowerCase());
+                                newFacets.push(this.replace(/-/g, " ").replace(/   /g, " - ").replace(/%26/g, "&").toLowerCase());
                             });
                             $.each(facets, function () {
-                                japaneseFacets.push(this.replace(/%26/g, "&").toLowerCase());
+                                japaneseFacets.push(this.replace(/%26/g, "&").replace(/-&-/g, " & ").toLowerCase());
                             });
                             
                             filterOptionsList =  $("[id='"+groupid+"' i]").find("input[type='checkbox']");
