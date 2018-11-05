@@ -185,13 +185,13 @@ INFORMA.forms = (function(window, $, namespace) {
             getCurrentform = $(this).parents('form');
             if(getCurrentform.valid() === true){
 
-                //change 2018
-                if(grecaptcha) {
+                //change 2018 - Ben
+                if(isNone(window.grecaptcha)) {
                     e.preventDefault();
                     grecaptcha.reset();
                     grecaptcha.execute();
                 }
-                //end change 2018
+                //end change 2018 - Ben
 
                 //Google analytics changes on submit of registration form
                 if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
