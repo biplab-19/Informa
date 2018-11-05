@@ -60,7 +60,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpStickyIconDesktopFlag = false,
         _pdpStickyHeadingDesktopFlag = false,
         _initialPdpHdrPos = 0,
-        
+
 
 
         // for sticky nav of services-navigation
@@ -118,24 +118,32 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     // if header or pdp is present then only we calc the values.
     // so that even if the elements are not present, the calc will happen
-     
+
     if (_pdpNavigation.length > 0) {
         _pdpNavigationHeight = _pdpNavigation.height(),
-        $('#pdp-sections ul li').each(function(){
-           var idname = '#' + $(this).find('a').data("target");
-           if($(idname).length == 0) {
-              $(this).remove();
-           }
-        });
+            $('#pdp-sections ul li').each(function(){
+                var idname = $(this).find('a').data("target");
+                if($('#' + idname).length == 0) {
+                    $(this).remove();
+                }else{
+                    var targetindex = $(this).find('a').data("target-index");
+                    if(targetindex != 0){
+                        var anchorTargetElementArray = $("[id='" + idname + "']");
+                        if(anchorTargetElementArray.length - 1 < targetindex){
+                            $(this).remove();
+                        }
+                    }
+                }
+            });
         _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
         _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
-                        .css('left', $(_pdpLinkSpan[0]).offset().left)
-                        .show();
+            .css('left', $(_pdpLinkSpan[0]).offset().left)
+            .show();
     }
-
+    
     if (_servicesNavigation.length > 0) {
         _servicesNavigationHeight = _servicesNavigation.height();
-        
+
         // To show the menu follower with right width and position, todo: remove harcode
         _servicesMenuFollower.css('width', $(_servicesLinkSpan[0]).width())
                              .css('left', $(_servicesLinkSpan[0]).offset().left)
@@ -176,7 +184,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('body').css('padding-top', _navHeight);
         }
    }
-   
+
    //Remove fixed class for Desktop Mobile and Tablet
    _removeClassFixed = function(){
         if (!INFORMA.global.device.isDesktop){
@@ -201,7 +209,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         if((pdpListHeight + pdpHeadingHeight) > pdpSectionheight){
             $('#pdp-sections').height(pdpSectionheight);
             $('#pdp-sections').css('overflow' , 'auto');
-        } 
+        }
         else{
             $('#pdp-sections').css({
                 'height':'auto',
@@ -280,15 +288,15 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                         }
                     }
                 });
-                
-                
+
+
               //   if(_pdpLinksCont>6){
               //   //$('nav#pdp-navigation').addClass('deviceactive');
               //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
               //   $('body').addClass('global-no-scroll');
               // }
               // }
-            } 
+            }
         });
     }
 
@@ -453,38 +461,59 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     }
 
-    _pdpNavigationScrollTo = function() {
-        _pdpLink.on('click', function(e) {
+    // Ben-2018-TODO-clean
+    // Will need refactoring some variables moved and some optimization
+    _pdpNavigationScrollTo = function () {
+        _pdpLink.on('click', function (e) {
             e.preventDefault();
-            var _fixedNavHeight, _target, _scrollTopPixels;
+            var _fixedNavHeight, _target, _target_index, _scrollTopPixels;
 
             if (!INFORMA.global.device.isDesktop) {
 
-                    _target = $(this).data('target');
-
-                    $('#pdp-sections').slideUp();
-                    _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
-
-                    if(!_pdpFixed)
-                        _pdpSectionsHeight = $('#pdp-sections').height();
-                    else
-                        _pdpSectionsHeight = 0;
-
-                    _fixedNavHeight = _navHeightMobile;
-                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
-
-                    $('html, body').stop().animate({
-                        scrollTop: _scrollTopPixels
-                    }, 1000);
-
-            }else{
                 _target = $(this).data('target');
+                _target_index = $(this).data('target-index');
+
+                $('#pdp-sections').slideUp();
+                _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
+
+
+                if (!_pdpFixed)
+                    _pdpSectionsHeight = $('#pdp-sections').height();
+                else
+                    _pdpSectionsHeight = 0;
+
+                _fixedNavHeight = _navHeightMobile;
+                var anchorElementArray = $("[id='" + _target + "']");
+
+                console.log(anchorElementArray[_target_index]);
+
+                if (anchorElementArray.length >= [_target_index]) {
+                    //Fix ben-2018-onscroll
+                    _scrollTopPixels = $(anchorElementArray[_target_index]).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
+                    //End
+                } else {
+                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
+                }
+                $('html, body').stop().animate({
+                    scrollTop: _scrollTopPixels
+                }, 1000);
+
+            } else {
                 $('#pdp-navigation li').removeClass('selected');
                 $('#pdp-navigation li').addClass('select-options');
                 _pdpNavigationHeight = _pdpNavigation.height();
-                _fixedNavHeight = _navHeight;
+                _target = $(this).data('target');
+                _target_index = $(this).data('target-index');
+                _fixedNavHeight = _navHeightMobile;
+                var anchorElementArrayDesk = $("[id='" + _target + "']");
 
-                _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
+                if (anchorElementArrayDesk.length >= [_target_index]) {
+                    //Fix ben-2018-onscroll
+                    _scrollTopPixels = $(anchorElementArrayDesk[_target_index]).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
+                    //End
+                } else {
+                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
+                }
                 $('html, body').stop().animate({
                     scrollTop: _scrollTopPixels
                 }, 1000);
@@ -492,6 +521,8 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         })
     };
+    // END-Ben-2018-TODO-clean
+
 
 
     _initServicesMenuBarFollow = function() {
@@ -647,7 +678,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     $($('#' + Id).find('a')[0]).focus();
                     return false;
                 }
-                
+
             });
 
             $('.subnav-close a').on('focusout', function() {
@@ -755,7 +786,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
        });
     }
     _PdpNavReArrange = function () {
-      var _ArrayOfPdpElements = [],
+      /*var _ArrayOfPdpElements = [],
           Html = "";
       _pdpLink.each(function () {
           var Target = $(this).data('target'),
@@ -775,7 +806,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
               }
           }
       })
-      $('#pdp-sections').find('.navbar-nav').html(Html);
+      $('#pdp-sections').find('.navbar-nav').html(Html);*/
     }
     init = function() {
         if(_mainNavLink.length > 0){
