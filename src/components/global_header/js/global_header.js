@@ -902,6 +902,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             //$('#pdp-navigation ul > li:first-child').addClass('selected');
             /* removed unused _expandedPdpNav variab */
+            //test 123 ben
         }
 
     };
