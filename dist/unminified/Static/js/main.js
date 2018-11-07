@@ -1,4 +1,4 @@
-/*! 2018-11-06 *//*
+/*! 2018-11-07 *//*
  * google-analytics.js
  *
  *
@@ -9317,7 +9317,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpMenuPos = [],
         _pdpMenuWidth = [],
         _pdpMenuleft = [],
-
+        _pdpMenuDefaultIndex = 0,
         _initPdpMenuBarFollow,
         _activatePdpFixedHeader,
         _arrayFlag = true,
@@ -9402,18 +9402,33 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 }
             });
         _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
-        _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
-            .css('left', $(_pdpLinkSpan[0]).offset().left)
+        var firstElementOnPage;
+        $('#pdp-navigation ul > li > a').each(function (index) {
+            var anchorTarget = $(this).data('target');
+            var anchorTargetIndex = $(this).data('target-index');
+            if (firstElementOnPage) {
+                var currentElementTop = Math.round($($("[id='" + anchorTarget + "']")[anchorTargetIndex]).offset().top);
+                var firstElementTop = Math.round(firstElementOnPage.offset().top);
+                if (currentElementTop < firstElementTop) {
+                    firstElementOnPage = $($("[id='" + anchorTarget + "']")[anchorTargetIndex]);
+                    _pdpMenuDefaultIndex = index;
+                }
+            } else {
+                firstElementOnPage = $($("[id='" + anchorTarget + "']")[anchorTargetIndex]);
+            }
+        });
+        _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
+            .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
             .show();
     }
-    
+
     if (_servicesNavigation.length > 0) {
         _servicesNavigationHeight = _servicesNavigation.height();
 
         // To show the menu follower with right width and position, todo: remove harcode
         _servicesMenuFollower.css('width', $(_servicesLinkSpan[0]).width())
-                             .css('left', $(_servicesLinkSpan[0]).offset().left)
-                             .show();
+            .css('left', $(_servicesLinkSpan[0]).offset().left)
+            .show();
     }
 
     if (_mainNavigation.length > 0) {
@@ -9427,16 +9442,16 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     }
 
     //Check whether cookie banner exists or not
-   _cookieBannerExist = function(){
+    _cookieBannerExist = function(){
         if($('#cookieBanner:visible').length){
-             _cookieHeight =  $('#cookieBanner').outerHeight();
+            _cookieHeight =  $('#cookieBanner').outerHeight();
         }else{
-              _cookieHeight =  0;
+            _cookieHeight =  0;
         }
-   }
+    }
 
-   //Add fixed class for Desktop Mobile and Tablet
-   _addClassFixed = function(){
+    //Add fixed class for Desktop Mobile and Tablet
+    _addClassFixed = function(){
         if (!INFORMA.global.device.isDesktop){
             _mobileNavigation.addClass(_fixed);
             _cookieBanner.addClass(_fixed);
@@ -9449,10 +9464,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _mainNavigation.css('top', _cookieHeight);
             $('body').css('padding-top', _navHeight);
         }
-   }
+    }
 
-   //Remove fixed class for Desktop Mobile and Tablet
-   _removeClassFixed = function(){
+    //Remove fixed class for Desktop Mobile and Tablet
+    _removeClassFixed = function(){
         if (!INFORMA.global.device.isDesktop){
             _mobileNavigation.removeClass(_fixed);
             _cookieBanner.removeClass(_fixed);
@@ -9465,10 +9480,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _mainNavigation.css('top', 0);
             $('body').css('padding-top', 0);
         }
-   }
+    }
 
-   //scroll pdp list item
-   _pdpListItemScroll = function(){
+    //scroll pdp list item
+    _pdpListItemScroll = function(){
         var pdpListHeight = $('#pdp-sections ul li').height()*$('#pdp-sections ul li').length;
         var pdpSectionheight = $(window).height() - _navHeightMobile - $('#pdp-navigation .nav-pdp-nondesktop').outerHeight() - _cookieHeight;
         var pdpHeadingHeight = $('#pdp-sections-heading').height();
@@ -9482,7 +9497,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 'overflow':'hidden'
             })
         }
-   }
+    }
 
     // both pdp nav and main nav handled here
     _whenScrolling = function() {
@@ -9504,12 +9519,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _cookieBannerExist();
         if (_windowPos > _headerPos + _cookieHeight) {
             if (!_mainNavigation.hasClass(_fixed)) {
-               _addClassFixed();
+                _addClassFixed();
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
             }
         } else {
             if (_mainNavigation.hasClass(_fixed)) {
-               _removeClassFixed();
+                _removeClassFixed();
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
             }
         }
@@ -9537,34 +9552,34 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             //var _pdpLinksCont = $('#pdp-navigation ul > li > a > span').length;
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
-              // if(_pdpLinksCont>6){
-              //   //$('nav#pdp-navigation').removeClass('deviceactive');
-              //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
-              //   $('body').removeClass('global-no-scroll');
-              // }
-              // }
+                // if(_pdpLinksCont>6){
+                //   //$('nav#pdp-navigation').removeClass('deviceactive');
+                //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+                //   $('body').removeClass('global-no-scroll');
+                // }
+                // }
             }else{
                 $('#pdp-sections').slideDown(function() {
                     if(!INFORMA.global.device.isDesktop){
                         if(_pdpNavigation.hasClass(_fixed)){
                             _pdpListItemScroll();
                             $('#pdp-sections').animate({
-                                    scrollTop: 0
+                                scrollTop: 0
                             }, 500);
                         }
                     }
                 });
 
 
-              //   if(_pdpLinksCont>6){
-              //   //$('nav#pdp-navigation').addClass('deviceactive');
-              //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
-              //   $('body').addClass('global-no-scroll');
-              // }
-              // }
+                //   if(_pdpLinksCont>6){
+                //   //$('nav#pdp-navigation').addClass('deviceactive');
+                //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+                //   $('body').addClass('global-no-scroll');
+                // }
+                // }
             }
         });
-    }
+    };
 
     _initPdpMenuBarFollow = function() {
         _pdpLink = $('#pdp-navigation ul > li > a');
@@ -9619,24 +9634,24 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
                 if (_windowPos > ((_headingStickPosition - _fixedNavHeight) + _cookieHeight)) {
                     if (!_pdpStickyHeadingDesktopFlag) {
-                      //debugger;
-                      if(_isPdpPage){
-                        $('#pdp-sections-heading').text(_heroBannerHeading);
-                        $('#pdp-sections-heading').addClass('move-left');
-                      }
+                        //debugger;
+                        if(_isPdpPage){
+                            $('#pdp-sections-heading').text(_heroBannerHeading);
+                            $('#pdp-sections-heading').addClass('move-left');
+                        }
                         _pdpStickyHeadingDesktopFlag = true;
-                        _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
-                                        .css('left', $(_pdpLinkSpan[0]).offset().left)
-                                        .show();
+                        _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
+                            .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
+                            .show();
 
                     }
                 }
                 else{
                     $('#pdp-sections-heading').text('');
                     $('#pdp-sections-heading').removeClass('move-left');
-                    _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
-                                    .css('left', $(_pdpLinkSpan[0]).offset().left)
-                                    .show();
+                    _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
+                        .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
+                        .show();
                     _pdpStickyHeadingDesktopFlag = false;
                 }
             }
@@ -9654,13 +9669,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.nav-pdp-nondesktop').addClass('move-left');
             _addClassFixed();
             if (!INFORMA.global.device.isDesktop && !_pdpStickyMobileFlag) {
-              var leftOfPdpMover = _pdpMenuFollower.css('left');
+                var leftOfPdpMover = _pdpMenuFollower.css('left');
                 _tryStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _subscribeStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _pdpStickyMobileFlag = true;
                 if(_isPdpPage){
-                  $('#pdp-sections-heading').text(_heroBannerHeading);
-                  $('#pdp-sections-heading').addClass('move-left');
+                    $('#pdp-sections-heading').text(_heroBannerHeading);
+                    $('#pdp-sections-heading').addClass('move-left');
                 }
                 $('.nav-pdp-nondesktop-sticky').addClass('move-left');
                 _pdpMenuFollower.css('left', leftOfPdpMover + $('#pdp-sections-heading').outerWidth());
@@ -9674,16 +9689,16 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpLink = $('#pdp-navigation ul > li > a');
                 _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
                 for (var i = 0; i < _pdpLink.length; i++) {
-                    var _sectionName = '#' + $(_pdpLink[i]).data('target');
-                    if($(_sectionName).length > 0){
-                        _pdpMenuPos.push($(_sectionName).offset().top);
-                    }else{
+                    var _sectionName = $(_pdpLink[i]).data('target');
+                    var _sectionIndex = $(_pdpLink[i]).data('target-index');
+                    if ($('#' + _sectionName).length > 0) {
+                        _pdpMenuPos.push($($("[id='" + _sectionName + "']")[_sectionIndex]).offset().top);
+                    } else {
                         _pdpMenuPos.push(0);
                     }
-                    if($(_pdpLinkSpan[i]).length > 0) {
-                    _pdpMenuWidth.push($(_pdpLinkSpan[i]).width());
-                    _pdpMenuleft.push($(_pdpLinkSpan[i]).offset().left);
-                    }
+                    if ($(_pdpLinkSpan[i]).length > 0) {
+                        _pdpMenuWidth.push($(_pdpLinkSpan[i]).width());
+                        _pdpMenuleft.push($(_pdpLinkSpan[i]).offset().left);}
                 }
                 _arrayFlag = false;
             }
@@ -9712,19 +9727,37 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         }
 
-        var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
-        var j = _pdpMenuPos.length - 1;
-        for (; j >= 0; j--) {
-            if (_windowPos + _fixedHeights >= _pdpMenuPos[j]) {
-
-                if (INFORMA.global.device.isDesktop) {
-                    _pdpMenuFollower.css('width', _pdpMenuWidth[j]);
-                    _pdpMenuFollower.css('left', _pdpMenuleft[j]);
+        if (INFORMA.global.device.isDesktop) {
+            var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
+            var j = _pdpMenuPos.length - 1;
+            var windowPostion = _windowPos + _fixedHeights;
+            var finalIndex = 0;
+            var diff;
+            for (; j >= 0; j--) {
+                var menuPosition = _pdpMenuPos[j];
+                if (diff) {
+                    if (diff > (windowPostion - menuPosition)) {
+                        diff = windowPostion - menuPosition;
+                        if (diff >= 0) {
+                            finalIndex = j;
+                        } else {
+                            diff = 0;
+                            finalIndex = _pdpMenuDefaultIndex;
+                        }
+                    }
+                } else {
+                    diff = windowPostion - menuPosition;
+                    if (diff >= 0) {
+                        finalIndex = j;
+                    } else {
+                        diff = 0;
+                        finalIndex = _pdpMenuDefaultIndex;
+                    }
                 }
-                j = -1;
             }
+            _pdpMenuFollower.css('width', _pdpMenuWidth[finalIndex]);
+            _pdpMenuFollower.css('left', _pdpMenuleft[finalIndex]);
         }
-
     }
 
     // Ben-2018-TODO-clean
@@ -9787,7 +9820,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         })
     };
-    // END-Ben-2018-TODO-clean
+    // END-Ben-2018-TODO-clean-update
 
 
 
@@ -9802,7 +9835,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     _activateServicesFixedHeader = function() {
         var _windowPos = $(window).scrollTop(),
-        _servicesWrapper = $('#services-list').parent();
+            _servicesWrapper = $('#services-list').parent();
         if (_servicesFirst) {
             _initialServicesHdrPos = _servicesNavigation.offset().top;
             _servicesFirst = false;
@@ -9963,7 +9996,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 },
                 function() {
                     $(this).hide();
-                     _navlinks.removeClass('nav-active');
+                    _navlinks.removeClass('nav-active');
                 }
             );
             _navlinks.on('mouseout', function(e) {
@@ -9981,7 +10014,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 $(this).find('a').unbind('focusout');
             });
         } else {
-             _navlinks.on('click', function(e) {
+            _navlinks.on('click', function(e) {
                 //e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
                 var navText = $(this).find('a').text();
@@ -10037,42 +10070,42 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     };
     _pdpsectionSubnavigationInit = function(){
-      $('#pdp-sections ul li').each(function(){
-       var idname = '#' + $(this).find('a').data("target");
-       if($(idname).length === 0) {
-          $(this).remove();
-       }
-      });
+        $('#pdp-sections ul li').each(function(){
+            var idname = '#' + $(this).find('a').data("target");
+            if($(idname).length === 0) {
+                $(this).remove();
+            }
+        });
     }
     _selectDocClickEvents=function(){
-      $(document).on('touchstart',function(event) {
-        if(event.target.class !== 'selectMenu' && !$('.selectMenu').find(event.target).length){
-           $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
-        }
-       });
+        $(document).on('touchstart',function(event) {
+            if(event.target.class !== 'selectMenu' && !$('.selectMenu').find(event.target).length){
+                $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
+            }
+        });
     }
     _PdpNavReArrange = function () {
-      /*var _ArrayOfPdpElements = [],
-          Html = "";
-      _pdpLink.each(function () {
-          var Target = $(this).data('target'),
-              _Element = {};
-          if($('#'+Target).length > 0) {
-              _Element["Name"] = $(this).text();
-              _Element["Target"] = Target;
-              _ArrayOfPdpElements.push(_Element);
-              $('#'+Target).addClass('pdp-item-id');
-          }
-      });
-      $('.pdp-item-id').each(function() {
-          var _Id = $(this).attr("id");
-          for(var i = 0; i < _ArrayOfPdpElements.length; i++) {
-              if(_ArrayOfPdpElements[i].Target === _Id) {
-                  Html += '<li><a href="#" data-target="' +_ArrayOfPdpElements[i].Target+ '"><span>' +_ArrayOfPdpElements[i].Name+ '</span></a></li>';
-              }
-          }
-      })
-      $('#pdp-sections').find('.navbar-nav').html(Html);*/
+        /*var _ArrayOfPdpElements = [],
+            Html = "";
+        _pdpLink.each(function () {
+            var Target = $(this).data('target'),
+                _Element = {};
+            if($('#'+Target).length > 0) {
+                _Element["Name"] = $(this).text();
+                _Element["Target"] = Target;
+                _ArrayOfPdpElements.push(_Element);
+                $('#'+Target).addClass('pdp-item-id');
+            }
+        });
+        $('.pdp-item-id').each(function() {
+            var _Id = $(this).attr("id");
+            for(var i = 0; i < _ArrayOfPdpElements.length; i++) {
+                if(_ArrayOfPdpElements[i].Target === _Id) {
+                    Html += '<li><a href="#" data-target="' +_ArrayOfPdpElements[i].Target+ '"><span>' +_ArrayOfPdpElements[i].Name+ '</span></a></li>';
+                }
+            }
+        })
+        $('#pdp-sections').find('.navbar-nav').html(Html);*/
     }
     init = function() {
         if(_mainNavLink.length > 0){
@@ -10095,7 +10128,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         if (_pdpNavigation.length > 0) {
             _pdpsectionSubnavigationInit();
             if (!INFORMA.global.siteCore.isExperience) {
-              _PdpNavReArrange();
+                _PdpNavReArrange();
             }
             _initPdpMenuBarFollow();
             _pdpNavigationScrollTo();
@@ -13413,9 +13446,9 @@ INFORMA.sectorPageStrengths = (function (window, $, namespace) {
     _bindShowLess = function () {
         var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
         _showLess.on('click', function () {
-            $('html, body').animate({
-                // scrollTop: _sectorPageStrengths.offset().top - 35
-            }, 700);
+            // $('html, body').animate({
+            //     scrollTop: _sectorPageStrengths.offset().top - 35
+            // }, 700);
         });
     };
     init = function () {
