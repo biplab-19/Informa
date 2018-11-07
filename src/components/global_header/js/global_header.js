@@ -313,7 +313,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 // }
             }
         });
-    };
+    }
 
     _initPdpMenuBarFollow = function() {
         _pdpLink = $('#pdp-navigation ul > li > a');
@@ -554,8 +554,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         })
     };
-    // END-Ben-2018-TODO-clean-update
-    
+    // END-Ben-2018-TODO-clean
+
+
+
     _initServicesMenuBarFollow = function() {
         _servicesLink = $('#services-navigation ul > li > a');
 
