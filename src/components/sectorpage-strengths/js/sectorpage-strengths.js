@@ -100,9 +100,11 @@ INFORMA.sectorPageStrengths = (function (window, $, namespace) {
     _bindShowLess = function () {
         var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
         _showLess.on('click', function () {
+            // Removed to stop onscroll to parent div
             // $('html, body').animate({
-            //     scrollTop: _sectorPageStrengths.offset().top - 35
+            //     scrollTop: _sectorPageStrengths.offset().top
             // }, 700);
+            // End
         });
     };
     init = function () {
