@@ -465,8 +465,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         }
 
         if (INFORMA.global.device.isDesktop) {
-			var cookieBannerHeight = 0;
-			
             var j = _pdpMenuPos.length - 1;
             var windowPostion = _windowPos + _fixedNavHeight + _pdpNavigationHeight + _cookieHeight;
             var finalIndex = -1;
