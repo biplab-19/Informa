@@ -8355,7 +8355,7 @@ INFORMA.forms = (function (window, $, namespace) {
     $(window).load(function() {
         if (localStorage.getItem('key_accounts_form_status')) {
             localStorage.removeItem('key_accounts_form_status');
-            alert("You Are logged in, Enjoy.");
+            // alert("You Are logged in, Enjoy.");
             $( ".registration-form-single-section" ).slideUp("slow");
         }
     });
