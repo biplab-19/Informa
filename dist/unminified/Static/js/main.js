@@ -1,4 +1,4 @@
-/*! 2018-11-07 *//*
+/*! 2018-11-09 *//*
  * google-analytics.js
  *
  *
@@ -9315,6 +9315,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpLinkSpan = $('#pdp-navigation ul > li > a > span'),
         _pdpFixed = false,
         _pdpMenuPos = [],
+		_pdpMenuPosBottom = [],
         _pdpMenuWidth = [],
         _pdpMenuleft = [],
         _pdpMenuDefaultIndex = 0,
@@ -9602,7 +9603,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         var _fixedNavHeight;
         if (INFORMA.global.device.isDesktop) {
             _fixedNavHeight = _navHeight;
-            _pdpNavigationHeight = $('#pdp-navigation').height();
+            _pdpNavigationHeight = $('#pdp-navigation').outerHeight();
         } else {
             _fixedNavHeight = _navHeightMobile;
             _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
@@ -9684,6 +9685,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             if (_arrayFlag) {
                 _pdpMenuPos = [];
+				_pdpMenuPosBottom = [];
                 _pdpMenuWidth = [];
                 _pdpMenuleft = [];
                 _pdpLink = $('#pdp-navigation ul > li > a');
@@ -9693,6 +9695,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     var _sectionIndex = $(_pdpLink[i]).data('target-index');
                     if ($('#' + _sectionName).length > 0) {
                         _pdpMenuPos.push($($("[id='" + _sectionName + "']")[_sectionIndex]).offset().top);
+						_pdpMenuPosBottom.push($($("[id='" + _sectionName + "']")[_sectionIndex]).offset().top + $($("[id='" + _sectionName + "']")[_sectionIndex]).height());
                     } else {
                         _pdpMenuPos.push(0);
                     }
@@ -9728,35 +9731,18 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         }
 
         if (INFORMA.global.device.isDesktop) {
-            var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
             var j = _pdpMenuPos.length - 1;
-            var windowPostion = _windowPos + _fixedHeights;
-            var finalIndex = 0;
-            var diff;
+            var windowPostion = _windowPos + _fixedNavHeight + _pdpNavigationHeight + _cookieHeight;
+            var finalIndex = -1;
             for (; j >= 0; j--) {
-                var menuPosition = _pdpMenuPos[j];
-                if (diff) {
-                    if (diff > (windowPostion - menuPosition)) {
-                        diff = windowPostion - menuPosition;
-                        if (diff >= 0) {
-                            finalIndex = j;
-                        } else {
-                            diff = 0;
-                            finalIndex = _pdpMenuDefaultIndex;
-                        }
-                    }
-                } else {
-                    diff = windowPostion - menuPosition;
-                    if (diff >= 0) {
-                        finalIndex = j;
-                    } else {
-                        diff = 0;
-                        finalIndex = _pdpMenuDefaultIndex;
-                    }
-                }
+				if(windowPostion >=  _pdpMenuPos[j] && windowPostion <= _pdpMenuPosBottom[j]){
+					finalIndex = j;
+				}
             }
-            _pdpMenuFollower.css('width', _pdpMenuWidth[finalIndex]);
-            _pdpMenuFollower.css('left', _pdpMenuleft[finalIndex]);
+			if(finalIndex!= -1) {
+				_pdpMenuFollower.css('width', _pdpMenuWidth[finalIndex]);
+				_pdpMenuFollower.css('left', _pdpMenuleft[finalIndex]);
+			}
         }
     }
 
@@ -9800,7 +9786,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             } else {
                 $('#pdp-navigation li').removeClass('selected');
                 $('#pdp-navigation li').addClass('select-options');
-                _pdpNavigationHeight = _pdpNavigation.height();
+                _pdpNavigationHeight = _pdpNavigation.outerHeight();
                 _target = $(this).data('target');
                 _target_index = $(this).data('target-index');
                 _fixedNavHeight = _navHeightMobile;
@@ -9808,10 +9794,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                 if (anchorElementArrayDesk.length >= [_target_index]) {
                     //Fix ben-2018-onscroll
-                    _scrollTopPixels = $(anchorElementArrayDesk[_target_index]).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
+                    _scrollTopPixels = $(anchorElementArrayDesk[_target_index]).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _cookieHeight);
                     //End
                 } else {
-                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
+                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _cookieHeight);
                 }
                 $('html, body').stop().animate({
                     scrollTop: _scrollTopPixels
@@ -10168,7 +10154,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             //$('#pdp-navigation ul > li:first-child').addClass('selected');
             /* removed unused _expandedPdpNav variab */
-            //test 123 ben
         }
 
     };
