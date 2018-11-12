@@ -179,33 +179,36 @@ INFORMA.forms = (function (window, $, namespace) {
         window.history.pushState('', Title, NewUrl);
     }
 
+    $(window).load(function() {
+        if (localStorage.getItem('key_accounts_form_status')) {
+            localStorage.removeItem('key_accounts_form_status');
+            // alert("You Are logged in, Enjoy.");
+            $( ".registration-form-single-section" ).slideUp("slow");
+        }
+    });
     //Recaptcha handler on click of submit and google analytics changes
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
             if (getCurrentform.valid() === true) {
 
+                if ($('.key-account-login-form').length) {
+                    // localStorage.setItem("key-accounts-login", "Succsess");
+                    window.location.href = window.location.href + '?status=success';
+                    // e.preventDefault();
+                    window.location.reload(true);
+                    localStorage.setItem("key_accounts_form_status", "success");
+                }
+
                 // change 2018 - Ben
-                // alert("befor grecaptcha");
 
-                var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
-
-                if (grecaptchaDiv.length > 0) {
+                if (isNone(window.grecaptcha) || isNone(window.grecaptcha.render)) {
                     e.preventDefault();
                     grecaptcha.reset();
                     grecaptcha.execute();
                 }
-
-                // if (grecaptcha.length)
-                // // if ((window.grecaptcha) || (window.grecaptcha.render))
-                // {
-                //     alert("yes grecaptcha");
-                //     e.preventDefault();
-                //     grecaptcha.reset();
-                //     grecaptcha.execute();
-                // }
-                // alert("no grecaptcha");
                 // end change 2018 - Ben
+
                 //Google analytics changes on submit of registration form
                 if (($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')) {
                     var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";

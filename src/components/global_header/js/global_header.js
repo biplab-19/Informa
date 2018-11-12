@@ -504,7 +504,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _fixedNavHeight = _navHeightMobile;
                 var anchorElementArray = $("[id='" + _target + "']");
 
-                // console.log(anchorElementArray[_target_index]);
+                console.log(anchorElementArray[_target_index]);
 
                 if (anchorElementArray.length >= [_target_index]) {
                     //Fix ben-2018-onscroll
