@@ -1,4 +1,4 @@
-/*! 2018-11-09 *//*
+/*! 2018-11-12 *//*
  * google-analytics.js
  *
  *
@@ -6371,7 +6371,7 @@ jQuery(INFORMA.ContactUs.init());
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.CookiePolicy = (function(window, $, namespace) {
+INFORMA.CookiePolicy = (function (window, $, namespace) {
     'use strict';
     //variables
     /* dropCookie variable removed */
@@ -6383,49 +6383,48 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
         ShowBanner, CreateCookie, CheckCookie, RemoveMe;
 
 
-    ShowBanner = function(name, value, days) {
-            $("body").find("#cookieBanner").show();
-            if($('#cookieBanner:visible').length){
-                if (INFORMA.global.device.isDesktop) {
-                    if($('.mainNavigation').hasClass('navbar-fixed-top')) {
-                        $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
-                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
-                    }
+    ShowBanner = function (name, value, days) {
+        $("body").find("#cookieBanner").show();
+        if ($('#cookieBanner:visible').length) {
+            if (INFORMA.global.device.isDesktop) {
+                if ($('.mainNavigation').hasClass('navbar-fixed-top')) {
+                    $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
+                    $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight() + $(".mainNavigation").outerHeight());
                 }
-                else{
-                    if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
-                        $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
-                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mobileNavigation").outerHeight());
-                    }
+            } else {
+                if ($('.mobileNavigation').hasClass('navbar-fixed-top')) {
+                    $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
+                    $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight() + $(".mobileNavigation").outerHeight());
                 }
-             }   
-            $("#cookieBanner a.close").on("click", function(e) {
-                e.preventDefault();
-                RemoveMe();
-                //CreateCookie(cookieName,cookieValue, cookieDuration); 
-                INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
-                    method: "Post",
-                    data: JSON.stringify({"key":cookieName,"value":cookieValue ,"expires":cookieDuration}),
-                    success_callback: function(data) {
-                    }
-                });
-                    ///
+            }
+        }
+        $("#cookieBanner a.close").on("click", function (e) {
+            e.preventDefault();
+            RemoveMe();
+            //CreateCookie(cookieName,cookieValue, cookieDuration);
+            INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
+                method: "Post",
+                data: JSON.stringify({"key": cookieName, "value": cookieValue, "expires": cookieDuration}),
+                success_callback: function (data) {
+                }
             });
-        },
+            ///
+        });
+    },
         // CreateCookie = function(name,value,days) {
         //         if (days) {
         //             var date = new Date();
-        //             date.setTime(date.getTime()+(days*24*60*60*1000)); 
-        //             var expires = "; expires="+date.toGMTString(); 
+        //             date.setTime(date.getTime()+(days*24*60*60*1000));
+        //             var expires = "; expires="+date.toGMTString();
         //         }
         //         else {
         //             var expires = "";
         //         }
-        //         if(dropCookie) { 
-        //             document.cookie = name+"="+value+expires+"; path=/"; 
+        //         if(dropCookie) {
+        //             document.cookie = name+"="+value+expires+"; path=/";
         //         }
         // },
-        CheckCookie = function(name) {
+        CheckCookie = function (name) {
             var nameEQ = name + "=";
             var ca = document.cookie.split(';');
             for (var i = 0; i < ca.length; i++) {
@@ -6437,7 +6436,9 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
         },
         /* unused EraseCookie function removed */
         RemoveMe = function(data) {
+            var cookieHeightClick =  $('#cookieBanner').outerHeight()
             $("body").find("#cookieBanner").hide();
+
             if($('.mainNavigation').hasClass('navbar-fixed-top')) {
                 $('.mainNavigation').css('top',0);
             }
@@ -6447,15 +6448,18 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
             if($('#pdp-navigation').hasClass('navbar-fixed-top')) {
                 $('#pdp-navigation').css('top', $('.mainNavigation').outerHeight());
             }
+            if($("[data-target]").length) {
+                window.scrollBy(0, cookieHeightClick);
+            }
         },
-        init = function() {
+        init = function () {
             var getCookieExpiryDate = ($("input.cookieDuration").val()) ? $("input.cookieDuration").val() : 365;
             cookieDuration = parseInt(getCookieExpiryDate);
             //window.onload = function() {
-                if (CheckCookie(cookieName) !== cookieValue) {
-                    ShowBanner();
-                }
-           //};
+            if (CheckCookie(cookieName) !== cookieValue) {
+                ShowBanner();
+            }
+            //};
         }
 
     return {
@@ -8352,37 +8356,22 @@ INFORMA.forms = (function (window, $, namespace) {
         window.history.pushState('', Title, NewUrl);
     }
 
-    $(window).load(function() {
-        if (localStorage.getItem('key_accounts_form_status')) {
-            localStorage.removeItem('key_accounts_form_status');
-            // alert("You Are logged in, Enjoy.");
-            $( ".registration-form-single-section" ).slideUp("slow");
-        }
-    });
     //Recaptcha handler on click of submit and google analytics changes
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
             if (getCurrentform.valid() === true) {
 
-                if ($('.key-account-login-form').length) {
-                    // localStorage.setItem("key-accounts-login", "Succsess");
-                    window.location.href = window.location.href + '?status=success';
-                    // e.preventDefault();
-                    window.location.reload(true);
-                    localStorage.setItem("key_accounts_form_status", "success");
-                }
 
-                // change 2018 - Ben
+                var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
 
-                if (isNone(window.grecaptcha) || isNone(window.grecaptcha.render)) {
+                if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
                     grecaptcha.reset();
                     grecaptcha.execute();
                 }
-                // end change 2018 - Ben
 
-                //Google analytics changes on submit of registration form
+
                 if (($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')) {
                     var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
                     var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
@@ -8391,7 +8380,6 @@ INFORMA.forms = (function (window, $, namespace) {
                         _showOverlay();
                         if (pdfValue != "") {
                             $('.close-download-form *').removeClass('wffm-elq-form-btn');
-                            console.log("123abc")
                         }
                         INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                         _formModal.modal('hide');
