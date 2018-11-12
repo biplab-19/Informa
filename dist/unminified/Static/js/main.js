@@ -8371,7 +8371,6 @@ INFORMA.forms = (function (window, $, namespace) {
                     grecaptcha.execute();
                 }
 
-
                 if (($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')) {
                     var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
                     var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
