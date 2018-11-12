@@ -185,15 +185,15 @@ INFORMA.forms = (function (window, $, namespace) {
             getCurrentform = $(this).parents('form');
             if (getCurrentform.valid() === true) {
 
-                //change 2018 - Ben
-                if (window.grecaptcha) {
+
+                var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
+
+                if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
                     grecaptcha.reset();
                     grecaptcha.execute();
                 }
-                //end change 2018 - Ben
 
-                //Google analytics changes on submit of registration form
                 if (($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')) {
                     var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
                     var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
@@ -217,11 +217,12 @@ INFORMA.forms = (function (window, $, namespace) {
             }
         });
     }
-
+    //Success callback
     //Success callback
     window.onSubmit = function (token) {
-        getCurrentform.submit();
+            getCurrentform.submit();
     }
+    // end test
 
     // _reCaptchaHandler = function() {
     //     $("form.get-in-touch, form.request-a-demo, form.single-step-form").submit(function() {
