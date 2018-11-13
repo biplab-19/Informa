@@ -97,14 +97,37 @@ INFORMA.sectorPageStrengths = (function (window, $, namespace) {
         })
     };
 
+    // _bindShowLess = function () {
+    //     var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
+    //     _showLess.on('click', function () {
+    //         // Removed to stop onscroll to parent div
+    //         // $('html, body').animate({
+    //         //     scrollTop: _sectorPageStrengths.offset().top
+    //         // }, 700);
+    //         // End
+    //     });
+    // };
+
     _bindShowLess = function () {
         var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
+
         _showLess.on('click', function () {
-            // Removed to stop onscroll to parent div
-            // $('html, body').animate({
-            //     scrollTop: _sectorPageStrengths.offset().top
+
+            var sliders = [].slice.call(document.getElementsByClassName("sectorpage-strengths"));
+
+            sliders.forEach(function (element, index){
+                element.addEventListener("click", function(){
+                    console.log("array" +index + "!");
+                });
+            });
+
+            // $('html, body').stop().animate({
+            //     scrollTop: $(index).offset().top - 50
             // }, 700);
-            // End
+
+            $('html, body').animate({
+                scrollTop: _sectorPageStrengths.offset().top
+            }, 700);
         });
     };
     init = function () {
