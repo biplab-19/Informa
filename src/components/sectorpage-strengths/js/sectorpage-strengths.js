@@ -112,21 +112,8 @@ INFORMA.sectorPageStrengths = (function (window, $, namespace) {
         var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
 
         _showLess.on('click', function () {
-
-            var sliders = [].slice.call(document.getElementsByClassName("sectorpage-strengths"));
-
-            sliders.forEach(function (element, index){
-                element.addEventListener("click", function(){
-                    console.log("array" +index + "!");
-                });
-            });
-
-            // $('html, body').stop().animate({
-            //     scrollTop: $(index).offset().top - 50
-            // }, 700);
-
             $('html, body').animate({
-                scrollTop: _sectorPageStrengths.offset().top
+                scrollTop: $(this).parents('section').offset().top
             }, 700);
         });
     };
