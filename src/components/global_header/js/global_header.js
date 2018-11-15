@@ -638,7 +638,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                     _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
                     $('html, body').stop().animate({
-                        scrollTop: _scrollTopPixels
+                        scrollTop: $(this).parents('section').offset().top
                     }, 1000);
 
                     _expandedServicesNav = false;
