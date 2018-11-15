@@ -1,4 +1,4 @@
-/*! 2018-11-14 *//*
+/*! 2018-11-15 *//*
  * google-analytics.js
  *
  *
@@ -6371,7 +6371,7 @@ jQuery(INFORMA.ContactUs.init());
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.CookiePolicy = (function(window, $, namespace) {
+INFORMA.CookiePolicy = (function (window, $, namespace) {
     'use strict';
     //variables
     /* dropCookie variable removed */
@@ -6383,49 +6383,48 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
         ShowBanner, CreateCookie, CheckCookie, RemoveMe;
 
 
-    ShowBanner = function(name, value, days) {
-            $("body").find("#cookieBanner").show();
-            if($('#cookieBanner:visible').length){
-                if (INFORMA.global.device.isDesktop) {
-                    if($('.mainNavigation').hasClass('navbar-fixed-top')) {
-                        $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
-                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
-                    }
+    ShowBanner = function (name, value, days) {
+        $("body").find("#cookieBanner").show();
+        if ($('#cookieBanner:visible').length) {
+            if (INFORMA.global.device.isDesktop) {
+                if ($('.mainNavigation').hasClass('navbar-fixed-top')) {
+                    $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
+                    $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight() + $(".mainNavigation").outerHeight());
                 }
-                else{
-                    if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
-                        $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
-                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mobileNavigation").outerHeight());
-                    }
+            } else {
+                if ($('.mobileNavigation').hasClass('navbar-fixed-top')) {
+                    $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
+                    $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight() + $(".mobileNavigation").outerHeight());
                 }
-             }   
-            $("#cookieBanner a.close").on("click", function(e) {
-                e.preventDefault();
-                RemoveMe();
-                //CreateCookie(cookieName,cookieValue, cookieDuration); 
-                INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
-                    method: "Post",
-                    data: JSON.stringify({"key":cookieName,"value":cookieValue ,"expires":cookieDuration}),
-                    success_callback: function(data) {
-                    }
-                });
-                    ///
+            }
+        }
+        $("#cookieBanner a.close").on("click", function (e) {
+            e.preventDefault();
+            RemoveMe();
+            //CreateCookie(cookieName,cookieValue, cookieDuration);
+            INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
+                method: "Post",
+                data: JSON.stringify({"key": cookieName, "value": cookieValue, "expires": cookieDuration}),
+                success_callback: function (data) {
+                }
             });
-        },
+            ///
+        });
+    },
         // CreateCookie = function(name,value,days) {
         //         if (days) {
         //             var date = new Date();
-        //             date.setTime(date.getTime()+(days*24*60*60*1000)); 
-        //             var expires = "; expires="+date.toGMTString(); 
+        //             date.setTime(date.getTime()+(days*24*60*60*1000));
+        //             var expires = "; expires="+date.toGMTString();
         //         }
         //         else {
         //             var expires = "";
         //         }
-        //         if(dropCookie) { 
-        //             document.cookie = name+"="+value+expires+"; path=/"; 
+        //         if(dropCookie) {
+        //             document.cookie = name+"="+value+expires+"; path=/";
         //         }
         // },
-        CheckCookie = function(name) {
+        CheckCookie = function (name) {
             var nameEQ = name + "=";
             var ca = document.cookie.split(';');
             for (var i = 0; i < ca.length; i++) {
@@ -6437,7 +6436,9 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
         },
         /* unused EraseCookie function removed */
         RemoveMe = function(data) {
+            var cookieHeightClick =  $('#cookieBanner').outerHeight()
             $("body").find("#cookieBanner").hide();
+
             if($('.mainNavigation').hasClass('navbar-fixed-top')) {
                 $('.mainNavigation').css('top',0);
             }
@@ -6447,15 +6448,18 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
             if($('#pdp-navigation').hasClass('navbar-fixed-top')) {
                 $('#pdp-navigation').css('top', $('.mainNavigation').outerHeight());
             }
+            if($("[data-target]").length) {
+                window.scrollBy(0, cookieHeightClick);
+            }
         },
-        init = function() {
+        init = function () {
             var getCookieExpiryDate = ($("input.cookieDuration").val()) ? $("input.cookieDuration").val() : 365;
             cookieDuration = parseInt(getCookieExpiryDate);
             //window.onload = function() {
-                if (CheckCookie(cookieName) !== cookieValue) {
-                    ShowBanner();
-                }
-           //};
+            if (CheckCookie(cookieName) !== cookieValue) {
+                ShowBanner();
+            }
+            //};
         }
 
     return {
@@ -8173,7 +8177,7 @@ jQuery(INFORMA.formRequestForDemo.init());
 
 var INFORMA = window.INFORMA || {};
 var modal_Id = '';
-INFORMA.forms = (function(window, $, namespace) {
+INFORMA.forms = (function (window, $, namespace) {
     'use strict';
     var _formModal = $('.form-modal'),
         _formModalBtn = $('.form-btn-container .form-modal-btn'),
@@ -8222,7 +8226,7 @@ INFORMA.forms = (function(window, $, namespace) {
         RemoveParameterFromUrl,
         _productDropdownUpdate,
         _setFormModalFocus,
-         _UpdateProductName,
+        _UpdateProductName,
         _changeProductDropdown,
         _formBtnOnHover,
         _validateCountry,
@@ -8230,28 +8234,28 @@ INFORMA.forms = (function(window, $, namespace) {
         iOSversion,
         getCurrentform;
 
-    _validateChoosenSelect = function() {
+    _validateChoosenSelect = function () {
         $.validator.setDefaults({
             ignore: ":hidden:not(.chosen-select)"
         });
-        $(document).on('change','.wffm-form .chosen-select', function() {
+        $(document).on('change', '.wffm-form .chosen-select', function () {
             $(this).valid();
         });
     }
 
-    _setFormModalFocus = function(){
-          $(".wffm-form .product-list").on('change', function() {
+    _setFormModalFocus = function () {
+        $(".wffm-form .product-list").on('change', function () {
             $('body').scrollTop(300);
             $('.wffm-form').filter(':input:first').focus();
-          });
-          $(".wffm-form .country-list").on('change', function() {
-              $('body').scrollTop(300);
-              $('.wffm-form').filter(':input:first').focus();
-          });
+        });
+        $(".wffm-form .country-list").on('change', function () {
+            $('body').scrollTop(300);
+            $('.wffm-form').filter(':input:first').focus();
+        });
     };
 
-    _changeProductDropdown = function() {
-        $('.product-list').on('change', function() {
+    _changeProductDropdown = function () {
+        $('.product-list').on('change', function () {
             var Parent = $(this).parents('form'),
                 Value = $(this).val();
 
@@ -8259,19 +8263,19 @@ INFORMA.forms = (function(window, $, namespace) {
         })
     };
 
-    RemoveParameterFromUrl = function( url, parameter ) {
+    RemoveParameterFromUrl = function (url, parameter) {
 
-        if( typeof parameter == "undefined" || parameter == null || parameter == "" ) throw new Error( "parameter is required" );
-        var regex =new RegExp( "\\b" + parameter + "=[^&;]+[&;]?", "gi" );
-        if(regex.test(url)){
-            url = url.replace(regex, "" );
+        if (typeof parameter == "undefined" || parameter == null || parameter == "") throw new Error("parameter is required");
+        var regex = new RegExp("\\b" + parameter + "=[^&;]+[&;]?", "gi");
+        if (regex.test(url)) {
+            url = url.replace(regex, "");
 
             // remove any leftover crud
-            url = url.replace( /[&;]$/, "" );
+            url = url.replace(/[&;]$/, "");
 
             var NewUrl = url.split('?');
 
-            if(NewUrl.length === 1) {
+            if (NewUrl.length === 1) {
 
                 url = NewUrl;
             }
@@ -8281,18 +8285,18 @@ INFORMA.forms = (function(window, $, namespace) {
 
     };
 
-    _resetDefaultTitle = function(elem) {
+    _resetDefaultTitle = function (elem) {
         var SecondaryHeading = $('.form-secondary-title');
 
-        if(SecondaryHeading.length > 0) {
-            SecondaryHeading.each(function() {
+        if (SecondaryHeading.length > 0) {
+            SecondaryHeading.each(function () {
                 var GetTitle = $(this).val();
                 var Parent = $(this).parents('.modal');
                 var ParentId = $(elem).attr('data-modal');
-                if(Parent.length > 0) {
+                if (Parent.length > 0) {
                     // var isHeading = Parent.find('.product-name-holder').text();
                     // if(isHeading.length === 0) {
-                     Parent.find('h2').text(GetTitle);
+                    Parent.find('h2').text(GetTitle);
                     // }
                     var Product = $(ParentId).find('.product-list').val();
                     $(ParentId).find('.tc-product-name').text(Product);
@@ -8300,35 +8304,35 @@ INFORMA.forms = (function(window, $, namespace) {
             });
         }
     },
-    _updateHiddenProductVerticalName = function() {
-        $(document).ready(function() {
-            var ProductName = $('.product-name').val(),
-                VerticalName = $('.vertical-name').val();
-            if (ProductName || VerticalName) {
-                $('span.product-name-holder').html(ProductName);
-                $('.product-name-holder').val(ProductName);
-                $('.vertical-name-holder').val(VerticalName);
-                $('.tc-product-name').html(ProductName);
-                $('.tc-vertical-name').html(VerticalName);
-                if ( ProductName && ProductName.length > 0) {
+        _updateHiddenProductVerticalName = function () {
+            $(document).ready(function () {
+                var ProductName = $('.product-name').val(),
+                    VerticalName = $('.vertical-name').val();
+                if (ProductName || VerticalName) {
+                    $('span.product-name-holder').html(ProductName);
+                    $('.product-name-holder').val(ProductName);
+                    $('.vertical-name-holder').val(VerticalName);
                     $('.tc-product-name').html(ProductName);
-                } else {
-                    $('.tc-product-name').html(VerticalName);
+                    $('.tc-vertical-name').html(VerticalName);
+                    if (ProductName && ProductName.length > 0) {
+                        $('.tc-product-name').html(ProductName);
+                    } else {
+                        $('.tc-product-name').html(VerticalName);
+                    }
                 }
-            }
-             _UpdateProductName();
-        });
-    }
-    _bindNumber = function() {
-        $(document).on('keypress', 'input[type="number"]', function(e) {
+                _UpdateProductName();
+            });
+        }
+    _bindNumber = function () {
+        $(document).on('keypress', 'input[type="number"]', function (e) {
             if ((e.which > 64 && e.which < 91) || (e.which > 96 && e.which < 123)) {
                 e.preventDefault();
             }
         })
     }
 
-    _HideOverlay = function() {
-        $('.form-modal').on('hidden.bs.modal', function() {
+    _HideOverlay = function () {
+        $('.form-modal').on('hidden.bs.modal', function () {
             var Parent = $(this),
                 Status = Parent.find('.submit-status');
 
@@ -8342,7 +8346,7 @@ INFORMA.forms = (function(window, $, namespace) {
         })
     }
 
-    _RemoveStatus = function() {
+    _RemoveStatus = function () {
         //Updating the status of the url
         var url = window.location.href,
             Title = document.title,
@@ -8352,50 +8356,50 @@ INFORMA.forms = (function(window, $, namespace) {
         window.history.pushState('', Title, NewUrl);
     }
 
-     //Recaptcha handler on click of submit and google analytics changes
+    //Recaptcha handler on click of submit and google analytics changes
     _reCaptchaHandler = function () {
-        $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click','input[type="submit"]',function(e) {
+        $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
-            if(getCurrentform.valid() === true){
+            if (getCurrentform.valid() === true) {
 
-                //change 2018 - Ben
-                if(isNone(window.grecaptcha)) {
+
+                var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
+
+                if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
                     grecaptcha.reset();
                     grecaptcha.execute();
                 }
-                //end change 2018 - Ben
 
-                //Google analytics changes on submit of registration form
-                if(($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')){
+                if (($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')) {
                     var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
                     var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
-                    if(value !== "" || pdfValue != ""){
+                    if (value !== "" || pdfValue != "") {
                         // if (value.toLowerCase().match(/\.(pdf|doc)/g)) {
                         _showOverlay();
-                        if(pdfValue != ""){
+                        if (pdfValue != "") {
                             $('.close-download-form *').removeClass('wffm-elq-form-btn');
                         }
                         INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                         _formModal.modal('hide');
 
-                        $('.close-download-form *').attr('data-show-register',false);
-                        $('.close-download-form *').attr('target',"_blank");
+                        $('.close-download-form *').attr('data-show-register', false);
+                        $('.close-download-form *').attr('target', "_blank");
 
                         // }
-                    }
-                    else{
+                    } else {
                         INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                     }
                 }
             }
         });
     }
-
+    //Success callback
     //Success callback
     window.onSubmit = function (token) {
-        getCurrentform.submit();
+            getCurrentform.submit();
     }
+    // end test
 
     // _reCaptchaHandler = function() {
     //     $("form.get-in-touch, form.request-a-demo, form.single-step-form").submit(function() {
@@ -8445,7 +8449,7 @@ INFORMA.forms = (function(window, $, namespace) {
     //     }
     // }
 
-    _showOverlayQueryString = function(container) {
+    _showOverlayQueryString = function (container) {
         var url = window.location.href;
         if (url.indexOf('?ResponseStatus=Success') != -1 || url.indexOf('/ResponseStatus/Success') != -1) {
             _formModal.modal({
@@ -8455,21 +8459,21 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
-    _resetForm = function($form) {
+    _resetForm = function ($form) {
         $form.find('input[type=text], input[type=password], input[type=number], input[type=email], input[type=tel], select, textarea').val('');
         $form.find('input[type=radio]').removeAttr('checked');
         $form.find('.normal-checkbox input[type=checkbox]').removeAttr('checked');
         $form.find('.preselected-checkbox input[type=checkbox]').attr('checked', 'checked');
         $form.find('select.chosen-select').find('option:first-child').prop('selected', true).end().trigger('chosen:updated');
         var preselected = $form.find('.preselected-checkbox input[type=checkbox]');
-        if(preselected.length > 0){
-          $.each(preselected, function(){
-            $(this).val(this.checked ? true : false);
-          });
+        if (preselected.length > 0) {
+            $.each(preselected, function () {
+                $(this).val(this.checked ? true : false);
+            });
         }
     }
 
-    _showHideInlineForm = function() {
+    _showHideInlineForm = function () {
         var formInlineActiveTab = $('.contactUsPage-contactUs .tab-pane.active'),
             _formSubmitStatus = $('.contactUsPage-contactUs .tab-pane .submit-status');
         if (formInlineActiveTab.length > 0) {
@@ -8488,7 +8492,7 @@ INFORMA.forms = (function(window, $, namespace) {
                 inlineTabSucessForm.removeClass('hide');
             }
 
-            _formSubmitStatus.each(function() {
+            _formSubmitStatus.each(function () {
                 var Status = $(this).attr('data-status'),
                     Parent = $(this).parents('.tab-pane');
                 if (Status.length > 0) {
@@ -8509,7 +8513,7 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
-    _showOverlay = function() {
+    _showOverlay = function () {
         var formSubmitResponseModal;
         if (_formSubmitStatus.length > 0) {
             if (_formSubmitStatus.attr('data-status') == "") {
@@ -8543,7 +8547,7 @@ INFORMA.forms = (function(window, $, namespace) {
                 }
 
             }
-            _formSubmitStatus.each(function() {
+            _formSubmitStatus.each(function () {
                 var Status = $(this).attr('data-status'),
                     Parent = $(this).parents('.modal');
                 if (Status.length > 0) {
@@ -8581,10 +8585,10 @@ INFORMA.forms = (function(window, $, namespace) {
     }
 
 
-    _validateAllForms = function() {
+    _validateAllForms = function () {
         // $('form.get-in-touch').validate();
         // $('form.request-a-demo').validate();
-        $('.wffm-form').find(':submit').on('click', function() {
+        $('.wffm-form').find(':submit').on('click', function () {
             if ($('.get-in-touch ').valid() == true) {
                 return true;
             } else {
@@ -8593,46 +8597,46 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
-    _formBtnOnHover = function(){
-       $('.form-submit-border .btn').on('mouseover click', function(event) {
+    _formBtnOnHover = function () {
+        $('.form-submit-border .btn').on('mouseover click', function (event) {
             $('.form-submit-border').addClass('hover-arrow');
         });
-        $('.form-submit-border .btn').on('mouseout blur', function() {
+        $('.form-submit-border .btn').on('mouseout blur', function () {
             $('.form-submit-border').removeClass('hover-arrow');
         });
     }
 
-    _bindToolTip = function() {
-        $('form.get-in-touch legend, form.request-a-demo legend, form.wffm-form legend').on("click", function(e) {
+    _bindToolTip = function () {
+        $('form.get-in-touch legend, form.request-a-demo legend, form.wffm-form legend').on("click", function (e) {
             $(this).toggleClass('active');
             $(this).parent().children('p').toggleClass('show');
         });
 
-        $('form.get-in-touch legend, form.request-a-demo legend, form.wffm-form legend').each(function() {
+        $('form.get-in-touch legend, form.request-a-demo legend, form.wffm-form legend').each(function () {
             if ($(this).next().is('p'))
                 $(this).addClass('tool_tip');
         });
     }
 
-    _parseVerticalName = function(data) {
+    _parseVerticalName = function (data) {
         $('span.product-name-holder').html(data.ProductName);
         $('.product-name-holder').val(data.ProductName);
-        if(modal_Id && !data.ProductName){
+        if (modal_Id && !data.ProductName) {
             var current_text = $(modal_Id + ' .page-header h2').text();
-			var new_text = current_text.replace(' for ', '');
-			$(modal_Id + ' .page-header h2').text(new_text);
+            var new_text = current_text.replace(' for ', '');
+            $(modal_Id + ' .page-header h2').text(new_text);
         }
         $('.tc-product-name').html(data.ProductName);
         if (data.ProductName != null) {
             $('.tc-product-name').html(data.ProductName);
         }
         // Listing product dropdown update
-        if($('.product-finder-results .search-container').length > 0 || $('.recom-prod-carousel').length > 0) {
+        if ($('.product-finder-results .search-container').length > 0 || $('.recom-prod-carousel').length > 0) {
             _productDropdownUpdate(data.ProductName);
         }
     }
 
-    _parseResults = function(data) {
+    _parseResults = function (data) {
         var results = data,
             _inputId = $(_formId + ' .area-interests input').first().attr("id"),
             _inputName = $(_formId + ' .area-interests input').first().attr("name"),
@@ -8677,16 +8681,16 @@ INFORMA.forms = (function(window, $, namespace) {
 
     }
 
-    _getAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+    _getAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.DataLoader.GetServiceData(url, {
             method: method,
             data: data,
-            success_callback: function(data) {
+            success_callback: function (data) {
                 if (typeof SCallback === "function") {
                     SCallback.call(this, data, SearchType);
                 }
             },
-            error_callback: function() {
+            error_callback: function () {
                 if (typeof Errcallback === "function") {
                     Errcallback.call(this, data, SearchType);
                 }
@@ -8694,23 +8698,23 @@ INFORMA.forms = (function(window, $, namespace) {
         });
     }
 
-    _bindSelectOptions = function() {
-        $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function(e) {
+    _bindSelectOptions = function () {
+        $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function (e) {
             $(this).parent().parent().toggleClass('active');
         });
     }
 
-    _validateEmail = function(email) {
+    _validateEmail = function (email) {
         var domain = email.substring(email.lastIndexOf("@") + 1);
         if (INFORMA.validDomains.indexOf(domain) < 0)
             return false;
         return true;
     }
 
-    _bindValidationLogic = function() {
+    _bindValidationLogic = function () {
         //Email validation logic
-        $('.wffm-form').find('.email-field').each(function() {
-            $(this).blur(function() {
+        $('.wffm-form').find('.email-field').each(function () {
+            $(this).blur(function () {
                 var emailDomainMsg = $(this).parent().find('span.email-validation-message'),
                     emailValidMsg = $(this).parent().find('span.field-validation-error');
                 // if (_validateEmail($(this).val())) {
@@ -8739,7 +8743,9 @@ INFORMA.forms = (function(window, $, namespace) {
             } else {
                 return null;
             }
-        } catch (err) {}; // just throw any illegal format
+        } catch (err) {
+        }
+        ; // just throw any illegal format
     };
 
     /* Date => "YYYY-MM-DD" */
@@ -8750,15 +8756,15 @@ INFORMA.forms = (function(window, $, namespace) {
         return year + "-" + (month + 1) + "-" + d.getDate();
     };
 
-    $.fn.calendar = function(options) {
+    $.fn.calendar = function (options) {
         var _this = this;
         var opts = $.extend({}, $.fn.calendar.defaults, options);
         var week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        var tHead = week.map(function(day) {
+        var tHead = week.map(function (day) {
             return "<th>" + day + "</th>";
         }).join("");
 
-        _this.init = function() {
+        _this.init = function () {
             var tpl = '<table class="cal">' +
                 '<caption>' +
                 '   <span class="prev"><a href="javascript:void(0);">&lt;</a></span>' +
@@ -8781,7 +8787,7 @@ INFORMA.forms = (function(window, $, namespace) {
             return newDate.getDate();
         }
 
-        _this.update = function(date) {
+        _this.update = function (date) {
             var mDate = new Date(date);
             mDate.setDate(1); /* start of the month */
 
@@ -8823,7 +8829,7 @@ INFORMA.forms = (function(window, $, namespace) {
             _this.find('.month').data("date", monthStr);
         };
 
-        _this.getCurrentDate = function() {
+        _this.getCurrentDate = function () {
             return _this.data('date');
         }
 
@@ -8838,7 +8844,7 @@ INFORMA.forms = (function(window, $, namespace) {
         _this.update(initDate);
 
         /* event binding */
-        _this.delegate('tbody td', 'click', function() {
+        _this.delegate('tbody td', 'click', function () {
             var $this = $(this);
             _this.find('.active').removeClass('active');
             $this.addClass('active');
@@ -8858,11 +8864,11 @@ INFORMA.forms = (function(window, $, namespace) {
             _this.update(date);
         };
 
-        _this.find('.next').click(function() {
+        _this.find('.next').click(function () {
             updateTable(1);
         });
 
-        _this.find('.prev').click(function() {
+        _this.find('.prev').click(function () {
             updateTable(-1);
         });
 
@@ -8874,7 +8880,7 @@ INFORMA.forms = (function(window, $, namespace) {
         picker: false,
     };
 
-    $.fn.datePicker = function() {
+    $.fn.datePicker = function () {
         var _this = this;
         var picker = $('<div></div>')
             .addClass('picker-container')
@@ -8888,18 +8894,18 @@ INFORMA.forms = (function(window, $, namespace) {
 
         /* event binding */
         // click outside area, make calendar disappear
-        $('body').click(function() {
+        $('body').click(function () {
             picker.hide();
         });
 
         // click input should make calendar appear
-        _this.click(function() {
+        _this.click(function () {
             picker.show();
             return false; // stop sending event to docment
         });
 
         // click on calender, update input
-        picker.click(function() {
+        picker.click(function () {
             _this.val(moment(picker.getCurrentDate()).format('DD/MMM/YYYY'));
             return false;
         });
@@ -8907,56 +8913,57 @@ INFORMA.forms = (function(window, $, namespace) {
         return this;
     };
 
-    _bindCalendar = function() {
+    _bindCalendar = function () {
         $("form.request-a-demo .three-column .date-picker").wrap("<div class='right-inner'></div>");
         $("form.request-a-demo .three-column .right-inner").prepend("<i class='icon-calender'></i>");
 
-        $('form.request-a-demo .date-picker:text').each(function() {
+        $('form.request-a-demo .date-picker:text').each(function () {
             $(this).datePicker({
                 dateFormat: "dd-mm-yy"
             });
         });
     }
 
-    _disableSubmit = function() {
+    _disableSubmit = function () {
         var formDOM = $("form.wffm-form");
         if (formDOM.length > 0) {
-            $.each(formDOM, function() {
+            $.each(formDOM, function () {
                 var formSubmitBtn = $(this).find('.form-submit-border .btn');
                 formSubmitBtn.attr('disabled', true);
-                $(this).on('change', 'input, textarea, select', function() {
+                $(this).on('change', 'input, textarea, select', function () {
                     formSubmitBtn.removeAttr('disabled');
                     if ($(this).is('textarea') || $(this).is('input[type="email"]') || $(this).is('input[type="text"]') || $(this).is('input[type="number"]') || $(this).is('input[type="tel"]')) {
                         $(this).val($(this).val().trim());
                     }
                 });
 
-                $(this).on('change', '.terms-and-conditions input[type=checkbox]', function() {
+                $(this).on('change', '.terms-and-conditions input[type=checkbox]', function () {
                     $(this).val(this.checked ? true : false);
-                    if(this.checked){
-                      $(this).attr('checked', 'checked');
-                    }else{
-                      $(this).removeAttr('checked');
+                    if (this.checked) {
+                        $(this).attr('checked', 'checked');
+                    } else {
+                        $(this).removeAttr('checked');
                     }
                 });
             });
         }
     }
 
-    iOSversion = function(){
+    iOSversion = function () {
         if (/iP(hone|od|ad)/.test(navigator.platform)) {
             var appVer = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
             return [parseInt(appVer[1], 10), parseInt(appVer[2], 10), parseInt(appVer[3] || 0, 10)];
         }
     }
 
-    _showModal = function(el) {
-        $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+    _showModal = function (el) {
+        $.fn.modal.Constructor.prototype.enforceFocus = function () {
+        };
         _formId = $(el).data('modal');
         modal_Id = _formId;
         _resetForm($(_formId).find('form'));
         if ($(el).attr('data-productid')) {
-            if($(_formId + ' .page-header h2').find('.product-name-holder').length === 0){
+            if ($(_formId + ' .page-header h2').find('.product-name-holder').length === 0) {
                 $(_formId + ' .page-header h2').text($(_formId + ' .page-header h2').text() + ' for ')
                 $(_formId + ' .page-header h2').append('<span class="product-name-holder"></span>');
             }
@@ -8969,7 +8976,7 @@ INFORMA.forms = (function(window, $, namespace) {
         }
         var version = iOSversion();
         if (version !== undefined) {
-            if(version[0] >= 11){
+            if (version[0] >= 11) {
                 $(_formId).on('show.bs.modal', function () {
                     $('body').addClass('body-fixed');
                 });
@@ -8980,33 +8987,32 @@ INFORMA.forms = (function(window, $, namespace) {
                     $('body').removeClass('body-fixed');
                 });
             }
-        }
-        else {
-           $(_formId).modal({
+        } else {
+            $(_formId).modal({
                 show: 'true'
             })
         }
         _showOverlay();
         _validateCountry();
     };
-    _productDropdownUpdate = function(name) {
+    _productDropdownUpdate = function (name) {
         var ProductDropdown = jQuery('.form-modal select.product-list');
-        ProductDropdown.append('<option val="' +name+ '">' +name+ '</option>');
+        ProductDropdown.append('<option val="' + name + '">' + name + '</option>');
         ProductDropdown.val(name);
         ProductDropdown.trigger('chosen:updated');
         //ProductDropdown.parents('.form-group').addClass('disable-dropdown');
 
     };
 
-    _bindProductId = function() {
-        $(document).on('click', '.wffm-elq-form-btn', function() {
+    _bindProductId = function () {
+        $(document).on('click', '.wffm-elq-form-btn', function () {
             // To track Google Analytics on Open
             INFORMA.Analytics.trackFormEvents($(this), 'Open');
             _showModal(this);
         });
     }
 
-    _showFormIntro = function() {
+    _showFormIntro = function () {
         var contactUsGetinTouchForm = $('.contactUsPage-contactUs'),
             formIntroText = contactUsGetinTouchForm.find('.form-introduction'),
             tabform = contactUsGetinTouchForm.find('.tab-content'),
@@ -9020,14 +9026,14 @@ INFORMA.forms = (function(window, $, namespace) {
 
     }
 
-    _updateProductVerticalName = function() {
+    _updateProductVerticalName = function () {
         var productId = {
             'guid': $('.page-id').val()
         };
         _getAjaxData(Urls.GetProductAndVerticalNames, "Get", productId, _parseVerticalName, null, null);
     }
 
-    _destroyChosenInDevice = function() {
+    _destroyChosenInDevice = function () {
         if (INFORMA.global.device.isTablet || INFORMA.global.device.isMobile) {
             if ($('form.wffm-form .chosen-select').length > 0) {
                 $('form.wffm-form .chosen-select').chosen('destroy');
@@ -9036,7 +9042,7 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
-    _customPhoneErrorMsg = function() {
+    _customPhoneErrorMsg = function () {
         var phoneErorrMsg = $('form.wffm-form input[type="number"]').attr('data-val-regex');
         if (phoneErorrMsg) {
             $.extend($.validator.messages, {
@@ -9045,49 +9051,49 @@ INFORMA.forms = (function(window, $, namespace) {
         }
     }
 
-    _validateCountry = function() {
-        $('.wffm-form .chosen-container').on('click mousedown', function(e) {
+    _validateCountry = function () {
+        $('.wffm-form .chosen-container').on('click mousedown', function (e) {
             e.preventDefault();
             var selectform = $(this).find('.select-default');
-            if(selectform.text()){
-                selectform.css('display','none');
+            if (selectform.text()) {
+                selectform.css('display', 'none');
             }
         });
     }
 
-    _reCaptchaAccessbility = function() {
-        $(window).load(function() {
+    _reCaptchaAccessbility = function () {
+        $(window).load(function () {
             $('.g-recaptcha-response').attr('aria-labelledby', 'g-recaptcha-response');
         });
     }
 
-    _resetFormOnRefresh = function() {
-        $(window).bind("pageshow", function() {
+    _resetFormOnRefresh = function () {
+        $(window).bind("pageshow", function () {
             var form = $('.wffm-form');
             if (form.length > 0) {
-                $.each(form, function() {
+                $.each(form, function () {
                     _resetForm($(this));
                 });
             }
         });
     }
 
-    _UpdateHiddenFields = function() {
-        if($('.wffm-form').length > 0) {
-            $('.wffm-form').each(function() {
-                var clientId = $(this).attr('id')
-                var inputClientIdEl = $(this).find('.form-clientid');
-                if(inputClientIdEl.length){
-                    inputClientIdEl.val(clientId); 
-                }
-             });
+    _UpdateHiddenFields = function () {
+        if ($('.wffm-form').length > 0) {
+            $('.wffm-form').each(function () {
+                var clientId = $(this).attr('id')
+                var inputClientIdEl = $(this).find('.form-clientid');
+                if (inputClientIdEl.length) {
+                    inputClientIdEl.val(clientId);
+                }
+            });
         }
     }
 
 
-    _UpdateProductName = function() {
+    _UpdateProductName = function () {
         var ProductList = $('.product-list');
-        ProductList.each(function() {
+        ProductList.each(function () {
             var Parent = $(this).parents('form'),
                 SelectedItem = $(this).val();
 
@@ -9095,7 +9101,7 @@ INFORMA.forms = (function(window, $, namespace) {
         })
     }
 
-    init = function() {
+    init = function () {
         //Update hidden fields on load
 
         _UpdateHiddenFields();
@@ -9315,6 +9321,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpLinkSpan = $('#pdp-navigation ul > li > a > span'),
         _pdpFixed = false,
         _pdpMenuPos = [],
+		_pdpMenuPosBottom = [],
         _pdpMenuWidth = [],
         _pdpMenuleft = [],
         _pdpMenuDefaultIndex = 0,
@@ -9602,7 +9609,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         var _fixedNavHeight;
         if (INFORMA.global.device.isDesktop) {
             _fixedNavHeight = _navHeight;
-            _pdpNavigationHeight = $('#pdp-navigation').height();
+            _pdpNavigationHeight = $('#pdp-navigation').outerHeight();
         } else {
             _fixedNavHeight = _navHeightMobile;
             _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
@@ -9684,6 +9691,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             if (_arrayFlag) {
                 _pdpMenuPos = [];
+				_pdpMenuPosBottom = [];
                 _pdpMenuWidth = [];
                 _pdpMenuleft = [];
                 _pdpLink = $('#pdp-navigation ul > li > a');
@@ -9693,6 +9701,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     var _sectionIndex = $(_pdpLink[i]).data('target-index');
                     if ($('#' + _sectionName).length > 0) {
                         _pdpMenuPos.push($($("[id='" + _sectionName + "']")[_sectionIndex]).offset().top);
+						_pdpMenuPosBottom.push($($("[id='" + _sectionName + "']")[_sectionIndex]).offset().top + $($("[id='" + _sectionName + "']")[_sectionIndex]).height());
                     } else {
                         _pdpMenuPos.push(0);
                     }
@@ -9728,35 +9737,18 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         }
 
         if (INFORMA.global.device.isDesktop) {
-            var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
             var j = _pdpMenuPos.length - 1;
-            var windowPostion = _windowPos + _fixedHeights;
-            var finalIndex = 0;
-            var diff;
+            var windowPostion = _windowPos + _fixedNavHeight + _pdpNavigationHeight + _cookieHeight;
+            var finalIndex = -1;
             for (; j >= 0; j--) {
-                var menuPosition = _pdpMenuPos[j];
-                if (diff) {
-                    if (diff > (windowPostion - menuPosition)) {
-                        diff = windowPostion - menuPosition;
-                        if (diff >= 0) {
-                            finalIndex = j;
-                        } else {
-                            diff = 0;
-                            finalIndex = _pdpMenuDefaultIndex;
-                        }
-                    }
-                } else {
-                    diff = windowPostion - menuPosition;
-                    if (diff >= 0) {
-                        finalIndex = j;
-                    } else {
-                        diff = 0;
-                        finalIndex = _pdpMenuDefaultIndex;
-                    }
-                }
+				if(windowPostion >=  _pdpMenuPos[j] && windowPostion <= _pdpMenuPosBottom[j]){
+					finalIndex = j;
+				}
             }
-            _pdpMenuFollower.css('width', _pdpMenuWidth[finalIndex]);
-            _pdpMenuFollower.css('left', _pdpMenuleft[finalIndex]);
+			if(finalIndex!= -1) {
+				_pdpMenuFollower.css('width', _pdpMenuWidth[finalIndex]);
+				_pdpMenuFollower.css('left', _pdpMenuleft[finalIndex]);
+			}
         }
     }
 
@@ -9800,7 +9792,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             } else {
                 $('#pdp-navigation li').removeClass('selected');
                 $('#pdp-navigation li').addClass('select-options');
-                _pdpNavigationHeight = _pdpNavigation.height();
+                _pdpNavigationHeight = _pdpNavigation.outerHeight();
                 _target = $(this).data('target');
                 _target_index = $(this).data('target-index');
                 _fixedNavHeight = _navHeightMobile;
@@ -9808,10 +9800,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                 if (anchorElementArrayDesk.length >= [_target_index]) {
                     //Fix ben-2018-onscroll
-                    _scrollTopPixels = $(anchorElementArrayDesk[_target_index]).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
+                    _scrollTopPixels = $(anchorElementArrayDesk[_target_index]).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _cookieHeight);
                     //End
                 } else {
-                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
+                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _cookieHeight);
                 }
                 $('html, body').stop().animate({
                     scrollTop: _scrollTopPixels
@@ -9918,7 +9910,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                     _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
                     $('html, body').stop().animate({
-                        scrollTop: _scrollTopPixels
+                        scrollTop: $(this).parents('section').offset().top
                     }, 1000);
 
                     _expandedServicesNav = false;
