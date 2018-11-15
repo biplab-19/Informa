@@ -1,4 +1,4 @@
-/*! 2018-11-12 *//*
+/*! 2018-11-15 *//*
  * google-analytics.js
  *
  *
@@ -9910,7 +9910,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                     _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
                     $('html, body').stop().animate({
-                        scrollTop: _scrollTopPixels
+                        scrollTop: $(this).parents('section').offset().top
                     }, 1000);
 
                     _expandedServicesNav = false;
@@ -13435,12 +13435,24 @@ INFORMA.sectorPageStrengths = (function (window, $, namespace) {
         })
     };
 
+    // _bindShowLess = function () {
+    //     var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
+    //     _showLess.on('click', function () {
+    //         // Removed to stop onscroll to parent div
+    //         // $('html, body').animate({
+    //         //     scrollTop: _sectorPageStrengths.offset().top
+    //         // }, 700);
+    //         // End
+    //     });
+    // };
+
     _bindShowLess = function () {
         var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
+
         _showLess.on('click', function () {
-            // $('html, body').animate({
-            //     scrollTop: _sectorPageStrengths.offset().top - 35
-            // }, 700);
+            $('html, body').animate({
+                scrollTop: $(this).parents('section').offset().top
+            }, 700);
         });
     };
     init = function () {
