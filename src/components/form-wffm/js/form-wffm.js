@@ -190,7 +190,7 @@ INFORMA.forms = (function (window, $, namespace) {
 					var widgetId = null;
 					widgetId = grecaptcha.render($(grecaptchaDiv).attr('id'), {
 						'sitekey': $(grecaptchaDiv).data('sitekey')
-					});
+						});
                     grecaptcha.reset();
                     grecaptcha.execute(widgetId);
                 }
