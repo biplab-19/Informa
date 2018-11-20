@@ -1,4 +1,4 @@
-/*! 2018-11-15 *//*
+/*! 2018-11-20 *//*
  * google-analytics.js
  *
  *
@@ -9,9 +9,7 @@
  * @namespaces: INFORMA
  *
  */
-widgetId = grecaptcha.render($(grecaptchaDiv).attr('id'), {
-    'sitekey': $(grecaptchaDiv).data('sitekey')
-});
+
 var INFORMA = window.INFORMA || {};
 INFORMA.Analytics = (function(window, $, namespace) {
     'use strict';
@@ -12619,7 +12617,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ProductSearchText = $('input[name="SearchText"]'),
         SeeAllButton = SearchContent.find(".see-all"),
         IsShowFlag = false,
-        PageNo = 2,
+        PageNo = 3,
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,getSubsectors,UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
