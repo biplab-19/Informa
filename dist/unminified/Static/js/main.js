@@ -1,4 +1,4 @@
-/*! 2018-11-20 *//*
+/*! 2018-11-26 *//*
  * google-analytics.js
  *
  *
@@ -15,112 +15,112 @@ INFORMA.Analytics = (function(window, $, namespace) {
     'use strict';
     //variables
     var trackFormEvents,
-        trackEvents,
-        trackFormWithoutModal,
-        bannerText = $('#banner').find("a.subscribe-stick");
+    trackEvents,
+    trackFormWithoutModal,
+    bannerText = $('#banner').find("a.subscribe-stick");
 
     trackFormEvents = function(obj, action, label){
-        if(typeof obj === 'object'){
-            var dataModal,
-                Parent,
-                replaceValue,
-                value,
-                newReplaceValue,
-                contactUsForm = obj.parents('.contactUsPage-contactUs'),
-                singleStepRegistrationForm = obj.parents('.registration-form-single-section');
-            if(action === 'Open'){
-                dataModal = obj.data('modal');
-                if(dataModal === '#Intelligence'){
-                    replaceValue = dataModal.replace(dataModal,'#formRequestADemo');
-                    newReplaceValue = replaceValue.replace('#','');
-                    value = newReplaceValue.charAt(0).toUpperCase() + newReplaceValue.substr(1);
-                }
-                else if(dataModal === '#Insight'){
-                    replaceValue = dataModal.replace(dataModal,'#formRequestATrial');
-                    newReplaceValue = replaceValue.replace('#','');
-                    value = newReplaceValue.charAt(0).toUpperCase() + newReplaceValue.substr(1);
-                }
-                else if(contactUsForm.length > 0){
-                    value = trackFormWithoutModal(contactUsForm);
-                }
-                else{
-                    replaceValue = dataModal.replace('#',''),
-                        value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
-                }
-            }
-            else{
-                Parent =  obj.parents('.modal.in form');
-                dataModal = Parent.data('formcapture');
-                if(dataModal === 'Intelligence'){
-                    replaceValue = dataModal.replace(dataModal,'formRequestADemo');
-                    value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
-                }
-                else if(dataModal === 'Insight'){
-                    replaceValue = dataModal.replace(dataModal,'formRequestATrial');
-                    value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
-                }
-                else if(contactUsForm.length > 0){
-                    value = trackFormWithoutModal(contactUsForm);
-                }
-                else if(singleStepRegistrationForm.length > 0){
-                    dataModal = singleStepRegistrationForm.find('.form-inline-container form').data('formcapture');
-                    value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
-                }
-                else{
-                    value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
-                }
-            }
-
-            if(dataModal || contactUsForm){
-                trackEvents('Form', action, value,1)
-            }
+      if(typeof obj === 'object'){
+        var dataModal,
+          Parent,
+          replaceValue,
+          value,
+          newReplaceValue,
+          contactUsForm = obj.parents('.contactUsPage-contactUs'),
+          singleStepRegistrationForm = obj.parents('.registration-form-single-section');
+        if(action === 'Open'){
+          dataModal = obj.data('modal');
+          if(dataModal === '#Intelligence'){
+            replaceValue = dataModal.replace(dataModal,'#formRequestADemo');
+            newReplaceValue = replaceValue.replace('#','');
+            value = newReplaceValue.charAt(0).toUpperCase() + newReplaceValue.substr(1);
+          }
+          else if(dataModal === '#Insight'){
+            replaceValue = dataModal.replace(dataModal,'#formRequestATrial');
+            newReplaceValue = replaceValue.replace('#','');
+            value = newReplaceValue.charAt(0).toUpperCase() + newReplaceValue.substr(1);
+          }
+          else if(contactUsForm.length > 0){
+            value = trackFormWithoutModal(contactUsForm);
+          }
+          else{
+            replaceValue = dataModal.replace('#',''),
+            value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1); 
+          }  
         }
+        else{
+          Parent =  obj.parents('.modal.in form');
+          dataModal = Parent.data('formcapture');
+          if(dataModal === 'Intelligence'){
+            replaceValue = dataModal.replace(dataModal,'formRequestADemo');
+            value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+          }
+          else if(dataModal === 'Insight'){
+            replaceValue = dataModal.replace(dataModal,'formRequestATrial');
+            value = replaceValue.charAt(0).toUpperCase() + replaceValue.substr(1);
+          }
+          else if(contactUsForm.length > 0){
+            value = trackFormWithoutModal(contactUsForm);
+          }
+          else if(singleStepRegistrationForm.length > 0){
+            dataModal = singleStepRegistrationForm.find('.form-inline-container form').data('formcapture');
+            value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
+          }
+          else{
+            value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
+          }  
+        }
+
+        if(dataModal || contactUsForm){
+          trackEvents('Form', action, value,1)
+        }
+      }
     }
 
     trackFormWithoutModal = function(contactUsForm){
-        var dataModal = contactUsForm.find('.tab-pane.active').find('.form-inline-container form').data('formcapture');
-        if(dataModal){
-            var value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
-        }
-        return value;
+      var dataModal = contactUsForm.find('.tab-pane.active').find('.form-inline-container form').data('formcapture');
+      if(dataModal){
+        var value = dataModal.charAt(0).toUpperCase() + dataModal.substr(1);
+      }
+      return value;
     }
 
-
+ 
 
     trackEvents = function( category, action, label,value){
-        //check if ga is set (latest version)
-        if (typeof ga !== 'undefined') {
-            ga('send', {
-                hitType: 'event',
-                eventCategory: category,
-                eventAction: action,
-                eventLabel: label,
-                eventValue:value
-            });
-        }
+      //check if ga is set (latest version)
+      if (typeof ga !== 'undefined') {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: category,
+          eventAction: action,
+          eventLabel: label,
+          eventValue:value
+        });
+      }
 
-        //check if _gaq is set (legacy version)
-        if (typeof _gaq !== 'undefined') {
-            _gaq.push(['_trackEvent', category, action, label]);
-        }
-
+      //check if _gaq is set (legacy version)
+      if (typeof _gaq !== 'undefined') {
+        _gaq.push(['_trackEvent', category, action, label]);
+      }
+     
     }
 
     bannerText.click(function (event) {
-        var input = $(this).text();
-        var output = input.replace(/\w+/g, function(txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1);
-        }).replace(/\s/g, '');
-        trackEvents('Form', 'Open', output,1)
+      var input = $(this).text();
+      var output = input.replace(/\w+/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1);
+      }).replace(/\s/g, '');
+      trackEvents('Form', 'Open', output,1)
     });
 
     $('body').on('click', '.register,.product-login', function(e) {
-        if($(this).hasClass('register')){
-            trackEvents('Form', 'Open', 'EventRegister',1)
-        }
-        else if($(this).hasClass('product-login')){
-            trackEvents('Form', 'Open', 'ProductLogin',1)
-        }
+      if($(this).hasClass('register')){
+         trackEvents('Form', 'Open', 'EventRegister',1)
+      }
+      else if($(this).hasClass('product-login')){
+        trackEvents('Form', 'Open', 'ProductLogin',1)
+      }
     })
     return {
         trackFormEvents: trackFormEvents
@@ -183,7 +183,7 @@ var INFORMA = window.INFORMA || {};
             "GetRecomendedItems": "/client/Account/GetRemainingContent",
             "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent",
             "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct",
-            "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie"
+            "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie" 
 
         }
     };
@@ -191,8 +191,8 @@ var INFORMA = window.INFORMA || {};
     INFORMA.Configs = (function() {
         function _config() {
             this.urls = {
-                "webservices": endPoints[env]
-            },
+                    "webservices": endPoints[env]
+                },
                 this.searchResult = {
                     "pageSize": 6
                 },
@@ -3896,7 +3896,7 @@ var logThis = function(throwLog) {
                     url:service,
                     data: Settings.data,
                     cache: Settings.cache,
-                    contentType: Settings.contentType,
+                    contentType: Settings.contentType,  
                     dataType: Settings.dataType,
                     headers: Settings.headers,
                     success: function(msg) {
@@ -3934,52 +3934,52 @@ var logThis = function(throwLog) {
 
 var INFORMA = window.INFORMA || {};
 INFORMA.global = (function(window, $, namespace) {
-    'use strict';
-    //variables
-    var device = {},
-        siteCore = {},
-        _html = $('html');
+	'use strict';
+	//variables
+	var device = {},
+		siteCore = {},
+		_html = $('html');
 
-    var init = function(){
-        // viewport properties
-        var _viewportWidth = $(window).width();
-        if(_viewportWidth >= 1024){
-            device.isDesktop = true;
-            device.viewport = 'desktop';
-            device.viewportN = 0;
-        }
-        else if(_viewportWidth >= 768){
-            device.isTablet = true;
-            device.viewport = 'tablet';
-            device.viewportN = 1;
-        }
-        else {
-            device.isMobile = true;
-            device.viewport = 'mobile';
-            device.viewportN = 2;
-        }
-        _html.addClass(device.viewport);
+	var init = function(){
+		// viewport properties
+		var _viewportWidth = $(window).width();
+		if(_viewportWidth >= 1024){
+			device.isDesktop = true;
+			device.viewport = 'desktop';
+			device.viewportN = 0;
+		}
+		else if(_viewportWidth >= 768){
+			device.isTablet = true;
+			device.viewport = 'tablet';
+			device.viewportN = 1;
+		}
+		else {
+			device.isMobile = true;
+			device.viewport = 'mobile';
+			device.viewportN = 2;
+		}
+		_html.addClass(device.viewport);
 
-        // siteCore properties
-        if( $('html').hasClass('preview-mode')){
-            siteCore.isPreview = true;
-        }
-        else if($('html').hasClass('experience-mode')){
-            siteCore.isExperience = true;
-        }
-    }
+		// siteCore properties
+		if( $('html').hasClass('preview-mode')){
+			siteCore.isPreview = true;
+		}
+		else if($('html').hasClass('experience-mode')){
+			siteCore.isExperience = true;
+		}
+	}
 
-    return {
-        init: init,
-        device: device,
-        siteCore: siteCore
-    };
+	return {
+		init: init,
+		device: device,
+		siteCore: siteCore
+	};
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.global.init());
 
 (function ($) {
     'use strict';
-    //==================================================
+	//==================================================
     // DOCUMENT READY & BootStraping init method for all modules loaded in the page...
     //--------------------------------------------------
     $(function () {
@@ -3989,14 +3989,14 @@ jQuery(INFORMA.global.init());
             if (INFORMA[data]) {
                 INFORMA[data].init();
             }
-        }
-        //Page Specific components
+		}
+		//Page Specific components
         for (components in INFORMA.initUI) {
             data = INFORMA.initUI[components];
             if (INFORMA[data]) {
                 INFORMA[data].init(components);
             }
-        }
+		}
     }());
     //--------------------------------------------------
     // end DOCUMENT READY...
@@ -4005,7 +4005,7 @@ jQuery(INFORMA.global.init());
 
 (function ($) {
     'use strict';
-    //==================================================
+	//==================================================
     // DOCUMENT READY & BootStraping init method for all modules loaded in the page...
     //--------------------------------------------------
     $(function () {
@@ -4015,14 +4015,14 @@ jQuery(INFORMA.global.init());
             if (INFORMA[data]) {
                 INFORMA[data].init();
             }
-        }
-        //Page Specific components
+		}
+		//Page Specific components
         for (components in INFORMA.initUI) {
             data = INFORMA.initUI[components];
             if (INFORMA[data]) {
                 INFORMA[data].init(components);
             }
-        }
+		}
     }());
     //--------------------------------------------------
     // end DOCUMENT READY...
@@ -4051,7 +4051,7 @@ jQuery(INFORMA.global.init());
             };
 
             this.Show = function(container) {
-                objectContainer = container;
+            	objectContainer = container;
                 var IsSpinnerExist = objectContainer.find(".load-spinner");
 
                 if (!IsSpinnerExist.length) {
@@ -4079,7 +4079,7 @@ jQuery(INFORMA.global.init());
     }());
 }(window, INFORMA, jQuery));
 
-/*
+    /*
  * global.js
  *
  *
@@ -4095,1200 +4095,1200 @@ var INFORMA = window.INFORMA || {};
 (function(window, $, namespace) {
     'use strict';
     //variables
-    INFORMA.Templates = {
-        'articleListItems':
-            '{{#each Articles}}'+
+  INFORMA.Templates = {
+    'articleListItems':
+        '{{#each Articles}}'+
             '<li>'+
-            '<div class="col-xs-12">'+
-            '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
-            '<div class="recomend-content">'+
-            '<div class="content">'+
-            '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
-            '<p class="type">'+
-            '<span>{{SamplecontentProducts}}</span>'+
-            '</p>'+
-            '{{/compare}}'+
-            '{{#compare PageURL null operator="!="}}' +
-            '{{#compare PageURL.length "0" operator=">"}}' +
-            '{{#if HasExternalLink}}'+
-            '{{#compare HasExternalLink true operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<h4><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/if}}'+
+                '<div class="col-xs-12">'+
+                    '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
+                        '<div class="recomend-content">'+
+                            '<div class="content">'+
+                                '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
+                                    '<p class="type">'+
+                                        '<span>{{SamplecontentProducts}}</span>'+
+                                    '</p>'+
+                                '{{/compare}}'+
+                                '{{#compare PageURL null operator="!="}}' +
+                                    '{{#compare PageURL.length "0" operator=">"}}' +
+                                        '{{#if HasExternalLink}}'+
+                                            '{{#compare HasExternalLink true operator="=="}}'+
+                                                '{{#if LinkText}}'+
+                                                    '<h4><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/if}}'+
 
-            '{{#compare HasExternalLink false operator="=="}}'+
-            '{{#compare ShowForm false operator="=="}}'+
-            '{{#compare IsAuthenticatedUser false operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<h4><a href="{{PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_blank">{{Title}}</a></h4>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare ShowForm true operator="=="}}'+
-            '{{#compare IsAuthenticatedUser false operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<h4><a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{Title}}</a></h4>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare IsAuthenticatedUser true operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<h4><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare PageURL.length "0" operator="=="}}' +
-            '<h4><span>{{Title}}</span></h4>'+
-            '{{/compare}}'+
-            '<p class="publish">{{#if Profile}}{{ByKeyword}} <strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
-            '{{#compare Description null operator="!="}}'+
-            '<p class="description">{{Description}}</p>'+
-            '{{/compare}}'+
-            '{{#compare Video null operator="!="}}'+
-            '<div class="video-container">'+
-            '{{#compare HasExternalLink false operator="=="}}'+
-            '{{#compare ShowForm true operator="=="}}'+
-            '{{#compare IsAuthenticatedUser false operator="=="}}'+
-            '<a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">'+
-            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{#compare IsAuthenticatedUser true operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_self">{{LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare ShowForm false operator="=="}}'+
-            '{{#compare IsAuthenticatedUser false operator="=="}}'+
-            '<a href="{{Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0">'+
-            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare IsAuthenticatedUser true operator="=="}}'+
-            '<a href="{{Video.Url}}" class="video-link"  tabindex="0">'+
-            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare HasExternalLink true operator="=="}}'+
-            '<a href="{{Video.Url}}" class="video-link"  tabindex="0">'+
-            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '{{/compare}}'+
-            '</div>'+
-            '{{/compare}}'+
-            '</div>'+
-            // '{{#compare Brand.length 0 operator=">"}}'+
-            //         '<p class="brands">'+
-            //             '{{#each Brand}}'+
-            //                     '<span>{{this}}</span>'+
-            //             '{{/each}}'+
-            //         '</p>'+
-            // '{{/compare}}'+
-            '{{#compare TopicURLS.length "0" operator=">"}}'+
-            '<p class="topics">'+
-            '{{TopicKeyword}} '+
-            '{{#each TopicURLS}}'+
-            '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
-            '{{/each}}'+
-            '</p>'+
-            '{{/compare}}'+
-            '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
-            '{{#compare SubSectorsUrlDetails.length 0 operator=">"}}'+
-            '<p class="SubSectors">'+
-            '<span>{{SubSectorKeyword}}</span>'+
-            '{{#each SubSectorsUrlDetails}}'+
-            '<span>'+
-            '<a href="{{this.Value}}">{{this.Key}}</a>'+
-            '</span>'+
-            '{{/each}}'+
-            '</p>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</div>'+
-            '<div class="footer">'+
-            '{{#compare Price null operator="!="}}'+
-            '<div class="recomended-currency"><strong>{{Price}}</strong></div>'+
-            '{{/compare}}'+
-            '{{#compare PageURL null operator="!="}}' +
-            '{{#compare PageURL.length "0" operator=">"}}' +
-            '{{#if HasExternalLink}}'+
-            '{{#compare HasExternalLink true operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/if}}'+
+                                        '{{#compare HasExternalLink false operator="=="}}'+
+                                            '{{#compare ShowForm false operator="=="}}'+
+                                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                    '{{#if LinkText}}'+
+                                                        '<h4><a href="{{PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_blank">{{Title}}</a></h4>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                            '{{#compare ShowForm true operator="=="}}'+
+                                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                    '{{#if LinkText}}'+
+                                                        '<h4><a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{Title}}</a></h4>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                            '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                                '{{#if LinkText}}'+
+                                                    '<h4><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
+                                '{{#compare PageURL.length "0" operator="=="}}' +
+                                    '<h4><span>{{Title}}</span></h4>'+
+                                '{{/compare}}'+
+                                '<p class="publish">{{#if Profile}}{{ByKeyword}} <strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
+                                '{{#compare Description null operator="!="}}'+
+                                    '<p class="description">{{Description}}</p>'+
+                                '{{/compare}}'+
+                                '{{#compare Video null operator="!="}}'+
+                                    '<div class="video-container">'+
+                                        '{{#compare HasExternalLink false operator="=="}}'+
+                                            '{{#compare ShowForm true operator="=="}}'+
+                                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                    '<a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">'+
+                                                        '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                                        '<span class="play-icon icon-play"></span>'+
+                                                    '</a>'+
+                                                '{{/compare}}'+
+                                                '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                                    '{{#if LinkText}}'+
+                                                        '<div class="btn-container text-right">'+
+                                                            '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_self">{{LinkText}}</a>'+
+                                                        '</div>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                            '{{#compare ShowForm false operator="=="}}'+
+                                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                    '<a href="{{Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0">'+
+                                                        '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                                        '<span class="play-icon icon-play"></span>'+
+                                                    '</a>'+
+                                                '{{/compare}}'+    
+                                            '{{/compare}}'+
+                                            '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                                '<a href="{{Video.Url}}" class="video-link"  tabindex="0">'+
+                                                    '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                                    '<span class="play-icon icon-play"></span>'+
+                                                '</a>'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+  
+                                         '{{#compare HasExternalLink true operator="=="}}'+
+                                            '<a href="{{Video.Url}}" class="video-link"  tabindex="0">'+
+                                                '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                                '<span class="play-icon icon-play"></span>'+
+                                            '</a>'+
+                                         '{{/compare}}'+
+                                    '</div>'+
+                                '{{/compare}}'+
+                            '</div>'+
+                            // '{{#compare Brand.length 0 operator=">"}}'+
+                            //         '<p class="brands">'+
+                            //             '{{#each Brand}}'+
+                            //                     '<span>{{this}}</span>'+
+                            //             '{{/each}}'+
+                            //         '</p>'+
+                            // '{{/compare}}'+
+                                '{{#compare TopicURLS.length "0" operator=">"}}'+
+                                    '<p class="topics">'+
+                                        '{{TopicKeyword}} '+
+                                        '{{#each TopicURLS}}'+
+                                            '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                                '{{/compare}}'+
+                                '{{#compare ShowSubSectorOnSampleContentPage true operator="=="}}'+
+                                    '{{#compare SubSectorsUrlDetails.length 0 operator=">"}}'+
+                                        '<p class="SubSectors">'+
+                                            '<span>{{SubSectorKeyword}}</span>'+
+                                            '{{#each SubSectorsUrlDetails}}'+
+                                                '<span>'+
+                                                    '<a href="{{this.Value}}">{{this.Key}}</a>'+
+                                                '</span>'+
+                                            '{{/each}}'+
+                                        '</p>'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
+                        '</div>'+
+                        '<div class="footer">'+
+                            '{{#compare Price null operator="!="}}'+
+                                    '<div class="recomended-currency"><strong>{{Price}}</strong></div>'+
+                            '{{/compare}}'+
+                            '{{#compare PageURL null operator="!="}}' +
+                                '{{#compare PageURL.length "0" operator=">"}}' +
+                                    '{{#if HasExternalLink}}'+
+                                        '{{#compare HasExternalLink true operator="=="}}'+
+                                            '{{#if LinkText}}'+
+                                                '<div class="btn-container text-right">'+
+                                                    '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{LinkText}}</a>'+
+                                                '</div>'+
+                                            '{{/if}}'+
+                                        '{{/compare}}'+
+                                    '{{/if}}'+
 
-            '{{#compare HasExternalLink false operator="=="}}'+
-            '{{#compare ShowForm false operator="=="}}'+
-            '{{#compare IsAuthenticatedUser false operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn show-content-first-time" data-firstcontent="true" target="_self">{{LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare ShowForm true operator="=="}}'+
-            '{{#compare IsAuthenticatedUser false operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{#compare IsAuthenticatedUser true operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_self">{{LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare IsAuthenticatedUser true operator="=="}}'+
-            '{{#if LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare PageURL.length "0" operator="=="}}' +
-            '<div class="btn-container text-right">'+
-            '<a class="btn btn-primary" disabled>{{LinkText}}</a>'+
-            '</div>'+
-            '{{/compare}}'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
+                                    '{{#compare HasExternalLink false operator="=="}}'+
+                                        '{{#compare ShowForm false operator="=="}}'+
+                                            '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                '{{#if LinkText}}'+
+                                                    '<div class="btn-container text-right">'+
+                                                        '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn show-content-first-time" data-firstcontent="true" target="_self">{{LinkText}}</a>'+
+                                                    '</div>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                        '{{#compare ShowForm true operator="=="}}'+
+                                            '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                '{{#if LinkText}}'+
+                                                    '<div class="btn-container text-right">'+
+                                                        '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{LinkText}}</a>'+
+                                                    '</div>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                            '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                                '{{#if LinkText}}'+
+                                                    '<div class="btn-container text-right">'+
+                                                        '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_self">{{LinkText}}</a>'+
+                                                    '</div>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                        '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                            '{{#if LinkText}}'+
+                                                '<div class="btn-container text-right">'+
+                                                    '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{LinkText}}</a>'+
+                                                '</div>'+
+                                            '{{/if}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
+                            '{{/compare}}'+
+                            '{{#compare PageURL.length "0" operator="=="}}' +
+                                '<div class="btn-container text-right">'+
+                                    '<a class="btn btn-primary" disabled>{{LinkText}}</a>'+
+                                '</div>'+
+                            '{{/compare}}'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
             '</li>'+
-            '{{/each}}',
+          '{{/each}}',
         'HeadlinesListItems':
             '{{#each Headlines}}'+
-            '<li>'+
-            '{{#compare ProductBrandName.length "0" operator=">"}}'+
-            '<p class="type">'+
-            '<span>{{ProductBrandName}}</span>'+
-            '</p>'+
-            '{{/compare}}'+
-            '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
-            '<p class="type">'+
-            '<span>{{SamplecontentProducts}}</span>'+
-            '</p>'+
-            '{{/compare}}'+
-            '<p class="date">{{PublicationDate}}</p>'+
-            '{{#compare PageURL null operator="!="}}' +
-            '{{#compare PageURL.length "0" operator=">"}}' +
-            '{{#compare HasExternalLink true operator="=="}}'+
-            '<div class="list-content">'+
-            '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
-            '</div>'+
-            '{{/compare}}'+
-            '{{#compare HasExternalLink false operator="=="}}'+
-            '<div class="list-content">'+
-            '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}" target="_self">{{Title}}</a></h4>'+
-            '</div>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare PageURL.length "0" operator="=="}}' +
-            '<div class="list-content">'+
-            '<h4 class="poduct-brand-subheading"><span>{{Title}}</span></h4>'+
-            '</div>'+
-            '{{/compare}}'+
-            '{{#compare PageURL null operator="!="}}' +
-            '{{#compare PageURL.length "0" operator=">"}}' +
-            '{{#compare HasExternalLink true operator="=="}}'+
-            '<div class="link">'+
-            '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
-            '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
-            '</div>'+
-            '{{/compare}}'+
-            '{{#compare HasExternalLink false operator="=="}}'+
-            '<div class="link">'+
-            '<a role="button" href="{{PageURL}}" title="Internal Link" target="_self">'+
-            '<span class="icon-internal-link"><span class="access-link">Link</span></span></a>'+
-            '</div>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</li>'+
+                '<li>'+
+                    '{{#compare ProductBrandName.length "0" operator=">"}}'+
+                        '<p class="type">'+
+                            '<span>{{ProductBrandName}}</span>'+
+                        '</p>'+
+                    '{{/compare}}'+
+                    '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
+                        '<p class="type">'+
+                            '<span>{{SamplecontentProducts}}</span>'+
+                        '</p>'+
+                    '{{/compare}}'+
+                    '<p class="date">{{PublicationDate}}</p>'+
+                    '{{#compare PageURL null operator="!="}}' +
+                        '{{#compare PageURL.length "0" operator=">"}}' +
+                            '{{#compare HasExternalLink true operator="=="}}'+
+                                '<div class="list-content">'+
+                                    '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
+                                '</div>'+
+                            '{{/compare}}'+
+                            '{{#compare HasExternalLink false operator="=="}}'+
+                                '<div class="list-content">'+
+                                    '<h4 class="poduct-brand-subheading"><a href="{{PageURL}}" target="_self">{{Title}}</a></h4>'+
+                                '</div>'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                    '{{/compare}}'+
+                    '{{#compare PageURL.length "0" operator="=="}}' +
+                        '<div class="list-content">'+
+                            '<h4 class="poduct-brand-subheading"><span>{{Title}}</span></h4>'+
+                        '</div>'+
+                    '{{/compare}}'+
+                    '{{#compare PageURL null operator="!="}}' +
+                        '{{#compare PageURL.length "0" operator=">"}}' +
+                            '{{#compare HasExternalLink true operator="=="}}'+
+                                '<div class="link">'+
+                                    '<a role="button" href="{{PageURL}}" title="External Link" target="_blank">'+
+                                    '<span class="icon-external-link"><span class="access-link">Link</span></span></a>'+
+                                '</div>'+
+                            '{{/compare}}'+  
+                             '{{#compare HasExternalLink false operator="=="}}'+
+                                '<div class="link">'+
+                                    '<a role="button" href="{{PageURL}}" title="Internal Link" target="_self">'+
+                                    '<span class="icon-internal-link"><span class="access-link">Link</span></span></a>'+
+                                '</div>'+
+                            '{{/compare}}'+  
+                        '{{/compare}}'+
+                    '{{/compare}}'+
+                '</li>'+
             '{{/each}}',
         'SubSectorList':
             '{{#each SubSectors}}'+
-            '<option value="{{SubSectorID}}">{{SubSectorName}}</option>'+
+                '<option value="{{SubSectorID}}">{{SubSectorName}}</option>'+
             '{{/each}}',
-        'RefineFacets':
+    'RefineFacets':
             '{{#each results}}'+
-            '<li>'+
-            '<span class="custom-checkbox">'+
-            '<label for="{{Id}}" class="label">'+
-            '<input type="checkbox" name="{{Name}}" id="{{Id}}" value="{{Value}}" {{#if Disabled}}disabled="disabled"{{/if}} {{#if Selected}}checked="checked"{{/if}} />'+
-            '<span>{{Text}}</span>'+
-            '</label>'+
-            '</span>'+
-            '</li>'+
+                '<li>'+
+                '<span class="custom-checkbox">'+
+                    '<label for="{{Id}}" class="label">'+
+                        '<input type="checkbox" name="{{Name}}" id="{{Id}}" value="{{Value}}" {{#if Disabled}}disabled="disabled"{{/if}} {{#if Selected}}checked="checked"{{/if}} />'+
+                        '<span>{{Text}}</span>'+
+                    '</label>'+
+                '</span>'+
+                '</li>'+
             '{{/each}}',
-        'Resources':
+    'Resources':
             '<ul class="list-container">'+
             '{{#each results}}'+
-            '<li class="col-xs-12 col-sm-6 col-md-4">'+
-            '<div class="columns">'+
-            '<p class="category">'+
-            '<strong>{{SectorType}}</strong>'+
-            '</p>'+
-            '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
-            '<span class="content-type">{{ContentType}}</span>'+
-            '<p class="date">{{PublicationDate}}</p>'+
-            '<div class="list-content">'+
-            '{{#if Description}}'+
-            '<p class="description">{{Description}}</p>'+
-            '<span class="article-info"><em>Author:</em> <strong>{{Profile}}</strong></span>'+
-            '<span class="article-info"><em>Topic:</em>'+
-            '<strong>{{Topic}}</strong>'+
-            '</span>'+
-            '{{/if}}'+
-            '{{#if Video}}'+
-            '<div class="video-container">'+
-            '<a href="{{Video.url}}" class="video-link">'+
-            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
-            '</a>'+
-            '<span class="play-icon"></span>'+
-            '</div>'+
-            '{{/if}}'+
-            '</div>'+
-            '</div>'+
-            '{{#if PageURL}}' +
-            '<div class="btn-container">' +
-            '<a role="button" href="{{PageURL}}" class="btn btn-primary" target="_blank">{{LinkText}}</a>' +
-            '</div>' +
-            '{{/if}}' +
-            '</li>'+
+                '<li class="col-xs-12 col-sm-6 col-md-4">'+
+                    '<div class="columns">'+
+                    '<p class="category">'+
+                      '<strong>{{SectorType}}</strong>'+
+                    '</p>'+
+                    '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
+                    '<span class="content-type">{{ContentType}}</span>'+
+                    '<p class="date">{{PublicationDate}}</p>'+
+                    '<div class="list-content">'+
+                        '{{#if Description}}'+
+                            '<p class="description">{{Description}}</p>'+
+                            '<span class="article-info"><em>Author:</em> <strong>{{Profile}}</strong></span>'+
+                                '<span class="article-info"><em>Topic:</em>'+
+                                    '<strong>{{Topic}}</strong>'+
+                                '</span>'+
+                        '{{/if}}'+
+                        '{{#if Video}}'+
+                            '<div class="video-container">'+
+                                '<a href="{{Video.url}}" class="video-link">'+
+                                    '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
+                                '</a>'+
+                                '<span class="play-icon"></span>'+
+                            '</div>'+
+                        '{{/if}}'+
+                    '</div>'+
+                    '</div>'+
+                    '{{#if PageURL}}' +
+                        '<div class="btn-container">' +
+                          '<a role="button" href="{{PageURL}}" class="btn btn-primary" target="_blank">{{LinkText}}</a>' +
+                        '</div>' +
+                    '{{/if}}' +
+                '</li>'+
             '{{/each}}'+
-            '</ul>',
+        '</ul>',
         'Events':
             '<section class="events-list analyst-profile-events event-profile-container">'+
-            '<div class="container" data-count="3">'+
-            '<div class="events-container row">'+
-            '{{#each results}}'+
-            '<div class="col-xs-12 col-sm-6 col-md-4 events-section">'+
-            '<div class="events-wrap">'+
-            '<div class="header clearfix">'+
-            '<p class="date-field">'+
-            '{{#compare EventDate null operator="!="}}<span class="bold">{{EventDate}}</span>{{/compare}}{{#if EventDate}}{{#if Time}}, {{/if}}{{/if}}{{#compare Time null operator="!="}}<span>{{Time}}</span>{{/compare}}</p>'+
-            '</div>'+
-            '<div class="content-wrap">'+
-            '<p class="country">'+
-            '{{#compare State null operator="!="}}<span>{{State}}</span>{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}}{{#compare Country null operator="!="}}<span class="bold">{{Country}}</span>{{/compare}}'+
-            '</p>'+
-            '<p><span class="type">{{EventType}}</span></p>'+
-            '<h3 class="title">{{Title}}</h3>'+
-            '<div class="content clearfix">'+
-            '<div class="title-content">Presenter:</div>'+
-            '<div class="title-body">'+
-            '<ul class="clearfix">'+
-            '{{#each Presenters}}'+
-            '<li>{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '</div>'+
-            '</div>'+
-            '<div class="content clearfix">'+
-            '<div class="title-content">Themes:</div>'+
-            '<div class="title-body">'+
-            '<ul class="clearfix">'+
-            '{{#each Themes}}'+
-            '<li>{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '<div class="footer clearfix">'+
-            '{{#compare StatusEnabled  true operator="=="}}'+
-            '{{#compare Register null operator="!="}}' +
-            '{{#compare Register.Url null operator="!="}}' +
-            '{{#compare Register.Url.length "0" operator=">"}}' +
-            '<a href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{EventCTAText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare StatusEnabled  false operator="=="}}'+
-            '{{#compare Register null operator="!="}}' +
-            '{{#compare Register.Url null operator="!="}}' +
-            '{{#compare Register.Url.length "0" operator=">"}}' +
-            '<a href="{{Register.Url}}" class="btn btn-default register disabled" target="{{Register.Target}}">{{EventCTAText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare FullDetail null operator="!="}}' +
-            '{{#compare FullDetail.Url null operator="!="}}' +
-            '{{#compare FullDetail.Url.length "0" operator=">"}}' +
-            '<a href="{{FullDetail.Url}}" class="btn btn-default full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '{{/each}}'+
-            '</div>'+
-            '</div>'+
+                '<div class="container" data-count="3">'+
+                    '<div class="events-container row">'+
+                        '{{#each results}}'+
+                            '<div class="col-xs-12 col-sm-6 col-md-4 events-section">'+
+                                '<div class="events-wrap">'+
+                                    '<div class="header clearfix">'+
+                                        '<p class="date-field">'+
+                                            '{{#compare EventDate null operator="!="}}<span class="bold">{{EventDate}}</span>{{/compare}}{{#if EventDate}}{{#if Time}}, {{/if}}{{/if}}{{#compare Time null operator="!="}}<span>{{Time}}</span>{{/compare}}</p>'+
+                                    '</div>'+
+                                    '<div class="content-wrap">'+ 
+                                        '<p class="country">'+
+                                            '{{#compare State null operator="!="}}<span>{{State}}</span>{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}}{{#compare Country null operator="!="}}<span class="bold">{{Country}}</span>{{/compare}}'+
+                                        '</p>'+
+                                        '<p><span class="type">{{EventType}}</span></p>'+
+                                        '<h3 class="title">{{Title}}</h3>'+
+                                        '<div class="content clearfix">'+
+                                            '<div class="title-content">Presenter:</div>'+
+                                            '<div class="title-body">'+
+                                                '<ul class="clearfix">'+
+                                                    '{{#each Presenters}}'+
+                                                    '<li>{{this}}</li>'+
+                                                        '{{/each}}'+
+                                                '</ul>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="content clearfix">'+
+                                            '<div class="title-content">Themes:</div>'+
+                                            '<div class="title-body">'+
+                                                '<ul class="clearfix">'+
+                                                    '{{#each Themes}}'+
+                                                    '<li>{{this}}</li>'+
+                                                        '{{/each}}'+
+                                                '</ul>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '<div class="footer clearfix">'+
+                                    '{{#compare StatusEnabled  true operator="=="}}'+
+                                        '{{#compare Register null operator="!="}}' +
+                                            '{{#compare Register.Url null operator="!="}}' +
+                                                '{{#compare Register.Url.length "0" operator=">"}}' +
+                                                    '<a href="{{Register.Url}}" class="btn btn-default register" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+ 
+                                    '{{#compare StatusEnabled  false operator="=="}}'+   
+                                        '{{#compare Register null operator="!="}}' +
+                                            '{{#compare Register.Url null operator="!="}}' +
+                                                '{{#compare Register.Url.length "0" operator=">"}}' +
+                                                    '<a href="{{Register.Url}}" class="btn btn-default register disabled" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+ 
+                                    '{{#compare FullDetail null operator="!="}}' +
+                                        '{{#compare FullDetail.Url null operator="!="}}' +
+                                            '{{#compare FullDetail.Url.length "0" operator=">"}}' + 
+                                                '<a href="{{FullDetail.Url}}" class="btn btn-default full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '{{/each}}'+
+                    '</div>'+
+                '</div>'+
             '</section>',
         'AnalystList': '<section class="analyst-views">' +
-            '<div class="container">' +
-            '<h2 class="header">{{results.header}}</h2>' +
-            '<div class="row analyst-items">' +
-            '{{#each results.ModelItem}}' +
-            '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{Type}}">' +
-            '<div class="meet-anlyst-section">' +
-            '<div class="anlyst-heading">' +
-            '<div class="analyst-heading-content">' +
-            '<div class="analyst-details">' +
-            '<span class="analyst-type">{{Type}}</span>' +
-            '<h4>{{Name}}</h4>' +
-            '<h5>{{Type}}{{#if Type}}{{#if JobTitle}},{{/if}}{{/if}} {{JobTitle}}</h5>' +
-            '{{#if Country}}'+
-            '<p class="location">{{State}}{{#if Country}}{{#if State}},{{/if}}{{/if}} {{Country}}</p>' +
-            '{{/if}}'+
-            '</div>' +
-            '<div class="analyst-img">' +
-            '{{#if ProfileImage}}'+
-            '<img src="{{ProfileImage}}" alt="{{image}}" />' +
-            '{{/if}}'+
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '<div class="analyst-description">' +
-            '{{#compare Specialization.length 0 operator=">"}}' +
-            '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
-            '<ul class="yellow-bullets">' +
-            '{{#each Specialization}}' +
-            '<li>{{this}}</li>' +
-            '{{/each}}' +
-            '</ul>' +
-            '{{/compare}}'+
-            '<p class="heading">+{{YearsOfExperience}} {{ExperienceText}}</p>' +
-            '{{#compare ProductDetails.length 0 operator=">"}}' +
-            '<ul class="track-analyst clearfix">' +
-            '{{#each ProductDetails}}' +
-            '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
-            '{{/each}}' +
-            '</ul>' +
-            '{{/compare}}' +
-            '</div>' +
-            '<div class="analyst-footer">' +
-            '<div class="analyst-footer-content clearfix">' +
-            '<ul class="nav-links">'+
-            '{{#if LinkedInProfileID}}'+
-            '{{#compare LinkedInProfileID.length "1" operator=">"}}'+
-            '<li>'+
-            '<a class="addthis_button_linkedin_follow" addthis:userid="{{LinkedInProfileID}}"></a>'+
-            '</li>'+
-            '{{/compare}}'+
-            '{{/if}}'+
-            '{{#if TwitterHandleID}}'+
-            '{{#compare TwitterHandleID.length "1" operator=">"}}'+
-            '<li>'+
-            '<a class="addthis_button_twitter_follow" addthis:userid="{{TwitterHandleID}}"></a>'+
-            '</li>'+
-            '{{/compare}}'+
-            '{{/if}}'+
-            '{{#if EmailAddressLink.Url}}'+
-            '{{#compare EmailAddressLink.Url null operator="!="}}'+
-            '<li><a href="{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
-            '{{/compare}}'+
-            '{{/if}}'+
-            '</ul>'+
-            '<a href="{{ProfileUrl}}" class="btn btn-primary pull-right">Full Profile</a>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '{{/each}}' +
-            '</div>' +
-            '{{#compare results.TotalCount "3" operator=">"}}' +
-            '<div class="btn-container text-center">' +
-            '<a href="javascript:void(0)" data-fetch="{{results.SectorID}}" class="btn-plus">' +
-            '<span class="more">See All {{results.TotalCount}} Analysts</span>' +
-            '<span class="less">Hide Analysts</span></a>' +
-            '</div>' +
-            '{{/compare}}' +
-            '</div>' +
-            '</section>',
+                            '<div class="container">' +
+                                '<h2 class="header">{{results.header}}</h2>' +
+                                '<div class="row analyst-items">' +
+                                    '{{#each results.ModelItem}}' +
+                                        '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{Type}}">' +
+                                            '<div class="meet-anlyst-section">' +
+                                                '<div class="anlyst-heading">' +
+                                                    '<div class="analyst-heading-content">' +
+                                                        '<div class="analyst-details">' +
+                                                          '<span class="analyst-type">{{Type}}</span>' +
+                                                            '<h4>{{Name}}</h4>' +
+                                                            '<h5>{{Type}}{{#if Type}}{{#if JobTitle}},{{/if}}{{/if}} {{JobTitle}}</h5>' +
+                                                            '{{#if Country}}'+
+                                                            '<p class="location">{{State}}{{#if Country}}{{#if State}},{{/if}}{{/if}} {{Country}}</p>' +
+                                                            '{{/if}}'+
+                                                        '</div>' +
+                                                        '<div class="analyst-img">' +
+                                                            '{{#if ProfileImage}}'+
+                                                            '<img src="{{ProfileImage}}" alt="{{image}}" />' +
+                                                            '{{/if}}'+
+                                                        '</div>' +
+                                                    '</div>' +
+                                                '</div>' +
+                                                '<div class="analyst-description">' +
+                                                    '{{#compare Specialization.length 0 operator=">"}}' +
+                                                        '<p class="heading"><em>{{FirstName}}</em> {{SpecializationText}}</p>' +
+                                                        '<ul class="yellow-bullets">' +
+                                                            '{{#each Specialization}}' +
+                                                                '<li>{{this}}</li>' +
+                                                            '{{/each}}' +
+                                                        '</ul>' +
+                                                    '{{/compare}}'+
+                                                    '<p class="heading">+{{YearsOfExperience}} {{ExperienceText}}</p>' +
+                                                    '{{#compare ProductDetails.length 0 operator=">"}}' +
+                                                        '<ul class="track-analyst clearfix">' +
+                                                            '{{#each ProductDetails}}' +
+                                                                '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
+                                                            '{{/each}}' +
+                                                        '</ul>' +
+                                                    '{{/compare}}' +
+                                                '</div>' +
+                                                '<div class="analyst-footer">' +
+                                                    '<div class="analyst-footer-content clearfix">' +
+                                                        '<ul class="nav-links">'+
+                                                            '{{#if LinkedInProfileID}}'+
+                                                                '{{#compare LinkedInProfileID.length "1" operator=">"}}'+
+                                                                '<li>'+
+                                                                    '<a class="addthis_button_linkedin_follow" addthis:userid="{{LinkedInProfileID}}"></a>'+
+                                                                '</li>'+
+                                                                '{{/compare}}'+
+                                                            '{{/if}}'+
+                                                            '{{#if TwitterHandleID}}'+
+                                                                '{{#compare TwitterHandleID.length "1" operator=">"}}'+
+                                                                '<li>'+
+                                                                    '<a class="addthis_button_twitter_follow" addthis:userid="{{TwitterHandleID}}"></a>'+
+                                                                '</li>'+
+                                                                '{{/compare}}'+
+                                                            '{{/if}}'+
+                                                            '{{#if EmailAddressLink.Url}}'+
+                                                                '{{#compare EmailAddressLink.Url null operator="!="}}'+
+                                                                    '<li><a href="{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                '{{/compare}}'+
+                                                            '{{/if}}'+
+                                                        '</ul>'+
+                                                        '<a href="{{ProfileUrl}}" class="btn btn-primary pull-right">Full Profile</a>' +
+                                                    '</div>' +
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '{{/each}}' +
+                                '</div>' +
+                                '{{#compare results.TotalCount "3" operator=">"}}' +
+                                    '<div class="btn-container text-center">' +
+                                        '<a href="javascript:void(0)" data-fetch="{{results.SectorID}}" class="btn-plus">' +
+                                        '<span class="more">See All {{results.TotalCount}} Analysts</span>' +
+                                        '<span class="less">Hide Analysts</span></a>' +
+                                    '</div>' +
+                                '{{/compare}}' +
+                            '</div>' +
+                        '</section>',
         'AnalystTemplate': '<div class="col-xs-12 col-sm-6 col-md-4 analyst-list-container {{results.Type}}">' +
-            '<div class="meet-anlyst-section">' +
-            '<div class="anlyst-heading">' +
-            '<div class="analyst-heading-content">' +
-            '<div class="analyst-details">' +
-            '<span class="analyst-type">{{results.Type}}</span>' +
-            '<h4>{{results.Name}}</h5>' +
-            '<h5>{{results.Type}}{{#if results.Type}}{{#if results.JobTitle}},{{/if}}{{/if}} {{results.JobTitle}}</h3>' +
-            '{{#if results.Country}}'+
-            '<p class="location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}}</p>' +
-            '{{/if}}'+
-            '</div>' +
-            '<div class="analyst-img">' +
-            '{{#if results.ProfileImage}}'+
-            '<img src="{{results.ProfileImage}}" alt="{{results.image}}" />' +
-            '{{/if}}'+
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '<div class="analyst-description">' +
-            '{{#compare results.Specialization.length "0" operator=">"}}' +
-            '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>' +
-            '<ul class="yellow-bullets">' +
-            '{{#each results.Specialization}}' +
-            '<li>{{this}}</li>' +
-            '{{/each}}' +
-            '</ul>' +
-            '{{/compare}}'+
-            '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>' +
-            '{{#compare results.ProductDetails.length "0" operator=">"}}' +
-            '<ul class="track-analyst clearfix">' +
-            '{{#each results.ProductDetails}}' +
-            '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
-            '{{/each}}' +
-            '</ul>' +
-            '{{/compare}}' +
-            '</div>' +
-            '<div class="analyst-footer">' +
-            '<div class="analyst-footer-content clearfix">' +
-            '<ul class="nav-links">'+
-            '{{#if results.LinkedInProfileID}}'+
-            '{{#compare results.LinkedInProfileID.length "1" operator=">"}}'+
-            '<li>'+
-            '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
-            '</li>'+
-            '{{/compare}}'+
-            '{{/if}}'+
-            '{{#if results.TwitterHandleID}}'+
-            '{{#compare results.TwitterHandleID.length "1" operator=">"}}'+
-            '<li>'+
-            '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
-            '</li>'+
-            '{{/compare}}'+
-            '{{/if}}'+
-            '{{#if results.EmailAddressLink.Url}}'+
-            '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
-            '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
-            '{{/compare}}'+
-            '{{/if}}'+
-            '</ul>'+
-            '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLabel}}</a>' +
-            '</div>' +
-            '</div>' +
-            '</div>' +
-            '</div>',
-        'EventListingPage':
+                                    '<div class="meet-anlyst-section">' +
+                                        '<div class="anlyst-heading">' +
+                                            '<div class="analyst-heading-content">' +
+                                                '<div class="analyst-details">' +
+                                                     '<span class="analyst-type">{{results.Type}}</span>' +
+                                                    '<h4>{{results.Name}}</h5>' +
+                                                    '<h5>{{results.Type}}{{#if results.Type}}{{#if results.JobTitle}},{{/if}}{{/if}} {{results.JobTitle}}</h3>' +
+                                                    '{{#if results.Country}}'+
+                                                        '<p class="location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}}</p>' +
+                                                    '{{/if}}'+
+                                                '</div>' +
+                                                '<div class="analyst-img">' +
+                                                    '{{#if results.ProfileImage}}'+
+                                                        '<img src="{{results.ProfileImage}}" alt="{{results.image}}" />' +
+                                                    '{{/if}}'+
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        '<div class="analyst-description">' +
+                                            '{{#compare results.Specialization.length "0" operator=">"}}' +
+                                                '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>' +
+                                                '<ul class="yellow-bullets">' +
+                                                    '{{#each results.Specialization}}' +
+                                                        '<li>{{this}}</li>' +
+                                                    '{{/each}}' +
+                                                '</ul>' +
+                                            '{{/compare}}'+
+                                            '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>' +
+                                            '{{#compare results.ProductDetails.length "0" operator=">"}}' +
+                                                '<ul class="track-analyst clearfix">' +
+                                                    '{{#each results.ProductDetails}}' +
+                                                        '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
+                                                    '{{/each}}' +
+                                                '</ul>' +
+                                            '{{/compare}}' +
+                                        '</div>' +
+                                        '<div class="analyst-footer">' +
+                                            '<div class="analyst-footer-content clearfix">' +
+                                                    '<ul class="nav-links">'+
+                                                        '{{#if results.LinkedInProfileID}}'+
+                                                            '{{#compare results.LinkedInProfileID.length "1" operator=">"}}'+
+                                                            '<li>'+
+                                                                '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
+                                                            '</li>'+
+                                                            '{{/compare}}'+
+                                                        '{{/if}}'+
+                                                        '{{#if results.TwitterHandleID}}'+
+                                                            '{{#compare results.TwitterHandleID.length "1" operator=">"}}'+
+                                                            '<li>'+
+                                                                '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
+                                                            '</li>'+
+                                                            '{{/compare}}'+
+                                                        '{{/if}}'+
+                                                        '{{#if results.EmailAddressLink.Url}}'+
+                                                            '{{#compare results.EmailAddressLink.Url null operator="!="}}'+
+                                                                '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                            '{{/compare}}'+
+                                                        '{{/if}}'+
+                                                    '</ul>'+
+                                                '<a href="{{results.ProfileUrl}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLabel}}</a>' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>',
+    'EventListingPage':
             '<div class="col-xs-12 col-sm-6 col-md-4 events-section {{results.DateType}}">'+
-            '<div class="events-wrap">'+
-            '<div class="header clearfix">'+
-            '<div class="date">{{results.DateField}}</div>'+
-            '<div class="date month">{{results.MonthField}}</div>'+
-            '</div>'+
-            '<div class="content-wrap">'+
-            '<p class="country">'+
-            '{{#compare results.State null operator="!="}}{{results.State}}{{/compare}}{{#if results.State}}{{#if results.Country}},{{/if}}{{/if}} <strong>{{#compare results.Country null operator="!="}}{{results.Country}}{{/compare}}</strong>'+
-            '</p>'+
-            '<p><span class="type">{{results.EventType}}</span></p>'+
-            '<h3 class="title">{{results.Title}}</h3>'+
-            '{{#compare results.Presenters.length 0 operator=">"}}'+
-            '<div class="content clearfix">'+
-            '<div class="title-content">{{results.PresentersLabel}}</div>'+
-            '<div class="title-body">'+
-            '<ul class="clearfix">'+
-            '{{#each results.Presenters}}'+
-            '<li>{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '</div>'+
-            '</div>'+
-            '{{/compare}}'+
-            '{{#compare results.Themes.length 0 operator=">"}}'+
-            '<div class="content clearfix">'+
-            '<div class="title-content">{{results.ThemeLabel}}</div>'+
-            '<div class="title-body">'+
-            '<ul class="clearfix">'+
-            '{{#each results.Themes}}'+
-            '<li>{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '</div>'+
-            '</div>'+
-            '{{/compare}}'+
-            '</div>'+
-            '<div class="footer clearfix">'+
-            '{{#compare results.FullDetail null operator="!="}}' +
-            '{{#compare results.FullDetail.Url null operator="!="}}' +
-            '{{#compare results.FullDetail.Url.length "0" operator=">"}}' +
-            '<a href="{{results.FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{results.FullDetail.Target}}">{{results.FullDetail.LinkText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.StatusEnabled  true operator="=="}}'+
-            '{{#compare results.Register null operator="!="}}' +
-            '{{#compare results.Register.Url null operator="!="}}' +
-            '{{#compare results.Register.Url.length "0" operator=">"}}' +
-            '<a href="{{results.Register.Url}}" class="btn btn-primary pull-right register" target="{{results.Register.Target}}">{{results.EventCTAText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.StatusEnabled  false operator="=="}}'+
-            '{{#compare results.Register null operator="!="}}' +
-            '{{#compare results.Register.Url null operator="!="}}' +
-            '{{#compare results.Register.Url.length "0" operator=">"}}' +
-            '<a href="{{results.Register.Url}}" class="btn btn-primary pull-right register disabled" target="{{results.Register.Target}}">{{results.EventCTAText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</div>'+
-            '</div>'+
-            '</div>',
-        'EventpageListviewTemplate':'<div class="header clearfix">'+
-            '<a href="javascript:void(0)" class="arrows previous">Previous Arrow</a>'+
-            '<h2>{{results.Month}}</h2>'+
-            '<a href="javascript:void(0)" class="arrows next">Next Arrow</a>'+
-            '</div>'+
-            '<div class="events-container row">'+
-            '{{#each results.ModelItem}}'+
-            '<div class="col-xs-12 col-sm-6 col-md-4 events-section {{DateType}}">'+
-            '<div class="events-wrap">'+
-            '<div class="header clearfix">'+
-            '<div class="date">{{DateField}}</div>'+
-            '</div>'+
-            '<div class="content-wrap">'+
-            '<p class="country">'+
-            '{{#compare State null operator="!="}}{{State}}{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}} <strong>{{#compare Country null operator="!="}}{{Country}}{{/compare}}</strong>'+
-            '</p>'+
-            '<p><span class="type">{{EventType}}</span></p>'+
-            '<h3 class="title">{{Title}}</h3>'+
-            '{{#compare Presenters.length 0 operator=">"}}'+
-            '<div class="content clearfix">'+
-            '<div class="title-content">{{PresentersLabel}}</div>'+
-            '<div class="title-body">'+
-            '<ul class="clearfix">'+
-            '{{#each Presenters}}'+
-            '<li>{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '</div>'+
-            '</div>'+
-            '{{/compare}}'+
-            '{{#compare Themes.length 0 operator=">"}}'+
-            '<div class="content clearfix">'+
-            '<div class="title-content">{{ThemeLabel}}</div>'+
-            '<div class="title-body">'+
-            '<ul class="clearfix">'+
-            '{{#each Themes}}'+
-            '<li>{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '</div>'+
-            '</div>'+
-            '{{/compare}}'+
-            '</div>'+
-            '<div class="footer clearfix">'+
-            '{{#compare FullDetail null operator="!="}}' +
-            '{{#compare FullDetail.Url null operator="!="}}' +
-            '{{#compare FullDetail.Url.length "0" operator=">"}}' +
-            '<a href="{{FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare StatusEnabled  true operator="=="}}'+
-            '{{#compare Register null operator="!="}}' +
-            '{{#compare Register.Url null operator="!="}}' +
-            '{{#compare Register.Url.length "0" operator=">"}}' +
-            '<a href="{{Register.Url}}" class="btn btn-primary pull-right register" target="{{Register.Target}}">{{EventCTAText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare StatusEnabled  false operator="=="}}'+
-            '{{#compare Register null operator="!="}}' +
-            '{{#compare Register.Url null operator="!="}}' +
-            '{{#compare Register.Url.length "0" operator=">"}}' +
-            '<a href="{{Register.Url}}" class="btn btn-primary pull-right register disabled" target="{{Register.Target}}">{{EventCTAText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '{{/each}}',
-        'ResourceList': '<div class="col-xs-12 col-sm-6 col-md-4 list-item-container">'+
-            '<div class="list-item">'+
-            '<div class="columns">'+
-            '{{#if SectorType}}'+
-            '<p class="category">'+
-            '<strong>{{SectorType}}</strong>'+
-            '</p>'+
-            '{{/if}}'+
-            '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
-            '<span class="content-type">{{ContentType}}</span>'+
-            '<p class="date">30.03.2016</p>'+
-            '<div class="list-content">'+
-            '{{#if Description}}'+
-            '<p class="description">{{Description}}</p>'+
-            '<span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>'+
-            '<span class="article-info"><em>Topic:</em> '+
-            '<strong>{{Topics}}</strong>'+
-            '</span>'+
-            '{{/if}}'+
-            '{{#if Video}}'+
-            '<div class="video-container">'+
-            '<a href="{{Video.url}}" class="video-link">'+
-            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '</div>'+
-            '</div>'+
-            '{{#if PageURL}}' +
-            '<div class="btn-container">' +
-            '<a role="button" href="{{PageURL}}" class="btn btn-primary" target="_blank">{{LinkText}}</a>' +
-            '</div>' +
-            '{{/if}}' +
-            '</div>'+
-            '</div>',
+                '<div class="events-wrap">'+
+                    '<div class="header clearfix">'+
+                        '<div class="date">{{results.DateField}}</div>'+
+                        '<div class="date month">{{results.MonthField}}</div>'+
+                    '</div>'+
+                    '<div class="content-wrap">'+
+                        '<p class="country">'+
+                            '{{#compare results.State null operator="!="}}{{results.State}}{{/compare}}{{#if results.State}}{{#if results.Country}},{{/if}}{{/if}} <strong>{{#compare results.Country null operator="!="}}{{results.Country}}{{/compare}}</strong>'+
+                        '</p>'+
+                        '<p><span class="type">{{results.EventType}}</span></p>'+
+                        '<h3 class="title">{{results.Title}}</h3>'+
+                        '{{#compare results.Presenters.length 0 operator=">"}}'+
+                        '<div class="content clearfix">'+
+                            '<div class="title-content">{{results.PresentersLabel}}</div>'+
+                            '<div class="title-body">'+
+                                '<ul class="clearfix">'+
+                                    '{{#each results.Presenters}}'+
+                                    '<li>{{this}}</li>'+
+                                        '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                        '</div>'+
+                        '{{/compare}}'+
+                        '{{#compare results.Themes.length 0 operator=">"}}'+
+                        '<div class="content clearfix">'+
+                            '<div class="title-content">{{results.ThemeLabel}}</div>'+
+                            '<div class="title-body">'+
+                                '<ul class="clearfix">'+
+                                    '{{#each results.Themes}}'+
+                                    '<li>{{this}}</li>'+
+                                        '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                        '</div>'+
+                        '{{/compare}}'+
+                    '</div>'+
+                    '<div class="footer clearfix">'+
+                        '{{#compare results.FullDetail null operator="!="}}' +
+                            '{{#compare results.FullDetail.Url null operator="!="}}' +
+                                '{{#compare results.FullDetail.Url.length "0" operator=">"}}' +
+                                '<a href="{{results.FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{results.FullDetail.Target}}">{{results.FullDetail.LinkText}}</a>'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                        '{{/compare}}'+
+                        '{{#compare results.StatusEnabled  true operator="=="}}'+
+                            '{{#compare results.Register null operator="!="}}' +
+                                '{{#compare results.Register.Url null operator="!="}}' +
+                                    '{{#compare results.Register.Url.length "0" operator=">"}}' + 
+                                        '<a href="{{results.Register.Url}}" class="btn btn-primary pull-right register" target="{{results.Register.Target}}">{{results.EventCTAText}}</a>'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                        '{{#compare results.StatusEnabled  false operator="=="}}'+
+                            '{{#compare results.Register null operator="!="}}' +
+                                '{{#compare results.Register.Url null operator="!="}}' +
+                                    '{{#compare results.Register.Url.length "0" operator=">"}}' + 
+                                        '<a href="{{results.Register.Url}}" class="btn btn-primary pull-right register disabled" target="{{results.Register.Target}}">{{results.EventCTAText}}</a>'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                    '</div>'+
+                '</div>'+
+            '</div>',                      
+    'EventpageListviewTemplate':'<div class="header clearfix">'+
+                                  '<a href="javascript:void(0)" class="arrows previous">Previous Arrow</a>'+
+                                  '<h2>{{results.Month}}</h2>'+
+                                  '<a href="javascript:void(0)" class="arrows next">Next Arrow</a>'+
+                                '</div>'+
+                                '<div class="events-container row">'+
+                                        '{{#each results.ModelItem}}'+
+                                        '<div class="col-xs-12 col-sm-6 col-md-4 events-section {{DateType}}">'+
+                                            '<div class="events-wrap">'+
+                                                '<div class="header clearfix">'+
+                                                    '<div class="date">{{DateField}}</div>'+
+                                                '</div>'+
+                                                '<div class="content-wrap">'+
+                                                    '<p class="country">'+
+                                                        '{{#compare State null operator="!="}}{{State}}{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}} <strong>{{#compare Country null operator="!="}}{{Country}}{{/compare}}</strong>'+
+                                                    '</p>'+
+                                                    '<p><span class="type">{{EventType}}</span></p>'+
+                                                    '<h3 class="title">{{Title}}</h3>'+
+                                                    '{{#compare Presenters.length 0 operator=">"}}'+
+                                                    '<div class="content clearfix">'+
+                                                        '<div class="title-content">{{PresentersLabel}}</div>'+
+                                                        '<div class="title-body">'+
+                                                            '<ul class="clearfix">'+
+                                                                '{{#each Presenters}}'+
+                                                                '<li>{{this}}</li>'+
+                                                                    '{{/each}}'+
+                                                            '</ul>'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare Themes.length 0 operator=">"}}'+
+                                                    '<div class="content clearfix">'+
+                                                        '<div class="title-content">{{ThemeLabel}}</div>'+
+                                                        '<div class="title-body">'+
+                                                            '<ul class="clearfix">'+
+                                                                '{{#each Themes}}'+
+                                                                '<li>{{this}}</li>'+
+                                                                    '{{/each}}'+
+                                                            '</ul>'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '{{/compare}}'+
+                                                '</div>'+
+                                                '<div class="footer clearfix">'+
+                                                    '{{#compare FullDetail null operator="!="}}' +
+                                                        '{{#compare FullDetail.Url null operator="!="}}' +
+                                                            '{{#compare FullDetail.Url.length "0" operator=">"}}' +
+                                                            '<a href="{{FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare StatusEnabled  true operator="=="}}'+
+                                                        '{{#compare Register null operator="!="}}' +
+                                                            '{{#compare Register.Url null operator="!="}}' +
+                                                                '{{#compare Register.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{Register.Url}}" class="btn btn-primary pull-right register" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare StatusEnabled  false operator="=="}}'+
+                                                        '{{#compare Register null operator="!="}}' +
+                                                            '{{#compare Register.Url null operator="!="}}' +
+                                                                '{{#compare Register.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{Register.Url}}" class="btn btn-primary pull-right register disabled" target="{{Register.Target}}">{{EventCTAText}}</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '{{/each}}',
+    'ResourceList': '<div class="col-xs-12 col-sm-6 col-md-4 list-item-container">'+
+                        '<div class="list-item">'+
+                            '<div class="columns">'+
+                                '{{#if SectorType}}'+
+                                '<p class="category">'+
+                                  '<strong>{{SectorType}}</strong>'+
+                                '</p>'+
+                                '{{/if}}'+
+                                '<h2 class="poduct-brand-subheading">{{Title}}</h2>'+
+                                '<span class="content-type">{{ContentType}}</span>'+
+                                '<p class="date">30.03.2016</p>'+
+                                '<div class="list-content">'+
+                                    '{{#if Description}}'+
+                                        '<p class="description">{{Description}}</p>'+
+                                        '<span class="article-info"><em>Author:</em> <strong>{{Profiles}}</strong></span>'+
+                                            '<span class="article-info"><em>Topic:</em> '+
+                                                '<strong>{{Topics}}</strong>'+
+                                            '</span>'+
+                                    '{{/if}}'+
+                                    '{{#if Video}}'+
+                                        '<div class="video-container">'+
+                                            '<a href="{{Video.url}}" class="video-link">'+
+                                                '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}" />'+
+                                                '<span class="play-icon icon-play"></span>'+
+                                            '</a>'+
+                                        '</div>'+
+                                    '{{/if}}'+
+                                '</div>'+
+                            '</div>'+
+                            '{{#if PageURL}}' +
+                                '<div class="btn-container">' +
+                                  '<a role="button" href="{{PageURL}}" class="btn btn-primary" target="_blank">{{LinkText}}</a>' +
+                                '</div>' +
+                            '{{/if}}' +
+                        '</div>'+
+                    '</div>',
         'AccordianTemplate': '<div class="panel panel-default">'+
-            '<div class="panel-heading" role="tab">'+
-            '<h4 class="panel-title">'+
-            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#{{results.FaqAccordionId}}" href="#{{results.Id}}{{results.FaqAccordionId}}{{results.Tabs}}" aria-expanded="false" aria-controls="{{results.Id}}">'+
-            '{{results.Title}}'+
-            '</a>'+
-            '</h4>'+
-            '</div>'+
-            '<div id="{{results.Id}}{{results.FaqAccordionId}}{{results.Tabs}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{results.Id}}" data-fetch="{{results.Id}}">'+
-            '<div class="panel-body">'+
-            '{{results.Description}}'+
-            '</div>'+
-            '</div>'+
-            '</div>',
+                        '<div class="panel-heading" role="tab">'+
+                          '<h4 class="panel-title">'+
+                            '<a class="collapsed" role="button" data-toggle="collapse" data-parent="#{{results.FaqAccordionId}}" href="#{{results.Id}}{{results.FaqAccordionId}}{{results.Tabs}}" aria-expanded="false" aria-controls="{{results.Id}}">'+
+                              '{{results.Title}}'+
+                            '</a>'+
+                          '</h4>'+
+                        '</div>'+
+                        '<div id="{{results.Id}}{{results.FaqAccordionId}}{{results.Tabs}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{results.Id}}" data-fetch="{{results.Id}}">'+
+                          '<div class="panel-body">'+
+                            '{{results.Description}}'+
+                          '</div>'+
+                        '</div>'+
+                    '</div>',
         'SampleContent': '<div class="col-md-4 col-sm-6 col-xs-12">'+
-            '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
-            '<div class="recomended-wrapper">'+
-            '<div class="recomend-content wrap-content">'+
-            '<div class="content">'+
-            '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
-            '<p class="type">'+
-            '<span>{{results.SamplecontentProducts}}</span>'+
-            '</p>'+
-            '{{/compare}}'+
-            '{{#compare results.PageURL null operator="!="}}' +
-            '{{#compare results.PageURL.length "0" operator=">"}}' +
-            '{{#if results.HasExternalLink}}'+
-            '{{#compare results.HasExternalLink true operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/if}}'+
-            '{{#compare results.HasExternalLink false operator="=="}}'+
-            '{{#compare results.ShowForm false operator="=="}}'+
-            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<h4><a href="{{results.PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_self">{{results.Title}}</a></h4>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.ShowForm true operator="=="}}'+
-            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<h4><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.PageURL.length "0" operator="=="}}' +
-            '<h4><span>{{results.Title}}</span></h4>'+
-            '{{/compare}}'+
-            '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
-            '{{#compare results.Description null operator="!="}}'+
-            '<p class="description">{{results.Description}}</p>'+
-            '{{/compare}}'+
-            '{{#compare results.Video null operator="!="}}'+
-            '<div class="video-container">'+
-            '{{#if results.HasExternalLink}}'+
-            '{{#compare results.HasExternalLink true operator="=="}}'+
-            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
-            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{/if}}'+
-            '{{#compare results.HasExternalLink false operator="=="}}'+
-            '{{#compare results.ShowForm false operator="=="}}'+
-            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-            '<a href="{{results.Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0" target="_self">'+
-            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.ShowForm true operator="=="}}'+
-            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-            '<a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.Video.Url}}">'+
-            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
-            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
-            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
-            '<span class="play-icon icon-play"></span>'+
-            '</a>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</div>'+
-            '{{/compare}}'+
-            '</div>'+
-            // '{{#compare results.Brand.length 0 operator=">"}}'+
-            //         '<p class="brands">'+
-            //             '{{#each results.Brand}}'+
-            //                 '<span>{{this}}</span>'+
-            //             '{{/each}}'+
-            //         '</p>'+
-            // '{{/compare}}'+
-            '{{#compare results.TopicURLS.length 0 operator=">"}}'+
-            '<p class="topics">'+
-            '{{results.TopicKeyword}} '+
-            '{{#each results.TopicURLS}}'+
-            '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
-            '{{/each}}'+
-            '</p>'+
-            '{{/compare}}'+
-            '{{#compare results.ShowSubSectorOnSampleContentPage true operator="=="}}'+
-            '{{#compare results.SubSectorsUrlDetails.length 0 operator=">"}}'+
-            '<p class="SubSectors">'+
-            '<span>{{results.SubSectorKeyword}}</span>'+
-            '{{#each results.SubSectorsUrlDetails}}'+
-            '<span>'+
-            '<a href="{{this.Value}}">{{this.Key}}</a>'+
-            '</span>'+
-            '{{/each}}'+
-            '</p>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</div>'+
-            '<div class="footer">'+
-            '{{#compare results.Price null operator="!="}}'+
-            '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
-            '{{/compare}}'+
-            '{{#compare results.PageURL null operator="!="}}' +
-            '{{#compare results.PageURL.length "0" operator=">"}}' +
-            '{{#if results.HasExternalLink}}'+
-            '{{#compare results.HasExternalLink true operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/if}}'+
-            '{{#compare results.HasExternalLink false operator="=="}}'+
-            '{{#compare results.ShowForm false operator="=="}}'+
-            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn show-content-first-time" data-firstcontent="true" target="_blank">{{results.LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.ShowForm true operator="=="}}'+
-            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-            '{{#if results.LinkText}}'+
-            '<div class="btn-container text-right">'+
-            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
-            '</div>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.PageURL.length "0" operator="=="}}' +
-            '<div class="btn-container text-right">'+
-            '<a class="btn btn-primary" disabled>{{results.LinkText}}</a>'+
-            '</div>'+
-            '{{/compare}}'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
+                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
+                            '<div class="recomended-wrapper">'+
+                                '<div class="recomend-content wrap-content">'+
+                                    '<div class="content">'+
+                                        '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
+                                            '<p class="type">'+
+                                                '<span>{{results.SamplecontentProducts}}</span>'+
+                                            '</p>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.PageURL null operator="!="}}' +
+                                            '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                                '{{#if results.HasExternalLink}}'+
+                                                    '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                                '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                    '{{#compare results.ShowForm false operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.ShowForm true operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.PageURL.length "0" operator="=="}}' +
+                                            '<h4><span>{{results.Title}}</span></h4>'+
+                                        '{{/compare}}'+
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
+                                        '{{#compare results.Description null operator="!="}}'+
+                                            '<p class="description">{{results.Description}}</p>'+
+                                        '{{/compare}}'+ 
+                                        '{{#compare results.Video null operator="!="}}'+
+                                            '<div class="video-container">'+
+                                                '{{#if results.HasExternalLink}}'+
+                                                    '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                        '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                            '<span class="play-icon icon-play"></span>'+
+                                                        '</a>'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                                '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                    '{{#compare results.ShowForm false operator="=="}}'+
+                                                            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                                '<a href="{{results.Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0" target="_self">'+
+                                                                    '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                    '<span class="play-icon icon-play"></span>'+
+                                                                '</a>'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.ShowForm true operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '<a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.Video.Url}}">'+
+                                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                '<span class="play-icon icon-play"></span>'+
+                                                            '</a>'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                '<span class="play-icon icon-play"></span>'+
+                                                            '</a>'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                '<span class="play-icon icon-play"></span>'+
+                                                            '</a>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                            '</div>'+
+                                        '{{/compare}}'+
+                                    '</div>'+
+                                    // '{{#compare results.Brand.length 0 operator=">"}}'+
+                                    //         '<p class="brands">'+
+                                    //             '{{#each results.Brand}}'+
+                                    //                 '<span>{{this}}</span>'+
+                                    //             '{{/each}}'+
+                                    //         '</p>'+
+                                    // '{{/compare}}'+
+                                    '{{#compare results.TopicURLS.length 0 operator=">"}}'+
+                                        '<p class="topics">'+
+                                            '{{results.TopicKeyword}} '+
+                                            '{{#each results.TopicURLS}}'+
+                                                '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
+                                            '{{/each}}'+
+                                        '</p>'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.ShowSubSectorOnSampleContentPage true operator="=="}}'+
+                                            '{{#compare results.SubSectorsUrlDetails.length 0 operator=">"}}'+
+                                                '<p class="SubSectors">'+
+                                                    '<span>{{results.SubSectorKeyword}}</span>'+
+                                                    '{{#each results.SubSectorsUrlDetails}}'+
+                                                        '<span>'+
+                                                            '<a href="{{this.Value}}">{{this.Key}}</a>'+
+                                                        '</span>'+
+                                                    '{{/each}}'+
+                                                '</p>'+
+                                            '{{/compare}}'+
+                                    '{{/compare}}'+
+                                '</div>'+
+                                '<div class="footer">'+
+                                    '{{#compare results.Price null operator="!="}}'+
+                                            '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.PageURL null operator="!="}}' +
+                                        '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                            '{{#if results.HasExternalLink}}'+
+                                                '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                    '{{#if results.LinkText}}'+
+                                                        '<div class="btn-container text-right">'+
+                                                            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
+                                                        '</div>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/if}}'+
+                                            '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                '{{#compare results.ShowForm false operator="=="}}'+
+                                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn show-content-first-time" data-firstcontent="true" target="_blank">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                                '{{#compare results.ShowForm true operator="=="}}'+
+                                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                                '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                    '{{#if results.LinkText}}'+
+                                                        '<div class="btn-container text-right">'+
+                                                            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
+                                                        '</div>'+
+                                                    '{{/if}}'+    
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.PageURL.length "0" operator="=="}}' +
+                                        '<div class="btn-container text-right">'+
+                                            '<a class="btn btn-primary" disabled>{{results.LinkText}}</a>'+
+                                        '</div>'+
+                                    '{{/compare}}'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>',
+            'Product':
+                '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
+                    '<div class="products">'+
+                        '<div class="wrap-content">'+
+                            '<div class="heading">'+
+                                '<div class="heading-content">'+
+                                    '<p class="category">'+
+                                        '{{#each results.SectorTags}}'+
+                                            '<strong>{{this}}</strong>'+
+                                        '{{/each}}'+
+                                    '</p>'+
+                                    '<h4 class={{results.SubSiteTheme}}>{{results.Title}}</h4>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="body">'+
+                                '<p>{{results.Description}}</p>'+
+                                '<ul>'+
+                                    '{{#each results.Benefits}}'+
+                                    '<li class="icon-tick">{{this}}</li>'+
+                                    '{{/each}}'+
+                                '</ul>'+
+                            '</div>'+
+                        '</div>'+
+                        '<div class="button-links">'+
+                            '<div class="button-links-wrap row">'+
+                                '<div class="col-xs-6">'+
+                                    '{{#compare results.PageURL null operator="!="}}' +
+                                        '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                            '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-default">{{results.DetailText}}</a>'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                '</div>'+
+                                '<div class="col-xs-6">'+
+                                    '{{#if results.ProductSearchCTAType}}' +
+                                        '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="=="}}'+    
+                                            '{{#if (splitURL results.SalesforceLink.Url "registration")}}'+
+                                                    '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>'+
+                                            '{{else}}'+
+                                                '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
+                                                    '{{results.SearchCTAName}}'+
+                                                '</a>'+
+                                            '{{/if}}'+                                     
+                                        '{{/compare}}'+
+                                        '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="!="}}'+ 
+                                            '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
+                                                '{{results.SearchCTAName}}'+
+                                            '</a>'+
+                                        '{{/compare}}'+
+                                    '{{else}}'+                                 
+                                    '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>'+
+                                    '{{/if}}'+  
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
             '</div>',
-        'Product':
-            '<div class="col-xs-12 col-sm-6 col-md-4">'+
-            '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
-            '<div class="products">'+
-            '<div class="wrap-content">'+
-            '<div class="heading">'+
-            '<div class="heading-content">'+
-            '<p class="category">'+
-            '{{#each results.SectorTags}}'+
-            '<strong>{{this}}</strong>'+
-            '{{/each}}'+
-            '</p>'+
-            '<h4 class={{results.SubSiteTheme}}>{{results.Title}}</h4>'+
-            '</div>'+
-            '</div>'+
-            '<div class="body">'+
-            '<p>{{results.Description}}</p>'+
-            '<ul>'+
-            '{{#each results.Benefits}}'+
-            '<li class="icon-tick">{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '</div>'+
-            '</div>'+
-            '<div class="button-links">'+
-            '<div class="button-links-wrap row">'+
-            '<div class="col-xs-6">'+
-            '{{#compare results.PageURL null operator="!="}}' +
-            '{{#compare results.PageURL.length "0" operator=">"}}' +
-            '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-default">{{results.DetailText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</div>'+
-            '<div class="col-xs-6">'+
-            '{{#if results.ProductSearchCTAType}}' +
-            '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="=="}}'+
-            '{{#if (splitURL results.SalesforceLink.Url "registration")}}'+
-            '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>'+
-            '{{else}}'+
-            '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
-            '{{results.SearchCTAName}}'+
-            '</a>'+
-            '{{/if}}'+
-            '{{/compare}}'+
-            '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="!="}}'+
-            '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">'+
-            '{{results.SearchCTAName}}'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{else}}'+
-            '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>'+
-            '{{/if}}'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>',
-        'SearchTemplate': '<div class="product-results" data-pagesize="{{results.DefaultItemCount}}">'+
-            '{{#if results.ProductTitle}}'+
-            '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
-            '{{/if}}'+
-            '<div class="row list">'+
-            '{{{results.Content}}}'+
-            '</div>'+
-            '{{#compare results.ShowMoreFlag false operator="!="}}'+
-            '<div class="text-center">'+
-            '<a href="#" class="btn-showMore">'+
-            '<span class="more">{{results.ShowMoreText}}</span>'+
-            '<span class="less">{{results.ShowLessText}}</span>'+
-            '</a>'+
-            '</div>'+
-            '{{/compare}}'+
-            '</div>',
-        'Specialist': '<div class="col-xs-12 col-sm-6 col-md-4">'+
-            '<div class="list-items">'+
-            '<div class="analyst-list-container {{results.Type}}">'+
-            '<div class="meet-anlyst-section">'+
-            '<div class="wrap-content">'+
-            '<div class="anlyst-heading">'+
-            '<div class="analyst-heading-content">'+
-            '<div class="analyst-details">'+
-            '<span class="analyst-type">{{results.Type}}</span>'+
-            '<h4>{{results.Name}}</h4>'+
-            '<h5>{{results.JobTitle}}</h5>'+
-            '{{#if results.Country}}'+
-            '<p class="location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}}</p>'+
-            '{{/if}}'+
-            '</div>'+
-            '<div class="analyst-img">'+
-            '<img src="{{results.Image}}" alt="@Model.Name" />'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '<div class="analyst-description">'+
-            '{{#compare results.Specialization.length "0" operator=">"}}'+
-            '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>'+
-            '<ul class="yellow-bullets">'+
-            '{{#each results.Specialization}}'+
-            '<li>{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '{{/compare}}'+
-            '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
-            '{{#compare results.ProductDetails.length "0" operator=">"}}'+
-            '<ul class="track-analyst clearfix">'+
-            '{{#each results.ProductDetails}}' +
-            '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
-            '{{/each}}' +
-            '</ul>'+
-            '{{/compare}}'+
-            '</div>'+
-            '</div>'+
-            '<div class="analyst-footer">'+
-            '<div class="analyst-footer-content clearfix">'+
-            '<ul class="nav-links">'+
-            '{{#if results.LinkedInProfileID}}'+
-            '{{#compare results.LinkedInProfileID.length "1" operator=">"}}'+
-            '<li>'+
-            '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
-            '</li>'+
-            '{{/compare}}'+
-            '{{/if}}'+
-            '{{#if results.TwitterHandleID}}'+
-            '{{#compare results.TwitterHandleID.length "1" operator=">"}}'+
-            '<li>'+
-            '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
-            '</li>'+
-            '{{/compare}}'+
-            '{{/if}}'+
-            '{{#if results.EmailAddressLink}}'+
-            '{{#compare results.EmailAddressLink.Url.length "0" operator=">"}}'+
-            '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
-            '{{/compare}}'+
-            '{{/if}}'+
-            '</ul>'+
-            '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>',
-        'Event': '<div class="col-xs-12 col-sm-6 col-md-4">'+
-            '<div class="list-items">'+
-            '<div class="events-wrap">'+
-            '<div class="wrap-content">'+
-            '<div class="header clearfix">'+
-            '<div class="date-field">{{results.EventDate}}</div>'+
-            '</div>'+
-            '<div class="content-wrap">'+
-            '<p class="country">'+
-            '<span>{{results.State}}</span>'+
-            '{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}}'+
-            '<strong> {{results.Country}}</strong>'+
-            '</p>'+
-            '<p><span class="type">{{results.EventType}}</span></p>'+
-            '<h3 class="title">{{results.Title}}</h3>'+
-            '{{#compare results.Presenters.length 0 operator=">"}}'+
-            '<div class="content clearfix">'+
-            '<div class="title-content">'+
-            '{{results.PresentersLabel}}'+
-            '</div>'+
-            '<div class="title-body">'+
-            '<ul class="clearfix">'+
-            '{{#each results.Presenters}}'+
-            '<li>{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '</div>'+
-            '</div>'+
-            '{{/compare}}'+
-            '{{#compare results.Themes.length 0 operator=">"}}'+
-            '<div class="content clearfix">'+
-            '<div class="title-content">'+
-            '{{results.ThemeLabel}}'+
-            '</div>'+
-            '<div class="title-body">'+
-            '<ul class="clearfix">'+
-            '{{#each results.Themes}}'+
-            '<li>{{this}}</li>'+
-            '{{/each}}'+
-            '</ul>'+
-            '</div>'+
-            '</div>'+
-            '{{/compare}}'+
-            '</div>'+
-            '</div>'+
-            '<div class="footer clearfix">'+
-            '{{#compare results.FullDetail null operator="!="}}' +
-            '{{#compare results.FullDetail.Url null operator="!="}}' +
-            '{{#compare results.FullDetail.Url.length "0" operator=">"}}' +
-            '<a href="{{results.FullDetail.Url}}" target="{{results.FullDetail.Target}}" class="btn btn-default full-detail pull-left">'+
-            '{{results.FullDetail.LinkText}}'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.StatusEnabled  true operator="=="}}'+
-            '{{#compare results.Register null operator="!="}}' +
-            '{{#compare results.Register.Url null operator="!="}}' +
-            '{{#compare results.Register.Url.length "0" operator=">"}}' +
-            '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right">'+
-            '{{results.EventCTAText}}'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{#compare results.StatusEnabled  false operator="=="}}'+
-            '{{#compare results.Register null operator="!="}}' +
-            '{{#compare results.Register.Url null operator="!="}}' +
-            '{{#compare results.Register.Url.length "0" operator=">"}}' +
-            '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right disabled">'+
-            '{{results.EventCTAText}}'+
-            '</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>',
-        'Other': '<div class="col-xs-12 col-sm-6 col-md-4">'+
-            '<div class="list-items">'+
-            '<div class="others-wrapper">'+
-            '<div class="wrap-content">'+
-            '<div class="content">'+
-            '<h4>{{results.Title}}</h4>'+
-            '{{#if results.Description}}'+
-            '<p class="description">'+
-            '{{results.Description}}'+
-            '</p>'+
-            '{{/if}}'+
-            '</div>'+
-            '</div>'+
-            '<div class="footer">'+
-            '<div class="btn-container text-right">'+
-            '{{#compare results.PageURL null operator="!="}}'+
-            '{{#compare results.PageURL.length "0" operator=">"}}' +
-            '<a href="{{results.PageURL}}" class="btn btn-primary" target="{{results.LinkTarget}}">{{results.DetailText}}</a>'+
-            '{{/compare}}'+
-            '{{/compare}}'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>'+
-            '</div>'
+                'SearchTemplate': '<div class="product-results" data-pagesize="{{results.DefaultItemCount}}">'+
+                                    '{{#if results.ProductTitle}}'+
+                                       '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
+                                       '{{/if}}'+
+                                        '<div class="row list">'+
+                                            '{{{results.Content}}}'+
+                                        '</div>'+
+                                        '{{#compare results.ShowMoreFlag false operator="!="}}'+
+                                        '<div class="text-center">'+
+                                            '<a href="#" class="btn-showMore">'+
+                                                '<span class="more">{{results.ShowMoreText}}</span>'+
+                                                '<span class="less">{{results.ShowLessText}}</span>'+
+                                            '</a>'+
+                                        '</div>'+
+                                        '{{/compare}}'+
+                                   '</div>',
+                            'Specialist': '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                                                '<div class="list-items">'+
+                                                    '<div class="analyst-list-container {{results.Type}}">'+
+                                                        '<div class="meet-anlyst-section">'+
+                                                            '<div class="wrap-content">'+
+                                                                '<div class="anlyst-heading">'+
+                                                                    '<div class="analyst-heading-content">'+
+                                                                        '<div class="analyst-details">'+
+                                                                            '<span class="analyst-type">{{results.Type}}</span>'+
+                                                                            '<h4>{{results.Name}}</h4>'+
+                                                                            '<h5>{{results.JobTitle}}</h5>'+
+                                                                            '{{#if results.Country}}'+
+                                                                                '<p class="location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}}</p>'+
+                                                                            '{{/if}}'+
+                                                                        '</div>'+
+                                                                        '<div class="analyst-img">'+
+                                                                            '<img src="{{results.Image}}" alt="@Model.Name" />'+
+                                                                        '</div>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                                '<div class="analyst-description">'+
+                                                                    '{{#compare results.Specialization.length "0" operator=">"}}'+
+                                                                    '<p class="heading"><em>{{results.FirstName}}</em> {{results.SpecializationText}}</p>'+
+                                                                    '<ul class="yellow-bullets">'+
+                                                                        '{{#each results.Specialization}}'+
+                                                                        '<li>{{this}}</li>'+
+                                                                        '{{/each}}'+
+                                                                    '</ul>'+
+                                                                    '{{/compare}}'+
+                                                                    '<p class="heading">+{{results.YearsOfExperience}} {{results.ExperienceText}}</p>'+
+                                                                    '{{#compare results.ProductDetails.length "0" operator=">"}}'+
+                                                                        '<ul class="track-analyst clearfix">'+
+                                                                            '{{#each results.ProductDetails}}' +
+                                                                                '<li><a href="{{this.Value}}">{{this.Key}}</a></li>' +
+                                                                            '{{/each}}' +
+                                                                        '</ul>'+
+                                                                    '{{/compare}}'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                            '<div class="analyst-footer">'+
+                                                                '<div class="analyst-footer-content clearfix">'+
+                                                                    '<ul class="nav-links">'+
+                                                                        '{{#if results.LinkedInProfileID}}'+
+                                                                            '{{#compare results.LinkedInProfileID.length "1" operator=">"}}'+
+                                                                            '<li>'+
+                                                                                '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>'+
+                                                                            '</li>'+
+                                                                            '{{/compare}}'+
+                                                                        '{{/if}}'+
+                                                                        '{{#if results.TwitterHandleID}}'+
+                                                                            '{{#compare results.TwitterHandleID.length "1" operator=">"}}'+
+                                                                            '<li>'+
+                                                                                '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>'+
+                                                                            '</li>'+
+                                                                            '{{/compare}}'+
+                                                                        '{{/if}}'+
+                                                                        '{{#if results.EmailAddressLink}}'+
+                                                                            '{{#compare results.EmailAddressLink.Url.length "0" operator=">"}}'+
+                                                                                '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                            '{{/compare}}'+
+                                                                        '{{/if}}'+
+                                                                    '</ul>'+
+                                                                    '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-primary pull-right">{{results.SeeFullProfileLText}}</a>'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                           '</div>',
+                            'Event': '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                                    '<div class="list-items">'+
+                                            '<div class="events-wrap">'+
+                                                '<div class="wrap-content">'+
+                                                    '<div class="header clearfix">'+
+                                                        '<div class="date-field">{{results.EventDate}}</div>'+
+                                                    '</div>'+
+                                                    '<div class="content-wrap">'+
+                                                        '<p class="country">'+
+                                                            '<span>{{results.State}}</span>'+
+                                                            '{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}}'+
+                                                            '<strong> {{results.Country}}</strong>'+
+                                                        '</p>'+
+                                                        '<p><span class="type">{{results.EventType}}</span></p>'+
+                                                        '<h3 class="title">{{results.Title}}</h3>'+
+                                                            '{{#compare results.Presenters.length 0 operator=">"}}'+
+                                                                '<div class="content clearfix">'+
+                                                                    '<div class="title-content">'+
+                                                                        '{{results.PresentersLabel}}'+
+                                                                    '</div>'+
+                                                                    '<div class="title-body">'+
+                                                                        '<ul class="clearfix">'+
+                                                                            '{{#each results.Presenters}}'+
+                                                                            '<li>{{this}}</li>'+
+                                                                            '{{/each}}'+
+                                                                        '</ul>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                            '{{/compare}}'+
+                                                            '{{#compare results.Themes.length 0 operator=">"}}'+
+                                                            '<div class="content clearfix">'+
+                                                                '<div class="title-content">'+
+                                                                    '{{results.ThemeLabel}}'+
+                                                                '</div>'+
+                                                                '<div class="title-body">'+
+                                                                    '<ul class="clearfix">'+
+                                                                        '{{#each results.Themes}}'+
+                                                                            '<li>{{this}}</li>'+
+                                                                        '{{/each}}'+
+                                                                    '</ul>'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                            '{{/compare}}'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '<div class="footer clearfix">'+
+                                                        '{{#compare results.FullDetail null operator="!="}}' +
+                                                            '{{#compare results.FullDetail.Url null operator="!="}}' +
+                                                                '{{#compare results.FullDetail.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{results.FullDetail.Url}}" target="{{results.FullDetail.Target}}" class="btn btn-default full-detail pull-left">'+
+                                                                        '{{results.FullDetail.LinkText}}'+
+                                                                    '</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.StatusEnabled  true operator="=="}}'+
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+ 
+                                                        '{{#compare results.StatusEnabled  false operator="=="}}'+  
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right disabled">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+ 
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>',
+                                'Other': '<div class="col-xs-12 col-sm-6 col-md-4">'+
+                                            '<div class="list-items">'+
+                                                '<div class="others-wrapper">'+
+                                                    '<div class="wrap-content">'+
+                                                        '<div class="content">'+
+                                                                '<h4>{{results.Title}}</h4>'+
+                                                                '{{#if results.Description}}'+
+                                                                    '<p class="description">'+
+                                                                        '{{results.Description}}'+
+                                                                    '</p>'+
+                                                                '{{/if}}'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '<div class="footer">'+
+                                                        '<div class="btn-container text-right">'+
+                                                            '{{#compare results.PageURL null operator="!="}}'+
+                                                                '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                                                    '<a href="{{results.PageURL}}" class="btn btn-primary" target="{{results.LinkTarget}}">{{results.DetailText}}</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'
 
 
-    }
+}
 }(this, jQuery, 'INFORMA'));
 
 (function(INFORMA, $) {
     INFORMA.Utils = (function() {
         function _utils() {
-            Array.prototype.contains = function ( needle ) {
-                for (i in this) {
-                    if (this[i] == needle) return true;
+                Array.prototype.contains = function ( needle ) {
+                   for (i in this) {
+                       if (this[i] == needle) return true;
+                   }
+                   return false;
                 }
-                return false;
-            }
-            Array.prototype.remove = function(){
-                var args = Array.apply(null, arguments);
-                var indices = [];
-                for(var i = 0; i < args.length; i++){
-                    var arg = args[i];
-                    var index = this.indexOf(arg);
-                    while(index > -1){
-                        indices.push(index);
-                        index = this.indexOf(arg, index + 1);
+                Array.prototype.remove = function(){
+                    var args = Array.apply(null, arguments);
+                    var indices = [];
+                    for(var i = 0; i < args.length; i++){
+                        var arg = args[i];
+                        var index = this.indexOf(arg);
+                        while(index > -1){
+                            indices.push(index);
+                            index = this.indexOf(arg, index + 1);
+                        }
                     }
+                    indices.sort();
+                    for(var i = 0; i < indices.length; i++){
+                        var index = indices[i] - i;
+                        this.splice(index, 1);
+                    }    
                 }
-                indices.sort();
-                for(var i = 0; i < indices.length; i++){
-                    var index = indices[i] - i;
-                    this.splice(index, 1);
+                this.getUniqueArray = function(arrayList) {
+                    var uniqueArray = [];
+                    $.each(arrayList, function(i, el) {
+                        if ($.inArray(el, uniqueArray) === -1) {
+                            uniqueArray.push(el);
+                        }
+                    });
+                    return uniqueArray;
                 }
-            }
-            this.getUniqueArray = function(arrayList) {
-                var uniqueArray = [];
-                $.each(arrayList, function(i, el) {
-                    if ($.inArray(el, uniqueArray) === -1) {
-                        uniqueArray.push(el);
+                this.RemoveArrayItem = function(Arry) {
+                    var what, a = arguments,
+                        L = a.length,
+                        ax;
+                    while (L > 1 && Arry.length) {
+                        what = a[--L];
+                        while ((ax = Arry.indexOf(what)) !== -1) {
+                            Arry.splice(ax, 1);
+                        }
                     }
-                });
-                return uniqueArray;
-            }
-            this.RemoveArrayItem = function(Arry) {
-                var what, a = arguments,
-                    L = a.length,
-                    ax;
-                while (L > 1 && Arry.length) {
-                    what = a[--L];
-                    while ((ax = Arry.indexOf(what)) !== -1) {
-                        Arry.splice(ax, 1);
-                    }
+                    return Arry;
                 }
-                return Arry;
-            }
-            this.ArrayUnique = function (array) {
-                var a = array.concat();
-                for (var i = 0; i < a.length; ++i) {
-                    for (var j = i + 1; j < a.length; ++j) {
-                        if (a[i] === a[j])
-                            a.splice(j--, 1);
+                this.ArrayUnique = function (array) {
+                    var a = array.concat();
+                    for (var i = 0; i < a.length; ++i) {
+                        for (var j = i + 1; j < a.length; ++j) {
+                            if (a[i] === a[j])
+                                a.splice(j--, 1);
+                        }
                     }
-                }
 
-                return a;
-            }
+                    return a;
+                }
             this.StrngToQryStrng = function(strng) {
                 if ((typeof strng === "object" || typeof strng === "string") && strng) {
                     var Arry = strng.toString().split(","),
@@ -5321,28 +5321,28 @@ var INFORMA = window.INFORMA || {};
                 return { major: '-1', minor: '-1' };
             }
             this.getViewport = function() {
-                var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-                var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+                    var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+                    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-                var size;
-                if ($('html').hasClass('lt-ie9')) {
-                    size = 'large';
-                } else {
-                    size = (w <= INFORMA.Configs.views.xsmall) ? 'xsmall' : size;
-                    size = (w > INFORMA.Configs.views.xsmall && w <= INFORMA.Configs.views.small) ? 'small' : size;
-                    size = (w > INFORMA.Configs.views.small) ? 'medium' : size;
-                    size = (w > INFORMA.Configs.views.medium) ? 'large' : size;
-                    size = (w > INFORMA.Configs.views.large) ? 'xlarge' : size;
-                }
+                    var size;
+                    if ($('html').hasClass('lt-ie9')) {
+                        size = 'large';
+                    } else {
+                        size = (w <= INFORMA.Configs.views.xsmall) ? 'xsmall' : size;
+                        size = (w > INFORMA.Configs.views.xsmall && w <= INFORMA.Configs.views.small) ? 'small' : size;
+                        size = (w > INFORMA.Configs.views.small) ? 'medium' : size;
+                        size = (w > INFORMA.Configs.views.medium) ? 'large' : size;
+                        size = (w > INFORMA.Configs.views.large) ? 'xlarge' : size;
+                    }
 
-                INFORMA.Configs.viewport = {
-                    size: size,
-                    width: w,
-                    height: h
-                };
+                    INFORMA.Configs.viewport = {
+                        size: size,
+                        width: w,
+                        height: h
+                    };
 
-                return INFORMA.Configs.viewport;
-            },
+                    return INFORMA.Configs.viewport;
+                },
                 this.isMobileView = function() {
                     return (this.getViewport().size == 'small' || this.getViewport().size == 'xsmall');
                 },
@@ -5397,15 +5397,15 @@ INFORMA.welcome_description= (function(window, $, namespace) {
     'use strict';
     //variables
     //var _welcomedescription = $('.welcome-description'),
-    // _tooltip = _welcomedescription.find('.anonymous,.registered'),
+        // _tooltip = _welcomedescription.find('.anonymous,.registered'),
     // methods
-    var  init,_closeTip;
-
-    _closeTip = function(){
-        $('#closetip').on('click', function(){
-            $('.tool').remove();
-        });
-    }
+      var  init,_closeTip;
+      
+        _closeTip = function(){
+           $('#closetip').on('click', function(){
+		            $('.tool').remove();
+		        });
+        }
 
 
     init = function() {
@@ -5419,24 +5419,24 @@ INFORMA.welcome_description= (function(window, $, namespace) {
 jQuery(INFORMA.welcome_description.init());
 
 _adjustHeigt = function(){
-    var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
-        return $(this).height();
-    }).get());
+  var maxHeightTitle = Math.max.apply(null, el.find('.sector-card h2').map(function() {
+      return $(this).height();
+  }).get());
 //  el.find('.slide-block-container').height(maxHeightDesc);
-    var maxHeightDesc = Math.max.apply(null, el.find('.sector-card .content').map(function() {
-        return $(this).height();
-    }).get());
+  var maxHeightDesc = Math.max.apply(null, el.find('.sector-card .content').map(function() {
+      return $(this).height();
+  }).get());
 
-    var maxHeightSubSector= Math.max.apply(null, el.find('.sector-card .sector-list-products').map(function() {
-        return $(this).height();
-    }).get());
+  var maxHeightSubSector= Math.max.apply(null, el.find('.sector-card .sector-list-products').map(function() {
+      return $(this).height();
+  }).get());
 
-    /* removed unused maxHeightLink */
+  /* removed unused maxHeightLink */
 
-    el.find('.sector-card h2').height(maxHeightTitle);
-    el.find('.sector-card .content').height(maxHeightDesc);
-    el.find('.sector-card .sector-list-products').height(maxHeightSubSector);
-    el.find('.sector-card .btn-container').height(maxHeightSubSector);
+  el.find('.sector-card h2').height(maxHeightTitle);
+  el.find('.sector-card .content').height(maxHeightDesc);
+  el.find('.sector-card .sector-list-products').height(maxHeightSubSector);
+  el.find('.sector-card .btn-container').height(maxHeightSubSector);
 }
 
 /*
@@ -5464,17 +5464,17 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
         UnbindEvent,
         disabledEvent;
 
-    disabledEvent = function(){
-        $('.register.disabled').click(function(e){
-            e.preventDefault();
-        });
-    },
-
+        disabledEvent = function(){
+            $('.register.disabled').click(function(e){
+                e.preventDefault();
+            });
+        },
+        
         UnbindEvent = function() {
             $('.register.disabled').on('keydown', function(e) {
                 if (e.keyCode === 13 || e.which===13) {
                     e.preventDefault();
-                }
+                }   
             })
         },
 
@@ -5487,13 +5487,13 @@ INFORMA.AnalystEventList = (function(window, $, namespace) {
             })
         },
 
-        init = function() {
-            if (_AnalystEventLists.length > 0) {
-                ShowMore();
-                UnbindEvent();
-                disabledEvent();
-            }
-        };
+    init = function() {
+        if (_AnalystEventLists.length > 0) {
+            ShowMore();
+            UnbindEvent();
+            disabledEvent();
+        }
+    };
 
     return {
         init: init
@@ -5516,12 +5516,12 @@ jQuery(INFORMA.AnalystEventList.init());
 var INFORMA = window.INFORMA || {};
 INFORMA.analystProfile = (function(window, $, namespace) {
     'use strict';
-    var init,
+     var init,
         _bindShowMore,
         _checkButton;
 
     _bindShowMore = function(container){
-
+        
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.show-options');
         _showMore.click(function(){
@@ -5537,14 +5537,14 @@ INFORMA.analystProfile = (function(window, $, namespace) {
             jQuery('.show-options').addClass('hidden');
         }
     }
-    init = function() {
+   init = function() {
         //if (_analystList.length > 0) {
-        _bindShowMore();
-        _checkButton();
-        if(INFORMA.global.siteCore.isExperience) {
-            $('#analyst-profile .show-options').hide();
-            $('#analyst-profile .descriptions').addClass('show-content')
-        }
+            _bindShowMore();
+            _checkButton();
+            if(INFORMA.global.siteCore.isExperience) {
+                $('#analyst-profile .show-options').hide();
+                $('#analyst-profile .descriptions').addClass('show-content')
+            }
         //}
     };
 
@@ -5585,7 +5585,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
 
     emptyData = function() {
         AnalystSearch.find('#name').val('');
-        //$('select[name="Sector"]').prop('selectedIndex',0);
+            //$('select[name="Sector"]').prop('selectedIndex',0);
         Sector.prop('selectedIndex', 0).trigger('chosen:updated').trigger('change');
     }
     equalHeight = function() {
@@ -5666,7 +5666,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         return html;
     }
 
-    EventsFunctions = function() {
+     EventsFunctions = function() {
         txtField.on('keyup', function() {
             var calcLength = jQuery(this).val().trim().length,
                 SectorValue = Sector.val();
@@ -5713,7 +5713,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
             }
 
             GetAjaxData(Urls.AnalystSearchDropDown, "Post", _value, RenderChangeResult, null, null);
-
+            
             SubSector.trigger("chosen:updated");
 
         })
@@ -5791,45 +5791,45 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         addthis.toolbox('.analyst-views');
         return html;
     }
-    /* removed unused AppendSearchResult function */
+/* removed unused AppendSearchResult function */
 
     ajaxCallonSector = function() {
-        var SectorBtn = jQuery('.btn-plus');
+            var SectorBtn = jQuery('.btn-plus');
 
-        SectorBtn.on('click', function() {
-            var sectorId = jQuery(this).data('fetch');
-            var FieldArray = AnalystSearch.find("form").serializeArray(),
-                GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray)),
-                _Object = JSON.parse(GetSerializeData),
-                Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views'),
-                _vp = INFORMA.global.device.viewport,
-                _limit = parseInt(productAnalystResults.data(_vp)) + 1;
+            SectorBtn.on('click', function() {
+                var sectorId = jQuery(this).data('fetch');
+                var FieldArray = AnalystSearch.find("form").serializeArray(),
+                    GetSerializeData = JSON.stringify(INFORMA.Utils.serializeObject(FieldArray)),
+                    _Object = JSON.parse(GetSerializeData),
+                    Parent = jQuery('a[data-fetch="' + sectorId + '"]').parents('.analyst-views'),
+                    _vp = INFORMA.global.device.viewport,
+                    _limit = parseInt(productAnalystResults.data(_vp)) + 1;
 
-            _Object.SectorID = sectorId;
-            _Object.SearchText = $('.SearchTextSpecialist').val()
-            for (var key in _Object) {
-                if (_Object[key] === "default") {
-                    _Object[key] = null;
+                _Object.SectorID = sectorId;
+                _Object.SearchText = $('.SearchTextSpecialist').val()
+                for (var key in _Object) {
+                    if (_Object[key] === "default") {
+                        _Object[key] = null;
+                    }
                 }
-            }
-            if (!Parent.hasClass('showLess')) {
-                GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
-            } else {
-                Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
-                Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
-                Parent.removeClass('showLess');
-            }
+                if (!Parent.hasClass('showLess')) {
+                    GetAjaxData(Urls.AnalystSearchAll, "Post", JSON.stringify(_Object), RenderAllSubSectorResults, null, sectorId);
+                } else {
+                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').slideUp();
+                    Parent.find('.analyst-list-container:nth-child(n+' + _limit + ')').hide("fast", function(){ $(this).remove(); });
+                    Parent.removeClass('showLess');
+                }
 
 
-        })
-    },
+            })
+        },
         _bindShowLess = function () {
-            var _showLess = $('.analyst-views').find('.btn-container .btn-plus .less');
-            _showLess.on('click',function(){
+          var _showLess = $('.analyst-views').find('.btn-container .btn-plus .less');
+          _showLess.on('click',function(){
                 $('html, body').animate({
                     scrollTop: $(this).closest('.analyst-views').offset().top - 35
                 },500);
-            });
+          });
         },
         GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
             INFORMA.Spinner.Show($("body"));
@@ -5839,7 +5839,7 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
                 success_callback: function(data) {
                     if (typeof SCallback === "function") {
                         SCallback.call(this, data, SearchType);
-                        jQuery('.load-spinner').delay(600).remove();
+                         jQuery('.load-spinner').delay(600).remove();
                     }
                 },
                 error_callback: function() {
@@ -5917,19 +5917,19 @@ INFORMA.ArticleList = (function(window, $, namespace) {
     //if exist any default setting then update and return carousel object.
 
     GetCarouselOptions = function(ele) {
-        var DataObject = ele.data(),
-            OptionObj = {};
+            var DataObject = ele.data(),
+                OptionObj = {};
 
-        if (typeof DataObject === "object") {
-            for (var key in DataObject) {
-                if (DataObject.hasOwnProperty(key)) {
-                    var val = DataObject[key];
-                    OptionObj[key] = (val !== null && val !== undefined) ? val : SliderOption[key];
+            if (typeof DataObject === "object") {
+                for (var key in DataObject) {
+                    if (DataObject.hasOwnProperty(key)) {
+                        var val = DataObject[key];
+                        OptionObj[key] = (val !== null && val !== undefined) ? val : SliderOption[key];
+                    }
                 }
+                return OptionObj;
             }
-            return OptionObj;
-        }
-    },
+        },
         GetListCount = function(ele) {
             var count = ele.find("li").size();
             return count;
@@ -5980,67 +5980,67 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         },
         equalHeights = function() {
             // Select and loop the container element of the elements you want to equalise
-            var Items = Article.find('.recomended-wrapper'),
+           var Items = Article.find('.recomended-wrapper'),
                 MaxHeight = 0,
                 MaxWrapperHeight = 0,
                 MaxTopicHeight = 0,
                 MaxSubSectorHeight = 0;
 
-            Items.each(function () {
-                var ContentHeight = $(this).find('.content').outerHeight();
-                if(ContentHeight > MaxHeight) {
-                    MaxHeight = ContentHeight;
-                }
-            })
-            Items.find('.content').css('min-height' , MaxHeight);
-            Items.each(function(){
-                var TopicHeight = $(this).find('.topics').outerHeight();
-                if(TopicHeight > MaxTopicHeight) {
-                    MaxTopicHeight = TopicHeight;
-                }
-            })
-            Items.find('.topics').height(MaxTopicHeight);
-            Items.each(function(){
-                var TopicHeight = $(this).find('.SubSectors').outerHeight();
-                if(TopicHeight > MaxSubSectorHeight) {
-                    MaxSubSectorHeight = TopicHeight;
-                }
-            })
-            Items.find('.SubSectors').height(MaxSubSectorHeight);
-            Items.each(function(){
-                var WrapperHeight = $(this).find('.recomend-content').outerHeight();
-                if(WrapperHeight > MaxWrapperHeight) {
-                    MaxWrapperHeight = WrapperHeight;
-                }
-            })
-            Items.find('.recomend-content').css('min-height' , MaxWrapperHeight);
+                Items.each(function () {
+                    var ContentHeight = $(this).find('.content').outerHeight();
+                    if(ContentHeight > MaxHeight) {
+                        MaxHeight = ContentHeight;
+                    }
+                })
+                Items.find('.content').css('min-height' , MaxHeight);
+                Items.each(function(){
+                    var TopicHeight = $(this).find('.topics').outerHeight();
+                    if(TopicHeight > MaxTopicHeight) {
+                        MaxTopicHeight = TopicHeight;
+                    }
+                })
+                Items.find('.topics').height(MaxTopicHeight);
+                Items.each(function(){
+                    var TopicHeight = $(this).find('.SubSectors').outerHeight();
+                    if(TopicHeight > MaxSubSectorHeight) {
+                        MaxSubSectorHeight = TopicHeight;
+                    }
+                })
+                Items.find('.SubSectors').height(MaxSubSectorHeight);
+                Items.each(function(){
+                    var WrapperHeight = $(this).find('.recomend-content').outerHeight();
+                    if(WrapperHeight > MaxWrapperHeight) {
+                        MaxWrapperHeight = WrapperHeight;
+                    }
+                })
+                Items.find('.recomend-content').css('min-height' , MaxWrapperHeight);
         },
 
         headLineEqualHeight = function () {
             var items = _HeadlinesLists.find('.slick-slide'),
                 maxHeight = 0,
                 Padding = 0;
-            items.each(function () {
-                var Height = $(this).outerHeight();
-                if(Height > maxHeight) {
-                    maxHeight = Height + Padding;
-                }
-            })
-            items.css('height', maxHeight);
+                items.each(function () {
+                    var Height = $(this).outerHeight();
+                    if(Height > maxHeight) {
+                        maxHeight = Height + Padding;
+                    }
+                })
+                items.css('height', maxHeight);
         }
 
-    BindFilterEvents = function() {
-        //Filter menu present then bind filter event to dropdown
-        if (FilterMenu) {
-            FilterMenu.on("change", function(e) {
-                e.preventDefault();
-                var SelectedFilter = FilterMenu.val();
-                GetCarouselData(SelectedFilter);
-            });
-        }
-        equalHeights();
+        BindFilterEvents = function() {
+            //Filter menu present then bind filter event to dropdown
+            if (FilterMenu) {
+                FilterMenu.on("change", function(e) {
+                    e.preventDefault();
+                    var SelectedFilter = FilterMenu.val();
+                    GetCarouselData(SelectedFilter);
+                });
+            }
+            equalHeights();
 
-    },
+        },
         CreateSlider = function(el,mobileScroll,ipadScroll) {
             var _listItemCounts = GetListCount(el),
                 Options = GetCarouselOptions(el);
@@ -6055,24 +6055,24 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 slidesToScroll: Options.slidesScroll,
                 swipe: INFORMA.global.device.isDesktop ? false : true,
                 responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
-                        slidesToScroll: ipadScroll
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
+                            slidesToScroll: ipadScroll
+                        }
+                    }, {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
+                            slidesToScroll: ipadScroll
+                        }
+                    }, {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: mobileScroll,
+                            slidesToScroll: mobileScroll
+                        }
                     }
-                }, {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
-                        slidesToScroll: ipadScroll
-                    }
-                }, {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: mobileScroll,
-                        slidesToScroll: mobileScroll
-                    }
-                }
                     // You can unslick at a given breakpoint now by adding:
                     // settings: "unslick"
                     // instead of a settings object
@@ -6094,7 +6094,7 @@ INFORMA.ArticleList = (function(window, $, namespace) {
                 }
                 else{
                     CreateSlider(_HeadlinesLists,HeadlinesListItemsLength,HeadlinesListItemsLength);
-                }
+                }   
                 //headLineEqualHeight();
             }
             if (FilterMenu && !isExperienceMode) {
@@ -6181,11 +6181,11 @@ INFORMA.brandList = (function(window, $, namespace) {
     'use strict';
     //variables
     var _brandList = $('#product-brands-list-section, #related-products-section'),
-        // methods
+    // methods
         init,
         _bindShowMore;
 
-    // removed equal height function;
+        // removed equal height function;
 
     _bindShowMore = function(container){
         // if data-items, data-infinite is defined, used it
@@ -6194,9 +6194,9 @@ INFORMA.brandList = (function(window, $, namespace) {
             var _vp = INFORMA.global.device.viewportN;
             if(_vp == 2) {// This is mobile, toggle everything except first twbs-font-path
 
-                //$('.product-brands-list .container > .row > .card-col:nth-child(n+4), .card-col-heading').show();
-                $(this).prev().find(".col-xs-12 ").show();
-                $(this).hide();
+              //$('.product-brands-list .container > .row > .card-col:nth-child(n+4), .card-col-heading').show();
+              $(this).prev().find(".col-xs-12 ").show();
+              $(this).hide();
             }
         });
     }
@@ -6223,10 +6223,10 @@ INFORMA.brandList = (function(window, $, namespace) {
 
 // removed equal height function;
 
-    init = function () {
+init = function () {
     }
 
-    return {
+     return {
         init: init
     };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
@@ -6251,24 +6251,24 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
         _accordianTile = _contactUs.find('.panel-default'),
         _eachTile = _contactUs.find('.panel-heading'),
         _eachTileBtnMargin =_contactUs.find('.panel-body'),
-        // methods
+    // methods
         init,
         _openAccordian,
         _marginBottomWrapperCta;
 
-    _marginBottomWrapperCta = function(){
-        var _vp = INFORMA.global.device.viewportN;
-        if(_vp === 0 || _vp === 1) {
-            _eachTileBtnMargin.each(function(){
-                var _tileBtnHeight = jQuery(this).find(".btn-container").outerHeight()-30;
-                if(_tileBtnHeight>0){
-                    jQuery(this).find('.content-wrapper-cta').css('margin-bottom',_tileBtnHeight+'px');
-                }else{
-                    jQuery(this).find('.content-wrapper-cta').css('margin-bottom','15px');
-                }
-            });
+        _marginBottomWrapperCta = function(){
+          var _vp = INFORMA.global.device.viewportN;
+           if(_vp === 0 || _vp === 1) {
+          _eachTileBtnMargin.each(function(){
+            var _tileBtnHeight = jQuery(this).find(".btn-container").outerHeight()-30;
+            if(_tileBtnHeight>0){
+              jQuery(this).find('.content-wrapper-cta').css('margin-bottom',_tileBtnHeight+'px');
+            }else{
+              jQuery(this).find('.content-wrapper-cta').css('margin-bottom','15px');
+            }
+          });
         }
-    }
+      }
 
     _openAccordian = function(container){
         if(INFORMA.global.device.viewportN === 2) {
@@ -6286,7 +6286,7 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     }
 
     _eachTile.on('click', function(a) {
-        a.stopPropagation();
+     a.stopPropagation();
         if(jQuery(this).hasClass('collapsed')) {
             jQuery(this).removeClass('collapsed');
             jQuery(this).parent().find('.collapse').collapse('show');
@@ -6302,7 +6302,7 @@ INFORMA.homeContactUs = (function(window, $, namespace) {
     init = function() {
         if (_contactUs.length > 0) {
             _openAccordian(_contactUs);
-            _marginBottomWrapperCta();
+             _marginBottomWrapperCta();
         }
     };
 
@@ -6371,7 +6371,7 @@ jQuery(INFORMA.ContactUs.init());
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.CookiePolicy = (function (window, $, namespace) {
+INFORMA.CookiePolicy = (function(window, $, namespace) {
     'use strict';
     //variables
     /* dropCookie variable removed */
@@ -6383,48 +6383,49 @@ INFORMA.CookiePolicy = (function (window, $, namespace) {
         ShowBanner, CreateCookie, CheckCookie, RemoveMe;
 
 
-    ShowBanner = function (name, value, days) {
-        $("body").find("#cookieBanner").show();
-        if ($('#cookieBanner:visible').length) {
-            if (INFORMA.global.device.isDesktop) {
-                if ($('.mainNavigation').hasClass('navbar-fixed-top')) {
-                    $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
-                    $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight() + $(".mainNavigation").outerHeight());
+    ShowBanner = function(name, value, days) {
+            $("body").find("#cookieBanner").show();
+            if($('#cookieBanner:visible').length){
+                if (INFORMA.global.device.isDesktop) {
+                    if($('.mainNavigation').hasClass('navbar-fixed-top')) {
+                        $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
+                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
+                    }
                 }
-            } else {
-                if ($('.mobileNavigation').hasClass('navbar-fixed-top')) {
-                    $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
-                    $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight() + $(".mobileNavigation").outerHeight());
+                else{
+                    if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
+                        $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
+                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mobileNavigation").outerHeight());
+                    }
                 }
-            }
-        }
-        $("#cookieBanner a.close").on("click", function (e) {
-            e.preventDefault();
-            RemoveMe();
-            //CreateCookie(cookieName,cookieValue, cookieDuration);
-            INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
-                method: "Post",
-                data: JSON.stringify({"key": cookieName, "value": cookieValue, "expires": cookieDuration}),
-                success_callback: function (data) {
-                }
+             }   
+            $("#cookieBanner a.close").on("click", function(e) {
+                e.preventDefault();
+                RemoveMe();
+                //CreateCookie(cookieName,cookieValue, cookieDuration); 
+                INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
+                    method: "Post",
+                    data: JSON.stringify({"key":cookieName,"value":cookieValue ,"expires":cookieDuration}),
+                    success_callback: function(data) {
+                    }
+                });
+                    ///
             });
-            ///
-        });
-    },
+        },
         // CreateCookie = function(name,value,days) {
         //         if (days) {
         //             var date = new Date();
-        //             date.setTime(date.getTime()+(days*24*60*60*1000));
-        //             var expires = "; expires="+date.toGMTString();
+        //             date.setTime(date.getTime()+(days*24*60*60*1000)); 
+        //             var expires = "; expires="+date.toGMTString(); 
         //         }
         //         else {
         //             var expires = "";
         //         }
-        //         if(dropCookie) {
-        //             document.cookie = name+"="+value+expires+"; path=/";
+        //         if(dropCookie) { 
+        //             document.cookie = name+"="+value+expires+"; path=/"; 
         //         }
         // },
-        CheckCookie = function (name) {
+        CheckCookie = function(name) {
             var nameEQ = name + "=";
             var ca = document.cookie.split(';');
             for (var i = 0; i < ca.length; i++) {
@@ -6436,9 +6437,7 @@ INFORMA.CookiePolicy = (function (window, $, namespace) {
         },
         /* unused EraseCookie function removed */
         RemoveMe = function(data) {
-            var cookieHeightClick =  $('#cookieBanner').outerHeight()
             $("body").find("#cookieBanner").hide();
-
             if($('.mainNavigation').hasClass('navbar-fixed-top')) {
                 $('.mainNavigation').css('top',0);
             }
@@ -6448,18 +6447,15 @@ INFORMA.CookiePolicy = (function (window, $, namespace) {
             if($('#pdp-navigation').hasClass('navbar-fixed-top')) {
                 $('#pdp-navigation').css('top', $('.mainNavigation').outerHeight());
             }
-            if($("[data-target]").length) {
-                window.scrollBy(0, cookieHeightClick);
-            }
         },
-        init = function () {
+        init = function() {
             var getCookieExpiryDate = ($("input.cookieDuration").val()) ? $("input.cookieDuration").val() : 365;
             cookieDuration = parseInt(getCookieExpiryDate);
             //window.onload = function() {
-            if (CheckCookie(cookieName) !== cookieValue) {
-                ShowBanner();
-            }
-            //};
+                if (CheckCookie(cookieName) !== cookieValue) {
+                    ShowBanner();
+                }
+           //};
         }
 
     return {
@@ -6485,10 +6481,10 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
     'use strict';
     //variables
     var PreferenceCheckbox = $(".preference .panel-body li .custom-checkbox"),
-        CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
-        SelectAll = $(".preference .panel-heading .custom-checkbox input"),
+         CheckBoxes = $(".preference .panel-body .custom-checkbox input"),
+         SelectAll = $(".preference .panel-heading .custom-checkbox input"),
         init, BindCheckboxes, CheckParentSectorCheckBox, ReadPref,CreatePref, UpdatePref, Count=0;
-
+    
 
     //get all default setting value from component and check
     //if exist any default setting then update and return carousel object.
@@ -6496,7 +6492,7 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
         $('.preference .panel-body').each(function() {
             var Items = $(this).find('input[type="checkbox"]').length,
                 CheckedItems = $(this).find('input[type="checkbox"]:checked').length;
-
+                
             if(Items > 0) {
                 if(Items == CheckedItems) {
                     $(this).parents('.panel').find('.panel-heading').find('input[type="checkbox"]').attr('checked', 'checked');
@@ -6504,81 +6500,81 @@ INFORMA.PreferenceTab = (function(window, $, namespace) {
             }
         })
     },
-        CreatePref = function(name, value) {
-            INFORMA.DataLoader.GetServiceData("/client/ajax/UpdateCookieAreaOfInterest", {
-                method: "Post",
-                data: JSON.stringify({"key":name,"value":value ,"expires":365}),
-                success_callback: function(data) {
-                }
-            });
-        },
-        ReadPref = function(name) {
-            var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
-            result && (result = JSON.parse(result[1]));
-            return result;
-        },
-        UpdatePref = function(obj, isHeading){
-            var ParentEle = obj.parents(".panel-default").eq(0),
-                CountSpan = ParentEle.find("span.count"),
-                SelectedCount = ParentEle.find(".panel-body input[type=checkbox]:checked"),
-                CurrentCheckBoxs = ParentEle.find(".panel-body input[type=checkbox]"),
-                AllCheckBoxs = $(".preference .panel-body").find("input[type=checkbox]:checked"),
-                UserInterest = [];
+    CreatePref = function(name, value) {
+        INFORMA.DataLoader.GetServiceData("/client/ajax/UpdateCookieAreaOfInterest", {
+            method: "Post",
+            data: JSON.stringify({"key":name,"value":value ,"expires":365}),
+            success_callback: function(data) {
+            }
+        });
+    },
+    ReadPref = function(name) {
+         var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+         result && (result = JSON.parse(result[1]));
+         return result;
+    },
+    UpdatePref = function(obj, isHeading){
+                var ParentEle = obj.parents(".panel-default").eq(0),
+                    CountSpan = ParentEle.find("span.count"),
+                    SelectedCount = ParentEle.find(".panel-body input[type=checkbox]:checked"),
+                    CurrentCheckBoxs = ParentEle.find(".panel-body input[type=checkbox]"),
+                    AllCheckBoxs = $(".preference .panel-body").find("input[type=checkbox]:checked"),
+                    UserInterest = []; 
 
-            if(!isHeading){
-                if(!obj.prop("checked")){
-                    obj.parents(".panel").eq(0).find(".panel-heading input").prop("checked",false);
+                if(!isHeading){
+                    if(!obj.prop("checked")){
+                          obj.parents(".panel").eq(0).find(".panel-heading input").prop("checked",false);
+                    }
                 }
-            }
-            if(SelectedCount){
-                Count = SelectedCount.length;
-                CountSpan.text(Count);
-            }
-            jQuery.each(AllCheckBoxs, function(e){
-                if($(this).prop("checked")===true){
-                    UserInterest.push($(this).val());
+                if(SelectedCount){
+                    Count = SelectedCount.length;
+                    CountSpan.text(Count);
                 }
-            });
-            if(!UserInterest){
-                UserInterest = null;
-            }else{
-                UserInterest = UserInterest.join(",");
-            }
-            if(SelectedCount.length===CurrentCheckBoxs.length){
-                obj.parents(".panel").eq(0).find(".panel-heading input").prop("checked",true);
-            }
-            CreatePref("USR_DETAIL", UserInterest);
-        },
-        BindCheckboxes = function(ele) {
-            SelectAll.on("click",function(e){
-                var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input");
-                if($(this).prop("checked")===true){
-                    jQuery.each(CurrentCheckBoxs, function(e){
-                        if($(this).prop("checked")!==true){
-                            $(this).prop("checked",true);
-                        }
-                    });
-                } else{
-                    jQuery.each(CurrentCheckBoxs, function(e){
-                        $(this).prop("checked",false);
-                    });
+                jQuery.each(AllCheckBoxs, function(e){
+                    if($(this).prop("checked")===true){
+                       UserInterest.push($(this).val());
+                    }
+                }); 
+                if(!UserInterest){
+                    UserInterest = null;
+                }else{
+                    UserInterest = UserInterest.join(",");
                 }
-                UpdatePref($(this),true);
-            });
-            CheckBoxes.on("click",function(e){
-                e.stopPropagation();
-                e.stopImmediatePropagation();
-                UpdatePref($(this),false);
-            });
-        },
+                if(SelectedCount.length===CurrentCheckBoxs.length){
+                    obj.parents(".panel").eq(0).find(".panel-heading input").prop("checked",true);
+                }
+                CreatePref("USR_DETAIL", UserInterest);
+    },
+    BindCheckboxes = function(ele) {
+        SelectAll.on("click",function(e){
+            var CurrentCheckBoxs = $(this).parents(".panel").eq(0).find(".panel-body input");
+            if($(this).prop("checked")===true){
+                jQuery.each(CurrentCheckBoxs, function(e){
+                    if($(this).prop("checked")!==true){
+                       $(this).prop("checked",true);
+                    }
+                }); 
+            } else{
+                jQuery.each(CurrentCheckBoxs, function(e){
+                       $(this).prop("checked",false);
+                }); 
+            }
+            UpdatePref($(this),true);
+        });
+        CheckBoxes.on("click",function(e){
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            UpdatePref($(this),false);
+        });
+    },
 
 
-        init = function() {
-            if(PreferenceCheckbox.length){
-                BindCheckboxes();
-                CheckParentSectorCheckBox();
-            }
-        };
+    init = function() {
+        if(PreferenceCheckbox.length){
+            BindCheckboxes();
+            CheckParentSectorCheckBox();
+        }
+    };
 
     return {
         init: init
@@ -6614,7 +6610,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         Type = $('select[name="eventType"]'),
         NextButton = $('.fc-next-button'),
         MoreEvents = $('.btn-more-events'),
-        _Start = moment(new Date()).format('MMMM YYYY'),
+       _Start = moment(new Date()).format('MMMM YYYY'),
         _end = moment(_Start).add(11, 'months').format('MMMM YYYY'),
         _previous = moment(_Start).add(-11, 'months').format('MMMM YYYY'),
         Urls = INFORMA.Configs.urls.webservices,
@@ -6631,149 +6627,149 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             e.preventDefault();
         });
     },
-
-        UnbindEvent = function() {
-            $('.register.disabled').on('keydown', function(e) {
-                if (e.keyCode === 13 || e.which===13) {
-                    e.preventDefault();
-                }
-            })
-        },
-
-        GetEventData = function(monthType) {
-            var eventID = $("section#events"),
-                eventsEndDate = $("select[name='month'] option:last-child")[0].value,
-                obj;
+    
+    UnbindEvent = function() {
+        $('.register.disabled').on('keydown', function(e) {
+            if (e.keyCode === 13 || e.which===13) {
+                e.preventDefault();
+            }   
+        })
+    },
+            
+    GetEventData = function(monthType) {
+        var eventID = $("section#events"),
+            eventsEndDate = $("select[name='month'] option:last-child")[0].value,
+            obj;
             if($('body').hasClass('list-view')){
                 obj = {
                     data:JSON.stringify({ EventsStartDate:  monthType,
-                        SectorId: SectorSelect.val(),
-                        eventType: Type.val(),
-                        Country: Country.val(),
-                        CurrentPage:eventID.data("currentpage"),
-                        PageNo: 1,
-                        EventsEndDate: eventsEndDate,
-                        PageSize: List.data('count'),
-                        ViewMode: 'list'
+                       SectorId: SectorSelect.val(),
+                       eventType: Type.val(),
+                       Country: Country.val(),
+                       CurrentPage:eventID.data("currentpage"),
+                       PageNo: 1,
+                       EventsEndDate: eventsEndDate,
+                       PageSize: List.data('count'),
+                       ViewMode: 'list'
                     })
                 }
-            }
+            }    
             else{
                 obj = {
-                    data:JSON.stringify({ MonthYear:  monthType,
-                        SectorId: SectorSelect.val(),
-                        eventType: Type.val(),
-                        Country: Country.val(),
-                        CurrentPage:eventID.data("currentpage"),
-                        ViewMode: 'calendar'
+                   data:JSON.stringify({ MonthYear:  monthType,
+                       SectorId: SectorSelect.val(),
+                       eventType: Type.val(),
+                       Country: Country.val(),
+                       CurrentPage:eventID.data("currentpage"),
+                       ViewMode: 'calendar'
                     })
                 }
-            }
-            return obj;
-        },
-
-        GetDefaultEventData  = function(monthType) {
-            var eventID = $("section#events"),
-                eventsEndDate = $("select[name='month'] option:last-child")[0].value,
-                obj;
+            }   
+            return obj;        
+    },
+    
+    GetDefaultEventData  = function(monthType) {
+        var eventID = $("section#events"),
+            eventsEndDate = $("select[name='month'] option:last-child")[0].value,
+            obj;
             if($('body').hasClass('list-view')){
                 obj = {
-                    data:JSON.stringify({
-                        EventsStartDate:  monthType,
-                        SectorId: SectorSelect.val(),
-                        eventType: Type.val(),
-                        Country: Country.val(),
-                        CurrentPage:eventID.data("currentpage"),
-                        PageNo: PageNo,
-                        EventsEndDate: eventsEndDate,
-                        PageSize: List.data('count'),
-                        ViewMode: 'list'
+                   data:JSON.stringify({ 
+                       EventsStartDate:  monthType,
+                       SectorId: SectorSelect.val(),
+                       eventType: Type.val(),
+                       Country: Country.val(),
+                       CurrentPage:eventID.data("currentpage"),
+                       PageNo: PageNo,
+                       EventsEndDate: eventsEndDate,
+                       PageSize: List.data('count'),
+                       ViewMode: 'list'
                     })
                 }
-            }
+            }    
             else{
                 obj = {
-                    data:JSON.stringify({
-                        MonthYear:  monthType,
-                        SectorId: SectorSelect.val(),
-                        eventType: Type.val(),
-                        Country: Country.val(),
-                        CurrentPage:eventID.data("currentpage"),
-                        ViewMode: 'calendar'
+                   data:JSON.stringify({ 
+                       MonthYear:  monthType,
+                       SectorId: SectorSelect.val(),
+                       eventType: Type.val(),
+                       Country: Country.val(),
+                       CurrentPage:eventID.data("currentpage"),
+                       ViewMode: 'calendar'
                     })
                 }
-            }
-            return obj;
-        },
-
-        GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
-            INFORMA.Spinner.Show($('body'));
-            INFORMA.DataLoader.GetServiceData(url, {
-                method: method,
-                data: data,
-                success_callback: function(data) {
-                    if (typeof SCallback === "function") {
-                        SCallback.call(this, data, SearchType);
-                    }
-                },
-                error_callback: function() {
-                    if (typeof Errcallback === "function") {
-                        Errcallback.call(this, data, SearchType);
-                    }
+            }   
+        return obj;        
+    },
+    
+    GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
+        INFORMA.Spinner.Show($('body'));
+        INFORMA.DataLoader.GetServiceData(url, {
+            method: method,
+            data: data,
+            success_callback: function(data) {
+                if (typeof SCallback === "function") {
+                    SCallback.call(this, data, SearchType);
                 }
-            });
-        },
-
-        EqualHeight = function(){
-            var highestBox = 0,
-                EachItem = List.find(".content-wrap"),
-                padding = 0;
-            jQuery('section[data-view="list-view"]').show();
-            EachItem.each(function(){
-                if(jQuery(this).height() > highestBox){
-                    highestBox = jQuery(this).height();
+            },
+            error_callback: function() {
+                if (typeof Errcallback === "function") {
+                    Errcallback.call(this, data, SearchType);
                 }
-            });
-            if(jQuery('body').hasClass('calendar-view')) {
-                jQuery('section[data-view="list-view"]').hide();
             }
+        });
+    },
 
-            EachItem.height(highestBox + padding);
-            if(INFORMA.global.device.viewportN == 2) {
-                EachItem.height("auto");
+    EqualHeight = function(){
+       var highestBox = 0,
+        EachItem = List.find(".content-wrap"),
+        padding = 0;
+        jQuery('section[data-view="list-view"]').show();
+        EachItem.each(function(){
+            if(jQuery(this).height() > highestBox){
+                highestBox = jQuery(this).height();
             }
-        },
+        });
+        if(jQuery('body').hasClass('calendar-view')) {
+            jQuery('section[data-view="list-view"]').hide();
+        }
 
-        RenderChange = function(data) {
-            CheckEvents(data);
-            SetCalendarEvents(data);
-            SetListEvents(data);
-            UnbindEvent();
-            disabledEvent();
-            PageNo = 2;
-        },
+        EachItem.height(highestBox + padding);
+        if(INFORMA.global.device.viewportN == 2) {
+            EachItem.height("auto");
+        }
+    },
+    
+    RenderChange = function(data) {
+        CheckEvents(data);
+        SetCalendarEvents(data);
+        SetListEvents(data);
+        UnbindEvent();
+        disabledEvent();
+        PageNo = 2;
+    },
 
-        LoadMoreEvents = function(data){
-            CheckEvents(data);
-            SetCalendarEvents(data);
-            SetLoadMoreEvents(data);
-            UnbindEvent();
-            disabledEvent();
-            PageNo++;
-        },
+    LoadMoreEvents = function(data){
+        CheckEvents(data);
+        SetCalendarEvents(data);
+        SetLoadMoreEvents(data);
+        UnbindEvent();
+        disabledEvent();
+        PageNo++;
+    },
 
-        SetLoadMoreEvents = function(data){
-            var results = data.Events,
-                html = "";
+    SetLoadMoreEvents = function(data){
+        var results = data.Events,
+            html = "";
             for (var key in results) {
                 if (results.hasOwnProperty(key)) {
                     var Data = results[key],
                         HeaderText = key,
                         TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
                         ListTemplate = Handlebars.compile(TemplateName);
-                    Data.Month = HeaderText;
-                    Data.MonthField = Data.MonthYearField.split(" ")[0];
-                    html += ListTemplate({ results: Data });
+                        Data.Month = HeaderText;
+                        Data.MonthField = Data.MonthYearField.split(" ")[0];
+                        html += ListTemplate({ results: Data });
                 }
             }
             List.find('.events-container').append(html);
@@ -6796,115 +6792,115 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             } else {
                 List.find('.next').removeClass('arrow-desabled');
             }
-        }
+    }
 
     SetListEvents    = function(data) {
         var results = data.Events,
-            html = "";
+              html = "";
 
-        for (var key in results) {
-            if (results.hasOwnProperty(key)) {
-                var Data = results[key],
-                    HeaderText = key,
-                    TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
-                    ListTemplate = Handlebars.compile(TemplateName);
-                Data.Month = HeaderText;
-                Data.MonthField = Data.MonthYearField.split(" ")[0];
-                html += ListTemplate({ results: Data });
+            for (var key in results) {
+                if (results.hasOwnProperty(key)) {
+                    var Data = results[key],
+                        HeaderText = key,
+                        TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
+                        ListTemplate = Handlebars.compile(TemplateName);
+                        Data.Month = HeaderText;
+                        Data.MonthField = Data.MonthYearField.split(" ")[0];
+                        html += ListTemplate({ results: Data });
+                }
             }
-        }
-        List.find('.events-container').html(html);
-        NoEventsFound();
-        EqualHeight();
-        List.attr('total-count',data.TotalResults);
-        CheckCount();
-        var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
-            ViewDate = moment(new Date('1 '+ViewDateText));
+            List.find('.events-container').html(html);
+            NoEventsFound();
+            EqualHeight();
+            List.attr('total-count',data.TotalResults);
+            CheckCount();
+            var ViewDateText = jQuery('section[data-view="list-view"]').find('h2').text(),
+                ViewDate = moment(new Date('1 '+ViewDateText));
 
-        if(ViewDate.format('MMMM YYYY') == _previous) {
-            List.find('.previous').addClass('arrow-desabled');
-        } else {
-            List.find('.previous').removeClass('arrow-desabled');
-        }
+            if(ViewDate.format('MMMM YYYY') == _previous) {
+                List.find('.previous').addClass('arrow-desabled');
+            } else {
+                List.find('.previous').removeClass('arrow-desabled');
+            }
 
-        if(ViewDate.format('MMMM YYYY') == _end) {
-            List.find('.next').addClass('arrow-desabled');
-        } else {
-            List.find('.next').removeClass('arrow-desabled');
-        }
-        //RenderClickEvents();
+            if(ViewDate.format('MMMM YYYY') == _end) {
+                List.find('.next').addClass('arrow-desabled');
+            } else {
+                List.find('.next').removeClass('arrow-desabled');
+            }
+          //RenderClickEvents();
     },
 
-        CheckCount = function() {
-            List.each(function() {
+    CheckCount = function() {
+        List.each(function() {
 
-                var Count = $(this).data('count'),
-                    Items = parseInt($(this).attr('total-count')),
-                    listCount = $(this).find('.events-section').length;
+            var Count = $(this).data('count'),
+                Items = parseInt($(this).attr('total-count')),
+                listCount = $(this).find('.events-section').length;
 
-                if(Items > Count) {
-                    $(this).next('.more-events').find('.btn-more-events').removeClass('hidden');
-                } else {
-                    $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
-                }
-                if(Items === 0){
-                    $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
-                }
-                if(Items === listCount){
-                    $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
-                }
-            })
-        },
+            if(Items > Count) {
+                $(this).next('.more-events').find('.btn-more-events').removeClass('hidden');
+            } else {
+                $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
+            }
+            if(Items === 0){
+                $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
+            } 
+            if(Items === listCount){
+                $(this).next('.more-events').find('.btn-more-events').addClass('hidden');
+            }
+        })
+    },
 
-        RenderOnLoad = function() {
-            jQuery('body').addClass('list-view');
-            var date = new Date(),
-                DatePass = moment(date).format('MMMM YYYY'),
-                PageTemplate = $("section#events").data("currentpage"),
-                MonthYear = MonthSelect.val(),
-                obj = GetEventData(MonthYear);
+    RenderOnLoad = function() {
+        jQuery('body').addClass('list-view');
+        var date = new Date(),
+            DatePass = moment(date).format('MMMM YYYY'),
+            PageTemplate = $("section#events").data("currentpage"),
+            MonthYear = MonthSelect.val(),
+            obj = GetEventData(MonthYear);
             EqualHeight();
             CheckCount();
             _previousDate = date;
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderLoadEvents, null, null);
-        },
+    },
 
-        RenderLoadEvents = function(data) {
-            var _contentheight = null, _dayView = [],
-                _vp = INFORMA.global.device.viewportN,
-                header = {
-                    left: 'prev',
-                    center: 'title',
-                    right: 'next'
-                };
+    RenderLoadEvents = function(data) {
+        var _contentheight = null, _dayView = [],
+            _vp = INFORMA.global.device.viewportN,
+            header = {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
+            };
 
-            if(_vp === 2) {
-                _contentheight = 100;
-                _dayView = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-            } else if(_vp === 1) {
-                _dayView = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-            } else {
-                _contentheight = 1700;
-                _dayView = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            }
+        if(_vp === 2) {
+            _contentheight = 100;
+            _dayView = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+        } else if(_vp === 1) {
+            _dayView = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
+        } else {
+            _contentheight = 1700;
+            _dayView = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        }
 
-            // if(_vp === 1 || _vp === 0) {
-            //     header = {
-            //         left: 'title',
-            //         right: 'prev,next'
-            //     }
-            // } else {
-            //     header = {
-            //         left: 'prev',
-            //         center: 'title',
-            //         right: 'next'
-            //     }
-            // }
+        // if(_vp === 1 || _vp === 0) {
+        //     header = {
+        //         left: 'title',
+        //         right: 'prev,next'
+        //     }
+        // } else {
+        //     header = {
+        //         left: 'prev',
+        //         center: 'title',
+        //         right: 'next'
+        //     }
+        // }
 
-            // List.find('.previous').addClass('arrow-desabled');
-            NoEventsFound();
-            Calendar.html("");
-            Calendar.fullCalendar({
+        // List.find('.previous').addClass('arrow-desabled');
+        NoEventsFound();
+        Calendar.html("");
+        Calendar.fullCalendar({
                 header: header,
                 eventLimit: true,
                 contentHeight: _contentheight,
@@ -6914,7 +6910,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     var Current = moment(new Date()).format('MMMM YYYY'),
                         ViewDate = moment(view.title).format('MMMM YYYY'),
                         End = moment(new Date()).add(11, 'months').format('MMMM YYYY');
-                    //
+                        //
                     // if(view.title == Current) {
                     //     jQuery('.fc-prev-button').addClass('disabled');
                     // } else {
@@ -6995,31 +6991,31 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                         CountryText = "",
                         ViewDate = view;
 
-                    if(event.Country != null) {
-                        CountryText = event.Country;
-                    }
+                        if(event.Country != null) {
+                            CountryText = event.Country;
+                        }
 
-                    if(!event.EventText && event.Link!==null) {
+                        if(!event.EventText && event.Link!==null) {
 
-                        if(moment(CurrentDate) > moment(ItemDate)) {
-                            if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                                return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                            if(moment(CurrentDate) > moment(ItemDate)) {
+                                if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
+                                    return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                                } else {
+                                    return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                                }
                             } else {
-                                return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                                return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                             }
                         } else {
-                            return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                            return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
                         }
-                    } else {
-                        return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
-                    }
                 }
-            });
-            CheckEvents(data);
-            SetCalendarEvents(data);
-        },
-        RenderParticularMonth = function(date) {
-            var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY');
+        });
+        CheckEvents(data);
+        SetCalendarEvents(data);
+    },
+    RenderParticularMonth = function(date) { 
+        var NextMonth = moment(new Date('1 ' +date)).format('MMMM YYYY');
 //      PageTemplate = $("section#events").data("CurrentPage");
 //             var obj = { 
 //                data:JSON.stringify({MonthYear: NextMonth, 
@@ -7029,59 +7025,59 @@ INFORMA.EventsViews = (function(window, $, namespace) {
 //               })
 //             } 
 //         GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
-            $('#Eventmonth').val(NextMonth);
-            $('#Eventmonth').trigger("chosen:updated");
-            var MonthYear = NextMonth,
-                obj = GetEventData(NextMonth);
-            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
-        },
+        $('#Eventmonth').val(NextMonth);
+        $('#Eventmonth').trigger("chosen:updated");
+        var MonthYear = NextMonth,
+        obj = GetEventData(NextMonth);
+        GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null); 
+    },
 
-        CheckEvents = function(data) {
+    CheckEvents = function(data) {
 
-            var results = data.Events,
-                List = [];
+        var results = data.Events,
+            List = [];
 
-            for(var key in results) {
-                List = results[key];
-            }
-
-            if(List.length > 0) {
-                jQuery('.no-results').hide();
-            } else {
-                jQuery('.no-results').show();
-            }
-        },
-
-        SetCalendarEvents = function(list) {
-            Calendar.fullCalendar('removeEvents');
-            var data = list.Events,
-                _vp = INFORMA.global.device.viewportN;
-
-            var EventList = [];
-
-            for(var key = 0; key < data.length ; key++) {
-                EventList.push({
-                    "title": data[key].Title,
-                    "start": new Date(data[key].EventDate),
-                    "State": data[key].State,
-                    "Country": data[key].Country,
-                    "Link": (data[key].FullDetail != null) ? (data[key].FullDetail.Url): null,
-                    "Target": (data[key].FullDetail != null) ? (data[key].FullDetail.Target): null,
-                    "EventText": (data[key].EventText == "FullyBooked") ? true: false
-                })
-            }
-            if(_vp === 1 || _vp === 2) {
-                $('td.fc-day-number').removeClass('events-now');
-                $('td.fc-widget-content').removeClass('event-present');
-            }
-            jQuery('section[data-view="calendar-view"]').show();
-            for(var key = 0; key < EventList.length ; key++) {
-                Calendar.fullCalendar('renderEvent', EventList[key], true);
-            }
-            if(jQuery('body').hasClass('list-view')) {
-                jQuery('section[data-view="calendar-view"]').hide();
-            }
+        for(var key in results) {
+            List = results[key];
         }
+
+        if(List.length > 0) {
+            jQuery('.no-results').hide();
+        } else {
+            jQuery('.no-results').show();
+        }
+    },
+
+    SetCalendarEvents = function(list) {
+        Calendar.fullCalendar('removeEvents');
+        var data = list.Events,
+            _vp = INFORMA.global.device.viewportN;
+
+        var EventList = [];
+
+        for(var key = 0; key < data.length ; key++) {
+            EventList.push({
+                "title": data[key].Title,
+                "start": new Date(data[key].EventDate),
+                "State": data[key].State,
+                "Country": data[key].Country,
+                "Link": (data[key].FullDetail != null) ? (data[key].FullDetail.Url): null,
+                "Target": (data[key].FullDetail != null) ? (data[key].FullDetail.Target): null,
+                "EventText": (data[key].EventText == "FullyBooked") ? true: false
+            })
+        }
+        if(_vp === 1 || _vp === 2) {
+            $('td.fc-day-number').removeClass('events-now');
+            $('td.fc-widget-content').removeClass('event-present');
+        }
+        jQuery('section[data-view="calendar-view"]').show();
+        for(var key = 0; key < EventList.length ; key++) {
+            Calendar.fullCalendar('renderEvent', EventList[key], true);
+        }
+        if(jQuery('body').hasClass('list-view')) {
+            jQuery('section[data-view="calendar-view"]').hide();
+        }
+    }
 
     SwitchEvents = function() {
         Views.on('click', function(e) {
@@ -7098,12 +7094,12 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 DatePass = moment(date).format('MMMM YYYY'),
                 PageTemplate = $("section#events").data("currentpage"),
                 MonthYear = MonthSelect.val();
-            EqualHeight();
-            CheckCount();
-            var obj = GetEventData(MonthYear);
-            _previousDate = date;
-            GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
-            NoEventsFound();
+                EqualHeight();
+                CheckCount();
+                var obj = GetEventData(MonthYear);
+                _previousDate = date;
+                GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+                NoEventsFound();
         })
 
 
@@ -7117,7 +7113,7 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 jQuery('section[data-view="calendar-view"]').hide();
             }
             var MonthYear = check.format('MMMM YYYY'),
-                obj = GetEventData(MonthYear);
+                obj = GetEventData(MonthYear); 
             GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
             NoEventsFound();
         });
@@ -7189,9 +7185,9 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         })
 
     },
-        NoEventsFound = function() {
-            var Container = jQuery('.events-container'),
-                Items = Container.find('.events-section');
+     NoEventsFound = function() {
+        var Container = jQuery('.events-container'),
+            Items = Container.find('.events-section');
 
             if(Items.length > 0) {
                 jQuery('.no-result').addClass('hidden');
@@ -7200,66 +7196,66 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                 jQuery('.no-result').removeClass('hidden');
                 $('.fc-view-container').addClass('hidden');
             }
-        },
-        MoreEventsFunc = function() {
-            MoreEvents.on('click', function() {
-                var Parent = jQuery(this).parents('section'),
-                    Count = Parent.find('.container').data('count'),
-                    MonthYear = MonthSelect.val(),
-                    obj = GetDefaultEventData(MonthYear);
+    },
+    MoreEventsFunc = function() {
+        MoreEvents.on('click', function() {
+            var Parent = jQuery(this).parents('section'),
+                Count = Parent.find('.container').data('count'),
+                MonthYear = MonthSelect.val(),
+                obj = GetDefaultEventData(MonthYear);
                 GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), LoadMoreEvents, null, $(this));
-            });
-        },
-
-        ListChangeEvents = function() {
-            $(document).on('click', 'section[data-view="list-view"] .next', function() {
-                var DateText = $(this).parents('section[data-view="list-view"]').find('.header h2').text(),
+        });
+    },
+    
+    ListChangeEvents = function() {
+        $(document).on('click', 'section[data-view="list-view"] .next', function() {
+            var DateText = $(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', 1).format('MMMM YYYY');
-                $(this).parents('section[data-view="list-view"]').find('.header h2').text(prevMonth)
-                $('#Eventmonth').val(prevMonth);
-                $('#Eventmonth').trigger("chosen:updated");
-                var MonthYear = prevMonth,
-                    obj = GetEventData(MonthYear);
-                // var obj = {
-                //    data:JSON.stringify({  MonthYear: prevMonth,
-                //     SectorId: SectorSelect.val(),
-                //    Country: Country.val(),
-                //     eventType: Type.val()})
-                // }
-                jQuery('section[data-view="calendar-view"]').show();
-                Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', 1));
-                jQuery('section[data-view="calendar-view"]').hide();
-                GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+                    $(this).parents('section[data-view="list-view"]').find('.header h2').text(prevMonth)
+                    $('#Eventmonth').val(prevMonth);
+                    $('#Eventmonth').trigger("chosen:updated");
+                    var MonthYear = prevMonth,
+                        obj = GetEventData(MonthYear);
+                    // var obj = {
+                    //    data:JSON.stringify({  MonthYear: prevMonth,
+                    //     SectorId: SectorSelect.val(),
+                    //    Country: Country.val(),
+                    //     eventType: Type.val()})
+                    // }
+                    jQuery('section[data-view="calendar-view"]').show();
+                    Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', 1));
+                    jQuery('section[data-view="calendar-view"]').hide();
+                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-            });
-            $(document).on('click','.fc-next-button, .fc-prev-button', function(){
-                var currentMonth = jQuery(this).parents('.fc-toolbar').find('h2').text();
-                RenderParticularMonth(currentMonth);
-            });
-            $(document).on('click', 'section[data-view="list-view"] .previous', function() {
-                var DateText = $(this).parents('section[data-view="list-view"]').find('.header h2').text(),
+        });
+        $(document).on('click','.fc-next-button, .fc-prev-button', function(){
+            var currentMonth = jQuery(this).parents('.fc-toolbar').find('h2').text();
+            RenderParticularMonth(currentMonth);
+        });
+        $(document).on('click', 'section[data-view="list-view"] .previous', function() {
+            var DateText = $(this).parents('section[data-view="list-view"]').find('.header h2').text(),
                     ViewDate = new Date('1 '+DateText),
                     prevMonth = moment(ViewDate).add('months', -1).format('MMMM YYYY');
-                $(this).parents('section[data-view="list-view"]').find('.header h2').text(prevMonth)
-                $('#Eventmonth').val(prevMonth);
-                $('#Eventmonth').trigger("chosen:updated");
-                var MonthYear = prevMonth,
-                    obj = GetEventData(MonthYear);
+                    $(this).parents('section[data-view="list-view"]').find('.header h2').text(prevMonth)
+                    $('#Eventmonth').val(prevMonth);
+                    $('#Eventmonth').trigger("chosen:updated");
+                    var MonthYear = prevMonth,
+                        obj = GetEventData(MonthYear);
 
-                // var obj = {
-                //   data:JSON.stringify({   MonthYear: prevMonth,
-                //     SectorId: SectorSelect.val(),
-                //   Country: Country.val(),
-                //     eventType: Type.val()})
-                // }
-                jQuery('section[data-view="calendar-view"]').show();
-                Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', -1));
-                jQuery('section[data-view="calendar-view"]').hide();
-                GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
+                    // var obj = {
+                    //   data:JSON.stringify({   MonthYear: prevMonth,
+                    //     SectorId: SectorSelect.val(),
+                    //   Country: Country.val(),
+                    //     eventType: Type.val()})
+                    // }
+                    jQuery('section[data-view="calendar-view"]').show();
+                    Calendar.fullCalendar('gotoDate', moment(ViewDate).add('months', -1));
+                    jQuery('section[data-view="calendar-view"]').hide();
+                    GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), RenderChange, null, null);
 
-            });
-        }
+        });
+    }
 
     init = function() {
         if(EventsLists.length > 0) {
@@ -7286,7 +7282,7 @@ INFORMA.FAQs = (function (window, $, namespace) {
         AccordianWrapper = $('.accordian-structure'),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
-        //methods
+    //methods
         init, BindMore, ResetAccordian, GetAjaxData, GetFaqIds, RenderFaqs;
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
@@ -7306,99 +7302,99 @@ INFORMA.FAQs = (function (window, $, namespace) {
         });
     },
 
-        RenderFaqs = function (data, Button) {
+    RenderFaqs = function (data, Button) {
 
-            var Results = data,
-                List = Results.FaqList,
-                AccordianId = Results.FaqAccordionId,
-                Html = "",
-                TabsValue = "";
+        var Results = data,
+            List = Results.FaqList,
+            AccordianId = Results.FaqAccordionId,
+            Html = "",
+            TabsValue = "";
 
-            for (var key = 0; key < List.length; key++) {
-                var Data = List[key],
-                    TemplateName = (Templates.AccordianTemplate !== "undefined") ? Templates.AccordianTemplate : "",
-                    ListTemplate = Handlebars.compile(TemplateName);
-                Data.FaqAccordionId = AccordianId + Button.parents('.accordian-structure').attr('data-tabs');
-                if(Button.parents('.accordian-structure').attr('data-tabs'))
-                    Data.Tabs = Button.parents('.accordian-structure').attr('data-tabs');
-                Html += ListTemplate({ results: Data });
-            }
+        for (var key = 0; key < List.length; key++) {
+            var Data = List[key],
+            TemplateName = (Templates.AccordianTemplate !== "undefined") ? Templates.AccordianTemplate : "",
+            ListTemplate = Handlebars.compile(TemplateName);
+            Data.FaqAccordionId = AccordianId + Button.parents('.accordian-structure').attr('data-tabs');
+            if(Button.parents('.accordian-structure').attr('data-tabs'))
+            Data.Tabs = Button.parents('.accordian-structure').attr('data-tabs');
+            Html += ListTemplate({ results: Data });
+        }
 
-            if(Button.parents('.accordian-structure').attr('data-tabs').length > 0) {
-                TabsValue = Button.parents('.accordian-structure').attr('data-tabs');
-            }
+        if(Button.parents('.accordian-structure').attr('data-tabs').length > 0) {
+            TabsValue = Button.parents('.accordian-structure').attr('data-tabs');
+        }
 
-            if($('.help-faq-wrapper').length > 0) {
-                Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId + TabsValue+'"]').append(Html);
+        if($('.help-faq-wrapper').length > 0) {
+            Button.parents('.help-faq-wrapper').find('.panel-group[data-panel="'+AccordianId + TabsValue+'"]').append(Html);
+        } else {
+            Button.parents('.accordian-wrap').find('.panel-group[data-panel="'+AccordianId + TabsValue+'"]').append(Html);
+        }
+
+        if (Results.FaqRemainingCount < 1) {
+            $('.panel-group#' + AccordianId + TabsValue).parent().find('.btn-faq-more').hide();
+        } else {
+            $('.panel-group#' + AccordianId + TabsValue).parent().find('.btn-faq-more').show();
+        }
+    },
+
+    GetFaqIds = function (Parent) {
+        var panels = Parent.find('.panel-collapse'),
+            ids = [];
+
+        panels.each(function () {
+            var Current = $(this).attr('data-fetch');
+            ids.push(Current);
+        })
+
+        return ids;
+    },
+
+    ResetAccordian = function () {
+        var Items = AccordianWrapper.find('.panel-group');
+        if($('.help-faq-wrapper').length > 0) {
+            $('.help-faq-wrapper .accordian-wrap').addClass('hide');
+            $('.help-faq-wrapper .accordian-wrap:first-child').removeClass('hide').addClass('show');
+        }
+        Items.each(function () {
+            $(this).attr('data-pageno', pageNo);
+        });
+    },
+
+    BindMore = function () {
+        FaqMoreBtn.on('click', function (e) {
+            e.preventDefault();
+            var Parent = $(this).parents('.accordian-wrap'),
+                CurrentPage = Parent.find('.panel-group').attr('data-pageno'),
+                HelpDropdown = Parent.parents('.accordian-structure').find('.help-faq-select'),
+                Count = Parent.parents('.accordian-structure').attr('data-count'),
+                CurrentPageItemGuid = Parent.parents('.accordian-structure').attr('data-CurrentPageItemGuid'),
+                SearchTextFaqs = $('.SearchTextFAQ').val(),
+                _Object = {
+                    PageNo: 0,
+                    PageSize: Count,
+                    CurrentPageItemGuid: CurrentPageItemGuid,
+                    SearchText: SearchTextFaqs
+                };
+
+            _Object.ExcludedFAQItemIds = GetFaqIds(Parent);
+
+            if (HelpDropdown.length > 0) {
+                _Object.FAQTypeItemGuid = HelpDropdown.val();
             } else {
-                Button.parents('.accordian-wrap').find('.panel-group[data-panel="'+AccordianId + TabsValue+'"]').append(Html);
+                _Object.FAQTypeItemGuid = null;
             }
+            Parent.find('.panel-group').attr('data-pageno', (parseInt(CurrentPage) + 1));
 
-            if (Results.FaqRemainingCount < 1) {
-                $('.panel-group#' + AccordianId + TabsValue).parent().find('.btn-faq-more').hide();
-            } else {
-                $('.panel-group#' + AccordianId + TabsValue).parent().find('.btn-faq-more').show();
-            }
-        },
+            GetAjaxData(Urls.GetFAQs, "Post", _Object, RenderFaqs, null, $(this));
+        })
+    },
 
-        GetFaqIds = function (Parent) {
-            var panels = Parent.find('.panel-collapse'),
-                ids = [];
-
-            panels.each(function () {
-                var Current = $(this).attr('data-fetch');
-                ids.push(Current);
-            })
-
-            return ids;
-        },
-
-        ResetAccordian = function () {
-            var Items = AccordianWrapper.find('.panel-group');
-            if($('.help-faq-wrapper').length > 0) {
-                $('.help-faq-wrapper .accordian-wrap').addClass('hide');
-                $('.help-faq-wrapper .accordian-wrap:first-child').removeClass('hide').addClass('show');
-            }
-            Items.each(function () {
-                $(this).attr('data-pageno', pageNo);
-            });
-        },
-
-        BindMore = function () {
-            FaqMoreBtn.on('click', function (e) {
-                e.preventDefault();
-                var Parent = $(this).parents('.accordian-wrap'),
-                    CurrentPage = Parent.find('.panel-group').attr('data-pageno'),
-                    HelpDropdown = Parent.parents('.accordian-structure').find('.help-faq-select'),
-                    Count = Parent.parents('.accordian-structure').attr('data-count'),
-                    CurrentPageItemGuid = Parent.parents('.accordian-structure').attr('data-CurrentPageItemGuid'),
-                    SearchTextFaqs = $('.SearchTextFAQ').val(),
-                    _Object = {
-                        PageNo: 0,
-                        PageSize: Count,
-                        CurrentPageItemGuid: CurrentPageItemGuid,
-                        SearchText: SearchTextFaqs
-                    };
-
-                _Object.ExcludedFAQItemIds = GetFaqIds(Parent);
-
-                if (HelpDropdown.length > 0) {
-                    _Object.FAQTypeItemGuid = HelpDropdown.val();
-                } else {
-                    _Object.FAQTypeItemGuid = null;
-                }
-                Parent.find('.panel-group').attr('data-pageno', (parseInt(CurrentPage) + 1));
-
-                GetAjaxData(Urls.GetFAQs, "Post", _Object, RenderFaqs, null, $(this));
-            })
-        },
-
-        init = function () {
-            if (AccordianWrapper.length > 0) {
-                ResetAccordian();
-                BindMore();
-            }
-        };
+    init = function () {
+        if (AccordianWrapper.length > 0) {
+            ResetAccordian();
+            BindMore();
+        }
+    };
 
     return {
         init: init
@@ -7459,7 +7455,7 @@ INFORMA.featureList = (function(window, $, namespace) {
                         $(this).find('.feature-list-btn-container').hide();
                     }
                 }else{
-                    $(this).find('.feature-list-btn-container').show();
+                  $(this).find('.feature-list-btn-container').show();
                 }
             });
         }
@@ -7468,11 +7464,11 @@ INFORMA.featureList = (function(window, $, namespace) {
 
 
     _bindShowLess = function () {
-        var _showLess = $('.feature-list-section').find('.btn-showMore .less');
+      var _showLess = $('.feature-list-section').find('.btn-showMore .less');
         _showLess.on('click',function(){
-            $('html, body').animate({
-                scrollTop: $(this).closest('.feature-list-section').offset().top - 50
-            });
+          $('html, body').animate({
+              scrollTop: $(this).closest('.feature-list-section').offset().top - 50
+          });
         });
     }
 
@@ -7482,7 +7478,7 @@ INFORMA.featureList = (function(window, $, namespace) {
                 _hideList(_featureListSection);
             }
             _bindShowMore();
-
+          
             _bindShowLess();
         }
     };
@@ -7510,28 +7506,28 @@ INFORMA.formComponents = (function(window, $, namespace) {
 
     _validateForm = function() {
         $('#requestDemoForm').validate({
-            errorPlacement: function(error, element) {
-                if (element.attr('type') === 'select') {
-                    error.insertAfter(element.closest('.chosen-container'));
+            errorPlacement: function(error, element) {        
+                if (element.attr('type') === 'select') {          
+                    error.insertAfter(element.closest('.chosen-container'));        
                 }
                 else{
-                    error.insertAfter(element);
+                  error.insertAfter(element);        
                 }
             }
         });
         $('#requestTrial').validate({
             ignore: [],
-            errorPlacement: function(error, element) {
-                console.log(error, element);
-                if (element.hasClass('chosen-select')) {
-                    error.insertAfter(element.siblings('.chosen-container'));
+            errorPlacement: function(error, element) {     
+              console.log(error, element);   
+                if (element.hasClass('chosen-select')) {          
+                    error.insertAfter(element.siblings('.chosen-container'));        
                 }
                 else{
-                    error.insertAfter(element);
+                  error.insertAfter(element);        
                 }
             },
             submitHandler: function(){
-                console.log("Form Submit")
+              console.log("Form Submit")
             }
         });
     }
@@ -7635,23 +7631,23 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         })
     }
     _getAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
-        INFORMA.DataLoader.GetServiceData(url, {
-            method: method,
-            data: data,
-            success_callback: function(data) {
-                if (typeof SCallback === "function") {
-                    SCallback.call(this, data, SearchType);
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: data,
+                success_callback: function(data) {
+                    if (typeof SCallback === "function") {
+                        SCallback.call(this, data, SearchType);
+                    }
+                },
+                error_callback: function() {
+                    if (typeof Errcallback === "function") {
+                        Errcallback.call(this, data, SearchType);
+                    }
                 }
-            },
-            error_callback: function() {
-                if (typeof Errcallback === "function") {
-                    Errcallback.call(this, data, SearchType);
-                }
-            }
-        });
-    },
+            });
+        },
 
-        _addTabNumbers = function() {
+    _addTabNumbers = function() {
             var progressiveTabs = $('.form-progressive-wizard a[data-toggle="tab"]');
             if (progressiveTabs.length > 0) {
                 $.each(progressiveTabs, function(i) {
@@ -7673,7 +7669,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                         return false;
                     }
                 } else {
-                    var validator = _myinterestForm.validate();
+                  var validator = _myinterestForm.validate();
                     validator.focusInvalid();
                     return false;
                 }
@@ -7683,16 +7679,16 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         _myinterestsModal.find('.modal-body').empty();
         _myinterestsModal.find('.modal-body').append(_myinterestsSection);
         var chosenSelect = $("form.register-myinterests-form .chosen-select"),
-            chosenCotainer = $('form.register-myinterests-form .chosen-container');
+        chosenCotainer = $('form.register-myinterests-form .chosen-container');
         if(chosenCotainer.length > 0 ){
-            chosenCotainer.remove();
+          chosenCotainer.remove();
         }
         if(chosenSelect.length > 0){
-            chosenSelect.chosen('destroy');
-            chosenSelect.chosen({
-                disable_search_threshold: 10,
-                width: "100%"
-            });
+          chosenSelect.chosen('destroy');
+          chosenSelect.chosen({
+              disable_search_threshold: 10,
+              width: "100%"
+          });
         }
         _myinterestsModal.find('.modal-body .container').removeClass('container');
         _clearFormInput(_myinterestForm);
@@ -7742,7 +7738,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         })
     }
-
+    
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
             if ($(this).attr('data-show-register') == 'true') {
@@ -7794,21 +7790,21 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             return [parseInt(appVer[1], 10), parseInt(appVer[2], 10), parseInt(appVer[3] || 0, 10)];
         }
     }
-
+    
     _showRegisterFormPopupSingleStep = function(){
-        $.fn.modal.Constructor.prototype.enforceFocus = function () { };
+        $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
         _clearFormInput(_myinterestForm);
         var chosenSelect = $("form.register-myinterests-form .chosen-select"),
-            chosenCotainer = $('form.register-myinterests-form .chosen-container');
+        chosenCotainer = $('form.register-myinterests-form .chosen-container');
         if(chosenCotainer.length > 0 ){
-            chosenCotainer.remove();
+          chosenCotainer.remove();
         }
         if(chosenSelect.length > 0){
-            chosenSelect.chosen('destroy');
-            chosenSelect.chosen({
-                disable_search_threshold: 10,
-                width: "100%"
-            });
+          chosenSelect.chosen('destroy');
+          chosenSelect.chosen({
+              disable_search_threshold: 10,
+              width: "100%"
+          });
         }
         var version = iOSversion();
         if (version !== undefined) {
@@ -7826,9 +7822,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         }
         else {
             if($('.show-register-form').attr('data-show-register') == 'true')
-                $('#formRegistration').modal('show');
+               $('#formRegistration').modal('show'); 
         }
-
+        
         // var a = Math.ceil(Math.random() * 9)+ '';
         // var b = Math.ceil(Math.random() * 9)+ '';
         // var c = Math.ceil(Math.random() * 9)+ '';
@@ -7841,16 +7837,16 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     }
 
 
-    _validateCountry = function() {
+     _validateCountry = function() {
         $('.wffm-form .chosen-container').on('click mousedown', function(e) {
             e.preventDefault();
             var selectform = $(this).find('.select-default');
             if(selectform.text()){
                 selectform.css('display','none');
             }
-        });
+        });    
     }
-
+    
     _renderRecommendedTips = function() {
         _recommendedTipsContainer.append(_recommendedTips);
         _recommendedTipCol.css('display', 'none');
@@ -7961,62 +7957,62 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _SelectAll = function() {
         var Element = $(".select-all-bottom a");
         if (Element.length > 0 ) {
-            $.each(Element, function(){
-                $(this).on("click", function(e) {
-                    _isAllSelected = $(this).attr('data-selectall');
-                    e.preventDefault();
-                    if (_isAllSelected == 'false') {
-                        var CurrentSelect = $(this).parents('.form-group').find("select");
-                        CurrentSelect.multiselect("selectAll", true);
-                        var CurrentVals = CurrentSelect.val();
-                        var CurrentTxt = CurrentSelect.find('option').map(function() {
-                            return $(this).text();
-                        }).get();
-                        $.each(CurrentTxt,function(index, value){
-                            if ($.inArray(value, _yourinterestitem)==-1){
-                                _yourinterestitem.push(value);
-                            }
-                        });
-                        $.each(CurrentVals,function(index, value){
-                            if ($.inArray(value, _yourinterestguid)==-1){
-                                _yourinterestguid.push(value);
-                            }
-                        });
-                        _yourinterestguid = $.unique(_yourinterestguid);
-                        _yourinterestitem = $.unique(_yourinterestitem);
-                        _myinterestForm.find('.area-interests-guid').val('');
-                        _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
-                        _myinterestForm.find('.area-interests-text').val('');
-                        _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
-                        $(this).attr('data-selectall', 'true');
-                        //  _isAllSelected = true;
-                    } else {
-                        var CurrentSelect = $(this).parents('.form-group').find("select");
-                        CurrentSelect.multiselect("deselectAll", false);
-                        var CurrentVals = CurrentSelect.find('option').map(function() {
-                            return $(this).val();
-                        }).get();
-                        var CurrentTxt = CurrentSelect.find('option').map(function() {
-                            return $(this).text();
-                        }).get();
-                        _yourinterestitem = $.grep(_yourinterestitem, function(value) {
-                            return $.inArray(value, CurrentTxt) < 0;
-                        });
-                        _yourinterestguid = $.grep(_yourinterestguid, function(value) {
-                            return $.inArray(value, CurrentVals) < 0;
-                        });
-                        _yourinterestguid = $.unique(_yourinterestguid);
-                        _yourinterestitem = $.unique(_yourinterestitem);
-                        _myinterestForm.find('.area-interests-guid').val('');
-                        _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
-                        _myinterestForm.find('.area-interests-text').val('');
-                        _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
-                        //  _isAllSelected = false;
-                        $(this).attr('data-selectall', 'false');
-                    }
-                    return false;
-                });
+          $.each(Element, function(){
+            $(this).on("click", function(e) {
+                _isAllSelected = $(this).attr('data-selectall');
+                e.preventDefault();
+                if (_isAllSelected == 'false') {
+                    var CurrentSelect = $(this).parents('.form-group').find("select");
+                    CurrentSelect.multiselect("selectAll", true);
+                    var CurrentVals = CurrentSelect.val();
+                    var CurrentTxt = CurrentSelect.find('option').map(function() {
+                        return $(this).text();
+                    }).get();
+                    $.each(CurrentTxt,function(index, value){
+                      if ($.inArray(value, _yourinterestitem)==-1){
+                        _yourinterestitem.push(value);
+                      }
+                    });
+                    $.each(CurrentVals,function(index, value){
+                        if ($.inArray(value, _yourinterestguid)==-1){
+                          _yourinterestguid.push(value);
+                        }
+                    });
+                    _yourinterestguid = $.unique(_yourinterestguid);
+                    _yourinterestitem = $.unique(_yourinterestitem);
+                    _myinterestForm.find('.area-interests-guid').val('');
+                    _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
+                    _myinterestForm.find('.area-interests-text').val('');
+                    _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
+                    $(this).attr('data-selectall', 'true');
+                  //  _isAllSelected = true;
+                } else {
+                    var CurrentSelect = $(this).parents('.form-group').find("select");
+                    CurrentSelect.multiselect("deselectAll", false);
+                    var CurrentVals = CurrentSelect.find('option').map(function() {
+                        return $(this).val();
+                    }).get();
+                    var CurrentTxt = CurrentSelect.find('option').map(function() {
+                        return $(this).text();
+                    }).get();
+                     _yourinterestitem = $.grep(_yourinterestitem, function(value) {
+                        return $.inArray(value, CurrentTxt) < 0;
+                    });
+                     _yourinterestguid = $.grep(_yourinterestguid, function(value) {
+                        return $.inArray(value, CurrentVals) < 0;
+                    });
+                    _yourinterestguid = $.unique(_yourinterestguid);
+                    _yourinterestitem = $.unique(_yourinterestitem);
+                    _myinterestForm.find('.area-interests-guid').val('');
+                    _myinterestForm.find('.area-interests-guid').val(_yourinterestguid);
+                    _myinterestForm.find('.area-interests-text').val('');
+                    _myinterestForm.find('.area-interests-text').val(_yourinterestitem);
+                  //  _isAllSelected = false;
+                    $(this).attr('data-selectall', 'false');
+                }
+                return false;
             });
+          });
 
         }
     }
@@ -8033,7 +8029,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
                     formSubmitBtn.removeAttr('disabled');
                     _showNextTab($active);
                 }else{
-                    var validator = _myinterestForm.validate();
+                  var validator = _myinterestForm.validate();
                     validator.focusInvalid();
                     return false;
                 }
@@ -8070,19 +8066,19 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
     _loadPDFPopUp = function () {
         var urlpath,urlParameters, pdf_url,isIE = false, isEdge = false;
         if(/*@cc_on!@*/false || !!document.documentMode){
-            isIE = true
+          isIE = true
         }
         if( !isIE && !!window.StyleMedia) {
             isEdge = true;
         }
-
+       
         if(isIE || isEdge){
             urlParameters = window.location.href;
-            if(urlParameters.split('?')['1']){
-                var pdf_Url_Param  = urlParameters.split('?')['1'].split('&')['0'].split('=')[1];
-                if(pdf_Url_Param.indexOf('pdf')!=-1)
-                    pdf_url = pdf_Url_Param;
-            }
+        if(urlParameters.split('?')['1']){
+            var pdf_Url_Param  = urlParameters.split('?')['1'].split('&')['0'].split('=')[1];
+            if(pdf_Url_Param.indexOf('pdf')!=-1)
+                pdf_url = pdf_Url_Param;
+        }
         }else{
             urlParameters = new URLSearchParams(window.location.search);
             pdf_url = urlParameters.get('pdf-url')
@@ -8111,7 +8107,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             // _appendSteps();
             // _wrapFormContainer();
             // _renderAllContainers();
-            _bindNumber();
+             _bindNumber();
             // _renderRecommendedTips();
             //_validateMultiSelct();
             _showRegisterForm();
@@ -8123,7 +8119,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _myinterestsSection.css('display', 'none');
 
         }
-
+    
         _loadPDFPopUp();
 
     };
@@ -8149,19 +8145,19 @@ jQuery(INFORMA.RegistrationInterests.init());
 var INFORMA = window.INFORMA || {};
 INFORMA.formRequestForDemo = (function(window, $, namespace) {
     'use strict';
-    var _toolTip = $('.hasToolTip .icon.icon-info'),
+     var _toolTip = $('.hasToolTip .icon.icon-info'),
 
 //functions
-        init,
-        _bindToolTip,
+     init,
+      _bindToolTip,
         _showOverlay;
 
     /* unused _showOverlay function removed */
 
     init = function() {
-        //todo: No null check, dont execute these bindings if forms are not there
+          //todo: No null check, dont execute these bindings if forms are not there
 
-        //  _showOverlay();
+          //  _showOverlay();
         //    _bindToolTip();
 
     };
@@ -9153,47 +9149,47 @@ jQuery(INFORMA.forms.init());
 
 var INFORMA = window.INFORMA || {};
 INFORMA.global = (function(window, $, namespace) {
-    'use strict';
-    //variables
-    var device = {},
-        siteCore = {},
-        _html = $('html');
+	'use strict';
+	//variables
+	var device = {},
+		siteCore = {},
+		_html = $('html');
 
 
-    var init = function(){
-        // viewport properties
-        var _viewportWidth = $(window).width();
-        if(_viewportWidth > 1024){
-            device.isDesktop = true;
-            device.viewport = 'desktop';
-            device.viewportN = 0;
-        }
-        else if(_viewportWidth >= 768){
-            device.isTablet = true;
-            device.viewport = 'tablet';
-            device.viewportN = 1;
-        }
-        else {
-            device.isMobile = true;
-            device.viewport = 'mobile';
-            device.viewportN = 2;
-        }
-        _html.addClass(device.viewport);
+	var init = function(){
+		// viewport properties
+		var _viewportWidth = $(window).width();
+		if(_viewportWidth > 1024){
+			device.isDesktop = true;
+			device.viewport = 'desktop';
+			device.viewportN = 0;
+		}
+		else if(_viewportWidth >= 768){
+			device.isTablet = true;
+			device.viewport = 'tablet';
+			device.viewportN = 1;
+		}
+		else {
+			device.isMobile = true;
+			device.viewport = 'mobile';
+			device.viewportN = 2;
+		}
+		_html.addClass(device.viewport);
 
-        // siteCore properties
-        if( $('html').hasClass('preview-mode')){
-            siteCore.isPreview = true;
-        }
-        else if($('html').hasClass('experience-mode')){
-            siteCore.isExperience = true;
-        }
-    }
+		// siteCore properties
+		if( $('html').hasClass('preview-mode')){
+			siteCore.isPreview = true;
+		}
+		else if($('html').hasClass('experience-mode')){
+			siteCore.isExperience = true;
+		}
+	}
 
-    return {
-        init: init,
-        device: device,
-        siteCore: siteCore
-    };
+	return {
+		init: init,
+		device: device,
+		siteCore: siteCore
+	};
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.global.init());
 
@@ -9214,7 +9210,7 @@ INFORMA.globalFooter = (function(window, $, namespace) {
     'use strict';
     //variables
     var _customersList = $('.customers_list_slider'),
-        // methods
+    // methods
         init,
         _dots,
         _createSlider;
@@ -9227,22 +9223,22 @@ INFORMA.globalFooter = (function(window, $, namespace) {
             _duration = container.data('slideduration'), // how long the slider will be dis
             _infinite = true,
             _dots = false;
-        //chk for sitecore preview
-        if (INFORMA.global.siteCore.isPreview) {
-            _autoplay = true;
-        }
-        if (INFORMA.global.siteCore.isExperience) {
-            _autoplay = false;
-            _infinite = false;
-        }
-        if(INFORMA.global.device.viewportN === 1){
-            _slideCount = 4;
-            _dots = true;
-        }
-        else if (INFORMA.global.device.viewportN === 2){
-            _slideCount = 2;
-            _dots = true;
-        }
+            //chk for sitecore preview
+            if (INFORMA.global.siteCore.isPreview) {
+                _autoplay = true;
+            }
+            if (INFORMA.global.siteCore.isExperience) {
+                _autoplay = false;
+                _infinite = false;
+            }
+            if(INFORMA.global.device.viewportN === 1){
+                  _slideCount = 4;
+                  _dots = true;
+            }
+            else if (INFORMA.global.device.viewportN === 2){
+                  _slideCount = 2;
+                  _dots = true;
+            }
         container.slick({
             infinite: _infinite,
             autoplay: _autoplay,
@@ -9250,7 +9246,7 @@ INFORMA.globalFooter = (function(window, $, namespace) {
             slidesToShow: _slideCount,
             slidesToScroll: _slideCount,
             speed: _speed,
-            swipe: INFORMA.global.device.isDesktop ? false : true,
+            swipe: INFORMA.global.device.isDesktop ? false : true, 
             dots: _dots
         });
     }
@@ -9318,10 +9314,9 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpLinkSpan = $('#pdp-navigation ul > li > a > span'),
         _pdpFixed = false,
         _pdpMenuPos = [],
-        _pdpMenuPosBottom = [],
         _pdpMenuWidth = [],
         _pdpMenuleft = [],
-        _pdpMenuDefaultIndex = 0,
+
         _initPdpMenuBarFollow,
         _activatePdpFixedHeader,
         _arrayFlag = true,
@@ -9330,7 +9325,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _pdpStickyIconDesktopFlag = false,
         _pdpStickyHeadingDesktopFlag = false,
         _initialPdpHdrPos = 0,
-
+        
 
 
         // for sticky nav of services-navigation
@@ -9388,51 +9383,28 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     // if header or pdp is present then only we calc the values.
     // so that even if the elements are not present, the calc will happen
-
+     
     if (_pdpNavigation.length > 0) {
         _pdpNavigationHeight = _pdpNavigation.height(),
-            $('#pdp-sections ul li').each(function(){
-                var idname = $(this).find('a').data("target");
-                if($('#' + idname).length == 0) {
-                    $(this).remove();
-                }else{
-                    var targetindex = $(this).find('a').data("target-index");
-                    if(targetindex != 0){
-                        var anchorTargetElementArray = $("[id='" + idname + "']");
-                        if(anchorTargetElementArray.length - 1 < targetindex){
-                            $(this).remove();
-                        }
-                    }
-                }
-            });
-        _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
-        var firstElementOnPage;
-        $('#pdp-navigation ul > li > a').each(function (index) {
-            var anchorTarget = $(this).data('target');
-            var anchorTargetIndex = $(this).data('target-index');
-            if (firstElementOnPage) {
-                var currentElementTop = Math.round($($("[id='" + anchorTarget + "']")[anchorTargetIndex]).offset().top);
-                var firstElementTop = Math.round(firstElementOnPage.offset().top);
-                if (currentElementTop < firstElementTop) {
-                    firstElementOnPage = $($("[id='" + anchorTarget + "']")[anchorTargetIndex]);
-                    _pdpMenuDefaultIndex = index;
-                }
-            } else {
-                firstElementOnPage = $($("[id='" + anchorTarget + "']")[anchorTargetIndex]);
-            }
+        $('#pdp-sections ul li').each(function(){
+           var idname = '#' + $(this).find('a').data("target");
+           if($(idname).length == 0) {
+              $(this).remove();
+           }
         });
-        _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
-            .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
-            .show();
+        _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
+        _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
+                        .css('left', $(_pdpLinkSpan[0]).offset().left)
+                        .show();
     }
 
     if (_servicesNavigation.length > 0) {
         _servicesNavigationHeight = _servicesNavigation.height();
-
+        
         // To show the menu follower with right width and position, todo: remove harcode
         _servicesMenuFollower.css('width', $(_servicesLinkSpan[0]).width())
-            .css('left', $(_servicesLinkSpan[0]).offset().left)
-            .show();
+                             .css('left', $(_servicesLinkSpan[0]).offset().left)
+                             .show();
     }
 
     if (_mainNavigation.length > 0) {
@@ -9446,16 +9418,16 @@ INFORMA.globalHeader = (function(window, $, namespace) {
     }
 
     //Check whether cookie banner exists or not
-    _cookieBannerExist = function(){
+   _cookieBannerExist = function(){
         if($('#cookieBanner:visible').length){
-            _cookieHeight =  $('#cookieBanner').outerHeight();
+             _cookieHeight =  $('#cookieBanner').outerHeight();
         }else{
-            _cookieHeight =  0;
+              _cookieHeight =  0;
         }
-    }
+   }
 
-    //Add fixed class for Desktop Mobile and Tablet
-    _addClassFixed = function(){
+   //Add fixed class for Desktop Mobile and Tablet
+   _addClassFixed = function(){
         if (!INFORMA.global.device.isDesktop){
             _mobileNavigation.addClass(_fixed);
             _cookieBanner.addClass(_fixed);
@@ -9468,10 +9440,10 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _mainNavigation.css('top', _cookieHeight);
             $('body').css('padding-top', _navHeight);
         }
-    }
-
-    //Remove fixed class for Desktop Mobile and Tablet
-    _removeClassFixed = function(){
+   }
+   
+   //Remove fixed class for Desktop Mobile and Tablet
+   _removeClassFixed = function(){
         if (!INFORMA.global.device.isDesktop){
             _mobileNavigation.removeClass(_fixed);
             _cookieBanner.removeClass(_fixed);
@@ -9484,24 +9456,24 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             _mainNavigation.css('top', 0);
             $('body').css('padding-top', 0);
         }
-    }
+   }
 
-    //scroll pdp list item
-    _pdpListItemScroll = function(){
+   //scroll pdp list item
+   _pdpListItemScroll = function(){
         var pdpListHeight = $('#pdp-sections ul li').height()*$('#pdp-sections ul li').length;
         var pdpSectionheight = $(window).height() - _navHeightMobile - $('#pdp-navigation .nav-pdp-nondesktop').outerHeight() - _cookieHeight;
         var pdpHeadingHeight = $('#pdp-sections-heading').height();
         if((pdpListHeight + pdpHeadingHeight) > pdpSectionheight){
             $('#pdp-sections').height(pdpSectionheight);
             $('#pdp-sections').css('overflow' , 'auto');
-        }
+        } 
         else{
             $('#pdp-sections').css({
                 'height':'auto',
                 'overflow':'hidden'
             })
         }
-    }
+   }
 
     // both pdp nav and main nav handled here
     _whenScrolling = function() {
@@ -9523,12 +9495,12 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         _cookieBannerExist();
         if (_windowPos > _headerPos + _cookieHeight) {
             if (!_mainNavigation.hasClass(_fixed)) {
-                _addClassFixed();
+               _addClassFixed();
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
             }
         } else {
             if (_mainNavigation.hasClass(_fixed)) {
-                _removeClassFixed();
+               _removeClassFixed();
                 $('.informaNav .nav-left').animate({ 'left': "0px" }, 1000);
             }
         }
@@ -9556,32 +9528,32 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             //var _pdpLinksCont = $('#pdp-navigation ul > li > a > span').length;
             if($("#pdp-sections:visible").length){
                 $('#pdp-sections').slideUp();
-                // if(_pdpLinksCont>6){
-                //   //$('nav#pdp-navigation').removeClass('deviceactive');
-                //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
-                //   $('body').removeClass('global-no-scroll');
-                // }
-                // }
+              // if(_pdpLinksCont>6){
+              //   //$('nav#pdp-navigation').removeClass('deviceactive');
+              //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+              //   $('body').removeClass('global-no-scroll');
+              // }
+              // }
             }else{
                 $('#pdp-sections').slideDown(function() {
                     if(!INFORMA.global.device.isDesktop){
                         if(_pdpNavigation.hasClass(_fixed)){
                             _pdpListItemScroll();
                             $('#pdp-sections').animate({
-                                scrollTop: 0
+                                    scrollTop: 0
                             }, 500);
                         }
                     }
                 });
-
-
-                //   if(_pdpLinksCont>6){
-                //   //$('nav#pdp-navigation').addClass('deviceactive');
-                //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
-                //   $('body').addClass('global-no-scroll');
-                // }
-                // }
-            }
+                
+                
+              //   if(_pdpLinksCont>6){
+              //   //$('nav#pdp-navigation').addClass('deviceactive');
+              //   if($('#pdp-navigation').hasClass('navbar-fixed-top')){
+              //   $('body').addClass('global-no-scroll');
+              // }
+              // }
+            } 
         });
     }
 
@@ -9606,7 +9578,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         var _fixedNavHeight;
         if (INFORMA.global.device.isDesktop) {
             _fixedNavHeight = _navHeight;
-            _pdpNavigationHeight = $('#pdp-navigation').outerHeight();
+            _pdpNavigationHeight = $('#pdp-navigation').height();
         } else {
             _fixedNavHeight = _navHeightMobile;
             _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
@@ -9638,24 +9610,24 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
                 if (_windowPos > ((_headingStickPosition - _fixedNavHeight) + _cookieHeight)) {
                     if (!_pdpStickyHeadingDesktopFlag) {
-                        //debugger;
-                        if(_isPdpPage){
-                            $('#pdp-sections-heading').text(_heroBannerHeading);
-                            $('#pdp-sections-heading').addClass('move-left');
-                        }
+                      //debugger;
+                      if(_isPdpPage){
+                        $('#pdp-sections-heading').text(_heroBannerHeading);
+                        $('#pdp-sections-heading').addClass('move-left');
+                      }
                         _pdpStickyHeadingDesktopFlag = true;
-                        _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
-                            .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
-                            .show();
+                        _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
+                                        .css('left', $(_pdpLinkSpan[0]).offset().left)
+                                        .show();
 
                     }
                 }
                 else{
                     $('#pdp-sections-heading').text('');
                     $('#pdp-sections-heading').removeClass('move-left');
-                    _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
-                        .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
-                        .show();
+                    _pdpMenuFollower.css('width', $(_pdpLinkSpan[0]).width())
+                                    .css('left', $(_pdpLinkSpan[0]).offset().left)
+                                    .show();
                     _pdpStickyHeadingDesktopFlag = false;
                 }
             }
@@ -9673,13 +9645,13 @@ INFORMA.globalHeader = (function(window, $, namespace) {
             $('.nav-pdp-nondesktop').addClass('move-left');
             _addClassFixed();
             if (!INFORMA.global.device.isDesktop && !_pdpStickyMobileFlag) {
-                var leftOfPdpMover = _pdpMenuFollower.css('left');
+              var leftOfPdpMover = _pdpMenuFollower.css('left');
                 _tryStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _subscribeStick.clone(true).appendTo('.nav-pdp-nondesktop-sticky');
                 _pdpStickyMobileFlag = true;
                 if(_isPdpPage){
-                    $('#pdp-sections-heading').text(_heroBannerHeading);
-                    $('#pdp-sections-heading').addClass('move-left');
+                  $('#pdp-sections-heading').text(_heroBannerHeading);
+                  $('#pdp-sections-heading').addClass('move-left');
                 }
                 $('.nav-pdp-nondesktop-sticky').addClass('move-left');
                 _pdpMenuFollower.css('left', leftOfPdpMover + $('#pdp-sections-heading').outerWidth());
@@ -9688,23 +9660,21 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
             if (_arrayFlag) {
                 _pdpMenuPos = [];
-                _pdpMenuPosBottom = [];
                 _pdpMenuWidth = [];
                 _pdpMenuleft = [];
                 _pdpLink = $('#pdp-navigation ul > li > a');
                 _pdpLinkSpan = $('#pdp-navigation ul > li > a > span');
                 for (var i = 0; i < _pdpLink.length; i++) {
-                    var _sectionName = $(_pdpLink[i]).data('target');
-                    var _sectionIndex = $(_pdpLink[i]).data('target-index');
-                    if ($('#' + _sectionName).length > 0) {
-                        _pdpMenuPos.push($($("[id='" + _sectionName + "']")[_sectionIndex]).offset().top);
-                        _pdpMenuPosBottom.push($($("[id='" + _sectionName + "']")[_sectionIndex]).offset().top + $($("[id='" + _sectionName + "']")[_sectionIndex]).height());
-                    } else {
+                    var _sectionName = '#' + $(_pdpLink[i]).data('target');
+                    if($(_sectionName).length > 0){
+                        _pdpMenuPos.push($(_sectionName).offset().top);
+                    }else{
                         _pdpMenuPos.push(0);
                     }
-                    if ($(_pdpLinkSpan[i]).length > 0) {
-                        _pdpMenuWidth.push($(_pdpLinkSpan[i]).width());
-                        _pdpMenuleft.push($(_pdpLinkSpan[i]).offset().left);}
+                    if($(_pdpLinkSpan[i]).length > 0) {
+                    _pdpMenuWidth.push($(_pdpLinkSpan[i]).width());
+                    _pdpMenuleft.push($(_pdpLinkSpan[i]).offset().left);
+                    }
                 }
                 _arrayFlag = false;
             }
@@ -9733,75 +9703,53 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         }
 
-        if (INFORMA.global.device.isDesktop) {
-            var j = _pdpMenuPos.length - 1;
-            var windowPostion = _windowPos + _fixedNavHeight + _pdpNavigationHeight + _cookieHeight;
-            var finalIndex = -1;
-            for (; j >= 0; j--) {
-                if(windowPostion >=  _pdpMenuPos[j] && windowPostion <= _pdpMenuPosBottom[j]){
-                    finalIndex = j;
+        var _fixedHeights = _fixedNavHeight + _pdpNavigationHeight + 5;
+        var j = _pdpMenuPos.length - 1;
+        for (; j >= 0; j--) {
+            if (_windowPos + _fixedHeights >= _pdpMenuPos[j]) {
+
+                if (INFORMA.global.device.isDesktop) {
+                    _pdpMenuFollower.css('width', _pdpMenuWidth[j]);
+                    _pdpMenuFollower.css('left', _pdpMenuleft[j]);
                 }
-            }
-            if(finalIndex!= -1) {
-                _pdpMenuFollower.css('width', _pdpMenuWidth[finalIndex]);
-                _pdpMenuFollower.css('left', _pdpMenuleft[finalIndex]);
+                j = -1;
             }
         }
+
     }
 
-    // Ben-2018-TODO-clean
-    // Will need refactoring some variables moved and some optimization
-    _pdpNavigationScrollTo = function () {
-        _pdpLink.on('click', function (e) {
+    _pdpNavigationScrollTo = function() {
+        _pdpLink.on('click', function(e) {
             e.preventDefault();
-            var _fixedNavHeight, _target, _target_index, _scrollTopPixels;
+            var _fixedNavHeight, _target, _scrollTopPixels;
 
             if (!INFORMA.global.device.isDesktop) {
 
-                _target = $(this).data('target');
-                _target_index = $(this).data('target-index');
+                    _target = $(this).data('target');
 
-                $('#pdp-sections').slideUp();
-                _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
+                    $('#pdp-sections').slideUp();
+                    _pdpNavigationHeight = $('#pdp-navigation .nav-pdp-nondesktop').outerHeight();
 
+                    if(!_pdpFixed)
+                        _pdpSectionsHeight = $('#pdp-sections').height();
+                    else
+                        _pdpSectionsHeight = 0;
 
-                if (!_pdpFixed)
-                    _pdpSectionsHeight = $('#pdp-sections').height();
-                else
-                    _pdpSectionsHeight = 0;
-
-                _fixedNavHeight = _navHeightMobile;
-                var anchorElementArray = $("[id='" + _target + "']");
-
-                console.log(anchorElementArray[_target_index]);
-
-                if (anchorElementArray.length >= [_target_index]) {
-                    //Fix ben-2018-onscroll
-                    _scrollTopPixels = $(anchorElementArray[_target_index]).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
-                    //End
-                } else {
+                    _fixedNavHeight = _navHeightMobile;
                     _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _pdpSectionsHeight);
-                }
-                $('html, body').stop().animate({
-                    scrollTop: _scrollTopPixels
-                }, 1000);
 
-            } else {
+                    $('html, body').stop().animate({
+                        scrollTop: _scrollTopPixels
+                    }, 1000);
+
+            }else{
+                _target = $(this).data('target');
                 $('#pdp-navigation li').removeClass('selected');
                 $('#pdp-navigation li').addClass('select-options');
-                _pdpNavigationHeight = _pdpNavigation.outerHeight();
-                _target = $(this).data('target');
-                _target_index = $(this).data('target-index');
-                _fixedNavHeight = _navHeightMobile;
-                var anchorElementArrayDesk = $("[id='" + _target + "']");
+                _pdpNavigationHeight = _pdpNavigation.height();
+                _fixedNavHeight = _navHeight;
 
-                if (anchorElementArrayDesk.length >= [_target_index]) {
-                    //Fix ben-2018-onscroll
-                    _scrollTopPixels = $(anchorElementArrayDesk[_target_index]).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _cookieHeight);
-                    //End
-                } else {
-                    _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight + _cookieHeight);
-                }
+                _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _pdpNavigationHeight);
                 $('html, body').stop().animate({
                     scrollTop: _scrollTopPixels
                 }, 1000);
@@ -9809,8 +9757,6 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
         })
     };
-    // END-Ben-2018-TODO-clean
-
 
 
     _initServicesMenuBarFollow = function() {
@@ -9824,7 +9770,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     _activateServicesFixedHeader = function() {
         var _windowPos = $(window).scrollTop(),
-            _servicesWrapper = $('#services-list').parent();
+        _servicesWrapper = $('#services-list').parent();
         if (_servicesFirst) {
             _initialServicesHdrPos = _servicesNavigation.offset().top;
             _servicesFirst = false;
@@ -9907,7 +9853,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
                     _scrollTopPixels = $("#" + _target).offset().top - (_fixedNavHeight + _servicesNavigationHeight);
                     $('html, body').stop().animate({
-                        scrollTop: $(this).parents('section').offset().top
+                        scrollTop: _scrollTopPixels
                     }, 1000);
 
                     _expandedServicesNav = false;
@@ -9966,7 +9912,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                     $($('#' + Id).find('a')[0]).focus();
                     return false;
                 }
-
+                
             });
 
             $('.subnav-close a').on('focusout', function() {
@@ -9985,7 +9931,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 },
                 function() {
                     $(this).hide();
-                    _navlinks.removeClass('nav-active');
+                     _navlinks.removeClass('nav-active');
                 }
             );
             _navlinks.on('mouseout', function(e) {
@@ -10003,7 +9949,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 $(this).find('a').unbind('focusout');
             });
         } else {
-            _navlinks.on('click', function(e) {
+             _navlinks.on('click', function(e) {
                 //e.preventDefault();
                 var navId = $(this).find('a').data('subnav');
                 var navText = $(this).find('a').text();
@@ -10059,42 +10005,42 @@ INFORMA.globalHeader = (function(window, $, namespace) {
 
     };
     _pdpsectionSubnavigationInit = function(){
-        $('#pdp-sections ul li').each(function(){
-            var idname = '#' + $(this).find('a').data("target");
-            if($(idname).length === 0) {
-                $(this).remove();
-            }
-        });
+      $('#pdp-sections ul li').each(function(){
+       var idname = '#' + $(this).find('a').data("target");
+       if($(idname).length === 0) {
+          $(this).remove();
+       }
+      });
     }
     _selectDocClickEvents=function(){
-        $(document).on('touchstart',function(event) {
-            if(event.target.class !== 'selectMenu' && !$('.selectMenu').find(event.target).length){
-                $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
-            }
-        });
+      $(document).on('touchstart',function(event) {
+        if(event.target.class !== 'selectMenu' && !$('.selectMenu').find(event.target).length){
+           $(".selectMenu .chosen-container").removeClass("container-active chosen-with-drop");
+        }
+       });
     }
     _PdpNavReArrange = function () {
-        /*var _ArrayOfPdpElements = [],
-            Html = "";
-        _pdpLink.each(function () {
-            var Target = $(this).data('target'),
-                _Element = {};
-            if($('#'+Target).length > 0) {
-                _Element["Name"] = $(this).text();
-                _Element["Target"] = Target;
-                _ArrayOfPdpElements.push(_Element);
-                $('#'+Target).addClass('pdp-item-id');
-            }
-        });
-        $('.pdp-item-id').each(function() {
-            var _Id = $(this).attr("id");
-            for(var i = 0; i < _ArrayOfPdpElements.length; i++) {
-                if(_ArrayOfPdpElements[i].Target === _Id) {
-                    Html += '<li><a href="#" data-target="' +_ArrayOfPdpElements[i].Target+ '"><span>' +_ArrayOfPdpElements[i].Name+ '</span></a></li>';
-                }
-            }
-        })
-        $('#pdp-sections').find('.navbar-nav').html(Html);*/
+      var _ArrayOfPdpElements = [],
+          Html = "";
+      _pdpLink.each(function () {
+          var Target = $(this).data('target'),
+              _Element = {};
+          if($('#'+Target).length > 0) {
+              _Element["Name"] = $(this).text();
+              _Element["Target"] = Target;
+              _ArrayOfPdpElements.push(_Element);
+              $('#'+Target).addClass('pdp-item-id');
+          }
+      });
+      $('.pdp-item-id').each(function() {
+          var _Id = $(this).attr("id");
+          for(var i = 0; i < _ArrayOfPdpElements.length; i++) {
+              if(_ArrayOfPdpElements[i].Target === _Id) {
+                  Html += '<li><a href="#" data-target="' +_ArrayOfPdpElements[i].Target+ '"><span>' +_ArrayOfPdpElements[i].Name+ '</span></a></li>';
+              }
+          }
+      })
+      $('#pdp-sections').find('.navbar-nav').html(Html);
     }
     init = function() {
         if(_mainNavLink.length > 0){
@@ -10117,7 +10063,7 @@ INFORMA.globalHeader = (function(window, $, namespace) {
         if (_pdpNavigation.length > 0) {
             _pdpsectionSubnavigationInit();
             if (!INFORMA.global.siteCore.isExperience) {
-                _PdpNavReArrange();
+              _PdpNavReArrange();
             }
             _initPdpMenuBarFollow();
             _pdpNavigationScrollTo();
@@ -10173,32 +10119,32 @@ jQuery(INFORMA.globalHeader.init());
 
 Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 
-    if (arguments.length < 3)
-        throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
+  if (arguments.length < 3)
+    throw new Error("Handlerbars Helper 'compare' needs 2 parameters");
 
-    var operator = options.hash.operator || "==";
+  var operator = options.hash.operator || "==";
 
-    var operators = {
-        '==':		function(l,r) { return l === r; },
-        '===':	function(l,r) { return l === r; },
-        '!=':		function(l,r) { return l !== r; },
-        '<':		function(l,r) { return l < r; },
-        '>':		function(l,r) { return l > r; },
-        '<=':		function(l,r) { return l <= r; },
-        '>=':		function(l,r) { return l >= r; },
-        'typeof':	function(l,r) { return typeof l === r; }
-    }
+  var operators = {
+    '==':		function(l,r) { return l === r; },
+    '===':	function(l,r) { return l === r; },
+    '!=':		function(l,r) { return l !== r; },
+    '<':		function(l,r) { return l < r; },
+    '>':		function(l,r) { return l > r; },
+    '<=':		function(l,r) { return l <= r; },
+    '>=':		function(l,r) { return l >= r; },
+    'typeof':	function(l,r) { return typeof l === r; }
+  }
 
-    if (!operators[operator])
-        throw new Error("Handlerbars Helper 'compare' doesn't know the operator "+operator);
+  if (!operators[operator])
+    throw new Error("Handlerbars Helper 'compare' doesn't know the operator "+operator);
 
-    var result = operators[operator](lvalue,rvalue);
+  var result = operators[operator](lvalue,rvalue);
 
-    if( result ) {
-        return options.fn(this);
-    } else {
-        return options.inverse(this);
-    }
+  if( result ) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
 
 });
 
@@ -10216,31 +10162,31 @@ Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
 });
 
 Handlebars.registerHelper('splitURL', function(string, substring) {
-    if(string){
-        var u = string.split("?");
-        var s = u[0].toString().split("/");
-        var i = s.lastIndexOf(substring);
-        if(i == -1){
-            return false;
-        }else{
-            return true;
-        }
+  if(string){
+    var u = string.split("?");
+    var s = u[0].toString().split("/");
+    var i = s.lastIndexOf(substring);
+    if(i == -1){  
+      return false;
     }else{
-        return false;
+      return true;
     }
+  }else{
+    return false;
+  }
 });
 
 Handlebars.registerHelper('AnalystData', function(profile) {
-    if(profile){
-        var u = profile.split("#");
-        if((profile.indexOf('#') != -1) && u[1]){
-            return "<a href="+u[1]+">"+u[0]+"</a>";
-        }else{
-            return profile;
-        }
+  if(profile){
+    var u = profile.split("#");
+    if((profile.indexOf('#') != -1) && u[1]){
+          return "<a href="+u[1]+">"+u[0]+"</a>";
     }else{
-        return null;
+      return profile;
     }
+  }else{
+    return null;
+  }
 });
 var INFORMA = window.INFORMA || {};
 INFORMA.helpfaq = (function(window, $, namespace) {
@@ -10293,7 +10239,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _heroBannerFull = $('.hero-banner-texture,.hero-banner'),
         _heroBannerImage = $('.hero-banner-texture .cf-img,.hero-banner .cf-img'),
 
-        // methods
+    // methods
         init,
         _bindIframe,
         _createSlider,
@@ -10315,7 +10261,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         wistiaPlayers=[],
         _pauseAllVideos,
         resizeHeroBanner;
-
+       
 
     _bindIframe = function(){
         var videoUrl = _videoElem.data('video');
@@ -10332,234 +10278,234 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             _dots = Boolean(container.data('dots')),
             _rtl;
 
-        if(container.data('rtl') !== undefined) {
-            _rtl = container.data('rtl');
-        }
-
-        if (INFORMA.global.siteCore.isExperience) {
-            _autoplay = false;
-            _infinite = false;
-        }
-        if(_rtl === true && _autoplay === true) {
-            container.on('init', function() {
-                window.setInterval(function() {
-                    container.slick('slickPrev');
-                }, _duration);
-            });
-        }
-        container.slick({
-            infinite: _infinite,
-            autoplay: _autoplay,
-            autoplaySpeed: _duration,
-            slidesToShow: _slideCount,
-            slidesToScroll: _slideCount,
-            speed: _speed,
-            dots: (_dots != null || _dots != undefined) ? _dots : true,
-            swipe: INFORMA.global.device.isDesktop ? false : true
-        });
-    };
-
-    _heroBannerList.on('init', function(event, slick){
-        var _iFrameElement = $('.hero-banner-carousel .slick-slide .videoBG');
-
-        _iFrameElement.each(function(i, e) {
-
-            _urlType = $(this).attr('data-videotype');
-
-            if (_urlType === "youtube") {
-
-                _youTubeId = $(this).attr('data-videoid');
-                _youTubeSound = $(this).attr('data-videosound');
-
-                var playerYTElement = document.createElement('div');
-                playerYTElement.id = "youtubePlayer"+i;
-                $(this).append(playerYTElement);
-
-                var scriptTag = document.createElement('script');
-                scriptTag.src = "https://www.youtube.com/iframe_api";
-
-                var ytTag = document.getElementById('youtubePlayer'+i);
-                var node = ytTag.parentNode.insertBefore(scriptTag, ytTag.nextSibling);
-                $(this).append(node);
-
-            } else if (_urlType === "vimeo") {
-                $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
-                _vimeoId = $(this).attr('data-videoid');
-                _vimeoSound = $(this).attr('data-videosound');
-
-                var playerVMElement = document.createElement('div');
-                playerVMElement.id = "vimeoPlayer"+i;
-                $(this).append(playerVMElement);
-                var id = document.getElementById('vimeoPlayer'+i);
-                var options = {
-                    id: _vimeoId,
-                    loop: true,
-                    autoplay: true
-                };
-                vimeoPlayer = new Vimeo.Player(id, options);
-                vimeoPlayers.push(vimeoPlayer);
-                if (INFORMA.global.device.viewportN === 2 ) {
-                    $('.videoBG_wrapper').css('height', '80%');
-                    $('.block-centered').css('transform','translateY(-40%)');
-                }
-                if (INFORMA.global.device.viewportN === 1) {
-                    $('section.hero-banner').addClass('vimeo-video-banner');
-                    $('.videoBG_wrapper').css('height', '80%');
-                    $('.block-centered').css('transform','translateY(-25%)');
-                }
-            } else if (_urlType === "wistia") {
-
-                _wistiaUrl = $(this).attr('data-videourl')
-                _wistiaId = $(this).attr('data-videoid');
-                _wistiaSound = $(this).attr('data-videosound');
-
-                var iframeWSElement = document.createElement('iframe');
-                iframeWSElement.id = "wistiaEmbed" + i,
-                    iframeWSElement.class = "wistia_embed",
-                    iframeWSElement.name = "wistia_embed";
-                iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
-                $(this).append(iframeWSElement);
-                var wistiaOptions = {
-                    id: _wistiaId
-                };
-                wistiaPlayers.push(wistiaOptions);
-                if (INFORMA.global.device.viewportN === 1 || INFORMA.global.device.viewportN === 2 ) {
-                    var playButton = $(".videoBG_wrapper");
-                    if(playButton.length > 0 ){
-                        playButton.on("click", function() {
-                            var wistiaEmbed = document.getElementById("wistiaEmbed"+i).wistiaApi;
-                            wistiaEmbed.play();
-                        });
-                    }
-                }
+            if(container.data('rtl') !== undefined) {
+              _rtl = container.data('rtl');
             }
-        });
-        onVimeoIframeAPIReady();
-        //onWistiaIframeAPIReady();
-    });
 
-    if(_heroBannerList.length > 0){
-        window.onYouTubeIframeAPIReady = function(){
+            if (INFORMA.global.siteCore.isExperience) {
+               _autoplay = false;
+               _infinite = false;
+            }
+            if(_rtl === true && _autoplay === true) {
+                container.on('init', function() {
+                    window.setInterval(function() {
+                        container.slick('slickPrev');
+                    }, _duration);
+                });
+            }
+            container.slick({
+               infinite: _infinite,
+               autoplay: _autoplay,
+               autoplaySpeed: _duration,
+               slidesToShow: _slideCount,
+               slidesToScroll: _slideCount,
+               speed: _speed,
+               dots: (_dots != null || _dots != undefined) ? _dots : true,
+               swipe: INFORMA.global.device.isDesktop ? false : true
+           });
+        };
+
+        _heroBannerList.on('init', function(event, slick){
             var _iFrameElement = $('.hero-banner-carousel .slick-slide .videoBG');
+               
             _iFrameElement.each(function(i, e) {
+                
                 _urlType = $(this).attr('data-videotype');
+
                 if (_urlType === "youtube") {
+
                     _youTubeId = $(this).attr('data-videoid');
                     _youTubeSound = $(this).attr('data-videosound');
-                    var id = document.getElementById('youtubePlayer'+i);
-                    ytPlayer = new YT.Player(id, {
-                        videoId: _youTubeId,
-                        playerVars: {
-                            'modestbranding': 0,
-                            'autoplay': 1,
-                            'controls': 1,
-                            'loop': 1,
-                            'wmode':'opaque',
-                            'playlist': _youTubeId,
-                            'showinfo': 0
-                        },
-                        events: {
-                            'onReady': onCarouselYTPlayerReady
+
+                    var playerYTElement = document.createElement('div');
+                    playerYTElement.id = "youtubePlayer"+i;
+                    $(this).append(playerYTElement);
+
+                    var scriptTag = document.createElement('script');
+                    scriptTag.src = "https://www.youtube.com/iframe_api";
+
+                    var ytTag = document.getElementById('youtubePlayer'+i);
+                    var node = ytTag.parentNode.insertBefore(scriptTag, ytTag.nextSibling);
+                    $(this).append(node);
+
+                } else if (_urlType === "vimeo") {
+                    $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
+                    _vimeoId = $(this).attr('data-videoid');
+                    _vimeoSound = $(this).attr('data-videosound');
+
+                    var playerVMElement = document.createElement('div');
+                    playerVMElement.id = "vimeoPlayer"+i;
+                    $(this).append(playerVMElement);
+                    var id = document.getElementById('vimeoPlayer'+i);
+                    var options = {
+                      id: _vimeoId,
+                      loop: true,
+                      autoplay: true
+                    };
+                    vimeoPlayer = new Vimeo.Player(id, options);
+                    vimeoPlayers.push(vimeoPlayer);
+                    if (INFORMA.global.device.viewportN === 2 ) {
+                      $('.videoBG_wrapper').css('height', '80%');
+                      $('.block-centered').css('transform','translateY(-40%)');
+                    }
+                    if (INFORMA.global.device.viewportN === 1) {
+                      $('section.hero-banner').addClass('vimeo-video-banner');
+                      $('.videoBG_wrapper').css('height', '80%');
+                      $('.block-centered').css('transform','translateY(-25%)');
+                    }
+                } else if (_urlType === "wistia") {
+
+                    _wistiaUrl = $(this).attr('data-videourl')
+                    _wistiaId = $(this).attr('data-videoid');
+                    _wistiaSound = $(this).attr('data-videosound');
+
+                    var iframeWSElement = document.createElement('iframe');
+                    iframeWSElement.id = "wistiaEmbed" + i,
+                    iframeWSElement.class = "wistia_embed",
+                    iframeWSElement.name = "wistia_embed";
+                    iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
+                    $(this).append(iframeWSElement);
+                    var wistiaOptions = {
+                      id: _wistiaId
+                    };
+                    wistiaPlayers.push(wistiaOptions);
+                    if (INFORMA.global.device.viewportN === 1 || INFORMA.global.device.viewportN === 2 ) {
+                        var playButton = $(".videoBG_wrapper");
+                        if(playButton.length > 0 ){
+                          playButton.on("click", function() {
+                                var wistiaEmbed = document.getElementById("wistiaEmbed"+i).wistiaApi;
+                                    wistiaEmbed.play();
+                          });
                         }
-                    });
-                    ytPlayers.push(ytPlayer);
+                    }
                 }
             });
-        }
-        window.onVimeoIframeAPIReady = function(){
-            $.each(vimeoPlayers, function(key, value) {
-                var player = value;
-                player.ready().then(function() {
-                    player.pause();
-                    player.setVolume(_vimeoSound);
-                    vimeoCount++;
-                    if(vimeoPlayers.length === vimeoCount) {
-                        $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
-                        setTimeout(function(){
-                            _heroBannerList.find('.hero-items.slick-active .videoBG iframe').css('display','block');
-                        },100)
-                        if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='vimeo') {
-                            var VimeoId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe').parent()[0].id;
-                            for(var i=0; i<vimeoPlayers.length;i++){
-                                if(vimeoPlayers[i].element.parentElement.id === VimeoId){
-                                    vimeoPlayers[i].play();
+            onVimeoIframeAPIReady();
+            //onWistiaIframeAPIReady();
+        });
+
+        if(_heroBannerList.length > 0){
+            window.onYouTubeIframeAPIReady = function(){
+                var _iFrameElement = $('.hero-banner-carousel .slick-slide .videoBG');
+                _iFrameElement.each(function(i, e) {
+                    _urlType = $(this).attr('data-videotype');
+                    if (_urlType === "youtube") {
+                        _youTubeId = $(this).attr('data-videoid');
+                        _youTubeSound = $(this).attr('data-videosound');
+                        var id = document.getElementById('youtubePlayer'+i);
+                        ytPlayer = new YT.Player(id, {
+                            videoId: _youTubeId,
+                            playerVars: {
+                                'modestbranding': 0,
+                                'autoplay': 1,
+                                'controls': 1,
+                                'loop': 1,
+                                'wmode':'opaque',
+                                'playlist': _youTubeId,
+                                'showinfo': 0
+                            },
+                             events: {
+                                'onReady': onCarouselYTPlayerReady
+                            }
+                        });
+                        ytPlayers.push(ytPlayer);
+                    }  
+                });
+            }  
+            window.onVimeoIframeAPIReady = function(){
+                $.each(vimeoPlayers, function(key, value) {
+                    var player = value;
+                    player.ready().then(function() {
+                        player.pause();
+                        player.setVolume(_vimeoSound);
+                        vimeoCount++;
+                        if(vimeoPlayers.length === vimeoCount) {
+                            $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
+                            setTimeout(function(){
+                                _heroBannerList.find('.hero-items.slick-active .videoBG iframe').css('display','block');
+                            },100)
+                            if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='vimeo') { 
+                                var VimeoId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe').parent()[0].id;
+                                for(var i=0; i<vimeoPlayers.length;i++){
+                                    if(vimeoPlayers[i].element.parentElement.id === VimeoId){
+                                        vimeoPlayers[i].play();
+                                    }
                                 }
                             }
                         }
-                    }
-                    else {
-                        $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
-                        _heroBannerList.find('.hero-items.slick-active .videoBG iframe').css('display','none');
-                    }
+                        else {
+                            $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
+                            _heroBannerList.find('.hero-items.slick-active .videoBG iframe').css('display','none');
+                        }
+                    });
                 });
-            });
+            }
+            // window.onWistiaIframeAPIReady = function(){
+            //    $.each(wistiaPlayers, function(key, value) {
+            //    }); 
+            // }
         }
-        // window.onWistiaIframeAPIReady = function(){
-        //    $.each(wistiaPlayers, function(key, value) {
-        //    });
-        // }
-    }
 
-    function onCarouselYTPlayerReady(event) {
-        if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
-            setTimeout(function(){
-                event.target.pauseVideo();
-                event.target.setVolume(_youTubeSound);
-            },10)
-            playCount++;
-            if(ytPlayers.length === playCount) {
-                $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
-                if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='youtube') {
-                    var ytubeId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe')[0].id;
-                    for(var i=0; i<ytPlayers.length;i++){
-                        if(ytPlayers[i].a.id === ytubeId){
-                            ytPlayers[i].playVideo();
+        function onCarouselYTPlayerReady(event) {
+            if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
+                setTimeout(function(){
+                    event.target.pauseVideo();
+                    event.target.setVolume(_youTubeSound);
+                },10)
+                playCount++;
+                if(ytPlayers.length === playCount) {
+                    $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
+                        if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='youtube') {
+                            var ytubeId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe')[0].id;
+                            for(var i=0; i<ytPlayers.length;i++){
+                                if(ytPlayers[i].a.id === ytubeId){
+                                    ytPlayers[i].playVideo();
+                                }
+                            }
                         }
-                    }
-                }
-            } else {
-                $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
-            }
-        }
-    }
-
-    _heroBannerList.on('afterChange', function(event, slick, currentSlide, nextSlide){
-        if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
-            var video = slick.$slides[currentSlide].getElementsByClassName('videoBG'),
-                _urlType = $(event.target).find('.slick-active .videoBG').attr('data-videotype');
-            if(video.length > 0){
-                if(_urlType === 'youtube'){
-                    _pauseAllVideos();
-                    var ytubeId = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].id;
-                    for(var i=0; i<ytPlayers.length;i++){
-                        if(ytPlayers[i].a.id === ytubeId ){
-                            ytPlayers[i].playVideo();
-                        }
-                    }
-                }
-                else if(_urlType === 'vimeo'){
-                    _pauseAllVideos();
-                    var VimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent()[0].id
-                    for(var j=0; j<vimeoPlayers.length;j++){
-                        if(vimeoPlayers[j].element.parentElement.id === VimeoId){
-                            vimeoPlayers[j].play();
-                        }
-                    }
+                } else {
+                    $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
                 }
             }
-            else{
-                _pauseAllVideos();
+        }
+       
+       _heroBannerList.on('afterChange', function(event, slick, currentSlide, nextSlide){
+            if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
+                var video = slick.$slides[currentSlide].getElementsByClassName('videoBG'),
+                   _urlType = $(event.target).find('.slick-active .videoBG').attr('data-videotype');
+                if(video.length > 0){
+                    if(_urlType === 'youtube'){
+                        _pauseAllVideos();
+                        var ytubeId = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].id;
+                        for(var i=0; i<ytPlayers.length;i++){
+                            if(ytPlayers[i].a.id === ytubeId ){
+                                ytPlayers[i].playVideo();
+                            }
+                        }    
+                    }
+                    else if(_urlType === 'vimeo'){
+                        _pauseAllVideos();
+                        var VimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent()[0].id
+                        for(var j=0; j<vimeoPlayers.length;j++){
+                            if(vimeoPlayers[j].element.parentElement.id === VimeoId){
+                                vimeoPlayers[j].play();
+                            }
+                        } 
+                    }
+                }
+                else{
+                   _pauseAllVideos();
+                } 
+           }   
+        });
+        _pauseAllVideos = function(){
+            for(var i=0; i<ytPlayers.length; i++){
+                ytPlayers[i].pauseVideo();
+            }    
+            for(var j =0; j<vimeoPlayers.length; j++){
+                vimeoPlayers[j].pause();
             }
-        }
-    });
-    _pauseAllVideos = function(){
-        for(var i=0; i<ytPlayers.length; i++){
-            ytPlayers[i].pauseVideo();
-        }
-        for(var j =0; j<vimeoPlayers.length; j++){
-            vimeoPlayers[j].pause();
-        }
-    },
+        },
 
         resizeHeroBanner = function(){
             if($('.hero-banner-texture').length > 0){
@@ -10570,7 +10516,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     $('.hero-banner-texture .h1-styles, .hero-banner-texture .subtext, .hero-banner-texture .description').css({
                         'width' : finalWidth
                     })
-                }
+                }  
                 else{
                     $('.hero-banner-texture .h1-styles,.hero-banner-texture .subtext, .hero-banner-texture .description').css('width','auto');
                 }
@@ -10579,7 +10525,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
 
         init = function() {
             if (_videoElem.length > 0) {
-                _bindIframe();
+               _bindIframe();
             }
             var animatedText = $('.animatedText ').val();
             if(animatedText){
@@ -10592,18 +10538,18 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     cursorChar: "",
                 });
             }
-
+           
             if (_heroBannerList.length > 0) {
                 _createSlider(_heroBannerList);
                 if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
                     if($('.hero-banner-carousel .videoBG').length>0){
                         $('.hero-banner-carousel .slick-next, .hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').addClass('disable-arrow');
                     }
-                }
+                }    
             }
             if(_heroBannerFull.length > 0){
-                resizeHeroBanner();
-            }
+                resizeHeroBanner();  
+            }    
             $(window).on("load", function() {
                 if(_heroBannerFull.length > 0){
                     if(INFORMA.global.device.viewport === "mobile"){
@@ -10619,7 +10565,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     }
                 }
             });
-
+           
 
             $(window).on("resize", function() {
                 if(_heroBannerFull.length > 0){
@@ -10629,14 +10575,14 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         $('.hero-banner').css('min-height','275px');
                     }
                     resizeHeroBanner();
-                }
+               }
             });
 
         };
 
-    return {
-        init: init
-    };
+        return {
+            init: init
+        };
 }(this, jQuery, 'INFORMA'));
 jQuery(INFORMA.heroBanner.init());
 
@@ -10658,7 +10604,7 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
     'use strict';
     //variables
     var _twitterList = $('.twitter-carousel'),
-        // methods
+    // methods
         init,
         _dots,
         _createSlider,
@@ -10669,15 +10615,15 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             _vp = INFORMA.global.device.viewportN,
             maxHeight = 0;
 
-        if(_vp === 0 || _vp === 1) {
-            items.each(function () {
-                var Height = $(this).height();
-                if(Height > maxHeight) {
-                    maxHeight = Height;
-                }
-            })
-            items.css('height', maxHeight);
-        }
+            if(_vp === 0 || _vp === 1) {
+                items.each(function () {
+                    var Height = $(this).height();
+                    if(Height > maxHeight) {
+                        maxHeight = Height;
+                    }
+                })
+                items.css('height', maxHeight);
+            }
 
     }
 
@@ -10691,32 +10637,32 @@ INFORMA.twitterFeed = (function(window, $, namespace) {
             _dots = Boolean(container.data('pagination')),
             _rtl;
 
-        if(container.data('rtl') !== undefined) {
-            _rtl = container.data('rtl');
-        }
-        //chk for sitecore preview
-        // if (INFORMA.global.siteCore.isPreview) {
-        //     _autoplay = true;
-        // }
-        // if (INFORMA.global.siteCore.isExperience) {
-        //     _autoplay = false;
-        //     _infinite = false;
-        // }
-        if(INFORMA.global.device.viewportN === 1){
-            _slideCount = 2;
-        }
-        else if (INFORMA.global.device.viewportN === 2){
-            _slideCount = 1;
-            _dots = true;
-        }
+            if(container.data('rtl') !== undefined) {
+                _rtl = container.data('rtl');
+            }
+            //chk for sitecore preview
+            // if (INFORMA.global.siteCore.isPreview) {
+            //     _autoplay = true;
+            // }
+            // if (INFORMA.global.siteCore.isExperience) {
+            //     _autoplay = false;
+            //     _infinite = false;
+            // }
+            if(INFORMA.global.device.viewportN === 1){
+                  _slideCount = 2;
+            }
+            else if (INFORMA.global.device.viewportN === 2){
+                  _slideCount = 1;
+                  _dots = true;
+            }
 
-        if(_rtl === true && _autoplay === true) {
-            container.on('init', function() {
-                window.setInterval(function() {
-                    container.slick('slickPrev');
-                }, _duration);
-            });
-        }
+            if(_rtl === true && _autoplay === true) {
+                container.on('init', function() {
+                    window.setInterval(function() {
+                        container.slick('slickPrev');
+                    }, _duration);
+                });
+            }
         container.slick({
             infinite: _infinite,
             autoplay: _autoplay,
@@ -10761,7 +10707,7 @@ INFORMA.analystList = (function(window, $, namespace) {
     //variables
     var _analystList = $('#pdp-analyst'),
         _listItems = $('.analyst-views'),
-        // methods
+    // methods
         init,
         _bindShowMore,
         _bindShowLess,
@@ -10823,16 +10769,16 @@ INFORMA.analystList = (function(window, $, namespace) {
         })
     }
     _bindShowLess = function () {
-        var _showLess = _analystList.find('.btn.btn-showMore .less');
-        _showLess.on('click',function(){
+      var _showLess = _analystList.find('.btn.btn-showMore .less');
+      _showLess.on('click',function(){
             $('html, body').animate({
                 scrollTop: _analystList.offset().top - 35
             },700);
-        });
+      });
     }
     init = function() {
         if (_analystList.length > 0) {
-            // _bindElement();
+           // _bindElement();
             _bindShowMore(_analystList);
             //_bindShowLess();
         }
@@ -10866,17 +10812,17 @@ var INFORMA = window.INFORMA || {};
 INFORMA.pdpBrochure = (function(window, $, namespace) {
     'use strict';
     //variables
-    var downloadBrochure = $('.pdp-brochure, #agri-report'),
-        submitResponse = $('#formSendBrochure .submit-response'),
-        Url = downloadBrochure.data('url'),
-        //methods
+   var downloadBrochure = $('.pdp-brochure, #agri-report'),
+       submitResponse = $('#formSendBrochure .submit-response'),
+       Url = downloadBrochure.data('url'),
+    //methods
         init;
 
     init = function() {
 
-        if(submitResponse.length > 0){
-            window.open(Url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,left=100,width=1000,height=600");
-        }
+      if(submitResponse.length > 0){
+        window.open(Url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,left=100,width=1000,height=600");
+      }
 
     }
     return {
@@ -10902,7 +10848,7 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
     'use strict';
     //variables
     var _customersList = $('.customer-quote .slider-component'),
-        // methods
+    // methods
         init,
         _createSlider;
 
@@ -10910,39 +10856,39 @@ INFORMA.pdp_customer_quote = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         //todo: for the love of Madonna Sebastian move this to common
         var _slideCount = 1,//container.data('itemsperframe'), Evil laugh when the author tries to change config,
-            _autoplay = container.data('autorotate'),
-            _speed = container.data('transitionspeed'), // speed of transition
-            _duration = container.data('slideduration'), // how long the slider will be dis
-            _infinite = true,
-            _dots = Boolean(container.data('dots')),
-            _rtl;
+           _autoplay = container.data('autorotate'),
+           _speed = container.data('transitionspeed'), // speed of transition
+           _duration = container.data('slideduration'), // how long the slider will be dis
+           _infinite = true,
+           _dots = Boolean(container.data('dots')),
+           _rtl;
 
-        if(container.data('rtl') !== undefined) {
-            _rtl = container.data('rtl');
-        }
+          if(container.data('rtl') !== undefined) {
+              _rtl = container.data('rtl');
+          }
 
-        if (INFORMA.global.siteCore.isExperience) {
-            _autoplay = false;
-            _infinite = false;
-        }
-        if(_rtl === true && _autoplay === true) {
-            container.on('init', function() {
-                window.setInterval(function() {
-                    container.slick('slickPrev');
-                }, _duration);
-            });
-        }
-        container.slick({
-            infinite: _infinite,
-            autoplay: _autoplay,
-            autoplaySpeed: _duration,
-            slidesToShow: _slideCount,
-            slidesToScroll: _slideCount,
-            speed: _speed,
-            dots: (_dots != null || _dots != undefined) ? _dots : true,
-            swipe: INFORMA.global.device.isDesktop ? false : true
-        });
-    }
+      if (INFORMA.global.siteCore.isExperience) {
+          _autoplay = false;
+          _infinite = false;
+      }
+      if(_rtl === true && _autoplay === true) {
+                container.on('init', function() {
+                    window.setInterval(function() {
+                        container.slick('slickPrev');
+                    }, _duration);
+                });
+            }
+            container.slick({
+               infinite: _infinite,
+               autoplay: _autoplay,
+               autoplaySpeed: _duration,
+               slidesToShow: _slideCount,
+               slidesToScroll: _slideCount,
+               speed: _speed,
+               dots: (_dots != null || _dots != undefined) ? _dots : true,
+               swipe: INFORMA.global.device.isDesktop ? false : true
+           });
+      }
 
     init = function() {
         if (_customersList.length > 0) {
@@ -10970,72 +10916,72 @@ jQuery(INFORMA.pdp_customer_quote.init());
 
 
 
-var INFORMA = window.INFORMA || {};
-INFORMA.pharma_home_products = (function(window, $, namespace) {
-    'use strict';
-    //variables
-    var _pharma_home_products = $('#Pharma-ourproducts'),
-        _productsList = _pharma_home_products.find('.products-carousel'),
-        // methods
-        init,
-        _closeNews,
-        _createSlider;
-    _createSlider = function(container){
-        // if data-items, data-infinite is defined, used it
-        var _slideCount = container.data('itemsperframe'),
-            _autoplay = container.data('autorotate'),
-            _speed = container.data('transitionspeed'), // speed of transition
-            _duration = container.data('slideduration'), // how long the slider will be displayed
-            _infinite = true,
-            _dots = Boolean(container.data('pagination'));
-        //chk for sitecore preview
-        if (INFORMA.global.siteCore.isPreview) {
-            _autoplay = true;
-        }
-        if (INFORMA.global.siteCore.isExperience) {
-            _autoplay = false;
-            _infinite = false;
-        }
+ var INFORMA = window.INFORMA || {};
+ INFORMA.pharma_home_products = (function(window, $, namespace) {
+     'use strict';
+     //variables
+     var _pharma_home_products = $('#Pharma-ourproducts'),
+         _productsList = _pharma_home_products.find('.products-carousel'),
+     // methods
+         init,
+         _closeNews,
+         _createSlider;
+         _createSlider = function(container){
+             // if data-items, data-infinite is defined, used it
+             var _slideCount = container.data('itemsperframe'),
+                 _autoplay = container.data('autorotate'),
+                 _speed = container.data('transitionspeed'), // speed of transition
+                 _duration = container.data('slideduration'), // how long the slider will be displayed
+                 _infinite = true,
+                 _dots = Boolean(container.data('pagination'));
+                 //chk for sitecore preview
+                 if (INFORMA.global.siteCore.isPreview) {
+                     _autoplay = true;
+                 }
+                 if (INFORMA.global.siteCore.isExperience) {
+                     _autoplay = false;
+                     _infinite = false;
+                 }
 
-        container.slick({
-            infinite: _infinite,
-            autoplay: _autoplay,
-            autoplaySpeed: _duration,
-            slidesToShow: _slideCount,
-            slidesToScroll: _slideCount,
-            speed: _speed,
-            dots: _dots,
-            adaptiveHeight: true,
-            arrows: true,
-            swipe: INFORMA.global.device.isDesktop ? false : true,
-            responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3
-                }
-            },{
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            ]
-        });
-    }
+             container.slick({
+                 infinite: _infinite,
+                 autoplay: _autoplay,
+                 autoplaySpeed: _duration,
+                 slidesToShow: _slideCount,
+                 slidesToScroll: _slideCount,
+                 speed: _speed,
+                 dots: _dots,
+                 adaptiveHeight: true,
+                 arrows: true,
+                 swipe: INFORMA.global.device.isDesktop ? false : true,
+                 responsive: [{
+                         breakpoint: 1024,
+                         settings: {
+                             slidesToShow: 3,
+                             slidesToScroll: 3
+                         }
+                     },{
+                             breakpoint: 480,
+                             settings: {
+                                 slidesToShow: 1,
+                                 slidesToScroll: 1
+                             }
+                         }
+                 ]
+             });
+         }
 
-    init = function() {
-        if (_productsList.length > 0) {
-            _createSlider(_productsList);
-        }
-    }
+     init = function() {
+         if (_productsList.length > 0) {
+             _createSlider(_productsList);
+         }
+     }
 
-    return {
-        init: init
-    }
-}(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
-jQuery(INFORMA.pharma_home_products.init());
+     return {
+         init: init
+     }
+ }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
+ jQuery(INFORMA.pharma_home_products.init());
 
 /*
  * Product Finder
@@ -11070,23 +11016,23 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         ToggleProductFinder, ToggleSearch, RenderSearchResult, UpdateSubSectorDropdown, GetAjaxData,
         SubmitHandler, BindAjaxHandler,MergeJsonData;
 
-    ToggleSearch = function(){
-        var NavClose =$("#sub-nav .subnav-close a");
-        ProductFinderSection.slideDown("slow");
-        if(NavClose){
-            NavClose.trigger("click");
-        }
-        if($(".mainNavigation").hasClass("navbar-fixed-top")===true){
-            $('html, body').stop().animate({
-                scrollTop: 0
-            }, 600);
-        }
-        if($(".mobileNavigation").hasClass("navbar-fixed-top")===true){
-            $('html, body').stop().animate({
-                scrollTop: 0
-            }, 600);
-        }
-    },
+        ToggleSearch = function(){
+            var NavClose =$("#sub-nav .subnav-close a");
+            ProductFinderSection.slideDown("slow");
+                if(NavClose){
+                    NavClose.trigger("click");
+                }
+                if($(".mainNavigation").hasClass("navbar-fixed-top")===true){
+                    $('html, body').stop().animate({
+                        scrollTop: 0
+                    }, 600);
+                }
+                if($(".mobileNavigation").hasClass("navbar-fixed-top")===true){
+                    $('html, body').stop().animate({
+                        scrollTop: 0
+                    }, 600);
+                }
+        },
         ToggleProductFinder = function() {
             CloseIcon.on("click", function(e) {
                 e.preventDefault();
@@ -11132,7 +11078,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         RenderSearchResult = function(data,type) {
             INFORMA.SearchResults.RenderSearchResults(data);
             //Update url with update search text value
-            if(type === "SearchResult") {
+            if(type === "SearchResult") { 
                 var SearchValue = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
                 if (history.pushState) {
                     var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?searchtext='+SearchValue;
@@ -11172,7 +11118,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 if(SearchType === "ProductSearch") {
                     Data.IsProduct = true;
                 }
-                if(SearchType === "SearchResult") {
+                if(SearchType === "SearchResult") { 
                     Data.IsSearch = true;
                     Data.PageNo = 1;
                     Data.CurrentPage = $(".search-container").data("currentpage");
@@ -11205,26 +11151,26 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
                 var SearchTextField = $(".site-search input[name=SearchText]"),
                     SiteSearchRadio = ProductFinderSection.find("input[type=radio][data-show='site-search']:checked"),
                     ViewPort = INFORMA.global.device.viewportN;
-                if (e.keyCode === 13 || e.which===13) {
+                    if (e.keyCode === 13 || e.which===13) {
 
-                    if(ViewPort===1|| ViewPort===2){
-                        SearchTextField.trigger("blur");
-                        document.activeElement.blur();
-                    }
-                    if((SearchTextField.val().length >= SearchTextField.data('length')) && (SiteSearchRadio)){
-                        var SearchSbmtBtn = $('button[data-submit="site-search"]').parent();
-                        if(!SearchSbmtBtn.hasClass('disabled')) {
-                            SearchTextField.parents('.site-search').find('button[data-submit="site-search"]').trigger('click');
+                         if(ViewPort===1|| ViewPort===2){
+                            SearchTextField.trigger("blur");
+                            document.activeElement.blur();
                         }
-                        return false;
-                    }else{
-                        var ProductSbmtBtn = $("button[data-submit='sector-search']").parent();
-                        if(!ProductSbmtBtn.hasClass('disabled')) {
-                            return true;
+                        if((SearchTextField.val().length >= SearchTextField.data('length')) && (SiteSearchRadio)){
+                            var SearchSbmtBtn = $('button[data-submit="site-search"]').parent();
+                            if(!SearchSbmtBtn.hasClass('disabled')) {
+                                SearchTextField.parents('.site-search').find('button[data-submit="site-search"]').trigger('click');
+                            }
+                            return false;
+                        }else{
+                            var ProductSbmtBtn = $("button[data-submit='sector-search']").parent();
+                            if(!ProductSbmtBtn.hasClass('disabled')) {
+                                return true;
+                            }
+                            return false;
                         }
-                        return false;
                     }
-                }
             });
         },
         ShowHideSearch = function(ele) {
@@ -11244,7 +11190,7 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
             });
             jQuery(".search-options input[type=radio]").on('focusout', function(e) {
                 e.preventDefault();
-                $(this).parent().removeClass("active");
+               	$(this).parent().removeClass("active");
             });
             var CheckedOption = jQuery(".search-options input[type=radio]:checked");
             if (typeof CheckedOption === "object") {
@@ -11253,13 +11199,13 @@ INFORMA.ProductFinder = (function(window, $, namespace) {
         },
         GetSubSectorList = function(arrayList) {
             var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
-            SectorIDs = 'SectorIDs='+SectorIDs;
+                SectorIDs = 'SectorIDs='+SectorIDs;
 
             GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null);
         },
         BindDropDown = function() {
-            var IsSectorExist = $("input.sector-list").val(),
-                SectorList = (IsSectorExist) ? IsSectorExist.split(',') : [];
+        	var IsSectorExist = $("input.sector-list").val(),
+            	SectorList = (IsSectorExist) ? IsSectorExist.split(',') : [];
 
             CustomSelect.val("");
             CustomSelect.multiselect({
@@ -11387,25 +11333,25 @@ INFORMA.RecomendedProductsItems = (function(window, $, namespace) {
     //variables
     var _recommendedproducts = $('.recommended-products'),
         _productsList = _recommendedproducts.find('.recom-prod-carousel'),
-        // methods
+    // methods
         init,
         _createSlider,
         EqualHeightProducts;
 
-    EqualHeightProducts = function() {
-        var Items = _recommendedproducts.find('.wrap-content'),
-            MaxHeight = 0;
-        _recommendedproducts.find('.list-items').height('auto');
-        Items.height('auto');
-        Items.each(function() {
-            var ItemHeight = $(this).outerHeight();
-            if (ItemHeight > MaxHeight) {
-                MaxHeight = ItemHeight;
-            }
-        })
-        Items.height(MaxHeight);
+        EqualHeightProducts = function() {
+            var Items = _recommendedproducts.find('.wrap-content'),
+                MaxHeight = 0;
+                _recommendedproducts.find('.list-items').height('auto');
+                Items.height('auto');
+                Items.each(function() {
+                    var ItemHeight = $(this).outerHeight();
+                    if (ItemHeight > MaxHeight) {
+                        MaxHeight = ItemHeight;
+                    }
+                })
+                Items.height(MaxHeight);
 
-    },
+        },
         _createSlider = function(container){
             // if data-items, data-infinite is defined, used it
             var _slideCount = container.data('itemsperframe'),
@@ -11414,14 +11360,14 @@ INFORMA.RecomendedProductsItems = (function(window, $, namespace) {
                 _duration = container.data('slideduration'), // how long the slider will be displayed
                 _infinite = true,
                 _dots = Boolean(container.data('pagination'));
-            //chk for sitecore preview
-            if (INFORMA.global.siteCore.isPreview) {
-                _autoplay = true;
-            }
-            if (INFORMA.global.siteCore.isExperience) {
-                _autoplay = false;
-                _infinite = false;
-            }
+                //chk for sitecore preview
+                if (INFORMA.global.siteCore.isPreview) {
+                    _autoplay = true;
+                }
+                if (INFORMA.global.siteCore.isExperience) {
+                    _autoplay = false;
+                    _infinite = false;
+                }
 
             container.slick({
                 infinite: _infinite,
@@ -11435,18 +11381,18 @@ INFORMA.RecomendedProductsItems = (function(window, $, namespace) {
                 arrows: true,
                 swipe: INFORMA.global.device.isDesktop ? false : true,
                 responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 2
-                    }
-                },{
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },{
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
                 ]
             });
             EqualHeightProducts();
@@ -11509,38 +11455,38 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
             }
         });
     },
-        GetItemsDefault = function (target) {
-            var object = null;
-            var   DefaultCount = $('.recomended-content').attr('data-defaultCount');
+    GetItemsDefault = function (target) {
+        var object = null;
+         var   DefaultCount = $('.recomended-content').attr('data-defaultCount');
 
-            if(target === '#tabs-1') {
-
-                object = {
-                    PageSize: DefaultCount,
-                    GetContentBasedOnContentType:true,
-                    SearchTexts: $('.SearchTextsSampleContent').val().split('|'),
-                    ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|'),
-                    SubSubSectorFlagForRecomendations :$('input.SubSubSectorFlagForRecomendations').val()
-                }
-
-                GetAjaxData(Urls.GetRecomendedItems, "Post", object, INFORMA.RecomendedContent.RenderRecomendResult, null, "PreferenceUpdate");
+        if(target === '#tabs-1') {
+            
+            object = {
+                PageSize: DefaultCount,
+                GetContentBasedOnContentType:true,
+                SearchTexts: $('.SearchTextsSampleContent').val().split('|'),
+                ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|'),
+                SubSubSectorFlagForRecomendations :$('input.SubSubSectorFlagForRecomendations').val()
             }
-        },
-
-        SmallDeviceFunction = function (Parent) {
-            var Select = Parent.find('select[name="RecommendTabs"]');
-
-            Select.val('#tabs-1').trigger('change');
-
-            Select.on('change', function () {
-                var Value = $(this).val();
-                RecomendedResults.find('.tab-pane').removeClass('active');
-
-                $(Value).addClass('active');
-
-                GetItemsDefault(Value);
-            })
+            
+            GetAjaxData(Urls.GetRecomendedItems, "Post", object, INFORMA.RecomendedContent.RenderRecomendResult, null, "PreferenceUpdate");
         }
+    },
+
+    SmallDeviceFunction = function (Parent) {
+        var Select = Parent.find('select[name="RecommendTabs"]');
+
+        Select.val('#tabs-1').trigger('change');
+
+        Select.on('change', function () {
+            var Value = $(this).val();
+            RecomendedResults.find('.tab-pane').removeClass('active');
+
+            $(Value).addClass('active');
+
+            GetItemsDefault(Value);
+        })
+    }
 
     LargeDeviceFunction = function (Parent) {
         Parent.find('.nav-tabs li:first-child a').trigger('click');
@@ -11552,28 +11498,28 @@ INFORMA.RecomendedTabs = (function(window, $, namespace) {
         });
     },
 
-        RenderDashboardProduct= function(data){
+    RenderDashboardProduct= function(data){
+        
+        if(data.length > 0) {
+            $('#tabs-1 .recommended-products').removeClass('hidden');
+            var results = data,
+                html = "";
 
-            if(data.length > 0) {
-                $('#tabs-1 .recommended-products').removeClass('hidden');
-                var results = data,
-                    html = "";
-
-                for(var key = 0; key < results.length; key++) {
-                    var Data = results[key],
-                        TemplateName = (Templates.Product !== "undefined") ? Templates.Product : "",
-                        ListTemplate = Handlebars.compile(TemplateName);
-
-                    html += ListTemplate({ results: Data });
-                }
-
-                $('.recom-prod-carousel').slick('unslick');
-                $('.recom-prod-carousel').html(html);
-                INFORMA.RecomendedProductsItems.CreateProductSlider($('.recom-prod-carousel'));
-            } else {
-                $('#tabs-1 .recommended-products').addClass('hidden');
+            for(var key = 0; key < results.length; key++) {
+                var Data = results[key],
+                    TemplateName = (Templates.Product !== "undefined") ? Templates.Product : "",
+                    ListTemplate = Handlebars.compile(TemplateName);
+                    
+                html += ListTemplate({ results: Data });
             }
+
+            $('.recom-prod-carousel').slick('unslick');
+            $('.recom-prod-carousel').html(html);
+            INFORMA.RecomendedProductsItems.CreateProductSlider($('.recom-prod-carousel'));
+        } else {
+            $('#tabs-1 .recommended-products').addClass('hidden');
         }
+    }
 
     init = function () {
         if(RecomendedTab.length > 0) {
@@ -11617,7 +11563,7 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         DefaultArticleCount = $(".tab-content .recomended-content").attr('data-' + VViewPort),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
-        //methods
+    //methods
         equalHeight, init, ShowMore, GetIds, GetAjaxData, RenderRecomendResult;
 
     GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
@@ -11638,14 +11584,14 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
         });
     },
 
-        RenderRecomendResult = function (data, SearchType) {
+    RenderRecomendResult = function (data, SearchType) {
 
-            if(data != null) {
-
-                var results = data,
-                    html = "",
-                    ArticleCounts = results.ArticleCount,
-                    Articles = results.Articles;
+        if(data != null) {
+           
+            var results = data,
+                html = "",
+                ArticleCounts = results.ArticleCount,
+                Articles = results.Articles;
 
                 if(Articles != null) {
                     $('#tabs-1 .recomended-content').removeClass('hidden');
@@ -11655,13 +11601,13 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                         var Data = Articles[key],
                             TemplateName = (Templates.SampleContent !== "undefined") ? Templates.SampleContent : "",
                             ListTemplate = Handlebars.compile(TemplateName);
-                        if($('.recommendation-tabs').length > 0) {
-                            if($('.welcome-description').hasClass('Authenticated')) {
-                                Data.IsAuthenticatedUser = true;
-                            } else {
-                                Data.IsAuthenticatedUser = false;
+                            if($('.recommendation-tabs').length > 0) {
+                                if($('.welcome-description').hasClass('Authenticated')) {
+                                    Data.IsAuthenticatedUser = true;
+                                } else {
+                                    Data.IsAuthenticatedUser = false;
+                                }
                             }
-                        }
                         html += ListTemplate({ results: Data });
                     }
                     if(Articles.length > 0) {
@@ -11703,23 +11649,23 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                     $('#tabs-1 .dashboard-no-record').removeClass('hidden');
                 }
 
-            } else {
-                BtnMore.addClass('hidden');
-            }
-
-        },
-
-        GetIds = function (Parent) {
-            var items = Parent.find('.list-items'),
-                ids = [];
-
-            items.each(function () {
-                var id = $(this).attr('data-fetch');
-                ids.push(id);
-            })
-
-            return ids;
+        } else {
+            BtnMore.addClass('hidden');
         }
+        
+    },
+
+    GetIds = function (Parent) {
+        var items = Parent.find('.list-items'),
+            ids = [];
+
+        items.each(function () {
+            var id = $(this).attr('data-fetch');
+            ids.push(id);
+        })
+
+        return ids;
+    }
 
     ShowMore = function () {
         BtnMore.on('click', function (e) {
@@ -11732,17 +11678,17 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
                 MaximumCount = Parent.attr('data-MaximumNumberOfArticles'),
                 _Object = null;
 
-            if((MaximumCount - ItemDisplayed) <= Count) {
-                Count = (MaximumCount - ItemDisplayed);
-            }
+                if((MaximumCount - ItemDisplayed) <= Count) {
+                    Count = (MaximumCount - ItemDisplayed);
+                }
 
-            _Object = {
-                ExcludeContentGuids: Ids,
-                PageSize: Count,
-                SearchTexts: $('.SearchTextsSampleContent').val().split('|'),
-                ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|'),
-                SubSubSectorFlagForRecomendations: $('input.SubSubSectorFlagForRecomendations').val()
-            };
+                _Object = {
+                    ExcludeContentGuids: Ids,
+                    PageSize: Count,
+                    SearchTexts: $('.SearchTextsSampleContent').val().split('|'),
+                    ExcludeContentTypeGuids: $('.ExcludeContentTypeGuids').val().split('|'),
+                    SubSubSectorFlagForRecomendations: $('input.SubSubSectorFlagForRecomendations').val()
+                };
 
             GetAjaxData(Urls.GetRecomendedItems, "Post", _Object, RenderRecomendResult, null, null);
         })
@@ -11754,34 +11700,34 @@ INFORMA.RecomendedContent = (function(window, $, namespace) {
             MaxWrapperHeight = 0,
             MaxTopicHeight = 0,
             MaxSubSectorHeight = 0;
-        Items.each(function () {
-            var ContentHeight = $(this).find('.content').height();
-            if(ContentHeight > MaxHeight) {
-                MaxHeight = ContentHeight;
-            }
-        })
-        Items.find('.content').height(MaxHeight);
-        Items.each(function(){
-            var TopicHeight = $(this).find('.topics').outerHeight();
-            if(TopicHeight > MaxTopicHeight) {
-                MaxTopicHeight = TopicHeight;
-            }
-        })
-        Items.find('.topics').height(MaxTopicHeight);
-        Items.each(function(){
-            var TopicHeight = $(this).find('.SubSectors').outerHeight();
-            if(TopicHeight > MaxSubSectorHeight) {
-                MaxSubSectorHeight = TopicHeight;
-            }
-        })
-        Items.find('.SubSectors').height(MaxSubSectorHeight);
-        Items.each(function(){
-            var WrapperHeight = $(this).find('.recomend-content').outerHeight();
-            if(WrapperHeight > MaxWrapperHeight) {
-                MaxWrapperHeight = WrapperHeight;
-            }
-        })
-        Items.find('.recomend-content').height(MaxWrapperHeight);
+            Items.each(function () {
+                var ContentHeight = $(this).find('.content').height();
+                if(ContentHeight > MaxHeight) {
+                    MaxHeight = ContentHeight;
+                }
+            })
+            Items.find('.content').height(MaxHeight);
+            Items.each(function(){
+                var TopicHeight = $(this).find('.topics').outerHeight();
+                if(TopicHeight > MaxTopicHeight) {
+                    MaxTopicHeight = TopicHeight;
+                }
+            })
+            Items.find('.topics').height(MaxTopicHeight);
+            Items.each(function(){
+                var TopicHeight = $(this).find('.SubSectors').outerHeight();
+                if(TopicHeight > MaxSubSectorHeight) {
+                    MaxSubSectorHeight = TopicHeight;
+                }
+            })
+            Items.find('.SubSectors').height(MaxSubSectorHeight);
+            Items.each(function(){
+                var WrapperHeight = $(this).find('.recomend-content').outerHeight();
+                if(WrapperHeight > MaxWrapperHeight) {
+                    MaxWrapperHeight = WrapperHeight;
+                }
+            })
+            Items.find('.recomend-content').height(MaxWrapperHeight);
     }
 
     init = function () {
@@ -11823,25 +11769,25 @@ INFORMA.RelevantProducts = (function(window, $, namespace) {
         FlipItems,
         EqualHeight;
 
-    EqualHeight = function (Parent) {
-        var Items = Parent.find('.search-tile'),
-            MaxHeight = 0,
-            Padding = 90;
-        Items.each(function () {
-            var Height = $(this).height();
+        EqualHeight = function (Parent) {
+            var Items = Parent.find('.search-tile'),
+                MaxHeight = 0,
+                Padding = 90;
+            Items.each(function () {
+                var Height = $(this).height();
+                
+                if(Height > MaxHeight) {
+                    MaxHeight = Height;
+                }
+            })
+            Items.height(MaxHeight + Padding);
 
-            if(Height > MaxHeight) {
-                MaxHeight = Height;
-            }
-        })
-        Items.height(MaxHeight + Padding);
-
-    },
+        },
         FlipItems = function (This) {
             TriangleBtn.on('click', function () {
                 $(this).parents('.tile').toggleClass('flip');
             })
-
+            
         },
         HideItems = function(Parent){
             var Viewport = INFORMA.global.device.viewport,
@@ -11861,14 +11807,14 @@ INFORMA.RelevantProducts = (function(window, $, namespace) {
             })
         },
 
-        init = function() {
-            if (_RelevantProductsWrapper.length > 0) {
-                HideItems(_RelevantProductsWrapper);
-                ShowMore();
-                FlipItems();
-                EqualHeight(_RelevantProductsWrapper);
-            }
-        };
+    init = function() {
+        if (_RelevantProductsWrapper.length > 0) {
+            HideItems(_RelevantProductsWrapper);
+            ShowMore();
+            FlipItems();
+            EqualHeight(_RelevantProductsWrapper);
+        }
+    };
 
     return {
         init: init
@@ -11881,13 +11827,13 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
     'use strict';
     //variables
     var ResourceContainer = $('#resource-finder-section'),
-        CustomSelect = ResourceContainer.find(".custom-multiselect select"),
+    	CustomSelect = ResourceContainer.find(".custom-multiselect select"),
         Urls = INFORMA.Configs.urls.webservices,
         Templates = INFORMA.Templates,
         ResourceSubSectorList = ResourceContainer.find('.SubSector'),
         ResourceSbmtBtn = ResourceContainer.find("li.button"),
-        //methods
-        init, BindDropDown, GetSubSectorList, UpdateSubSectorDropdown, GetAjaxData, BindResourceSbmt, GetProductFinderData;
+    	//methods
+    	init, BindDropDown, GetSubSectorList, UpdateSubSectorDropdown, GetAjaxData, BindResourceSbmt, GetProductFinderData;
 
     GetAjaxData = function(url, method, data, SCallback, Errcallback, SearchType) {
         INFORMA.Spinner.Show($("body"));
@@ -11907,91 +11853,91 @@ INFORMA.ResourceFilter = (function(window, $, namespace) {
         });
     },
 
-        GetProductFinderData = function(){
-            var FieldArray = ResourceContainer.find("form").serializeArray(),
-                Data = INFORMA.Utils.serializeObject(FieldArray);
-            return Data ;
-        },
-        BindResourceSbmt = function() {
-            ResourceSbmtBtn.on('click', function(){
-                var ProductData = GetProductFinderData(),
-                    FilterData = INFORMA.SearchResultFilter.GetRefineData(),
-                    DefaultData = INFORMA.SearchResults.DefaultParameters(),
-                    Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData,DefaultData);
+    GetProductFinderData = function(){
+        var FieldArray = ResourceContainer.find("form").serializeArray(),
+            Data = INFORMA.Utils.serializeObject(FieldArray);
+        return Data ;
+    },
+    BindResourceSbmt = function() {
+        ResourceSbmtBtn.on('click', function(){
+            var ProductData = GetProductFinderData(),
+                FilterData = INFORMA.SearchResultFilter.GetRefineData(),
+                DefaultData = INFORMA.SearchResults.DefaultParameters(),
+                Data = INFORMA.ProductFinder.MergeData(ProductData,FilterData,DefaultData);
                 Data.PageNo = 1;
 
-                GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null, null);
-            });
-        },
-        UpdateSubSectorDropdown = function(data) {
-            if (data.SubSectors.length > 0) {
-                var ListTemplate = Handlebars.compile(Templates.SubSectorList),
-                    html = ListTemplate({ SubSectors: data.SubSectors });
+            GetAjaxData(Urls.ResourceList, "Post", JSON.stringify(Data), INFORMA.SearchResults.RenderSearchResults, null, null);
+        });
+    },
+    UpdateSubSectorDropdown = function(data) {
+        if (data.SubSectors.length > 0) {
+            var ListTemplate = Handlebars.compile(Templates.SubSectorList),
+                html = ListTemplate({ SubSectors: data.SubSectors });
 
 
-                ResourceSubSectorList.parents("li").removeClass("disabled");
-                ResourceSubSectorList.removeAttr("disabled")
-                    .removeProp("disabled")
-                    .html(html);
-                ResourceSubSectorList.multiselect('rebuild');
-                ResourceSbmtBtn.removeClass('disabled');
-            }
-        },
-        GetSubSectorList = function(arrayList) {
-            var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
+            ResourceSubSectorList.parents("li").removeClass("disabled");
+            ResourceSubSectorList.removeAttr("disabled")
+                .removeProp("disabled")
+                .html(html);
+            ResourceSubSectorList.multiselect('rebuild');
+            ResourceSbmtBtn.removeClass('disabled');
+        }
+    },
+    GetSubSectorList = function(arrayList) {
+        var SectorIDs = (INFORMA.Utils.getUniqueArray(arrayList)).join(',');
             SectorIDs = 'SectorIDs='+SectorIDs;
-            GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null, null);
-            INFORMA.SearchResults.ResetPaging();
-        },
-        BindDropDown = function() {
-            var SectorList = [];
-            CustomSelect.val("");
-            CustomSelect.multiselect({
-                maxHeight: 200,
-                buttonText: function(o, s) {
+        GetAjaxData(Urls.GetSubSectorList, "Get", SectorIDs, UpdateSubSectorDropdown, null, null);
+        INFORMA.SearchResults.ResetPaging();
+    },
+    BindDropDown = function() {
+        var SectorList = [];
+        CustomSelect.val("");
+        CustomSelect.multiselect({
+            maxHeight: 200,
+            buttonText: function(o, s) {
 
-                    if (o.length === 0) {
-                        return $(s).data('placeholder');
+                if (o.length === 0) {
+                    return $(s).data('placeholder');
+                } else {
+                    var labels = 1;
+                    o.each(function(i) {
+                        labels = parseInt(1 + i);
+                    });
+                    return labels + ' Selected';
+                }
+            },
+            onChange: function(option, checked, select) {
+                if ($(option).parent().hasClass("Sector") === true) {
+                    if (checked) {
+                        SectorList.push($(option).val());
+                        ResourceSbmtBtn.removeClass("disabled");
                     } else {
-                        var labels = 1;
-                        o.each(function(i) {
-                            labels = parseInt(1 + i);
-                        });
-                        return labels + ' Selected';
+                        var index = SectorList.indexOf($(option).val());
+                        if (index >= 0) {
+                            SectorList.splice(index, 1);
+                        }
+                        //if(SectorList.length === 0) {	                    
                     }
-                },
-                onChange: function(option, checked, select) {
-                    if ($(option).parent().hasClass("Sector") === true) {
-                        if (checked) {
-                            SectorList.push($(option).val());
-                            ResourceSbmtBtn.removeClass("disabled");
-                        } else {
-                            var index = SectorList.indexOf($(option).val());
-                            if (index >= 0) {
-                                SectorList.splice(index, 1);
-                            }
-                            //if(SectorList.length === 0) {
-                        }
-                        if (SectorList.length > 0) {
-                            GetSubSectorList(SectorList);
-                        } else {
-                            ResourceSubSectorList.parents("li").eq(0).addClass("disabled");
-                            ResourceSubSectorList.attr("disabled", "disabled");
-                            ResourceSubSectorList.val('');
-                            ResourceSubSectorList.multiselect('rebuild');
-                            ResourceSbmtBtn.addClass("disabled");
-                            $("li.disabled .dropdown-toggle").attr("disabled", "disabled");
-                        }
+                    if (SectorList.length > 0) {
+                        GetSubSectorList(SectorList);
+                    } else {
+                        ResourceSubSectorList.parents("li").eq(0).addClass("disabled");
+                        ResourceSubSectorList.attr("disabled", "disabled");
+                        ResourceSubSectorList.val('');
+                        ResourceSubSectorList.multiselect('rebuild');
+                        ResourceSbmtBtn.addClass("disabled");
+                        $("li.disabled .dropdown-toggle").attr("disabled", "disabled");
                     }
                 }
-            });
-        };
+            }
+        });
+    };
 
     init = function() {
-        if(ResourceContainer.length > 0) {
-            BindDropDown();
+    	if(ResourceContainer.length > 0) {
+    		BindDropDown();
             BindResourceSbmt();
-        }
+    	}
     }
 
     return {
@@ -12019,45 +11965,45 @@ INFORMA.news_flash = (function(window, $, namespace) {
     //variables
     var _newsFlash = $('.newsFlash'),
         _newsList = _newsFlash.find('.news-carousel'),
-        // methods
+    // methods
         init,
         _closeNews,
         _createSlider;
 
-    _closeNews = function(){
-        $('#close-news').on('click', function(){
-            $('.newsFlash').remove();
-        });
-    }
-    _createSlider = function(container){
-        // if data-items, data-infinite is defined, used it
-        var _autoplay = container.data('autorotate'),
-            _speed = container.data('transitionspeed'), // speed of transition
-            _duration = container.data('slideduration'), // how long the slider will be displayed
-            _infinite = true,
-            _dots = false;
-        //chk for sitecore preview
-        if (INFORMA.global.siteCore.isPreview) {
-            _autoplay = true;
+        _closeNews = function(){
+           $('#close-news').on('click', function(){
+		            $('.newsFlash').remove();
+		        });
         }
-        if (INFORMA.global.siteCore.isExperience) {
-            _autoplay = false;
-            _infinite = false;
-        }
+        _createSlider = function(container){
+            // if data-items, data-infinite is defined, used it
+            var _autoplay = container.data('autorotate'),
+                _speed = container.data('transitionspeed'), // speed of transition
+                _duration = container.data('slideduration'), // how long the slider will be displayed
+                _infinite = true,
+                _dots = false;
+                //chk for sitecore preview
+                if (INFORMA.global.siteCore.isPreview) {
+                    _autoplay = true;
+                }
+                if (INFORMA.global.siteCore.isExperience) {
+                    _autoplay = false;
+                    _infinite = false;
+                }
 
-        container.slick({
-            infinite: _infinite,
-            autoplay: _autoplay,
-            autoplaySpeed: _duration,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            speed: _speed,
-            dots: _dots,
-            adaptiveHeight: true,
-            arrows: true,
-            swipe: INFORMA.global.device.isDesktop ? false : true
-        });
-    }
+            container.slick({
+                infinite: _infinite,
+                autoplay: _autoplay,
+                autoplaySpeed: _duration,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                speed: _speed,
+                dots: _dots,
+                adaptiveHeight: true,
+                arrows: true,
+                swipe: INFORMA.global.device.isDesktop ? false : true
+            });
+        }
 
     init = function() {
         if (_newsList.length > 0) {
@@ -12465,8 +12411,8 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 var urlParameters = new URLSearchParams(window.location.search);
                 QueryString = urlParameters.toString();
                 if (QueryString) {
-                    searchQueryStrings = QueryString.split("&");
-                    if(searchQueryStrings){
+                        searchQueryStrings = QueryString.split("&");
+                        if(searchQueryStrings){
                         var sectorParam = urlParameters.get('Sector') || urlParameters.get('sector');
                         var subSectorParam = urlParameters.get('SubSector') || urlParameters.get('subsector');
                         if (sectorParam) {
@@ -12485,8 +12431,8 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                             if(subQuery[0] && urlParameters.get(subQuery[0])){
                                 if(urlParameters.get(subQuery[0]).includes(','))
                                     facets = urlParameters.get(subQuery[0]).split(",");
-                                else
-                                    facets.push(urlParameters.get(subQuery[0]));
+                                 else
+                                     facets.push(urlParameters.get(subQuery[0]));
                             }
                             newFacets = [];japaneseFacets=[];
                             $.each(facets, function () {
@@ -12495,7 +12441,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                             $.each(facets, function () {
                                 japaneseFacets.push(this.replace(/%26/g, "&").replace(/-&-/g, " & ").toLowerCase());
                             });
-
+                            
                             filterOptionsList =  $("[id='"+groupid+"' i]").find("input[type='checkbox']");
                             filterOptions = $("[id='"+groupid+"' i]").find("input[type='checkbox']").not(":disabled");
                             if(newFacets.length >0){
@@ -12617,7 +12563,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ProductSearchText = $('input[name="SearchText"]'),
         SeeAllButton = SearchContent.find(".see-all"),
         IsShowFlag = false,
-        PageNo = 3,
+        PageNo = 2,
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,getSubsectors,UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
@@ -12628,16 +12574,16 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             e.preventDefault();
         });
     },
+    
+    UnbindEvent = function() {
+        $('.register.disabled').on('keydown', function(e) {
+            if (e.keyCode === 13 || e.which===13) {
+                e.preventDefault();
+            }   
+        })
+    },
 
-        UnbindEvent = function() {
-            $('.register.disabled').on('keydown', function(e) {
-                if (e.keyCode === 13 || e.which===13) {
-                    e.preventDefault();
-                }
-            })
-        },
-
-        GetDefaultValues = function() {
+    GetDefaultValues = function() {
             var data = {};
             data.Sorting = ($('select[name="sorting"]')) ? $('select[name="sorting"]').val() : null;
             data.PageSize = ($('.product-results')) ? $('.product-results').attr('data-pagesize') : null;
@@ -12647,19 +12593,19 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             data.SearchTexts = ($('input[name="SearchTexts"]') && $('input[name="SearchTexts"]').length > 0) ? $('input[name="SearchTexts"]').val().split(",") : null;
             data.OrderOfContentType = ($('input[name="OrderOfContentType"]')) ? $('input[name="OrderOfContentType"]').val().split(",") : null;
             data.WhoWeHelp = ($('input[name="WhoWeHelp"]')) ? $('input[name="WhoWeHelp"]').val() : null,
-                //data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null,
-                data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
+            //data.Brand = ($('input[name="Brand"]')) ? $('input[name="Brand"]').val() : null,
+            data.SearchText = ($('input[name="SearchText"]')) ? ($('input[name="SearchText"]')).val() : null;
             if (SearchType != "ProductSearch") {
                 if($('#hdnSearchType').length > 0) {
                     var NameSearchType = $('#hdnSearchType').attr('name'),
                         Value = $('#hdnSearchType').attr('value');
-
+                                    
                     data[NameSearchType] = Value;
                 }
             }
             if (SearchType === "ProductSearch") {
-                data.SearchTextSampleContent = ($('input[name="SearchTextSampleContent"]') && $('input[name="SearchTextSampleContent"]').length > 0) ? $('input[name="SearchTextSampleContent"]').val().split(",") : null;
-                data.SearchTextProducts = ($('input[name="SearchTextProducts"]') && $('input[name="SearchTextProducts"]').length > 0) ? $('input[name="SearchTextProducts"]').val().split(",") : null;
+            	data.SearchTextSampleContent = ($('input[name="SearchTextSampleContent"]') && $('input[name="SearchTextSampleContent"]').length > 0) ? $('input[name="SearchTextSampleContent"]').val().split(",") : null;
+            	data.SearchTextProducts = ($('input[name="SearchTextProducts"]') && $('input[name="SearchTextProducts"]').length > 0) ? $('input[name="SearchTextProducts"]').val().split(",") : null;
             }
             return data;
         },
@@ -12673,7 +12619,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     FacetCheck = ($(this).attr('data-check') != undefined) ? $(this).attr('data-check') : "",
                     Name = ($(this).attr('name')) ? $(this).attr('name') : "";
 
-
+                
                 if (SearchType === "ResourceResult") {
                     ProdData = INFORMA.ResourceFilter.GetResourceData();
                 }
@@ -12703,36 +12649,36 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 ResetPageSize();
             });
         }
-    GetSortValue = function(value) {
+        GetSortValue = function(value) {
 
-        SortDropDown.on("change", function(e) {
+            SortDropDown.on("change", function(e) {
 
-            var ProdData, FilterData, Data, DefaultData;
-            if (SearchType === "ResourceResult") {
-                ProdData = INFORMA.ResourceFilter.GetResourceData();
-            }
-            if (SearchType === "SearchResult") {
-                ProdData = INFORMA.ProductFinder.GetProductData();
-            }
+                var ProdData, FilterData, Data, DefaultData;
+                if (SearchType === "ResourceResult") {
+                    ProdData = INFORMA.ResourceFilter.GetResourceData();
+                }
+                if (SearchType === "SearchResult") {
+                    ProdData = INFORMA.ProductFinder.GetProductData();
+                }
 
-            FilterData = INFORMA.SearchResultFilter.GetRefineData();
-            DefaultData = GetDefaultValues();
-            Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
-            Data.PageNo = 1;
-            // debugger;
-            GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, null);
-            ResetPageSize();
-        });
-    },
+                FilterData = INFORMA.SearchResultFilter.GetRefineData();
+                DefaultData = GetDefaultValues();
+                Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
+                Data.PageNo = 1;
+                // debugger;
+                GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, null);
+                ResetPageSize();
+            });
+        },
         SetSearchState = function(sVal) {
             //if (sVal) {
-            /* unused variable SearchField removed */
-            var SearchSubmitBtn = $(".site-search li.button");
+                /* unused variable SearchField removed */
+                var SearchSubmitBtn = $(".site-search li.button");
 
-            //SearchField.val(sVal);
-            SearchSubmitBtn.removeClass("disabled");
-            ProductFinderSection.find("input[type=radio][data-show='site-search']").trigger("click");
-            //SearchSubmitBtn.trigger("click");
+                //SearchField.val(sVal);
+                SearchSubmitBtn.removeClass("disabled");
+                ProductFinderSection.find("input[type=radio][data-show='site-search']").trigger("click");
+                //SearchSubmitBtn.trigger("click");
             //}
         },
         ResetPageSize = function() {
@@ -12767,20 +12713,20 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                                 if (selctedSectorFacets.includes(item.SubSectorName.toLowerCase())) {
                                     hiddenSecotrList.push(this.SubSectorID);
                                 }
-                            });
-
+                           });
+        
                         }
                         else{
                             if(searchbar == 'sector-search')
-                                sectorFilterOptionsList = $("." + searchbar + " [id='" + groupid + "2' i]").next().find(".multiselect-container").find("input[type='checkbox']");
+                            sectorFilterOptionsList = $("." + searchbar + " [id='" + groupid + "2' i]").next().find(".multiselect-container").find("input[type='checkbox']");
                             else
-                                sectorFilterOptionsList = $("." + searchbar + " [id='" + groupid + "' i]").next().find(".multiselect-container").find("input[type='checkbox']");
+                            sectorFilterOptionsList = $("." + searchbar + " [id='" + groupid + "' i]").next().find(".multiselect-container").find("input[type='checkbox']");
                             sectorFilterOptionsList.filter(function () {
                                 if (selctedSectorFacets.includes($(this).parent().text().trim().toLowerCase())) {
                                     hiddenSecotrList.push($(this).val());
                                 }
                             });
-
+    
                         }
                         if (hiddenSecotrList.length > 0) {
                             return hiddenSecotrList.toString();
@@ -12824,7 +12770,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     });
                 }
             }
-        },
+            },
         UpdateResultPage = function(SectorSelect, SecValue, SubSecValue) {
             var URLSubSectorValue, URLSectorValue = getSubsectors('sector-search','sector',[]);
             if(URLSectorValue){
@@ -12863,7 +12809,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     });
                 }
             }
-        },
+            },
         GetAjaxData = function(url, method, data, SCallback, Errcallback, Item) {
             INFORMA.Spinner.Show($("body"));
             INFORMA.DataLoader.GetServiceData(url, {
@@ -12958,10 +12904,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     GetDefaultData = GetDefaultValues(),
                     FilterData = INFORMA.SearchResultFilter.GetRefineData();
 
-                if((SearchType === "ProductSearch") && ('Product' in PData)) {
-                    PData['CurrentProduct'] = PData.Product;
-                }
-                var Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
+                    if((SearchType === "ProductSearch") && ('Product' in PData)) {
+                        PData['CurrentProduct'] = PData.Product;
+                    } 
+                    var Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
 
                 if (!$(currentSection).hasClass('showLess')) {
                     $(currentSection).addClass('showLess');
@@ -12981,10 +12927,10 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 FilterData = INFORMA.SearchResultFilter.GetRefineData(),
                 DefaultData = GetDefaultValues(),
                 ProdData = INFORMA.ProductFinder.GetProductData();
-            Data = INFORMA.ProductFinder.MergeData(FilterData, DefaultData,ProdData);
-            Data.PageNo = 1;
-            Data.ExcludedProduct = PData;
-            GetAjaxData(Urls["GetMoreProducts"], "Post", Data, ParseSearchData, null, $(this));
+                Data = INFORMA.ProductFinder.MergeData(FilterData, DefaultData,ProdData);
+                Data.PageNo = 1;
+                Data.ExcludedProduct = PData;
+                GetAjaxData(Urls["GetMoreProducts"], "Post", Data, ParseSearchData, null, $(this));
         },
         DoGlobalShowMore = function() {
             var ShowMoreLink = SearchContent.find(".btn-showMore");
@@ -13033,26 +12979,26 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         var Facet = RefineSection.find("#"+CurrentSection),
                             CheckBoxes = Facet.find("input[type=checkbox]"),
                             Header = Facet.prev(".panel-heading"),
-                            SelectAllChkBox = Header.find("input[type=checkbox]"),
+                           	SelectAllChkBox = Header.find("input[type=checkbox]"),
                             Links = Header.find("a strong");
 
                         if (CheckBoxes && Facet && RefineObj.length) {
                             $.each(CheckBoxes, function() {
-                                var CurrentChkBoxVal = $(this).attr("value");
-                                if (RefineObj.contains(CurrentChkBoxVal)) {
-                                    $(this).removeAttr("disabled");
-                                }else{
-                                    $(this).attr("disabled","disabled");
-                                    $(this).prop("checked",false);
-                                }
+                                 var CurrentChkBoxVal = $(this).attr("value");
+                                     if (RefineObj.contains(CurrentChkBoxVal)) {
+                                        $(this).removeAttr("disabled");
+                                     }else{
+                                        $(this).attr("disabled","disabled");
+                                        $(this).prop("checked",false);
+                                     }
                             });
                             SelectAllChkBox.removeAttr("disabled");
                             Links.removeClass("disabled");
                         }
                         if(CheckBoxes && Facet && RefineObj.length<1){
-                            $.each(CheckBoxes, function() {
-                                $(this).attr("disabled","disabled");
-                                $(this).prop("checked",false);
+                            $.each(CheckBoxes, function() {         
+                                 $(this).attr("disabled","disabled");
+                                 $(this).prop("checked",false);
                             });
                             SelectAllChkBox.attr("disabled","disabled");
                             Links.addClass("disabled");
@@ -13199,7 +13145,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (AppendItemsFlag == true) {
                     CreateSubItems(ProductResults, Button, RemainingCount);
                 }
-
+                
                 addthis.toolbox('.product-results');
             } else {
                 $('.product-results').html(data);
@@ -13298,7 +13244,7 @@ INFORMA.sectorList = (function(window, $, namespace) {
     'use strict';
     //variables
     var _sectorList = $('#sector-list-section'),
-        // methods
+    // methods
         init,
         _bindShowMore,
         _bindShowLess,
@@ -13308,17 +13254,17 @@ INFORMA.sectorList = (function(window, $, namespace) {
         // if data-items, data-infinite is defined, used it
         var _showMore = $('.view-all-sectors-btn');
         _showMore.on('click',function(){
-            $('.sector-list .container > .row + .row >.text-center:nth-child(n+3)').show();
-            $('.sector-list .view-all-sectors-btn-container').hide();
+              $('.sector-list .container > .row + .row >.text-center:nth-child(n+3)').show();
+              $('.sector-list .view-all-sectors-btn-container').hide();
         });
     }
     _bindShowLess = function () {
-        var _showLess = $('.view-all-sectors-btn.less');
-        _showLess.on('click',function(){
+      var _showLess = $('.view-all-sectors-btn.less');
+      _showLess.on('click',function(){
             $('html, body').animate({
                 scrollTop: _sectorPageStrengths.offset().top - 35
             },700);
-        });
+      });
     }
     init = function() {
         if (_sectorList.length > 0) {
@@ -13346,126 +13292,89 @@ jQuery(INFORMA.sectorList.init());
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.sectorPageStrengths = (function (window, $, namespace) {
+INFORMA.sectorPageStrengths = (function(window, $, namespace) {
     'use strict';
     //variables
 
     var _sectorPageStrengths = $('.sectorpage-strengths'),
         _elements = 0,
-        // methods
+    // methods
         init,
-        _bindShowMore, _bindShowLess,
+        _bindShowMore,_bindShowLess,
         _adjustHeigt, _checkElemnt, equalHeight;
 
 
-    _checkElemnt = function ($element) {
+    _checkElemnt = function () {
         var _vp = INFORMA.global.device.viewportN;
 
-        if (_vp === 0) {
-            var count = $element.data('desktop');
-            $element.find('.marg1').hide();
-            if ($element.find('.marg1').length >= (count + 1)) {
-                $element.find('.view-all-sectors-btn-container').show();
+        if(_vp == 0) {
+            var count = _sectorPageStrengths.data('desktop');
+            _sectorPageStrengths.find('.marg1:nth-child(n+'+ (count + 1)+')').hide();
+            if(_sectorPageStrengths.find('.marg1').length >= (count+1)) {
+                _sectorPageStrengths.find('.view-all-sectors-btn-container').show();
             } else {
-                $element.find('.view-all-sectors-btn-container').hide();
+                _sectorPageStrengths.find('.view-all-sectors-btn-container').hide();
             }
             _elements = count;
-        } else if (_vp === 1) {
-            $element.find('.marg1:nth-child(n+5)').hide();
-            if ($element.find('.marg1').length > 4) {
-                $element.find('.view-all-sectors-btn-container').show();
-            } else {
-                $element.find('.view-all-sectors-btn-container').hide();
-            }
-            _elements = 4;
+        } else if(_vp == 1) {
+          _sectorPageStrengths.find('.marg1:nth-child(n+5)').hide();
+          if(_sectorPageStrengths.find('.marg1').length > 4) {
+              _sectorPageStrengths.find('.view-all-sectors-btn-container').show();
+          } else {
+              _sectorPageStrengths.find('.view-all-sectors-btn-container').hide();
+          }
+          _elements = 4;
         } else {
-            $element.find('.marg1:nth-child(n+4)').hide();
-            _elements = 3;
+          _sectorPageStrengths.find('.marg1:nth-child(n+4)').hide();
+          _elements = 3;
         }
+    }
 
-        $element.find('.marg1').slice(0, count).each(function (index, ele) {
-            $(ele).attr('data-display', true).show();
+    _bindShowMore = function(container){
+        // if data-items, data-infinite is defined, used it
+        var _showMore = $('.view-all-sectors-btn');
+        _showMore.on('click',function(){
+              $('.sectorpage-strengths .container > .row + .row >.marg1:nth-child(n+'+ (_elements + 1) +')').slideToggle();
+              $(this).parents('.sectorpage-strengths').toggleClass('showLess');
         });
-    };
-
-    _bindShowMore = function (container) {
-        var _showMore = $(container).find('.view-all-sectors-btn');
-        _showMore.on('click', function (element) {
-
-            $(this).closest('.container').find('.row + .row >.marg1:not([data-display])').slideToggle();
-            $(this).parents('.sectorpage-strengths').toggleClass('showLess');
-
-        });
-    };
-
-    equalHeight = function () {
-        var EachView = jQuery('.sectorpage-strengths');
-        EachView.each(function () {
-            var Items = jQuery(this).find('.text-description'),
-                Description = jQuery(this).find('.yellow-container'),
-                MainContainer = jQuery(this).find('.main-container'),
-                _maxHeight = 0,
-                _mainMaxHeight = 0,
-                _descHeight = 0;
-            Items.each(function () {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _maxHeight) {
-                    _maxHeight = Height;
-                }
-            });
-            Items.css('height', _maxHeight);
-            Description.each(function () {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _descHeight) {
-                    _descHeight = Height;
-                }
-            });
-            Description.css('height', _descHeight);
-            MainContainer.each(function () {
-                var Height = jQuery(this).outerHeight();
-                if (Height > _mainMaxHeight) {
-                    _mainMaxHeight = Height;
-                }
-            });
-            MainContainer.css('height', _mainMaxHeight);
-
+    }
+// equal height function removed for maincontainer and text-description
+equalHeight = function () {
+    var EachView = jQuery('.sectorpage-strengths');
+    EachView.each(function () {
+        var Description = jQuery(this).find('.yellow-container'),
+            _descHeight = 0;
+        Description.each(function () {
+            var Height = jQuery(this).outerHeight();
+            if (Height > _descHeight) {
+                _descHeight = Height;
+            }
         })
-    };
+        Description.css('height', _descHeight );
 
-    // _bindShowLess = function () {
-    //     var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
-    //     _showLess.on('click', function () {
-    //         // Removed to stop onscroll to parent div
-    //         // $('html, body').animate({
-    //         //     scrollTop: _sectorPageStrengths.offset().top
-    //         // }, 700);
-    //         // End
-    //     });
-    // };
+    })
+}
 
     _bindShowLess = function () {
-        var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
-
-        _showLess.on('click', function () {
+      var _showLess = _sectorPageStrengths.find('.view-all-sectors-btn.less');
+      _showLess.on('click',function(){
             $('html, body').animate({
-                scrollTop: $(this).parents('section').offset().top
-            }, 700);
-        });
-    };
-    init = function () {
-        var EachView = jQuery('.sectorpage-strengths');
-        EachView.each(function (index, element) {
-            _checkElemnt($(element));
-            _bindShowMore(element); // Individual container Fix Ben(2018)
+                scrollTop: _sectorPageStrengths.offset().top - 35
+            },700);
+      });
+    }
+    init = function() {
+        if (_sectorPageStrengths.length > 0) {
+            _checkElemnt();
+            _bindShowMore(_sectorPageStrengths);
             _bindShowLess();
-            $(window).on('load', function () {
+            $(window).on('load', function() {
                 equalHeight();
-            });
-        });
+            });        }
 
-        $("#loadPDFComponentModal").on('hidden.bs.modal', function () {
-            $("#hiddenIframe").html("");
-        });
+            $("#loadPDFComponentModal").on('hidden.bs.modal', function(){
+                $("#hiddenIframe").html("");
+            });
     };
 
     return {
@@ -13497,7 +13406,7 @@ INFORMA.navtabs = (function(window, $, namespace) {
         jQuery(Tabs[0]).addClass('active');
         jQuery(tabcontent[0]).addClass('active');
         Tabs.on('click', function() {
-            Tabs.removeClass('active');
+        Tabs.removeClass('active');
             jQuery(this).addClass('active');
             var tabpane = jQuery(this).find('a').attr('href');
             tabcontent.removeClass('active');
@@ -13528,7 +13437,7 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
     'use strict';
     //variables
     var _traininglist = $('.slick-carousel'),
-        // methods
+    // methods
         init,
         _dots,
         _createSlider;
@@ -13541,7 +13450,7 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
             _duration = container.data('slideduration'), // how long the slider will be displayed
             _infinite = true,
             _dots = Boolean(container.data('pagination'));
-
+            
 
         container.slick({
             infinite: _infinite,
@@ -13555,18 +13464,18 @@ INFORMA.trainingMaterial = (function(window, $, namespace) {
             arrows: true,
             swipe: INFORMA.global.device.isDesktop ? false : true,
             responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },{
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },{
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
             ]
         });
     }
@@ -13601,105 +13510,105 @@ INFORMA.videoBackground = (function(window, $, namespace) {
         _vimeoSound,
         _addOptions,
         _heroBannerList = $('.hero-banner-carousel .slider-component');
-    /* unused _setHeroVideoHeight function removed */
+        /* unused _setHeroVideoHeight function removed */
 
     _addOptions = function() {
-
+        
         //$('.videoBG_wrapper').parent().css( "height", "auto" );
         if(_heroBannerList.length == 0){
-            _iFrameElement.each(function(i, e) {
-                _urlType = $(this).attr('data-videotype');
+        _iFrameElement.each(function(i, e) {
+            _urlType = $(this).attr('data-videotype');
 
-                if (_urlType == "youtube") {
+            if (_urlType == "youtube") {
 
-                    _youTubeId = $(this).attr('data-videoid');
-                    _youTubeSound = $(this).attr('data-videosound');
+                _youTubeId = $(this).attr('data-videoid');
+                _youTubeSound = $(this).attr('data-videosound');
 
-                    var playerYTElement = document.createElement('div');
-                    playerYTElement.id = "youtubePlayer";
-                    $(this).append(playerYTElement);
+                var playerYTElement = document.createElement('div');
+                playerYTElement.id = "youtubePlayer";
+                $(this).append(playerYTElement);
 
-                    var scriptTag = document.createElement('script');
-                    scriptTag.src = "https://www.youtube.com/iframe_api";
+                var scriptTag = document.createElement('script');
+                scriptTag.src = "https://www.youtube.com/iframe_api";
 
-                    var ytTag = document.getElementById('youtubePlayer');
-                    ytTag.parentNode.insertBefore(scriptTag, ytTag.nextSibling);
+                var ytTag = document.getElementById('youtubePlayer');
+                ytTag.parentNode.insertBefore(scriptTag, ytTag.nextSibling);
 
-                } else if (_urlType == "vimeo") {
+            } else if (_urlType == "vimeo") {
 
-                    _vimeoId = $(this).attr('data-videoid');
-                    _vimeoSound = $(this).attr('data-videosound');
+                _vimeoId = $(this).attr('data-videoid');
+                _vimeoSound = $(this).attr('data-videosound');
 
-                    var playerVMElement = document.createElement('div');
-                    playerVMElement.id = "vimeoPlayer";
-                    $(this).append(playerVMElement);
+                var playerVMElement = document.createElement('div');
+                playerVMElement.id = "vimeoPlayer";
+                $(this).append(playerVMElement);
 
-                    var options = {
-                        id: _vimeoId,
-                        autoplay: true,
-                        loop: true
-                    };
+                var options = {
+                  id: _vimeoId,
+                  autoplay: true,
+                  loop: true
+                };
 
-                    var vimeoPlayer = new Vimeo.Player('vimeoPlayer', options);
-                    vimeoPlayer.setVolume(_vimeoSound);
-                    if (INFORMA.global.device.viewportN == 2 ) {
-                        $('.videoBG_wrapper').css('height', '80%');
-                        $('.block-centered').css('transform','translateY(-40%)');
-                    }
-                    if (INFORMA.global.device.viewportN == 1) {
-                        $('section.hero-banner').addClass('vimeo-video-banner');
-                        $('.videoBG_wrapper').css('height', '80%');
-                        $('.block-centered').css('transform','translateY(-25%)');
-                    }
-                } else if (_urlType == "wistia") {
-
-                    _wistiaUrl = $(this).attr('data-videourl')
-                    _wistiaId = $(this).attr('data-videoid');
-                    _wistiaSound = $(this).attr('data-videosound');
-
-                    var iframeWSElement = document.createElement('iframe');
-                    iframeWSElement.id = "wistiaEmbed",
-                        iframeWSElement.class = "wistia_embed",
-                        iframeWSElement.name = "wistia_embed";
-                    iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
-                    $(this).append(iframeWSElement);
-
-                    if (INFORMA.global.device.viewportN == 1 || INFORMA.global.device.viewportN == 2 ) {
-                        var playButton = $(".videoBG_wrapper");
-                        if(playButton.length > 0 ){
-                            playButton.on("click", function() {
-                                var wistiaEmbed = document.getElementById("wistiaEmbed").wistiaApi;
-                                wistiaEmbed.play();
-                            });
-                        }
-                    }
+                var vimeoPlayer = new Vimeo.Player('vimeoPlayer', options);
+                vimeoPlayer.setVolume(_vimeoSound);
+                if (INFORMA.global.device.viewportN == 2 ) {
+                  $('.videoBG_wrapper').css('height', '80%');
+                  $('.block-centered').css('transform','translateY(-40%)');
                 }
+                if (INFORMA.global.device.viewportN == 1) {
+                  $('section.hero-banner').addClass('vimeo-video-banner');
+                  $('.videoBG_wrapper').css('height', '80%');
+                  $('.block-centered').css('transform','translateY(-25%)');
+                }
+            } else if (_urlType == "wistia") {
 
-            });
-        }
+                _wistiaUrl = $(this).attr('data-videourl')
+                _wistiaId = $(this).attr('data-videoid');
+                _wistiaSound = $(this).attr('data-videosound');
+
+                var iframeWSElement = document.createElement('iframe');
+                iframeWSElement.id = "wistiaEmbed",
+                iframeWSElement.class = "wistia_embed",
+                iframeWSElement.name = "wistia_embed";
+                iframeWSElement.src = _wistiaUrl + '/embed/iframe/' + _wistiaId + "?autoplay=1&playbar=false&smallPlayButton=false&fullscreenButton=false&volumeControl=false&endVideoBehavior=loop&volume=" + _wistiaSound;
+                $(this).append(iframeWSElement);
+
+                  if (INFORMA.global.device.viewportN == 1 || INFORMA.global.device.viewportN == 2 ) {
+                    var playButton = $(".videoBG_wrapper");
+                    if(playButton.length > 0 ){
+                      playButton.on("click", function() {
+                            var wistiaEmbed = document.getElementById("wistiaEmbed").wistiaApi;
+                                wistiaEmbed.play();
+                      });
+                    }
+                  }
+            }
+
+        });
+       } 
 
     }
 
     if(_heroBannerList.length == 0){
-        window.onYouTubeIframeAPIReady = function() {
-            var ytPlayer = new YT.Player('youtubePlayer', {
-                videoId: _youTubeId,
-                playerVars: {
-                    'modestbranding': 0,
-                    'autoplay': 1,
-                    'controls': 1,
-                    'loop': 1,
-                    'wmode':'opaque',
-                    'playlist': _youTubeId,
-                    'showinfo': 0
-                },
+   window.onYouTubeIframeAPIReady = function() {
+      var ytPlayer = new YT.Player('youtubePlayer', {
+            videoId: _youTubeId,
+            playerVars: {
+                'modestbranding': 0,
+                'autoplay': 1,
+                'controls': 1,
+                'loop': 1,
+                'wmode':'opaque',
+                'playlist': _youTubeId,
+                'showinfo': 0
+            },
 
-                events: {
-                    'onReady': onYTPlayerReady
-                }
-            });
-        };
-    }
+            events: {
+                'onReady': onYTPlayerReady
+            }
+        });
+    };
+}
     function onYTPlayerReady(event) {
         if (INFORMA.global.device.viewport == "desktop" || INFORMA.global.device.viewportN == 0) {
             event.target.playVideo();
@@ -13709,7 +13618,7 @@ INFORMA.videoBackground = (function(window, $, namespace) {
 
     init = function() {
         _addOptions();
-        //  _setHeroVideoHeight();
+      //  _setHeroVideoHeight();
     };
 
     return {
@@ -13757,8 +13666,8 @@ INFORMA.videoFull = (function(window, $, namespace) {
             }
             $(this).replaceWith(video);
             function onYouTubePlayerAPIReady() {
-                var player = new YT.Player('video', {
-                    autoplay: 1
+               var player = new YT.Player('video', {
+                  autoplay: 1
                 });
             }
             $('.play-icon').remove();
@@ -13806,7 +13715,7 @@ INFORMA.videoMini = (function(window, $, namespace) {
             _videoMiniPlayerModal.find('.modal-body .video-mini-player').html(video)
             _videoMiniPlayerModal.modal('show');
             $(this).parents('.video-mini-container').find('.play-icon').hide();
-            //  imgContainer.find(_videoMiniPlayBtnWrapper).hide();
+          //  imgContainer.find(_videoMiniPlayBtnWrapper).hide();
 
         });
     }
