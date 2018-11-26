@@ -11,7 +11,7 @@
  */
 
 var INFORMA = window.INFORMA || {};
-INFORMA.CookiePolicy = (function (window, $, namespace) {
+INFORMA.CookiePolicy = (function(window, $, namespace) {
     'use strict';
     //variables
     /* dropCookie variable removed */
@@ -23,48 +23,49 @@ INFORMA.CookiePolicy = (function (window, $, namespace) {
         ShowBanner, CreateCookie, CheckCookie, RemoveMe;
 
 
-    ShowBanner = function (name, value, days) {
-        $("body").find("#cookieBanner").show();
-        if ($('#cookieBanner:visible').length) {
-            if (INFORMA.global.device.isDesktop) {
-                if ($('.mainNavigation').hasClass('navbar-fixed-top')) {
-                    $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
-                    $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight() + $(".mainNavigation").outerHeight());
+    ShowBanner = function(name, value, days) {
+            $("body").find("#cookieBanner").show();
+            if($('#cookieBanner:visible').length){
+                if (INFORMA.global.device.isDesktop) {
+                    if($('.mainNavigation').hasClass('navbar-fixed-top')) {
+                        $(".mainNavigation").css("top", $("#cookieBanner").outerHeight());
+                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mainNavigation").outerHeight());
+                    }
                 }
-            } else {
-                if ($('.mobileNavigation').hasClass('navbar-fixed-top')) {
-                    $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
-                    $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight() + $(".mobileNavigation").outerHeight());
+                else{
+                    if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
+                        $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
+                        $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mobileNavigation").outerHeight());
+                    }
                 }
-            }
-        }
-        $("#cookieBanner a.close").on("click", function (e) {
-            e.preventDefault();
-            RemoveMe();
-            //CreateCookie(cookieName,cookieValue, cookieDuration);
-            INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
-                method: "Post",
-                data: JSON.stringify({"key": cookieName, "value": cookieValue, "expires": cookieDuration}),
-                success_callback: function (data) {
-                }
+             }   
+            $("#cookieBanner a.close").on("click", function(e) {
+                e.preventDefault();
+                RemoveMe();
+                //CreateCookie(cookieName,cookieValue, cookieDuration); 
+                INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
+                    method: "Post",
+                    data: JSON.stringify({"key":cookieName,"value":cookieValue ,"expires":cookieDuration}),
+                    success_callback: function(data) {
+                    }
+                });
+                    ///
             });
-            ///
-        });
-    },
+        },
         // CreateCookie = function(name,value,days) {
         //         if (days) {
         //             var date = new Date();
-        //             date.setTime(date.getTime()+(days*24*60*60*1000));
-        //             var expires = "; expires="+date.toGMTString();
+        //             date.setTime(date.getTime()+(days*24*60*60*1000)); 
+        //             var expires = "; expires="+date.toGMTString(); 
         //         }
         //         else {
         //             var expires = "";
         //         }
-        //         if(dropCookie) {
-        //             document.cookie = name+"="+value+expires+"; path=/";
+        //         if(dropCookie) { 
+        //             document.cookie = name+"="+value+expires+"; path=/"; 
         //         }
         // },
-        CheckCookie = function (name) {
+        CheckCookie = function(name) {
             var nameEQ = name + "=";
             var ca = document.cookie.split(';');
             for (var i = 0; i < ca.length; i++) {
@@ -76,9 +77,7 @@ INFORMA.CookiePolicy = (function (window, $, namespace) {
         },
         /* unused EraseCookie function removed */
         RemoveMe = function(data) {
-            var cookieHeightClick =  $('#cookieBanner').outerHeight()
             $("body").find("#cookieBanner").hide();
-
             if($('.mainNavigation').hasClass('navbar-fixed-top')) {
                 $('.mainNavigation').css('top',0);
             }
@@ -88,18 +87,15 @@ INFORMA.CookiePolicy = (function (window, $, namespace) {
             if($('#pdp-navigation').hasClass('navbar-fixed-top')) {
                 $('#pdp-navigation').css('top', $('.mainNavigation').outerHeight());
             }
-            if($("[data-target]").length) {
-                window.scrollBy(0, cookieHeightClick);
-            }
         },
-        init = function () {
+        init = function() {
             var getCookieExpiryDate = ($("input.cookieDuration").val()) ? $("input.cookieDuration").val() : 365;
             cookieDuration = parseInt(getCookieExpiryDate);
             //window.onload = function() {
-            if (CheckCookie(cookieName) !== cookieValue) {
-                ShowBanner();
-            }
-            //};
+                if (CheckCookie(cookieName) !== cookieValue) {
+                    ShowBanner();
+                }
+           //};
         }
 
     return {
