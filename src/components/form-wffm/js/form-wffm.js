@@ -198,19 +198,34 @@ INFORMA.forms = (function (window, $, namespace) {
                     var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
                     var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
                     if (value !== "" || pdfValue != "") {
+                        e.preventDefault();
                         _showOverlay();
                         if (pdfValue != "") {
                             $('.close-download-form *').removeClass('wffm-elq-form-btn');
                         }
-                        INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+
+                        //post the form. This is more of Fire and forget.So nothing written inside success handler
+                        $.post($getCurrentform.attr('action') ,$getCurrentform.serialize() ,function(data){
+                        });
+
                         _formModal.modal('hide');
 
-                        $('.close-download-form *').attr('data-show-register', false);
-                        $('.close-download-form *').attr('target', "_blank");
-                    } else {
-                        INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                        //Modify attributes so that it doesn't show the form again
+                        $('.close-download-form').attr('data-show-register', false);
+                        $('.close-download-form').attr('target', "_blank");
+                        $('.close-download-form').attr('download', "");
+
+                        //Bit of DOM manipulation to trigger browser download behavior
+                        var href=$getCurrentform.find('.redirect-url-field').val();
+                        $getCurrentform.append('<a id="donwload-link" href="' + href+ '" target="_blank" download></a>');
+                        $getCurrentform.find('#donwload-link')[0].click();
+
+
                     }
+                    INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+
                 }
+
             }
         });
     }
