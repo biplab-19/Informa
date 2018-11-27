@@ -183,8 +183,8 @@ INFORMA.forms = (function (window, $, namespace) {
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
-           var $getCurrentform = $(getCurrentform);
-            if ($getCurrentform.valid() === true) {
+
+            if (getCurrentform.valid() === true) {
                 var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
                 if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
@@ -195,37 +195,7 @@ INFORMA.forms = (function (window, $, namespace) {
                     grecaptcha.reset();
                     grecaptcha.execute(widgetId);
                 }
-                if (($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')) {
-                    var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
-                    var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
-                    if (value !== "" || pdfValue != "") {
-                        e.preventDefault();
-                        _showOverlay();
-                        if (pdfValue != "") {
-                            $('.close-download-form *').removeClass('wffm-elq-form-btn');
-                        }
 
-                        //post the form. This is more of Fire and forget.So nothing written inside success handler
-                        $.post($getCurrentform.attr('action') ,$getCurrentform.serialize() ,function(data){
-                        });
-
-                        _formModal.modal('hide');
-
-                        //Modify attributes so that it doesn't show the form again 
-                        $('.close-download-form').attr('data-show-register', false);
-                        $('.close-download-form').attr('target', "_blank");
-                        $('.close-download-form').attr('download', "");
-
-                        //Bit of DOM manipulation to trigger browser download behavior                                                                                              
-                        var href=$getCurrentform.find('.redirect-url-field').val();
-                        $getCurrentform.append('<a id="donwload-link" href="' + href+ '" target="_blank" download></a>');
-                        $getCurrentform.find('#donwload-link')[0].click();
-
-
-                    }
-                    INFORMA.Analytics.trackFormEvents($(this), 'Submit');
-
-                }
 
             }
         });
@@ -233,8 +203,46 @@ INFORMA.forms = (function (window, $, namespace) {
     //Success callback
     //Success callback
     window.onSubmit = function (token) {
-        getCurrentform.submit();
+
+        var $getCurrentform = $(getCurrentform);
+        console.log("inside submit");
+        if (($getCurrentform.parents('.modal').attr('id') == 'formRegistration') || ($getCurrentform.find('.form-inline-container').attr('data-modal') == 'formRegistration')) {
+            console.log("inside condition");
+            var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
+            var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
+            if (value !== "" || pdfValue != "") {
+                _showOverlay();
+                if (pdfValue != "") {
+                    $('.close-download-form *').removeClass('wffm-elq-form-btn');
+                }
+
+                //post the form. This is more of Fire and forget.So nothing written inside success handler
+                $.post($getCurrentform.attr('action') ,$getCurrentform.serialize() ,function(data){
+                });
+
+                _formModal.modal('hide');
+
+                //Modify attributes so that it doesn't show the form again
+                $('.close-download-form').attr('data-show-register', false);
+                $('.close-download-form').attr('target', "_blank");
+                $('.close-download-form').attr('download', "");
+
+                //Bit of DOM manipulation to trigger browser download behavior
+                var href=$getCurrentform.find('.redirect-url-field').val();
+                $getCurrentform.append('<a id="donwload-link" href="' + href+ '" target="_blank" download></a>');
+                $getCurrentform.find('#donwload-link')[0].click();
+
+
+            }
+            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+            return false;
+
+        }
+        else{
+            getCurrentform.submit();
+        }
     }
+
     // end test
 
     // _reCaptchaHandler = function() {
