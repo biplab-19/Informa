@@ -199,7 +199,7 @@ INFORMA.forms = (function (window, $, namespace) {
 
             }
         });
-    }
+    };
     //Success callback
     //Success callback
     window.onSubmit = function (token) {
@@ -241,7 +241,7 @@ INFORMA.forms = (function (window, $, namespace) {
         else{
             getCurrentform.submit();
         }
-    }
+    };
 
     // end test
 
