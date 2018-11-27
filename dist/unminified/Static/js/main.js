@@ -1,4 +1,4 @@
-/*! 2018-11-26 *//*
+/*! 2018-11-27 *//*
  * google-analytics.js
  *
  *
@@ -8356,7 +8356,8 @@ INFORMA.forms = (function (window, $, namespace) {
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
-            if (getCurrentform.valid() === true) {
+           var $getCurrentform = $(getCurrentform);
+            if ($getCurrentform.valid() === true) {
                 var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
                 if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
@@ -8383,12 +8384,12 @@ INFORMA.forms = (function (window, $, namespace) {
 
                         _formModal.modal('hide');
 
-                        //Modify attributes so that it doesn't show the form again
+                        //Modify attributes so that it doesn't show the form again 
                         $('.close-download-form').attr('data-show-register', false);
                         $('.close-download-form').attr('target', "_blank");
                         $('.close-download-form').attr('download', "");
 
-                        //Bit of DOM manipulation to trigger browser download behavior
+                        //Bit of DOM manipulation to trigger browser download behavior                                                                                              
                         var href=$getCurrentform.find('.redirect-url-field').val();
                         $getCurrentform.append('<a id="donwload-link" href="' + href+ '" target="_blank" download></a>');
                         $getCurrentform.find('#donwload-link')[0].click();
