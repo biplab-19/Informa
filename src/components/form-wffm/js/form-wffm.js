@@ -199,14 +199,16 @@ INFORMA.forms = (function (window, $, namespace) {
 
             }
         });
-    }
+    };
     //Success callback
     //Success callback
     window.onSubmit = function (token) {
 
         var $getCurrentform = $(getCurrentform);
         console.log("inside submit");
-        if (($getCurrentform.parents('.modal').attr('id') == 'formRegistration') || ($getCurrentform.find('.form-inline-container').attr('data-modal') == 'formRegistration')) {
+        if ($getCurrentform.attr('data-trigger-download')=='true' && (($getCurrentform.parents('.modal').attr('id') == 'formRegistration')
+            || ($getCurrentform.find('.form-inline-container').attr('data-modal') == 'formRegistration')))
+        {
             console.log("inside condition");
             var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
             var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
@@ -215,7 +217,7 @@ INFORMA.forms = (function (window, $, namespace) {
                 if (pdfValue != "") {
                     $('.close-download-form *').removeClass('wffm-elq-form-btn');
                 }
-
+                showRegisterForm
                 //post the form. This is more of Fire and forget.So nothing written inside success handler
                 $.post($getCurrentform.attr('action') ,$getCurrentform.serialize() ,function(data){
                 });
@@ -241,7 +243,7 @@ INFORMA.forms = (function (window, $, namespace) {
         else{
             getCurrentform.submit();
         }
-    }
+    };
 
     // end test
 

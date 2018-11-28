@@ -181,12 +181,18 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             }
         })
     }
-    
+
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
-            if ($(this).attr('data-show-register') == 'true') {
-                // To track Google Analytics on Open
+                if ($(this).attr('data-show-register') == 'true') {
+                    //check if anchor is meant to open a form to trigger a download
+                    var isDownloadAnchor = $(this).hasClass('close-download-form');
 
+                    if(isDownloadAnchor)
+                    {
+                        $('#formRegistration form').attr('data-trigger-download','true');
+                    }
+                    // To track Google Analytics on Open
                 INFORMA.Analytics.trackFormEvents($(this), 'Open');
                 e.preventDefault();
                 e.stopPropagation();
@@ -233,7 +239,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             return [parseInt(appVer[1], 10), parseInt(appVer[2], 10), parseInt(appVer[3] || 0, 10)];
         }
     }
-    
+
     _showRegisterFormPopupSingleStep = function(){
         $.fn.modal.Constructor.prototype.enforceFocus = function () { };  
         _clearFormInput(_myinterestForm);
@@ -265,9 +271,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         }
         else {
             if($('.show-register-form').attr('data-show-register') == 'true')
-               $('#formRegistration').modal('show'); 
+               $('#formRegistration').modal('show');
         }
-        
+
         // var a = Math.ceil(Math.random() * 9)+ '';
         // var b = Math.ceil(Math.random() * 9)+ '';
         // var c = Math.ceil(Math.random() * 9)+ '';
@@ -287,9 +293,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             if(selectform.text()){
                 selectform.css('display','none');
             }
-        });    
+        });
     }
-    
+
     _renderRecommendedTips = function() {
         _recommendedTipsContainer.append(_recommendedTips);
         _recommendedTipCol.css('display', 'none');
@@ -514,7 +520,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         if( !isIE && !!window.StyleMedia) {
             isEdge = true;
         }
-       
+
         if(isIE || isEdge){
             urlParameters = window.location.href;
         if(urlParameters.split('?')['1']){
@@ -562,7 +568,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             _myinterestsSection.css('display', 'none');
 
         }
-    
+
         _loadPDFPopUp();
 
     };
