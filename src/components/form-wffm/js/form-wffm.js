@@ -180,22 +180,24 @@ INFORMA.forms = (function (window, $, namespace) {
     }
 
     //Recaptcha handler on click of submit and google analytics changes
-    _reCaptchaHandler = function () {
-        $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
+    _reCaptchaHandler = function () {
+        $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
-
-            if (getCurrentform.valid() === true) {
-                var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
-                if (grecaptchaDiv.length > 0) {
+            if (getCurrentform.valid() === true) {
+                var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
+                if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
-                    var widgetId = null;
+                    var widgetId = null;
                     widgetId = grecaptcha.render($(grecaptchaDiv).attr('id'), {
                         'sitekey': $(grecaptchaDiv).data('sitekey')
                     });
                     grecaptcha.reset();
                     grecaptcha.execute(widgetId);
                 }
-
+                if (($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration'))
+                {
+                    INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+                }
 
             }
         });
