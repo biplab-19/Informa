@@ -261,9 +261,15 @@ INFORMA.forms = (function (window, $, namespace) {
                     navigator.userAgent.indexOf('CriOS') == -1 &&
                     navigator.userAgent.indexOf('FxiOS') == -1;
 
+                var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
                 if (isSafari) {
                     $getCurrentform.append('<button id="download-link"  onclick="window.open("' + href + '","_blank");></button>');
-                } else {
+                }
+                else if (isIE11) {
+                    $getCurrentform.append('<a id="download-link" href="' + href + '" target="_blank" download></a>');
+                }
+                else {
                     $getCurrentform.append('<a id="download-link" href="' + href + '" download></a>');
                 }
                 $getCurrentform.find('#download-link')[0].click();
