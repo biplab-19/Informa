@@ -29,7 +29,7 @@
 
 /*jshint browser: true, devel: true, es5: true, globalstrict: true */
 'use strict';
-
+// console.log("new test ben 2018");
 document.webL10n = (function(window, document, undefined) {
   var gL10nData = {};
   var gTextData = '';
@@ -832,7 +832,7 @@ document.webL10n = (function(window, document, undefined) {
       if (Object.keys(gL10nData).length > 0) {
         console.warn('#' + key + ' is undefined.');
       }
-      // === patch end === 
+      // === patch end ===
       if (!fallback) {
         return null;
       }
@@ -12985,7 +12985,7 @@ if(!self.secondloadPDF)
    var container = appConfig.mainContainer;
    var viewer = appConfig.viewerContainer;
    	  if(document.getElementById("viewer").hasChildNodes()){
-		self.secondloadPDF  = true;  
+		self.secondloadPDF  = true;
 	  }
 
    self.pdfViewer = new PDFViewer({
@@ -13042,9 +13042,9 @@ if(!self.secondloadPDF)
     eventBus: eventBus
    });
    self.pdfDocumentProperties = new PDFDocumentProperties(appConfig.documentProperties);
-   
+
    if(!self.secondloadPDF) self.toolbar = new Toolbar(appConfig.toolbar, container, eventBus);
-   
+
    self.secondaryToolbar = new SecondaryToolbar(appConfig.secondaryToolbar, container, eventBus);
    if (self.supportsFullscreen) {
     self.pdfPresentationMode = new PDFPresentationMode({
@@ -13085,7 +13085,7 @@ if(!self.secondloadPDF)
     newScale = (newScale * DEFAULT_SCALE_DELTA).toFixed(2);
     newScale = Math.ceil(newScale * 10) / 10;
     newScale = Math.min(MAX_SCALE, newScale);
-   
+
   } while (--ticks > 0 && newScale < MAX_SCALE);
   this.pdfViewer.currentScaleValue = newScale;
  },
@@ -13480,7 +13480,8 @@ if(!self.secondloadPDF)
    var info = data.info, metadata = data.metadata;
    self.documentInfo = info;
    self.metadata = metadata;
-   console.log('PDF ' + pdfDocument.fingerprint + ' [' + info.PDFFormatVersion + ' ' + (info.Producer || '-').trim() + ' / ' + (info.Creator || '-').trim() + ']' + ' (PDF.js: ' + (pdfjsLib.version || '-') + (!pdfjsLib.PDFJS.disableWebGL ? ' [WebGL]' : '') + ')');
+      window.resizeTo(screen.width-300,screen.height-500);
+      console.log('PDF ' + pdfDocument.fingerprint + ' [' + info.PDFFormatVersion + ' ' + (info.Producer || '-').trim() + ' / ' + (info.Creator || '-').trim() + ']' + ' (PDF.js: ' + (pdfjsLib.version || '-') + (!pdfjsLib.PDFJS.disableWebGL ? ' [WebGL]' : '') + ')');
    var pdfTitle;
    if (metadata && metadata.has('dc:title')) {
     var title = metadata.get('dc:title');
@@ -13564,7 +13565,7 @@ if(!self.secondloadPDF)
         iframe.setAttribute("class","PDFtoPrintIframe");
         iframe.setAttribute("width","100%");
         iframe.setAttribute("height","100%");
-        if(document.getElementsByClassName('PDFtoPrintIframe').length == 0)          
+        if(document.getElementsByClassName('PDFtoPrintIframe').length == 0)
             document.getElementById('hiddenIframe').appendChild(iframe);
     }//  document.getElementById("PDFtoPrint").src = this.baseUrl;
   var printService = PDFPrintServiceFactory.instance.createPrintService(this.pdfDocument, pagesOverview, printContainer);
@@ -13605,7 +13606,7 @@ if(!self.secondloadPDF)
  },
  bindEvents: function pdfViewBindEvents() {
   var eventBus = this.eventBus;
-  
+
   eventBus.on('resize', webViewerResize);
   eventBus.on('hashchange', webViewerHashchange);
   eventBus.on('beforeprint', this.beforePrint.bind(this));
