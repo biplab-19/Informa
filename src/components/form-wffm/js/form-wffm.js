@@ -180,45 +180,105 @@ INFORMA.forms = (function (window, $, namespace) {
     }
 
     //Recaptcha handler on click of submit and google analytics changes
-    _reCaptchaHandler = function () {
-        $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
+    _reCaptchaHandler = function () {
+        $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
-            if (getCurrentform.valid() === true) {
-                var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
-                if (grecaptchaDiv.length > 0) {
+            if (getCurrentform.valid() === true) {
+                var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
+                if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
-                    var widgetId = null;
+                    var widgetId = null;
                     widgetId = grecaptcha.render($(grecaptchaDiv).attr('id'), {
                         'sitekey': $(grecaptchaDiv).data('sitekey')
                     });
                     grecaptcha.reset();
                     grecaptcha.execute(widgetId);
                 }
-                if (($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration')) {
-                    var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
-                    var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
-                    if (value !== "" || pdfValue != "") {
-                        _showOverlay();
-                        if (pdfValue != "") {
-                            $('.close-download-form *').removeClass('wffm-elq-form-btn');
-                        }
-                        INFORMA.Analytics.trackFormEvents($(this), 'Submit');
-                        _formModal.modal('hide');
-
-                        $('.close-download-form *').attr('data-show-register', false);
-                        $('.close-download-form *').attr('target', "_blank");
-                    } else {
-                        INFORMA.Analytics.trackFormEvents($(this), 'Submit');
-                    }
+                if (($(this).parents('.modal').attr('id') == 'formRegistration') || ($(this).parents('.registration-form-single-section').find('.form-inline-container').attr('data-modal') == 'formRegistration'))
+                {
+                    INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                 }
+
             }
         });
-    }
+    };
     //Success callback
     //Success callback
     window.onSubmit = function (token) {
-        getCurrentform.submit();
-    }
+
+        var $getCurrentform = $(getCurrentform);
+        console.log("inside submit");
+
+        if ($getCurrentform.attr('data-trigger-download') == 'true' && (($getCurrentform.parents('.modal').attr('id') == 'formRegistration')
+            || ($getCurrentform.find('.form-inline-container').attr('data-modal') == 'formRegistration'))) {
+            console.log("inside condition");
+
+            var value = $('.close-download-form').attr('data-url') ? $('.close-download-form').attr('data-url') : "";
+            var pdfValue = $('.close-download-form').attr('pdf-data-url') ? $('.close-download-form').attr('pdf-data-url') : "";
+            if (value !== "" || pdfValue != "") {
+                _showOverlay();
+
+                if (pdfValue != "") {
+                    $('.close-download-form *').removeClass('wffm-elq-form-btn');
+                }
+
+                _formModal.modal('hide');
+                var headersList = {
+                    "X-RequestVerificationToken": $getCurrentform.find('[name=__RequestVerificationToken]').val(),
+                    "X-Requested-With": "XMLHttpRequest",
+                    "scController": "form",
+                    "scAction": "Process",
+                    "X-IsMediaDownload": true
+                };
+                var formData = new FormData(getCurrentform[0]);
+
+                $.ajax({
+                    url: $getCurrentform.attr('action'),
+                    type: $getCurrentform.attr('method'),
+                    processData: false,
+                    contentType: false,
+                    headers: headersList,
+                    data: formData,
+                    success: function (res) {
+
+                    },
+                    error: function (xhr, status, exception) {
+
+                    }
+                });
+
+
+                //Modify attributes so that it doesn't show the form again
+                $('.close-download-form').attr('data-show-register', false);
+                $('.close-download-form').attr('target', "_blank");
+                $('.close-download-form').attr('download', "");
+
+                //Bit of DOM manipulation to trigger browser download behavior
+                var href = $getCurrentform.find('.redirect-url-field').val();
+
+                var isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+                    navigator.userAgent &&
+                    navigator.userAgent.indexOf('CriOS') == -1 &&
+                    navigator.userAgent.indexOf('FxiOS') == -1;
+
+                if (isSafari) {
+                    $getCurrentform.append('<button id="download-link"  onclick="window.open("' + href + '","_blank");></button>');
+                } else {
+                    $getCurrentform.append('<a id="download-link" href="' + href + '" download></a>');
+                }
+                $getCurrentform.find('#download-link')[0].click();
+
+            }
+            INFORMA.Analytics.trackFormEvents($(this), 'Submit');
+            e.preventDefault();
+            return false;
+
+        } else {
+            getCurrentform.submit();
+        }
+    };
+
+
     // end test
 
     // _reCaptchaHandler = function() {
