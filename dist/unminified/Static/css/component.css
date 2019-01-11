@@ -5862,6 +5862,9 @@ section#about-us-hero .transparent-bg-content .description p, section#about-us-h
 .pdf-container {
   height: 100%;
   width: 100%;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
   background-color: #404040;
   background-image: url(../../static/images/texture.png);
   /* TODO: file FF bug to support ::-moz-selection:window-inactive
