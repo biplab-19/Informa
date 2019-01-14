@@ -29,7 +29,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ProductSearchText = $('input[name="SearchText"]'),
         SeeAllButton = SearchContent.find(".see-all"),
         IsShowFlag = false,
+        //FIX
         PageNo = 3,
+        //END FIX
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,getSubsectors,UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,

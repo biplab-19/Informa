@@ -8440,15 +8440,9 @@ INFORMA.forms = (function (window, $, namespace) {
                     navigator.userAgent.indexOf('CriOS') == -1 &&
                     navigator.userAgent.indexOf('FxiOS') == -1;
 
-                var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
-
                 if (isSafari) {
                     $getCurrentform.append('<button id="download-link"  onclick="window.open("' + href + '","_blank");></button>');
-                }
-                else if (isIE11) {
-                    $getCurrentform.append('<a id="download-link" href="' + href + '" target="_blank" download></a>');
-                }
-                else {
+                } else {
                     $getCurrentform.append('<a id="download-link" href="' + href + '" download></a>');
                 }
                 $getCurrentform.find('#download-link')[0].click();
@@ -12683,7 +12677,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ProductSearchText = $('input[name="SearchText"]'),
         SeeAllButton = SearchContent.find(".see-all"),
         IsShowFlag = false,
+        //FIX
         PageNo = 3,
+        //END FIX
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,getSubsectors,UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
