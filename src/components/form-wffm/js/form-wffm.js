@@ -16,7 +16,6 @@ INFORMA.forms = (function (window, $, namespace) {
 
         //functions
         init,
-        _validateEmail,
         _showModal,
         _resetForm,
         _getAjaxData,
@@ -26,7 +25,6 @@ INFORMA.forms = (function (window, $, namespace) {
         _bindToolTip,
         _bindCalendar,
         _bindSelectOptions,
-        _bindValidationLogic,
         _showOverlay,
         _showOverlayQueryString,
         _validateAllForms,
@@ -53,7 +51,7 @@ INFORMA.forms = (function (window, $, namespace) {
         _changeProductDropdown,
         _formBtnOnHover,
         _validateCountry,
-        //_trackCaptchaAnalytics,
+        _isValidForm,
         iOSversion,
         getCurrentform;
 
@@ -179,11 +177,54 @@ INFORMA.forms = (function (window, $, namespace) {
         window.history.pushState('', Title, NewUrl);
     }
 
+     _isValidForm = function () {
+        var result = false;
+        var $form = $(getCurrentform);
+        try {
+            //validate form and email domains
+            if (getCurrentform.valid() == true) {
+                //get email address fields from current form.
+                var emailFields = $form.find('input.email-field');
+
+                emailFields.each(function (index, emailField) {
+                    var $emailField = $(emailField);
+                    var helpBlock = $emailField.parent().find('span.help-block');
+                    console.log('verifying email domain');
+                    $.ajax({
+                        url: '/client/ajax/validateEmailDomain?emailAddress=' + $emailField.val(),
+                        type: 'GET',
+                        async: false,
+                        success: function (res) {
+                            if (res.message.length > 0 && helpBlock.length > 0) {
+                                console.log('domain error message');
+                                $(helpBlock).text(res.message);
+                                $emailField.attr('aria-invalid', 'true');
+                                $emailField.removeClass('valid').addClass('input-validation-error');
+                                helpBlock.removeClass('field-validation-valid').addClass('field-validation-error');
+                                // $emailField.focus();
+                                result = false;
+                            } else {
+                                console.log('no error message');
+                                $emailField.attr('aria-invalid', 'false');
+                                $emailField.removeClass('input-validation-error').addClass('valid');
+                                helpBlock.removeClass('field-validation-error').addClass('field-validation-valid');
+                                result = true;
+                            }
+                        }
+                    });
+                });
+            }
+        } catch (e) {
+            console.log(e);
+        }
+        return result;
+    }
+
     //Recaptcha handler on click of submit and google analytics changes
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
-            if (getCurrentform.valid() === true) {
+            if (_isValidForm === true) {
                 var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
                 if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
@@ -198,7 +239,9 @@ INFORMA.forms = (function (window, $, namespace) {
                 {
                     INFORMA.Analytics.trackFormEvents($(this), 'Submit');
                 }
-
+            }
+            else {
+                e.preventDefault();
             }
         });
     };
@@ -261,9 +304,15 @@ INFORMA.forms = (function (window, $, namespace) {
                     navigator.userAgent.indexOf('CriOS') == -1 &&
                     navigator.userAgent.indexOf('FxiOS') == -1;
 
+                var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
                 if (isSafari) {
                     $getCurrentform.append('<button id="download-link"  onclick="window.open("' + href + '","_blank");></button>');
-                } else {
+                }
+                else if (isIE11) {
+                    $getCurrentform.append('<a id="download-link" href="' + href + '" target="_blank" download></a>');
+                }
+                else {
                     $getCurrentform.append('<a id="download-link" href="' + href + '" download></a>');
                 }
                 $getCurrentform.find('#download-link')[0].click();
@@ -581,34 +630,6 @@ INFORMA.forms = (function (window, $, namespace) {
     _bindSelectOptions = function () {
         $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function (e) {
             $(this).parent().parent().toggleClass('active');
-        });
-    }
-
-    _validateEmail = function (email) {
-        var domain = email.substring(email.lastIndexOf("@") + 1);
-        if (INFORMA.validDomains.indexOf(domain) < 0)
-            return false;
-        return true;
-    }
-
-    _bindValidationLogic = function () {
-        //Email validation logic
-        $('.wffm-form').find('.email-field').each(function () {
-            $(this).blur(function () {
-                var emailDomainMsg = $(this).parent().find('span.email-validation-message'),
-                    emailValidMsg = $(this).parent().find('span.field-validation-error');
-                // if (_validateEmail($(this).val())) {
-                //     if (emailDomainMsg.length > 0 && emailValidMsg.length == 0) {
-                //         emailDomainMsg.removeClass('hide').addClass('show');
-                //     } else {
-                //         emailDomainMsg.addClass('hide').removeClass('show');
-                //     }
-                // } else {
-                //     if (emailDomainMsg.length > 0) {
-                //         emailDomainMsg.addClass('hide').removeClass('show');
-                //     }
-                // }
-            });
         });
     }
 
@@ -990,25 +1011,21 @@ INFORMA.forms = (function (window, $, namespace) {
         _destroyChosenInDevice();
         _bindNumber();
         _showOverlay();
-        _showOverlayQueryString()
+        _showOverlayQueryString();
         _reCaptchaHandler();
-        //  _validateAllForms();
         _bindToolTip();
         _bindCalendar();
         _bindProductId();
         _bindSelectOptions();
-        _bindValidationLogic();
         _disableSubmit();
         _showHideInlineForm();
         _HideOverlay();
         _showFormIntro();
-        //_updateProductVerticalName();
         _updateHiddenProductVerticalName();
         _validateChoosenSelect();
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
         _resetFormOnRefresh();
-        //_resetDefaultTitle();
         _setFormModalFocus();
         _changeProductDropdown();
         _validateCountry();
