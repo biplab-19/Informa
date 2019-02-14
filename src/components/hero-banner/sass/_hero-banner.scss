@@ -824,9 +824,8 @@ section#hero-banner {
       max-width: 100%;
       max-height: 100%;
       margin: 0 auto;
-      //left: 50%;
+      left: 33%;
       top: 50%;
-      //transform: translate(-50%, -50%);
     }
   }
 
@@ -835,17 +834,13 @@ section#hero-banner {
     position: relative;
 
     img {
-      left: 50%;
-      top: 50%;
-      //transform: translate(0%, -35%);
+      left: 55%;
       @include tablet {
-        //top: 10%;
-        //transform: translate(-10%, -30%);
         top: 10%;
         position: initial;
         margin-top: 5%;
         float: left;
-        width: 90%;
+        width: -webkit-fill-available !important;
       }
     }
 
