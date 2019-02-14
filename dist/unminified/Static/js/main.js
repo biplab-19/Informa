@@ -1,4 +1,4 @@
-/*! 2019-01-11 *//*
+/*! 2019-02-14 *//*
  * google-analytics.js
  *
  *
@@ -183,7 +183,7 @@ var INFORMA = window.INFORMA || {};
             "GetRecomendedItems": "/client/Account/GetRemainingContent",
             "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent",
             "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct",
-            "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie" 
+            "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie"
 
         }
     };
@@ -4780,6 +4780,7 @@ INFORMA.forms = (function (window, $, namespace) {
     }
 
     //Recaptcha handler on click of submit and google analytics changes
+    //test123absoats
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
@@ -5003,7 +5004,7 @@ INFORMA.forms = (function (window, $, namespace) {
 
     _showOverlay = function () {
         var formSubmitResponseModal;
-
+//14/02/19
         if (_formSubmitStatus.length > 0) {
             var submmitedFormResponseStatus = $(_formSubmitStatus[0]);
             if (submmitedFormResponseStatus.attr('data-status') == "") {
@@ -5072,6 +5073,8 @@ INFORMA.forms = (function (window, $, namespace) {
         }
 
     }
+
+
 
 
     _validateAllForms = function () {
@@ -5190,34 +5193,6 @@ INFORMA.forms = (function (window, $, namespace) {
     _bindSelectOptions = function () {
         $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function (e) {
             $(this).parent().parent().toggleClass('active');
-        });
-    }
-
-    _validateEmail = function (email) {
-        var domain = email.substring(email.lastIndexOf("@") + 1);
-        if (INFORMA.validDomains.indexOf(domain) < 0)
-            return false;
-        return true;
-    }
-
-    _bindValidationLogic = function () {
-        //Email validation logic
-        $('.wffm-form').find('.email-field').each(function () {
-            $(this).blur(function () {
-                var emailDomainMsg = $(this).parent().find('span.email-validation-message'),
-                    emailValidMsg = $(this).parent().find('span.field-validation-error');
-                // if (_validateEmail($(this).val())) {
-                //     if (emailDomainMsg.length > 0 && emailValidMsg.length == 0) {
-                //         emailDomainMsg.removeClass('hide').addClass('show');
-                //     } else {
-                //         emailDomainMsg.addClass('hide').removeClass('show');
-                //     }
-                // } else {
-                //     if (emailDomainMsg.length > 0) {
-                //         emailDomainMsg.addClass('hide').removeClass('show');
-                //     }
-                // }
-            });
         });
     }
 
@@ -5599,25 +5574,21 @@ INFORMA.forms = (function (window, $, namespace) {
         _destroyChosenInDevice();
         _bindNumber();
         _showOverlay();
-        _showOverlayQueryString()
+        _showOverlayQueryString();
         _reCaptchaHandler();
-        //  _validateAllForms();
         _bindToolTip();
         _bindCalendar();
         _bindProductId();
         _bindSelectOptions();
-        _bindValidationLogic();
         _disableSubmit();
         _showHideInlineForm();
         _HideOverlay();
         _showFormIntro();
-        //_updateProductVerticalName();
         _updateHiddenProductVerticalName();
         _validateChoosenSelect();
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
         _resetFormOnRefresh();
-        //_resetDefaultTitle();
         _setFormModalFocus();
         _changeProductDropdown();
         _validateCountry();
@@ -6725,13 +6696,11 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
 Handlebars.registerHelper('AnalystData', function(profile) {
   if(profile){
     var u = profile.split("#");
-    if((profile.indexOf('#') != -1) && u[1]){
+    if(profile.includes('#') && u[1]){
           return "<a href="+u[1]+">"+u[0]+"</a>";
     }else{
       return profile;
     }
-  }else{
-    return null;
   }
 });
 var INFORMA = window.INFORMA || {};
@@ -9109,9 +9078,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         ProductSearchText = $('input[name="SearchText"]'),
         SeeAllButton = SearchContent.find(".see-all"),
         IsShowFlag = false,
-        //FIX
-        PageNo = 3,
-        //END FIX
+        PageNo = 2,
         // methods
         init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,getSubsectors,UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
@@ -9122,12 +9089,12 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             e.preventDefault();
         });
     },
-
+    
     UnbindEvent = function() {
         $('.register.disabled').on('keydown', function(e) {
             if (e.keyCode === 13 || e.which===13) {
                 e.preventDefault();
-            }
+            }   
         })
     },
 
@@ -9147,7 +9114,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if($('#hdnSearchType').length > 0) {
                     var NameSearchType = $('#hdnSearchType').attr('name'),
                         Value = $('#hdnSearchType').attr('value');
-
+                                    
                     data[NameSearchType] = Value;
                 }
             }
@@ -9167,7 +9134,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     FacetCheck = ($(this).attr('data-check') != undefined) ? $(this).attr('data-check') : "",
                     Name = ($(this).attr('name')) ? $(this).attr('name') : "";
 
-
+                
                 if (SearchType === "ResourceResult") {
                     ProdData = INFORMA.ResourceFilter.GetResourceData();
                 }
@@ -9262,7 +9229,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                                     hiddenSecotrList.push(this.SubSectorID);
                                 }
                            });
-
+        
                         }
                         else{
                             if(searchbar == 'sector-search')
@@ -9274,7 +9241,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                                     hiddenSecotrList.push($(this).val());
                                 }
                             });
-
+    
                         }
                         if (hiddenSecotrList.length > 0) {
                             return hiddenSecotrList.toString();
@@ -9454,7 +9421,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
 
                     if((SearchType === "ProductSearch") && ('Product' in PData)) {
                         PData['CurrentProduct'] = PData.Product;
-                    }
+                    } 
                     var Data = INFORMA.ProductFinder.MergeData(ProdData, PData, FilterData, GetDefaultData);
 
                 if (!$(currentSection).hasClass('showLess')) {
@@ -9544,7 +9511,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             Links.removeClass("disabled");
                         }
                         if(CheckBoxes && Facet && RefineObj.length<1){
-                            $.each(CheckBoxes, function() {
+                            $.each(CheckBoxes, function() {         
                                  $(this).attr("disabled","disabled");
                                  $(this).prop("checked",false);
                             });
@@ -9693,7 +9660,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (AppendItemsFlag == true) {
                     CreateSubItems(ProductResults, Button, RemainingCount);
                 }
-
+                
                 addthis.toolbox('.product-results');
             } else {
                 $('.product-results').html(data);
