@@ -221,10 +221,11 @@ INFORMA.forms = (function (window, $, namespace) {
     }
 
     //Recaptcha handler on click of submit and google analytics changes
+    //test123absoats
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
-            if (_isValidForm === true) {
+            if (_isValidForm() == true) {
                 var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
                 if (grecaptchaDiv.length > 0) {
                     e.preventDefault();

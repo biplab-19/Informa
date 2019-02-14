@@ -1,4 +1,4 @@
-/*! 2019-02-14 *//*
+/*! 2019-01-11 *//*
  * google-analytics.js
  *
  *
@@ -183,7 +183,7 @@ var INFORMA = window.INFORMA || {};
             "GetRecomendedItems": "/client/Account/GetRemainingContent",
             "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent",
             "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct",
-            "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie"
+            "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie" 
 
         }
     };
@@ -4121,9 +4121,9 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
 
     _showRegisterForm = function() {
         $('body').on('click', '.show-register-form', function(e) {
-                    if ($(this).attr('data-show-register') == 'true') {
+                if ($(this).attr('data-show-register') == 'true') {
                     //check if anchor is meant to open a form to trigger a download
-                    var isDownloadAnchor = $(this).attr('data-enable-download') == 'true';
+                    var isDownloadAnchor = $(this).hasClass('close-download-form');
 
                     if(isDownloadAnchor)
                     {
@@ -4783,7 +4783,7 @@ INFORMA.forms = (function (window, $, namespace) {
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
-            if (_isValidForm === true) {
+            if (_isValidForm() == true) {
                 var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
                 if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
@@ -5074,8 +5074,6 @@ INFORMA.forms = (function (window, $, namespace) {
     }
 
 
-
-
     _validateAllForms = function () {
         // $('form.get-in-touch').validate();
         // $('form.request-a-demo').validate();
@@ -5192,6 +5190,34 @@ INFORMA.forms = (function (window, $, namespace) {
     _bindSelectOptions = function () {
         $(document).on('change', 'form.get-in-touch .hide-title .checkbox input, form.request-a-demo .hide-title .checkbox input', function (e) {
             $(this).parent().parent().toggleClass('active');
+        });
+    }
+
+    _validateEmail = function (email) {
+        var domain = email.substring(email.lastIndexOf("@") + 1);
+        if (INFORMA.validDomains.indexOf(domain) < 0)
+            return false;
+        return true;
+    }
+
+    _bindValidationLogic = function () {
+        //Email validation logic
+        $('.wffm-form').find('.email-field').each(function () {
+            $(this).blur(function () {
+                var emailDomainMsg = $(this).parent().find('span.email-validation-message'),
+                    emailValidMsg = $(this).parent().find('span.field-validation-error');
+                // if (_validateEmail($(this).val())) {
+                //     if (emailDomainMsg.length > 0 && emailValidMsg.length == 0) {
+                //         emailDomainMsg.removeClass('hide').addClass('show');
+                //     } else {
+                //         emailDomainMsg.addClass('hide').removeClass('show');
+                //     }
+                // } else {
+                //     if (emailDomainMsg.length > 0) {
+                //         emailDomainMsg.addClass('hide').removeClass('show');
+                //     }
+                // }
+            });
         });
     }
 
@@ -5573,21 +5599,25 @@ INFORMA.forms = (function (window, $, namespace) {
         _destroyChosenInDevice();
         _bindNumber();
         _showOverlay();
-        _showOverlayQueryString();
+        _showOverlayQueryString()
         _reCaptchaHandler();
+        //  _validateAllForms();
         _bindToolTip();
         _bindCalendar();
         _bindProductId();
         _bindSelectOptions();
+        _bindValidationLogic();
         _disableSubmit();
         _showHideInlineForm();
         _HideOverlay();
         _showFormIntro();
+        //_updateProductVerticalName();
         _updateHiddenProductVerticalName();
         _validateChoosenSelect();
         _customPhoneErrorMsg();
         _reCaptchaAccessbility();
         _resetFormOnRefresh();
+        //_resetDefaultTitle();
         _setFormModalFocus();
         _changeProductDropdown();
         _validateCountry();
@@ -6695,11 +6725,13 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
 Handlebars.registerHelper('AnalystData', function(profile) {
   if(profile){
     var u = profile.split("#");
-    if(profile.includes('#') && u[1]){
+    if((profile.indexOf('#') != -1) && u[1]){
           return "<a href="+u[1]+">"+u[0]+"</a>";
     }else{
       return profile;
     }
+  }else{
+    return null;
   }
 });
 var INFORMA = window.INFORMA || {};
