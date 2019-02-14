@@ -444,7 +444,7 @@ INFORMA.forms = (function (window, $, namespace) {
 
     _showOverlay = function () {
         var formSubmitResponseModal;
-
+//14/02/19
         if (_formSubmitStatus.length > 0) {
             var submmitedFormResponseStatus = $(_formSubmitStatus[0]);
             if (submmitedFormResponseStatus.attr('data-status') == "") {
