@@ -445,26 +445,35 @@ INFORMA.forms = (function (window, $, namespace) {
 
     _showOverlay = function () {
         var formSubmitResponseModal;
+//14/02/19
         if (_formSubmitStatus.length > 0) {
-            if (_formSubmitStatus.attr('data-status') == "") {
-                formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
+            var submmitedFormResponseStatus = $(_formSubmitStatus[0]);
+            if (submmitedFormResponseStatus.attr('data-status') == "") {
+
+                formSubmitResponseModal = submmitedFormResponseStatus.parents('.form-modal:first');
                 if (formSubmitResponseModal.length > 0) {
                     formSubmitResponseModal.find('form').removeClass('hide');
                     formSubmitResponseModal.find('.submit-response, .error-response').addClass('hide');
                     formSubmitResponseModal.removeClass('centreAlign');
                 }
-            } else if (_formSubmitStatus.attr('data-status').length > 0) {
-                formSubmitResponseModal = _formSubmitStatus.parents('.form-modal:first');
-                if (formSubmitResponseModal.length > 0) {
+            } else if (submmitedFormResponseStatus.attr('data-status').length > 0) {
 
-                    formSubmitResponseModal.find('form').addClass('hide');
-                    formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
-                    formSubmitResponseModal.addClass('centreAlign');
-                    _resetForm(formSubmitResponseModal.find('form'));
-                    formSubmitResponseModal.modal({
-                        show: true
-                    })
+                var divInlineForm = submmitedFormResponseStatus.parents("div[data-modal]");
+                //do not show overlay if its in-line form submit
+                if(divInlineForm.length==0)
+                {
+                    formSubmitResponseModal = submmitedFormResponseStatus.parents('.form-modal:first');
+                    if (formSubmitResponseModal.length > 0) {
 
+                        formSubmitResponseModal.find('form').addClass('hide');
+                        formSubmitResponseModal.find('.submit-response, .error-response').removeClass('hide');
+                        formSubmitResponseModal.addClass('centreAlign');
+                        _resetForm(formSubmitResponseModal.find('form'));
+                        formSubmitResponseModal.modal({
+                            show: true
+                        })
+
+                    }
                 }
 
                 //Checking The status and Displaying that section
@@ -499,20 +508,14 @@ INFORMA.forms = (function (window, $, namespace) {
                 } else {
                     Parent.find('.submit-response, .error-response').addClass('hide');
                 }
-                // var a = Math.ceil(Math.random() * 9)+ '';
-                // var b = Math.ceil(Math.random() * 9)+ '';
-                // var c = Math.ceil(Math.random() * 9)+ '';
-                // var d = Math.ceil(Math.random() * 9)+ '';
-                // var e = Math.ceil(Math.random() * 9)+ '';
 
-                // var code = a + b + c + d + e;
-                // $('.txtCaptcha').val(code);
-                // $(".CaptchaDiv").html(code);
             })
 
         }
 
     }
+
+
 
 
     _validateAllForms = function () {
