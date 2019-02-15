@@ -558,7 +558,6 @@ section#hero-banner {
     }
 
     .span-arrow {
-      //margin-bottom: 20px;
       font-size: 300%;
       @include mobile {
         display: none;
@@ -778,6 +777,15 @@ section#hero-banner {
   }
 }
 
+.navbar-default {
+  .row {
+    margin-bottom: 0 !important;
+    @include mobile {
+      max-height: 50px;
+    }
+  }
+}
+
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section {
   &.white-banner {
     background-color: $white;
@@ -794,6 +802,8 @@ section#hero-banner {
       background-color: $white;
     }
   }
+
+  height: auto !important;
 
   .key-template-title {
     padding-top: 0;
@@ -838,7 +848,7 @@ section#hero-banner {
     img {
 
       @include tablet {
-        width: -webkit-fill-available;
+        width: 80%;
       }
     }
 
@@ -864,7 +874,7 @@ section#hero-banner {
         max-width: 100%;
         max-height: 100%;
         margin: 0 auto;
-        width: -webkit-fill-available;
+        width: 100%;
       }
     }
   }
