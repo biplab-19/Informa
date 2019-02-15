@@ -809,38 +809,36 @@ section#hero-banner {
   }
 
   .subtext {
-    padding-bottom: 18px !important;
+    padding-bottom: 18px;
   }
 
   .description {
-    padding-bottom: 25px !important;
+    padding-bottom: 25px;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   .key-logo-div {
-    height: 60%;
+    height: 22%;
     position: relative;
 
     img {
       max-width: 100%;
       max-height: 100%;
       margin: 0 auto;
-      left: 33%;
-      top: 50%;
     }
   }
 
   .pattern-div {
-    height: 40%;
+    height: 30%;
     position: relative;
 
     img {
-      left: 55%;
+
       @include tablet {
-        top: 10%;
-        position: initial;
-        margin-top: 5%;
-        float: left;
-        width: -webkit-fill-available !important;
+        width: -webkit-fill-available;
       }
     }
 
@@ -865,9 +863,8 @@ section#hero-banner {
       img {
         max-width: 100%;
         max-height: 100%;
-        margin: 0;
-        transform: translate(-50%,0%) !important;
-        top: 50%;
+        margin: 0 auto;
+        width: -webkit-fill-available;
       }
     }
   }
