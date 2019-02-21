@@ -5319,6 +5319,20 @@ section#about-us-description .description h3 {
 section#about-us-description .description img {
   padding-bottom: 25px;
 }
+@media (max-width: 767px) {
+  /* line 17, ../../../src/components/about-us-description/sass/_about-us-description.scss */
+  section#about-us-description .description img {
+    height: 20% !important;
+    width: 100% !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1141px) {
+  /* line 17, ../../../src/components/about-us-description/sass/_about-us-description.scss */
+  section#about-us-description .description img {
+    height: 20% !important;
+    width: 100% !important;
+  }
+}
 
 /* line 1, ../../../src/components/about-us-infograph/sass/_about-us-infograph.scss */
 .infograph {
