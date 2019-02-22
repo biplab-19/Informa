@@ -193,11 +193,12 @@
         }
          img {
              @include mobile {
-                 width: 100%;
+                 display: none;
                }
              vertical-align: text-bottom;
              left: 0;
              bottom: 100px;
+             height: inherit;
         }
         @include mobile{
             transform: translateX(25%);
@@ -246,7 +247,7 @@
         .content {
             width: 60%;
             @include mobile {
-                width: auto;
+                width: 100%;
                 margin: auto;
             }
             h1 {
