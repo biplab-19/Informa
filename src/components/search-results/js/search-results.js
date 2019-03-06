@@ -33,9 +33,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         PageNo = 3,
         //END FIX
         // methods
-        init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,getSubsectors,UpdateResourceResultPage,
+        init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize, getSubsectors, UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
-        DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent;
+        DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent,
+        TotalCountLimit = $("#hdnTotalCountLimit") ? $("#hdnTotalCountLimit").val() : 0,
+        FacetCountLimit = $("#hdnFacetCountLimit") ? $("#hdnFacetCountLimit").val() : 0;
 
     disabledEvent = function(){
         $('.register.disabled').click(function(e){
@@ -565,7 +567,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (!$.isEmptyObject(SiteFacets)) {
                 var Html = "";
                 for (var i = 0; i < SiteFacets.length; i++) {
-                    Html += "<li><a href='#' name='" + SiteFacets[i].Name + "' data-check='" + SiteFacets[i].Check + "'' data-contenttype='" + SiteFacets[i].ItemId + "'><strong>" + SiteFacets[i].Count + "</strong>" + SiteFacets[i].Value + "</li>";
+                    var facetCount = (FacetCountLimit <= 0 || SiteFacets[i].Count < FacetCountLimit) ? SiteFacets[i].Count : (FacetCountLimit + "+");
+                    Html += "<li><a href='#' name='" + SiteFacets[i].Name + "' data-check='" + SiteFacets[i].Check + "'' data-contenttype='" + SiteFacets[i].ItemId + "'><strong>" + facetCount + "</strong>" + SiteFacets[i].Value + "</li>";
                 }
                 $('.items-found').html(Html);
             }
@@ -583,7 +586,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (ProductResults && Object.keys(ProductResults).length && AppendItemsFlag != true) {
 
                     CreateSearchResult(ProductResults);
-                    SearchContent.find('.results').find('strong').html(data.ProductFound);
+                    var productTotalCount = (TotalCountLimit <= 0 || data.ProductFound < TotalCountLimit) ? data.ProductFound : (TotalCountLimit + "+");
+                    SearchContent.find('.results').find('strong').html(productTotalCount);
                     if (data.ProductFound == 0) {
                         $('.items-found').addClass('hidden');
                         $('.product-results').hide();
