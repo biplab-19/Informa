@@ -789,6 +789,7 @@ section#hero-banner {
 .hero-banner-texture.dark-banner-subscribe {
   padding: 0 0 0 0;
   margin-bottom: 0;
+  height: 100% !important;
 
   .row {
     margin-bottom: 0;
@@ -796,9 +797,15 @@ section#hero-banner {
 
   .cf-img {
     img {
-      margin: 0 0 10px 0 !important;
-      position: inherit;
-      max-height: 80px !important;
+      width: auto;
+      height: 36%;
+      @include desktop {
+        margin: 0 0 0 0;
+        height: 70%;
+        left: 37px;
+
+
+      }
     }
   }
 }
