@@ -1,4 +1,4 @@
-/*! 2019-03-12 */@charset "UTF-8";
+/*! 2019-03-18 */@charset "UTF-8";
 /*Mobile, tablet, desktop media queries Use by just saying @include and adding its styles inside*/
 /* line 1, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 section#hero-banner {
@@ -927,114 +927,118 @@ section#hero-banner .analyst-single-image .image-margin {
 @media (min-width: 1142px) {
   /* line 799, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe .cf-img img {
-    margin: 0 0 0 0;
-    height: 70%;
-    left: 37px;
+    height: 100%;
+  }
+}
+@media (max-width: 1141px) {
+  /* line 799, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  .hero-banner-texture.dark-banner-subscribe .cf-img img {
+    display: none;
   }
 }
 
-/* line 813, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 812, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section {
   height: auto !important;
 }
-/* line 814, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 813, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section.white-banner {
   background-color: #fff;
 }
-/* line 817, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 816, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section.white-banner h1 {
   color: #6a7285;
 }
-/* line 821, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 820, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section.white-banner .subtext, .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section.white-banner .description {
   color: #565c6b;
 }
-/* line 825, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 824, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section.white-banner .cf-img {
   background-color: #fff;
 }
-/* line 832, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 831, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-template-title {
   padding-top: 0;
 }
 @media (min-width: 768px) {
-  /* line 832, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 831, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-template-title {
     padding-top: 45px;
     padding-bottom: 10px;
   }
 }
-/* line 840, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 839, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .cf-img {
   opacity: 1;
   background: transparent;
   padding: 0 0 0 50px;
 }
-/* line 846, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 845, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .subtext {
   padding-bottom: 18px;
 }
-/* line 850, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 849, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .description {
   padding-bottom: 25px;
 }
-/* line 858, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 857, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-div {
   height: 22%;
   position: relative;
   width: 200px;
 }
 @media (min-width: 1142px) {
-  /* line 858, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 857, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-div {
     height: 5%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 866, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 865, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-div img {
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
   }
 }
-/* line 875, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+/* line 874, ../../../src/components/hero-banner/sass/_hero-banner.scss */
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .pattern-div {
   height: 30%;
   position: relative;
 }
 @media (min-width: 1142px) {
-  /* line 875, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 874, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .pattern-div {
     height: 36%;
   }
 }
 @media (min-width: 768px) and (max-width: 1141px) {
-  /* line 882, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 881, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .pattern-div img {
     width: 80%;
   }
 }
 @media (min-width: 768px) {
-  /* line 891, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 890, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-img-mobile {
     display: none;
   }
 }
 @media (max-width: 767px) {
-  /* line 898, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 897, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-vertical-align {
     top: 40%;
   }
-  /* line 901, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 900, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .cf-img {
     display: none;
   }
-  /* line 904, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 903, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-img-mobile {
     padding: 40px 0;
   }
-  /* line 907, ../../../src/components/hero-banner/sass/_hero-banner.scss */
+  /* line 906, ../../../src/components/hero-banner/sass/_hero-banner.scss */
   .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section .key-logo-img-mobile img {
     max-width: 100%;
     max-height: 100%;
