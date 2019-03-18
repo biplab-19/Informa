@@ -800,11 +800,10 @@ section#hero-banner {
       width: auto;
       height: 36%;
       @include desktop {
-        margin: 0 0 0 0;
-        height: 70%;
-        left: 37px;
-
-
+        height: 100%;
+      }
+      @include not-desktop {
+       display: none;
       }
     }
   }
