@@ -760,9 +760,6 @@ var INFORMA = window.INFORMA || {};
                                             '<h4><span>{{results.Title}}</span></h4>'+
                                         '{{/compare}}'+
                                         '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
-                                        '{{#compare results.Description null operator="!="}}'+
-                                            '<p class="description">{{results.Description}}</p>'+
-                                        '{{/compare}}'+ 
                                         '{{#compare results.Video null operator="!="}}'+
                                             '<div class="video-container">'+
                                                 '{{#if results.HasExternalLink}}'+
@@ -806,6 +803,14 @@ var INFORMA = window.INFORMA || {};
                                                     '{{/compare}}'+
                                                 '{{/compare}}'+
                                             '</div>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.ContentTileImage null operator="!="}}'+
+                                            '<div class="video-container">' +
+                                                '<img src="{{results.ContentTileImage.Url}}" alt="{{results.ContentTileImage.Alt}}">'+
+                                            '</div>' +
+                                        '{{/compare}}'+
+                                        '{{#compare results.Description null operator="!="}}'+
+                                            '<p class="description">{{results.Description}}</p>'+
                                         '{{/compare}}'+
                                     '</div>'+
                                     // '{{#compare results.Brand.length 0 operator=">"}}'+
