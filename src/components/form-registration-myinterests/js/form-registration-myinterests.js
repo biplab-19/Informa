@@ -186,7 +186,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $('body').on('click', '.show-register-form', function(e) {
                 if ($(this).attr('data-show-register') == 'true') {
                     //check if anchor is meant to open a form to trigger a download
-                    var isDownloadAnchor = $(this).hasClass('close-download-form');
+                    var isDownloadAnchor = $(this).attr('data-enable-download') == 'true';
 
                     if(isDownloadAnchor)
                     {

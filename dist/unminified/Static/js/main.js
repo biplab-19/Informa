@@ -1,4 +1,4 @@
-/*! 2019-02-14 *//*
+/*! 2019-03-18 *//*
  * google-analytics.js
  *
  *
@@ -1221,9 +1221,6 @@ var INFORMA = window.INFORMA || {};
                                             '<h4><span>{{results.Title}}</span></h4>'+
                                         '{{/compare}}'+
                                         '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
-                                        '{{#compare results.Description null operator="!="}}'+
-                                            '<p class="description">{{results.Description}}</p>'+
-                                        '{{/compare}}'+ 
                                         '{{#compare results.Video null operator="!="}}'+
                                             '<div class="video-container">'+
                                                 '{{#if results.HasExternalLink}}'+
@@ -1267,6 +1264,14 @@ var INFORMA = window.INFORMA || {};
                                                     '{{/compare}}'+
                                                 '{{/compare}}'+
                                             '</div>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.ContentTileImage null operator="!="}}'+
+                                            '<div class="video-container">' +
+                                                '<img src="{{results.ContentTileImage.Url}}" alt="{{results.ContentTileImage.Alt}}">'+
+                                            '</div>' +
+                                        '{{/compare}}'+
+                                        '{{#compare results.Description null operator="!="}}'+
+                                            '<p class="description">{{results.Description}}</p>'+
                                         '{{/compare}}'+
                                     '</div>'+
                                     // '{{#compare results.Brand.length 0 operator=">"}}'+
@@ -4123,7 +4128,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
         $('body').on('click', '.show-register-form', function(e) {
                 if ($(this).attr('data-show-register') == 'true') {
                     //check if anchor is meant to open a form to trigger a download
-                    var isDownloadAnchor = $(this).hasClass('close-download-form');
+                    var isDownloadAnchor = $(this).attr('data-enable-download') == 'true';
 
                     if(isDownloadAnchor)
                     {
@@ -9080,9 +9085,11 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         IsShowFlag = false,
         PageNo = 2,
         // methods
-        init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize,getSubsectors,UpdateResourceResultPage,
+        init, CreateSearchResult, GetSortValue, CreateSearchTags, ParseSearchData, DoGlobalShowMore, ResetPageSize, getSubsectors, UpdateResourceResultPage,
         SetSearchState, MakeDropPreSelected, UpdateResultPage, UpdateRefineSection, ToggleView, GetPaginationData, DoPagination, GetAjaxData, EqualHeight, CreateSubItems,
-        DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent;
+        DoLinksEvents, GetDefaultValues, LoadMoreProducts, UnbindEvent, disabledEvent,
+        TotalCountLimit = $("#hdnTotalCountLimit") ? $("#hdnTotalCountLimit").val() : 0,
+        FacetCountLimit = $("#hdnFacetCountLimit") ? $("#hdnFacetCountLimit").val() : 0;
 
     disabledEvent = function(){
         $('.register.disabled').click(function(e){
@@ -9612,7 +9619,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
             if (!$.isEmptyObject(SiteFacets)) {
                 var Html = "";
                 for (var i = 0; i < SiteFacets.length; i++) {
-                    Html += "<li><a href='#' name='" + SiteFacets[i].Name + "' data-check='" + SiteFacets[i].Check + "'' data-contenttype='" + SiteFacets[i].ItemId + "'><strong>" + SiteFacets[i].Count + "</strong>" + SiteFacets[i].Value + "</li>";
+                    var facetCount = (FacetCountLimit <= 0 || SiteFacets[i].Count < FacetCountLimit) ? SiteFacets[i].Count : (FacetCountLimit + "+");
+                    Html += "<li><a href='#' name='" + SiteFacets[i].Name + "' data-check='" + SiteFacets[i].Check + "'' data-contenttype='" + SiteFacets[i].ItemId + "'><strong>" + facetCount + "</strong>" + SiteFacets[i].Value + "</li>";
                 }
                 $('.items-found').html(Html);
             }
@@ -9630,7 +9638,8 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 if (ProductResults && Object.keys(ProductResults).length && AppendItemsFlag != true) {
 
                     CreateSearchResult(ProductResults);
-                    SearchContent.find('.results').find('strong').html(data.ProductFound);
+                    var productTotalCount = (TotalCountLimit <= 0 || data.ProductFound < TotalCountLimit) ? data.ProductFound : (TotalCountLimit + "+");
+                    SearchContent.find('.results').find('strong').html(productTotalCount);
                     if (data.ProductFound == 0) {
                         $('.items-found').addClass('hidden');
                         $('.product-results').hide();
