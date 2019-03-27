@@ -14,22 +14,6 @@
 }
 .recomended-wrapper{
 	background-color: $white;
-	display: flex;
-	flex-direction: column;
-	height: 100% !important;
-	.recomend-content {
-		float: left;
-		width: 100%;
-		min-height: auto !important;
-		height: 100% !important;
-		display: flex;
-		flex-direction: column;
-		margin-bottom: 0 !important;
-	}
-	.content {
-		margin-bottom: 0 !important;
-		min-height: auto !important;
-	}
 	@include desktop{
 		padding:20px;
 	}
