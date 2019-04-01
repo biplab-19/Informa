@@ -5,44 +5,16 @@
     @include mobile{
         padding-bottom: 25px;
     }
-    
     @include mobile{
         padding-bottom: 35px;
     }
-    
     .container{
         padding:0 15px;
-		 .list-items {
-			height: 100%;
-			.recomended-wrapper {
-					display: flex;
-					flex-direction: column;
-					height: 100% !important;
-	
-	
-	.recomend-content {
-    float: left;
-    width: 100%;
-    min-height: auto !important;
-    height: 100% !important;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0 !important;
-}
-	
-	.content {
-    margin-bottom: 0 !important;
-    min-height: auto !important;
-}
-		}
     }
-}
     .load-spinner {
-		
         .loading {
             position: absolute;
         }
-		
     }
     .recomended-wrapper{
         background-color: $grey-color10;
@@ -55,15 +27,12 @@
         list-style-type: none;
         padding: 0;
         margin: 0;
-	
         @include mobile {
             margin: 0 1.5%;
         }
-	
         @include tablet {
             margin: 0 1.5%;
         }
-	
         li {
             .list-content {
                 min-height: 156px;
@@ -89,9 +58,6 @@
         }
         .slick-slide {
             background-color: $white;
-            height: auto;
-            display: flex;
-            min-height: auto !important;
         }
         .slick-track{
             background-color: transparent;
@@ -215,13 +181,4 @@
     &:focus{
         outline-offset: -2px;
     }
-}
-
-
-
-li.slick-slide.slick-cloned > .col-xs-12 {
-    height: 100%;
-}
-.slick-list.draggable .slick-track {
-    display: flex;
 }
