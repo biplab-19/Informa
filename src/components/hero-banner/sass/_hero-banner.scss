@@ -786,7 +786,7 @@ section#hero-banner {
   }
 }
 
-.hero-banner-texture.dark-banner-subscribe.supergraphic {
+.hero-banner-texture.dark-banner-subscribe {
   padding: 0 0 0 0;
   margin-bottom: 0;
   height: 100% !important;
@@ -796,51 +796,15 @@ section#hero-banner {
   }
 
   .cf-img {
-    @include greater-desktop {
-      width: 40%;
-    }
-    @include not-desktop {
-      display: none;
-    }
-    @media (max-width: 767px) and (orientation: landscape) {
-      display: block;
-      width: 100%;
-      transform: none;
-    }
     img {
       width: auto;
       height: 36%;
       @include desktop {
         height: 100%;
       }
-      @media (max-width: 767px) and (orientation: landscape) {
-        display: block;
-        left: auto;
-        right: 0;
-      }
-    }
-    &::after {
-      position: absolute;
-      content: '';
-      display: block;
-      height: 100%;
-      width: 500px;
-      background-color: #343742;
-      @include desktop {
-        left: 371px;
-      }
-      @include greater-desktop {
-        left: 410px;
-      }
       @include not-desktop {
        display: none;
       }
-    }
-  }
-
-  ul {
-    @include greater-desktop {
-      padding-left: 0;
     }
   }
 }
