@@ -847,13 +847,18 @@ section#hero-banner {
     right: 0;
     left: 0;
     top: 45px;
-    bottom: 10px;
+    bottom: 15px;
     width: 100%;
     margin: 0 auto;
     background: transparent;
     opacity: 1;
     @include desktop {
       width: 1172px;
+    }
+    img {
+      @include not-desktop {
+       display: block;
+      }
     }
   }
 
@@ -876,6 +881,7 @@ section#hero-banner {
     right: 15px;
     width: 33.33%;
     height: 45%;
+    max-height: 100px;
 
     img {
       top: 0;
@@ -885,8 +891,8 @@ section#hero-banner {
       height: auto;
       max-height: 100%;
       @include tablet {
-        max-width: 100%;
-        max-height: 100%;
+        left: 0;
+        right: 0;
         margin: 0 auto;
       }
     }
@@ -898,6 +904,7 @@ section#hero-banner {
     right: 15px;
     width: 33.33%;
     height: 45%;
+    max-height: 100px;
 
     img {
       left: auto;
@@ -905,7 +912,9 @@ section#hero-banner {
       height: auto;
       max-height: 100%;
       @include tablet {
-        width: 80%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
       }
     }
 
