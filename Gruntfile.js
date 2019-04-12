@@ -91,7 +91,7 @@ module.exports = function(grunt) {
                 options: {
                     flatten: true,
                     assets: '<%= config.tmp %>',
-                    layout: 'main-layout.hbs',
+                    layout: 'main-tech-layout.hbs',
                     layoutdir: '<%= config.src %>/templates/layouts',
                     data: ['<%= config.src %>/components/**/*.{json,yml}'],
                     partials: ['<%= config.src %>/components/**/*.hbs']
