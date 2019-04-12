@@ -9,6 +9,7 @@ section#hero-banner {
     height: auto;
   }
 
+
   h1 {
     font-family: FSMe-Bold;
     //font-size: 60px;
@@ -68,10 +69,16 @@ section#hero-banner {
   }
 
   .cf-img {
-    position: absolute;
+    position: relative;
     right: 0;
     @include mobile {
-      display: none;
+      display: block;
+    }
+    > img {
+      position: relative !important;
+      top: 0 !important;
+      left: 0 !important;
+      transform: inherit !important;
     }
   }
 
@@ -625,6 +632,62 @@ section#hero-banner {
     }
   }
 }
+section#tech-banner {
+  background-color: $grey-color03;  
+  height: 95vh !important;
+  position: relative;
+  overflow: hidden;
+  clear: both;
+  @include mobile {
+    height: auto;
+  }
+  .cf-img {
+    position: absolute;
+    right: 0;
+    @include mobile {
+      display: none;
+    }
+  }
+  .tech-align-right {
+    float: right;
+    text-align: right;
+  }
+  .tech-align-center {
+    margin: 0 auto;
+    text-align: center;
+  }
+  h1 {
+    font-family: FSMe-Bold;
+    text-transform: uppercase;
+    color: $tech-indigo;
+    font-size: 50px;
+    margin: 0 0 30px 0;
+    padding-top: 48px;
+  }
+  .subtext {
+    font-family: FSMe-Bold;
+    font-size: 17px;
+    padding-bottom: 24px;
+    color: $tech-gray;
+    @include mobile {
+      font-size: 16px;
+    }
+    @include tablet {
+      font-size: 16px;
+    }
+  }
+  .tech-btn-large {
+    display: $inl-block;
+    background: $tech-indigo;
+    border-radius: 28px;
+    font-family: open-sans;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+    color: $white;
+    padding: 10px 20px;
+  }
+}
 
 /*Experience Mode FAQs*/
 .experience-mode {
@@ -767,7 +830,7 @@ section#hero-banner {
 
         button {
           color: $white;
-
+          
           &:before {
             content: " ";
           }
