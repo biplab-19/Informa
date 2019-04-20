@@ -1,0 +1,63 @@
+@import "variables";
+@import "theme-variables";
+@import "mixins";
+//parameters have to be sent accordingly
+/* 1. Body Class Name
+   2. Primary Color
+   3. Secondary Color Darker Version
+   4. Secondary Color Lighter Version
+   5. NavLink Color
+*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Aleo');
+
+//tech Theme
+@include theme(tech-theme, $tech-indigo, $tech-sky, $tech-citrus, $tech-gray );
+
+body {
+    background: #fff !important;
+}
+@media screen and (max-width: 812px) {
+    .sub-headline {
+       
+        font-size: 33px !important;
+        line-height: 33px !important;
+       
+    }}
+
+@media screen and (max-width: 812px) {
+    .sub-headline {
+        font-size: 28px !important;
+        line-height: 28px !important;
+    }
+
+    .discover-community p.subofsub-text {
+        padding-left: 73px !important;
+    }
+    .imgleft .img-right {
+        margin-right: 10px !important;
+        margin-top: -8px !important;
+        width: 60px;
+    }
+
+    .imgright .img-right {
+        margin-left: 10px !important;
+        margin-top: -8px !important;
+        width: 60px;
+    }
+}
+
+.tech-theme .btn.btnprimary.border-button {
+    width: auto !important;
+    color: #fff;
+    background-color: #002244;
+    border-color: #002244;
+    border-radius: 25px;
+    padding: 10px 45px;
+    margin-bottom: 10px;
+    height: auto !important;
+}
+
+p.subofsub-text {
+    padding-left: 140px;
+}
