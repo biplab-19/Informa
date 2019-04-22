@@ -61,3 +61,137 @@ body {
 p.subofsub-text {
     padding-left: 140px;
 }
+
+
+/*Twitter Start*/
+
+#social-section .container {
+    /*//padding-left: 0px;
+            //padding-right: 0px;*/
+}
+
+#social-section .slick-next {
+    border-radius: 30px 1px 1px 30px;
+}
+
+#social-section .tech-theme .twitter-carousel .slick-arrow {
+    background: #ddd;
+}
+
+#social-section .slick-prev {
+    border-radius: 1px 30px 30px 1px;
+}
+
+#social-section .twitter-carousel .slick-next:before {
+    content: ' \003E';
+    color: #3c404c;
+    font-size: 25px;
+    font-weight: 600;
+    font-size: 20px
+}
+
+#social-section .twitter-carousel .slick-prev:before {
+    content: ' \003C';
+    color: #3c404c;
+    font-size: 25px;
+    font-weight: 600;
+    font-size: 20px
+}
+
+
+
+#social-section .tech-theme .twitter-carousel .slick-arrow {
+    background: #ddd;
+}
+
+#social-section .twitter-carousel .slick-next {
+    left: calc(100% - 40px);
+    margin-left: 0;
+}
+
+
+
+
+#social-section .twitter-carousel .slick-prev {
+    left: 0%;
+    margin-left: 0px;
+}
+
+#social-section .container {
+    width: 100%;
+    padding: 0;
+}
+
+#social-section .twitter-carousel .panel .feed {
+    padding: 0 35px;
+}
+
+#social-section h2:before {
+    //content: "";
+    //position: absolute;
+    //font-family: 'InformaIcons';
+    display: none;
+}
+
+#social-section h2:after {
+    content: '\f099';
+    position: relative;
+    //font-family: 'InformaIcons';
+    font-family: FontAwesome;
+    left: 10px;
+}
+
+#social-section h2 {
+    padding-left: 20px;
+}
+
+#social-section .twitter-carousel .slick-arrow {
+    height: 60px;
+    width: 30px;
+}
+
+#social-section .twitter-carousel .panel .feed .feed-heading > a:after {
+    content: '|';
+    color: #fff;
+    left: -4px;
+    position: relative;
+}
+
+#social-section .twitter-carousel .panel .feed .feed-heading > a {
+    float: left;
+}
+
+#social-section .twitter-carousel .panel .feed .twit-img {
+    margin-top: 25px;
+}
+
+#social-section {
+    background-color: #182d50;
+}
+
+.tech-theme .twitter-carousel .message a {
+    text-decoration: none;
+    color: #03A9F4;
+    border-bottom: 0px solid #fff;
+    word-wrap: break-word;
+}
+
+html {
+    font-family: open sans-serif;
+}
+
+@media screen and (max-width:768px) and (min-width:320px) {
+    #social-section .twitter-carousel .slick-prev:before, #social-section .twitter-carousel .slick-next:before {
+        top: 24px;
+        left: 14px;
+    }
+
+    #social-section .twitter-carousel .slick-next {
+        left: calc(100% - 20px);
+    }
+
+    #social-section .twitter-carousel .panel {
+        height: 300px;
+    }
+}
+/*Twitter End*/
