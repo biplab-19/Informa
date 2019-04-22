@@ -60,6 +60,7 @@
     float: left;
     margin: 10px 0px;
     font-size: 18px;
+    min-height: 28px;
 }
 
 .portfolio .filter-section .heading {
@@ -105,6 +106,7 @@
 }
 
 .portfolio .portfolio-grid .port-container .port {
+    padding:0 10%;
     cursor: pointer;
     position: relative;
     margin-bottom: 20px;
@@ -227,7 +229,7 @@
 
 .portfolio .portfolio-grid .port-container .port img {
     width: 100%;
-    height: 160px;
+    height: 104px;
     border-radius: 8px;
     -webkit-filter: grayscale(100%);
     /* Safari 6.0 - 9.0 */
@@ -250,6 +252,7 @@
 
 .portfolio .portfolio-grid .port-container .port .content {
     display: none;
+    padding: 30px;
 }
 
 @media screen and (max-width: 768px) and (min-width: 320px) {
@@ -432,27 +435,14 @@ select {
     float: left;
     position: absolute;
     width: 79%;
-    top: 145px;
+    top: 170px;
 }
 
 @media screen and (max-width: 768px) and (min-width: 320px) {
-
-
     .section-content {
         top: 370px;
         width: 90%;
     }
-    /*
-    .grid-item {
-        float: left;
-        height: 165px;
-        margin-bottom: 10px;
-        width: 100%;
-        float: left;
-        position: unset!important;
-        margin-bottom: 21px;
-    }
-    */
 }
 
 .portfolio .filter-section .section .unit label {
@@ -519,4 +509,60 @@ footer {
 
 .grid-item.is-expanded .port {
     z-index: 10;
+}
+
+
+ /* for grid layout inner section*/
+   
+	
+ .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content{
+    padding: 0;
+width: 100%;
+float: left;
+
+}
+.grid-item.is-expanded .port-container .port .content .close {
+            float: right;
+            font-size: 21px;
+            font-weight: bold;
+            line-height: 1;
+            color: #000;
+            text-shadow: 0 1px 0 #fff;
+            opacity: 0;
+            color: #d7e13c;
+            position: relative;
+            left: 30px;
+            filter: alpha(opacity=20);
+        }
+        
+        .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header {
+                width: 100%;
+float: left;
+margin-bottom: 25px;
+        }
+        .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header img{
+               width: 50%;
+float: left;
+-webkit-filter: grayscale(0%);
+filter: grayscale(0%);
+        }
+    .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all{
+            width: 50%;
+float: left;
+margin: 0;
+    }
+    .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn{
+        width: 143px;
+font-size: 14px;
+    }
+    .content .close {
+    color: #a2a753;
+opacity: 1;
+position: relative;
+left: 36px;
+   }
+
+.portfolio .portfolio-grid .grid-item.is-expanded .port-container .port img{
+width:50%;
+float:left;
 }

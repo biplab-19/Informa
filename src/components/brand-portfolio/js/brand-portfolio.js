@@ -217,10 +217,10 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
         var length = $('.chosen-select-brand .dropdown > li.disable').length;
         if (length >= 1) {
 
-            $(".filter-section").show();
+            $(".filter-section .heading").show();
             $(".filter-section .heading").text("active filters (" + length + ")");
         } else {
-            $(".filter-section").hide();
+            $(".filter-section .heading").hide();
         }
 
     }
@@ -259,6 +259,7 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
 				$grid.append($content).masonry('appended', $content);
 				$grid.masonry();
 				$('.section-content #PageNo').val($($(result).find("#PageNo")).val());
+				$('.section-content #PageSize').val($($(result).find("#PageSize")).val());
 			},
 			error: function (error) {
 				alert(error)
@@ -267,7 +268,7 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
 			}
 		})
 	}
-
+	
 	function setItemContentPixelSize(itemContent) {
 		var previousContentSize = getSize(itemContent);
 		// disable transition
