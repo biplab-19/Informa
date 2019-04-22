@@ -169,60 +169,60 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
 		});
 	};
 
-	function BrandFilter(ddlObj) {
-		//console.log(event.target.id);
-		var valueofoption = $(ddlObj).text();
-		var id = $(ddlObj).parents(".wrapper-dropdown-5").attr("id");
-		var x2 = event.target.id;
-		var index = $(this).index() + 1;
-		//var x = '<div class="unit" id="' + id + '_' + x2 + '" data-attr="' + x2 + '"><label class="value">' + valueofoption + '</label> <label class="cross" onclick=DeleteFilter("' + id + '","' + x2 + '","' + valueofoption + '");>X</label></div>';
-		var x = '<div class="unit" id="' + id + '_' + x2 + '" data-attr="' + x2 + '"><label class="value">' + valueofoption + '</label> <label data-attr-id="' + id + '" data-attr-x2="' + index + '" data-attr-valueofoption="' + x2 + '"  class="cross">X</label></div>';
+    function BrandFilter(ddlObj) {
+        //console.log(event.target.id);
+        var valueofoption = $(ddlObj).text();
+        var id = $(ddlObj).parents(".wrapper-dropdown-5").attr("id");
+        var x2 = event.target.id;
+        var index = $(ddlObj).index();
+        //var x = '<div class="unit" id="' + id + '_' + x2 + '" data-attr="' + x2 + '"><label class="value">' + valueofoption + '</label> <label class="cross" onclick=DeleteFilter("' + id + '","' + x2 + '","' + valueofoption + '");>X</label></div>';
+        var x = '<div class="unit" id="' + id + '_' + x2 + '" data-attr="' + x2 + '"><label class="value">' + valueofoption + '</label> <label data-attr-id="' + id + '" data-attr-x2="' + index + '" data-attr-valueofoption="' + x2 + '"  class="cross">X</label></div>';
 
-		$(".section").append(x);
-		$(ddlObj).addClass("disable");
+        $(".section").append(x);
+        $(ddlObj).addClass("disable");
 
-		var x = $(ddlObj).parent().children("li.disable").length;
-		if (x >= 1) {
-			$(ddlObj).parents(".wrapper-dropdown-5").addClass("active-drop");
-		}
+        var x = $(ddlObj).parent().children("li.disable").length;
+        if (x >= 1) {
+            $(ddlObj).parents(".wrapper-dropdown-5").addClass("active-drop");
+        }
 
-		var total_len = $(ddlObj).parent().children("li").length;
-		// alert(total_len);
-		for (var i = 0; i < total_len - 1; i++) {
-			var j = i + 1;
-			var c = $("#" + id + " .dropdown li:nth-child(" + j + ")").hasClass("disable");
-			//var lass = $("#" + id + " .dropdown li:nth-child(" + j + ")").text();
-			var lass = x2;
-			if (id == "Segments") {
-				if (c) {
-					dd1_list[i] = lass;
-					$("#Segments").attr("data-values", dd1_list);
-				}
-			}
-			if (id == "productType") {
-				if (c) {
-					dd2_list[i] = lass;
-					$("#productType").attr("data-values", dd2_list);
-				}
-			}
-			if (id == "Topic") {
-				if (c) {
-					dd3_list[i] = lass;
-					$("#Topic").attr("data-values", dd3_list);
-				}
-			}
-		}
+        var total_len = $(ddlObj).parent().children("li").length;
+        // alert(total_len);
+        for (var i = 0; i < total_len - 1; i++) {
+            var j = i + 1;
+            var c = $("#" + id + " .dropdown li:nth-child(" + j + ")").hasClass("disable");
+            //var lass = $("#" + id + " .dropdown li:nth-child(" + j + ")").text();
+            var lass = x2;
+            if (id == "Segments") {
+                if (c) {
+                    dd1_list[i] = lass;
+                    $("#Segments").attr("data-values", dd1_list);
+                }
+            }
+            if (id == "productType") {
+                if (c) {
+                    dd2_list[i] = lass;
+                    $("#productType").attr("data-values", dd2_list);
+                }
+            }
+            if (id == "Topic") {
+                if (c) {
+                    dd3_list[i] = lass;
+                    $("#Topic").attr("data-values", dd3_list);
+                }
+            }
+        }
 
-		var length = $('.chosen-select-brand .dropdown > li.disable').length;
-		if (length >= 1) {
+        var length = $('.chosen-select-brand .dropdown > li.disable').length;
+        if (length >= 1) {
 
-			$(".filter-section").show();
-			$(".filter-section .heading").text("active filters (" + length + ")");
-		} else {
-			$(".filter-section").hide();
-		}
+            $(".filter-section").show();
+            $(".filter-section .heading").text("active filters (" + length + ")");
+        } else {
+            $(".filter-section").hide();
+        }
 
-	}
+    }
 
 	function LoadBrands() {
 		var elementType = $(this).parents(".wrapper-dropdown-5").attr('name');
