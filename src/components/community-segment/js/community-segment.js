@@ -28,7 +28,7 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
 
             _loop(index);
 
-            $("#myCarousel").hover(function () {
+            $("#myCarousel .listgroup").hover(function () {
                 window.clearTimeout(timeOut);
             }, function () {
                 if (isSegmentLinkedClicked) {
@@ -38,6 +38,11 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
                         $('.carousel-inner .item[data-slide-to="' + id + '"]').show().addClass("current")
                         $("li.listgroup-item").removeClass("current");
                         $('li.listgroup-item[data-slide-to="' + id + '"]').addClass("current");
+
+                        id = parseInt(id);
+                        var newidx = id + 1;
+                        $(".carousel-inner .item:nth-child(" + newidx + ")").show();
+
                     }
 
                     return false;
@@ -52,10 +57,18 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
                 $("li.listgroup-item").removeClass("current");
                 $(this).addClass("current");
                 $('.carousel-inner .item').hide().removeClass("current");
-                $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current")
+                $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current");
+                idx = parseInt(idx);
+                var newidx = idx + 1;
+                $(".carousel-inner .item:nth-child(" + newidx + ")").show();
+                window.clearTimeout(timeOut);
             }, function () {
                 $("li.listgroup-item").removeClass("current");
                 $('.carousel-inner .item').hide().removeClass("current");
+            });
+
+            $("li.listgroup-item").mouseout(function () {
+                // _loop(index);
             });
 
             $("li.listgroup-item").click(function () {
@@ -66,8 +79,12 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
                 $("li.listgroup-item").removeClass("current");
                 $(this).addClass("current");
                 $('.carousel-inner .item').hide().removeClass("current");
-                $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current")
+                $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current");
+                idx = parseInt(idx);
+                var newidx = idx + 1;
+                $(".carousel-inner .item:nth-child(" + newidx + ")").show();
                 window.clearTimeout(timeOut);
+
             });
 
             $('.carousel-inner').hover(function () {

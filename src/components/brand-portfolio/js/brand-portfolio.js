@@ -147,7 +147,8 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
 			var pageNumber = parseInt($('#PageNo').val());
 			var pageSize = $('#PageSize').val();
 			if (pageNumber < pageSize) {
-				if ($(window).scrollTop() == ($(document).height() - $(window).height())) {
+                if (Math.round($(window).scrollTop()) == Math.round($(document).height() - $(window).height())) {
+                    INFORMA.Spinner.Show($('body'));
 
 					var SegmentId = "", RegionId = "", ProductId = "";
 					SegmentId = $("#Segments").attr("data-values");
@@ -354,10 +355,10 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
 		var length = $('.chosen-select-brand .dropdown > li.disable').length;
 		if (length >= 1) {
 
-			$(".filter-section").show();
+            $(".filter-section .heading").show();
 			$(".filter-section .heading").text("active filters (" + length + ")");
 		} else {
-			$(".filter-section").hide();
+            $(".filter-section .heading").hide();
 		}
 	}
 

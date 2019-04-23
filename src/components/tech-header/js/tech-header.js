@@ -371,12 +371,14 @@ INFORMA.TechHeader = (function (window, $, namespace) {
     init = function () {
       
         header = document.getElementById("tech-main-header");
-
+        if (header!=null)
         sticky = header.offsetTop;
 
         $(document).ready(function () {
-            _techNavigation();
-            _techNavigationSticky();
+            if (header != null) {
+                _techNavigation();
+                _techNavigationSticky();
+            }
         });
     };
 
@@ -405,12 +407,15 @@ INFORMA.TechHeader = (function (window, $, namespace) {
     },
 
         _techNavigationSticky = function () {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
+
+            if (header != null) {
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("sticky");
+                } else {
+                    header.classList.remove("sticky");
+                }
             }
-        }//,
+        }
 
         window.onscroll = function () { _techNavigationSticky() };
 
