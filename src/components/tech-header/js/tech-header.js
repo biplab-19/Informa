@@ -383,10 +383,10 @@ INFORMA.TechHeader = (function (window, $, namespace) {
     };
 
     _techNavigation = function () {
-        var mobileMode = true;
+        var mobileMode = false;
         var hamburgaritem = $('#EnableHamburger').val();
         var mobileMode = false;
-        if (hamburgaritem == 'true') {
+        if (hamburgaritem == 'true' || hamburgaritem == 'True') {
             mobileMode = true;
         }
         $('.stellarnav').stellarNav({

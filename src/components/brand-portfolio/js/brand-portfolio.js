@@ -55,6 +55,7 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
 			LoadBrands();
 		});
 
+        SetFooterPosition();
 
 		$grid.on('click', '.grid-item-content', function () {
 
@@ -89,7 +90,8 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
 				addTransitionListener(itemContent);
 				setItemContentTransitionSize(itemContent, itemElem);
 			}
-			$grid.masonry();
+            $grid.masonry();
+            SetFooterPosition();
 		});
 
 
@@ -170,6 +172,20 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
 			}
 		});
 	};
+
+    function SetFooterPosition() {
+
+        var portfolioHeight = $(".portfolio").height();
+        var headerHeight = $("#informa-main-header").height();
+        var productDetails = $("#productDetails").height();
+        var sectionContentHeight = $(".section-content").height();
+        portfolioHeight = parseInt(portfolioHeight);
+        headerHeight = parseInt(headerHeight)
+        productDetails = parseInt(productDetails);
+        sectionContentHeight = parseInt(sectionContentHeight);
+        $("footer").css({ "top": (portfolioHeight + headerHeight + productDetails + sectionContentHeight), "position": "absolute" });
+
+    }
 
     function BrandFilter(ddlObj) {
         //console.log(event.target.id);
@@ -260,7 +276,8 @@ INFORMA.BrandPortfolioViews = (function (window, $, namespace) {
 				$grid.append($content).masonry('appended', $content);
 				$grid.masonry();
 				$('.section-content #PageNo').val($($(result).find("#PageNo")).val());
-				$('.section-content #PageSize').val($($(result).find("#PageSize")).val());
+                $('.section-content #PageSize').val($($(result).find("#PageSize")).val());
+                SetFooterPosition();
 			},
 			error: function (error) {
 				alert(error)

@@ -34,14 +34,14 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
                 if (isSegmentLinkedClicked) {
                     if ($("li.listgroup-item.current").length == 0 && lastVisitedLi.length > 0) {
                         var id = $(lastVisitedLi).attr('data-slide-to');
-                        $('.carousel-inner .item').hide().removeClass("current");
-                        $('.carousel-inner .item[data-slide-to="' + id + '"]').show().addClass("current")
-                        $("li.listgroup-item").removeClass("current");
-                        $('li.listgroup-item[data-slide-to="' + id + '"]').addClass("current");
+                        //$('.carousel-inner .item').hide().removeClass("current");
+                        //$('.carousel-inner .item[data-slide-to="' + id + '"]').show().addClass("current")
+                        //$("li.listgroup-item").removeClass("current");
+                        //$('li.listgroup-item[data-slide-to="' + id + '"]').addClass("current");
 
-                        id = parseInt(id);
-                        var newidx = id + 1;
-                        $(".carousel-inner .item:nth-child(" + newidx + ")").show();
+                        //id = parseInt(id);
+                        //var newidx = id + 1;
+                        //$(".carousel-inner .item:nth-child(" + newidx + ")").show();
 
                     }
 
@@ -51,24 +51,41 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
                 _loop(index);
             });
 
-            $("li.listgroup-item").hover(function () {
-                lastVisitedLi = $(this);
-                var idx = $(this).attr('data-slide-to');
-                $("li.listgroup-item").removeClass("current");
-                $(this).addClass("current");
-                $('.carousel-inner .item').hide().removeClass("current");
-                $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current");
-                idx = parseInt(idx);
-                var newidx = idx + 1;
-                $(".carousel-inner .item:nth-child(" + newidx + ")").show();
-                window.clearTimeout(timeOut);
-            }, function () {
-                $("li.listgroup-item").removeClass("current");
-                $('.carousel-inner .item').hide().removeClass("current");
-            });
+            //$("li.listgroup-item").hover(function () {
+            //    lastVisitedLi = $(this);
+            //    var idx = $(this).attr('data-slide-to');
+            //    $("li.listgroup-item").removeClass("current");
+            //    $(this).addClass("current");
+            //    $('.carousel-inner .item').hide().removeClass("current");
+            //    $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current");
+            //    idx = parseInt(idx);
+            //    var newidx = idx + 1;
+            //    $(".carousel-inner .item:nth-child(" + newidx + ")").show();
+            //    window.clearTimeout(timeOut);
+            //}, function () {
+            //    $("li.listgroup-item").removeClass("current");
+            //    $('.carousel-inner .item').hide().removeClass("current");
+            //});
 
-            $("li.listgroup-item").mouseout(function () {
-                // _loop(index);
+            $("li.listgroup-item").hover(function () {
+                if (isSegmentLinkedClicked) {
+                    return false;
+                }
+                else {
+                    //var idx = $(this).attr('data-slide-to');
+                    //var x = $(this).attr("data-segmentid");
+                    //$('[data-segmentid=' + x + ']').trigger("click");
+                    var idx = $(this).attr('data-slide-to');
+                    $("li.listgroup-item").removeClass("current");
+                    $(this).addClass("current");
+                    $('.carousel-inner .item').hide().removeClass("current");
+                    $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current");
+                    idx = parseInt(idx);
+                    var newidx = idx + 1;
+                    $(".carousel-inner .item:nth-child(" + newidx + ")").show();
+                    window.clearTimeout(timeOut);
+
+                }
             });
 
             $("li.listgroup-item").click(function () {

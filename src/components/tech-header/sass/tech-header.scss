@@ -75,18 +75,7 @@ div#tech-main-header {
 
 
 
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 999;
-    }
-
-    .sticky a.log-img img {
-        width: 240px !important;
-        -webkit-transition: width 1s; /* Safari */
-        transition: width 1s;
-    }
+   
 
 
     .stellarnav.fixed {
@@ -820,3 +809,16 @@ div#tech-main-header {
         visibility: visible;
     }
     }
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.sticky a.log-img img {
+    width: 240px !important;
+    -webkit-transition: width 1s; /* Safari */
+    transition: width 1s;
+}
