@@ -1,4 +1,5 @@
-.brand_list {
+
+.feature-brand-corousel.brand_list {
     background: #024;
     padding: 50px 0px;
 
@@ -33,7 +34,7 @@
 
     .sub-text-n-img {
         display: flex;
-        align-items: center!important;
+        align-items: center !important;
         margin-bottom: 30px;
         margin-top: 30px;
     }
@@ -48,11 +49,11 @@
     }
 }
 
-.brand_list .sub-headline {
+.feature-brand-corousel.brand_list .sub-headline {
     color: #ffffff;
 }
 
-.brand_list .border-button {
+.feature-brand-corousel.brand_list .border-button {
     color: #fff;
     border-color: #94bb17;
     border-radius: 25px;
@@ -62,11 +63,11 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.brand_list .customers_list_slider.slick-slider {
+.feature-brand-corousel.brand_list .customers_list_slider.slick-slider {
     height: auto !important;
 }
 
-.brand_list .slick-prev {
+.feature-brand-corousel.brand_list .slick-prev {
     border-bottom-right-radius: 100px;
     border-top-right-radius: 100px;
     height: 80px !important;
@@ -75,7 +76,7 @@
     background: #94bb17 !important;
 }
 
-.brand_list .slick-next {
+.feature-brand-corousel.brand_list .slick-next {
     height: 80px !important;
     width: 40px !important;
     right: -5px;
@@ -84,35 +85,42 @@
     background: #94bb17 !important;
 }
 
-.brand_list .img-right {
+.feature-brand-corousel.brand_list .img-right {
     margin-top: 20px;
 }
 
-@media only screen and (min-width: 1299px) {
-    .brand_list .sub-headline {
-        max-width: 60%;
+.feature-brand-corousel.brand_list {
+    .text-right.nopadding {
+        padding: 0;
     }
 }
 
-@media only screen and (max-width: 1024px) {
-    .brand_list .img-right {
-        margin-top: 10px;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-    .brand_list .container-fluid {
-        padding: 0px 5px;
+    @media only screen and (min-width: 1299px) {
+        .feature-brand-corousel.brand_list .sub-headline {
+            max-width: 60%;
+        }
     }
 
-    .brand_list .img-right {
-        margin-top: 0px;
+    @media only screen and (max-width: 1024px) {
+        .feature-brand-corousel.brand_list .img-right {
+            margin-top: 10px;
+        }
     }
 
-    .brand_list .slick-arrow {
-        display: none !important;
+    @media only screen and (max-width: 767px) {
+        .feature-brand-corousel.brand_list .container-fluid {
+            padding: 0px 5px;
+        }
+
+        .feature-brand-corousel.brand_list .img-right {
+            margin-top: 0px;
+        }
+
+        .feature-brand-corousel.brand_list .slick-arrow {
+            display: none !important;
+        }
+
+        .feature-brand-corousel.brand_list .sub-headline {
+        }
     }
 
-    .brand_list .sub-headline {
-    }
-}
