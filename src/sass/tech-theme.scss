@@ -71,7 +71,7 @@ p.subofsub-text {
 }
 
 #social-section .slick-next {
-    border-radius: 30px 1px 1px 30px;
+    border-radius: 40px 1px 1px 40px;
 }
 
 #social-section .tech-theme .twitter-carousel .slick-arrow {
@@ -79,7 +79,7 @@ p.subofsub-text {
 }
 
 #social-section .slick-prev {
-    border-radius: 1px 30px 30px 1px;
+    border-radius: 1px 40px 40px 1px;
 }
 
 #social-section .twitter-carousel .slick-next:before {
@@ -146,8 +146,8 @@ p.subofsub-text {
 }
 
 #social-section .twitter-carousel .slick-arrow {
-    height: 60px;
-    width: 30px;
+    height: 80px;
+    width: 40px;
 }
 
 #social-section .twitter-carousel .panel .feed .feed-heading > a:after {
@@ -227,3 +227,29 @@ html {
     position: absolute;
     top: 12px;
 }
+
+
+section#hero-banner .btn {
+    margin-left: 10px;
+    color: #fff;
+    padding: 10px 60px;
+    border-radius: 30px;
+    width: auto;
+    height: auto;
+    font-size: 18px !important;
+    text-align: center;
+}
+
+.tech-theme .btn-primary:after {
+    
+    font-family: 'InformaIcons';
+    right: 15px;
+    font-weight: bold;
+    position: absolute;
+    opacity: 0;
+}
+section#hero-banner{
+    max-height:720px;
+}
+
+
