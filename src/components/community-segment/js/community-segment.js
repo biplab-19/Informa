@@ -1,0 +1,149 @@
+
+var INFORMA = window.INFORMA || {};
+INFORMA.CommunitySegment = (function (window, $, namespace) {
+    'use strict';
+    var sticky;
+    var header;
+    var SegmentLists = $('#myCarousel'), init, _communitySegment, _loop;
+    init = function () {
+
+        var lastVisitedLi;
+        var isSegmentLinkedClicked = false;
+
+        $(document).ready(function () {
+            
+            var $loopedLink = $('li.listgroup-item');
+            var $loopedDiv = $('.carousel-inner .item');
+            var index = 0;
+            var timeOut;
+
+            function _loop(idx) {
+                $loopedLink.removeClass('current').eq(idx).addClass('current');
+                $loopedDiv.hide().eq(idx).show();
+                timeOut = setTimeout(function () {
+                    index = (idx + 1) % $loopedLink.length
+                    _loop(index);
+                }, 2000);
+            };
+
+            _loop(index);
+
+            $("#myCarousel .listgroup").hover(function () {
+                window.clearTimeout(timeOut);
+            }, function () {
+                if (isSegmentLinkedClicked) {
+                    if ($("li.listgroup-item.current").length == 0 && lastVisitedLi.length > 0) {
+                        var id = $(lastVisitedLi).attr('data-slide-to');
+                        //$('.carousel-inner .item').hide().removeClass("current");
+                        //$('.carousel-inner .item[data-slide-to="' + id + '"]').show().addClass("current")
+                        //$("li.listgroup-item").removeClass("current");
+                        //$('li.listgroup-item[data-slide-to="' + id + '"]').addClass("current");
+
+                        //id = parseInt(id);
+                        //var newidx = id + 1;
+                        //$(".carousel-inner .item:nth-child(" + newidx + ")").show();
+
+                    }
+
+                    return false;
+                }
+
+                _loop(index);
+            });
+
+            //$("li.listgroup-item").hover(function () {
+            //    lastVisitedLi = $(this);
+            //    var idx = $(this).attr('data-slide-to');
+            //    $("li.listgroup-item").removeClass("current");
+            //    $(this).addClass("current");
+            //    $('.carousel-inner .item').hide().removeClass("current");
+            //    $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current");
+            //    idx = parseInt(idx);
+            //    var newidx = idx + 1;
+            //    $(".carousel-inner .item:nth-child(" + newidx + ")").show();
+            //    window.clearTimeout(timeOut);
+            //}, function () {
+            //    $("li.listgroup-item").removeClass("current");
+            //    $('.carousel-inner .item').hide().removeClass("current");
+            //});
+
+            $("li.listgroup-item").hover(function () {
+                if (isSegmentLinkedClicked) {
+                    return false;
+                }
+                else {
+                    //var idx = $(this).attr('data-slide-to');
+                    //var x = $(this).attr("data-segmentid");
+                    //$('[data-segmentid=' + x + ']').trigger("click");
+                    var idx = $(this).attr('data-slide-to');
+                    $("li.listgroup-item").removeClass("current");
+                    $(this).addClass("current");
+                    $('.carousel-inner .item').hide().removeClass("current");
+                    $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current");
+                    idx = parseInt(idx);
+                    var newidx = idx + 1;
+                    $(".carousel-inner .item:nth-child(" + newidx + ")").show();
+                    window.clearTimeout(timeOut);
+
+                }
+            });
+
+            $("li.listgroup-item").click(function () {
+                lastVisitedLi = $(this);
+                isSegmentLinkedClicked = true;
+
+                var idx = $(this).attr('data-slide-to');
+                $("li.listgroup-item").removeClass("current");
+                $(this).addClass("current");
+                $('.carousel-inner .item').hide().removeClass("current");
+                $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current");
+                idx = parseInt(idx);
+                var newidx = idx + 1;
+                $(".carousel-inner .item:nth-child(" + newidx + ")").show();
+                window.clearTimeout(timeOut);
+
+            });
+
+            $('.carousel-inner').hover(function () {
+                if ($("li.listgroup-item.current").length == 0 && lastVisitedLi.length > 0) {
+                    var id = $(lastVisitedLi).attr('data-slide-to');
+                    $('.carousel-inner .item').hide().removeClass("current");
+                    $('.carousel-inner .item[data-slide-to="' + id + '"]').show().addClass("current")
+                    $("li.listgroup-item").removeClass("current");
+                    $('li.listgroup-item[data-slide-to="' + id + '"]').addClass("current");
+                }
+            });
+        });
+
+        
+    };
+    
+    _communitySegment = function () {
+        //var clickEvent = false;
+        //$('#myCarousel').carousel({
+        //    interval: 6000
+        //}).on('click', '.listgroup  li', function () {
+        //    clickEvent = true;
+        //    $('.listgroup  li').removeClass('active');
+        //    $(this).addClass('active');
+        //}).on('slid.bs.carousel', function (e) {
+        //    if (!clickEvent) {
+        //        var count = $('.listgroup ').children().length - 1;
+        //        var current = $('.listgroup  li.active');
+        //        current.removeClass('active').next().addClass('active');
+        //        var id = parseInt(current.data('slide-to'));
+        //        if (count == id) {
+        //            $('.listgroup  li').first().addClass('active');
+        //        }
+        //    }
+        //    clickEvent = false;
+        //});
+
+        
+    };
+
+    return {
+        init: init
+    };
+}(this, jQuery, 'INFORMA'));
+jQuery(INFORMA.CommunitySegment.init());

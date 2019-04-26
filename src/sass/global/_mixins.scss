@@ -2,6 +2,8 @@ $max-width: 1400px;
 $min-width: 320px; // define breakpoints
 $tablet-width: 768px;
 $desktop-width: 1142px;
+
+
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
@@ -1475,4 +1477,23 @@ $properties: (margin, padding);
         width: 100px;
         height: 100px;
     }
+}
+
+// Sass mixin function
+
+@mixin ultag {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin flex {
+    // write the css here
+    display: -webkit-flex;
+    display: flex;
+}
+
+
+@mixin margin($top, $right, $bottom, $left) {
+    margin: $top $right $bottom $left;
 }
