@@ -11,12 +11,13 @@
         color: #fff;
         margin-bottom: 0 !important;
         margin-top: 0 !important;
+        width: 100%;
 
         .top-bottom {
             display: flex;
             align-items: center;
-            padding: 30px 0;
-            justify-content: center;
+            padding: 20px 0;
+
 
 
 
@@ -31,7 +32,7 @@
                     margin-bottom: 10px;
 
                     a {
-                        padding: 10px 20px;
+                        padding: 10px 20px 10px 0px;
                         color: #fff;
                         text-decoration: underline;
                     }
@@ -40,7 +41,7 @@
         }
 
         .top-footer {
-            margin-bottom: 40px;
+            margin-bottom: 0px;
 
             p.title {
                 margin-bottom: 0;
@@ -149,7 +150,7 @@
         .footer-section {
 
             .top-bottom ul li a {
-                padding: 10px;
+                padding: 10px 20px 10px 0px;
                 color: #fff;
                 text-decoration: underline;
             }
@@ -208,5 +209,54 @@
 
     .twitter-white::before {
         content: "\f099";
+    }
+}
+
+/* section mention*/
+section#customers_list .customers_list_slider .customer img {
+    height: 160px;
+    width: 100%;
+}
+
+
+.tech-theme .btn.btnprimary.border-button {
+    padding: 6px 30px;
+    outline: none;
+    border: solid 2px rgba(205,218,11,.8);
+}
+
+.footer-section .footer-log {
+    width: 33%;
+}
+
+.footer-section .MediaCenter {
+    width: 35%;
+}
+
+.footer-section .MediaCenter ul {
+    width: 100%;
+}
+
+.footer-section .MediaCenter ul li {
+    width: 50%;
+    float: left;
+}
+
+footer-section .social-icons {
+    width: 25%;
+}
+
+.discover-community {
+    .subofsub-text {
+        width: 65%;
+        padding-bottom: 30px;
+    }
+}
+
+#myCarousel {
+    .Wrapper-silde {
+        .listgroup {
+            padding: 30px 0px;
+        }
     }
 }

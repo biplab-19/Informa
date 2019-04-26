@@ -23,7 +23,7 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
                 timeOut = setTimeout(function () {
                     index = (idx + 1) % $loopedLink.length
                     _loop(index);
-                }, 1000);
+                }, 2000);
             };
 
             _loop(index);
