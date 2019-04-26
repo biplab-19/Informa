@@ -131,3 +131,42 @@
     }
 }
 
+
+
+.stat-sec {
+    .statistics-section {
+        .researchsubs {
+            text-align: center;
+            padding: 0 0 20px;
+
+            .numberntext {
+                font-size: 70px;
+                font-weight: bold;
+                background: -webkit-linear-gradient(#92b20a,#8fb10a);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: flex;
+                justify-content: center;
+                line-height: normal;
+
+                span.plus {
+                    right: 0;
+                    vertical-align: top;
+                    font-size: 59px !important;
+                    display: block;
+                }
+            }
+
+            .text {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+
+            .sub-text {
+                font-size: 18px;
+                font-weight: 100;
+            }
+        }
+    }
+}
