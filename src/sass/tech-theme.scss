@@ -17,13 +17,13 @@
 body {
     background: #fff !important;
 }
+
 @media screen and (max-width: 812px) {
     .sub-headline {
-       
         font-size: 33px !important;
         line-height: 33px !important;
-       
-    }}
+    }
+}
 
 @media screen and (max-width: 812px) {
     .sub-headline {
@@ -34,6 +34,7 @@ body {
     .discover-community p.subofsub-text {
         padding-left: 73px !important;
     }
+
     .imgleft .img-right {
         margin-right: 10px !important;
         margin-top: -8px !important;
@@ -71,7 +72,7 @@ p.subofsub-text {
 }
 
 #social-section .slick-next {
-    border-radius: 30px 1px 1px 30px;
+    border-radius: 40px 1px 1px 40px;
 }
 
 #social-section .tech-theme .twitter-carousel .slick-arrow {
@@ -79,23 +80,23 @@ p.subofsub-text {
 }
 
 #social-section .slick-prev {
-    border-radius: 1px 30px 30px 1px;
+    border-radius: 1px 40px 40px 1px;
 }
 
 #social-section .twitter-carousel .slick-next:before {
-    //content: ' \003E';
-    color: #3c404c;
-    font-size: 25px;
-    font-weight: 600;
-    font-size: 20px
+    
+    font-size: 22px;
+    top: 45px;
+    left: 25px;
+    color: #dbd600;
 }
 
 #social-section .twitter-carousel .slick-prev:before {
-    //content: ' \003C';
-    color: #3c404c;
-    font-size: 25px;
-    font-weight: 600;
-    font-size: 20px
+    top: 45px;
+    left: 18px;
+    color: #dbd600;
+    font-size: 22px;
+    
 }
 
 
@@ -123,7 +124,7 @@ p.subofsub-text {
 }
 
 #social-section .twitter-carousel .panel .feed {
-    padding: 0 35px;
+    padding: 0 45px;
 }
 
 #social-section h2:before {
@@ -142,12 +143,12 @@ p.subofsub-text {
 }
 
 #social-section h2 {
-    padding-left: 20px;
+    padding-left:45px;
 }
 
 #social-section .twitter-carousel .slick-arrow {
-    height: 60px;
-    width: 30px;
+    height: 80px;
+    width: 40px;
 }
 
 #social-section .twitter-carousel .panel .feed .feed-heading > a:after {
@@ -201,29 +202,55 @@ html {
     background-image: url(/static/images/tech/leftdotted.png);
     background-size: 100%;
     width: 112px;
-    height:17px;
+    height: 20px;
     background-repeat: no-repeat;
     margin-right: 20px;
 }
+
 .dot-img-right {
     background-image: url(/static/images/tech/rightdotted.png);
     background-size: 100%;
     width: 112px;
-    height: 17px;
+    height: 20px;
     background-repeat: no-repeat;
     margin-left: 20px;
 }
 
 /*for single image*/
-.single-image{
-    width:100%;
-    float:left;
-    img{
-        width:100%;
+.single-image {
+    width: 100%;
+    float: left;
+
+    img {
+        width: 100%;
     }
 }
 
 .search-icon {
     position: absolute;
     top: 12px;
+}
+
+
+section#hero-banner .btn {
+    margin-left: 10px;
+    color: #fff;
+    padding: 10px 60px;
+    border-radius: 30px;
+    width: auto;
+    height: auto;
+    font-size: 18px !important;
+    text-align: center;
+}
+
+.tech-theme .btn-primary:after {
+    font-family: 'InformaIcons';
+    right: 15px;
+    font-weight: bold;
+    position: absolute;
+    opacity: 0;
+}
+
+section#hero-banner {
+    max-height: 720px;
 }
