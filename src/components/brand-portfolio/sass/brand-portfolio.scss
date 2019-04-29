@@ -1,16 +1,22 @@
 
 .portfolio {
-    width: 80%;
+    /* width: 80%;
     margin: 20px 10%;
-    float: left;
+    float: left;*/
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .portfolio .select-filter {
     width: 100%;
     float: left;
+    margin-bottom: 38px;
+    /*
     position: relative;
     z-index: 10;
     bottom: 60px;
+        */
 }
 
 .portfolio .select-filter .select {
@@ -109,7 +115,7 @@
 }
 
 .portfolio .portfolio-grid .port-container .port {
-    padding:0 10%;
+    padding: 0 10%;
     cursor: pointer;
     position: relative;
     margin-bottom: 20px;
@@ -434,9 +440,14 @@ select {
 }
 
 .section-content {
-    width: 80%;
+    //width: 80%;
+    //float: left;
+    //position: absolute;
+    width: 100%;
     float: left;
-    position: absolute;
+    /* position: absolute; */
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) and (min-width: 320px) {
@@ -513,57 +524,61 @@ footer {
 }
 
 
- /* for grid layout inner section*/
-   
-	
- .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content{
+/* for grid layout inner section*/
+
+
+.portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content {
     padding: 0;
-width: 100%;
-float: left;
-
+    width: 100%;
+    float: left;
 }
-.grid-item.is-expanded .port-container .port .content .close {
-            float: right;
-            font-size: 21px;
-            font-weight: bold;
-            line-height: 1;
-            color: #000;
-            text-shadow: 0 1px 0 #fff;
-            opacity: 0;
-            color: #d7e13c;
-            position: relative;
-            left: 30px;
-            filter: alpha(opacity=20);
-        }
-        
-        .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header {
-                width: 100%;
-float: left;
-margin-bottom: 25px;
-        }
-        .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header img{
-               width: 50%;
-float: left;
--webkit-filter: grayscale(0%);
-filter: grayscale(0%);
-        }
-    .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all{
-            width: 50%;
-float: left;
-margin: 0;
-    }
-    .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn{
-        width: 143px;
-font-size: 14px;
-    }
-    .content .close {
-    color: #a2a753;
-opacity: 1;
-position: relative;
-left: 36px;
-   }
 
-.portfolio .portfolio-grid .grid-item.is-expanded .port-container .port img{
-width:50%;
-float:left;
+.grid-item.is-expanded .port-container .port .content .close {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0;
+    color: #d7e13c;
+    position: relative;
+    left: 30px;
+    filter: alpha(opacity=20);
+}
+
+.portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header {
+    width: 100%;
+    float: left;
+    margin-bottom: 25px;
+}
+
+.portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header img {
+    width: 50%;
+    float: left;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all {
+    width: 50%;
+    float: left;
+    margin: 0;
+}
+
+.portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn {
+    width: 143px;
+    font-size: 14px;
+}
+
+.content .close {
+    color: #a2a753;
+    opacity: 1;
+    position: relative;
+    left: 36px;
+}
+
+.portfolio .portfolio-grid .grid-item.is-expanded .port-container .port img {
+    width: 50%;
+    float: left;
 }
