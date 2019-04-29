@@ -6,6 +6,8 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
     var header;
     var SegmentLists = $('#myCarousel'), init, _communitySegment, _loop;
     init = function () {
+        if ($('#myCarousel').length == 0)
+            return;
 
         var lastVisitedLi;
         var isSegmentLinkedClicked = false;
@@ -66,6 +68,11 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
             //    $("li.listgroup-item").removeClass("current");
             //    $('.carousel-inner .item').hide().removeClass("current");
             //});
+
+            var x = window.innerWidth;
+            if (x < 768) {
+                window.clearTimeout(timeOut);
+            }
 
             $("li.listgroup-item").hover(function () {
                 if (isSegmentLinkedClicked) {
