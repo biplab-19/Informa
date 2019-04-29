@@ -113,6 +113,7 @@
         margin-top: -7px;
         margin-left: 10px;
     }
+
     .our-reach-section .researchsubs .text {
         font-size: 16px;
         font-weight: bold;
@@ -133,40 +134,49 @@
 
 
 
-.stat-sec {
-    .statistics-section {
-        .researchsubs {
-            text-align: center;
-            padding: 0 0 20px;
-
-            .numberntext {
-                font-size: 70px;
-                font-weight: bold;
-                background: -webkit-linear-gradient(#92b20a,#8fb10a);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                display: flex;
-                justify-content: center;
-                line-height: normal;
-
-                span.plus {
-                    right: 0;
-                    vertical-align: top;
-                    font-size: 59px !important;
-                    display: block;
-                }
-            }
-
-            .text {
-                font-size: 18px;
-                font-weight: bold;
-                margin-bottom: 0;
-            }
-
-            .sub-text {
-                font-size: 18px;
-                font-weight: 100;
-            }
+/*scss */
+.reach-img-section {
+    .recch-global-main {
+        img {
+            width: 100%;
         }
     }
+
+    .nopadding {
+        padding: 0;
+    }
+}
+
+.reach-img-section {
+
+    .sub-text-n-img {
+        display: flex;
+        align-items: center !important;
+        margin-bottom: 10px;
+    }
+
+    .sub-headline {
+        font-family: "Aleo";
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: #024;
+        position: relative;
+        margin: 0;
+    }
+
+    .global-discription {
+        padding: 0 125px;
+    }
+
+    picture {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.saprate-our-reach.container {
+    margin-top: 38px;
 }
