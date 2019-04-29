@@ -453,7 +453,7 @@ select {
 @media screen and (max-width: 768px) and (min-width: 320px) {
     .section-content {
         top: 370px;
-        width: 90%;
+        // width: 90%;
     }
 }
 
@@ -465,9 +465,9 @@ footer {
     clear: none !important;
 }
 
-@media screen and (max-width:480px) and (min-width:320px) {
+@media screen and (max-width:768px) and (min-width:320px) {
     div.grid-item, div.grid-sizer {
-        width: 100%;
+        width: calc(50% - 5px); 
     }
 
     div.grid-item.is-expanded {
@@ -475,7 +475,7 @@ footer {
     }
 }
 
-@media screen and (max-width:1280px) and (min-width:481px) {
+@media screen and (max-width:1280px) and (min-width:769px) {
     div.grid-item, div.grid-sizer {
         width: 30%;
     }
