@@ -252,13 +252,14 @@
     background: #fff;
     position: absolute;
     cursor: pointer;
-    top: 146px;
-    left: calc(50% - 15px);
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
     color: #cdda0b;
     font-size: 20px;
-    width: 30px;
-    height: 30px;
-    border-radius: 32px;
+    width: 1.2em;
+    line-height: 1.2em;
+    border-radius: 50%;
 }
 
 .portfolio .portfolio-grid .port-container .port .content {
