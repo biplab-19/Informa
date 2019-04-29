@@ -252,6 +252,10 @@ section#hero-banner {
     max-height: 720px;
 }
 
+.bannerheading-font-white {
+    color: #fff !important;
+}
+
 /*desktop max width function*/
 div#tech-main-header .nav-bar, .hero-banner .vertical-align .for-left {
     max-width: 1380px;
@@ -326,7 +330,8 @@ section#hero-banner h1 {
     }
     /*banner section*/
     #productDetails #divsegment.wrapper-dropdown-5 {
-        display: none;
+        display: block;
+        text-align: center;
     }
     /*discover comunity*/
     .discover-community p.subofsub-text {
@@ -524,3 +529,66 @@ section#hero-banner h1 {
     border: solid 2px rgba(205,218,11,.8);
     background-color: #002244;
 }
+
+/* Start Hero Banner Single Image handled from javascript*/
+@media only screen and (max-width: 768px) {
+    .vertical-align.empty-banner-image {
+        padding: 10px 15px;
+        margin: 10px auto;
+        height: auto !important;
+    }
+}
+
+/****for desktop****/
+.vertical-align.empty-banner-image {
+    position: static !important;
+    padding: 20px 0px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+/* End Hero Banner Single Image handled from javascript*/
+
+/*Rich Text editor containor*/
+.rich-text-editor .rich-text-cta {
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+.dot-image-heading {
+    align-items: center !important;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.rich-text-width-container {
+    clear: both;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .mb-20 {
+        margin-bottom: 20px;
+    }
+    .bio-detail {
+        .parent-node {
+            display: flex;
+           flex-direction: column;
+           position: relative;
+           top: 95px;
+           
+
+            .first {
+                order: 1;
+            }
+
+            .second {
+                order: 2
+            }
+        }
+    }
+}
+
+
+
+/*end Rich Text editor containor*/
