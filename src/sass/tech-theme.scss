@@ -252,9 +252,7 @@ section#hero-banner {
     max-height: 720px;
 }
 
-.bannerheading-font-white {
-    color: #fff !important;
-}
+
 
 /*desktop max width function*/
 div#tech-main-header .nav-bar, .hero-banner .vertical-align .for-left {
@@ -286,18 +284,23 @@ section#hero-banner h1 {
 
     .single-image {
         .hero-items {
-            position: relative;
+            //position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-top: 25px;
 
             .hero-cf-image {
-                position: absolute;
-                top: 90px;
+                //position: absolute;
+                //top: 90px;
+                order: 2;
             }
 
             .vertical-align {
-                position: absolute;
-                top: 11px;
-                height: 70px;
-                overflow: hidden;
+                //position: absolute;
+                ///top: 11px;
+                // height: 70px;
+                //overflow: hidden;
+                order: 1;
 
                 .for-left {
                     margin-left: 0px;
@@ -309,6 +312,10 @@ section#hero-banner h1 {
                     font-size: 24px;
                     line-height: 1.5;
                     color: #024;
+                }
+
+                p {
+                    padding: 10px 15px;
                 }
             }
         }
@@ -348,9 +355,10 @@ section#hero-banner h1 {
     }
 
     .discover-community {
-        position: relative;
-        z-index: 1;
-        top: 260px;
+        //position: relative;
+        //z-index: 1;
+        //top: 260px;
+        display:inline-block;
     }
     /*global*/
     .row [class*='col-'] {
@@ -362,7 +370,7 @@ section#hero-banner h1 {
     }
 
     .reach-img-section .global-discription {
-        padding: 0px 0px 0 45px;
+        padding: 10px 0px 0 55px;
     }
 
     .reach-img-section .our-reach-container {
@@ -383,8 +391,10 @@ section#hero-banner h1 {
     }
 
     .featured-products {
-        position: relative;
-        top: 85px;
+        //position: relative;
+        //top: 85px;
+        display: inline-block;
+        width: 100%;
     }
 
     .our-reach-section .researchsubs .text {
@@ -393,6 +403,9 @@ section#hero-banner h1 {
 
     .reach-img-section {
         background: #fff;
+        display: inline-block;
+        width: 100%;
+        position: static;
     }
 
     .discover-community .gradient-box a.btn.btnprimary.border-button {
@@ -408,8 +421,8 @@ section#hero-banner h1 {
     }
 
     #social-section {
-        position: relative;
-        top: 80px;
+        display:inline-block;
+        width:100%;
 
         h2 {
             font-size: 26px;
@@ -480,6 +493,9 @@ section#hero-banner h1 {
 
 */
 @media only screen and (min-width:768px) {
+    .bannerheading-font-white {
+        color: #fff !important;
+    }
     .hero-items {
         position: relative;
         max-width: 1400px;
@@ -516,6 +532,8 @@ section#hero-banner h1 {
         }
     }
 }
+
+
 
 .tech-theme .btn-primary {
     border: solid 2px rgba(205,218,11,.8);
@@ -573,17 +591,20 @@ section#hero-banner h1 {
     .bio-detail {
         .parent-node {
             display: flex;
-           flex-direction: column;
-           position: relative;
-           top: 95px;
-           
+            flex-direction: column;
 
-            .first {
-                order: 1;
+            img {
+                width: 100%;
+                height: auto;
             }
 
-            .second {
-                order: 2
+
+            .moveColumnTop1 {
+                order: 2;
+            }
+
+            .moveColumnTop2 {
+                order: 1
             }
         }
     }
