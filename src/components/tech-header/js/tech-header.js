@@ -22,7 +22,7 @@
             sticky: false, // makes nav sticky on scroll (desktop only)
             position: 'static', // 'static', 'top', 'left', 'right' - when set to 'top', this forces the mobile nav to be placed absolutely on the very top of page
             openingSpeed: 250, // how fast the dropdown should open in milliseconds
-            closingDelay: 250, // controls how long the dropdowns stay open for in milliseconds
+            closingDelay: 0, // controls how long the dropdowns stay open for in milliseconds
             showArrows: true, // shows dropdown arrows next to the items that have sub menus
             phoneBtn: '', // adds a click-to-call phone link to the top of menu - i.e.: "18009084500"
             phoneLabel: 'Call Us', // label for the phone button
