@@ -7,6 +7,12 @@ div#tech-main-header {
     box-shadow: 0 3px 10px rgba(0,0,0,.1);
     background-color: #fff;
 
+    &.sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
     .container {
         padding: 0;
     }
@@ -811,13 +817,6 @@ div#tech-main-header {
         visibility: visible;
     }
     }
-
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-}
 
 .sticky a.log-img img {
     width: 240px !important;
