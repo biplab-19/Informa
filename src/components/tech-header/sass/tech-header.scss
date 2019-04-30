@@ -1,9 +1,16 @@
 
 
 div#tech-main-header {
+    position: relative;
+    z-index: 9999;
     transition: all .3s ease-in-out;
-    box-shadow: 0 3px 10px rgba(0,0,0,.1);
     background-color: #fff;
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
 
     .container {
         padding: 0;
@@ -810,13 +817,6 @@ div#tech-main-header {
     }
     }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-}
-
 .sticky a.log-img img {
     width: 240px !important;
     -webkit-transition: width 1s; /* Safari */
@@ -830,7 +830,7 @@ div#tech-main-header .stellarnav.mobile {
 div#tech-main-header .stellarnav.mobile.right > ul {
     top: 0;
     right: 0;
-    position: absolute;
+    // position: absolute;
 }
 
 @media screen and (max-width: 768px) {
@@ -839,7 +839,7 @@ div#tech-main-header .stellarnav.mobile.right > ul {
     }
 
     div#tech-main-header .stellarnav.mobile.right > ul {
-        top: 38px;
+        // top: 38px;
     }
 }
 
