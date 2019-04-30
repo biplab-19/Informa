@@ -1,0 +1,615 @@
+@import "variables";
+@import "theme-variables";
+@import "mixins";
+//parameters have to be sent accordingly
+/* 1. Body Class Name
+   2. Primary Color
+   3. Secondary Color Darker Version
+   4. Secondary Color Lighter Version
+   5. NavLink Color
+*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Aleo');
+
+//tech Theme
+@include theme(tech-theme, $tech-indigo, $tech-sky, $tech-citrus, $tech-gray );
+
+body {
+    background: #fff !important;
+}
+
+@media screen and (max-width: 812px) {
+    .sub-headline {
+        font-size: 33px !important;
+        line-height: 33px !important;
+    }
+}
+
+@media screen and (max-width: 812px) {
+    .sub-headline {
+        font-size: 28px !important;
+        line-height: 28px !important;
+    }
+
+    .discover-community p.subofsub-text {
+        padding-left: 73px !important;
+    }
+
+    .imgleft .img-right {
+        margin-right: 10px !important;
+        margin-top: -8px !important;
+        width: 60px;
+    }
+
+    .imgright .img-right {
+        margin-left: 10px !important;
+        margin-top: -8px !important;
+        width: 60px;
+    }
+}
+
+.tech-theme .btn.btnprimary.border-button {
+    width: auto !important;
+    color: #fff;
+    background-color: #002244;
+    border-radius: 25px;
+    padding: 10px 45px;
+    margin-bottom: 10px;
+    height: auto !important;
+}
+
+p.subofsub-text {
+    padding-left: 140px;
+}
+
+
+/*Twitter Start*/
+
+#social-section .container {
+    /*//padding-left: 0px;
+            //padding-right: 0px;*/
+}
+
+#social-section .slick-next {
+    border-radius: 40px 1px 1px 40px;
+}
+
+#social-section .tech-theme .twitter-carousel .slick-arrow {
+    background: #ddd;
+}
+
+#social-section .slick-prev {
+    border-radius: 1px 40px 40px 1px;
+}
+
+#social-section .twitter-carousel .slick-next:before {
+    font-size: 22px;
+    top: 45px;
+    left: 25px;
+    color: #dbd600;
+}
+
+#social-section .twitter-carousel .slick-prev:before {
+    top: 45px;
+    left: 18px;
+    color: #dbd600;
+    font-size: 22px;
+}
+
+
+
+#social-section .tech-theme .twitter-carousel .slick-arrow {
+    background: #ddd;
+}
+
+#social-section .twitter-carousel .slick-next {
+    left: calc(100% - 40px);
+    margin-left: 0;
+}
+
+
+
+
+#social-section .twitter-carousel .slick-prev {
+    left: 0%;
+    margin-left: 0px;
+}
+
+#social-section .container {
+    width: 100%;
+    padding: 0;
+}
+
+#social-section .twitter-carousel .panel .feed {
+    padding: 0 45px;
+}
+
+#social-section h2:before {
+    //content: "";
+    //position: absolute;
+    //font-family: 'InformaIcons';
+    display: none;
+}
+
+#social-section h2:after {
+    content: '\f099';
+    position: relative;
+    //font-family: 'InformaIcons';
+    font-family: FontAwesome;
+    left: 10px;
+}
+
+#social-section h2 {
+    padding-left: 45px;
+}
+
+#social-section .twitter-carousel .slick-arrow {
+    height: 80px;
+    width: 40px;
+}
+
+#social-section .twitter-carousel .panel .feed .feed-heading > a:after {
+    content: '|';
+    color: #fff;
+    left: -4px;
+    position: relative;
+}
+
+#social-section .twitter-carousel .panel .feed .feed-heading > a {
+    float: left;
+}
+
+#social-section .twitter-carousel .panel .feed .twit-img {
+    margin-top: 25px;
+}
+
+#social-section {
+    background-color: #182d50;
+}
+
+.tech-theme .twitter-carousel .message a {
+    text-decoration: none;
+    color: #03A9F4;
+    border-bottom: 0px solid #fff;
+    word-wrap: break-word;
+}
+
+html {
+    font-family: open sans-serif;
+}
+
+@media screen and (max-width:768px) and (min-width:320px) {
+    #social-section .twitter-carousel .slick-prev:before, #social-section .twitter-carousel .slick-next:before {
+        top: 35px;
+        left: 14px;
+    }
+
+    #social-section .twitter-carousel .slick-next {
+        left: calc(100% - 35px);
+    }
+
+    #social-section .twitter-carousel .panel {
+        height: 300px;
+    }
+}
+/*Twitter End*/
+
+
+.dot-img-left {
+    background-image: url(/static/images/tech/leftdotted.png);
+    background-size: 100%;
+    width: 112px;
+    height: 35px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+}
+
+.dot-img-right {
+    background-image: url(/static/images/tech/rightdotted.png);
+    background-size: 100%;
+    width: 112px;
+    height: 35px;
+    background-repeat: no-repeat;
+    margin-left: 20px;
+}
+
+/*for single image*/
+.single-image {
+    width: 100%;
+    float: left;
+
+    img {
+        width: 100%;
+    }
+}
+
+.search-icon {
+    position: absolute;
+    top: 12px;
+}
+
+
+section#hero-banner .btn {
+    margin-left: 10px;
+    color: #fff;
+    padding: 10px 60px;
+    border-radius: 30px;
+    width: auto;
+    height: auto;
+    font-size: 18px !important;
+    text-align: center;
+}
+
+.tech-theme .btn-primary:after {
+    font-family: 'InformaIcons';
+    right: 15px;
+    font-weight: bold;
+    position: absolute;
+    opacity: 0;
+}
+
+section#hero-banner {
+    max-height: 720px;
+}
+
+
+
+/*desktop max width function*/
+div#tech-main-header .nav-bar, .hero-banner .vertical-align .for-left {
+    max-width: 1380px;
+    margin: 0 auto;
+}
+
+section#hero-banner h1 {
+    width: 57%
+}
+
+.featured-products, section#customers_list, .Meet-customer, .tech-theme footer, #social-section {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.discover-community, .reach-img-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-bottom: 84px;
+}
+
+
+/*desktop max width function*/
+
+/*media query start*/
+
+@media only screen and (max-width:768px) {
+
+    .single-image {
+        .hero-items {
+            //position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-top: 25px;
+
+            .hero-cf-image {
+                //position: absolute;
+                //top: 90px;
+                order: 2;
+            }
+
+            .vertical-align {
+                //position: absolute;
+                ///top: 11px;
+                // height: 70px;
+                //overflow: hidden;
+                order: 1;
+
+                .for-left {
+                    margin-left: 0px;
+                }
+            }
+
+            .for-left {
+                h1 {
+                    font-size: 24px;
+                    line-height: 1.5;
+                    color: #024;
+                }
+
+                p {
+                    padding: 10px 15px;
+                }
+            }
+        }
+    }
+
+
+    /*top header*/
+    .sticky a.log-img img {
+        width: 220px !important;
+    }
+
+    div#tech-main-header .nav-bar {
+        padding: 10px 20px;
+    }
+
+    div#tech-main-header .stellarnav.mobile.right > ul {
+        position: fixed;
+        top: 0px;
+    }
+    /*banner section*/
+    #productDetails #divsegment.wrapper-dropdown-5 {
+        display: block;
+        text-align: center;
+    }
+    /*discover comunity*/
+    .discover-community p.subofsub-text {
+        padding: 0 81px 0 0 !important;
+        width: 100%;
+    }
+
+    .discover-community .sub-text-n-img {
+        margin: 0 0;
+    }
+
+    .discover-community .sub-text-n-img {
+        margin: 15px 0;
+    }
+
+    .discover-community {
+        //position: relative;
+        //z-index: 1;
+        //top: 260px;
+        display:inline-block;
+    }
+    /*global*/
+    .row [class*='col-'] {
+        padding: 0 15px;
+    }
+    /**/
+    .reach-img-section {
+        top: 178px;
+    }
+
+    .reach-img-section .global-discription {
+        padding: 10px 0px 0 55px;
+    }
+
+    .reach-img-section .our-reach-container {
+        padding: 20px 0px;
+    }
+
+    .reach-img-section .our-reach-container {
+        padding: 20px 0px;
+    }
+
+    .our-reach-section .researchsubs .numberntext {
+        font-size: 27px;
+    }
+
+    .our-reach-section .researchsubs span.plus {
+        font-size: 27px !important;
+        margin-top: 0px;
+    }
+
+    .featured-products {
+        //position: relative;
+        //top: 85px;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .our-reach-section .researchsubs .text {
+        font-size: 12px;
+    }
+
+    .reach-img-section {
+        background: #fff;
+        display: inline-block;
+        width: 100%;
+        position: static;
+    }
+
+    .discover-community .gradient-box a.btn.btnprimary.border-button {
+        font-size: 14px;
+    }
+
+    .discover-community .brand-log .row img.brand-img {
+        max-width: 80%;
+    }
+
+    .featured-products .custom-owl-next, .featured-products .custom-owl-previous {
+        display: none;
+    }
+
+    #social-section {
+        display:inline-block;
+        width:100%;
+
+        h2 {
+            font-size: 26px;
+        }
+    }
+
+    #social-section .twitter-carousel .panel .feed .feed-heading span {
+        font-size: 18px;
+    }
+
+    #social-section .twitter-carousel .slick-prev {
+        margin-left: -5px;
+    }
+
+    .tech-theme .mc-button-child .btn.btnprimary.border-button {
+        min-width: 140px;
+    }
+
+    .feature-brand-corousel.brand_list .border-button {
+        font-size: 14px !important;
+    }
+
+    .Meet-customer .mc-button-div.fourbutton .mc-button-child {
+        width: 40%;
+    }
+}
+
+/*end media query*/
+/*featured product
+.featured-products .carousel-img .connect-box .inside-box h3 {
+    margin-top: 17px;
+}
+.featured-products .carousel-img .connect-box .inside-box button {
+    top: -92px;
+}
+/*featured product*/
+
+
+/*
+.vertical-align {
+    position: relative;
+
+    .for-left {
+        position: absolute;
+        top: -545px;
+
+        .hero-col-heading {
+            h1 {
+                color: #024;
+            }
+        }
+
+        p {
+            width: 40%;
+            float: left;
+            font-size: 22px;
+            margin-top: 25px;
+            margin-left: 19px;
+        }
+
+        .cta-button-containor {
+            position: absolute;
+            top: 295px;
+            left: 15px;
+        }
+    }
+}
+
+*/
+@media only screen and (min-width:768px) {
+    .bannerheading-font-white {
+        color: #fff !important;
+    }
+    .hero-items {
+        position: relative;
+        max-width: 1400px;
+        margin: 0 auto;
+
+        .vertical-align {
+            top: 108px;
+            position: absolute;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+
+            .for-left {
+                max-width: 1400px;
+                margin: 0 auto;
+
+                h1 {
+                    color: #024;
+                }
+
+                p {
+                    width: 40%;
+                    font-size: 22px;
+                    margin-top: 25px;
+                    margin-left: 20px;
+                }
+
+                .cta-button-containor {
+                    left: 15px;
+                    float: left;
+                    margin: 10px 15px;
+                }
+            }
+        }
+    }
+}
+
+
+
+.tech-theme .btn-primary {
+    border: solid 2px rgba(205,218,11,.8);
+    text-align: center;
+    border-radius: 43px;
+    padding: 10px;
+    height: auto;
+}
+
+.tech-theme .primary-btn-hover, .tech-theme .open .btn-primary, .tech-theme .btn-primary:hover {
+    border: solid 2px rgba(205,218,11,.8);
+    background-color: #002244;
+}
+
+/* Start Hero Banner Single Image handled from javascript*/
+@media only screen and (max-width: 768px) {
+    .vertical-align.empty-banner-image {
+        padding: 10px 15px;
+        margin: 10px auto;
+        height: auto !important;
+    }
+}
+
+/****for desktop****/
+.vertical-align.empty-banner-image {
+    position: static !important;
+    padding: 20px 0px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+/* End Hero Banner Single Image handled from javascript*/
+
+/*Rich Text editor containor*/
+.rich-text-editor .rich-text-cta {
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+.dot-image-heading {
+    align-items: center !important;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.rich-text-width-container {
+    clear: both;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .mb-20 {
+        margin-bottom: 20px;
+    }
+    .bio-detail {
+        .parent-node {
+            display: flex;
+            flex-direction: column;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+
+            .moveColumnTop1 {
+                order: 2;
+            }
+
+            .moveColumnTop2 {
+                order: 1
+            }
+        }
+    }
+}
+
+
+
+/*end Rich Text editor containor*/
