@@ -393,7 +393,6 @@ INFORMA.TechHeader = (function (window, $, namespace) {
             theme: 'plain',
             breakpoint: 961,
             position: 'right',
-            phoneBtn: '18009997788',
             phoneBtn: false,
             closeBtn: true,
             sticky: false,
