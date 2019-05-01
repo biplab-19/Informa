@@ -677,3 +677,186 @@ section h1 {
 /***Hero-Banner-End**/
 
 
+/*feature CTA Contact Form*/
+
+.mc-button-div-contact {
+    display: flex;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.mc-button-div-contact .mc-button-child-contact {
+    width: 24%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px;
+}
+
+.mc-button-div-contact > div > a {
+    width: 100%;
+    background-color: #024;
+    color: #fff;
+    border: solid 2px rgba(205,218,11,.8);
+    text-align: center;
+    border-radius: 43px;
+    padding: 10px;
+    height: auto;
+    cursor: pointer;
+    padding: 10px 25px;
+    font-weight: 700;
+}
+
+.mc-button-div-contact > div > a:focus {
+    color: #fff;
+}
+
+@media (max-width: 810px) {
+    .mc-button-div-contact .mc-button-child-contact {
+        width: 43%;
+        margin: 10px;
+    }
+
+    .mc-button-div-contact {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .mc-button-div-contact .mc-button-child-contact {
+        width: 40%;
+    }
+
+    #contact-us fieldset {
+        width: 100% !important;
+    }
+
+    #contact-us .form-submit-border {
+        padding: 0 !important;
+        width: 120px;
+        margin: 90px auto 0;
+        width: 235px;
+    }
+}
+
+#contact-us .modal-content, #contact-us form {
+    background: #fff;
+    color: #000;
+    font-family: "Aleo";
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: none;
+}
+
+#contact-us .page-header h1 {
+    color: #000;
+    margin: 0px 0px 20px 0px;
+    text-transform: uppercase;
+}
+
+#contact-us .form-submit-border::after {
+    display: none;
+}
+
+#contact-us input, #contact-us textarea {
+    border: 1px solid transparent;
+    outline: none;
+    box-shadow: none;
+    background: transparent;
+    border-bottom: 1px solid #000;
+}
+
+#contact-us .close span {
+    font-size: 40px;
+    color: #c5c5c5;
+}
+
+#contact-us .form-submit-border {
+    padding: 0px !important;
+}
+
+#contact-us input[type="submit"] {
+    background-color: #024;
+    border-radius: 100px;
+    opacity: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    box-sizing: border-box;
+    line-height: 20px;
+    font-family: "Aleo";
+}
+
+#contact-us .form-recaptcha-text a {
+    color: #656565;
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+}
+
+#contact-us .form-recaptcha-text {
+    background: transparent !important;
+    height: auto !important;
+    overflow: hidden
+}
+
+#contact-us img {
+    overflow: hidden;
+    display: block;
+    margin-top: 36px !important;
+}
+
+#contact-us fieldset:nth-child(even) {
+    margin-right: 40px;
+}
+
+#contact-us fieldset {
+    display: inline-block;
+    width: 45%;
+}
+
+#contact-us .chosen-single {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #000 !important;
+}
+
+#contact-us .tech-textarea textarea {
+    height: 150px;
+}
+
+#contact-us .form-modal .modal-dialog {
+    width: 40%;
+}
+@media only screen and (max-width:768px) {
+    #contact-us .modal-content, #contact-us form {
+        border-radius: 0;
+    }
+
+    #contact-us fieldset {
+        display: block;
+        width: 100%;
+    }
+
+    #contact-us .form-submit-border {
+        //position: static;
+        //margin: 18px;
+        //display: block;
+    }
+
+    #contact-us input[type="submit"] {
+        overflow: hidden;
+        width: 250px !important;
+        margin: 0 auto;
+        position: static;
+    }
+
+    #contact-us .tech-textarea textarea {
+        height: 100px;
+    }
+}
+
+/*feature CTA Contact Form-End*/
