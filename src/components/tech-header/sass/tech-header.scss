@@ -1,9 +1,16 @@
 
 
 div#tech-main-header {
+    position: relative;
+    z-index: 9999;
     transition: all .3s ease-in-out;
-    box-shadow: 0 3px 10px rgba(0,0,0,.1);
     background-color: #fff;
+
+    &.sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
 
     .container {
         padding: 0;
@@ -75,7 +82,7 @@ div#tech-main-header {
 
 
 
-   
+
 
 
     .stellarnav.fixed {
@@ -558,7 +565,7 @@ div#tech-main-header {
         border: 0;
     }
 
-    .stellarnav.mobile .menu-toggle, .stellarnav.mobile .dd-toggle, .stellarnav.mobile .close-menu, .stellarnav.mobile .call-btn-mobile, .stellarnav.mobile .location-btn-mobile {
+    .stellarnav.mobile .menu-toggle, .stellarnav.mobile .close-menu, .stellarnav.mobile .call-btn-mobile, .stellarnav.mobile .location-btn-mobile {
         display: inline-block;
     }
 
@@ -749,15 +756,22 @@ div#tech-main-header {
         position: relative;
     }
 
-    .main-nav-bar .has-sub > .dd-toggle {
+    .main-nav-bar .dd-toggle {
         position: absolute;
         left: 15px !important;
         width: 100%;
         text-align: left;
+        display: none;
     }
 
-    .main-nav-bar .has-sub > a img {
-        visibility: hidden;
+    .stellarnav.mobile .main-nav-bar > li {
+        // all top level and only children with children
+        & > .dd-toggle, .has-sub > .dd-toggle {
+            display: block;
+        }
+        & > a .arrow-right, .has-sub > a .arrow-right {
+            visibility: hidden;
+        }
     }
 
     .stellarnav a.dd-toggle .icon-plus:before, .stellarnav a.dd-toggle .icon-plus:after {
@@ -808,13 +822,6 @@ div#tech-main-header {
     .stellarnav.desktop .main-nav-bar .has-sub > a img {
         visibility: visible;
     }
-    }
-
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
 }
 
 .sticky a.log-img img {
@@ -830,7 +837,7 @@ div#tech-main-header .stellarnav.mobile {
 div#tech-main-header .stellarnav.mobile.right > ul {
     top: 0;
     right: 0;
-    position: absolute;
+    // position: absolute;
 }
 
 @media screen and (max-width: 768px) {
@@ -839,11 +846,10 @@ div#tech-main-header .stellarnav.mobile.right > ul {
     }
 
     div#tech-main-header .stellarnav.mobile.right > ul {
-        top: 38px;
+        // top: 38px;
     }
 }
 
 div#tech-main-header .stellarnav ul ul li a {
     border-radius: 0 0 10px 10px;
 }
-

@@ -67,16 +67,17 @@
 .portfolio .filter-section {
     width: 100%;
     float: left;
-    margin: 10px 0px;
+    margin: 15px 0px;
     font-size: 18px;
     min-height: 28px;
 }
 
 .portfolio .filter-section .heading {
     font-weight: 600;
-    color: #333;
+    color: #555;
     width: 150px;
     float: left;
+    text-transform: capitalize;
 }
 
 .portfolio .filter-section .section {
@@ -105,9 +106,10 @@
 .portfolio .portfolio-grid .heading {
     width: 100%;
     float: left;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     position: absolute;
     top: -30px;
+    font-size: 17px;
 }
 
 .portfolio .portfolio-grid .port-container {
@@ -117,11 +119,11 @@
 }
 
 .portfolio .portfolio-grid .port-container .port {
-    padding: 0 10%;
+    padding: 0 5%;
     cursor: pointer;
     position: relative;
     margin-bottom: 20px;
-    height: 165px;
+    // height: 165px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -156,6 +158,11 @@
     background-color: #cdda0b;
     color: #fff;
     padding: 0;
+    line-height: 33px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    font-size: 33px;
 }
 
 .portfolio .portfolio-grid .port-container .port:hover img {
@@ -239,8 +246,8 @@
 }
 
 .portfolio .portfolio-grid .port-container .port img {
-    width: 100%;
-    height: 104px;
+    // width: 100%;
+    //height: 104px;
     border-radius: 8px;
     -webkit-filter: grayscale(100%);
     /* Safari 6.0 - 9.0 */
@@ -252,13 +259,14 @@
     background: #fff;
     position: absolute;
     cursor: pointer;
-    top: 146px;
-    left: calc(50% - 15px);
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
     color: #cdda0b;
-    font-size: 20px;
-    width: 30px;
-    height: 30px;
-    border-radius: 32px;
+    font-size: 18px;
+    width: 1.2em;
+    line-height: 1.2em;
+    border-radius: 50%;
 }
 
 .portfolio .portfolio-grid .port-container .port .content {
@@ -365,7 +373,7 @@ select {
     width: 0;
     height: 0;
     position: absolute;
-    top: 23px;
+    top: 18px;
     right: 15px;
     margin-top: -3px;
     border-width: 13px 8px 0 6px;
@@ -378,7 +386,7 @@ select {
     top: 100%;
     left: 0;
     right: 0;
-    background: #fff;
+    background: transparent;
     border-top: none;
     border-bottom: none;
     list-style: none;
@@ -388,6 +396,7 @@ select {
     width: 100%;
     font-size: 16px;
     display: none;
+    overflow-y: scroll;
 }
 
 .wrapper-dropdown-5 .dropdown li {
@@ -455,41 +464,18 @@ select {
 @media screen and (max-width: 768px) and (min-width: 320px) {
     .section-content {
         top: 370px;
-        width: 90%;
+        // width: 90%;
     }
 }
 
 .portfolio .filter-section .section .unit label {
     font-weight: normal !important;
+    color: #555;
 }
 
 footer {
     clear: none !important;
 }
-
-@media screen and (max-width:480px) and (min-width:320px) {
-    div.grid-item, div.grid-sizer {
-        width: 100%;
-    }
-
-    div.grid-item.is-expanded {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width:1280px) and (min-width:481px) {
-    div.grid-item, div.grid-sizer {
-        width: 30%;
-    }
-
-    div.grid-item.is-expanded {
-        width: 60%;
-    }
-}
-
-
-
-/*# sourceMappingURL=main.css.map */
 
 
 
@@ -497,12 +483,17 @@ footer {
 .grid-item,
 .grid-sizer {
     width: 24%;
+    opacity: 0;
+}
+
+.grid-item.grid-show {
+    opacity: 1;
 }
 
 .grid-item {
     float: left;
-    height: 165px;
-    margin-bottom: 10px;
+    //min-height: 165px;
+    margin-bottom: 20px;
 }
 
 /* grid-item-content is visible, and transitions size */
@@ -518,7 +509,7 @@ footer {
 /* both item and item content change size */
 .grid-item.is-expanded {
     width: 48.5%;
-    height: 340px;
+    //height: 340px;
 }
 
 .grid-item.is-expanded .port {
@@ -569,8 +560,9 @@ footer {
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn {
-    width: 143px;
+    width: auto;
     font-size: 14px;
+    padding: 8px 60px;
 }
 
 .content .close {
@@ -583,4 +575,101 @@ footer {
 .portfolio .portfolio-grid .grid-item.is-expanded .port-container .port img {
     width: 50%;
     float: left;
+}
+
+.select.search-section {
+    position: relative;
+}
+
+/**new start**/
+.wrapper-dropdown-5 .dropdown li:last-child {
+    border-radius: 0px 0px 14px 14px;
+}
+
+.wrapper-dropdown-5 .dropdown li:hover {
+    background: #e8e8e8;
+}
+
+.item.port.grid-item-content .content .labels {
+    color: #333754;
+    text-transform: capitalize;
+}
+
+section p {
+    font-family: FSMe-Light;
+    color: #0c0c0c;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/**new end**/
+
+/*For select*/
+@media screen and (min-width:768px) {
+    .portfolio .select-filter {
+        position: relative;
+    }
+
+    .portfolio .select-filter .select {
+        position: absolute;
+        top: 0;
+        width: calc(24% - 15px);
+    }
+
+    .portfolio .select-filter .select:nth-child(2) {
+        left: 25%;
+    }
+
+    .portfolio .select-filter .select:nth-child(3) {
+        left: calc(50% - 15px);
+    }
+
+    .portfolio .select-filter .select:nth-child(4) {
+        left: calc(75% - 15px);
+    }
+
+    .portfolio .select-filter {
+        margin-bottom: 50px;
+    }
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+@media screen and (max-width:768px) and (min-width:320px) {
+    div.grid-item, div.grid-sizer {
+        width: calc(50% - 10px);
+    }
+
+    div.grid-item.is-expanded {
+        width: 100%;
+    }
+
+    section.portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn {
+        padding: 6px 35px;
+    }
+
+    section.portfolio .portfolio-grid .port-container .port img {
+        width: 100%;
+        height: auto;
+    }
+
+    div.grid-item {
+        float: left;
+        margin-bottom: 10px;
+    }
 }
