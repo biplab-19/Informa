@@ -305,12 +305,12 @@ section#hero-banner h1 {
                 //overflow: hidden;
                 order: 1;
 
-                .for-left {
+                .for-left, .for-right {
                     margin-left: 0px;
                 }
             }
 
-            .for-left {
+            .for-left, .for-right {
                 h1 {
                     font-size: 24px;
                     line-height: 1.5;
@@ -506,14 +506,15 @@ section#hero-banner h1 {
         margin: 0 auto;
 
         .vertical-align {
-            bottom: 50px;
+            //bottom: 50px;
+            top: 35%;
             position: absolute;
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
 
-            .for-left {
-                max-width: 1400px;
+            .for-left, .for-right {
+                max-width: 800px;
                 margin: 0 auto;
 
                 h1 {
@@ -521,7 +522,7 @@ section#hero-banner h1 {
                 }
 
                 p {
-                    width: 40%;
+                    width: 99%;
                     font-size: 22px;
                     margin-top: 25px;
                     margin-left: 20px;
@@ -533,11 +534,46 @@ section#hero-banner h1 {
                     margin: 10px 0px; /*1-May-2019*/
                 }
             }
+
+
+            .for-center {
+                max-width: 800px;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .for-center h1 {
+                color: #024;
+            }
+
+            .for-center p {
+                width: 100%;
+                font-size: 22px;
+                margin-top: 25px;
+                margin-left: 20px;
+            }
+
+            .full-width {
+                max-width: 100%;
+                text-align: left
+            }
+
+           
+
+            .full-width p {
+                width: 100%;
+                font-size: 22px;
+                margin-top: 25px;
+                margin-left: 20px;
+            }
         }
     }
 }
 
 
+.full-width h1 {
+    color: #024;
+}
 
 .tech-theme .btn-primary {
     border: solid 2px rgba(205,218,11,.8);
@@ -545,6 +581,7 @@ section#hero-banner h1 {
     border-radius: 43px;
     padding: 10px;
     height: auto;
+    width: 160px !important;
 }
 
 .tech-theme .primary-btn-hover, .tech-theme .open .btn-primary, .tech-theme .btn-primary:hover {
