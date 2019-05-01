@@ -74,10 +74,9 @@
 
 .portfolio .filter-section .heading {
     font-weight: 600;
-    color: #555;
+    color: #333;
     width: 150px;
     float: left;
-    text-transform: capitalize;
 }
 
 .portfolio .filter-section .section {
@@ -109,7 +108,6 @@
     margin-bottom: 10px;
     position: absolute;
     top: -30px;
-    font-size: 17px;
 }
 
 .portfolio .portfolio-grid .port-container {
@@ -158,11 +156,6 @@
     background-color: #cdda0b;
     color: #fff;
     padding: 0;
-    line-height: 33px;
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    font-size: 33px;
 }
 
 .portfolio .portfolio-grid .port-container .port:hover img {
@@ -259,14 +252,13 @@
     background: #fff;
     position: absolute;
     cursor: pointer;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
+    top: 146px;
+    left: calc(50% - 15px);
     color: #cdda0b;
-    font-size: 18px;
-    width: 1.2em;
-    line-height: 1.2em;
-    border-radius: 50%;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 32px;
 }
 
 .portfolio .portfolio-grid .port-container .port .content {
@@ -373,7 +365,7 @@ select {
     width: 0;
     height: 0;
     position: absolute;
-    top: 18px;
+    top: 23px;
     right: 15px;
     margin-top: -3px;
     border-width: 13px 8px 0 6px;
@@ -386,7 +378,7 @@ select {
     top: 100%;
     left: 0;
     right: 0;
-    background: transparent;
+    background: #fff;
     border-top: none;
     border-bottom: none;
     list-style: none;
@@ -396,7 +388,6 @@ select {
     width: 100%;
     font-size: 16px;
     display: none;
-    overflow-y: scroll;
 }
 
 .wrapper-dropdown-5 .dropdown li {
@@ -464,28 +455,43 @@ select {
 @media screen and (max-width: 768px) and (min-width: 320px) {
     .section-content {
         top: 370px;
-        // width: 90%;
+        width: 90%;
     }
 }
 
 .portfolio .filter-section .section .unit label {
     font-weight: normal !important;
-    color: #555;
 }
 
 footer {
     clear: none !important;
 }
 
-@media screen and (max-width:768px) and (min-width:320px) {
+@media screen and (max-width:480px) and (min-width:320px) {
     div.grid-item, div.grid-sizer {
-        width: calc(50% - 5px); 
+        width: 100%;
     }
 
     div.grid-item.is-expanded {
         width: 100%;
     }
 }
+
+@media screen and (max-width:1280px) and (min-width:481px) {
+    div.grid-item, div.grid-sizer {
+        width: 30%;
+    }
+
+    div.grid-item.is-expanded {
+        width: 60%;
+    }
+}
+
+
+
+/*# sourceMappingURL=main.css.map */
+
+
 
 /* item is invisible, but used for layout */
 .grid-item,
@@ -563,10 +569,8 @@ footer {
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn {
-   
-    width: auto;
+    width: 143px;
     font-size: 14px;
-    padding: 8px 40px;
 }
 
 .content .close {
@@ -580,42 +584,3 @@ footer {
     width: 50%;
     float: left;
 }
-.select.search-section{
-    position:relative;
-}
-
-/**new start**/
-.wrapper-dropdown-5 .dropdown li:last-child {
-    border-radius: 0px 0px 14px 14px;
-}
-
-.wrapper-dropdown-5 .dropdown li:hover {
-    background: #e8e8e8;
-}
-
-.item.port.grid-item-content .content .labels {
-    color: #333754;
-    text-transform: capitalize;
-}
-section p {
-    font-family: FSMe-Light;
-    color: #0c0c0c;
-}
-
- ::-webkit-scrollbar {
-    width: 10px;
-}
-
- ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
- ::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-/**new end**/
-

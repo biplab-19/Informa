@@ -194,11 +194,16 @@
 
     .custom-owl-previous {
         top: 35%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
         width: 90px;
         height: 90px;
         border-radius: 100%;
+        font-size: 35px;
         right: auto;
-        padding-left: 50px !important;
+        position: relative;
+        padding-left: 56px !important;
         background: #fff;
         position: absolute;
         left: -50px;
@@ -214,13 +219,19 @@
 
     .custom-owl-next {
         top: 35%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
         width: 90px;
         height: 90px;
         border-radius: 100%;
-        padding-right: 50px !important;
+        font-size: 35px;
+        right: -50px;
+        position: relative;
+        padding-left: 18px !important;
         background: #fff;
         position: absolute;
-        right: -50px;
+        left: auto;
         z-index: 99;
         border: 0;
 
