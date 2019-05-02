@@ -82,7 +82,7 @@ div#tech-main-header {
 
 
 
-
+   
 
 
     .stellarnav.fixed {
@@ -513,7 +513,7 @@ div#tech-main-header {
     }
 
     .stellarnav.mobile > ul > li > a {
-        padding: 15px;
+        padding: 15px 0 15px 20px;
     }
 
     .stellarnav.mobile ul {
@@ -565,7 +565,7 @@ div#tech-main-header {
         border: 0;
     }
 
-    .stellarnav.mobile .menu-toggle, .stellarnav.mobile .close-menu, .stellarnav.mobile .call-btn-mobile, .stellarnav.mobile .location-btn-mobile {
+    .stellarnav.mobile .menu-toggle, .stellarnav.mobile .dd-toggle, .stellarnav.mobile .close-menu, .stellarnav.mobile .call-btn-mobile, .stellarnav.mobile .location-btn-mobile {
         display: inline-block;
     }
 
@@ -756,22 +756,13 @@ div#tech-main-header {
         position: relative;
     }
 
-    .main-nav-bar .dd-toggle {
+    .main-nav-bar .has-sub > .dd-toggle {
         position: absolute;
-        left: 15px !important;
-        width: 100%;
-        text-align: left;
-        display: none;
+        left: 0;
     }
 
-    .stellarnav.mobile .main-nav-bar > li {
-        // all top level and only children with children
-        & > .dd-toggle, .has-sub > .dd-toggle {
-            display: block;
-        }
-        & > a .arrow-right, .has-sub > a .arrow-right {
-            visibility: hidden;
-        }
+    .main-nav-bar .has-sub > a img {
+        visibility: hidden;
     }
 
     .stellarnav a.dd-toggle .icon-plus:before, .stellarnav a.dd-toggle .icon-plus:after {
@@ -822,7 +813,7 @@ div#tech-main-header {
     .stellarnav.desktop .main-nav-bar .has-sub > a img {
         visibility: visible;
     }
-}
+    }
 
 .sticky a.log-img img {
     width: 240px !important;
@@ -853,3 +844,4 @@ div#tech-main-header .stellarnav.mobile.right > ul {
 div#tech-main-header .stellarnav ul ul li a {
     border-radius: 0 0 10px 10px;
 }
+
