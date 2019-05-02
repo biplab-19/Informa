@@ -180,6 +180,10 @@
         color: #024;
         position: relative;
         margin: 0;
+        width:calc(100% - 30px);
+        @media screen and (max-width: 812px) {
+            left:20px;
+        }
     }
 
     .global-discription {
