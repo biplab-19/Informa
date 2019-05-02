@@ -523,7 +523,6 @@ footer {
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content {
     padding: 0;
     width: 100%;
-    float: left;
 }
 
 .grid-item.is-expanded .port-container .port .content .close {
@@ -541,28 +540,32 @@ footer {
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    float: left;
     margin-bottom: 25px;
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header img {
     width: 50%;
-    float: left;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all {
+    float: none;
     width: 50%;
-    float: left;
     margin: 0;
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn {
+    display: inline-block;
     width: auto;
     font-size: 14px;
-    padding: 8px 60px;
+    padding: 8px 30px;
 }
 
 .content .close {
@@ -667,10 +670,6 @@ section p {
 
         div.grid-item.is-expanded {
             width: 100%;
-        }
-
-        section.portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn {
-            padding: 6px 35px;
         }
 
         section.portfolio .portfolio-grid .port-container .port img {
