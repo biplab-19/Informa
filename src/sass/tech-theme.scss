@@ -56,7 +56,7 @@ body {
     padding: 10px 45px;
     margin-bottom: 10px;
     height: auto !important;
-    border: 2px solid transparent;
+    border: 2px solid transparent !important;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
 }
@@ -488,7 +488,7 @@ section#hero-banner h1 {
                 }
 
                 p {
-                    width: 100%;
+                    width: 75%;
                     font-size: 22px;
                     margin-top: 25px;
                     margin-left: 20px;
@@ -527,7 +527,7 @@ section#hero-banner h1 {
 
 
             .full-width p {
-                width: 100%;
+                width: 91%;
                 font-size: 22px;
                 margin-top: 25px;
                 margin-left: 20px;
@@ -555,7 +555,7 @@ section#hero-banner h1 {
 }
 
 .tech-theme .btn-primary {
-    border: solid 2px rgba(205,218,11,.8);
+    border: 2px solid transparent;
     text-align: center;
     border-radius: 43px;
     padding: 10px;
@@ -564,7 +564,7 @@ section#hero-banner h1 {
 }
 
 .tech-theme .primary-btn-hover, .tech-theme .open .btn-primary, .tech-theme .btn-primary:hover {
-    border: solid 2px rgba(205,218,11,.8);
+    border: 2px solid transparent;
     background-color: #002244;
 }
 
@@ -1088,6 +1088,11 @@ section#hero-banner h1 {
     .Meet-customer .mc-button-div.fourbutton .mc-button-child {
         width: 40%;
     }
+    div.subofsub-text {
+        width: 100%;
+        margin-left: 0px;
+        padding: 0px 10px;
+    }
 }
 
 /*end media query*/
@@ -1157,16 +1162,16 @@ section#hero-banner h1 {
                 }
 
                 p {
-                    width: 40%;
+                    width: 95%;
                     font-size: 22px;
                     margin-top: 25px;
                     margin-left: 20px;
                 }
 
                 .cta-button-containor {
-                    left: 15px;
+                    left: 0;
                     float: left;
-                    margin: 10px 15px;
+                    margin: 10px 0;
                 }
             }
         }
@@ -1176,15 +1181,17 @@ section#hero-banner h1 {
 
 
 .tech-theme .btn-primary {
-    border: solid 2px rgba(205,218,11,.8);
+    border: 2px solid transparent;
     text-align: center;
     border-radius: 43px;
     padding: 10px;
     height: auto;
+    font-family: 'Open Sans',sans-serif;
+    font-weight: 700;
 }
 
 .tech-theme .primary-btn-hover, .tech-theme .open .btn-primary, .tech-theme .btn-primary:hover {
-    border: solid 2px rgba(205,218,11,.8);
+    border: 2px solid transparent;
     background-color: #002244;
 }
 
@@ -1510,7 +1517,8 @@ section#hero-banner h1 {
 .discover-community, .reach-img-section {
     max-width: 1400px;
     margin: 0 auto;
-    margin-bottom: 84px;
+    margin-bottom: 60px;
+    clear: both;
 }
 
 
@@ -1755,16 +1763,16 @@ section#hero-banner h1 {
                 }
 
                 p {
-                    width: 40%;
+                    width: 95%;
                     font-size: 22px;
                     margin-top: 25px;
                     margin-left: 20px;
                 }
 
                 .cta-button-containor {
-                    left: 15px;
+                    left: 0;
                     float: left;
-                    margin: 10px 15px;
+                    margin: 10px 0px;
                 }
             }
         }
@@ -1774,7 +1782,7 @@ section#hero-banner h1 {
 
 
 .tech-theme .btn-primary {
-    border: solid 2px rgba(205,218,11,.8);
+    border: 2px solid transparent;
     text-align: center;
     border-radius: 43px;
     padding: 10px;
@@ -1853,3 +1861,45 @@ section#hero-banner h1 {
 /*end Rich Text editor containor*/
 
 
+/*View All brands button*/
+.Viewsolutions.text-center a {
+    position: relative;
+    border: none !important;
+    z-index: 1;
+    display: inline-block;
+}
+
+
+.Viewsolutions a:after {
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    background-color: #002244;
+    z-index: -1;
+}
+
+
+
+.Viewsolutions a:before {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -2;
+    background: #002244;
+    background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
+    background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
+    background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
+    background: -o-linear-gradient(left, #503b9a 0%,#269cc1 100%);
+    background: -ms-linear-gradient(left, #503b9a 0%,#269cc1 100%);
+    background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#503b9a', endColorstr='#269cc1',GradientType=1 );
+}
+
+/*View All brands button*/
+div.subofsub-text {
+    width: 50%;
+    margin-left: 135px;
+    margin-bottom: 30px;
+}

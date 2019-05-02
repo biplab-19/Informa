@@ -513,7 +513,7 @@ div#tech-main-header {
     }
 
     .stellarnav.mobile > ul > li > a {
-        padding: 15px;
+        padding: 15px 0 15px 20px;
     }
 
     .stellarnav.mobile ul {
@@ -758,10 +758,7 @@ div#tech-main-header {
 
     .main-nav-bar .dd-toggle {
         position: absolute;
-        left: 15px !important;
-        width: 100%;
-        text-align: left;
-        display: none;
+        left: 0;
     }
 
     .stellarnav.mobile .main-nav-bar > li {
@@ -769,6 +766,7 @@ div#tech-main-header {
         & > .dd-toggle, .has-sub > .dd-toggle {
             display: block;
         }
+
         & > a .arrow-right, .has-sub > a .arrow-right {
             visibility: hidden;
         }
@@ -853,3 +851,4 @@ div#tech-main-header .stellarnav.mobile.right > ul {
 div#tech-main-header .stellarnav ul ul li a {
     border-radius: 0 0 10px 10px;
 }
+
