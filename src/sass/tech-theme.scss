@@ -373,7 +373,7 @@ section#hero-banner h1 {
     }
 
     .reach-img-section .global-discription {
-        padding: 10px 0px 0 55px;
+        padding: 10px 0px 0 0px;
     }
 
     .reach-img-section .our-reach-container {
@@ -420,7 +420,7 @@ section#hero-banner h1 {
     }
 
     .featured-products .custom-owl-next, .featured-products .custom-owl-previous {
-        display: none;
+        //display: none;
     }
 
     #social-section {
@@ -853,6 +853,11 @@ section h1 {
     margin-left: 20px;
 }
 
+.dot-img-outer{
+    margin-right: 18px;
+    margin-top: 13px;
+}
+
 /*for single image*/
 .single-image {
     width: 100%;
@@ -942,8 +947,9 @@ section#hero-banner h1 {
                 //overflow: hidden;
                 order: 1;
 
-                .for-left {
+                .for-left,.for-right {
                     margin-left: 0px;
+                    margin-bottom:15px;
                 }
             }
 
@@ -1010,7 +1016,7 @@ section#hero-banner h1 {
     }
 
     .reach-img-section .global-discription {
-        padding: 10px 0px 0 55px;
+        padding: 10px 0px 0 0px;
     }
 
     .reach-img-section .our-reach-container {
@@ -1057,7 +1063,7 @@ section#hero-banner h1 {
     }
 
     .featured-products .custom-owl-next, .featured-products .custom-owl-previous {
-        display: none;
+        //display: none;
     }
 
     #social-section {
@@ -1291,6 +1297,7 @@ section#hero-banner h1 {
         margin-top: -8px !important;
         width: 60px;
     }
+   
 }
 
 .tech-theme .btn.btnprimary.border-button {
@@ -1616,7 +1623,7 @@ section#hero-banner h1 {
     }
 
     .reach-img-section .global-discription {
-        padding: 10px 0px 0 55px;
+        padding: 10px 0px 0 0px;
     }
 
     .reach-img-section .our-reach-container {
@@ -1663,7 +1670,7 @@ section#hero-banner h1 {
     }
 
     .featured-products .custom-owl-next, .featured-products .custom-owl-previous {
-        display: none;
+        //display: none;
     }
 
     #social-section {
@@ -1867,34 +1874,34 @@ section#hero-banner h1 {
     border: none !important;
     z-index: 1;
     display: inline-block;
-}
+    /*
+    &:before {
+        content:'';
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: -2;
+        background: #002244;
+        background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
+        background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
+        background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
+        background: -o-linear-gradient(left, #503b9a 0%,#269cc1 100%);
+        background: -ms-linear-gradient(left, #503b9a 0%,#269cc1 100%);
+        background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#503b9a', endColorstr='#269cc1',GradientType=1 );
+    }
 
-
-.Viewsolutions a:after {
-    top: 2px;
-    bottom: 2px;
-    left: 2px;
-    right: 2px;
-    background-color: #002244;
-    z-index: -1;
-}
-
-
-
-.Viewsolutions a:before {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -2;
-    background: #002244;
-    background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
-    background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
-    background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
-    background: -o-linear-gradient(left, #503b9a 0%,#269cc1 100%);
-    background: -ms-linear-gradient(left, #503b9a 0%,#269cc1 100%);
-    background: linear-gradient(to bottom, #81aa0c 50%,#ced002 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#503b9a', endColorstr='#269cc1',GradientType=1 );
+    &:after {
+        content:'';
+        top: 2px;
+        bottom: 2px;
+        left: 2px;
+        right: 2px;
+        background-color: #002244;
+        z-index: -1;
+    }
+        */
 }
 
 /*View All brands button*/
@@ -1903,3 +1910,34 @@ div.subofsub-text {
     margin-left: 135px;
     margin-bottom: 30px;
 }
+
+/*product section*/
+@media screen and (max-width: 600px) and (min-width: 320px) {
+    .owl-carousel .owl-stage-outer {
+        max-height: 725px !important;
+    }
+    .featured-products .custom-owl-previous, .featured-products .custom-owl-next {
+        background-color: transparent;
+    }
+    .featured-products .custom-owl-next i.fa.fa-angle-right {
+        color: #94bb17;
+    }
+
+    .featured-products .custom-owl-previous i.fa.fa-angle-left {
+        color: #94bb17;
+    }
+
+    
+}
+
+@media screen  and (min-width:768px) {
+    .feature-brand-corousel.brand_list .border-button {
+        font-size: 16px !important
+    }
+
+    .tech-theme .btn.btnprimary.border-button {
+        border: 2px solid #8baf0a !important;
+    }
+    }
+
+
