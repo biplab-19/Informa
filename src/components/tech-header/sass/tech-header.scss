@@ -5,6 +5,7 @@ div#tech-main-header {
     z-index: 9999;
     transition: all .3s ease-in-out;
     background-color: #fff;
+    -webkit-backface-visibility: hidden;
 
     &.sticky {
         position: fixed;
@@ -610,7 +611,7 @@ div#tech-main-header {
         width: 100%;
         top: 0;
         left: 0;
-        z-index: 9999;
+        z-index: 9998;
     }
 
     .stellarnav.mobile li.has-sub > a:after, .stellarnav.mobile li li.has-sub > a:after, .stellarnav.mobile li.drop-left li.has-sub > a:after {
@@ -626,7 +627,8 @@ div#tech-main-header {
         overflow-x: hidden;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        z-index: 99;
+        z-index: 9999;
+        transform: translateZ(0);
     }
 
     .stellarnav.mobile.right > ul {
