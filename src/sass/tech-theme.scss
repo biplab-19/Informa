@@ -65,7 +65,11 @@ p.subofsub-text {
     padding-left: 140px;
 }
 
-
+div.subofsub-text {
+    width: 50%;
+    margin-left: 135px;
+    margin-bottom: 30px;
+}
 /*Twitter Start*/
 
 #social-section .container {
@@ -243,13 +247,7 @@ section#hero-banner .btn {
     text-align: center;
 }
 
-.tech-theme .btn-primary:after {
-    font-family: 'InformaIcons';
-    right: 15px;
-    font-weight: bold;
-    position: absolute;
-    opacity: 0;
-}
+
 
 section#hero-banner {
     max-height: 720px;
@@ -272,12 +270,13 @@ section#hero-banner h1 {
     margin: 0 auto;
 }
 
+/*
 .discover-community, .reach-img-section {
     max-width: 1400px;
     margin: 0 auto;
     margin-bottom: 84px;
 }
-
+*/
 
 /*desktop max width function*/
 
@@ -396,7 +395,7 @@ section#hero-banner h1 {
     .featured-products {
         //position: relative;
         //top: 85px;
-        display: inline-block;
+        //display: inline-block;
         width: 100%;
     }
 
@@ -554,19 +553,9 @@ section#hero-banner h1 {
     color: #024;
 }
 
-.tech-theme .btn-primary {
-    border: 2px solid transparent;
-    text-align: center;
-    border-radius: 43px;
-    padding: 10px;
-    height: auto;
-    width: 160px !important;
-}
 
-.tech-theme .primary-btn-hover, .tech-theme .open .btn-primary, .tech-theme .btn-primary:hover {
-    border: 2px solid transparent;
-    background-color: #002244;
-}
+
+
 
 /* Start Hero Banner Single Image handled from javascript*/
 @media only screen and (max-width: 768px) {
@@ -885,13 +874,7 @@ section#hero-banner .btn {
     text-align: center;
 }
 
-.tech-theme .btn-primary:after {
-    font-family: 'InformaIcons';
-    right: 15px;
-    font-weight: bold;
-    position: absolute;
-    opacity: 0;
-}
+
 
 section#hero-banner {
     max-height: 720px;
@@ -1039,7 +1022,7 @@ section#hero-banner h1 {
     .featured-products {
         //position: relative;
         //top: 85px;
-        display: inline-block;
+        //display: inline-block;
         width: 100%;
     }
 
@@ -1186,20 +1169,9 @@ section#hero-banner h1 {
 
 
 
-.tech-theme .btn-primary {
-    border: 2px solid transparent;
-    text-align: center;
-    border-radius: 43px;
-    padding: 10px;
-    height: auto;
-    font-family: 'Open Sans',sans-serif;
-    font-weight: 700;
-}
 
-.tech-theme .primary-btn-hover, .tech-theme .open .btn-primary, .tech-theme .btn-primary:hover {
-    border: 2px solid transparent;
-    background-color: #002244;
-}
+
+
 
 /* Start Hero Banner Single Image handled from javascript*/
 @media only screen and (max-width: 768px) {
@@ -1492,13 +1464,7 @@ section#hero-banner .btn {
     text-align: center;
 }
 
-.tech-theme .btn-primary:after {
-    font-family: 'InformaIcons';
-    right: 15px;
-    font-weight: bold;
-    position: absolute;
-    opacity: 0;
-}
+
 
 section#hero-banner {
     max-height: 720px;
@@ -1524,7 +1490,7 @@ section#hero-banner h1 {
 .discover-community, .reach-img-section {
     max-width: 1400px;
     margin: 0 auto;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     clear: both;
 }
 
@@ -1646,7 +1612,7 @@ section#hero-banner h1 {
     .featured-products {
         //position: relative;
         //top: 85px;
-        display: inline-block;
+        //display: inline-block;
         width: 100%;
     }
 
@@ -1788,18 +1754,9 @@ section#hero-banner h1 {
 
 
 
-.tech-theme .btn-primary {
-    border: 2px solid transparent;
-    text-align: center;
-    border-radius: 43px;
-    padding: 10px;
-    height: auto;
-}
 
-.tech-theme .primary-btn-hover, .tech-theme .open .btn-primary, .tech-theme .btn-primary:hover {
-    border: solid 2px rgba(205,218,11,.8);
-    background-color: #002244;
-}
+
+
 
 /* Start Hero Banner Single Image handled from javascript*/
 @media only screen and (max-width: 768px) {
@@ -1905,11 +1862,8 @@ section#hero-banner h1 {
 }
 
 /*View All brands button*/
-div.subofsub-text {
-    width: 50%;
-    margin-left: 135px;
-    margin-bottom: 30px;
-}
+
+
 
 /*product section*/
 @media screen and (max-width: 600px) and (min-width: 320px) {
@@ -1934,10 +1888,46 @@ div.subofsub-text {
     .feature-brand-corousel.brand_list .border-button {
         font-size: 16px !important
     }
+}
 
-    .tech-theme .btn.btnprimary.border-button {
-        border: 2px solid #8baf0a !important;
+.tech-theme .btn.border-button.color-border {
+    border: 2px solid #8baf0a !important;
+}
+
+.tech-theme .btn-primary {
+    border: 2px solid transparent;
+    text-align: center;
+    border-radius: 43px;
+    padding: 10px;
+    height: auto;
+    font-weight: 700;
+    min-width: 160px;
+    font-family: 'Open Sans',sans-serif;
+    font-size:12px;
+    width:auto;
+    @media screen and (min-width:320px) and (max-width:768px) {
+        min-width: 130px;
+        padding: 10px 5px;
+        font-size:12px;
     }
+}
+
+
+.tech-theme .btn-primary:after {
+    font-family: 'InformaIcons';
+    right: 15px;
+    font-weight: bold;
+    position: absolute;
+    opacity: 0;
+}
+.tech-theme .primary-btn-hover, .tech-theme .open .btn-primary, .tech-theme .btn-primary:hover {
+    border: 2px solid transparent;
+    background-color: #002244;
+}
+#divsegment {
+    .content-head {
+        @media screen and (max-width:768px) {
+            font-size: 18px;
+        }
     }
-
-
+}
