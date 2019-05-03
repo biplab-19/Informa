@@ -1,11 +1,12 @@
 
 .portfolio {
-    /* width: 80%;
-    margin: 20px 10%;
-    float: left;*/
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+    
+    @media only screen and (min-width:769px) {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding:0 7.5%;
+    }
 }
 
 .portfolio #showFiltersBtn {

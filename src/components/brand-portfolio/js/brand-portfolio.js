@@ -12,6 +12,7 @@ INFORMA.BrandPortfolio = (function (window, $, namespace) {
             // add event listner to close button
             $closeFilterBtn.click(function (evt) {
                 evt.preventDefault();
+                $showFiltersBtn.text("Select filters");
                 $filterContainer.hide();
             });
             // add event listener to filters button
@@ -20,10 +21,12 @@ INFORMA.BrandPortfolio = (function (window, $, namespace) {
                 filtersOpen = !filtersOpen;
                 if (filtersOpen) {
                     $filterContainer.show();
+                    $showFiltersBtn.text("Search");
                     $showFiltersBtn.attr('data-state', 'search');
                 } else {
                     $searchBtn.click();
                     $filterContainer.hide();
+                    $showFiltersBtn.text("Select filters");
                     $showFiltersBtn.attr('data-state', 'select');
                 }
             });

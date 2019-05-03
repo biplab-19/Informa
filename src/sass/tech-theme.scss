@@ -1229,6 +1229,7 @@ section#hero-banner h1 {
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
+            padding:0 100px;
 
             .for-left {
                 max-width: 1400px;
@@ -1252,6 +1253,11 @@ section#hero-banner h1 {
                 }
             }
         }
+    }
+    div#tech-main-header .nav-bar, .hero-banner .vertical-align .for-left {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 100px;
     }
 }
 
@@ -1562,7 +1568,7 @@ section#hero-banner {
 
 /*desktop max width function*/
 div#tech-main-header .nav-bar, .hero-banner .vertical-align .for-left {
-    max-width: 1380px;
+    max-width:1400px;
     margin: 0 auto;
 }
 
@@ -2036,7 +2042,33 @@ section#hero-banner h1 {
     section .hero-items h1 {
         font-size: 48px;
     }
-} 
+}
+
+h1 {
+    font-size: 48px !important;
+    line-height: 60px !important;
+    text-transform: uppercase;
+    color: #002244;
+    font-family: Aleo !important;
+    
+
+    @media only screen and (max-width: 768px) {
+        font-size: 24px !important;
+    }
+}
+
+h2 {
+    font-size: 48px !important;
+    line-height:60px!important;
+    text-transform:uppercase;
+    color:#002244;
+    font-family: Aleo !important;
+    font-weight:bold;
+    @media only screen and (max-width: 768px) {
+        font-size: 24px !important;
+    }
+}
+
 
 /*contact us form*/
 #contact-us form.register-myinterests-form .chosen-container {
@@ -2054,4 +2086,13 @@ section#hero-banner h1 {
 
 .tech-theme div form.register-myinterests-form .field-validation-error {
     color: red !important;
+}
+
+.rich-text-editor.rich-text-width-container {
+    .rich-text-cta {
+        .btn.btnprimary{
+            margin-bottom:40px;
+            margin-top:45px;
+        }
+    }
 }
