@@ -4,8 +4,15 @@ INFORMA.GalleryTeam = (function (window, $, namespace) {
 	var sticky;
 	var header;
 	var methodList = $('meet-people-header'), init;
+	var isIE = /*@cc_on!@*/false || !!document.documentMode;
 	init = function () {
 		header = document.getElementById('meet-people-header');
+
+		if (isIE) {
+			$(".tm-img").each(function () {
+				$(this).addClass('ie').css('background-image', 'url(' + $(this).children('img').attr('src') + ')');
+			});
+		}
 	};
 
 	jQuery(".tm-img").on("click", function () {
