@@ -23,6 +23,12 @@
         */
 }
 
+.portfolio .select-filter #closeFilterBtn {
+    display: none;
+    font-size: 0;
+    text-indent: -9999px;
+}
+
 .portfolio .select-filter .select {
     width: calc(25% - 15px);
     float: left;
@@ -319,8 +325,6 @@
         right: 30px;
         width: 35px;
         height: 35px;
-        font-size: 0;
-        text-indent: -9999px;
 
         &::before, &::after {
             content: '';
