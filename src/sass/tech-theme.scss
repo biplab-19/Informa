@@ -220,6 +220,84 @@ html {
     margin-left: 20px;
 }
 
+//*** dot-image position changes in mobile ***//
+@media screen and (max-width: 812px) and (min-width: 320px) {
+    .discover-community .dot-img-left {
+        background-position: -36px 0;
+        width: 45px;
+        height: 40px;
+        background-size: 172%;
+        margin-right: 0px;
+    }
+
+    .reach-img-section h2.sub-headline {
+        left: 0 !important;
+    }
+    .reach-img-section .dot-img-left {
+        background-position: -45px 0;
+        width: 45px;
+        height: 40px;
+        background-size: 172%;
+        margin-right: 0px;
+    }
+    .feature-brand-corousel .dot-img-left {
+        background-position: -31px 0;
+        width: 45px;
+        height: 40px;
+        background-size: 172%;
+        margin-right:0px;
+    }
+    .featured-products .dot-img-right {
+        background-position: 26px 0;
+        background-size: 141%;
+        margin-left: 0px;
+    }
+    
+    div.subofsub-text {
+        padding: 0 39px !important;
+    }
+    
+    .reach-img-section .global-discription {
+        padding: 10px 2px 0 4px !important;
+    }
+}
+
+/*May 3 2019*/
+@media screen and (max-width: 812px) {
+    .sub-headline {
+        line-height: 34px !important;
+    }
+
+    .sub-text-n-img {
+        margin: 15px 0 4px 0px;
+    }
+
+    .discover-community .carousel-inner {
+        padding: 0;
+        height: 678px;
+    }
+
+    .dot-img-outer {
+        margin-top: 0 !important;
+    }
+
+    .reach-img-section .our-reach-container {
+        padding: 0px 0px 10px 0px;
+    }
+
+    .featured-products .sub-text-n-img {
+        margin-top: 0px;
+    }
+
+    .feature-brand-corousel.brand_list .sub-headline {
+        text-align: left;
+    }
+
+    #divsegment.wrapper-dropdown-5 {
+        margin: 0px 10px 25px !important;
+    }
+}
+
 /*for single image*/
 .single-image {
     width: 100%;
@@ -1875,10 +1953,12 @@ section#hero-banner h1 {
     }
     .featured-products .custom-owl-next i.fa.fa-angle-right {
         color: #94bb17;
+        pointer-events: none;
     }
 
     .featured-products .custom-owl-previous i.fa.fa-angle-left {
         color: #94bb17;
+        pointer-events: none;
     }
 
     
