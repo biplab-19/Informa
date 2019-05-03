@@ -321,7 +321,7 @@ section#hero-banner .btn {
     border-radius: 30px;
     width: auto;
     height: auto;
-    font-size: 18px !important;
+    font-size: 14px !important;
     text-align: center;
 }
 
@@ -669,6 +669,7 @@ section#hero-banner h1 {
     clear: both;
     max-width: 1400px;
     margin: 0 auto;
+    
 }
 
 @media only screen and (max-width: 768px) {
@@ -821,14 +822,22 @@ section h1 {
 
 #contact-us input[type="submit"] {
     background-color: #024;
-    border-radius: 100px;
-    opacity: 1;
+    border: 2px solid transparent;
     text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    box-sizing: border-box;
-    line-height: 20px;
-    font-family: "Aleo";
+    border-radius: 43px;
+    padding: 10px;
+    height: auto;
+    font-weight: 700;
+    min-width: 160px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 14px;
+    width: auto;
+
+    @media screen and (min-width:320px) and (max-width:768px) {
+        min-width: 130px;
+        padding: 10px 5px;
+        font-size: 12px;
+    }
 }
 
 #contact-us .form-recaptcha-text a {
@@ -948,7 +957,7 @@ section#hero-banner .btn {
     border-radius: 30px;
     width: auto;
     height: auto;
-    font-size: 18px !important;
+    font-size: 14px !important;
     text-align: center;
 }
 
@@ -973,6 +982,7 @@ section#hero-banner h1 {
 .featured-products, section#customers_list, .Meet-customer, .tech-theme footer, #social-section {
     max-width: 1400px;
     margin: 0 auto;
+    
 }
 
 .discover-community, .reach-img-section {
@@ -1538,7 +1548,7 @@ section#hero-banner .btn {
     border-radius: 30px;
     width: auto;
     height: auto;
-    font-size: 18px !important;
+    font-size: 14px !important;
     text-align: center;
 }
 
@@ -2008,7 +2018,7 @@ section#hero-banner h1 {
     font-size: 12px !important;
 }
 .hero-items .vertical-align .for-left .cta-button-containor a {
-    font-size: 12px !important;
+    font-size: 14px !important;
 }
 #divsegment {
     .content-head {
@@ -2017,3 +2027,13 @@ section#hero-banner h1 {
         }
     }
 }
+
+@media (min-width: 1025px){
+    section .single-image h1 {
+        font-size: 48px;
+    }
+
+    section .hero-items h1 {
+        font-size: 48px;
+    }
+} 
