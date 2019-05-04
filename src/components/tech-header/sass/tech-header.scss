@@ -2,10 +2,11 @@
 
 div#tech-main-header {
     position: relative;
-    z-index: 9999;
+    z-index: 999;
     transition: all .3s ease-in-out;
     background-color: #fff;
     -webkit-backface-visibility: hidden;
+    padding:5px 0px;
 
     &.sticky {
         position: fixed;
@@ -95,7 +96,7 @@ div#tech-main-header {
     .stellarnav {
         position: relative;
         width: 100%;
-        z-index: 9900;
+        //z-index: 9900;
         line-height: normal;
     }
 
@@ -627,8 +628,8 @@ div#tech-main-header {
         overflow-x: hidden;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        z-index: 9999;
-        transform: translateZ(0);
+        z-index: 99999;
+        
     }
 
     .stellarnav.mobile.right > ul {
