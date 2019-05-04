@@ -5,7 +5,7 @@
         width: 100%;
         max-width: 1400px;
         margin: 0 auto;
-        padding:0 7.5%;
+        padding:0 100px;
     }
 }
 
@@ -623,6 +623,10 @@ footer {
     width: auto;
     font-size: 14px;
     padding: 8px 60px;
+
+    @media only screen and (max-width:1024px) {
+        padding: 8px 30px;
+    }
 }
 
 .content .close {
