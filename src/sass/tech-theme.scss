@@ -796,12 +796,13 @@ section#hero-banner h1 {
             width: 235px;
         }
     }
-
-    @media only screen and (max-width: 768px) {
-        .form-modal.modal.fade.in .modal-dialog {
-            //min-width: 500px;
-        }
+@media only screen and (min-width: 768px){
+    .form-modal .modal-dialog {
+        min-width: 500px;
     }
+   
+   }
+   
 
     #contact-us .modal-content, #contact-us form {
         background: #fff;
