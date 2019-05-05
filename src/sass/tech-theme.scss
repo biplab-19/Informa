@@ -796,12 +796,13 @@ section#hero-banner h1 {
             width: 235px;
         }
     }
-
-    @media only screen and (max-width: 768px) {
-        .form-modal.modal.fade.in .modal-dialog {
-            //min-width: 500px;
-        }
+@media only screen and (min-width: 768px){
+    .form-modal .modal-dialog {
+        min-width: 500px;
     }
+   
+   }
+   
 
     #contact-us .modal-content, #contact-us form {
         background: #fff;
@@ -2087,3 +2088,96 @@ section#hero-banner h1 {
 section.brand_list .customers_list_slider .customer img {
     width: 100%;
 }
+
+
+/*Rich text editor global style */
+.rich-text-width-container h1, .rich-text-width-container h2 {
+    font-size: 48px !important;
+    line-height: 60px !important;
+    text-transform: uppercase !important;
+    font-family: Aleo !important;
+}
+
+.color-indigo h1, .color-indigo h2 {
+    color: #024 !important;
+}
+
+.color-white h1, .color-white h2 {
+    color: #fff !important;
+}
+
+
+.rich-text-editor {
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    clear: both;
+}
+
+
+.rich-text-editor .container-fluid {
+    padding: 0;
+}
+
+.rich-text-editor .sub-text-n-img {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    margin-top: 30px;
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+
+.rich-text-editor .imgleft {
+    justify-content: flex-start;
+}
+
+.rich-text-editor .sub-headline {
+    font-family: "Aleo";
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #024;
+    position: relative;
+    margin: 0;
+}
+
+.rich-text-editor .dot-img-left {
+    width: 200px;
+    margin-left: -132px;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    /* line 2155, ../../../src/sass/tech-theme.scss */
+    .rich-text-editor .dot-img-left {
+        margin-left: -24px;
+        background-position: -45px 0;
+        width: 45px;
+        height: 40px;
+        background-size: 172%;
+        margin-right: 0;
+    }
+
+    .color-white h1, .color-white h2 {
+        color: #024 !important;
+    }
+
+    .rich-text-width-container h1, .rich-text-width-container h2 {
+        font-size: 24px !important;
+        line-height: 1.5 !important;
+    }
+
+    .rich-text-editor .sub-text-n-img {
+        padding-left: 32px;
+    }
+
+    .rich-text-editor.rich-text-width-container .rich-text-cta .btn.btnprimary {
+        margin-bottom: 15px;
+        margin-top: 20px;
+    }
+}
+/*Rich text editor global style end*/
