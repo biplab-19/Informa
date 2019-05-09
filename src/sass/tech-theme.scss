@@ -2230,38 +2230,39 @@ body {
             padding-left: 0px;
         }
 
-        .bio-detail {
-            .col-md-12 {
-                padding-left: 0px;
+        
+    }
+}
 
-                @media only screen and (max-width:768px) {
-                    padding-left: 15px;
-                }
+.bio-detail {
+    .col-md-12 {
+        padding-left: 0px;
+        @media only screen and (max-width:768px) {
+            padding-left: 15px;
+        }
+
+        .col-xs-12 {
+            padding-left: 0px;
+
+            @media only screen and (max-width:768px) {
+                padding-left: 0px;
             }
+        }
 
-            .col-xs-12 {
-                padding-left: 0px;
+        .col-xs-12.mb-20 {
+            padding-left: 0px;
 
-                @media only screen and (max-width:768px) {
-                    padding-left: 0px;
-                }
-            }
-
-            .col-xs-12.mb-20 {
-                padding-left: 0px;
-
-                @media only screen and (max-width:768px) {
-                    padding-left: 12px;
-                }
+            @media only screen and (max-width:768px) {
+                padding-left: 12px;
             }
         }
     }
 }
 
-@media only screen and (min-width: 768px) {
-  .rich-text-width-container {
-        padding: 0 0px
-    }
+
+.rich-text-width-container {
+    padding: 0 100px;
+}
     .our-reach-section .researchsubs .text {
         text-align:left;
     }
@@ -2271,5 +2272,7 @@ body {
             margin-top: 0px;
         }
     }
-    }
+
+
+    
 
