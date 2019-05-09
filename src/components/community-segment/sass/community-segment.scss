@@ -35,11 +35,11 @@
         background: #f0f0f3;
         border-radius: 28px 0 0 28px;
         padding: 0px;
-        height: 740px;
+        height: 790px;
 
         .dc-box {
             height: 100%;
-            padding: 60px;
+            padding: 30px 60px;
 
             h2 {
                 padding: 0px 30px 30px 53px;
@@ -51,6 +51,10 @@
                 font-weight: 200;
                 margin-top: 0;
                 color: #002244;
+            }
+
+            h3 {
+                padding: 0px 0px 20px 0px;
             }
         }
     }
@@ -69,7 +73,8 @@
                 padding: 25px 30px;
                 border-radius: 53px;
                 font-weight: bold;
-                font-size: 21 px;
+                font-size: 20px !important;
+                line-height: 26px !important;
                 cursor: pointer;
                 color: #002244;
 
@@ -129,7 +134,7 @@
         padding: 42px 50px;
         box-sizing: border-box;
         $border: 5px;
-        min-height: 550px;
+        min-height: 600px;
         color: $gray-color;
         background: #f0f0f3;
         background-clip: padding-box;
@@ -382,7 +387,7 @@
         display: flex;
         align-items: center;
         margin-bottom: 0px;
-        margin-top: 30px;
+        
     }
     // primary button
     .tech-theme .btn.btnprimary.border-button {

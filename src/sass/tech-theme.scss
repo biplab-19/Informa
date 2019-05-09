@@ -92,8 +92,8 @@ p.subofsub-text {
 
 div.subofsub-text {
     width: 50%;
-    margin-left: 135px;
-    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-bottom: 40px;
 }
 /*Twitter Start*/
 
@@ -235,19 +235,21 @@ html {
 .dot-img-left {
     background-image: url(/static/images/tech/leftdotted.png);
     background-size: 100%;
-    width: 112px;
+    width: 80px;
     height: 35px;
     background-repeat: no-repeat;
     margin-right: 20px;
+    margin-top: 45px;
 }
 
 .dot-img-right {
     background-image: url(/static/images/tech/rightdotted.png);
     background-size: 100%;
-    width: 112px;
+    width: 80px;
     height: 35px;
     background-repeat: no-repeat;
     margin-left: 20px;
+    margin-top: 45px;
 }
 
 //*** dot-image position changes in mobile ***//
@@ -298,9 +300,7 @@ html {
         line-height: 34px !important;
     }
 
-    .sub-text-n-img {
-        margin: 15px 0 4px 0px;
-    }
+   
 
     .discover-community .carousel-inner {
         padding: 0;
@@ -315,9 +315,7 @@ html {
         padding: 0px 0px 10px 0px;
     }
 
-    .featured-products .sub-text-n-img {
-        margin-top: 0px;
-    }
+    
 
     .feature-brand-corousel.brand_list .sub-headline {
         text-align: left;
@@ -425,6 +423,9 @@ section#hero-banner h1 {
                     color: #024;
                 }
                  */
+                h4{
+                    padding-left:15px;
+                }
                 p {
                     padding: 10px 15px;
                 }
@@ -439,7 +440,7 @@ section#hero-banner h1 {
     }
 
     div#tech-main-header .nav-bar {
-        padding: 10px 20px;
+        padding: 10px 15px;
     }
 
     div#tech-main-header .stellarnav.mobile.right > ul {
@@ -457,13 +458,9 @@ section#hero-banner h1 {
         width: 100%;
     }
 
-    .discover-community .sub-text-n-img {
-        margin: 0 0;
-    }
+    
 
-    .discover-community .sub-text-n-img {
-        margin: 15px 0;
-    }
+    
 
     .discover-community {
         //position: relative;
@@ -858,23 +855,9 @@ section#hero-banner h1 {
         }
     }
     /*feature CTA Contact Form-End*/
-    .dot-img-left {
-        background-image: url(/static/images/tech/leftdotted.png);
-        background-size: 100%;
-        width: 112px;
-        height: 35px;
-        background-repeat: no-repeat;
-        margin-right: 20px;
-    }
+  
 
-    .dot-img-right {
-        background-image: url(/static/images/tech/rightdotted.png);
-        background-size: 100%;
-        width: 112px;
-        height: 35px;
-        background-repeat: no-repeat;
-        margin-left: 20px;
-    }
+    
 
     .dot-img-outer {
         margin-right: 18px;
@@ -983,7 +966,7 @@ section#hero-banner h1 {
         }
 
         div#tech-main-header .nav-bar {
-            padding: 10px 20px;
+            padding: 10px 15px;
         }
 
         div#tech-main-header .stellarnav.mobile.right > ul {
@@ -1001,13 +984,7 @@ section#hero-banner h1 {
             width: 100%;
         }
 
-        .discover-community .sub-text-n-img {
-            margin: 0 0;
-        }
-
-        .discover-community .sub-text-n-img {
-            margin: 15px 0;
-        }
+        
 
         .discover-community {
             //position: relative;
@@ -1164,7 +1141,9 @@ section#hero-banner h1 {
                     max-width: 1400px;
                     margin: 0 auto;
 
-
+                    h4{
+                        padding-left:0px;
+                    }
 
                     p {
                         width: 95%;
@@ -1177,6 +1156,9 @@ section#hero-banner h1 {
                         left: 0;
                         float: left;
                         margin: 10px 0;
+                    }
+                    >div{
+                        padding-left:0px;
                     }
                 }
 
@@ -1460,23 +1442,7 @@ section#hero-banner h1 {
         }
     }
     /*Twitter End*/
-    .dot-img-left {
-        background-image: url(/static/images/tech/leftdotted.png);
-        background-size: 100%;
-        width: 112px;
-        height: 35px;
-        background-repeat: no-repeat;
-        margin-right: 20px;
-    }
-
-    .dot-img-right {
-        background-image: url(/static/images/tech/rightdotted.png);
-        background-size: 100%;
-        width: 112px;
-        height: 35px;
-        background-repeat: no-repeat;
-        margin-left: 20px;
-    }
+   
     /*for single image*/
     .single-image {
         width: 100%;
@@ -1579,7 +1545,7 @@ section#hero-banner h1 {
         }
 
         div#tech-main-header .nav-bar {
-            padding: 10px 20px;
+            padding: 10px 15px;
         }
 
         div#tech-main-header .stellarnav.mobile.right > ul {
@@ -1597,13 +1563,7 @@ section#hero-banner h1 {
             width: 100%;
         }
 
-        .discover-community .sub-text-n-img {
-            margin: 0 0;
-        }
-
-        .discover-community .sub-text-n-img {
-            margin: 15px 0;
-        }
+       
 
         .discover-community {
             //position: relative;
@@ -1961,9 +1921,8 @@ section.brand_list .customers_list_slider .customer img {
     display: flex;
     align-items: center;
     margin-bottom: 0;
-    margin-top: 30px;
     padding-left: 20px;
-    margin-bottom: 40px;
+    
 }
 
 
@@ -2006,9 +1965,7 @@ section.brand_list .customers_list_slider .customer img {
 
    
 
-    .rich-text-editor .sub-text-n-img {
-        padding-left: 32px;
-    }
+    
 
     
 }
@@ -2024,19 +1981,25 @@ section.brand_list .customers_list_slider .customer img {
         line-height: 60px !important;
         text-transform: uppercase !important;
         color: #002244 !important;
+        margin-top:0px!important;
+        margin-bottom:20px!important;
         @media only screen and (max-width: 768px) {
             font-size: 24px !important;
             line-height: 30px !important;
         }
     }
 
-    h2 {
+h2 {
     /*font-family: 'Aleo Bold' !important;*/
     font-family: 'Aleo Regular' !important;
     font-size: 48px !important;
     line-height: 60px !important;
     text-transform: uppercase !important;
     color: #002244 !important;
+    margin-top: 60px !important;
+    margin-bottom: 20px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
 
     @media only screen and (max-width: 768px) {
         font-size: 24px !important;
@@ -2058,8 +2021,8 @@ section.brand_list .customers_list_slider .customer img {
 
     h4 {
         font-family: 'OpenSans Light' !important;
-        font-size: 26px !important;
-        line-height: 36px !important;
+        font-size: 24px !important;
+        line-height: 34px !important;
         color: #555555 !important;
 
         @media only screen and (max-width: 768px) {
@@ -2117,7 +2080,9 @@ section.brand_list .customers_list_slider .customer img {
         background-color: #002244;
         color: #ffffff;
         border-width: 0px;
-        min-width:150px;
+        min-width: 150px;
+        margin-right: 10px;
+
         @media screen and (min-width:320px) and (max-width:768px) {
             min-width: 130px;
             padding: 10px 5px;
@@ -2150,7 +2115,9 @@ section.brand_list .customers_list_slider .customer img {
         background-color: #002244;
         color: #ffffff;
         border-width: 0px;
-        min-width:120px;
+        min-width: 120px;
+        margin-right: 10px;
+
         &:after {
             font-family: 'InformaIcons';
             right: 15px;
@@ -2178,10 +2145,12 @@ section.brand_list .customers_list_slider .customer img {
         font-size: 21px;
         color: #ffffff;
         padding: 20px 40px;
-        border: 2px solid #8baf0a!important;
+        border: 2px solid #8baf0a !important;
         height: auto;
         width: auto;
-        min-width:150px;
+        min-width: 150px;
+        margin-right: 10px;
+
         &:hover {
             background-color: #d9d600;
             color: #002244;
@@ -2198,7 +2167,9 @@ section.brand_list .customers_list_slider .customer img {
         border: 2px solid #8baf0a;
         height: auto;
         width: auto;
-        min-width:120px;
+        min-width: 120px;
+        margin-right: 10px;
+
         &:hover {
             background-color: #d9d600;
             color: #002244;
@@ -2209,6 +2180,7 @@ section.brand_list .customers_list_slider .customer img {
         .researchsubs .numberntext {
             font-size: 70px;
             font-weight: bold;
+            background:#92b20a;
             background: -webkit-linear-gradient(#92b20a,#8fb10a);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -2239,4 +2211,11 @@ section.brand_list .customers_list_slider .customer img {
             }
         }
     }
+}
+.feature-brand-corousel.brand_list{
+    padding:0px;
+}
+.feature-brand-corousel.brand_list .sub-text-n-img{
+    margin-top:0px;
+    margin-bottom:0px;
 }
