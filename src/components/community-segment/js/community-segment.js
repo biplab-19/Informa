@@ -146,6 +146,41 @@ INFORMA.CommunitySegment = (function (window, $, namespace) {
 
                 evt.preventDefault();
             });
+
+
+            $("#divsegment").click(function () {
+                $(this).toggleClass("active");
+
+
+            });
+
+            setTimeout(function () {
+                var x = $("#divsegment li:nth-child(1)").html();
+                // console.log(x);
+                $(".content-head").text(x);
+
+            }, 30);
+
+            $("li.dropgroup-item").click(function () {
+                lastVisitedLi = $(this);
+                isSegmentLinkedClicked = true;
+
+                var idx = $(this).attr('data-slide-to');
+                $("li.dropgroup-item").removeClass("current");
+                $(this).addClass("current");
+                $('.carousel-inner .item').hide().removeClass("current");
+                $('.carousel-inner .item[data-slide-to="' + idx + '"]').show().addClass("current");
+                idx = parseInt(idx);
+                var newidx = idx + 1;
+                $(".carousel-inner .item:nth-child(" + newidx + ")").show();
+
+                $('.content-head').text($(this).text());
+
+
+            });
+
+
+
         });
 
         
