@@ -84,18 +84,7 @@ body {
     }
 }
 
-.tech-theme .btn.btnprimary.border-button {
-    width: auto !important;
-    color: #fff;
-    background-color: #002244;
-    border-radius: 25px;
-    padding: 10px 45px;
-    margin-bottom: 10px;
-    height: auto !important;
-    border: 2px solid transparent !important;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700 !important;
-}
+
 
 p.subofsub-text {
     padding-left: 140px;
@@ -530,9 +519,7 @@ section#hero-banner h1 {
         position: static;
     }
 
-    .discover-community .gradient-box a.btn.btnprimary.border-button {
-        font-size: 14px;
-    }
+    
 
     .discover-community .brand-log .row img.brand-img {
         max-width: 80%;
@@ -559,9 +546,7 @@ section#hero-banner h1 {
         margin-left: -5px;
     }
 
-    .tech-theme .mc-button-child .btn.btnprimary.border-button {
-        min-width: 140px;
-    }
+    
 
     
 
@@ -1078,9 +1063,6 @@ section#hero-banner h1 {
             position: static;
         }
 
-        .discover-community .gradient-box a.btn.btnprimary.border-button {
-            font-size: 14px;
-        }
 
         .discover-community .brand-log .row img.brand-img {
             max-width: 80%;
@@ -1107,9 +1089,7 @@ section#hero-banner h1 {
             margin-left: -5px;
         }
 
-        .tech-theme .mc-button-child .btn.btnprimary.border-button {
-            min-width: 140px;
-        }
+       
 
         
 
@@ -1346,15 +1326,7 @@ section#hero-banner h1 {
         }
     }
 
-    .tech-theme .btn.btnprimary.border-button {
-        width: auto !important;
-        color: #fff;
-        background-color: #002244;
-        border-radius: 25px;
-        padding: 10px 45px;
-        margin-bottom: 10px;
-        height: auto !important;
-    }
+   
 
     p.subofsub-text {
         padding-left: 140px;
@@ -1687,9 +1659,7 @@ section#hero-banner h1 {
             position: static;
         }
 
-        .discover-community .gradient-box a.btn.btnprimary.border-button {
-            font-size: 14px;
-        }
+        
 
         .discover-community .brand-log .row img.brand-img {
             max-width: 80%;
@@ -1716,9 +1686,6 @@ section#hero-banner h1 {
             margin-left: -5px;
         }
 
-        .tech-theme .mc-button-child .btn.btnprimary.border-button {
-            min-width: 140px;
-        }
 
         
 
@@ -1831,7 +1798,7 @@ section#hero-banner h1 {
     /*View All brands button*/
     .Viewsolutions.text-center a {
         position: relative;
-        border: none !important;
+        border: none;
         z-index: 1;
         display: inline-block;
         /*
@@ -1961,14 +1928,7 @@ section#hero-banner h1 {
      z-index: 9999;
     }
 
-    .rich-text-editor.rich-text-width-container {
-        .rich-text-cta {
-            .btn.btnprimary {
-                margin-bottom: 40px;
-                margin-top: 45px;
-            }
-        }
-    }
+    
 
 section.brand_list .customers_list_slider .customer img {
     width: 100%;
@@ -2050,10 +2010,7 @@ section.brand_list .customers_list_slider .customer img {
         padding-left: 32px;
     }
 
-    .rich-text-editor.rich-text-width-container .rich-text-cta .btn.btnprimary {
-        margin-bottom: 15px;
-        margin-top: 20px;
-    }
+    
 }
 /*Rich text editor global style end*/
 
@@ -2160,7 +2117,7 @@ section.brand_list .customers_list_slider .customer img {
         background-color: #002244;
         color: #ffffff;
         border-width: 0px;
-
+        min-width:150px;
         @media screen and (min-width:320px) and (max-width:768px) {
             min-width: 130px;
             padding: 10px 5px;
@@ -2193,6 +2150,7 @@ section.brand_list .customers_list_slider .customer img {
         background-color: #002244;
         color: #ffffff;
         border-width: 0px;
+        min-width:120px;
         &:after {
             font-family: 'InformaIcons';
             right: 15px;
@@ -2200,6 +2158,7 @@ section.brand_list .customers_list_slider .customer img {
             position: absolute;
             opacity: 0;
         }
+
         &:hover {
             background-color: #11a7d8;
             border-color: #11a7d8;
@@ -2212,24 +2171,24 @@ section.brand_list .customers_list_slider .customer img {
         }
     }
 
-    .btn.color-border {
+    .color-border {
         background-color: #002244;
         border-radius: 28px;
         font-family: 'OpenSans Bold';
         font-size: 21px;
         color: #ffffff;
         padding: 20px 40px;
-        border: 2px solid #8baf0a;
-
+        border: 2px solid #8baf0a!important;
+        height: auto;
+        width: auto;
+        min-width:150px;
         &:hover {
             background-color: #d9d600;
             color: #002244;
         }
     }
 
-
-
-    .btn.color-border-small {
+    .color-border-small {
         background-color: #002244;
         border-radius: 22px;
         font-family: 'OpenSans Bold';
@@ -2237,10 +2196,47 @@ section.brand_list .customers_list_slider .customer img {
         color: #ffffff;
         padding: 15px 30px;
         border: 2px solid #8baf0a;
-
+        height: auto;
+        width: auto;
+        min-width:120px;
         &:hover {
             background-color: #d9d600;
             color: #002244;
+        }
+    }
+    /*iphone changes*/
+    .our-reach-section {
+        .researchsubs .numberntext {
+            font-size: 70px;
+            font-weight: bold;
+            background: -webkit-linear-gradient(#92b20a,#8fb10a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            justify-content: center;
+            line-height: normal;
+            display: -webkit-flex;
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: -moz-flex;
+            display: -moz-box;
+            display: -ms-flexbox;
+            -webkit-align-items: center;
+        }
+    }
+}
+
+
+.discover-community {
+    .carousel {
+        .item {
+            .gradient-box {
+                a.btn-primary {
+                    position: absolute;
+                    bottom: -36px;
+                    z-index: 9;
+                }
+            }
         }
     }
 }
