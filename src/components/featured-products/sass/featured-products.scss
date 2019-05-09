@@ -1,6 +1,33 @@
 @import '_variables';
 @import '_mixins';
 
+/*fonts*/
+@font-face {
+    font-family: "Aleo Bold";
+    src: url("../fonts/aleo.bold.otf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Aleo Regular";
+    src: url("../fonts/aleo.regular.otf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "OpenSans Light";
+    src: url("../fonts/OpenSans-Light.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans Bold";
+    src: url("../fonts/OpenSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans Regular";
+    src: url("../fonts/OpenSans-Regular.ttf");
+}
 .featured-products {
     /*  height: 842px;*/
     div#owlcarousel-item {
@@ -42,8 +69,6 @@
     .sub-text-n-img {
         display: flex;
         align-items: center;
-        margin-bottom: 30px;
-        margin-top: 30px;
     }
     // primary button
     .tech-theme .btn.btnprimary.border-button {
@@ -92,9 +117,16 @@
                 padding: 0px;
 
                 .readmore {
-                    
-                    color: #03A9F4 !important;
-                    margin-left: 5px;
+                    color: #11a7d9 !important;
+                    font-weight: bold;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+
+                    &:visited {
+                        color: #14416e;
+                    }
 
                     .fa.fa-long-arrow-right {
                         vertical-align: middle;
@@ -106,12 +138,30 @@
                     font-size: 16px;
                     margin-bottom: 10px;
                     display: block;
+                    font-family: 'OpenSans Bold' !important;
+                    font-size: 16px !important;
+                    line-height: 26px !important;
+                    color: #555555 !important;
+
+                    @media only screen and (max-width: 768px) {
+                        font-size: 14px !important;
+                        line-height: 20px !important;
+                    }
                 }
 
                 span.Short.description {
                     font-size: 18px;
                     font-weight: 100;
-                    margin-bottom: 5px
+                    margin-bottom: 5px;
+                    font-family: 'OpenSans Light' !important;
+                    font-size: 18px !important;
+                    line-height: 28px !important;
+                    color: #555555 !important;
+
+                    @media only screen and (max-width: 768px) {
+                        font-size: 16px !important;
+                        line-height: 20px !important;
+                    }
                 }
 
                 h3 {
