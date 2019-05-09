@@ -14,8 +14,44 @@
 //tech Theme
 @include theme(tech-theme, $tech-indigo, $tech-sky, $tech-citrus, $tech-gray );
 
+/*fonts*/
+@font-face {
+    font-family: "Aleo Bold";
+    src: url("../fonts/aleo.bold.otf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Aleo Regular";
+    src: url("../fonts/aleo.regular.otf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "OpenSans Light";
+    src: url("../fonts/OpenSans-Light.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans Bold";
+    src: url("../fonts/OpenSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans Regular";
+    src: url("../fonts/OpenSans-Regular.ttf");
+}
 body {
     background: #fff !important;
+    font-family: 'OpenSans Light';
+    font-size: 18px;
+    line-height: 28px;
+    color: #555555;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 16px;
+        line-height: 20px;
+    }
 }
 
 @media screen and (max-width: 812px) {
@@ -393,12 +429,13 @@ section#hero-banner h1 {
             }
 
             .for-left, .for-right {
+                /*
                 h1 {
                     font-size: 24px;
                     line-height: 1.5;
                     color: #024;
                 }
-
+                 */
                 p {
                     padding: 10px 15px;
                 }
@@ -526,9 +563,7 @@ section#hero-banner h1 {
         min-width: 140px;
     }
 
-    .feature-brand-corousel.brand_list .border-button {
-        font-size: 14px !important;
-    }
+    
 
     .Meet-customer .mc-button-div.fourbutton .mc-button-child {
         width: 40%;
@@ -553,101 +588,9 @@ section#hero-banner h1 {
     }
 }
 
-    @media only screen and (min-width:768px) {
-        .bannerheading-font-white {
-            color: #fff !important;
-        }
+    
 
-        .hero-items {
-            position: relative;
-            max-width: 1400px;
-            margin: 0 auto;
-
-
-            .vertical-align {
-                //bottom: 50px;
-                top: 35%;
-                position: absolute;
-                max-width: 1400px;
-                margin: 0 auto;
-                width: 100%;
-
-                .for-left, .for-right {
-                    max-width: 100%;
-                    margin: 0 auto;
-                   
-
-                    h1 {
-                        color: #024;
-                        width: 100%;
-                    }
-
-                    p {
-                        width: 75%;
-                        font-size: 22px;
-                        margin-top: 25px;
-                        margin-left: 20px;
-                    }
-
-                    .cta-button-containor {
-                        left: 0;
-                        float: left;
-                        margin: 10px 0;
-                    }
-                }
-
-
-                .for-center {
-                    max-width: 50%;
-                    margin: 0 auto;
-                    text-align: center;
-                }
-
-                .for-center h1 {
-                    color: #024;
-                }
-
-                .for-center p {
-                    width: 100%;
-                    font-size: 22px;
-                    margin-top: 25px;
-                    margin-left: 20px;
-                }
-
-                .full-width {
-                    max-width: 100%;
-                    text-align: left
-                }
-
-
-
-                .full-width p {
-                    width: 91%;
-                    font-size: 22px;
-                    margin-top: 25px;
-                    margin-left: 20px;
-                }
-
-                &.banner-bullet {
-                    top: 65%;
-                }
-            }
-        }
-
-        .hero-items.hero-carousel {
-            max-width: 100%;
-
-            .vertical-align {
-                max-width: 100%;
-                width: 100%;
-                transform: translateY(370%);
-            }
-        }
-    }
-
-    .full-width h1 {
-        color: #024;
-    }
+   
 
 
 
@@ -729,21 +672,18 @@ section#hero-banner h1 {
         line-height: 26px;
     }
 
-    section h1 {
-        font-family: Aleo;
-    }
+   
     /***Hero-Banner-End**/
     /*feature CTA Contact Form*/
     .mc-button-div-contact {
         display: flex;
         width: 100%;
-        max-width: 900px;
         margin: 0 auto;
         justify-content: center;
     }
 
     .mc-button-div-contact .mc-button-child-contact {
-        width: 24%;
+        width:auto;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -812,12 +752,13 @@ section#hero-banner h1 {
         padding: 10px;
         box-shadow: none;
     }
-
+    /*
     #contact-us .page-header h1 {
         color: #000;
         margin: 0px 0px 20px 0px;
         text-transform: uppercase;
     }
+        */
 
     #contact-us .form-submit-border::after {
         display: none;
@@ -1037,11 +978,13 @@ section#hero-banner h1 {
                 }
 
                 .for-left {
+                    /*
                     h1 {
                         font-size: 24px;
                         line-height: 1.5;
                         color: #024;
                     }
+                    */
 
                     p {
                         padding: 10px 15px;
@@ -1168,9 +1111,7 @@ section#hero-banner h1 {
             min-width: 140px;
         }
 
-        .feature-brand-corousel.brand_list .border-button {
-            font-size: 14px !important;
-        }
+        
 
         .Meet-customer .mc-button-div.fourbutton .mc-button-child {
             width: 40%;
@@ -1226,7 +1167,6 @@ section#hero-banner h1 {
         .bannerheading-font-white {
             color: #fff !important;
         }
-
         .hero-items {
             position: relative;
             max-width: 1400px;
@@ -1240,13 +1180,11 @@ section#hero-banner h1 {
                 width: 100%;
                 padding: 0 100px;
 
-                .for-left {
+                .for-left, .for-right {
                     max-width: 1400px;
                     margin: 0 auto;
 
-                    h1 {
-                        color: #024;
-                    }
+
 
                     p {
                         width: 95%;
@@ -1261,13 +1199,56 @@ section#hero-banner h1 {
                         margin: 10px 0;
                     }
                 }
+
+                .for-center {
+                    max-width: 50%;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+
+
+
+                .for-center p {
+                    width: 100%;
+                    font-size: 22px;
+                    margin-top: 25px;
+                    margin-left: 20px;
+                }
+
+                .full-width {
+                    max-width: 100%;
+                    text-align: left
+                }
+
+
+
+                .full-width p {
+                    width: 91%;
+                    font-size: 22px;
+                    margin-top: 25px;
+                    margin-left: 20px;
+                }
+
+                &.banner-bullet {
+                    top: 65%;
+                }
             }
+
+
 
             .vertical-align.banner-bullet {
                 padding: 0px 0px;
             }
         }
+        .hero-items.hero-carousel {
+            max-width: 100%;
 
+            .vertical-align {
+                max-width: 100%;
+                width: 100%;
+                transform: translateY(370%);
+            }
+        }
         div#tech-main-header .nav-bar, .hero-banner .vertical-align .for-left {
             max-width: 1400px;
             margin: 0 auto;
@@ -1607,12 +1588,13 @@ section#hero-banner h1 {
                 }
 
                 .for-left {
+                    /*
                     h1 {
                         font-size: 24px;
                         line-height: 1.5;
                         color: #024;
                     }
-
+*/
                     p {
                         padding: 10px 15px;
                     }
@@ -1738,9 +1720,7 @@ section#hero-banner h1 {
             min-width: 140px;
         }
 
-        .feature-brand-corousel.brand_list .border-button {
-            font-size: 14px !important;
-        }
+        
 
         .Meet-customer .mc-button-div.fourbutton .mc-button-child {
             width: 40%;
@@ -1786,47 +1766,7 @@ section#hero-banner h1 {
 }
 
 */
-    @media only screen and (min-width:768px) {
-        .bannerheading-font-white {
-            color: #fff !important;
-        }
-
-        .hero-items {
-            position: relative;
-            max-width: 1400px;
-            margin: 0 auto;
-
-            .vertical-align {
-                top: 108px;
-                position: absolute;
-                max-width: 1400px;
-                margin: 0 auto;
-                width: 100%;
-
-                .for-left {
-                    max-width: 1400px;
-                    margin: 0 auto;
-
-                    h1 {
-                        color: #024;
-                    }
-
-                    p {
-                        width: 95%;
-                        font-size: 22px;
-                        margin-top: 25px;
-                        margin-left: 20px;
-                    }
-
-                    .cta-button-containor {
-                        left: 0;
-                        float: left;
-                        margin: 10px 0px;
-                    }
-                }
-            }
-        }
-    }
+    
     /* Start Hero Banner Single Image handled from javascript*/
     @media only screen and (max-width: 768px) {
         .vertical-align.empty-banner-image {
@@ -1945,56 +1885,22 @@ section#hero-banner h1 {
         }
     }
 
-    @media screen and (min-width:768px) {
-        .feature-brand-corousel.brand_list .border-button {
-            font-size: 16px !important
-        }
-    }
+  
 
-    .tech-theme .btn.border-button.color-border {
-        border: 2px solid #8baf0a !important;
-    }
-
-    .tech-theme .btn-primary {
-        border: 2px solid transparent;
-        text-align: center;
-        border-radius: 43px;
-        padding: 10px;
-        height: auto;
-        font-weight: 700;
-        min-width: 160px;
-        font-family: 'Open Sans',sans-serif;
-        font-size: 14px;
-        width: auto;
-
-        @media screen and (min-width:320px) and (max-width:768px) {
-            min-width: 130px;
-            padding: 10px 5px;
-            font-size: 12px;
-        }
-    }
+    
 
 
-    .tech-theme .btn-primary:after {
-        font-family: 'InformaIcons';
-        right: 15px;
-        font-weight: bold;
-        position: absolute;
-        opacity: 0;
-    }
 
-    .tech-theme .primary-btn-hover, .tech-theme .open .btn-primary, .tech-theme .btn-primary:hover {
-        border: 2px solid transparent;
-        background-color: #002244;
-    }
 
-    .mc-button-div-contact .mc-button-child-contact a {
-        font-size: 12px !important;
-    }
+    
 
+
+
+/*initial
     .hero-items .vertical-align .for-left .cta-button-containor a {
         font-size: 14px !important;
     }
+        */
 
     #divsegment {
         .content-head {
@@ -2003,7 +1909,7 @@ section#hero-banner h1 {
             }
         }
     }
-
+    /*
     @media (min-width: 1025px) {
         section .single-image h1 {
             font-size: 48px;
@@ -2013,31 +1919,11 @@ section#hero-banner h1 {
             font-size: 48px;
         }
     }
-
-    h1 {
-        font-size: 48px;
-        line-height: 60px;
-        text-transform: uppercase !important;
-        color: #002244 !important;
-        font-family: Aleo !important;
+        */
+    
+    
 
 
-        @media only screen and (max-width:1024px) {
-            font-size: 24px !important;
-        }
-    }
-
-h2 {
-    font-size: 48px;
-    line-height: 60px;
-    text-transform: uppercase !important;
-    color: #002244 !important;
-    font-family: Aleo !important;
-    /*font-weight: bold;*/
-    @media only screen and (max-width:1024px) {
-        font-size: 24px !important;
-    }
-}
     /*contact us form*/
     #contact-us form.register-myinterests-form .chosen-container {
         background-color: transparent;
@@ -2090,13 +1976,6 @@ section.brand_list .customers_list_slider .customer img {
 
 
 /*Rich text editor global style */
-.rich-text-width-container h1, .rich-text-width-container h2 {
-    font-size: 48px !important;
-    line-height: 60px !important;
-    text-transform: uppercase !important;
-    font-family: Aleo !important;
-}
-
 .color-indigo h1, .color-indigo h2 {
     color: #024 !important;
 }
@@ -2165,10 +2044,7 @@ section.brand_list .customers_list_slider .customer img {
         color: #024 !important;
     }
 
-    .rich-text-width-container h1, .rich-text-width-container h2 {
-        font-size: 24px !important;
-        line-height: 1.5 !important;
-    }
+   
 
     .rich-text-editor .sub-text-n-img {
         padding-left: 32px;
@@ -2181,117 +2057,190 @@ section.brand_list .customers_list_slider .customer img {
 }
 /*Rich text editor global style end*/
 
- @font-face {
-        font-family: "Aleo Bold";
-        src: url("../fonts/aleo.bold.otf");
-        font-weight: bold;
-    }
+ 
 
- @font-face {
-        font-family: "Aleo Regular";
-        src: url("../fonts/aleo.regular.otf");
-        font-weight: normal;
-    }
 
-@font-face {
-    font-family: "OpenSans Light";
-    src: url("../fonts/OpenSans-Light.ttf");
-    
-}
-@font-face {
-    font-family: "OpenSans Bold";
-    src: url("../fonts/OpenSans-Bold.ttf");
-}
 
-@font-face {
-    font-family: "OpenSans Regular";
-    src: url("../fonts/OpenSans-Regular.ttf");
-}
-
-.tech-theme {
-    .h-one {
-        font-family: 'Aleo Regular'!important;
-        font-size: 48px!important;
-        line-height: 60px!important;
-        text-transform: uppercase!important;
-        color: #002244!important;
-
+    h1 {
+        font-family: 'Aleo Regular' !important;
+        font-size: 48px !important;
+        line-height: 60px !important;
+        text-transform: uppercase !important;
+        color: #002244 !important;
         @media only screen and (max-width: 768px) {
-            font-size: 24px!important;
-            line-height: 30px!important;
+            font-size: 24px !important;
+            line-height: 30px !important;
         }
     }
 
-    .h-two {
-        font-family: 'Aleo Bold'!important;
-        font-size: 48px!important;
-        line-height: 60px!important;
-        text-transform: uppercase!important;
-        color: #002244!important;
+    h2 {
+    /*font-family: 'Aleo Bold' !important;*/
+    font-family: 'Aleo Regular' !important;
+    font-size: 48px !important;
+    line-height: 60px !important;
+    text-transform: uppercase !important;
+    color: #002244 !important;
+
+    @media only screen and (max-width: 768px) {
+        font-size: 24px !important;
+        line-height: 30px !important;
+    }
+}
+
+    h3 {
+        font-family: 'OpenSans Light' !important;
+        font-size: 34px !important;
+        line-height: 48px !important;
+        color: #002244 !important;
 
         @media only screen and (max-width: 768px) {
-            font-size: 24px!important;
-            line-height: 30px!important;
+            font-size: 20px !important;
+            line-height: 24px !important;
         }
     }
 
-    .h-three {
-        font-family: 'OpenSans Light'!important;
-        font-size: 34px!important;
-        line-height: 48px!important;
-        color: #002244!important;
+    h4 {
+        font-family: 'OpenSans Light' !important;
+        font-size: 26px !important;
+        line-height: 36px !important;
+        color: #555555 !important;
 
         @media only screen and (max-width: 768px) {
-            font-size: 20px!important;
-            line-height: 24px!important;
-        }
-    }
-
-    .h-four {
-        font-family: 'OpenSans Light'!important;
-        font-size: 26px!important;
-        line-height: 36px!important;
-        color: #555555!important;
-
-        @media only screen and (max-width: 768px) {
-            font-size: 18px!important;
-            line-height: 22px!important;
+            font-size: 18px !important;
+            line-height: 22px !important;
         }
     }
 
     .b-one {
-        font-family: 'OpenSans Light'!important;
-        font-size: 18px!important;
-        line-height: 28px!important;
-        color: #555555!important;
+        font-family: 'OpenSans Light' !important;
+        font-size: 18px !important;
+        line-height: 28px !important;
+        color: #555555 !important;
 
         @media only screen and (max-width: 768px) {
-            font-size: 16px!important;
-            line-height: 20px!important;
+            font-size: 16px !important;
+            line-height: 20px !important;
         }
     }
 
     .b-two {
-        font-family: 'OpenSans Bold'!important;
-        font-size: 16px!important;
-        line-height: 26px!important;
-        color: #555555!important;
+        font-family: 'OpenSans Bold' !important;
+        font-size: 16px !important;
+        line-height: 26px !important;
+        color: #555555 !important;
 
         @media only screen and (max-width: 768px) {
-            font-size: 14px!important;
-            line-height: 20px!important;
+            font-size: 14px !important;
+            line-height: 20px !important;
         }
     }
 
     .b-three {
-        font-family: 'OpenSans Regular'!important;
-        font-size: 14px!important;
-        line-height: 24px!important;
-        color: #555555!important;
+        font-family: 'OpenSans Regular' !important;
+        font-size: 14px !important;
+        line-height: 24px !important;
+        color: #555555 !important;
 
         @media only screen and (max-width: 768px) {
-            font-size: 12px!important;
-            line-height: 20px!important;
+            font-size: 12px !important;
+            line-height: 20px !important;
+        }
+    }
+
+.tech-theme {
+    .btn-primary {
+        text-align: center;
+        border-radius: 28px;
+        padding: 20px 40px;
+        height: auto;
+        min-width: 160px;
+        font-family: 'OpenSans Bold';
+        font-size: 21px;
+        width: auto;
+        background-color: #002244;
+        color: #ffffff;
+        border-width: 0px;
+
+        @media screen and (min-width:320px) and (max-width:768px) {
+            min-width: 130px;
+            padding: 10px 5px;
+            font-size: 12px;
+        }
+
+        &:after {
+            font-family: 'InformaIcons';
+            right: 15px;
+            font-weight: bold;
+            position: absolute;
+            opacity: 0;
+        }
+
+        &:hover {
+            background-color: #11a7d8;
+            border-color: #11a7d8;
+        }
+    }
+
+    .btn-primary-small {
+        text-align: center;
+        border-radius: 22px;
+        padding: 15px 30px;
+        height: auto;
+        min-width: 160px;
+        font-family: 'OpenSans Bold';
+        font-size: 18px;
+        width: auto;
+        background-color: #002244;
+        color: #ffffff;
+        border-width: 0px;
+        &:after {
+            font-family: 'InformaIcons';
+            right: 15px;
+            font-weight: bold;
+            position: absolute;
+            opacity: 0;
+        }
+        &:hover {
+            background-color: #11a7d8;
+            border-color: #11a7d8;
+        }
+
+        @media screen and (min-width:320px) and (max-width:768px) {
+            min-width: 130px;
+            padding: 10px 5px;
+            font-size: 12px;
+        }
+    }
+
+    .btn.color-border {
+        background-color: #002244;
+        border-radius: 28px;
+        font-family: 'OpenSans Bold';
+        font-size: 21px;
+        color: #ffffff;
+        padding: 20px 40px;
+        border: 2px solid #8baf0a;
+
+        &:hover {
+            background-color: #d9d600;
+            color: #002244;
+        }
+    }
+
+
+
+    .btn.color-border-small {
+        background-color: #002244;
+        border-radius: 22px;
+        font-family: 'OpenSans Bold';
+        font-size: 21px;
+        color: #ffffff;
+        padding: 15px 30px;
+        border: 2px solid #8baf0a;
+
+        &:hover {
+            background-color: #d9d600;
+            color: #002244;
         }
     }
 }
