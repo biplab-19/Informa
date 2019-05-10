@@ -2271,8 +2271,13 @@ body {
 
 .rich-text-width-container {
     padding: 0 100px;
-    h2{
-        padding:0;
+
+    @media only screen and (max-width:768px) {
+        padding:0px 0px;
+    }
+
+    h2 {
+        padding: 0;
     }
 }
     .our-reach-section .researchsubs .text {
@@ -2284,6 +2289,17 @@ body {
             margin-top: 0px;
         }
     }
+
+
+.our-reach-section .researchsubs .text {
+    text-align: center;
+}
+
+.tech-theme .our-reach-section .researchsubs .numberntext {
+    display: -webkit-inline-box ;
+    align-items: center;
+   
+}
 
 
     
