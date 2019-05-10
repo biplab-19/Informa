@@ -304,7 +304,7 @@ html {
 
     .discover-community .carousel-inner {
         padding: 0;
-        height: 678px;
+        height: 750px;
     }
 
     .dot-img-outer {
@@ -2194,6 +2194,10 @@ body {
                     position: absolute;
                     bottom: -36px;
                     z-index: 9;
+
+                    @media screen and (max-width: 812px) {
+                        bottom: -22px;
+                    }
                 }
             }
         }
@@ -2237,6 +2241,7 @@ body {
 .bio-detail {
     .col-md-12 {
         padding-left: 0px;
+
         @media only screen and (max-width:768px) {
             padding-left: 15px;
         }
@@ -2257,11 +2262,18 @@ body {
             }
         }
     }
+
+    h2 {
+        padding: 0;
+    }
 }
 
 
 .rich-text-width-container {
     padding: 0 100px;
+    h2{
+        padding:0;
+    }
 }
     .our-reach-section .researchsubs .text {
         text-align:left;
