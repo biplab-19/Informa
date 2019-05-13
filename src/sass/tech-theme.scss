@@ -2301,6 +2301,25 @@ body {
    
 }
 
+@media screen and (max-width: 768px) and (min-width: 320px) {
+    .tech-theme .mc-button-child-contact .btn-primary {
+        min-width: 140px;
+    }
+}
 
-    
 
+
+
+
+
+@media only screen and (min-width: 768px){
+    .hero-items.hero-carousel .vertical-align.video-item {
+        transform: translateY(0%);
+        padding: 0;
+        top: 0;
+    } 
+    }
+
+section#hero-banner .vertical-align.video-item h1 {
+    color: #fff !important;
+}
