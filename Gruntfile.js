@@ -132,7 +132,6 @@ module.exports = function(grunt) {
                     '<%= config.dist %>/unminified/Static/js/vendor.js': ['bower_components/jquery/dist/jquery.min.js','bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js','bower_components/slick-carousel/slick/slick.js','bower_components/handlebars/handlebars.js', 'bower_components/chosen/chosen.jquery.js','bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js', 'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js', 'bower_components/jquery-validation/dist/jquery.validate.min.js', 'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js', 'bower_components/moment/min/moment.min.js', 'bower_components/fullcalendar/dist/fullcalendar.min.js', 'bower_components/picturefill/src/picturefill.js' , 'bower_components/typed.js/lib/typed.min.js'],
                     '<%= config.dist %>/unminified/Static/js/pdf.js': ['bower_components/pdf.js-viewer/pdf.js'],
                     '<%= config.dist %>/unminified/Static/js/pdf.worker.js': ['bower_components/pdf.js-viewer/pdf.worker.js'],
-                    '<%= config.dist %>/unminified/Static/css/vendor.css': ['bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js'],
                     '<%= config.dist %>/unminified/Static/css/component.css': ['<%= config.tmp %>/Static/css/component.css'],
                     '<%= config.dist %>/unminified/Static/css/global.css': ['<%= config.tmp %>/Static/css/global.css'],
                     '<%= config.dist %>/unminified/Static/css/agri-theme.css': ['<%= config.tmp %>/Static/css/agri-theme.css'],
@@ -157,11 +156,6 @@ module.exports = function(grunt) {
                         flatten: true,
                         dest: '<%= config.tmp %>/Static/images',
                         src: ['bower_components/slick-carousel/slick/**.{gif,jpg}']
-                    },
-                    {
-                        expand: true,
-                        src: ['bower_components/bootstrap-multiselect/dist/css/bootstrap-multiselect.css'],
-                        dest: '<%= config.tmp %>'
                     },
                     {
                         expand: true,
