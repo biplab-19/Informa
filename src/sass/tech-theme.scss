@@ -12,8 +12,9 @@
 @import url('https://fonts.googleapis.com/css?family=Aleo');
 
 //tech Theme
+/*
 @include theme(tech-theme, $tech-indigo, $tech-sky, $tech-citrus, $tech-gray );
-
+*/
 /*fonts*/
 @font-face {
     font-family: "Aleo Bold";
@@ -304,7 +305,7 @@ html {
 
     .discover-community .carousel-inner {
         padding: 0;
-        height: 750px;
+        min-height:605px;
     }
 
     .dot-img-outer {
@@ -602,7 +603,7 @@ section#hero-banner h1 {
         clear: both;
         max-width: 1400px;
         margin: 0 auto;
-
+        padding: 0 10px;
         @media only screen and (min-width: 768px) {
             padding: 0 100px;
         }
@@ -637,11 +638,9 @@ section#hero-banner h1 {
     /*end Rich Text editor containor*/
     /***Hero-Banner**/
     section p {
-        font-family: open sans;
-        color: #565c6b;
         clear: both;
         padding-top: 15px;
-        line-height: 26px;
+     
     }
 
    
@@ -1111,7 +1110,7 @@ section#hero-banner h1 {
             margin: 0 auto;
 
             .vertical-align {
-                top: 108px;
+               
                 position: absolute;
                 max-width: 1400px;
                 margin: 0 auto;
@@ -1169,8 +1168,12 @@ section#hero-banner h1 {
                     width: 91%;
                     font-size: 22px;
                     margin-top: 25px;
-                    margin-left: 20px;
+                    
+                    @media only screen and (max-width:768px) {
+                        margin-left: 20px;
+                    }
                 }
+
 
                 &.banner-bullet {
                     top:56%;
@@ -1198,6 +1201,15 @@ section#hero-banner h1 {
             padding: 0 100px;
         }
     }
+
+
+    .full-width p {
+        @media only screen and (max-width:768px) {
+            margin-left: 20px;
+            width: calc(100% - 40px);
+
+        }
+    }
     /* Start Hero Banner Single Image handled from javascript*/
     @media only screen and (max-width: 768px) {
         .vertical-align.empty-banner-image {
@@ -1206,6 +1218,29 @@ section#hero-banner h1 {
             height: auto !important;
         }
     }
+
+
+    @media only screen and (max-width:767px){
+        .hero-items {
+            .vertical-align {
+                top: 108px; 
+            }
+    }
+}
+    @media only screen and(min-width:768px) and (max-width:1200px){
+        .hero-items {
+            .vertical-align {
+                top: 0px; 
+            }
+    }
+}
+    @media only screen and(min-width:1201px){
+        .hero-items {
+            .vertical-align {
+                top: 108px; 
+            }
+    }
+}
     /****for desktop****/
     .vertical-align.empty-banner-image {
         position: static !important;
@@ -1226,11 +1261,7 @@ section#hero-banner h1 {
         display: flex;
     }
 
-    .rich-text-width-container {
-        clear: both;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
+    
 
     @media only screen and (max-width: 768px) {
         .mb-20 {
@@ -1694,11 +1725,7 @@ section#hero-banner h1 {
         display: flex;
     }
 
-    .rich-text-width-container {
-        clear: both;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
+   
 
     @media only screen and (max-width: 768px) {
         .mb-20 {
@@ -1986,7 +2013,7 @@ h2 {
 
         @media only screen and (max-width: 768px) {
             font-size: 20px !important;
-            line-height: 24px !important;
+            line-height: 30px !important;
         }
     }
 
@@ -1998,7 +2025,7 @@ h2 {
 
         @media only screen and (max-width: 768px) {
             font-size: 18px !important;
-            line-height: 22px !important;
+            line-height: 28px !important;
         }
     }
 
@@ -2018,7 +2045,7 @@ body {
     }
 }
 
-    .b-one {
+    .b-one{
         font-family: 'OpenSans Light' !important;
         font-size: 18px !important;
         line-height: 28px !important;
@@ -2026,7 +2053,20 @@ body {
 
         @media only screen and (max-width: 768px) {
             font-size: 16px !important;
-            line-height: 20px !important;
+            line-height: 26px !important;
+        }
+    }
+
+
+    p ,section p{
+        font-family: 'OpenSans Light';
+        font-size: 18px;
+        line-height: 28px;
+        color: #555555;
+
+        @media only screen and (max-width: 768px) {
+            font-size: 16px;
+            line-height: 26px;
         }
     }
 
@@ -2038,7 +2078,7 @@ body {
 
         @media only screen and (max-width: 768px) {
             font-size: 14px !important;
-            line-height: 20px !important;
+            line-height: 24px !important;
         }
     }
 
@@ -2050,7 +2090,7 @@ body {
 
         @media only screen and (max-width: 768px) {
             font-size: 12px !important;
-            line-height: 20px !important;
+            line-height: 22px !important;
         }
     }
 
@@ -2273,7 +2313,7 @@ body {
     padding: 0 100px;
 
     @media only screen and (max-width:768px) {
-        padding:0px 0px;
+        padding:0px 10px;
     }
 
     h2 {

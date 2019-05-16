@@ -35,7 +35,7 @@
         background: #f0f0f3;
         border-radius: 28px 0 0 28px;
         padding: 0px;
-        height: 790px;
+        min-height: 705px;
 
         .dc-box {
             height: 100%;
@@ -134,13 +134,16 @@
         padding: 42px 50px;
         box-sizing: border-box;
         $border: 5px;
-        min-height: 600px;
+        min-height: 515px;
         color: $gray-color;
         background: #f0f0f3;
         background-clip: padding-box;
         border: solid $border #94bb17;
         border-radius: 0;
         flex-direction: column;
+        @media only screen and (max-width: 812px) {
+            min-height: 415px;  
+        }
 
         &:before {
             content: '';
