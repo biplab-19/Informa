@@ -256,22 +256,22 @@ html {
 //*** dot-image position changes in mobile ***//
 @media screen and (max-width: 812px) and (min-width: 320px) {
     .discover-community .dot-img-left {
-        background-position: -36px 0;
+        background-position: -26px 0;
         width: 45px;
         height: 40px;
-        background-size: 172%;
-        margin-right: 0px;
+        background-size: 145%;
+        margin-right: 0;
     }
 
     .reach-img-section h2.sub-headline {
         left: 0 !important;
     }
     .reach-img-section .dot-img-left {
-        background-position: -45px 0;
+        background-position: -26px 0;
         width: 45px;
         height: 40px;
-        background-size: 172%;
-        margin-right: 0px;
+        background-size: 145%;
+        margin-right: 0;
     }
     .feature-brand-corousel .dot-img-left {
         background-position: -31px 0;
@@ -281,9 +281,11 @@ html {
         margin-right:0px;
     }
     .featured-products .dot-img-right {
-        background-position: 26px 0;
-        background-size: 141%;
-        margin-left: 0px;
+        background-position: 4px 0;
+        width: 45px;
+        height: 40px;
+        background-size: 150%;
+        margin-right: 0;
     }
     
     div.subofsub-text {
@@ -603,10 +605,8 @@ section#hero-banner h1 {
         clear: both;
         max-width: 1400px;
         margin: 0 auto;
-        padding: 0 10px;
-        @media only screen and (min-width: 768px) {
-            padding: 0 100px;
-        }
+        
+        
     }
 
     @media only screen and (max-width: 768px) {
@@ -1938,23 +1938,35 @@ section.brand_list .customers_list_slider .customer img {
     color: #024;
     position: relative;
     margin: 0;
+    width:calc(100% - 30px);
 }
 
-.rich-text-editor .dot-img-left {
-    width: 113px;
-    margin-left: -120px;
-}
+
 
 
 
 @media only screen and (max-width: 768px) {
     /* line 2155, ../../../src/sass/tech-theme.scss */
     .rich-text-editor .dot-img-left {
-        margin-left: -24px;
-        background-position: -36px 0;
+        background-position: -26px 0;
         width: 45px;
         height: 40px;
-        background-size: 172%;
+        background-size: 145%;
+        margin-right: 0;
+    }
+
+    .brand_list.feature-brand-corousel .dot-img-right{
+        background-position: 0px 0;
+        width: 45px;
+        height: 40px;
+        background-size: 145%;
+        margin-right: 0;
+    }
+    .featured-products .dot-img-left{
+        background-position: -24px 0;
+        width: 45px;
+        height: 40px;
+        background-size: 145%;
         margin-right: 0;
     }
 
@@ -2207,10 +2219,7 @@ body {
         .researchsubs .numberntext {
             font-size: 70px;
             font-weight: bold;
-            background:#92b20a;
-            background: -webkit-linear-gradient(#92b20a,#8fb10a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #92b20a;
             display: flex;
             justify-content: center;
             line-height: normal;
@@ -2264,11 +2273,7 @@ body {
 
 .rich-text-editor {
     .sub-text-n-img {
-        padding-left: 40px;
-
-        @media only screen and (max-width:768px) {
-            padding-left: 20px;
-        }
+        
 
         .container {
             padding-left: 0px;
@@ -2310,10 +2315,10 @@ body {
 
 
 .rich-text-width-container {
-    padding: 0 100px;
+   
 
     @media only screen and (max-width:768px) {
-        padding:0px 10px;
+        padding:0px 0px;
     }
 
     h2 {
@@ -2363,3 +2368,13 @@ body {
 section#hero-banner .vertical-align.video-item h1 {
     color: #fff !important;
 }
+.rich-text-width-container .nopadding .sub-text-n-img{
+    padding:0px;
+    }
+    .featured-products .nopadding{
+        padding:0px;
+    }
+
+    .imgleft .sub-headline{
+        text-align: left;
+    }
