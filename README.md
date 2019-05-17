@@ -12,4 +12,4 @@
 6. Install node modules within the project location
     - __*$ sudo npm install*__
 7. bower install within the project location
-8. Run grunt server within the project location
+8. Run grunt server within the project location.

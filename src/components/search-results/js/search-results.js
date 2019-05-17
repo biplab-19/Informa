@@ -454,21 +454,26 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             $.each(CheckBoxes, function() {
                                  var CurrentChkBoxVal = $(this).attr("value");
                                      if (RefineObj.contains(CurrentChkBoxVal)) {
+                                        $(this).closest("li").removeClass("hide");
                                         $(this).removeAttr("disabled");
                                      }else{
                                         $(this).attr("disabled","disabled");
+                                        $(this).closest("li").addClass("hide");
                                         $(this).prop("checked",false);
                                      }
                             });
                             SelectAllChkBox.removeAttr("disabled");
+                            SelectAllChkBox.closest("div.panel-default").removeClass("hide");
                             Links.removeClass("disabled");
                         }
                         if(CheckBoxes && Facet && RefineObj.length<1){
                             $.each(CheckBoxes, function() {         
                                  $(this).attr("disabled","disabled");
+                                 $(this).closest("li").addClass("hide");
                                  $(this).prop("checked",false);
                             });
                             SelectAllChkBox.attr("disabled","disabled");
+                            SelectAllChkBox.closest("div.panel-default").addClass("hide");
                             Links.addClass("disabled");
                         }
                     }
