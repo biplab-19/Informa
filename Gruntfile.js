@@ -168,7 +168,7 @@ module.exports = function(grunt) {
                             'bower_components/picturefill/src/picturefill.js',
                             'bower_components/chosen/chosen.jquery.js',
                             'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
-                            'bower_components/bootstrap-multiselect//dist/js/bootstrap-multiselect.js',
+                            'bower_components/bootstrap-multiselect/dist/js/bootstrap-multiselect.js',
                             'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js',
                             'bower_components/jquery-validation/dist/jquery.validate.min.js',
                             'bower_components/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js',
