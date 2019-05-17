@@ -32,7 +32,8 @@ var INFORMA = window.INFORMA || {};
             "GetFormItems": "/data/form-data.json",
             "GetRecomendedItems": "/data/recomended-content.json",
             "GetProductAndVerticalNames": "/data/GetWffmHiddenItemsContent.json",
-            "GetRecomendedProductItems": "/data/recomendedProducts.json"
+            "GetRecomendedProductItems": "/data/recomendedProducts.json",
+            "BrandPortfolioSearch": "/data/brandPortfolio-page.json"
         },
         "dev": {
             "GetArticles": "/client/search/getarticles",
@@ -52,8 +53,8 @@ var INFORMA = window.INFORMA || {};
             "GetRecomendedItems": "/client/Account/GetRemainingContent",
             "GetProductAndVerticalNames": "/client/ajax/GetWffmHiddenItemsContent",
             "GetRecomendedProductItems": "/client/Account/GetUpdatedProduct",
-            "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie"
-
+            "SetFirstContentDisplayedCookie" :"/client/Ajax/SetFirstContentDisplayedCookie",
+            "BrandPortfolioSearch": "/client/search/GetBrandPortfolioList"
         }
     };
 
