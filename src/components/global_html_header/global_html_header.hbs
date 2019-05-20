@@ -113,10 +113,14 @@ if (PDFViewerApplication) {
         setTimeout(function () {
           if (PDFViewerApplication.pdfViewer.currentScaleValue)
             PDFViewerApplication.pdfViewer.currentScaleValue = PDFViewerApplication.pdfViewer.currentScaleValue;
-        }, 200);
+        }, 100);
         clearInterval(window.pdfvtimer);
       }
-    }, 100);
+    }, 500);
+    // kill interval after 30s
+    setTimeout(function () {
+      clearInterval(window.pdfvtimer);
+    }, 30000);
   }
 }
       PDFJS.webViewerLoad(file);
