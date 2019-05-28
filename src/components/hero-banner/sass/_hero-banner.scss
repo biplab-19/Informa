@@ -827,85 +827,26 @@ section#hero-banner {
 }
 
 .hero-banner-texture.dark-banner-subscribe {
-  padding: 0 0 0 0;
-  margin-bottom: 0;
-  height: 100% !important;
-  overflow: hidden;
+    padding: 0 0 0 0;
 
-  .row {
+    .row {
         margin-bottom: 0;
-        height: 100% !important;
+    }
 
     .cf-img {
-        right: 0;
-        left: 0;
-        width: 100%;
-        margin: 0 auto;
-        overflow: visible;
-
-        @include desktop {
-        width: 1142px;
-        background-color: transparent;
-        &::after {
-            content: '';
-            position: absolute;
-            left: 100%;
-            display: block;
-            // various widths for backward support
-            width: 50%;
-            width: 50vw;
-            width: calc(50vw - 50%);
-            height: 100%;
-            background-color: #343742;
-        }
-        }
-
-        @include not-desktop {
-        display: none;
-        }
-        @media (max-width: 767px) and (orientation: landscape) {
-        display: block;
-        width: 100%;
-        height: 0;
-        transform: none;
-        }
         img {
-        left: 66.67%;
-        width: auto;
-        height: 36%;
+            width: auto;
+            height: 36%;
 
-        @include desktop {
-            height: 100%;
-            background-color: #343742;
-        }
-        @media (max-width: 767px) and (orientation: landscape) {
-            display: block;
-            left: auto;
-            right: 0;
-            height: 100%;
-        }
+            @include desktop {
+                height: 100%;
+            }
+
+            @include not-desktop {
+                display: none;
+            }
         }
     }
-
-    .h1-styles,
-    .subtext,
-    .description {
-        padding-right: 40px;
-        @include not-desktop {
-        padding-right: 0;
-        }
-    }
-
-    ul {
-        @include desktop {
-        padding-left: 40px;
-        padding-right: 40px;
-        }
-        @include not-desktop {
-        padding-top: 20px;
-        }
-    }
-  }
 }
 
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section {

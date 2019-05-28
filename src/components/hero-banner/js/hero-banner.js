@@ -18,8 +18,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _heroBannerList = $('.hero-banner-carousel .slider-component'),
         _heroBannerFull = $('.hero-banner-texture,.hero-banner'),
         _heroBannerImage = $('.hero-banner-texture .cf-img,.hero-banner .cf-img'),
-        _heroBannerTexture = $('.hero-banner-texture').not('.supergraphic, .key-acocunt-landing-section'),
-        _heroBannerSg = $('.hero-banner-texture.supergraphic'),
 
     // methods
         init,
@@ -42,8 +40,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         vimeoPlayer,
         wistiaPlayers=[],
         _pauseAllVideos,
-        resizeHeroBanner,
-        resizeHeroSG;
+        resizeHeroBanner;
        
 
     _bindIframe = function(){
@@ -291,33 +288,17 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         },
 
         resizeHeroBanner = function(){
-            var textEls;
-            if(_heroBannerTexture.length > 0){
-                textEls = _heroBannerTexture.find('.h1-styles, .subtext, .description');
+            if($('.hero-banner-texture').length > 0){
                 if ($(window).width() > 1360) {
                     var width = _heroBannerFull.width() - _heroBannerImage.width();
                     var innerWidth = (_heroBannerFull.width() - 1172)/2;
                     var finalWidth = (width - innerWidth) - 15;
-                    textEls.css({
+                    $('.hero-banner-texture .h1-styles, .hero-banner-texture .subtext, .hero-banner-texture .description').css({
                         'width' : finalWidth
                     })
                 }  
                 else{
-                    textEls.css('width','auto');
-                }
-            }
-        },
-
-        resizeHeroSG = function(){
-            var secondCol;
-            if (_heroBannerSg.length > 0) {
-                if (INFORMA.global.device.viewport === "mobile") {
-                    secondCol = _heroBannerSg.children('.container').children('.row').children('div').eq(1);
-                    _heroBannerImage.css('top', secondCol[0].offsetTop);
-                    _heroBannerImage.css('height', secondCol.height());
-                } else {
-                    _heroBannerImage.css('top', '');
-                    _heroBannerImage.css('height', '');
+                    $('.hero-banner-texture .h1-styles,.hero-banner-texture .subtext, .hero-banner-texture .description').css('width','auto');
                 }
             }
         },
@@ -347,10 +328,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 }    
             }
             if(_heroBannerFull.length > 0){
-                resizeHeroBanner();
-                setTimeout(function () {
-                    resizeHeroSG();
-                }, 1000);
+                resizeHeroBanner();  
             }    
             $(window).on("load", function() {
                 if(_heroBannerFull.length > 0){
@@ -377,7 +355,6 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         $('.hero-banner').css('min-height','275px');
                     }
                     resizeHeroBanner();
-                    resizeHeroSG();
                }
             });
 
