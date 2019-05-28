@@ -64,7 +64,7 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
 Handlebars.registerHelper('AnalystData', function(profile) {
   if(profile){
     var u = profile.split("#");
-    if(profile.includes('#') && u[1]){
+    if(profile.indexOf('#')!== -1 && u[1]){
           return "<a href="+u[1]+">"+u[0]+"</a>";
     }else{
       return profile;
