@@ -799,7 +799,6 @@ section#hero-banner h1 {
     #contact-us fieldset {
         display: inline-block;
         width: calc(50% - 25px);
-     
     }
 
     #contact-us .chosen-single {
@@ -2379,27 +2378,28 @@ section#hero-banner .vertical-align.video-item h1 {
         text-align: left;
     }
 
-    .second-banner-left-outer .second-banner-left-inner h1 {
-        color: #333;
-        text-transform: uppercase;
-        font-weight: lighter;
-        padding: 25px 40px 20px 40px;
-        margin-top: 0px !important;
-        margin-bottom: 0px !important;
-    }
+.second-banner-left-outer .second-banner-left-inner h1 {
+    color: #333;
+    text-transform: uppercase;
+    font-weight: lighter;
+    padding: 25px 40px 20px 40px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
 
-    .second-banner-left-outer .second-banner-left-inner {
-        width: 100%;
-        padding: 0;
-        background: rgba(255,255,255,0.8);
-        border-top-right-radius: 80px;
-        border-bottom-right-radius: 80px;
-        border-top-left-radius: 80px;
-        border-bottom-left-radius: 80px;
-        position: relative;
-        top: 0;
-        left: 60px;
-        @media only screen and (min-width: 769px) and (max-width:1200px){
-            width: calc(100% - 100px);
-        }
+.second-banner-left-outer .second-banner-left-inner {
+    width: 100%;
+    padding: 0;
+    background: rgba(255,255,255,0.8);
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+    position: relative;
+    top: 0;
+    left: 60px;
+
+    @media only screen and (min-width: 769px) and (max-width:1200px) {
+        width: calc(100% - 100px);
     }
+}
