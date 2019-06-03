@@ -188,7 +188,7 @@
         }
     }
 
-    .linkedin-white::before, .youtube-white::before, .twitter-white::before {
+    .linkedin-white::before, .youtube-white::before, .twitter-white::before ,.facebook-white::before{
         display: block;
         font-family: fontAwesome;
         font-style: normal;
@@ -210,6 +210,9 @@
 
     .twitter-white::before {
         content: "\f099";
+    }
+    .facebook-white::before{
+        content: "\f09a";
     }
 }
 
