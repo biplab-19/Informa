@@ -257,7 +257,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                    _urlType = $(event.target).find('.slick-active .videoBG').attr('data-videotype');
                 if(video.length > 0){
                     if(_urlType === 'youtube'){
-                        _pauseAllVideos();
+                        var allyoutubeid = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent();                        
+                        _pauseAllVideos(allyoutubeid);
                         var ytubeId = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].id;
                         for(var i=0; i<ytPlayers.length;i++){
                             if(ytPlayers[i].a.id === ytubeId ){
@@ -266,7 +267,9 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         }    
                     }
                     else if(_urlType === 'vimeo'){
-                        _pauseAllVideos();
+                        var AllVimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent();                        
+                        _pauseAllVideos(AllVimeoId);
+                        
                         var VimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent()[0].id
                         for(var j=0; j<vimeoPlayers.length;j++){
                             if(vimeoPlayers[j].element.parentElement.id === VimeoId){
@@ -276,16 +279,28 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     }
                 }
                 else{
-                   _pauseAllVideos();
+                   //_pauseAllVideos();
                 } 
            }   
         });
-        _pauseAllVideos = function(){
-            for(var i=0; i<ytPlayers.length; i++){
-                ytPlayers[i].pauseVideo();
-            }    
-            for(var j =0; j<vimeoPlayers.length; j++){
-                vimeoPlayers[j].pause();
+        _pauseAllVideos = function(allvideoid){            
+            
+            for (var k = 0; k < allvideoid.length; k++) {
+                var vId = allvideoid[k].id;
+                for(var i=0; i<ytPlayers.length; i++){
+                    if (ytPlayers[j].element.parentElement.id === vId) {
+                    ytPlayers[i].pauseVideo();
+                    }
+                }                 
+            }
+            
+            for (var k = 0; k < allvideoid.length; k++) {
+                var vId = allvideoid[k].id;
+                for (var j = 0; j < vimeoPlayers.length; j++) {
+                    if (vimeoPlayers[j].element.parentElement.id === vId) {
+                        vimeoPlayers[j].pause();
+                    }
+                }
             }
         },
 
