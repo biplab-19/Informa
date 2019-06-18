@@ -555,7 +555,6 @@ section#hero-banner {
         }
 
         @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-
             .image-margin {
                 margin-right: 50%;
             }
@@ -651,7 +650,6 @@ section#hero-banner {
         //   }
         //   }
         @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-
             .image-margin {
                 margin-left: 25px;
             }
@@ -847,6 +845,65 @@ section#hero-banner {
             }
         }
     }
+
+  &.supergraphic {
+    padding: 0 0 0 0;
+    margin-bottom: 0;
+    height: 100% !important;
+
+    .row {
+      margin-bottom: 0;
+}
+
+    .cf-img {
+      @include greater-desktop {
+        width: 40%;
+      }
+      @include not-desktop {
+        display: none;
+      }
+      @media (max-width: 767px) and (orientation: landscape) {
+        display: block;
+        width: 100%;
+        transform: none;
+      }
+      img {
+        width: auto;
+        height: 36%;
+        @include desktop {
+          height: 100%;
+        }
+        @media (max-width: 767px) and (orientation: landscape) {
+          display: block;
+          left: auto;
+          right: 0;
+}
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        height: 100%;
+        width: 500px;
+        background-color: #343742;
+        @include desktop {
+          left: 371px;
+        }
+        @include greater-desktop {
+          left: 410px;
+        }
+        @include not-desktop {
+          display: none;
+        }
+      }
+    }
+
+    ul {
+      @include greater-desktop {
+        padding-left: 0;
+      }
+    }
+  }
 }
 
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section {
