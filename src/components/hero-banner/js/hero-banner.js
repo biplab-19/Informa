@@ -39,7 +39,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         vimeoPlayers=[],
         vimeoPlayer,
         wistiaPlayers=[],
-        _pauseAllVideos,
+        _pauseAllYoutubeVideos,
+        _pauseAllVimeoVideos,
         resizeHeroBanner;
        
 
@@ -257,8 +258,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                    _urlType = $(event.target).find('.slick-active .videoBG').attr('data-videotype');
                 if(video.length > 0){
                     if(_urlType === 'youtube'){
-                        var allyoutubeid = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent();                        
-                        _pauseAllVideos(allyoutubeid);
+                        var allYoutubeId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent();                        
+                        _pauseAllYoutubeVideos(allYoutubeId);
                         var ytubeId = slick.$slides[currentSlide].getElementsByTagName('iframe')[0].id;
                         for(var i=0; i<ytPlayers.length;i++){
                             if(ytPlayers[i].a.id === ytubeId ){
@@ -267,35 +268,36 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         }    
                     }
                     else if(_urlType === 'vimeo'){
-                        var AllVimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent();                        
-                        _pauseAllVideos(AllVimeoId);
+                        var allVimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent();                        
+                        _pauseAllVimeoVideos(allVimeoId);
                         
-                        var VimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent()[0].id
+                        var vimeoId = $(slick.$slides[currentSlide].getElementsByTagName('iframe')).parent()[0].id
                         for(var j=0; j<vimeoPlayers.length;j++){
-                            if(vimeoPlayers[j].element.parentElement.id === VimeoId){
+                            if(vimeoPlayers[j].element.parentElement.id === vimeoId){
                                 vimeoPlayers[j].play();
                             }
                         } 
                     }
                 }
-                else{
-                   //_pauseAllVideos();
-                } 
+                
            }   
         });
-        _pauseAllVideos = function(allvideoid){            
+        _pauseAllYoutubeVideos = function(allVideoId){            
             
-            for (var k = 0; k < allvideoid.length; k++) {
-                var vId = allvideoid[k].id;
+            for (var k = 0; k < allVideoId.length; k++) {
+                var vId = allVideoId[k].id;
                 for(var i=0; i<ytPlayers.length; i++){
                     if (ytPlayers[j].element.parentElement.id === vId) {
                     ytPlayers[i].pauseVideo();
                     }
                 }                 
             }
+          
+        },
+        _pauseAllVimeoVideos = function(allVideoId){            
             
-            for (var k = 0; k < allvideoid.length; k++) {
-                var vId = allvideoid[k].id;
+           for (var k = 0; k < allVideoId.length; k++) {
+                var vId = allVideoId[k].id;
                 for (var j = 0; j < vimeoPlayers.length; j++) {
                     if (vimeoPlayers[j].element.parentElement.id === vId) {
                         vimeoPlayers[j].pause();
@@ -303,6 +305,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 }
             }
         },
+
 
         resizeHeroBanner = function(){
             if($('.hero-banner-texture').length > 0){
