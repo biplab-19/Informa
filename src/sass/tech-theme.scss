@@ -2436,14 +2436,11 @@ section#hero-banner .vertical-align.video-item h1 {
 
 
        
-.tech-theme
-{
-.hero-banner-carousel
-{
-    .slick-initialized 
-    {
-        .slick-next,.slick-prev
-        {
+.tech-theme {
+
+  .hero-banner-carousel {
+    .slick-initialized {
+        .slick-next,.slick-prev {
             width: 90px;
             height: 90px;
             border-radius: 100%;
@@ -2452,8 +2449,7 @@ section#hero-banner .vertical-align.video-item h1 {
             z-index: 99;
             border: 0;
         }
-        .slick-next
-        {
+        .slick-next {
            
             padding-right: 50px!important;
             margin-left: -38px;
@@ -2461,8 +2457,7 @@ section#hero-banner .vertical-align.video-item h1 {
                 background: transparent;  
             }
         }
-        .slick-prev
-        {
+        .slick-prev {
             
             right: auto;
             padding-left: 50px!important;
@@ -2474,8 +2469,7 @@ section#hero-banner .vertical-align.video-item h1 {
         
         
     }
-    .slick-initialized .slick-next:before,.slick-list .slick-next:before,.slick-track .slick-next:before,.slick-initialized .slick-prev:before,.slick-list .slick-prev:before,.slick-track .slick-prev:before
-    {
+    .slick-initialized .slick-next:before,.slick-list .slick-next:before,.slick-track .slick-next:before,.slick-initialized .slick-prev:before,.slick-list .slick-prev:before,.slick-track .slick-prev:before {
         border-style: solid;
         border-width: 4px 4px 0 0;
         content: '';
@@ -2485,35 +2479,31 @@ section#hero-banner .vertical-align.video-item h1 {
         top: 55%;
         color: #dbd600;
     }
-    .slick-initialized .slick-next:before,.slick-list .slick-next:before,.slick-track .slick-next:before
-    {
+    .slick-initialized .slick-next:before,.slick-list .slick-next:before,.slick-track .slick-next:before {
      
         transform: rotate(44deg);
         margin-left: -35px;
     }
     
-    .slick-initialized .slick-prev:before,.slick-list .slick-prev:before,.slick-track .slick-prev:before
-    {
+    .slick-initialized .slick-prev:before,.slick-list .slick-prev:before,.slick-track .slick-prev:before {
        
         transform: rotate(-136deg);
         left: 75px;  
     }
 
-}
+  }
 
-.hero-items.hero-carousel .vertical-align.video-item
-{
+  .hero-items.hero-carousel .vertical-align.video-item {
     color: #fff;
     width: 100%;
     position: absolute;
     top: 16%;
     transform: translateY(-23%);
     z-index: 3;
-}
-section#hero-banner
-{
+  }
+  section#hero-banner {
     background-color: #182d50;
-}
+  }
 }
 
 
