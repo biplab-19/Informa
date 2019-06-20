@@ -2430,3 +2430,45 @@ section#hero-banner .vertical-align.video-item h1 {
         width: calc(100% - 100px);
     }
 }
+#social-section {
+    .twitter-carousel {
+        .slick-arrow {
+            top: 35%;
+            width: 90px;
+            height: 90px;
+            border-radius: 100%;
+            padding-right: 50px!important;
+            background: #fff;
+            position: absolute;
+            z-index: 99;
+            border: 0;
+          
+        }
+        .slick-prev ,.slick-next{
+            &:before {
+                border-style: solid;
+                border-width: 4px 4px 0 0;
+                content: '';
+                height: 20px;
+                position: absolute;
+                width: 20px;
+                top: 55%;
+                color: #182d50;
+            }
+        }
+        .slick-prev{
+            margin-left: -50px;
+           &:before {
+           transform: rotate(-136deg);
+            left: 73px;
+           }
+        }
+        .slick-next {
+            right: -50px;
+            &:before {
+            transform: rotate(44deg);
+            margin-left: -17px;
+            }
+        }
+    }
+}
