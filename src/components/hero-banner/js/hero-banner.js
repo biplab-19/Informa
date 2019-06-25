@@ -346,9 +346,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     }
                 }    
             }
-            if(_heroBannerFull.length > 0){
-                resizeHeroBanner();  
-            }    
+            resizeHeroBanner();
+            resizeHeroSG();
             $(window).on("load", function() {
                 if(_heroBannerFull.length > 0){
                     if(INFORMA.global.device.viewport === "mobile"){
@@ -374,6 +373,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         $('.hero-banner').css('min-height','275px');
                     }
                     resizeHeroBanner();
+                    resizeHeroSG();
                }
             });
 
