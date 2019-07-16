@@ -2430,3 +2430,17 @@ section#hero-banner .vertical-align.video-item h1 {
         width: calc(100% - 100px);
     }
 }
+.tech-theme {
+    .content {
+        .discription {
+            p {
+                @media only screen and (min-width: 769px) {
+                    width: 100%;
+                    float: left;
+                    height: 100px;
+                    overflow: auto;
+                }
+            }
+        }
+    }
+}
