@@ -94,7 +94,8 @@ module.exports = function(grunt) {
                     layout: 'main-layout.hbs',
                     layoutdir: '<%= config.src %>/templates/layouts',
                     data: ['<%= config.src %>/components/**/*.{json,yml}'],
-                    partials: ['<%= config.src %>/components/**/*.hbs']
+                    partials: ['<%= config.src %>/components/**/*.hbs'],
+                    helpers: ['<%= config.src %>/components/form-eloqua/js/handlebar-helper.js']
                 },
                 files: {
                     '<%= config.tmp %>/': ['<%= config.src %>/templates/pages/**/*.hbs']
