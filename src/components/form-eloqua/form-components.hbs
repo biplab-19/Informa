@@ -19,8 +19,8 @@
                             <h1 class="modal-title" id="{{htmlName}}Header">{{name}}</h1>
                             <form role="form" method="post" action="#" onsubmit="#" id="{{htmlName}}" name="{{htmlName}}" class="elq-form">
                                 {{#each elements}}
-                                    {{#compare type "FormField" operator="==" }}
-                                        {{#compare displayType "text" operator="=="}}
+                                    {{#compare type "==" "FormField"}}
+                                        {{#compare displayType "==" "text"}}
                                             <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
                                                 <div class="title">
                                                     {{name}}
@@ -32,13 +32,13 @@
                                                     </div>
                                                 {{/if}}
                                                 <div class="row">
-                                                    <div class="col-md-{{#compare style.fieldSize "large"}}12{{/compare}}{{#compare style.fieldSize "small"}}6{{/compare}}">
+                                                    <div class="col-md-{{#compare style.fieldSize "==" "large"}}12{{/compare}}{{#compare style.fieldSize "==" "small"}}6{{/compare}}">
                                                         <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
                                                           <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
                                                         {{#each validations}}
                                                           {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
                                                           {{#if message}} data-msg-required="{{message}}" {{/if}}
-                                                          {{#compare condition.type "IsEmailAddressCondition"}}
+                                                          {{#compare condition.type "==" "IsEmailAddressCondition"}}
                                                             data-msg-email="{{message}}" data-rule-email="true"
                                                           {{/compare}}
                                                         {{/each}} />
@@ -48,8 +48,8 @@
                                         {{/compare}}
                                     {{/compare}}
 
-                                    {{#compare type "FormField" operator="==" }}
-                                        {{#compare displayType "textarea"}}
+                                    {{#compare type "==" "FormField"}}
+                                        {{#compare displayType "==" "textarea"}}
                                             <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
                                                 <div class="title">
                                                     {{name}}
@@ -61,8 +61,8 @@
                                                     </div>
                                                 {{/if}}
                                                 <div class="row">
-                                                    <div class="col-md-{{#compare style.fieldSize "large"}}12{{/compare}} {{#compare style.fieldSize "small"}}6{{/compare}}">
-                                                        <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
+                                                    <div class="col-md-{{#compare style.fieldSize "==" "large"}}12{{/compare}} {{#compare style.fieldSize "==" "small"}}6{{/compare}}">
+                                                        <label for="{{createdFromContactFieldId}}" clas ="{{style.labelPosition}}">{{name}}</label>
                                                         <textarea class="form-control" id="{{createdFromContactFieldId}}" rows="3" required></textarea>
                                                     </div>
                                                 </div>
@@ -71,8 +71,8 @@
                                     {{/compare}}
 
 
-                                    {{#compare type "FormField" operator="==" }}
-                                        {{#compare displayType "singleSelect"}}
+                                    {{#compare type "==" "FormField"}}
+                                        {{#compare displayType "==" "singleSelect"}}
                                             <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
                                                 <div class="title">
                                                     {{name}}
@@ -84,12 +84,12 @@
                                                     </div>
                                                 {{/if}}
                                                 <div class="row">
-                                                    <div class="col-md-{{#compare style.fieldSize "large"}}12{{/compare}} {{#compare style.fieldSize "small"}}6{{/compare}}">
+                                                    <div class="col-md-{{#compare style.fieldSize "==" "large"}}12{{/compare}} {{#compare style.fieldSize "==" "small"}}6{{/compare}}">
                                                         <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
                                                         <div class="selectMenu">
                                                             <select id="{{createdFromContactFieldId}}" class="chosen-select"
                                                             {{#each validations}}
-                                                              {{#compare condition.type "IsRequiredCondition"}}
+                                                              {{#compare condition.type "==" "IsRequiredCondition"}}
                                                                  data-rule-required="true"
                                                               {{/compare}}
                                                               {{#if isEnabled}} {{/if}}
@@ -106,7 +106,7 @@
 
 
 
-                                    {{#compare type "FormFieldGroup" operator="==" }}
+                                    {{#compare type "==" "FormFieldGroup"}}
                                         <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
                                             <div class="title">
                                                 {{name}}
@@ -118,33 +118,33 @@
                                                 </div>
                                             {{/if}}
                                             <div class="row">
-                                                {{#compare style.listOrder "oneColumn"}}
+                                                {{#compare style.listOrder "==" "oneColumn"}}
                                                     {{#each fields}}
                                                         <div class="col-md-12">
                                                             <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
-                                                            {{#compare displayType "date"}}
+                                                            {{#compare displayType "==" "date"}}
                                                                 <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
                                                                 {{#each validations}}
                                                                   {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
                                                                   {{#if message}} data-msg-required="{{message}}" {{/if}}
-                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                  {{#compare condition.type "==" "IsEmailAddressCondition"}}
                                                                     data-msg-email="{{message}}" data-rule-email="true"
                                                                   {{/compare}}
                                                                 {{/each}} />
                                                             {{/compare}}
-                                                            {{#compare displayType "singleSelect"}}
+                                                            {{#compare displayType "==" "singleSelect"}}
                                                                 <div class="selectMenu">
                                                                     <select id="{{createdFromContactFieldId}}" class="chosen-select">
                                                                         <option value="{{options.value}}">{{options.label}}</option>
                                                                     </select>
                                                                 </div>
                                                             {{/compare}}
-                                                            {{#compare displayType "text"}}
+                                                            {{#compare displayType "==" "text"}}
                                                                 <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
                                                                 {{#each validations}}
                                                                   {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
                                                                   {{#if message}} data-msg-required="{{message}}" {{/if}}
-                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                  {{#compare condition.type "==" "IsEmailAddressCondition"}}
                                                                     data-msg-email="{{message}}" data-rule-email="true"
                                                                   {{/compare}}
                                                                 {{/each}} />
@@ -152,34 +152,34 @@
                                                         </div>
                                                     {{/each}}
                                                 {{/compare}}
-                                                {{#compare style.listOrder "twoColumn"}}
+                                                {{#compare style.listOrder "==" "twoColumn"}}
 
                                                     {{#each fields}}
                                                         <div class="col-md-6">
                                                             <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
-                                                            {{#compare displayType "date"}}
+                                                            {{#compare displayType "==" "date"}}
                                                                 <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
                                                                 {{#each validations}}
                                                                   {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
                                                                   {{#if message}} data-msg-required="{{message}}" {{/if}}
-                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                  {{#compare condition.type "==" "IsEmailAddressCondition"}}
                                                                     data-msg-email="{{message}}" data-rule-email="true"
                                                                   {{/compare}}
                                                                 {{/each}} />
                                                             {{/compare}}
-                                                            {{#compare displayType "singleSelect"}}
+                                                            {{#compare displayType "==" "singleSelect"}}
                                                                 <div class="selectMenu">
                                                                     <select id="{{createdFromContactFieldId}}" class="chosen-select">
                                                                         <option value="{{options.value}}">{{options.label}}</option>
                                                                     </select>
                                                                 </div>
                                                             {{/compare}}
-                                                            {{#compare displayType "text"}}
+                                                            {{#compare displayType "==" "text"}}
                                                                 <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
                                                                 {{#each validations}}
                                                                   {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
                                                                   {{#if message}} data-msg-required="{{message}}" {{/if}}
-                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                  {{#compare condition.type "==" "IsEmailAddressCondition"}}
                                                                     data-msg-email="{{message}}" data-rule-email="true"
                                                                   {{/compare}}
                                                                 {{/each}} />
@@ -187,28 +187,28 @@
                                                         </div>
                                                     {{/each}}
                                                 {{/compare}}
-                                                {{#compare style.listOrder "threeColumn"}}
+                                                {{#compare style.listOrder "==" "threeColumn"}}
                                                     {{#each fields}}
                                                         <div class="col-md-4">
                                                             <label for="{{createdFromContactFieldId}}" class="{{style.labelPosition}}">{{name}}</label>
-                                                            {{#compare dataType "date"}}
+                                                            {{#compare dataType "==" "date"}}
                                                             <div class="right-inner">
                                                               <i class="icon-calender"></i>
                                                                 <input type="{{displayType}}" name="{{htmlName}}" class="form-control date-picker" id="{{createdFromContactFieldId}}" value=""
                                                                   {{#each validations}}
                                                                     {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
                                                                     {{#if message}} data-msg-required="{{message}}" {{/if}}
-                                                                    {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                    {{#compare condition.type "==" "IsEmailAddressCondition"}}
                                                                       data-msg-email="{{message}}" data-rule-email="true"
                                                                     {{/compare}}
                                                                   {{/each}} />
                                                             </div>
                                                             {{/compare}}
-                                                            {{#compare displayType "singleSelect"}}
+                                                            {{#compare displayType "==" "singleSelect"}}
                                                                 <div class="selectMenu">
                                                                     <select id="{{createdFromContactFieldId}}" class="chosen-select"
                                                                     {{#each validations}}
-                                                                      {{#compare condition.type "IsRequiredCondition"}}
+                                                                      {{#compare condition.type "==" "IsRequiredCondition"}}
                                                                          data-rule-required="true"
                                                                       {{/compare}}
                                                                       {{#if isEnabled}} {{/if}}
@@ -222,13 +222,13 @@
                                                                     </select>
                                                                 </div>
                                                             {{/compare}}
-                                                            <!-- {{#compare displayType "text"}}
-                                                            {{#compare dataType "date" operator="==" }}
+                                                            <!-- {{#compare displayType "==" "text"}}
+                                                            {{#compare dataType "==" "date"}}
                                                                 <input type="{{displayType}}" name="{{htmlName}}" class="form-control" id="{{createdFromContactFieldId}}" value=""
                                                                 {{#each validations}}
                                                                   {{#if isEnabled}} data-rule-required="{{isEnabled}}" {{/if}}
                                                                   {{#if message}} data-msg-required="{{message}}" {{/if}}
-                                                                  {{#compare condition.type "IsEmailAddressCondition"}}
+                                                                  {{#compare condition.type "==" "IsEmailAddressCondition"}}
                                                                     data-msg-email="{{message}}" data-rule-email="true"
                                                                   {{/compare}}
                                                                 {{/each}} />
@@ -241,7 +241,7 @@
                                         </div>
                                     {{/compare}}
 
-                                    {{#compare displayType "checkbox"}}
+                                    {{#compare displayType "==" "checkbox"}}
                                         <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
                                             <div class="title">
                                                 {{name}}
@@ -253,7 +253,7 @@
                                                 </div>
                                             {{/if}}
                                             <div class="row">
-                                                {{#compare style.listOrder "oneColumn"}}
+                                                {{#compare style.listOrder "==" "oneColumn"}}
                                                     <div class="col-md-4 col-sm-4 col-xs-12">
                                                         <div class="checkbox-container">
                                                             <input class="checkbox" type="checkbox" id="{{createdFromContactFieldId}}">
@@ -261,7 +261,7 @@
                                                         </div>
                                                     </div>
                                                 {{/compare}}
-                                                {{#compare style.listOrder "threeColumn"}}
+                                                {{#compare style.listOrder "==" "threeColumn"}}
                                                     {{#each fields}}
                                                         <div class="col-md-4 col-sm-4 col-xs-12">
                                                             <div class="checkbox-container">
@@ -275,7 +275,7 @@
                                         </div>
                                     {{/compare}}
 
-                                    {{#compare displayType "radio"}}
+                                    {{#compare displayType "==" "radio"}}
                                         <div class="form-group {{#if instructions}}hasToolTip{{/if}}">
                                             <div class="title">
                                                 {{name}}
@@ -287,7 +287,7 @@
                                                 </div>
                                             {{/if}}
                                             <div class="row">
-                                                {{#compare style.listOrder "oneColumn"}}
+                                                {{#compare style.listOrder "==" "oneColumn"}}
                                                     <div class="col-md-4 col-sm-4 col-xs-12">
                                                         <span class="custom-radio">
                                                               <label for="{{id}}" class="label">
@@ -297,7 +297,7 @@
                                                         </span>
                                                     </div>
                                                 {{/compare}}
-                                                {{#compare style.listOrder "threeColumn"}}
+                                                {{#compare style.listOrder "==" "threeColumn"}}
                                                     {{#each fields}}
                                                         <div class="col-md-4 col-sm-4 col-xs-12">
                                                             <span class="custom-radio">
@@ -313,7 +313,7 @@
                                         </div>
                                     {{/compare}}
 
-                                    {{#compare displayType "submit"}}
+                                    {{#compare displayType "==" "submit"}}
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-md-12">
