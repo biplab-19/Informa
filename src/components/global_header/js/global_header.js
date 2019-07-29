@@ -152,9 +152,11 @@ INFORMA.globalHeader = (function(window, $, namespace) {
                 firstElementOnPage = $($("[id='" + anchorTarget + "']")[anchorTargetIndex]);
             }
         });
-        _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
-            .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
-            .show();
+        if ($(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset()) {
+                _pdpMenuFollower.css('width', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).width())
+                    .css('left', $(_pdpLinkSpan[_pdpMenuDefaultIndex]).offset().left)
+                    .show();
+            }
     }
 
     if (_servicesNavigation.length > 0) {
