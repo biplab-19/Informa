@@ -331,12 +331,14 @@ INFORMA.EventsViews = (function(window, $, namespace) {
         NoEventsFound();
         Calendar.html("");
         Calendar.fullCalendar({
-                header: header,
-                eventLimit: true,
-                contentHeight: _contentheight,
-                weekMode: 'liquid',
-                firstDay: 1,
-                viewRender: function(view) {
+            // defaultView: 'year',
+            header: header, // Defines the buttons and title at the top of the calendar.
+            eventLimit: true, // Limits the number of events displayed on a day. The rest will show up in a popover.
+            contentHeight: _contentheight, // Sets the height of the view area of the calendar.
+            weekMode: 'liquid', //Determines the number of weeks displayed in a month view. Also determines each week’s height.
+            // firstDay: 1, // The day that each week begins.
+            dayNamesShort: _dayView, // Abbreviated names of days-of-week.
+            viewRender: function (view) { // Triggered when a new date-range is rendered, or when the view type switches.
                     var Current = moment(new Date()).format('MMMM YYYY'),
                         ViewDate = moment(view.title).format('MMMM YYYY'),
                         End = moment(new Date()).add(11, 'months').format('MMMM YYYY');
@@ -353,91 +355,91 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     //     jQuery('.fc-next-button').removeClass('disabled');
                     // }
                 },
-                dayNamesShort: _dayView,
-                dayClick: function(date, jsEvent, view) {
+            dayClick: function (date, jsEvent, view) { // Triggered when the user clicks on a date or a time.
                     var _vp = INFORMA.global.device.viewportN;
 
-                    if(_vp === 2 || _vp === 1) {
+                // if (_vp === 2 || _vp === 1) {
                         var selectedDate = date.format(),
                             parentNode = $(this).parents('.fc-row.fc-widget-content'),
                             DateAttr = $(this).data('date'),
                             Container = $(this).parents('.fc-view-container'),
                             ItemList = null;
+
                         Container.find('.fc-widget-content').removeClass('open');
                         Container.toggleClass('open-event');
                         Container.find('.events-wrap').remove();
-                        Container.find('.fc-day-number').css('color','#6a7285');
-                        if($(this).hasClass('event-present')) {
-                            ItemList = Container.find('.events[data-date="'+DateAttr+'"]').clone();
+                    Container.find('.fc-day-number').css('color', '#6a7285');
+                    if ($(this).hasClass('event-present')) {
+                        ItemList = Container.find('.events[data-date="' + DateAttr + '"]').clone();
                             ItemList.addClass('cloned');
                             parentNode.after('<div class="events-wrap"></div>');
                         } else {
                             parentNode.after('');
                         }
 
-                        if(Container.hasClass('open-event')) {
-                            Container.find('.fc-widget-content[data-date="'+DateAttr+'"]').addClass('open');
-                            Container.find('.fc-day-number[data-date="'+DateAttr+'"]').css('color','#fff');
+                    if (Container.hasClass('open-event')) {
+                        Container.find('.fc-widget-content[data-date="' + DateAttr + '"]').addClass('open');
+                        Container.find('.fc-day-number[data-date="' + DateAttr + '"]').css('color', '#fff');
                             Container.find('.events-wrap').html(ItemList);
                         } else {
-                            Container.find('.fc-widget-content[data-date="'+DateAttr+'"]').removeClass('open');
+                        Container.find('.fc-widget-content[data-date="' + DateAttr + '"]').removeClass('open');
                             Container.find('.events-wrap').remove();
                         }
 
                         ItemList = "";
                         Container.find('.events-wrap').hide().slideDown();
-                    }
+                // }
 
                 },
-                eventAfterAllRender: function(view) {
+            eventAfterAllRender: function (view) { // Triggered after all events have finished rendering.
                     var _vp = INFORMA.global.device.viewportN;
-                    if(_vp === 2 || _vp === 1) {
+                if (_vp === 2 || _vp === 1) {
 
                         var Events = $('.fc-view-container .events');
 
                         Events.each(function () {
                             var DateField = $(this).data('date');
-                            $('td.fc-day-number[data-date="'+DateField+'"]').addClass('events-now');
-                            $('td.fc-widget-content[data-date="'+DateField+'"]').addClass('event-present');
+                        $('td.fc-day-number[data-date="' + DateField + '"]').addClass('events-now');
+                        $('td.fc-widget-content[data-date="' + DateField + '"]').addClass('event-present');
                         })
                     }
 
-                    if(_vp === 0) {
+                if (_vp === 0) {
                         var OtherMonths = $('.fc-day-number.fc-other-month');
 
-                        OtherMonths.each(function() {
+                    OtherMonths.each(function () {
                             var DateView = $(this).data('date'),
                                 Month = moment(new Date(DateView)).format('MMM'),
                                 Dates = moment(new Date(DateView)).format('DD');
 
-                            $(this).html(Dates + '<sup>\/' +Month+ '</sup>');
+                        $(this).html(Dates + '<sup>\/' + Month + '</sup>');
                         })
                     }
                 },
-                eventRender: function(event, element, view) {
+            eventRender: function (event, element, view) { // Triggered while an event is being rendered. A hook for modifying its DOM.
                     var CurrentDate = new Date(),
                         ItemDate = new Date(event.start._i),
                         DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
                         CountryText = "",
                         ViewDate = view;
 
-                        if(event.Country != null) {
+                if (event.Country != null) {
                             CountryText = event.Country;
                         }
 
-                        if(!event.EventText && event.Link!==null) {
+                if (!event.EventText && event.Link !== null) {
 
-                            if(moment(CurrentDate) > moment(ItemDate)) {
-                                if(moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                                    return $('<div data-date="'+DateAttr+'" class="events current"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                    if (moment(CurrentDate) > moment(ItemDate)) {
+                        if (moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
+                            return $('<div data-date="' + DateAttr + '" class="events current"><p class="title"><a href="' + event.Link + '" target="' + event.Target + '">' + event.title + '</a></p><p class="country">' + CountryText + '</p></div>');
                                 } else {
-                                    return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                            return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title"><a href="' + event.Link + '" target="' + event.Target + '">' + event.title + '</a></p><p class="country">' + CountryText + '</p></div>');
                                 }
                             } else {
-                                return $('<div data-date="'+DateAttr+'" class="events"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                        return $('<div data-date="' + DateAttr + '" class="events"><p class="title"><a href="' + event.Link + '" target="' + event.Target + '">' + event.title + '</a></p><p class="country">' + CountryText + '</p></div>');
                             }
                         } else {
-                            return $('<div data-date="'+DateAttr+'" class="events disabled"><p class="title"><a href="'+ event.Link +'" target="' +event.Target+ '">' + event.title + '</a></p><p class="country">'+CountryText+'</p></div>');
+                    return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title"><a href="' + event.Link + '" target="' + event.Target + '">' + event.title + '</a></p><p class="country">' + CountryText + '</p></div>');
                         }
                 }
         });
