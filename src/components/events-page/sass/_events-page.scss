@@ -309,3 +309,10 @@ section.event-profile-container{
 		padding: 0px 15px 15px 15px;
 	}
 }
+
+section[data-view="calendar-view"] {
+	// display event click
+	.fc-event-container {
+		pointer-events: none;
+	}
+}
