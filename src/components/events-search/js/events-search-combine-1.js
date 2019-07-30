@@ -219,9 +219,23 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     var Data = results[key],
                         HeaderText = key,
                         TemplateName = (Templates.EventListingPage !== "undefined") ? Templates.EventListingPage : "",
-                        ListTemplate = Handlebars.compile(TemplateName);
-                        Data.Month = HeaderText;
-                        Data.MonthField = Data.MonthYearField.split(" ")[0];
+                    ListTemplate = Handlebars.compile(TemplateName),
+                    sDateMoment = moment(Data.EventStartDate),
+                    eDateMoment = moment(Data.EventEndDate)
+                
+                // TODO: move to dedicated method if used elsewhere
+                // if same day, single date type else date range type
+                if (sDateMoment.isSame(eDateMoment, "day")) {
+                    Data.DateRange = '<div class="date">' + sDateMoment.format("DD") + ' ' + sDateMoment.format("MMM") + '</div>';
+                } else {
+                    // if same month, same month range type else diff month range type
+                    if (sDateMoment.isSame(eDateMoment, "month")) {
+                        Data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '&nbsp;-&nbsp;' + eDateMoment.format("DD") + ' ' + sDateMoment.format("MMM") + '</div>';
+                    } else {
+                        Data.DateRange = '<div class="date">' + sDateMoment.format("DD MMM") + ' ' + eDateMoment.format("DD MMM") + '</div>';
+                    }
+                }
+                
                         html += ListTemplate({ results: Data });
                 }
             }

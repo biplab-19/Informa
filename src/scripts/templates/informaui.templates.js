@@ -523,8 +523,9 @@ var INFORMA = window.INFORMA || {};
             '<div class="col-xs-12 col-sm-6 col-md-4 events-section {{results.DateType}}">'+
                 '<div class="events-wrap">'+
                     '<div class="header clearfix">'+
-                        '<div class="date">{{results.DateField}}</div>'+
-                        '<div class="date month">{{results.MonthField}}</div>'+
+                        '{{{results.DateRange}}}' +
+                        // '<div class="date">{{results.DateField}}</div>'+
+                        // '<div class="date month">{{results.MonthField}}</div>'+
                     '</div>'+
                     '<div class="content-wrap">'+
                         '<p class="country">'+
