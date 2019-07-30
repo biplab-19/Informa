@@ -50,10 +50,10 @@
 			    width: 60px;
 			    height: 51px;
 			    color: #6a7287;
-			    font-size: 28px;
+			    font-size: 0;
 			    position: relative;
 			    border: 1px solid #e2e4e9;
-			    text-indent: -99999999999999999999999px;
+			    text-indent: -99999999px;
 			    overflow: hidden;
 			    .access-link  {
 			    	left: -9999999px
@@ -63,6 +63,7 @@
 					top: 50%;
 					left: 50%;
 					transform: translate(-50%, -50%);
+					font-size: 28px;
 					text-indent: 0;
 				}
 				&.active {
