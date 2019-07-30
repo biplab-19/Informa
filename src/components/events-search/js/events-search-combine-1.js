@@ -687,6 +687,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
                     GetAjaxData(Urls.EventsSearch, "GET", JSON.stringify(obj), RenderChange, null, null);
 
         });
+    },
+
+    isDev = function () {
+        return (location.hostname === "localhost" || location.hostname === "127.0.0.1");
     }
 
     init = function() {
@@ -697,6 +701,10 @@ INFORMA.EventsViews = (function(window, $, namespace) {
             ListChangeEvents();
             UnbindEvent();
             disabledEvent();
+
+            if(isDev()) {
+                window.cal = Calendar;
+            }
         }
     };
 
