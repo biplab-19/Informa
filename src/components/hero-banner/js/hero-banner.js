@@ -18,8 +18,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _heroBannerList = $('.hero-banner-carousel .slider-component'),
         _heroBannerFull = $('.hero-banner-texture,.hero-banner'),
         _heroBannerImage = $('.hero-banner-texture .cf-img,.hero-banner .cf-img'),
-        _heroBannerTexture = $('.hero-banner-texture').not('.supergraphic, .key-acocunt-landing-section'),
-        _heroBannerSg = $('.hero-banner-texture.supergraphic'),
+        _heroBannerTexture = $('.hero-banner-texture').not('.sample-content-banner, .product, .key-acocunt-landing-section'),
+        _heroBannerSg = $('.hero-banner-texture.product.supergraphic'),
 
     // methods
         init,
@@ -339,6 +339,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     _heroBannerImage.css('top', '');
                     _heroBannerImage.css('height', '');
                 }
+                _heroBannerImage.addClass('ready');
             }
         },
 
