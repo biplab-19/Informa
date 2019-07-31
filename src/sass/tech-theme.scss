@@ -2545,3 +2545,28 @@ section#hero-banner .vertical-align.video-item h1 {
     }
 }
 
+.tech-theme {
+    section#customers_list {
+        .customers_list_slider {
+            .customer {
+                padding: 10px;
+                max-width: 100%;
+            }
+        }
+    }
+} 
+
+.tech-theme {
+    .content {
+        .discription {
+            p {
+                @media only screen and (min-width: 769px) {
+                    width: 100%;
+                    float: left;
+                    height: 100px;
+                    overflow: auto;
+                }
+            }
+        }
+    }
+}
