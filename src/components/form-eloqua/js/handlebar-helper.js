@@ -2,6 +2,8 @@
 // 	I knew it, unicorns are just low-quality ponies!
 // {{/compare}}
 
+// any additional helpers need to be copied into /scripts/handlebar-helper-grunt.js for compile time
+
 Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 
   if (arguments.length < 3)
