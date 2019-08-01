@@ -555,7 +555,6 @@ section#hero-banner {
         }
 
         @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-
             .image-margin {
                 margin-right: 50%;
             }
@@ -651,7 +650,6 @@ section#hero-banner {
         //   }
         //   }
         @media only screen and (min-width: 1024px) and (max-device-width: 1224px) {
-
             .image-margin {
                 margin-left: 25px;
             }
@@ -846,6 +844,145 @@ section#hero-banner {
             }
         }
     }
+
+    &.product.supergraphic {
+        overflow: hidden;
+        height: 100% !important;
+        margin-bottom: 0;
+        padding: 0 0 0 0;
+        @include desktop {
+            background-color: #343742;
+        }
+
+        .row {
+            margin-bottom: 0;
+        }
+
+        .cf-img {
+            overflow: visible;
+            left: 0;
+            width: 100%;
+            margin: 0 auto;
+            @include desktop {
+                max-width: 1142px;
+            }
+            @include not-desktop {
+                display: none;
+            }
+            img {
+                width: auto;
+                @include desktop {
+                    left: 66.66667%;
+                    height: 100%;
+                }
+            }
+            @media (max-width: 767px) and (orientation: landscape) {
+                display: none;
+                width: 100%;
+                transform: none;
+                &.ready {
+                    display: block;
+                }
+                img {
+                    display: block;
+                    left: auto;
+                    right: 0;
+                    height: 100%;
+                }
+            }
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 33.33333%;
+                width: 5000px;
+                height: 100%;
+                background-color: #444957;
+                @include not-desktop {
+                    display: none;
+                }
+            }
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 100%;
+                height: 100%;
+                width: 5000px;
+                background-color: #343742;
+                @include not-desktop {
+                    display: none;
+                }
+            }
+        }
+        ul {
+            @include greater-desktop {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &.sample-content-banner.supergraphic {
+        overflow: hidden;
+        height: 100% !important;
+        margin-bottom: 0;
+        padding: 0 0 0 0;
+
+        .row {
+            margin-bottom: 0;
+        }
+
+        .cf-img {
+            overflow: visible;
+            left: 0;
+            width: 100%;
+            margin: 0 auto;
+            @include desktop {
+                max-width: 1142px;
+            }
+            @include not-desktop {
+                display: none;
+            }
+            img {
+                width: auto;
+                @include desktop {
+                    left: 66.66667%;
+                    height: 100%;
+                }
+            }
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 33.33333%;
+                width: 5000px;
+                height: 100%;
+                background-color: #444957;
+                @include not-desktop {
+                    display: none;
+                }
+            }
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 100%;
+                height: 100%;
+                width: 5000px;
+                background-color: #444957;
+                @include not-desktop {
+                    display: none;
+                }
+            }
+        }
+        ul {
+            @include greater-desktop {
+                padding-left: 0;
+            }
+        }
+    }
 }
 
 .hero-banner-texture.dark-banner-subscribe.key-acocunt-landing-section {
@@ -987,4 +1124,8 @@ section#hero-banner {
       }
     }
   }
+}
+
+.hero-items img {
+    width: 100%;
 }

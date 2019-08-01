@@ -114,6 +114,27 @@ INFORMA.Analytics = (function(window, $, namespace) {
       trackEvents('Form', 'Open', output,1)
     });
 
+    $(".trigger-sc-event").on("click", function () {
+        var goalid = $(this).data("goal-id");
+        if (goalid) {
+
+            $.ajax({
+                url: '/client/ajax/triggerpageevent',
+                dataType: 'json',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({ "eventId": goalid }),
+                processData: false,
+                success: function (data, textStatus, jQxhr) {
+                    console.log(JSON.stringify(data));
+                },
+                error: function (jqXhr, textStatus, errorThrown) {
+                    console.log(errorThrown);
+                }
+            });
+        }
+    });
+
     $('body').on('click', '.register,.product-login', function(e) {
       if($(this).hasClass('register')){
          trackEvents('Form', 'Open', 'EventRegister',1)

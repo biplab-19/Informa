@@ -169,7 +169,7 @@
     background-color: #cdda0b;
     color: #fff;
     padding: 0;
-    line-height: 33px;
+    line-height: 30px;
     text-align: center;
     width: 30px;
     height: 30px;
@@ -604,6 +604,9 @@ footer {
     width: 100%;
     float: left;
     margin-bottom: 25px;
+    @media screen and (max-width: 768px) {
+        margin-bottom: 0px;
+    }
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header img {
