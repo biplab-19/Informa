@@ -2477,18 +2477,22 @@ section#hero-banner .vertical-align.video-item h1 {
         left: 75px;  
     }
 
-    }
-    .hero-items.hero-carousel .vertical-align.video-item {
-        color: #fff;
-        width: 100%;
-        position: absolute;
-        top: 16%;
-        transform: translateY(-23%);
-        z-index: 3;
+  }
+
+  .hero-items.hero-carousel .vertical-align.video-item {
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    top:68px;
+    transform: translateY(-23%);
+    z-index: 3;
   }
     section#hero-banner {
         background-color: #182d50;
   }
+}
+.hero-banner-carousel .slick-initialized ul.slick-dots, .hero-banner-carousel .slick-list ul.slick-dots, .hero-banner-carousel .slick-track ul.slick-dots {
+   margin: 0px 0;
 }
 
 #social-section {
