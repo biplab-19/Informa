@@ -2487,7 +2487,7 @@ section#hero-banner .vertical-align.video-item h1 {
     color: #fff;
     width: 100%;
     position: absolute;
-    top:68px;
+    top:35px;
     transform: translateY(-23%);
     z-index: 3;
   }
@@ -2565,5 +2565,11 @@ section#hero-banner .vertical-align.video-item h1 {
                 }
             }
         }
+    }
+}
+
+@media (max-width: 767px){
+   .tech-theme section.hero-banner-video .videoBG {
+        display:block;
     }
 }
