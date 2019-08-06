@@ -2539,7 +2539,7 @@ section#hero-banner .vertical-align.video-item h1 {
     }
 }
 
-@media (max-width: 1141px) and (min-width: 768px){
+@media only screen and (max-width: 1141px) and (min-width: 768px){
     #social-section .twitter-carousel .slick-arrow:before {
         margin-top: -13px;
         margin-left: -13px;
@@ -2547,7 +2547,7 @@ section#hero-banner .vertical-align.video-item h1 {
 
 }
 
-@media (max-width: 767px){
+@media only screen and (max-width: 767px){
     #social-section .col-lg-12 {
         padding: 0 0px;
     }
@@ -2587,12 +2587,12 @@ section#hero-banner .vertical-align.video-item h1 {
 }
         
     section#hero-banner .cf-img{
-        @media (max-width: 1141px){
+        @media only screen and (max-width: 1141px){
             display: block;
         }
     }
     section.hero-banner .videoBG_wrapper {
-        @media (min-width: 1142px){
+        @media only screen and (min-width: 1142px){
          display:none;
         }
     }
@@ -2612,7 +2612,7 @@ section#hero-banner .vertical-align.video-item h1 {
     height:100%;
 }
 
-@media (max-width: 1141px){
+@media only screen and (max-width: 1141px){
     .hero-banner-carousel .slick-initialized .slick-next, .hero-banner-carousel .slick-list .slick-next, .hero-banner-carousel .slick-track .slick-next {
         margin-left: -20px;
     }
@@ -2623,4 +2623,20 @@ section#hero-banner .vertical-align.video-item h1 {
 
 section#customers_list .customers_list_slider.slick-slider .slick-list{
     max-height:128px; 
+}
+
+.informa-full-video-component{
+    .container{
+
+                width: 1400px;
+                margin: 0 auto;
+                padding-left: 0px;
+                padding-right: 0px;
+        @media only screen and (max-width:1400px) {
+            width: 100%;
+        }
+        
+
+
+    }
 }
