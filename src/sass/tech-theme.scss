@@ -2484,7 +2484,7 @@ section#hero-banner .vertical-align.video-item h1 {
     left: 50%;
     min-height: 100%;
     min-width: 100%;
-    top: 39%;
+    top: 35%;
     transform: translate(-50%,-50%);
     z-index: 17;
     object-fit: cover;
@@ -2577,7 +2577,16 @@ section#hero-banner .vertical-align.video-item h1 {
             }
         }
     }
-   
+    section#hero-banner .cf-img{
+        @media (max-width: 1141px){
+            display: block;
+        }
+    }
+    section.hero-banner .videoBG_wrapper {
+        @media (min-width: 1142px){
+         display:none;
+        }
+    }
 }
 
 
@@ -2589,6 +2598,19 @@ section#hero-banner .vertical-align.video-item h1 {
     width: 100%;
     height: 100%;
 }
+
+.slick-slide > div,.slick-slide .hero-items {
+    height:100%;
+}
+
+@media (max-width: 1141px){
+    .hero-banner-carousel .slick-initialized .slick-next, .hero-banner-carousel .slick-list .slick-next, .hero-banner-carousel .slick-track .slick-next {
+        margin-left: -20px;
+    }
+}
+
+
+
 
 section#customers_list .customers_list_slider.slick-slider .slick-list{
     max-height:128px; 
