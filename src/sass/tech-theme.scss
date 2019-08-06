@@ -2570,6 +2570,17 @@ section#hero-banner .vertical-align.video-item h1 {
             }
         }
     }
+    section#hero-banner .cf-img{
+        @media (max-width: 1141px){
+            display: block;
+        }
+    }
+
+    section.hero-banner .videoBG_wrapper {
+        @media (min-width: 1142px){
+         display:none;
+        }
+    }
 }
 
 
@@ -2591,3 +2602,6 @@ section#hero-banner .vertical-align.video-item h1 {
         margin-left: -20px;
     }
 }
+
+
+
