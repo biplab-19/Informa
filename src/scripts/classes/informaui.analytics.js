@@ -114,7 +114,7 @@ INFORMA.Analytics = (function(window, $, namespace) {
       trackEvents('Form', 'Open', output,1)
     });
 
-    $(".trigger-sc-event").on("click", function () {
+    jQuery(document).on("click",".trigger-sc-event",function(){ 
         var goalid = $(this).data("goal-id");
         if (goalid) {
 

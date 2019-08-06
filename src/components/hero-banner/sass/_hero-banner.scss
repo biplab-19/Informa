@@ -1129,3 +1129,261 @@ section#hero-banner {
 .hero-items img {
     width: 100%;
 }
+
+/* for global scss*/
+.feature-hero-banner {
+    .single-image {
+        width: 100%;
+        float: left;
+    }
+
+
+    @media screen and (max-width: 768px) and (min-width: 320px){
+        .tech-theme .btn-primary {
+            min-width: 130px;
+            padding: 10px 5px;
+            font-size: 12px;
+        }
+    }
+
+    @media only screen and (max-width: 768px){
+        h1 {
+            font-size: 24px!important;
+            line-height: 30px!important;
+        }
+
+        .single-image .hero-items .for-left h4, .single-image .hero-items .for-right h4 {
+            padding-left: 15px;
+        }
+        h4 {
+            font-size: 18px!important;
+            line-height: 28px!important;
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        .hero-items .vertical-align .for-left .cta-button-containor, .hero-items .vertical-align .for-right .cta-button-containor {
+            left: 0;
+            float: left;
+            margin: 10px 0;
+        }
+        .hero-items {
+        position: relative;
+        max-width: 1400px;
+        margin: 0 auto;
+        }  
+        .hero-items .vertical-align.banner-bullet {
+            padding: 0 0;
+        }
+        .hero-items .vertical-align.banner-bullet {
+            top: 56%;
+        }
+        .hero-items.hero-carousel .vertical-align.video-item {
+        transform: translateY(0%);
+        padding: 0;
+        top: 0;
+        }
+        .hero-items .vertical-align .for-left>div, .hero-items .vertical-align .for-right>div {
+        padding-left: 0;
+        }
+        .hero-items .vertical-align .for-left, .hero-items .vertical-align .for-right {
+        max-width: 1400px;
+        margin: 0 auto;
+        }
+        .hero-items .vertical-align .for-left h4, .hero-items .vertical-align .for-right h4 {
+        padding-left: 0;
+        }
+        .hero-items .vertical-align .for-left .cta-button-containor, .hero-items .vertical-align .for-right .cta-button-containor {
+        left: 0;
+        float: left;
+        margin: 10px 0;
+        }
+        .hero-items .vertical-align .for-left>div, .hero-items .vertical-align .for-right>div {
+        padding-left: 0;
+        }
+        .hero-items.hero-carousel {
+        max-width: 100%;
+        }
+        .hero-items {
+        position: relative;
+        max-width: 1400px;
+        margin: 0 auto;
+        }
+        .hero-items .vertical-align {
+        position: absolute;
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 100px;
+        }
+        div#tech-main-header .nav-bar, .hero-banner .vertical-align .for-left {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 100px;
+        }
+        .hero-items .vertical-align .for-left, .hero-items .vertical-align .for-right {
+        max-width: 1400px;
+        margin: 0 auto;
+        }
+    }
+
+    div#tech-main-header .nav-bar, .hero-banner .vertical-align .for-left {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .hero-banner .vertical-align {
+        transform: translateY(50%);
+    }
+    .cf-img {
+        position: absolute;
+        right: 0;
+        height: 100vh;
+    }
+    .cf-img img {
+        position: unset;
+        top: 0%;
+        left: 0%;
+        transform: translate(0%,0%);
+    }
+    .cta-button-containor .btn-primary {
+        text-align: center;
+        border-radius: 28px;
+        padding: 20px 40px;
+        height: auto;
+        min-width: 160px;
+        font-family: 'OpenSans Bold';
+        font-size: 21px;
+        width: auto;
+        background-color: #024;
+        color: #fff;
+        border-width: 0;
+        min-width: 150px;
+        margin-right: 10px;
+        &:hover{
+        background-color: #11a7d9;
+        border-color: #11a7d9;
+        color: #fff!important;
+        }
+    }
+    .single-image img {
+        width: 100%;
+    }
+    @media only screen and (min-width: 1201px){
+        .hero-items .vertical-align {
+            top: 108px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        div.for-left, div.for-right {
+            width: 50%;
+        }
+
+        div.for-left, div.for-right {
+            width: 50%;
+        }
+    }
+    .for-left {
+        float: left !important;
+        margin-left: 40px;
+    }
+    .second-banner-left-outer {
+        display: inline-block !important;
+        float: left;
+    }
+    h1 {
+        font-family: 'Aleo Regular'!important;
+        font-size: 48px!important;
+        line-height: 60px!important;
+        text-transform: uppercase!important;
+        color: #024!important;
+        margin-top: 0!important;
+        margin-bottom: 20px!important;
+    }
+    h4 {
+        font-family: 'OpenSans Light'!important;
+        font-size: 24px!important;
+        line-height: 34px!important;
+        color: #555!important;
+    }
+    .second-banner-left-outer {
+        display: inline-block !important;
+        float: left;
+    }
+    .second-banner-left-outer .second-banner-left-inner {
+        width: 100%;
+        padding: 0;
+        background: rgba(255,255,255,0.8);
+        border-top-right-radius: 80px;
+        border-bottom-right-radius: 80px;
+        border-top-left-radius: 80px;
+        border-bottom-left-radius: 80px;
+        position: relative;
+        top: 0;
+        left: 60px;
+    }
+    .vertical-align.video-item h1 {
+        color: #fff!important;
+    }
+    h1 {
+        color: #002144;
+    }
+    .btn-primary:after {
+        content: "";
+        display:none;
+    }
+    .second-banner-left-outer .second-banner-left-inner {
+        width: 100%;
+        padding: 0;
+        background: rgba(255,255,255,0.8);
+        border-top-right-radius: 80px;
+        border-bottom-right-radius: 80px;
+        border-top-left-radius: 80px;
+        border-bottom-left-radius: 80px;
+        position: relative;
+        top: 0;
+        left: 60px;
+    }
+    .second-banner-left-outer .second-banner-left-inner h1 {
+        color: #333;
+        text-transform: uppercase;
+        font-weight: lighter;
+        padding: 25px 40px 20px 40px;
+        margin-top: 0!important;
+        margin-bottom: 0!important;
+    }
+    .second-banner-right-outer {
+        display: inline-block !important;
+        float: right;
+    }
+
+    .second-banner-right-outer .second-banner-right-inner {
+        width: 100%;
+        background: rgba(255,255,255,0.8);
+        border-top-left-radius: 80px;
+        border-bottom-left-radius: 80px;
+        border-top-right-radius: 80px;
+        border-bottom-right-radius: 80px;
+        top: 0;
+        position: relative;
+        right: 60px;
+        float: left;
+    }
+}
+section#hero-banner.feature-hero-banner {
+    background-color: transparent;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    clear: both;
+}
+section#hero-banner.feature-hero-banner {
+    max-height: 720px;
+}
+
+section#hero-banner.feature-hero-banner .btn {
+    margin-left:0px;
+}
+
+
+
