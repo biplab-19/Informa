@@ -18,8 +18,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _heroBannerList = $('.hero-banner-carousel .slider-component'),
         _heroBannerFull = $('.hero-banner-texture,.hero-banner'),
         _heroBannerImage = $('.hero-banner-texture .cf-img,.hero-banner .cf-img'),
-        _heroBannerTexture = $('.hero-banner-texture').not('.supergraphic, .key-acocunt-landing-section'),
-        _heroBannerSg = $('.hero-banner-texture.supergraphic'),
+        _heroBannerTexture = $('.hero-banner-texture').not('.sample-content-banner, .product, .key-acocunt-landing-section'),
+        _heroBannerSg = $('.hero-banner-texture.product.supergraphic'),
 
     // methods
         init,
@@ -289,9 +289,14 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             
             for (var k = 0; k < allVideoId.length; k++) {
                 var vId = allVideoId[k].id;
-                for(var i=0; i<ytPlayers.length; i++){
-                    if (ytPlayers[j].element.parentElement.id === vId) {
-                    ytPlayers[i].pauseVideo();
+                for (var i = 0; i < ytPlayers.length; i++){
+                    try {
+                        if (ytPlayers[i].element.parentElement.id === vId) {
+                            ytPlayers[i].pauseVideo();
+                        }
+                    }
+                    catch (err) {
+                        console.log(err)
                     }
                 }                 
             }
@@ -301,10 +306,15 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             
            for (var k = 0; k < allVideoId.length; k++) {
                 var vId = allVideoId[k].id;
-                for (var j = 0; j < vimeoPlayers.length; j++) {
-                    if (vimeoPlayers[j].element.parentElement.id === vId) {
-                        vimeoPlayers[j].pause();
-                    }
+               for (var j = 0; j < vimeoPlayers.length; j++) {
+                   try {
+                       if (vimeoPlayers[j].element.parentElement.id === vId) {
+                           vimeoPlayers[j].pause();
+                       }
+                   }
+                   catch (err) {
+                       console.log(err)
+                   }
                 }
             }
         },
@@ -339,6 +349,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     _heroBannerImage.css('top', '');
                     _heroBannerImage.css('height', '');
                 }
+                _heroBannerImage.addClass('ready');
             }
         },
 
