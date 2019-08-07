@@ -2615,3 +2615,31 @@ section#hero-banner .vertical-align.video-item h1 {
 section#customers_list .customers_list_slider.slick-slider .slick-list{
     max-height:128px; 
 }
+
+
+.tech-theme{
+
+    section#hero-banner{
+        @media only screen and (min-width:1142px)  {
+            height: 720px;
+            margin-top: 0px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+    }
+
+    .hero-items.hero-carousel .vertical-align.video-item {
+        @media only screen and (min-width:1142px) {
+            height: auto;
+            width: 100%;
+            max-height: 720px;
+            top: 50%;
+        }
+    }
+    section.hero-banner .videoBG iframe{
+        @media only screen and (min-width:1142px) {
+            max-height: 720px;
+       }
+    }
+}

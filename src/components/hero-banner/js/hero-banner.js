@@ -234,15 +234,13 @@ INFORMA.heroBanner = (function(window, $, namespace) {
 
         function onCarouselYTPlayerReady(event) {
             if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
-                setTimeout(function(){
-                    event.target.pauseVideo();
-                    event.target.setVolume(_youTubeSound);
-                },10)
+                event.target.pauseVideo();
+                event.target.setVolume(_youTubeSound);
                 playCount++;
                 if(ytPlayers.length === playCount) {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
-                        if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='youtube') {
-                            var ytubeId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe')[0].id;
+                        if(_heroBannerList.find('.videoBG').attr('data-videotype') ==='youtube') {
+                            var ytubeId = _heroBannerList.find('.videoBG iframe')[0].id;
                             for(var i=0; i<ytPlayers.length;i++){
                                 if(ytPlayers[i].a.id === ytubeId){
                                     ytPlayers[i].playVideo();
