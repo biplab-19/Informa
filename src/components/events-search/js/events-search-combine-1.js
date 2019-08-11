@@ -225,13 +225,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 // TODO: move to dedicated method if used elsewhere
                 // if same day, single date type else date range type
                 if (sDateMoment.isSame(eDateMoment, "day")) {
-                    Data.DateRange = '<div class="date">' + sDateMoment.format("DD") + ' ' + sDateMoment.format("MMM") + '</div>';
+                    Data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '</div>';
                 } else {
                     // if same month, same month range type else diff month range type
                     if (sDateMoment.isSame(eDateMoment, "month")) {
-                        Data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '&nbsp;-&nbsp;' + eDateMoment.format("DD") + ' ' + sDateMoment.format("MMM") + '</div>';
+                        Data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '&nbsp;-&nbsp;' + eDateMoment.format("DD") + '</div>';
                     } else {
-                        Data.DateRange = '<div class="date">' + sDateMoment.format("DD MMM") + ' ' + eDateMoment.format("DD MMM") + '</div>';
+                        Data.DateRange = '<div class="date">' + sDateMoment.format("DD MMM") + '&nbsp;-&nbsp;' + eDateMoment.format("DD MMM") + '</div>';
                     }
                 }
                 
