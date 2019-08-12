@@ -268,8 +268,27 @@ section[data-view="list-view"] .events-section {
                     }
                 }
                 &.description {
-                    height: 4.3em;
+                    position: relative;
                     overflow: hidden;
+                    height: 4.2em;
+                    text-align: justify;
+                    margin-right: -0.7em;
+                    padding-right: 0.7em;
+                    &:before {
+                        content: '...';
+                        position: absolute;
+                        right: 0;
+                        bottom: 0.1em;
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        right: -0.3em;
+                        width: 1em;
+                        height: 2em;
+                        margin-top: -1em;
+                        background: white;
+                    }
                 }
             }
         }
