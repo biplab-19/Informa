@@ -340,10 +340,31 @@ section.event-profile-container{
         padding: 0px 15px 15px 15px;
     }
 }
-
+// functionality css
 section[data-view="calendar-view"] {
     // display event click
     .fc-event-container {
         pointer-events: none;
+    }
+    & > .container {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
+body {
+    section[data-view] {
+        display: none;
+    }
+    &.list-view {
+        section[data-view="list-view"] {
+            display: block;
+        }
+    }
+    &.calendar-view {
+        section[data-view="calendar-view"] {
+            display: block;
+        }
     }
 }

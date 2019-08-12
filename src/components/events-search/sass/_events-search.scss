@@ -1,83 +1,179 @@
 .events-search {
-	background-color: #676c7a;
-	padding: 30px 0;
-	.container {
-		position: relative;
-	}
+    background-color: #676c7a;
+    padding: 30px 0;
+    .container {
+        position: relative;
+    }
+/* 
+    .mddmenu {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        font-size: 13px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        a {
+            cursor: pointer;
+        }
+        .mddselected {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            padding: 0 0 0 8px;
+            height: 50px;
+            border-radius: 0;
+            background-color: #fff;
+            background-clip: padding-box;
+            box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+            color: #444;
+            text-decoration: none;
+            white-space: nowrap;
+            line-height: 35px;
+            & > * {
+                pointer-events: none;
+            }
+            span {
+                display: block;
+                overflow: hidden;
+                margin-top: 8px;
+                margin-right: 26px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            div {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: block;
+                width: 18px;
+                height: 100%;
+                &::after {
+                    content: "\e901";
+                    font-family: 'InformaIcons';
+                    top: 50%;
+                    position: absolute;
+                    margin-top: -17px;
+                    color: #888e9e;
+                    font-weight: bold;
+                }
+            }
+        }
+        .mddcontainer.teir1 {
+            position: absolute;
+            top: 100%;
+            left: -9999px;
+            z-index: 1010;
+            width: 100%;
+            margin-top: -1px;
+            border: 1px solid #aaa;
+            border-top: 0;
+            background: #fff;
+            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 4px 4px;
+            background-clip: padding-box;
+        }
+        &.open{
+            .mddcontainer.teir1 {
+                left: 0;
+            }
+        }
+    }
+ */
+    .chosen-container-single .chosen-single {
+        border: none;
+        height: 50px;
+        span {
+            margin-top: 8px;
+        }
+        div {
+            &:after {
+                  content: "\e901";
+                    font-family: 'InformaIcons';
+                top: 50%;
+                position: absolute;
+                margin-top: -17px;
+                    color: $grey-color06;
+                font-weight: bold;
+            }
+            b {
+                display: none;
+            }
+        }
+    }
 
-	.chosen-container-single .chosen-single {
-		border: none;
-		height: 50px;
-		span {
-			margin-top: 8px;
-		}
-		div {
-			&:after {
-				  content: "\e901";
-					font-family: 'InformaIcons';
-			    top: 50%;
-			    position: absolute;
-			    margin-top: -17px;
-					color: $grey-color06;
-			    font-weight: bold;
-			}
-			b {
-				display: none;
-			}
-		}
-	}
-	label {
-		color: $white;
-		font-size: 15px;
-		width: 100%;
-    	text-align: left;
-    	font-weight: normal;
-    	font-family: 'FSMe-Light';
-	}
-	.views-section {
-		text-align: right;
-		position: absolute;
-		top: calc(100% + 55px);
-		right: 0;
-		width: auto;
-		@include mobile {
-			text-align: left;
-		}
-		.views {
-			float: left;
-			a {
-				display: block;
-			    width: 60px;
-			    height: 51px;
-			    color: #6a7287;
-			    font-size: 0;
-			    position: relative;
-			    border: 1px solid #e2e4e9;
-			    text-indent: -99999999px;
-			    overflow: hidden;
-			    .access-link  {
-			    	left: -9999999px
-			    }
-				&:before {
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					font-size: 28px;
-					text-indent: 0;
-				}
-				&.active {
-					background-color: #e2e4e9;
-				}
-				&.icon-list-view {
-					&:before {
-						content: '';
-					    height: 26px;
-					    width: 22px;
-					    background: url(/Static/images/dashboard.png) no-repeat;
-					}
-				}
-			}
-		}
-	}
+    label {
+        color: $white;
+        font-size: 15px;
+        width: 100%;
+        text-align: left;
+        font-weight: normal;
+        font-family: 'FSMe-Light';
+    }
+
+    .views-section {
+        text-align: right;
+        position: absolute;
+        top: calc(100% + 55px);
+        right: 0;
+        width: auto;
+        @include mobile {
+            text-align: left;
+        }
+        .views {
+            float: left;
+            a {
+                display: block;
+                width: 60px;
+                height: 51px;
+                color: #6a7287;
+                font-size: 0;
+                position: relative;
+                border: 1px solid #e2e4e9;
+                text-indent: -99999999px;
+                overflow: hidden;
+                .access-link  {
+                    left: -9999999px
+                }
+                &:before {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 28px;
+                    text-indent: 0;
+                }
+                &.active {
+                    background-color: #e2e4e9;
+                }
+                &.icon-list-view {
+                    &:before {
+                        content: '';
+                        height: 26px;
+                        width: 22px;
+                        background: url(/Static/images/dashboard.png) no-repeat;
+                    }
+                }
+            }
+        }
+        .date-views {
+            position: relative;
+            clear: left;
+            width: 100%;
+            z-index: 100;
+        }
+    }
+}
+body {
+    &.list-view {
+        .events-search .views-section .date-views {
+            display: none;
+        }
+    }
+    &.calendar-view {
+        .events-search .views-section .date-views {
+            display: block;
+        }
+    }
 }

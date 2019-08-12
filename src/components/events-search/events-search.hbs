@@ -4,158 +4,402 @@
       <div class="select-section col-sm-12 col-md-12">
         <div class="row">
           <div class="col-xs-12 col-sm-3 form-group">
-            <label for="Eventssector">View by sector</label>
-            {{!-- <select class="chosen-select" name="sector" id="sector">
+            <label for="Eventmonth">
+              View by date
+            </label>
+            {{! <select class="chosen-select" name="year" id="Eventyear">
+              <option value="2018">2018</option>
+              <option value="2019">2019</option>
+              <option value="2020">2020</option>
+            </select> }}
+            <select class="chosen-select" name="month" id="Eventmonth">
+              <option value="">
+                All
+              </option>
+            </select>
+            {{! <div id="eventdate" class="mddmenu">
+              <a class="mddselected">
+                <span>All</span>
+                <div></div>
+              </a>
+              <ul class="mddcontainer tier1">
+                <li class="mdditem tier1">
+                  <span>2018</span>
+                  <ul class="mddcontainer tier2">
+                    <li class="mdditem tier2"><span>January</span></li>
+                    <li class="mdditem tier2"><span>February</span></li>
+                    <li class="mdditem tier2"><span>March</span></li>
+                    <li class="mdditem tier2"><span>April</span></li>
+                    <li class="mdditem tier2"><span>May</span></li>
+                    <li class="mdditem tier2"><span>June</span></li>
+                    <li class="mdditem tier2"><span>July</span></li>
+                    <li class="mdditem tier2"><span>August</span></li>
+                    <li class="mdditem tier2"><span>September</span></li>
+                    <li class="mdditem tier2"><span>October</span></li>
+                    <li class="mdditem tier2"><span>November</span></li>
+                    <li class="mdditem tier2"><span>December</span></li>
+                  </ul>
+                </li>
+                <li class="mdditem tier1">
+                  <span>2019</span>
+                  <ul class="mddcontainer tier2">
+                    <li class="mdditem tier2"><span>January</span></li>
+                    <li class="mdditem tier2"><span>February</span></li>
+                    <li class="mdditem tier2"><span>March</span></li>
+                    <li class="mdditem tier2"><span>April</span></li>
+                    <li class="mdditem tier2"><span>May</span></li>
+                    <li class="mdditem tier2"><span>June</span></li>
+                    <li class="mdditem tier2"><span>July</span></li>
+                    <li class="mdditem tier2"><span>August</span></li>
+                    <li class="mdditem tier2"><span>September</span></li>
+                    <li class="mdditem tier2"><span>October</span></li>
+                    <li class="mdditem tier2"><span>November</span></li>
+                    <li class="mdditem tier2"><span>December</span></li>
+                  </ul>
+                </li>
+                <li class="mdditem tier1">
+                  <span>2020</span>
+                  <ul class="mddcontainer tier2">
+                    <li class="mdditem tier2"><span>January</span></li>
+                    <li class="mdditem tier2"><span>February</span></li>
+                    <li class="mdditem tier2"><span>March</span></li>
+                    <li class="mdditem tier2"><span>April</span></li>
+                    <li class="mdditem tier2"><span>May</span></li>
+                    <li class="mdditem tier2"><span>June</span></li>
+                    <li class="mdditem tier2"><span>July</span></li>
+                    <li class="mdditem tier2"><span>August</span></li>
+                    <li class="mdditem tier2"><span>September</span></li>
+                    <li class="mdditem tier2"><span>October</span></li>
+                    <li class="mdditem tier2"><span>November</span></li>
+                    <li class="mdditem tier2"><span>December</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </div> }}
+          </div>
+          <div class="col-xs-12 col-sm-3 form-group">
+            <label for="Eventssector">
+              View by sector
+            </label>
+            {{! <select class="chosen-select" name="sector" id="sector">
               <option value="All">All</option>
               <option value="latest">latest</option>
-            </select> --}}
+            </select> }}
             <select class="chosen-select" name="sector" id="Eventssector">
-              <option value="">All</option>
-              <option value="fc396499fdc142caa1d0c69b5f01925a">Business and portfolio strategy</option>
-              <option value="9d64151e82624e0cbfa038a011e0aa5f">Business development and licensing</option>
-              <option value="064001b79cd749569d1999ba915d92fc">Clinical research and development intelligence</option>
-              <option value="b61d1e0a6c2a4e079ec6b4b7cc6333ea">Competitive and market intelligence</option>
-              <option value="0c8857c46d8646b3a37249eb1e38527f">how-we-help</option>
-              <option value="59963676bdc54d4aa82ddcd576af8eb6">Marketing Services</option>
-              <option value="a850f873835a4ef2ab40b8974d5df9c5">Medtech market intelligence</option>
-              <option value="524b17bd00144651b4d72c02453b1305">Pharma Consulting</option>
-              <option value="a392916f122d4dc5b3e1710bec0fc729">Regulatory approval</option>
+              <option value="">
+                All
+              </option>
+              <option value="fc396499fdc142caa1d0c69b5f01925a">
+                Business and portfolio strategy
+              </option>
+              <option value="9d64151e82624e0cbfa038a011e0aa5f">
+                Business development and licensing
+              </option>
+              <option value="064001b79cd749569d1999ba915d92fc">
+                Clinical research and development intelligence
+              </option>
+              <option value="b61d1e0a6c2a4e079ec6b4b7cc6333ea">
+                Competitive and market intelligence
+              </option>
+              <option value="0c8857c46d8646b3a37249eb1e38527f">
+                how-we-help
+              </option>
+              <option value="59963676bdc54d4aa82ddcd576af8eb6">
+                Marketing Services
+              </option>
+              <option value="a850f873835a4ef2ab40b8974d5df9c5">
+                Medtech market intelligence
+              </option>
+              <option value="524b17bd00144651b4d72c02453b1305">
+                Pharma Consulting
+              </option>
+              <option value="a392916f122d4dc5b3e1710bec0fc729">
+                Regulatory approval
+              </option>
             </select>
           </div>
           <div class="col-xs-12 col-sm-3 form-group">
-            <label for="eventType">Type</label>
-            {{!-- <select class="chosen-select" name="eventType" id="event-type">
+            <label for="eventType">
+              Type
+            </label>
+            {{! <select class="chosen-select" name="eventType" id="event-type">
               <option value="June 2016">All</option>
               <option value="July 2016">latest</option>
-            </select> --}}
+            </select> }}
             <select class="chosen-select" name="eventType" id="eventType">
-              <option value="">All</option>
-              <option value="{16B664FF-743B-40DD-BAFA-A41D72BA80E8}">Awards</option>
-              <option value="{38CA08C3-9D97-4B6E-8536-99C61CF94F25}">Client event</option>
-              <option value="{997EDCA3-9F3C-449B-AA7D-7E1BD9919779}">Conference</option>
-              <option value="{1B8914EF-1FA0-40B4-B979-329B6723AF33}">Industry conference</option>
-              <option value="{458DF619-5501-48F0-A982-B76868683F2D}">Roundtable</option>
-              <option value="{C014098E-0165-447E-B95A-C16E97D5AFFC}">Training</option>
-              <option value="{D3D58B74-5EF1-4624-955B-68698D1CE94A}">Webinar</option>
+              <option value="">
+                All
+              </option>
+              <option value="{16B664FF-743B-40DD-BAFA-A41D72BA80E8}">
+                Awards
+              </option>
+              <option value="{38CA08C3-9D97-4B6E-8536-99C61CF94F25}">
+                Client event
+              </option>
+              <option value="{997EDCA3-9F3C-449B-AA7D-7E1BD9919779}">
+                Conference
+              </option>
+              <option value="{1B8914EF-1FA0-40B4-B979-329B6723AF33}">
+                Industry conference
+              </option>
+              <option value="{458DF619-5501-48F0-A982-B76868683F2D}">
+                Roundtable
+              </option>
+              <option value="{C014098E-0165-447E-B95A-C16E97D5AFFC}">
+                Training
+              </option>
+              <option value="{D3D58B74-5EF1-4624-955B-68698D1CE94A}">
+                Webinar
+              </option>
             </select>
           </div>
           <div class="col-xs-12 col-sm-3 form-group">
-            <label for="Eventmonth">View by month</label>
-            {{!-- <select class="chosen-select" name="month" id="month">
-              <option value="June 2016">All</option>
-              <option value="July 2016">latest</option>
-            </select> --}}
-            <select class="chosen-select" name="month" id="Eventmonth">
-              <option value="July 2018">July 2018</option>
-              <option value="August 2018">August 2018</option>
-              <option value="September 2018">September 2018</option>
-              <option value="October 2018">October 2018</option>
-              <option value="November 2018">November 2018</option>
-              <option value="December 2018">December 2018</option>
-              <option value="January 2019">January 2019</option>
-              <option value="February 2019">February 2019</option>
-              <option value="March 2019">March 2019</option>
-              <option value="April 2019">April 2019</option>
-              <option value="May 2019">May 2019</option>
-              <option value="June 2019">June 2019</option>
-              <option value="July 2019" selected="selected">July 2019</option>
-              <option value="August 2019">August 2019</option>
-              <option value="September 2019">September 2019</option>
-              <option value="October 2019">October 2019</option>
-              <option value="November 2019">November 2019</option>
-              <option value="December 2019">December 2019</option>
-              <option value="January 2020">January 2020</option>
-              <option value="February 2020">February 2020</option>
-              <option value="March 2020">March 2020</option>
-              <option value="April 2020">April 2020</option>
-              <option value="May 2020">May 2020</option>
-              <option value="June 2020">June 2020</option>
-            </select>
-          </div>
-          <div class="col-xs-12 col-sm-3 form-group">
-            <label for="Eventcountry">Country</label>
-            <select class="chosen-select" name="country" id="Eventcountry" style="display: none;">
-              <option value="">All</option>
-              <option value="{6D506EDE-F0E4-4964-93FF-D8A3DA23BDA0}">USA</option>
-              <option value="{A1EF0A44-49EE-467F-964C-F748991F5552}">UK</option>
-              <option value="{D5B99037-EEA3-4359-8B38-9375D5A0B219}">Angola</option>
-              <option value="{B9C6CE4A-9795-4344-B826-4F16A4FBFFE4}">Argentina</option>
-              <option value="{3227A722-2F53-44C0-9CB4-F47E01A737A9}">Australia</option>
-              <option value="{912984C6-5D45-4F1B-B99C-9D10EE052C2A}">Austria</option>
-              <option value="{8F6A6248-F3C5-4DE1-BE41-866AAD0A7BC7}">Bahrain</option>
-              <option value="{476C7303-E6F4-4E8A-80EB-59A0C6EAC9BB}">Belgium</option>
-              <option value="{DD1F0317-77E9-4190-9260-D9A7BA5F5739}">Benelux</option>
-              <option value="{800347B7-F5FA-4C1A-A7FE-F0B024E04DB9}">Bermuda</option>
-              <option value="{21C61518-963F-4437-9A1B-87DE370E54C9}">Brazil</option>
-              <option value="{0EE04D7D-081D-4B1D-B774-1B838FFBD4A0}">Bulgaria</option>
-              <option value="{356BF69A-5E45-42E8-B8F6-26DCFF7796F5}">Canada</option>
-              <option value="{8E32F4F0-6E02-4BA6-BF38-54163706231F}">Cayman Islands</option>
-              <option value="{44B58988-C22A-4774-99C4-37166F55A207}">Chile</option>
-              <option value="{3A218235-4950-4E7E-BF00-20828FF5F810}">China</option>
-              <option value="{C19D7D87-CBDB-4556-AD07-06740C85A097}">Colombia</option>
-              <option value="{A8A3F51B-B387-4A20-BB22-58AC759405EA}">Czech Republic</option>
-              <option value="{1F8FB908-4006-486F-9FC4-A7792CF6FC03}">Denmark</option>
-              <option value="{F581B904-6617-4FB5-A195-5DD8D0C35E56}">Egypt</option>
-              <option value="{2EA213F8-023B-4012-84DC-12276922C3B9}">Finland</option>
-              <option value="{711E7043-9BBA-439A-AD8D-9BA0A9F7BCF4}">France</option>
-              <option value="{A1CCAC77-A496-47F5-912E-F76CB0D4A6E0}">Germany</option>
-              <option value="{4F932972-BD12-4B85-844C-D7749E0BA1E2}">Greece</option>
-              <option value="{D8F5FA70-0743-4D39-A210-F1DA5B0E5D34}">Hong Kong</option>
-              <option value="{5DDF52D7-F554-4265-AE12-D2680374F54B}">Hungary</option>
-              <option value="{552A1C46-4F5F-49D4-95ED-3A30B4BA2693}">India</option>
-              <option value="{EF6061BE-2253-4850-A563-47ECBF422CBB}">Indonesia</option>
-              <option value="{C4A39F5F-E87E-4594-A6B1-45FA2C415F2E}">Iran</option>
-              <option value="{5E322C17-98C6-494D-89ED-8827CF7BFB62}">Ireland</option>
-              <option value="{D43D19CA-1283-41AA-B5DC-AC7A5B062905}">Israel</option>
-              <option value="{243DE2FB-D7B8-4973-A204-2DDA72A2E8D5}">Italy</option>
-              <option value="{675535D2-41D9-4614-9813-3BAF3BBA3F4A}">Japan</option>
-              <option value="{C65B4276-3336-41B5-B0D1-8AE6131339AC}">Kenya</option>
-              <option value="{969226CB-695C-4083-9EEE-2A00F610A391}">Kuwait</option>
-              <option value="{E4ECA4CB-2D43-4537-A65E-7EFAD5619C8E}">Malaysia</option>
-              <option value="{F1D94E86-50DA-4F78-A145-4314B82EFE68}">Mexico</option>
-              <option value="{6F2E5316-83EA-495D-8495-1F243F81A0DC}">Monaco</option>
-              <option value="{C273BBDD-FC27-42E7-95B9-45C789727C66}">Morocco</option>
-              <option value="{6B90F62E-0A9F-4122-83BC-0CDFEB1E1175}">Mozambique</option>
-              <option value="{B9143E30-2F14-43DE-A52C-83728AD6BF7F}">Myanmar</option>
-              <option value="{0BFBAF73-BD97-4B51-A5D2-5C6516EF9C0C}">Netherlands</option>
-              <option value="{167FCC42-48EC-47B1-B812-66355A1127DB}">New Zealand</option>
-              <option value="{A65E88D4-B97B-4241-9A50-6CE6A81E1D73}">Nigeria</option>
-              <option value="{2FF8020E-A2F4-4BEA-AF93-FC5CA52288A5}">Norway</option>
-              <option value="{98DD9DA0-69E5-452D-9531-AFB9B7601E16}">Oman</option>
-              <option value="{AD03F21B-E11C-48F1-B752-64F00B3AA656}">Philippines</option>
-              <option value="{5F2EFA38-977D-40AD-8851-1C8419521766}">Poland</option>
-              <option value="{868AFBF7-DB58-45C7-8FFE-FEB7F524E350}">Portugal</option>
-              <option value="{11E37D68-2171-4100-93D1-3E3643E4BF15}">Qatar</option>
-              <option value="{52E7E380-5231-4205-BE95-909B15C36307}">Romania</option>
-              <option value="{D1464549-6A6E-4C68-B62A-D7E735ECEF20}">Russian Federation</option>
-              <option value="{EFC1B42B-30FC-4D5A-87AE-ACD9ECB69D8F}">Saudi Arabia</option>
-              <option value="{14B9561D-868C-4192-9F88-90A34D1AD5E9}">Senegal</option>
-              <option value="{B309987E-C3F0-4609-BA9C-EB23E8FD4167}">Serbia</option>
-              <option value="{15BA7DAA-E9A5-4E89-858E-3C99DA537124}">Singapore</option>
-              <option value="{948A80FE-D4A0-453F-8370-71082DF8B690}">Slovakia</option>
-              <option value="{F6ED1836-32B4-405D-A62B-5B252D6A30A6}">South Africa</option>
-              <option value="{62A5A61B-4135-486E-9AE4-14F5ADA58BEA}">South Korea</option>
-              <option value="{C039004B-7A7C-498F-AD2B-10D7BB6B31C8}">Spain</option>
-              <option value="{6F36C088-14AB-4B59-85D6-992FD9A0E9B2}">Sweden</option>
-              <option value="{D8DD33CA-BC64-42E4-9338-9D906E255F8E}">Switzerland</option>
-              <option value="{F9D8CA7D-9390-411A-B87B-276511B983D3}">Taiwan</option>
-              <option value="{132F4DD3-B6FC-4BE8-85F7-94B9C2C721D5}">Thailand</option>
-              <option value="{C389DED5-DAB2-4F85-A722-C4A6D80D6F50}">Turkey</option>
-              <option value="{B2112D93-0C97-4FA4-B7DF-55002694DA7E}">UAE</option>
-              <option value="{CECEE3D0-48C2-4C6C-AFCC-D939F6D8B58F}">Ukraine</option>
-              <option value="{DC78ECAA-7DEB-4A2C-9E1C-C684FE684467}">Vietnam</option>
+            <label for="Eventcountry">
+              Country
+            </label>
+            <select
+              class="chosen-select"
+              name="country"
+              id="Eventcountry"
+              style="display: none;"
+            >
+              <option value="">
+                All
+              </option>
+              <option value="{6D506EDE-F0E4-4964-93FF-D8A3DA23BDA0}">
+                USA
+              </option>
+              <option value="{A1EF0A44-49EE-467F-964C-F748991F5552}">
+                UK
+              </option>
+              <option value="{D5B99037-EEA3-4359-8B38-9375D5A0B219}">
+                Angola
+              </option>
+              <option value="{B9C6CE4A-9795-4344-B826-4F16A4FBFFE4}">
+                Argentina
+              </option>
+              <option value="{3227A722-2F53-44C0-9CB4-F47E01A737A9}">
+                Australia
+              </option>
+              <option value="{912984C6-5D45-4F1B-B99C-9D10EE052C2A}">
+                Austria
+              </option>
+              <option value="{8F6A6248-F3C5-4DE1-BE41-866AAD0A7BC7}">
+                Bahrain
+              </option>
+              <option value="{476C7303-E6F4-4E8A-80EB-59A0C6EAC9BB}">
+                Belgium
+              </option>
+              <option value="{DD1F0317-77E9-4190-9260-D9A7BA5F5739}">
+                Benelux
+              </option>
+              <option value="{800347B7-F5FA-4C1A-A7FE-F0B024E04DB9}">
+                Bermuda
+              </option>
+              <option value="{21C61518-963F-4437-9A1B-87DE370E54C9}">
+                Brazil
+              </option>
+              <option value="{0EE04D7D-081D-4B1D-B774-1B838FFBD4A0}">
+                Bulgaria
+              </option>
+              <option value="{356BF69A-5E45-42E8-B8F6-26DCFF7796F5}">
+                Canada
+              </option>
+              <option value="{8E32F4F0-6E02-4BA6-BF38-54163706231F}">
+                Cayman Islands
+              </option>
+              <option value="{44B58988-C22A-4774-99C4-37166F55A207}">
+                Chile
+              </option>
+              <option value="{3A218235-4950-4E7E-BF00-20828FF5F810}">
+                China
+              </option>
+              <option value="{C19D7D87-CBDB-4556-AD07-06740C85A097}">
+                Colombia
+              </option>
+              <option value="{A8A3F51B-B387-4A20-BB22-58AC759405EA}">
+                Czech Republic
+              </option>
+              <option value="{1F8FB908-4006-486F-9FC4-A7792CF6FC03}">
+                Denmark
+              </option>
+              <option value="{F581B904-6617-4FB5-A195-5DD8D0C35E56}">
+                Egypt
+              </option>
+              <option value="{2EA213F8-023B-4012-84DC-12276922C3B9}">
+                Finland
+              </option>
+              <option value="{711E7043-9BBA-439A-AD8D-9BA0A9F7BCF4}">
+                France
+              </option>
+              <option value="{A1CCAC77-A496-47F5-912E-F76CB0D4A6E0}">
+                Germany
+              </option>
+              <option value="{4F932972-BD12-4B85-844C-D7749E0BA1E2}">
+                Greece
+              </option>
+              <option value="{D8F5FA70-0743-4D39-A210-F1DA5B0E5D34}">
+                Hong Kong
+              </option>
+              <option value="{5DDF52D7-F554-4265-AE12-D2680374F54B}">
+                Hungary
+              </option>
+              <option value="{552A1C46-4F5F-49D4-95ED-3A30B4BA2693}">
+                India
+              </option>
+              <option value="{EF6061BE-2253-4850-A563-47ECBF422CBB}">
+                Indonesia
+              </option>
+              <option value="{C4A39F5F-E87E-4594-A6B1-45FA2C415F2E}">
+                Iran
+              </option>
+              <option value="{5E322C17-98C6-494D-89ED-8827CF7BFB62}">
+                Ireland
+              </option>
+              <option value="{D43D19CA-1283-41AA-B5DC-AC7A5B062905}">
+                Israel
+              </option>
+              <option value="{243DE2FB-D7B8-4973-A204-2DDA72A2E8D5}">
+                Italy
+              </option>
+              <option value="{675535D2-41D9-4614-9813-3BAF3BBA3F4A}">
+                Japan
+              </option>
+              <option value="{C65B4276-3336-41B5-B0D1-8AE6131339AC}">
+                Kenya
+              </option>
+              <option value="{969226CB-695C-4083-9EEE-2A00F610A391}">
+                Kuwait
+              </option>
+              <option value="{E4ECA4CB-2D43-4537-A65E-7EFAD5619C8E}">
+                Malaysia
+              </option>
+              <option value="{F1D94E86-50DA-4F78-A145-4314B82EFE68}">
+                Mexico
+              </option>
+              <option value="{6F2E5316-83EA-495D-8495-1F243F81A0DC}">
+                Monaco
+              </option>
+              <option value="{C273BBDD-FC27-42E7-95B9-45C789727C66}">
+                Morocco
+              </option>
+              <option value="{6B90F62E-0A9F-4122-83BC-0CDFEB1E1175}">
+                Mozambique
+              </option>
+              <option value="{B9143E30-2F14-43DE-A52C-83728AD6BF7F}">
+                Myanmar
+              </option>
+              <option value="{0BFBAF73-BD97-4B51-A5D2-5C6516EF9C0C}">
+                Netherlands
+              </option>
+              <option value="{167FCC42-48EC-47B1-B812-66355A1127DB}">
+                New Zealand
+              </option>
+              <option value="{A65E88D4-B97B-4241-9A50-6CE6A81E1D73}">
+                Nigeria
+              </option>
+              <option value="{2FF8020E-A2F4-4BEA-AF93-FC5CA52288A5}">
+                Norway
+              </option>
+              <option value="{98DD9DA0-69E5-452D-9531-AFB9B7601E16}">
+                Oman
+              </option>
+              <option value="{AD03F21B-E11C-48F1-B752-64F00B3AA656}">
+                Philippines
+              </option>
+              <option value="{5F2EFA38-977D-40AD-8851-1C8419521766}">
+                Poland
+              </option>
+              <option value="{868AFBF7-DB58-45C7-8FFE-FEB7F524E350}">
+                Portugal
+              </option>
+              <option value="{11E37D68-2171-4100-93D1-3E3643E4BF15}">
+                Qatar
+              </option>
+              <option value="{52E7E380-5231-4205-BE95-909B15C36307}">
+                Romania
+              </option>
+              <option value="{D1464549-6A6E-4C68-B62A-D7E735ECEF20}">
+                Russian Federation
+              </option>
+              <option value="{EFC1B42B-30FC-4D5A-87AE-ACD9ECB69D8F}">
+                Saudi Arabia
+              </option>
+              <option value="{14B9561D-868C-4192-9F88-90A34D1AD5E9}">
+                Senegal
+              </option>
+              <option value="{B309987E-C3F0-4609-BA9C-EB23E8FD4167}">
+                Serbia
+              </option>
+              <option value="{15BA7DAA-E9A5-4E89-858E-3C99DA537124}">
+                Singapore
+              </option>
+              <option value="{948A80FE-D4A0-453F-8370-71082DF8B690}">
+                Slovakia
+              </option>
+              <option value="{F6ED1836-32B4-405D-A62B-5B252D6A30A6}">
+                South Africa
+              </option>
+              <option value="{62A5A61B-4135-486E-9AE4-14F5ADA58BEA}">
+                South Korea
+              </option>
+              <option value="{C039004B-7A7C-498F-AD2B-10D7BB6B31C8}">
+                Spain
+              </option>
+              <option value="{6F36C088-14AB-4B59-85D6-992FD9A0E9B2}">
+                Sweden
+              </option>
+              <option value="{D8DD33CA-BC64-42E4-9338-9D906E255F8E}">
+                Switzerland
+              </option>
+              <option value="{F9D8CA7D-9390-411A-B87B-276511B983D3}">
+                Taiwan
+              </option>
+              <option value="{132F4DD3-B6FC-4BE8-85F7-94B9C2C721D5}">
+                Thailand
+              </option>
+              <option value="{C389DED5-DAB2-4F85-A722-C4A6D80D6F50}">
+                Turkey
+              </option>
+              <option value="{B2112D93-0C97-4FA4-B7DF-55002694DA7E}">
+                UAE
+              </option>
+              <option value="{CECEE3D0-48C2-4C6C-AFCC-D939F6D8B58F}">
+                Ukraine
+              </option>
+              <option value="{DC78ECAA-7DEB-4A2C-9E1C-C684FE684467}">
+                Vietnam
+              </option>
             </select>
           </div>
         </div>
       </div>
       <div class="views-section col-xs-12 col-sm-3 col-md-offset-3 col-md-3">
         <div class="views">
-          <a href="#" data-viewport="list-view" class="icon-list-view active">Tile View</a>
+          <a href="#" data-viewport="list-view" class="icon-list-view active">
+            Tile View
+          </a>
         </div>
         <div class="views">
-          <a href="#" data-viewport="calendar-view" class="icon-calendar">Calendar View</a>
+          <a href="#" data-viewport="calendar-view" class="icon-calendar">
+            Calendar View
+          </a>
+        </div>
+        <div class="date-views">
+          <div class="dview">
+            month <input id="dvmonth" type="radio" name="dview" value="month" checked="checked" /> <input id="dvyear" type="radio" name="dview" value="year" /> year
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="filter-section">
+        <div class="heading">
+            active filters (3)
+        </div>
+        <div class="section">
+        </div>
     </div>
   </div>
 </section>
