@@ -2765,3 +2765,144 @@ body{
 .subnav-container .top a[href="javascript:void(0)"]{
     pointer-events: none;
 }
+
+//White theme
+
+section.informaNav.white-theme{
+    .nav-main{
+        background-color: $white;
+        .navbar-collapse .navbar-right .search {
+            @media screen and (min-width: 1142px){
+               background-color: $white-shade;
+            }
+            
+        }
+    }
+    a {
+        color:$gray;
+    }  
+    .nav-active {
+        a{
+            color:$pink;
+        }
+    }
+    .nav-head {
+        background-color:$white;
+    }
+    .multi-lang-cta .btn-group .dropdown-toggle {
+      color: $gray;
+    }
+    @media screen and  (min-width: 1142px){
+        .navbar .navbar-header .header-links:after {
+            border-left: 2px solid $gray;
+        }
+        .nav-main.mainNavigation.navbar-fixed-top .navbar-collapse .search {
+            border-left: 1px solid #ffffff;
+            border-right: 1px solid #ffffff;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$pink;
+                        }
+                    }
+                }
+            } 
+        } 
+        .btn-group.open {
+            background: $gray;
+            .dropdown-default-text {
+                background: $gray;
+                color:$white;
+            }
+            .dropdown-menu{
+                background-color:$gray;
+                a {
+                    color: $white;
+                }
+            }
+        }
+    } 
+
+
+}
+.product-finder.white-theme {
+    background-color: $white-shade;
+    form ul.search-options li:last-child .close-finder{
+        color:$gray;
+    }
+    label{
+        color:$gray;
+    }
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background: $pink!important;
+    }
+    .form :not(.lt-ie9) .custom-radio input+span::before {
+        border: .225em solid $gray;
+        background: $gray;
+    }
+    .form .textbox input{
+        background: $gray;
+        color:$white;
+    }
+
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$pink;
+        color: $white;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle{
+        background:$gray;
+        color:$white
+    }
+ }
+
+.white-theme #sub-nav {
+   background-color: $white-shade;
+   .subnav-container {
+        a {
+            &:hover {
+                color:$pink;
+            }
+        }
+        .heading {
+            .top {
+                a {
+                    color:$gray;
+                }
+            } 
+        }
+        .top {
+            border-bottom: 1px solid $gray;
+            a.head {
+                &:after{
+                    color: $gray;
+                }
+               
+            }
+        } 
+    }
+}
+
+.white-theme .greyed-out {
+    color: $pink!important;
+}
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+  
+   
