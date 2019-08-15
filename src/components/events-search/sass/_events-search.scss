@@ -144,10 +144,15 @@
                     font-size: 28px;
                     text-indent: 0;
                 }
-                &.active {
-                    background-color: #e2e4e9;
-                }
                 &.icon-list-view {
+                    &:before {
+                        content: '';
+                        height: 26px;
+                        width: 22px;
+                        background: url(/Static/images/dashboard.png) no-repeat;
+                    }
+                }
+                &.icon-tile-view {
                     &:before {
                         content: '';
                         height: 26px;
@@ -165,7 +170,13 @@
         }
     }
 }
+// functionality css
 body {
+    &.list-view .events-search .views-section .views a[data-viewport="list-view"],
+    &.tile-view .events-search .views-section .views a[data-viewport="tile-view"],
+    &.calendar-view .events-search .views-section .views a[data-viewport="calendar-view"] {
+        background-color: #e2e4e9;
+    }
     &.list-view {
         .events-search .views-section .date-views {
             display: none;

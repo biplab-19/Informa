@@ -36,7 +36,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         PageNo = 1,
         ajaxMethod = 'POST',
         //methods
-        init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents, LoadMoreEvents, SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData, SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent, SetLoadMoreEvents, mddmenu, setCurrentDate, populateMonthSelect, initFCYearView, initFCMonthView, getDayFormat, initCalendar, InformaFC, isDev;
+        init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents, LoadMoreEvents, SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData, SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent, SetLoadMoreEvents, mddmenu, setCurrentDate, populateMonthSelect, initFCYearView, initFCMonthView, getDayFormat, initCalendar, InformaEventTiles, InformaEventList, InformaFC, isDev;
 
     disabledEvent = function () {
         $('.register.disabled').click(function (e) {
@@ -56,7 +56,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         var eventID = $("section#events"),
             eventsEndDate = $("select[name='month'] option:last-child")[0].value,
             obj;
-        if ($('body').hasClass('list-view')) {
+        
+        // TODO: efficiency: replace class check with data/variable
+        if ($('body').hasClass('list-view') || $('body').hasClass('tile-view')) {
             obj = {
                 data: JSON.stringify({
                     EventsStartDate: monthType,
@@ -126,8 +128,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     RenderChange = function (data) {
         CheckEvents(data);
         // SetCalendarEvents(data);
+        // SetListEvents(data);
         InformaFC.EventData = data;
-        SetListEvents(data);
+        InformaEventList.RenderView(data);
+        InformaEventTiles.RenderView(data);
+        NoEventsFound();
         UnbindEvent();
         disabledEvent();
         PageNo = 2;
@@ -136,16 +141,22 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     LoadMoreEvents = function (data) {
         CheckEvents(data);
         // SetCalendarEvents(data);
+        // SetLoadMoreEvents(data);
         InformaFC.EventData = data;
-        SetLoadMoreEvents(data);
+        InformaEventList.RenderView(data);
+        InformaEventTiles.RenderView(data);
+        NoEventsFound();
         UnbindEvent();
         disabledEvent();
         PageNo++;
     },
 
+    // TODO: remove
     SetLoadMoreEvents = function (data) {
         var results = data.Events,
             html = "";
+
+        // <list events: addevents>
         for (var key in results) {
             if (results.hasOwnProperty(key)) {
                 var Data = results[key],
@@ -158,11 +169,21 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             }
         }
         List.find('.events-container').append(html);
+        // </list events>
+
+        // no event check
         NoEventsFound();
+
+        // equalise height for tiles
         EqualHeight();
+
+        // <list events: setcount>
         List.attr('total-count', data.TotalResults);
+
+        // <list events: updateviewmore>
         CheckCount();
 
+        // <list events: updatenavigation>
         var ViewDateText = _Start,
             ViewDate = moment(new Date('1 ' + ViewDateText));
 
@@ -179,10 +200,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         }
     }
 
+    // TODO: remove
     SetListEvents = function (data) {
         var results = data.Events,
             html = "";
 
+        // <list events: addevents>
         for (var key in results) {
             if (results.hasOwnProperty(key)) {
                 var Data = results[key],
@@ -208,10 +231,21 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             }
         }
         List.find('.events-container').html(html);
+        // <list events>
+
+        // no event check
         NoEventsFound();
+
+        // equalise height for tiles
         EqualHeight();
+
+        // <list events: setcount>
         List.attr('total-count', data.TotalResults);
+        
+        // <list events: updateviewmore>
         CheckCount();
+
+        // <list events: updatenavigation>
         var ViewDateText = _Start,
             ViewDate = moment(new Date('1 ' + ViewDateText));
 
@@ -226,7 +260,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         } else {
             List.find('.next').removeClass('arrow-desabled');
         }
-        //RenderClickEvents();
     },
 
     CheckCount = function () {
@@ -257,160 +290,15 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             PageTemplate = $("section#events").data("currentpage"),
             MonthYear = _Start.format('MMMM YYYY'),
             obj = GetEventData(MonthYear);
-        EqualHeight();
+        // EqualHeight();
         CheckCount();
         _previousDate = _Start.toDate();
         GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), RenderLoadEvents, null, null);
     },
 
     RenderLoadEvents = function (data) {
-        // var _contentheight = null, _dayView = [],
-        //     _vp = INFORMA.global.device.viewportN,
-        //     header = {
-        //         left: 'prev',
-        //         center: 'title',
-        //         right: 'next'
-        //     };
-
-        // if (_vp === 2) {
-        //     _contentheight = 100;
-        //     _dayView = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-        // } else if (_vp === 1) {
-        //     _dayView = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-        // } else {
-        //     _contentheight = 805;
-        //     _dayView = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        // }
-
-        // if(_vp === 1 || _vp === 0) {
-        //     header = {
-        //         left: 'title',
-        //         right: 'prev,next'
-        //     }
-        // } else {
-        //     header = {
-        //         left: 'prev',
-        //         center: 'title',
-        //         right: 'next'
-        //     }
-        // }
-
-        // List.find('.previous').addClass('arrow-desabled');
-        NoEventsFound();
-        // Calendar.html("");
-        // Calendar.fullCalendar({
-        //     header: header, // Defines the buttons and title at the top of the calendar.
-        //     eventLimit: true, // Limits the number of events displayed on a day. The rest will show up in a popover.
-        //     contentHeight: _contentheight, // Sets the height of the view area of the calendar.
-        //     weekMode: 'liquid', //Determines the number of weeks displayed in a month view. Also determines each week’s height.
-        //     // firstDay: 1, // The day that each week begins.
-        //     dayNamesShort: _dayView, // Abbreviated names of days-of-week.
-        //     viewRender: function (view) { // Triggered when a new date-range is rendered, or when the view type switches.
-        //         var Current = moment(new Date()).format('MMMM YYYY'),
-        //             ViewDate = moment(view.title).format('MMMM YYYY'),
-        //             End = moment(new Date()).add(11, 'months').format('MMMM YYYY');
-        //         //
-        //         // if(view.title == Current) {
-        //         //     jQuery('.fc-prev-button').addClass('disabled');
-        //         // } else {
-        //         //     jQuery('.fc-prev-button').removeClass('disabled');
-
-        //         // }
-        //         // if(view.title === End) {
-        //         //     jQuery('.fc-next-button').addClass('disabled');
-        //         // } else {
-        //         //     jQuery('.fc-next-button').removeClass('disabled');
-        //         // }
-        //     },
-        //     dayClick: function (date, jsEvent, view) { // Triggered when the user clicks on a date or a time.
-        //         var _vp = INFORMA.global.device.viewportN;
-
-        //         // if (_vp === 2 || _vp === 1) {
-        //             var selectedDate = date.format(),
-        //                 parentNode = $(this).parents('.fc-row.fc-widget-content'),
-        //                 DateAttr = $(this).data('date'),
-        //                 Container = $(this).parents('.fc-view-container'),
-        //                 ItemList = null;
-
-        //             Container.find('.fc-widget-content').removeClass('open');
-        //             Container.toggleClass('open-event');
-        //             Container.find('.events-wrap').remove();
-        //             Container.find('.fc-day-number').css('color', '#6a7285');
-        //             if ($(this).hasClass('event-present')) {
-        //                 ItemList = Container.find('.events[data-date="' + DateAttr + '"]').clone();
-        //                 ItemList.addClass('cloned');
-        //                 parentNode.after('<div class="events-wrap"></div>');
-        //             } else {
-        //                 parentNode.after('');
-        //             }
-
-        //             if (Container.hasClass('open-event')) {
-        //                 Container.find('.fc-widget-content[data-date="' + DateAttr + '"]').addClass('open');
-        //                 Container.find('.fc-day-number[data-date="' + DateAttr + '"]').css('color', '#fff');
-        //                 Container.find('.events-wrap').html(ItemList);
-        //             } else {
-        //                 Container.find('.fc-widget-content[data-date="' + DateAttr + '"]').removeClass('open');
-        //                 Container.find('.events-wrap').remove();
-        //             }
-
-        //             ItemList = "";
-        //             Container.find('.events-wrap').hide().slideDown();
-        //         // }
-
-        //     },
-        //     eventAfterAllRender: function (view) { // Triggered after all events have finished rendering.
-        //         var _vp = INFORMA.global.device.viewportN;
-        //         if (_vp === 2 || _vp === 1) {
-
-        //             var Events = $('.fc-view-container .events');
-
-        //             Events.each(function () {
-        //                 var DateField = $(this).data('date');
-        //                 $('td.fc-day-number[data-date="' + DateField + '"]').addClass('events-now');
-        //                 $('td.fc-widget-content[data-date="' + DateField + '"]').addClass('event-present');
-        //             })
-        //         }
-
-        //         if (_vp === 0) {
-        //             var OtherMonths = $('.fc-day-number.fc-other-month');
-
-        //             OtherMonths.each(function () {
-        //                 var DateView = $(this).data('date'),
-        //                     Month = moment(new Date(DateView)).format('MMM'),
-        //                     Dates = moment(new Date(DateView)).format('DD');
-
-        //                 $(this).html(Dates + '<sup>\/' + Month + '</sup>');
-        //             })
-        //         }
-        //     },
-        //     eventRender: function (event, element, view) { // Triggered while an event is being rendered. A hook for modifying its DOM.
-        //         var CurrentDate = new Date(),
-        //             ItemDate = new Date(event.start._i),
-        //             DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
-        //             CountryText = "",
-        //             ViewDate = view;
-
-        //         if (event.Country != null) {
-        //             CountryText = event.Country;
-        //         }
-
-        //         if (!event.EventText && event.Link !== null) {
-
-        //             if (moment(CurrentDate) > moment(ItemDate)) {
-        //                 if (moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-        //                     return $('<div data-date="' + DateAttr + '" class="events current"><p class="title"><a href="' + event.Link + '" target="' + event.Target + '">' + event.title + '</a></p><p class="country">' + CountryText + '</p></div>');
-        //                 } else {
-        //                     return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title"><a href="' + event.Link + '" target="' + event.Target + '">' + event.title + '</a></p><p class="country">' + CountryText + '</p></div>');
-        //                 }
-        //             } else {
-        //                 return $('<div data-date="' + DateAttr + '" class="events"><p class="title"><a href="' + event.Link + '" target="' + event.Target + '">' + event.title + '</a></p><p class="country">' + CountryText + '</p></div>');
-        //             }
-        //         } else {
-        //             return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title"><a href="' + event.Link + '" target="' + event.Target + '">' + event.title + '</a></p><p class="country">' + CountryText + '</p></div>');
-        //         }
-        //     }
-        // });
         CheckEvents(data);
+        NoEventsFound();
         // SetCalendarEvents(data);
         InformaFC.EventData = data;
     },
@@ -449,6 +337,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         }
     },
 
+    // TODO: remove
     SetCalendarEvents = function (list) {
         Calendar.fullCalendar('removeEvents');
         var data = list.Events,
@@ -491,23 +380,23 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             e.preventDefault();
             
             var ViewMode = jQuery(this).data('viewport');
-            Views.removeClass('active');
-            jQuery(this).addClass('active');
-            jQuery('body').removeClass('list-view');
-            jQuery('body').removeClass('calendar-view');
+            // Views.removeClass('active');
+            // jQuery(this).addClass('active');
+            jQuery('body').removeClass('list-view tile-view calendar-view').addClass(ViewMode);
             // $('.date-views').hide();
             // jQuery('.events-list').hide();
-            jQuery('body').addClass(ViewMode);
 
             // jQuery('section[data-view="' + ViewMode + '"]').show().siblings('section[data-view]').hide();
 
+            // do calendar render on User action because FC requires visibility to populate
             if (ViewMode === 'calendar-view') InformaFC.RenderView();
+            if (ViewMode === 'tile-view') InformaEventTiles.EqualHeight();
 
             // var date = new Date(),
             //     DatePass = moment(date).format('MMMM YYYY'),
             //     PageTemplate = $("section#events").data("currentpage"),
             //     MonthYear = _Start.format('MMMM YYYY');
-            EqualHeight();
+            // EqualHeight();
             CheckCount();
             // var obj = GetEventData(_Start.format('MMMM YYYY'));
             // _previousDate = _Start.toDate();
@@ -603,6 +492,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     },
 
     NoEventsFound = function () {
+        // TODO: code cleanup: why the explicit references to jQuery?
         var Container = jQuery('.events-container'),
             Items = Container.find('.events-section');
 
@@ -615,6 +505,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         }
     },
 
+    // TODO: remove
     MoreEventsFunc = function () {
         MoreEvents.on('click', function () {
             var Parent = jQuery(this).parents('section'),
@@ -809,10 +700,225 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
     }
 
+    // TODO: efficieny: combine with InformaEventList Object. Prerequisites: add switch method, update HTML
+    InformaEventTiles = {
+        Container: $('section[data-view="tile-view"] .container'),
+        TemplateName: (Templates.EventpageTileviewTemplate !== "undefined") ? Templates.EventpageTileviewTemplate : "",
+        MoreBtn: null,
+        Template: null,
+        Init: function() {
+            this.MoreBtn = this.Container.next('.more-events').find('.btn-more-events');
+            this.Template = Handlebars.compile(this.TemplateName);
+
+            // listeners
+            this.MoreBtn.click(function () {
+                var MonthYear = MonthSelect.val(),
+                    obj = GetEventData(MonthYear);
+                GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), LoadMoreEvents, null, $(this));
+            });
+        },
+        RenderView: function(data) {
+            this.AddEvents(data.Events);
+            this.count = data.TotalResults;
+            this.UpdateMoreBtn();
+            this.UpdateNav();
+        },
+        AddEvents: function(results) {
+            var evtObj,
+                html = ''
+
+            // TODO: efficiency: replace with for i loop for better performance
+            for (var key in results) {
+                if (results.hasOwnProperty(key)) {
+                    evtObj = results[key];
+                    
+                    this.AddDateToEvent(evtObj);
+                    html += this.Template({ results: evtObj });
+                }
+            }
+            this.Container.find('.events-container').append(html);
+        },
+        AddDateToEvent: function(data) {
+            var sDateMoment = moment(data.EventStartDate),
+                eDateMoment = moment(data.EventEndDate)
+            
+            // if same day, single date type else date range type
+            if (sDateMoment.isSame(eDateMoment, "day")) {
+                data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '</div>';
+            } else {
+                // if same month, same month range type else diff month range type
+                if (sDateMoment.isSame(eDateMoment, "month")) {
+                    data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '&nbsp;-&nbsp;' + eDateMoment.format("DD") + '</div>';
+                } else {
+                    data.DateRange = '<div class="date">' + sDateMoment.format("DD MMM") + '&nbsp;-&nbsp;' + eDateMoment.format("DD MMM") + '</div>';
+                }
+            }
+        },
+        UpdateMoreBtn: function() {
+            var dataCount = this.Container.data('count'),
+                elActualCount = this.Container.find('.events-section').length;
+
+            if (this.count > dataCount) {
+                this.MoreBtn.removeClass('hidden');
+            } else {
+                this.MoreBtn.addClass('hidden');
+            }
+            if (this.count === 0) {
+                this.MoreBtn.addClass('hidden');
+            }
+            if (this.count === elActualCount) {
+                this.MoreBtn.addClass('hidden');
+            }
+            
+        },
+        UpdateNav: function() {
+            // var ViewDateText = _Start,
+            //     ViewDate = moment(new Date('1 ' + ViewDateText));
+
+            if (_Start.isSame(_previous, 'month')) {
+                this.Container.find('.previous').addClass('arrow-desabled');
+            } else {
+                this.Container.find('.previous').removeClass('arrow-desabled');
+            }
+
+            if (_Start.isSame(_end, 'month')) {
+                this.Container.find('.next').addClass('arrow-desabled');
+            } else {
+                this.Container.find('.next').removeClass('arrow-desabled');
+            }
+        },
+        EqualHeight: function () {
+            var highestBox = 0,
+                EachItem = this.Container.find(".events-section"),
+                padding = 0;
+            // jQuery('section[data-view="list-view"]').show();
+            EachItem.each(function () {
+                if (jQuery(this).height() > highestBox) {
+                    highestBox = jQuery(this).height();
+                }
+            });
+            // if (jQuery('body').hasClass('calendar-view')) {
+            //     jQuery('section[data-view="list-view"]').hide();
+            // }
+    
+            EachItem.height(highestBox + padding);
+            if (INFORMA.global.device.viewportN == 2) {
+                EachItem.height("auto");
+            }
+        },
+        set count(cVal) {
+            // set total-count attr
+            this.Container.attr('total-count', cVal);
+            // this.UpdateMoreBtn();
+            // this.UpdateNav();
+        },
+        get count() {
+            return parseInt(this.Container.attr('total-count'));
+        }
+    }
+
+    InformaEventList = {
+        Container: $('section[data-view="list-view"] .container'),
+        TemplateName: (Templates.EventpageListviewTemplate !== "undefined") ? Templates.EventpageListviewTemplate : "",
+        MoreBtn: null,
+        Template: null,
+        Init: function() {
+            this.MoreBtn = this.Container.next('.more-events').find('.btn-more-events');
+            this.Template = Handlebars.compile(this.TemplateName);
+
+            // listeners
+            this.MoreBtn.click(function () {
+                var MonthYear = MonthSelect.val(),
+                    obj = GetEventData(MonthYear);
+                GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), LoadMoreEvents, null, $(this));
+            });
+        },
+        RenderView: function(data) {
+            this.AddEvents(data.Events);
+            this.count = data.TotalResults;
+            this.UpdateMoreBtn();
+            this.UpdateNav();
+        },
+        AddEvents: function(results) {
+            var evtObj,
+                html = ''
+
+            // TODO: efficiency: replace with for i loop for better performance
+            for (var key in results) {
+                if (results.hasOwnProperty(key)) {
+                    evtObj = results[key];
+                    
+                    this.AddDateToEvent(evtObj);
+                    html += this.Template({ results: evtObj });
+                }
+            }
+            this.Container.find('.events-container').append(html);
+        },
+        AddDateToEvent: function(data) {
+            var sDateMoment = moment(data.EventStartDate),
+                eDateMoment = moment(data.EventEndDate)
+            
+            // if same day, single date type else date range type
+            if (sDateMoment.isSame(eDateMoment, "day")) {
+                data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '</div>';
+            } else {
+                // if same month, same month range type else diff month range type
+                if (sDateMoment.isSame(eDateMoment, "month")) {
+                    data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '&nbsp;-&nbsp;' + eDateMoment.format("DD") + '</div>';
+                } else {
+                    data.DateRange = '<div class="date">' + sDateMoment.format("DD MMM") + '&nbsp;-&nbsp;' + eDateMoment.format("DD MMM") + '</div>';
+                }
+            }
+        },
+        UpdateMoreBtn: function() {
+            var dataCount = this.Container.data('count'),
+                elActualCount = this.Container.find('.events-section').length;
+
+            if (this.count > dataCount) {
+                this.MoreBtn.removeClass('hidden');
+            } else {
+                this.MoreBtn.addClass('hidden');
+            }
+            if (this.count === 0) {
+                this.MoreBtn.addClass('hidden');
+            }
+            if (this.count === elActualCount) {
+                this.MoreBtn.addClass('hidden');
+            }
+            
+        },
+        UpdateNav: function() {
+            // var ViewDateText = _Start,
+            //     ViewDate = moment(new Date('1 ' + ViewDateText));
+
+            if (_Start.isSame(_previous, 'month')) {
+                this.Container.find('.previous').addClass('arrow-desabled');
+            } else {
+                this.Container.find('.previous').removeClass('arrow-desabled');
+            }
+
+            if (_Start.isSame(_end, 'month')) {
+                this.Container.find('.next').addClass('arrow-desabled');
+            } else {
+                this.Container.find('.next').removeClass('arrow-desabled');
+            }
+        },
+        set count(cVal) {
+            // set total-count attr
+            this.Container.attr('total-count', cVal);
+            // this.UpdateMoreBtn();
+            // this.UpdateNav();
+        },
+        get count() {
+            return parseInt(this.Container.attr('total-count'));
+        }
+    }
+
     InformaFC = {
         EventData: null,
-        ViewContainer: null,
+        ActiveContainer: null,
         ViewElements: null,
+        Container: $('section[data-view="calendar-view"] .container'),
         ViewSwitch: $('.date-views'),
         // setup year and month view switch
         Init: function () {
@@ -821,10 +927,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             that.ViewType = 'month';
             // init switch listener
             that.ViewSwitch.find('[name=dview]').change(function () {
-                that.SwitchView(this.value);
+                that.SwitchYearMonthView(this.value);
             });
         },
-        SwitchView: function (type) {
+        SwitchYearMonthView: function (type) {
             this.ViewType = type;
             this.RenderView();
         },
@@ -840,7 +946,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 vmLenInd;
 
             // if FC rendered then just update the date, else build it (build once)
-            if (that.ViewContainer.attr('rendered')) return;
+            if (that.ActiveContainer.attr('rendered')) return;
 
             switch (that.ViewType) {
                 case 'month':
@@ -978,7 +1084,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                 // apply rendered attribute on last loop
                 if (index === vmLenInd) 
-                    that.ViewContainer.attr('rendered', 'true');
+                    that.ActiveContainer.attr('rendered', 'true');
             });
         },
         GoToStartDate: function () {
@@ -1007,12 +1113,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 yvMonthDate,
                 vmLenInd;
 
-            if (that.ViewContainer.attr('events-loaded')) return;
+            if (that.ActiveContainer.attr('events-loaded')) return;
 
             // setAllEvents to each element
             vmLenInd = that.ViewElements.length - 1;
             that.ViewElements.each(function (index) {
                 $(this).fullCalendar('removeEvents');
+                // TODO: efficiency: granulate logic into seperate methods
                 for (eventCount = 0; eventCount < evtLength; eventCount++) {
                     eventObj = events[eventCount];
                     evtStartDate = moment(eventObj.EventStartDate);
@@ -1032,6 +1139,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                         // only add events in month of mini month FC in year view
                         if (that.ViewType === 'year') {
+                            // TODO: efficiency: set as data obj to reduce FC calls
                             yvMonthDate = $(this).fullCalendar('getDate');
                             if (evtStartDate.isSame(yvMonthDate, 'month')) {
                                 $(this).fullCalendar('renderEvent', eventFCObj, true);
@@ -1066,23 +1174,24 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 }
 
                 if (index === vmLenInd) {
-                    that.ViewContainer.attr('events-loaded', 'true');
+                    that.ActiveContainer.attr('events-loaded', 'true');
                 }
             });
 
         },
         set ViewType (type) {
-            // disable the current ViewContainer if already set
-            if (this.ViewContainer) {
-                this.ViewContainer.removeClass('active');
+            // disable the current ActiveContainer if already set
+            if (this.ActiveContainer && this.ActiveContainer.length > 0) {
+                this.ActiveContainer.removeClass('active');
             }
             // set active view container based on data-datetype attr
-            this.ViewContainer = $('section[data-view="calendar-view"] .container[data-datetype="' + type + '"]').addClass('active');
+            this.ActiveContainer = this.Container.filter('[data-datetype="' + type + '"]');
+            this.ActiveContainer.addClass('active');
             // then children of above
-            this.ViewElements = this.ViewContainer.find('.fccal');
+            this.ViewElements = this.ActiveContainer.find('.fccal');
         },
         get ViewType () {
-            return this.ViewContainer.attr('data-datetype');
+            return this.ActiveContainer.attr('data-datetype');
         }
     }
 
@@ -1094,12 +1203,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         if(isDev()) {
             ajaxMethod = 'GET';
             setCurrentDate('July 2019');
-            // Templates.EventListingPage = '<div class="events-section {{results.DateType}}"> <div class="events-wrap"> <div class="dates col-sm-2"> {{{results.DateRange}}} </div> <div class="content-wrap col-sm-10 col-md-7"> {{#if results.Title}} <h3 class="title">{{results.Title}}</h3> {{/if}} {{#if results.EventType}} <p class="type">{{results.EventType}}</p> {{/if}} {{#if results.Venue}} <div class="content clearfix venue"> <div class="title-content">{{results.VenueLabel}}</div> <div class="title-body"> {{results.Venue}} </div> </div> {{/if}} {{#if results.Duration}} <div class="content clearfix duration"> <div class="title-content">{{results.DurationLabel}}</div> <div class="title-body"> {{results.Duration}} </div> </div> {{/if}} {{#compare results.TimeZone.length 0 operator=">"}} <div class="content clearfix timezones"> <div class="title-content">{{results.TimeZoneLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.TimeZone}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} {{#if results.Description}} <div class="content clearfix description"> {{{results.Description}}} </div> {{/if}} {{#compare results.Presenters.length 0 operator=">"}} <div class="content clearfix presenters"> <div class="title-content">{{results.PresentersLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.Presenters}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} {{#compare results.Themes.length 0 operator=">"}} <div class="content clearfix themes"> <div class="title-content">{{results.ThemeLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.Themes}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} <div class="content clearfix ctas"> {{#if results.Primarycta}} {{#if results.Primarycta.Url}} {{#compare results.Primarycta.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta disabled" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} {{#if results.Secondarycta}} {{#if results.Secondarycta.Url}} {{#compare results.Secondarycta.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta disabled" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} {{#if results.Ical}} {{#if results.Ical.Url}} {{#compare results.Ical.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Ical.Url}}" class="btn pull-left ical" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Ical.Url}}" class="btn btn-primary pull-left ical disabled" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} </div> {{#compare results.Tags.length 0 operator=">"}} <div class="content clearfix tags"> <div class="title-body"> <ul class="clearfix"> {{#each results.Tags}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} </div> <div class="logo col-sm-offset-2 col-md-offset-0 col-md-3"> {{#if results.Logo}} <div class="content clearfix"> <img src="{{results.Logo.Src}}" alt="{{results.Logo.AltText}}"> </div> {{/if}} </div> </div> </div>';
         }
 
         if (EventsLists.length > 0) {
             RenderOnLoad();
             populateMonthSelect();
+            InformaEventList.Init();
+            InformaEventTiles.Init();
             InformaFC.Init();
             // initCalendar();
             SwitchEvents();

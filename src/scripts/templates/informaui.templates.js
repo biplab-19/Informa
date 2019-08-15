@@ -520,80 +520,77 @@ var INFORMA = window.INFORMA || {};
                                     '</div>' +
                                 '</div>',
     'EventListingPage':
-            '<div class="events-section {{results.DateType}}"> <div class="events-wrap"> <div class="dates col-sm-2"> {{{results.DateRange}}} </div> <div class="content-wrap col-sm-10 col-md-7"> {{#if results.Title}} <h3 class="title">{{results.Title}}</h3> {{/if}} {{#if results.EventType}} <p class="type">{{results.EventType}}</p> {{/if}} {{#if results.Venue}} <div class="content clearfix venue"> <div class="title-content">{{results.VenueLabel}}</div> <div class="title-body"> {{results.Venue}} </div> </div> {{/if}} {{#if results.Duration}} <div class="content clearfix duration"> <div class="title-content">{{results.DurationLabel}}</div> <div class="title-body"> {{results.Duration}} </div> </div> {{/if}} {{#compare results.TimeZone.length 0 operator=">"}} <div class="content clearfix timezones"> <div class="title-content">{{results.TimeZoneLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.TimeZone}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} {{#if results.Description}} <div class="content clearfix description"> {{{results.Description}}} </div> {{/if}} {{#compare results.Presenters.length 0 operator=">"}} <div class="content clearfix presenters"> <div class="title-content">{{results.PresentersLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.Presenters}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} {{#compare results.Themes.length 0 operator=">"}} <div class="content clearfix themes"> <div class="title-content">{{results.ThemeLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.Themes}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} <div class="content clearfix ctas"> {{#if results.Primarycta}} {{#if results.Primarycta.Url}} {{#compare results.Primarycta.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta disabled" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} {{#if results.Secondarycta}} {{#if results.Secondarycta.Url}} {{#compare results.Secondarycta.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta disabled" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} {{#if results.Ical}} {{#if results.Ical.Url}} {{#compare results.Ical.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Ical.Url}}" class="btn pull-left ical" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Ical.Url}}" class="btn btn-primary pull-left ical disabled" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} </div> {{#compare results.Tags.length 0 operator=">"}} <div class="content clearfix tags"> <div class="title-body"> <ul class="clearfix"> {{#each results.Tags}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} </div> <div class="logo col-sm-offset-2 col-md-offset-0 col-md-3"> {{#if results.Logo}} <div class="content clearfix"> <img src="{{results.Logo.Src}}" alt="{{results.Logo.AltText}}"> </div> {{/if}} </div> </div> </div>',                      
-    'EventpageListviewTemplate':'<div class="header clearfix">'+
-                                  '<a href="javascript:void(0)" class="arrows previous">Previous Arrow</a>'+
-                                  '<h2>{{results.Month}}</h2>'+
-                                  '<a href="javascript:void(0)" class="arrows next">Next Arrow</a>'+
-                                '</div>'+
-                                '<div class="events-container row">'+
-                                        '{{#each results.ModelItem}}'+
-                                        '<div class="col-xs-12 col-sm-6 col-md-4 events-section {{DateType}}">'+
-                                            '<div class="events-wrap">'+
-                                                '<div class="header clearfix">'+
-                                                    '<div class="date">{{DateField}}</div>'+
-                                                '</div>'+
-                                                '<div class="content-wrap">'+
-                                                    '<p class="country">'+
-                                                        '{{#compare State null operator="!="}}{{State}}{{/compare}}{{#if State}}{{#if Country}},{{/if}}{{/if}} <strong>{{#compare Country null operator="!="}}{{Country}}{{/compare}}</strong>'+
-                                                    '</p>'+
-                                                    '<p><span class="type">{{EventType}}</span></p>'+
-                                                    '<h3 class="title">{{Title}}</h3>'+
-                                                    '{{#compare Presenters.length 0 operator=">"}}'+
-                                                    '<div class="content clearfix">'+
-                                                        '<div class="title-content">{{PresentersLabel}}</div>'+
-                                                        '<div class="title-body">'+
-                                                            '<ul class="clearfix">'+
-                                                                '{{#each Presenters}}'+
-                                                                '<li>{{this}}</li>'+
-                                                                    '{{/each}}'+
-                                                            '</ul>'+
-                                                        '</div>'+
-                                                    '</div>'+
-                                                    '{{/compare}}'+
-                                                    '{{#compare Themes.length 0 operator=">"}}'+
-                                                    '<div class="content clearfix">'+
-                                                        '<div class="title-content">{{ThemeLabel}}</div>'+
-                                                        '<div class="title-body">'+
-                                                            '<ul class="clearfix">'+
-                                                                '{{#each Themes}}'+
-                                                                '<li>{{this}}</li>'+
-                                                                    '{{/each}}'+
-                                                            '</ul>'+
-                                                        '</div>'+
-                                                    '</div>'+
-                                                    '{{/compare}}'+
-                                                '</div>'+
-                                                '<div class="footer clearfix">'+
-                                                    '{{#compare FullDetail null operator="!="}}' +
-                                                        '{{#compare FullDetail.Url null operator="!="}}' +
-                                                            '{{#compare FullDetail.Url.length "0" operator=">"}}' +
-                                                            '<a href="{{FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{FullDetail.Target}}">{{FullDetail.LinkText}}</a>'+
-                                                        '{{/compare}}'+
-                                                    '{{/compare}}'+
-                                                    '{{/compare}}'+
-                                                    '{{#compare StatusEnabled  true operator="=="}}'+
-                                                        '{{#compare Register null operator="!="}}' +
-                                                            '{{#compare Register.Url null operator="!="}}' +
-                                                                '{{#compare Register.Url.length "0" operator=">"}}' + 
-                                                                    '<a href="{{Register.Url}}" class="btn btn-primary pull-right register" target="{{Register.Target}}">{{EventCTAText}}</a>'+
-                                                                '{{/compare}}'+
-                                                            '{{/compare}}'+
-                                                        '{{/compare}}'+
-                                                    '{{/compare}}'+
-                                                    '{{#compare StatusEnabled  false operator="=="}}'+
-                                                        '{{#compare Register null operator="!="}}' +
-                                                            '{{#compare Register.Url null operator="!="}}' +
-                                                                '{{#compare Register.Url.length "0" operator=">"}}' + 
-                                                                    '<a href="{{Register.Url}}" class="btn btn-primary pull-right register disabled" target="{{Register.Target}}">{{EventCTAText}}</a>'+
-                                                                '{{/compare}}'+
-                                                            '{{/compare}}'+
-                                                        '{{/compare}}'+
-                                                    '{{/compare}}'+
-                                                '</div>'+
-                                            '</div>'+
-                                        '</div>'+
-                                    '{{/each}}',
+        '<div class="col-xs-12 col-sm-6 col-md-4 events-section {{results.DateType}}">'+
+            '<div class="events-wrap">'+
+                '<div class="header clearfix">'+
+                    '{{{results.DateRange}}}' +
+                    // '<div class="date">{{results.DateField}}</div>'+
+                    // '<div class="date month">{{results.MonthField}}</div>'+
+                '</div>'+
+                '<div class="content-wrap">'+
+                    '<p class="country">'+
+                        '{{#compare results.State null operator="!="}}{{results.State}}{{/compare}}{{#if results.State}}{{#if results.Country}},{{/if}}{{/if}} <strong>{{#compare results.Country null operator="!="}}{{results.Country}}{{/compare}}</strong>'+
+                    '</p>'+
+                    '<p><span class="type">{{results.EventType}}</span></p>'+
+                    '<h3 class="title">{{results.Title}}</h3>'+
+                    '{{#compare results.Presenters.length 0 operator=">"}}'+
+                    '<div class="content clearfix">'+
+                        '<div class="title-content">{{results.PresentersLabel}}</div>'+
+                        '<div class="title-body">'+
+                            '<ul class="clearfix">'+
+                                '{{#each results.Presenters}}'+
+                                '<li>{{this}}</li>'+
+                                    '{{/each}}'+
+                            '</ul>'+
+                        '</div>'+
+                    '</div>'+
+                    '{{/compare}}'+
+                    '{{#compare results.Themes.length 0 operator=">"}}'+
+                    '<div class="content clearfix">'+
+                        '<div class="title-content">{{results.ThemeLabel}}</div>'+
+                        '<div class="title-body">'+
+                            '<ul class="clearfix">'+
+                                '{{#each results.Themes}}'+
+                                '<li>{{this}}</li>'+
+                                    '{{/each}}'+
+                            '</ul>'+
+                        '</div>'+
+                    '</div>'+
+                    '{{/compare}}'+
+                '</div>'+
+                '<div class="footer clearfix">'+
+                    '{{#compare results.FullDetail null operator="!="}}' +
+                        '{{#compare results.FullDetail.Url null operator="!="}}' +
+                            '{{#compare results.FullDetail.Url.length "0" operator=">"}}' +
+                            '<a href="{{results.FullDetail.Url}}" class="btn btn-default pull-left full-detail" target="{{results.FullDetail.Target}}">{{results.FullDetail.LinkText}}</a>'+
+                        '{{/compare}}'+
+                    '{{/compare}}'+
+                    '{{/compare}}'+
+                    '{{#compare results.StatusEnabled  true operator="=="}}'+
+                        '{{#compare results.Register null operator="!="}}' +
+                            '{{#compare results.Register.Url null operator="!="}}' +
+                                '{{#compare results.Register.Url.length "0" operator=">"}}' + 
+                                    '<a href="{{results.Register.Url}}" class="btn btn-primary pull-right register" target="{{results.Register.Target}}">{{results.EventCTAText}}</a>'+
+                                '{{/compare}}'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                    '{{/compare}}'+
+                    '{{#compare results.StatusEnabled  false operator="=="}}'+
+                        '{{#compare results.Register null operator="!="}}' +
+                            '{{#compare results.Register.Url null operator="!="}}' +
+                                '{{#compare results.Register.Url.length "0" operator=">"}}' + 
+                                    '<a href="{{results.Register.Url}}" class="btn btn-primary pull-right register disabled" target="{{results.Register.Target}}">{{results.EventCTAText}}</a>'+
+                                '{{/compare}}'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                    '{{/compare}}'+
+                '</div>'+
+            '</div>'+
+        '</div>',
+    'EventpageListviewTemplate':
+            '<div class="events-section {{results.DateType}}"> <div class="events-wrap"> <div class="dates col-sm-2"> {{{results.DateRange}}} </div> <div class="content-wrap col-sm-10 col-md-7"> {{#if results.Title}} <h3 class="title">{{results.Title}}</h3> {{/if}} {{#if results.EventType}} <p class="type">{{results.EventType}}</p> {{/if}} {{#if results.Venue}} <div class="content clearfix venue"> <div class="title-content">{{results.VenueLabel}}</div> <div class="title-body"> {{results.Venue}} </div> </div> {{/if}} {{#if results.Duration}} <div class="content clearfix duration"> <div class="title-content">{{results.DurationLabel}}</div> <div class="title-body"> {{results.Duration}} </div> </div> {{/if}} {{#compare results.TimeZone.length 0 operator=">"}} <div class="content clearfix timezones"> <div class="title-content">{{results.TimeZoneLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.TimeZone}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} {{#if results.Description}} <div class="content clearfix description"> {{{results.Description}}} </div> {{/if}} {{#compare results.Presenters.length 0 operator=">"}} <div class="content clearfix presenters"> <div class="title-content">{{results.PresentersLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.Presenters}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} {{#compare results.Themes.length 0 operator=">"}} <div class="content clearfix themes"> <div class="title-content">{{results.ThemeLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.Themes}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} <div class="content clearfix ctas"> {{#if results.Primarycta}} {{#if results.Primarycta.Url}} {{#compare results.Primarycta.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta disabled" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} {{#if results.Secondarycta}} {{#if results.Secondarycta.Url}} {{#compare results.Secondarycta.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta disabled" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} {{#if results.Ical}} {{#if results.Ical.Url}} {{#compare results.Ical.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Ical.Url}}" class="btn pull-left ical" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Ical.Url}}" class="btn btn-primary pull-left ical disabled" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} </div> {{#compare results.Tags.length 0 operator=">"}} <div class="content clearfix tags"> <div class="title-body"> <ul class="clearfix"> {{#each results.Tags}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} </div> <div class="logo col-sm-offset-2 col-md-offset-0 col-md-3"> {{#if results.Logo}} <div class="content clearfix"> <img src="{{results.Logo.Src}}" alt="{{results.Logo.AltText}}"> </div> {{/if}} </div> </div> </div>',
+    'EventpageTileviewTemplate':
+            '<div class="col-xs-12 col-sm-6 col-md-4 events-section {{results.DateType}}"> <div class="events-wrap"> <div class="header clearfix"> {{{results.DateRange}}} {{#if results.Ical}} {{#if results.Ical.Url}} {{#compare results.Ical.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Ical.Url}}" class="btn pull-right ical" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Ical.Url}}" class="btn btn-primary pull-right ical disabled" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} </div> <div class="content-wrap clearfix"> {{#if results.Venue}} <div class="content clearfix venue"> <div class="title-content">{{results.VenueLabel}}</div> <div class="title-body"> {{results.Venue}} </div> </div> {{/if}} {{#if results.Duration}} <div class="content clearfix duration"> <div class="title-content">{{results.DurationLabel}}</div> <div class="title-body"> {{results.Duration}} </div> </div> {{/if}} {{#compare results.TimeZone.length 0 operator=">"}} <div class="content clearfix timezones"> <div class="title-content">{{results.TimeZoneLabel}}</div> <div class="title-body"> <ul class="clearfix"> {{#each results.TimeZone}} <li>{{this}}</li> {{/each}} </ul> </div> </div> {{/compare}} {{#if results.Title}} <h3 class="content clearfix title">{{results.Title}}</h3> {{/if}} {{#if results.Description}} <div class="content clearfix description"> {{{results.Description}}} </div> {{/if}} </div> <div class="footer clearfix"> <div class="content clearfix ctas"> {{#if results.Primarycta}} {{#if results.Primarycta.Url}} {{#compare results.Primarycta.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Primarycta.Url}}" class="btn btn-primary pull-left primarycta disabled" target="{{results.Primarycta.Target}}">{{results.Primarycta.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} {{#if results.Secondarycta}} {{#if results.Secondarycta.Url}} {{#compare results.Secondarycta.Url.length "0" operator=">"}} {{#compare results.StatusEnabled true operator="=="}} <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a> {{/compare}} {{#compare results.StatusEnabled false operator="=="}} <a href="{{results.Secondarycta.Url}}" class="btn btn-primary pull-left secondarycta disabled" target="{{results.Secondarycta.Target}}">{{results.Secondarycta.LinkText}}</a> {{/compare}} {{/compare}} {{/if}} {{/if}} </div> </div> </div> </div>',
     'ResourceList': '<div class="col-xs-12 col-sm-6 col-md-4 list-item-container">'+
                         '<div class="list-item">'+
                             '<div class="columns">'+
