@@ -825,7 +825,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             });
         },
         SwitchView: function (type) {
-            // show active view
             this.ViewType = type;
             this.RenderView();
         },
@@ -843,17 +842,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // if FC rendered then just update the date, else build it (build once)
             if (that.ViewContainer.attr('rendered')) return;
 
-            // init informa spinner
-            INFORMA.Spinner.Show($('body'));
-
             switch (that.ViewType) {
                 case 'month':
                     initOptions = {
-                        header: {
-                            left:   'prev',
-                            center: 'title',
-                            right:  'next'
-                        },
+                        header: { left: 'prev', center: 'title', right: 'next' },
                         eventLimit: true, // Limits the number of events displayed on a day. The rest will show up in a popover.
                         contentHeight: _vp === 2 ? 100 : 805, // Sets the height of the view area of the calendar.
                         weekMode: 'liquid', //Determines the number of weeks displayed in a month view. Also determines each week’s height.
@@ -922,9 +914,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                     $(this).html(Dates + '<sup>\/' + Month + '</sup>');
                                 })
                             }
-
-                            // hide spinner when all rendered
-                            INFORMA.Spinner.Hide();
                         },
                         eventRender: function (event, element, view) { // Triggered while an event is being rendered. A hook for modifying its DOM.
                             var CurrentDate = new Date(),
@@ -951,19 +940,31 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             } else {
                                 return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title"><a href="' + event.Link + '" target="' + event.Target + '">' + event.title + '</a></p><p class="country">' + CountryText + '</p></div>');
                             }
-                        },
-                        viewRender: function(view, element) {
-                            INFORMA.Spinner.Hide();
                         }
                     }
                     break;
                 case 'year':
                     initOptions = {
-                        header: {left: '', center: 'title', right: ''},
-                        titleFormat: 'MMMM YYYY',
+                        header: { left: '', center: 'title', right: '' },
+                        eventLimit: true,
+                        titleFormat: 'MMM YYYY',
                         dayNamesShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-                        viewRender: function(view, element) {
-                            INFORMA.Spinner.Hide();
+                        eventAfterRender: function (event, element, view) {
+                            var $fcView = view.el,
+                                eventDate = event.start.format('YYYY-MM-DD'),
+                                $activeDayCell = element.closest('.fc-content-skeleton').find('.fc-day-number[data-date=' + eventDate + ']');
+
+                            // add classes for styling on month + days that contain an event
+                            // add active class to mini month fc
+                            $fcView.addClass('active');
+                            // add class to day
+                            $activeDayCell.addClass('active');
+
+                            if ($fcView.attr('click-added')) return;
+                            $fcView.click(function () {
+                                console.log('do month view for ' + event.start.format('MMM YYYY'));
+                            });
+                            $fcView.attr('click-added', true);
                         }
                     }
                     break;

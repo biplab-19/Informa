@@ -1515,6 +1515,17 @@ $desktop-width: 1142px;
             }
         }
 
+        section[data-view="calendar-view"] .container {
+            &[data-datetype="year"] {
+                .fc-view.active {
+                    border-color: $primarycolor;
+                }
+                .fc-day-number.active:before {
+                    border: 1px solid $primarycolor;
+                }
+            }
+        }
+
         @if($name==tmt-theme) {
             #mobile-header-navigation .navbar-image .logo-img-big {
                 @include not-desktop {

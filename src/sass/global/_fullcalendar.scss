@@ -386,8 +386,59 @@ td.fc-day.fc-widget-content {
     }
 }
 section[data-view="calendar-view"] .container {
-	@include mobile {
-		padding: 0;
+	&[data-datetype="year"] {
+		margin-top: 5em;
+		.fc-view > table {
+			border: none;
+		}
+		.fc-toolbar {
+			width: 100%;
+			margin-top: 1em;
+		}
+		.fc-view, .fc-view > table {
+			border-width: 1px;
+		}
+		.fc td, .fc th {
+			border-width: 0;
+		}
+		.fc th {
+			padding: 3px 0;
+			text-align: center;
+		}
+		.fc-basic-view .fc-body .fc-row {
+			min-height: 3.5em;
+			&.fc-rigid .fc-content-skeleton {
+				top: 50%;
+				transform: translateY(-50%);
+				padding-bottom: 0;
+				.fc-day-number.active {
+					position: relative;
+					&:before {
+						content: '';
+						position: absolute;
+						width: 36px;
+						height: 36px;
+						top: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+					}
+				}
+				tbody {
+					display: none;
+				}
+			}
+		}
+		.fc-ltr .fc-basic-view .fc-day-number {
+			font-size: 24px;
+			text-align: center;
+			color: #6a7384;
+			@include tablet {
+				padding: 0;
+			}
+		}
+		@include mobile {
+			margin-top: 0;
+		}
 	}
 }
 .events-now {
