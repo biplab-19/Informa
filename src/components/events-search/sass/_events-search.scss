@@ -81,110 +81,142 @@
         }
     }
  */
-    .chosen-container-single .chosen-single {
-        border: none;
-        height: 50px;
-        span {
-            margin-top: 8px;
-        }
-        div {
-            &:after {
-                  content: "\e901";
+    .select-section {
+        .chosen-container-single .chosen-single {
+            border: none;
+            height: 50px;
+            span {
+                margin-top: 8px;
+            }
+            div {
+                &:after {
+                    content: "\e901";
                     font-family: 'InformaIcons';
-                top: 50%;
-                position: absolute;
-                margin-top: -17px;
+                    top: 50%;
+                    position: absolute;
+                    margin-top: -17px;
                     color: $grey-color06;
-                font-weight: bold;
+                    font-weight: bold;
+                }
+                b {
+                    display: none;
+                }
             }
-            b {
-                display: none;
-            }
+        }
+    
+        label {
+            color: $white;
+            font-size: 15px;
+            width: 100%;
+            text-align: left;
+            font-weight: normal;
+            font-family: 'FSMe-Light';
         }
     }
 
-    label {
-        color: $white;
-        font-size: 15px;
-        width: 100%;
-        text-align: left;
-        font-weight: normal;
-        font-family: 'FSMe-Light';
+    .filter-section {
+        margin-top: 15px;
+        font-size: 1.125em;
+        .heading {
+            font-family: 'FSMe-Bold';
+            float: left;
+            margin-right: 3em;
+        }
+        .active-filters {
+            float: left;
+            .filter {
+                float: left;
+                margin-left: 2em;
+                &:first-child {
+                    margin-left: 0;
+                }
+                .delete{
+                    display: inline-block;
+                    padding: 0 1em;
+                    cursor: pointer;
+                }
+            }
+        }
     }
-
+    
     .views-section {
-        text-align: right;
         position: absolute;
         top: calc(100% + 55px);
+        left: 0;
         right: 0;
-        width: auto;
-        @include mobile {
-            text-align: left;
-        }
-        .views {
-            float: left;
-            a {
-                display: block;
-                width: 60px;
-                height: 51px;
-                color: #6a7287;
-                font-size: 0;
-                position: relative;
-                border: 1px solid #e2e4e9;
-                text-indent: -99999999px;
-                overflow: hidden;
-                .access-link  {
-                    left: -9999999px
-                }
-                &:before {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    font-size: 28px;
-                    text-indent: 0;
-                }
-                &.icon-list-view {
+        .state-views {
+            float: right;
+            .view {
+                float: left;
+                a {
+                    display: block;
+                    width: 60px;
+                    height: 51px;
+                    color: #6a7287;
+                    font-size: 0;
+                    position: relative;
+                    border: 1px solid #e2e4e9;
+                    text-indent: -99999999px;
+                    overflow: hidden;
+                    .access-link  {
+                        left: -9999999px
+                    }
                     &:before {
-                        content: '';
-                        height: 26px;
-                        width: 22px;
-                        background: url(/Static/images/dashboard.png) no-repeat;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 28px;
+                        text-indent: 0;
+                    }
+                    &.icon-list-view {
+                        &:before {
+                            content: '';
+                            height: 26px;
+                            width: 22px;
+                            background: url(/Static/images/dashboard.png) no-repeat;
+                        }
+                    }
+                    &.icon-tile-view {
+                        &:before {
+                            content: '';
+                            height: 26px;
+                            width: 22px;
+                            background: url(/Static/images/dashboard.png) no-repeat;
+                        }
                     }
                 }
-                &.icon-tile-view {
-                    &:before {
-                        content: '';
-                        height: 26px;
-                        width: 22px;
-                        background: url(/Static/images/dashboard.png) no-repeat;
-                    }
-                }
+            }
+            @include mobile {
+                float: none;
             }
         }
         .date-views {
-            position: relative;
-            clear: left;
-            width: 100%;
-            z-index: 100;
+            pointer-events: none;
+            visibility: hidden;
+            clear: right;
+            .dview {
+                text-align: right;
+            }
         }
     }
 }
 // functionality css
 body {
-    &.list-view .events-search .views-section .views a[data-viewport="list-view"],
-    &.tile-view .events-search .views-section .views a[data-viewport="tile-view"],
-    &.calendar-view .events-search .views-section .views a[data-viewport="calendar-view"] {
+    &.list-view .events-search .views-section .view a[data-viewport="list-view"],
+    &.tile-view .events-search .views-section .view a[data-viewport="tile-view"],
+    &.calendar-view .events-search .views-section .view a[data-viewport="calendar-view"] {
         background-color: #e2e4e9;
-    }
-    &.list-view {
-        .events-search .views-section .date-views {
-            display: none;
-        }
     }
     &.calendar-view {
         .events-search .views-section .date-views {
-            display: block;
+            pointer-events: auto;
+            visibility: visible;
+        }
+    }
+    .events-search {
+        .filter-section[data-count="0"] {
+            visibility: hidden;
         }
     }
 }

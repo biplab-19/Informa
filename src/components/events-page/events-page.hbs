@@ -1,59 +1,26 @@
-<section id="events" data-view="list-view" class="events-list">
-  <div class="container" data-count="3">
-    <div class="header clearfix">
-      <a href="javascript:void(0)" class="arrows previous"></a>
-      <h2>
-        June 2016
-      </h2>
-      <a href="javascript:void(0)" class="arrows next"></a>
-    </div>
-    <div class="events-container row">
-      
-    </div>
-  </div>
-  <div class="more-events">
-    <button class="btn btn-more-events">
-      <span class="more">
-        More Events
-      </span>
-      <span class="less">
-        Less Events
-      </span>
-    </button>
-  </div>
-</section>
-<section id="events" data-view="tile-view" class="events-list">
-  <div class="container" data-count="3">
-    <div class="header clearfix">
-      <a href="javascript:void(0)" class="arrows previous"></a>
-      <h2>
-        June 2016
-      </h2>
-      <a href="javascript:void(0)" class="arrows next"></a>
-    </div>
-    <div class="events-container row">
-      
-    </div>
-  </div>
-  <div class="more-events">
-    <button class="btn btn-more-events">
-      <span class="more">
-        More Events
-      </span>
-      <span class="less">
-        Less Events
-      </span>
-    </button>
-  </div>
-</section>
-<section data-view="calendar-view" class="events-list">
-  <div class="container" data-datetype="month">
+<section id="events">
+  <div class="container header">
     <div class="row">
+      <div class="col-sm-6 col-md-5">
+        <a href="javascript:void(0)" class="arrows previous"></a>
+        <h2>June 2016</h2>
+        <a href="javascript:void(0)" class="arrows next"></a>
+      </div>
+    </div>
+  </div>
+  <div class="container events-list" data-view="list-view">
+    <div class="events-container row">
+    </div>
+  </div>
+  <div class="container events-list" data-view="tile-view">
+    <div class="events-container row">
+    </div>
+  </div>
+  <div class="container events-list" data-view="calendar-view">
+    <div class="row" data-datetype="month">
       <div class="col-12 fccal"></div>
     </div>
-  </div>
-  <div class="container" data-datetype="year">
-    <div class="row">
+    <div class="row" data-datetype="year">
       <div class="col fccal col-xs-12 col-sm-6 col-md-4"></div>
       <div class="col fccal col-xs-12 col-sm-6 col-md-4"></div>
       <div class="col fccal col-xs-12 col-sm-6 col-md-4"></div>
@@ -68,9 +35,21 @@
       <div class="col fccal col-xs-12 col-sm-6 col-md-4"></div>
     </div>
   </div>
-</section>
-<section class="no-result hidden">
-  <div class="container">
-    no Result
+  <div class="container no-result hidden">
+    <div class="row">
+      <div class="col-12">
+        <p>no Result</p>
+      </div>
+    </div>
+  </div>
+  <div class="container more-events">
+    <div class="row">
+      <div class="col-12">
+        <button class="btn btn-more-events">
+          <span class="more">More Events</span>
+          <span class="less">Less Events</span>
+        </button>
+      </div>
+    </div>
   </div>
 </section>

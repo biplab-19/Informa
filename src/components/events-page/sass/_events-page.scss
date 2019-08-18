@@ -1,4 +1,4 @@
-.events-list {
+#events {
     padding: 30px 0;
     background-color: $white;
     &:after {
@@ -6,15 +6,8 @@
         display: table;
         clear: both;
     }
-    & > .container > .header {
+    & > .header {
         text-align: center;
-        width: 40%;
-        @include mobile {
-            width: 100%;
-        }
-        @include tablet {
-            width: 45%;
-        }
         h2 {
             display: inline-block;
             margin: 10px 0;
@@ -139,7 +132,7 @@
     }
 }
 
-section[data-view="tile-view"] .events-section {
+[data-view="tile-view"] .events-section {
     display: table;
     margin-top: 30px;
     .events-wrap {
@@ -264,7 +257,7 @@ section[data-view="tile-view"] .events-section {
     }
 }
 
-section[data-view="list-view"] .events-section {
+[data-view="list-view"] .events-section {
     margin-top: 30px;
     .events-wrap {
         position: relative;
@@ -416,12 +409,12 @@ section.event-profile-container{
     }
 }
 // functionality css
-section[data-view="calendar-view"] {
+[data-view="calendar-view"] {
     // display event click
     .fc-event-container {
         pointer-events: none;
     }
-    & > .container {
+    [data-datetype] {
         display: none;
         &.active {
             display: block;
@@ -429,12 +422,15 @@ section[data-view="calendar-view"] {
     }
 }
 body {
-    section[data-view] {
+    #events [data-view] {
         display: none;
     }
-    &.list-view section[data-view="list-view"],
-    &.tile-view section[data-view="tile-view"],
-    &.calendar-view section[data-view="calendar-view"] {
+    &.list-view #events [data-view="list-view"],
+    &.tile-view #events [data-view="tile-view"],
+    &.calendar-view #events [data-view="calendar-view"] {
         display: block;
+    }
+    &.calendar-view.month #events .header {
+        display: none;
     }
 }

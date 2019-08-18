@@ -718,15 +718,49 @@ $desktop-width: 1142px;
                 color: $secondarycolorlight;
             }
         }
+        
+        .events-search {
+            .filter-section {
+                color: white;
+            }
+        }
 
-        .events-list {
-            .CurrentDate {
-                .events-wrap {
-                    .header {
-                        .date {
-                            background-color: $primary;
+        #events {
+            .header {
+                .arrows {
+                    background: $secondarycolorlight;
+
+                    @if($name==agri-theme) {
+                        &:before {
+                            color: $grey-color04;
                         }
                     }
+
+                    &.arrow-desabled {
+                        background-color: grey;
+
+                        @if($name==agri-theme) {
+                            &:before {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .events-list {
+                .CurrentDate {
+                    .events-wrap {
+                        .header {
+                            .date {
+                                background-color: $primary;
+                            }
+                        }
+                    }
+                }
+
+                .events p.title:before {
+                    background: $primary !important;
                 }
             }
 
@@ -749,32 +783,6 @@ $desktop-width: 1142px;
                     &:after {
                         right: 15px;
                         color: $primary;
-                    }
-                }
-            }
-
-            .events p.title:before {
-                background: $primary !important;
-            }
-
-            .header {
-                .arrows {
-                    background: $secondarycolorlight;
-
-                    @if($name==agri-theme) {
-                        &:before {
-                            color: $grey-color04;
-                        }
-                    }
-
-                    &.arrow-desabled {
-                        background-color: grey;
-
-                        @if($name==agri-theme) {
-                            &:before {
-                                color: $white;
-                            }
-                        }
                     }
                 }
             }
@@ -1515,14 +1523,12 @@ $desktop-width: 1142px;
             }
         }
 
-        section[data-view="calendar-view"] .container {
-            &[data-datetype="year"] {
-                .fc-view.active {
-                    border-color: $primarycolor;
-                }
-                .fc-day-number.active:before {
-                    border: 1px solid $primarycolor;
-                }
+        [data-view="calendar-view"] [data-datetype="year"] {
+            .fc-view.active {
+                border-color: $primarycolor;
+            }
+            .fc-day-number.active:before {
+                border: 1px solid $primarycolor;
             }
         }
 
