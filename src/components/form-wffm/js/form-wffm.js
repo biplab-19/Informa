@@ -240,7 +240,7 @@ INFORMA.forms = (function (window, $, namespace) {
         return "";
     }
     _checkCookie=function() {
-        var cookieval=_getCookie("_utmz");
+        var cookieval=_getCookies("_utmz");
         if (cookieval != "") {
             return cookieval;
         } 
