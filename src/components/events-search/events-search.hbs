@@ -5,79 +5,15 @@
         <label for="Eventmonth">
           View by date
         </label>
-        {{! <select class="chosen-select" name="year" id="Eventyear">
-          <option value="2018">2018</option>
-          <option value="2019">2019</option>
-          <option value="2020">2020</option>
-        </select> }}
-        <select class="chosen-select" name="month" id="Eventmonth">
+        <select class="chosen-select" name="MonthYear" id="Eventmonth">
           <option value="">
             All
          </option>
         </select>
-        {{! <div id="eventdate" class="mddmenu">
-          <a class="mddselected">
-            <span>All</span>
-            <div></div>
-          </a>
-          <ul class="mddcontainer tier1">
-            <li class="mdditem tier1">
-              <span>2018</span>
-              <ul class="mddcontainer tier2">
-                <li class="mdditem tier2"><span>January</span></li>
-                <li class="mdditem tier2"><span>February</span></li>
-                <li class="mdditem tier2"><span>March</span></li>
-                <li class="mdditem tier2"><span>April</span></li>
-                <li class="mdditem tier2"><span>May</span></li>
-                <li class="mdditem tier2"><span>June</span></li>
-                <li class="mdditem tier2"><span>July</span></li>
-                <li class="mdditem tier2"><span>August</span></li>
-                <li class="mdditem tier2"><span>September</span></li>
-                <li class="mdditem tier2"><span>October</span></li>
-                <li class="mdditem tier2"><span>November</span></li>
-                <li class="mdditem tier2"><span>December</span></li>
-              </ul>
-            </li>
-            <li class="mdditem tier1">
-              <span>2019</span>
-              <ul class="mddcontainer tier2">
-                <li class="mdditem tier2"><span>January</span></li>
-                <li class="mdditem tier2"><span>February</span></li>
-                <li class="mdditem tier2"><span>March</span></li>
-                <li class="mdditem tier2"><span>April</span></li>
-                <li class="mdditem tier2"><span>May</span></li>
-                <li class="mdditem tier2"><span>June</span></li>
-                <li class="mdditem tier2"><span>July</span></li>
-                <li class="mdditem tier2"><span>August</span></li>
-                <li class="mdditem tier2"><span>September</span></li>
-                <li class="mdditem tier2"><span>October</span></li>
-                <li class="mdditem tier2"><span>November</span></li>
-                <li class="mdditem tier2"><span>December</span></li>
-              </ul>
-            </li>
-            <li class="mdditem tier1">
-              <span>2020</span>
-              <ul class="mddcontainer tier2">
-                <li class="mdditem tier2"><span>January</span></li>
-                <li class="mdditem tier2"><span>February</span></li>
-                <li class="mdditem tier2"><span>March</span></li>
-                <li class="mdditem tier2"><span>April</span></li>
-                <li class="mdditem tier2"><span>May</span></li>
-                <li class="mdditem tier2"><span>June</span></li>
-                <li class="mdditem tier2"><span>July</span></li>
-                <li class="mdditem tier2"><span>August</span></li>
-                <li class="mdditem tier2"><span>September</span></li>
-                <li class="mdditem tier2"><span>October</span></li>
-                <li class="mdditem tier2"><span>November</span></li>
-                <li class="mdditem tier2"><span>December</span></li>
-              </ul>
-            </li>
-          </ul>
-        </div> }}
       </div>
       <div class="col-xs-12 col-sm-3 form-group">
         <label for="Eventssector">View by sector</label>
-        <select class="chosen-select" name="sector" id="Eventssector"> 
+        <select class="chosen-select" name="SectorId" id="Eventssector"> 
           <option value="">All</option>
           <option value="fc396499fdc142caa1d0c69b5f01925a">Business and portfolio strategy</option>
           <option value="9d64151e82624e0cbfa038a011e0aa5f">Business development and licensing</option>
@@ -105,7 +41,7 @@
       </div>
       <div class="col-xs-12 col-sm-3 form-group">
         <label for="Eventcountry">Country</label>
-        <select class="chosen-select" name="country" id="Eventcountry" style="display: none;">
+        <select class="chosen-select" name="Country" id="Eventcountry">
           <option value="">All</option>
           <option value="{6D506EDE-F0E4-4964-93FF-D8A3DA23BDA0}">USA</option>
           <option value="{A1EF0A44-49EE-467F-964C-F748991F5552}">UK</option>
