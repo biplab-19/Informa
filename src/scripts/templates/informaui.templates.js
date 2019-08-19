@@ -67,6 +67,11 @@ var INFORMA = window.INFORMA || {};
                                 '{{#compare Description null operator="!="}}'+
                                     '<p class="description">{{Description}}</p>'+
                                 '{{/compare}}'+
+                                '{{#compare Video null operator="=="}}'+
+                                        '<div class="video-container">' +
+                                        '<img src="{{ContentTileImage.Url}}" alt="{{ContentTileImage.Alt}}">' +
+                                        '</div>' +
+                                        '{{/compare}}' +
                                 '{{#compare Video null operator="!="}}'+
                                     '<div class="video-container">'+
                                         '{{#compare HasExternalLink false operator="=="}}'+
@@ -760,11 +765,6 @@ var INFORMA = window.INFORMA || {};
                                             '<h4><span>{{results.Title}}</span></h4>'+
                                         '{{/compare}}'+
                                         '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
-                                        '{{#if Video null operator="=="}}' +
-                                        '<div class="video-container">' +
-                                        '<img src="{{ContentTileImage.Url}}" alt="{{ContentTileImage.Alt}}">' +
-                                        '</div>' +
-                                        '{{/if}}' +
                                         '{{#compare results.Video null operator="!="}}'+
                                             '<div class="video-container">'+
                                                 '{{#if results.HasExternalLink}}'+
