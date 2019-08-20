@@ -158,6 +158,9 @@
                     border: 1px solid #e2e4e9;
                     text-indent: -99999999px;
                     overflow: hidden;
+                    &.active {
+                        background-color: #e2e4e9;
+                    }
                     .access-link  {
                         left: -9999999px
                     }
@@ -192,8 +195,6 @@
             }
         }
         .date-views {
-            pointer-events: none;
-            visibility: hidden;
             clear: right;
             .dview {
                 text-align: right;
@@ -203,17 +204,6 @@
 }
 // functionality css
 body {
-    &.list-view .events-search .views-section .view a[data-viewport="list-view"],
-    &.tile-view .events-search .views-section .view a[data-viewport="tile-view"],
-    &.calendar-view .events-search .views-section .view a[data-viewport="calendar-view"] {
-        background-color: #e2e4e9;
-    }
-    &.calendar-view {
-        .events-search .views-section .date-views {
-            pointer-events: auto;
-            visibility: visible;
-        }
-    }
     .events-search {
         .filter-section[data-count="0"] {
             visibility: hidden;

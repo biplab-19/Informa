@@ -430,7 +430,14 @@ body {
     &.calendar-view #events [data-view="calendar-view"] {
         display: block;
     }
+    // hide month nav in FC month view because FC has its own
     &.calendar-view.month #events .header {
         display: none;
     }
+    // hide more-events btn in calendar view or when theres not results
+    &.calendar-view #events .more-events,
+    #events[total-count="0"] .more-events {
+        display: none;
+    }
+    
 }

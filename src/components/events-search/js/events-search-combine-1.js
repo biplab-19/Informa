@@ -34,25 +34,19 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         PageNo = 1,
         ajaxMethod = 'POST',
         //methods
-        init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents, LoadMoreEvents, SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData, SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent, SetLoadMoreEvents, mddmenu, setCurrentDate, populateMonthSelect, initFCYearView, initFCMonthView, getDayFormat, initCalendar, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaViewController, isDev;
+        init, RenderOnLoad, GetAjaxData, SwitchEvents, RenderLoadEvents, LoadMoreEvents, SetCalendarEvents, RenderParticularMonth, RenderChange, GetEventData, SetListEvents, NoEventsFound, EqualHeight, CheckCount, MoreEventsFunc, ListChangeEvents, CheckEvents, UnbindEvent, disabledEvent, SetLoadMoreEvents, mddmenu, setCurrentDate, populateMonthSelect, initFCYearView, initFCMonthView, getDayFormat, initCalendar, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, isDev;
 
     InformaFilters = {
         Container: $('.events-search'),
         FiltersUI: $('.filter-section'),
-        ViewBtns: $('.views-section .state-views .view a'),
         ActiveFilters: [],
-        FilterContainer: null,
-        FilterCountElement: null,
+        FilterContainer: $('.filter-section .active-filters'),
+        FilterCountElement: $('.filter-section .active-count'),
         FilterElement: $('<div class="filter"><span class="text"></span></div>'),
         FilterDeleteBtn: $('<span class="delete icon-close"></span>'),
-        Selects: null,
+        Selects: $('.events-search select'),
         Init: function() {
             var that = this;
-
-            // set local props for re-reference
-            this.Selects = this.Container.find('select');
-            this.FilterContainer = this.FiltersUI.find('.active-filters');
-            this.FilterCountElement = this.FiltersUI.find('.active-count');
 
             this.PopulateMonthSelect();
 
@@ -86,58 +80,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 $this.children('option[value=""]').attr('selected', '').siblings().removeAttr('selected');
                 $this.trigger("chosen:updated");
             });
-            this.ViewBtns.click(function (e) {
-                var ViewMode = $(this).data('viewport');
-                $('body').removeClass('list-view tile-view calendar-view').addClass(ViewMode);
-                
-                if (ViewMode === 'calendar-view') InformaFC.RenderView();
-                if (ViewMode === 'tile-view') InformaEventTiles.EqualHeight();
-                CheckCount();
-                NoEventsFound();
-                e.preventDefault();
-            });
-        },
-        // TODO: to be hooked up
-        GetSendData: function(monthType) {
-            // TODO: eficiency: move to global var
-            var eventID = $("section#events"),
-            // TODO: eficiency: move to global var
-                eventsEndDate = $("select[name='month'] option:last-child")[0].value,
-                obj;
-            
-            // TODO: efficiency: replace class check with data/variable
-            if ($('body').hasClass('list-view') || $('body').hasClass('tile-view')) {
-                obj = {
-                    data: JSON.stringify({
-                        EventsStartDate: monthType,
-                        SectorId: SectorSelect.val(),
-                        eventType: Type.val(),
-                        Country: Country.val(),
-                        CurrentPage: eventID.data("currentpage"),
-                        PageNo: PageNo,
-                        EventsEndDate: eventsEndDate,
-                        PageSize: List.data('count'),
-                        ViewMode: 'list'
-                    })
-                }
-            } else {
-                obj = {
-                    data: JSON.stringify({
-                        MonthYear: monthType,
-                        SectorId: SectorSelect.val(),
-                        eventType: Type.val(),
-                        Country: Country.val(),
-                        CurrentPage: eventID.data("currentpage"),
-                        ViewMode: 'calendar'
-                    })
-                }
-            }
-            return obj;
         },
         AddFilter: function(filterObj) {
             // remove if month to limit 1 selected month at a time
-            if (filterObj.type === 'month') 
-                this.RemoveFilter('month');
+            if (filterObj.type === 'MonthYear') 
+                this.RemoveFilter('MonthYear');
             this.ActiveFilters.push(filterObj);
             this.UpdateFilters();
         },
@@ -176,7 +123,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             $filterEl.attr('data-value', filterObj.value);
 
             // if month close not added
-            if (filterObj.type !== 'month') {
+            if (filterObj.type !== 'MonthYear') {
                 // create delete btn
                 $filterDelete = this.FilterDeleteBtn.clone();
                 // set event listener to remove filter;
@@ -206,10 +153,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 this.ActiveFilters.forEach(function (filterObj) {
                     that.AddFilterElement(filterObj);
                     // dont disable if month so we can scroll to view
-                    if (filterObj.type !== 'month')
+                    if (filterObj.type !== 'MonthYear')
                         that.DisableSelectOption(filterObj.type, filterObj.value);
                 });
             }
+
+            InformaEventsController.LoadEvents();
 
             // update UI
             this.FiltersUI.attr('data-count', activeFilterLength);
@@ -231,10 +180,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             $select.trigger("chosen:updated");
         },
         PopulateMonthSelect: function () {
-            var $monthSelect = this.Selects.filter('[name="month"]'),
-                PrevMonthCount = _Start.diff(_previous, 'months'),
-                loopLength = _end.diff(_previous, 'months'),
-                $monthOpt, $activeMonthOption, monthCount, currMonth;
+            var $monthSelect = this.Selects.filter('[name="MonthYear"]'),
+                PrevMonthCount = this.Date.diff(InformaEventsController.PreviousDate, 'months'),
+                loopLength = InformaEventsController.EndDate.diff(InformaEventsController.PreviousDate, 'months'),
+                $monthOpt, monthCount, currMonth;
     
             // remove existing 
             $monthSelect.chosen('destroy');
@@ -245,15 +194,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 $monthOpt = $('<option />');
     
                 // define and populate month value
-                currMonth = moment(_previous).add(monthCount, 'month');
+                currMonth = moment(InformaEventsController.PreviousDate).add(monthCount, 'month');
                 $monthOpt.attr('value', currMonth.format('MMMM YYYY'));
                 $monthOpt.text(currMonth.format('MMMM YYYY'));
     
                 // if current month, define as selected
-                if (monthCount === PrevMonthCount) {
-                    $monthOpt.attr('selected', true);
-                    $activeMonthOption = $monthOpt;
-                }
+                // if (monthCount === PrevMonthCount) {
+                //     $monthOpt.attr('selected', true);
+                // }
     
                 // append to select
                 $monthSelect.append($monthOpt);
@@ -281,85 +229,35 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // update chosen field
             $monthSelect.trigger('chosen:updated');
 
-            // add active month to filters
-            // $activeMonthOption = this.Selects.filter('[name="month"]').children('option[selected]');
+            // set current date and add active month to filters
+            this.setMonthSelectDate();
+
+            // set populate flag for state check later
+            $monthSelect.attr('populated', true);
+        },
+        setMonthSelectDate: function () {
+            var $monthSelect = this.Selects.filter('[name="MonthYear"]'),
+                $activeDateOption = $monthSelect.children('option[value="' + this.Date.format('MMMM YYYY') + '"]')
+            
+            // update month select field
+            $activeDateOption.attr('selected', '').siblings().removeAttr('selected');
+            $monthSelect.trigger("chosen:updated");
+            // add current month to active filters
             this.AddFilter({
-                type: 'month',
-                value: $activeMonthOption.attr('value'),
-                text: $activeMonthOption.text()
+                type: 'MonthYear',
+                value: $activeDateOption.attr('value'),
+                text: $activeDateOption.text()
             });
+        },
+        set Date (momentDate) {
+            this.Container.data('date', momentDate);
+            if (this.Selects.filter('[name="MonthYear"]').attr('populated'))
+                this.setMonthSelectDate();
+        },
+        get Date () {
+            return this.Container.data('date');
         }
     }
-
-    disabledEvent = function () {
-        $('.register.disabled').click(function (e) {
-            e.preventDefault();
-        });
-    },
-
-    UnbindEvent = function () {
-        $('.register.disabled').on('keydown', function (e) {
-            if (e.keyCode === 13 || e.which === 13) {
-                e.preventDefault();
-            }
-        })
-    },
-
-    // TODO: move to InformaFilters obj
-    GetEventData = function (monthType) {
-        // TODO: eficiency: move to global var
-        var eventID = $("section#events"),
-        // TODO: eficiency: move to global var
-            eventsEndDate = $("select[name='month'] option:last-child")[0].value,
-            obj;
-        
-        // TODO: efficiency: replace class check with data/variable
-        if ($('body').hasClass('list-view') || $('body').hasClass('tile-view')) {
-            obj = {
-                data: JSON.stringify({
-                    EventsStartDate: monthType,
-                    SectorId: SectorSelect.val(),
-                    eventType: Type.val(),
-                    Country: Country.val(),
-                    CurrentPage: eventID.data("currentpage"),
-                    PageNo: PageNo,
-                    EventsEndDate: eventsEndDate,
-                    PageSize: List.data('count'),
-                    ViewMode: 'list'
-                })
-            }
-        } else {
-            obj = {
-                data: JSON.stringify({
-                    MonthYear: monthType,
-                    SectorId: SectorSelect.val(),
-                    eventType: Type.val(),
-                    Country: Country.val(),
-                    CurrentPage: eventID.data("currentpage"),
-                    ViewMode: 'calendar'
-                })
-            }
-        }
-        return obj;
-    },
-
-    GetAjaxData = function (url, method, data, SCallback, Errcallback, SearchType) {
-        INFORMA.Spinner.Show($('body'));
-        INFORMA.DataLoader.GetServiceData(url, {
-            method: method,
-            data: data,
-            success_callback: function (data) {
-                if (typeof SCallback === "function") {
-                    SCallback.call(this, data, SearchType);
-                }
-            },
-            error_callback: function () {
-                if (typeof Errcallback === "function") {
-                    Errcallback.call(this, data, SearchType);
-                }
-            }
-        });
-    },
 
     RenderChange = function (data) {
         CheckEvents(data);
@@ -407,7 +305,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     RenderOnLoad = function () {
         jQuery('body').addClass('list-view');
         var MonthYear = _Start.format('MMMM YYYY'),
-            obj = InformaFilters.GetSendData(MonthYear);
+            obj = InformaEventsController.GetSendData(MonthYear);
 
         CheckCount();
         GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), RenderLoadEvents, null, null);
@@ -434,7 +332,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         $('#Eventmonth').val(NextMonth);
         $('#Eventmonth').trigger("chosen:updated");
         var MonthYear = NextMonth,
-            obj = InformaFilters.GetSendData(NextMonth);
+            obj = InformaEventsController.GetSendData(NextMonth);
         GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), RenderChange, null, null);
     },
 
@@ -476,7 +374,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
         Country.on('change', function () {
             var MonthYear = _Start,
-                obj = InformaFilters.GetSendData(MonthYear);
+                obj = InformaEventsController.GetSendData(MonthYear);
 
             GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), RenderChange, null, null);
 
@@ -485,7 +383,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
         Type.on('change', function () {
             var MonthYear = _Start,
-                obj = InformaFilters.GetSendData(MonthYear);
+                obj = InformaEventsController.GetSendData(MonthYear);
 
             GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), RenderChange, null, null);
 
@@ -495,7 +393,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
         SectorSelect.on('change', function () {
             var MonthYear = _Start,
-                obj = InformaFilters.GetSendData(MonthYear);
+                obj = InformaEventsController.GetSendData(MonthYear);
 
             GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), RenderChange, null, null);
 
@@ -518,17 +416,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         }
     },
 
-    
-    MoreEventsFunc = function() {
-        MoreEvents.on('click', function() {
-            var Parent = jQuery(this).parents('section'),
-                Count = Parent.find('.container').data('count'),
-                MonthYear = MonthSelect.val(),
-                obj = GetDefaultEventData(MonthYear);
-                GetAjaxData(Urls.EventsSearch, "Post", JSON.stringify(obj), LoadMoreEvents, null, $(this));
-        });
-    },
-
     ListChangeEvents = function () {
         // click events for page nav arrows
         $(document).on('click', 'section[data-view="list-view"] .next', function () {
@@ -541,7 +428,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             $('#Eventmonth').trigger("chosen:updated");
 
             var MonthYear = prevMonth,
-                obj = InformaFilters.GetSendData(MonthYear);
+                obj = InformaEventsController.GetSendData(MonthYear);
             GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), RenderChange, null, null);
         });
 
@@ -555,7 +442,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             $('#Eventmonth').trigger("chosen:updated");
 
             var MonthYear = prevMonth,
-                obj = InformaFilters.GetSendData(MonthYear);
+                obj = InformaEventsController.GetSendData(MonthYear);
             GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), RenderChange, null, null);
         });
 
@@ -588,91 +475,19 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         }
     }, */
 
-    setCurrentDate = function (dateVal = null) {
-        if (!dateVal) dateVal = $('select#Eventmonth').val();
-        _Start = moment(dateVal);
-        _end = moment(_Start).add(1, 'years');
-        _previous = moment(_Start).subtract(1, 'years');
-        var obj = InformaFilters.GetSendData(_Start);
-        GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), RenderChange, null, null);
-        NoEventsFound();
-    }
-
-    // TODO: remove
-    populateMonthSelect = function () {
-        var $monthSelect = $('select#Eventmonth'),
-            PrevMonthCount = _Start.diff(_previous, 'months'),
-            loopLength = _end.diff(_previous, 'months'),
-            $monthOpt, monthCount, currMonth;
-
-        // remove existing 
-        $monthSelect.chosen('destroy');
-        $monthSelect.empty();
-
-        for (monthCount = 0; monthCount < loopLength; monthCount++) {
-            // new option tag
-            $monthOpt = $('<option />');
-
-            // define and populate month value
-            currMonth = moment(_previous).add(monthCount, 'month');
-            $monthOpt.attr('value', currMonth.format('MMMM YYYY'));
-            $monthOpt.text(currMonth.format('MMMM YYYY'));
-
-            // if current month, define as selected
-            if (monthCount === PrevMonthCount) {
-                $monthOpt.attr('selected', true);
-            }
-
-            // append to select
-            $monthSelect.append($monthOpt);
-        }
-
-        // re setup chosen to remove search function
-        $monthSelect.chosen({
-            width: '100%',
-            disable_search: true
-        });
-
-        // scroll chosen drowpdown to selected option + 2, on open
-        $monthSelect.chosen().on('chosen:showing_dropdown', function (evt, params) {
-            var $resultContainer = params.chosen.dropdown.children('.chosen-results'),
-                $activeResults = $resultContainer.children('.active-result'),
-                $selected = $activeResults.filter('.result-selected'),
-                selectedInd = $activeResults.index($selected),
-                targInd = selectedInd > 2 ? selectedInd - 2 : 0,
-                $targ = $activeResults.eq(targInd);
-
-            $resultContainer.scrollTop(0).scrollTop($targ.position().top);
-        });
-
-        // update chosen field
-        $monthSelect.trigger('chosen:updated');
-    }
 
     // TODO: efficieny: combine with InformaEventList Object. Prerequisites: add switch method, update HTML
     InformaEventTiles = {
-        Container: $('[data-view="tile-view"]'),
-        EventsContainer: null,
-        DateArrows: $('#events > .header .arrows'),
+        Container: $('.events-list[data-view="tile-view"]'),
+        EventsContainer: $('.events-list[data-view="tile-view"] .events-container'),
+        // DateArrows: $('#events > .header .arrows'),
         TemplateName: (Templates.EventpageTileviewTemplate !== "undefined") ? Templates.EventpageTileviewTemplate : "",
-        MoreBtn: $('.more-events .btn-more-events'),
         Template: null,
         Init: function() {
-            this.EventsContainer = this.Container.children('.events-container');
             this.Template = Handlebars.compile(this.TemplateName);
-
-            // listeners
-            this.MoreBtn.click(function () {
-                var MonthYear = MonthSelect.val(),
-                    obj = InformaFilters.GetSendData(MonthYear);
-                GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), LoadMoreEvents, null, $(this));
-            });
         },
         RenderView: function(data) {
             this.AddEvents(data.Events);
-            this.count = data.TotalResults;
-            this.UpdateMoreBtn();
-            this.UpdateNav();
         },
         AddEvents: function(results) {
             var evtObj,
@@ -703,93 +518,51 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 } else {
                     data.DateRange = '<div class="date">' + sDateMoment.format("DD MMM") + '&nbsp;-&nbsp;' + eDateMoment.format("DD MMM") + '</div>';
                 }
-            }
-        },
-        UpdateMoreBtn: function() {
-            var dataCount = this.Container.data('count'),
-                elActualCount = this.EventsContainer.children('.events-section').length;
-
-            if (this.count > dataCount) {
-                this.MoreBtn.removeClass('hidden');
-            } else {
-                this.MoreBtn.addClass('hidden');
-            }
-            if (this.count === 0) {
-                this.MoreBtn.addClass('hidden');
-            }
-            if (this.count === elActualCount) {
-                this.MoreBtn.addClass('hidden');
-            }
-        },
-        UpdateNav: function() {
-            // var ViewDateText = _Start,
-            //     ViewDate = moment(new Date('1 ' + ViewDateText));
-
-            if (_Start.isSame(_previous, 'month')) {
-                this.Container.find('.previous').addClass('arrow-desabled');
-            } else {
-                this.Container.find('.previous').removeClass('arrow-desabled');
-            }
-
-            if (_Start.isSame(_end, 'month')) {
-                this.Container.find('.next').addClass('arrow-desabled');
-            } else {
-                this.Container.find('.next').removeClass('arrow-desabled');
             }
         },
         EqualHeight: function () {
             var highestBox = 0,
                 EachItem = this.EventsContainer.children('.events-section'),
                 padding = 0;
-            // jQuery('section[data-view="list-view"]').show();
+            
             EachItem.each(function () {
-                if (jQuery(this).height() > highestBox) {
-                    highestBox = jQuery(this).height();
+                var height = $(this).height()
+                if (height > highestBox) {
+                    highestBox = height;
                 }
             });
-            // if (jQuery('body').hasClass('calendar-view')) {
-            //     jQuery('section[data-view="list-view"]').hide();
-            // }
     
             EachItem.height(highestBox + padding);
             if (INFORMA.global.device.viewportN == 2) {
                 EachItem.height("auto");
             }
         },
-        set count(cVal) {
-            // set total-count attr
-            this.Container.attr('total-count', cVal);
-            // this.UpdateMoreBtn();
-            // this.UpdateNav();
+        set ViewType (type) {
+            this.Container.attr('data-datetype', type);
         },
-        get count() {
-            return parseInt(this.Container.attr('total-count'));
+        get ViewType () {
+            return this.Container.attr('data-datetype');
+        },
+        set Date (momentDate) {
+            this.Container.data('date', momentDate);
+        },
+        get Date () {
+            return this.Container.data('date');
         }
     }
 
     InformaEventList = {
-        Container: $('[data-view="list-view"]'),
-        EventsContainer: null,
-        DateArrows: $('#events > .header .arrows'),
+        Container: $('.events-list[data-view="list-view"]'),
+        EventsContainer: $('.events-list[data-view="list-view"] .events-container'),
+        // DateArrows: $('#events > .header .arrows'),
         TemplateName: (Templates.EventpageListviewTemplate !== "undefined") ? Templates.EventpageListviewTemplate : "",
         MoreBtn: $('.more-events .btn-more-events'),
         Template: null,
         Init: function() {
-            this.EventsContainer = this.Container.children('.events-container');
             this.Template = Handlebars.compile(this.TemplateName);
-
-            // listeners
-            this.MoreBtn.click(function () {
-                var MonthYear = MonthSelect.val(),
-                    obj = InformaFilters.GetSendData(MonthYear);
-                GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(obj), LoadMoreEvents, null, $(this));
-            });
         },
         RenderView: function(data) {
             this.AddEvents(data.Events);
-            this.count = data.TotalResults;
-            this.UpdateMoreBtn();
-            this.UpdateNav();
         },
         AddEvents: function(results) {
             var evtObj,
@@ -822,46 +595,17 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 }
             }
         },
-        UpdateMoreBtn: function() {
-            var dataCount = this.Container.data('count'),
-                elActualCount = this.EventsContainer.children('.events-section').length;
-
-            if (this.count > dataCount) {
-                this.MoreBtn.removeClass('hidden');
-            } else {
-                this.MoreBtn.addClass('hidden');
-            }
-            if (this.count === 0) {
-                this.MoreBtn.addClass('hidden');
-            }
-            if (this.count === elActualCount) {
-                this.MoreBtn.addClass('hidden');
-            }
+        set ViewType (type) {
+            this.Container.attr('data-datetype', type);
         },
-        UpdateNav: function() {
-            // var ViewDateText = _Start,
-            //     ViewDate = moment(new Date('1 ' + ViewDateText));
-
-            if (_Start.isSame(_previous, 'month')) {
-                this.DateArrows.filter('.previous').addClass('arrow-desabled');
-            } else {
-                this.DateArrows.filter('.previous').removeClass('arrow-desabled');
-            }
-
-            if (_Start.isSame(_end, 'month')) {
-                this.DateArrows.filter('.next').addClass('arrow-desabled');
-            } else {
-                this.DateArrows.filter('.next').removeClass('arrow-desabled');
-            }
+        get ViewType () {
+            return this.Container.attr('data-datetype');
         },
-        set count(cVal) {
-            // set total-count attr
-            this.Container.attr('total-count', cVal);
-            // this.UpdateMoreBtn();
-            // this.UpdateNav();
+        set Date (momentDate) {
+            this.Container.data('date', momentDate);
         },
-        get count() {
-            return parseInt(this.Container.attr('total-count'));
+        get Date () {
+            return this.Container.data('date');
         }
     }
 
@@ -869,24 +613,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         EventData: null,
         ActiveContainer: null,
         ViewElements: null,
-        Container: $('[data-view="calendar-view"] [data-datetype]'),
-        ViewSwitch: $('.date-views'),
-        // setup year and month view switch
+        Container: $('.events-list[data-view="calendar-view"]'),
         Init: function () {
-            var that = this;
-            // set default
-            that.ViewType = 'month';
-            // init switch listener
-            that.ViewSwitch.find('[name=dview]').change(function () {
-                that.SwitchYearMonthView(this.value);
-            });
-        },
-        SwitchYearMonthView: function (type) {
-            this.ViewType = type;
-            this.RenderView();
         },
         RenderView: function () {
-            $('body').removeClass('month year').addClass(this.ViewType);
             this.InitFC();
             this.RenderFCEvents();
             this.GoToStartDate();
@@ -1031,7 +761,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             vmLenInd = that.ViewElements.length - 1;
             that.ViewElements.each(function (index) {
                 // set the start date for each FC
-                initOptions.defaultDate = moment(_Start).add(index, 'months');
+                initOptions.defaultDate = moment(that.Date).add(index, 'months');
                 $(this).fullCalendar(initOptions);
 
                 // apply rendered attribute on last loop
@@ -1040,17 +770,16 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             });
         },
         GoToStartDate: function () {
-            var fcStartDate = this.ViewElements.fullCalendar('getDate');
-            // if the date already matches _Start dont set
-            if (fcStartDate.isSame(_Start, 'month')) return;
-            // set all FCs based on _Start, for month view loop runs once
+            var that = this,
+                currFCDate = this.ViewElements.first().fullCalendar('getDate');
+            // if the date already matches this.Date dont set
+            if (currFCDate.isSame(this.Date, 'month')) return;
+            // set all FCs based on this.Date, for month view loop runs once
             this.ViewElements.each(function (index) {
-                var currMonth = moment(_Start).add(index, 'months');
+                var currMonth = moment(that.Date).add(index, 'months');
                 $(this).fullCalendar('gotoDate', currMonth);
             });
         },
-        // replaces SetCalendarEvents
-        // TODO: cant happen on page init because fullcalendar doesnt exist, need to set data post render AND when even data changes
         RenderFCEvents () {
             var that = this,
                 events = this.EventData.Events,
@@ -1137,19 +866,218 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 this.ActiveContainer.removeClass('active');
             }
             // set active view container based on data-datetype attr
-            this.ActiveContainer = this.Container.filter('[data-datetype="' + type + '"]');
+            this.ActiveContainer = this.Container.children('[data-datetype="' + type + '"]');
             this.ActiveContainer.addClass('active');
             // then children of above
             this.ViewElements = this.ActiveContainer.find('.fccal');
         },
         get ViewType () {
             return this.ActiveContainer.attr('data-datetype');
+        },
+        set Date (momentDate) {
+            this.Container.data('date', momentDate);
+        },
+        get Date () {
+            return this.Container.data('date');
         }
     }
 
-    InformaViewController = {
+    InformaEventsController = {
+        BodyContainer: $('body'),
+        EventsContainer: $('#events'),
+        DateArrows: $('.header .arrows'),
+        HeaderDate: $('.header h2'),
+        ViewBtns: $('.views-section .state-views .view a'),
+        ViewTypeSwitch: $('.views-section .date-views [name=dview]'),
+        MoreBtn: $('.more-events .btn-more-events'),
+        StartDate: moment(new Date()),
+        EndDate: moment(new Date()).add(11, 'months'),
+        PreviousDate: moment(new Date()).subtract(11, 'months'),
+        PageNum: 1,
         Init: function () {
-        }
+            var that = this;
+            this.ViewBtns.click(function (e) {
+                that.View = $(this).data('viewport');
+                e.preventDefault();
+            });
+            this.DateArrows.click(function (e) {
+                var $this = $(this);
+                if ($this.hasClass('previous')) {
+                    that.Date = (moment(that.StartDate).subtract(1, that.ViewType + 's'));
+                }
+                if ($this.hasClass('next')) {
+                    that.Date = (moment(that.StartDate).add(1, that.ViewType + 's'));
+                }
+                that.UpdateArrows();
+                e.preventDefault();
+            });
+            this.ViewTypeSwitch.change(function () {
+                that.ViewType = this.value;
+            });
+            this.MoreBtn.click(function () {
+                that.LoadMoreEvents();
+            });
+            // set defaults
+            this.View = 'list-view';
+            this.ViewType = 'month';
+            this.Date = moment('July 2019');
+        },
+        UpdateArrows: function() {
+            if (this.StartDate.isSameOrBefore(this.PreviousDate, 'month')) {
+                this.DateArrows.filter('.previous').addClass('arrow-desabled');
+            } else {
+                this.DateArrows.filter('.previous').removeClass('arrow-desabled');
+            }
+            if (this.StartDate.isSameOrAfter(this.EndDate, 'month')) {
+                this.DateArrows.filter('.next').addClass('arrow-desabled');
+            } else {
+                this.DateArrows.filter('.next').removeClass('arrow-desabled');
+            }
+        },
+        UpdateMoreBtn: function() {
+            if (this.TotalCount > this.Count) {
+                this.MoreBtn.removeClass('hidden');
+            } else {
+                this.MoreBtn.addClass('hidden');
+            }
+        },
+        LoadMoreEvents: function() {
+            this.PageNum++;
+            this.LoadEvents();
+        },
+        LoadEvents: function() {
+            var that = this;
+            this.GetAjaxData(Urls.EventsSearch, ajaxMethod, this.GetSendData(), function (data) {
+                that.EventData = data;
+            });
+        },
+        GetSendData: function() {
+            var that = this,
+                // check date type (year / month), set to EndDate if year else set to startdata + 1 month if month
+                eventsEndDate = this.ViewType === 'year' ? this.EndDate.format('MMMM YYYY') : 
+                    moment(this.StartDate).add(1, 'months').format('MMMM YYYY'),
+                sendDataObj = {}
+
+            InformaFilters.ActiveFilters.forEach(function (filterObj) {
+                if (!sendDataObj[filterObj.type])
+                    sendDataObj[filterObj.type] = [];
+
+                // if event listing and month select prop, explicitly set the property name to EventsStartDate
+                if (filterObj.type === 'MonthYear' && that.View !== 'calendar-view') {
+                    sendDataObj.EventsStartDate = filterObj.value;
+                } else {
+                    sendDataObj[filterObj.type].push(filterObj.value);
+                }
+            });
+
+            sendDataObj.CurrentPage = this.EventsContainer.data('currentpage');
+            sendDataObj.ViewMode = this.View.substring(0, this.View.indexOf('-'));
+            if (this.View !== 'calendar-view') {
+                sendDataObj.PageNo = this.PageNum;
+                sendDataObj.EventsEndDate = eventsEndDate;
+                sendDataObj.PageSize = this.Count;
+            }
+
+            return JSON.stringify(sendDataObj);
+        },
+        GetAjaxData: function (url, method, data, SCallback, Errcallback, SearchType) {
+            INFORMA.Spinner.Show($('body'));
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: data,
+                success_callback: function (data) {
+                    if (typeof SCallback === "function") {
+                        SCallback.call(this, data, SearchType);
+                    }
+                },
+                error_callback: function () {
+                    if (typeof Errcallback === "function") {
+                        Errcallback.call(this, data, SearchType);
+                    }
+                }
+            });
+        },
+        UpdateHeaderDate: function() {
+            // update header text based on viewtype
+            if (this.ViewType === 'year') {
+                this.HeaderDate.text(this.StartDate.format('MMM YYYY') + ' - ' + this.EndDate.format('MMM YYYY'));
+            } else {
+                this.HeaderDate.text(this.StartDate.format('MMMM YYYY'));
+            }
+        },
+        set View(view) {
+            this.EventsContainer.attr('data-eview', view);
+            this.BodyContainer.removeClass('list-view tile-view calendar-view').addClass(view);
+            this.ViewBtns.filter('.active').removeClass('active');
+            this.ViewBtns.filter('[data-viewport="' + view + '"]').addClass('active');
+
+            // render calendar on view switch
+            if (view === 'calendar-view') 
+                InformaFC.RenderView();
+
+            if (view === 'tile-view')
+                InformaEventTiles.EqualHeight();
+        },
+        get View() {
+            if (!this.EventsContainer.attr('data-eview'))
+                this.EventsContainer.attr('data-eview', this.ViewBtns.filter('.active').data('viewport'));
+            return this.EventsContainer.attr('data-eview');
+        },
+        set ViewType (type) {
+            this.EventsContainer.attr('data-edatetype', type);
+            this.BodyContainer.removeClass('month year').addClass(type);
+
+            InformaFC.ViewType = type;
+            InformaEventList.ViewType = type;
+            InformaEventTiles.ViewType = type;
+
+            // render calendar on view switch
+            if (this.View === 'calendar-view') 
+                InformaFC.RenderView();
+        },
+        get ViewType () {
+            return this.EventsContainer.attr('data-edatetype');
+        },
+        set Date(momentDate) {
+            // set date in all states if date is different
+            if (!momentDate.isSame(InformaFilters.Date, 'month')) 
+                InformaFilters.Date = momentDate;
+            if (!momentDate.isSame(InformaEventTiles.Date, 'month')) 
+                InformaEventTiles.Date = momentDate;
+            if (!momentDate.isSame(InformaEventList.Date, 'month')) 
+                InformaEventList.Date = momentDate;
+            if (!momentDate.isSame(InformaFC.Date, 'month')) 
+                InformaFC.Date = momentDate;
+            
+            this.StartDate = momentDate;
+            this.LoadEvents();
+        },
+        get Date() {
+            return this.StartDate;
+        },
+        set EventData(data) {
+            this.TotalCount = parseInt(data.TotalResults);
+            this.UpdateHeaderDate();
+            InformaEventList.RenderView(data);
+            InformaEventTiles.RenderView(data);
+            // equal height new content
+            if (this.View === 'tile-view')
+                InformaEventTiles.EqualHeight();
+            InformaFC.EventData = data;
+        },
+        set Count(count) {
+            this.EventsContainer.data('count', count);
+        },
+        get Count() {
+            return this.EventsContainer.data('count');
+        },
+        set TotalCount(count) {
+            this.EventsContainer.attr('total-count', count);
+            this.UpdateMoreBtn();
+        },
+        get TotalCount() {
+            return parseInt(this.EventsContainer.attr('total-count'));
+        },
     }
 
     isDev = function () {
@@ -1159,26 +1087,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     init = function () {
         if(isDev()) {
             ajaxMethod = 'GET';
-            setCurrentDate('July 2019');
         }
-
-        // if (EventsLists.length > 0) {
-            RenderOnLoad();
-            // populateMonthSelect();
-            InformaViewController.Init();
-            InformaFilters.Init();
-            InformaEventList.Init();
-            InformaEventTiles.Init();
-            InformaFC.Init();
-            // initCalendar();
-            SwitchEvents();
-            GetAjaxData(Urls.EventsSearch, ajaxMethod, JSON.stringify(InformaFilters.GetSendData(_Start.format('MMMM YYYY'))), RenderChange, null, null);
-            MoreEventsFunc();
-            ListChangeEvents();
-            // UnbindEvent();
-            // disabledEvent();
-            // mddmenu.Init();
-        // }
+        InformaEventsController.Init();
+        InformaFilters.Init();
+        InformaEventList.Init();
+        InformaEventTiles.Init();
+        InformaFC.Init();
     };
 
     return {
