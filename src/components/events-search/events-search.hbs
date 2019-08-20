@@ -2,17 +2,13 @@
   <div class="container">
     <div class="row select-section">
       <div class="col-xs-12 col-sm-3 form-group">
-        <label for="Eventmonth">
-          View by date
-        </label>
+        <label for="Eventmonth">Date</label>
         <select class="chosen-select" name="MonthYear" id="Eventmonth">
-          <option value="">
-            All
-         </option>
+          <option value="">All</option>
         </select>
       </div>
       <div class="col-xs-12 col-sm-3 form-group">
-        <label for="Eventssector">View by sector</label>
+        <label for="Eventssector">Sector</label>
         <select class="chosen-select" name="SectorId" id="Eventssector"> 
           <option value="">All</option>
           <option value="fc396499fdc142caa1d0c69b5f01925a">Business and portfolio strategy</option>
@@ -111,6 +107,28 @@
           <option value="{B2112D93-0C97-4FA4-B7DF-55002694DA7E}">UAE</option>
           <option value="{CECEE3D0-48C2-4C6C-AFCC-D939F6D8B58F}">Ukraine</option>
           <option value="{DC78ECAA-7DEB-4A2C-9E1C-C684FE684467}">Vietnam</option>
+        </select>
+      </div>
+      <div class="col-xs-12 col-sm-3 form-group">
+        <label for="EventSegment">Segment</label>
+        <select class="chosen-select" name="segmentId" id="EventSegment">
+          <option value="">All</option>
+          <option value="cbde2c41b1564c019024a7ee628adc22">Critical Communications</option>
+          <option value="c59d650bb82a4a53a01b076451621ad8">Emerging Technologies</option>
+          <option value="ec2d52a2fd1245aa857be23c35413257">Enterprise IT</option>
+          <option value="00382666637b440ab4769d8f52229c78">Marketing Technologies</option>
+          <option value="4e4c0279def34d64b4f6a33e6af9136f">Media &amp; Entertainment</option>
+          <option value="e2abd73e85724d9c9a8ab986d1034cd4">Security</option>
+          <option value="afc81e182591465d9d61b6ea3a636cca">Service Providers</option>
+        </select>
+      </div>
+      <div class="col-xs-12 col-sm-3 form-group">
+        <label for="EventRegion">Region</label>
+        <select class="chosen-select" name="regionId" id="EventRegion">
+          <option value="">All</option>
+          <option value="71cda58ad65d4231a0a95d6907fcde23">Americas</option>
+          <option value="e296b40389ee4ddea164489174242dee">APAC</option>
+          <option value="9c188ce1cb774402a064a80590a73fd3">EMEA</op>
         </select>
       </div>
     </div>
