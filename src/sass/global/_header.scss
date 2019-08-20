@@ -2766,9 +2766,10 @@ body{
     pointer-events: none;
 }
 
-//White theme
 
-section.informaNav.white-theme{
+/* White theme pharma*/
+
+section.informaNav.white-theme {
     .nav-main{
         background-color: $white;
         .navbar-collapse .navbar-right .search {
@@ -2858,7 +2859,7 @@ section.informaNav.white-theme{
         background:$gray;
         color:$white
     }
- }
+}
 
 .white-theme #sub-nav {
    background-color: $white-shade;
@@ -2891,7 +2892,236 @@ section.informaNav.white-theme{
     color: $pink!important;
 }
 
+/* White theme tmt*/
+.tmt-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$tmt-red;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$tmt-red;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.tmt-theme .product-finder.white-theme {
+    
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$tmt-red!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$tmt-red;
+    }
+    
+}
+.tmt-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$tmt-red;
+             }
+         }
+         
+         
+     }
+ }
+ .tmt-theme .white-theme .greyed-out {
+    color: $tmt-red!important;
+}
 
+/* White theme agri*/
+.agri-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$agri-orange;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$agri-orange;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.agri-theme .product-finder.white-theme {
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$agri-orange!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$agri-orange;
+    }
+    
+}
+.agri-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$agri-orange;
+             }
+         }
+         
+         
+     }
+ }
+ .agri-theme .white-theme .greyed-out {
+    color: $agri-orange!important;
+}
+
+/* White theme pharma*/
+.pharma-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$pharma-pink;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$pharma-pink;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.pharma-theme .product-finder.white-theme {
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$pharma-pink!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$pharma-pink;
+    }
+    
+}
+.pharma-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$pharma-pink;
+             }
+         }
+         
+         
+     }
+ }
+ .pharma-theme .white-theme .greyed-out {
+    color: $pharma-pink!important;
+}
+
+/* White theme mnl*/
+.maritime-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$mnl-blue;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$mnl-blue;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.maritime-theme .product-finder.white-theme {
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$mnl-blue!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$mnl-blue;
+    }
+    
+}
+.maritime-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$mnl-blue;
+             }
+         }
+         
+         
+     }
+ }
+ .maritime-theme .white-theme .greyed-out {
+    color: $mnl-blue!important;
+}
+
+/* White theme finance*/
+.financial-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$finance-green;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$finance-green;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.financial-theme .product-finder.white-theme {
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$finance-green!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$finance-green;
+    }
+    
+}
+.financial-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$finance-green;
+             }
+         }
+         
+         
+     }
+ }
+ .financial-theme .white-theme .greyed-out {
+    color: $finance-green!important;
+}
 
 
 
