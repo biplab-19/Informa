@@ -1,6 +1,9 @@
 #events {
-    padding: 30px 0;
+    padding: 100px 0 30px;
     background-color: $white;
+    @include mobile {
+        padding-top: 120px;
+    }
     &:after {
         content: '';
         display: table;
@@ -126,9 +129,6 @@
         .btn-more-events.showLess .less{
             display: block;
         }
-    }
-    @include mobile {
-        padding-top: 95px;
     }
 }
 

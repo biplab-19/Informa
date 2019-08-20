@@ -144,66 +144,113 @@
         top: calc(100% + 55px);
         left: 0;
         right: 0;
-        .state-views {
-            float: right;
-            .view {
-                float: left;
-                a {
-                    display: block;
-                    width: 60px;
-                    height: 51px;
-                    color: #6a7287;
-                    font-size: 0;
-                    position: relative;
-                    border: 1px solid #e2e4e9;
-                    text-indent: -99999999px;
-                    overflow: hidden;
-                    &.active {
-                        background-color: #e2e4e9;
-                    }
-                    .access-link  {
-                        left: -9999999px
-                    }
-                    &:before {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        font-size: 28px;
-                        text-indent: 0;
-                    }
-                    &.icon-list-view {
-                        &:before {
-                            content: '';
-                            height: 26px;
-                            width: 22px;
-                            background: url(/Static/images/dashboard.png) no-repeat;
+        @include mobile {
+            top: calc(100% + 30px);
+        }
+        & > div {
+            display: table;
+            width: 100%;
+            padding: 0 30px;
+            @include mobile {
+                display: block;
+                padding: 0 15px;
+            }
+        }
+        .event-count {
+            display: table-cell;
+            padding: 0 15px;
+            vertical-align: middle;
+            border-top: 1px solid #e2e4e9;
+            border-bottom: 1px solid #e2e4e9;
+            @include mobile {
+                display: block;
+                width: 100%;
+                padding: 15px 0;
+                border: none;
+            }
+            p {
+                margin-bottom: 0;
+                font-family: 'FSMe-Bold';
+                font-size: 1.125em;
+            }
+        }
+        .views {
+            display: table-cell;
+            width: 180px;
+            @include mobile {
+                display: block;
+                width: 100%;
+            }
+            .state-views {
+                float: right;
+                .view {
+                    float: left;
+                    a {
+                        display: block;
+                        width: 60px;
+                        height: 51px;
+                        color: #6a7287;
+                        font-size: 0;
+                        position: relative;
+                        border: 1px solid #e2e4e9;
+                        text-indent: -99999999px;
+                        overflow: hidden;
+                        &.active {
+                            background-color: #e2e4e9;
                         }
-                    }
-                    &.icon-tile-view {
+                        .access-link  {
+                            left: -9999999px
+                        }
                         &:before {
-                            content: '';
-                            height: 26px;
-                            width: 22px;
-                            background: url(/Static/images/dashboard.png) no-repeat;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            font-size: 28px;
+                            text-indent: 0;
+                        }
+                        &.icon-list-view {
+                            &:before {
+                                content: '';
+                                height: 26px;
+                                width: 22px;
+                                background: url(/Static/images/dashboard.png) no-repeat;
+                            }
+                        }
+                        &.icon-tile-view {
+                            &:before {
+                                content: '';
+                                height: 26px;
+                                width: 22px;
+                                background: url(/Static/images/dashboard.png) no-repeat;
+                            }
                         }
                     }
                 }
+                @include mobile {
+                    float: none;
+                }
             }
-            @include mobile {
-                float: none;
-            }
-        }
-        .date-views {
-            clear: right;
-            .dview {
-                text-align: right;
+            .date-views {
+                display: none;
+                position: relative;
+                clear: right;
+                .dview {
+                    position: absolute;
+                    right: 0;
+                }
             }
         }
     }
 }
 // functionality css
 body {
+    // show month year switch in calendar
+    &.calendar-view .events-search .views-section .date-views {
+        display: block;
+    }
+
+    // hide filters element when empty
     .events-search {
         .filter-section[data-count="0"] {
             visibility: hidden;
