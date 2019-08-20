@@ -2735,7 +2735,7 @@ header#tech-main-header {
         }
     }
 }
-body{
+body {
     a.skip-navigation {
         position: absolute;
         top: -1000px;
@@ -2765,3 +2765,374 @@ body{
 .subnav-container .top a[href="javascript:void(0)"]{
     pointer-events: none;
 }
+
+
+/* White theme pharma*/
+
+section.informaNav.white-theme {
+    .nav-main{
+        background-color: $white;
+        .navbar-collapse .navbar-right .search {
+            @media screen and (min-width: 1142px){
+               background-color: $white-shade;
+            }
+            
+        }
+    }
+    a {
+        color:$gray;
+    }  
+    .nav-active {
+        a{
+            color:$pink;
+        }
+    }
+    .nav-head {
+        background-color:$white;
+    }
+    .multi-lang-cta .btn-group .dropdown-toggle {
+      color: $gray;
+    }
+    @media screen and  (min-width: 1142px){
+        .navbar .navbar-header .header-links:after {
+            border-left: 2px solid $gray;
+        }
+        .nav-main.mainNavigation.navbar-fixed-top .navbar-collapse .search {
+            border-left: 1px solid #ffffff;
+            border-right: 1px solid #ffffff;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$pink;
+                        }
+                    }
+                }
+            } 
+        } 
+        .btn-group.open {
+            background: $gray;
+            .dropdown-default-text {
+                background: $gray;
+                color:$white;
+            }
+            .dropdown-menu{
+                background-color:$gray;
+                a {
+                    color: $white;
+                }
+            }
+        }
+    } 
+
+
+}
+.product-finder.white-theme {
+    background-color: $white-shade;
+    form ul.search-options li:last-child .close-finder{
+        color:$gray;
+    }
+    label{
+        color:$gray;
+    }
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background: $pink!important;
+    }
+    .form :not(.lt-ie9) .custom-radio input+span::before {
+        border: .225em solid $gray;
+        background: $gray;
+    }
+    .form .textbox input{
+        background: $gray;
+        color:$white;
+    }
+
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$pink;
+        color: $white;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle{
+        background:$gray;
+        color:$white
+    }
+}
+
+.white-theme #sub-nav {
+   background-color: $white-shade;
+   .subnav-container {
+        a {
+            &:hover {
+                color:$pink;
+            }
+        }
+        .heading {
+            .top {
+                a {
+                    color:$gray;
+                }
+            } 
+        }
+        .top {
+            border-bottom: 1px solid $gray;
+            a.head {
+                &:after{
+                    color: $gray;
+                }
+               
+            }
+        } 
+    }
+}
+
+.white-theme .greyed-out {
+    color: $pink!important;
+}
+
+/* White theme tmt*/
+.tmt-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$tmt-red;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$tmt-red;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.tmt-theme .product-finder.white-theme {
+    
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$tmt-red!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$tmt-red;
+    }
+    
+}
+.tmt-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$tmt-red;
+             }
+         }
+         
+         
+     }
+ }
+ .tmt-theme .white-theme .greyed-out {
+    color: $tmt-red!important;
+}
+
+/* White theme agri*/
+.agri-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$agri-orange;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$agri-orange;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.agri-theme .product-finder.white-theme {
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$agri-orange!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$agri-orange;
+    }
+    
+}
+.agri-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$agri-orange;
+             }
+         }
+         
+         
+     }
+ }
+ .agri-theme .white-theme .greyed-out {
+    color: $agri-orange!important;
+}
+
+/* White theme pharma*/
+.pharma-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$pharma-pink;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$pharma-pink;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.pharma-theme .product-finder.white-theme {
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$pharma-pink!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$pharma-pink;
+    }
+    
+}
+.pharma-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$pharma-pink;
+             }
+         }
+         
+         
+     }
+ }
+ .pharma-theme .white-theme .greyed-out {
+    color: $pharma-pink!important;
+}
+
+/* White theme mnl*/
+.maritime-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$mnl-blue;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$mnl-blue;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.maritime-theme .product-finder.white-theme {
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$mnl-blue!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$mnl-blue;
+    }
+    
+}
+.maritime-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$mnl-blue;
+             }
+         }
+         
+         
+     }
+ }
+ .maritime-theme .white-theme .greyed-out {
+    color: $mnl-blue!important;
+}
+
+/* White theme finance*/
+.financial-theme section.informaNav.white-theme {
+    .nav-active {
+        a {
+            color:$finance-green;
+        }
+    }
+    .multi-lang-cta {
+        .open {
+            .dropdown-menu {
+                li {
+                    a {
+                        &:hover{
+                            background-color:$finance-green;
+                        }
+                    }
+                }
+            } 
+        } 
+        
+    } 
+}
+.financial-theme .product-finder.white-theme {
+    .form:not(.lt-ie9) .custom-radio input:checked+span::before{
+        background:$finance-green!important;
+    }
+    .form .custom-multiselect .btn-group .dropdown-toggle:hover {
+        background:$finance-green;
+    }
+    
+}
+.financial-theme .white-theme #sub-nav {
+    .subnav-container {
+         a {
+             &:hover {
+                 color:$finance-green;
+             }
+         }
+         
+         
+     }
+ }
+ .financial-theme .white-theme .greyed-out {
+    color: $finance-green!important;
+}
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+  
+   
