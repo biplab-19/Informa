@@ -2765,9 +2765,15 @@ body{
 .subnav-container .top a[href="javascript:void(0)"]{
     pointer-events: none;
 }
-
+.header-links{
+    i.fa-user-o{
+        margin-left: 10px;
+        font-size: 16px;
+    }
+}
 
 /* White theme pharma*/
+
 
 section.informaNav.white-theme {
     .nav-main{
@@ -2779,6 +2785,11 @@ section.informaNav.white-theme {
             
         }
     }
+    li.search.inactive{
+        a{
+            color:$white;
+        }
+    } 
     a {
         color:$gray;
     }  
@@ -3122,6 +3133,8 @@ section.informaNav.white-theme {
  .financial-theme .white-theme .greyed-out {
     color: $finance-green!important;
 }
+
+
 
 
 
