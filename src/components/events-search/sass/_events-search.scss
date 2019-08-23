@@ -169,9 +169,20 @@
                 border: none;
             }
             p {
+                display: inline-block;
+                vertical-align: middle;
                 margin-bottom: 0;
                 font-family: 'FSMe-Bold';
                 font-size: 1.125em;
+            }
+            .btn.ical {
+                display: inline-block;
+                width: 33px;
+                height: 33px;
+                vertical-align: middle;
+                text-indent: -99999px;
+                margin-left: 10px;
+                padding: 5px 10px;
             }
         }
         .views {
