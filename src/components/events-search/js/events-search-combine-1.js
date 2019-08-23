@@ -906,18 +906,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         case 'MonthYear':
                             this.Date = moment(activePropsObj[key][0]);
                             break;
-                        case 'SectorId':
-                        case 'EventType':
-                        case 'Country':
-                        case 'SegmentId':
-                        case 'RegionId':
-                        case 'ProductId':
+                        default:
+                            // else assume filter
                             activePropsObj[key].forEach(function (filterText) {
                                 InformaFilters.AddFilter({ type: key, text: filterText });
                             });
-                            break;
-                        default:
-                            console.warn(key + 'property not recognised');
                     }
                 }
             }
