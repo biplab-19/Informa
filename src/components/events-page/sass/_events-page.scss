@@ -130,6 +130,12 @@
             display: block;
         }
     }
+
+    #event-modal {
+        .events-section {
+            overflow: hidden;
+        }
+    }
 }
 
 [data-view="tile-view"] .events-section {
@@ -410,7 +416,7 @@ section.event-profile-container{
 }
 // functionality css
 [data-view="calendar-view"] {
-    // display event click
+    // disable event click
     .fc-event-container {
         pointer-events: none;
     }
@@ -431,9 +437,9 @@ body {
         display: block;
     }
     // hide month nav in FC month view because FC has its own
-    &.calendar-view.month #events .header {
-        display: none;
-    }
+    // &.calendar-view.month #events .header {
+    //     display: none;
+    // }
     // hide more-events btn in calendar view or when theres not results
     &.calendar-view #events .more-events,
     #events[total-count="0"] .more-events {

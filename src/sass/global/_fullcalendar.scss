@@ -42,25 +42,23 @@
 	}
 }
 .fc-ltr .fc-basic-view .fc-day-number {
-	font-size: 40px;
-	text-align: left;
+	font-family: FSMe-Bold;
+	font-size: 16px;
+	text-align: right;
 	&.fc-today {
 		color: $white;
 	}
+	&.fc-other-month {
+		visibility: hidden;
+	}
 	@include mobile {
-		font-size: 24px;
-		text-align: center;
 		color: #6a7384;
 	}
 	@include tablet {
-		font-size: 24px;
-		text-align: center;
 		color: #6a7384;
 		padding: 15px;
-		font-size: 30px;
 	}
 	sup {
-		font-size: 24px;
 	    top: -15px;
 	    left: 0;
 	}
@@ -268,31 +266,31 @@
 		}
 	}
 }
-.event-present {
-	position: relative;
-	overflow: hidden;
-	&:before {
-	    content: '';
-	    width: 20px;
-	    position: absolute;
-	    top: -10px;
-	    right: -10px;
-	    background: #e0e4e7;
-	    height: 20px;
-	    transform: rotate(45deg);
-	    @include tablet {
-	    	width: 40px;
-	    	height: 40px;
-	    	top: -20px;
-	    	right: -20px;
-	    }
-	}
-	&.fc-today {
-		&:before {
-			background: #343742;
-		}
-	}
-}
+// .event-present {
+// 	position: relative;
+// 	overflow: hidden;
+// 	&:before {
+// 	    content: '';
+// 	    width: 20px;
+// 	    position: absolute;
+// 	    top: -10px;
+// 	    right: -10px;
+// 	    background: #e0e4e7;
+// 	    height: 20px;
+// 	    transform: rotate(45deg);
+// 	    @include tablet {
+// 	    	width: 40px;
+// 	    	height: 40px;
+// 	    	top: -20px;
+// 	    	right: -20px;
+// 	    }
+// 	}
+// 	&.fc-today {
+// 		&:before {
+// 			background: #343742;
+// 		}
+// 	}
+// }
 .fc-basic-view .fc-body .fc-row {
 	@include mobile {
 		min-height: 3em;
@@ -366,6 +364,7 @@ td.fc-day.fc-widget-content {
 	height: auto;
 }
 .fc-toolbar {
+	display: none;
 	width: 40%;
 	@include mobile {
 		width: 100%;
@@ -387,11 +386,85 @@ td.fc-day.fc-widget-content {
 }
 [data-view="calendar-view"] {
 	[data-datetype="month"] {
+		margin-top: 30px;
 		.fc-toolbar {
 			margin-bottom: 2em;
 		}
+		.fc-scroller{
+			overflow: hidden !important;
+		}
+		.fc th {
+			text-align: center;
+		}
+		.fc-body .fc-row {
+			height: 155px !important;
+			overflow: hidden;
+			@include mobile {
+				height: 50px !important;
+			}
+		}
+		.fc-content-skeleton {
+			// height: 100%;
+			table {
+				height: 100%;
+				.fc-event-container {
+					white-space: nowrap;
+					overflow: hidden;
+					font-size: 12px;
+				}
+			}
+		}
+		@include mobile {
+			.fc-view > table {
+				border: none;
+			}
+			.fc-toolbar {
+				width: 100%;
+				margin-top: 1em;
+			}
+			.fc-view, .fc-view > table {
+				border-width: 1px;
+			}
+			.fc td, .fc th {
+				border-width: 0;
+			}
+			.fc th {
+				padding: 3px 0;
+			}
+			.fc-basic-view .fc-body .fc-row {
+				min-height: 3.5em;
+				.fc-content-skeleton {
+					top: 50%;
+					transform: translateY(-50%);
+					padding-bottom: 0;
+					.fc-day-number.active {
+						position: relative;
+						&:before {
+							content: '';
+							position: absolute;
+							width: 28px;
+							height: 28px;
+							top: 50%;
+							left: 50%;
+							transform: translate(-50%, -50%);
+						}
+					}
+					tbody {
+						display: none;
+					}
+				}
+			}
+			.fc-ltr .fc-basic-view .fc-day-number {
+				text-align: center;
+				color: #6a7384;
+				padding: 0;
+			}
+		}
 	}
 	[data-datetype="year"] {
+		.fccal {
+			margin-top: 30px;
+		}
 		.fc-view > table {
 			border: none;
 		}
@@ -411,7 +484,7 @@ td.fc-day.fc-widget-content {
 		}
 		.fc-basic-view .fc-body .fc-row {
 			min-height: 3.5em;
-			&.fc-rigid .fc-content-skeleton {
+			.fc-content-skeleton {
 				top: 50%;
 				transform: translateY(-50%);
 				padding-bottom: 0;
@@ -420,8 +493,8 @@ td.fc-day.fc-widget-content {
 					&:before {
 						content: '';
 						position: absolute;
-						width: 36px;
-						height: 36px;
+						width: 28px;
+						height: 28px;
 						top: 50%;
 						left: 50%;
 						transform: translate(-50%, -50%);
@@ -433,7 +506,6 @@ td.fc-day.fc-widget-content {
 			}
 		}
 		.fc-ltr .fc-basic-view .fc-day-number {
-			font-size: 24px;
 			text-align: center;
 			color: #6a7384;
 			@include tablet {
@@ -442,9 +514,9 @@ td.fc-day.fc-widget-content {
 		}
 	}
 }
-.events-now {
-	font-family: 'FSMe-Bold';
-}
+// .events-now {
+// 	font-family: 'FSMe-Bold';
+// }
 .fc td.fc-today {
     border-style: solid;
     color: $white;

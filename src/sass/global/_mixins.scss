@@ -1523,12 +1523,24 @@ $desktop-width: 1142px;
             }
         }
 
-        [data-view="calendar-view"] [data-datetype="year"] {
-            .fc-view.active {
-                border-color: $primarycolor;
+        [data-view="calendar-view"] {
+            [data-datetype="month"] {
+                @include mobile {
+                    .fc-view.active {
+                        border-color: $primarycolor;
+                    }
+                    .fc-day-number.active:before {
+                        border: 1px solid $primarycolor;
+                    }
+                }
             }
-            .fc-day-number.active:before {
-                border: 1px solid $primarycolor;
+            [data-datetype="year"] {
+                .fc-view.active {
+                    border-color: $primarycolor;
+                }
+                .fc-day-number.active:before {
+                    border: 1px solid $primarycolor;
+                }
             }
         }
 
