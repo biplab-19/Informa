@@ -457,31 +457,26 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         dayNamesShort: _vp === 2 ? ['S', 'M', 'T', 'W', 'T', 'F', 'S'] : _vp === 1 ? ['SUN', 'MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT'] : ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'], // Abbreviated names of days-of-week.
                         dayClick: function (date, jsEvent, view) { // Triggered when the user clicks on a date or a time.
                             // do popup with list view template
-            var evtObj,
-                html = '',
-                results = that.EventData.Events
-            for (var key in results) {
-                if (results.hasOwnProperty(key)) {
-                    evtObj = results[key];
+                            var evtObj,
+                                html = '',
+                                results = that.EventData.Events
+                            for (var key in results) {
+                                if (results.hasOwnProperty(key)) {
+                                    evtObj = results[key];
 
-                    if (date.isBetween(moment(evtObj.EventStartDate), moment(evtObj.EventEndDate), null, '[]')) {
-                        InformaEventList.AddDateToEvent(evtObj);
-                        html += InformaEventList.Template({ results: evtObj });
-                    }
-                }
-            }
-            if (!html) return;
-            that.Modal.find('.modal-body').html(html);
-            InformaEventsController.EventsContainer.append(that.Modal);
+                                    if (date.isBetween(moment(evtObj.EventStartDate), moment(evtObj.EventEndDate), null, '[]')) {
+                                        InformaEventList.AddDateToEvent(evtObj);
+                                        html += InformaEventList.Template({ results: evtObj });
+                                    }
+                                }
+                            }
+                            if (!html) return;
+                            that.Modal.find('.modal-body').html(html);
+                            InformaEventsController.EventsContainer.append(that.Modal);
 
-            that.Modal.modal('show');
+                            that.Modal.modal('show');
 
-            // that.Modal.find('.modal-header .close').click(function () {
-            //     that.Modal.modal('hide');
-            // });
-
-
-                            var _vp = INFORMA.global.device.viewportN;
+                            // var _vp = INFORMA.global.device.viewportN;
             
                             // if ( _vp === 2) {
                             //     var selectedDate = date.format(),
@@ -854,16 +849,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             switch (this.View) {
                 case 'list-view':
                 case 'tile-view':
-                    // if event listing explicitly set MonthYear property to EventsStartDate
-                    sendDataObj.EventsStartDate = sendDataObj.MonthYear;
-                    delete sendDataObj.MonthYear;
-
                     // add event listing specific non filter props
                     sendDataObj.PageNo = this.PageNum;
-                    sendDataObj.EventsEndDate = eventsEndDate;
                     sendDataObj.PageSize = this.Count;
-                    break;
                 case 'calendar-view':
+                    // explicitly set MonthYear property to EventsStartDate
+                    sendDataObj.EventsEndDate = eventsEndDate;
+                    sendDataObj.EventsStartDate = sendDataObj.MonthYear;
+                    delete sendDataObj.MonthYear;
                     break;
             }
 
