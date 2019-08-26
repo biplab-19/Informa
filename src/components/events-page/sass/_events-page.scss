@@ -1,4 +1,4 @@
-#events {
+#events-calendar {
     padding: 120px 0 30px;
     background-color: $white;
     @include mobile {
@@ -173,132 +173,136 @@
     }
 }
 
-[data-view="tile-view"] .events-section {
-    display: table;
-    margin-top: 30px;
-    .events-wrap {
-        display: table-cell;
-        position: relative;
-        overflow: hidden;
-        padding: 15px;
-        background-color: #f3f3f3;
-        .header {
+[data-view="tile-view"].events-list {
+    padding-top: 0;
+    .events-section {
+        display: table;
+        margin-top: 30px;
+        .events-wrap {
+            display: table-cell;
+            position: relative;
             overflow: hidden;
-            .date {
-                background-color: #878e9e;
-                font-size: 20px;
-                color: $white;
-                padding: 6px 8px;
-                float: left;
+            padding: 15px;
+            background-color: #f3f3f3;
+            .header {
+                overflow: hidden;
+                .date {
+                    background-color: #878e9e;
+                    font-size: 20px;
+                    color: $white;
+                    padding: 6px 8px;
+                    float: left;
+                }
+                .ical {
+                    width: 53px;
+                    text-indent: -9999px;
+                    float: right;
+                }
             }
-            .ical {
-                width: 53px;
-                text-indent: -9999px;
-                float: right;
-            }
-        }
-        .content {
-            margin-top: 10px;
-            .title-content {
-                width: 90px;
-                padding-right: 10px;
-                float: left;
-                color: $grey-color04;
-            }
-            .title-body {
-                width: calc(100% - 90px);
-                float: left;
-                font-family: 'FSMe-Bold';
-                ul {
-                    padding: 0;
-                    list-style-type: none;
-                    li {
-                        float: left;
-                        margin-right:3px;
-                        color: $grey-color04;
-                        &:after {
-                            content: ",";
-                        }
-                        &:last-child {
+            .content {
+                margin-top: 10px;
+                .title-content {
+                    width: 90px;
+                    padding-right: 10px;
+                    float: left;
+                    color: $grey-color04;
+                }
+                .title-body {
+                    width: calc(100% - 90px);
+                    float: left;
+                    font-family: 'FSMe-Bold';
+                    ul {
+                        padding: 0;
+                        list-style-type: none;
+                        li {
+                            float: left;
+                            margin-right:3px;
+                            color: $grey-color04;
                             &:after {
-                                content: "";
+                                content: ",";
+                            }
+                            &:last-child {
+                                &:after {
+                                    content: "";
+                                }
                             }
                         }
                     }
                 }
-            }
-            &.ctas {
-                margin-top: 0;
-                .btn {
-                    max-width: calc(50% - 5px);
-                    margin-top: 10px;
-                    margin-right: 10px;
-                    &:last-child {
-                        margin-right: 0;
+                &.ctas {
+                    margin-top: 0;
+                    .btn {
+                        max-width: calc(50% - 5px);
+                        margin-top: 10px;
+                        margin-right: 10px;
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+                &.title {
+                    font-size: 30px;
+                    color: #6a7287;
+                    font-family: 'FSMe-Bold';
+                }
+                &.description {
+                    position: relative;
+                    overflow: hidden;
+                    height: 4.2em;
+                    text-align: justify;
+                    margin-right: 0;
+                    padding-right: 0.7em;
+                    &:before {
+                        content: '...';
+                        position: absolute;
+                        right: 0;
+                        bottom: 0.1em;
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        width: 1em;
+                        height: 2em;
+                        margin-top: -1em;
+                        background: #f3f3f3;
                     }
                 }
             }
-            &.title {
-                font-size: 30px;
-                color: #6a7287;
-                font-family: 'FSMe-Bold';
-            }
-            &.description {
+        }
+        //past event
+        &.PreviousDate{
+            .events-wrap {
                 position: relative;
-                overflow: hidden;
-                height: 4.2em;
-                text-align: justify;
-                margin-right: 0;
-                padding-right: 0.7em;
-                &:before {
-                    content: '...';
-                    position: absolute;
-                    right: 0;
-                    bottom: 0.1em;
-                }
                 &:after {
                     content: '';
                     position: absolute;
-                    right: 0;
-                    width: 1em;
-                    height: 2em;
-                    margin-top: -1em;
-                    background: #f3f3f3;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #000;
+                    opacity: 0.3;
+                    z-index: 1;
                 }
             }
-        }
-    }
-    //past event
-    &.PreviousDate{
-        .events-wrap {
-            position: relative;
-            &:after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #000;
-                opacity: 0.3;
-                z-index: 1;
+        }//current event
+        &.CurrentDate{
+            .events-wrap .header .date{
+                background-color:#fed501;
             }
         }
-    }//current event
-    &.CurrentDate{
-        .events-wrap .header .date{
-            background-color:#fed501;
-        }
-    }
-    @supports (display: flex) {
-        display: flex;
-        .events-wrap {
-            display: block;
+        @supports (display: flex) {
+            display: flex;
+            .events-wrap {
+                display: block;
+            }
         }
     }
 }
 
-[data-view="list-view"] {
+[data-view="list-view"].events-list {
+    padding-top: 0;
     .month-divider {
         padding-top: 40px;
         h3 {
@@ -452,7 +456,7 @@
         margin-top: -30px;
     }
 }
-section.event-profile-container{
+section.event-profile-container {
     .header{
         text-align: -webkit-auto;
         width: auto;
@@ -465,7 +469,8 @@ section.event-profile-container{
     }
 }
 // functionality css
-[data-view="calendar-view"] {
+[data-view="calendar-view"].events-list {
+    padding-top: 0;
     // disable event click
     .fc-content-skeleton {
         pointer-events: none;
@@ -478,21 +483,21 @@ section.event-profile-container{
     }
 }
 body {
-    #events [data-view] {
+    #events-calendar [data-view] {
         display: none;
     }
-    &.list-view #events [data-view="list-view"],
-    &.tile-view #events [data-view="tile-view"],
-    &.calendar-view #events [data-view="calendar-view"] {
+    &.list-view #events-calendar [data-view="list-view"],
+    &.tile-view #events-calendar [data-view="tile-view"],
+    &.calendar-view #events-calendar [data-view="calendar-view"] {
         display: block;
     }
     // hide month nav in FC month view because FC has its own
-    // &.calendar-view.month #events .header {
+    // &.calendar-view.month #events-calendar .header {
     //     display: none;
     // }
     // hide more-events btn in calendar view or when theres not results
-    &.calendar-view #events .more-events,
-    #events[total-count="0"] .more-events {
+    &.calendar-view #events-calendar .more-events,
+    #events-calendar[total-count="0"] .more-events {
         display: none;
     }
     

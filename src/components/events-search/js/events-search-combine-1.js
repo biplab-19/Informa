@@ -733,7 +733,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
     InformaEventsController = {
         BodyContainer: $('body'),
-        EventsContainer: $('#events'),
+        EventsContainer: $('#events-calendar'),
         DateArrows: $('.header .arrows'),
         HeaderDate: $('.header h2'),
         ViewBtns: $('.views-section .state-views .view a'),
