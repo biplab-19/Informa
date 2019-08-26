@@ -95,7 +95,7 @@ module.exports = function(grunt) {
                     layoutdir: '<%= config.src %>/templates/layouts',
                     data: ['<%= config.src %>/components/**/*.{json,yml}'],
                     partials: ['<%= config.src %>/components/**/*.hbs'],
-                    helpers: ['<%= config.src %>/scripts/handlebar-helper-grunt.js']
+                    helpers: ['<%= config.src %>/build-scripts/handlebar-helper-grunt.js']
                 },
                 files: {
                     '<%= config.tmp %>/': ['<%= config.src %>/templates/pages/**/*.hbs']
