@@ -1,8 +1,8 @@
 #events {
-    padding: 100px 0 30px;
+    padding: 120px 0 30px;
     background-color: $white;
     @include mobile {
-        padding-top: 120px;
+        padding-top: 145px;
     }
     &:after {
         content: '';
@@ -132,8 +132,43 @@
     }
 
     #event-modal {
-        .events-section {
-            overflow: hidden;
+        .modal-dialog {
+            @include mobile {
+              width: 100%;
+              padding-left: 7.5px;
+              padding-right: 7.5px;
+            }
+            @include tablet {
+              width: 100%;
+              padding-left: 15px;
+              padding-right: 15px;
+            }
+            @include desktop {
+              width: 1172px;
+              padding-left: 15px;
+              padding-right: 15px;
+            }
+            .modal-content {
+                .modal-header {
+                    border-bottom: none;
+                    .close {
+                        opacity: 1;
+                        &:before {
+                            font-family: 'InformaIcons';
+                            content: "\e906";
+                            color: #000;
+                        }
+                    }
+                }
+                .modal-body {
+                    &[data-view] {
+                        display: block;
+                    }
+                    .events-section {
+                        overflow: hidden;
+                    }
+                }
+            }
         }
     }
 }
@@ -263,135 +298,150 @@
     }
 }
 
-[data-view="list-view"] .events-section {
-    margin-top: 30px;
-    .events-wrap {
-        position: relative;
-        overflow: hidden;
-        padding-bottom: 20px;
-        & > div {
-            padding-top: 20px;
+[data-view="list-view"] {
+    .month-divider {
+        padding-top: 40px;
+        h3 {
+            padding: 60px 15px 15px;
+            border-top: 1px solid #ebebeb;
+        }
+        &:first-child {
+            padding-top: 0;
+            h3 {
+                border-top: none;
+            }
+        }
+    }
+    .events-section {
+        margin-top: 30px;
+        .events-wrap {
+            position: relative;
             overflow: hidden;
-        }
-        .dates {
-            .date {
-                background-color: #878e9e;
-                font-size: 20px;
-                color: $white;
-                padding: 6px 8px;
-                float: right;
+            padding-bottom: 20px;
+            & > div {
+                padding-top: 20px;
+                overflow: hidden;
             }
-        }
-        .content-wrap {
-            .country {
-                margin-bottom:10px;
-                text-align:left;
-                display: block;
-            }
-            .type {
-                margin-bottom: 10px;
-                font-size: 18px;
-                display: block;
-                color: $grey-color04;
-                font-family: 'FSMe';
-            }
-            .title {
-                font-size: 30px;
-                color: #6a7287;
-                font-family: 'FSMe-Bold';
-                margin: 0;
-            }
-            .content {
-                margin-top: 10px;
-                .title-content {
-                    width: 90px;
-                    padding-right: 10px;
-                    float: left;
-                    color: $grey-color04;
+            .dates {
+                .date {
+                    background-color: #878e9e;
+                    font-size: 20px;
+                    color: $white;
+                    padding: 6px 8px;
+                    float: right;
                 }
-                .title-body {
-                    width: calc(100% - 90px);
-                    float: left;
+            }
+            .content-wrap {
+                .country {
+                    margin-bottom:10px;
+                    text-align:left;
+                    display: block;
+                }
+                .type {
+                    margin-bottom: 10px;
+                    font-size: 18px;
+                    display: block;
+                    color: $grey-color04;
+                    font-family: 'FSMe';
+                }
+                .title {
+                    font-size: 30px;
+                    color: #6a7287;
                     font-family: 'FSMe-Bold';
-                    ul {
-                        padding: 0;
-                        list-style-type: none;
-                        li {
-                            float: left;
-                            margin-right:3px;
-                            color: $grey-color04;
-                            &:after {
-                                content: ",";
-                            }
-                            &:last-child {
+                    margin: 0;
+                }
+                .content {
+                    margin-top: 10px;
+                    .title-content {
+                        width: 90px;
+                        padding-right: 10px;
+                        float: left;
+                        color: $grey-color04;
+                    }
+                    .title-body {
+                        width: calc(100% - 90px);
+                        float: left;
+                        font-family: 'FSMe-Bold';
+                        ul {
+                            padding: 0;
+                            list-style-type: none;
+                            li {
+                                float: left;
+                                margin-right:3px;
+                                color: $grey-color04;
                                 &:after {
-                                    content: "";
+                                    content: ",";
+                                }
+                                &:last-child {
+                                    &:after {
+                                        content: "";
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                &.ctas {
-                    margin-top: 0;
-                    .btn {
-                        margin-top: 10px;
-                        margin-right: 10px;
-                        &:last-child {
-                            margin-right: 0;
+                    &.ctas {
+                        margin-top: 0;
+                        .btn {
+                            margin-top: 10px;
+                            margin-right: 10px;
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                    &.description {
+                        position: relative;
+                        overflow: hidden;
+                        height: 4.2em;
+                        text-align: justify;
+                        margin-right: -0.7em;
+                        padding-right: 0.7em;
+                        &:before {
+                            content: '...';
+                            position: absolute;
+                            right: 0;
+                            bottom: 0.1em;
+                        }
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            right: -0.3em;
+                            width: 1em;
+                            height: 2em;
+                            margin-top: -1em;
+                            background: white;
                         }
                     }
                 }
-                &.description {
-                    position: relative;
-                    overflow: hidden;
-                    height: 4.2em;
-                    text-align: justify;
-                    margin-right: -0.7em;
-                    padding-right: 0.7em;
-                    &:before {
-                        content: '...';
-                        position: absolute;
-                        right: 0;
-                        bottom: 0.1em;
-                    }
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        right: -0.3em;
-                        width: 1em;
-                        height: 2em;
-                        margin-top: -1em;
-                        background: white;
-                    }
+            }
+            .logo {
+                position: relative;
+                img {
+                    width: 100%;
+                    max-width: 265px;
+                    height: auto;
                 }
             }
         }
-        .logo {
-            position: relative;
-            img {
-                width: 100%;
-                max-width: 265px;
-                height: auto;
+        &.PreviousDate {
+            .events-wrap {
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #000;
+                    opacity: 0.3;
+                    z-index: 1;
+                }
             }
-        }
-    }
-    &.PreviousDate {
-        .events-wrap {
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: #000;
-                opacity: 0.3;
-                z-index: 1;
+            .events-wrap .footer .btn.full-detail {
+                z-index: 2;
             }
-        }
-        .events-wrap .footer .btn.full-detail {
-            z-index: 2;
         }
     }
 }
@@ -417,7 +467,7 @@ section.event-profile-container{
 // functionality css
 [data-view="calendar-view"] {
     // disable event click
-    .fc-event-container {
+    .fc-content-skeleton {
         pointer-events: none;
     }
     [data-datetype] {

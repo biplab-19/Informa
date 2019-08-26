@@ -30,6 +30,16 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         Selects: $('.events-search select'),
         Init: function() {
             var that = this;
+            
+            // init chosen my way :P
+            this.Selects.each(function () {
+                var $this = $(this);
+                $this.chosen('destroy');
+                $this.chosen({
+                    width: '100%',
+                    disable_search: true
+                });
+            });
 
             // event listners for all dd filters
             this.Selects.change(function () {
@@ -371,14 +381,23 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         AddEvents: function(results) {
             var evtObj,
-                html = ''
+                html = '',
+                prevEventDate, currEventDate
 
             // TODO: efficiency: replace with for i loop for better performance
             for (var key in results) {
                 if (results.hasOwnProperty(key)) {
                     evtObj = results[key];
+
+                    // if new month, append a new divider
+                    currEventDate = moment(evtObj.EventStartDate);
+                    if (!currEventDate.isSame(prevEventDate, 'month'))
+                        html += '<div class="col-12 month-divider"><h3>' + currEventDate.format('MMMM YYYY').toUpperCase()
+                        + '</h3></div>'
+                    prevEventDate = moment(evtObj.EventStartDate);
                     
                     this.AddDateToEvent(evtObj);
+                    // TODO: add date subheading when event is next month
                     html += this.Template({ results: evtObj });
                 }
             }
@@ -471,60 +490,25 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                 }
                             }
                             if (!html) return;
-                            that.Modal.find('.modal-body').html(html);
+                            that.Modal.find('.modal-body').attr('data-view', 'list-view').html(html);
                             InformaEventsController.EventsContainer.append(that.Modal);
 
                             that.Modal.modal('show');
-
-                            // var _vp = INFORMA.global.device.viewportN;
-            
-                            // if ( _vp === 2) {
-                            //     var selectedDate = date.format(),
-                            //         parentNode = $(this).parents('.fc-row.fc-widget-content'),
-                            //         DateAttr = $(this).data('date'),
-                            //         Container = $(this).parents('.fc-view-container'),
-                            //         ItemList = null;
-            
-                            //     Container.find('.fc-widget-content').removeClass('open');
-                            //     Container.toggleClass('open-event');
-                            //     Container.find('.events-wrap').remove();
-                            //     Container.find('.fc-day-number').css('color', '#6a7285');
-                            //     if ($(this).hasClass('event-present')) {
-                            //         ItemList = Container.find('.events[data-date="' + DateAttr + '"]').clone();
-                            //         ItemList.addClass('cloned');
-                            //         parentNode.after('<div class="events-wrap"></div>');
-                            //     } else {
-                            //         parentNode.after('');
-                            //     }
-            
-                            //     if (Container.hasClass('open-event')) {
-                            //         Container.find('.fc-widget-content[data-date="' + DateAttr + '"]').addClass('open');
-                            //         Container.find('.fc-day-number[data-date="' + DateAttr + '"]').css('color', '#fff');
-                            //         Container.find('.events-wrap').html(ItemList);
-                            //     } else {
-                            //         Container.find('.fc-widget-content[data-date="' + DateAttr + '"]').removeClass('open');
-                            //         Container.find('.events-wrap').remove();
-                            //     }
-            
-                            //     ItemList = "";
-                            //     Container.find('.events-wrap').hide().slideDown();
-                            // }
-            
                         },
                         eventAfterAllRender: function (view) { // Triggered after all events have finished rendering.
-                            var _vp = INFORMA.global.device.viewportN;
+                            // var _vp = INFORMA.global.device.viewportN;
 
-                            // add classes for day click in mobile
-                            if (_vp === 2) {
+                            // // add classes for day click in mobile
+                            // // if (_vp === 2) {
             
-                                var Events = $('.fc-view-container .events');
+                            //     var Events = $('.fc-view-container .events');
             
-                                Events.each(function () {
-                                    var DateField = $(this).data('date');
-                                    $('td.fc-day-number[data-date="' + DateField + '"]').addClass('events-now');
-                                    $('td.fc-widget-content[data-date="' + DateField + '"]').addClass('event-present');
-                                })
-                            }
+                            //     Events.each(function () {
+                            //         var DateField = $(this).data('date');
+                            //         $('td.fc-day-number[data-date="' + DateField + '"]').addClass('events-now');
+                            //         $('td.fc-widget-content[data-date="' + DateField + '"]').addClass('event-present');
+                            //     })
+                            // // }
             
                             // add short month text to non-active month for desktop
                             // if (_vp === 0) {
@@ -541,7 +525,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         },
                         eventAfterRender: function (event, element, view) {
                             // add active class to cell for event indicator
-                            element.closest('.fc-content-skeleton').find('.fc-day-number[data-date=' + event.start.format('YYYY-MM-DD') + ']').addClass('active');
+                            var $elSkeleton = element.closest('.fc-content-skeleton'),
+                                datAttr = event.start.format('YYYY-MM-DD');
+                            $elSkeleton.find('.fc-day-number[data-date=' + datAttr + ']').addClass('event-now');
+                            $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']').addClass('event-present');
                         },
                         eventRender: function (event, element, view) { // Triggered while an event is being rendered. A hook for modifying its DOM.
                             var CurrentDate = new Date(),
@@ -551,25 +538,28 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             // console.log('event', event);
                             // console.log('element', element);
                             // console.log('view', view);
-            
+                            // console.log(view.start.format('YYYY-MM-DD'))
+
                             if (event.Country != null) {
                                 CountryText = event.Country;
                             }
             
-                            if (!event.EventText && event.Link !== null) {
+                            // at the moment past and future dates are styled the same, so ignore
+                            // if (!event.EventText && event.Link !== null) {
             
-                                if (moment(CurrentDate) > moment(ItemDate)) {
-                                    if (moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                                        return $('<div data-date="' + DateAttr + '" class="events current"><p class="title">' + event.title + '</p></div>');
-                                    } else {
-                                        return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title">' + event.title + '</p></div>');
-                                    }
-                                } else {
-                                    return $('<div data-date="' + DateAttr + '" class="events"><p class="title">' + event.title + '</p></div>');
-                                }
-                            } else {
-                                return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title">' + event.title + '</p></div>');
-                            }
+                            //     if (moment(CurrentDate) > moment(ItemDate)) {
+                            //         if (moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
+                            //             return $('<div data-date="' + DateAttr + '" class="events current"><p class="title">' + event.title + '</p></div>');
+                            //         } else {
+                            //             return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title">' + event.title + '</p></div>');
+                            //         }
+                            //     } else {
+                            //         return $('<div data-date="' + DateAttr + '" class="events"><p class="title">' + event.title + '</p></div>');
+                            //     }
+                            // } else {
+                                // return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title">' + event.title + '</p></div>');
+                                return $('<div data-date="' + DateAttr + '" class="events"><p class="title">' + event.title + '</p></div>');
+                            // }
                         }
                     }
                     break;
@@ -580,12 +570,16 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         titleFormat: 'MMM YYYY',
                         dayNamesShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
                         eventAfterRender: function (event, element, view) {
-                            // add active class to cell for event indicator
-                            element.closest('.fc-content-skeleton').find('.fc-day-number[data-date=' + event.start.format('YYYY-MM-DD') + ']').addClass('active');
+                            var $elSkeleton = element.closest('.fc-content-skeleton'),
+                                datAttr = event.start.format('YYYY-MM-DD');
+                            $elSkeleton.find('.fc-day-number[data-date=' + datAttr + ']').addClass('event-now');
+                            $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']').addClass('event-present');
+                            // add event-present class to cell for event indicator
+                            // element.closest('.fc-content-skeleton').find('.fc-day-number[data-date=' + event.start.format('YYYY-MM-DD') + ']').addClass('event-present');
                         },
                         eventAfterAllRender: function (view) {
                             var $fcView = view.el,
-                                $firstEventEl = view.el.find('.fc-day-number.active'),
+                                $firstEventEl = view.el.find('.fc-day.event-present'),
                                 eventMoment;
                             
                             if ($firstEventEl.length > 0) {
@@ -593,7 +587,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                                 // add data, class and click event to go to month view
                                 if ($fcView.attr('click-added')) return;
-                                $fcView.data('month', eventMoment).addClass('active').attr('click-added', true).on('click', function () {
+                                $fcView.data('month', eventMoment).addClass('event-present').attr('click-added', true).on('click', function () {
                                     var targetDate = $(this).data('month');
                                     if (targetDate.isValid()) {
                                         InformaEventsController.Date = targetDate;
@@ -601,7 +595,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                     }
                                 });
                             } else {
-                                $fcView.removeData('month').removeClass('active').removeAttr('click-added').off('click');
+                                $fcView.removeData('month').removeClass('event-present').removeAttr('click-added').off('click');
                             }
                         }
                     }
@@ -807,7 +801,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.LoadEvents(this.PageNum++);
         },
         LoadEvents: function(pageNum = 1) {
-            console.log('LoadEvents')
+            // console.log('LoadEvents')
             var that = this;
             this.PageNum = pageNum;
             this.GetAjaxData(Urls.EventsSearch, ajaxMethod, this.GetSendData(), function(data) {
@@ -880,11 +874,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             });
         },
         UpdateHeaderDate: function() {
+            var _vp = INFORMA.global.device.viewportN,
+                monthViewDateFormat = _vp === 2 ? 'MMM YYYY' : 'MMMM YYYY';
             // update header text based on viewtype
             if (this.ViewType === 'year') {
                 this.HeaderDate.text(this.Date.format('MMM YYYY') + ' - ' + moment(this.Date).add(11, 'months').format('MMM YYYY'));
             } else {
-                this.HeaderDate.text(this.Date.format('MMMM YYYY'));
+                this.HeaderDate.text(this.Date.format(monthViewDateFormat));
             }
         },
         set View(view) {

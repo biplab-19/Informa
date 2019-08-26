@@ -4,6 +4,12 @@
     .container {
         position: relative;
     }
+    select {
+        -webkit-appearance: menulist;
+        width: 100%;
+        height: auto;
+        padding: 8px 6px;
+    }
 /* 
     .mddmenu {
         position: relative;
@@ -115,23 +121,29 @@
     }
 
     .filter-section {
-        margin-top: 15px;
         font-size: 1.125em;
         .heading {
             font-family: 'FSMe-Bold';
             float: left;
             margin-right: 3em;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
         }
         .active-filters {
             .filter {
                 float: left;
                 margin-right: 2em;
-                margin-bottom: 1em;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
                 &:first-child {
                     margin-left: 0;
                 }
-                .delete{
-                    display: inline-block;
+                .text {
+                    float: left;
+                }
+                .delete {
+                    float: left;
+                    line-height: inherit;
                     padding: 0 1em;
                     cursor: pointer;
                 }
@@ -229,6 +241,14 @@
                             }
                         }
                         &.icon-tile-view {
+                            &:before {
+                                content: '';
+                                height: 26px;
+                                width: 22px;
+                                background: url(/Static/images/dashboard.png) no-repeat;
+                            }
+                        }
+                        &.icon-calendar-view {
                             &:before {
                                 content: '';
                                 height: 26px;
