@@ -826,7 +826,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             var that = this,
                 // check date type (year / month), set to EndDate if year else set to startdata + 1 month if month
                 eventsEndDate = this.ViewType === 'year' ? this.EndDate.format('MMMM YYYY') : 
-                                moment(this.Date).add(1, 'months').format('MMMM YYYY'),
+                                moment(this.Date).endOf('month').format('MMMM YYYY'),
                 sendDataObj = {}
 
             // add filters as property name and push multiple filters of the same type into array
