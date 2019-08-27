@@ -828,6 +828,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
             this.PageNum = pageNum;
             this.GetAjaxData(Urls.EventsSearch, ajaxMethod, sendData, function(data) {
+
+                if (data) {
+                    console.log('success! data', data);
+                } else {
+                    throw "data not detectable in callback";
+                }
+
                 that.TotalCount = parseInt(data.TotalResults);
                 that.UpdateHeaderDate();
                 // TODO: add that.RenderView() > that.UpdateHeaderDate(); that.updateCountText

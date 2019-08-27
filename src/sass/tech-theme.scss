@@ -2432,25 +2432,6 @@ section#hero-banner .vertical-align.video-item h1 {
 }
 
 .tech-theme {
-    // fullcalendar resets
-    .fc-view, .fc-view > table {
-        border: none;
-    }
-    .fc-unthemed {
-        .fc-content, .fc-divider, .fc-row, tbody, thead, th, td {
-            border: none;
-        }
-    }
-    .fc th {
-        background: transparent;
-    }
-    .fc-past.fc-other-month, .fc-future.fc-other-month {
-        background-color: transparent;
-    }
-    .fc-today {
-        background-color: transparent;
-    }
-    
     .events-search {
         padding: 0;
         background-color: white;
@@ -2652,7 +2633,10 @@ section#hero-banner .vertical-align.video-item h1 {
                                 color: #555555;
                             }
                             &.description {
-                                height: 84px;
+                                height: 86px;
+                                @include mobile {
+                                    height: 82px;
+                                }
                             }
                         }
                     }
@@ -2707,7 +2691,10 @@ section#hero-banner .vertical-align.video-item h1 {
                                 color: #555555;
                             }
                             &.description {
-                                height: 84px;
+                                height: 86px;
+                                @include mobile {
+                                    height: 82px;
+                                }
                             }
                             &.ctas {
                                 .btn {
@@ -2736,13 +2723,11 @@ section#hero-banner .vertical-align.video-item h1 {
         [data-view="calendar-view"] {
             [data-datetype="month"] {
                 .fc th {
-                    padding-bottom: 20px;
                     font-family: 'OpenSans Regular';
                     font-size: 14px;
                     line-height: 24px;
                     color: #555555;
                     @include mobile {
-                        padding-bottom: 3px;
                         color: #002244;
                     }
                 }
@@ -2759,7 +2744,6 @@ section#hero-banner .vertical-align.video-item h1 {
                     }
                 }
                 .fc-day-number {
-                    padding: 0 10px 0;
                     font-family: 'OpenSans Bold';
                     font-size: 16px;
                     line-height: 16px;
@@ -2772,23 +2756,8 @@ section#hero-banner .vertical-align.video-item h1 {
                     }
                 }
                 .fc-day {
-                    position: relative;
                     &:before {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        bottom: 10px;
-                        left: 0;
-                        right: 0;
-                        width: calc(100% - 20px);
-                        height: calc(100% - 30px);
-                        margin: 0 auto;
-                        background-color: white;
-                        border: 1px solid #ebebeb;
                         border-radius: 10px;
-                        @include mobile {
-                            display: none;
-                        }
                     }
                     &.fc-today {
                         &:before {
@@ -2799,21 +2768,24 @@ section#hero-banner .vertical-align.video-item h1 {
                         display: none;
                     }
                     &.event-present {
-                        cursor: pointer;
                         &:before {
                             border-color: #d9d600;
                             @include mobile {
-                                display: block;
-                                top: 0;
-                                bottom: 0;
-                                width: 30px;
-                                height: 30px;
-                                margin: auto;
                                 border-radius: 15px;
                             }
                         }
                         // hover bits
                         @include desktop {
+                            &:after {
+                                @include mobile {
+                                    bottom: 6px;
+                                    line-height: 12px;
+                                    width: 12px;
+                                    height: 12px;
+                                    font-size: 12px;
+                                    border-radius: 6px;
+                                }
+                            }
                             &:after {
                                 content: '+';
                                 position: absolute;
@@ -2828,19 +2800,8 @@ section#hero-banner .vertical-align.video-item h1 {
                                 font-size: 18px;
                                 text-align: center;
                                 border-radius: 9px;
-                                @include mobile {
-                                    bottom: 6px;
-                                    line-height: 12px;
-                                    width: 12px;
-                                    height: 12px;
-                                    font-size: 12px;
-                                    border-radius: 6px;
-                                }
                             }
                             &:hover {
-                                &:before {
-                                    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-                                }
                                 &:after {
                                     background-color: #d9d600;
                                     color: white;
@@ -2850,7 +2811,6 @@ section#hero-banner .vertical-align.video-item h1 {
                     }
                 }
                 .fc-event-container {
-                    padding: 10px 17px 0;
                     .events p {
                         font-family: 'OpenSans Regular';
                         font-size: 12px;
@@ -2869,7 +2829,6 @@ section#hero-banner .vertical-align.video-item h1 {
                     }
                 }
                 .fc th {
-                    padding-bottom: 3px;
                     font-family: 'OpenSans Regular';
                     font-size: 14px;
                     line-height: 24px;
@@ -2892,7 +2851,6 @@ section#hero-banner .vertical-align.video-item h1 {
                     }
                 }
                 .fc-day-number {
-                    padding: 0 10px 0;
                     font-family: 'OpenSans Regular';
                     font-size: 16px;
                     line-height: 16px;
@@ -2902,19 +2860,7 @@ section#hero-banner .vertical-align.video-item h1 {
                     }
                 }
                 .fc-day {
-                    position: relative;
                     &:before {
-                        content: '';
-                        display: none;
-                        position: absolute;
-                        bottom: 10px;
-                        left: 0;
-                        right: 0;
-                        width: calc(100% - 20px);
-                        height: calc(100% - 30px);
-                        margin: 0 auto;
-                        background-color: white;
-                        border: 1px solid #ebebeb;
                         border-radius: 10px;
                     }
                     &.fc-today {
@@ -2928,12 +2874,6 @@ section#hero-banner .vertical-align.video-item h1 {
                     &.event-present {
                         cursor: pointer;
                         &:before {
-                            display: block;
-                            top: 0;
-                            bottom: 0;
-                            width: 30px;
-                            height: 30px;
-                            margin: auto;
                             border-color: #d9d600;
                             border-radius: 15px;
                         }

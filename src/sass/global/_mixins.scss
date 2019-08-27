@@ -1505,23 +1505,23 @@ $desktop-width: 1142px;
             background-color: $grey-color10;
         }
 
-        .fc-unthemed td.fc-today {
-            @if($name==agri-theme) {
-                color: $grey-color04 !important;
-            }
-            @else {
-                color: $white !important;
-            }
-        }
+        // .fc-unthemed td.fc-today {
+        //     @if($name==agri-theme) {
+        //         color: $grey-color04 !important;
+        //     }
+        //     @else {
+        //         color: $white !important;
+        //     }
+        // }
 
-        .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
-            @if($name==maritime-theme) {
-                background: #1191d1;
-            }
-            @else {
-                background: $primarycolor;
-            }
-        }
+        // .fc-unthemed td.fc-widget-content.fc-today.fc-state-highlight {
+        //     @if($name==maritime-theme) {
+        //         background: #1191d1;
+        //     }
+        //     @else {
+        //         background: $primarycolor;
+        //     }
+        // }
 
         [data-view="calendar-view"] {
             [data-datetype="month"] {

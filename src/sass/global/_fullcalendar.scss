@@ -297,16 +297,16 @@
 		min-height: 6em;
 	}
 }
-td.fc-day.fc-widget-content {
-    border-width: 5px;
-    border-color: #f3f3f3;
-    @include mobile {
-    	border-width: 1px;	
-    }
-    @include tablet {
-    	border-width: 1px;	
-    }
-}
+// td.fc-day.fc-widget-content {
+//     border-width: 5px;
+//     border-color: #f3f3f3;
+//     @include mobile {
+//     	border-width: 1px;	
+//     }
+//     @include tablet {
+//     	border-width: 1px;	
+//     }
+// }
 .fc-view, .fc-view > table {
     border: 7px solid #f3f3f3;
     @include mobile {
@@ -382,31 +382,61 @@ td.fc-day.fc-widget-content {
     	margin-top: 10px;
     }
 }
+// fullcalendar resets
+.fc-view, .fc-view > table {
+	border: none;
+}
+.fc-unthemed {
+	.fc-content, .fc-divider, .fc-row, tbody, thead, th, td {
+		border: none;
+	}
+}
+.fc th {
+	background: transparent;
+}
+.fc-past.fc-other-month, .fc-future.fc-other-month {
+	background-color: transparent;
+}
+.fc.fc-unthemed td.fc-today {
+	background-color: transparent;
+	border: none;
+}
 [data-view="calendar-view"] {
 	[data-datetype="month"] {
 		margin-top: 30px;
-		.fc-toolbar {
-			margin-bottom: 2em;
+		.fc th {
+			padding-bottom: 20px;
+			text-align: center;
+			@include mobile {
+				padding-bottom: 3px;
+			}
 		}
 		.fc-scroller{
 			overflow: hidden !important;
-		}
-		.fc th {
-			text-align: center;
 		}
 		.fc-body .fc-row {
 			height: 155px !important;
 			overflow: hidden;
 			@include mobile {
+				min-height: 3.5em;
 				height: 50px !important;
 			}
 		}
 		.fc-content-skeleton {
 			padding-bottom: 0;
 			// height: 100%;
+			@include mobile {
+				top: 50%;
+				transform: translateY(-50%);
+				padding-bottom: 0;
+				tbody {
+					display: none;
+				}
+			}
 			table {
 				height: 100%;
 				.fc-event-container {
+					padding: 10px 17px 0;
 					.events {
 						white-space: nowrap;
 						overflow: hidden;
@@ -418,50 +448,78 @@ td.fc-day.fc-widget-content {
 				}
 			}
 		}
+		.fc-day-number {
+			padding: 0 10px 0;
+			@include mobile {
+				text-align: center;
+				color: #6a7384;
+				padding: 0;
+			}
+			&.event-now {
+				color: black;
+			}
+		}
+		.fc-day {
+			position: relative;
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 10px;
+				left: 0;
+				right: 0;
+				width: calc(100% - 20px);
+				height: calc(100% - 30px);
+				margin: 0 auto;
+				background-color: white;
+				border: 1px solid #ebebeb;
+				@include mobile {
+					display: none;
+				}
+			}
+			&.fc-today {
+				&:before {
+					background-color: #f0f0f3;
+				}
+			}
+			&.fc-other-month:before {
+				display: none;
+			}
+			&.event-present {
+				cursor: pointer;
+				&:before {
+					border-color: black;
+					@include mobile {
+						display: block;
+						top: 0;
+						bottom: 0;
+						width: 30px;
+						height: 30px;
+						margin: auto;
+					}
+				}
+				// hover bits
+				@include desktop {
+					&:hover {
+						&:before {
+							box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+						}
+					}
+				}
+			}
+		}
 		@include mobile {
-			.fc-view > table {
-				border: none;
-			}
-			.fc-toolbar {
-				width: 100%;
-				margin-top: 1em;
-			}
-			.fc-view, .fc-view > table {
-				border-width: 1px;
+			.fc-view {
+				padding: 10px 0;
+				&> table {
+					border: none;
+				}
 			}
 			.fc td, .fc th {
 				border-width: 0;
 			}
 			.fc th {
 				padding: 3px 0;
-			}
-			.fc-basic-view .fc-body .fc-row {
-				min-height: 3.5em;
-				.fc-content-skeleton {
-					top: 50%;
-					transform: translateY(-50%);
-					padding-bottom: 0;
-					.fc-day-number.active {
-						position: relative;
-						&:before {
-							content: '';
-							position: absolute;
-							width: 28px;
-							height: 28px;
-							top: 50%;
-							left: 50%;
-							transform: translate(-50%, -50%);
-						}
-					}
-					tbody {
-						display: none;
-					}
-				}
-			}
-			.fc-ltr .fc-basic-view .fc-day-number {
-				text-align: center;
-				color: #6a7384;
-				padding: 0;
 			}
 		}
 	}
@@ -486,37 +544,72 @@ td.fc-day.fc-widget-content {
 			border-width: 0;
 		}
 		.fc th {
-			padding: 3px 0;
+			padding-bottom: 3px;
 			text-align: center;
 		}
-		.fc-basic-view .fc-body .fc-row {
+		.fc-body .fc-row {
 			min-height: 3.5em;
-			.fc-content-skeleton {
-				top: 50%;
-				transform: translateY(-50%);
-				padding-bottom: 0;
-				.fc-day-number.active {
-					position: relative;
-					&:before {
-						content: '';
-						position: absolute;
-						width: 28px;
-						height: 28px;
-						top: 50%;
-						left: 50%;
-						transform: translate(-50%, -50%);
-					}
-				}
-				tbody {
-					display: none;
-				}
+		}
+		.fc-content-skeleton {
+			top: 50%;
+			transform: translateY(-50%);
+			padding-bottom: 0;
+			tbody {
+				display: none;
 			}
 		}
-		.fc-ltr .fc-basic-view .fc-day-number {
+		.fc-view {
+			padding: 10px 0;
+			border: 1px solid #ebebeb;
+			&.event-present {
+				border-color: black;
+			}
+		}
+		.fc-day-number {
+			padding: 0 10px 0;
 			text-align: center;
 			color: #6a7384;
 			@include tablet {
 				padding: 0;
+			}
+			&.event-now {
+				color: black;
+			}
+		}
+		.fc-day {
+			position: relative;
+			&:before {
+				content: '';
+				display: none;
+				position: absolute;
+				bottom: 10px;
+				left: 0;
+				right: 0;
+				width: calc(100% - 20px);
+				height: calc(100% - 30px);
+				margin: 0 auto;
+				background-color: white;
+				border: 1px solid #ebebeb;
+			}
+			&.fc-today {
+				&:before {
+					background-color: #f0f0f3;
+				}
+			}
+			&.fc-other-month:before {
+				display: none;
+			}
+			&.event-present {
+				cursor: pointer;
+				&:before {
+					display: block;
+					top: 0;
+					bottom: 0;
+					width: 30px;
+					height: 30px;
+					margin: auto;
+					border-color: black;
+				}
 			}
 		}
 	}
@@ -524,10 +617,10 @@ td.fc-day.fc-widget-content {
 // .events-now {
 // 	font-family: 'FSMe-Bold';
 // }
-.fc td.fc-today {
-    border-style: solid;
-    color: $white;
-}
+// .fc td.fc-today {
+//     border-style: solid;
+//     color: $white;
+// }
 .fc-more-cell {
 	position: absolute;
 	top: 250px;
