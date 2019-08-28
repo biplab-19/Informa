@@ -908,6 +908,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     throw "PageSize not valid : " + sendDataObj.PageSize;
             }
 
+            console.log('data sent (pre stringification)', sendDataObj);
+
             return JSON.stringify({data: JSON.stringify(sendDataObj)});
         },
         GetAjaxData: function (url, method, data, SCallback, Errcallback, SearchType) {
