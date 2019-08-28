@@ -412,3 +412,27 @@ h3 {
       }
     }
   }
+
+//white theme
+section#footer-links.white-theme {
+    background: $white-shade;
+    p.light {
+        color:$gray;
+    }
+    nav ul li a {
+        color:$gray;
+    }
+    .social li {
+        background: url(/Static/images/spritesheet-white.png) no-repeat;
+    }
+ }
+
+section#privacy.white-theme {
+    background: $white;
+    ul a {
+        color:$gray;
+    }
+    .disclaimer-copyright p {
+        color: $gray;
+    }
+}
