@@ -43,14 +43,21 @@
                             line-height: 30px;
                             text-transform: capitalize;
                             font-weight: bold;
-                            a{
+                            a {
                                 color: #ffffff;
-                                font-family: 'Open Sans Semibold';
+                                font-family: 'OpenSans Bold' !important;
 
                             }
                             a:hover {
                                 text-decoration: underline;
                                 transition: ease .5s;
+                            }
+                            ul.list-unstyled{
+                                li {
+                                    a{
+                                        font-family: 'Open Sans Semibold' !important;
+                                    }
+                                }
                             }
                         }
                        
@@ -78,6 +85,10 @@
                 color: #fff !important;
                 min-height: 20px;
                 font-family: 'OpenSans Bold' !important;
+            }
+            h4:hover {
+                    text-decoration: underline;
+                    transition: ease .5s;
             }
         }
     }
