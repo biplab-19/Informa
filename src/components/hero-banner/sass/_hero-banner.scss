@@ -1391,3 +1391,46 @@ section#hero-banner.feature-hero-banner .btn {
     }
 }
 
+
+section#hero-banner .vertical-align.overlay-text {
+    h1 {
+        width:100%;
+    }
+    .for-left {
+        float: left !important;
+    }
+    .for-right {
+        float: right !important;
+    }
+    
+}
+.hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
+    color: #fff!important;
+}
+@media only screen and (min-width: 768px) {
+    .hero-items.hero-carousel .vertical-align.overlay-text {
+        max-width: 100%;
+        width: 100%;
+        transform: translateY(0%);
+        z-index: 9999;
+        
+    }
+    .hero-banner .vertical-align.overlay-text .for-right, .hero-banner .vertical-align.overlay-text .for-left {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding:0px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .hero-banner .vertical-align.overlay-text {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
+        padding: 0 15px;
+    }
+}
