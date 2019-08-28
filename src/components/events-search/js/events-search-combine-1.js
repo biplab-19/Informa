@@ -320,7 +320,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         AddEvents: function(results) {
             var evtObj,
-                html = ''
+                html = InformaEventsController.PageNum > 1 ? this.EventsContainer.html() : '';
 
             // TODO: efficiency: replace with for i loop for better performance
             for (var key in results) {
@@ -394,7 +394,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         AddEvents: function(results) {
             var evtObj,
-                html = '',
+                html = InformaEventsController.PageNum > 1 ? this.EventsContainer.html() : '',
                 prevEventDate, currEventDate
 
             // TODO: efficiency: replace with for i loop for better performance
@@ -757,6 +757,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         CountText: $('.views-section .event-count .listed'),
         TotalText: $('.views-section .event-count .total'),
         MoreBtn: $('.more-events .btn-more-events'),
+        InfiniteScrollLoadPoint: 0,
         StartDate: null,
         EndDate: null,
         PreviousDate: null,
@@ -793,6 +794,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.MoreBtn.click(function () {
                 that.LoadMoreEvents();
             });
+            $(window).scroll(function() {
+                if($(this).scrollTop() >= that.InfiniteScrollLoadPoint) {
+                    that.LoadMoreEvents();
+                }
+            });
 
             // set local prop from container
             this.Count = this.EventsContainer.data('count');
@@ -810,14 +816,16 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             }
         },
         UpdateMoreBtn: function() {
-            if (this.TotalCount > this.Count) {
-                this.MoreBtn.removeClass('hidden');
-            } else {
-                this.MoreBtn.addClass('hidden');
-            }
+            // if (this.TotalCount > this.Count) {
+            //     this.MoreBtn.removeClass('hidden');
+            // } else {
+            //     this.MoreBtn.addClass('hidden');
+            // }
+            this.InfiniteScrollLoadPoint = this.MoreBtn.offset().top - $(window).height() - $('#tech-main-header').height();
         },
         LoadMoreEvents: function() {
-            this.LoadEvents(this.PageNum++);
+            this.PageNum++;
+            this.LoadEvents(this.PageNum);
         },
         LoadEvents: function(pageNum = 1) {
             // console.log('LoadEvents')
@@ -830,7 +838,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.GetAjaxData(Urls.EventsSearch, ajaxMethod, sendData, function(data) {
 
                 if (data) {
-                    console.log('success! data', data);
+                    console.log('data received', data);
                 } else {
                     throw "data not detectable in callback";
                 }
@@ -850,6 +858,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         InformaFC.RenderView(data);
                         break;
                 }
+
+                that.UpdateMoreBtn();
             });
         },
         GetSendData: function() {
@@ -1005,7 +1015,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         set TotalCount(count) {
             this.EventsContainer.attr('total-count', count);
             this.TotalText.text(count);
-            this.UpdateMoreBtn();
         },
         get TotalCount() {
             return parseInt(this.EventsContainer.attr('total-count'));

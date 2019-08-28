@@ -78,9 +78,11 @@
         padding: 50px 0 20px 0;
     }
     //more events button
-    .more-events{
+    .more-events {
+        overflow: hidden;
         width: 100%;
-        float: left;
+        height: 0;
+        clear: left;
         text-align: center;
         background-color: $white;
         .btn-more-events{
@@ -175,6 +177,7 @@
 
 [data-view="tile-view"].events-list {
     padding-top: 0;
+    padding-bottom: 0;
     .events-section {
         display: table;
         margin-top: 30px;
@@ -328,6 +331,7 @@
 
 [data-view="list-view"].events-list {
     padding-top: 0;
+    padding-bottom: 0;
     .month-divider {
         padding-top: 40px;
         h3 {
@@ -518,6 +522,7 @@
 // functionality css
 [data-view="calendar-view"].events-list {
     padding-top: 0;
+    padding-bottom: 0;
     // disable event click
     .fc-content-skeleton {
         pointer-events: none;
