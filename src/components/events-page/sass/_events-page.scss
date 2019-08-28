@@ -193,10 +193,35 @@
                     padding: 6px 8px;
                     float: left;
                 }
-                .ical {
-                    width: 53px;
-                    text-indent: -9999px;
-                    float: right;
+                .btn.ical {
+                    position: relative;
+                    overflow: hidden;
+                    padding: 0;
+                    border: none;
+                    pointer-events: none;
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        right: 0;
+                        width: 53px;
+                        height: 100%;
+                        background: black;
+                        pointer-events: auto;
+                    }
+                    &:hover {
+                        .text {
+                            left: 0;
+                        }
+                    }
+                    .text {
+                        position: absolute;
+                        top: 50%;
+                        left: 100%;
+                        padding-right: 10px;
+                        transform: translate(0, -50%);
+                        transition: left 200ms;
+                    }
                 }
             }
             .content {
@@ -403,6 +428,35 @@
                             margin-right: 10px;
                             &:last-child {
                                 margin-right: 0;
+                            }
+                            &.ical {
+                                position: relative;
+                                overflow: hidden;
+                                padding: 0;
+                                border: none;
+                                pointer-events: none;
+                                &:after {
+                                    content: '';
+                                    display: block;
+                                    position: absolute;
+                                    width: 53px;
+                                    height: 100%;
+                                    background: black;
+                                    pointer-events: auto;
+                                }
+                                &:hover {
+                                    .text {
+                                        right: 0;
+                                    }
+                                }
+                                .text {
+                                    position: absolute;
+                                    top: 50%;
+                                    right: 100%;
+                                    padding-left: 10px;
+                                    transform: translate(0, -50%);
+                                    transition: right 200ms;
+                                }
                             }
                         }
                     }

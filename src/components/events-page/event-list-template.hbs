@@ -106,10 +106,10 @@
                     {{#if results.Ical.Url}}
                         {{#compare results.Ical.Url.length "0" operator=">"}}
                             {{#compare results.StatusEnabled true operator="=="}}
-                                <a href="{{results.Ical.Url}}" class="btn pull-left ical" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a>
+                                <a href="{{results.Ical.Url}}" class="btn pull-left ical" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
                             {{/compare}}
                             {{#compare results.StatusEnabled false operator="=="}}
-                                <a href="{{results.Ical.Url}}" class="btn btn-primary pull-left ical disabled" target="{{results.Ical.Target}}">{{results.Ical.LinkText}}</a>
+                                <a href="{{results.Ical.Url}}" class="btn btn-primary pull-left ical disabled" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
                             {{/compare}}
                         {{/compare}}
                     {{/if}}
