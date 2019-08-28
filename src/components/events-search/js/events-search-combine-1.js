@@ -821,7 +821,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // } else {
             //     this.MoreBtn.addClass('hidden');
             // }
-            this.InfiniteScrollLoadPoint = this.MoreBtn.offset().top - $(window).height() - $('#tech-main-header').height();
+            this.InfiniteScrollLoadPoint = this.View === 'calendar-view' ? Number.POSITIVE_INFINITY : this.MoreBtn.offset().top - $(window).height() - $('#tech-main-header').height();
         },
         LoadMoreEvents: function() {
             this.PageNum++;
