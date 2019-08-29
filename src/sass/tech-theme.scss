@@ -2610,6 +2610,9 @@ section#hero-banner .vertical-align.video-item h1 {
         [data-view="tile-view"] {
             .events-section {
                 .events-wrap {
+                    background-color: transparent;
+                    border: 1px solid #d9d600;
+                    border-radius: 10px;
                     .header {
                         .date {
                             padding: 11px 0 0;
@@ -2618,6 +2621,25 @@ section#hero-banner .vertical-align.video-item h1 {
                             line-height: 32px;
                             color: #002244;
                             background-color: transparent;
+                        }
+                        .ical {
+                            width: 204px;
+                            height: 48px;
+                            padding: 0;
+                            border-radius: 0;
+                            &:after {
+                                background: white url(/Static/images/tech/ical-icon.png) no-repeat center;
+                            }
+                            &:hover {
+                                &:after {
+                                    background-image: url(/Static/images/tech/ical-icon-active.png);
+                                }
+                            }
+                            .text {
+                                font-family: 'OpenSans Bold';
+                                font-size: 18px;
+                                color: #11a7d9;
+                            }
                         }
                     }
                     .content-wrap {
@@ -2874,11 +2896,6 @@ section#hero-banner .vertical-align.video-item h1 {
                     border-radius: 10px;
                     &.event-present {
                         border-color: #d9d600;
-                            // TODO: investigate, not working
-                            // cursor: pointer;
-                            // &:hover {
-                            //     box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
-                            // }
                     }
                 }
                 .fc-day-number {
