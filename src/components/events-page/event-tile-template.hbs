@@ -26,6 +26,20 @@
                 </div>
             {{/if}}
 
+            {{#if results.Country}}
+                <div class="content clearfix location">
+                    <div class="title-content">{{results.LocationLabel}}</div>
+                    <div class="title-body">
+                        <ul class="clearfix">
+                            {{#if results.State}}
+                                <li>{{results.State}}</li>
+                            {{/if}}
+                            <li>{{results.Country}}</li>
+                        </ul>
+                    </div>
+                </div>
+            {{/if}}
+
             {{#if results.Duration}}
                 <div class="content clearfix duration">
                     <div class="title-content">{{results.DurationLabel}}</div>
