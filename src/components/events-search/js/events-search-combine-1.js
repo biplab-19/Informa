@@ -13,8 +13,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.EventsViews = (function (window, $, namespace) {
     'use strict';
     //variables
-    var Urls = INFORMA.Configs.urls.webservices,
-        Templates = INFORMA.Templates,
+    var Templates = INFORMA.Templates,
         ajaxMethod = 'POST',
         //methods
         init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, isDev;
@@ -762,6 +761,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             });
             $(window).scroll(function() {
                 if($(this).scrollTop() >= that.InfiniteScrollLoadPoint) {
+                    this.InfiniteScrollLoadPoint = Number.POSITIVE_INFINITY;
                     that.LoadMoreEvents();
                 }
             });
@@ -796,7 +796,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             if (!sendData) return;
 
             this.PageNum = pageNum;
-            this.GetAjaxData(Urls.EventsSearch, ajaxMethod, sendData, function(data) {
+            this.GetAjaxData(INFORMA.Configs.urls.webservices.EventsSearch, ajaxMethod, sendData, function(data) {
 
                 if (data) {
                     console.log('data received', data);
