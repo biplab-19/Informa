@@ -428,20 +428,21 @@
 			@include mobile {
 				top: 50%;
 				transform: translateY(-50%);
-				padding-bottom: 0;
-				tbody {
+			}
+			tbody {
+				@include mobile {
 					display: none;
 				}
 			}
 			table {
 				height: 100%;
 				.fc-event-container {
-					padding: 10px 17px 0;
+					padding: 0 17px;
 					.events {
-						white-space: nowrap;
-						overflow: hidden;
+						// white-space: nowrap;
+						// overflow: hidden;
 						p {
-							padding: 0;
+							padding: 0 0 5px;
 							margin: 0;
 						}
 					}
@@ -461,6 +462,17 @@
 		}
 		.fc-day {
 			position: relative;
+			vertical-align: bottom;
+			padding: 0 17px 13px;
+			.more {
+				position: relative;
+				display: none;
+			}
+			&.congested {
+				.more {
+					display: block;
+				}
+			}
 			&:before {
 				content: '';
 				display: block;
@@ -563,6 +575,10 @@
 			border: 1px solid #ebebeb;
 			&.event-present {
 				border-color: black;
+				cursor: pointer;
+				&:hover {
+					box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+				}
 			}
 		}
 		.fc-day-number {

@@ -508,70 +508,88 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                             that.Modal.modal('show');
                         },
+                        dayRender: function(date, cell) {
+                            cell.append('<span class="more">More</span>');
+                        },
                         eventAfterAllRender: function (view) { // Triggered after all events have finished rendering.
-                            // var _vp = INFORMA.global.device.viewportN;
+                            var _vp = INFORMA.global.device.viewportN,
+                                $activeFcDays,
+                                $activeFcDay,
+                                $events,
+                                datAttr,
+                                dayCellTotalHeight,
+                                accumEventsCellHeight;
+                            
+                            if (_vp === 0) {
+                                $activeFcDays = view.el.find('.fc-day.event-present');
+                                $activeFcDays.each(function() {
+                                    $activeFcDay = $(this);
+                                    // match the height of :before pseudo (- 30) and More span height
+                                    dayCellTotalHeight = $activeFcDay.height() - 30 - $activeFcDay.children('span').height();
+                                    // console.log($activeFcDay.data('events-height') + ' > ' + dayCellTotalHeight);
+                                    if ($activeFcDay.data('events-height') > dayCellTotalHeight) {
+                                        // set the class to show 'more'
+                                        $activeFcDay.addClass('congested');
+                                        $activeFcDay.data('max-height', dayCellTotalHeight);
+                                    }
+                                });
+                                // reloop to look for events and hide them once overflowed
+                                $activeFcDays.filter('.congested').each(function() {
+                                    $activeFcDay = $(this);
+                                    datAttr = $activeFcDay.data('date');
+                                    $events = view.el.find('.events[data-date="' + datAttr + '"]');
+                                    accumEventsCellHeight = 0;
+                                    $events.each(function() {
+                                        accumEventsCellHeight += $(this).height();
+                                        // if event is overflowed hide it
+                                        if (accumEventsCellHeight > $activeFcDay.data('max-height')) {
+                                            $(this).addClass('hidden');
+                                        } 
+                                    });
+                                });
+                            }
+                        },
+                        eventDestroy: function (event, element, view) {
+                            var $elSkeleton = element.closest('.fc-content-skeleton'),
+                                datAttr = event.start.format('YYYY-MM-DD'),
+                                $fcDay = $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']');
 
-                            // // add classes for day click in mobile
-                            // // if (_vp === 2) {
-            
-                            //     var Events = $('.fc-view-container .events');
-            
-                            //     Events.each(function () {
-                            //         var DateField = $(this).data('date');
-                            //         $('td.fc-day-number[data-date="' + DateField + '"]').addClass('events-now');
-                            //         $('td.fc-widget-content[data-date="' + DateField + '"]').addClass('event-present');
-                            //     })
-                            // // }
-            
-                            // add short month text to non-active month for desktop
-                            // if (_vp === 0) {
-                            //     var OtherMonths = $('.fc-day-number.fc-other-month');
-            
-                            //     OtherMonths.each(function () {
-                            //         var DateView = $(this).data('date'),
-                            //             Month = moment(new Date(DateView)).format('MMM'),
-                            //             Dates = moment(new Date(DateView)).format('DD');
-            
-                            //         $(this).html(Dates + '<sup>\/' + Month + '</sup>');
-                            //     })
-                            // }
+                            $fcDay.data('events-height', 0);
                         },
                         eventAfterRender: function (event, element, view) {
                             // add active class to cell for event indicator
                             var $elSkeleton = element.closest('.fc-content-skeleton'),
-                                datAttr = event.start.format('YYYY-MM-DD');
-                            $elSkeleton.find('.fc-day-number[data-date=' + datAttr + ']').addClass('event-now');
-                            $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']').addClass('event-present');
+                                datAttr = event.start.format('YYYY-MM-DD'),
+                                $fcDayNum = $elSkeleton.find('.fc-day-number[data-date=' + datAttr + ']'),
+                                $fcDay = $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']'),
+                                fcDayTotalEventHeight = $fcDay.data('events-height') || 0;
+                            
+                            $fcDayNum.addClass('event-now');
+                            $fcDay.addClass('event-present');
+                            
+                            if(element.data('date') === datAttr && !element[0].hasAttribute('height-recorded')) {
+                                $fcDay.data('events-height', fcDayTotalEventHeight + element.height());
+                                element.attr('height-recorded', '');
+                            }
                         },
                         eventRender: function (event, element, view) { // Triggered while an event is being rendered. A hook for modifying its DOM.
-                            var CurrentDate = new Date(),
-                                ItemDate = new Date(event.start._i),
-                                DateAttr = moment(ItemDate).format('YYYY-MM-DD'),
-                                CountryText = ""
-                            // console.log('event', event);
-                            // console.log('element', element);
-                            // console.log('view', view);
-                            // console.log(view.start.format('YYYY-MM-DD'))
-
-                            if (event.Country != null) {
-                                CountryText = event.Country;
-                            }
-            
+                            var datAttr = event.start.format('YYYY-MM-DD');
+                            
                             // at the moment past and future dates are styled the same, so ignore
                             // if (!event.EventText && event.Link !== null) {
             
                             //     if (moment(CurrentDate) > moment(ItemDate)) {
                             //         if (moment(CurrentDate).format('DD MMM YYYY') == moment(ItemDate).format('DD MMM YYYY')) {
-                            //             return $('<div data-date="' + DateAttr + '" class="events current"><p class="title">' + event.title + '</p></div>');
+                            //             return $('<div data-date="' + datAttr + '" class="events current"><p class="title">' + event.title + '</p></div>');
                             //         } else {
-                            //             return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title">' + event.title + '</p></div>');
+                            //             return $('<div data-date="' + datAttr + '" class="events disabled"><p class="title">' + event.title + '</p></div>');
                             //         }
                             //     } else {
-                            //         return $('<div data-date="' + DateAttr + '" class="events"><p class="title">' + event.title + '</p></div>');
+                            //         return $('<div data-date="' + datAttr + '" class="events"><p class="title">' + event.title + '</p></div>');
                             //     }
                             // } else {
-                                // return $('<div data-date="' + DateAttr + '" class="events disabled"><p class="title">' + event.title + '</p></div>');
-                                return $('<div data-date="' + DateAttr + '" class="events"><p class="title">' + event.title + '</p></div>');
+                                // return $('<div data-date="' + datAttr + '" class="events disabled"><p class="title">' + event.title + '</p></div>');
+                                return $('<div data-date="' + datAttr + '" class="events"><p class="title">' + event.title + '</p></div>');
                             // }
                         }
                     }
@@ -582,6 +600,30 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         eventLimit: true,
                         titleFormat: 'MMM YYYY',
                         dayNamesShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                        // dayClick: function (date, jsEvent, view) { // Triggered when the user clicks on a date or a time.
+                        //     // do popup with list view template
+                        //     var evtObj,
+                        //         html = '',
+                        //         results = that.EventData.Events
+                        //     for (var key in results) {
+                        //         if (results.hasOwnProperty(key)) {
+                        //             evtObj = results[key];
+
+                        //             if (date.isBetween(moment(evtObj.EventStartDate), moment(evtObj.EventEndDate), null, '[]')) {
+                        //                 InformaEventList.AddDateToEvent(evtObj);
+                        //                 html += InformaEventList.Template({ results: evtObj });
+                        //             }
+                        //         }
+                        //     }
+                        //     if (!html) return;
+                        //     that.Modal.find('.modal-body').attr('data-view', 'list-view').html(html);
+                        //     InformaEventsController.EventsContainer.append(that.Modal);
+
+                        //     that.Modal.modal('show');
+
+                        //     // prevent month click through, >>>>>>>> NOT WORKING <<<<<<<<
+                        //     jsEvent.stopPropagation();
+                        // },
                         eventAfterRender: function (event, element, view) {
                             var $elSkeleton = element.closest('.fc-content-skeleton'),
                                 datAttr = event.start.format('YYYY-MM-DD');
@@ -605,7 +647,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                     if (targetDate.isValid()) {
                                         // InformaEventsController.Date = targetDate;
                                         // InformaEventsController.ViewType = 'month';
-                                        InformaEventQuery.AddProp('MonthYear', targetDate);
+                                        InformaEventQuery.AddProp('MonthYear', targetDate.format('MMMM YYYY'));
                                         InformaEventQuery.AddProp('ViewType', 'month');
                                         // InformaEventQuery.ApplyPropsToController();
                                     }
@@ -680,16 +722,16 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         };
 
                         // only add events in month of mini month FC in year view
-                        if (that.ViewType === 'year') {
+                        // if (that.ViewType === 'year') {
                             // TODO: efficiency: set as data obj to reduce FC calls
                             yvMonthDate = $(this).fullCalendar('getDate');
                             // console.log('isSame', evtStartDate.isSame(yvMonthDate, 'month'));
                             if (evtStartDate.isSame(yvMonthDate, 'month')) {
                                 $(this).fullCalendar('renderEvent', eventFCObj, false);
                             }
-                        } else {
-                            $(this).fullCalendar('renderEvent', eventFCObj, true);
-                        }
+                        // } else {
+                        //     $(this).fullCalendar('renderEvent', eventFCObj, true);
+                        // }
                     } else {
                         startEndDiff = evtEndDate.diff(evtStartDate, 'day');
                         for (multiDayCount = 0; multiDayCount <= startEndDiff; multiDayCount++) {
@@ -704,15 +746,15 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             };
 
                             // only add events in month of mini month FC in year view
-                            if (that.ViewType === 'year') {
+                            // if (that.ViewType === 'year') {
                                 yvMonthDate = $(this).fullCalendar('getDate');
                                 // console.log('isSame', evtStartDate.isSame(yvMonthDate, 'month'));
                                 if (evtStartDate.isSame(yvMonthDate, 'month')) {
                                     $(this).fullCalendar('renderEvent', eventFCObj, false);
                                 }
-                            } else {
-                                $(this).fullCalendar('renderEvent', eventFCObj, true);
-                            }
+                            // } else {
+                            //     $(this).fullCalendar('renderEvent', eventFCObj, true);
+                            // }
                         }
                     }
                 }
@@ -788,7 +830,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             });
             this.ViewTypeSwitch.change(function () {
                 that.ViewType = this.value;
-                // InformaEventQuery.AddProp('ViewType', this.value);
+                InformaEventQuery.AddProp('ViewType', this.value);
                 // InformaEventQuery.ApplyPropsToController();
             });
             this.MoreBtn.click(function () {

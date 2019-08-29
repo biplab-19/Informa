@@ -2601,6 +2601,10 @@ section#hero-banner .vertical-align.video-item h1 {
                 &.next:before {
                     content: '\25BA';
                 }
+                &.arrow-desabled {
+                    background-color: transparent;
+                    opacity: 0.5;
+                }
             }
         }
         [data-view="tile-view"] {
@@ -2763,11 +2767,13 @@ section#hero-banner .vertical-align.video-item h1 {
                     }
                 }
                 .fc-day-number {
+                    padding: 0 10px 10px;
                     font-family: 'OpenSans Bold';
                     font-size: 16px;
                     line-height: 16px;
                     color: #555555;
                     @include mobile {
+                        padding: 0;
                         font-family: 'OpenSans Regular';
                     }
                     &.event-now {
@@ -2775,6 +2781,12 @@ section#hero-banner .vertical-align.video-item h1 {
                     }
                 }
                 .fc-day {
+                    .more {
+                        font-family: 'OpenSans Regular';
+                        font-size: 12px;
+                        line-height: 16px;
+                        color: #11a7d9;
+                    }
                     &:before {
                         border-radius: 10px;
                     }
@@ -2833,7 +2845,7 @@ section#hero-banner .vertical-align.video-item h1 {
                     .events p {
                         font-family: 'OpenSans Regular';
                         font-size: 12px;
-                        line-height: 14px;
+                        line-height: 16px;
                         color: #555555;
                     }
                 }
