@@ -418,6 +418,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
     InformaFC = {
         EventData: [],
+        FCEventData: [],
         ActiveContainer: null,
         ViewElements: null,
         Container: $('.events-list[data-view="calendar-view"]'),
@@ -431,14 +432,15 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.GoToStartDate();
 
             if (data) {
-                this.EventData = this.ProcessEventData(data);
+                this.EventData = data;
+                this.ProcessEventData();
 
                 // remove events-loaded flag so events can load
                 this.ActiveContainer.removeAttr('events-loaded')
             }
 
             // only attempt to load events if event data is set
-            if (this.EventData.length > 0) {
+            if (this.FCEventData.length > 0) {
                 this.RenderEventData();
             }
         },
@@ -467,7 +469,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             // do popup with list view template
                             var evtObj,
                                 html = '',
-                                results = that.EventData;
+                                results = that.EventData.Events;
                             for (var key in results) {
                                 if (results.hasOwnProperty(key)) {
                                     evtObj = results[key];
@@ -626,15 +628,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.ActiveContainer.removeAttr('events-loaded');
         },
         ProcessEventData: function(data) {
-            var events = data.Events,
+            var events = this.EventData.Events,
                 evtLength = events.length,
                 eventCount,
                 evtDataObj = {},
                 evtStartDate,
                 evtEndDate,
                 startEndDiff,
-                multiDayCount,
-                processedEventData = [];
+                multiDayCount;
 
             for (eventCount = 0; eventCount < evtLength; eventCount++) {
                 evtDataObj = events[eventCount];
@@ -643,24 +644,22 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 
                 // single day
                 if (evtStartDate.isSame(evtEndDate, 'day')) {
-                    processedEventData.push({ title: evtDataObj.Title, start: evtStartDate });
+                    this.FCEventData.push({ title: evtDataObj.Title, start: evtStartDate });
                 } 
                 // multiday
                 else {
                     // create new eventobj for each day of event 
                     startEndDiff = evtEndDate.diff(evtStartDate, 'day');
                     for (multiDayCount = 0; multiDayCount <= startEndDiff; multiDayCount++) {
-                        processedEventData.push({ title: evtDataObj.Title, start: moment(evtStartDate).add(multiDayCount, 'days') });
+                        this.FCEventData.push({ title: evtDataObj.Title, start: moment(evtStartDate).add(multiDayCount, 'days') });
                     }
                 }
             }
-
-            return processedEventData;
         },
         RenderEventData: function () {
             var that = this,
                 viewEl,
-                events = this.EventData,
+                events = this.FCEventData,
                 evtLength = events.length,
                 eventCount = 0,
                 eventObj = {},
@@ -743,14 +742,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 var $this = $(this);
                 if ($this.hasClass('previous')) {
                     InformaEventQuery.AddProp('MonthYear', (moment(that.Date).subtract(1, that.ViewType + 's')).format('MMMM YYYY'));
-                    // that.Date = (moment(that.Date).subtract(1, that.ViewType + 's'));
                 }
                 if ($this.hasClass('next')) {
                     InformaEventQuery.AddProp('MonthYear', (moment(that.Date).add(1, that.ViewType + 's')).format('MMMM YYYY'));
-                    // that.Date = (moment(that.Date).add(1, that.ViewType + 's'));
                 }
                 that.UpdateArrows();
-                // InformaEventQuery.ApplyPropsToController();
                 e.preventDefault();
             });
             this.ViewTypeSwitch.change(function () {
