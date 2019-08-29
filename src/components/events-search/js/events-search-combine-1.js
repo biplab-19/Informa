@@ -47,13 +47,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                 if (!this.value) return;
 
-                // if month let InformaEventsController handle it
-                if (this.name === 'MonthYear') {
-                    InformaEventsController.Date = moment(this.value);
-                } else {
+                InformaEventQuery.AddProp(this.name, $this.children('option:selected').text());
+                
+                if (this.name !== 'MonthYear') {
                     // add value to filter
                     that.AddFilter({ type: this.name, text: $this.children('option:selected').text() });
-                    InformaEventQuery.AddProp(this.name, $this.children('option:selected').text());
                     
                     // revert selected option to All
                     $this.children('option[value=""]').attr('selected', '').siblings().removeAttr('selected');
