@@ -759,15 +759,23 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.MoreBtn.click(function () {
                 that.LoadMoreEvents();
             });
-            $(window).scroll(function() {
-                if($(this).scrollTop() >= that.InfiniteScrollLoadPoint) {
-                    this.InfiniteScrollLoadPoint = Number.POSITIVE_INFINITY;
-                    that.LoadMoreEvents();
-                }
-            });
-
-            // set local prop from container
-            this.Count = this.EventsContainer.data('count');
+        },
+        AddInfiniteScrollEvent: function() {
+            var that = this,
+                $win = $(window);
+            
+            // reset load more point
+            this.InfiniteScrollLoadPoint = this.MoreBtn.offset().top - $win.height() - $('#tech-main-header').height();
+            
+            // add listner if more events to come and not in calendar-view
+            if (this.Count < this.TotalCount && this.View !== 'calendar-view') {
+                $win.on('scroll.events.infinite', function() {
+                    if($win.scrollTop() >= that.InfiniteScrollLoadPoint) {
+                        that.LoadMoreEvents();
+                        $win.off('scroll.events.infinite');
+                    }
+                });
+            }
         },
         UpdateArrows: function() {
             if (this.Date.isSameOrBefore(this.PreviousDate, 'month')) {
@@ -780,9 +788,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             } else {
                 this.DateArrows.filter('.next').removeClass('arrow-desabled');
             }
-        },
-        UpdateMoreBtn: function() {
-            this.InfiniteScrollLoadPoint = this.View === 'calendar-view' ? Number.POSITIVE_INFINITY : this.MoreBtn.offset().top - $(window).height() - $('#tech-main-header').height();
         },
         LoadMoreEvents: function() {
             this.PageNum++;
@@ -804,6 +809,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     throw "data not detectable in callback";
                 }
 
+                that.Count = data.Events.length;
                 that.TotalCount = parseInt(data.TotalResults);
                 that.UpdateHeaderDate();
                 
@@ -811,7 +817,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 InformaEventTiles.RenderView(data);
                 InformaFC.RenderView(data);
 
-                that.UpdateMoreBtn();
+                that.AddInfiniteScrollEvent()
             });
         },
         GetSendData: function() {
@@ -909,6 +915,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // reset active class for view buttons for styling
             this.ViewBtns.filter('.active').removeClass('active');
             this.ViewBtns.filter('[data-viewport="' + view + '"]').addClass('active');
+            
+            // potentially set the infinte scroll incase user is swithing to list/tile view from calendar
+            this.AddInfiniteScrollEvent();
         },
         get View() {
             if (!this.EventsContainer.attr('data-eview'))
@@ -1304,6 +1313,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     }
 
     init = function () {
+        // only run if necessary elements exist
+        if (InformaFilters.Container.length === 0 && InformaEventsController.EventsContainer.length === 0) return;
         if(isDev()) {
             ajaxMethod = 'GET';
         }
