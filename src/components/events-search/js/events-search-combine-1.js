@@ -1304,6 +1304,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     }
 
     init = function () {
+        // only run if necessary elements exist
+        if (InformaFilters.Container.length === 0 && InformaEventsController.EventsContainer.length === 0) return;
         if(isDev()) {
             ajaxMethod = 'GET';
         }
