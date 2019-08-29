@@ -67,6 +67,11 @@ var INFORMA = window.INFORMA || {};
                                 '{{#compare Description null operator="!="}}'+
                                     '<p class="description">{{Description}}</p>'+
                                 '{{/compare}}'+
+                                '{{#compare Video null operator="=="}}'+
+                                        '<div class="video-container">' +
+                                        '<img src="{{ContentTileImage.Url}}" alt="{{ContentTileImage.Alt}}">' +
+                                        '</div>' +
+                                        '{{/compare}}' +
                                 '{{#compare Video null operator="!="}}'+
                                     '<div class="video-container">'+
                                         '{{#compare HasExternalLink false operator="=="}}'+
