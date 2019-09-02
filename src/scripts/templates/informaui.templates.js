@@ -63,7 +63,11 @@ var INFORMA = window.INFORMA || {};
                                 '{{#compare PageURL.length "0" operator="=="}}' +
                                     '<h4><span>{{Title}}</span></h4>'+
                                 '{{/compare}}'+
-                                '<p class="publish">{{#if Profile}}{{ByKeyword}} <strong>{{Profile}}</strong>{{/if}}{{#if PublicationDate}}{{PublicationDate}}{{/if}}</p>'+
+                                '<p class="publish">' +
+                                '{{#if Profile}}{{ByKeyword}} ' +
+                                        '{{#compare ProfileUrl null operator="!=" }} <strong><a href="{{ProfileUrl}}" target="_blank">{{Profile}}</a></strong> {{/compare}}' +
+                                        '{{#compare ProfileUrl null operator="=="}} <strong>{{Profile}}</strong> {{/compare}}' +
+                                   '{{/if}}'+
                                 '{{#compare Description null operator="!="}}'+
                                     '<p class="description">{{Description}}</p>'+
                                 '{{/compare}}'+
