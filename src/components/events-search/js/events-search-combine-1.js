@@ -457,11 +457,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 case 'month':
                     initOptions = {
                         header: { left: 'prev', center: 'title', right: 'next' },
-                        eventLimit: false, // Limits the number of events displayed on a day. The rest will show up in a popover.
+                        eventLimit: true, // Limits the number of events displayed on a day. The rest will show up in a popover.
+                        eventLimitText: 'More',
                         contentHeight: _vp === 2 ? 100 : 805, // Sets the height of the view area of the calendar.
-                        weekMode: 'liquid', //Determines the number of weeks displayed in a month view. Also determines each week’s height.
-                        // firstDay: 1, // The day that each week begins.
                         dayNamesShort: _vp === 2 ? ['S', 'M', 'T', 'W', 'T', 'F', 'S'] : _vp === 1 ? ['SUN', 'MON', 'TUE', 'WED', 'THUR', 'FRI', 'SAT'] : ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'], // Abbreviated names of days-of-week.
+                        showNonCurrentDates: false,
                         dayClick: function (date, jsEvent, view) { // Triggered when the user clicks on a date or a time.
                             // do popup with list view template
                             var evtObj,
@@ -483,70 +483,70 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                             that.Modal.modal('show');
                         },
-                        dayRender: function(date, cell) {
-                            cell.append('<span class="more">More</span>');
-                        },
+                        // dayRender: function(date, cell) {
+                        //     cell.append('<span class="more">More</span>');
+                        // },
                         eventAfterAllRender: function (view) { // Triggered after all events have finished rendering.
-                            var _vp = INFORMA.global.device.viewportN,
-                                $activeFcDays,
-                                $activeFcDay,
-                                $events,
-                                datAttr,
-                                dayCellTotalHeight,
-                                accumEventsCellHeight;
+                            // var _vp = INFORMA.global.device.viewportN,
+                            //     $activeFcDays,
+                            //     $activeFcDay,
+                            //     $events,
+                            //     datAttr,
+                            //     dayCellTotalHeight,
+                            //     accumEventsCellHeight;
                             
-                            if (_vp === 0) {
-                                $activeFcDays = view.el.find('.fc-day.event-present');
-                                $activeFcDays.each(function() {
-                                    $activeFcDay = $(this);
-                                    // match the height of :before pseudo (- 30) and More span height
-                                    dayCellTotalHeight = $activeFcDay.height() - 30 - $activeFcDay.children('span').height();
-                                    // console.log($activeFcDay.data('events-height') + ' > ' + dayCellTotalHeight);
-                                    if ($activeFcDay.data('events-height') > dayCellTotalHeight) {
-                                        // set the class to show 'more'
-                                        $activeFcDay.addClass('congested');
-                                        $activeFcDay.data('max-height', dayCellTotalHeight);
-                                    }
-                                });
-                                // reloop to look for events and hide them once overflowed
-                                $activeFcDays.filter('.congested').each(function() {
-                                    $activeFcDay = $(this);
-                                    datAttr = $activeFcDay.data('date');
-                                    $events = view.el.find('.events[data-date="' + datAttr + '"]');
-                                    accumEventsCellHeight = 0;
-                                    $events.each(function() {
-                                        accumEventsCellHeight += $(this).height();
-                                        // if event is overflowed hide it
-                                        if (accumEventsCellHeight > $activeFcDay.data('max-height')) {
-                                            $(this).addClass('hidden');
-                                        } 
-                                    });
-                                });
-                            }
+                            // if (_vp === 0) {
+                            //     $activeFcDays = view.el.find('.fc-day.event-present');
+                            //     $activeFcDays.each(function() {
+                            //         $activeFcDay = $(this);
+                            //         // match the height of :before pseudo (- 30) and More span height
+                            //         dayCellTotalHeight = $activeFcDay.height() - 30 - $activeFcDay.children('span').height();
+                            //         // console.log($activeFcDay.data('events-height') + ' > ' + dayCellTotalHeight);
+                            //         if ($activeFcDay.data('events-height') > dayCellTotalHeight) {
+                            //             // set the class to show 'more'
+                            //             $activeFcDay.addClass('congested');
+                            //             $activeFcDay.data('max-height', dayCellTotalHeight);
+                            //         }
+                            //     });
+                            //     // reloop to look for events and hide them once overflowed
+                            //     $activeFcDays.filter('.congested').each(function() {
+                            //         $activeFcDay = $(this);
+                            //         datAttr = $activeFcDay.data('date');
+                            //         $events = view.el.find('.events[data-date="' + datAttr + '"]');
+                            //         accumEventsCellHeight = 0;
+                            //         $events.each(function() {
+                            //             accumEventsCellHeight += $(this).height();
+                            //             // if event is overflowed hide it
+                            //             if (accumEventsCellHeight > $activeFcDay.data('max-height')) {
+                            //                 $(this).addClass('hidden');
+                            //             } 
+                            //         });
+                            //     });
+                            // }
                             INFORMA.Spinner.Hide();
                         },
                         eventDestroy: function (event, element, view) {
-                            var $elSkeleton = element.closest('.fc-content-skeleton'),
-                                datAttr = event.start.format('YYYY-MM-DD'),
-                                $fcDay = $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']');
+                            // var $elSkeleton = element.closest('.fc-content-skeleton'),
+                            //     datAttr = event.start.format('YYYY-MM-DD'),
+                            //     $fcDay = $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']');
 
-                            $fcDay.data('events-height', 0);
+                            // $fcDay.data('events-height', 0);
                         },
                         eventAfterRender: function (event, element, view) {
                             // add active class to cell for event indicator
                             var $elSkeleton = element.closest('.fc-content-skeleton'),
                                 datAttr = event.start.format('YYYY-MM-DD'),
-                                $fcDayNum = $elSkeleton.find('.fc-day-number[data-date=' + datAttr + ']'),
+                                $fcDayNum = $elSkeleton.find('.fc-day-top[data-date=' + datAttr + ']'),
                                 $fcDay = $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']'),
                                 fcDayTotalEventHeight = $fcDay.data('events-height') || 0;
                             
                             $fcDayNum.addClass('event-now');
                             $fcDay.addClass('event-present');
                             
-                            if(element.data('date') === datAttr && !element[0].hasAttribute('height-recorded')) {
-                                $fcDay.data('events-height', fcDayTotalEventHeight + element.height());
-                                element.attr('height-recorded', '');
-                            }
+                            // if(element.data('date') === datAttr && !element[0].hasAttribute('height-recorded')) {
+                            //     $fcDay.data('events-height', fcDayTotalEventHeight + element.height());
+                            //     element.attr('height-recorded', '');
+                            // }
                         },
                         eventRender: function (event, element, view) { // Triggered while an event is being rendered. A hook for modifying its DOM.
                             var datAttr = event.start.format('YYYY-MM-DD');
@@ -562,10 +562,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         eventLimit: true,
                         titleFormat: 'MMM YYYY',
                         dayNamesShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                        showNonCurrentDates: false,
                         eventAfterRender: function (event, element, view) {
                             var $elSkeleton = element.closest('.fc-content-skeleton'),
                                 datAttr = event.start.format('YYYY-MM-DD');
-                            $elSkeleton.find('.fc-day-number[data-date=' + datAttr + ']').addClass('event-now');
+                            $elSkeleton.find('.fc-day-top[data-date=' + datAttr + ']').addClass('event-now');
                             $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']').addClass('event-present');
                         },
                         eventAfterAllRender: function (view) {

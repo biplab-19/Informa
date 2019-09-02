@@ -2725,7 +2725,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                         border-radius: 10px;
                     }
                 }
-                .fc-day-number {
+                .fc-day-top {
                     padding: 0 10px 10px;
                     font-family: 'OpenSans Bold';
                     font-size: 16px;
@@ -2753,9 +2753,6 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                         &:before {
                             background-color: #f0f0f3;
                         }
-                    }
-                    &.fc-other-month:before {
-                        display: none;
                     }
                     &.event-present {
                         &:before {
@@ -2800,6 +2797,12 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                         }
                     }
                 }
+                .fc-more-cell {
+                    font-family: 'OpenSans Regular';
+                    font-size: 12px;
+                    line-height: 16px;
+                    color: #11a7d9;
+                }
                 .fc-event-container {
                     .events p {
                         font-family: 'OpenSans Regular';
@@ -2835,7 +2838,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                         border-color: #d9d600;
                     }
                 }
-                .fc-day-number {
+                .fc-day-top {
                     font-family: 'OpenSans Regular';
                     font-size: 16px;
                     line-height: 16px;
@@ -2852,9 +2855,6 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                         &:before {
                             background-color: #f0f0f3;
                         }
-                    }
-                    &.fc-other-month:before {
-                        display: none;
                     }
                     &.event-present {
                         cursor: pointer;
