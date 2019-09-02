@@ -18,8 +18,8 @@ INFORMA.heroBanner = (function(window, $, namespace) {
         _heroBannerList = $('.hero-banner-carousel .slider-component'),
         _heroBannerFull = $('.hero-banner-texture,.hero-banner'),
         _heroBannerImage = $('.hero-banner-texture .cf-img,.hero-banner .cf-img'),
-        _heroBannerTexture = $('.hero-banner-texture').not('.supergraphic, .key-acocunt-landing-section'),
-        _heroBannerSg = $('.hero-banner-texture.supergraphic'),
+        _heroBannerTexture = $('.hero-banner-texture').not('.sample-content-banner, .product, .key-acocunt-landing-section'),
+        _heroBannerSg = $('.hero-banner-texture.product.supergraphic'),
 
     // methods
         init,
@@ -234,15 +234,13 @@ INFORMA.heroBanner = (function(window, $, namespace) {
 
         function onCarouselYTPlayerReady(event) {
             if (INFORMA.global.device.viewport === "desktop" || INFORMA.global.device.viewportN === 0) {
-                setTimeout(function(){
-                    event.target.pauseVideo();
-                    event.target.setVolume(_youTubeSound);
-                },10)
+                event.target.pauseVideo();
+                event.target.setVolume(_youTubeSound);
                 playCount++;
                 if(ytPlayers.length === playCount) {
                     $('.hero-banner-carousel .slick-next,.hero-banner-carousel .slick-prev,.hero-banner-carousel ul.slick-dots').removeClass('disable-arrow');
-                        if(_heroBannerList.find('.hero-items.slick-active .videoBG').attr('data-videotype') ==='youtube') {
-                            var ytubeId = _heroBannerList.find('.hero-items.slick-active .videoBG iframe')[0].id;
+                        if(_heroBannerList.find('.videoBG').attr('data-videotype') ==='youtube') {
+                            var ytubeId = _heroBannerList.find('.videoBG iframe')[0].id;
                             for(var i=0; i<ytPlayers.length;i++){
                                 if(ytPlayers[i].a.id === ytubeId){
                                     ytPlayers[i].playVideo();
@@ -349,6 +347,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     _heroBannerImage.css('top', '');
                     _heroBannerImage.css('height', '');
                 }
+                _heroBannerImage.addClass('ready');
             }
         },
 
