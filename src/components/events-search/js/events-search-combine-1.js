@@ -16,7 +16,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     var Templates = INFORMA.Templates,
         ajaxMethod = 'POST',
         //methods
-        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, isDev;
+        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, getMomentDate, isDev;
 
     InformaFilters = {
         Container: $('.events-search'),
@@ -301,8 +301,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.EventsContainer.html(html);
         },
         AddDateToEvent: function(data) {
-            var sDateMoment = moment(data.EventStartDate),
-                eDateMoment = moment(data.EventEndDate)
+            var sDateMoment = getMomentDate(data.EventStartDate, 'event'),
+                eDateMoment = getMomentDate(data.EventEndDate, 'event')
             
             // if same day, single date type else date range type
             if (sDateMoment.isSame(eDateMoment, "day")) {
@@ -370,11 +370,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     evtObj = results[key];
 
                     // if new month, append a new divider
-                    currEventDate = moment(evtObj.EventStartDate);
+                    currEventDate = getMomentDate(evtObj.EventStartDate, 'event');
                     if (!currEventDate.isSame(prevEventDate, 'month'))
                         html += '<div class="col-12 month-divider"><h3>' + currEventDate.format('MMMM YYYY').toUpperCase()
                         + '</h3></div>'
-                    prevEventDate = moment(evtObj.EventStartDate);
+                    prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
                     
                     this.AddDateToEvent(evtObj);
                     
@@ -384,8 +384,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.EventsContainer.html(html);
         },
         AddDateToEvent: function(data) {
-            var sDateMoment = moment(data.EventStartDate),
-                eDateMoment = moment(data.EventEndDate)
+            var sDateMoment = getMomentDate(data.EventStartDate, 'event'),
+                eDateMoment = getMomentDate(data.EventEndDate, 'event')
             
             // if same day, single date type else date range type
             if (sDateMoment.isSame(eDateMoment, "day")) {
@@ -575,7 +575,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                 eventMoment;
                             
                             if ($firstEventEl.length > 0) {
-                                eventMoment = moment($firstEventEl.attr('data-date'), 'YYYY-MM-DD');
+                                eventMoment = getMomentDate($firstEventEl.attr('data-date'), 'fullcalendar');
 
                                 // add data, class and click event to go to month view
                                 if ($fcView.attr('click-added')) return;
@@ -584,8 +584,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                     if (targetDate.isValid()) {
                                         INFORMA.Spinner.Show($('body'));
                                         setTimeout(function() {
-                                            InformaEventQuery.AddProp('MonthYear', targetDate.format('MMMM YYYY'));
-                                            InformaEventQuery.AddProp('ViewType', 'month');
+                                            // hear force done loadevents
+                                            InformaEventQuery.AddProps({
+                                                MonthYear: targetDate.format('MMMM YYYY'),
+                                                ViewType: 'month',
+                                            });
+                                            // InformaEventQuery.AddProp('MonthYear', targetDate.format('MMMM YYYY'));
+                                            // InformaEventQuery.AddProp('ViewType', 'month');
                                         }, 200);
                                     }
                                 });
@@ -614,7 +619,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             var that = this,
                 currFCDate = this.ViewElements.first().fullCalendar('getDate');
             // if the date already matches this.Date dont set
-            if (currFCDate.isSame(this.Date, 'month')) return;
+            if (!this.Date || this.Date.isSame(currFCDate, 'month')) return;
 
             // set all FCs based on this.Date, for month view loop runs once
             this.ViewElements.each(function (index) {
@@ -637,8 +642,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
             for (eventCount = 0; eventCount < evtLength; eventCount++) {
                 evtDataObj = events[eventCount];
-                evtStartDate = moment(evtDataObj.EventStartDate);
-                evtEndDate = moment(evtDataObj.EventEndDate);
+                evtStartDate = getMomentDate(evtDataObj.EventStartDate, 'event');
+                evtEndDate = getMomentDate(evtDataObj.EventEndDate, 'event');
                 
                 // single day
                 if (evtStartDate.isSame(evtEndDate, 'day')) {
@@ -681,7 +686,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                     // add the event if its within the same month of the current FC
                     if (eventObj.start.isSame(viewEl.data('date'), 'month')) {
-                        $(this).fullCalendar('renderEvent', eventObj, false);
+                        $(this).fullCalendar('renderEvent', eventObj);
                     }
                 }
 
@@ -976,48 +981,56 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             var hasDateChanged = false,
                 hasViewChanged = false,
                 hasViewTypeChanged = false,
-                hasFiltersChanged = false
+                hasFiltersChanged = false,
+                stillInCalView = false,
+                newView;
 
             // set property from default if not present with warning
             if (activePropsObj.hasOwnProperty('MonthYear')) {
-                if (!this.Date || !this.Date.isSame(moment(activePropsObj['MonthYear'][0]), 'month')) {
-                    this.Date = moment(activePropsObj['MonthYear'][0]);
+                if (!this.Date || !this.Date.isSame(getMomentDate(activePropsObj['MonthYear'][0], 'select'), 'month')) {
+                    this.Date = getMomentDate(activePropsObj['MonthYear'][0], 'select');
                     hasDateChanged = true;
                 }
             } else {
                 console.warn("MonthYear properties missing, reverting to detault");
                 if (!this.Date || !this.Date.isSame(InformaEventQuery.GetDefaultProp('MonthYear')[0], 'month')) {
-                    this.Date = InformaEventQuery.GetDefaultProp('MonthYear')[0];
+                    this.Date = getMomentDate(InformaEventQuery.GetDefaultProp('MonthYear')[0], 'select');
                     hasDateChanged = true;
                 }
             }
             
+
+            
             // set property from default if not present with warning
             if (activePropsObj.hasOwnProperty('View')) {
-                if (this.View !== activePropsObj['View'][0]) {
-                    this.View = activePropsObj['View'][0];
-                    hasViewChanged = true;
-                }
+                // if (this.View !== activePropsObj['View'][0]) {
+                    newView = activePropsObj['View'][0];
+                //     hasViewChanged = true;
+                // }
             } else {
                 console.warn("View properties missing, reverting to detault");
-                if (this.View !== InformaEventQuery.GetDefaultProp('View')[0]) {
-                    this.View = InformaEventQuery.GetDefaultProp('View')[0];
-                    hasViewChanged = true;
-                }
+                // if (this.View !== InformaEventQuery.GetDefaultProp('View')[0]) {
+                    newView = InformaEventQuery.GetDefaultProp('View')[0];
+                //     hasViewChanged = true;
+                // }
             }
+            stillInCalView = (this.View === 'calendar-view' && newView === 'calendar-view');
+            this.View = newView;
             
             // set property from default if not present with warning
             if (activePropsObj.hasOwnProperty('ViewType')) {
-                if (this.ViewType !== activePropsObj['ViewType'][0]) {
+                // if its already defined and its changed
+                hasViewTypeChanged = !!this.ViewType && this.ViewType !== activePropsObj['ViewType'][0];
+                // if (this.ViewType !== activePropsObj['ViewType'][0]) {
                     this.ViewType = activePropsObj['ViewType'][0];
-                    hasViewTypeChanged = true;
-                }
+                    // hasViewTypeChanged = true;
+                // }
             } else {
                 console.warn("ViewType properties missing, reverting to detault");
-                if (this.ViewType !== InformaEventQuery.GetDefaultProp('ViewType')[0]) {
+                // if (this.ViewType !== InformaEventQuery.GetDefaultProp('ViewType')[0]) {
                     this.ViewType = InformaEventQuery.GetDefaultProp('ViewType')[0];
-                    hasViewTypeChanged = true;
-                }
+                //     hasViewTypeChanged = true;
+                // }
             }
             
             // filters
@@ -1034,8 +1047,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 InformaFilters.HaveUpdated = false;
             }
 
-            // do ajax call only if date or filters change
-            if (hasDateChanged || hasFiltersChanged) {
+            // only do ajax call when the date or filters change and ignore during calendar view
+            if (!stillInCalView && (hasDateChanged || hasFiltersChanged)) {
                 this.LoadEvents();
             }
         }
@@ -1049,7 +1062,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         Preselected: [],
         Init: function() {
             this.Defaults = [
-                { name: 'MonthYear', values: [moment(new Date()).format('MMMM YYYY')] },
+                { name: 'MonthYear', values: [moment().format('MMMM YYYY')] },
                 { name: 'View', values: [InformaEventsController.ViewBtns.filter('.active').data('viewport') || 'list-view'] },
                 { name: 'ViewType', values: [InformaEventsController.ViewTypeSwitch.filter('[checked]').attr('value') || 'month'] },
                 // { name: 'SectorId', values: ['foo', 'foo'] },
@@ -1171,7 +1184,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     isValid = (value === 'month' || value === 'year');
                     break;
                 case 'MonthYear':
-                    isValid = moment(value).isValid();
+                    isValid = getMomentDate(value, 'select').isValid();
                     break;
                 default:
                     // assume filter, check texts for values, if any are invalid return false
@@ -1206,7 +1219,20 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // console.log(name, 'is valid', isValid);
             return isValid ? {name: name, value: value} : null;
         },
-        AddProp: function(name, value) {
+        AddProps: function(kvObj) {
+            var haveActivePropsChanged = false,
+                key;
+            for (key in kvObj) {
+                if (this.AddProp(key, kvObj[key], true)) {
+                    haveActivePropsChanged = true;
+                }
+            }
+            if (haveActivePropsChanged) {
+                this.SetQueryFromProps();
+                this.ApplyPropsToController();
+            }
+        },
+        AddProp: function(name, value, isBulkHelper = false) {
             var haveActivePropsChanged = false,
                 existingEl = this.ActiveProperties.find(function (activeObj) { return activeObj.name === name }),
                 existingValInd
@@ -1238,10 +1264,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 haveActivePropsChanged = true;
             }
 
-
-            if (haveActivePropsChanged) {
-                this.SetQueryFromProps();
-                this.ApplyPropsToController();
+            if (isBulkHelper) {
+                return haveActivePropsChanged;
+            } else {
+                if (haveActivePropsChanged) {
+                    this.SetQueryFromProps();
+                    this.ApplyPropsToController();
+                }
             }
         },
         RemoveProp: function(name, value) {
@@ -1304,6 +1333,31 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         GetDefaultProp: function (name) {
             return this.Defaults.find(function(defaultObj) { return defaultObj.name === name});
+        }
+    }
+
+    getMomentDate = function (dateStr, dateType) {
+        var expectedFormat;
+
+        switch (dateType) {
+            case 'event' :
+                expectedFormat = moment.ISO_8601;
+                break;
+            case 'select':
+                expectedFormat = 'MMMM YYYY';
+                break;
+            case 'fullcalendar':
+                expectedFormat = 'YYYY-MM-DD';
+                break;
+                break;
+            default:
+                console.warn('dateType not handled : ' + dateType);
+        }
+
+        if (expectedFormat) {
+            return moment(dateStr, expectedFormat);
+        } else {
+            return moment(dateStr);
         }
     }
 
