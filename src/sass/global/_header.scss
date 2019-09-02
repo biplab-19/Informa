@@ -2778,6 +2778,9 @@ body{
 section.informaNav.white-theme {
     .nav-main{
         background-color: $white;
+        @media screen and (max-width: 1142px){
+            background-color: $white-shade;   
+        }
         .navbar-collapse .navbar-right .search {
             @media screen and (min-width: 1142px){
                background-color: $white-shade;
@@ -2792,6 +2795,9 @@ section.informaNav.white-theme {
     } 
     a {
         color:$gray;
+    }
+    a.search{
+        color:$white;
     }  
     .nav-active {
         a{
@@ -3134,6 +3140,31 @@ section.informaNav.white-theme {
     color: $finance-green!important;
 }
 
+header section.informaNav.white-theme .navbar .container .navbar-header .navbar-toggle .icon-bar {
+    @media screen and  (max-width: 1141px){
+        background-color: $gray;
+    }
+}
+.white-theme #mobile-header-navigation{
+    background-color: $white;
+}
+header section.informaNav.white-theme .navbar-collapse .navbar-right {
+    @media screen and  (max-width: 1141px) {
+        background-color: $white;
+    }
+    
+}
+
+header section.informaNav.white-theme .navbar-collapse .navbar-right .header-links {
+    @media screen and  (max-width: 1141px) {
+        padding: 15px 0;
+        width: 50%;
+        text-align: center;
+        border-right: 2px solid $white-shade;
+        float: left;
+        border-bottom: 2px solid $white-shade;
+    }
+}
 
 
 
