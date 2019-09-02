@@ -471,7 +471,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                 if (results.hasOwnProperty(key)) {
                                     evtObj = results[key];
 
-                                    if (date.isBetween(moment(evtObj.EventStartDate), moment(evtObj.EventEndDate), null, '[]')) {
+                                    if (date.isBetween(getMomentDate(evtObj.EventStartDate, 'event'), getMomentDate(evtObj.EventEndDate, 'event'), 'day', '[]')) {
                                         InformaEventList.AddDateToEvent(evtObj);
                                         html += InformaEventList.Template({ results: evtObj });
                                     }
