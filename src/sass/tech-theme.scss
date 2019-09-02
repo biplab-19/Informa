@@ -2366,7 +2366,17 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         }
     }
 }
-
+@media only screen and (min-width: 768px) {
+    .hero-items.hero-carousel .vertical-align.overlay-text {
+        max-width: 100%;
+        width: 100%;
+        transform: translateY(0%);
+        z-index: 9999;
+    }
+    .hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
+        color: #fff!important;
+    }
+}
 /* events calendar start */
 .tech-theme {
     .events-search {
