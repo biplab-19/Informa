@@ -1,5 +1,4 @@
-
-    .tech-sitemap {
+.tech-sitemap {
         background-color: #002244;
         width: 100%;
         display: flex;
@@ -40,17 +39,24 @@
                     ul.list-unstyled{
                         li{
                             font-size: 14px;
-                            font-family: 'Open Sans', sans-serif;
                             line-height: 30px;
                             text-transform: capitalize;
                             font-weight: bold;
-                            a{
-                                color: #a7a7a7;
+                            a {
+                                color: #ffffff;
+                                font-family: 'OpenSans Bold' !important;
+
                             }
                             a:hover {
                                 text-decoration: underline;
-                                color: #eee;
                                 transition: ease .5s;
+                            }
+                            ul.list-unstyled{
+                                li {
+                                    a{
+                                        font-family: 'Open Sans Semibold' !important;
+                                    }
+                                }
                             }
                         }
                        
@@ -68,6 +74,7 @@
             h2.headline{
                 color: #fff !important;
                 margin-top: 0;
+                font-family: 'OpenSans Bold' !important;
             }
             h4 {
                 width: 100%;
@@ -76,6 +83,11 @@
                 font-size: 18px !important;
                 color: #fff !important;
                 min-height: 20px;
+                font-family: 'OpenSans Bold' !important;
+            }
+            h4:hover {
+                    text-decoration: underline;
+                    transition: ease .5s;
             }
         }
     }
