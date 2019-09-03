@@ -328,9 +328,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 }
             });
     
-            EachItem.height(highestBox + padding);
-            if (INFORMA.global.device.viewportN == 2) {
-                EachItem.height("auto");
+            if (INFORMA.global.device.viewportN !== 2) {
+                EachItem.height(highestBox + padding);
+                EachItem.addClass('heightset');
             }
         },
         set ViewType (type) {
