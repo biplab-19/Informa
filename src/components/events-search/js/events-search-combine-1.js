@@ -718,9 +718,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             });
         },
         set ViewType (type) {
+            var doRender = true;
             // disable the current ActiveContainer if already set
             if (this.ActiveContainer && this.ActiveContainer.length > 0) {
                 this.ActiveContainer.removeClass('active');
+                // only do render if the viewtype has changed from before
+                doRender = this.ActiveContainer.attr('data-datetype') !== type;
             }
             // set active view container based on data-datetype attr
             this.ActiveContainer = this.Container.children('[data-datetype="' + type + '"]');
@@ -728,7 +731,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // then children of above
             this.ViewElements = this.ActiveContainer.find('.fccal');
 
-            this.RenderView();
+            if (doRender)
+                INFORMA.Spinner.Show($('body'));
+                this.RenderView();
         },
         get ViewType () {
             return this.ActiveContainer.attr('data-datetype');
@@ -759,8 +764,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         Init: function () {
             var that = this;
             this.ViewBtns.click(function (e) {
-                InformaEventQuery.AddProp('View', $(this).data('viewport'));
-                InformaEventQuery.AddProp('ViewType', 'month');
+                InformaEventQuery.AddProps({
+                    View: $(this).data('viewport'),
+                    ViewType: 'month',
+                });
+                // InformaEventQuery.AddProp('View', $(this).data('viewport'));
+                // InformaEventQuery.AddProp('ViewType', 'month');
                 e.preventDefault();
             });
             this.DateArrows.click(function (e) {
@@ -776,11 +785,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             });
             this.ViewTypeSwitch.change(function () {
                 var val = this.value;
-                INFORMA.Spinner.Show($('body'));
-                setTimeout(function() {
-                    that.ViewType = val;
-                    InformaEventQuery.AddProp('ViewType', val);
-                }, 200);
+                InformaEventQuery.AddProp('ViewType', val);
             });
             this.MoreBtn.click(function () {
                 that.LoadMoreEvents();
@@ -1069,8 +1074,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 InformaFilters.HaveUpdated = false;
             }
 
-            // only do ajax call when the date or filters change and ignore during calendar view
-            if (!hasViewTypeChanged && (hasDateChanged || hasFiltersChanged)) {
+            // calendar view hasnt changed, or date has changed / filters have then to ajax
+            if (!stillInCalView || hasDateChanged || hasFiltersChanged) {
                 this.LoadEvents();
             }
         }
