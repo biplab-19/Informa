@@ -430,6 +430,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
             if (data) {
                 this.EventData = data;
+                this.FCEventData = [];
                 this.ProcessEventData();
 
                 // remove events-loaded flag so events can load
@@ -1048,7 +1049,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             }
 
             // only do ajax call when the date or filters change and ignore during calendar view
-            if (!stillInCalView && (hasDateChanged || hasFiltersChanged)) {
+            if (!hasViewTypeChanged && (hasDateChanged || hasFiltersChanged)) {
                 this.LoadEvents();
             }
         }
