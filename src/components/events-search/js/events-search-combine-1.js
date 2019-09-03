@@ -631,31 +631,52 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // remove events loaded flag to reload them
             this.ActiveContainer.removeAttr('events-loaded');
         },
-        ProcessEventData: function(data) {
-            var events = this.EventData.Events,
-                evtLength = events.length,
+        ProcessEventData: function() {
+            var evtLength = this.EventData.Events.length,
                 eventCount,
                 evtDataObj = {},
                 evtStartDate,
                 evtEndDate,
                 startEndDiff,
-                multiDayCount;
+                multiDayCount,
+                startOfStartDate,
+                endOfMultiDayStartDate,
+                endOfEndDate,
+                multiDayStartDate
 
             for (eventCount = 0; eventCount < evtLength; eventCount++) {
-                evtDataObj = events[eventCount];
+                evtDataObj = this.EventData.Events[eventCount];
                 evtStartDate = getMomentDate(evtDataObj.EventStartDate, 'event');
                 evtEndDate = getMomentDate(evtDataObj.EventEndDate, 'event');
                 
                 // single day
+                // populate
                 if (evtStartDate.isSame(evtEndDate, 'day')) {
-                    this.FCEventData.push({ title: evtDataObj.Title, start: evtStartDate });
+                    this.FCEventData.push({
+                        title: evtDataObj.Title,
+                        start: evtStartDate,
+                        end: evtEndDate
+                    });
                 } 
                 // multiday
                 else {
                     // create new eventobj for each day of event 
-                    startEndDiff = evtEndDate.diff(evtStartDate, 'day');
+                    // get diff from start of start date and end of end date to ensure partial days are populated
+                    startOfStartDate = moment(evtStartDate).startOf('day');
+                    endOfEndDate = moment(evtEndDate).endOf('day');
+                    startEndDiff = endOfEndDate.diff(startOfStartDate, 'day');
+                    // loop to create an event obj for each day
                     for (multiDayCount = 0; multiDayCount <= startEndDiff; multiDayCount++) {
-                        this.FCEventData.push({ title: evtDataObj.Title, start: moment(evtStartDate).add(multiDayCount, 'days') });
+                        // set start day of event obj by adding loop's index number of days
+                        multiDayStartDate = moment(startOfStartDate).add(multiDayCount, 'days');
+                        // set end of event obj based on endof start date
+                        endOfMultiDayStartDate = moment(multiDayStartDate).endOf('day');
+                        // populate
+                        this.FCEventData.push({
+                            title: evtDataObj.Title,
+                            start: multiDayStartDate,
+                            end: endOfMultiDayStartDate
+                        });
                     }
                 }
             }
@@ -686,7 +707,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     eventObj = events[eventCount];
 
                     // add the event if its within the same month of the current FC
-                    if (eventObj.start.isSame(viewEl.data('date'), 'month')) {
+                    if (eventObj.start.isSame(viewEl.data('date'), 'month') || eventObj.end.isSame(viewEl.data('date'), 'month')) {
                         $(this).fullCalendar('renderEvent', eventObj);
                     }
                 }
