@@ -761,6 +761,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         EndDate: null,
         PreviousDate: null,
         PageNum: 1,
+        LoadCalled: false,
         Init: function () {
             var that = this;
             this.ViewBtns.click(function (e) {
@@ -798,15 +799,15 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // reset load more point
             this.InfiniteScrollLoadPoint = this.MoreBtn.offset().top - $win.height() - $('#tech-main-header').height();
             
-            // add listner if more events to come and not in calendar-view
-            if (this.Count < this.TotalCount && this.View !== 'calendar-view') {
+            // add listner if more events to come
+            // if (this.ActualCount < this.TotalCount) {
                 $win.on('scroll.events.infinite', function() {
-                    if($win.scrollTop() >= that.InfiniteScrollLoadPoint) {
-                        that.LoadMoreEvents();
+                    if($win.scrollTop() >= that.InfiniteScrollLoadPoint && !that.LoadCalled) {
                         $win.off('scroll.events.infinite');
+                        that.LoadMoreEvents();
                     }
                 });
-            }
+            // }
         },
         UpdateArrows: function() {
             if (this.Date.isSameOrBefore(this.PreviousDate, 'month')) {
@@ -831,8 +832,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
             if (!sendData) return;
 
+            this.LoadCalled = true;
             this.PageNum = pageNum;
             this.GetAjaxData(INFORMA.Configs.urls.webservices.EventsSearch, ajaxMethod, sendData, function(data) {
+                var eventsCount;
 
                 if (data) {
                     console.log('data received', data);
@@ -840,15 +843,21 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     throw "data not detectable in callback";
                 }
 
-                that.Count = data.Events.length;
+                eventsCount = data.Events.length;
+                if (eventsCount === 0) return;
+
                 that.TotalCount = parseInt(data.TotalResults);
+                that.ActualCount = (that.ActualCount || 0) + eventsCount;
+
                 that.UpdateHeaderDate();
                 
                 InformaEventList.RenderView(data);
                 InformaEventTiles.RenderView(data);
                 InformaFC.RenderView(data);
 
-                that.AddInfiniteScrollEvent()
+                that.LoadCalled = false;
+                if (this.View !== 'calendar-view') 
+                    that.AddInfiniteScrollEvent();
             });
         },
         GetSendData: function() {
@@ -879,7 +888,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 case 'tile-view':
                     // add event listing specific non filter props
                     sendDataObj.PageNo = this.PageNum;
-                    sendDataObj.PageSize = this.Count;
+                    sendDataObj.PageSize = parseInt(this.EventsContainer.data('count'));
                 case 'calendar-view':
                     // explicitly set MonthYear property to EventsStartDate
                     sendDataObj.EventsEndDate = eventsEndDate;
@@ -990,16 +999,15 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         get Date() {
             return this.StartDate;
         },
-        set Count(count) {
-            this.EventsContainer.data('count', count);
-            this.CountText.text(count);
+        set ActualCount(count) {
+            this.EventsContainer.data('actual-count', count);
+            this.TotalText.text(count);
         },
-        get Count() {
-            return parseInt(this.EventsContainer.data('count'));
+        get ActualCount() {
+            return parseInt(this.EventsContainer.data('actual-count'));
         },
         set TotalCount(count) {
             this.EventsContainer.attr('total-count', count);
-            this.TotalText.text(count);
         },
         get TotalCount() {
             return parseInt(this.EventsContainer.attr('total-count'));
