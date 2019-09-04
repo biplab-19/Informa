@@ -862,7 +862,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         GetSendData: function() {
             var that = this,
-                eventsEndDate,
                 sendDataObj = {}
 
             // add filters as property name and push multiple filters of the same type into array
@@ -872,12 +871,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 sendDataObj[filterObj.type].push(filterObj.value);
             });
 
-
             if (!sendDataObj.MonthYear) return null;
-
-            // check date type (year / month), set to EndDate if year else set to startdata + 1 month if month
-            eventsEndDate = this.ViewType === 'year' ? this.EndDate.format('MMMM YYYY') : 
-                            moment(this.Date).add(1, 'months').format('MMMM YYYY');
 
             // add non filter props
             sendDataObj.CurrentPage = this.EventsContainer.data('currentpage');
@@ -891,7 +885,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     sendDataObj.PageSize = parseInt(this.EventsContainer.data('count'));
                 case 'calendar-view':
                     // explicitly set MonthYear property to EventsStartDate
-                    sendDataObj.EventsEndDate = eventsEndDate;
+                    sendDataObj.EventsEndDate = moment(this.Date).add(1, this.ViewType + 's').format('MMMM YYYY');
                     sendDataObj.EventsStartDate = sendDataObj.MonthYear[0];
                     delete sendDataObj.MonthYear;
                     break;
