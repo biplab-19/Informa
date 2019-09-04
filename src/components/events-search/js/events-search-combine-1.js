@@ -900,10 +900,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 throw "CurrentPage not valid : " + sendDataObj.CurrentPage;
 
             if (this.View !== 'calendar-view') {
-                if (!sendDataObj.PageNo || isNaN(sendDataObj.PageNo))
+                if (isNaN(sendDataObj.PageNo))
                     throw "PageNo not valid : " + sendDataObj.PageNo;
                     
-                if (!sendDataObj.PageSize || isNaN(sendDataObj.PageSize))
+                if (isNaN(sendDataObj.PageSize))
                     throw "PageSize not valid : " + sendDataObj.PageSize;
             }
 
