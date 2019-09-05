@@ -50,9 +50,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 InformaEventQuery.AddProp(this.name, $this.children('option:selected').text());
                 
                 if (this.name !== 'MonthYear') {
-                    // add value to filter
-                    that.AddFilter({ type: this.name, text: $this.children('option:selected').text() });
-                    
                     // revert selected option to All
                     $this.children('option[value=""]').attr('selected', '').siblings().removeAttr('selected');
                     $this.trigger("chosen:updated");
@@ -161,7 +158,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 });
             }
 
-            this.HaveUpdated = this.FiltersUI.attr('data-count') !== activeFilterLength;
             this.FiltersUI.attr('data-count', activeFilterLength);
 
             // update UI
@@ -1191,6 +1187,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 }
             });
 
+            // set filters updated flag
+            if (sanPropsArr.findIndex(function (sanitizedObj) { 
+                return sanitizedObj.name !== 'MonthYear' && sanitizedObj.name !== 'View' && sanitizedObj.name !== 'ViewType'
+            })) InformaFilters.HaveUpdated = true
+
             // console.log('sanPropsArr', sanPropsArr);
 
             this.ActiveProperties = sanPropsArr;
@@ -1279,16 +1280,19 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         if (existingEl.values[existingValInd] !== value) {
                             existingEl.values[existingValInd] = value;
                             haveActivePropsChanged = true;
+                            InformaFilters.HaveUpdated = true;
                         }
                     } else {
                         existingEl.values.push(value);
                         haveActivePropsChanged = true;
+                        InformaFilters.HaveUpdated = true;
                     }
                 }
             } else {
                 // new value
                 this.ActiveProperties.push({ name: name, values: [value] });
                 haveActivePropsChanged = true;
+                InformaFilters.HaveUpdated = true;
             }
 
             if (isBulkHelper) {
@@ -1324,6 +1328,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             this.ActiveProperties.splice(existingElInd, 1);
                         }
                         haveActivePropsChanged = true;
+                        InformaFilters.HaveUpdated = true;
                     }
                 }
             }
