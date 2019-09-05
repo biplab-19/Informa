@@ -280,11 +280,12 @@
                             bottom: 0.1em;
                         }
                         &:after {
+                            display: block;
                             content: '';
                             position: absolute;
                             right: 0;
                             width: 1em;
-                            height: 2em;
+                            height: 100%;
                             margin-top: -1em;
                             background: #f3f3f3;
                         }
@@ -489,11 +490,12 @@
                             bottom: 0.1em;
                         }
                         &:after {
+                            display: block;
                             content: '';
                             position: absolute;
-                            right: -0.3em;
+                            right: 0;
                             width: 1em;
-                            height: 2em;
+                            height: 100%;
                             margin-top: -1em;
                             background: white;
                         }
