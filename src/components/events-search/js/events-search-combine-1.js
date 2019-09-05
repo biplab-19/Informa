@@ -893,6 +893,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             sendDataObj.CurrentPage = this.EventsContainer.data('currentpage');
             sendDataObj.ViewMode = this.View === 'calendar-view' ? 'calendar' : 'list';
 
+            // set endate to far in the future for list view for infinite scrolling
+            if (this.View === 'calendar-view') {
+                sendDataObj.EventsEndDate = moment(this.Date).add(1, this.ViewType + 's').format('MMMM YYYY');
+            } else {
+                sendDataObj.EventsEndDate = moment(this.Date).add(100, 'years').format('MMMM YYYY');
+            }
+            
+
             switch (this.View) {
                 case 'list-view':
                 case 'tile-view':
@@ -901,7 +909,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     sendDataObj.PageSize = parseInt(this.EventsContainer.data('count'));
                 case 'calendar-view':
                     // explicitly set MonthYear property to EventsStartDate
-                    sendDataObj.EventsEndDate = moment(this.Date).add(1, this.ViewType + 's').format('MMMM YYYY');
                     sendDataObj.EventsStartDate = sendDataObj.MonthYear[0];
                     delete sendDataObj.MonthYear;
                     break;
