@@ -799,14 +799,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.InfiniteScrollLoadPoint = this.MoreBtn.offset().top - $win.height() - $('#tech-main-header').height();
             
             // add listner if more events to come
-            // if (this.ActualCount < this.TotalCount) {
+            if (this.ActualCount < this.TotalCount) {
                 $win.on('scroll.events.infinite', function() {
                     if($win.scrollTop() >= that.InfiniteScrollLoadPoint && !that.LoadCalled) {
                         $win.off('scroll.events.infinite');
                         that.LoadMoreEvents();
                     }
                 });
-            // }
+            }
         },
         UpdateArrows: function() {
             if (this.Date.isSameOrBefore(this.PreviousDate, 'month')) {
