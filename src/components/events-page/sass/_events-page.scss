@@ -57,8 +57,9 @@
                 }
             }
             &.previous {
-                left: 15px;
+                right: 100%;
                 @include mobile {
+                    right: auto;
                     left: 7.5px;
                 }
                 &:before {
@@ -66,8 +67,9 @@
                 }
             }
             &.next {
-                right: 15px;
+                left: 100%;
                 @include mobile {
+                    left: auto;
                     right: 7.5px;
                 }
                 &:before {
