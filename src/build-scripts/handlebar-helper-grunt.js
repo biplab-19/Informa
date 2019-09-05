@@ -30,44 +30,71 @@ module.exports.register = function (Handlebars, options, params) {
           return options.inverse(this);
         }
       
-      });
-      
-      Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
-          lvalue = parseFloat(lvalue);
-          rvalue = parseFloat(rvalue);
-      
-          return {
-              "+": lvalue + rvalue,
-              "-": lvalue - rvalue,
-              "*": lvalue * rvalue,
-              "/": lvalue / rvalue,
-              "%": lvalue % rvalue
-          }[operator];
-      });
-      
-      Handlebars.registerHelper('splitURL', function(string, substring) {
-        if(string){
-          var u = string.split("?");
-          var s = u[0].toString().split("/");
-          var i = s.lastIndexOf(substring);
-          if(i == -1){  
-            return false;
-          }else{
-            return true;
-          }
-        }else{
+    });
+    
+    Handlebars.registerHelper("math", function(lvalue, operator, rvalue, options) {
+        lvalue = parseFloat(lvalue);
+        rvalue = parseFloat(rvalue);
+    
+        return {
+            "+": lvalue + rvalue,
+            "-": lvalue - rvalue,
+            "*": lvalue * rvalue,
+            "/": lvalue / rvalue,
+            "%": lvalue % rvalue
+        }[operator];
+    });
+    
+    Handlebars.registerHelper('splitURL', function(string, substring) {
+      if(string){
+        var u = string.split("?");
+        var s = u[0].toString().split("/");
+        var i = s.lastIndexOf(substring);
+        if(i == -1){  
           return false;
+        }else{
+          return true;
         }
-      });
-      
-      Handlebars.registerHelper('AnalystData', function(profile) {
-        if(profile){
-          var u = profile.split("#");
-          if(profile.indexOf('#')!== -1 && u[1]){
-                return "<a href="+u[1]+">"+u[0]+"</a>";
-          }else{
-            return profile;
-          }
+      }else{
+        return false;
+      }
+    });
+    
+    Handlebars.registerHelper('AnalystData', function(profile) {
+      if(profile){
+        var u = profile.split("#");
+        if(profile.indexOf('#')!== -1 && u[1]){
+              return "<a href="+u[1]+">"+u[0]+"</a>";
+        }else{
+          return profile;
+        }
+      }
+    });
+    
+    Handlebars.registerHelper({
+        eq: function (v1, v2) {
+            return v1 === v2;
+        },
+        ne: function (v1, v2) {
+            return v1 !== v2;
+        },
+        lt: function (v1, v2) {
+            return v1 < v2;
+        },
+        gt: function (v1, v2) {
+            return v1 > v2;
+        },
+        lte: function (v1, v2) {
+            return v1 <= v2;
+        },
+        gte: function (v1, v2) {
+            return v1 >= v2;
+        },
+        and: function () {
+            return Array.prototype.slice.call(arguments).every(Boolean);
+        },
+        or: function () {
+            return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
         }
     });
 };
