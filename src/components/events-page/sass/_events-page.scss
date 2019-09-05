@@ -27,7 +27,8 @@
             height: 67px;
             display: block;
             // background-color: $yellow;
-            position: relative;
+            position: absolute;
+            top: 0;
             color: $white;
             text-indent: -999px;
             @include tablet {
@@ -56,13 +57,19 @@
                 }
             }
             &.previous {
-                float: left;
+                left: 15px;
+                @include mobile {
+                    left: 7.5px;
+                }
                 &:before {
                     content: "\e903";
                 }
             }
             &.next {
-                float: right;
+                right: 15px;
+                @include mobile {
+                    right: 7.5px;
+                }
                 &:before {
                     content: "\e902";
                 }
