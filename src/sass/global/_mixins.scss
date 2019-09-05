@@ -1535,6 +1535,11 @@ $desktop-width: 1142px;
                 }
             }
             [data-datetype="year"] {
+                .fccal.hovered {
+                    .fc-toolbar h2 {
+                        color: $secondarycolorlight;
+                    }
+                }
                 .fc-view.active {
                     border-color: $primarycolor;
                 }

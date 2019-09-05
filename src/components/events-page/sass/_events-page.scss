@@ -570,6 +570,11 @@ section.event-profile-container {
     padding-top: 0;
     padding-bottom: 0;
     // disable event click
+    .fccal.hovered {
+        .fc-toolbar h2 {
+            color: black;
+        }
+    }
     .fc-content-skeleton {
         pointer-events: none;
     }

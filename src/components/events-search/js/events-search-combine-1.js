@@ -568,6 +568,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         },
                         eventAfterAllRender: function (view) {
                             var $fcView = view.el,
+                                $fcCal = $fcView.closest('.fccal'),
                                 $firstEventEl = view.el.find('.fc-day.event-present'),
                                 eventMoment;
                             
@@ -590,9 +591,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                             // InformaEventQuery.AddProp('ViewType', 'month');
                                         }, 200);
                                     }
+                                }).on('mouseenter', function () {
+                                    $fcCal.addClass('hovered');
+                                }).on('mouseleave', function () {
+                                    $fcCal.removeClass('hovered');
                                 });
                             } else {
-                                $fcView.removeData('month').removeClass('event-present').removeAttr('click-added').off('click');
+                                $fcView.removeData('month').removeClass('event-present').removeAttr('click-added').off('click mouseenter mouseleave');
                             }
                             INFORMA.Spinner.Hide();
                         }
