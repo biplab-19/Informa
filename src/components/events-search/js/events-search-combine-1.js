@@ -749,6 +749,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     InformaEventsController = {
         BodyContainer: $('body'),
         EventsContainer: $('#events-calendar'),
+        NoEventsContainer: $('#events-calendar .no-result'),
         DateArrows: $('.header .arrows'),
         HeaderDate: $('.header h2'),
         ViewBtns: $('.views-section .state-views .view a'),
@@ -795,6 +796,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         AddInfiniteScrollEvent: function() {
             var that = this,
                 $win = $(window);
+
+            if (this.View === 'calendar-view') return;
             
             // reset load more point
             this.InfiniteScrollLoadPoint = this.MoreBtn.offset().top - $win.height() - $('#tech-main-header').height();
@@ -835,7 +838,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.LoadCalled = true;
             this.PageNum = pageNum;
             this.GetAjaxData(INFORMA.Configs.urls.webservices.EventsSearch, ajaxMethod, sendData, function(data) {
-                var eventsCount;
+                var eventsCount,
+                    totalCount;
 
                 if (data) {
                     console.log('data received', data);
@@ -843,10 +847,24 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     throw "data not detectable in callback";
                 }
 
+                // set local vars
                 eventsCount = data.Events.length;
+                totalCount = parseInt(data.TotalResults);
+                that.LoadCalled = false;
+
+                // display no events container if total is 0
+                if (totalCount === 0) {
+                    that.NoEventsContainer.removeClass('hidden').siblings('active').addClass('hidden');
+                    that.AddInfiniteScrollEvent();
+                } else {
+                    that.NoEventsContainer.addClass('hidden').siblings('active').removeClass('hidden');
+                }
+
+                // if actual events count = 0 then dont do anything else
                 if (eventsCount === 0) return;
 
-                that.TotalCount = parseInt(data.TotalResults);
+                // set props for header text and infinite loading check
+                that.TotalCount = totalCount;
                 that.ActualCount = (that.ActualCount || 0) + eventsCount;
 
                 that.UpdateHeaderDate();
@@ -855,9 +873,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 InformaEventTiles.RenderView(data);
                 InformaFC.RenderView(data);
 
-                that.LoadCalled = false;
-                if (this.View !== 'calendar-view') 
-                    that.AddInfiniteScrollEvent();
+                that.AddInfiniteScrollEvent();
             });
         },
         GetSendData: function() {
