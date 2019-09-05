@@ -749,6 +749,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     InformaEventsController = {
         BodyContainer: $('body'),
         EventsContainer: $('#events-calendar'),
+        NoEventsContainer: $('#events-calendar .no-result'),
         DateArrows: $('.header .arrows'),
         HeaderDate: $('.header h2'),
         ViewBtns: $('.views-section .state-views .view a'),
@@ -761,6 +762,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         EndDate: null,
         PreviousDate: null,
         PageNum: 1,
+        LoadCalled: false,
         Init: function () {
             var that = this;
             this.ViewBtns.click(function (e) {
@@ -794,19 +796,21 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         AddInfiniteScrollEvent: function() {
             var that = this,
                 $win = $(window);
+
+            if (this.View === 'calendar-view') return;
             
             // reset load more point
             this.InfiniteScrollLoadPoint = this.MoreBtn.offset().top - $win.height() - $('#tech-main-header').height();
             
-            // add listner if more events to come and not in calendar-view
-            if (this.Count < this.TotalCount && this.View !== 'calendar-view') {
+            // add listner if more events to come
+            // if (this.ActualCount < this.TotalCount) {
                 $win.on('scroll.events.infinite', function() {
-                    if($win.scrollTop() >= that.InfiniteScrollLoadPoint) {
-                        that.LoadMoreEvents();
+                    if($win.scrollTop() >= that.InfiniteScrollLoadPoint && !that.LoadCalled) {
                         $win.off('scroll.events.infinite');
+                        that.LoadMoreEvents();
                     }
                 });
-            }
+            // }
         },
         UpdateArrows: function() {
             if (this.Date.isSameOrBefore(this.PreviousDate, 'month')) {
@@ -831,8 +835,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
             if (!sendData) return;
 
+            this.LoadCalled = true;
             this.PageNum = pageNum;
             this.GetAjaxData(INFORMA.Configs.urls.webservices.EventsSearch, ajaxMethod, sendData, function(data) {
+                var eventsCount,
+                    totalCount;
 
                 if (data) {
                     console.log('data received', data);
@@ -840,20 +847,37 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     throw "data not detectable in callback";
                 }
 
-                that.Count = data.Events.length;
-                that.TotalCount = parseInt(data.TotalResults);
+                // set local vars
+                eventsCount = data.Events.length;
+                totalCount = parseInt(data.TotalResults);
+                that.LoadCalled = false;
+
+                // display no events container if total is 0
+                if (totalCount === 0) {
+                    that.NoEventsContainer.removeClass('hidden').siblings('active').addClass('hidden');
+                    that.AddInfiniteScrollEvent();
+                } else {
+                    that.NoEventsContainer.addClass('hidden').siblings('active').removeClass('hidden');
+                }
+
+                // if actual events count = 0 then dont do anything else
+                if (eventsCount === 0) return;
+
+                // set props for header text and infinite loading check
+                that.TotalCount = totalCount;
+                that.ActualCount = (that.ActualCount || 0) + eventsCount;
+
                 that.UpdateHeaderDate();
                 
                 InformaEventList.RenderView(data);
                 InformaEventTiles.RenderView(data);
                 InformaFC.RenderView(data);
 
-                that.AddInfiniteScrollEvent()
+                that.AddInfiniteScrollEvent();
             });
         },
         GetSendData: function() {
             var that = this,
-                eventsEndDate,
                 sendDataObj = {}
 
             // add filters as property name and push multiple filters of the same type into array
@@ -863,26 +887,28 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 sendDataObj[filterObj.type].push(filterObj.value);
             });
 
-
             if (!sendDataObj.MonthYear) return null;
-
-            // check date type (year / month), set to EndDate if year else set to startdata + 1 month if month
-            eventsEndDate = this.ViewType === 'year' ? this.EndDate.format('MMMM YYYY') : 
-                            moment(this.Date).add(1, 'months').format('MMMM YYYY');
 
             // add non filter props
             sendDataObj.CurrentPage = this.EventsContainer.data('currentpage');
             sendDataObj.ViewMode = this.View === 'calendar-view' ? 'calendar' : 'list';
+
+            // set endate to far in the future for list view for infinite scrolling
+            if (this.View === 'calendar-view') {
+                sendDataObj.EventsEndDate = moment(this.Date).add(1, this.ViewType + 's').format('MMMM YYYY');
+            } else {
+                sendDataObj.EventsEndDate = moment(this.Date).add(100, 'years').format('MMMM YYYY');
+            }
+            
 
             switch (this.View) {
                 case 'list-view':
                 case 'tile-view':
                     // add event listing specific non filter props
                     sendDataObj.PageNo = this.PageNum;
-                    sendDataObj.PageSize = this.Count;
+                    sendDataObj.PageSize = parseInt(this.EventsContainer.data('count'));
                 case 'calendar-view':
                     // explicitly set MonthYear property to EventsStartDate
-                    sendDataObj.EventsEndDate = eventsEndDate;
                     sendDataObj.EventsStartDate = sendDataObj.MonthYear[0];
                     delete sendDataObj.MonthYear;
                     break;
@@ -990,16 +1016,15 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         get Date() {
             return this.StartDate;
         },
-        set Count(count) {
-            this.EventsContainer.data('count', count);
-            this.CountText.text(count);
+        set ActualCount(count) {
+            this.EventsContainer.data('actual-count', count);
+            this.TotalText.text(count);
         },
-        get Count() {
-            return parseInt(this.EventsContainer.data('count'));
+        get ActualCount() {
+            return parseInt(this.EventsContainer.data('actual-count'));
         },
         set TotalCount(count) {
             this.EventsContainer.attr('total-count', count);
-            this.TotalText.text(count);
         },
         get TotalCount() {
             return parseInt(this.EventsContainer.attr('total-count'));
