@@ -160,11 +160,14 @@
               padding-right: 15px;
             }
             .modal-content {
+                overflow: hidden;
                 .modal-header {
+                    overflow: auto;
                     border-bottom: none;
                     .close {
                         opacity: 1;
                         &:before {
+                            display: block;
                             font-family: 'InformaIcons';
                             content: "\e906";
                             color: #000;
@@ -173,10 +176,14 @@
                 }
                 .modal-body {
                     &[data-view] {
+                        width: 100%;
                         height: auto;
                     }
                     .events-section {
                         overflow: hidden;
+                        &:first-child {
+                            margin-top: 0;
+                        }
                     }
                 }
             }
