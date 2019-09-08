@@ -388,7 +388,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                         else{
                             $('.hero-banner,.hero-banner-texture').height(height);
                         }
-                        $('.hero-banner').css('min-height','275px');
+                        $('.hero-banner').css('min-height','400px');
                     }
                 }
             });
@@ -399,7 +399,7 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                     if(INFORMA.global.device.viewport === "mobile"){
                         var height = $('.hero-banner .container,.hero-banner-texture .container').outerHeight();
                         $('.hero-banner,.hero-banner-texture').height(height);
-                        $('.hero-banner').css('min-height','275px');
+                        $('.hero-banner').css('min-height','400px');
                     }
                     resizeHeroBanner();
                     resizeHeroSG();
