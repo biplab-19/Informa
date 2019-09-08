@@ -1182,6 +1182,8 @@ section#hero-banner {
         transform: translateY(0%);
         padding: 0;
         top: 0;
+        width:100%;
+        max-width:100%;
         }
         .hero-items .vertical-align .for-left>div, .hero-items .vertical-align .for-right>div {
         padding-left: 0;
@@ -1271,8 +1273,7 @@ section#hero-banner {
     @media only screen and (min-width: 1201px){
         .hero-items .vertical-align {
             top: 108px;
-            display: table-cell;
-            vertical-align: middle;
+            
         }
         div.for-left, div.for-right {
             width: 50%;
@@ -1383,6 +1384,22 @@ section#hero-banner.feature-hero-banner {
 
 section#hero-banner.feature-hero-banner .btn {
     margin-left:0px;
+}
+
+/* for other themes */
+.agri-theme,.pharma-theme,.financial-theme,.tmt-theme{
+    section#hero-banner.feature-hero-banner {
+        max-height: 720px;
+        height: 450px;
+    }
+    @media only screen and (min-width: 768px){
+        .feature-hero-banner .hero-items .vertical-align {
+            position: static;
+            max-width: 1172px;
+            padding: 0px;
+        }
+    }
+
 }
 
 @media (max-width: 1141px){

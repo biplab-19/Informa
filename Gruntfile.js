@@ -91,10 +91,11 @@ module.exports = function(grunt) {
                 options: {
                     flatten: true,
                     assets: '<%= config.tmp %>',
-                    layout: 'main-tech-layout.hbs',
+                    layout: 'main-layout.hbs',
                     layoutdir: '<%= config.src %>/templates/layouts',
                     data: ['<%= config.src %>/components/**/*.{json,yml}'],
-                    partials: ['<%= config.src %>/components/**/*.hbs']
+                    partials: ['<%= config.src %>/components/**/*.hbs'],
+                    helpers: ['<%= config.src %>/build-scripts/handlebar-helper-grunt.js']
                 },
                 files: {
                     '<%= config.tmp %>/': ['<%= config.src %>/templates/pages/**/*.hbs']

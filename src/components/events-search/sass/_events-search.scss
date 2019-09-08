@@ -1,82 +1,288 @@
 .events-search {
-	background-color: #676c7a;
-	padding: 30px 0;
-	.container {
-		position: relative;
-	}
+    position: relative;
+    background-color: #676c7a;
+    padding: 30px 0 15px;
+    .container {
+        position: relative;
+    }
+    select {
+        -webkit-appearance: menulist;
+        width: 100%;
+        height: auto;
+        padding: 8px 6px;
+    }
+/* 
+    .mddmenu {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        font-size: 13px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        a {
+            cursor: pointer;
+        }
+        .mddselected {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            padding: 0 0 0 8px;
+            height: 50px;
+            border-radius: 0;
+            background-color: #fff;
+            background-clip: padding-box;
+            box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0, 0, 0, 0.1);
+            color: #444;
+            text-decoration: none;
+            white-space: nowrap;
+            line-height: 35px;
+            & > * {
+                pointer-events: none;
+            }
+            span {
+                display: block;
+                overflow: hidden;
+                margin-top: 8px;
+                margin-right: 26px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            div {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: block;
+                width: 18px;
+                height: 100%;
+                &::after {
+                    content: "\e901";
+                    font-family: 'InformaIcons';
+                    top: 50%;
+                    position: absolute;
+                    margin-top: -17px;
+                    color: #888e9e;
+                    font-weight: bold;
+                }
+            }
+        }
+        .mddcontainer.teir1 {
+            position: absolute;
+            top: 100%;
+            left: -9999px;
+            z-index: 1010;
+            width: 100%;
+            margin-top: -1px;
+            border: 1px solid #aaa;
+            border-top: 0;
+            background: #fff;
+            box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+            border-radius: 0 0 4px 4px;
+            background-clip: padding-box;
+        }
+        &.open{
+            .mddcontainer.teir1 {
+                left: 0;
+            }
+        }
+    }
+ */
+    .select-section {
+        .chosen-container-single .chosen-single {
+            border: none;
+            height: 50px;
+            span {
+                margin-top: 8px;
+            }
+            div {
+                &:after {
+                    content: "\e901";
+                    font-family: 'InformaIcons';
+                    top: 50%;
+                    position: absolute;
+                    margin-top: -17px;
+                    color: $grey-color06;
+                    font-weight: bold;
+                }
+                b {
+                    display: none;
+                }
+            }
+        }
+    
+        label {
+            color: $white;
+            font-size: 15px;
+            width: 100%;
+            text-align: left;
+            font-weight: normal;
+            font-family: 'FSMe-Light';
+        }
+    }
 
-	.chosen-container-single .chosen-single {
-		border: none;
-		height: 50px;
-		span {
-			margin-top: 8px;
-		}
-		div {
-			&:after {
-				  content: "\e901";
-					font-family: 'InformaIcons';
-			    top: 50%;
-			    position: absolute;
-			    margin-top: -17px;
-					color: $grey-color06;
-			    font-weight: bold;
-			}
-			b {
-				display: none;
-			}
-		}
-	}
-	label {
-		color: $white;
-		font-size: 15px;
-		width: 100%;
-    	text-align: left;
-    	font-weight: normal;
-    	font-family: 'FSMe-Light';
-	}
-	.views-section {
-		text-align: right;
-		position: absolute;
-		top: calc(100% + 55px);
-		right: 0;
-		width: auto;
-		@include mobile {
-			text-align: left;
-		}
-		.views {
-			float: left;
-			a {
-				display: block;
-			    width: 60px;
-			    height: 51px;
-			    color: #6a7287;
-			    font-size: 28px;
-			    position: relative;
-			    border: 1px solid #e2e4e9;
-			    text-indent: -99999999999999999999999px;
-			    overflow: hidden;
-			    .access-link  {
-			    	left: -9999999px
-			    }
-				&:before {
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					text-indent: 0;
-				}
-				&.active {
-					background-color: #e2e4e9;
-				}
-				&.icon-list-view {
-					&:before {
-						content: '';
-					    height: 26px;
-					    width: 22px;
-					    background: url(/Static/images/dashboard.png) no-repeat;
-					}
-				}
-			}
-		}
-	}
+    .filter-section {
+        font-size: 1.125em;
+        .heading {
+            font-family: 'FSMe-Bold';
+            float: left;
+            margin-right: 3em;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        .active-filters {
+            .filter {
+                float: left;
+                margin-right: 2em;
+                margin-top: 0.5em;
+                margin-bottom: 0.5em;
+                &:first-child {
+                    margin-left: 0;
+                }
+                .text {
+                    float: left;
+                }
+                .delete {
+                    float: left;
+                    line-height: inherit;
+                    padding: 0 1em;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    
+    .views-section {
+        position: absolute;
+        top: calc(100% + 55px);
+        left: 0;
+        right: 0;
+        @include mobile {
+            top: calc(100% + 30px);
+        }
+        & > div {
+            display: table;
+            width: 100%;
+            padding: 0 30px;
+            @include mobile {
+                display: block;
+                padding: 0 15px;
+            }
+        }
+        .event-count {
+            display: table-cell;
+            padding: 0 15px;
+            vertical-align: middle;
+            border-top: 1px solid #e2e4e9;
+            border-bottom: 1px solid #e2e4e9;
+            @include mobile {
+                display: block;
+                width: 100%;
+                padding: 15px 0;
+                border: none;
+            }
+            p {
+                display: inline-block;
+                vertical-align: middle;
+                margin-bottom: 0;
+                font-family: 'FSMe-Bold';
+                font-size: 1.125em;
+            }
+            .btn.ical {
+                display: inline-block;
+                width: 33px;
+                height: 33px;
+                vertical-align: middle;
+                text-indent: -99999px;
+                margin-left: 10px;
+                padding: 5px 10px;
+            }
+        }
+        .views {
+            display: table-cell;
+            width: 180px;
+            @include mobile {
+                display: block;
+                width: 100%;
+            }
+            .state-views {
+                float: right;
+                .view {
+                    float: left;
+                    a {
+                        display: block;
+                        width: 60px;
+                        height: 51px;
+                        color: #6a7287;
+                        font-size: 0;
+                        position: relative;
+                        border: 1px solid #e2e4e9;
+                        text-indent: -99999999px;
+                        overflow: hidden;
+                        &.active {
+                            background-color: #e2e4e9;
+                        }
+                        .access-link  {
+                            left: -9999999px
+                        }
+                        &:before {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            font-size: 28px;
+                            text-indent: 0;
+                        }
+                        &.icon-list-view {
+                            &:before {
+                                content: '';
+                                height: 26px;
+                                width: 22px;
+                                background: url(/Static/images/dashboard.png) no-repeat;
+                            }
+                        }
+                        &.icon-tile-view {
+                            &:before {
+                                content: '';
+                                height: 26px;
+                                width: 22px;
+                                background: url(/Static/images/dashboard.png) no-repeat;
+                            }
+                        }
+                        &.icon-calendar-view {
+                            &:before {
+                                content: '\e920';
+                            }
+                        }
+                    }
+                }
+                @include mobile {
+                    float: none;
+                }
+            }
+            .date-views {
+                display: none;
+                position: relative;
+                clear: right;
+                .dview {
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+// functionality css
+body {
+    // show month year switch in calendar
+    &.calendar-view .events-search .views-section .date-views {
+        display: block;
+    }
+
+    // hide filters element when empty
+    .events-search {
+        .filter-section[data-count="0"] {
+            visibility: hidden;
+        }
+    }
 }
