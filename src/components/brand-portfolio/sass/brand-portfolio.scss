@@ -915,13 +915,12 @@ a:hover, a:focus {
 .custom-dropdown {
         position: relative;
         @media only screen and (max-width: 768px) {
-            
                 height:75vh;
                 overflow-y: scroll;
                 padding: 0px 5px;
                 margin-top: 15px;
                 width: 276px;
-                margin: 0 auto;
+                margin: 20px auto;
         
       
         }
@@ -953,11 +952,42 @@ a:hover, a:focus {
                 border-radius: 0px 0px 25px 25px;
                 width: 100%;
                 border-top: none;
+                margin-left:0px;
+                margin-top:0px;
                 
             }
         }
         .drop-content-active {
             display: inline-block;
+        }
+        .dropdown-content-first {
+            position: absolute;
+            left: 0;
+            top: 74px;
+            z-index: -999;
+            background-color: #fff;
+            @media only screen and (max-width: 768px) {
+                    position: static;
+                    margin-left: 0;
+                    margin-bottom: 40px;
+                }
+        }
+        
+        .dropdown-content-second, .dropdown-content-third {
+            width: 100%;
+            border-radius: 0px 0px 25px 25px;
+            border-top: none;
+            position: absolute;
+            left: 0;
+            top: 55px;
+            background-color: #fff;
+            z-index: 999;
+            @media only screen and (max-width: 768px) {
+               
+                    position: static;
+                    margin-left: 0;
+                    margin-bottom: 40px;
+                }
         }
    } 
 
@@ -1091,35 +1121,7 @@ a:hover, a:focus {
             }
     }
     
-    .dropdown-content-first {
-        position: absolute;
-        left: 0;
-        top: 74px;
-        z-index: -999;
-        background-color: #fff;
-        @media only screen and (max-width: 768px) {
-                position: static;
-                margin-left: 0;
-                margin-bottom: 40px;
-            }
-    }
     
-    .dropdown-content-second, .dropdown-content-third {
-        width: 100%;
-        border-radius: 0px 0px 25px 25px;
-        border-top: none;
-        position: absolute;
-        left: 0;
-        top: 55px;
-        background-color: #fff;
-        z-index: 999;
-        @media only screen and (max-width: 768px) {
-           
-                position: static;
-                margin-left: 0;
-                margin-bottom: 40px;
-            }
-    }
     .segmanet-head-mob .triangle-right, .segmanet-head-mob .triangle-down, .mob-load-btn {
         display: none;
     }
