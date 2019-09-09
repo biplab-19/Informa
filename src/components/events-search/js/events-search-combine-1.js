@@ -233,7 +233,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             $activeDateOption.attr('selected', '').siblings().removeAttr('selected');
             $monthSelect.trigger("chosen:updated");
             // add current month to active filters
-            this.AddFilter({ type: 'MonthYear', text: $activeDateOption.attr('value') });
+            this.AddFilter({ type: 'MonthYear', text: $activeDateOption.text() });
         },
         set Date (momentDate) {
             this.Container.data('date', momentDate);
@@ -355,27 +355,75 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         RenderView: function(data) {
             this.AddEvents(data.Events);
         },
+        MakeDivider: function(momentDate) {
+            return '<div class="col-12 month-divider"><h3>' + momentDate.format('MMMM YYYY').toUpperCase()
+            + '</h3></div>'
+        },
+        // TODO: move to html (for CMS), or UI templates
+        MakeNoEvents: function() {
+            return '<div class="col-12 no-events"><p>There are no further events scheduled for this month.</p></div>';
+        },
+        MakeEvents: function(evtObj) {
+            // add to event date variation for single/multi/cross-month events
+            this.AddDateToEvent(evtObj);
+            // return template with evtObj as data source
+            return this.Template({ results: evtObj });
+        },
         AddEvents: function(results) {
-            var evtObj,
+            var resultsLength = results.length,
+                resultCount,
+                evtObj,
                 html = InformaEventsController.PageNum > 1 ? this.EventsContainer.html() : '',
-                prevEventDate, currEventDate
+                currDate = InformaEventsController.PageNum > 1 ? this.EventsContainer.data('last-date') : this.Date,
+                prevEventDate, evtStartDate, evtEndDate, currToEvtMonthDiff, diffCount;
 
-            // TODO: efficiency: replace with for i loop for better performance
-            for (var key in results) {
-                if (results.hasOwnProperty(key)) {
-                    evtObj = results[key];
+            for (resultCount = 0; resultCount < resultsLength; resultCount++) {
+                evtObj = results[resultCount];
+                
+                evtStartDate = getMomentDate(evtObj.EventStartDate, 'event');
+                evtEndDate = getMomentDate(evtObj.EventEndDate, 'event');
+                currToEvtMonthDiff = evtStartDate.startOf('month').diff(currDate.startOf('month'), 'month');
 
-                    // if new month, append a new divider
-                    currEventDate = getMomentDate(evtObj.EventStartDate, 'event');
-                    if (!currEventDate.isSame(prevEventDate, 'month'))
-                        html += '<div class="col-12 month-divider"><h3>' + currEventDate.format('MMMM YYYY').toUpperCase()
-                        + '</h3></div>'
+                // on first loop, first item in display
+                if (resultCount === 0 && InformaEventsController.PageNum === 1) {
+                    // its after
+                    if (currToEvtMonthDiff > 0) {
+                        // add no events for each month relative to selected month
+                        for (diffCount = 0; diffCount < currToEvtMonthDiff; diffCount++) {
+                            html += this.MakeDivider(moment(currDate).add(diffCount, 'months'));
+                            html += this.MakeNoEvents();
+                        }
+                        // add one more divider ready for event
+                        html += this.MakeDivider(moment(currDate).add(currToEvtMonthDiff, 'months'));
+                        prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
+                    } else {
+                        // else its the same or before
+                        html += this.MakeDivider(currDate);
+                        // if its before, its multi-month event so set prevEventDate as next event start date
+                        if (currToEvtMonthDiff < 0 && resultCount < resultsLength) {
+                            // set prev event for next loop
+                            prevEventDate = getMomentDate(results[resultCount + 1].EventStartDate, 'event');
+                        }
+                    }
+                } else {
+                    if (InformaEventsController.PageNum > 1)
+                        prevEventDate = moment(currDate);
+                    // if there is a diff between event dates, put in a divider
+                    if (!prevEventDate || !evtStartDate.isSame(prevEventDate, 'month')) {
+                        html += this.MakeDivider(evtStartDate);
+                        // if the diff is bigger than 1, put in no events
+                        if (evtStartDate.diff(prevEventDate, 'month') > 1)
+                            html += this.MakeNoEvents();
+                    }
+                    // set prev event for next loop
                     prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
-                    
-                    this.AddDateToEvent(evtObj);
-                    
-                    html += this.Template({ results: evtObj });
                 }
+                
+                // add list event template to html
+                html += this.MakeEvents(evtObj);
+
+                // set data for later reference
+                this.EventsContainer.data('last-date', evtStartDate);
             }
             this.EventsContainer.html(html);
         },
@@ -750,6 +798,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     InformaEventsController = {
         BodyContainer: $('body'),
         EventsContainer: $('#events-calendar'),
+        EventsListContainers: $('#events-calendar .events-list'),
         NoEventsContainer: $('#events-calendar .no-result'),
         DateArrows: $('.header .arrows'),
         HeaderDate: $('.header h2'),
@@ -804,14 +853,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.InfiniteScrollLoadPoint = this.MoreBtn.offset().top - $win.height() - $('#tech-main-header').height();
             
             // add listner if more events to come
-            if (this.ActualCount < this.TotalCount) {
+            // if (this.ActualCount < this.TotalCount) {
                 $win.on('scroll.events.infinite', function() {
                     if($win.scrollTop() >= that.InfiniteScrollLoadPoint && !that.LoadCalled) {
                         $win.off('scroll.events.infinite');
                         that.LoadMoreEvents();
                     }
                 });
-            }
+            // }
         },
         UpdateArrows: function() {
             if (this.Date.isSameOrBefore(this.PreviousDate, 'month')) {
@@ -832,12 +881,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         LoadEvents: function(pageNum = 1) {
             // console.log('LoadEvents')
             var that = this,
-                sendData = this.GetSendData();
+                sendData;
+
+            this.PageNum = pageNum;
+            sendData = this.GetSendData();
 
             if (!sendData) return;
 
             this.LoadCalled = true;
-            this.PageNum = pageNum;
             this.GetAjaxData(INFORMA.Configs.urls.webservices.EventsSearch, ajaxMethod, sendData, function(data) {
                 var eventsCount,
                     totalCount;
@@ -853,12 +904,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 totalCount = parseInt(data.TotalResults);
                 that.LoadCalled = false;
 
-                // display no events container if total is 0
-                if (totalCount === 0) {
-                    that.NoEventsContainer.removeClass('hidden').siblings('active').addClass('hidden');
+                // display no events container if total is 0 and page is 1
+                if (totalCount === 0 && that.PageNum === 1) {
+                    that.NoEventsContainer.removeClass('hidden');
+                    that.EventsListContainers.filter('.active').addClass('hidden');
                     that.AddInfiniteScrollEvent();
                 } else {
-                    that.NoEventsContainer.addClass('hidden').siblings('active').removeClass('hidden');
+                    that.NoEventsContainer.addClass('hidden');
+                    that.EventsListContainers.filter('.active').removeClass('hidden');
                 }
 
                 // if actual events count = 0 then dont do anything else
@@ -866,7 +919,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                 // set props for header text and infinite loading check
                 that.TotalCount = totalCount;
-                that.ActualCount = (that.ActualCount || 0) + eventsCount;
+                that.ActualCount = that.PageNum > 1 ? that.ActualCount + eventsCount : eventsCount;
 
                 that.UpdateHeaderDate();
                 
@@ -968,6 +1021,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         set View(view) {
             // set container attributes for future reference
             this.EventsContainer.attr('data-eview', view);
+            this.EventsListContainers.filter('[data-view="' + view + '"]').addClass('active').siblings('.events-list').removeClass('active');
             this.BodyContainer.removeClass('list-view tile-view calendar-view').addClass(view);
 
             // reset active class for view buttons for styling
@@ -979,7 +1033,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         get View() {
             if (!this.EventsContainer.attr('data-eview'))
-                this.EventsContainer.attr('data-eview', this.ViewBtns.filter('.active').data('viewport'));
+                this.EventsContainer.attr('data-eview', this.EventsListContainers.filter('.active').data('view'));
             return this.EventsContainer.attr('data-eview');
         },
         set ViewType (viewtype) {
