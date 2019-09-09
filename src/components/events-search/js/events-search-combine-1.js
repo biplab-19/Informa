@@ -395,11 +395,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         }
                         // add one more divider ready for event
                         html += this.MakeDivider(moment(currDate).add(currToEvtMonthDiff, 'months'));
+                        prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
                     } else {
                         // else its the same or before
                         html += this.MakeDivider(currDate);
                         // if its before, its multi-month event so set prevEventDate as next event start date
-                        if (currToEvtMonthDiff < 0 && resultCount < currToEvtMonthDiff) {
+                        if (currToEvtMonthDiff < 0 && resultCount < resultsLength) {
                             // set prev event for next loop
                             prevEventDate = getMomentDate(results[resultCount + 1].EventStartDate, 'event');
                         }
@@ -408,7 +409,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     if (InformaEventsController.PageNum > 1)
                         prevEventDate = moment(currDate);
                     // if there is a diff between event dates, put in a divider
-                    if (!evtStartDate.isSame(prevEventDate, 'month')) {
+                    if (!prevEventDate || !evtStartDate.isSame(prevEventDate, 'month')) {
                         html += this.MakeDivider(evtStartDate);
                         // if the diff is bigger than 1, put in no events
                         if (evtStartDate.diff(prevEventDate, 'month') > 1)
@@ -880,12 +881,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         LoadEvents: function(pageNum = 1) {
             // console.log('LoadEvents')
             var that = this,
-                sendData = this.GetSendData();
+                sendData;
+
+            this.PageNum = pageNum;
+            sendData = this.GetSendData();
 
             if (!sendData) return;
 
             this.LoadCalled = true;
-            this.PageNum = pageNum;
             this.GetAjaxData(INFORMA.Configs.urls.webservices.EventsSearch, ajaxMethod, sendData, function(data) {
                 var eventsCount,
                     totalCount;
