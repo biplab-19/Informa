@@ -1147,18 +1147,10 @@ section#hero-banner {
     }
 
     @media only screen and (max-width: 768px){
-        h1 {
-            font-size: 24px!important;
-            line-height: 30px!important;
-        }
-
         .single-image .hero-items .for-left h4, .single-image .hero-items .for-right h4 {
             padding-left: 15px;
         }
-        h4 {
-            font-size: 18px!important;
-            line-height: 28px!important;
-        }
+        
     }
 
     @media only screen and (min-width: 768px) {
@@ -1261,11 +1253,17 @@ section#hero-banner {
         border-width: 0;
         min-width: 150px;
         margin-right: 10px;
+        @media screen and (max-width: 768px) and (min-width: 320px){
+            min-width: 130px;
+            padding: 10px 5px;
+            font-size: 12px;
+            }
         &:hover{
         background-color: #11a7d9;
         border-color: #11a7d9;
         color: #fff!important;
         }
+        
     }
     .single-image img {
         width: 100%;
@@ -1299,12 +1297,20 @@ section#hero-banner {
         color: #024!important;
         margin-top: 0!important;
         margin-bottom: 20px!important;
+        @media only screen and (max-width: 768px) {
+                font-size: 24px!important;
+                line-height: 30px!important;
+        }
     }
     h4 {
         font-family: 'OpenSans Light'!important;
         font-size: 24px!important;
         line-height: 34px!important;
         color: #555!important;
+        @media only screen and (max-width: 768px) {
+                font-size: 18px!important;
+                line-height: 28px!important;
+        }
     }
     .second-banner-left-outer {
         display: inline-block !important;
@@ -1423,6 +1429,7 @@ section#hero-banner .vertical-align.overlay-text {
 }
 .hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
     color: #fff!important;
+    word-break: break-all;
 }
 @media only screen and (min-width: 768px) {
     .hero-items.hero-carousel .vertical-align.overlay-text {
@@ -1443,7 +1450,7 @@ section#hero-banner .vertical-align.overlay-text {
     .hero-banner .vertical-align.overlay-text {
         margin: 0;
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
