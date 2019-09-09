@@ -226,6 +226,7 @@
                     padding: 0;
                     border: none;
                     pointer-events: none;
+                    background: transparent;
                     &:after {
                         content: '';
                         display: block;
@@ -386,6 +387,12 @@
         }
         & + .events-section {
             margin-top: 0;
+        }
+    }
+    .no-events {
+        p {
+            margin: 0;
+            padding: 15px;
         }
     }
     .events-section {
