@@ -281,18 +281,24 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.AddEvents(data.Events);
             this.EqualHeight();
         },
+        MakeNoEvents: function() {
+            return '<div class="col-xs-12 no-events"><p>There are no further events scheduled.</p></div>';
+        },
         AddEvents: function(results) {
-            var evtObj,
+            var resultsLength = results.length,
+                resultCount,
+                evtObj,
                 html = InformaEventsController.PageNum > 1 ? this.EventsContainer.html() : '';
 
-            // TODO: efficiency: replace with for i loop for better performance
-            for (var key in results) {
-                if (results.hasOwnProperty(key)) {
-                    evtObj = results[key];
+            if (resultsLength > 0) {
+                for (resultCount = 0; resultCount < resultsLength; resultCount++) {
+                    evtObj = results[resultCount];
                     
                     this.AddDateToEvent(evtObj);
                     html += this.Template({ results: evtObj });
                 }
+            } else {
+                html += this.MakeNoEvents();
             }
             this.EventsContainer.html(html);
         },
@@ -356,12 +362,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.AddEvents(data.Events);
         },
         MakeDivider: function(momentDate) {
-            return '<div class="col-12 month-divider"><h3>' + momentDate.format('MMMM YYYY').toUpperCase()
+            return '<div class="col-xs-12 month-divider"><h3>' + momentDate.format('MMMM YYYY').toUpperCase()
             + '</h3></div>'
         },
-        // TODO: move to html (for CMS), or UI templates
         MakeNoEvents: function() {
-            return '<div class="col-12 no-events"><p>There are no further events scheduled for this month.</p></div>';
+            return '<div class="col-xs-12 no-events"><p>There are no further events scheduled.</p></div>';
         },
         MakeEvents: function(evtObj) {
             // add to event date variation for single/multi/cross-month events
@@ -377,53 +382,57 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 currDate = InformaEventsController.PageNum > 1 ? this.EventsContainer.data('last-date') : this.Date,
                 prevEventDate, evtStartDate, evtEndDate, currToEvtMonthDiff, diffCount;
 
-            for (resultCount = 0; resultCount < resultsLength; resultCount++) {
-                evtObj = results[resultCount];
-                
-                evtStartDate = getMomentDate(evtObj.EventStartDate, 'event');
-                evtEndDate = getMomentDate(evtObj.EventEndDate, 'event');
-                currToEvtMonthDiff = evtStartDate.startOf('month').diff(currDate.startOf('month'), 'month');
+            if (resultsLength > 0) {
+                for (resultCount = 0; resultCount < resultsLength; resultCount++) {
+                    evtObj = results[resultCount];
+                    
+                    evtStartDate = getMomentDate(evtObj.EventStartDate, 'event');
+                    evtEndDate = getMomentDate(evtObj.EventEndDate, 'event');
+                    currToEvtMonthDiff = evtStartDate.startOf('month').diff(currDate.startOf('month'), 'month');
 
-                // on first loop, first item in display
-                if (resultCount === 0 && InformaEventsController.PageNum === 1) {
-                    // its after
-                    if (currToEvtMonthDiff > 0) {
-                        // add no events for each month relative to selected month
-                        for (diffCount = 0; diffCount < currToEvtMonthDiff; diffCount++) {
-                            html += this.MakeDivider(moment(currDate).add(diffCount, 'months'));
-                            html += this.MakeNoEvents();
+                    // on first loop, first item in display
+                    if (resultCount === 0 && InformaEventsController.PageNum === 1) {
+                        // its after
+                        if (currToEvtMonthDiff > 0) {
+                            // add no events for each month relative to selected month
+                            for (diffCount = 0; diffCount < currToEvtMonthDiff; diffCount++) {
+                                html += this.MakeDivider(moment(currDate).add(diffCount, 'months'));
+                                html += this.MakeNoEvents();
+                            }
+                            // add one more divider ready for event
+                            html += this.MakeDivider(moment(currDate).add(currToEvtMonthDiff, 'months'));
+                            prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
+                        } else {
+                            // else its the same or before
+                            html += this.MakeDivider(currDate);
+                            // if its before, its multi-month event so set prevEventDate as next event start date
+                            if (currToEvtMonthDiff < 0 && resultCount < resultsLength) {
+                                // set prev event for next loop
+                                prevEventDate = getMomentDate(results[resultCount + 1].EventStartDate, 'event');
+                            }
                         }
-                        // add one more divider ready for event
-                        html += this.MakeDivider(moment(currDate).add(currToEvtMonthDiff, 'months'));
-                        prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
                     } else {
-                        // else its the same or before
-                        html += this.MakeDivider(currDate);
-                        // if its before, its multi-month event so set prevEventDate as next event start date
-                        if (currToEvtMonthDiff < 0 && resultCount < resultsLength) {
-                            // set prev event for next loop
-                            prevEventDate = getMomentDate(results[resultCount + 1].EventStartDate, 'event');
+                        if (InformaEventsController.PageNum > 1)
+                            prevEventDate = moment(currDate);
+                        // if there is a diff between event dates, put in a divider
+                        if (!prevEventDate || !evtStartDate.isSame(prevEventDate, 'month')) {
+                            html += this.MakeDivider(evtStartDate);
+                            // if the diff is bigger than 1, put in no events
+                            if (evtStartDate.diff(prevEventDate, 'month') > 1)
+                                html += this.MakeNoEvents();
                         }
+                        // set prev event for next loop
+                        prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
                     }
-                } else {
-                    if (InformaEventsController.PageNum > 1)
-                        prevEventDate = moment(currDate);
-                    // if there is a diff between event dates, put in a divider
-                    if (!prevEventDate || !evtStartDate.isSame(prevEventDate, 'month')) {
-                        html += this.MakeDivider(evtStartDate);
-                        // if the diff is bigger than 1, put in no events
-                        if (evtStartDate.diff(prevEventDate, 'month') > 1)
-                            html += this.MakeNoEvents();
-                    }
-                    // set prev event for next loop
-                    prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
-                }
-                
-                // add list event template to html
-                html += this.MakeEvents(evtObj);
+                    
+                    // add list event template to html
+                    html += this.MakeEvents(evtObj);
 
-                // set data for later reference
-                this.EventsContainer.data('last-date', evtStartDate);
+                    // set data for later reference
+                    this.EventsContainer.data('last-date', evtStartDate);
+                }
+            } else {
+                html += this.MakeNoEvents();
             }
             this.EventsContainer.html(html);
         },
@@ -904,28 +913,28 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 totalCount = parseInt(data.TotalResults);
                 that.LoadCalled = false;
 
-                // display no events container if total is 0 and page is 1
+                // display no events container if total is 0 and first page, show no event message
                 if (totalCount === 0 && that.PageNum === 1) {
                     that.NoEventsContainer.removeClass('hidden');
                     that.EventsListContainers.filter('.active').addClass('hidden');
-                    that.AddInfiniteScrollEvent();
                 } else {
                     that.NoEventsContainer.addClass('hidden');
                     that.EventsListContainers.filter('.active').removeClass('hidden');
                 }
+                
+                // render list views regardless of event count (to show dedicated no-events msg if no events)
+                InformaEventList.RenderView(data);
+                InformaEventTiles.RenderView(data);
 
                 // if actual events count = 0 then dont do anything else
                 if (eventsCount === 0) return;
 
+                // render calendar after eventscount check because global no-events message handles no events
+                InformaFC.RenderView(data);
+
                 // set props for header text and infinite loading check
                 that.TotalCount = totalCount;
                 that.ActualCount = that.PageNum > 1 ? that.ActualCount + eventsCount : eventsCount;
-
-                that.UpdateHeaderDate();
-                
-                InformaEventList.RenderView(data);
-                InformaEventTiles.RenderView(data);
-                InformaFC.RenderView(data);
 
                 that.AddInfiniteScrollEvent();
             });
@@ -1027,9 +1036,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // reset active class for view buttons for styling
             this.ViewBtns.filter('.active').removeClass('active');
             this.ViewBtns.filter('[data-viewport="' + view + '"]').addClass('active');
-            
-            // potentially set the infinte scroll incase user is swithing to list/tile view from calendar
-            this.AddInfiniteScrollEvent();
         },
         get View() {
             if (!this.EventsContainer.attr('data-eview'))
