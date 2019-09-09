@@ -359,8 +359,15 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             return '<div class="col-12 month-divider"><h3>' + momentDate.format('MMMM YYYY').toUpperCase()
             + '</h3></div>'
         },
+        // TODO: move to html (for CMS), or UI templates
         MakeNoEvents: function() {
             return '<div class="col-12 month-divider"><p>There are no further events scheduled for this month.</p></div>';
+        },
+        MakeEvents: function(evtObj) {
+            // add to event date variation for single/multi/cross-month events
+            this.AddDateToEvent(evtObj);
+            // return template with evtObj as data source
+            return this.Template({ results: evtObj });
         },
         AddEvents: function(results) {
             var resultsLength = results.length,
@@ -400,11 +407,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 // set prev event for next loop
                 prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
                 
-                // add to event date variation for single/multi/cross-month events
-                this.AddDateToEvent(evtObj);
-                
                 // add list event template to html
-                html += this.Template({ results: evtObj });
+                html += this.MakeEvents(evtObj);
 
                 // set data for later reference
                 this.EventsContainer.data('last-date', currEventDate);
