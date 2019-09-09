@@ -361,7 +361,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         // TODO: move to html (for CMS), or UI templates
         MakeNoEvents: function() {
-            return '<div class="col-12 month-divider"><p>There are no further events scheduled for this month.</p></div>';
+            return '<div class="col-12 no-events"><p>There are no further events scheduled for this month.</p></div>';
         },
         MakeEvents: function(evtObj) {
             // add to event date variation for single/multi/cross-month events
@@ -374,44 +374,55 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 resultCount,
                 evtObj,
                 html = InformaEventsController.PageNum > 1 ? this.EventsContainer.html() : '',
-                startDate = InformaEventsController.PageNum > 1 ? this.EventsContainer.data('last-date') : this.Date,
-                prevEventDate, currEventDate, dateToFirstEventDiff, diffCount;
-            
+                currDate = InformaEventsController.PageNum > 1 ? this.EventsContainer.data('last-date') : this.Date,
+                prevEventDate, evtStartDate, evtEndDate, currToEvtMonthDiff, diffCount;
+
             for (resultCount = 0; resultCount < resultsLength; resultCount++) {
                 evtObj = results[resultCount];
                 
-                currEventDate = getMomentDate(evtObj.EventStartDate, 'event');
+                evtStartDate = getMomentDate(evtObj.EventStartDate, 'event');
+                evtEndDate = getMomentDate(evtObj.EventEndDate, 'event');
+                currToEvtMonthDiff = evtStartDate.startOf('month').diff(currDate.startOf('month'), 'month');
 
-                // if first Event Date is larger than startDate
-                if (resultCount === 0) {
-                    if (currEventDate.isAfter(startDate, 'month')) {
-                        // add no events found for startDate month and every proceeding month (loop)
-                        dateToFirstEventDiff = currEventDate.diff(startDate, 'month');
-                        for (diffCount = 0; diffCount < dateToFirstEventDiff; diffCount++) {
-                            html += this.MakeDivider(moment(startDate).add(diffCount, 'months'));
+                // on first loop, first item in display
+                if (resultCount === 0 && InformaEventsController.PageNum === 1) {
+                    // its after
+                    if (currToEvtMonthDiff > 0) {
+                        // add no events for each month relative to selected month
+                        for (diffCount = 0; diffCount < currToEvtMonthDiff; diffCount++) {
+                            html += this.MakeDivider(moment(currDate).add(diffCount, 'months'));
                             html += this.MakeNoEvents();
                         }
+                        // add one more divider ready for event
+                        html += this.MakeDivider(moment(currDate).add(currToEvtMonthDiff, 'months'));
                     } else {
-                        // setup start divider
-                        html += this.MakeDivider(startDate);
+                        // else its the same or before
+                        html += this.MakeDivider(currDate);
+                        // if its before, its multi-month event so set prevEventDate as next event start date
+                        if (currToEvtMonthDiff < 0 && resultCount < currToEvtMonthDiff) {
+                            // set prev event for next loop
+                            prevEventDate = getMomentDate(results[resultCount + 1].EventStartDate, 'event');
+                        }
                     }
                 } else {
+                    if (InformaEventsController.PageNum > 1)
+                        prevEventDate = moment(currDate);
                     // if there is a diff between event dates, put in a divider
-                    if (!currEventDate.isSame(prevEventDate, 'month')) {
-                        html += this.MakeDivider(currEventDate);
+                    if (!evtStartDate.isSame(prevEventDate, 'month')) {
+                        html += this.MakeDivider(evtStartDate);
                         // if the diff is bigger than 1, put in no events
-                        if (currEventDate.diff(prevEventDate, 'month') > 1)
+                        if (evtStartDate.diff(prevEventDate, 'month') > 1)
                             html += this.MakeNoEvents();
                     }
+                    // set prev event for next loop
+                    prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
                 }
-                // set prev event for next loop
-                prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
                 
                 // add list event template to html
                 html += this.MakeEvents(evtObj);
 
                 // set data for later reference
-                this.EventsContainer.data('last-date', currEventDate);
+                this.EventsContainer.data('last-date', evtStartDate);
             }
             this.EventsContainer.html(html);
         },
