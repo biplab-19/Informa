@@ -1257,6 +1257,11 @@ section#hero-banner {
         background-color: #11a7d9;
         border-color: #11a7d9;
         color: #fff!important;
+        @media screen and (max-width: 768px) and (min-width: 320px){
+        min-width: 130px;
+        padding: 10px 5px;
+        font-size: 12px;
+        }
         }
     }
     .single-image img {
@@ -1425,6 +1430,7 @@ section#hero-banner .vertical-align.overlay-text {
 }
 .hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
     color: #fff!important;
+    word-break: break-all;
 }
 @media only screen and (min-width: 768px) {
     .hero-items.hero-carousel .vertical-align.overlay-text {
@@ -1445,7 +1451,7 @@ section#hero-banner .vertical-align.overlay-text {
     .hero-banner .vertical-align.overlay-text {
         margin: 0;
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
