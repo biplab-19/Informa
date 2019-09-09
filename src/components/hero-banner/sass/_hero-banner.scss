@@ -1253,16 +1253,17 @@ section#hero-banner {
         border-width: 0;
         min-width: 150px;
         margin-right: 10px;
+        @media screen and (max-width: 768px) and (min-width: 320px){
+            min-width: 130px;
+            padding: 10px 5px;
+            font-size: 12px;
+            }
         &:hover{
         background-color: #11a7d9;
         border-color: #11a7d9;
         color: #fff!important;
-        @media screen and (max-width: 768px) and (min-width: 320px){
-        min-width: 130px;
-        padding: 10px 5px;
-        font-size: 12px;
         }
-        }
+        
     }
     .single-image img {
         width: 100%;
@@ -1296,22 +1297,20 @@ section#hero-banner {
         color: #024!important;
         margin-top: 0!important;
         margin-bottom: 20px!important;
-        @media only screen and (max-width: 768px){
-            h1 {
+        @media only screen and (max-width: 768px) {
                 font-size: 24px!important;
                 line-height: 30px!important;
-            }
+        }
     }
     h4 {
         font-family: 'OpenSans Light'!important;
         font-size: 24px!important;
         line-height: 34px!important;
         color: #555!important;
-        @media only screen and (max-width: 768px){
-            h4 {
+        @media only screen and (max-width: 768px) {
                 font-size: 18px!important;
                 line-height: 28px!important;
-            }
+        }
     }
     .second-banner-left-outer {
         display: inline-block !important;
