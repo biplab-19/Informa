@@ -55,6 +55,19 @@ body {
     }
 }
 
+.tech-theme .load-spinner .loading {
+    background: url(/static/images/tech/loader_tech.gif) no-repeat center;
+    background-size: 100% auto;
+    em {
+        display: none;
+    }
+    img {
+        width: 120px;
+        height: 120px;
+        visibility: hidden;
+    }
+}
+
 @media screen and (max-width: 812px) {
     .sub-headline {
         font-size: 33px !important;
