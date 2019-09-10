@@ -1160,8 +1160,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 InformaFilters.HaveUpdated = false;
             }
 
-            // if month/year view changed, or date has changed / filters have then to ajax
-            if (hasViewTypeChanged || hasDateChanged || hasFiltersChanged) {
+            // if view changed to/from calendar, month/year view changed, or date has changed / filters have then to ajax
+            if (!stillInCalView || hasViewTypeChanged || hasDateChanged || hasFiltersChanged) {
                 this.LoadEvents();
             }
         }
