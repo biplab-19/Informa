@@ -200,10 +200,13 @@
         }
         .views {
             display: table-cell;
-            width: 180px;
+            width: 200px;
+            border-top: 1px solid #e2e4e9;
+            border-bottom: 1px solid #e2e4e9;
             @include mobile {
                 display: block;
                 width: 100%;
+                border: none;
             }
             .state-views {
                 float: right;
@@ -216,9 +219,13 @@
                         color: #6a7287;
                         font-size: 0;
                         position: relative;
-                        border: 1px solid #e2e4e9;
+                        border-left: 1px solid #e2e4e9;
                         text-indent: -99999999px;
                         overflow: hidden;
+                        @include mobile {
+                            border-top: 1px solid #e2e4e9;
+                            border-bottom: 1px solid #e2e4e9;
+                        }
                         &.active {
                             background-color: #e2e4e9;
                         }
@@ -254,6 +261,9 @@
                                 content: '\e920';
                             }
                         }
+                    }
+                    &:last-child a {
+                        border-right: 1px solid #e2e4e9;
                     }
                 }
                 @include mobile {
