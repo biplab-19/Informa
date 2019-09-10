@@ -749,6 +749,15 @@ $desktop-width: 1142px;
             }
 
             .events-list {
+                .PreviousDate {
+                    .btn {
+                        opacity: 0.65;
+                        pointer-events: none;
+                        &.ical:after {
+                            pointer-events: none;
+                        }
+                    }
+                }
                 .CurrentDate {
                     .events-wrap {
                         .header {

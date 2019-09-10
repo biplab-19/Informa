@@ -334,22 +334,11 @@
             }
         }
         //past event
-        &.PreviousDate{
-            .events-wrap {
-                position: relative;
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #000;
-                    opacity: 0.3;
-                    z-index: 1;
-                }
-            }
-        }//current event
+        &.PreviousDate .events-wrap:after {
+            content: '';
+            display: none
+        }
+        //current event
         &.CurrentDate{
             .events-wrap .header .date{
                 background-color:#fed501;
@@ -546,24 +535,10 @@
                 }
             }
         }
-        &.PreviousDate {
-            .events-wrap {
-                &:after {
-                    content: '';
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #000;
-                    opacity: 0.3;
-                    z-index: 1;
-                }
-            }
-            .events-wrap .footer .btn.full-detail {
-                z-index: 2;
-            }
+        //past event
+        &.PreviousDate .events-wrap:after {
+            content: '';
+            display: none
         }
     }
 }
