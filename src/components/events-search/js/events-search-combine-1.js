@@ -409,11 +409,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             if (currToEvtMonthDiff < 0 && resultCount < resultsLength) {
                                 // set prev event for next loop
                                 prevEventDate = getMomentDate(results[resultCount + 1].EventStartDate, 'event');
+                            } else {
+                                prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
                             }
                         }
                     } else {
                         if (InformaEventsController.PageNum > 1)
-                            prevEventDate = moment(currDate);
+                            prevEventDate = moment(this.EventsContainer.data('last-date'));
                         // if there is a diff between event dates, put in a divider
                         if (!prevEventDate || !evtStartDate.isSame(prevEventDate, 'month')) {
                             html += this.MakeDivider(evtStartDate);
