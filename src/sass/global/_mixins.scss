@@ -1531,7 +1531,13 @@ $desktop-width: 1142px;
         //         background: $primarycolor;
         //     }
         // }
-
+        [data-view="tile-view"] {
+            .events-section {
+                .events-wrap {
+                    border-color: $primarycolor;
+                }
+            }
+        }
         [data-view="calendar-view"] {
             [data-datetype="month"] {
                 @include mobile {
