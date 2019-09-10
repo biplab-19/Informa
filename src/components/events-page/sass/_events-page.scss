@@ -226,6 +226,10 @@
                     background-color: #878e9e;
                     font-size: 20px;
                     color: $white;
+                    text-align: left;
+                    @include mobile {
+                        max-width: 50%;
+                    }
                 }
                 .btn.ical {
                     position: relative;
@@ -234,6 +238,9 @@
                     border: none;
                     pointer-events: none;
                     background: transparent;
+                    @include mobile {
+                        max-width: 50%;
+                    }
                     &:after {
                         content: '';
                         display: block;
@@ -250,6 +257,7 @@
                     //     }
                     // }
                     .text {
+                        font-size: 0;
                         position: absolute;
                         top: 50%;
                         left: 100%;
