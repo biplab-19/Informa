@@ -141,6 +141,13 @@
             display: block;
         }
     }
+    .no-events {
+        p {
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+        }
+    }
 
     #event-modal {
         .modal-dialog {
@@ -354,6 +361,9 @@
             }
         }
     }
+    .no-events {
+        padding-top: 20px;
+    }
 }
 
 [data-view="list-view"].events-list {
@@ -376,12 +386,6 @@
         }
         & + .events-section {
             margin-top: 0;
-        }
-    }
-    .no-events {
-        p {
-            margin: 0;
-            padding: 15px;
         }
     }
     .events-section {
