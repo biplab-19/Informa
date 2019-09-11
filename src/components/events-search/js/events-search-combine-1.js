@@ -1212,6 +1212,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     } else {
                         that.Preselected.push({ name: selectName, values: [$selectedOpts.text()] })
                         isFilterSet = true;
+                        InformaFilters.HaveUpdated = true;
                     }
                 });
 
