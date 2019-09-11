@@ -28,8 +28,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         FilterDeleteBtn: $('<span class="delete icon-close"></span>'),
         Selects: $('.events-search select'),
         HaveUpdated: false,
+        AlwaysSelectedFilters: [],
         Init: function() {
             var that = this;
+
+            this.PopulateAlwaysSelectedFilters();
             
             // init chosen my way :P
             this.Selects.each(function () {
@@ -54,6 +57,48 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     $this.children('option[value=""]').attr('selected', '').siblings().removeAttr('selected');
                     $this.trigger("chosen:updated");
                 }
+            });
+        },
+        PopulateAlwaysSelectedFilters: function() {
+            // combine preselected with defaults into AlwaysSelectedFilters
+            var that = this;
+            this.Selects.each(function () {
+                var $select = $(this),
+                    selectName = $select.attr('name'),
+                    isPreselectioneDefined = false,
+                    dataSelected = $select.data('selected'),
+                    dataIgnore = $select.data('ignore'),
+                    $selectedOpts = $select.find('option'),
+                    optValue
+
+                if (dataSelected && dataIgnore && dataSelected === dataIgnore) {
+                    console.warn("Selected and Ignored filters match, therefore preselection will be ignored for: " + selectName);
+                    return;
+                }
+
+                // filter options with selected data attribute
+                if (dataSelected && dataSelected.length > 0) {
+                    $selectedOpts = $selectedOpts.filter('[value="' + dataSelected + '"]');
+                    isPreselectioneDefined = true;
+                }
+
+                // remove options that match ignore data attribute
+                if (dataIgnore && dataIgnore.length > 0) {
+                    $selectedOpts = $selectedOpts.not('[value="' + dataIgnore + '"]');
+                    isPreselectioneDefined = true;
+                    // remove element from options and update chosen
+                    $select.find('option[value="' + dataIgnore + '"]').remove();
+                    $select.trigger("chosen:updated");
+                }
+
+                // dont populate AlwaysSelectedFilters with all options, go to next select
+                if (!isPreselectioneDefined) return;
+
+                $selectedOpts.each(function () {
+                    optValue = $(this).attr('value');
+                    if (optValue !== '')
+                        that.AlwaysSelectedFilters.push({ type: selectName, value: optValue });
+                });
             });
         },
         AddFilter: function(filterObj) {
@@ -943,13 +988,32 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         GetSendData: function() {
             var that = this,
-                sendDataObj = {}
+                sendDataObj = {},
+                selectIgnoreAttr,
+                ignoreAlwaysActiveTypes = []
 
             // add filters as property name and push multiple filters of the same type into array
             InformaFilters.ActiveFilters.forEach(function (filterObj) {
-                if (!sendDataObj[filterObj.type])
+                if (!sendDataObj[filterObj.type]) {
+                    // if active filters has values from ignored select then prevent AlwaysSelectedFilters from being read
+                    // for for every filterObj, check the select with matching name to its type, to see if it has data-ignore
+                    selectIgnoreAttr = InformaFilters.Selects.filter('[name="' + filterObj.type + '"]').data('ignore');
+                    if (selectIgnoreAttr && selectIgnoreAttr.length > 0) {
+                        // then set a flag
+                        ignoreAlwaysActiveTypes.push(filterObj.type);
+                    }
                     sendDataObj[filterObj.type] = [];
+                }
                 sendDataObj[filterObj.type].push(filterObj.value);
+            });
+
+            InformaFilters.AlwaysSelectedFilters.forEach(function (filterObj) {
+                // now ignore always selected if ignore flag is set
+                if (ignoreAlwaysActiveTypes.indexOf(filterObj.type) === -1) {
+                    if (!sendDataObj[filterObj.type])
+                        sendDataObj[filterObj.type] = [];
+                    sendDataObj[filterObj.type].push(filterObj.value);
+                }
             });
 
             if (!sendDataObj.MonthYear) return null;
@@ -1174,7 +1238,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         SanitizedQueryProps: [],
         ActiveProperties: [],
         Defaults: [],
-        Preselected: [],
         Init: function() {
             this.Defaults = [
                 { name: 'MonthYear', values: [moment().format('MMMM YYYY')] },
@@ -1191,38 +1254,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             if (this.isqueried) {
                 this.PopulateWithQuery();
             } else {
-                // this.PopulateWithDefaults();
-                this.PopulateWithSelectedFilters();
+                this.PopulateWithDefaults();
             }
             // console.log(this.ActiveProperties);
-        },
-        PopulateWithSelectedFilters: function() {
-            // combine preselected with defaults into Preselected
-            var that = this;
-            this.Preselected = this.Defaults.slice(0);
-            InformaFilters.Selects.each(function () {
-                var $select = $(this),
-                    selectName = $select.attr('name'),
-                    $selectedOpts = $select.find('[selected]'),
-                    isFilterSet = false
-
-                // add selected options to defaults
-                $selectedOpts.each(function () {
-                    if (isFilterSet) {
-                        // assume its the last one (to avoid lookup)
-                        that.Preselected[that.Preselected.length - 1].values.push($selectedOpts.text());
-                    } else {
-                        that.Preselected.push({ name: selectName, values: [$selectedOpts.text()] })
-                        isFilterSet = true;
-                    }
-                });
-
-                // revert selected option to All
-                $select.children('option[value=""]').attr('selected', '').siblings().removeAttr('selected');
-                $select.trigger("chosen:updated");
-            });
-            this.ApplyPropsToController(this.Preselected);
-            this.ActiveProperties = this.Preselected.slice(0);
         },
         PopulateWithQuery: function() {
             this.SanitizeQuery();
