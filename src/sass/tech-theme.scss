@@ -55,6 +55,19 @@ body {
     }
 }
 
+.tech-theme .load-spinner .loading {
+    background: url(/static/images/tech/loader_tech.gif) no-repeat center;
+    background-size: 100% auto;
+    em {
+        display: none;
+    }
+    img {
+        width: 120px;
+        height: 120px;
+        visibility: hidden;
+    }
+}
+
 @media screen and (max-width: 812px) {
     .sub-headline {
         font-size: 33px !important;
@@ -2375,6 +2388,13 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
     }
     .hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
         color: #fff!important;
+        width: 100%;
+        float: left;
+        word-break: break-word;
+    }
+
+    .hero-items .vertical-align.overlay-text .for-center h4 {
+        color: #fff!important;
     }
 }
 /* events calendar start */
@@ -2570,12 +2590,14 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                             background-color: transparent;
                         }
                         .ical {
-                            width: 204px;
+                            width: 48px;
                             height: 48px;
                             padding: 0;
                             border-radius: 0;
+                            background: transparent;
                             &:after {
                                 background: white url(/Static/images/tech/ical-icon.png) no-repeat center;
+                                opacity: 1;
                             }
                             &:hover {
                                 &:after {
@@ -2609,6 +2631,9 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                                 height: 86px;
                                 @include mobile {
                                     height: 82px;
+                                }
+                                &:after {
+                                    background: white;
                                 }
                             }
                         }
@@ -2679,8 +2704,11 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                                         height: 48px;
                                         padding: 0;
                                         border-radius: 0;
+                                        background: transparent;
                                         &:after {
+                                            left: 0;
                                             background: white url(/Static/images/tech/ical-icon.png) no-repeat center;
+                                            opacity: 1;
                                         }
                                         &:hover {
                                             &:after {
@@ -2786,12 +2814,12 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                             &:after {
                                 content: '+';
                                 position: absolute;
-                                bottom: 10px;
+                                bottom: 11px;
                                 left: 50%;
                                 transform: translate(-50%,50%);
                                 background-color: white;
                                 color: #d9d600;
-                                line-height: 18px;
+                                line-height: 19px;
                                 width: 18px;
                                 height: 18px;
                                 font-size: 18px;
@@ -2823,6 +2851,11 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
             }
             [data-datetype="year"] {
+                .fccal.hovered {
+                    .fc-toolbar h2 {
+                        color: #11a7d9 !important;
+                    }
+                }
                 .fc-toolbar {
                     h2 {
                         font-family: 'OpenSans Bold' !important;

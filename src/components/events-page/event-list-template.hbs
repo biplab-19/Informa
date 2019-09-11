@@ -1,5 +1,5 @@
 {{!-- template file, needs to be copied into src\scripts\templates\informaui.templates.js --}}
-<div class="col-12 events-section {{results.DateType}}">
+<div class="col-xs-12 events-section {{results.DateType}}">
     <div class="events-wrap">
         <div class="dates col-sm-2">
             {{{results.DateRange}}}
@@ -125,7 +125,7 @@
                                 <a href="{{results.Ical.Url}}" class="btn pull-left ical" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
                             {{/compare}}
                             {{#compare results.StatusEnabled false operator="=="}}
-                                <a href="{{results.Ical.Url}}" class="btn btn-primary pull-left ical disabled" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
+                                <a href="{{results.Ical.Url}}" class="btn pull-left ical disabled" target="{{results.Ical.Target}}"><span class="text">{{results.Ical.LinkText}}</span></a>
                             {{/compare}}
                         {{/compare}}
                     {{/if}}
@@ -147,7 +147,7 @@
         <div class="logo col-sm-offset-2 col-md-offset-0 col-md-3">
             {{#if results.Logo}}
                 <div class="content clearfix">
-                    <img src="{{results.Logo.Src}}" alt="{{results.Logo.AltText}}">
+                    <img src="{{results.Logo}}" alt="event logo">
                 </div>
             {{/if}}
         </div>

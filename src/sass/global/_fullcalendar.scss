@@ -401,6 +401,13 @@
 	background-color: transparent;
 	border: none;
 }
+.fc-day-number {
+	display: block;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	color: inherit;
+}
 [data-view="calendar-view"] {
 	[data-datetype="month"] {
 		margin-top: 30px;
@@ -461,6 +468,11 @@
 			}
 			&.event-now {
 				color: black;
+			}
+			.fc-day-number {
+				@include mobile {
+					text-align: center;
+				}
 			}
 		}
 		.fc-day {
@@ -525,7 +537,7 @@
 		}
 		@include mobile {
 			.fc-view {
-				padding: 10px 0;
+				padding: 10px 5px;
 				&> table {
 					border: none;
 				}
@@ -574,7 +586,7 @@
 			}
 		}
 		.fc-view {
-			padding: 10px 0;
+			padding: 10px 5px;
 			border: 1px solid #ebebeb;
 			&.event-present {
 				border-color: black;
@@ -586,13 +598,15 @@
 		}
 		.fc-day-top {
 			padding: 0 10px 0;
-			text-align: center;
 			color: #6a7384;
 			@include tablet {
 				padding: 0;
 			}
 			&.event-now {
 				color: black;
+			}
+			.fc-day-number {
+				text-align: center;
 			}
 		}
 		.fc-day {

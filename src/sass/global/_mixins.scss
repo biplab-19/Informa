@@ -749,6 +749,15 @@ $desktop-width: 1142px;
             }
 
             .events-list {
+                .PreviousDate {
+                    .btn {
+                        opacity: 0.65;
+                        pointer-events: none;
+                        &.ical:after {
+                            pointer-events: none;
+                        }
+                    }
+                }
                 .CurrentDate {
                     .events-wrap {
                         .header {
@@ -1522,7 +1531,13 @@ $desktop-width: 1142px;
         //         background: $primarycolor;
         //     }
         // }
-
+        [data-view="tile-view"] {
+            .events-section {
+                .events-wrap {
+                    border-color: $primarycolor;
+                }
+            }
+        }
         [data-view="calendar-view"] {
             [data-datetype="month"] {
                 @include mobile {
@@ -1535,6 +1550,11 @@ $desktop-width: 1142px;
                 }
             }
             [data-datetype="year"] {
+                .fccal.hovered {
+                    .fc-toolbar h2 {
+                        color: $secondarycolorlight;
+                    }
+                }
                 .fc-view.active {
                     border-color: $primarycolor;
                 }
@@ -1743,4 +1763,11 @@ $properties: (margin, padding);
 
 @mixin margin($top, $right, $bottom, $left) {
     margin: $top $right $bottom $left;
+}
+
+
+@media screen and (max-width: 1141px) {
+.tmt-theme header section.informaNav.white-theme .navbar-brand .logo-img-big {
+    margin-top:10px;
+  }
 }
