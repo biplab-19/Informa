@@ -996,7 +996,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         GetSendData: function() {
             var that = this,
-                sendDataObj = {},
+                sendDataObj = {
+                    UniqueId: Math.floor(100000 + Math.random() * 900000)
+                },
                 selectIgnoreAttr,
                 ignoreAlwaysActiveTypes = []
 
