@@ -1035,6 +1035,7 @@ a:hover, a:focus {
         border-top: 8px solid transparent;
         border-left: 10px solid #002244;
         border-bottom: 8px solid transparent;
+        
     }
 }
 .triangle-down {
@@ -1049,6 +1050,7 @@ a:hover, a:focus {
         border-left: 7px solid transparent;
         border-right: 7px solid transparent;
         border-top: 10px solid #002244;
+        
         
     }
 }
@@ -1183,6 +1185,9 @@ a:hover, a:focus {
         }
         .segmanet-head-mob label.round-checkbox {
             display: none;
+            &.active{
+                display:block;
+            }
         }
         .mob-load-btn {
             margin-top: 27px;
@@ -1195,6 +1200,9 @@ a:hover, a:focus {
         }
        .segmanet-head-mob .triangle-right, .segmanet-head-mob .triangle-down {
             display: inline-block;
+            &.de-active{
+                display:none;
+            }
         }
     }
 
