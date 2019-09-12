@@ -2591,14 +2591,14 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                             height: 48px;
                             padding: 0;
                             border-radius: 0;
-                            background: transparent;
+                            background-color: transparent;
                             &:after {
-                                background: white url(/Static/images/tech/ical-icon.png) no-repeat center;
+                                background-image: url(/Static/images/tech/btn-icon-cal.png);
                                 opacity: 1;
                             }
-                            &:hover {
+                            &:hover{
                                 &:after {
-                                    background-image: url(/Static/images/tech/ical-icon-active.png);
+                                    background-image: url(/Static/images/tech/btn-icon-cal-active.png);
                                 }
                             }
                             .text {
@@ -2704,12 +2704,12 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                                         background: transparent;
                                         &:after {
                                             left: 0;
-                                            background: white url(/Static/images/tech/ical-icon.png) no-repeat center;
                                             opacity: 1;
+                                            background-image: url(/Static/images/tech/btn-icon-cal.png);
                                         }
-                                        &:hover {
+                                        &:hover{
                                             &:after {
-                                                background-image: url(/Static/images/tech/ical-icon-active.png);
+                                                background-image: url(/Static/images/tech/btn-icon-cal-active.png);
                                             }
                                         }
                                         .text {
