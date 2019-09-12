@@ -1563,6 +1563,32 @@ $desktop-width: 1142px;
             .events-section {
                 .events-wrap {
                     border-color: $primarycolor;
+                    .header .btn.ical {
+                        &:after {
+                            background-image: url(/Static/images/pharma/btn-icon-cal.png);
+                        }
+                        &:hover{
+                            &:after {
+                                background-image: url(/Static/images/pharma/btn-icon-cal-active.png);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        [data-view="list-view"] {
+            .events-section {
+                .events-wrap .content-wrap .content.ctas{
+                    .btn.ical {
+                        &:after {
+                            background-image: url(/Static/images/pharma/btn-icon-cal.png);
+                        }
+                        &:hover{
+                            &:after {
+                                background-image: url(/Static/images/pharma/btn-icon-cal-active.png);
+                            }
+                        }
+                    }
                 }
             }
         }
