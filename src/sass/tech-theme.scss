@@ -2476,12 +2476,8 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     background-color: transparent;
                 }
                 &:before {
-                    content: '';
-                    width: calc(100% - 20px);
-                    height: calc(100% - 20px);
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: contain;
+                    width: calc(100% - 15px);
+                    height: calc(100% - 15px);
                 }
                 &.icon-list-view {
                     &:before {
@@ -2501,8 +2497,8 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
                 &.icon-calendar-view {
                     &:before {
-                        width: calc(100% - 15px);
-                        height: calc(100% - 15px);
+                        width: calc(100% - 10px);
+                        height: calc(100% - 10px);
                         background-image: url(/Static/images/tech/view-icon-cal.png);
                     }
                     &.active:before {

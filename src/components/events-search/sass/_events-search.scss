@@ -226,34 +226,15 @@
                             left: -9999999px
                         }
                         &:before {
+                            content: '';
                             position: absolute;
                             top: 50%;
                             left: 50%;
                             transform: translate(-50%, -50%);
-                            font-size: 28px;
-                            text-indent: 0;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: contain;
                         }
-                        // &.icon-list-view {
-                        //     &:before {
-                        //         content: '';
-                        //         height: 26px;
-                        //         width: 22px;
-                        //         background: url(/Static/images/dashboard.png) no-repeat;
-                        //     }
-                        // }
-                        // &.icon-tile-view {
-                        //     &:before {
-                        //         content: '';
-                        //         height: 26px;
-                        //         width: 22px;
-                        //         background: url(/Static/images/dashboard.png) no-repeat;
-                        //     }
-                        // }
-                        // &.icon-calendar-view {
-                        //     &:before {
-                        //         content: '\e920';
-                        //     }
-                        // }
                     }
                 }
                 @include mobile {
