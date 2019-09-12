@@ -451,7 +451,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             // else its the same or before
                             html += this.MakeDivider(currDate);
                             // if its before, its multi-month event so set prevEventDate as next event start date
-                            if (currToEvtMonthDiff < 0 && resultCount < resultsLength) {
+                            if (currToEvtMonthDiff < 0 && (resultCount + 1) < resultsLength) {
                                 // set prev event for next loop
                                 prevEventDate = getMomentDate(results[resultCount + 1].EventStartDate, 'event');
                             } else {
@@ -865,8 +865,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         MoreBtn: $('.more-events .btn-more-events'),
         InfiniteScrollLoadPoint: 0,
         StartDate: null,
-        EndDate: null,
-        PreviousDate: null,
+        PreviousDate: moment().subtract(11, 'months'),
+        EndDate: moment().add(11, 'months'),
         PageNum: 1,
         LoadCalled: false,
         Init: function () {
@@ -881,15 +881,23 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 e.preventDefault();
             });
             this.DateArrows.click(function (e) {
-                var $this = $(this);
+                var $this = $(this),
+                    destinationDateVal;
+
+                e.preventDefault();
+                if (that.LoadCalled) return;
+
+                // trigger select field as opposed to change date directly to address chosen-select bug (https://itmebusiness.atlassian.net/browse/SW-9062)
                 if ($this.hasClass('previous')) {
-                    InformaEventQuery.AddProp('MonthYear', (moment(that.Date).subtract(1, that.ViewType + 's')).format('MMMM YYYY'));
+                    destinationDateVal = (moment(that.Date).subtract(1, that.ViewType + 's')).format('MMMM YYYY');
                 }
                 if ($this.hasClass('next')) {
-                    InformaEventQuery.AddProp('MonthYear', (moment(that.Date).add(1, that.ViewType + 's')).format('MMMM YYYY'));
+                    destinationDateVal = (moment(that.Date).add(1, that.ViewType + 's')).format('MMMM YYYY');
                 }
+
+                if (!destinationDateVal) return;
+                InformaFilters.Selects.filter('[name="MonthYear"]').val(destinationDateVal).trigger('change');
                 that.UpdateArrows();
-                e.preventDefault();
             });
             this.ViewTypeSwitch.change(function () {
                 var val = this.value;
@@ -973,15 +981,15 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 InformaEventList.RenderView(data);
                 InformaEventTiles.RenderView(data);
 
+                // set props for header text and infinite loading check
+                that.TotalCount = totalCount;
+                that.ActualCount = that.PageNum > 1 ? that.ActualCount + eventsCount : eventsCount;
+
                 // if actual events count = 0 then dont do anything else
                 if (eventsCount === 0) return;
 
                 // render calendar after eventscount check because global no-events message handles no events
                 InformaFC.RenderView(data);
-
-                // set props for header text and infinite loading check
-                that.TotalCount = totalCount;
-                that.ActualCount = that.PageNum > 1 ? that.ActualCount + eventsCount : eventsCount;
 
                 that.AddInfiniteScrollEvent();
             });
@@ -1128,11 +1136,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             return this.EventsContainer.attr('data-edatetype');
         },
         set Date(momentDate) {
-            // set date limits, first time StartDate is set
-            if (!this.StartDate) {
-                this.PreviousDate = moment(momentDate).subtract(11, 'months');
-                this.EndDate = moment(momentDate).add(11, 'months');
-            }
             this.StartDate = momentDate;
             
             InformaFilters.Date = momentDate;
