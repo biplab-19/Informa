@@ -152,14 +152,8 @@
     #event-modal {
         .modal-dialog {
             @include mobile {
-              width: 100%;
               padding-left: 7.5px;
               padding-right: 7.5px;
-            }
-            @include tablet {
-              width: 100%;
-              padding-left: 15px;
-              padding-right: 15px;
             }
             @include desktop {
               width: 1172px;
