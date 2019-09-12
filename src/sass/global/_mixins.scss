@@ -723,6 +723,34 @@ $desktop-width: 1142px;
             .filter-section {
                 color: white;
             }
+            .views-section .views .state-views .view a {
+                &:before {
+                    width: calc(100% - 15px);
+                    height: calc(100% - 15px);
+                }
+                &.icon-list-view:before {
+                    background-image: url(/Static/images/pharma/view-icon-list.png);
+                }
+                &.icon-tile-view:before {
+                    background-image: url(/Static/images/pharma/view-icon-tile.png);
+                }
+                &.icon-calendar-view:before {
+                    width: calc(100% - 10px);
+                    height: calc(100% - 10px);
+                    background-image: url(/Static/images/pharma/view-icon-cal.png);
+                }
+                &.active {
+                    &.icon-list-view:before {
+                        background-image: url(/Static/images/pharma/view-icon-list-active.png);
+                    }
+                    &.icon-tile-view:before {
+                        background-image: url(/Static/images/pharma/view-icon-tile-active.png);
+                    }
+                    &.icon-calendar-view:before {
+                        background-image: url(/Static/images/pharma/view-icon-cal-active.png);
+                    }
+                }
+            }
         }
 
         #events-calendar {
