@@ -29,6 +29,7 @@
                     RunningCalls[service].abort();
                 }
 
+                console.log('ajax', JSON.parse(params.data));
                 RunningCalls[service] = $.ajax({
                     type: Settings.method,
                     //url: INFORMA.config.webservices[service],
@@ -39,6 +40,7 @@
                     dataType: Settings.dataType,
                     headers: Settings.headers,
                     success: function(msg) {
+                        console.log('success', msg);
 
                         if (Settings.contentType.indexOf("xml") > -1) {
                             if (typeof params !== "undefined" && typeof params.success_callback === "function") {
@@ -58,6 +60,7 @@
 
                     },
                     error: function(xhr, status, error) {
+                        console.log('error', status, error);
                         if (typeof params !== "undefined" && typeof params.error_callback === "function") {
                             params.error_callback.call(this, xhr, status, error);
                         }

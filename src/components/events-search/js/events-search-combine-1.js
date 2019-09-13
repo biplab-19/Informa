@@ -958,7 +958,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     totalCount;
 
                 if (data) {
-                    console.log('data received', data);
+                    // console.log('data received', data);
                 } else {
                     throw "data not detectable in callback";
                 }
@@ -992,13 +992,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 InformaFC.RenderView(data);
 
                 that.AddInfiniteScrollEvent();
+            },function (data) {
+                console.log('error', data);
             });
         },
         GetSendData: function() {
             var that = this,
-                sendDataObj = {
-                    UniqueId: Math.floor(100000 + Math.random() * 900000)
-                },
+                sendDataObj = {},
                 selectIgnoreAttr,
                 ignoreAlwaysActiveTypes = []
 
@@ -1072,7 +1072,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     throw "PageSize not valid : " + sendDataObj.PageSize;
             }
 
-            console.log('data sent (pre stringification)', sendDataObj);
+            // console.log('data sent (pre stringification)', sendDataObj);
 
             return JSON.stringify({data: JSON.stringify(sendDataObj)});
         },
