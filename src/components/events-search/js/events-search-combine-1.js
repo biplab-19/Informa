@@ -993,7 +993,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                 that.AddInfiniteScrollEvent();
             },function (data) {
-                console.log('error', data);
+                console.log('error', JSON.parse(JSON.parse(data).data));
             });
         },
         GetSendData: function() {
