@@ -805,6 +805,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         EventsContainer: $('#events-calendar'),
         EventsListContainers: $('#events-calendar .events-list'),
         NoEventsContainer: $('#events-calendar .no-result'),
+        ErrorContainer: null,
         DateArrows: $('.header .arrows'),
         HeaderDate: $('.header h2'),
         ViewBtns: $('.views-section .state-views .view a'),
@@ -818,8 +819,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         EndDate: moment().add(11, 'months'),
         PageNum: 1,
         LoadCalled: false,
+        ErrorTimeout: 0,
         Init: function () {
             var that = this;
+            // create error container dynamically
+            // TODO: move to BE
+            this.ErrorContainer = $('<div class="container error hidden"><div class="row"><div class="col-12"><p>Something went wrong. Please try again later.</p></div></div></div>');
+            this.ErrorContainer.insertAfter(this.NoEventsContainer);
+            // events listeners
             this.ViewBtns.click(function (e) {
                 InformaEventQuery.AddProps({
                     View: $(this).data('viewport'),
@@ -898,8 +905,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
             this.PageNum = pageNum;
             sendData = this.GetSendData();
+            if (!sendData) {
+                this.ShowError();
+                return;
+            }
 
-            if (!sendData) return;
+            this.ErrorTimeout = setTimeout(function () {
+                that.ShowError();
+            }, 30000);
 
             this.LoadCalled = true;
             this.GetAjaxData(INFORMA.Configs.urls.webservices.EventsSearch, ajaxMethod, sendData, function(data) {
@@ -916,6 +929,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 eventsCount = data.Events.length;
                 totalCount = parseInt(data.TotalResults);
                 that.LoadCalled = false;
+
+                // undo error
+                clearTimeout(that.ErrorTimeout);
+                that.ErrorContainer.addClass('hidden');
 
                 // display no events container if total is 0 and first page, show no event message
                 if (totalCount === 0 && that.PageNum === 1) {
@@ -942,8 +959,16 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                 that.AddInfiniteScrollEvent();
             },function (data) {
+                // on error
                 console.log('error', JSON.parse(JSON.parse(data).data));
+                that.ShowError();
             });
+        },
+        ShowError() {
+            INFORMA.Spinner.Hide();
+            this.ErrorContainer.removeClass('hidden');
+            this.NoEventsContainer.addClass('hidden');
+            this.EventsListContainers.filter('.active').addClass('hidden');
         },
         GetSendData: function() {
             var that = this,
