@@ -326,7 +326,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.AddEvents(data.Events);
             this.EqualHeight();
         },
-        MakeNoEvents: function() {
+        MakeNoEvent: function() {
             return '<div class="col-xs-12 no-events"><p>There are no further events scheduled.</p></div>';
         },
         AddEvents: function(results) {
@@ -343,7 +343,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     html += this.Template({ results: evtObj });
                 }
             } else {
-                html += this.MakeNoEvents();
+                html += this.MakeNoEvent();
             }
             this.EventsContainer.html(html);
         },
@@ -400,88 +400,90 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         TemplateName: (Templates.EventpageListviewTemplate !== "undefined") ? Templates.EventpageListviewTemplate : "",
         MoreBtn: $('.more-events .btn-more-events'),
         Template: null,
+        EventData: [],
+        EventStartMonth: null,
+        EventMonthRange: 0,
         Init: function() {
             this.Template = Handlebars.compile(this.TemplateName);
         },
         RenderView: function(data) {
-            this.AddEvents(data.Events);
+            this.SetupData(data);
+            this.CalculateMonthRange();
+            this.RenderEvents();
         },
-        MakeDivider: function(momentDate) {
+        SetupData: function(data) {
+            // on first page reset
+            if (InformaEventsController.PageNum === 1) {
+                this.EventData = data.Events;
+                this.EventStartMonth = getMomentDate(this.EventData[0].EventStartDate, 'event');
+            } else {
+                // append events
+                this.EventData = this.EventData.concat(data.Events);
+            }
+        },
+        CalculateMonthRange: function() {
+            var that = this,
+                evtStartDate,
+                prevEvtStartDate,
+                evtMonthDiff;
+
+            this.EventMonthRange = 0;
+            // for each new month append month count
+            this.EventData.forEach(function (evtObj) {
+                evtStartDate = getMomentDate(evtObj.EventStartDate, 'event');
+                if (!prevEvtStartDate) {
+                    that.EventMonthRange++;
+                } else {
+                    evtMonthDiff = evtStartDate.startOf('month').diff(prevEvtStartDate.startOf('month'), 'month')
+                    if (evtMonthDiff > 0) {
+                        that.EventMonthRange += evtMonthDiff;
+                    }
+                }
+                prevEvtStartDate = getMomentDate(evtObj.EventStartDate, 'event');
+            });
+        },
+        RenderEvents: function() {
+            var html = '',
+                evtMonthCount,
+                currMonth;
+            for (evtMonthCount = 0; evtMonthCount < this.EventMonthRange; evtMonthCount++) {
+                currMonth = moment(this.EventStartMonth).add(evtMonthCount, 'months');
+                html += this.MakeMonthDivider(currMonth);
+                html += this.MakeMonthEvents(currMonth);
+            }
+            this.EventsContainer.html(html);
+        },
+        MakeMonthDivider: function(momentDate) {
             return '<div class="col-xs-12 month-divider"><h3>' + momentDate.format('MMMM YYYY').toUpperCase()
             + '</h3></div>'
         },
-        MakeNoEvents: function() {
+        MakeNoEvent: function() {
             return '<div class="col-xs-12 no-events"><p>There are no further events scheduled.</p></div>';
         },
-        MakeEvents: function(evtObj) {
+        MakeMonthEvents: function(momentDate) {
+            var html = '',
+                eventsFromMonth = this.EventData.filter(function (evtObj) {
+                    return getMomentDate(evtObj.EventStartDate, 'event').isSame(momentDate, 'month');
+                }),
+                eventsLength = eventsFromMonth.length,
+                eventCount,
+                evtObj;
+
+            if (eventsLength > 0) {
+                for (eventCount = 0; eventCount < eventsLength; eventCount++) {
+                    evtObj = eventsFromMonth[eventCount];
+                    html += this.MakeEvent(evtObj);
+                }
+            } else {
+                html += this.MakeNoEvent();
+            }
+            return html;
+        },
+        MakeEvent: function(evtObj) {
             // add to event date variation for single/multi/cross-month events
             this.AddDateToEvent(evtObj);
             // return template with evtObj as data source
             return this.Template({ results: evtObj });
-        },
-        AddEvents: function(results) {
-            var resultsLength = results.length,
-                resultCount,
-                evtObj,
-                html = InformaEventsController.PageNum > 1 ? this.EventsContainer.html() : '',
-                currDate = InformaEventsController.PageNum > 1 ? this.EventsContainer.data('last-date') : this.Date,
-                prevEventDate, evtStartDate, evtEndDate, currToEvtMonthDiff, diffCount;
-
-            if (resultsLength > 0) {
-                for (resultCount = 0; resultCount < resultsLength; resultCount++) {
-                    evtObj = results[resultCount];
-                    
-                    evtStartDate = getMomentDate(evtObj.EventStartDate, 'event');
-                    evtEndDate = getMomentDate(evtObj.EventEndDate, 'event');
-                    currToEvtMonthDiff = evtStartDate.startOf('month').diff(currDate.startOf('month'), 'month');
-
-                    // on first loop, first item in display
-                    if (resultCount === 0 && InformaEventsController.PageNum === 1) {
-                        // its after
-                        if (currToEvtMonthDiff > 0) {
-                            // add no events for each month relative to selected month
-                            for (diffCount = 0; diffCount < currToEvtMonthDiff; diffCount++) {
-                                html += this.MakeDivider(moment(currDate).add(diffCount, 'months'));
-                                html += this.MakeNoEvents();
-                            }
-                            // add one more divider ready for event
-                            html += this.MakeDivider(moment(currDate).add(currToEvtMonthDiff, 'months'));
-                            prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
-                        } else {
-                            // else its the same or before
-                            html += this.MakeDivider(currDate);
-                            // if its before, its multi-month event so set prevEventDate as next event start date
-                            if (currToEvtMonthDiff < 0 && (resultCount + 1) < resultsLength) {
-                                // set prev event for next loop
-                                prevEventDate = getMomentDate(results[resultCount + 1].EventStartDate, 'event');
-                            } else {
-                                prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
-                            }
-                        }
-                    } else {
-                        if (InformaEventsController.PageNum > 1)
-                            prevEventDate = moment(this.EventsContainer.data('last-date'));
-                        // if there is a diff between event dates, put in a divider
-                        if (!prevEventDate || !evtStartDate.isSame(prevEventDate, 'month')) {
-                            html += this.MakeDivider(evtStartDate);
-                            // if the diff is bigger than 1, put in no events
-                            if (evtStartDate.diff(prevEventDate, 'month') > 1)
-                                html += this.MakeNoEvents();
-                        }
-                        // set prev event for next loop
-                        prevEventDate = getMomentDate(evtObj.EventStartDate, 'event');
-                    }
-                    
-                    // add list event template to html
-                    html += this.MakeEvents(evtObj);
-
-                    // set data for later reference
-                    this.EventsContainer.data('last-date', evtStartDate);
-                }
-            } else {
-                html += this.MakeNoEvents();
-            }
-            this.EventsContainer.html(html);
         },
         AddDateToEvent: function(data) {
             var sDateMoment = getMomentDate(data.EventStartDate, 'event'),
@@ -584,54 +586,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                             that.Modal.modal('show');
                         },
-                        // dayRender: function(date, cell) {
-                        //     cell.append('<span class="more">More</span>');
-                        // },
                         eventAfterAllRender: function (view) { // Triggered after all events have finished rendering.
-                            // var _vp = INFORMA.global.device.viewportN,
-                            //     $activeFcDays,
-                            //     $activeFcDay,
-                            //     $events,
-                            //     datAttr,
-                            //     dayCellTotalHeight,
-                            //     accumEventsCellHeight;
-                            
-                            // if (_vp === 0) {
-                            //     $activeFcDays = view.el.find('.fc-day.event-present');
-                            //     $activeFcDays.each(function() {
-                            //         $activeFcDay = $(this);
-                            //         // match the height of :before pseudo (- 30) and More span height
-                            //         dayCellTotalHeight = $activeFcDay.height() - 30 - $activeFcDay.children('span').height();
-                            //         // console.log($activeFcDay.data('events-height') + ' > ' + dayCellTotalHeight);
-                            //         if ($activeFcDay.data('events-height') > dayCellTotalHeight) {
-                            //             // set the class to show 'more'
-                            //             $activeFcDay.addClass('congested');
-                            //             $activeFcDay.data('max-height', dayCellTotalHeight);
-                            //         }
-                            //     });
-                            //     // reloop to look for events and hide them once overflowed
-                            //     $activeFcDays.filter('.congested').each(function() {
-                            //         $activeFcDay = $(this);
-                            //         datAttr = $activeFcDay.data('date');
-                            //         $events = view.el.find('.events[data-date="' + datAttr + '"]');
-                            //         accumEventsCellHeight = 0;
-                            //         $events.each(function() {
-                            //             accumEventsCellHeight += $(this).height();
-                            //             // if event is overflowed hide it
-                            //             if (accumEventsCellHeight > $activeFcDay.data('max-height')) {
-                            //                 $(this).addClass('hidden');
-                            //             } 
-                            //         });
-                            //     });
-                            // }
                             INFORMA.Spinner.Hide();
-                        },
-                        eventDestroy: function (event, element, view) {
-                            // var $elSkeleton = element.closest('.fc-content-skeleton'),
-                            //     datAttr = event.start.format('YYYY-MM-DD'),
-                            //     $fcDay = $elSkeleton.siblings('.fc-bg').find('.fc-day[data-date=' + datAttr + ']');
-
-                            // $fcDay.data('events-height', 0);
                         },
                         eventAfterRender: function (event, element, view) {
                             // add active class to cell for event indicator
@@ -643,11 +599,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             
                             $fcDayNum.addClass('event-now');
                             $fcDay.addClass('event-present');
-                            
-                            // if(element.data('date') === datAttr && !element[0].hasAttribute('height-recorded')) {
-                            //     $fcDay.data('events-height', fcDayTotalEventHeight + element.height());
-                            //     element.attr('height-recorded', '');
-                            // }
                         },
                         eventRender: function (event, element, view) { // Triggered while an event is being rendered. A hook for modifying its DOM.
                             var datAttr = event.start.format('YYYY-MM-DD');
@@ -691,8 +642,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                                 MonthYear: targetDate.format('MMMM YYYY'),
                                                 ViewType: 'month',
                                             });
-                                            // InformaEventQuery.AddProp('MonthYear', targetDate.format('MMMM YYYY'));
-                                            // InformaEventQuery.AddProp('ViewType', 'month');
                                         }, 200);
                                     }
                                 }).on('mouseenter', function () {
@@ -993,7 +942,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                 that.AddInfiniteScrollEvent();
             },function (data) {
-                console.log('error', data);
+                console.log('error', JSON.parse(JSON.parse(data).data));
             });
         },
         GetSendData: function() {

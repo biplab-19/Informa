@@ -28,8 +28,8 @@
                 if (RunningCalls[service] && RunningCalls[service] !== null) {
                     RunningCalls[service].abort();
                 }
-
-                console.log('ajax', JSON.parse(params.data));
+                
+                console.log('ajax', JSON.parse(JSON.parse(params.data).data));
                 RunningCalls[service] = $.ajax({
                     type: Settings.method,
                     //url: INFORMA.config.webservices[service],
