@@ -29,7 +29,12 @@
                     RunningCalls[service].abort();
                 }
                 
-                console.log('ajax', JSON.parse(JSON.parse(params.data).data));
+                try {
+                    console.log('ajax', JSON.parse(JSON.parse(params.data).data));
+                } catch (e) {
+                    console.log('error tying to log data', e);
+                    console.log('raw data:', params.data);
+                }
                 RunningCalls[service] = $.ajax({
                     type: Settings.method,
                     //url: INFORMA.config.webservices[service],
