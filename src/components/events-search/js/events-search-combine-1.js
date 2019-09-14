@@ -964,7 +964,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 that.ShowError();
             });
         },
-        ShowError() {
+        ShowError: function() {
             INFORMA.Spinner.Hide();
             this.ErrorContainer.removeClass('hidden');
             this.NoEventsContainer.addClass('hidden');
