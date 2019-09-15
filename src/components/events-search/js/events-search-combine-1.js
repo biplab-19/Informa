@@ -569,12 +569,18 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             // do popup with list view template
                             var evtObj,
                                 html = '',
-                                results = that.EventData.Events;
+                                results = that.EventData.Events,
+                                mDate = getMomentDate(date).startOf('day'),
+                                startOfStartDate,
+                                endOfEndDate;
+                            
                             for (var key in results) {
                                 if (results.hasOwnProperty(key)) {
                                     evtObj = results[key];
+                                    startOfStartDate = getMomentDate(evtObj.EventStartDate, 'event').startOf('day');
+                                    endOfEndDate = getMomentDate(evtObj.EventEndDate, 'event').endOf('day');
 
-                                    if (date.isBetween(getMomentDate(evtObj.EventStartDate, 'event'), getMomentDate(evtObj.EventEndDate, 'event'), 'day', '[]')) {
+                                    if (mDate >= startOfStartDate && mDate <= endOfEndDate) {
                                         InformaEventList.AddDateToEvent(evtObj);
                                         html += InformaEventList.Template({ results: evtObj });
                                     }
