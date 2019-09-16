@@ -2399,6 +2399,12 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
 }
 /* events calendar start */
 .tech-theme {
+    .modal {
+        z-index: 999990 !important;
+    }
+    .modal-backdrop {
+        z-index: 999989;
+    }
     .events-search {
         padding: 0;
         background-color: white;

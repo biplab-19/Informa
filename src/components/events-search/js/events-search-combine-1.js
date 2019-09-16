@@ -415,11 +415,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // on first page reset
             if (InformaEventsController.PageNum === 1) {
                 this.EventData = data.Events;
-                this.EventStartMonth = getMomentDate(this.EventData[0].EventStartDate, 'event');
             } else {
                 // append events
                 this.EventData = this.EventData.concat(data.Events);
             }
+            if (this.EventData.length > 0)
+                this.EventStartMonth = getMomentDate(this.EventData[0].EventStartDate, 'event');
         },
         CalculateMonthRange: function() {
             var that = this,
