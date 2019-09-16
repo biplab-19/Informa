@@ -967,7 +967,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 that.AddInfiniteScrollEvent();
             },function (data) {
                 // on error
-                console.log('error', JSON.parse(JSON.parse(data).data));
+                // console.log('error', JSON.parse(JSON.parse(data).data));
                 that.ShowError();
             });
         },

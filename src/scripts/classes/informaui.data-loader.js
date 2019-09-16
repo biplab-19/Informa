@@ -29,12 +29,13 @@
                     RunningCalls[service].abort();
                 }
                 
-                try {
-                    console.log('ajax', JSON.parse(JSON.parse(params.data).data));
-                } catch (e) {
-                    console.log('error tying to log data', e);
-                    console.log('raw data:', params.data);
-                }
+                // try {
+                //     console.log('ajax', JSON.parse(JSON.parse(params.data).data));
+                // } catch (e) {
+                //     console.log('error tying to log data', e);
+                //     console.log('raw data:', params.data);
+                // }
+
                 RunningCalls[service] = $.ajax({
                     type: Settings.method,
                     //url: INFORMA.config.webservices[service],
@@ -65,7 +66,7 @@
 
                     },
                     error: function(xhr, status, error) {
-                        console.log('error', status, error);
+                        // console.log('error', status, error);
                         if (typeof params !== "undefined" && typeof params.error_callback === "function") {
                             params.error_callback.call(this, xhr, status, error);
                         }
