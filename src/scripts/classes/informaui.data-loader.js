@@ -46,7 +46,7 @@
                     dataType: Settings.dataType,
                     headers: Settings.headers,
                     success: function(msg) {
-                        console.log('success', msg);
+                        // console.log('success', msg);
 
                         if (Settings.contentType.indexOf("xml") > -1) {
                             if (typeof params !== "undefined" && typeof params.success_callback === "function") {
