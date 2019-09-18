@@ -27,6 +27,10 @@ INFORMA.forms = (function (window, $, namespace) {
         _bindSelectOptions,
         _showOverlay,
         _showOverlayQueryString,
+        _getCookies,
+        _checkCookie,
+        _getQueryString,
+        _getUtmSource,
         _validateAllForms,
         _reCaptchaHandler,
         _disableSubmit,
@@ -220,12 +224,69 @@ INFORMA.forms = (function (window, $, namespace) {
         return result;
     }
 
+    _getCookies = function(cookiepara) {
+        var cookieName = cookiepara + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(cookieName) == 0) {
+            return c.substring(cookieName.length, c.length);
+          }
+        }
+        return "";
+    }
+    _checkCookie=function() {
+        var cookieval=_getCookies("_utmz");
+        if (cookieval != "") {
+            return cookieval;
+        } 
+        else {
+            return "";
+        }
+    }
+    _getQueryString=function(key) {
+        var url = location.search;
+        var qs = url.substring(url.indexOf('?') + 1).split('&');
+        if(qs.length > 1) {
+            for(var i = 0, result = {}; i < qs.length; i++) {
+            qs[i] = qs[i].split('=');
+            result[qs[i][0]] = decodeURIComponent(qs[i][1]);
+            var querystring=qs[i][0];
+            var value=qs[i][1];
+            if(querystring==key)
+            {
+                return value;
+            }
+            
+            
+            }
+            return "";
+        }
+        return "";
+    }
+    _getUtmSource=function() {
+        var utmsource=_getQueryString("utm_source");
+        if(utmsource){
+            return utmsource;
+
+        }
+        else {
+            return _checkCookie();      
+         }
+        
+        
+    }
     //Recaptcha handler on click of submit and google analytics changes
     //test123absoats
     _reCaptchaHandler = function () {
         $("form.get-in-touch, form.request-a-demo, form.single-step-form").on('click', 'input[type="submit"]', function (e) {
             getCurrentform = $(this).parents('form');
             if (_isValidForm() == true) {
+                $(getCurrentform).find('.utm-source').val(_getUtmSource());
                 var grecaptchaDiv = $(getCurrentform).find('.g-recaptcha');
                 if (grecaptchaDiv.length > 0) {
                     e.preventDefault();
@@ -1016,6 +1077,10 @@ INFORMA.forms = (function (window, $, namespace) {
         _bindNumber();
         _showOverlay();
         _showOverlayQueryString();
+        _getCookies();
+        _checkCookie();
+        _getQueryString();
+        _getUtmSource();
         _reCaptchaHandler();
         _bindToolTip();
         _bindCalendar();

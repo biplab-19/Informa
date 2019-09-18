@@ -12,8 +12,10 @@ INFORMA.BrandPortfolio = (function (window, $, namespace) {
             // add event listner to close button
             $closeFilterBtn.click(function (evt) {
                 evt.preventDefault();
-                $showFiltersBtn.text("Select filters");
                 $filterContainer.hide();
+                $showFiltersBtn.text("Select filters");
+                $showFiltersBtn.attr('data-state', 'select');
+                filtersOpen=false;
             });
             // add event listener to filters button
             $showFiltersBtn.click(function (evt) {

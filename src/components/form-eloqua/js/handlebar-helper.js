@@ -2,6 +2,8 @@
 // 	I knew it, unicorns are just low-quality ponies!
 // {{/compare}}
 
+// any additional helpers need to be copied into /scripts/handlebar-helper-grunt.js for compile time
+
 Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 
   if (arguments.length < 3)
@@ -69,5 +71,32 @@ Handlebars.registerHelper('AnalystData', function(profile) {
     }else{
       return profile;
     }
+  }
+});
+
+Handlebars.registerHelper({
+  eq: function (v1, v2) {
+      return v1 === v2;
+  },
+  ne: function (v1, v2) {
+      return v1 !== v2;
+  },
+  lt: function (v1, v2) {
+      return v1 < v2;
+  },
+  gt: function (v1, v2) {
+      return v1 > v2;
+  },
+  lte: function (v1, v2) {
+      return v1 <= v2;
+  },
+  gte: function (v1, v2) {
+      return v1 >= v2;
+  },
+  and: function () {
+      return Array.prototype.slice.call(arguments).every(Boolean);
+  },
+  or: function () {
+      return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
   }
 });
