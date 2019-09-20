@@ -33,7 +33,9 @@
     @media screen and (max-width: 992px) {
       text-align: center;
     }
-
+    .alternate {
+      padding: 0 20px;
+    }
     ul {
       font-family: "OpenSans Regular";
       height: 80px;
@@ -50,13 +52,19 @@
       }
     }
     .privacy-policy {
-      color: #ffffff;
       font-size: 14px;
       text-align: right;
       font-family: "OpenSans Regular";
-      padding: 22px 0px;
+      padding: 22px 20px;
+      p {
+        color: #ffffff;
+      }
       &.marketing {
         padding: 22px 0px 22px 40%;
+        @media screen and (max-width: 992px) {
+          text-align: center;
+          padding: 22px 10px;
+        }
       }
       @media screen and (max-width: 992px) {
         text-align: center;
@@ -64,7 +72,7 @@
       }
     }
     .footer-icons {
-      padding: 35px 0px;
+      padding: 35px 20px;
       border-bottom: 1px solid #fff;
       &.marketing {
         border-top: 1px solid #fff;
@@ -104,20 +112,12 @@
       }
 
       a {
-        width: 35px;
-        display: flex;
-        height: 35px;
-        background: #fff;
-        border-radius: 35px;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
+        
+        font-size: 8px;
         color: #525a5d;
         text-decoration: none;
         cursor: pointer;
-        i {
-          font-size: 16px;
-        }
+        
       }
     }
     .heading {
@@ -164,6 +164,9 @@
     }
     .brand-name {
       padding-bottom: 30px;
+      @media screen and (min-width:992px) and (max-width:1150px) {
+        width:35%;
+      }
     }
   }
 }
