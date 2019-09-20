@@ -112,12 +112,20 @@
       }
 
       a {
-        
+        width: 35px;
+        display: flex;
+        height: 35px;
+        background: #fff;
+        border-radius: 35px;
+        align-items: center;
+        justify-content: center;
         font-size: 8px;
         color: #525a5d;
         text-decoration: none;
         cursor: pointer;
-        
+        i{
+          font-size: 16px;
+        }
       }
     }
     .heading {
@@ -164,8 +172,8 @@
     }
     .brand-name {
       padding-bottom: 30px;
-      @media screen and (min-width:992px) and (max-width:1150px) {
-        width:35%;
+      @media screen and (min-width: 992px) and (max-width: 1150px) {
+        width: 35%;
       }
     }
   }
