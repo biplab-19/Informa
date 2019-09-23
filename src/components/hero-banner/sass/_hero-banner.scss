@@ -1396,7 +1396,7 @@ section#hero-banner.feature-hero-banner .btn {
         .feature-hero-banner .hero-items .vertical-align {
             position: static;
             max-width: 1172px;
-            padding: 0px;
+            padding: 0px 20px;
         }
     }
 
@@ -1450,4 +1450,13 @@ section#hero-banner .vertical-align.overlay-text {
     .hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
         padding: 0 15px;
     }
+}
+.agri-theme,.pharma-theme,.financial-theme,.tmt-theme {
+    .feature-hero-banner {
+    .vertical-align{
+        h1 ,h2{
+            color:#fff!important;
+        }
+    }
+}
 }
