@@ -40,10 +40,12 @@
       font-family: "OpenSans Regular";
       @media screen and (max-width: 992px) {
         height: auto;
+        padding: 0 0px 22px 15px;
       }
       li {
         padding-right: 30px;
         padding-bottom: 15px;
+        padding-left:0px;
         a {
           color: #ffffff;
           font-size: 14px;
@@ -58,6 +60,8 @@
       p {
         color: #ffffff;
         padding: 0 0px 0 18%;
+        font-family: "OpenSans Regular";
+        font-size: 14px;
         @media screen and (max-width: 992px) {
           padding:0px;
         }
@@ -87,19 +91,7 @@
           padding: 80px 0px;
         }
       }
-      .social-icon {
-        ul {
-          li {
-            @media screen and (max-width: 992px) {
-              padding-right: 35px;
-              padding-left: 0px;
-            }
-            &:last-child {
-              padding-right: 0px;
-            }
-          }
-        }
-      }
+      
     }
     .list-inline.social-icon {
      @media screen and (max-width: 992px) {
@@ -109,6 +101,11 @@
       li {
         @media screen and (max-width: 992px) {
           padding-bottom: 20px;
+          padding-left:30px;
+          padding-right:0px;
+          &:nth-child(1){
+            padding-left:0px;
+          }
         }
       }
 
