@@ -64,7 +64,7 @@ header {
                 cursor: pointer;
                 font-size: 20px;
                 text-transform: lowercase;
-                font-family: 'FSMe-Bold';
+                font-weight: bold;
                 display: block;
                 padding-right: 20px;
                 @include not-desktop{
@@ -192,7 +192,7 @@ header {
                                 }
                             }
                             a{
-                                font-family: FSMe-Bold;
+                                font-weight: bold;
                                 color: $white;
                             }
                         }
@@ -892,7 +892,7 @@ header {
 //                 cursor: pointer;
 //                 font-size: 20px;
 //                 text-transform: lowercase;
-//                 font-family: 'FSMe-Bold';
+//                 font-weight: bold;
 //                 display: block;
 //                 padding-right: 20px;
 //                 @include not-desktop{
@@ -1020,7 +1020,7 @@ header {
 //                                 }
 //                             }
 //                             a{
-//                                 font-family: FSMe-Bold;
+//                                 font-weight: bold;
 //                                 color: $white;
 //                             }
 //                         }
@@ -1910,7 +1910,7 @@ header#tech-main-header {
             padding: 23px;
             color: #ddd;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: bold;
         }
         .menu_area_header .button {
             width: 55px;
@@ -2110,7 +2110,7 @@ header#tech-main-header {
                 }
                 &:last-child {
                     float: right;
-                    font-weight: 400;
+                    font-weight: normal;
                     .close-finder {
                         padding: 0;
                         text-decoration: none;
@@ -2269,7 +2269,7 @@ header#tech-main-header {
                     .dropdown-menu{
                         padding: 0;
                         li.active{
-                            font-family: FSMe-Bold;
+                            font-weight: bold;
                         }
                         li{
                             color: $grey-color04;
@@ -2427,7 +2427,7 @@ header#tech-main-header {
         }
         .subnav-heading {
             color: $white;
-            font-family: 'FSMe-bold';
+            font-weight: bold;
             @include desktop{
                 border-bottom: 1px solid #777b87;
                 width: 20%;
@@ -2506,7 +2506,7 @@ header#tech-main-header {
                 }
                 a {
                     color: $grey-color07;
-                    font-family: 'FSMe-light';
+                    font-weight: 300;
                     @include anchor-font(14px,13px,12px);
                 }
                 a.head {
@@ -2556,7 +2556,7 @@ header#tech-main-header {
             padding: 0 40px 15px 0;
             color: $white;
             border-bottom: 1px solid #777b87;
-            font-family: 'FSMe-bold';
+            font-weight: bold;
             margin: 0;
             @include mobile {
                 width: 40%;
