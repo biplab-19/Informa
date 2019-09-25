@@ -3,26 +3,7 @@
     padding: 0;
 }
 
-@font-face {
-    font-family: 'FSMe';
-    src: url('../fonts/FSMe.eot?#iefix') format('embedded-opentype'), url('../fonts/FSMe.ttf') format('truetype'), url('../fonts/FSMe.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'FSMe-Bold';
-    src: url('../fonts/FSMe-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/FSMe-Bold.ttf') format('truetype'), url('../fonts/FSMe-Bold.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'FSMe-Light';
-    src: url('../fonts/FSMe-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/FSMe-Light.ttf') format('truetype'), url('../fonts/FSMe-Light.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
 
 @font-face {
     font-family: 'InformaIcons';
@@ -162,9 +143,8 @@
 .marketing-banner .row .content h1 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'FSMe-Bold';
+    font-weight: bold;
     font-size: 40px;
-    font-weight: 400;
 }
 
 
@@ -173,9 +153,8 @@
 .marketing-banner .row .content h2 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'FSMe-Bold';
-    font-size:30px
-    font-weight: 400;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 
@@ -183,7 +162,7 @@
 
 .marketing-banner .row .content h3 {
     margin-top: 40px;
-    font-family: 'FSMe-Bold';
+    font-weight: bold;
 }
 
 @media (max-width: 767px) {
@@ -206,7 +185,7 @@
 .marketing-banner .row .content .btn {
     padding-right: 40px;
     font-size: 16px;
-    font-family: 'FSMe-Bold';
+    font-weight: bold;
     min-width: 275px;
     font-weight: 400;
 }
@@ -267,7 +246,7 @@
 
 .marketing-banner.Variation1 .description {
     font-size: 18px;
-    font-family: 'FSMe-Light';
+    font-weight: 300;
     padding: 40px 0;
 }
 
@@ -369,9 +348,8 @@
     .marketing-banner .row .content h1 {
       margin-top: 0;
       margin-bottom: 0;
-      font-family: 'FSMe-Bold';
+      font-weight: bold;
       font-size: 30px;
-      font-weight: 400;
   }
 }
 
