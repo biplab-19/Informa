@@ -527,7 +527,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.ViewType = 'year';
             this.ViewType = 'month';
         },
-        RenderView: function (data = null) {
+        RenderView: function (data) {
             this.InitFC();
             this.GoToStartDate();
 
@@ -905,12 +905,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.PageNum++;
             this.LoadEvents(this.PageNum);
         },
-        LoadEvents: function(pageNum = 1) {
+        LoadEvents: function(pageNum) {
             // console.log('LoadEvents')
             var that = this,
                 sendData;
 
-            this.PageNum = pageNum;
+            this.PageNum = pageNum ? pageNum : 1;
             sendData = this.GetSendData();
             if (!sendData) {
                 this.ShowError();
@@ -1372,7 +1372,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 this.ApplyPropsToController();
             }
         },
-        AddProp: function(name, value, isBulkHelper = false) {
+        AddProp: function(name, value, isBulkHelper) {
             var haveActivePropsChanged = false,
                 existingEl = this.ActiveProperties.find(function (activeObj) { return activeObj.name === name }),
                 existingValInd
@@ -1450,9 +1450,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 this.ApplyPropsToController();
             }
         },
-        ApplyPropsToController: function(targArr = this.ActiveProperties) {
+        ApplyPropsToController: function() {
             var activePropsObj = {}
-            targArr.forEach(function(kvPairObj) {
+
+            this.ActiveProperties.forEach(function(kvPairObj) {
                 activePropsObj[kvPairObj.name] = kvPairObj.values;
             });
             InformaEventsController.UpdateViewsFromQuery(activePropsObj);

@@ -475,7 +475,6 @@
 		.fc-day {
 			position: relative;
 			vertical-align: bottom;
-			padding: 0 17px 13px;
 			.more {
 				position: relative;
 				display: none;
@@ -499,6 +498,10 @@
 				border: 1px solid #ebebeb;
 				@include mobile {
 					display: none;
+				}
+				// ie 11 hack
+				@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+					height: 124px;
 				}
 			}
 			&.fc-today {
@@ -639,6 +642,11 @@
 					height: 30px;
 					margin: auto;
 					border-color: black;
+					// ie 11 hack
+					@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+						top: 5px;
+						bottom: auto;
+					}
 				}
 			}
 		}
