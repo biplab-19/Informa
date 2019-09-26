@@ -1055,13 +1055,18 @@ form.request-a-demo {
                   width: 18px;
               }
               position: relative;
+              color:#000;
               &.tc-product-name:before {
                 display: none;
               }
           }
-          input:checked + span:before {
+          input[type=checkbox]:checked + span:before {
               background: $white url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
               background-size: 100%;
+          }
+          input[type=checkbox] + span:before {
+            background: $white url("/Static/images/common/checkbox-untick.png") no-repeat 0 0;
+            background-size: 100%;
           }
           input:disabled + span:before {
               background: $grey-color09 none;
