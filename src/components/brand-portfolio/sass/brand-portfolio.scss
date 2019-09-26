@@ -123,8 +123,8 @@
                     clear: both;
                 }
                 &:hover{
-                    -webkit-box-shadow: 5px 1px 11px rgba(52, 58, 64, 0.509804);
-                    box-shadow: 5px 1px 11px rgba(52, 58, 64, 0.509804);
+                    -webkit-box-shadow: 0px 0px 11px rgba(52, 58, 64, 0.509804);
+                    box-shadow: 0px 0px 11px rgba(52, 58, 64, 0.509804);
                     .plus {
                         background-color: #cdda0b;
                         color: #fff;
@@ -570,6 +570,8 @@ footer {
 
     @media screen and (max-width: 768px) and (min-width: 320px) {
         float: right;
+        margin: 0;
+        padding: 2px 0;
     }
     @media screen and (min-width:769px) {
         margin: 30px 0px;

@@ -218,6 +218,22 @@ INFORMA.forms = (function (window, $, namespace) {
                     });
                 });
             }
+            var checkboxFields = $form.find('.checkbox-required .custom-checkbox input');
+                checkboxFields.each(function (index, checkboxField) {
+                    var $checkboxField = $(checkboxField);
+					var error=$checkboxField.attr("data-val-required");
+                    var helpBlock = $checkboxField.parents(".checkbox-required").find('span.help-block');
+					var result=$checkboxField.val();
+					if(result=="false")
+					{
+						$(helpBlock).text(error);
+						result=false;
+					}
+					else
+					{
+						$(helpBlock).text("");						
+					}
+                });
         } catch (e) {
             console.log(e);
         }

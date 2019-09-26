@@ -29,17 +29,17 @@ section.hero-banner {
                 background-color: $black;
             }
             h1{
-                 font-family: 'FSMe-Light';
-                 display: inline-block;
-                 font-size: 60px;
-                 float: left;
-                 @include mobile{
-                    font-size: 30px;
-                 }
-                 @include tablet{
-                    font-size: 40px;
-                 }
-                 //padding-right:30px;
+                font-weight: 300;
+                display: inline-block;
+                font-size: 60px;
+                float: left;
+                @include mobile{
+                  font-size: 30px;
+                }
+                @include tablet{
+                  font-size: 40px;
+                }
+                //padding-right:30px;
             }
             p{
                 display: inline-block;
@@ -53,12 +53,6 @@ section.hero-banner {
             @include desktop{
                 margin-bottom: 20px;
             }
-           /* &:after{
-                content: '?';
-                font-size: 24px;
-                font-family: FSMe-Bold;
-                top: 10px;
-            }*/
         }
 
     }
