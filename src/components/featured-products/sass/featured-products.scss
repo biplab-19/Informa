@@ -1,6 +1,33 @@
 @import '_variables';
 @import '_mixins';
 
+/*fonts*/
+@font-face {
+    font-family: "Aleo Bold";
+    src: url("../fonts/aleo.bold.otf");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Aleo Regular";
+    src: url("../fonts/aleo.regular.otf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "OpenSans Light";
+    src: url("../fonts/OpenSans-Light.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans Bold";
+    src: url("../fonts/OpenSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: "OpenSans Regular";
+    src: url("../fonts/OpenSans-Regular.ttf");
+}
 .featured-products {
     /*  height: 842px;*/
     div#owlcarousel-item {
@@ -11,7 +38,7 @@
     }
 
     .sub-headline {
-        font-family: 'Aleo';
+        font-family: $font-Aleo;
         font-weight: normal;
         font-size: 48px;
         line-height: 60px;
@@ -112,7 +139,7 @@
                     font-size: 16px;
                     margin-bottom: 10px;
                     display: block;
-                    font-weight: bold;
+                    font-family: 'OpenSans Bold' !important;
                     font-size: 16px !important;
                     line-height: 26px !important;
                     color: #555555 !important;
@@ -127,7 +154,7 @@
                     font-size: 18px;
                     font-weight: 100;
                     margin-bottom: 5px;
-                    font-weight: 300;
+                    font-family: 'OpenSans Light' !important;
                     font-size: 18px !important;
                     line-height: 28px !important;
                     color: #555555 !important;
