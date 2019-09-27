@@ -193,7 +193,7 @@
                 position: relative;
                 strong {
                     margin: 0 5px 0 0;
-                    font-family: 'FSMe-Bold'
+                    font-weight: bold;
                 }
                 &:after {
                     content: '|';
@@ -247,7 +247,7 @@
         }
     }
     h2 {
-        font-family: 'FSMe-Light';
+        font-weight: 300;
         padding: 10px 0 25px 0;
         font-size: 30px;
     }
@@ -326,7 +326,7 @@
                     list-style-type: none;
                     padding-bottom: 20px;
                     position: relative;
-                    font-family: 'FSMe-Bold' !important;
+                    font-weight: bold !important;
                     color:$grey-color04;
                     &:before {
                         position: absolute;
@@ -517,7 +517,7 @@
                         h4 {
                             color: $grey-color05;
                             padding: 0;
-                            font-family: FSMe-Bold;
+                            font-weight: bold;
                             &:after {
                                 display: none;
                             }
@@ -713,7 +713,7 @@
         .others-wrapper {
             padding: 0;
             h4 {
-                font-family: 'FSMe-Bold';
+                font-weight: bold;
             }
             .footer {
                 min-height: 50px;
@@ -749,7 +749,7 @@
 .others-wrapper {
     padding: 20px;
     h4 {
-        font-family: 'FSMe-Bold';
+        font-weight: bold;
         a{
             color:$grey-color05;
         }

@@ -8,43 +8,18 @@
    4. Secondary Color Lighter Version
    5. NavLink Color
 */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Aleo');
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Aleo:400,700&display=swap');
 
 //tech Theme
 /*
 @include theme(tech-theme, $tech-indigo, $tech-sky, $tech-citrus, $tech-gray );
 */
 /*fonts*/
-@font-face {
-    font-family: "Aleo Bold";
-    src: url("../fonts/aleo.bold.otf");
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Aleo Regular";
-    src: url("../fonts/aleo.regular.otf");
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: "OpenSans Light";
-    src: url("../fonts/OpenSans-Light.ttf");
-}
-
-@font-face {
-    font-family: "OpenSans Bold";
-    src: url("../fonts/OpenSans-Bold.ttf");
-}
-
-@font-face {
-    font-family: "OpenSans Regular";
-    src: url("../fonts/OpenSans-Regular.ttf");
-}
 body {
     background: #fff !important;
-    font-family: 'OpenSans Light';
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     font-size: 18px;
     line-height: 28px;
     color: #555555;
@@ -225,10 +200,6 @@ div.subofsub-text {
     color: #03A9F4;
     border-bottom: 0px solid #fff;
     word-wrap: break-word;
-}
-
-html {
-    font-family: open sans-serif;
 }
 
 @media screen and (max-width:768px) and (min-width:320px) {
@@ -649,7 +620,7 @@ section p {
     height: auto;
     cursor: pointer;
     padding: 10px 25px;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .mc-button-div-contact > div > a:focus {
@@ -727,9 +698,8 @@ section p {
     border-radius: 43px;
     padding: 10px;
     height: auto;
-    font-weight: 700;
+    font-weight: bold;
     min-width: 160px;
-    font-family: 'Open Sans',sans-serif;
     font-size: 14px;
     width: auto;
 
@@ -1301,10 +1271,6 @@ p.subofsub-text {
     word-wrap: break-word;
 }
 
-html {
-    font-family: open sans-serif;
-}
-
 @media screen and (max-width:768px) and (min-width:320px) {
     #social-section .twitter-carousel .slick-prev:before, #social-section .twitter-carousel .slick-next:before {
         top: 40px;
@@ -1739,7 +1705,7 @@ section.brand_list .customers_list_slider .customer img {
 /*Rich text editor global style end*/
 
 h1 {
-    font-family: 'Aleo Regular' !important;
+    font-family: 'Aleo' !important;
     font-size: 48px !important;
     line-height: 60px !important;
     text-transform: uppercase !important;
@@ -1753,8 +1719,7 @@ h1 {
 }
 
 h2 {
-    /*font-family: 'Aleo Bold' !important;*/
-    font-family: 'Aleo Regular' !important;
+    font-family: 'Aleo' !important;
     font-size: 48px !important;
     line-height: 60px !important;
     text-transform: uppercase !important;
@@ -1770,7 +1735,7 @@ h2 {
 }
 
 h3 {
-    font-family: 'OpenSans Light' !important;
+    font-weight: 300;
     font-size: 34px !important;
     line-height: 48px !important;
     color: #002244 !important;
@@ -1782,7 +1747,7 @@ h3 {
 }
 
 h4 {
-    font-family: 'OpenSans Light' !important;
+    font-weight: 300;
     font-size: 24px !important;
     line-height: 34px !important;
     color: #555555 !important;
@@ -1793,20 +1758,7 @@ h4 {
     }
 }
 
-body {
-    font-family: 'OpenSans Light';
-    font-size: 18px;
-    line-height: 28px;
-    color: #555555;
-
-    @media only screen and (max-width: 768px) {
-        font-size: 16px;
-        line-height: 20px;
-    }
-}
-
 .b-one{
-    font-family: 'OpenSans Light' !important;
     font-size: 18px !important;
     line-height: 28px !important;
     color: #555555 !important;
@@ -1819,7 +1771,6 @@ body {
 
 
 p ,section p{
-    font-family: 'OpenSans Light';
     font-size: 18px;
     line-height: 28px;
     color: #555555;
@@ -1831,7 +1782,7 @@ p ,section p{
 }
 
 .b-two {
-    font-family: 'OpenSans Bold' !important;
+    font-weight: bold !important;
     font-size: 16px !important;
     line-height: 26px !important;
     color: #555555 !important;
@@ -1843,7 +1794,7 @@ p ,section p{
 }
 
 .b-three {
-    font-family: 'OpenSans Regular' !important;
+    font-weight: normal !important;
     font-size: 14px !important;
     line-height: 24px !important;
     color: #555555 !important;
@@ -1861,7 +1812,7 @@ p ,section p{
         padding: 20px 40px;
         height: auto;
         min-width: 160px;
-        font-family: 'OpenSans Bold';
+        font-weight: bold;
         font-size: 21px;
         width: auto;
         background-color: #002244;
@@ -1896,7 +1847,7 @@ p ,section p{
         padding: 15px 30px;
         height: auto;
         min-width: 160px;
-        font-family: 'OpenSans Bold';
+        font-weight: bold;
         font-size: 18px;
         width: auto;
         background-color: #002244;
@@ -1928,7 +1879,7 @@ p ,section p{
     .color-border {
         background-color: #002244;
         border-radius: 28px;
-        font-family: 'OpenSans Bold';
+        font-weight: bold;
         font-size: 21px;
         color: #ffffff;
         padding: 20px 40px;
@@ -1947,7 +1898,7 @@ p ,section p{
     .color-border-small {
         background-color: #002244;
         border-radius: 22px;
-        font-family: 'OpenSans Bold';
+        font-weight: bold;
         font-size: 21px;
         color: #ffffff;
         padding: 15px 30px;
@@ -2124,7 +2075,7 @@ section#hero-banner .vertical-align.video-item h1 {
 .second-banner-left-outer .second-banner-left-inner h1 {
     color: #333;
     text-transform: uppercase;
-    font-weight: lighter;
+    font-weight: 300;
     padding: 25px 40px 20px 40px;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
@@ -2416,7 +2367,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 display: none;
             }
             .chosen-container-single {
-                font-family: 'OpenSans Regular';
+                font-weight: normal;
                 font-size: 18px;
                 .chosen-single {
                     color: #002244;
@@ -2479,11 +2430,11 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         .filter-section {
             font-size: 18px;
             .heading {
-                font-family: 'OpenSans Bold';
+                font-weight: bold;
             }
             .active-filters .filter {
                 .text {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                 }
                 .icon-close:before {
                     color: #002244;
@@ -2496,7 +2447,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 top: 100%;
             }
             .event-count p {
-                font-family: 'OpenSans Bold';
+                font-weight: bold;
                 font-size: 18px;
                 padding-top: 0;
             }
@@ -2547,7 +2498,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
     #events-calendar {
         & > .header {
             h2 {
-                font-family: 'OpenSans Light' !important;
+                font-weight: 300 !important;
                 font-size: 34px !important;
                 line-height: 48px !important;
                 margin: 0 !important;
@@ -2589,7 +2540,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     .header {
                         .date {
                             padding: 11px 0 0;
-                            font-family: 'OpenSans Bold';
+                            font-weight: bold;
                             font-size: 26px;
                             line-height: 32px;
                             color: #002244;
@@ -2611,7 +2562,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                                 }
                             }
                             .text {
-                                font-family: 'OpenSans Bold';
+                                font-weight: bold;
                                 font-size: 18px;
                                 color: #11a7d9;
                             }
@@ -2620,7 +2571,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     .content-wrap {
                         .type {
                             padding-top: 0;
-                            font-family: 'OpenSans Regular';
+                            font-weight: normal;
                             color: #555555;
                         }
                         .content {
@@ -2630,7 +2581,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                             }
                             .title-body {
                                 width: calc(100% - 100px);
-                                font-family: 'OpenSans Regular';
+                                font-weight: normal;
                                 color: #555555;
                             }
                             &.description {
@@ -2660,7 +2611,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         [data-view="list-view"] {
             .month-divider {
                 h3 {
-                    font-family: 'OpenSans Bold' !important;
+                    font-weight: bold !important;
                     font-size: 24px !important;
                     line-height: 48px !important;
                     color: #555555 !important;
@@ -2671,7 +2622,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     .dates {
                         .date {
                             padding: 11px 0 0;
-                            font-family: 'OpenSans Bold';
+                            font-weight: bold;
                             font-size: 26px;
                             line-height: 32px;
                             color: #002244;
@@ -2681,7 +2632,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     .content-wrap {
                         .type {
                             padding-top: 0;
-                            font-family: 'OpenSans Regular';
+                            font-weight: normal;
                             color: #555555;
                         }
                         .content {
@@ -2691,7 +2642,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                             }
                             .title-body {
                                 width: calc(100% - 100px);
-                                font-family: 'OpenSans Regular';
+                                font-weight: normal;
                                 color: #555555;
                             }
                             &.description {
@@ -2722,7 +2673,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                                             }
                                         }
                                         .text {
-                                            font-family: 'OpenSans Bold';
+                                            font-weight: bold;
                                             font-size: 18px;
                                             color: #11a7d9;
                                         }
@@ -2749,7 +2700,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         [data-view="calendar-view"] {
             [data-datetype="month"] {
                 .fc th {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                     font-size: 14px;
                     line-height: 24px;
                     color: #555555;
@@ -2771,13 +2722,13 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
                 .fc-day-top {
                     padding: 0 10px 10px;
-                    font-family: 'OpenSans Bold';
+                    font-weight: bold;
                     font-size: 16px;
                     line-height: 16px;
                     color: #555555;
                     @include mobile {
                         padding: 0;
-                        font-family: 'OpenSans Regular';
+                        font-weight: normal;
                     }
                     &.event-now {
                         color: #002244;
@@ -2785,7 +2736,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
                 .fc-day {
                     .more {
-                        font-family: 'OpenSans Regular';
+                        font-weight: normal;
                         font-size: 12px;
                         line-height: 16px;
                         color: #11a7d9;
@@ -2842,14 +2793,14 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     }
                 }
                 .fc-more-cell {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                     font-size: 12px;
                     line-height: 16px;
                     color: #11a7d9;
                 }
                 .fc-event-container {
                     .events p {
-                        font-family: 'OpenSans Regular';
+                        font-weight: normal;
                         font-size: 12px;
                         line-height: 16px;
                         color: #555555;
@@ -2864,14 +2815,14 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
                 .fc-toolbar {
                     h2 {
-                        font-family: 'OpenSans Bold' !important;
+                        font-weight: bold !important;
                         font-size: 26px !important;
                         line-height: 48px !important;
                         margin: 0 !important;
                     }
                 }
                 .fc th {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                     font-size: 14px;
                     line-height: 24px;
                     color: #002244;
@@ -2888,7 +2839,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     }
                 }
                 .fc-day-top {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                     font-size: 16px;
                     line-height: 16px;
                     color: #555555;

@@ -223,12 +223,11 @@
 		    font-size: 18px;
 		    display: block;
 		    color: $grey-color04;
-		    font-family: 'FSMe';
 		}
 		.title {
 			font-size: 30px;
 			color: #6a7287;
-			font-family: 'FSMe-Bold';
+			font-weight: bold;
 			margin: 0;
 			@include mobile {
 	    	height: auto;
@@ -248,7 +247,7 @@
 			.title-body {
 				width: calc(100% - 90px);
 				float: left;
-				font-family: 'FSMe-Bold';
+				font-weight: bold;
 				ul {
 					padding: 0;
 					list-style-type: none;
