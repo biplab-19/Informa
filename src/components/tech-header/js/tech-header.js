@@ -218,6 +218,9 @@
                 if ($(this).next().length > 0) {
                     $(this).parent('li').addClass('has-sub');
                 }
+                else{
+                    $(this).parent('li').addClass('no-sub'); 
+                }
                 $(this).parent('li').append('<a class="dd-toggle" href="#"><span class="icon-plus"></span></a>');
             });
 
