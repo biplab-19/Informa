@@ -11,7 +11,7 @@ section#hero-banner {
     }
 
     h1 {
-        font-weight: bold;
+        font-family: FSMe-Bold;
         //font-size: 60px;
         font-size: 50px;
         margin: 0 0 30px 0;
@@ -92,7 +92,7 @@ section#hero-banner {
     }
 
     .subtext {
-        font-weight: bold;
+        font-family: FSMe-Bold;
         font-size: 17px;
         padding-bottom: 24px;
 
@@ -106,7 +106,7 @@ section#hero-banner {
     }
 
     .description {
-        font-weight: 300;
+        font-family: FSMe-Light;
         font-size: 14px;
         padding-bottom: 62px;
 
@@ -135,12 +135,12 @@ section#hero-banner {
             padding: 0;
             font-size: 14px;
             color: $light;
-            font-weight: 300;
+            font-family: FSMe-Light;
 
             .priceDetails {
                 span.price {
                     font-size: 24px;
-                    font-weight: bold;
+                    font-family: FSMe-Bold;
 
                     &:before {
                         content: "\00a3";
@@ -150,7 +150,7 @@ section#hero-banner {
             }
 
             .headline {
-                font-weight: bold;
+                font-family: FSMe-Bold;
             }
 
             @include tablet {
@@ -165,11 +165,15 @@ section#hero-banner {
 
     .cta1, .cta2 {
         font-size: 14px;
-        font-weight: bold;
+        font-family: FSMe-Bold;
+    }
+
+    .cta2 {
+        font-family: FSMe;
     }
 
     .cta3 {
-        font-weight: 300;
+        font-family: FSMe-Light;
         font-size: 16px;
         color: $orange !important;
 
@@ -346,7 +350,7 @@ section#hero-banner {
 
         h2,
         .subtext {
-            font-weight: 300;
+            font-family: FSMe-light;
             font-size: 40px;
             color: #444957;
             padding-bottom: 0px;
@@ -366,7 +370,7 @@ section#hero-banner {
         }
 
         h3 {
-            font-weight: 300;
+            font-family: FSMe-light;
             font-size: 20px;
             color: #444957;
             color: $white;
@@ -375,7 +379,7 @@ section#hero-banner {
         .color-subtext {
             color: #444957;
             line-height: 22px;
-            font-weight: 300;
+            font-family: FSMe-light;
             color: $white;
             margin-top: 30px;
 
@@ -469,6 +473,7 @@ section#hero-banner {
         }
 
         .subtext {
+            font-family: FSMe;
             font-size: 30px;
             color: #444957;
             padding-bottom: 0px;
@@ -595,6 +600,7 @@ section#hero-banner {
         }
 
         .subtext {
+            font-family: FSMe;
             font-size: 30px;
             color: #444957;
             padding-bottom: 0px;
@@ -1239,7 +1245,7 @@ section#hero-banner {
         padding: 20px 40px;
         height: auto;
         min-width: 160px;
-        font-weight: bold;
+        font-family: 'OpenSans Bold';
         font-size: 21px;
         width: auto;
         background-color: #024;
@@ -1284,7 +1290,7 @@ section#hero-banner {
         float: left;
     }
     h1 {
-        font-family: 'Aleo'!important;
+        font-family: 'Aleo Regular'!important;
         font-size: 48px!important;
         line-height: 60px!important;
         text-transform: uppercase!important;
@@ -1297,7 +1303,7 @@ section#hero-banner {
         }
     }
     h4 {
-        font-weight: 300;
+        font-family: 'OpenSans Light'!important;
         font-size: 24px!important;
         line-height: 34px!important;
         color: #555!important;
@@ -1347,7 +1353,7 @@ section#hero-banner {
     .second-banner-left-outer .second-banner-left-inner h1 {
         color: #333;
         text-transform: uppercase;
-        font-weight: 300;
+        font-weight: lighter;
         padding: 25px 40px 20px 40px;
         margin-top: 0!important;
         margin-bottom: 0!important;
