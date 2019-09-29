@@ -72,7 +72,7 @@
             }
             h4 {
                 color: $grey-color05;
-                font-family: FSMe-Bold;
+                font-weight: bold;
                 // font-size: 30px;
                 margin: 0;
                 padding: 20px 0;
@@ -97,7 +97,7 @@
                 list-style-type: none;
                 padding-bottom: 20px;
                 position: relative;
-                font-family: 'FSMe-Bold' !important;
+                font-weight: bold !important;
                 color:$grey-color04;
                 &:before {
                     position: absolute;
@@ -158,7 +158,7 @@
     .show-more-btn-container, .btn-container {
         .btn {
             padding-right: 40px;
-            font-family: 'FSMe-Bold';
+            font-weight: bold;
         }
     }
     @include mobile {
@@ -247,7 +247,7 @@
             font-size:19px;
             a{
                 //color:$orange;
-                font-weight:700;
+                font-weight: bold;
                  &:after{
                      content: "\e900";
                      font-family: 'InformaIcons';

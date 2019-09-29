@@ -11,7 +11,7 @@ section#hero-banner {
     }
 
     h1 {
-        font-family: FSMe-Bold;
+        font-weight: bold;
         //font-size: 60px;
         font-size: 50px;
         margin: 0 0 30px 0;
@@ -92,7 +92,7 @@ section#hero-banner {
     }
 
     .subtext {
-        font-family: FSMe-Bold;
+        font-weight: bold;
         font-size: 17px;
         padding-bottom: 24px;
 
@@ -106,7 +106,7 @@ section#hero-banner {
     }
 
     .description {
-        font-family: FSMe-Light;
+        font-weight: 300;
         font-size: 14px;
         padding-bottom: 62px;
 
@@ -135,12 +135,12 @@ section#hero-banner {
             padding: 0;
             font-size: 14px;
             color: $light;
-            font-family: FSMe-Light;
+            font-weight: 300;
 
             .priceDetails {
                 span.price {
                     font-size: 24px;
-                    font-family: FSMe-Bold;
+                    font-weight: bold;
 
                     &:before {
                         content: "\00a3";
@@ -150,7 +150,7 @@ section#hero-banner {
             }
 
             .headline {
-                font-family: FSMe-Bold;
+                font-weight: bold;
             }
 
             @include tablet {
@@ -165,15 +165,11 @@ section#hero-banner {
 
     .cta1, .cta2 {
         font-size: 14px;
-        font-family: FSMe-Bold;
-    }
-
-    .cta2 {
-        font-family: FSMe;
+        font-weight: bold;
     }
 
     .cta3 {
-        font-family: FSMe-Light;
+        font-weight: 300;
         font-size: 16px;
         color: $orange !important;
 
@@ -350,7 +346,7 @@ section#hero-banner {
 
         h2,
         .subtext {
-            font-family: FSMe-light;
+            font-weight: 300;
             font-size: 40px;
             color: #444957;
             padding-bottom: 0px;
@@ -370,7 +366,7 @@ section#hero-banner {
         }
 
         h3 {
-            font-family: FSMe-light;
+            font-weight: 300;
             font-size: 20px;
             color: #444957;
             color: $white;
@@ -379,7 +375,7 @@ section#hero-banner {
         .color-subtext {
             color: #444957;
             line-height: 22px;
-            font-family: FSMe-light;
+            font-weight: 300;
             color: $white;
             margin-top: 30px;
 
@@ -473,7 +469,6 @@ section#hero-banner {
         }
 
         .subtext {
-            font-family: FSMe;
             font-size: 30px;
             color: #444957;
             padding-bottom: 0px;
@@ -600,7 +595,6 @@ section#hero-banner {
         }
 
         .subtext {
-            font-family: FSMe;
             font-size: 30px;
             color: #444957;
             padding-bottom: 0px;
@@ -1147,18 +1141,10 @@ section#hero-banner {
     }
 
     @media only screen and (max-width: 768px){
-        h1 {
-            font-size: 24px!important;
-            line-height: 30px!important;
-        }
-
         .single-image .hero-items .for-left h4, .single-image .hero-items .for-right h4 {
             padding-left: 15px;
         }
-        h4 {
-            font-size: 18px!important;
-            line-height: 28px!important;
-        }
+        
     }
 
     @media only screen and (min-width: 768px) {
@@ -1253,7 +1239,7 @@ section#hero-banner {
         padding: 20px 40px;
         height: auto;
         min-width: 160px;
-        font-family: 'OpenSans Bold';
+        font-weight: bold;
         font-size: 21px;
         width: auto;
         background-color: #024;
@@ -1261,11 +1247,17 @@ section#hero-banner {
         border-width: 0;
         min-width: 150px;
         margin-right: 10px;
+        @media screen and (max-width: 768px) and (min-width: 320px){
+            min-width: 130px;
+            padding: 10px 5px;
+            font-size: 12px;
+            }
         &:hover{
         background-color: #11a7d9;
         border-color: #11a7d9;
         color: #fff!important;
         }
+        
     }
     .single-image img {
         width: 100%;
@@ -1292,19 +1284,27 @@ section#hero-banner {
         float: left;
     }
     h1 {
-        font-family: 'Aleo Regular'!important;
+        font-family: 'Aleo'!important;
         font-size: 48px!important;
         line-height: 60px!important;
         text-transform: uppercase!important;
         color: #024!important;
         margin-top: 0!important;
         margin-bottom: 20px!important;
+        @media only screen and (max-width: 768px) {
+                font-size: 24px!important;
+                line-height: 30px!important;
+        }
     }
     h4 {
-        font-family: 'OpenSans Light'!important;
+        font-weight: 300;
         font-size: 24px!important;
         line-height: 34px!important;
         color: #555!important;
+        @media only screen and (max-width: 768px) {
+                font-size: 18px!important;
+                line-height: 28px!important;
+        }
     }
     .second-banner-left-outer {
         display: inline-block !important;
@@ -1347,7 +1347,7 @@ section#hero-banner {
     .second-banner-left-outer .second-banner-left-inner h1 {
         color: #333;
         text-transform: uppercase;
-        font-weight: lighter;
+        font-weight: 300;
         padding: 25px 40px 20px 40px;
         margin-top: 0!important;
         margin-bottom: 0!important;
@@ -1423,6 +1423,9 @@ section#hero-banner .vertical-align.overlay-text {
 }
 .hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
     color: #fff!important;
+    width: 100%;
+    float: left;
+    word-break: break-word;
 }
 @media only screen and (min-width: 768px) {
     .hero-items.hero-carousel .vertical-align.overlay-text {
@@ -1443,7 +1446,7 @@ section#hero-banner .vertical-align.overlay-text {
     .hero-banner .vertical-align.overlay-text {
         margin: 0;
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
@@ -1504,3 +1507,16 @@ section#hero-banner .vertical-align.overlay-text {
 }
 }
 
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 768px){
+.hero-items .vertical-align.overlay-text {
+    top: 108px;
+ }
+}
+
+@media only screen and (min-width: 1201px){
+.hero-items .vertical-align.overlay-text {
+    top: 0;
+ }
+}

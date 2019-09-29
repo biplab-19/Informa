@@ -15,7 +15,7 @@
             display: inline-block;
             margin: 10px 0;
             font-size: 28px;
-            font-weight: 700;
+            font-weight: bold;
             padding: 0;
             @include mobile {
                 margin: 10px 0;
@@ -27,7 +27,8 @@
             height: 67px;
             display: block;
             // background-color: $yellow;
-            position: relative;
+            position: absolute;
+            top: 0;
             color: $white;
             text-indent: -999px;
             @include tablet {
@@ -56,13 +57,21 @@
                 }
             }
             &.previous {
-                float: left;
+                right: 100%;
+                @include mobile {
+                    right: auto;
+                    left: 7.5px;
+                }
                 &:before {
                     content: "\e903";
                 }
             }
             &.next {
-                float: right;
+                left: 100%;
+                @include mobile {
+                    left: auto;
+                    right: 7.5px;
+                }
                 &:before {
                     content: "\e902";
                 }
@@ -132,18 +141,25 @@
             display: block;
         }
     }
+    .no-events, .error {
+        p {
+            margin: 0;
+            padding: 15px;
+            text-align: center;
+        }
+    }
+    
+    .no-result {
+        clear: left;
+        padding: 30px 0;
+        text-align: center;
+    }
 
     #event-modal {
         .modal-dialog {
             @include mobile {
-              width: 100%;
               padding-left: 7.5px;
               padding-right: 7.5px;
-            }
-            @include tablet {
-              width: 100%;
-              padding-left: 15px;
-              padding-right: 15px;
             }
             @include desktop {
               width: 1172px;
@@ -151,11 +167,14 @@
               padding-right: 15px;
             }
             .modal-content {
+                overflow: hidden;
                 .modal-header {
+                    overflow: auto;
                     border-bottom: none;
                     .close {
                         opacity: 1;
                         &:before {
+                            display: block;
                             font-family: 'InformaIcons';
                             content: "\e906";
                             color: #000;
@@ -164,10 +183,14 @@
                 }
                 .modal-body {
                     &[data-view] {
+                        width: 100%;
                         height: auto;
                     }
                     .events-section {
                         overflow: hidden;
+                        &:first-child {
+                            margin-top: 0;
+                        }
                     }
                 }
             }
@@ -186,7 +209,8 @@
             position: relative;
             overflow: hidden;
             padding: 15px;
-            background-color: #f3f3f3;
+            background-color: transparent;
+            border: 1px solid black;
             .header {
                 overflow: hidden;
                 .date {
@@ -197,6 +221,10 @@
                     background-color: #878e9e;
                     font-size: 20px;
                     color: $white;
+                    text-align: left;
+                    @include mobile {
+                        max-width: 50%;
+                    }
                 }
                 .btn.ical {
                     position: relative;
@@ -204,6 +232,10 @@
                     padding: 0;
                     border: none;
                     pointer-events: none;
+                    background: transparent;
+                    @include mobile {
+                        max-width: 50%;
+                    }
                     &:after {
                         content: '';
                         display: block;
@@ -211,7 +243,10 @@
                         right: 0;
                         width: 53px;
                         height: 100%;
-                        background: black;
+                        background-color: white;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
                         pointer-events: auto;
                     }
                     // &:hover {
@@ -220,12 +255,16 @@
                     //     }
                     // }
                     .text {
+                        font-size: 0;
                         position: absolute;
                         top: 50%;
                         left: 100%;
                         padding-right: 10px;
                         transform: translate(0, -50%);
                         transition: left 200ms;
+                    }
+                    &.disabled:after {
+                        pointer-events: none;
                     }
                 }
             }
@@ -242,7 +281,7 @@
                     .title-body {
                         width: calc(100% - 90px);
                         float: left;
-                        font-family: 'FSMe-Bold';
+                        font-weight: bold;
                         ul {
                             padding: 0;
                             list-style-type: none;
@@ -264,7 +303,7 @@
                     &.title {
                         font-size: 30px;
                         color: #6a7287;
-                        font-family: 'FSMe-Bold';
+                        font-weight: bold;
                     }
                     &.description {
                         position: relative;
@@ -280,13 +319,14 @@
                             bottom: 0.1em;
                         }
                         &:after {
+                            display: block;
                             content: '';
                             position: absolute;
                             right: 0;
                             width: 1em;
-                            height: 2em;
+                            height: 100%;
                             margin-top: -1em;
-                            background: #f3f3f3;
+                            background: white;
                         }
                     }
                 }
@@ -307,27 +347,28 @@
             }
         }
         //past event
-        &.PreviousDate{
-            .events-wrap {
-                position: relative;
-                &:after {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #000;
-                    opacity: 0.3;
-                    z-index: 1;
-                }
-            }
-        }//current event
+        &.PreviousDate .events-wrap:after {
+            content: '';
+            display: none
+        }
+        //current event
         &.CurrentDate{
             .events-wrap .header .date{
                 background-color:#fed501;
             }
         }
+        &.heightset {
+            .footer {
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 0;
+                padding: 0 15px 15px;
+            }
+        }
+    }
+    .no-events {
+        padding-top: 20px;
     }
 }
 
@@ -389,12 +430,11 @@
                     font-size: 18px;
                     display: block;
                     color: $grey-color04;
-                    font-family: 'FSMe';
                 }
                 .title {
                     font-size: 30px;
                     color: #6a7287;
-                    font-family: 'FSMe-Bold';
+                    font-weight: bold;
                     margin: 0;
                 }
                 .content {
@@ -408,7 +448,7 @@
                     .title-body {
                         width: calc(100% - 90px);
                         float: left;
-                        font-family: 'FSMe-Bold';
+                        font-weight: bold;
                         ul {
                             padding: 0;
                             list-style-type: none;
@@ -441,13 +481,18 @@
                                 padding: 0;
                                 border: none;
                                 pointer-events: none;
+                                background: transparent;
                                 &:after {
                                     content: '';
                                     display: block;
                                     position: absolute;
+                                    left: 0;
                                     width: 53px;
                                     height: 100%;
-                                    background: black;
+                                    background-color: white;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    background-size: contain;
                                     pointer-events: auto;
                                 }
                                 &:hover {
@@ -462,6 +507,9 @@
                                     padding-left: 10px;
                                     transform: translate(0, -50%);
                                     transition: right 200ms;
+                                }
+                                &.disabled:after {
+                                    pointer-events: none;
                                 }
                             }
                         }
@@ -480,11 +528,12 @@
                             bottom: 0.1em;
                         }
                         &:after {
+                            display: block;
                             content: '';
                             position: absolute;
-                            right: -0.3em;
+                            right: 0;
                             width: 1em;
-                            height: 2em;
+                            height: 100%;
                             margin-top: -1em;
                             background: white;
                         }
@@ -500,35 +549,14 @@
                 }
             }
         }
-        &.PreviousDate {
-            .events-wrap {
-                &:after {
-                    content: '';
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: #000;
-                    opacity: 0.3;
-                    z-index: 1;
-                }
-            }
-            .events-wrap .footer .btn.full-detail {
-                z-index: 2;
-            }
+        //past event
+        &.PreviousDate .events-wrap:after {
+            content: '';
+            display: none
         }
     }
 }
 
-.no-result {
-    background: $white;
-    padding: 0 0 30px;
-    @include desktop{
-        margin-top: -30px;
-    }
-}
 section.event-profile-container {
     .header{
         text-align: -webkit-auto;
@@ -546,6 +574,11 @@ section.event-profile-container {
     padding-top: 0;
     padding-bottom: 0;
     // disable event click
+    .fccal.hovered {
+        .fc-toolbar h2 {
+            color: black;
+        }
+    }
     .fc-content-skeleton {
         pointer-events: none;
     }

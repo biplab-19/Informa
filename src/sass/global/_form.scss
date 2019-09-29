@@ -7,7 +7,6 @@ select.form-control {
     -moz-border-radius: 0;
     -webkit-border-radius: 0;
     border: 2px solid #ccc;
-    font-family: FSMe;
     color: #999;
     min-width: 150px;
     option {
@@ -40,7 +39,7 @@ select.chosen-select {
             text-align: center;
             position: relative;
             top: 60px;
-            font-weight: 700;
+            font-weight: bold;
             color: $white;
         }
     }
@@ -60,7 +59,7 @@ select.chosen-select {
             border: none;
             padding: 10px;
             color: $grey-color03;
-            font-weight: 400;
+            font-weight: normal;
             width: 100%;
         }
         label {
@@ -69,9 +68,8 @@ select.chosen-select {
         }
     }
     label.label {
-        font-family: FSMe-Light;
+        font-weight: 300;
         font-size: 1em;
-        font-weight: 400;
         padding: 0;
     }
     :not(.lt-ie9) {
