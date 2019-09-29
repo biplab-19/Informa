@@ -2933,3 +2933,46 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
     }
 }
 /* events calendar end */
+
+.tech-theme{
+    section#customers_list{
+        .customers_list_slider.slick-slider{
+            .slick-arrow {
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-family: FontAwesome;
+                &.slick-next{
+                    &:before{
+                        content: "\f105";
+                        font-family: FontAwesome;
+                    }
+                    
+                }
+                &.slick-prev{
+                    &:before{
+                        content: "\f104";
+                        font-family: FontAwesome;
+                    }
+                    
+                    
+                }
+                &:before{
+                    font-size: 46px;
+                    margin-top: -22px;
+                    margin-left: -10px;
+                    @media only screen and (max-width: 1141px){
+                        font-size: 46px;
+                        margin-top: -22px;
+                        margin-left: -10px;
+                    }
+                }
+                
+                
+            }
+        } 
+    }
+}
+ 
