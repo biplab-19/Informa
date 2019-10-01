@@ -223,15 +223,16 @@ INFORMA.forms = (function (window, $, namespace) {
                     var $checkboxField = $(checkboxField);
 					var error=$checkboxField.attr("data-val-required");
                     var helpBlock = $checkboxField.parents(".checkbox-required").find('span.help-block');
-					var result=$checkboxField.val();
-					if(result=="false")
+					result=$checkboxField.val();
+					if(result=="false" && error!=null)
 					{
 						$(helpBlock).text(error);
 						result=false;
 					}
 					else
 					{
-						$(helpBlock).text("");						
+						$(helpBlock).text("");
+						result=true;
 					}
                 });
         } catch (e) {
