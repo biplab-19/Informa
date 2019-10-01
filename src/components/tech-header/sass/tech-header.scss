@@ -435,7 +435,6 @@ div#tech-main-header {
                     height: 5px;
                     border-radius:5px;
                     background: #002244;
-                    -webkit-transition: background 0s .3s;
                     transition: background 0s .3s;
                     &::after,&::before{
                         content: "";
@@ -444,13 +443,8 @@ div#tech-main-header {
                         border-radius: 5px;
                         background: #002244;
                         position: absolute;
-                        -webkit-transition-property: top,-webkit-transform;
-                        transition-property: top,-webkit-transform;
                         transition-property: top,transform;
-                        transition-property: top,transform,-webkit-transform;
-                        -webkit-transition-delay: .3s,0s;
-                        transition-delay: .3s,0s;
-                        -webkit-transition-duration: .3s,.3s;
+                         transition-delay: .3s,0s;
                         transition-duration: .3s,.3s;
                     }
                     &::after {
@@ -474,19 +468,17 @@ div#tech-main-header {
                 span.bars {
                     span {
                         background: transparent;
-                        -webkit-transition-delay: 0s,.3s;
                          transition-delay: 0s,.3s;
                         &:after,&:before {
                             top: 0;
-                            -webkit-transition-delay: 0s,.3s;
                             transition-delay: 0s,.3s;
                         }
                         &:after{
-                            -webkit-transform: rotate(-45deg);
+                            
                             transform: rotate(-45deg);
                          }
                         &:before{
-                           -webkit-transform: rotate(45deg);
+                           
                             transform: rotate(45deg);
                         }
                         
@@ -918,6 +910,10 @@ div#tech-main-header{
     ::-webkit-scrollbar {
         width: 10px;
     }
+    ::-webkit-scrollbar-track {
+        background: #002244;
+        opacity:.9;
+    }
 } 
 
 
@@ -939,7 +935,7 @@ div#tech-main-header .stellarnav.mobile.right .menu-container {
     background:#002244!important;
     opacity: .9;
     border-radius:50px;
-    padding: 36px 0px 36px 36px;
+    padding: 36px 2px 36px 36px;
     display:none;
     
     @media screen and (max-width: 768px) {
