@@ -30,25 +30,29 @@
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
+    
     @media screen and (max-width: 992px) {
       text-align: center;
+      
     }
-    .alternate {
-      padding: 0 20px;
-    }
+    
     ul {
-      font-family: "OpenSans Regular";
+      
       @media screen and (max-width: 992px) {
         height: auto;
         padding: 0 0px 22px 15px;
       }
       li {
-        padding-right: 30px;
+        padding-right: 20px;
         padding-bottom: 15px;
         
         a {
           color: #ffffff;
           font-size: 14px;
+          font-family: "OpenSans Regular";
+          &:hover{
+            text-decoration: underline;
+        }
         }
       }
     }
@@ -148,6 +152,9 @@
             font-size: 14px;
             color: #ffffff;
             font-family: "OpenSans Regular";
+            &:hover{
+                text-decoration: underline;
+            }
           }
         }
       }
@@ -173,6 +180,13 @@
       @media screen and (min-width: 992px) and (max-width: 1150px) {
         width: 35%;
       }
+    }
+  }
+  .alternate{
+    padding:0 100px;
+    @media screen and (max-width: 992px) {
+      padding:0 20px;
+      
     }
   }
 }
