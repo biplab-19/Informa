@@ -60,7 +60,7 @@
       font-size: 14px;
       text-align: right;
       font-family: "OpenSans Regular";
-      padding: 22px 20px;
+      padding: 22px 100px;
       p {
         color: #ffffff;
         padding: 0 0px 0 18%;
@@ -82,14 +82,15 @@
       }
     }
     .footer-icons {
-      padding: 35px 20px;
+      padding: 35px 100px;
       border-bottom: 1px solid #fff;
-      &.marketing {
-        border-top: 1px solid #fff;
-      }
       @media screen and (max-width: 992px) {
         padding: 0px;
       }
+      &.marketing {
+        border-top: 1px solid #fff;
+      }
+      
       .logo {
         @media screen and (max-width: 992px) {
           padding: 80px 0px;
