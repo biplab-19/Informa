@@ -127,15 +127,14 @@ div#tech-main-header {
                 text-decoration: none;
                 color: $white;
                 font-size:20px;
-                font-family: 'Open Sans Bold';
+                font-family: 'OpenSans Bold';
             }
             li {
                 display: block;
                 a{
                     padding-bottom:28px;
-                    font-family: 'Open Sans Regular';  
-                    padding-left:35px;
-                    font-weight: normal; 
+                    font-family: 'OpenSans Regular'; 
+                    padding-left:35px; 
                 }
             }
         }
@@ -423,56 +422,82 @@ div#tech-main-header {
 
     .stellarnav {
         
-            .menu-toggle{
-                span.bars {
-                    display: inline-block;
-                    margin-right: 7px;
-                    position: relative;
-                    top: 3px;
-                    height:32px;
-                    span {
-                        display: block;
+        .menu-toggle{
+            span.bars {
+                display: inline-block;
+                margin-right: 7px;
+                position: relative;
+                top:17px;
+                height:32px;
+                span {
+                    display: block;
+                    width: 42px;
+                    height: 5px;
+                    border-radius:5px;
+                    background: #002244;
+                    -webkit-transition: background 0s .3s;
+                    transition: background 0s .3s;
+                    &::after,&::before{
+                        content: "";
                         width: 42px;
                         height: 5px;
-                        border-radius:5px;
+                        border-radius: 5px;
                         background: #002244;
-                        margin: 0 0 9px;
-                        &:last-child{
-                            margin:0;
-                        }
+                        position: absolute;
+                        -webkit-transition-property: top,-webkit-transform;
+                        transition-property: top,-webkit-transform;
+                        transition-property: top,transform;
+                        transition-property: top,transform,-webkit-transform;
+                        -webkit-transition-delay: .3s,0s;
+                        transition-delay: .3s,0s;
+                        -webkit-transition-duration: .3s,.3s;
+                        transition-duration: .3s,.3s;
                     }
-                    
+                    &::after {
+                        top: 14px;
+                        
+                    }
+                    &::before {
+                        top: -14px;
+                        
+                    }
                 }
-               
-    
                 
-            } 
-            &.active {
-                .menu-toggle{
-                    span.bars {
-                    top:14px;
-                        span {
-                            &:last-child{
-                                transform: rotate(135deg);
-                                top: 0px;
-                                position: absolute;
-                                width: 32px;
-                            }
-                            &:first-child{
-                                transform: rotate(45deg);
-                                width: 32px;
-                            }
-                            &:nth-child(2){
-                                display:none;
-                            }
-                        }
                 
             }
            
 
             
-                }
+        } 
+        &.active {
+            .menu-toggle{
+                span.bars {
+                    span {
+                        background: transparent;
+                        -webkit-transition-delay: 0s,.3s;
+                         transition-delay: 0s,.3s;
+                        &:after,&:before {
+                            top: 0;
+                            -webkit-transition-delay: 0s,.3s;
+                            transition-delay: 0s,.3s;
+                        }
+                        &:after{
+                            -webkit-transform: rotate(-45deg);
+                            transform: rotate(-45deg);
+                         }
+                        &:before{
+                           -webkit-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                        }
+                        
+                    }
+            
+        }
+       
+
+        
             }
+        }
         
         .full {
             width: 100%;
@@ -907,7 +932,7 @@ div#tech-main-header{
 
 
 div#tech-main-header .stellarnav.mobile.right .menu-container {
-    top: 100%;
+    top: 75px;
     right:0px;
     position: absolute;
     width:350px;
@@ -921,7 +946,8 @@ div#tech-main-header .stellarnav.mobile.right .menu-container {
         top: 100%;
         right:0;
         left:0;
-        width:100%;   
+        width:100%;
+        opacity: 1;   
     }
 
 }
