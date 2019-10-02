@@ -80,9 +80,9 @@
 
             // adds the toggle button to open and close nav
             if (settings.position == 'right' || settings.position == 'left') {
-                nav.prepend('<a href="#" class="menu-toggle"><span class="bars"><span></span><span></span><span></span></span> ' + menuLabel + '</a>');
+                nav.prepend('<a href="#" class="menu-toggle"><span class="bars"><span></span></span> ' + menuLabel + '</a>');
             } else {
-                nav.prepend('<a href="#" class="menu-toggle ' + cssClass + '"><span class="bars"><span></span><span></span><span></span></span> ' + menuLabel + '</a>');
+                nav.prepend('<a href="#" class="menu-toggle ' + cssClass + '"><span class="bars"><span></span></span> ' + menuLabel + '</a>');
             }
 
             // adds a click-to-call link
@@ -217,6 +217,9 @@
             nav.find('li a').each(function () {
                 if ($(this).next().length > 0) {
                     $(this).parent('li').addClass('has-sub');
+                }
+                else{
+                    $(this).parent('li').addClass('no-sub'); 
                 }
                 $(this).parent('li').append('<a class="dd-toggle" href="#"><span class="icon-plus"></span></a>');
             });

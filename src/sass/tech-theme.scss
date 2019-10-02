@@ -81,9 +81,11 @@ body {
         line-height: 28px !important;
     }
 
-    .discover-community p.subofsub-text {
-        padding-left: 73px !important;
-    }
+    .discover-community {
+        p.subofsub-text {
+            padding-left: 73px !important;
+        }
+    } 
 
     .imgleft .img-right {
         margin-right: 10px !important;
@@ -327,6 +329,7 @@ html {
 
     .feature-brand-corousel.brand_list .sub-headline {
         text-align: left;
+        padding-left:20px;
     }
 
     #divsegment.wrapper-dropdown-5 {
@@ -363,7 +366,7 @@ section#hero-banner h1 {
     width: 57%
 }
 
-.featured-products, section#customers_list, .Meet-customer, .tech-theme footer, #social-section {
+.featured-products, section#customers_list, .Meet-customer, #social-section {
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -758,11 +761,24 @@ section p {
 
 #contact-us fieldset:nth-child(even) {
     margin-right: 25px;
+    width:50%;
 }
 
 #contact-us fieldset {
     display: inline-block;
     width: calc(50% - 25px);
+    float:left;
+    margin-bottom: 35px;
+}
+
+#contact-us textarea.form-control {
+    height: 50px;
+}
+
+#contact-us .field-validation-valid {
+    color: #ffd600!important;
+    font-size: 14px;
+    padding-top: 5px;
 }
 
 #contact-us .chosen-single {
@@ -833,10 +849,7 @@ section#hero-banner h1 {
     width: 57%
 }
 
-.featured-products, section#customers_list, .Meet-customer, .tech-theme footer, #social-section {
-    max-width: 1400px;
-    margin: 0 auto;
-}
+
 
 .discover-community, .reach-img-section {
     max-width: 1400px;
@@ -885,7 +898,8 @@ section#hero-banner h1 {
 
     div#tech-main-header .stellarnav.mobile.right > ul {
         position: fixed;
-        top: 0px;
+        max-width: 100%;
+        opacity: 1;
     }
 
     /*banner section*/
@@ -1346,10 +1360,7 @@ section#hero-banner h1 {
     width: 57%
 }
 
-.featured-products, section#customers_list, .Meet-customer, .tech-theme footer, #social-section {
-    max-width: 1400px;
-    margin: 0 auto;
-}
+
 
 .discover-community, .reach-img-section {
     max-width: 1400px;
@@ -1604,7 +1615,7 @@ section#hero-banner h1 {
 }
 
 #contact-us form.register-myinterests-form .form-group {
-    min-height: 80px;
+    min-height:auto;
 }
 
 @media (max-width: 767px) {
@@ -1889,7 +1900,7 @@ p ,section p{
 
     .btn-primary-small {
         text-align: center;
-        border-radius: 22px;
+        border-radius: 27px;
         padding: 15px 30px;
         height: auto;
         min-width: 160px;
@@ -1916,6 +1927,7 @@ p ,section p{
         }
 
         @media screen and (min-width:320px) and (max-width:768px) {
+            display: inline-block;
             min-width: 130px;
             padding: 10px 5px;
             font-size: 12px;
@@ -2817,12 +2829,12 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                             &:after {
                                 content: '+';
                                 position: absolute;
-                                bottom: 11px;
+                                bottom: 10.5px;
                                 left: 50%;
                                 transform: translate(-50%,50%);
                                 background-color: white;
                                 color: #d9d600;
-                                line-height: 19px;
+                                line-height: 18.5px;
                                 width: 18px;
                                 height: 18px;
                                 font-size: 18px;
@@ -2915,3 +2927,46 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
     }
 }
 /* events calendar end */
+
+.tech-theme{
+    section#customers_list{
+        .customers_list_slider.slick-slider{
+            .slick-arrow {
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-family: FontAwesome;
+                &.slick-next{
+                    &:before{
+                        content: "\f105";
+                        font-family: FontAwesome;
+                    }
+                    
+                }
+                &.slick-prev{
+                    &:before{
+                        content: "\f104";
+                        font-family: FontAwesome;
+                    }
+                    
+                    
+                }
+                &:before{
+                    font-size: 46px;
+                    margin-top: -22px;
+                    margin-left: -10px;
+                    @media only screen and (max-width: 1141px){
+                        font-size: 46px;
+                        margin-top: -22px;
+                        margin-left: -10px;
+                    }
+                }
+                
+                
+            }
+        } 
+    }
+}
+ 

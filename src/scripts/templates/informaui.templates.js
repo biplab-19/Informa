@@ -703,6 +703,9 @@ var INFORMA = window.INFORMA || {};
                                             '<h4><span>{{results.Title}}</span></h4>'+
                                         '{{/compare}}'+
                                         '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
+                                        '{{#compare results.GuestAuthor null operator="!="}}'+
+                                            '<p><span>Publisher </span><strong>{{results.GuestAuthor}}<strong></p>'+
+                                        '{{/compare}}'+
                                         '{{#compare results.Video null operator="!="}}'+
                                             '<div class="video-container">'+
                                                 '{{#if results.HasExternalLink}}'+
