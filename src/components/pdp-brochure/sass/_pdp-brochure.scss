@@ -20,7 +20,7 @@
       padding-left: 15px;
       padding-right: 15px;
       color: $white;
-      font-weight: bold;
+      font-family: FSMe-bold;
       @include mobile {
         width: 100%;
       }
@@ -29,6 +29,7 @@
     
   p{
     padding-bottom: 10px;
+    font-family: FSMe;
     color: $grey-color08;
     font-size: 16px;
     @include mobile {
@@ -39,11 +40,11 @@
 
   }
   .list-title{
-    font-weight: bold;
+    font-family: FSMe-bold;
     padding-bottom: 10px;
   }
   h2{
-      font-weight: 300;
+      font-family: FSMe-light;
       color: $grey-color10;
       font-size: 30px;
       //padding-left: 50px;
@@ -93,7 +94,7 @@
   ul {
       padding-top: 13px;
       list-style-type: none;
-      font-weight: 300;
+      font-family: FSMe-light;
       li {
           color: $grey-color08;
           margin-bottom: 10px;
