@@ -232,6 +232,11 @@
                 if ($parentLi.hasClass('has-sub')) {
                     $parentLi.children('ul').stop(true, true).slideToggle(settings.openingSpeed);
                     $parentLi.toggleClass('open');
+                    if ($parentLi.hasClass('open')) {
+                        nav.addClass('sub-open');
+                    } else {
+                        nav.removeClass('sub-open');
+                    }
                 }
             });
 

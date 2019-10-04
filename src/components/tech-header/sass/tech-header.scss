@@ -88,6 +88,25 @@ div#tech-main-header {
         position: relative;
         width: 100%;
         line-height: normal;
+        &.sub-open {
+            .menu-container {
+                .main-nav-bar {
+                    height: 550px;
+                    height: calc(100vh - 250px);
+                    @include not-desktop {
+                        height: 330px;
+                        height: calc(100vh - 250px);
+                    }
+                }
+            }
+        }
+        .menu-container {
+            .main-nav-bar {
+                // 250ms linear matches stellarnav opening speed and easing, 
+                // important to prevent dancing scrollbar during transition
+                transition: height 250ms linear;
+            }
+        }
         a {
             color: #777;
             cursor: pointer;
