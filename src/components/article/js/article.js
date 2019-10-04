@@ -214,65 +214,62 @@ INFORMA.articletech = (function (window, $, namespace) {
         isAjaxCalled = false;
         _BindArticlesPartialView(ArticleSearch, "POST", obj, true);
     });
-    _BindArticlesPartialView = function (url, method, data, reset) {
+    _BindArticlesPartialView=function(url, method, data, reset) {
         $.ajax({
             url: "/client/search/GetFilteredArticlesList",
             type: "POST",
             data: data,
             success: function (result) {
-
+               
                 if (reset) {
-                    $("#articlesresultview .container").empty();
+                    $("#article-list").empty();
                 }
-
-                if ($($(result).find(".container")).length) {
-
-                    $("#articlesection").html("");
-                    $("#articlesresultview").html("");
-                    $("#articlesresultview").append($(result).find(".container"));
-
+    
+                if ($($(result).find(".artical-list-outer > .artcl-list")).length) {            
+                   
+                    $("#article-list").html("");
+                    $("#article-list").html($(result).find("#article-list"));                
                     return;
                 }
                 INFORMA.Spinner.Hide();
-
-
+               
+    
             },
             error: function (error) {
                 INFORMA.Spinner.Hide();
             },
             complete: function (data) {
-
+               
                 setTimeout(function () { INFORMA.Spinner.Hide(); }, 1000);
             }
         })
-
-
+        
+    
     }
-    _LoadArticleListdata = function () {
+    _LoadArticleListdata=function () {
         var elementType = $(this).parents(".wrapper-dropdown-1").attr('name');
         var pageNumber = parseInt($('#filterpageno').val());
-        var pageSize = $('#filterpagesize').val();
+        var pageSize = $('#filterpagesize').val(); 
         if (pageNumber == "1") {
-            pageNumber = 1;
+        pageNumber = 1;
         }
         else {
-            pageNumber = pageNumber;
+        pageNumber = pageNumber;
         }
-
+        
         var obj = {
-            data: JSON.stringify({
-                SegmentAndSubSegments: _GetSelectedSegment(),
-                BrandID: _GetSelectedBrands(),
-                SearchText: $('#searchText').val(),
-                CurrentPage: $('#CurrentPage').val(),
-                ProductLineId: $('#productlinepre').val(),
-                PageNo: pageNumber,
-            })
+        data: JSON.stringify({
+        SegmentAndSubSegments: _GetSelectedSegment(),
+        BrandID: _GetSelectedBrands(),
+        SearchText: $('#searchText').val(),
+        CurrentPage: $('#CurrentPage').val(),
+        ProductLineId: $('#productlinepre').val(), 
+        PageNo: pageNumber,
+        })
         }
-        $('#filterpageno').val(pageNumber + 1);
+        $('#filterpageno').val( pageNumber+1);
         _BindArticlesPartialView(ArticleSearch, "POST", obj, true);
-
-    }
+        }
     $(document).on("click", "#articlelistshowmore", function () {
         _LoadArticleListdata();
         _ToggleArticleList();
@@ -692,7 +689,6 @@ INFORMA.articletech = (function (window, $, namespace) {
             _removeSearchTextBreadcrumb(),
             _GetSelectedSegment(),
             _LoadArticleListdata(),
-            //_BindArticlesPartialView(),
             _GetSelectedBrands(),
             _updateBrandSelection(),
             _addBreadcrumbSelectedFilter(),
