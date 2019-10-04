@@ -3,7 +3,6 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 100px;
-  float:left;
   @media only screen and (max-width: 991px) {
     padding: 0 20px;
   }
@@ -75,14 +74,13 @@
 }
 .artcl-headline {
   line-height: 33px;
-  &:hover {
+   &:hover {
     border-bottom: 1px solid #555;
-    padding-bottom: 4px;
     display: inline-block;
   }
   a {
     font-size: 30px;
-    line-height: 20px;
+    line-height: 35px;
     font-family: "OpenSans Light";
     font-weight: lighter;
     color: #002244;
@@ -235,12 +233,16 @@ a.artcl-read-more {
                     padding: 10px 20px;
                     cursor: pointer;
                     background: transparent;
+
                 }
                 &.active a {
                     border-bottom: 0;
                     margin: 10px 18px;
                     -moz-border-radius: 25px 25px 0 0 !important;
                     -webkit-border-radius: 25px 25px 0 0 !important;
+                    @media screen and (max-width:992px) {
+                      margin: 0px 0px;
+                    }
                 }
             }
         } 
@@ -264,9 +266,7 @@ a.artcl-read-more {
         .drop-content-active {
             display: inline-block;
         }
-        .custom-dropdown {
-            position: relative;
-        }
+        
         .sgmnt-menu.active a:after{
             content: '';
             width: 34px;
@@ -320,6 +320,7 @@ a.artcl-read-more {
             padding: 0px 20px;
             overflow-y: scroll;
             height:250px;
+            overflow-x: hidden;
             ul {
                 padding-left: 0;
                 margin-bottom: 20px;
@@ -410,6 +411,9 @@ a.artcl-read-more {
             position: absolute;
             left: 0;
             top: 55px;
+            @media screen  and (max-width:767px){
+              width:100%; 
+            }
             
         }
         .sub-seg-mob {
@@ -478,6 +482,7 @@ a.artcl-read-more {
             position: static;
             overflow: hidden;
             margin-left:0px;
+            width:305px;
         }
 
             .article-list-filter .custom-nav .menu a {
@@ -537,7 +542,22 @@ a.artcl-read-more {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 85px;
-
+    display:grid;
+    @media only screen and (max-width: 767px){
+      padding:0px;
+      display:inline-block;
+    }
+    .custom-dropdown {
+      position: relative;
+      @media only screen and (max-width: 992px){
+        height: auto;
+        overflow-y: unset;
+        padding: 0;
+        margin-top: 0;
+        width: 100%;
+        margin: 0;
+      }
+  }
 }
 .section-content{
   .filter-section{
@@ -548,7 +568,7 @@ a.artcl-read-more {
   .unit{
     width: auto;
     float: left;
-    margin: 0px 20px 5px 0px;
+    margin: 0px 20px 0px 0px;
     .article-cross{
       margin: 0 15px;
       cursor: pointer;
@@ -557,3 +577,9 @@ a.artcl-read-more {
   }
 }
 
+.article-list-filter .custom-nav .menu {
+  @media screen and (max-width:767px) {
+    width:100%;
+  }
+  
+}
