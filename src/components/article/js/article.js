@@ -688,7 +688,6 @@ INFORMA.articletech = (function (window, $, namespace) {
             _checkSearchBoxHasValue(),
             _removeSearchTextBreadcrumb(),
             _GetSelectedSegment(),
-            _LoadArticleListdata(),
             _GetSelectedBrands(),
             _updateBrandSelection(),
             _addBreadcrumbSelectedFilter(),
