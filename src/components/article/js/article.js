@@ -681,7 +681,9 @@ INFORMA.articletech = (function (window, $, namespace) {
         }
     }
     init = function () {
-         _InitDropdownSelectEvent(),
+            if ($('#articlesection').length == 0)
+                return;
+            _InitDropdownSelectEvent(),
             _ArticleFilter(),
             _updateSegmentSelection(),
             _showClearOption(),
