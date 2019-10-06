@@ -1,0 +1,227 @@
+.single-image{
+    width: 100%;
+    float: left;
+    @media only screen and (min-width: 768px){
+        position: relative;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .hero-items {
+    
+        .vertical-align {
+            @media only screen and (min-width: 1201px) {
+                top: 108px;
+            }
+            @media only screen and (min-width: 768px) {
+                position: absolute;
+                max-width: 1400px;
+                margin: 0 auto;
+                width: 100%;
+                padding: 0 100px;
+            }
+            .for-left ,.for-right {
+                @media only screen and (min-width: 768px) {
+                max-width: 1400px;
+                margin: 0 auto;
+                }
+                .cta-button-containor {
+                    @media only screen and (min-width: 768px){
+                        left: 0;
+                        float: left;
+                        margin: 10px 0;
+                    }
+                }
+            }
+            .for-left>div,.for-right>div {
+                padding-left: 0;
+                @media only screen and (min-width: 768px){
+                    padding-left: 0;
+                }
+            }
+            .full-width{
+                width:100%;
+                text-align:left;
+            }
+            .hero-col-heading{
+                padding-left:0;
+            }
+        }
+        .btn-primary {
+            text-align: center;
+            border-radius: 28px;
+            padding: 20px 40px;
+            height: auto;
+            min-width: 160px;
+            font-family: 'OpenSans Bold';
+            font-size: 21px;
+            width: auto;
+            background-color: #024;
+            color: #fff;
+            border-width: 0;
+            min-width: 150px;
+            margin-right: 10px;
+        }
+    } 
+}
+
+.color-white{
+    h1,h2{
+        color:#fff!important;
+    }
+}
+.feature-hero-banner{
+    .hero-banner-carousel {
+        .slick-initialized {
+          .slick-next,.slick-prev {
+              width: 90px;
+              height: 90px;
+              border-radius: 100%;
+              background: #fff;
+              position: absolute;
+              z-index: 99;
+              border: 0;
+          }
+          .slick-next {
+              padding-right: 50px!important;
+              margin-left: -38px;
+              @media only screen and (max-width: 600px) {
+                  background: transparent;  
+              }
+          }
+          .slick-prev {
+              right: auto;
+              padding-left: 50px!important;
+              left: -50px;
+              @media only screen and (max-width: 600px) {
+                  background: transparent;  
+              }
+          }
+      }
+        .slick-initialized .slick-next:before,.slick-list .slick-next:before,.slick-track .slick-next:before,.slick-initialized .slick-prev:before,.slick-list .slick-prev:before,.slick-track .slick-prev:before {
+          border-style: solid;
+          border-width: 4px 4px 0 0;
+          content: '';
+          height: 20px;
+          position: absolute;
+          width: 20px;
+          top: 55%;
+          color: #dbd600;
+      }
+        .slick-initialized .slick-next:before,.slick-list .slick-next:before,.slick-track .slick-next:before {
+          transform: rotate(44deg);
+          margin-left: -35px;
+      }
+        .slick-initialized .slick-prev:before,.slick-list .slick-prev:before,.slick-track .slick-prev:before {
+          transform: rotate(-136deg);
+          left: 75px;  
+      }
+    }
+    &.hero-banner{
+        background-color: #180d50;
+        @media only screen and (min-width: 1142px){
+            height:720px;
+            margin-top:0;
+            max-width:1400px;
+            margin:0 auto;
+           
+        } 
+    }
+    .hero-item{
+        &.hero-carousel{
+            @media only screen and (min-width: 768px){
+                max-width:100%;
+            }
+            
+        }
+    }
+    .cf-img{
+        position: absolute;
+        right:0;
+        height:100vh;
+        @media only screen and (max-width: 1141px){
+            display: block;
+        }
+    }
+    .hero-items{
+        &.hero-carousel{
+            .vertical-align{
+                &.video-item{
+                    height: auto;
+                    left: 50%;
+                    min-height: 100%;
+                    min-width: 100%;
+                    top: 35%;
+                    transform: translate(-50%,-50%);
+                    z-index: 17;
+                    object-fit: cover;
+                    position: absolute;
+                    width: 100%;
+                    @media only screen and (min-width:1142px) {
+                        height: auto;
+                        width: 100%;
+                        max-height: 720px;
+                        top: 50%;
+                    }
+                    @media only screen and (min-width: 768px){
+                        transform: translateY(0%);
+                        padding: 0;
+                        top: 0;
+                    }
+                    iframe,object,embed{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    h1 {
+                        color: #fff !important;
+                    }
+                }
+                &.overlay-text {
+                    @media only screen and (min-width: 768px) {
+                       max-width: 100%;
+                       width: 100%;
+                       transform: translateY(0%);
+                       z-index: 9999;
+                   }
+                   .for-center {
+                        h4 {
+                            color: #fff!important;
+                        }
+                   }
+               }
+            }
+            
+        }
+        .vertical-align{
+            .for-left{
+                h4{
+                    color: #fff!important;
+                    width: 100%;
+                    float: left;
+                    word-break: break-word; 
+                }
+            }
+            &.overlay-text{
+                .for-right h4 {
+                    @media only screen and (min-width: 768px) {
+                        color: #fff!important;
+                        width: 100%;
+                        float: left;
+                        word-break: break-word;
+                    }
+                }
+            }
+        }
+        
+    }  
+}
+
+
+
+
+
+
+
+
