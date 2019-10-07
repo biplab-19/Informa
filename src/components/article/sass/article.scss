@@ -459,6 +459,8 @@ a.artcl-read-more {
 @media only screen and (max-width: 991px) {
 
   .article-list-filter {
+    margin: 0 auto;
+    width: 276px;
     .dropdown-content-first,.dropdown-content-second,.dropdown-content-third {
       position: static;
       margin-left: 0;
@@ -588,8 +590,13 @@ a.artcl-read-more {
   @media screen and (max-width: 767px) {
     width: 100%;
   }
+  @media screen and (min-width: 992px) {
+    width: 390px;
+  }
 }
 
 .hide-article.btn {
   display: none;
 }
+
+
