@@ -224,7 +224,7 @@ INFORMA.articletech = (function (window, $, namespace) {
                 if (reset) {
                     $("#article-list").empty();
                 }
-    
+                INFORMA.Spinner.Show($('body'));
                 if ($($(result).find(".artical-list-outer > .artcl-list")).length) {            
                    
                     $("#article-list").html("");
