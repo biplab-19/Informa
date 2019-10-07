@@ -200,6 +200,7 @@ INFORMA.articletech = (function (window, $, namespace) {
         else {
             showmoredispcount = pageNumber + 1;
         }
+        INFORMA.Spinner.Show($('body'));
         var obj = {
             data: JSON.stringify({
                 SegmentAndSubSegments: _GetSelectedSegment(),
@@ -224,7 +225,7 @@ INFORMA.articletech = (function (window, $, namespace) {
                 if (reset) {
                     $("#article-list").empty();
                 }
-                INFORMA.Spinner.Show($('body'));
+               
                 if ($($(result).find(".artical-list-outer > .artcl-list")).length) {            
                    
                     $("#article-list").html("");
