@@ -249,7 +249,7 @@ INFORMA.articletech = (function (window, $, namespace) {
     }
     _LoadArticleListdata=function () {
         var elementType = $(this).parents(".wrapper-dropdown-1").attr('name');
-        var pageNumber = parseInt($('#filterpageno').val());
+        var pageNumber = parseInt($('#filterpageno').val()) + 1;
         var pageSize = $('#filterpagesize').val(); 
         if (pageNumber == "1") {
         pageNumber = 1;
@@ -268,7 +268,7 @@ INFORMA.articletech = (function (window, $, namespace) {
         PageNo: pageNumber,
         })
         }
-        $('#filterpageno').val( pageNumber+1);
+        $('#filterpageno').val(pageNumber);
         _BindArticlesPartialView(ArticleSearch, "POST", obj, true);
         }
     $(document).on("click", "#articlelistshowmore", function () {
