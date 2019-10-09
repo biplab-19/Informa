@@ -246,22 +246,20 @@ html {
 
 .dot-img-left {
     background-image: url(/static/images/tech/leftdotted.png);
-    background-size: 90%;
+    background-size: 100%;
     width: 80px;
     height: 35px;
     background-repeat: no-repeat;
-    background-position: right;
     margin-right: 20px;
     margin-top: 53px;
 }
 
 .dot-img-right {
     background-image: url(/static/images/tech/rightdotted.png);
-    background-size: 90%;
+    background-size: 100%;
     width: 80px;
     height: 35px;
     background-repeat: no-repeat;
-    background-position: left;
     margin-left: 20px;
     margin-top: 53px;
 }
@@ -269,8 +267,10 @@ html {
 //*** dot-image position changes in mobile ***//
 @media screen and (max-width: 812px) and (min-width: 320px) {
     .discover-community .dot-img-left {
+        background-position: -26px 0;
         width: 45px;
         height: 40px;
+        background-size: 145%;
         margin-right: 0;
     }
 
@@ -278,18 +278,24 @@ html {
         left: 0 !important;
     }
     .reach-img-section .dot-img-left {
+        background-position: -26px 0;
         width: 45px;
         height: 40px;
+        background-size: 145%;
         margin-right: 0;
     }
     .feature-brand-corousel .dot-img-left {
+        background-position: -31px 0;
         width: 45px;
         height: 40px;
+        background-size: 172%;
         margin-right:0px;
     }
     .featured-products .dot-img-right {
+        background-position: 4px 0;
         width: 45px;
         height: 40px;
+        background-size: 150%;
         margin-right: 0;
     }
     
@@ -1715,20 +1721,26 @@ section.brand_list .customers_list_slider .customer img {
 @media only screen and (max-width: 768px) {
     /* line 2155, ../../../src/sass/tech-theme.scss */
     .rich-text-editor .dot-img-left {
+        background-position: -26px 0;
         width: 45px;
         height: 40px;
+        background-size: 145%;
         margin-right: 0;
     }
 
     .brand_list.feature-brand-corousel .dot-img-right{
+        background-position: 0px 0;
         width: 45px;
         height: 40px;
+        background-size: 145%;
         margin-right: 0;
     }
 
     .featured-products .dot-img-left{
+        background-position: -24px 0;
         width: 45px;
         height: 40px;
+        background-size: 145%;
         margin-right: 0;
     }
 
