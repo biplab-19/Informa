@@ -91,7 +91,7 @@
             float: left;
             margin-bottom: 65px;
             .port {
-                padding: 0 5%;
+                padding: 15px 5%;
                 cursor: pointer;
                 position: relative;
                 margin-bottom: 20px;
@@ -573,9 +573,7 @@ footer {
         margin: 0;
         padding: 2px 0;
     }
-    @media screen and (min-width:769px) {
-        margin: 30px 0px;
-    }
+    
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn {
@@ -848,6 +846,7 @@ footer {
             width: 86%;
         }
    }
+   
 }
 
 a:hover, a:focus {
@@ -1203,4 +1202,21 @@ a:hover, a:focus {
         }
     }
 
-
+    .tech-theme{
+        .view-all{
+            .btn-primary-small{
+                @media only screen and (min-width:769px) and (max-width:1150px) {
+                    font-size: 14px;
+                    padding: 10px 10px;
+                }
+            }
+        } 
+    } 
+    .discription{
+        .More-content{
+            @media only screen and (max-width:768px) {
+                height: 140px;
+                overflow: hidden;
+            }
+        }
+    }
