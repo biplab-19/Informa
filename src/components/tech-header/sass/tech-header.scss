@@ -14,87 +14,28 @@ div#tech-main-header {
         width: 100%;
         z-index: 999980;
     }
+
     .container {
         padding: 0;
     }
+
+
     .nav-bar {
         display: flex;
         align-items: center;
         padding: 10px 0 0;
     }
-    a.log-img {
-        img {
-            width: 100%;
-            padding:20px 0px;
-        }
-    }
-    ul.main-nav-bar {
-        li.mnb-child > a {
-            font-size: 20px;
-            font-weight: bold;
-        }
-    }
-   .stellarnav {
-        position: relative;
+
+    a.log-img img {
         width: 100%;
-        line-height: normal;
-        ul {
-            margin: 0;
-            padding: 0;
-            text-align: right;
-            li {
-                list-style: none;
-                display: block;
-                margin: 0;
-                padding: 0;
-                position: relative;
-                line-height: normal;
-                vertical-align: middle;
-                a {
-                    padding: 15px;
-                    display: block;
-                    text-decoration: none;
-                    color: #002244;
-                    font-size: inherit;
-                    font-family: 'Open Sans', sans-serif;
-                }
-            }
-            ul {
-                top: auto;
-                width: 250px;
-                position: absolute;
-                z-index: 9900;
-                text-align: left;
-                display: none;
-                background: #ffffff;
-                font-size: 16px;
-                font-weight: bold;
-                border-radius: 0px 0px 10px 10px;
-                li {
-                    display: block;
-                    a {
-                        border-radius: 0 0 10px 10px;
-                        &:hover{
-                            background: #f3f3f3;
-                        }
-                    }
-                    
-                } 
-                ul {
-                    top: 0; /* dd animtion - change to auto to remove */
-                    left: 250px;
-                }
-            } 
-        } 
-
-    ul.main-nav-bar {
-
-        li.mnb-child > a {
-            font-size: 20px;
-            font-weight: bold;
-        }
+        padding:20px 0px;
     }
 
+    .stellarnav.right.hide-arrows.mobile a.menu-toggle {
+        float: right;
+        margin: 0;
+        padding: 0;
+    }
 
 
     .stellarnav ul ul li a:hover {
@@ -126,15 +67,11 @@ div#tech-main-header {
         align-items: center;
     }
 
-    .stellarnav.right.hide-arrows.mobile ul ul {
-        background: #ffffff;
-        -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 1) !important;
-        box-shadow: 0 0px 0px rgba(0, 0, 0, 1) !important;
+    
+    .stellarnav.mobile >ul{
+        min-height:364px;
     }
-
-    .stellarnav.mobile ul {
-        background: #ffffff !important;
-    }
+    
 
 
 
@@ -150,70 +87,90 @@ div#tech-main-header {
     .stellarnav {
         position: relative;
         width: 100%;
-        //z-index: 9900;
         line-height: normal;
+        &.sub-open {
+            .menu-container {
+                .main-nav-bar {
+                    height: 550px;
+                    height: calc(100vh - 250px);
+                    @include not-desktop {
+                        height: 330px;
+                        height: calc(100vh - 250px);
+                    }
+                }
+            }
+        }
+        .menu-container {
+            .main-nav-bar {
+                // 250ms linear matches stellarnav opening speed and easing, 
+                // important to prevent dancing scrollbar during transition
+                transition: height 250ms linear;
+            }
+        }
+        a {
+            color: #777;
+            cursor: pointer;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            text-align: right;
+            ul {
+                top: auto;
+                width: 250px;
+                position: absolute;
+                z-index: 9900;
+                text-align: left;
+                display: none;
+                background: #ffffff;
+                font-size: 16px;
+                font-weight: bold;
+                border-radius: 0px 0px 10px 10px;
+                ul {
+                    top: 0; /* dd animtion - change to auto to remove */
+                    left: 250px;
+                }
+            }
+        }
+        li {
+            list-style: none;
+            display: block;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            line-height: normal;
+            vertical-align: middle;
+            a {
+                padding-bottom: 36px;
+                display: block;
+                text-decoration: none;
+                color: $white;
+                font-size:20px;
+                font-family: 'OpenSans Bold';
+            }
+            li {
+                display: block;
+                a{
+                    padding-bottom:28px;
+                    font-family: 'OpenSans Regular'; 
+                    padding-left:35px; 
+                }
+            }
+        }
     }
 
-    .stellarnav a {
-        color: #777;
-        cursor: pointer;
-    }
-
-    .stellarnav ul {
-        margin: 0;
-        padding: 0;
-        text-align: right;
-    }
-
-    .stellarnav li {
-        list-style: none;
-        display: block;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        line-height: normal;
-        vertical-align: middle;
-    }
-
-    .stellarnav li a {
-        padding: 15px;
-        display: block;
-        text-decoration: none;
-        color: #002244;
-        font-size: inherit;
-        font-family: 'Open Sans', sans-serif;
-    }
     /* main level */
-    .stellarnav > ul > li {
-        display: inline-block;
+    .stellarnav ul.main-nav-bar > li {
+        &:last-child {
+            a {
+                padding-bottom: 0;
+            }
+        }
     }
-
-    .stellarnav.mobile ul {
-        padding: 30px 15px;
-    }
+    
     /* first level dd */
-    .stellarnav ul ul {
-        top: auto;
-        width: 250px;
-        position: absolute;
-        z-index: 9900;
-        text-align: left;
-        display: none;
-        background: #ffffff;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 0px 0px 10px 10px;
-    }
-
-    .stellarnav li li {
-        display: block;
-    }
+   
     /* second level dd */
-    .stellarnav ul ul ul {
-        top: 0; /* dd animtion - change to auto to remove */
-        left: 250px;
-    }
-
     .stellarnav > ul > li:hover > ul > li:hover > ul {
         opacity: 1;
         visibility: visible;
@@ -1024,7 +981,12 @@ display:block;
     }
 }
 
-div#tech-main-header .stellarnav ul ul li a {
-    border-radius: 0 0 10px 10px;
+.stellarnav.mobile .menu-container > ul{
+    height:300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right:26px;
+    scrollbar-color: #658fba #024;
+    scrollbar-width: thin;
 }
 
