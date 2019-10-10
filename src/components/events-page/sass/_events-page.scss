@@ -141,25 +141,25 @@
             display: block;
         }
     }
-    .no-events {
+    .no-events, .error {
         p {
             margin: 0;
             padding: 15px;
             text-align: center;
         }
     }
+    
+    .no-result {
+        clear: left;
+        padding: 30px 0;
+        text-align: center;
+    }
 
     #event-modal {
         .modal-dialog {
             @include mobile {
-              width: 100%;
               padding-left: 7.5px;
               padding-right: 7.5px;
-            }
-            @include tablet {
-              width: 100%;
-              padding-left: 15px;
-              padding-right: 15px;
             }
             @include desktop {
               width: 1172px;
@@ -195,12 +195,6 @@
                 }
             }
         }
-    }
-    
-    .no-result {
-        clear: left;
-        padding: 30px 0;
-        text-align: center;
     }
 }
 
@@ -249,7 +243,10 @@
                         right: 0;
                         width: 53px;
                         height: 100%;
-                        background: grey;
+                        background-color: white;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
                         pointer-events: auto;
                     }
                     // &:hover {
@@ -329,7 +326,7 @@
                             width: 1em;
                             height: 100%;
                             margin-top: -1em;
-                            background: #f3f3f3;
+                            background: white;
                         }
                     }
                 }
@@ -493,7 +490,10 @@
                                     left: 0;
                                     width: 53px;
                                     height: 100%;
-                                    background: grey;
+                                    background-color: white;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                    background-size: contain;
                                     pointer-events: auto;
                                 }
                                 &:hover {
