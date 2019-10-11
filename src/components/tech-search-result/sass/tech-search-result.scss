@@ -1,0 +1,116 @@
+div#tech-main-header .stellarnav{
+.menu-mobile{
+            float: right;
+            margin: 10px 0px;
+            padding: 0;
+            position: absolute;
+            right: 85px;
+            display:none;
+            &.active{
+                display:block;
+            }
+            span.bars {
+                display: inline-block;
+                margin-right: 7px;
+                position: relative;
+                top: 17px;
+                height: 32px;
+                span {
+                    background: transparent;
+                    transition-delay: 0s,.3s;
+                    display: block;
+                    width: 42px;
+                    height: 5px;
+                    border-radius: 5px;
+                    &:before {
+                        transform: rotate(45deg);
+                    }
+                    &:after {
+                        transform: rotate(-45deg);
+                    }
+                    &:before,&:after{
+                        content: "";
+                        top: 0;
+                        width: 42px;
+                        height: 5px;
+                        border-radius: 5px;
+                        background: #002244;
+                        position: absolute;
+                        transition-property: top,transform;
+                        transition-delay: .3s,0s;
+                        transition-duration: .3s,.3s;
+                    }
+                }
+            } 
+}
+.search-icons{
+    &.active{
+    
+    width: 600px;
+    background-color: #002244;
+    height: 57px;
+    border-radius: 29px;
+    @media screen and (max-width:768px) {
+        width: 310px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100px;
+        margin: 0 auto;
+
+    }
+    @media screen and (min-width:769px) and (max-width:1200px) {
+        width:54%;
+    }
+    
+    input[type=text] {
+        position: absolute;
+        right: 34px;
+        width: 544px;
+        margin-right: 40px;
+        height: 100%;
+        border-radius: 29px;
+        border: 3px solid #002244;
+        padding: 10px 10px;
+        font-family: 'OpenSans Light';
+        color:#024;
+        font-size: 18px;
+        display:block;
+        @media screen and (max-width:768px) {
+            width: 246px;
+            margin-right: 30px;
+        }
+        @media screen and (min-width:769px) and (max-width:1200px) {
+            width:100%;
+        }
+    }
+    i{
+        
+        color: #fff;
+        margin: 10px 20px;
+    }
+}
+        float: right;
+        margin-right: 28px;
+        cursor: pointer;
+        position: relative;
+        background-color: transparent;
+        width: auto;
+        input[type=text] {
+            display: none;
+        }  
+        i{
+            font-size: 36px;
+            position: absolute;
+            right: 0;
+            color: #024;
+            margin: 13px 20px;
+            @media screen and (max-width:768px) {
+                margin: 13px 0px; 
+            }
+        }
+         
+        
+    
+}
+}
