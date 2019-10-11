@@ -91,7 +91,7 @@
             float: left;
             margin-bottom: 65px;
             .port {
-                padding: 0 5%;
+                padding: 15px 5%;
                 cursor: pointer;
                 position: relative;
                 margin-bottom: 20px;
@@ -123,8 +123,8 @@
                     clear: both;
                 }
                 &:hover{
-                    -webkit-box-shadow: 5px 1px 11px rgba(52, 58, 64, 0.509804);
-                    box-shadow: 5px 1px 11px rgba(52, 58, 64, 0.509804);
+                    -webkit-box-shadow: 0px 0px 11px rgba(52, 58, 64, 0.509804);
+                    box-shadow: 0px 0px 11px rgba(52, 58, 64, 0.509804);
                     .plus {
                         background-color: #cdda0b;
                         color: #fff;
@@ -570,10 +570,10 @@ footer {
 
     @media screen and (max-width: 768px) and (min-width: 320px) {
         float: right;
+        margin: 0;
+        padding: 2px 0;
     }
-    @media screen and (min-width:769px) {
-        margin: 30px 0px;
-    }
+    
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all .view-all-btn {
@@ -766,8 +766,7 @@ footer {
             a {
                 border-bottom: 0;
                 margin: 10px -1px;
-                -moz-border-radius: 25px 25px 0 0 !important;
-                -webkit-border-radius: 25px 25px 0 0 !important;
+                border-radius: 25px 25px 0 0 !important;
                 @media only screen and (max-width: 768px) {
                     margin: 0px 0px;
                 }
@@ -847,6 +846,7 @@ footer {
             width: 86%;
         }
    }
+   
 }
 
 a:hover, a:focus {
@@ -1202,4 +1202,21 @@ a:hover, a:focus {
         }
     }
 
-
+    .tech-theme{
+        .view-all{
+            .btn-primary-small{
+                @media only screen and (min-width:769px) and (max-width:1150px) {
+                    font-size: 14px;
+                    padding: 10px 10px;
+                }
+            }
+        } 
+    } 
+    .discription{
+        .More-content{
+            @media only screen and (max-width:768px) {
+                height: 100px;
+                overflow: hidden;
+            }
+        }
+    }

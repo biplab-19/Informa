@@ -525,7 +525,7 @@ INFORMA.RegistrationInterests = (function(window, $, namespace) {
             urlParameters = window.location.href;
         if(urlParameters.split('?')['1']){
             var pdf_Url_Param  = urlParameters.split('?')['1'].split('&')['0'].split('=')[1];
-            if(pdf_Url_Param.indexOf('pdf')!=-1)
+            if(pdf_Url_Param != undefined && pdf_Url_Param.indexOf('pdf')!=-1)
                 pdf_url = pdf_Url_Param;
         }
         }else{

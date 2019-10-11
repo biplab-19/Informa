@@ -1063,9 +1063,13 @@ form.request-a-demo {
                 display: none;
               }
           }
-          input:checked + span:before {
+          input[type=checkbox]:checked + span:before {
               background: $white url("/Static/images/common/checkbox-tick.jpg") no-repeat 0 0;
               background-size: 100%;
+          }
+          input[type=checkbox] + span:before {
+            background: $white url("/Static/images/common/checkbox-untick.png") no-repeat 0 0;
+            background-size: 100%;
           }
           input:disabled + span:before {
               background: $grey-color09 none;
@@ -1088,4 +1092,16 @@ form.request-a-demo {
 }
 .grecaptcha-badge {
     display: none;
+}
+
+.tech-theme{
+    .wffm-form {
+        .custom-checkbox {
+            label{
+                span {
+                    color:#555;
+                }
+            } 
+        }
+    }
 }
