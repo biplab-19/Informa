@@ -18,14 +18,13 @@ INFORMA.TechSearch = (function (window, $, namespace) {
                         $(this).parent(".search-icons").siblings(".menu-mobile").removeClass("active");
                     }
                 }
-                else{
-                    $(this).addClass("search-active"); 
-                }
+                
                 
             });
             $crossIcon.on("click",function(evt){
                 $(this).removeClass("active");
                 $(this).siblings(".search-icons").removeClass("active");
+                $(this).siblings(".search-icons").children("i").addClass("search-active");
             });
             
         }
