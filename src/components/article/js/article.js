@@ -125,6 +125,25 @@ INFORMA.articletech = (function (window, $, namespace) {
                 ChildSpan.removeClass('triangle-down');
             }
         });
+        $(".article-list-filter #closeFilterBtn").on("click", function () {
+            var $articleList = $('.article-list-filter'),
+                $body = $('body')
+            $articleList.removeClass('active');
+            $("#showArticleFiltersBtn").text('Select filters');
+            $body.css('overflow-y', '');
+        });
+        $("#showArticleFiltersBtn").on("click", function () {
+            var $articleList = $('.article-list-filter'),
+                $body = $('body')
+            $articleList.toggleClass('active');
+            if ($articleList.hasClass('active')) {
+                $(this).text('Search');
+                $body.css('overflow-y', 'hidden');
+            } else {
+                $(this).text('Select filters');
+                $body.css('overflow-y', '');
+            }
+        });
         $('.segmanet-head-mob').on("click", function () {
             if ($(this).children().hasClass('sub-seg-mob')) {
                 $(this).find('.sub-seg-mob').toggleClass('active-slide');
