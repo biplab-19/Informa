@@ -7,13 +7,18 @@
         }
         .infografic-image{
             padding-bottom: 35px;
-                img{
+                .info-img{
                     width: 113px;
                     float: left;
                     margin-top: 18px;
                     margin-right: 5px;
+                    background-image: url(../../cms-images/infografic/dotted-icon.png);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    height: 15px;
                     @include mobile{
-                        width:60px;
+                        width: 60px;
+                        height: 8px;
                     }
                 }
                 h2{
