@@ -1,0 +1,131 @@
+.two-column-grid-section {
+  .two-column-grid-list {
+    .container {
+      padding: 20px 40px;
+      @include tablet {
+        padding: 10px 15px;
+      }
+      @include mobile {
+        padding: 10px 15px;
+      }
+      .infografic-image{
+        padding-bottom: 35px;
+            .info-img{
+                width: 113px;
+                float: left;
+                margin-top: 18px;
+                margin-right: 5px;
+                background-image: url(../images/dotted-icon.png);
+                background-size: cover;
+                background-repeat: no-repeat;
+                height: 15px;
+                @include mobile {
+                    width: 60px;
+                    height: 8px;
+                }
+            }
+            h2{
+                width: calc(100% - 120px);
+                float: left;
+                padding: 0;
+                font-size:48px;
+                color: #002244;
+                font-family: 'Aleo Regular';
+                line-height: 50px;
+                text-transform: uppercase;
+                @include mobile{
+                    font-size:35px;
+                    line-height:35px;
+                    width: calc(100% - 65px);
+                }
+            }
+    }
+      .row {
+        @include mobile {
+          display: flex;
+          flex-direction: column;
+        }
+        @include tablet {
+          display: flex;
+          flex-direction: column;
+        }
+        .image-section {
+            @include mobile {
+              order: 1;
+              width: 100%;
+            }
+            @include tablet {
+              order: 1;
+              width: 100%;
+            }
+        }
+        .content-section {
+            @include mobile {
+              order: 2;
+              width: 100%;
+            }
+            @include tablet {
+              order: 2;
+              width: 100%;
+            }
+        }
+      }
+      .image-container {
+        width: 600px;
+        height: 380px;
+
+        @include tablet {
+          width: 100%;
+          height: 100%
+        }
+        @include mobile {
+          width: 100%;
+          height: 100%
+        }
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      .content-container {
+        padding: 60px 106px;
+        width: 600px;
+        height: 380px;
+
+        @include tablet {
+          width: 100%;
+          height: auto;
+          padding: 20px;
+        }
+        @include mobile {
+          width: 100%;
+          height: auto;
+          padding: 20px;
+        }
+
+        .subtitle {
+          font-family: "OpenSans-Bold";
+          font-size: 30px;
+          color: #002244;
+        }
+        .discription {
+          font-family: "OpenSans-Light";
+          font-size: 18px;
+          padding: 20px 0px;
+          color: #000;
+          p{
+            font-family: "OpenSans-Light";
+            font-size: 18px;
+            padding: 20px 0px;
+            color: #000;
+          }
+          @include desktop{
+            overflow: hidden;
+            height: 67%;
+          }
+          
+        }
+      }
+    }
+  }
+}
