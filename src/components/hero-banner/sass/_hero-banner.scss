@@ -1146,12 +1146,7 @@ section#hero-banner {
         }
     }
 
-    @media only screen and (max-width: 768px){
-        .single-image .hero-items .for-left h4, .single-image .hero-items .for-right h4 {
-            padding-left: 15px;
-        }
-        
-    }
+   
 
     @media only screen and (min-width: 768px) {
         .hero-items .vertical-align .for-left .cta-button-containor, .hero-items .vertical-align .for-right .cta-button-containor {
@@ -1184,9 +1179,7 @@ section#hero-banner {
         max-width: 1400px;
         margin: 0 auto;
         }
-        .hero-items .vertical-align .for-left h4, .hero-items .vertical-align .for-right h4 {
-        padding-left: 0;
-        }
+        
         .hero-items .vertical-align .for-left .cta-button-containor, .hero-items .vertical-align .for-right .cta-button-containor {
         left: 0;
         float: left;
@@ -1427,12 +1420,7 @@ section#hero-banner .vertical-align.overlay-text {
     }
     
 }
-.hero-items .vertical-align.overlay-text .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
-    color: #fff!important;
-    width: 100%;
-    float: left;
-    word-break: break-word;
-}
+
 @media only screen and (min-width: 768px) {
     .hero-items.hero-carousel .vertical-align.overlay-text {
         max-width: 100%;
@@ -1456,23 +1444,10 @@ section#hero-banner .vertical-align.overlay-text {
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    .hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
-        padding: 0 15px;
-    }
+    
 }
 .agri-theme,.pharma-theme,.financial-theme,.tmt-theme,.maritime-theme {
     .feature-hero-banner {
-    .vertical-align{
-        h1 ,h4{
-            color:#fff!important;
-        }
-        &.indigo {
-            h1 ,h4{
-                color: #024!important;
-            }
-        }
-    
-    }
     .hero-items{
         .vertical-align{
             @media screen and (min-width:1201px){
@@ -1494,24 +1469,7 @@ section#hero-banner .vertical-align.overlay-text {
     
 }
 
-.tech-theme,.agri-theme,.pharma-theme,.financial-theme,.tmt-theme,.maritime-theme {
-    .feature-hero-banner {
-    .vertical-align{
-        &.indigo {
-            h1 ,h4{
-                color: #024!important;
-            }
-        }
-        &.white{
-            h1 ,h4{
-                color:#fff!important;
-            }
-        }
-    
-    }
-    
-}
-}
+
 
 
 
