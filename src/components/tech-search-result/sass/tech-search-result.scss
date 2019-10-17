@@ -114,3 +114,39 @@ div#tech-main-header .stellarnav{
     
 }
 }
+.tech-search-inputbar{
+    .tech-search-inputbar-list{
+        .search-icons{
+            width: 600px;
+            background-color: #002244;
+            height: 57px;
+            border-radius: 29px;
+            margin-right: 28px;
+            cursor: pointer;
+            position: relative;
+            margin: 30px 15px;
+            
+            input[type=text] {
+                position: absolute;
+                right: 34px;
+                width: 544px;
+                margin-right: 40px;
+                height: 100%;
+                border-radius: 29px;
+                border: 3px solid #002244;
+                padding: 10px 10px;
+                font-family: 'OpenSans Light';
+                color: #024;
+                font-size: 18px;
+                display: block;
+            }
+            i.fa-search {
+                font-size: 36px;
+                position: absolute;
+                right: 0;
+                color: #fff;
+                margin: 10px 20px;
+            }
+        }
+    }
+}
