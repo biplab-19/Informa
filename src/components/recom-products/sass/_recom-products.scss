@@ -3,9 +3,9 @@ section.recommended-products {
     padding: 10px;
     h2 {
         color: $white;
-        font-weight: bold;
+        font-family: 'FSMe-Bold';
         span{
-            font-weight: 300;
+             font-family: 'FSMe-Light';
         }
     }
     h3 {
@@ -91,6 +91,7 @@ section.recommended-products {
                 .sector {
                     display: inline-block;
                     padding: 3px 8px;
+                    font-weight: 400;
                     font-size: 0.9em;
                     color: #f1f1f3;
                     margin-right: 5px;
@@ -109,7 +110,7 @@ section.recommended-products {
                 }
                 .brand {
                     color: #f1f1f3;
-                    font-weight: 300;
+                    font-family: FSMe-light;
                 }
                 &:after {
                     content: '';
@@ -137,7 +138,7 @@ section.recommended-products {
                     list-style-type: none;
                     padding-bottom: 20px;
                     position: relative;
-                    font-weight: bold !important;
+                    font-family: 'FSMe-Bold' !important;
                     &:before {
                         position: absolute;
                         left: -33px;

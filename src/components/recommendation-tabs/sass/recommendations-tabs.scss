@@ -55,11 +55,12 @@
                 padding: 20px 0;
                 color: $grey-color05;
                 font-size: 14px;
-                font-weight: bold;
+                font-family:'FsMe-Bold';
                 text-align: center;
                 text-decoration: none;
                 span {
                     font-size: 14px;
+                    font-family: 'FSMe' !important;
                     position: relative;
                     &:before {
                         vertical-align: top;
@@ -117,17 +118,17 @@
     h2{
         color:$grey-color03;
         font-size: 30px;
-        font-weight: 300;
+        font-family: FSMe-Light;
         span{
-            font-weight: normal;
+            font-family: 'FSMe';
         }
     }
 }
 .recomended-content{
     h2{
-        font-weight: bold
+        font-family: 'FSMe-Bold';
         span{
-            font-weight: 300;
+            font-family: 'FSMe-Light';
         }
     }
     h3 {

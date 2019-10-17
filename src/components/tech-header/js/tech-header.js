@@ -80,9 +80,9 @@
 
             // adds the toggle button to open and close nav
             if (settings.position == 'right' || settings.position == 'left') {
-                nav.prepend('<a href="#" class="menu-toggle"><span class="bars"><span></span><span></span><span></span></span> ' + menuLabel + '</a>');
+                nav.prepend('<a href="#" class="menu-toggle"><span class="bars"><span></span></span> ' + menuLabel + '</a>');
             } else {
-                nav.prepend('<a href="#" class="menu-toggle ' + cssClass + '"><span class="bars"><span></span><span></span><span></span></span> ' + menuLabel + '</a>');
+                nav.prepend('<a href="#" class="menu-toggle ' + cssClass + '"><span class="bars"><span></span></span> ' + menuLabel + '</a>');
             }
 
             // adds a click-to-call link
@@ -232,6 +232,11 @@
                 if ($parentLi.hasClass('has-sub')) {
                     $parentLi.children('ul').stop(true, true).slideToggle(settings.openingSpeed);
                     $parentLi.toggleClass('open');
+                    if ($parentLi.hasClass('open')) {
+                        nav.addClass('sub-open');
+                    } else {
+                        nav.removeClass('sub-open');
+                    }
                 }
             });
 

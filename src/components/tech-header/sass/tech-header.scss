@@ -2,7 +2,7 @@
 
 div#tech-main-header {
     position: relative;
-    z-index: 999;
+    z-index: 99999;
     transition: all .3s ease-in-out;
     background-color: #fff;
     -webkit-backface-visibility: hidden;
@@ -88,6 +88,25 @@ div#tech-main-header {
         position: relative;
         width: 100%;
         line-height: normal;
+        &.sub-open {
+            .menu-container {
+                .main-nav-bar {
+                    height: 550px;
+                    height: calc(100vh - 250px);
+                    @include not-desktop {
+                        height: 330px;
+                        height: calc(100vh - 250px);
+                    }
+                }
+            }
+        }
+        .menu-container {
+            .main-nav-bar {
+                // 250ms linear matches stellarnav opening speed and easing, 
+                // important to prevent dancing scrollbar during transition
+                transition: height 250ms linear;
+            }
+        }
         a {
             color: #777;
             cursor: pointer;
@@ -127,23 +146,26 @@ div#tech-main-header {
                 text-decoration: none;
                 color: $white;
                 font-size:20px;
-                font-family: 'Open Sans Bold';
+                font-family: 'OpenSans Bold';
             }
             li {
                 display: block;
                 a{
                     padding-bottom:28px;
-                    font-family: 'Open Sans Regular';  
-                    padding-left:35px;
-                    font-weight: normal; 
+                    font-family: 'OpenSans Regular'; 
+                    padding-left:35px; 
                 }
             }
         }
     }
 
     /* main level */
-    .stellarnav > ul > li {
-        display: inline-block;
+    .stellarnav ul.main-nav-bar > li {
+        &:last-child {
+            a {
+                padding-bottom: 0;
+            }
+        }
     }
     
     /* first level dd */
@@ -423,56 +445,74 @@ div#tech-main-header {
 
     .stellarnav {
         
-            .menu-toggle{
-                span.bars {
-                    display: inline-block;
-                    margin-right: 7px;
-                    position: relative;
-                    top: 3px;
-                    height:32px;
-                    span {
-                        display: block;
+        .menu-toggle{
+            span.bars {
+                display: inline-block;
+                margin-right: 7px;
+                position: relative;
+                top:17px;
+                height:32px;
+                span {
+                    display: block;
+                    width: 42px;
+                    height: 5px;
+                    border-radius:5px;
+                    background: #002244;
+                    transition: background 0s .3s;
+                    &::after,&::before{
+                        content: "";
                         width: 42px;
                         height: 5px;
-                        border-radius:5px;
+                        border-radius: 5px;
                         background: #002244;
-                        margin: 0 0 9px;
-                        &:last-child{
-                            margin:0;
-                        }
+                        position: absolute;
+                        transition-property: top,transform;
+                         transition-delay: .3s,0s;
+                        transition-duration: .3s,.3s;
                     }
-                    
+                    &::after {
+                        top: 14px;
+                        
+                    }
+                    &::before {
+                        top: -14px;
+                        
+                    }
                 }
-               
-    
                 
-            } 
-            &.active {
-                .menu-toggle{
-                    span.bars {
-                    top:14px;
-                        span {
-                            &:last-child{
-                                transform: rotate(135deg);
-                                top: 0px;
-                                position: absolute;
-                                width: 32px;
-                            }
-                            &:first-child{
-                                transform: rotate(45deg);
-                                width: 32px;
-                            }
-                            &:nth-child(2){
-                                display:none;
-                            }
-                        }
                 
             }
            
 
             
-                }
+        } 
+        &.active {
+            .menu-toggle{
+                span.bars {
+                    span {
+                        background: transparent;
+                         transition-delay: 0s,.3s;
+                        &:after,&:before {
+                            top: 0;
+                            transition-delay: 0s,.3s;
+                        }
+                        &:after{
+                            
+                            transform: rotate(-45deg);
+                         }
+                        &:before{
+                           
+                            transform: rotate(45deg);
+                        }
+                        
+                    }
+            
+        }
+       
+
+        
             }
+        }
         
         .full {
             width: 100%;
@@ -893,6 +933,10 @@ div#tech-main-header{
     ::-webkit-scrollbar {
         width: 10px;
     }
+    ::-webkit-scrollbar-track {
+        background: #002244;
+        opacity:.9;
+    }
 } 
 
 
@@ -907,21 +951,22 @@ div#tech-main-header{
 
 
 div#tech-main-header .stellarnav.mobile.right .menu-container {
-    top: 100%;
+    top: 75px;
     right:0px;
     position: absolute;
     width:350px;
     background:#002244!important;
     opacity: .9;
     border-radius:50px;
-    padding: 36px 0px 36px 36px;
+    padding: 36px 2px 36px 36px;
     display:none;
     
     @media screen and (max-width: 768px) {
         top: 100%;
         right:0;
         left:0;
-        width:100%;   
+        width:100%;
+        opacity: 1;   
     }
 
 }
@@ -941,5 +986,7 @@ display:block;
     overflow-x: hidden;
     overflow-y: auto;
     padding-right:26px;
+    scrollbar-color: #658fba #024;
+    scrollbar-width: thin;
 }
 
