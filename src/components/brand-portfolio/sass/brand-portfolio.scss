@@ -777,7 +777,7 @@ footer {
         .menu.active {
             a {
                 border-bottom: 0;
-                margin: 10px -1px;
+                margin: 10px 0;
                 @include not-desktop {
                     margin: 0;
                 }
@@ -918,8 +918,8 @@ a:hover, a:focus {
         .dropdown-content {
             width: 678px;
             border: 1px solid #002244;
-            margin-left: -1px;
-            padding: 4px 20px;
+            margin-left: 0;
+            padding: 4px 3px;
             border-radius: 0px 25px 25px 25px;
             display: none;
             margin-top: -1px;
