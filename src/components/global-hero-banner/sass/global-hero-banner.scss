@@ -2,8 +2,7 @@
   width: 100%;
   float: left;
   position: relative;
-  max-width: 1400px;
-  margin: 0 auto;
+  min-height:400px;
   @include mobile{
       position:initial;
       max-width:100%;
@@ -143,6 +142,7 @@
         }
         .for-right{
         float: right; 
+        text-align:right;
         }
         .for-center {
             max-width: 50%;
@@ -201,40 +201,7 @@
 }
 
 
-.tech-theme,.agri-theme,.pharma-theme,.financial-theme,.tmt-theme,.maritime-theme {
-    .single-image.global{
-        .vertical-align{
-            &.indigo {
-                h1 ,h4{
-                    color: #024!important;
-                }
-            }
-            &.white{
-                h1 ,h4{
-                    color:#fff!important;
-                }
-            }
-        
-        }
-    }
-   
-}
 
-.agri-theme,.pharma-theme,.financial-theme,.tmt-theme,.maritime-theme {
-    .single-image.global{
-        .vertical-align{
-            h1 ,h4{
-                @include mobile{
-                    color:#024;
-                }
-                color:#fff;
-            }
-            
-        
-        }
-    }
-    
-}
 
 .color-white{
     h1,h2{
@@ -243,10 +210,199 @@
 }
 
 
+//@include
+
+.reach-img-section {
+  @media only screen and (max-width:768px) {
+    top: 178px;
+    background: #fff;
+    display: inline-block;
+    width: 100%;
+    position: static;
+    min-height:300px;
+  }
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  position: relative;
+  clear: both;
+  min-height:400px;
+  h2.sub-headline {
+    @media screen and (max-width: 812px) and (min-width: 320px) {
+    left: 0 !important;
+    }
+  }
+  .dot-img-left {
+    @media screen and (max-width: 812px) and (min-width: 320px) {
+    background-position: -26px 0;
+    width: 45px;
+    height: 40px;
+    background-size: 145%;
+    margin-right: 0;
+    }
+  }
+  .global-discription {
+    @media only screen and (max-width:768px) {
+      padding: 10px 0px 0 0px;
+    }
+    @media screen and (max-width: 812px) and (min-width: 320px) {
+      padding: 10px 2px 0 4px !important;
+    }
+  }
+  .nopadding {
+    padding: 0;
+  }
+  .sub-text-n-img {
+    display: flex;
+    align-items: center!important;
+    margin-bottom: 10px;
+  }
+  .dot-img-left {
+    background-image: url(../../static/images/tech/leftdotted.png);
+    background-size: 100%;
+    width: 80px;
+    height: 35px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+    margin-top: 24px;
+    @media screen and (max-width: 812px) and (min-width: 320px){
+        background-position: -26px 0;
+        width: 45px;
+        height: 40px;
+        background-size: 145%;
+        margin-right: 0;
+      }
+  }
+  .imgleft .sub-headline {
+    text-align: left;
+  }
+  .our-reach-container {
+      @media only screen and (max-width:768px) {
+        padding: 20px 0px;
+      }
+      @media screen and (max-width: 812px) {
+        padding: 0px 0px 10px 0px;
+        }
+  }
+  .container-fluid.recch-global-main {
+        margin-top: 0px;
+        position: absolute;
+        @media screen and (max-width: 812px){
+          position: inherit;
+          margin: 0;
+        }
+  }
+  .sub-headline {
+    font-family: "Aleo";
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #024;
+    position: relative;
+    margin: 0;
+    width: calc(100% - 30px);
+    @media screen and (max-width: 812px) and (min-width: 320px){
+      left: 0;
+    }
+    @media screen and (max-width: 812px){
+      font-size: 28px;
+      line-height: 28px;
+    }
+  }
+  div.subofsub-text {
+      width: 50%;
+      margin-left: 100px;
+      margin-bottom: 40px;
+    @media only screen and (max-width: 768px){
+      width: 100%;
+      margin-left: 0;
+      padding: 0 10px;
+  }
+  }
+  .b-one {
+    font-family: 'OpenSans Light';
+    font-size: 18px;
+    line-height: 28px;
+    color: #555;
+}
+}
+.our-reach-section{
+  .our-set-divchild {
+    padding: 0;
+  }
+  .researchsubs {
+    text-align: center;
+    padding: 0 0 20px;
+  }
+  .numberntext {
+    display: -webkit-inline-box;
+    align-items: center;
+    font-size: 70px;
+    font-weight: bold;
+    color: #92b20a;
+    display: flex;
+    justify-content: center;
+    line-height: normal;
+    display: -webkit-flex;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    -webkit-align-items: center;
+  }
+  span.plus {
+    right: 0;
+    vertical-align:top;
+    display: block;
+  }
+  .text {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  .Viewsolutions.text-center a {
+    position: relative;
+    border: none;
+    z-index: 1;
+    display: inline-block;
+  }
+  
+} 
+
+.Viewsolutions{
+  .btn-primary {
+    text-align: center;
+    border-radius: 28px;
+    padding: 20px 40px;
+    height: auto;
+    min-width: 160px;
+    font-family: 'OpenSans Bold';
+    font-size: 21px;
+    width: auto;
+    background-color: #024;
+    color: #fff;
+    border-width: 0;
+    min-width: 150px;
+    margin-right: 10px;
+    &:hover{
+      background-color: #11a7d9;
+      border-color: #11a7d9;
+      color:#fff!important;
+    }
+    &:after{
+      content:"";
+    }
+  }
+}
 
 
 
-/*
+
+
+
 .feature-hero-banner{
     .hero-banner-carousel {
         .slick-initialized {
@@ -364,6 +520,7 @@
                        z-index: 9999;
                    }
                    .for-center {
+                     text-align:center;
                         h4 {
                             color: #fff!important;
                         }
@@ -373,7 +530,12 @@
             
         }
         .vertical-align{
+          @include mobile{
+            width:100vw;
+          }
             .for-left{
+              float:left;
+              text-align:left;
                 h4{
                     color: #fff!important;
                     width: 100%;
@@ -382,19 +544,107 @@
                 }
             }
             &.overlay-text{
-                .for-right h4 {
+                .for-right{
+                  float:right;
+                  text-align:right;
+                  h4 {
                     @media only screen and (min-width: 768px) {
                         color: #fff!important;
                         width: 100%;
                         float: left;
                         word-break: break-word;
                     }
+                } 
                 }
             }
         }
         
-    }  
+    } 
+    .for-left{
+      text-align:left;
+      float:left;
+      @include mobile{
+        text-align:center;
+        width:100vw;
+      }
+    } 
+    .for-center{
+      text-align: center;
+      @include mobile{
+        text-align:center;
+        width:100vw;
+      }
+      .hero-col-heading{
+        width:100%;
+      }
+    }
+    .for-right{
+      text-align:right;
+      float:right;
+      @include mobile{
+        text-align:center;
+        width:100vw;
+      }
+      .hero-col-heading{
+        width:100%;
+      }
+    }
+    .cta-button-containor{
+      .btn {
+        text-align:center!important;
+      }
+    }
+    
+}
+
+.tech-theme,.agri-theme,.pharma-theme,.financial-theme,.tmt-theme,.maritime-theme {
+  .single-image.global{
+      .vertical-align{
+          &.indigo {
+              h1 ,h4{
+                  color: #024!important;
+              }
+          }
+          &.white{
+              h1 ,h4{
+                  color:#fff!important;
+              }
+          }
+      
+      }
+  }
+  
+ 
+}
+
+.agri-theme,.pharma-theme,.financial-theme,.tmt-theme,.maritime-theme {
+  .single-image.global{
+      .vertical-align{
+          h1 ,h4{
+              @include mobile{
+                  color:#024;
+              }
+              color:#fff;
+          }
+          
+      
+      }
+  }
+  .feature-hero-banner{
+    h1,h4 {
+      color:#fff!important;
+    }
+  } 
+  .reach-img-section{
+    .b-one,.sub-headline{
+      @media screen and (max-width:768px){
+        color:#fff;
+      }
+    }
+    
+  }
+  
 }
 
 
-*/
+
