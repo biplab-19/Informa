@@ -53,6 +53,15 @@
                         width: calc(100% - 65px);
                     }
                 }
+                .col-ms-12{
+                    padding:0px;
+                    @include mobile{
+                        padding:0 15px;
+                    }
+                    @include tablet{
+                        padding:0 15px; 
+                    }
+                }
         }
         .infografic-discription{
             margin-left: 90px;
