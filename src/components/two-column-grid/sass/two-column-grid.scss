@@ -39,7 +39,7 @@
                     width: calc(100% - 65px);
                 }
             }
-    }
+      }
       .row {
         @include mobile {
           display: flex;
@@ -124,6 +124,17 @@
             height: 67%;
           }
           
+        }
+      }
+      .rich-text-editor{
+        .col-md-12{
+          padding:0px;
+          @include mobile{
+            padding:0 7.5px;
+          }
+          .row{
+            padding:0px;
+          }
         }
       }
     }
