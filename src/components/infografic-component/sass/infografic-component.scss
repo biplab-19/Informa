@@ -7,12 +7,25 @@
         .container{
             width:1400px;
             background: linear-gradient(0deg, #c5e9ff , #fff 70%);
+            padding:0px;
+            
             @include mobile{
                 width:100%;
-                padding:0;
+                padding:0 15px;
             }
             @include tablet{
                 width:100%;
+                padding:0px;
+            }
+            .rich-text-editor{
+                .col-md-12{
+                    padding-left: 0px;
+                    padding-right:0px;
+                    @include mobile{
+                        padding-left: 0px;
+                        padding-right:0px;
+                    }
+                }
             }
         }
         .infografic-discription{
