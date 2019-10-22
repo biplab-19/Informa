@@ -1,86 +1,73 @@
 .two-column-grid-section {
   .two-column-grid-list {
     .container {
-      padding: 20px 40px;
+      padding: 20px 0px;
+      min-width: 1400px;
+      @media only screen and (max-width: 1400px) {
+        min-width: 100%;
+      }
       @include tablet {
         padding: 10px 15px;
+        min-width: 100%;
       }
       @include mobile {
-        padding: 10px 15px;
+        padding: 10px 0px;
+        min-width: 100%;
       }
-      .infografic-image{
-        padding-bottom: 35px;
-            .info-img{
-                width: 113px;
-                float: left;
-                margin-top: 18px;
-                margin-right: 5px;
-                background-image: url(../images/dotted-icon.png);
-                background-size: cover;
-                background-repeat: no-repeat;
-                height: 15px;
-                @include mobile {
-                    width: 60px;
-                    height: 8px;
-                }
-            }
-            h2{
-                width: calc(100% - 120px);
-                float: left;
-                padding: 0;
-                font-size:48px;
-                color: #002244;
-                font-family: 'Aleo Regular';
-                line-height: 50px;
-                text-transform: uppercase;
-                @include mobile{
-                    font-size:35px;
-                    line-height:35px;
-                    width: calc(100% - 65px);
-                }
-            }
-    }
       .row {
+        margin: 0;
+        padding: 0 100px;
         @include mobile {
           display: flex;
           flex-direction: column;
+          padding: 0;
         }
         @include tablet {
           display: flex;
           flex-direction: column;
+          padding: 0;
         }
         .image-section {
-            @include mobile {
-              order: 1;
-              width: 100%;
-            }
-            @include tablet {
-              order: 1;
-              width: 100%;
-            }
+          padding-left: 0;
+          padding-right: 0;
+          @media only screen and (max-width: 1400px) and (min-width: 1024px) {
+            width: 50%;
+          }
+          @include mobile {
+            order: 1;
+            width: 100%;
+          }
+          @include tablet {
+            order: 1;
+            width: 100%;
+          }
         }
         .content-section {
-            @include mobile {
-              order: 2;
-              width: 100%;
-            }
-            @include tablet {
-              order: 2;
-              width: 100%;
-            }
+          padding-left: 0;
+          padding-right: 0;
+          @media only screen and (max-width: 1400px) and (min-width: 1024px) {
+            width: 50%;
+          }
+          @include mobile {
+            order: 2;
+            width: 100%;
+          }
+          @include tablet {
+            order: 2;
+            width: 100%;
+          }
         }
       }
       .image-container {
-        width: 600px;
         height: 380px;
 
         @include tablet {
           width: 100%;
-          height: 100%
+          height: 100%;
         }
         @include mobile {
           width: 100%;
-          height: 100%
+          height: 100%;
         }
         img {
           width: 100%;
@@ -89,7 +76,7 @@
       }
       .content-container {
         padding: 60px 106px;
-        width: 600px;
+        width: 100%;
         height: 380px;
 
         @include tablet {
@@ -104,39 +91,37 @@
         }
 
         .subtitle {
-          font-family: "OpenSans-Bold";
+          font-family: "OpenSans Bold";
           font-size: 30px;
           color: #002244;
+          line-height: 30px;
         }
         .discription {
-          font-family: "OpenSans-Light";
+          font-family: "OpenSans Light";
           font-size: 18px;
           padding: 20px 0px;
           color: #000;
-          p{
-            font-family: "OpenSans-Light";
+          line-height: 28px;
+          p {
+            font-family: "OpenSans Light";
             font-size: 18px;
             padding: 20px 0px;
             color: #000;
           }
-          @include desktop{
+          @include desktop {
             overflow: hidden;
-            height: 275px;
+            height: 215px;
           }
-          
         }
       }
-    }
-  }
-}
-
-.tech-theme{
-  .two-column-grid-section {
-    .two-column-grid-list {
-      .container{
-        .infografic-image{
-          h2{
-            margin-top:0!important;
+      .rich-text-editor {
+        .col-md-12 {
+          padding: 0px;
+          @include mobile {
+            padding: 0 7.5px;
+          }
+          .row {
+            padding: 0px;
           }
         }
       }
