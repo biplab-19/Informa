@@ -84,7 +84,7 @@
         }
         img {
           width: 100%;
-          height: auto;
+          height: 100%;
         }
       }
       .content-container {
@@ -121,12 +121,26 @@
           }
           @include desktop{
             overflow: hidden;
-            height: 67%;
+            height: 275px;
           }
           
         }
       }
       
+    }
+  }
+}
+
+.tech-theme{
+  .two-column-grid-section {
+    .two-column-grid-list {
+      .container{
+        .infografic-image{
+          h2{
+            margin-top:0!important;
+          }
+        }
+      }
     }
   }
 }

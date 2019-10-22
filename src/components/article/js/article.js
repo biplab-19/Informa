@@ -144,6 +144,9 @@ INFORMA.articletech = (function (window, $, namespace) {
                 $body.css('overflow-y', '');
             }
         });
+        $('.segmanet-head, .sub-segment').click(function () {
+            $(this).siblings('label').children('input').trigger('change');
+        })
         $('.segmanet-head-mob').on("click", function () {
             if ($(this).children().hasClass('sub-seg-mob')) {
                 $(this).find('.sub-seg-mob').toggleClass('active-slide');
