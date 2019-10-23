@@ -1262,10 +1262,7 @@ section#hero-banner {
         width: 100%;
     }
     @media only screen and (min-width: 1201px){
-        .hero-items .vertical-align {
-            top: 108px;
-            
-        }
+        
         div.for-left, div.for-right {
             width: 50%;
         }
@@ -1386,21 +1383,6 @@ section#hero-banner.feature-hero-banner .btn {
 }
 
 /* for other themes */
-.agri-theme,.pharma-theme,.financial-theme,.tmt-theme{
-    section#hero-banner.feature-hero-banner {
-        max-height: 720px;
-        height: 450px;
-    }
-    @media only screen and (min-width: 768px){
-        .feature-hero-banner .hero-items .vertical-align {
-            position: static;
-            max-width: 1172px;
-            padding: 0px 20px;
-        }
-    }
-
-}
-
 @media (max-width: 1141px){
     .hero-banner-carousel .slick-initialized .slick-next, .hero-banner-carousel .slick-list .slick-next, .hero-banner-carousel .slick-track .slick-next {
         margin-left: -20px;
@@ -1446,28 +1428,7 @@ section#hero-banner .vertical-align.overlay-text {
     }
     
 }
-.agri-theme,.pharma-theme,.financial-theme,.tmt-theme,.maritime-theme {
-    .feature-hero-banner {
-    .hero-items{
-        .vertical-align{
-            @media screen and (min-width:1201px){
-                height: auto;
-                left: 50%;
-                min-height: 100%;
-                min-width: 100%;
-                top: 40%;
-                transform: translate(-50%,-50%);
-                z-index: 17;
-                object-fit: cover;
-                position: absolute;
-                width: 100%; 
-            }
-            
-        }
-    }
-    }
-    
-}
+
 
 
 

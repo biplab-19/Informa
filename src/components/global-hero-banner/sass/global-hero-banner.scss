@@ -497,7 +497,7 @@
                         top: 50%;
                     }
                     @media only screen and (min-width: 768px){
-                        transform: translateY(0%);
+                        transform: translate(-50%);
                         padding: 0;
                         top: 0;
                     }
@@ -643,7 +643,39 @@
     }
     
   }
-  
+  section#hero-banner.feature-hero-banner {
+    max-height: 720px;
+    height: 450px;
+  }
+  @media only screen and (min-width: 768px){
+    .feature-hero-banner .hero-items .vertical-align {
+        max-width: 1172px;
+        padding: 0px 40px;
+    }
+  }
+  .feature-hero-banner .hero-items .vertical-align {
+    max-width: 1400px;
+    padding: 0px 100px;
+    @media only screen and (max-width:1400px) {
+      max-width:100%;
+    }
+    @include mobile{
+      padding:0 15px;
+    }
+    @include tablet{
+      padding:0 30px;
+    }
+
+    h1,h2{
+        margin:0 10px;
+        padding:0;
+        color:#fff;
+    }
+    h4{
+        margin:0 15px 20px 15px;
+        color:#fff;
+    }
+  }
 }
 
 
