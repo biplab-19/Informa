@@ -45,7 +45,7 @@
 
         .menu {
             background: #fff;
-            padding-bottom: 6px;
+            margin-bottom: 15px;
             position: relative;
             user-select: none;
             &.active {
@@ -72,10 +72,10 @@
                     &:after {
                         content: '';
                         position: absolute;
-                        bottom: -10px;
+                        bottom: -12px;
                         left: -1px;
                         right: -5px;
-                        height: 10px;
+                        height: 12px;
                         background-color: white;
                         border-left: 1px solid #002244;
                         z-index: 2;
@@ -100,6 +100,11 @@
                 padding: 10px 20px;
                 cursor: pointer;
                 background: transparent;
+                @include mobile {
+                    &:before, &:after {
+                        display: none;
+                    }
+                }
             }
             .dropdown-content {
                 width: 678px;
@@ -111,6 +116,13 @@
                 margin-top: -1px;
                 &.drop-content-active {
                     display: block;
+                    @include mobile {
+                        position: relative;
+                        top: 40px;
+                        width: 100%;
+                        border-top: none;
+                        border-top-right-radius: 0;
+                    }
                 }
                 .round-checkbox {
                     position: relative;
@@ -152,16 +164,12 @@
                     font-weight: bold;
                     color: #002244;
                     margin-bottom: 15px;
-                    width: 85%;
-                    float: left;
-                    clear: none;
                     padding-top: 0;
                     margin-top: -6px;
                 }
                 .sub-seg {
                     font-size: 14px;
                     color: #002244;
-                    width: 90%;
                     clear: none;
                     padding-top: 0;
                     line-height: 18px;
