@@ -43,7 +43,7 @@
             font-family: 'FSMe-Light';
         }
 
-        .menu {
+        .custom-dd-menu {
             background: #fff;
             margin-bottom: 15px;
             position: relative;
@@ -52,6 +52,10 @@
                 a {
                     border-radius: 25px 25px 0 0;
                     border-bottom: none;
+                }
+            }
+            &.multitier-menu {
+                &.active > a {
                     &:before, &:after {
                         border: none;
                         width: auto;
@@ -81,25 +85,26 @@
                         z-index: 2;
                     }
                 }
-            }
-            &.sgmnt-menu {
                 .dropdown-content {
                     position: absolute;
                     top: 59px;
+                    width: 678px;
+                    background-color: white;
+                    border-top: 1px solid #002244;
+                    border-radius: 0 25px 25px 25px;
                     z-index: 1;
-                    background-color: #fff;
                 }
             }
             a {
-                border: 1px solid #002244;
-                width: 100%;
+                display: block;
                 position: relative;
-                float: left;
-                border-radius: 25px;
-                font-size: 18px;
+                width: 100%;
                 padding: 10px 20px;
-                cursor: pointer;
+                font-size: 18px;
                 background: transparent;
+                border: 1px solid #002244;
+                border-radius: 25px;
+                cursor: pointer;
                 @include mobile {
                     &:before, &:after {
                         display: none;
@@ -107,21 +112,23 @@
                 }
             }
             .dropdown-content {
-                width: 678px;
-                border: 1px solid #002244;
-                margin-left: 0;
-                padding: 4px 3px;
-                border-radius: 0px 25px 25px 25px;
                 display: none;
+                position: absolute;
+                width: calc(100% - 30px);
+                margin-left: 0;
                 margin-top: -1px;
+                padding: 4px 3px;
+                background-color: white;
+                border: 1px solid #002244;
+                border-top: none;
+                border-radius: 0 0 25px 25px;
+                z-index: 1;
                 &.drop-content-active {
                     display: block;
                     @include mobile {
                         position: relative;
                         top: 40px;
                         width: 100%;
-                        border-top: none;
-                        border-top-right-radius: 0;
                     }
                 }
                 .round-checkbox {
