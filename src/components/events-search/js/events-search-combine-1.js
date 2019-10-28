@@ -27,6 +27,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         FilterElement: $('<div class="filter"><span class="text"></span></div>'),
         FilterDeleteBtn: $('<span class="delete icon-close"></span>'),
         Selects: $('.events-search select'),
+        CustomSelects: $('.events-search .custom-dd-menu'),
         HaveUpdated: false,
         AlwaysSelectedFilters: [],
         Init: function() {
@@ -58,7 +59,67 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     $this.trigger("chosen:updated");
                 }
             });
+
+            this.CustomSelects.each(function () {
+                var $currCstmSelect = $(this),
+                    $checks = $currCstmSelect.find('.input-checkbox');
+
+                // add value method
+                $currCstmSelect.data('addValue', function (value) {
+                    var values = $currCstmSelect.attr('data-values') === '' ? [] : $currCstmSelect.attr('data-values').split(',');
+                    if (!values.indexOf(value) > -1) {
+                        values.push(value);
+                    }
+                    $currCstmSelect.attr('data-values', values);
+                });
+
+                // remove value method
+                $currCstmSelect.data('removeValue', function (value) {
+                    var values = $currCstmSelect.attr('data-values').split(','),
+                        valueInd = values.indexOf(value);
+                    if (valueInd > -1) {
+                        values.splice(valueInd, 1);
+                    }
+                    $currCstmSelect.attr('data-values', values);
+                });
+                
+                // toggle dd listner
+                $currCstmSelect.children('a').off().click(function () {
+                    // collapse other custom dds
+                    if (!$currCstmSelect.hasClass('active'))
+                        that.CustomSelects.removeClass('active').children('.dropdown-content').removeClass('drop-content-active');
+                    // expand current custom dd
+                    $currCstmSelect.toggleClass('active').children('.dropdown-content').toggleClass('drop-content-active');
+                });
+
+                // checkbox click listner
+                $checks.off().change(function () {
+                    var $parentLi = $(this).parent(".round-checkbox").parent(),
+                        // if $parentLi has child UL then its a high level LI
+                        isParent = $parentLi.children('ul').length > 0,
+                        // if $parentLi is a all element select
+                        isSelectAll = $parentLi.hasClass('selectall'),
+                        isChecked = this.checked;
+
+                    if (isParent) {
+                        // toggle all children
+                        $parentLi.find('ul > li').not('.selectall').each(function () {
+                            $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($(this).attr('id'));
+                            $(this).find('.input-checkbox')[0].checked = isChecked;
+                        });
+                    } else if (isSelectAll) {
+                        $parentLi.siblings('li').each(function () {
+                            $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($(this).attr('id'));
+                            $(this).find('.input-checkbox')[0].checked = isChecked;
+                        });
+                    } else {
+                        // toggle single
+                        $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($parentLi.attr('id'));
+                    }
+                });
+            });
         },
+        
         PopulateAlwaysSelectedFilters: function() {
             // combine preselected with defaults into AlwaysSelectedFilters
             var that = this;
