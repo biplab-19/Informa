@@ -161,6 +161,44 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         that.AlwaysSelectedFilters.push({ type: selectName, value: optValue });
                 });
             });
+
+            this.CustomSelects.each(function () {
+                var $cselect = $(this),
+                    selectName = $cselect.attr('name'),
+                    isPreselectioneDefined = false,
+                    dataSelected = $cselect.data('selected'),
+                    dataIgnore = $cselect.data('ignore'),
+                    $cselectedOpts = $cselect.find(".round-checkbox").parent(),
+                    optValue
+
+                if (dataSelected && dataIgnore && dataSelected === dataIgnore) {
+                    console.warn("Selected and Ignored filters match, therefore preselection will be ignored for: " + selectName);
+                    return;
+                }
+
+                // filter options with selected data attribute
+                if (dataSelected && dataSelected.length > 0) {
+                    $cselectedOpts = $cselectedOpts.filter('[id="' + dataSelected + '"]');
+                    isPreselectioneDefined = true;
+                }
+
+                // remove options that match ignore data attribute
+                if (dataIgnore && dataIgnore.length > 0) {
+                    $cselectedOpts = $cselectedOpts.not('[id="' + dataIgnore + '"]');
+                    isPreselectioneDefined = true;
+                    // remove element from options and update chosen
+                    $cselect.find('li[id="' + dataIgnore + '"]').remove();
+                }
+
+                // dont populate AlwaysSelectedFilters with all options, go to next select
+                if (!isPreselectioneDefined) return;
+
+                $cselectedOpts.each(function () {
+                    optValue = $(this).attr('id');
+                    if (optValue !== '')
+                        that.AlwaysSelectedFilters.push({ type: selectName, value: optValue });
+                });
+            });
         },
         AddFilter: function(filterObj) {
             var $selectedOption;
