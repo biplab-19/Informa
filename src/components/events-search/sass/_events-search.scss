@@ -93,6 +93,9 @@
                     border-top: 1px solid #002244;
                     border-radius: 0 25px 25px 25px;
                     z-index: 1;
+                    .custom-drop-options {
+                        max-height: none;
+                    }
                 }
             }
             a {
@@ -129,6 +132,13 @@
                         position: relative;
                         top: 40px;
                         width: 100%;
+                    }
+                }
+                .custom-drop-options {
+                    overflow: auto;
+                    max-height: 500px;
+                    @include not-desktop {
+                      max-height: none;
                     }
                 }
                 .round-checkbox {
