@@ -65,21 +65,26 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     $checks = $currCstmSelect.find('.input-checkbox');
 
                 // add value method
-                $currCstmSelect.data('addValue', function (value) {
-                    var values = $currCstmSelect.attr('data-values') === '' ? [] : $currCstmSelect.attr('data-values').split(',');
-                    if (!values.indexOf(value) > -1) {
-                        values.push(value);
+                $currCstmSelect.data('addValue', function (el) {
+                    var textvalue = el.children('p').text(),
+                        values = $currCstmSelect.attr('data-values') === '' ? [] : $currCstmSelect.attr('data-values').split(',');
+                    if (!values.indexOf(textvalue) > -1) {
+                        values.push(textvalue);
                     }
+                    InformaEventQuery.AddProp($currCstmSelect.attr('name'), textvalue);
                     $currCstmSelect.attr('data-values', values);
                 });
 
                 // remove value method
-                $currCstmSelect.data('removeValue', function (value) {
-                    var values = $currCstmSelect.attr('data-values').split(','),
-                        valueInd = values.indexOf(value);
+                $currCstmSelect.data('removeValue', function (el) {
+                    var textvalue = el.children('p').text(),
+                        values = $currCstmSelect.attr('data-values').split(','),
+                        valueInd = values.indexOf(textvalue);
                     if (valueInd > -1) {
                         values.splice(valueInd, 1);
                     }
+                    that.RemoveFilter($currCstmSelect.attr('name'), el.attr('id'));
+                    InformaEventQuery.RemoveProp($currCstmSelect.attr('name'), textvalue);
                     $currCstmSelect.attr('data-values', values);
                 });
                 
@@ -104,22 +109,22 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     if (isParent) {
                         // toggle all children
                         $parentLi.find('ul > li').not('.selectall').each(function () {
-                            $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($(this).attr('id'));
+                            $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($(this));
                             $(this).find('.input-checkbox')[0].checked = isChecked;
                         });
                     } else if (isSelectAll) {
                         $parentLi.siblings('li').each(function () {
-                            $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($(this).attr('id'));
+                            $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($(this));
                             $(this).find('.input-checkbox')[0].checked = isChecked;
                         });
                     } else {
                         // toggle single
-                        $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($parentLi.attr('id'));
+                        $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($parentLi);
                     }
                 });
             });
         },
-        
+
         PopulateAlwaysSelectedFilters: function() {
             // combine preselected with defaults into AlwaysSelectedFilters
             var that = this;
@@ -209,11 +214,20 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.Selects.filter('[name="' + filterObj.type + '"]').children('option').each(function () {
                 if ($(this).text() === filterObj.text) {
                     $selectedOption = $(this);
+                    filterObj.value = $selectedOption.attr('value');
                     return false
                 }
             });
+
+            this.CustomSelects.filter('[name="' + filterObj.type + '"]').find('li').each(function () {
+                if ($(this).children('p').text() === filterObj.text) {
+                    $selectedOption = $(this);
+                    filterObj.value = $selectedOption.attr('id');
+                    return false
+                }
+            });
+
             if (!$selectedOption || $selectedOption.length === 0) return;
-            filterObj.value = $selectedOption.attr('value');
 
             // does FilterContainer have it already? if so dont add it
             if (this.FilterContainer.children('[data-value="' + filterObj.value + '"]').length > 0) return;
@@ -315,12 +329,71 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 });
                 $select.trigger("chosen:updated");
             });
+            this.CustomSelects.not('[name="MonthYear"]').each(function () {
+                var $select = $(this);
+                $select.find('li[id]').each(function () {
+                    var $check = $(this).find('.input-checkbox');
+                    // only uncheck if lowest level on multitier
+                    if ($(this).children('ul').length === 0)
+                        $check[0].checked = false;
+                });
+            });
         },
         DisableSelectOption: function(type, value) {
-            var $select = this.Selects.filter('[name="' + type + '"]');
+            var $select = this.Selects.filter('[name="' + type + '"]'),
+                $cselect = this.CustomSelects.filter('[name="' + type + '"]');
             // disable current option and update chosen counterpart
             $select.children('option[value="' + value + '"]').attr('disabled', true);
             $select.trigger("chosen:updated");
+
+            $cselect.find('li[id="' + value + '"] .input-checkbox')[0].checked = true;
+        },
+        PopulateMonthCustomSelect: function () {
+            var $monthSelect = this.CustomSelects.filter('[name="MonthYear"]'),
+                $monthSelectContainer = $monthSelect.find('.custom-drop-options'),
+                loopLength = InformaEventsController.EndDate.diff(InformaEventsController.PreviousDate, 'months'),
+                $monthOpt, monthCount, currMonth;
+
+            // remove existing 
+            $monthSelectContainer.empty();
+
+            for (monthCount = 0; monthCount < loopLength; monthCount++) {
+                currMonth = moment(InformaEventsController.PreviousDate).add(monthCount, 'month');
+
+                $monthOpt = $('<li class="date-item" />');
+                $monthOpt.attr('attr-index', monthCount);
+                $monthOpt.attr('id', currMonth.format('MMMM YYYY'));
+
+                $monthOpt.append('<label class="round-checkbox active"><input type="checkbox" class="input-checkbox"><span class="checkmark"></span></label>');
+                $monthOpt.append('<p class="sub-seg single-level-dropdown">' + currMonth.format('MMMM YYYY') + '</p>');
+
+                // append to select
+                $monthSelectContainer.append($monthOpt);
+
+                // event listner for checkbox
+                $monthOpt.find('.input-checkbox').change(function () {
+                    var $parentLi = $(this).parent(".round-checkbox").parent(),
+                        isChecked = this.checked;
+                    // set attribute for later
+                    $monthSelect.attr('data-values', isChecked ? $parentLi.attr('id') : '');
+                    // deselect others (radio behaviour)
+                    $parentLi.siblings().find('.input-checkbox').each(function () {
+                        this.checked = false;
+                    });
+                });
+            }
+            
+
+            $monthSelect.children('a').click(function () {
+                var $activeResults = $monthSelectContainer.children('li'),
+                    $selected = $activeResults.filter('[id="' + $monthSelect.attr('data-values') + '"]'),
+                    selectedInd = $activeResults.index($selected),
+                    // selected option is 2 down from top of scroll
+                    targInd = selectedInd > 2 ? selectedInd - 2 : 0,
+                    $targ = $activeResults.eq(targInd);
+    
+                $monthSelectContainer.scrollTop(0).scrollTop($targ.position().top);
+            });
         },
         PopulateMonthSelect: function () {
             var $monthSelect = this.Selects.filter('[name="MonthYear"]'),
@@ -379,12 +452,23 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             // add current month to active filters
             this.AddFilter({ type: 'MonthYear', text: $activeDateOption.text() });
         },
+        setMonthCustomSelectDate: function () {
+            var $monthSelect = this.CustomSelects.filter('[name="MonthYear"]'),
+                $activeDateOption = $monthSelect.find('li[id="' + this.Date.format('MMMM YYYY') + '"]')
+            
+            // update month select field
+            $activeDateOption.find('.input-checkbox').trigger('click');
+            // add current month to active filters
+            this.AddFilter({ type: 'MonthYear', text: this.Date.format('MMMM YYYY') });
+        },
         set Date (momentDate) {
             this.Container.data('date', momentDate);
             // prerequisite for setting the select month date is that it needs to be populate
             if (!this.Selects.filter('[name="MonthYear"]').attr('populated'))
                 this.PopulateMonthSelect();
+                this.PopulateMonthCustomSelect();
             this.setMonthSelectDate();
+            this.setMonthCustomSelectDate();
         },
         get Date () {
             return this.Container.data('date');
@@ -959,6 +1043,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                 if (!destinationDateVal) return;
                 InformaFilters.Selects.filter('[name="MonthYear"]').val(destinationDateVal).trigger('change');
+                InformaFilters.CustomSelects.filter('[name="MonthYear"]').find('li[id="' + destinationDateVal + '"] .input-checkbox')[0].checked = true;
                 that.UpdateArrows();
             });
             this.ViewTypeSwitch.change(function () {
@@ -1080,6 +1165,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             var that = this,
                 sendDataObj = {},
                 selectIgnoreAttr,
+                cselectIgnoreAttr,
                 ignoreAlwaysActiveTypes = []
 
             // add filters as property name and push multiple filters of the same type into array
@@ -1089,6 +1175,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     // for for every filterObj, check the select with matching name to its type, to see if it has data-ignore
                     selectIgnoreAttr = InformaFilters.Selects.filter('[name="' + filterObj.type + '"]').data('ignore');
                     if (selectIgnoreAttr && selectIgnoreAttr.length > 0) {
+                        // then set a flag
+                        ignoreAlwaysActiveTypes.push(filterObj.type);
+                    }
+                    cselectIgnoreAttr = InformaFilters.CustomSelects.filter('[name="' + filterObj.type + '"]').data('ignore');
+                    if (cselectIgnoreAttr && cselectIgnoreAttr.length > 0) {
                         // then set a flag
                         ignoreAlwaysActiveTypes.push(filterObj.type);
                     }
@@ -1152,7 +1243,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     throw "PageSize not valid : " + sendDataObj.PageSize;
             }
 
-            // console.log('data sent (pre stringification)', sendDataObj);
+            console.log('data sent (pre stringification)', sendDataObj);
 
             return JSON.stringify({data: JSON.stringify(sendDataObj)});
         },
@@ -1435,6 +1526,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         // console.log(fvalue);
                         InformaFilters.Selects.children('option').each(function () {
                             if ($(this).text() === fvalue) {
+                                isFvalueValid = true;
+                                return false;
+                            }
+                        });
+
+                        InformaFilters.CustomSelects.find('li[id]').each(function () {
+                            if ($(this).children('p').text() === fvalue) {
                                 isFvalueValid = true;
                                 return false;
                             }
