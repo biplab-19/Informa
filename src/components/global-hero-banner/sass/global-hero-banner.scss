@@ -9,6 +9,9 @@
       
   }
   .hero-items {
+    max-width:1400px;
+    position: relative;
+    margin:0 auto;
     @include mobile {
       display: flex;
       flex-direction: column;
@@ -23,10 +26,23 @@
     .vertical-align {
         position: absolute;
         max-width: 1400px;
-        margin: 0 auto;
+        margin: 10px auto;
         width: 100%;
         padding: 0 100px;
         top: 108px;
+        @include mobile {
+          order: 1;
+          position: initial;
+          max-width: 100%;
+          margin: 0 auto;
+          width: 100%;
+          padding:0px;
+          top:0;
+        }
+        @include tablet{
+          padding:0px;  
+          top:0;
+        }
         .second-banner-left-outer{
             float: left;
             .second-banner-left-inner {
@@ -64,8 +80,8 @@
                 }
                
             }
-          } 
-          .second-banner-right-outer {
+        } 
+        .second-banner-right-outer {
             float: right;
             .second-banner-right-inner {
               width: 100%;
@@ -100,19 +116,7 @@
         }
         
       
-      @include mobile {
-        order: 1;
-        position: initial;
-        max-width: 100%;
-        margin: 0 auto;
-        width: 100%;
-        padding:0px;
-        top:0;
-      }
-      @include tablet{
-        padding:0px;  
-        top:0;
-      }
+      
       .for-left,
       .for-right {
           max-width:50%;
@@ -256,6 +260,7 @@
     display: flex;
     align-items: center!important;
     margin-bottom: 10px;
+    margin-top:25px;
   }
   .dot-img-left {
     background-image: url(../../static/images/tech/leftdotted.png);
@@ -264,7 +269,7 @@
     height: 35px;
     background-repeat: no-repeat;
     margin-right: 20px;
-    margin-top: 24px;
+    margin-top: 53px;
     @media screen and (max-width: 812px) and (min-width: 320px){
         background-position: -26px 0;
         width: 45px;
@@ -287,11 +292,14 @@
   .container-fluid.recch-global-main {
         margin-top: 0px;
         position: absolute;
+        width:100%;
         @media screen and (max-width: 812px){
           position: inherit;
           margin: 0;
         }
   }
+  
+
   .sub-headline {
     font-family: "Aleo";
     font-weight: normal;
@@ -325,6 +333,7 @@
     font-size: 18px;
     line-height: 28px;
     color: #555;
+    
 }
 }
 .our-reach-section{
@@ -636,11 +645,20 @@
     }
   } 
   .reach-img-section{
-    .b-one,.sub-headline{
-      @media screen and (max-width:768px){
-        color:#fff;
+    .sub-headline{
+      color:#fff;
+      @media screen and (max-width: 812px){
+        color:#024;
       }
     }
+    .b-one{
+      color:#fff;
+      @media screen and (max-width: 812px){
+        color:#555;
+      }
+    }
+    
+    
     
   }
   section#hero-banner.feature-hero-banner {
@@ -680,3 +698,27 @@
 
 
 
+.dot-img-left {
+  background-image: url(/static/images/tech/leftdotted.png);
+  background-size: 100%;
+  width: 80px;
+  height: 35px;
+  background-repeat: no-repeat;
+  margin-right: 20px;
+  margin-top: 53px;
+}
+
+.dot-img-right {
+  background-image: url(/static/images/tech/rightdotted.png);
+  background-size: 100%;
+  width: 80px;
+  height: 35px;
+  background-repeat: no-repeat;
+  margin-left: 20px;
+  margin-top: 53px;
+}
+.imgright{
+ .subheadline{
+   text-align:right;
+ }
+}

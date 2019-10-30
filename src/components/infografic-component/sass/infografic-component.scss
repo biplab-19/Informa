@@ -1,0 +1,127 @@
+.infografic-component{
+    .infografic-component-list{
+        padding-top: 95px;
+        @include mobile{
+            padding-top: 45px;
+        }
+        .container{
+            width:1400px;
+            background: linear-gradient(0deg, #c5e9ff , #fff 70%);
+            padding:0px;
+            
+            @include mobile{
+                width:100%;
+                padding:0 15px;
+            }
+            @include tablet{
+                width:100%;
+                padding:0px;
+            }
+            
+        }
+        .infografic-discription{
+            margin-left: 90px;
+            padding-bottom: 64px;
+            margin-right:100px;
+            @include mobile {
+                margin-left: 40px;
+                margin-right:15px;
+            }
+            @media only screen and (max-width:1275px) and (min-width:768px) {
+                margin-left: 50px;
+                padding-bottom: 64px;
+                margin-right:15px;
+            }
+            .col-sm-12{
+                width:100%;
+            }
+            p {
+                font-family:"OpenSans Light";
+                font-size:18px;
+                color:#000;
+            }
+        }
+        .infografic-unit-container{
+            width:auto;
+            margin:0 auto;
+            .infografic-unit{
+                width: 278px;
+                float: left;
+                text-align: center;
+                margin-bottom: 86px;
+                @include mobile{
+                    width:100%;
+                    padding:0 15px;
+                    margin-bottom:70px;
+                }
+                
+                .unit-container{
+                    img{
+                        width:100px;
+                        height:100px;
+                        margin-bottom: 22px;
+                    }
+                    .heading{
+                        font-family: 'OpenSans Bold';
+                        font-size:20px;
+                        color:#002244;
+                        @include mobile{
+                            font-size:18px;
+                        }
+
+                    }
+                    .discription{
+                        font-family: 'OpenSans Light';
+                        font-size:20px;
+                        color:#002244;
+                        @include mobile{
+                            font-size:18px;
+                        }
+                    }
+                }
+                
+            }
+
+            &.theme-one{
+                width: 642px;
+                margin: 0 auto;
+                @include mobile{
+                    width:100%;
+                }
+                .infografic-unit{
+                    &:nth-child(2n+1){
+                        margin-right:110px;
+                        @include mobile{
+                            margin-right:0px;
+                        }
+                    }
+                }
+            }
+
+            &.theme-two{
+                width: 1054px;
+                margin: 0 auto;
+                @include mobile{
+                    width:100%;
+                }
+                @include tablet{
+                    width:742px;
+                }
+                .infografic-unit{
+                    &:nth-child(1),&:nth-child(2){
+                        margin-right:110px;
+                        @include mobile{
+                            margin-right:0px;
+                        }
+                    }
+                    &:nth-child(2){
+                        @include tablet{
+                            margin-right:0px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
