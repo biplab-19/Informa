@@ -1016,7 +1016,6 @@ a:hover, a:focus {
         bottom: -15px;
     }
 }
-
 .triangle-right {
     width: 12px;
     height: 15px;
@@ -1025,6 +1024,18 @@ a:hover, a:focus {
     border-bottom: 8px solid transparent;
     display: inline-block;
     margin-right: 13px;
+}
+.active {
+    .triangle-right {
+        width: 15px;
+        height: 10px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 13px solid #002244;
+        border-bottom: none;
+        display: inline-block;
+        margin-right: 10px;
+    }
 }
 .triangle-down {
     width: 15px;
