@@ -380,9 +380,15 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     $parentLi.siblings().find('.input-checkbox').each(function () {
                         this.checked = false;
                     });
+                    
+                    InformaEventQuery.AddProp('MonthYear', $parentLi.attr('id'));
+                });
+
+                // text triggers checkbox
+                $monthOpt.children('p').click(function () {
+                    $(this).closest('li').find('.input-checkbox').click();
                 });
             }
-            
 
             $monthSelect.children('a').click(function () {
                 var $activeResults = $monthSelectContainer.children('li'),
@@ -1043,7 +1049,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                 if (!destinationDateVal) return;
                 InformaFilters.Selects.filter('[name="MonthYear"]').val(destinationDateVal).trigger('change');
-                InformaFilters.CustomSelects.filter('[name="MonthYear"]').find('li[id="' + destinationDateVal + '"] .input-checkbox')[0].checked = true;
+                InformaFilters.CustomSelects.filter('[name="MonthYear"]').find('li[id="' + destinationDateVal + '"] .input-checkbox').click();
                 that.UpdateArrows();
             });
             this.ViewTypeSwitch.change(function () {

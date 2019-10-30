@@ -83,6 +83,29 @@
                 }
             }
             &.multitier-menu {
+                &.col-md-4:nth-child(3),
+                &.col-md-3:nth-child(4) {
+                    .dropdown-content {
+                        right: 15px;
+                        border-radius: 25px 0 25px 25px;
+                    }
+                    &.active > a {
+                        &:before {
+                            left: -10px;
+                            right: auto;
+                            border-left: none;
+                            border-right: 1px solid #002244;
+                            border-bottom: 1px solid #002244;
+                            border-radius: 0 0 5px 0;
+                        }
+                        &:after {
+                            right: -1px;
+                            left: -5px;
+                            border-left: none;
+                            border-right: 1px solid #002244;
+                        }
+                    }
+                }
                 &.active > a {
                     &:before, &:after {
                         border: none;
@@ -116,13 +139,19 @@
                 .dropdown-content {
                     position: absolute;
                     top: 59px;
-                    width: 678px;
+                    width: 556px;
                     background-color: white;
                     border-top: 1px solid #002244;
                     border-radius: 0 25px 25px 25px;
                     z-index: 1;
                     .custom-drop-options {
-                        max-height: none;
+                        column-count: 3;
+                        @include not-desktop {
+                            column-count: auto;
+                        }
+                        & > li {
+                            break-inside: avoid;
+                        }
                     }
                 }
             }
@@ -165,15 +194,11 @@
                     }
                 }
                 .custom-drop-options {
-                    overflow: auto;
+                    overflow-y: auto;
+                    overflow-x: hidden;
                     max-height: 500px;
-                    column-count: 3;
                     @include not-desktop {
-                        column-count: auto;
                         max-height: none;
-                    }
-                    & > li {
-                        break-inside: avoid;
                     }
                 }
                 .round-checkbox {
