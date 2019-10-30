@@ -160,9 +160,7 @@
         width: 100%;
         text-align: left;
       }
-      .hero-col-heading {
-        padding-left: 0;
-      }
+      
       h1 {
         font-family: "Aleo Regular";
         font-size: 48px;
@@ -549,7 +547,10 @@
                     color: #fff!important;
                     width: 100%;
                     float: left;
-                    word-break: break-word; 
+                    word-break: break-word;
+                    span{
+
+                    } 
                 }
             }
             &.overlay-text{
@@ -574,14 +575,15 @@
       float:left;
       @include mobile{
         text-align:center;
-        width:100vw;
+        //width:100vw;
       }
     } 
     .for-center{
       text-align: center;
       @include mobile{
         text-align:center;
-        width:100vw;
+        //width:100vw;
+        
       }
       .hero-col-heading{
         width:100%;
@@ -592,7 +594,7 @@
       float:right;
       @include mobile{
         text-align:center;
-        width:100vw;
+        //width:100vw;
       }
       .hero-col-heading{
         width:100%;
@@ -638,7 +640,36 @@
           
       
       }
+      .hero-items {
+        .vertical-align {
+          padding: 0 122px;
+          @include mobile {
+            padding:0px;
+          }
+          @include tablet{
+            padding:0px;  
+          }
+          .cta-button-containor{
+            margin:10px 0px;
+          }
+          .second-banner-left-outer{
+            .second-banner-left-inner {
+                left: 0px;
+                @media screen and (max-width: 812px){
+                  left: 10px;
+                }
+            }
+          } 
+          .second-banner-right-outer {
+            .second-banner-right-inner {
+              right: 0px;
+            }
+          }
+        }
+      }  
   }
+  
+
   .feature-hero-banner{
     h1,h4 {
       color:#fff!important;
