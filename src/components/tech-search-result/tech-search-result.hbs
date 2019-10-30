@@ -14,6 +14,35 @@
 </div>
 </section>
 
+<div class="view-toggle clearfix">
+    <ul>
+            <li class="btn btn-primary"><a href="http://dev.tech.informa.com/search?searchtext=Hot Topic 10">Hot Topic 10</a></li>            
+            <li class="btn btn-primary"><a href="http://dev.tech.informa.com/search?searchtext=Hot Topic 2">Hot Topic 2</a></li>            
+            <li class="btn btn-primary"><a href="http://dev.tech.informa.com/search?searchtext=Hot Topic 1">Hot Topic 1</a></li>            
+    </ul>
+</div>
+<section id="facetFilter" class="refine-container">
+        <ul>
+                <li id="facet-all" class="facet-selected" data-facet-name="All">All (10)</li>
+                                <li data-facet-name="Media">Media (10) </li>
+                    <li data-facet-name="Brands">Brands (4) </li>
+                    <li data-facet-name="Research">Research (4) </li>
+                    <li data-facet-name="Training">Training (4) </li>
+                    <li data-facet-name="Press Release">Press Release (1) </li>
+        </ul>
+</section>
+<section id="searchResultList" class="article-section">
+        <div class="flip">
+            <div id="article-list">
+                <div class="artical-list-outer" id="searchResultListing"><div class="search-tile-article" boxid="1816a119aa6e48b69352fba87161890b">         <div>                          <a href="/products/research/article-page-2" target="">                                  <img src="/~/media/informa-shop-window/informatech/segments/critical-communications/event-mct-430x725.png">                              </a>                      </div>          <div class="right-artcl">                          <p class="artcl-headline"><a href="/products/research/article-page-2" target=""> Test Article 2 </a></p>                          <p class="artcl-headline"> 05 October 2019|Test Author 2|AI Business</p>             <p class="artcl-description desktop">                 Test Article 2                                   <a href="/products/research/article-page-2" target="" class="artcl-read-more">Readmore <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>                              </p>         </div>     </div>          <div class="search-tile-article" boxid="fb49c1cc6ca24f41827a6e46ceee99e7">         <div>                          <a href="/products/media/article-test-1" target="">                                  <img src="">                              </a>                      </div>          <div class="right-artcl">                          <p class="artcl-headline"><a href="/products/media/article-test-1" target=""> Test Article 1 </a></p>                          <p class="artcl-headline"> 05 October 2019|Test Author|AI Business</p>             <p class="artcl-description desktop">                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.something something 600...                                   <a href="/products/media/article-test-1" target="" class="artcl-read-more">Readmore <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>                              </p>         </div>     </div></div>
+            </div>
+        </div>
+        <div class="outer-section">
+            <button type="button" id="btnPrePage" class="btn-circle" onclick="javascript:loadPreviousPage()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+            <input type="number" class="numbr-circle" value="1" id="txtPageNumber"> &nbsp; of <label id="lblTotalPage">5</label>
+            <button type="button" id="btnNextPage" class="btn-circle" onclick="javascript:loadNextPage()"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+        </div>
+</section>
 <section class="listview-section">
         <div class="select-filter article-list-filter">
             <div class="row">

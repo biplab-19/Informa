@@ -150,3 +150,17 @@ div#tech-main-header .stellarnav{
         }
     }
 }
+
+.tech-theme {
+    .tech-search-inputbar {
+        .tech-search-inputbar-list {
+            .container{
+                width:1200px;
+                padding:0px;
+                @include mobile{
+                    width:100%;
+                }
+            }
+        }
+    }
+}
