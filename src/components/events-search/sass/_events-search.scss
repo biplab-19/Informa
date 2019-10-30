@@ -137,8 +137,13 @@
                 .custom-drop-options {
                     overflow: auto;
                     max-height: 500px;
+                    column-count: 3;
                     @include not-desktop {
-                      max-height: none;
+                        column-count: auto;
+                        max-height: none;
+                    }
+                    & > li {
+                        break-inside: avoid;
                     }
                 }
                 .round-checkbox {
