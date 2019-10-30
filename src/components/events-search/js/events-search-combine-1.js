@@ -1719,6 +1719,38 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         InformaEventTiles.Init();
         InformaFC.Init();
         InformaEventQuery.Init();
+
+        var $body = $('body'),
+            $selectSection = $('.select-section'),
+            $showFiltersBtn = $('#showFiltersBtn'),
+            $closeFilterBtn = $('#closeFilterBtn'),
+            filtersOpen = false
+        
+        // add event listner to close button
+        $closeFilterBtn.click(function (evt) {
+            evt.preventDefault();
+            $body.css('overflow-y', '');
+            $selectSection.hide();
+            $showFiltersBtn.text("Select filters");
+            $showFiltersBtn.attr('data-state', 'select');
+            filtersOpen = false;
+        });
+        // add event listener to filters button
+        $showFiltersBtn.click(function (evt) {
+            evt.preventDefault();
+            filtersOpen = !filtersOpen;
+            if (filtersOpen) {
+                $body.css('overflow-y', 'hidden');
+                $selectSection.show();
+                $showFiltersBtn.text("Search");
+                $showFiltersBtn.attr('data-state', 'search');
+            } else {
+                $body.css('overflow-y', '');
+                $selectSection.hide();
+                $showFiltersBtn.text("Select filters");
+                $showFiltersBtn.attr('data-state', 'select');
+            }
+        });
     };
 
     return {
