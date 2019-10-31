@@ -251,7 +251,8 @@ INFORMA.articletech = (function (window, $, namespace) {
                 if ($($(result).find(".artical-list-outer > .artcl-list")).length) {            
                    
                     $("#article-list").html("");
-                    $("#article-list").html($(result).find("#article-list"));                
+                    $("#article-list").html($(result).find("#article-list"));      
+                    _ToggleArticleList();          
                     return;
                 }
                 INFORMA.Spinner.Hide();
@@ -295,7 +296,6 @@ INFORMA.articletech = (function (window, $, namespace) {
         }
     $(document).on("click", "#articlelistshowmore", function () {
         _LoadArticleListdata();
-        _ToggleArticleList();
     });
     _ToggleArticleList = function () {
         var totalresult = parseInt($('#totalresultcount').val());
