@@ -695,11 +695,11 @@ INFORMA.articletech = (function (window, $, namespace) {
         }
 
         if (length > 1) {
-            $(".filter-section .heading").show();
+            // $(".filter-section .heading").show();
             $(".filter-section .heading").text("active filters (" + (length - 1) + ")");
             $(".clearAllArticlesFilters").removeClass("hide-clear-filter")
         } else {
-            $(".filter-section .heading").hide();
+            // $(".filter-section .heading").hide();
             $(".clearAllArticlesFilters").addClass("hide-clear-filter")
         }
     }
