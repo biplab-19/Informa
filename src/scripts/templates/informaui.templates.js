@@ -1095,8 +1095,40 @@ var INFORMA = window.INFORMA || {};
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+
-                                        '</div>'
-
+                                        '</div>',
+                                        'SiteWideSearch' : '{{#each Results}}'+
+                                        '<div class="search-tile-article artcl-list" boxid="{{ItemId}}">'+
+                                            '<div class="left-artcl">'+
+                                                '{{#if PageUrl}}'+
+                                                '<a href="{{PageUrl}}" target="{{LinkTarget}}">'+
+                                                    '{{#if Image }}'+
+                                                    '<img src="{{Image}}">'+
+                                                    '{{else}}'+
+                                                    '<img src="/Static/images/tech/Article-List-FallBack-Image.jpg">'+
+                                                    '{{/if}}'+
+                                                '</a>'+
+                                               '{{else if this.Image }}'+
+                                                '<img src="{{Image}}">'+
+                                                '{{else}}'+
+                                                '<img src="/Static/images/tech/Article-List-FallBack-Image.jpg">'+
+                                                '{{/if}}'+
+                                            '</div>'+
+                                            '<div class="right-artcl">'+
+                                                '{{#if PageUrl}}'+
+                                                '<p class="artcl-headline"><a href="{{PageUrl}}" target="{{LinkTarget}}"> {{Title}} </a></p>'+
+                                                '{{else}}'+
+                                                '<p class="artcl-headline"> {{Title}}</p>'+
+                                                '{{/if}}'+
+                                                '<p class="artcl-headline"> {{SubTitle}}</p>'+
+                                                '<p class="artcl-description desktop">'+
+                                                    '{{Description}}'+
+                                                    '{{#if PageUrl}}'+
+                                                    '<a href="{{PageUrl}}" target="{{LinkTarget}}" class="artcl-read-more">{{LinkText}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>'+
+                                                    '{{/if}}'+
+                                                '</p>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '{{/each}}'
 
 }
 }(this, jQuery, 'INFORMA'));
