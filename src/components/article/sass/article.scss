@@ -319,9 +319,6 @@ a.artcl-read-more {
     margin-right: 10px;
   }
   .drop-content {
-    overflow: auto;
-    height: 100%;
-    padding: 0px 20px;
     ul {
       padding-left: 0;
       margin-bottom: 20px;
@@ -332,7 +329,11 @@ a.artcl-read-more {
       }
     }
     .drop-options {
-      margin-bottom: 0;
+      overflow: auto;
+      max-height: 500px;
+      @include not-desktop {
+        max-height: none;
+      }
     }
   }
   .round-checkbox {
@@ -406,7 +407,7 @@ a.artcl-read-more {
   .dropdown-content-third {
     overflow: hidden;
     width: calc(100% - 6px);
-    height: calc(100vh - 300px);
+    height: auto;
     border-radius: 0px 0px 25px 25px;
     border-top: none;
     position: absolute;
