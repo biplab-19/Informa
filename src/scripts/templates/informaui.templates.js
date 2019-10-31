@@ -1100,7 +1100,7 @@ var INFORMA = window.INFORMA || {};
                                         '<div class="search-tile-article artcl-list" boxid="{{ItemId}}">'+
                                             '<div class="left-artcl">'+
                                                 '{{#if PageUrl}}'+
-                                                '<a href="{{PageUrl}}" target="{{LinkTarget}}">'+
+                                                '<a href="{{PageUrl}}" target="_blank">'+
                                                     '{{#if Image }}'+
                                                     '<img src="{{Image}}">'+
                                                     '{{else}}'+
@@ -1115,18 +1115,26 @@ var INFORMA = window.INFORMA || {};
                                             '</div>'+
                                             '<div class="right-artcl">'+
                                                 '{{#if PageUrl}}'+
-                                                '<p class="artcl-headline"><a href="{{PageUrl}}" target="{{LinkTarget}}"> {{Title}} </a></p>'+
-                                                '{{else}}'+
-                                                '<p class="artcl-headline"> {{Title}}</p>'+
+                                                '<p class="artcl-headline"><a href="{{PageUrl}}" target="_blank"> {{Title}} </a></p>'+
+                                                '{{else if Title}}'+
+                                                '<p class="artcl-headline">{{Title}}</p>'+
                                                 '{{/if}}'+
-                                                '<p class="artcl-headline"> {{SubTitle}}</p>'+
+												'{{#if SubtitleLength}}'+
+                                                '<p class="artcl-headline">{{SubTitle}}</p>'+
+												'{{/if}}'+
                                                 '<p class="artcl-description desktop">'+
                                                     '{{Description}}'+
                                                     '{{#if PageUrl}}'+
-                                                    '<a href="{{PageUrl}}" target="{{LinkTarget}}" class="artcl-read-more">{{LinkText}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>'+
+                                                    '<a href="{{PageUrl}}" target="_blank" class="artcl-read-more">{{LinkText}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>'+
                                                     '{{/if}}'+
                                                 '</p>'+
                                             '</div>'+
+											'<p class="artcl-description mobile">'+
+								'{{Description}}'+
+								'{{#if PageUrl}}'+
+								'<a href="{{PageUrl}}" target="_blank" class="artcl-read-more">{{LinkText}} <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </a>'+
+								'{{/if}}'+
+							'</p>'+
                                         '</div>'+
                                         '{{/each}}'
 
