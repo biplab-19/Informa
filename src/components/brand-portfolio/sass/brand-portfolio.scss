@@ -1,6 +1,6 @@
 
 .portfolio {
-    @media only screen and (min-width:769px) {
+    @include not-mobile {
         width: 100%;
         max-width: 1400px;
         margin: 0 auto;
@@ -236,31 +236,48 @@
     
 }
 
-
-
-
-
-
-
-@media screen and (max-width: 992px) and (min-width: 320px) {
+@include not-desktop {
     .portfolio {
         .select-filter {
             display: none;
+            overflow: auto;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 15%;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            margin: 0;
+            padding: 50px;
             background: #fff;
-            z-index: 999999;
+            z-index: 999998;
+            &:before {
+              content: 'Filters';
+              display: block;
+              margin-bottom: 30px;
+              font-family: 'Aleo Regular';
+              font-size: 28px;
+              line-height: 35px;
+              text-transform: uppercase;
+              color: #024;
+            }
+            .row {
+              margin-left: -7.5px;
+              margin-right: -7.5px;
+              & > [class*='col-'] {
+                padding-left: 7.5px;
+                padding-right: 7.5px;
+              }
+            }
             #closeFilterBtn {
                 display: block;
-                position: absolute;
-                top: 15px;
-                right: 30px;
+                position: fixed;
+                top: 50px;
+                right: 60px;
                 width: 35px;
                 height: 35px;
+                font-size: 0;
+                text-indent: -9999px;
         
                 &::before, &::after {
                     content: '';
@@ -303,12 +320,12 @@
     } 
      
 }
-@media screen and (max-width: 992px) and (min-width: 768px) {
-.portfolio .filter-section {
-    margin: 20% 0px 30px 0px;
+@include tablet {
+    .portfolio .filter-section {
+        margin: 20% 0px 30px 0px;
+    }
 }
-}
-@media screen and (max-width: 768px) and (min-width: 320px) {
+@include mobile {
     .portfolio {
         width: 90%;
         margin: 20px 5%;
@@ -323,11 +340,14 @@
         width: 100%;
         float: left;
     }
-}
 
-@media screen and (max-width: 480px) and (min-width: 320px) {
     .portfolio .portfolio-grid .port-container .port {
         width: 100%;
+    }
+
+    .portfolio .select-filter #closeFilterBtn {
+        top: 10px;
+        right: 10px;
     }
 }
 
@@ -471,7 +491,7 @@ select {
     margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) and (min-width: 320px) {
+@include mobile {
     .section-content {
         top: 370px;
     }
@@ -551,7 +571,7 @@ footer {
     width: 100%;
     float: left;
     margin-bottom: 25px;
-    @media screen and (max-width: 768px) {
+    @include not-desktop {
         margin-bottom: 0px;
     }
 }
@@ -568,7 +588,7 @@ footer {
     float: left;
     
 
-    @media screen and (max-width: 768px) and (min-width: 320px) {
+    @include mobile {
         float: right;
         margin: 0;
         padding: 2px 0;
@@ -581,7 +601,7 @@ footer {
     font-size: 14px;
     padding: 8px 60px;
 
-    @media only screen and (max-width:1024px) {
+    @include not-desktop {
         padding: 8px 30px;
     }
 }
@@ -636,7 +656,7 @@ footer {
 /**new end**/
 
 /*For select*/
-@media screen and (min-width:769px) {
+@include not-mobile {
     
     .portfolio .select-filter .select:nth-child(2) {
         left: 25%;
@@ -649,17 +669,13 @@ footer {
     .portfolio .select-filter .select:nth-child(4) {
         left: 75%;
     }
-
-    .portfolio .select-filter {
-        margin-bottom: 50px;
-    }
 }
 
 ::-webkit-scrollbar-track {
     background: #fff;
 }
 
-@media screen and (max-width:768px) and (min-width:320px) {
+@include mobile {
 
     .portfolio .portfolio-grid .port-container .port:hover .plus {
        
@@ -706,14 +722,12 @@ footer {
 .portfolio {
     .container {
         width: 100%;
-        padding-left: 0px;
-        padding-right: 0px;
-        @media only screen and (max-width:992px) {
+        @include not-desktop {
             display: none;
         }
     }
     .custom-nav {
-        @media only screen and (max-width: 768px) {
+        @include mobile {
             .menu > a > span.triangle-right {
               margin-top: 4px;
             }
@@ -730,18 +744,17 @@ footer {
             margin-right: 18px;
             padding-left: 0;
             padding-right: 0;
-            @media only screen and (max-width: 1400px) and (min-width:993px) {
+            user-select: none;
+            @include desktop {
                width: calc(25% - 25px);
             }
     
-            @media only screen and (max-width: 992px) {
-                
-                        margin-bottom: 20px;
-                        position: static;
-                        overflow: hidden;
-                        width: 100%;
-                        margin-left: 0;
-                        padding: 0;
+            @include not-desktop {
+                position: static;
+                overflow: hidden;
+                width: 100%;
+                margin: 0 0 30px;
+                padding: 0;
             }
             a {
                 border: 1px solid #002244 !important;
@@ -754,10 +767,9 @@ footer {
                 padding: 10px 20px;
                 cursor: pointer;
                 background: transparent;
-                @media only screen and (max-width: 768px){
-                    margin: 0px 0px;  
+                @include not-desktop {
                     width: 100%;
-                    margin: 10px 0px 0 0;
+                    margin: 0;
                     padding: 10px 15px;
                 }
             }
@@ -765,14 +777,17 @@ footer {
         .menu.active {
             a {
                 border-bottom: 0;
-                margin: 10px -1px;
+                margin: 10px 0;
+                @include not-desktop {
+                    margin: 0;
+                }
                 border-radius: 25px 25px 0 0 !important;
-                @media only screen and (max-width: 768px) {
+                @include mobile {
                     margin: 0px 0px;
                 }
             }
             a:before {
-                @media only screen and (max-width: 768px){
+                @include mobile {
                     right: -2px;
                     width: 0px;
                 }
@@ -825,7 +840,7 @@ footer {
         clear: none;
         padding-top: 0;
         margin-top: -6px;
-        @media only screen and (max-width: 768px) {
+        @include mobile {
                 font-size: 15px;
                 padding-bottom: 12px;
                 display: grid;
@@ -839,7 +854,7 @@ footer {
     clear: none;
     padding-top: 0;
     line-height: 18px;
-    @media only screen and (max-width: 768px) {
+    @include mobile {
             font-size: 15px;
             padding-bottom: 12px;
             display: grid;
@@ -855,7 +870,7 @@ a:hover, a:focus {
 }
 
 .section-content {
-    @media only screen and (max-width: 768px) {
+    @include mobile {
     margin: 0px auto 30px auto;
     }
     .section {
@@ -868,13 +883,7 @@ a:hover, a:focus {
 
 .custom-search-section {
     top: 17px;
-    width: 276px;
-    @media only screen and (max-width: 1400px) and (min-width:769px) {
-         width: 100%;
-    }
-    @media only screen and (max-width: 768px) {
-        width: 100%;
-    }
+    width: 100%;
     i {
         top: 6px;
     }
@@ -890,86 +899,105 @@ a:hover, a:focus {
 
     
 .custom-dropdown {
-        position: relative;
-        @media only screen and (max-width:992px) {
-                height:75vh;
-                overflow-y: scroll;
-                padding: 0px 5px;
-                margin-top: 15px;
-                width: 276px;
-                margin: 20px auto;
-        
-      
-        }
-        .nav {
-                padding-left: 0;
-                margin-bottom: 0;
-                list-style: none;
-                height: 81px;
-                position: relative;
-                background: #fff;
-                z-index: 9999;
-                border-bottom: none;
-                @media only screen and (max-width: 992px) {
-                        background: transparent;
-                        z-index: unset;
-                   
-                }
-        }
-        .dropdown-content {
-            width: 678px;
-            border: 1px solid #002244;
-            margin-left: -1px;
-            padding: 4px 20px;
-            border-radius: 0px 25px 25px 25px;
-            display: none;
-            margin-top: -1px;
-            @media only screen and (max-width:992px) {
-                padding: 6px 0px;
-                border-radius: 0px 0px 25px 25px;
-                width: 100%;
-                border-top: none;
-                margin-left:0px;
-                margin-top:0px;
+    position: relative;
+    .nav {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+            height: 81px;
+            position: relative;
+            background: #fff;
+            z-index: 9999;
+            border-bottom: none;
+            @include not-desktop {
+                    background: transparent;
+                    z-index: unset;
                 
             }
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 55px;
+        width: 100%;
+        margin-top: -1px;
+        margin-left: 0;
+        padding: 4px 3px;
+        border: 1px solid #002244;
+        border-top: none;
+        border-radius: 0 0 25px 25px;
+        background-color: #fff;
+        z-index: 999;
+        @include not-desktop {
+            position: static;
+            width: 100%;
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-bottom: 40px;
+            padding: 6px 0px;
+            border-top: none;
+            border-radius: 0 0 25px 25px;
         }
-        .drop-content-active {
-            display: inline-block;
-        }
-        .dropdown-content-first {
+    }
+    .drop-content-active {
+        display: inline-block;
+    }
+    .sgmnt-menu, .regions {
+        .dropdown-content {
             position: absolute;
             left: 0;
             top: 74px;
+            width: 556px;
+            padding: 0;
+            border-top: 1px solid #002244;
+            border-radius: 0px 25px 25px 25px;
+            background-color: #fff;
             z-index: -999;
-            background-color: #fff;
-            @media only screen and (max-width:992px) {
-                    position: static;
-                    margin-left: 0;
-                    margin-bottom: 40px;
+            @include not-desktop {
+                position: static;
+                width: 100%;
+                margin-left: 0;
+                margin-bottom: 40px;
+                border-top: none;
+                border-radius: 0 0 25px 25px;
+            }
+            .drop-content {
+                overflow-y: auto;
+                overflow-x: hidden;
+                max-height: 550px;
+                margin: 20px;
+                padding: 0;
+                @include not-desktop {
+                    max-height: none;
                 }
-        }
-        
-        .dropdown-content-second, .dropdown-content-third {
-            width: 100%;
-            border-radius: 0px 0px 25px 25px;
-            border-top: none;
-            position: absolute;
-            left: 0;
-            top: 55px;
-            background-color: #fff;
-            z-index: 999;
-            @media only screen and (max-width:992px) {
-               
-                    position: static;
-                    margin-left: 0;
-                    margin-bottom: 40px;
+                ul {
+                  margin-bottom: 0;
+                  ul {
+                    margin-bottom: 20px;
+                  }
                 }
+            }
         }
-   } 
-
-   
-
+    }
+    .regions {
+        .drop-options {
+            column-count: 3;
+            @include not-desktop {
+                column-count: auto;
+            }
+            & > .region-item {
+                & > p {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: #024;
+                    margin-bottom: 15px;
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+}
 
 .nav-tabs > .menu.active > a, .nav-tabs > .menu.active > a:focus, .nav-tabs > .menu.active > a:hover {
     border: 1px solid #000;
@@ -986,6 +1014,7 @@ a:hover, a:focus {
 }
 
 
+.regions.active a:after,.regions.active a:before,
 .sgmnt-menu.active a:after,.sgmnt-menu.active a:before {
     content: '';
     width: 34px;
@@ -999,6 +1028,7 @@ a:hover, a:focus {
     
 }
 
+.regions.active a:after,
 .sgmnt-menu.active a:after {
     border-left: 0;
     -moz-border-radius: 0 0 0px 0;
@@ -1007,17 +1037,17 @@ a:hover, a:focus {
     width: 1px;
 }
 
+.regions.active a:before,
 .sgmnt-menu.active a:before {
     border-right: 0;
     -moz-border-radius: 0 0 0 5px;
     -webkit-border-radius: 0 0 0 5px;
     right: -35.6px;
-    @media only screen and (min-width: 1200px) {
+    @include desktop {
         right: -35px;
         bottom: -15px;
     }
 }
-
 .triangle-right {
     width: 12px;
     height: 15px;
@@ -1025,43 +1055,42 @@ a:hover, a:focus {
     border-left: 13px solid #002244;
     border-bottom: 8px solid transparent;
     display: inline-block;
-    margin-right: 20px;
-
-    @media only screen and (max-width: 992px) {
-        border-top: 8px solid transparent;
-        border-left: 10px solid #002244;
-        border-bottom: 8px solid transparent;
-        
+    margin-right: 13px;
+}
+.active {
+    .triangle-right {
+        width: 15px;
+        height: 10px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 13px solid #002244;
+        border-bottom: none;
+        display: inline-block;
+        margin-right: 10px;
     }
 }
 .triangle-down {
     width: 15px;
     height: 10px;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 11px solid #002244;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 13px solid #002244;
     display: inline-block;
-    margin-right: 20px;
-    @media only screen and (max-width: 992px) {
-        border-left: 7px solid transparent;
-        border-right: 7px solid transparent;
-        border-top: 10px solid #002244;
-        
-        
-    }
+    margin-right: 10px;
 }
 
 
 
 .drop-content {
-    padding: 20px 20px 0px 20px;
-    @media only screen and (max-width: 992px) {
+    padding: 10px 20px 0px 20px;
+    @include not-desktop {
         padding-top: 20px;
     }
     ul {
         padding-left: 0;
         margin-bottom: 20px;
-        @media only screen and (max-width:992px) {
+        @include not-desktop {
+            display: block;
             padding-left: 0;
         }
         li {
@@ -1077,7 +1106,7 @@ a:hover, a:focus {
 .desktop-load-btn {
         display: block;
         clear: both;
-        @media only screen and (max-width: 768px) {
+        @include mobile {
              display: none;
         }
 }
@@ -1095,7 +1124,7 @@ a:hover, a:focus {
         border-width: 0;
         min-width: 150px;
         margin: 15px;
-        @media only screen and (max-width: 768px) {
+        @include mobile {
             font-size: 15px;
             }
     }
@@ -1109,7 +1138,7 @@ a:hover, a:focus {
         clear: both;
          .selectall {
             display:none;
-            @media only screen and (max-width:992px) {
+            @include not-desktop {
                 color: #002244;
                 font-weight: bold;
                 display:block;
@@ -1122,11 +1151,11 @@ a:hover, a:focus {
     
     .custom-search-section-outer {
         float: left;
-        @media only screen and (max-width: 1400px) and (min-width:993px) {
+        @include desktop {
             top: 17px;
             width: calc(25% - 25px);
         }
-        @media only screen and (max-width:992px){
+        @include not-desktop{
             float: none;
             display: block;
             clear: both;
@@ -1147,7 +1176,7 @@ a:hover, a:focus {
             width: 100%;
             display: none;
             padding: 0 36px;
-            @media only screen and (max-width: 768px) {
+            @include mobile {
                 display: block;
                 }
         }
@@ -1156,7 +1185,7 @@ a:hover, a:focus {
             left: 15px;
             z-index: 999;
             display: none;
-            @media only screen and (max-width: 768px) {
+            @include mobile {
                 display: block;
                 }
         }
@@ -1166,7 +1195,7 @@ a:hover, a:focus {
     
     
 
-    @media only screen and (max-width: 992px) {
+    @include not-desktop {
         .custom-search-section-outer {
             float: none;
             display: block;
@@ -1189,13 +1218,7 @@ a:hover, a:focus {
             margin-top: 27px;
         }
         
-        
-        .triangle-right, .triangle-down {
-            margin-right: 7px;
-            float: left;
-        }
        .segmanet-head-mob .triangle-right, .segmanet-head-mob .triangle-down {
-            display: inline-block;
             &.de-active{
                 display:none;
             }
@@ -1205,7 +1228,7 @@ a:hover, a:focus {
     .tech-theme{
         .view-all{
             .btn-primary-small{
-                @media only screen and (min-width:769px) and (max-width:1150px) {
+                @include tablet {
                     font-size: 14px;
                     padding: 10px 10px;
                 }
@@ -1214,8 +1237,8 @@ a:hover, a:focus {
     } 
     .discription{
         .More-content{
-            @media only screen and (max-width:768px) {
-                height: 140px;
+            @include mobile {
+                height: 100px;
                 overflow: hidden;
             }
         }

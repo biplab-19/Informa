@@ -244,25 +244,6 @@ html {
 /*Twitter End*/
 
 
-.dot-img-left {
-    background-image: url(/static/images/tech/leftdotted.png);
-    background-size: 100%;
-    width: 80px;
-    height: 35px;
-    background-repeat: no-repeat;
-    margin-right: 20px;
-    margin-top: 53px;
-}
-
-.dot-img-right {
-    background-image: url(/static/images/tech/rightdotted.png);
-    background-size: 100%;
-    width: 80px;
-    height: 35px;
-    background-repeat: no-repeat;
-    margin-left: 20px;
-    margin-top: 53px;
-}
 
 //*** dot-image position changes in mobile ***//
 @media screen and (max-width: 812px) and (min-width: 320px) {
@@ -2080,11 +2061,7 @@ p ,section p{
     text-align:left;
 }
 
-.reach-img-section {
-    .container-fluid.recch-global-main {
-        margin-top: 0px;
-    }
-}
+
 
 .our-reach-section .researchsubs .text {
     text-align: center;
@@ -2419,7 +2396,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         padding: 0;
         background-color: white;
         .select-section {
-            label {
+            .form-group > label {
                 display: none;
             }
             .chosen-container-single {
@@ -2429,7 +2406,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     color: #002244;
                     padding-left: 0;
                     line-height: 46px;
-                    border: 2px solid #001b3e;
+                    border: 1px solid #001b3e;
                     border-radius: 25px;
                     box-shadow: none;
                     span {
@@ -2454,7 +2431,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
                 .chosen-drop {
                     overflow: hidden;
-                    border: 2px solid #001b3e;
+                    border: 1px solid #001b3e;
                     border-top: none;
                     border-radius: 0 0 25px 25px;
                     box-shadow: none;
@@ -2825,24 +2802,19 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                                 }
                             }
                             &:after {
-                                content: '+';
+                                content: '';
                                 position: absolute;
-                                bottom: 10.5px;
+                                bottom: 11px;
                                 left: 50%;
                                 transform: translate(-50%,50%);
-                                background-color: white;
-                                color: #d9d600;
-                                line-height: 18.5px;
                                 width: 18px;
                                 height: 18px;
-                                font-size: 18px;
-                                text-align: center;
-                                border-radius: 9px;
+                                background: url(/Static/images/tech/pluscircle.png) no-repeat center;
+                                background-size: contain;
                             }
                             &:hover {
                                 &:after {
-                                    background-color: #d9d600;
-                                    color: white;
+                                    background-image: url(/Static/images/tech/pluscircle_active.png);
                                 }
                             }
                         }
@@ -3050,11 +3022,10 @@ section#hero-banner {
         position: relative;
         right: 60px;
         float: left;
-        h2 {
+        h2.h1 {
             color: #333;
             text-transform: uppercase;
             font-weight: lighter;
-            padding: 33px 20px;
             padding: 25px 40px 20px 40px;
             margin-top:0px!important;
             margin-bottom:0px!important;
