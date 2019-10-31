@@ -244,25 +244,6 @@ html {
 /*Twitter End*/
 
 
-.dot-img-left {
-    background-image: url(/static/images/tech/leftdotted.png);
-    background-size: 100%;
-    width: 80px;
-    height: 35px;
-    background-repeat: no-repeat;
-    margin-right: 20px;
-    margin-top: 53px;
-}
-
-.dot-img-right {
-    background-image: url(/static/images/tech/rightdotted.png);
-    background-size: 100%;
-    width: 80px;
-    height: 35px;
-    background-repeat: no-repeat;
-    margin-left: 20px;
-    margin-top: 53px;
-}
 
 //*** dot-image position changes in mobile ***//
 @media screen and (max-width: 812px) and (min-width: 320px) {
@@ -2086,11 +2067,7 @@ p ,section p{
     text-align:left;
 }
 
-.reach-img-section {
-    .container-fluid.recch-global-main {
-        margin-top: 0px;
-    }
-}
+
 
 .our-reach-section .researchsubs .text {
     text-align: center;
@@ -3051,11 +3028,10 @@ section#hero-banner {
         position: relative;
         right: 60px;
         float: left;
-        h2 {
+        h2.h1 {
             color: #333;
             text-transform: uppercase;
             font-weight: lighter;
-            padding: 33px 20px;
             padding: 25px 40px 20px 40px;
             margin-top:0px!important;
             margin-bottom:0px!important;
