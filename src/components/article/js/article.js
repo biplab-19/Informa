@@ -301,12 +301,15 @@ INFORMA.articletech = (function (window, $, namespace) {
         var totalresult = parseInt($('#totalresultcount').val());
         var tolalpagesize = parseInt($('#PageNo').val());
         var totalpageno = parseInt($('#filterpageno').val());
-        if (totalresult < (tolalpagesize * totalpageno)) {
+        var totalpages = parseInt($('#TotalPages').val());
+         if (totalpages <= totalresult) {
             $('#articlelistshowmore').addClass('hide-article');
+            $('#articlelistshowmore').hide();
         }
         else {
 
             $('#articlelistshowmore').removeClass('hide-article');
+            $('#articlelistshowmore').show();
         }
     }
     _InitDropdownSelectEvent = function () {
