@@ -2384,6 +2384,12 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         color: #fff!important;
     }
 }
+// brand-portfolio overrides
+.tech-theme {
+    .drop-content {
+        padding: 10px 20px;
+    }
+}
 /* events calendar start */
 .tech-theme {
     .modal {
@@ -2396,6 +2402,58 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         padding: 0;
         background-color: white;
         .select-section {
+            .custom-dd-menu {
+                background: #fff;
+                &.active {
+                    a {
+                        border-radius: 25px 25px 0 0;
+                    }
+                }
+                &.multitier-menu {
+                    .dropdown-content {
+                        border-color: #002244;
+                        border-radius: 0 25px 25px 25px;
+                        @include not-desktop {
+                            &.drop-content-active {
+                                border-radius: 0 0 25px 25px;
+                            }
+                        }
+                    }
+                }
+                a {
+                    overflow: visible;
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+                    padding: 10px 20px;
+                    font-size: 18px;
+                    line-height: inherit;
+                    color: #428bca;
+                    background: transparent;
+                    border-color: #002244;
+                    border-radius: 25px;
+                    box-shadow: none;
+                }
+                .dropdown-content {
+                    border-color: #002244;
+                    border-radius: 0 0 25px 25px;
+                    @include not-desktop {
+                        &.drop-content-active {
+                            border-radius: 0 0 25px 25px;
+                        }
+                    }
+                    .round-checkbox {
+                        input:checked ~ .checkmark {
+                            background-color: #117ad9;
+                        }
+                        .checkmark {
+                            border-radius: 50%;
+                            border-color:  #002244;
+                        }
+                    }
+                }
+            }
             .form-group > label {
                 display: none;
             }
@@ -2893,6 +2951,33 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     }
                 }
             }
+        }
+    }
+    .triangle-right {
+        position: static;
+        top: auto;
+        right: auto;
+        width: 12px;
+        height: 15px;
+        border-top: 7px solid transparent;
+        border-left: 13px solid #002244;
+        border-bottom: 8px solid transparent;
+        display: inline-block;
+        margin-right: 13px;
+        &:after {
+            display: none;
+        }
+    }
+    .active {
+        .triangle-right {
+            width: 15px;
+            height: 10px;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 13px solid #002244;
+            border-bottom: none;
+            display: inline-block;
+            margin-right: 10px;
         }
     }
 }
