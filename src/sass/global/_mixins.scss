@@ -720,6 +720,17 @@ $desktop-width: 1142px;
         }
         
         .events-search {
+            .select-section {
+                .custom-dd-menu {
+                    .dropdown-content {
+                        .round-checkbox {
+                            input:checked ~ .checkmark {
+                                background-color: $primary;
+                            }
+                        }
+                    }
+                }
+            }
             .filter-section {
                 color: white;
             }

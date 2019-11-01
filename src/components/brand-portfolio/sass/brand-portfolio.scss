@@ -1048,25 +1048,22 @@ a:hover, a:focus {
         bottom: -15px;
     }
 }
+
 .triangle-right {
-    width: 12px;
-    height: 15px;
-    border-top: 7px solid transparent;
-    border-left: 13px solid #002244;
-    border-bottom: 8px solid transparent;
-    display: inline-block;
-    margin-right: 13px;
-}
-.active {
-    .triangle-right {
-        width: 15px;
-        height: 10px;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-        border-top: 13px solid #002244;
-        border-bottom: none;
-        display: inline-block;
-        margin-right: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 18px;
+    height: 100%;
+    &:after {
+        content: "\e901";
+        font-family: 'InformaIcons';
+        top: 50%;
+        position: absolute;
+        margin-top: -17px;
+        color: $grey-color06;
+        font-weight: bold;
     }
 }
 .triangle-down {
@@ -1082,10 +1079,7 @@ a:hover, a:focus {
 
 
 .drop-content {
-    padding: 10px 20px 0px 20px;
-    @include not-desktop {
-        padding-top: 20px;
-    }
+    padding: 10px 8px;
     ul {
         padding-left: 0;
         margin-bottom: 20px;
@@ -1098,6 +1092,9 @@ a:hover, a:focus {
             position: relative;
             overflow: hidden;
         }
+    }
+    & > ul {
+        margin-bottom: 0;
     }
 }
 
@@ -1131,7 +1128,7 @@ a:hover, a:focus {
     
     
     .segmanet-head-mob .triangle-right, .segmanet-head-mob .triangle-down, .mob-load-btn {
-        display: none;
+        display: none !important;
     }
     
     .sub-seg-mob {
@@ -1208,7 +1205,7 @@ a:hover, a:focus {
         .sub-seg-mob{
             display: none;
         }
-        .segmanet-head-mob label.round-checkbox {
+        .segmanet-head-mob > label.round-checkbox {
             display: none;
             &.active{
                 display:block;
