@@ -20,7 +20,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         _loadSearchResult,
         _hideResults,
         _loadNextPage,
-        _loadSpecigficPage,
+        _loadSpecificPage,
         _setPagenumber,
         _loadPreviousPage,
         _getTotalPage,
@@ -73,8 +73,29 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         if (e.keyCode == 13) {
             var qtext = _getQuerystring(queryKeySearchText);
             var inputext = jQuery(this).val();
-            if (inputext != qtext) {
-                _hideResults();
+            if (inputext != null) {
+                if (inputext.length >= 2) {
+                    var url = $(location)[0].origin;
+                    url = url + '/search?'
+                    url = url + queryKeySearchText + '=' + inputext;
+                    $(location).attr('href', url)
+                }
+            }
+            return false;
+        }
+    });
+
+    $('#searchbox').on("keypress", function (e) {
+        if (e.keyCode == 13) {
+            var qtext = _getQuerystring(queryKeySearchText);
+            var inputext = jQuery(this).val();
+            if (inputext != null) {
+                if (inputext.length >= 2) {
+                    var url = $(location)[0].origin;
+                    url = url + '/search?'
+                    url = url + queryKeySearchText + '=' + inputext;
+                    $(location).attr('href', url)
+                }
             }
             return false;
         }
@@ -83,14 +104,11 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     jQuery(document).ready(function () {
         var text = _getQuerystring(queryKeySearchText);
         jQuery("#" + searchTextBoxId).val(decodeURI(text));
-        //jQuery("#facet-all").addClass("facet-selected");
 
 
         if (_hasQueryString()) {
             var searchRequest = _init();
             pagenumber = jQuery("#txtPageNumber").val();
-            //setNextButton(true);
-            //setPreviousButton(false);
 
             var selectedfacets = $("#" + facetFilterId).find("li.facet-selected");
             var selectedfacetCount;
@@ -262,7 +280,6 @@ INFORMA.TechSearch = (function (window, $, namespace) {
 
     _initSearchRequest = function (searchRequest) {
         searchRequest.SearchText = $("#" + searchTextBoxId).val();
-        //searchRequest.PageNo = pageNumber;
         searchRequest.PageSize = $("#resultPagesize").val();
         searchRequest.LinkText = $("#readMoreText").val();
         return searchRequest;
@@ -294,13 +311,10 @@ INFORMA.TechSearch = (function (window, $, namespace) {
                         _setPreviousButton(false);
                     }
 
-                    if (result.SiteFacets != null) {
-                        //if (result.SiteFacets.ProductLine != null) {
-                        // loadFacetAjax(result.SiteFacets.ProductLine);
-                        //}
-                    }
+                    
                 }
                 else {
+                    jQuery(".no-result").hide();
                     _hideResults();
                 }
             }
@@ -337,7 +351,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         return false;
     }
 
-    _loadSpecigficPage = function () {
+    _loadSpecificPage = function () {
         var searchRequest = _init();
         pagenumber = jQuery("#txtPageNumber").val();
         var pagecount = _getTotalPage();
@@ -355,7 +369,9 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         if (pagenumber == pagecount) {
             _setNextButton(false);
         }
-        _SetHashUrl(pagenumber);
+        if (pagenumber <= pagecount) {
+            _SetHashUrl(pagenumber);
+        }
         return false;
     }
 
@@ -471,7 +487,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         _loadPreviousPage();
     });
     $("#myBtn").on("click", function () {
-        _loadSpecigficPage();
+        _loadSpecificPage();
     });
     $("#btnNextPage").on("click", function () {
         _loadNextPage();
