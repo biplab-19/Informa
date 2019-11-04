@@ -718,12 +718,15 @@
         width: 108px;
         margin-top: 10px;
       }
+      @media screen and (max-width: 812px){
+        margin-top: 25px;
+      }
+
     }
     .text-right{
       div.subofsub-text {
         @media screen and (min-width: 813px){
           margin-left:128px;
-          width:calc(100% - 128px);
         }
         
         float:right;
@@ -734,7 +737,6 @@
       div.subofsub-text {
         @media screen and (min-width: 813px){
           margin-left:128px;
-          width:calc(100% - 128px);
         }
       }
     }
