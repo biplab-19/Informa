@@ -311,7 +311,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
                         _setPreviousButton(false);
                     }
 
-                    
+
                 }
                 else {
                     jQuery(".no-result").hide();
@@ -352,24 +352,24 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     }
 
     _loadSpecificPage = function () {
-        var searchRequest = _init();
         pagenumber = jQuery("#txtPageNumber").val();
         var pagecount = _getTotalPage();
-        if (pagenumber >= 1 && pagenumber <= pagecount) {
-            // get next record
-            searchRequest = _initSearchRequest(searchRequest);
-            searchRequest = _getSelectedFacets(searchRequest);
-            searchRequest.PageNo = pagenumber;
-            searchRequest.CurrentPage = pagenumber;
-            _loadSearchResult(searchRequest);
+        if (parseInt(pagenumber) <= parseInt(pagecount)) {
+            var searchRequest = _init();
+            if (pagenumber >= 1 && pagenumber <= pagecount) {
+                // get next record
+                searchRequest = _initSearchRequest(searchRequest);
+                searchRequest = _getSelectedFacets(searchRequest);
+                searchRequest.PageNo = pagenumber;
+                searchRequest.CurrentPage = pagenumber;
+                _loadSearchResult(searchRequest);
 
-            _setPagenumber(pagenumber);
-            _setPreviousButton(true);
-        }
-        if (pagenumber == pagecount) {
-            _setNextButton(false);
-        }
-        if (pagenumber <= pagecount) {
+                _setPagenumber(pagenumber);
+                _setPreviousButton(true);
+            }
+            if (pagenumber == pagecount) {
+                _setNextButton(false);
+            }
             _SetHashUrl(pagenumber);
         }
         return false;
