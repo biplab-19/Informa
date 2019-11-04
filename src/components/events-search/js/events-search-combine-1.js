@@ -16,7 +16,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     var Templates = INFORMA.Templates,
         ajaxMethod = 'POST',
         //methods
-        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, getMomentDate, isDev;
+        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, getMomentDate, getDateString, isDev;
 
     InformaFilters = {
         Container: $('.events-search'),
@@ -339,29 +339,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 for (resultCount = 0; resultCount < resultsLength; resultCount++) {
                     evtObj = results[resultCount];
                     
-                    this.AddDateToEvent(evtObj);
+                    evtObj.DateRange = getDateString(evtObj.EventStartDate, evtObj.EventEndDate);
                     html += this.Template({ results: evtObj });
                 }
             } else {
                 html += this.MakeNoEvent();
             }
             this.EventsContainer.html(html);
-        },
-        AddDateToEvent: function(data) {
-            var sDateMoment = getMomentDate(data.EventStartDate, 'event'),
-                eDateMoment = getMomentDate(data.EventEndDate, 'event')
-            
-            // if same day, single date type else date range type
-            if (sDateMoment.isSame(eDateMoment, "day")) {
-                data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '</div>';
-            } else {
-                // if same month, same month range type else diff month range type
-                if (sDateMoment.isSame(eDateMoment, "month")) {
-                    data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '&nbsp;-&nbsp;' + eDateMoment.format("DD") + '</div>';
-                } else {
-                    data.DateRange = '<div class="date">' + sDateMoment.format("DD MMM") + '&nbsp;-&nbsp;' + eDateMoment.format("DD MMM") + '</div>';
-                }
-            }
         },
         EqualHeight: function () {
             var highestBox = 0,
@@ -482,25 +466,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         },
         MakeEvent: function(evtObj) {
             // add to event date variation for single/multi/cross-month events
-            this.AddDateToEvent(evtObj);
+            evtObj.DateRange = getDateString(evtObj.EventStartDate, evtObj.EventEndDate);
             // return template with evtObj as data source
             return this.Template({ results: evtObj });
-        },
-        AddDateToEvent: function(data) {
-            var sDateMoment = getMomentDate(data.EventStartDate, 'event'),
-                eDateMoment = getMomentDate(data.EventEndDate, 'event')
-            
-            // if same day, single date type else date range type
-            if (sDateMoment.isSame(eDateMoment, "day")) {
-                data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '</div>';
-            } else {
-                // if same month, same month range type else diff month range type
-                if (sDateMoment.isSame(eDateMoment, "month")) {
-                    data.DateRange = '<div class="date">' + sDateMoment.format("DD") + '&nbsp;-&nbsp;' + eDateMoment.format("DD") + '</div>';
-                } else {
-                    data.DateRange = '<div class="date">' + sDateMoment.format("DD MMM") + '&nbsp;-&nbsp;' + eDateMoment.format("DD MMM") + '</div>';
-                }
-            }
         },
         set ViewType (type) {
             this.Container.attr('data-datetype', type);
@@ -582,7 +550,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                     endOfEndDate = getMomentDate(evtObj.EventEndDate, 'event').endOf('day');
 
                                     if (mDate >= startOfStartDate && mDate <= endOfEndDate) {
-                                        InformaEventList.AddDateToEvent(evtObj);
+                                        evtObj.DateRange = getDateString(evtObj.EventStartDate, evtObj.EventEndDate);
                                         html += InformaEventList.Template({ results: evtObj });
                                     }
                                 }
@@ -1504,6 +1472,29 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         } else {
             return moment(dateStr);
         }
+    }
+
+    getDateString = function(startDateStr, endDateStr) {
+        var returnDateStr = '',
+            sDateMoment = getMomentDate(startDateStr, 'event'),
+            eDateMoment = getMomentDate(endDateStr, 'event'),
+            sDayStr = sDateMoment.format("DD"),
+            sDayMonthStr = sDateMoment.format("DD[&nbsp;]MMM"),
+            eDayMonthStr = eDateMoment.format("DD[&nbsp;]MMM")
+        
+        // if same day, single date type else date range type
+        if (sDateMoment.isSame(eDateMoment, "day")) {
+            returnDateStr = '<div class="date">' + sDayMonthStr + '</div>';
+        } else {
+            // if same month, same month range type else diff month range type
+            if (sDateMoment.isSame(eDateMoment, "month")) {
+                returnDateStr = '<div class="date">' + sDayStr + ' - ' + eDayMonthStr + '</div>';
+            } else {
+                returnDateStr = '<div class="date">' + sDayMonthStr + ' - ' + eDayMonthStr + '</div>';
+            }
+        }
+
+        return returnDateStr;
     }
 
     isDev = function () {

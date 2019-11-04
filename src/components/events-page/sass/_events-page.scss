@@ -417,6 +417,11 @@
                     color: $white;
                     padding: 6px 8px;
                     float: right;
+                    text-align: right;
+                    @include mobile {
+                        float: none;
+                        text-align: left;
+                    }
                 }
             }
             .content-wrap {
