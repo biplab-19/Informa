@@ -38,10 +38,12 @@ INFORMA.TechSearch = (function (window, $, namespace) {
             $(this).parent(".search-icons").toggleClass("active");
             var $activeclass = $(this).parent(".search-icons").hasClass("active");
             if ($activeclass) {
-                $(this).parent(".search-icons").siblings(".menu-mobile").addClass("active");
+                $(this).parent(".search-icons").parent(".outer-search-icon").siblings(".menu-mobile").addClass("active");
+                $(this).parent(".search-icons").parent(".outer-search-icon").addClass("active");
             }
             else {
-                $(this).parent(".search-icons").siblings(".menu-mobile").removeClass("active");
+                $(this).parent(".search-icons").parent(".outer-search-icon").siblings(".menu-mobile").removeClass("active");
+                $(this).parent(".search-icons").parent(".outer-search-icon").removeClass("active");
             }
         }
 
@@ -49,8 +51,11 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     });
     $crossIcon.on("click", function (evt) {
         $(this).removeClass("active");
-        $(this).siblings(".search-icons").removeClass("active");
-        $(this).siblings(".search-icons").children("i").addClass("search-active");
+        $(this).siblings(".outer-search-icon").children(".search-icons").removeClass("active");
+        $(this).siblings(".outer-search-icon").children(".search-icons").children("i").addClass("search-active");
+        $(this).siblings(".outer-search-icon").removeClass("active");
+       // $(this).siblings(".search-icons").removeClass("active");
+        //$(this).siblings(".search-icons").children("i").addClass("search-active");
     });
 
     _getQuerystring = function (name) {
