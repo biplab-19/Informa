@@ -60,7 +60,6 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     }
 
     $('#searchPage').click(function () {
-        debugger
         var searchKeyword = $('#' + searchTextBoxId).val();
         if (searchKeyword != undefined && searchKeyword.length > 2) {
             var url = $(location).attr("href").split('?')[0];
