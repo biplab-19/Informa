@@ -659,9 +659,30 @@
   }
 
   .feature-hero-banner {
-    h1,
-    h4 {
+    h1,h4 {
       color: #fff !important;
+    }
+    &.hero-banner {
+      .vertical-align {
+          top: 0;
+          transform: translateY(0%);
+          &.overlay-text{
+            @include mobile{
+              top: 0;
+              left: 0; 
+              transform: translate(0, 0);
+            }
+          }
+      }
+       
+    }
+    
+    .hero-items {
+      .vertical-align {
+        @include mobile{
+          width: calc(100vw - 30px);
+        }
+      }
     }
   }
   .reach-img-section {
@@ -678,6 +699,8 @@
       }
     }
   }
+
+ 
   
   @media only screen and (min-width: 768px) {
     .feature-hero-banner .hero-items .vertical-align {
