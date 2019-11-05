@@ -391,3 +391,17 @@ div#tech-main-header .stellarnav {
     }
   }
 }
+.no-result.no-result-hide{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 0px;
+    text-transform: capitalize;
+    @include mobile{
+      padding: 10px 15px;
+    }
+    @include tablet{
+      padding: 10px 15px;
+    }
+
+}
+  
