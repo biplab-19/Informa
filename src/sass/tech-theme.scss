@@ -746,11 +746,16 @@ section p {
     width:50%;
 }
 
-#contact-us fieldset {
-    display: inline-block;
-    width: calc(50% - 25px);
-    float:left;
-    margin-bottom: 35px;
+#contact-us {
+    fieldset {
+        display: inline-block;
+        width: calc(50% - 25px);
+        float:left;
+        margin-bottom: 35px;
+        &.contact-us-checkbox{
+          width:100%;
+        }
+    }
 }
 
 #contact-us textarea.form-control {
