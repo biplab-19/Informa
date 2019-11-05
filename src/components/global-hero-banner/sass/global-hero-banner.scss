@@ -167,29 +167,7 @@
         }
       }
     }
-    .btn-primary {
-      text-align: center;
-      border-radius: 28px;
-      padding: 20px 40px;
-      height: auto;
-      min-width: 160px;
-      font-family: "OpenSans Bold";
-      font-size: 21px;
-      width: auto;
-      background-color: #024;
-      color: #fff;
-      border-width: 0;
-      min-width: 150px;
-      margin-right: 10px;
-      &:after {
-        content: " ";
-      }
-      @include mobile {
-        min-width: 130px;
-        padding: 10px 5px;
-        font-size: 12px;
-      }
-    }
+    
   }
 }
 
@@ -364,31 +342,7 @@
   }
 }
 
-.Viewsolutions {
-  .btn-primary {
-    text-align: center;
-    border-radius: 28px;
-    padding: 20px 40px;
-    height: auto;
-    min-width: 160px;
-    font-family: "OpenSans Bold";
-    font-size: 21px;
-    width: auto;
-    background-color: #024;
-    color: #fff;
-    border-width: 0;
-    min-width: 150px;
-    margin-right: 10px;
-    &:hover {
-      background-color: #11a7d9;
-      border-color: #11a7d9;
-      color: #fff !important;
-    }
-    &:after {
-      content: "";
-    }
-  }
-}
+
 
 .feature-hero-banner {
   .hero-banner-carousel {
