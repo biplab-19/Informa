@@ -54,8 +54,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         $(this).siblings(".outer-search-icon").children(".search-icons").removeClass("active");
         $(this).siblings(".outer-search-icon").children(".search-icons").children("i").addClass("search-active");
         $(this).siblings(".outer-search-icon").removeClass("active");
-        // $(this).siblings(".search-icons").removeClass("active");
-        //$(this).siblings(".search-icons").children("i").addClass("search-active");
+        
     });
 
     _getQuerystring = function (name) {
