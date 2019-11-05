@@ -55,7 +55,7 @@ div#tech-main-header .stellarnav {
         position: absolute;
         left: 0;
         right: 0;
-        top: 100px;
+        top: 128px;
         margin: 0 auto;
       }
       @media screen and (min-width: 769px) and (max-width: 1200px) {
@@ -405,3 +405,15 @@ div#tech-main-header .stellarnav {
 
 }
   
+.outer-search-icon.active:before {
+  @include mobile{
+    content: "";
+    position: absolute;
+    background: #ebebeb;
+    width: 100.8%;
+    height: 80px;
+    left: 0px;
+    top: 117px;
+  }
+
+}
