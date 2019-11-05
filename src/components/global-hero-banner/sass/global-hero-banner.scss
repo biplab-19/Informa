@@ -577,10 +577,17 @@
     .vertical-align {
       h1,
       h4 {
+        color: #fff;
         @include mobile {
           color: #024;
         }
-        color: #fff;
+        p {
+          color: #fff;
+          @include mobile {
+            color: #024;
+          }
+        }
+        
       }
     }
     .hero-items {
