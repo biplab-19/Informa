@@ -376,10 +376,6 @@ INFORMA.TechSearch = (function (window, $, namespace) {
             _SetHashUrl(pagenumber);
         }
 
-        else {
-            //in case of invalid page number
-            $("#facet-all").click();
-        }
         return false;
     }
 
