@@ -33,6 +33,9 @@ INFORMA.TechSearch = (function (window, $, namespace) {
 
 
     $searchIcon.on("click", function (evt) {
+        //hide menu
+        $(this).parents(".stellarnav").removeClass("active");
+        $(".main-nav-bar").hide();
         var $hasClassactive = $(this).hasClass("search-active");
         if ($hasClassactive) {
             $(this).removeClass("search-active");
