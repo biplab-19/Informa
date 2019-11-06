@@ -111,9 +111,9 @@ div#tech-main-header .stellarnav {
 }
 .tech-search-inputbar {
   width: 100%;
-  float:left;
-  @include tablet{
-      padding:0 15px;
+  float: left;
+  @include tablet {
+    padding: 0 15px;
   }
   .tech-search-inputbar-list {
     .search-icons {
@@ -177,8 +177,8 @@ div#tech-main-header .stellarnav {
 .hot-topics-view {
   .view-toggle {
     margin-bottom: 45px;
-    @include tablet{
-        padding:0 15px;
+    @include tablet {
+      padding: 0 15px;
     }
     .container {
       width: 1200px;
@@ -226,8 +226,8 @@ div#tech-main-header .stellarnav {
 .refine-container-container {
   .refine-container-list {
     @include tablet {
-        padding:0 15px;
-      } 
+      padding: 0 15px;
+    }
     margin-bottom: 45px;
     .container {
       width: 1200px;
@@ -282,7 +282,7 @@ div#tech-main-header .stellarnav {
       display: none !important;
     }
     .slick-arrow {
-      box-shadow: 0px 0px 28px #a99494;
+      
       background: #94bb17;
       display: inline-block;
       margin: 0 1em 1em 0;
@@ -290,16 +290,19 @@ div#tech-main-header .stellarnav {
       height: 80px;
       width: 40px;
     }
+    
     .container {
       background-image: url("https://tech.informa.com/~/media/informa-shop-window/tech/cta/meet-customer.png?h=370&w=1400&la=en-US&hash=15367EDD5354C8A8DA11AA7E1E3976E83200DCF0");
       background-size: 100% 100%;
       height: 250px;
       padding: 0;
+      border: 1px solid #94bb17;
     }
     .slick-next {
       left: calc(100% - 40px);
       border-bottom-left-radius: 80px;
       border-top-left-radius: 80px;
+      box-shadow: 17px 0px 26px -4px #999;
       &:before {
         transform: rotate(45deg);
       }
@@ -328,29 +331,34 @@ div#tech-main-header .stellarnav {
       margin-left: 0;
       border-bottom-right-radius: 80px;
       border-top-right-radius: 80px;
+      box-shadow: -17px 0px 26px -4px #999;
       &:before {
         transform: rotate(225deg);
       }
     }
     .hot-port {
-      margin-top: 25px;
-      width: 200px;
-      height: 200px;
-      cursor: pointer;
-      position: relative;
-      margin-bottom: 20px;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-flex-align: center;
-      -ms-flex-align: center;
-      -webkit-box-align: center;
-      align-items: center;
-      background-clip: padding-box;
-      border: solid 2px rgba(205, 218, 11, 0.8);
-      border-radius: 10px;
-      justify-content: center;
-      background-color: #fff;
+      a {
+        padding: 15px 5%;
+        margin-top: 25px;
+        width: 100%;
+        height: 200px;
+        cursor: pointer;
+        position: relative;
+        margin-bottom: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-align: center;
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+        align-items: center;
+        background-clip: padding-box;
+        border: solid 2px rgb(158, 188, 59);
+        border-radius: 10px;
+        justify-content: center;
+        background-color: #fff;
+
+      }
       &:hover {
         .plus {
           background-color: #cdda0b;
@@ -361,10 +369,14 @@ div#tech-main-header .stellarnav {
           width: 30px;
           height: 30px;
           font-size: 33px;
+          font-weight: bold;
         }
         img {
           -webkit-filter: grayscale(0%);
           filter: grayscale(0%);
+        }
+        a{
+          box-shadow: 0px 0px 0px 5px #7b666626;
         }
       }
       img {
@@ -391,24 +403,27 @@ div#tech-main-header .stellarnav {
       border-radius: 50%;
       height: auto !important;
     }
+    .slick-slide {
+      margin-right: 15px;
+  }
   }
 }
-.no-result.no-result-hide{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 10px 0px;
-    text-transform: capitalize;
-    @include mobile{
-      padding: 10px 15px;
-    }
-    @include tablet{
-      padding: 10px 15px;
-    }
-
+.no-result,
+.no-result-hide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 0px;
+  text-transform: capitalize;
+  @include mobile {
+    padding: 10px 15px;
+  }
+  @include tablet {
+    padding: 10px 15px;
+  }
 }
-  
+
 .outer-search-icon.active:before {
-  @include mobile{
+  @include mobile {
     content: "";
     position: absolute;
     background: #ebebeb;
@@ -417,5 +432,4 @@ div#tech-main-header .stellarnav {
     left: 0px;
     top: 117px;
   }
-
 }
