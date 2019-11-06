@@ -72,10 +72,7 @@
   line-height: 33px;
   padding-top:0px;
   border-bottom: 1px solid transparent;
-  &:hover {
-    border-bottom: 1px solid #024;
-    padding-bottom: 0;
-  }
+  
   a {
     font-size: 30px;
     line-height: 35px;
@@ -83,9 +80,24 @@
     font-weight: lighter;
     color: #024;
     padding-bottom: 0px;
-    border-bottom: 1px solid transparent;
+    display: inline;
+    &:hover{
+      -moz-box-shadow: inset 0px -0.9px #000;
+      -webkit-box-shadow: inset 0px -0.9px #000;
+      box-shadow: inset 0px -0.9px #000;
+    }
   }
 }
+
+@-moz-document url-prefix() { 
+   .artcl-headline:hover a {
+      -moz-box-shadow: inset 0px -0.9px #000;
+   -webkit-box-shadow: inset 0px -0.9px #000;
+   box-shadow: inset 0px -0.9px #000;
+   }
+}
+
+
 
 .artcl-info.list-unstyled {
   li {
