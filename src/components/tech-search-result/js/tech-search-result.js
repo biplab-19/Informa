@@ -452,6 +452,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         slidesToShow: 3,
         infinite: true,
         speed: 300,
+        adaptiveHeight: true,
         responsive: [
             {
                 breakpoint: 768,
