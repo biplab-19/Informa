@@ -3034,8 +3034,14 @@ section#hero-banner {
   
   }
   .hero-banner {
-    .vertical-align{
+    .vertical-align {
         transform: translateY(50%);
+        p {
+            color: #000;
+        }
+        &.overlay-text{
+            color:#fff;
+        }
     }
     .cf-img img{
         position: unset;
@@ -3043,10 +3049,6 @@ section#hero-banner {
         left: 0%;
         transform: translate(0%,0%);
     
-    }
-    .vertical-align p {
-       color: #000;
-      
     }
   }
  
