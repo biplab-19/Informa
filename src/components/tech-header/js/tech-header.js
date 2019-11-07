@@ -175,6 +175,11 @@
             $('.menu-toggle, .stellarnav-open').on('click', function (e) {
                 e.preventDefault();
 
+                //hide topsearchbar 
+                $(this).siblings(".menu-mobile").removeClass("active");
+                $(this).siblings(".outer-search-icon").removeClass("active");
+                $(this).siblings(".outer-search-icon").children(".search-icons").removeClass("active");
+                $(this).siblings(".outer-search-icon").children(".search-icons").children("i").addClass("search-active");
                 // if nav position is left or right, uses fadeToggle instead of slideToggle
                 if (settings.position == 'left' || settings.position == 'right') {
                     nav.find('ul:first').stop(true, true).fadeToggle(settings.openingSpeed);
