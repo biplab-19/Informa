@@ -125,6 +125,28 @@ INFORMA.articletech = (function (window, $, namespace) {
                 ChildSpan.removeClass('triangle-down');
             }
         });
+        $(".article-list-filter #closeFilterBtn").on("click", function () {
+            var $articleList = $('.article-list-filter'),
+                $body = $('body')
+            $articleList.removeClass('active');
+            $("#showArticleFiltersBtn").text('Select filters');
+            $body.css('overflow-y', '');
+        });
+        $("#showArticleFiltersBtn").on("click", function () {
+            var $articleList = $('.article-list-filter'),
+                $body = $('body')
+            $articleList.toggleClass('active');
+            if ($articleList.hasClass('active')) {
+                $(this).text('Search');
+                $body.css('overflow-y', 'hidden');
+            } else {
+                $(this).text('Select filters');
+                $body.css('overflow-y', '');
+            }
+        });
+        $('.segmanet-head, .sub-segment').click(function () {
+            $(this).siblings('label').children('input').trigger('change');
+        })
         $('.segmanet-head-mob').on("click", function () {
             if ($(this).children().hasClass('sub-seg-mob')) {
                 $(this).find('.sub-seg-mob').toggleClass('active-slide');
@@ -229,7 +251,8 @@ INFORMA.articletech = (function (window, $, namespace) {
                 if ($($(result).find(".artical-list-outer > .artcl-list")).length) {            
                    
                     $("#article-list").html("");
-                    $("#article-list").html($(result).find("#article-list"));                
+                    $("#article-list").html($(result).find("#article-list"));      
+                    _ToggleArticleList();          
                     return;
                 }
                 INFORMA.Spinner.Hide();
@@ -273,18 +296,20 @@ INFORMA.articletech = (function (window, $, namespace) {
         }
     $(document).on("click", "#articlelistshowmore", function () {
         _LoadArticleListdata();
-        _ToggleArticleList();
     });
     _ToggleArticleList = function () {
         var totalresult = parseInt($('#totalresultcount').val());
         var tolalpagesize = parseInt($('#PageNo').val());
         var totalpageno = parseInt($('#filterpageno').val());
-        if (totalresult < (tolalpagesize * totalpageno)) {
+        var totalpages = parseInt($('#TotalPages').val());
+         if (totalpages <= totalresult) {
             $('#articlelistshowmore').addClass('hide-article');
+            $('#articlelistshowmore').hide();
         }
         else {
 
             $('#articlelistshowmore').removeClass('hide-article');
+            $('#articlelistshowmore').show();
         }
     }
     _InitDropdownSelectEvent = function () {
@@ -673,11 +698,11 @@ INFORMA.articletech = (function (window, $, namespace) {
         }
 
         if (length > 1) {
-            $(".filter-section .heading").show();
+            // $(".filter-section .heading").show();
             $(".filter-section .heading").text("active filters (" + (length - 1) + ")");
             $(".clearAllArticlesFilters").removeClass("hide-clear-filter")
         } else {
-            $(".filter-section .heading").hide();
+            // $(".filter-section .heading").hide();
             $(".clearAllArticlesFilters").addClass("hide-clear-filter")
         }
     }

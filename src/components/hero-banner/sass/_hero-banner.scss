@@ -1146,12 +1146,7 @@ section#hero-banner {
         }
     }
 
-    @media only screen and (max-width: 768px){
-        .single-image .hero-items .for-left h4, .single-image .hero-items .for-right h4 {
-            padding-left: 15px;
-        }
-        
-    }
+   
 
     @media only screen and (min-width: 768px) {
         .hero-items .vertical-align .for-left .cta-button-containor, .hero-items .vertical-align .for-right .cta-button-containor {
@@ -1184,9 +1179,7 @@ section#hero-banner {
         max-width: 1400px;
         margin: 0 auto;
         }
-        .hero-items .vertical-align .for-left h4, .hero-items .vertical-align .for-right h4 {
-        padding-left: 0;
-        }
+        
         .hero-items .vertical-align .for-left .cta-button-containor, .hero-items .vertical-align .for-right .cta-button-containor {
         left: 0;
         float: left;
@@ -1239,40 +1232,12 @@ section#hero-banner {
         left: 0%;
         transform: translate(0%,0%);
     }
-    .cta-button-containor .btn-primary {
-        text-align: center;
-        border-radius: 28px;
-        padding: 20px 40px;
-        height: auto;
-        min-width: 160px;
-        font-family: 'OpenSans Bold';
-        font-size: 21px;
-        width: auto;
-        background-color: #024;
-        color: #fff;
-        border-width: 0;
-        min-width: 150px;
-        margin-right: 10px;
-        @media screen and (max-width: 768px) and (min-width: 320px){
-            min-width: 130px;
-            padding: 10px 5px;
-            font-size: 12px;
-            }
-        &:hover{
-        background-color: #11a7d9;
-        border-color: #11a7d9;
-        color: #fff!important;
-        }
-        
-    }
+    
     .single-image img {
         width: 100%;
     }
     @media only screen and (min-width: 1201px){
-        .hero-items .vertical-align {
-            top: 108px;
-            
-        }
+        
         div.for-left, div.for-right {
             width: 50%;
         }
@@ -1284,34 +1249,15 @@ section#hero-banner {
     .for-left {
         float: left !important;
         margin-left: 40px;
+        @include mobile{
+            margin-left:0px;
+        }
     }
     .second-banner-left-outer {
         display: inline-block !important;
         float: left;
     }
-    h1 {
-        font-family: 'Aleo Regular'!important;
-        font-size: 48px!important;
-        line-height: 60px!important;
-        text-transform: uppercase!important;
-        color: #024!important;
-        margin-top: 0!important;
-        margin-bottom: 20px!important;
-        @media only screen and (max-width: 768px) {
-                font-size: 24px!important;
-                line-height: 30px!important;
-        }
-    }
-    h4 {
-        font-family: 'OpenSans Light'!important;
-        font-size: 24px!important;
-        line-height: 34px!important;
-        color: #555!important;
-        @media only screen and (max-width: 768px) {
-                font-size: 18px!important;
-                line-height: 28px!important;
-        }
-    }
+    
     .second-banner-left-outer {
         display: inline-block !important;
         float: left;
@@ -1334,10 +1280,7 @@ section#hero-banner {
     h1 {
         color: #002144;
     }
-    .btn-primary:after {
-        content: "";
-        display:none;
-    }
+    
     .second-banner-left-outer .second-banner-left-inner {
         width: 100%;
         padding: 0;
@@ -1393,21 +1336,6 @@ section#hero-banner.feature-hero-banner .btn {
 }
 
 /* for other themes */
-.agri-theme,.pharma-theme,.financial-theme,.tmt-theme{
-    section#hero-banner.feature-hero-banner {
-        max-height: 720px;
-        height: 450px;
-    }
-    @media only screen and (min-width: 768px){
-        .feature-hero-banner .hero-items .vertical-align {
-            position: static;
-            max-width: 1172px;
-            padding: 0px 20px;
-        }
-    }
-
-}
-
 @media (max-width: 1141px){
     .hero-banner-carousel .slick-initialized .slick-next, .hero-banner-carousel .slick-list .slick-next, .hero-banner-carousel .slick-track .slick-next {
         margin-left: -20px;
@@ -1427,12 +1355,7 @@ section#hero-banner .vertical-align.overlay-text {
     }
     
 }
-.hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
-    color: #fff!important;
-    width: 100%;
-    float: left;
-    word-break: break-word;
-}
+
 @media only screen and (min-width: 768px) {
     .hero-items.hero-carousel .vertical-align.overlay-text {
         max-width: 100%;
@@ -1456,62 +1379,11 @@ section#hero-banner .vertical-align.overlay-text {
         left: 50%;
         transform: translate(-50%, -50%);
     }
-    .hero-items .vertical-align .for-left h4, .hero-items .vertical-align.overlay-text .for-right h4 {
-        padding: 0 15px;
-    }
-}
-.agri-theme,.pharma-theme,.financial-theme,.tmt-theme,.maritime-theme {
-    .feature-hero-banner {
-    .vertical-align{
-        h1 ,h4{
-            color:#fff!important;
-        }
-        &.indigo {
-            h1 ,h4{
-                color: #024!important;
-            }
-        }
-    
-    }
-    .hero-items{
-        .vertical-align{
-            @media screen and (min-width:1201px){
-                height: auto;
-                left: 50%;
-                min-height: 100%;
-                min-width: 100%;
-                top: 40%;
-                transform: translate(-50%,-50%);
-                z-index: 17;
-                object-fit: cover;
-                position: absolute;
-                width: 100%; 
-            }
-            
-        }
-    }
-    }
     
 }
 
-.tech-theme,.agri-theme,.pharma-theme,.financial-theme,.tmt-theme,.maritime-theme {
-    .feature-hero-banner {
-    .vertical-align{
-        &.indigo {
-            h1 ,h4{
-                color: #024!important;
-            }
-        }
-        &.white{
-            h1 ,h4{
-                color:#fff!important;
-            }
-        }
-    
-    }
-    
-}
-}
+
+
 
 
 
