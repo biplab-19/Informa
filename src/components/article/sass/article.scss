@@ -230,6 +230,9 @@ a.artcl-read-more {
 }
 
 .article-list-filter {
+  .custom-dropdown .sgmnt-menu .dropdown-content {
+    top: 62px;
+  }
   .nav-tabs {
     border: none !important;
   }
@@ -268,6 +271,7 @@ a.artcl-read-more {
     }
   }
   .dropdown-content {
+    top: 62px;
     width: 678px;
     border: 1px solid #002244;
     margin-left: 0;
@@ -344,13 +348,6 @@ a.artcl-read-more {
         overflow: hidden;
       }
     }
-    .drop-options {
-      overflow: auto;
-      max-height: 500px;
-      @include not-desktop {
-        max-height: none;
-      }
-    }
   }
   .round-checkbox {
     float: left;
@@ -358,7 +355,7 @@ a.artcl-read-more {
     width: 12px;
     height: 12px;
     margin-top: 7px;
-    margin-right: 15px;
+    margin-right: 10px;
     margin-bottom: 12px;
     cursor: pointer;
     user-select: none;
@@ -386,7 +383,7 @@ a.artcl-read-more {
   .segmanet-head {
     float: left;
     clear: none;
-    width: 85%;
+    width: calc(100% - 22px);
     padding: 0;
     margin-bottom: 15px;
     font-size: 18px;
@@ -394,10 +391,12 @@ a.artcl-read-more {
     color: #024;
   }
   .sub-seg {
+    float: left;
+    clear: none;
+    width: calc(100% - 22px);
     font-size: 14px;
     color: #024;
     padding: 0;
-    clear: none;
   }
   .load-btn {
     text-align: center;
