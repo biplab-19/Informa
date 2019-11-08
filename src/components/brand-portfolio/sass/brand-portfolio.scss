@@ -971,11 +971,22 @@ a:hover, a:focus {
                 @include not-desktop {
                     max-height: none;
                 }
-                ul {
-                  margin-bottom: 0;
-                  ul {
-                    margin-bottom: 20px;
-                  }
+                .drop-options {
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    max-height: 500px;
+                    column-count: 3;
+                    column-gap: 10px;
+                    margin-bottom: 0;
+                    @include not-desktop {
+                        column-count: auto;
+                    }
+                    & > li {
+                        break-inside: avoid;
+                    }
+                    ul {
+                        margin-bottom: 20px;
+                    }
                 }
             }
         }
