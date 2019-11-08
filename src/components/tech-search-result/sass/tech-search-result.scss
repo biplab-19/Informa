@@ -163,12 +163,14 @@ div#tech-main-header .stellarnav {
     .tech-search-inputbar-list {
       .container {
         width: 1200px;
-        padding: 0px;
+        padding: 0 15px;
         @include mobile {
           width: 100%;
+          padding: 0;
         }
         @include tablet {
           width: 100%;
+          padding: 0;
         }
       }
     }
@@ -214,10 +216,9 @@ div#tech-main-header .stellarnav {
 }
 .hot-topics-heading {
   border-bottom: 1px solid #024;
-  margin-bottom: 20px;
-  padding: 10px;
   font-size: 18px;
-  margin-bottom: 15px;
+  margin: 15px 10px;
+  padding: 10px 0px;
   strong {
     margin-left: 10px;
     color: #024;
@@ -232,6 +233,9 @@ div#tech-main-header .stellarnav {
     .container {
       width: 1200px;
       padding: 0;
+      .row{
+        clear:both;
+      }
       @include mobile {
         width: 100%;
       }
@@ -277,12 +281,13 @@ div#tech-main-header .stellarnav {
   }
 }
 .hot-topics-carousel {
+  width:100%;
+  float:left;
   .hot-topics-carousel-list {
     .slick-disabled {
       display: none !important;
     }
     .slick-arrow {
-      
       background: #94bb17;
       display: inline-block;
       margin: 0 1em 1em 0;
@@ -290,13 +295,15 @@ div#tech-main-header .stellarnav {
       height: 80px;
       width: 40px;
     }
-    
     .container {
       background-image: url("https://tech.informa.com/~/media/informa-shop-window/tech/cta/meet-customer.png?h=370&w=1400&la=en-US&hash=15367EDD5354C8A8DA11AA7E1E3976E83200DCF0");
       background-size: 100% 100%;
       height: 250px;
       padding: 0;
       border: 1px solid #94bb17;
+      .row {
+        clear:both;
+      }
     }
     .slick-next {
       left: calc(100% - 40px);
