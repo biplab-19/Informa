@@ -1324,11 +1324,17 @@ section#hero-banner.feature-hero-banner {
     color: #fff;
     position: relative;
     overflow: hidden;
-    height: 100vh;
+    height: 800px;
     clear: both;
+    @include mobile{
+        height:100vh;
+    }
+    @include tablet{
+        height:100vh;
+    }
 }
 section#hero-banner.feature-hero-banner {
-    max-height: 720px;
+    max-height: 800px;
 }
 
 section#hero-banner.feature-hero-banner .btn {
@@ -1360,7 +1366,6 @@ section#hero-banner .vertical-align.overlay-text {
     .hero-items.hero-carousel .vertical-align.overlay-text {
         max-width: 100%;
         width: 100%;
-        transform: translateY(0%);
         z-index: 9999;
         
     }
@@ -1382,19 +1387,3 @@ section#hero-banner .vertical-align.overlay-text {
     
 }
 
-
-
-
-
-
-@media only screen and (max-width: 1200px) and (min-width: 768px){
-.hero-items .vertical-align.overlay-text {
-    top: 108px;
- }
-}
-
-@media only screen and (min-width: 1201px){
-.hero-items .vertical-align.overlay-text {
-    top: 0;
- }
-}
