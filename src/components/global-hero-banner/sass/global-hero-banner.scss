@@ -55,7 +55,7 @@
           position: relative;
           top: 0;
           left: 60px;
-          @media screen and (max-width: 812px) {
+          @include not-mid-tablet {
             left: 10px;
             width: calc(100% - 10px);
           }
@@ -196,12 +196,12 @@
   clear: both;
   min-height: 400px;
   h2.sub-headline {
-    @media screen and (max-width: 812px) and (min-width: 320px) {
+    @include mobile-to-midtab {
       left: 0 !important;
     }
   }
   .dot-img-left {
-    @media screen and (max-width: 812px) and (min-width: 320px) {
+    @include mobile-to-midtab {
       background-position: -26px 0;
       width: 45px;
       height: 40px;
@@ -213,7 +213,7 @@
     @media only screen and (max-width: 768px) {
       padding: 10px 0px 0 0px;
     }
-    @media screen and (max-width: 812px) and (min-width: 320px) {
+    @include mobile-to-midtab {
       padding: 10px 2px 0 4px !important;
     }
   }
@@ -234,7 +234,7 @@
     background-repeat: no-repeat;
     margin-right: 20px;
     margin-top: 53px;
-    @media screen and (max-width: 812px) and (min-width: 320px) {
+    @include mobile-to-midtab {
       background-position: -26px 0;
       width: 45px;
       height: 40px;
@@ -249,7 +249,7 @@
     @media only screen and (max-width: 768px) {
       padding: 20px 0px;
     }
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
       padding: 0px 0px 10px 0px;
     }
   }
@@ -257,30 +257,13 @@
     margin-top: 0px;
     position: absolute;
     width: 100%;
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
       position: inherit;
       margin: 0;
     }
   }
 
-  .sub-headline {
-    font-family: "Aleo";
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 60px;
-    text-transform: uppercase;
-    color: #024;
-    position: relative;
-    margin: 0;
-    width: calc(100% - 30px);
-    @media screen and (max-width: 812px) and (min-width: 320px) {
-      left: 0;
-    }
-    @media screen and (max-width: 812px) {
-      font-size: 28px;
-      line-height: 28px;
-    }
-  }
+  
   div.subofsub-text {
     width: 50%;
     margin-left: 100px;
@@ -605,7 +588,7 @@
         .second-banner-left-outer {
           .second-banner-left-inner {
             left: 0px;
-            @media screen and (max-width: 812px) {
+            @include not-mid-tablet {
               left: 10px;
             }
           }
@@ -647,17 +630,26 @@
     }
   }
   .reach-img-section {
-    .sub-headline {
-      color: #fff;
-      @media screen and (max-width: 812px) {
-        color: #024;
-      }
-    }
     .b-one {
       color: #fff;
-      @media screen and (max-width: 812px) {
+      @include not-mid-tablet {
         color: #555;
       }
+    }
+    
+    .sub-headline {
+      font-size: 45px;
+      width: calc(100% - 30px);
+      color: #fff;
+      @include mobile-to-midtab {
+          left: 0;
+        }
+        @include not-mid-tablet {
+          font-size: 28px;
+          line-height: 28px;
+          left:20px;
+          color: #024;
+        }
     }
   }
 
@@ -696,17 +688,17 @@
   .reach-img-section {
     .dot-img-left,
     .dot-img-right {
-      @media screen and (min-width: 813px) {
+      @include mid-tablet {
         width: 108px;
-        margin-top: 10px;
+        margin-top: 20px;
       }
-      @media screen and (max-width: 812px) {
+      @include not-mid-tablet {
         margin-top: 25px;
       }
     }
     .text-right {
       div.subofsub-text {
-        @media screen and (min-width: 813px) {
+        @include mid-tablet {
           margin-right: 128px;
           width:50%;
         }
@@ -718,7 +710,7 @@
     }
     .text-left {
       div.subofsub-text {
-        @media screen and (min-width: 813px) {
+        @include mid-tablet {
           margin-left: 128px;
         }
       }
@@ -754,14 +746,14 @@
   div.subofsub-text {
     float: right;
     margin-right: 18px;
-    @media screen and (min-width: 813px) {
+    @include mid-tablet {
       margin-right: 100px;
     }
 
   }
   .imgright {
     .dot-img-right {
-      @media screen and (max-width: 812px) {
+      @include not-mid-tablet {
           background-position: 0px 0;
           width: 45px;
           height: 40px;

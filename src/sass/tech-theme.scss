@@ -3118,7 +3118,31 @@ section#hero-banner {
   }
   
 
+.reach-img-section {
+    .sub-headline {
+        font-family: "Aleo";
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: #024;
+        position: relative;
+        margin: 0;
+        width: calc(100% - 30px);
+        @media screen and (max-width: 812px) and (min-width: 320px) {
+          left: 0;
+        }
+        @media screen and (max-width: 812px) {
+          font-size: 28px;
+          line-height: 28px;
+          left:20px;
+        }
+      }
+}
 
-  
+
+
+
+
      
  
