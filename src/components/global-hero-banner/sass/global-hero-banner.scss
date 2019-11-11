@@ -450,7 +450,6 @@
           @media only screen and (min-width: 768px) {
             max-width: 100%;
             width: 100%;
-            transform: translateY(0%);
             z-index: 9999;
           }
           .for-center {
@@ -474,9 +473,7 @@
           width: 100%;
           float: left;
           word-break: break-word;
-          span {
-          }
-        }
+         }
       }
       &.overlay-text {
         .for-right {
@@ -490,6 +487,7 @@
               word-break: break-word;
             }
           }
+          
         }
       }
     }
@@ -606,21 +604,6 @@
     h1,h4 {
       color: #fff !important;
     }
-    &.hero-banner {
-      .vertical-align {
-          top: 0;
-          transform: translateY(0%);
-          &.overlay-text{
-            @include mobile{
-              top: 0;
-              left: 0; 
-              transform: translate(0, 0);
-            }
-          }
-      }
-       
-    }
-    
     .hero-items {
       .vertical-align {
         @include mobile{
@@ -683,6 +666,7 @@
     h4 {
       margin: 0 15px 20px 15px;
       color: #fff;
+      float:left;
     }
   }
   .reach-img-section {

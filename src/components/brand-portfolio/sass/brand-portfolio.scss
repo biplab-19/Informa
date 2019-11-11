@@ -788,7 +788,7 @@ footer {
             }
             a:before {
                 @include mobile {
-                    right: -2px;
+                    right: -3px;
                     width: 0px;
                 }
                 
@@ -972,9 +972,6 @@ a:hover, a:focus {
                     max-height: none;
                 }
                 .drop-options {
-                    overflow-y: auto;
-                    overflow-x: hidden;
-                    max-height: 500px;
                     column-count: 3;
                     column-gap: 10px;
                     margin-bottom: 0;
@@ -992,8 +989,8 @@ a:hover, a:focus {
         }
     }
     .regions {
-        .drop-options {
-            column-count: 3;
+        .dropdown-content .drop-content .drop-options {
+            column-count: 2;
             @include not-desktop {
                 column-count: auto;
             }
@@ -1243,11 +1240,4 @@ a:hover, a:focus {
             }
         } 
     } 
-    .discription{
-        .More-content{
-            @include mobile {
-                height: 100px;
-                overflow: hidden;
-            }
-        }
-    }
+    

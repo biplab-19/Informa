@@ -3039,8 +3039,17 @@ section#hero-banner {
   
   }
   .hero-banner {
-    .vertical-align{
+    .vertical-align {
         transform: translateY(50%);
+        p {
+            color: #000;
+        }
+        &.overlay-text{
+            p {
+                color:#fff;
+            }
+            
+        }
     }
     .cf-img img{
         position: unset;
@@ -3048,10 +3057,6 @@ section#hero-banner {
         left: 0%;
         transform: translate(0%,0%);
     
-    }
-    .vertical-align p {
-       color: #000;
-      
     }
   }
  
@@ -3117,6 +3122,14 @@ section#hero-banner {
     }
   }
   
+  #contact-us fieldset{
+      &.checkbox-fullwidth{
+        width:100%;
+      }
+      &.checkbox-50percent{
+        width:50%;
+     }
+  }
 
 .reach-img-section {
     .sub-headline {
