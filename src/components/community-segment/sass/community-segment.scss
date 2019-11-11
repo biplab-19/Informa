@@ -141,7 +141,7 @@
         border: solid $border #94bb17;
         border-radius: 0;
         flex-direction: column;
-        @media only screen and (max-width: 812px) {
+        @include not-mid-tablet{
             min-height: 415px;  
         }
 
@@ -283,7 +283,7 @@
     }
 
 
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
 
         .discover-community {
 
