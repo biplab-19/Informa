@@ -36,7 +36,7 @@ INFORMA.BrandPortfolio = (function (window, $, namespace) {
                     $showFiltersBtn.attr('data-state', 'select');
                 }
             });
-            $('.segmanet-head, .sub-segment').click(function () {
+            $('.segmanet-head, .sub-segment, .sub-seg').click(function () {
                 $(this).siblings('label').trigger('click');
             })
         }
