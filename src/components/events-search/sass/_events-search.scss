@@ -390,13 +390,29 @@
                 font-size: 1.125em;
             }
             .btn.ical {
+                position: relative;
                 display: inline-block;
-                width: 33px;
-                height: 33px;
                 vertical-align: middle;
-                text-indent: -99999px;
-                margin-left: 10px;
-                padding: 5px 10px;
+                margin-left: 15px;
+                padding: 0 10px;
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    right: 0;
+                    width: 33px;
+                    height: 33px;
+                    background-color: white;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    pointer-events: auto;
+                }
+                .text {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 10px;
+                }
             }
         }
         .views {
