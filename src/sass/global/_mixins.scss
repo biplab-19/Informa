@@ -1589,6 +1589,16 @@ $mid-tablet:813px;
         //         background: $primarycolor;
         //     }
         // }
+        .events-search .events-search .views-section .event-count .btn.ical {
+            &::before {
+                background-image: url(/Static/images/pharma/btn-icon-cal.png);
+            }
+            &:hover{
+                &::before {
+                    background-image: url(/Static/images/pharma/btn-icon-cal-active.png);
+                }
+            }
+        }
         [data-view="tile-view"] {
             .events-section {
                 .events-wrap {

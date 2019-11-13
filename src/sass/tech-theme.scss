@@ -2534,10 +2534,27 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
             @include mobile {
                 top: 100%;
             }
-            .event-count p {
-                font-family: 'OpenSans Bold';
-                font-size: 18px;
-                padding-top: 0;
+            .event-count {
+                p {
+                    font-family: 'OpenSans Bold';
+                    font-size: 18px;
+                    padding-top: 0;
+                }
+                .btn.ical {
+                    &::before {
+                        background-image: url(/Static/images/tech/btn-icon-cal.png);
+                    }
+                    &:hover{
+                        &::before {
+                            background-image: url(/Static/images/tech/btn-icon-cal-active.png);
+                        }
+                    }
+                    .text {
+                        font-family: 'OpenSans Bold';
+                        font-size: 18px;
+                        color: #11a7d9;
+                    }
+                }
             }
             .views .state-views .view a {
                 &.active {
