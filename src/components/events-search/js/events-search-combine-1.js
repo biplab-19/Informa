@@ -65,26 +65,43 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     $checks = $currCstmSelect.find('.input-checkbox');
 
                 // add value method
-                $currCstmSelect.data('addValue', function (el) {
-                    var textvalue = el.children('p').text(),
+                $currCstmSelect.data('addValues', function ($els) {
+                    var $el,
+                        textvalue,
                         values = $currCstmSelect.attr('data-values') === '' ? [] : $currCstmSelect.attr('data-values').split(',');
-                    if (!values.indexOf(textvalue) > -1) {
-                        values.push(textvalue);
-                    }
-                    InformaEventQuery.AddProp($currCstmSelect.attr('name'), textvalue);
+                    
+                    $els.each(function () {
+                        $el = $(this);
+                        textvalue = $el.children('p').text();
+                        if (!values.indexOf(textvalue) > -1) {
+                            values.push(textvalue);
+                        }
+                    });
+
+                    InformaEventQuery.AddProp($currCstmSelect.attr('name'), values);
                     $currCstmSelect.attr('data-values', values);
                 });
 
                 // remove value method
-                $currCstmSelect.data('removeValue', function (el) {
-                    var textvalue = el.children('p').text(),
+                $currCstmSelect.data('removeValues', function ($els) {
+                    var $el,
+                        textvalue,
                         values = $currCstmSelect.attr('data-values').split(','),
+                        removedValues = [],
+                        valueInd;
+                        
+                    $els.each(function () {
+                        $el = $(this);
+                        textvalue = $el.children('p').text();
                         valueInd = values.indexOf(textvalue);
-                    if (valueInd > -1) {
-                        values.splice(valueInd, 1);
-                    }
-                    that.RemoveFilter($currCstmSelect.attr('name'), el.attr('id'));
-                    InformaEventQuery.RemoveProp($currCstmSelect.attr('name'), textvalue);
+                        if (valueInd > -1) {
+                            values.splice(valueInd, 1);
+                            removedValues.push(textvalue);
+                        }
+                        that.RemoveFilter($currCstmSelect.attr('name'), $el.attr('id'));
+                    });
+
+                    InformaEventQuery.RemoveProp($currCstmSelect.attr('name'), removedValues);
                     $currCstmSelect.attr('data-values', values);
                 });
                 
@@ -108,18 +125,18 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
                     if (isParent) {
                         // toggle all children
+                        $currCstmSelect.data(isChecked ? 'addValues' : 'removeValues')($parentLi.find('ul > li').not('.selectall'));
                         $parentLi.find('ul > li').not('.selectall').each(function () {
-                            $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($(this));
                             $(this).find('.input-checkbox')[0].checked = isChecked;
                         });
                     } else if (isSelectAll) {
+                        $currCstmSelect.data(isChecked ? 'addValues' : 'removeValues')($parentLi.siblings('li'));
                         $parentLi.siblings('li').each(function () {
-                            $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($(this));
                             $(this).find('.input-checkbox')[0].checked = isChecked;
                         });
                     } else {
                         // toggle single
-                        $currCstmSelect.data(isChecked ? 'addValue' : 'removeValue')($parentLi);
+                        $currCstmSelect.data(isChecked ? 'addValues' : 'removeValues')($parentLi);
                     }
                 });
             });
@@ -1589,23 +1606,40 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         haveActivePropsChanged = true;
                     }
                 } else {
-                    // if val exists in values, override else add it
-                    existingValInd = existingEl.values.indexOf(value);
-                    if (existingValInd >= 0) {
-                        if (existingEl.values[existingValInd] !== value) {
-                            existingEl.values[existingValInd] = value;
+                    if (Array.isArray(value)) {
+                        value.forEach(function (v) {
+                            existingValInd = existingEl.values.indexOf(v);
+                            if (existingValInd >= 0) {
+                                if (existingEl.values[existingValInd] !== v) {
+                                    existingEl.values[existingValInd] = v;
+                                    haveActivePropsChanged = true;
+                                    InformaFilters.HaveUpdated = true;
+                                }
+                            } else {
+                                existingEl.values.push(v);
+                                haveActivePropsChanged = true;
+                                InformaFilters.HaveUpdated = true;
+                            }
+                        });
+                    } else {
+                        // if val exists in values, override else add it
+                        existingValInd = existingEl.values.indexOf(value);
+                        if (existingValInd >= 0) {
+                            if (existingEl.values[existingValInd] !== value) {
+                                existingEl.values[existingValInd] = value;
+                                haveActivePropsChanged = true;
+                                InformaFilters.HaveUpdated = true;
+                            }
+                        } else {
+                            existingEl.values.push(value);
                             haveActivePropsChanged = true;
                             InformaFilters.HaveUpdated = true;
                         }
-                    } else {
-                        existingEl.values.push(value);
-                        haveActivePropsChanged = true;
-                        InformaFilters.HaveUpdated = true;
                     }
                 }
             } else {
                 // new value
-                this.ActiveProperties.push({ name: name, values: [value] });
+                this.ActiveProperties.push({ name: name, values: Array.isArray(value) ? value : [value] });
                 haveActivePropsChanged = true;
                 InformaFilters.HaveUpdated = true;
             }
@@ -1620,7 +1654,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             }
         },
         RemoveProp: function(name, value) {
-            var haveActivePropsChanged = false,
+            var that = this,
+                haveActivePropsChanged = false,
                 existingElInd = this.ActiveProperties.findIndex(function (activeObj) { return activeObj.name === name }),
                 existingValArr,
                 existingValInd
@@ -1633,17 +1668,34 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     this.ActiveProperties.splice(existingElInd, 1);
                     haveActivePropsChanged = true;
                 } else {
-                    // if value exists in filters array remove it
-                    existingValArr = this.ActiveProperties[existingElInd].values;
-                    existingValInd = existingValArr.indexOf(value);
-                    if (existingValInd >= 0) {
-                        existingValArr.splice(existingValInd, 1);
-                        // now remove whole filter obj if values are empty
-                        if (existingValArr.length === 0) {
-                            this.ActiveProperties.splice(existingElInd, 1);
+                    if (Array.isArray(value)) {
+                        value.forEach(function (v) {
+                            // if value exists in filters array remove it
+                            existingValArr = that.ActiveProperties[existingElInd].values;
+                            existingValInd = existingValArr.indexOf(v);
+                            if (existingValInd >= 0) {
+                                existingValArr.splice(existingValInd, 1);
+                                // now remove whole filter obj if values are empty
+                                if (existingValArr.length === 0) {
+                                    that.ActiveProperties.splice(existingElInd, 1);
+                                }
+                                haveActivePropsChanged = true;
+                                InformaFilters.HaveUpdated = true;
+                            }
+                        });
+                    } else {
+                        // if value exists in filters array remove it
+                        existingValArr = that.ActiveProperties[existingElInd].values;
+                        existingValInd = existingValArr.indexOf(value);
+                        if (existingValInd >= 0) {
+                            existingValArr.splice(existingValInd, 1);
+                            // now remove whole filter obj if values are empty
+                            if (existingValArr.length === 0) {
+                                that.ActiveProperties.splice(existingElInd, 1);
+                            }
+                            haveActivePropsChanged = true;
+                            InformaFilters.HaveUpdated = true;
                         }
-                        haveActivePropsChanged = true;
-                        InformaFilters.HaveUpdated = true;
                     }
                 }
             }
