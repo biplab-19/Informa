@@ -283,6 +283,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     }
 
     _loadSearchResult = function (searchRequest) {
+        INFORMA.Spinner.Show($("body"));
         jQuery.ajax({
             url: "/client/search/ComponentSearchResults",
             type: "POST",
@@ -317,7 +318,14 @@ INFORMA.TechSearch = (function (window, $, namespace) {
                     jQuery(".no-result").hide();
                     _hideResults();
                 }
-            }
+                INFORMA.Spinner.Hide();
+            },
+            error: function (error) {
+                INFORMA.Spinner.Hide();
+                },
+                 complete: function (data) {
+                setTimeout(function () { INFORMA.Spinner.Hide(); }, 1000);
+                 }
         });
     }
 
