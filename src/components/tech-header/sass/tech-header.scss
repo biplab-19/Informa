@@ -33,7 +33,7 @@ div#tech-main-header {
 
     .stellarnav.right.hide-arrows.mobile a.menu-toggle {
         float: right;
-        margin: 0;
+        margin: 10px 0px;
         padding: 0;
     }
 
@@ -951,7 +951,7 @@ div#tech-main-header{
 
 
 div#tech-main-header .stellarnav.mobile.right .menu-container {
-    top: 75px;
+    top: 80px;
     right:0px;
     position: absolute;
     width:350px;
@@ -961,7 +961,7 @@ div#tech-main-header .stellarnav.mobile.right .menu-container {
     padding: 36px 2px 36px 36px;
     display:none;
     
-    @media screen and (max-width: 768px) {
+    @include mobile {
         top: 100%;
         right:0;
         left:0;

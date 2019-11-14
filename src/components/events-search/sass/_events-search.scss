@@ -72,13 +72,11 @@
         }
 
         .custom-dd-menu {
-            background: #fff;
             margin-bottom: 15px;
             position: relative;
             user-select: none;
             &.active {
                 a {
-                    border-radius: 25px 25px 0 0;
                     border-bottom: none;
                 }
             }
@@ -141,11 +139,11 @@
                     top: 59px;
                     width: 556px;
                     background-color: white;
-                    border-top: 1px solid #002244;
-                    border-radius: 0 25px 25px 25px;
+                    border-top: 1px solid $grey-color06;
                     z-index: 1;
                     .custom-drop-options {
                         column-count: 3;
+                        column-gap: 10px;
                         @include not-desktop {
                             column-count: auto;
                         }
@@ -156,15 +154,21 @@
                 }
             }
             a {
-                display: block;
                 position: relative;
-                width: 100%;
-                padding: 10px 20px;
-                font-size: 18px;
-                background: transparent;
-                border: 1px solid #002244;
-                border-radius: 25px;
-                cursor: pointer;
+                display: block;
+                overflow: hidden;
+                padding: 8px 0 0 8px;
+                height: 50px;
+                border: 1px solid $grey-color06;
+                border-radius: 0;
+                background-color: #fff;
+                background-clip: padding-box;
+                box-shadow: 0 0 3px white inset, 0 1px 1px rgba(0,0,0,.1);
+                color: #444;
+                font-size: 13px;
+                text-decoration: none;
+                white-space: nowrap;
+                line-height: 35px;
                 @include mobile {
                     &:before, &:after {
                         display: none;
@@ -179,9 +183,8 @@
                 margin-top: -1px;
                 padding: 4px 3px;
                 background-color: white;
-                border: 1px solid #002244;
+                border: 1px solid $grey-color06;
                 border-top: none;
-                border-radius: 0 0 25px 25px;
                 z-index: 1;
                 &.drop-content-active {
                     display: block;
@@ -190,7 +193,6 @@
                         top: 0;
                         width: 100%;
                         border-top: none;
-                        border-radius: 0 0 25px 25px;
                     }
                 }
                 .custom-drop-options {
@@ -221,7 +223,7 @@
                         height: 0;
                         width: 0;
                         &:checked ~ .checkmark {
-                            background-color: #117ad9;
+                            background-color: $grey-color06;
                             border: 1px solid #fff;
                         }
                     }
@@ -231,8 +233,7 @@
                         left: 0;
                         height: 12px;
                         width: 12px;
-                        border-radius: 50%;
-                        border: 1px solid #002244;
+                        border: 1px solid $grey-color06;
                         margin-right: 12px;
                     }
                 }
@@ -256,7 +257,7 @@
         }
         
         #closeFilterBtn {
-            display: block;
+            display: none;
             position: fixed;
             top: 50px;
             right: 60px;
@@ -264,6 +265,9 @@
             height: 35px;
             font-size: 0;
             text-indent: -9999px;
+            @include not-desktop {
+                display: block;
+            }
     
             &::before, &::after {
                 content: '';
@@ -294,9 +298,6 @@
         transform: translateX(-50%);
         margin: 0;
         z-index: 999999;
-        @include not-desktop {
-            display: inline-block;
-        }
         .select, .search {
             display: none;
         }
