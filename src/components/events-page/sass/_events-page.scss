@@ -417,6 +417,11 @@
                     color: $white;
                     padding: 6px 8px;
                     float: right;
+                    text-align: right;
+                    @include mobile {
+                        float: none;
+                        text-align: left;
+                    }
                 }
             }
             .content-wrap {
@@ -513,30 +518,6 @@
                                     pointer-events: none;
                                 }
                             }
-                        }
-                    }
-                    &.description {
-                        position: relative;
-                        overflow: hidden;
-                        height: 4.2em;
-                        text-align: justify;
-                        margin-right: -0.7em;
-                        padding-right: 0.7em;
-                        &:before {
-                            content: '...';
-                            position: absolute;
-                            right: 0;
-                            bottom: 0.1em;
-                        }
-                        &:after {
-                            display: block;
-                            content: '';
-                            position: absolute;
-                            right: 0;
-                            width: 1em;
-                            height: 100%;
-                            margin-top: -1em;
-                            background: white;
                         }
                     }
                 }

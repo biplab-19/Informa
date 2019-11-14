@@ -167,29 +167,7 @@
         }
       }
     }
-    .btn-primary {
-      text-align: center;
-      border-radius: 28px;
-      padding: 20px 40px;
-      height: auto;
-      min-width: 160px;
-      font-family: "OpenSans Bold";
-      font-size: 21px;
-      width: auto;
-      background-color: #024;
-      color: #fff;
-      border-width: 0;
-      min-width: 150px;
-      margin-right: 10px;
-      &:after {
-        content: " ";
-      }
-      @include mobile {
-        min-width: 130px;
-        padding: 10px 5px;
-        font-size: 12px;
-      }
-    }
+    
   }
 }
 
@@ -364,31 +342,7 @@
   }
 }
 
-.Viewsolutions {
-  .btn-primary {
-    text-align: center;
-    border-radius: 28px;
-    padding: 20px 40px;
-    height: auto;
-    min-width: 160px;
-    font-family: "OpenSans Bold";
-    font-size: 21px;
-    width: auto;
-    background-color: #024;
-    color: #fff;
-    border-width: 0;
-    min-width: 150px;
-    margin-right: 10px;
-    &:hover {
-      background-color: #11a7d9;
-      border-color: #11a7d9;
-      color: #fff !important;
-    }
-    &:after {
-      content: "";
-    }
-  }
-}
+
 
 .feature-hero-banner {
   .hero-banner-carousel {
@@ -623,10 +577,17 @@
     .vertical-align {
       h1,
       h4 {
+        color: #fff;
         @include mobile {
           color: #024;
         }
-        color: #fff;
+        p {
+          color: #fff;
+          @include mobile {
+            color: #024;
+          }
+        }
+        
       }
     }
     .hero-items {
@@ -659,9 +620,30 @@
   }
 
   .feature-hero-banner {
-    h1,
-    h4 {
+    h1,h4 {
       color: #fff !important;
+    }
+    &.hero-banner {
+      .vertical-align {
+          top: 0;
+          transform: translateY(0%);
+          &.overlay-text{
+            @include mobile{
+              top: 0;
+              left: 0; 
+              transform: translate(0, 0);
+            }
+          }
+      }
+       
+    }
+    
+    .hero-items {
+      .vertical-align {
+        @include mobile{
+          width: calc(100vw - 30px);
+        }
+      }
     }
   }
   .reach-img-section {
@@ -678,10 +660,9 @@
       }
     }
   }
-  section#hero-banner.feature-hero-banner {
-    max-height: 720px;
-    height: 450px;
-  }
+
+ 
+  
   @media only screen and (min-width: 768px) {
     .feature-hero-banner .hero-items .vertical-align {
       max-width: 1172px;

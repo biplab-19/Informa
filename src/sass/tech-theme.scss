@@ -746,11 +746,16 @@ section p {
     width:50%;
 }
 
-#contact-us fieldset {
-    display: inline-block;
-    width: calc(50% - 25px);
-    float:left;
-    margin-bottom: 35px;
+#contact-us {
+    fieldset {
+        display: inline-block;
+        width: calc(50% - 25px);
+        float:left;
+        margin-bottom: 35px;
+        &.contact-us-checkbox{
+          width:100%;
+        }
+    }
 }
 
 #contact-us textarea.form-control {
@@ -2736,12 +2741,6 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                                 font-family: 'OpenSans Regular';
                                 color: #555555;
                             }
-                            &.description {
-                                height: 86px;
-                                @include mobile {
-                                    height: 82px;
-                                }
-                            }
                             &.ctas {
                                 .btn {
                                     font-size: 18px;
@@ -3118,6 +3117,7 @@ section#hero-banner {
     }
   }
   
+
 
   
      
