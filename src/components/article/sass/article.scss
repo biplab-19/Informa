@@ -45,6 +45,7 @@
     margin-right: 0px;
     float: left;
     width: 120px;
+    padding-top:5px;
   }
   img {
     width: 100%;
@@ -69,18 +70,20 @@
 }
 .artcl-headline {
   line-height: 33px;
+  padding-top:0px;
+  border-bottom: 1px solid transparent;
   &:hover {
-    border-bottom: 1px solid #555;
-    display: inline-block;
+    border-bottom: 1px solid #024;
+    padding-bottom: 0;
   }
   a {
     font-size: 30px;
     line-height: 35px;
     font-family: "OpenSans Light";
     font-weight: lighter;
-    color: #002244;
+    color: #024;
+    padding-bottom: 0px;
     border-bottom: 1px solid transparent;
-    padding-bottom: 4px;
   }
 }
 
@@ -150,6 +153,7 @@ a.artcl-read-more {
   color: #11a7d9;
   font-size: 16px;
   font-family: "OpenSans Bold";
+  margin-left: 5px;
   i {
     color: #11a7d9;
     font-size: 16px;
@@ -319,9 +323,6 @@ a.artcl-read-more {
     margin-right: 10px;
   }
   .drop-content {
-    overflow: auto;
-    height: 100%;
-    padding: 0px 20px;
     ul {
       padding-left: 0;
       margin-bottom: 20px;
@@ -332,7 +333,11 @@ a.artcl-read-more {
       }
     }
     .drop-options {
-      margin-bottom: 0;
+      overflow: auto;
+      max-height: 500px;
+      @include not-desktop {
+        max-height: none;
+      }
     }
   }
   .round-checkbox {
@@ -379,7 +384,6 @@ a.artcl-read-more {
   .sub-seg {
     font-size: 14px;
     color: #024;
-    width: 90%;
     padding: 0;
     clear: none;
   }
@@ -407,7 +411,7 @@ a.artcl-read-more {
   .dropdown-content-third {
     overflow: hidden;
     width: calc(100% - 6px);
-    height: calc(100vh - 300px);
+    height: auto;
     border-radius: 0px 0px 25px 25px;
     border-top: none;
     position: absolute;

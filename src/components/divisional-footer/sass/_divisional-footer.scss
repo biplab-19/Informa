@@ -50,7 +50,7 @@
     }
   }
   .divisional-footer-container {
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 1250px) {
       text-align: center;
     }
     ul {
@@ -59,7 +59,7 @@
         margin-right: -15px;
         font-size: 0;
         float: right;
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width: 1250px) {
           float: none;
         }
         & > li {
@@ -115,7 +115,7 @@
       font-family: "OpenSans Regular";
       padding: 35px 15px;
       max-width:1200px;
-      @media screen and (max-width: 992px) {
+      @media screen and (max-width: 1250px) {
         text-align: center;
         padding: 35px 10px;
       }
@@ -128,12 +128,12 @@
         padding: 0 0px 0 18%;
         font-family: "OpenSans Regular";
         font-size: 14px;
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width:1250px) {
           padding:0px;
         }
       }
       &.marketing {
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width:1250px) {
           text-align: center;
           padding: 22px 10px;
         }
@@ -146,19 +146,20 @@
         display: inline-block;
         vertical-align: middle;
         font-size: 1rem;
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width: 1250px) {
           display: block;
           padding-bottom: 30px;
+          width:100%;
         }
       }
       padding: 35px 0px;
       border-bottom: 1px solid #fff;
       max-width:1200px;
       
-      @media screen and (max-width: 992px) {
+      @media screen and (max-width: 1250px) {
         padding: 0px;
       }
-      @media screen and (min-width: 993px) and (max-width:1400px) {
+      @media screen and (min-width: 1251px) and (max-width:1400px) {
         padding:35px 20px;
         max-width:100%;
       }
@@ -170,8 +171,9 @@
       .logo {
         padding-left: 0px;
         padding-right: 0px;
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width: 1250px) {
           padding: 80px 0px;
+          width:100%;
         }
       }
       
@@ -191,7 +193,7 @@
           vertical-align: top;
           padding-bottom: 10px;
           width: 43%;
-          @media screen and (max-width: 992px) {
+          @media screen and (max-width: 1250px) {
             display: block;
             width: auto;
           }
@@ -212,14 +214,14 @@
         padding: 0;
         border-right: 1px solid #fff;
         height: auto;
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width: 1250px) {
           border-right: none;
         }
         li {
           vertical-align: top;
           padding-right: 0;
           padding-bottom: 10px;
-          @media screen and (max-width: 992px) {
+          @media screen and (max-width: 1250px) {
             display: block;
             width: auto;
           }
@@ -230,7 +232,7 @@
       padding-bottom: 30px;
       & > * {
         padding-left: 20px;
-        @media screen and (max-width: 992px) {
+        @media screen and (max-width: 1250px) {
           padding-left: 0;
         }
       }
