@@ -341,7 +341,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 });
                 $filterEl.append($filterDelete);
                 // add elements to DOM
-                this.FilterContainer.append($filterEl);
+                this.FilterContainer.find("div:nth-child(1)").after($filterEl);
                 },
         AddFilterElement: function(filterObj) {
             var that = this,
