@@ -27,10 +27,15 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         _setPreviousButton,
         _setNextButton,
         _hasQueryString,
+        _redirectToSearch,
+
         init;
 
 
     $searchIcon.on("click", function (evt) {
+        //hide menu
+        $(this).parents(".stellarnav").removeClass("active");
+        $(".main-nav-bar").hide();
         var $hasClassactive = $(this).hasClass("search-active");
         if ($hasClassactive) {
             $(this).removeClass("search-active");
@@ -62,14 +67,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         return (results !== null) ? results[1] || "" : "";
     }
 
-    $('#searchPage').click(function () {
-        var searchKeyword = $('#' + searchTextBoxId).val();
-        if (searchKeyword != undefined && searchKeyword.length > 2) {
-            var url = $(location).attr("href").split('?')[0];
-            url = url + '?' + queryKeySearchText + '=' + $('#' + searchTextBoxId).val();
-            $(location).attr('href', url)
-        }
-    });
+
 
     $('#' + searchTextBoxId).on("keypress", function (e) {
         if (e.keyCode == 13) {
@@ -288,11 +286,15 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     }
 
     _loadSearchResult = function (searchRequest) {
+        INFORMA.Spinner.Show($("body"));
         jQuery.ajax({
             url: "/client/search/ComponentSearchResults",
             type: "POST",
             data: searchRequest,
             success: function (result) {
+                if (result.TotalPage < searchRequest.PageNo) {
+                    $("#facet-all").click();
+                }
                 if (result && result.Results && result.Results.length > 0) {
                     result.Results.forEach(function (ele) {
                         ele.SubtitleLength = ele.SubTitle.trim().length;
@@ -319,7 +321,14 @@ INFORMA.TechSearch = (function (window, $, namespace) {
                     jQuery(".no-result").hide();
                     _hideResults();
                 }
-            }
+                INFORMA.Spinner.Hide();
+            },
+            error: function (error) {
+                INFORMA.Spinner.Hide();
+                },
+                 complete: function (data) {
+                setTimeout(function () { INFORMA.Spinner.Hide(); }, 1000);
+                 }
         });
     }
 
@@ -442,6 +451,16 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         return false;
     }
 
+    _redirectToSearch = function (searchBoxValue) {
+        if (searchBoxValue.length >= 2) {
+            var url = $(location)[0].origin;
+            url = url + '/search?'
+            url = url + queryKeySearchText + '=' + searchBoxValue;
+            $(location).attr('href', url)
+        }
+    }
+
+
     $('#txtPageNumber').on("keyup", function (event) {
         debugger
         var keycode = (event.keyCode ? event.keyCode : event.which);
@@ -455,6 +474,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         slidesToShow: 3,
         infinite: true,
         speed: 300,
+        adaptiveHeight: true,
         responsive: [
             {
                 breakpoint: 768,
@@ -477,16 +497,14 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         ]
     });
 
-
-
     $('#topNavSearch').click(function () {
         var searchBoxValue = $('#searchbox').val();
-        if (searchBoxValue.length >= 2) {
-            var url = $(location)[0].origin;
-            url = url + '/search?'
-            url = url + queryKeySearchText + '=' + searchBoxValue;
-            $(location).attr('href', url)
-        }
+        _redirectToSearch(searchBoxValue);
+    });
+
+    $('#searchPage').click(function () {
+        var searchBoxValue = $('#txtComponentSearch').val();
+        _redirectToSearch(searchBoxValue);
     });
 
 

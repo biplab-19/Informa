@@ -86,6 +86,9 @@
                     .dropdown-content {
                         right: 15px;
                         border-radius: 25px 0 25px 25px;
+                        @include not-desktop {
+                            right: 0;
+                        }
                     }
                     &.active > a {
                         &:before {
@@ -138,6 +141,7 @@
                     position: absolute;
                     top: 59px;
                     width: 556px;
+                    padding: 20px;
                     background-color: white;
                     border-top: 1px solid $grey-color06;
                     z-index: 1;
@@ -150,6 +154,21 @@
                         & > li {
                             break-inside: avoid;
                         }
+                    }
+                    .drop-content {
+                        overflow-y: auto;
+                        overflow-x: hidden;
+                        max-height: 550px;
+                        padding: 0;
+                        @include not-desktop {
+                            max-height: none;
+                        }
+                    }
+                }
+                &#Eventregions .dropdown-content .custom-drop-options {
+                    column-count: 2;
+                    @include not-desktop {
+                        column-count: auto;
                     }
                 }
             }
@@ -195,14 +214,6 @@
                         border-top: none;
                     }
                 }
-                .custom-drop-options {
-                    overflow-y: auto;
-                    overflow-x: hidden;
-                    max-height: 500px;
-                    @include not-desktop {
-                        max-height: none;
-                    }
-                }
                 .round-checkbox {
                     position: relative;
                     padding-left: 22px;
@@ -239,7 +250,9 @@
                 }
                 .segmanet-head {
                     clear: none;
-                    font-size: 18px;
+                    float: left;
+                    width: calc(100% - 22px);
+                    font-size: 17px;
                     font-weight: bold;
                     color: #002244;
                     margin-bottom: 15px;
@@ -298,6 +311,9 @@
         transform: translateX(-50%);
         margin: 0;
         z-index: 999999;
+        @include not-desktop {
+            display: block;
+        }
         .select, .search {
             display: none;
         }
@@ -374,13 +390,29 @@
                 font-size: 1.125em;
             }
             .btn.ical {
+                position: relative;
                 display: inline-block;
-                width: 33px;
-                height: 33px;
                 vertical-align: middle;
-                text-indent: -99999px;
-                margin-left: 10px;
-                padding: 5px 10px;
+                margin-left: 15px;
+                padding: 0 10px;
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    right: 0;
+                    width: 33px;
+                    height: 33px;
+                    background-color: white;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    pointer-events: auto;
+                }
+                .text {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 10px;
+                }
             }
         }
         .views {
