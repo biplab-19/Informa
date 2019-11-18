@@ -363,7 +363,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     }
 
     _loadSpecificPage = function () {
-        var previousPage=pagenumber;
+        var previousPage = pagenumber;
         pagenumber = jQuery("#txtPageNumber").val();
         var pagecount = _getTotalPage();
         if (parseInt(pagenumber) <= parseInt(pagecount)) {
@@ -384,9 +384,8 @@ INFORMA.TechSearch = (function (window, $, namespace) {
             }
             _SetHashUrl(pagenumber);
         }
-        else
-        {
-        pagenumber=previousPage;
+        else {
+            pagenumber = previousPage;
         }
         return false;
     }
