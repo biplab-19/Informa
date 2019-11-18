@@ -298,6 +298,51 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             }
             this.UpdateFilters();
         },
+        RemoveUrlParameter:function(url,parameter)
+            {
+                var urlparts= url.split('?'); 
+                if (urlparts.length>=2) {
+                var prefix= encodeURIComponent(parameter)+'=';
+                var pars= urlparts[1].split(/[&;]/g);
+                //reverse iteration as may be destructive
+                for (var i= pars.length; i-- > 0;) { 
+                //idiom for string.startsWith
+                if (pars[i].lastIndexOf(prefix, 0) !== -1) { 
+                pars.splice(i, 1);
+                }
+                }
+                url= urlparts[0]+'?'+pars.join('&');
+                return url;
+                } else {
+                return url;
+                }
+                },
+                AddClearFilter:function()
+                {
+                var that = this,
+                $filterEl,
+                $filterDelete;
+
+                // create filter el
+                $filterEl = this.FilterElement.clone();
+                // populate text
+                $filterEl.children('.text').text("Clear All Filters");
+                // set attribute for future reference
+                $filterEl.attr('data-type', "clearall");
+                $filterEl.attr('data-value', "clearall");
+
+                // create delete btn
+                $filterDelete = this.FilterDeleteBtn.clone();
+                // set event listener to remove filter;
+                $filterDelete.click(function () {
+                var url=that.RemoveUrlParameter(window.location.href,"Country");
+                url=that.RemoveUrlParameter(url,"SegmentId");
+                window.location = url; 
+                });
+                $filterEl.append($filterDelete);
+                // add elements to DOM
+                this.FilterContainer.append($filterEl);
+                },
         AddFilterElement: function(filterObj) {
             var that = this,
                 $filterEl,
@@ -350,6 +395,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         that.DisableSelectOption(filterObj.type, filterObj.value);
                 });
             }
+            if(activeFilterLength>1)
+            this.AddClearFilter();
 
             this.FiltersUI.attr('data-count', activeFilterLength);
 
