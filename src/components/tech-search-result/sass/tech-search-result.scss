@@ -50,12 +50,12 @@ div#tech-main-header .stellarnav {
       background-color: #002244;
       height: 57px;
       border-radius: 29px;
-      @media screen and (max-width: 768px) {
+      @include mobile {
         width: 310px;
         position: absolute;
         left: 0;
         right: 0;
-        top: 128px;
+        top: 116px;
         margin: 0 auto;
       }
       @media screen and (min-width: 769px) and (max-width: 1200px) {
@@ -411,9 +411,9 @@ div#tech-main-header .stellarnav {
     position: absolute;
     background: #ebebeb;
     width: 100.8%;
-    height: 80px;
-    left: 0px;
-    top: 117px;
+    height:80px;
+    left: 0;
+    top: 105px;
   }
 
 }
