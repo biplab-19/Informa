@@ -14,7 +14,7 @@
     @include mobile {
       display: flex;
       flex-direction: column;
-      margin-top: 80px;
+      margin-top:25px;
     }
     .hero-cf-image {
       @include mobile {
@@ -168,6 +168,15 @@
       }
     }
     
+  }
+  .color-white {
+    h1,
+    h2 {
+      color: #fff !important;
+      @include mobile{
+      color: #024 !important;
+      }
+    }
   }
 }
 

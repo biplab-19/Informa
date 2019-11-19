@@ -7,6 +7,9 @@ div#tech-main-header {
     background-color: #fff;
     -webkit-backface-visibility: hidden;
     padding:5px 0px;
+    @include mobile{
+        margin-bottom:75px;
+    }
 
     &.sticky {
         position: fixed;
