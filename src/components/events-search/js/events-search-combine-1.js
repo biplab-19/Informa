@@ -333,9 +333,20 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             $filterDelete = this.FilterDeleteBtn.clone();
             // set event listener to remove filter;
             $filterDelete.click(function () {
-                var url = that.RemoveUrlParameter(window.location.href, "Country");
-                url = that.RemoveUrlParameter(url, "SegmentId");
-                window.location = url;
+                var modifiedUrl = "";
+                var activeFilterLength = that.ActiveFilters.length;
+                if (activeFilterLength > 0) {
+                    that.ActiveFilters.forEach(function (filterObj) {
+                        if (filterObj.type !== 'MonthYear' && filterObj.type !== 'View' && filterObj.type !== 'ViewType') {
+                            if (modifiedUrl != "") {
+                                modifiedUrl = that.RemoveUrlParameter(modifiedUrl, filterObj.type);
+                            }
+                            else
+                                modifiedUrl = that.RemoveUrlParameter(window.location.href, filterObj.type);
+                        }
+                    });
+                    window.location = modifiedUrl;
+                }
             });
             $filterEl.append($filterDelete);
             // add elements to DOM
