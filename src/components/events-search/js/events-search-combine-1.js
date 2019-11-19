@@ -106,12 +106,30 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 });
                 
                 // toggle dd listner
-                $currCstmSelect.children('a').off().click(function () {
-                    // collapse other custom dds
-                    if (!$currCstmSelect.hasClass('active'))
+                $currCstmSelect.children('a').off().click(function (evt) {
+                    // on open
+                    if (!$currCstmSelect.hasClass('active')) {
+                        // collapse all custom dds
                         that.CustomSelects.removeClass('active').children('.dropdown-content').removeClass('drop-content-active');
+                        // add body listener for click outside
+                        InformaEventsController.BodyContainer.off('click').on('click', function (e) {
+                            // if clicked anywhere inside a dd, dont close
+                            if ($(e.target).closest('.custom-dd-menu')[0] === $currCstmSelect[0] || 
+                                $(e.target).attr('type') === 'checkbox' || $(e.target).attr('type') === 'radio') {
+                                e.stopPropagation();
+                                return;
+                            }
+                            
+                            // collapse this custom dd
+                            $currCstmSelect.removeClass('active').children('.dropdown-content').removeClass('drop-content-active');
+                        });
+                    } else {
+                        // on close, remove body event listener
+                        InformaEventsController.BodyContainer.off('click');
+                    }
                     // expand current custom dd
                     $currCstmSelect.toggleClass('active').children('.dropdown-content').toggleClass('drop-content-active');
+                    evt.stopPropagation();
                 });
 
                 // checkbox click listner
@@ -816,7 +834,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                 $fcView.data('month', eventMoment).addClass('event-present').attr('click-added', true).on('click', function () {
                                     var targetDate = $(this).data('month');
                                     if (targetDate.isValid()) {
-                                        INFORMA.Spinner.Show($('body'));
+                                        INFORMA.Spinner.Show(InformaEventsController.BodyContainer);
                                         setTimeout(function() {
                                             // hear force done loadevents
                                             InformaEventQuery.AddProps({
@@ -967,7 +985,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.ViewElements = this.ActiveContainer.find('.fccal');
 
             if (doRender)
-                INFORMA.Spinner.Show($('body'));
+                INFORMA.Spinner.Show(InformaEventsController.BodyContainer);
                 this.RenderView();
         },
         get ViewType () {
@@ -1239,7 +1257,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             return JSON.stringify({data: JSON.stringify(sendDataObj)});
         },
         GetAjaxData: function (url, method, data, SCallback, Errcallback, SearchType) {
-            INFORMA.Spinner.Show($('body'));
+            INFORMA.Spinner.Show(InformaEventsController.BodyContainer);
             INFORMA.DataLoader.GetServiceData(url, {
                 method: method,
                 data: data,
@@ -1769,7 +1787,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         InformaFC.Init();
         InformaEventQuery.Init();
 
-        var $body = $('body'),
+        var $body = InformaEventsController.BodyContainer,
             $selectSection = $('.select-section'),
             $showFiltersBtn = $('#showFiltersBtn'),
             $closeFilterBtn = $('#closeFilterBtn'),

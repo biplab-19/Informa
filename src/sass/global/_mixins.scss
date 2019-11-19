@@ -2,6 +2,7 @@ $max-width: 1400px;
 $min-width: 320px; // define breakpoints
 $tablet-width: 768px;
 $desktop-width: 1142px;
+$mid-tablet:813px;
 
 
 @mixin border-radius($radius) {
@@ -45,6 +46,24 @@ $desktop-width: 1142px;
 
 @mixin tablet {
     @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin mid-tablet {
+    @media (min-width: #{$mid-tablet}) {
+        @content;
+    }
+}
+
+@mixin not-mid-tablet {
+    @media (max-width: #{$mid-tablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin mobile-to-midtab {
+    @media (min-width:#{$min-width}) and (max-width:#{$mid-tablet - 1px}){
         @content;
     }
 }
@@ -1570,6 +1589,16 @@ $desktop-width: 1142px;
         //         background: $primarycolor;
         //     }
         // }
+        .events-search .events-search .views-section .event-count .btn.ical {
+            &::before {
+                background-image: url(/Static/images/pharma/btn-icon-cal.png);
+            }
+            &:hover{
+                &::before {
+                    background-image: url(/Static/images/pharma/btn-icon-cal-active.png);
+                }
+            }
+        }
         [data-view="tile-view"] {
             .events-section {
                 .events-wrap {
