@@ -68,14 +68,14 @@ body {
     }
 }
 
-@media screen and (max-width: 812px) {
+@include not-mid-tablet{
     .sub-headline {
         font-size: 33px !important;
         line-height: 33px !important;
     }
 }
 
-@media screen and (max-width: 812px) {
+@include not-mid-tablet{
     .sub-headline {
         font-size: 28px !important;
         line-height: 28px !important;
@@ -270,22 +270,14 @@ html {
 
 
 //*** dot-image position changes in mobile ***//
-@media screen and (max-width: 812px) and (min-width: 320px) {
-    .reach-img-section h2.sub-headline {
-        left: 0 !important;
-    }
-    
-    div.subofsub-text {
-        padding: 0 39px !important;
-    }
-    
+@include mobile-to-midtab {
     .reach-img-section .global-discription {
         padding: 10px 2px 0 4px !important;
     }
 }
 
 /*May 3 2019*/
-@media screen and (max-width: 812px) {
+@include not-mid-tablet{
     .sub-headline {
         line-height: 34px !important;
     }
@@ -1160,14 +1152,14 @@ section#hero-banner h1 {
     }
 }
 /*end Rich Text editor containor*/
-@media screen and (max-width: 812px) {
+@include not-mid-tablet{
     .sub-headline {
         font-size: 33px !important;
         line-height: 33px !important;
     }
 }
 
-@media screen and (max-width: 812px) {
+@include not-mid-tablet{
     .sub-headline {
         font-size: 28px !important;
         line-height: 28px !important;
@@ -1794,7 +1786,7 @@ p ,section p{
 .tech-theme {
     .btn-primary {
         text-align: center;
-        border-radius: 28px;
+        border-radius: 35px;
         padding: 20px 40px;
         height: auto;
         min-width: 160px;
@@ -1811,14 +1803,6 @@ p ,section p{
             min-width: 130px;
             padding: 10px 5px;
             font-size: 12px;
-        }
-
-        &:after {
-            font-family: 'InformaIcons';
-            right: 15px;
-            font-weight: bold;
-            position: absolute;
-            opacity: 0;
         }
 
         &:hover {
@@ -1865,7 +1849,7 @@ p ,section p{
 
     .color-border {
         background-color: #002244;
-        border-radius: 28px;
+        border-radius: 35px;
         font-family: 'OpenSans Bold';
         font-size: 21px;
         color: #ffffff;
@@ -1932,7 +1916,7 @@ p ,section p{
                     bottom: -36px;
                     z-index: 9;
 
-                    @media screen and (max-width: 812px) {
+                    @include not-mid-tablet{
                         bottom: -22px;
                     }
                 }
@@ -2461,10 +2445,27 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
             @include mobile {
                 top: 100%;
             }
-            .event-count p {
-                font-family: 'OpenSans Bold';
-                font-size: 18px;
-                padding-top: 0;
+            .event-count {
+                p {
+                    font-family: 'OpenSans Bold';
+                    font-size: 18px;
+                    padding-top: 0;
+                }
+                .btn.ical {
+                    &::before {
+                        background-image: url(/Static/images/tech/btn-icon-cal.png);
+                    }
+                    &:hover{
+                        &::before {
+                            background-image: url(/Static/images/tech/btn-icon-cal-active.png);
+                        }
+                    }
+                    .text {
+                        font-family: 'OpenSans Bold';
+                        font-size: 18px;
+                        color: #11a7d9;
+                    }
+                }
             }
             .views .state-views .view a {
                 &.active {
@@ -2958,8 +2959,17 @@ section#hero-banner {
   
   }
   .hero-banner {
-    .vertical-align{
+    .vertical-align {
         transform: translateY(50%);
+        p {
+            color: #000;
+        }
+        &.overlay-text{
+            p {
+                color:#fff;
+            }
+            
+        }
     }
     .cf-img img{
         position: unset;
@@ -2967,10 +2977,6 @@ section#hero-banner {
         left: 0%;
         transform: translate(0%,0%);
     
-    }
-    .vertical-align p {
-       color: #000;
-      
     }
   }
  
@@ -2992,7 +2998,7 @@ section#hero-banner {
         position: relative;
         top: 0;
         left: 60px;
-        @media screen and (max-width: 812px){
+        @include not-mid-tablet{
           left: 10px;
           width: calc(100% - 10px);
         }
@@ -3036,8 +3042,40 @@ section#hero-banner {
     }
   }
   
+  #contact-us fieldset{
+      &.checkbox-fullwidth{
+        width:100%;
+      }
+      &.checkbox-50percent{
+        width:50%;
+     }
+  }
+
+  .reach-img-section {
+    .sub-headline {
+        font-family: "Aleo";
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: #024;
+        position: relative;
+        margin: 0;
+        width: calc(100% - 30px);
+        @include mobile-to-midtab{
+          left: 0;
+        }
+        @include not-mid-tablet{
+          font-size: 28px;
+          line-height: 28px;
+          left:20px;
+        }
+      }
+}
 
 
-  
+
+
+
      
  

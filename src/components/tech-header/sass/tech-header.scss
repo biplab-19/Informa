@@ -7,6 +7,9 @@ div#tech-main-header {
     background-color: #fff;
     -webkit-backface-visibility: hidden;
     padding:5px 0px;
+    @include mobile{
+        margin-bottom:75px;
+    }
 
     &.sticky {
         position: fixed;
@@ -838,7 +841,7 @@ div#tech-main-header {
         }
     }
 
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
 
         .sticky a.log-img img, div#tech-main-header a.log-img img {
             width: 180px !important;

@@ -64,6 +64,9 @@ section#gallery-team {
                     @include not-desktop {
                         padding: 0 4%;
                     }
+                    @include tablet{
+                        min-height: 70px;
+                    }
                 }
             }
         }

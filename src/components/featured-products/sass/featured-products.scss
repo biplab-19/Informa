@@ -244,6 +244,7 @@
         i.fa.fa-angle-left {
             color: #dbd600;
             font-size: 46px;
+            margin-right: -3px;
         }
     }
 
@@ -262,10 +263,11 @@
         i.fa.fa-angle-right {
             color: #dbd600;
             font-size: 46px;
+            margin-left: -3px;
         }
     }
 
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
 
         .featured-products .carousel-img .connect-box {
             height: 260px;

@@ -93,8 +93,8 @@
 
             &:hover::before {
                 content: url('/static/images/tech/three-dots-menu.svg');
-                top: 27%;
-                right: -70px;
+                top: 20%;
+                right: -78px;
                 position: absolute;
                 display: inline-block;
                 width: 53px;
@@ -102,8 +102,6 @@
         }
 
         li.listgroup-item.current {
-
-
             h4 {
                 background: #f0f0f3;
             }
@@ -115,8 +113,8 @@
 
         li.listgroup-item.current:before {
             content: url('/static/images/tech/three-dots-menu.svg');
-            top: 27%;
-            right: -70px;
+            top: 20%;
+            right: -78px;
             position: absolute;
             display: inline-block;
             width: 53px;
@@ -141,7 +139,7 @@
         border: solid $border #94bb17;
         border-radius: 0;
         flex-direction: column;
-        @media only screen and (max-width: 812px) {
+        @include not-mid-tablet{
             min-height: 415px;  
         }
 
@@ -175,7 +173,7 @@
     .brand-log {
         width: 100%;
         position: absolute;
-        bottom: 15px;
+        bottom: 32px;
 
         .row {
             margin-bottom: 25px;
@@ -283,7 +281,7 @@
     }
 
 
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
 
         .discover-community {
 
