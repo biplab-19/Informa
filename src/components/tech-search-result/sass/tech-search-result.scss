@@ -50,15 +50,15 @@ div#tech-main-header .stellarnav {
       background-color: #002244;
       height: 57px;
       border-radius: 29px;
-      @media screen and (max-width: 768px) {
+      @include mobile {
         width: 310px;
         position: absolute;
         left: 0;
         right: 0;
-        top: 128px;
+        top: 116px;
         margin: 0 auto;
       }
-      @media screen and (min-width: 769px) and (max-width: 1200px) {
+      @include tablet {
         width: 54%;
       }
 
@@ -75,11 +75,11 @@ div#tech-main-header .stellarnav {
         color: #024;
         font-size: 18px;
         display: block;
-        @media screen and (max-width: 768px) {
+        @include mobile {
           width: 246px;
           margin-right: 30px;
         }
-        @media screen and (min-width: 769px) and (max-width: 1200px) {
+        @include tablet {
           width: 100%;
         }
       }
@@ -103,7 +103,7 @@ div#tech-main-header .stellarnav {
       right: 0;
       color: #024;
       margin: 13px 20px;
-      @media screen and (max-width: 768px) {
+      @include mobile {
         margin: 13px 0px;
       }
     }
@@ -435,8 +435,8 @@ div#tech-main-header .stellarnav {
     position: absolute;
     background: #ebebeb;
     width: 100.8%;
-    height: 80px;
-    left: 0px;
-    top: 117px;
+    height:80px;
+    left: 0;
+    top: 105px;
   }
 }
