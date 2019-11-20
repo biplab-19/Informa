@@ -125,9 +125,6 @@
         font-size: 18px;
         color: #000;
     }
-    .dot-img-outer .dot-img-left {
-        background-size: 50%;
-    }
 
     .discover-community {
         margin-bottom: 2px !important;
@@ -159,10 +156,20 @@
 }
 
 .reach-img-section {
-  .sub-text-n-img {
-        display: flex;
-        align-items: center !important;
-        margin-bottom: 10px;
+
+    .sub-headline {
+        font-family: "Aleo";
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 60px;
+        text-transform: uppercase;
+        color: #024;
+        position: relative;
+        margin: 0;
+        width:calc(100% - 30px);
+        @media screen and (max-width: 812px) {
+            left:20px;
+        }
     }
 
     .global-discription {

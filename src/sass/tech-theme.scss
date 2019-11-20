@@ -85,21 +85,45 @@ body {
         p.subofsub-text {
             padding-left: 73px !important;
         }
-    } 
-
-    .imgleft .img-right {
-        margin-right: 10px !important;
-        margin-top: -8px !important;
-        width: 60px;
-    }
-
-    .imgright .img-right {
-        margin-left: 10px !important;
-        margin-top: -8px !important;
-        width: 60px;
     }
 }
 
+.sub-text-n-img {
+    overflow: hidden;
+    .dot-img-left, .dot-img-right {
+        float: left;
+        width: 80px;
+        height: 60px;
+        margin: 60px 10px 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        @media screen and (max-width: 812px) {
+            width: 34px;
+            height: 28px;
+        }
+    }
+    .dot-img-left {
+        background-image: url(/static/images/tech/leftdotted.png);
+        @media screen and (max-width: 812px) {
+            margin: 60px 3px 0 2px;
+        }
+    }
+    .dot-img-right {
+        background-image: url(/static/images/tech/rightdotted.png);
+        @media screen and (max-width: 812px) {
+            margin: 60px 2px 0 3px;
+        }
+    }
+    .sub-headline {
+        float: left;
+        width: calc(100% - 100px);
+        padding: 0;
+        @media screen and (max-width: 812px) {
+            width: calc(100% - 39px);
+        }
+    }
+}
 
 
 p.subofsub-text {
@@ -247,43 +271,6 @@ html {
 
 //*** dot-image position changes in mobile ***//
 @include mobile-to-midtab {
-    .discover-community .dot-img-left {
-        background-position: -26px 0;
-        width: 45px;
-        height: 40px;
-        background-size: 145%;
-        margin-right: 0;
-    }
-
-    .reach-img-section h2.sub-headline {
-        left: 0 !important;
-    }
-    .reach-img-section .dot-img-left {
-        background-position: -26px 0;
-        width: 45px;
-        height: 40px;
-        background-size: 145%;
-        margin-right: 0;
-    }
-    .feature-brand-corousel .dot-img-left {
-        background-position: -31px 0;
-        width: 45px;
-        height: 40px;
-        background-size: 172%;
-        margin-right:0px;
-    }
-    .featured-products .dot-img-right {
-        background-position: 4px 0;
-        width: 45px;
-        height: 40px;
-        background-size: 150%;
-        margin-right: 0;
-    }
-    
-    div.subofsub-text {
-        padding: 0 39px !important;
-    }
-    
     .reach-img-section .global-discription {
         padding: 10px 2px 0 4px !important;
     }
@@ -309,7 +296,6 @@ html {
     }
 
     .feature-brand-corousel.brand_list .sub-headline {
-        text-align: left;
         padding-left:20px;
     }
 
@@ -556,7 +542,7 @@ section#hero-banner h1 {
 }
 
 .dot-image-heading {
-    align-items: center !important;
+    align-items: start;
     margin-bottom: 10px;
     display: flex;
 }
@@ -1134,7 +1120,7 @@ section#hero-banner h1 {
 }
 
 .dot-image-heading {
-    align-items: center !important;
+    align-items: start;
     margin-bottom: 10px;
     display: flex;
 }
@@ -1181,18 +1167,6 @@ section#hero-banner h1 {
 
     .discover-community p.subofsub-text {
         padding-left: 73px !important;
-    }
-
-    .imgleft .img-right {
-        margin-right: 10px !important;
-        margin-top: -8px !important;
-        width: 60px;
-    }
-
-    .imgright .img-right {
-        margin-left: 10px !important;
-        margin-top: -8px !important;
-        width: 60px;
     }
 }
 
@@ -1520,7 +1494,7 @@ section#hero-banner h1 {
 }
 
 .dot-image-heading {
-    align-items: center !important;
+    align-items: start;
     margin-bottom: 10px;
     display: flex;
 }
@@ -1655,17 +1629,6 @@ section.brand_list .customers_list_slider .customer img {
     padding: 0;
 }
 
-.rich-text-editor .sub-text-n-img {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0;
-    padding-left: 20px;
-}
-
-.rich-text-editor .imgleft {
-    justify-content: flex-start;
-}
-
 .rich-text-editor .sub-headline {
     font-family: "Aleo";
     font-weight: normal;
@@ -1675,17 +1638,16 @@ section.brand_list .customers_list_slider .customer img {
     color: #024;
     position: relative;
     margin: 0;
-    width:calc(100% - 200px);
-    @media only screen and (max-width: 767px) {
-        width: calc(100% - 50px);
-    }
 }
 
 .rich-text-editor .rt-container{
     max-width: 1400px;
     padding: 0 100px;
-    @media only screen and (max-width: 767px) {
-        padding: 0 15px;   
+    @media screen and (max-width: 812px) {
+        padding: 0 39px;
+    }
+    @include mobile {
+        padding: 0 31.5px;
     }
     .row {
         margin-left: 0px;
@@ -1699,31 +1661,6 @@ section.brand_list .customers_list_slider .customer img {
 
 
 @media only screen and (max-width: 768px) {
-    /* line 2155, ../../../src/sass/tech-theme.scss */
-    .rich-text-editor .dot-img-left {
-        background-position: -26px 0;
-        width: 45px;
-        height: 40px;
-        background-size: 145%;
-        margin-right: 0;
-    }
-
-    .brand_list.feature-brand-corousel .dot-img-right{
-        background-position: 0px 0;
-        width: 45px;
-        height: 40px;
-        background-size: 145%;
-        margin-right: 0;
-    }
-
-    .featured-products .dot-img-left{
-        background-position: -24px 0;
-        width: 45px;
-        height: 40px;
-        background-size: 145%;
-        margin-right: 0;
-    }
-
     .color-white h1, .color-white h2 {
         color: #024 !important;
     }
@@ -1990,10 +1927,6 @@ p ,section p{
 .feature-brand-corousel.brand_list{
     padding:0px;
 }
-.feature-brand-corousel.brand_list .sub-text-n-img{
-    margin-top:0px;
-    margin-bottom:0px;
-}
 
 .single-image {
     .vertical-align {
@@ -2002,14 +1935,6 @@ p ,section p{
             @media only screen and (max-width:768px){
                 padding-left:15px;
             }
-        }
-    }
-}
-
-.rich-text-editor {
-    .sub-text-n-img {
-        .container {
-            padding-left: 0px;
         }
     }
 }
@@ -2027,14 +1952,6 @@ p ,section p{
 
             @media only screen and (max-width:768px) {
                 padding-left: 0px;
-            }
-        }
-
-        .col-xs-12.mb-20 {
-            padding-left: 0px;
-
-            @media only screen and (max-width:768px) {
-                padding-left: 12px;
             }
         }
     }
@@ -2091,16 +2008,10 @@ p ,section p{
 section#hero-banner .vertical-align.video-item h1 {
     color: #fff !important;
 }
-.rich-text-width-container .nopadding .sub-text-n-img{
-    padding:0px;
-    }
-    .featured-products .nopadding{
-        padding:0px;
-    }
 
-    .imgleft .sub-headline{
-        text-align: left;
-    }
+.featured-products .nopadding{
+    padding:0px;
+}
 
 .second-banner-left-outer .second-banner-left-inner h1 {
     color: #333;
@@ -3150,7 +3061,6 @@ section#hero-banner {
         color: #024;
         position: relative;
         margin: 0;
-        width: calc(100% - 30px);
         @include mobile-to-midtab{
           left: 0;
         }
