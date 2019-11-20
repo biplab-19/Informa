@@ -37,6 +37,11 @@
         */
     }
 
+    // this should be removed from html instead, BE ticket needed
+    .text-right {
+        text-align: left;
+    }
+
     .sub-headline {
         font-family: $font-Aleo;
         font-weight: normal;
@@ -48,30 +53,7 @@
         margin: 0;
         width:calc(100% - 30px);
     }
-
-    .imgright {
-        justify-content: flex-end;
-        align-items: start;
-
-        .img-right {
-            margin-left: 20px;
-            margin-top: -8px;
-        }
-    }
-
-    .imgleft {
-        justify-content: flex-start;
-        align-items: start;
-
-        .img-right {
-            margin-right: 20px;
-            margin-top: -8px;
-        }
-    }
-
-    .sub-text-n-img {
-        display: flex;
-    }
+    
     // primary button
     .tech-theme .btn.btnprimary.border-button {
         width: auto !important;
