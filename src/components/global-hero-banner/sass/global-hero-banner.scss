@@ -209,15 +209,6 @@
       left: 0 !important;
     }
   }
-  .dot-img-left {
-    @include mobile-to-midtab {
-      background-position: -26px 0;
-      width: 45px;
-      height: 40px;
-      background-size: 145%;
-      margin-right: 0;
-    }
-  }
   .global-discription {
     @media only screen and (max-width: 768px) {
       padding: 10px 0px 0 0px;
@@ -228,31 +219,6 @@
   }
   .nopadding {
     padding: 0;
-  }
-  .sub-text-n-img {
-    display: flex;
-    align-items: center !important;
-    margin-bottom: 10px;
-    margin-top: 25px;
-  }
-  .dot-img-left {
-    background-image: url(../../static/images/tech/leftdotted.png);
-    background-size: 100%;
-    width: 80px;
-    height: 35px;
-    background-repeat: no-repeat;
-    margin-right: 20px;
-    margin-top: 53px;
-    @include mobile-to-midtab {
-      background-position: -26px 0;
-      width: 45px;
-      height: 40px;
-      background-size: 145%;
-      margin-right: 0;
-    }
-  }
-  .imgleft .sub-headline {
-    text-align: left;
   }
   .our-reach-container {
     @media only screen and (max-width: 768px) {
@@ -707,51 +673,5 @@
   }
   .dot-img-left ,.dot-img-right {
     background-image:none;
-  }
-}
-
-.dot-img-left {
-  background-image: url(/static/images/tech/leftdotted.png);
-  background-size: 100%;
-  width: 80px;
-  height: 35px;
-  background-repeat: no-repeat;
-  margin-right: 20px;
-  margin-top: 53px;
-}
-
-.dot-img-right {
-  background-image: url(/static/images/tech/rightdotted.png);
-  background-size: 100%;
-  width: 80px;
-  height: 35px;
-  background-repeat: no-repeat;
-  margin-left: 20px;
-  margin-top: 53px;
-}
-.imgright {
-  .subheadline {
-    text-align: right;
-  }
-}
-.text-right {
-  div.subofsub-text {
-    float: right;
-    margin-right: 18px;
-    @include mid-tablet {
-      margin-right: 100px;
-    }
-
-  }
-  .imgright {
-    .dot-img-right {
-      @include not-mid-tablet {
-          background-position: 0px 0;
-          width: 45px;
-          height: 40px;
-          background-size: 145%;
-          margin-right: 0;
-      }
-    }
   }
 }
