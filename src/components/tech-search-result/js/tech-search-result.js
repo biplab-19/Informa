@@ -472,7 +472,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         adaptiveHeight: true,
         responsive: [
             {
-                breakpoint: 768,
+                breakpoint: 900,
                 settings: {
                     arrows: true,
                     centerMode: true,
