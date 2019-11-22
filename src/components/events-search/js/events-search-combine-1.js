@@ -1057,6 +1057,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
     InformaEventsController = {
         BodyContainer: $('body'),
+        EventExportButton:$(".export"),
         EventsContainer: $('#events-calendar'),
         EventsListContainers: $('#events-calendar .events-list'),
         NoEventsContainer: $('#events-calendar .no-result'),
@@ -1118,6 +1119,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.MoreBtn.click(function () {
                 that.LoadMoreEvents();
             });
+            this.EventExportButton.click(function (){
+				that.DownloadEvents();
+			})
         },
         AddInfiniteScrollEvent: function() {
             var that = this,
@@ -1208,7 +1212,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 that.ActualCount = that.PageNum > 1 ? that.ActualCount + eventsCount : eventsCount;
 
                 // if actual events count = 0 then dont do anything else
-                if (eventsCount === 0) return;
+                if (eventsCount === 0) { that.EventExportButton.hide(); return;}
+                that.EventExportButton.show();
 
                 // render calendar after eventscount check because global no-events message handles no events
                 InformaFC.RenderView(data);
@@ -1225,6 +1230,17 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.ErrorContainer.removeClass('hidden');
             this.NoEventsContainer.addClass('hidden');
             this.EventsListContainers.filter('.active').addClass('hidden');
+        },
+        DownloadEvents: function () {
+            var that = this,
+                sendData;
+            sendData = this.GetSendData();
+            $("#data").val(sendData);
+            $("#formDownloadEvent").submit();
+            if (!sendData) {
+                this.ShowError();
+                return;
+            }
         },
         GetSendData: function() {
             var that = this,
