@@ -2,7 +2,7 @@
   width: 100%;
   float: left;
   position: relative;
-  min-height: 400px;
+  
   @include mobile {
     position: initial;
     max-width: 100%;
@@ -115,7 +115,7 @@
 
       .for-left,
       .for-right {
-        max-width: 50%;
+        max-width: 60%;
         @include mobile {
           max-width: 100%;
         }
@@ -142,7 +142,7 @@
         text-align: right;
       }
       .for-center {
-        max-width: 50%;
+        max-width: 60%;
         margin: 0 auto;
         text-align: center;
         @include mobile {
