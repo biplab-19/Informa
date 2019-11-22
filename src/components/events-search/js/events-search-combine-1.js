@@ -1157,17 +1157,17 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.NoEventsContainer.addClass('hidden');
             this.EventsListContainers.filter('.active').addClass('hidden');
         },
-        DownloadEvents:function (){
+        DownloadEvents: function () {
             var that = this,
-               sendData;
-           sendData = this.GetSendData();
-           $("#data").val(sendData);
-           $("#formDownloadEvent").submit();			
-           if (!sendData) {
-               this.ShowError();
-               return;
-           }
-       },
+                sendData;
+            sendData = this.GetSendData();
+            $("#data").val(sendData);
+            $("#formDownloadEvent").submit();
+            if (!sendData) {
+                this.ShowError();
+                return;
+            }
+        },
         GetSendData: function() {
             var that = this,
                 sendDataObj = {},

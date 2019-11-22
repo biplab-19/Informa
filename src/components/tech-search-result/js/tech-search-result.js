@@ -458,7 +458,6 @@ INFORMA.TechSearch = (function (window, $, namespace) {
 
 
     $('#txtPageNumber').on("keyup", function (event) {
-        debugger
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
             document.getElementById("myBtn").click();
