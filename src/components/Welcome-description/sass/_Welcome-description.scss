@@ -1,6 +1,6 @@
 section.welcome-description{
   padding-top: 20px;
-  font-family: FSMe-light;
+  font-weight: 200;
   margin-bottom: 20px;
   // @include mobile {
   //   padding-top: 50px;
@@ -17,21 +17,21 @@ section.welcome-description{
          padding-bottom: 30px;
        }
        span.title{
-           font-family: FSMe-light;
-           display: inline-block;
-           font-size: 30px;
+          font-weight: 200;
+          display: inline-block;
+          font-size: 30px;
        }
      }
     .registered{
        .reg-title{
            position: relative;
            font-size: 40px;
-           font-family: FSMe-light;
+           font-weight: 200;
           //  &:before{
           //    position: absolute;
           //    font-family: "InformaIcons";
           //    content: "\e91a";
-          //    font-family: FSMe-bold;
+          //    font-weight: bold;
           //    color: $black;
           //    @include mobile {
           //      top: -50px;
@@ -40,7 +40,7 @@ section.welcome-description{
            strong.wel-text{
              display: inline-block;
              font-size: 40px;
-             font-family: FSMe-bold;
+             font-weight: bold;
              @include mobile {
                padding-left: 0px;
                margin-bottom: 20px;
@@ -67,7 +67,7 @@ section.welcome-description{
          content: "\e916";
          font-size: 20px;
          top: 50%;
-         font-family: FSMe-bold;
+         font-weight: bold;
          color: $black;
          @include mobile {
            top: 32%;
@@ -78,7 +78,7 @@ section.welcome-description{
           color: $black;
           display: inline-block;
          padding-left: 20px;
-         font-family: FSMe-bold;
+         font-weight: bold;
          &:after{
            font-family: "InformaIcons";
            content: "\e900";

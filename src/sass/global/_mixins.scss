@@ -115,7 +115,7 @@ $mid-tablet:813px;
 }
 
 @mixin family-style($weight, $color) {
-    font-family: $weight;
+    font-weight: $weight;
     color: $color;
 }
 
@@ -493,7 +493,7 @@ $mid-tablet:813px;
                     top: 7px;
                     @extend .background-link;
                     @include border-radius(50%);
-                    font-family: 'FS Me Bold'; //discuss
+                    font-weight: bold;
                 }
             }
         }
@@ -1065,8 +1065,7 @@ $mid-tablet:813px;
                 @else {
                     color: $white;
                 }
-
-                font-family: 'FSMe-bold';
+                font-weight: bold;
             }
 
             &.right .arrow:after {

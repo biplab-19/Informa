@@ -54,7 +54,7 @@
                 width: auto;
             }
             h1{
-                font-family: FSMe-Light;
+                font-weight: 200;
                 padding: 40px 0px;
                  @include mobile{
                     padding: 0;
@@ -336,7 +336,7 @@
             }
         }
         .btn {
-            font-family: FSMe-Bold;
+            font-weight: bold;
             width: 110%;
             color: $light;
             padding: 15px;
@@ -354,7 +354,7 @@
             right: 10px;
         }
         .subtext {
-            font-family: FSMe-Bold;
+            font-weight: bold;
             font-size: 17px;
             padding-bottom: 24px;
             @include mobile {
@@ -367,7 +367,7 @@
             }
         }
         .date {
-            font-family: FSMe-Light;
+            font-weight: 200;
             font-size: 14px;
             padding-bottom: 30px;
             //float: left;
@@ -381,16 +381,16 @@
             }
         }
         .by{
-          font-family: FSMe-Bold;
-          font-size: 14px;
-          padding-bottom: 24px;
-          margin-left: 20px;
-          @include mobile {
-              display: block;
-              font-size: 13px;
-              margin-left: 0px;
-              padding-bottom: 5px;
-          }
+            font-weight: bold;
+            font-size: 14px;
+            padding-bottom: 24px;
+            margin-left: 20px;
+            @include mobile {
+                display: block;
+                font-size: 13px;
+                margin-left: 0px;
+                padding-bottom: 5px;
+            }
         }
         .topic-name{
             padding:0 10px;
@@ -446,7 +446,7 @@
             a {
                 text-decoration:underline !important;
                 margin:0 10px;
-                font-family:'FSMe-Bold';
+                font-weight: bold;
                 @include mobile{
                     margin: 0;
                     float: left;
@@ -458,7 +458,7 @@
           text-decoration: underline;
         }
         .description {
-            font-family: FSMe-Light;
+            font-weight: 200;
             font-size: 14px;
             padding-bottom: 30px;
             @include mobile {
@@ -478,12 +478,12 @@
             z-index: 9;
             span{
                 &:first-child{
-                    font-family: FSMe-Light;
+                    font-weight: 200;
                     margin-right: 10px;
                 }
                 a{
                     text-decoration: underline;
-                    font-family: FSMe-Bold;
+                    font-weight: bold;
                     color: $white;
                 }
             }
@@ -523,11 +523,11 @@
             padding: 0;
             font-size: 14px;
             color: $light;
-            font-family: FSMe-Light;
+            font-weight: 200;
             .priceDetails {
                 span.price {
                     font-size: 24px;
-                    font-family: FSMe-Bold;
+                    font-weight: bold;
                     &:before{
                       content:"\00a3";
                       font-weight: bold;
@@ -535,7 +535,7 @@
                 }
             }
             .headline {
-                font-family: FSMe-Bold;
+                font-weight: bold;
                 @include mobile{
                     margin-top: 5px;
                 }
@@ -551,7 +551,6 @@
         .cta2 {
             min-width: auto;
             min-width: initial;
-            font-family: FSMe;
             @include mobile{
                 margin-left: -7.5px;
                 margin-top: 15px;
@@ -573,7 +572,7 @@
             }
         }
         .cta3 {
-            font-family: FSMe-Light;
+            font-weight: 200;
             font-size: 16px;
             color: $orange;
             @include mobile {
@@ -592,11 +591,10 @@
                 @include tablet{
                     margin-left: -15px;
                 }
-				font-family: FSMe;
             }
         }
         .share {
-            font-family: FSME-bold;
+            font-weight: bold;
             text-align: center;
             padding-top: 13px;
             display: inline-block;
@@ -658,7 +656,7 @@
     }
     a {
         color: $white;
-        font-family: 'FSMe-Bold';
+        font-weight: bold;
         display: inline-block;
         text-decoration: underline;
     }
@@ -745,7 +743,7 @@
 	    	}
 	    	h3{
 	    		margin-top: 40px;
-                font-family: 'FSMe-Bold';
+                font-weight: bold;
                 color: $white;
                 @include mobile {
                     margin-top: 15px;
@@ -756,7 +754,7 @@
 	    	}
 	    	.btn{
 	    		padding-right: 40px;
-                font-family: 'FSMe-Bold';
+                font-weight: bold;
                 min-width: 275px;
                 width:auto;
 	    	}
@@ -806,7 +804,7 @@
                 color: $white;
             }
              h3 {
-                font-family: 'FSMe-Light';
+                font-weight: 200;
                 line-height: 1.2;
             }
         }
@@ -815,7 +813,7 @@
         }
         h2 {
             font-size: 30px;
-            font-family: 'FSMe-Light';
+            font-weight: 200;
         }
         .image{
             img{
@@ -893,7 +891,7 @@ div.at4-share-outer {
     .hero-col-heading{
         width: auto;
         h1{
-            font-family: FSMe-Light;
+            font-weight: 200;
             padding: 40px 0px;
             @include mobile{
                 padding: 0;
