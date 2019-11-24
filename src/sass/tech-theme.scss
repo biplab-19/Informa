@@ -8,8 +8,8 @@
    4. Secondary Color Lighter Version
    5. NavLink Color
 */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@import url('https://fonts.googleapis.com/css?family=Aleo');
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+// @import url('https://fonts.googleapis.com/css?family=Aleo');
 
 //tech Theme
 /*
@@ -17,34 +17,57 @@
 */
 /*fonts*/
 @font-face {
-    font-family: "Aleo Bold";
-    src: url("../fonts/aleo.bold.otf");
+    font-family: 'SWBrandFont';
+    src: url('../fonts/OpenSans-Regular.eot');  
+    src:  url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Regular.ttf')  format('truetype'),
+    url('../fonts/OpenSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SWBrandFont';
+    src: url('../fonts/OpenSans-Bold.eot');  
+    src:  url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Bold.ttf')  format('truetype'),
+    url('../fonts/OpenSans-Bold.woff') format('woff');
     font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SWBrandFont';
+    src: url('../fonts/OpenSans-SemiBold.eot');  
+    src:  url('../fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-SemiBold.ttf')  format('truetype'),
+    url('../fonts/OpenSans-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SWBrandFont';
+    src: url('../fonts/OpenSans-Light.eot');  
+    src:  url('../fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Light.ttf')  format('truetype'),
+    url('../fonts/OpenSans-Light.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
 }
 
 @font-face {
-    font-family: "Aleo Regular";
+    font-family: 'SWTechBrandFont';
     src: url("../fonts/aleo.regular.otf");
     font-weight: normal;
 }
 
 @font-face {
-    font-family: "OpenSans Light";
-    src: url("../fonts/OpenSans-Light.ttf");
+    font-family: 'SWTechBrandFont';
+    src: url("../fonts/aleo.bold.otf");
+    font-weight: bold;
 }
 
-@font-face {
-    font-family: "OpenSans Bold";
-    src: url("../fonts/OpenSans-Bold.ttf");
-}
-
-@font-face {
-    font-family: "OpenSans Regular";
-    src: url("../fonts/OpenSans-Regular.ttf");
-}
 body {
     background: #fff !important;
-    font-family: 'OpenSans Light';
+    font-weight: 200;
     font-size: 18px;
     line-height: 28px;
     color: #555555;
@@ -248,10 +271,6 @@ div.subofsub-text {
     color: #03A9F4;
     border-bottom: 0px solid #fff;
     word-wrap: break-word;
-}
-
-html {
-    font-family: open sans-serif;
 }
 
 @media screen and (max-width:768px) and (min-width:320px) {
@@ -578,12 +597,6 @@ section#hero-banner h1 {
     }
 }
 /*end Rich Text editor containor*/
-/***Hero-Banner**/
-section p {
-    clear: both;
-    padding-top: 15px;
-}
-
 /***Hero-Banner-End**/
 /*feature CTA Contact Form*/
 .mc-button-div-contact {
@@ -655,7 +668,7 @@ section p {
 #contact-us .modal-content, #contact-us form {
     background: #fff;
     color: #000;
-    font-family: "Aleo";
+    font-family: 'SWTechBrandFont';
     border-radius: 30px;
     padding: 10px;
     box-shadow: none;
@@ -696,7 +709,7 @@ section p {
     height: auto;
     font-weight: 700;
     min-width: 160px;
-    font-family: 'Open Sans',sans-serif;
+    font-weight: normal;
     font-size: 14px;
     width: auto;
 
@@ -1272,10 +1285,6 @@ p.subofsub-text {
     word-wrap: break-word;
 }
 
-html {
-    font-family: open sans-serif;
-}
-
 @media screen and (max-width:768px) and (min-width:320px) {
     #social-section .twitter-carousel .slick-prev:before, #social-section .twitter-carousel .slick-next:before {
         top: 40px;
@@ -1629,7 +1638,7 @@ section.brand_list .customers_list_slider .customer img {
 }
 
 .rich-text-editor .sub-headline {
-    font-family: "Aleo";
+    font-family: 'SWTechBrandFont';
     font-weight: normal;
     font-size: 48px;
     line-height: 60px;
@@ -1667,7 +1676,8 @@ section.brand_list .customers_list_slider .customer img {
 /*Rich text editor global style end*/
 
 h1 {
-    font-family: 'Aleo Regular' !important;
+    font-family: 'SWTechBrandFont' !important;
+    font-weight: normal !important;
     font-size: 48px !important;
     line-height: 60px !important;
     text-transform: uppercase !important;
@@ -1681,8 +1691,8 @@ h1 {
 }
 
 h2 {
-    /*font-family: 'Aleo Bold' !important;*/
-    font-family: 'Aleo Regular' !important;
+    font-family: 'SWTechBrandFont' !important;
+    font-weight: normal !important;
     font-size: 48px !important;
     line-height: 60px !important;
     text-transform: uppercase !important;
@@ -1698,7 +1708,8 @@ h2 {
 }
 
 h3 {
-    font-family: 'OpenSans Light' !important;
+    font-family: 'SWBrandFont' !important;
+    font-weight: 200 !important;
     font-size: 34px !important;
     line-height: 48px !important;
     color: #002244 !important;
@@ -1710,7 +1721,8 @@ h3 {
 }
 
 h4 {
-    font-family: 'OpenSans Light' !important;
+    font-family: 'SWBrandFont' !important;
+    font-weight: 200 !important;
     font-size: 24px !important;
     line-height: 34px !important;
     color: #555555 !important;
@@ -1721,20 +1733,9 @@ h4 {
     }
 }
 
-body {
-    font-family: 'OpenSans Light';
-    font-size: 18px;
-    line-height: 28px;
-    color: #555555;
-
-    @media only screen and (max-width: 768px) {
-        font-size: 16px;
-        line-height: 20px;
-    }
-}
-
 .b-one{
-    font-family: 'OpenSans Light' !important;
+    font-family: 'SWBrandFont' !important;
+    font-weight: 200 !important;
     font-size: 18px !important;
     line-height: 28px !important;
     color: #555555 !important;
@@ -1746,20 +1747,27 @@ body {
 }
 
 
-p ,section p{
-    font-family: 'OpenSans Light';
+p, section p {
+    clear: both;
+    padding-top: 15px;
     font-size: 18px;
     line-height: 28px;
     color: #555555;
-
+    &:first-child {
+        padding-top: 0;
+    }
     @media only screen and (max-width: 768px) {
         font-size: 16px;
         line-height: 26px;
     }
+    strong {
+        font-weight: normal;
+    }
 }
 
 .b-two {
-    font-family: 'OpenSans Bold' !important;
+    font-family: 'SWBrandFont' !important;
+    font-weight: bold !important;
     font-size: 16px !important;
     line-height: 26px !important;
     color: #555555 !important;
@@ -1771,7 +1779,8 @@ p ,section p{
 }
 
 .b-three {
-    font-family: 'OpenSans Regular' !important;
+    font-family: 'SWBrandFont' !important;
+    font-weight: normal !important;
     font-size: 14px !important;
     line-height: 24px !important;
     color: #555555 !important;
@@ -1789,7 +1798,7 @@ p ,section p{
         padding: 20px 40px;
         height: auto;
         min-width: 160px;
-        font-family: 'OpenSans Bold';
+        font-weight: bold;
         font-size: 21px;
         width: auto;
         background-color: #002244;
@@ -1816,7 +1825,7 @@ p ,section p{
         padding: 15px 30px;
         height: auto;
         min-width: 160px;
-        font-family: 'OpenSans Bold';
+        font-weight: bold;
         font-size: 18px;
         width: auto;
         background-color: #002244;
@@ -1849,7 +1858,7 @@ p ,section p{
     .color-border {
         background-color: #002244;
         border-radius: 35px;
-        font-family: 'OpenSans Bold';
+        font-weight: bold;
         font-size: 21px;
         color: #ffffff;
         padding: 20px 40px;
@@ -1868,7 +1877,7 @@ p ,section p{
     .color-border-small {
         background-color: #002244;
         border-radius: 22px;
-        font-family: 'OpenSans Bold';
+        font-weight: bold;
         font-size: 21px;
         color: #ffffff;
         padding: 15px 30px;
@@ -1887,7 +1896,7 @@ p ,section p{
     .our-reach-section {
         .researchsubs .numberntext {
             font-size: 70px;
-            font-weight: bold;
+            font-weight: normal;
             color: #92b20a;
             display: flex;
             justify-content: center;
@@ -2365,7 +2374,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 display: none;
             }
             .chosen-container-single {
-                font-family: 'OpenSans Regular';
+                font-weight: normal;
                 font-size: 18px;
                 .chosen-single {
                     color: #002244;
@@ -2428,11 +2437,11 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         .filter-section {
             font-size: 18px;
             .heading {
-                font-family: 'OpenSans Bold';
+                font-weight: bold;
             }
             .active-filters .filter {
                 .text {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                 }
                 .icon-close:before {
                     color: #002244;
@@ -2446,7 +2455,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
             }
             .event-count {
                 p {
-                    font-family: 'OpenSans Bold';
+                    font-weight: bold;
                     font-size: 18px;
                     padding-top: 0;
                     width:auto;
@@ -2462,7 +2471,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                         }
                     }
                     .text {
-                        font-family: 'OpenSans Bold';
+                        font-weight: bold;
                         font-size: 18px;
                         color: #11a7d9;
                     }
@@ -2515,7 +2524,8 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
     #events-calendar {
         & > .header {
             h2 {
-                font-family: 'OpenSans Light' !important;
+                font-family: 'SWBrandFont' !important;
+                font-weight: 200 !important;
                 font-size: 34px !important;
                 line-height: 48px !important;
                 margin: 0 !important;
@@ -2557,7 +2567,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     .header {
                         .date {
                             padding: 11px 0 0;
-                            font-family: 'OpenSans Bold';
+                            font-weight: bold;
                             font-size: 26px;
                             line-height: 32px;
                             color: #002244;
@@ -2579,7 +2589,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                                 }
                             }
                             .text {
-                                font-family: 'OpenSans Bold';
+                                font-weight: bold;
                                 font-size: 18px;
                                 color: #11a7d9;
                             }
@@ -2588,7 +2598,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     .content-wrap {
                         .type {
                             padding-top: 0;
-                            font-family: 'OpenSans Regular';
+                            font-weight: normal;
                             color: #555555;
                         }
                         .content {
@@ -2598,7 +2608,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                             }
                             .title-body {
                                 width: calc(100% - 100px);
-                                font-family: 'OpenSans Regular';
+                                font-weight: normal;
                                 color: #555555;
                             }
                             &.description {
@@ -2628,7 +2638,8 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         [data-view="list-view"] {
             .month-divider {
                 h3 {
-                    font-family: 'OpenSans Bold' !important;
+                    font-family: 'SWBrandFont' !important;
+                    font-weight: bold !important;
                     font-size: 24px !important;
                     line-height: 48px !important;
                     color: #555555 !important;
@@ -2639,7 +2650,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     .dates {
                         .date {
                             padding: 11px 0 0;
-                            font-family: 'OpenSans Bold';
+                            font-weight: bold;
                             font-size: 26px;
                             line-height: 32px;
                             color: #002244;
@@ -2649,7 +2660,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     .content-wrap {
                         .type {
                             padding-top: 0;
-                            font-family: 'OpenSans Regular';
+                            font-weight: normal;
                             color: #555555;
                         }
                         .content {
@@ -2659,7 +2670,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                             }
                             .title-body {
                                 width: calc(100% - 100px);
-                                font-family: 'OpenSans Regular';
+                                font-weight: normal;
                                 color: #555555;
                             }
                             &.ctas {
@@ -2684,7 +2695,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                                             }
                                         }
                                         .text {
-                                            font-family: 'OpenSans Bold';
+                                            font-weight: bold;
                                             font-size: 18px;
                                             color: #11a7d9;
                                         }
@@ -2711,7 +2722,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
         [data-view="calendar-view"] {
             [data-datetype="month"] {
                 .fc th {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                     font-size: 14px;
                     line-height: 24px;
                     color: #555555;
@@ -2733,13 +2744,13 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
                 .fc-day-top {
                     padding: 0 10px 10px;
-                    font-family: 'OpenSans Bold';
+                    font-weight: bold;
                     font-size: 16px;
                     line-height: 16px;
                     color: #555555;
                     @include mobile {
                         padding: 0;
-                        font-family: 'OpenSans Regular';
+                        font-weight: normal;
                     }
                     &.event-now {
                         color: #002244;
@@ -2747,7 +2758,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
                 .fc-day {
                     .more {
-                        font-family: 'OpenSans Regular';
+                        font-weight: normal;
                         font-size: 12px;
                         line-height: 16px;
                         color: #11a7d9;
@@ -2799,14 +2810,14 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     }
                 }
                 .fc-more-cell {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                     font-size: 12px;
                     line-height: 16px;
                     color: #11a7d9;
                 }
                 .fc-event-container {
                     .events p {
-                        font-family: 'OpenSans Regular';
+                        font-weight: normal;
                         font-size: 12px;
                         line-height: 16px;
                         color: #555555;
@@ -2821,14 +2832,15 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                 }
                 .fc-toolbar {
                     h2 {
-                        font-family: 'OpenSans Bold' !important;
+                        font-family: 'SWBrandFont' !important;
+                        font-weight: bold !important;
                         font-size: 26px !important;
                         line-height: 48px !important;
                         margin: 0 !important;
                     }
                 }
                 .fc th {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                     font-size: 14px;
                     line-height: 24px;
                     color: #002244;
@@ -2845,7 +2857,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
                     }
                 }
                 .fc-day-top {
-                    font-family: 'OpenSans Regular';
+                    font-weight: normal;
                     font-size: 16px;
                     line-height: 16px;
                     color: #555555;
@@ -3054,7 +3066,7 @@ section#hero-banner {
 
   .reach-img-section {
     .sub-headline {
-        font-family: "Aleo";
+        font-family: "SWTechBrandFont";
         font-weight: normal;
         font-size: 48px;
         line-height: 60px;

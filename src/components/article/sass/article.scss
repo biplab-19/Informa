@@ -76,8 +76,7 @@
   a {
     font-size: 30px;
     line-height: 35px;
-    font-family: "OpenSans Light";
-    font-weight: lighter;
+    font-weight: 200;
     color: #024;
     padding-bottom: 0px;
     display: inline;
@@ -109,7 +108,7 @@
     font-size: 16px;
     line-height: 16px;
     margin-top: 7px;
-    font-family: "OpenSans Bold";
+    font-weight: bold;
     &:last-child {
       border-right: none;
     }
@@ -141,8 +140,7 @@
   a {
     font-size: 30px;
     line-height: 20px;
-    font-family: "OpenSans Light";
-    font-weight: lighter;
+    font-weight: 200;
     color: #002244;
     border-bottom: 1px solid transparent;
     padding-bottom: 4px;
@@ -164,12 +162,11 @@
 a.artcl-read-more {
   color: #11a7d9;
   font-size: 16px;
-  font-family: "OpenSans Bold";
+  font-weight: bold;
   margin-left: 5px;
   i {
     color: #11a7d9;
     font-size: 16px;
-    font-family: "OpenSans Bold";
     font-family: fontawesome;
   }
   &:hover {
@@ -180,8 +177,7 @@ a.artcl-read-more {
 
 .related-content-head {
   font-size: 16px;
-  font-weight: lighter;
-  font-family: "Open Sans", sans-serif;
+  font-weight: 200;
   color: #002244;
   border-bottom: 1px solid #555;
   padding-bottom: 5px;
@@ -606,7 +602,7 @@ a.artcl-read-more {
         content: 'Filters';
         display: block;
         margin-bottom: 30px;
-        font-family: 'Aleo Regular';
+        font-family: 'SWTechBrandFont';
         font-size: 28px;
         line-height: 35px;
         text-transform: uppercase;
