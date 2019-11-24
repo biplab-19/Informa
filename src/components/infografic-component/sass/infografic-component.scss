@@ -16,7 +16,7 @@
             }
             p {
                 padding-left: 100px;
-                font-family:"OpenSans Light";
+                font-weight: 200;
                 font-size:18px;
                 color:#000;
                 @media screen and (max-width: 812px) {
@@ -48,7 +48,7 @@
                         margin-bottom: 22px;
                     }
                     .heading{
-                        font-family: 'OpenSans Bold';
+                        font-weight: bold;
                         font-size:20px;
                         color:#002244;
                         @include mobile{
@@ -57,7 +57,7 @@
 
                     }
                     .discription{
-                        font-family: 'OpenSans Light';
+                        font-weight: 200;
                         font-size:20px;
                         color:#002244;
                         @include mobile{

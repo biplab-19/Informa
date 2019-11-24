@@ -5,22 +5,29 @@
 
 @font-face {
     font-family: 'FSMe';
-    src: url('../fonts/FSMe.eot?#iefix') format('embedded-opentype'), url('../fonts/FSMe.ttf') format('truetype'), url('../fonts/FSMe.woff') format('woff');
+    src: url('../fonts/FSMeWeb-Regular.eot');  
+    src:  url('../fonts/FSMeWeb-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/FSMe.ttf')  format('truetype'),
+        url('../fonts/FSMe.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
-    font-family: 'FSMe-Bold';
-    src: url('../fonts/FSMe-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/FSMe-Bold.ttf') format('truetype'), url('../fonts/FSMe-Bold.woff') format('woff');
-    font-weight: normal;
+    font-family: 'FSMe';
+    src: url('../fonts/FSMeWeb-Bold.eot');  
+    src:  url('../fonts/FSMeWeb-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/FSMe-Bold.ttf')  format('truetype'),
+        url('../fonts/FSMe-Bold.woff') format('woff');
+    font-weight: bold;
     font-style: normal;
 }
-
 @font-face {
-    font-family: 'FSMe-Light';
-    src: url('../fonts/FSMe-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/FSMe-Light.ttf') format('truetype'), url('../fonts/FSMe-Light.woff') format('woff');
-    font-weight: normal;
+    font-family: 'FSMe';
+    src: url('../fonts/FSMeWeb-Light.eot');  
+    src:  url('../fonts/FSMeWeb-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/FSMe-Light.ttf')  format('truetype'),
+        url('../fonts/FSMe-Light.woff') format('woff');
+    font-weight: 200;
     font-style: normal;
 }
 
@@ -162,7 +169,8 @@
 .marketing-banner .row .content h1 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'FSMe-Bold';
+    font-family: 'FSMe';
+    font-weight: bold;
     font-size: 40px;
     font-weight: 400;
 }
@@ -173,7 +181,8 @@
 .marketing-banner .row .content h2 {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: 'FSMe-Bold';
+    font-family: 'FSMe';
+    font-weight: bold;
     font-size:39px;
     font-weight: 400;
     color: #fff;
@@ -185,7 +194,8 @@
 
 .marketing-banner .row .content h3 {
     margin-top: 40px;
-    font-family: 'FSMe-Bold';
+    font-family: 'FSMe';
+    font-weight: bold;
     color: #fff;
     font-size: 28px;
     line-height: 1.4;
@@ -210,7 +220,8 @@
 
 .marketing-banner .row .content .btn {
     padding-right: 40px;
-    font-family: 'FSMe-Bold';
+    font-family: 'FSMe';
+    font-weight: bold;
     min-width: 275px;
     font-weight: 400;
 }
@@ -275,7 +286,8 @@
 
 .marketing-banner.Variation1 .description {
     font-size: 18px;
-    font-family: 'FSMe-Light';
+    font-family: 'FSMe';
+    font-weight: 200;
     padding: 40px 0;
 }
 
@@ -309,7 +321,8 @@
     color: #fff;
 }
 .marketing-banner.Variation2 h3 {
-    font-family: 'FSMe-Light' !important;
+    font-family: 'FSMe' !important;
+    font-weight: 200 !important;
     color: #fff;
     font-weight: normal;
 }
@@ -323,7 +336,8 @@
 .marketing-banner.Variation2 .Variant2-description p{
     color: #fff;
     line-height: 1.5;
-    font-family: 'FSMe-Light';
+    font-family: 'FSMe';
+    font-weight: 200;
 }
 /* line 461, ../fonts/../fonts/../fonts/src/sass/global/_banner.scss */
 .marketing-banner.Variation2 .Variant2-description .btn {
@@ -363,7 +377,8 @@
 
 .marketing-banner.Variation2 .description strong {
     font-size: 24px;
-    font-family: 'FSMe-Bold';
+    font-family: 'FSMe';
+    font-weight: bold;
 }
 
 /* line 479, ../fonts/../fonts/../fonts/src/sass/global/_banner.scss */
@@ -398,7 +413,8 @@
     .marketing-banner .row .content h1 {
       margin-top: 0;
       margin-bottom: 0;
-      font-family: 'FSMe-Bold';
+      font-family: 'FSMe';
+      font-weight: bold;
       font-size: 30px;
       font-weight: 400;
   }

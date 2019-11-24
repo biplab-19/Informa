@@ -1,23 +1,23 @@
-@font-face {
-  font-family: 'OpenSans Regular';
-  src: url('../fonts/OpenSans-Regular.eot');
-  src:  url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/OpenSans-Regular.ttf')  format('truetype'),
-  url('../fonts/OpenSans-Regular.woff') format('woff');
-}
-@font-face {
-  font-family: 'OpenSans SemiBold';
-  src: url('../fonts/OpenSans-SemiBold.ttf')  format('truetype');
-}
+// @font-face {
+//   font-family: 'OpenSans Regular';
+//   src: url('../fonts/OpenSans-Regular.eot');
+//   src:  url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+//   url('../fonts/OpenSans-Regular.ttf')  format('truetype'),
+//   url('../fonts/OpenSans-Regular.woff') format('woff');
+// }
+// @font-face {
+//   font-family: 'OpenSans SemiBold';
+//   src: url('../fonts/OpenSans-SemiBold.ttf')  format('truetype');
+// }
 
-@font-face {
-  font-family: 'OpenSans Bold';
-  src: url('../fonts/OpenSans-Bold.eot');
-  src:  url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/OpenSans-Bold.ttf')  format('truetype'),
-  url('../fonts/OpenSans-Bold.woff') format('woff');
+// @font-face {
+//   font-family: 'OpenSans Bold';
+//   src: url('../fonts/OpenSans-Bold.eot');
+//   src:  url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+//   url('../fonts/OpenSans-Bold.ttf')  format('truetype'),
+//   url('../fonts/OpenSans-Bold.woff') format('woff');
 
-}
+// }
 
  
 .divisional-footer {
@@ -73,7 +73,7 @@
           a {
             color: #ffffff;
             font-size: 14px;
-            font-family: "OpenSans Regular";
+            font-weight: normal;
             &:hover{
               text-decoration: underline;
             }
@@ -112,7 +112,7 @@
     .privacy-policy {
       font-size: 14px;
       text-align: right;
-      font-family: "OpenSans Regular";
+      font-weight: normal;
       padding: 35px 15px;
       max-width:1200px;
       @media screen and (max-width: 1250px) {
@@ -126,7 +126,7 @@
       p {
         color: #ffffff;
         padding: 0 0px 0 18%;
-        font-family: "OpenSans Regular";
+        font-weight: normal;
         font-size: 14px;
         @media screen and (max-width:1250px) {
           padding:0px;
@@ -179,7 +179,7 @@
       
     }
     .heading {
-      font-family: "OpenSans SemiBold";
+      font-weight: 600;
       font-size: 14px;
       text-transform: uppercase;
       color: #fff;
@@ -200,7 +200,7 @@
           a {
             font-size: 14px;
             color: #ffffff;
-            font-family: "OpenSans Regular";
+            font-weight: normal;
             &:hover{
                 text-decoration: underline;
             }

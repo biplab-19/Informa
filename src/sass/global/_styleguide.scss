@@ -5,14 +5,14 @@ body {
 section {
     // Grey heading only.. Rest should be overriden on component level
     h1 {
-        @include family-style(FSMe-Bold , $white);
+        @include family-style(bold,$white);
         @include heading-font-size(55px,40px,30px);
         @include heading-line-height(60px,45px,36px);
         @include margin-reset;
     }
     // light font which comes after h1
     h2 {
-        @include family-style(FSMe-Bold , $grey-color05 );
+        @include family-style(bold,$grey-color05);
         @include heading-font-size(40px,30px,24px);
         @include heading-line-height(40px,36px,30px);
         @include heading-padding((45px 0),(35px 0),(25px 0));
@@ -20,39 +20,38 @@ section {
     }
 
     h3 {
-        @include family-style(FSMe-Light ,$grey-color05 );
+        @include family-style(200,$grey-color05);
         @include heading-font-size(30px,24px,22px);
         @include heading-line-height(30px,30px,30px);
         @include margin-reset;
         &.light {
-            //@include family-style(FSMe-Light ,$grey-color03);
-            @include family-style(FSMe-Light ,$light);
+            @include family-style(200,$light);
         }
     }
 
     h4 {
-        @include family-style(FSMe ,$grey-color05 );
+        @include family-style(normal,$grey-color05);
         @include heading-font-size(24px,18px,18px);
         @include heading-line-height(30px,26px,26px);
         &.light {
-           @include family-style(FSMe-Light ,$grey-color03);
+           @include family-style(200,$grey-color03);
         }
     }
 
     h5{
-        @include family-style(FSMe-Light ,$grey-color05 );
+        @include family-style(200,$grey-color05);
         @include heading-font-size(18px,16px,16px);
         @include heading-line-height(26px,24px,24px);
     }
 
     h6 {
-        @include family-style(FSMe-Light ,$grey-color03);
+        @include family-style(200,$grey-color03);
         @include heading-font-size(16px,14px,14px);
         @include heading-line-height(24px,22px,22px);
     }
 
     p{
-        @include family-style(FSMe-Light ,$grey-color04);
+        @include family-style(200,$grey-color04);
         @include heading-font-size(14px,13px,12px);
         @include heading-line-height(22px,21px,20px);
     }

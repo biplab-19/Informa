@@ -14,12 +14,12 @@ section.feature-list-section {
         margin-bottom: 25px;
         color: $grey-color04;
         font-size: 16px;
-        font-family: FSMe-Light;
+        font-weight: 200;
         line-height: 24px;
         @include tablet {
             margin-bottom: 20px;
         }
-        // @include family-style(FSMe-Light ,$grey-color05 );
+        // @include family-style(200,$grey-color05);
         // @include heading-font-size(18px,16px,16px);
         // @include heading-line-height(26px,24px,24px);
     }
@@ -87,14 +87,8 @@ section.feature-list-section {
         p {
             text-align: center;
         }
-        .headText {
-            // font-family: FSMe-Bold;
-            // font-size: 16px;
-            // color: $grey-color03;
-            // padding: 10px 0 25px 0;
-        }
         p {
-            font-family: FSMe-Light;
+            font-weight: 200;
             font-size: 14px;
         }
         @include tablet {
