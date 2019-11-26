@@ -177,47 +177,57 @@ div#tech-main-header .stellarnav {
   }
 }
 .hot-topics-view {
-  .view-toggle {
-    margin-bottom: 45px;
-    @include tablet {
-      padding: 0 15px;
-    }
-    .container {
-      width: 1200px;
-      padding: 0;
-      @include mobile {
-        width: 100%;
-      }
-      @include tablet {
-        width: 100%;
-      }
-      ul {
-        padding: 0;
-        .btn-primary {
-          background-color: #fff;
-          padding: 10px;
-          border: 1px solid #024;
-          font-size: 18px;
-          margin-bottom: 15px;
-          &:hover {
-            background-color: #024;
-            border: 1px solid #024;
-            a {
-              color: #fff;
-            }
-          }
-          a {
-            color: #024;
-          }
+    .view-toggle {
+        margin-bottom: 45px;
+
+        @include tablet {
+            padding: 0 15px;
         }
-      }
+
+        .container {
+            width: 1200px;
+            padding: 0;
+
+            @include mobile {
+                width: 100%;
+            }
+
+            @include tablet {
+                width: 100%;
+            }
+
+            ul {
+                padding: 0;
+                margin: 0 14px;
+
+                .btn-primary {
+                    background-color: #fff;
+                    padding: 10px;
+                    border: 1px solid #024;
+                    font-size: 18px;
+                    margin-bottom: 15px;
+
+                    &:hover {
+                        background-color: #024;
+                        border: 1px solid #024;
+
+                        a {
+                            color: #fff;
+                        }
+                    }
+
+                    a {
+                        color: #024;
+                    }
+                }
+            }
+        }
     }
-  }
 }
 .hot-topics-heading {
   border-bottom: 1px solid #024;
   font-size: 18px;
-  margin: 15px 10px;
+  margin: 15px 14px;
   padding: 10px 0px;
   strong {
     margin-left: 10px;
@@ -264,6 +274,7 @@ div#tech-main-header .stellarnav {
     margin: 10px 0px;
     width: 100%;
     float: left;
+    margin-bottom:30px;
     .btn-circle {
       width: 50px;
       height: 50px;
@@ -419,7 +430,7 @@ div#tech-main-header .stellarnav {
 .no-result-hide {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 10px 0px;
+  padding: 10px 14px;
   text-transform: capitalize;
   @include mobile {
     padding: 10px 15px;
