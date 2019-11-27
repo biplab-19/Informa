@@ -1120,7 +1120,7 @@ var INFORMA = window.INFORMA || {};
                                                 '<p class="artcl-headline">{{Title}}</p>'+
                                                 '{{/if}}'+
 												'{{#if SubtitleLength}}'+
-                                                '<p class="artcl-headline">{{SubTitle}}</p>'+
+                                                '<ul class="artcl-info list-unstyled"><li>{{SubTitle}}<li></ul>'+
 												'{{/if}}'+
                                                 '<p class="artcl-description desktop">'+
                                                     '{{Description}}'+
