@@ -363,6 +363,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     }
 
     _loadSpecificPage = function () {
+        var previousPage = pagenumber;
         pagenumber = jQuery("#txtPageNumber").val();
         var pagecount = _getTotalPage();
         if (parseInt(pagenumber) <= parseInt(pagecount)) {
@@ -383,7 +384,9 @@ INFORMA.TechSearch = (function (window, $, namespace) {
             }
             _SetHashUrl(pagenumber);
         }
-
+        else {
+            pagenumber = previousPage;
+        }
         return false;
     }
 
@@ -458,7 +461,6 @@ INFORMA.TechSearch = (function (window, $, namespace) {
 
 
     $('#txtPageNumber').on("keyup", function (event) {
-        debugger
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
             document.getElementById("myBtn").click();
@@ -473,7 +475,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         adaptiveHeight: true,
         responsive: [
             {
-                breakpoint: 768,
+                breakpoint: 900,
                 settings: {
                     arrows: true,
                     centerMode: true,

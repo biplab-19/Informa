@@ -4,7 +4,7 @@
     padding: 50px 0px;
 
     .sub-headline {
-        font-family: $font-Aleo;
+        font-family: 'SWTechBrandFont';
         font-weight: normal;
         font-size: 48px;
         line-height: 60px;
@@ -12,33 +12,8 @@
         color: $indgo-color;
         position: relative;
         margin: 0;
-        width:calc(100% - 30px);
     }
-
-    .imgright {
-        justify-content: flex-end;
-
-        .img-right {
-            margin-left: 20px;
-            margin-top: -8px;
-        }
-    }
-
-    .imgleft {
-        justify-content: flex-start;
-
-        .img-right {
-            margin-right: 20px;
-            margin-top: -8px;
-        }
-    }
-
-    .sub-text-n-img {
-        display: flex;
-        align-items: center !important;
-        margin-bottom: 30px;
-        margin-top: 30px;
-    }
+    
     // primary button
     .tech-theme .btn.btnprimary.border-button {
         width: auto !important;
@@ -97,8 +72,12 @@
 }
 
 @media only screen and (min-width: 1299px) {
-    .feature-brand-corousel.brand_list .sub-headline {
-        max-width: 60%;
+    .feature-brand-corousel.brand_list .text-right {
+        overflow: hidden;
+        .sub-text-n-img {
+            float: right;
+            max-width: 60%;
+        }
     }
 }
 
@@ -110,7 +89,8 @@
 
 @media only screen and (max-width: 767px) {
     .feature-brand-corousel.brand_list .container-fluid {
-        padding: 0px 5px;
+        padding-left: 7.5px;
+        padding-right: 7.5px;
     }
 
     .feature-brand-corousel.brand_list .img-right {
