@@ -620,6 +620,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     evtObj = results[resultCount];
                     
                     evtObj.DateRange = getDateString(evtObj.EventStartDate, evtObj.EventEndDate);
+                    evtObj.LocalTimeZone = new Date().getTimezoneOffset();
                     html += this.Template({ results: evtObj });
                 }
             } else {
@@ -747,6 +748,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         MakeEvent: function(evtObj) {
             // add to event date variation for single/multi/cross-month events
             evtObj.DateRange = getDateString(evtObj.EventStartDate, evtObj.EventEndDate);
+
+            // Add local timezone offset
+            evtObj.LocalTimeZone = new Date().getTimezoneOffset();
+
             // return template with evtObj as data source
             return this.Template({ results: evtObj });
         },
