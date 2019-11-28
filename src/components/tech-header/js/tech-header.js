@@ -178,6 +178,7 @@
                 //hide topsearchbar 
                 $(this).siblings(".menu-mobile").removeClass("active");
                 $(this).siblings(".outer-search-icon").removeClass("active");
+                $("#tech-main-header").removeClass("search-active");
                 $(this).siblings(".outer-search-icon").children(".search-icons").removeClass("active");
                 $(this).siblings(".outer-search-icon").children(".search-icons").children("i").addClass("search-active");
                 // if nav position is left or right, uses fadeToggle instead of slideToggle
