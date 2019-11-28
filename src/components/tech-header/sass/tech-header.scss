@@ -7,6 +7,11 @@ div#tech-main-header {
     background-color: #fff;
     -webkit-backface-visibility: hidden;
     padding:5px 0px;
+    &.search-active{
+        @include mobile{
+            margin-bottom:75px;
+        }
+    }
     @include mobile{
         margin-bottom:0px;
     }
