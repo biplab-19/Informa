@@ -2183,11 +2183,14 @@ section#hero-banner .vertical-align.video-item h1 {
     .content {
         .discription {
             p {
-                @media only screen and (min-width: 769px) {
+                @include mid-tablet {
                     width: 100%;
                     float: left;
                     height: 100px;
                     overflow: auto;
+                }
+                @include mobile{
+                    padding-top: 15px;
                 }
             }
         }
