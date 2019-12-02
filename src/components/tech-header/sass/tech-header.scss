@@ -7,6 +7,14 @@ div#tech-main-header {
     background-color: #fff;
     -webkit-backface-visibility: hidden;
     padding:5px 0px;
+    &.search-active{
+        @include mobile{
+            margin-bottom:75px;
+        }
+    }
+    @include mobile{
+        margin-bottom:0px;
+    }
 
     &.sticky {
         position: fixed;
@@ -146,13 +154,13 @@ div#tech-main-header {
                 text-decoration: none;
                 color: $white;
                 font-size:20px;
-                font-family: 'OpenSans Bold';
+                font-weight: bold;
             }
             li {
                 display: block;
                 a{
                     padding-bottom:28px;
-                    font-family: 'OpenSans Regular'; 
+                    font-weight: normal;
                     padding-left:35px; 
                 }
             }
@@ -838,7 +846,7 @@ div#tech-main-header {
         }
     }
 
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
 
         .sticky a.log-img img, div#tech-main-header a.log-img img {
             width: 180px !important;

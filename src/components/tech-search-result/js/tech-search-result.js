@@ -33,6 +33,9 @@ INFORMA.TechSearch = (function (window, $, namespace) {
 
 
     $searchIcon.on("click", function (evt) {
+        //hide menu
+        $(this).parents(".stellarnav").removeClass("active");
+        $(".main-nav-bar").hide();
         var $hasClassactive = $(this).hasClass("search-active");
         if ($hasClassactive) {
             $(this).removeClass("search-active");
@@ -41,10 +44,12 @@ INFORMA.TechSearch = (function (window, $, namespace) {
             if ($activeclass) {
                 $(this).parent(".search-icons").parent(".outer-search-icon").siblings(".menu-mobile").addClass("active");
                 $(this).parent(".search-icons").parent(".outer-search-icon").addClass("active");
+                $(this).parents("#tech-main-header").addClass("search-active");
             }
             else {
                 $(this).parent(".search-icons").parent(".outer-search-icon").siblings(".menu-mobile").removeClass("active");
                 $(this).parent(".search-icons").parent(".outer-search-icon").removeClass("active");
+                $(this).parents("#tech-main-header").removeClass("search-active");
             }
         }
 
@@ -55,7 +60,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         $(this).siblings(".outer-search-icon").children(".search-icons").removeClass("active");
         $(this).siblings(".outer-search-icon").children(".search-icons").children("i").addClass("search-active");
         $(this).siblings(".outer-search-icon").removeClass("active");
-        
+        $("#tech-main-header").removeClass("search-active");
     });
 
     _getQuerystring = function (name) {
@@ -360,6 +365,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     }
 
     _loadSpecificPage = function () {
+        var previousPage = pagenumber;
         pagenumber = jQuery("#txtPageNumber").val();
         var pagecount = _getTotalPage();
         if (parseInt(pagenumber) <= parseInt(pagecount)) {
@@ -380,10 +386,8 @@ INFORMA.TechSearch = (function (window, $, namespace) {
             }
             _SetHashUrl(pagenumber);
         }
-
         else {
-            //in case of invalid page number
-            $("#facet-all").click();
+            pagenumber = previousPage;
         }
         return false;
     }
@@ -459,7 +463,6 @@ INFORMA.TechSearch = (function (window, $, namespace) {
 
 
     $('#txtPageNumber').on("keyup", function (event) {
-        debugger
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
             document.getElementById("myBtn").click();
@@ -474,7 +477,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         adaptiveHeight: true,
         responsive: [
             {
-                breakpoint: 768,
+                breakpoint: 900,
                 settings: {
                     arrows: true,
                     centerMode: true,
