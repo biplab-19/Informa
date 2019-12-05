@@ -261,9 +261,14 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     return false
                 }
             });
-
-            if (!$selectedOption || $selectedOption.length === 0) return;
-
+            //GS: ignore if event search text provided
+            if (filterObj.type != 'EventSearchText') {
+                if (!$selectedOption || $selectedOption.length === 0) return;
+            }
+            //GS: Set filterobj if event search text added
+            if (filterObj.type == 'EventSearchText') {
+                    filterObj.value = filterObj.text;
+            }
             // does FilterContainer have it already? if so dont add it
             if (this.FilterContainer.children('[data-value="' + filterObj.value + '"]').length > 0) return;
 
@@ -377,7 +382,10 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     var $filterEl = $(this).closest('.filter'),
                         type = $filterEl.attr('data-type'),
                         value = $filterEl.attr('data-value');
-
+                        //GS: set empty "eventsearch" text variable when click on delete button						
+                        if (type === 'EventSearchText') {
+                            EventSearchTextValue = "";
+                        }
                     // update filters
                     that.RemoveFilter(type, value);
                     InformaEventQuery.RemoveProp(type, $filterEl.children('.text').text());
@@ -1121,6 +1129,25 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 var val = this.value;
                 InformaEventQuery.AddProp('ViewType', val);
             });
+            //GS:Handled enter key when "event search text" provide
+            this.EventSearchText.keypress(function (event) {
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if (keycode == '13') {
+                    var val = this.value;
+                    EventSearchTextValue = val;
+                    if (val != "") {
+                        if (InformaFilters.FilterContainer.children('[data-type="EventSearchText"]').length > 0) {
+                            var eventSearchFilterObj = (InformaFilters.FilterContainer.children('[data-type="EventSearchText"]'));
+                            var value = $(eventSearchFilterObj).attr("data-value");
+                            var type = $(eventSearchFilterObj).attr("data-type");
+                            InformaFilters.RemoveFilter(type, value);
+                            InformaEventQuery.RemoveProp(type, value);
+                        }
+                        ($("#txtEventSearchText").val(""));
+                        InformaEventQuery.AddProp('EventSearchText', val);
+                    }
+                }
+            });
             this.MoreBtn.click(function () {
                 that.LoadMoreEvents();
             });
@@ -1273,7 +1300,8 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 }
                 sendDataObj[filterObj.type].push(filterObj.value);
             });
-
+            //GS: set value for event search text
+            sendDataObj.EventSearchText=EventSearchTextValue;
             InformaFilters.AlwaysSelectedFilters.forEach(function (filterObj) {
                 // now ignore always selected if ignore flag is set
                 if (ignoreAlwaysActiveTypes.indexOf(filterObj.type) === -1) {
@@ -1601,6 +1629,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     break;
                 case 'MonthYear':
                     isValid = getMomentDate(value, 'select').isValid();
+                    break;
+                case 'EventSearchText'://GS: to maintain query string when its shared
+					if(value!="")
+                    isValid = true;
+					else isValid ? {name: name, value: value} : null;
                     break;
                 default:
                     // assume filter, check texts for values, if any are invalid return false
