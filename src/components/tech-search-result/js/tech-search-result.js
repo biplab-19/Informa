@@ -20,28 +20,36 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         _loadSearchResult,
         _hideResults,
         _loadNextPage,
-        _loadSpecigficPage,
+        _loadSpecificPage,
         _setPagenumber,
         _loadPreviousPage,
         _getTotalPage,
         _setPreviousButton,
         _setNextButton,
         _hasQueryString,
+        _redirectToSearch,
 
         init;
 
 
     $searchIcon.on("click", function (evt) {
+        //hide menu
+        $(this).parents(".stellarnav").removeClass("active");
+        $(".main-nav-bar").hide();
         var $hasClassactive = $(this).hasClass("search-active");
         if ($hasClassactive) {
             $(this).removeClass("search-active");
             $(this).parent(".search-icons").toggleClass("active");
             var $activeclass = $(this).parent(".search-icons").hasClass("active");
             if ($activeclass) {
-                $(this).parent(".search-icons").siblings(".menu-mobile").addClass("active");
+                $(this).parent(".search-icons").parent(".outer-search-icon").siblings(".menu-mobile").addClass("active");
+                $(this).parent(".search-icons").parent(".outer-search-icon").addClass("active");
+                $(this).parents("#tech-main-header").addClass("search-active");
             }
             else {
-                $(this).parent(".search-icons").siblings(".menu-mobile").removeClass("active");
+                $(this).parent(".search-icons").parent(".outer-search-icon").siblings(".menu-mobile").removeClass("active");
+                $(this).parent(".search-icons").parent(".outer-search-icon").removeClass("active");
+                $(this).parents("#tech-main-header").removeClass("search-active");
             }
         }
 
@@ -49,8 +57,10 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     });
     $crossIcon.on("click", function (evt) {
         $(this).removeClass("active");
-        $(this).siblings(".search-icons").removeClass("active");
-        $(this).siblings(".search-icons").children("i").addClass("search-active");
+        $(this).siblings(".outer-search-icon").children(".search-icons").removeClass("active");
+        $(this).siblings(".outer-search-icon").children(".search-icons").children("i").addClass("search-active");
+        $(this).siblings(".outer-search-icon").removeClass("active");
+        $("#tech-main-header").removeClass("search-active");
     });
 
     _getQuerystring = function (name) {
@@ -59,22 +69,35 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         return (results !== null) ? results[1] || "" : "";
     }
 
-    $('#searchPage').click(function () {
-        debugger
-        var searchKeyword = $('#' + searchTextBoxId).val();
-        if (searchKeyword != undefined && searchKeyword.length > 2) {
-            var url = $(location).attr("href").split('?')[0];
-            url = url + '?' + queryKeySearchText + '=' + $('#' + searchTextBoxId).val();
-            $(location).attr('href', url)
-        }
-    });
+
 
     $('#' + searchTextBoxId).on("keypress", function (e) {
         if (e.keyCode == 13) {
             var qtext = _getQuerystring(queryKeySearchText);
             var inputext = jQuery(this).val();
-            if (inputext != qtext) {
-                _hideResults();
+            if (inputext != null) {
+                if (inputext.length >= 2) {
+                    var url = $(location)[0].origin;
+                    url = url + '/search?'
+                    url = url + queryKeySearchText + '=' + inputext;
+                    $(location).attr('href', url)
+                }
+            }
+            return false;
+        }
+    });
+
+    $('#searchbox').on("keypress", function (e) {
+        if (e.keyCode == 13) {
+            var qtext = _getQuerystring(queryKeySearchText);
+            var inputext = jQuery(this).val();
+            if (inputext != null) {
+                if (inputext.length >= 2) {
+                    var url = $(location)[0].origin;
+                    url = url + '/search?'
+                    url = url + queryKeySearchText + '=' + inputext;
+                    $(location).attr('href', url)
+                }
             }
             return false;
         }
@@ -83,14 +106,11 @@ INFORMA.TechSearch = (function (window, $, namespace) {
     jQuery(document).ready(function () {
         var text = _getQuerystring(queryKeySearchText);
         jQuery("#" + searchTextBoxId).val(decodeURI(text));
-        //jQuery("#facet-all").addClass("facet-selected");
 
 
         if (_hasQueryString()) {
             var searchRequest = _init();
             pagenumber = jQuery("#txtPageNumber").val();
-            //setNextButton(true);
-            //setPreviousButton(false);
 
             var selectedfacets = $("#" + facetFilterId).find("li.facet-selected");
             var selectedfacetCount;
@@ -262,18 +282,21 @@ INFORMA.TechSearch = (function (window, $, namespace) {
 
     _initSearchRequest = function (searchRequest) {
         searchRequest.SearchText = $("#" + searchTextBoxId).val();
-        //searchRequest.PageNo = pageNumber;
         searchRequest.PageSize = $("#resultPagesize").val();
         searchRequest.LinkText = $("#readMoreText").val();
         return searchRequest;
     }
 
     _loadSearchResult = function (searchRequest) {
+        INFORMA.Spinner.Show($("body"));
         jQuery.ajax({
             url: "/client/search/ComponentSearchResults",
             type: "POST",
             data: searchRequest,
             success: function (result) {
+                if (result.TotalPage < searchRequest.PageNo) {
+                    $("#facet-all").click();
+                }
                 if (result && result.Results && result.Results.length > 0) {
                     result.Results.forEach(function (ele) {
                         ele.SubtitleLength = ele.SubTitle.trim().length;
@@ -294,16 +317,20 @@ INFORMA.TechSearch = (function (window, $, namespace) {
                         _setPreviousButton(false);
                     }
 
-                    if (result.SiteFacets != null) {
-                        //if (result.SiteFacets.ProductLine != null) {
-                        // loadFacetAjax(result.SiteFacets.ProductLine);
-                        //}
-                    }
+
                 }
                 else {
+                    jQuery(".no-result").hide();
                     _hideResults();
                 }
-            }
+                INFORMA.Spinner.Hide();
+            },
+            error: function (error) {
+                INFORMA.Spinner.Hide();
+                },
+                 complete: function (data) {
+                setTimeout(function () { INFORMA.Spinner.Hide(); }, 1000);
+                 }
         });
     }
 
@@ -337,25 +364,31 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         return false;
     }
 
-    _loadSpecigficPage = function () {
-        var searchRequest = _init();
+    _loadSpecificPage = function () {
+        var previousPage = pagenumber;
         pagenumber = jQuery("#txtPageNumber").val();
         var pagecount = _getTotalPage();
-        if (pagenumber >= 1 && pagenumber <= pagecount) {
-            // get next record
-            searchRequest = _initSearchRequest(searchRequest);
-            searchRequest = _getSelectedFacets(searchRequest);
-            searchRequest.PageNo = pagenumber;
-            searchRequest.CurrentPage = pagenumber;
-            _loadSearchResult(searchRequest);
+        if (parseInt(pagenumber) <= parseInt(pagecount)) {
+            var searchRequest = _init();
+            if (pagenumber >= 1 && pagenumber <= pagecount) {
+                // get next record
+                searchRequest = _initSearchRequest(searchRequest);
+                searchRequest = _getSelectedFacets(searchRequest);
+                searchRequest.PageNo = pagenumber;
+                searchRequest.CurrentPage = pagenumber;
+                _loadSearchResult(searchRequest);
 
-            _setPagenumber(pagenumber);
-            _setPreviousButton(true);
+                _setPagenumber(pagenumber);
+                _setPreviousButton(true);
+            }
+            if (pagenumber == pagecount) {
+                _setNextButton(false);
+            }
+            _SetHashUrl(pagenumber);
         }
-        if (pagenumber == pagecount) {
-            _setNextButton(false);
+        else {
+            pagenumber = previousPage;
         }
-        _SetHashUrl(pagenumber);
         return false;
     }
 
@@ -419,8 +452,17 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         return false;
     }
 
+    _redirectToSearch = function (searchBoxValue) {
+        if (searchBoxValue.length >= 2) {
+            var url = $(location)[0].origin;
+            url = url + '/search?'
+            url = url + queryKeySearchText + '=' + searchBoxValue;
+            $(location).attr('href', url)
+        }
+    }
+
+
     $('#txtPageNumber').on("keyup", function (event) {
-        debugger
         var keycode = (event.keyCode ? event.keyCode : event.which);
         if (keycode == '13') {
             document.getElementById("myBtn").click();
@@ -432,9 +474,10 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         slidesToShow: 3,
         infinite: true,
         speed: 300,
+        adaptiveHeight: true,
         responsive: [
             {
-                breakpoint: 768,
+                breakpoint: 900,
                 settings: {
                     arrows: true,
                     centerMode: true,
@@ -454,16 +497,14 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         ]
     });
 
-
-
     $('#topNavSearch').click(function () {
         var searchBoxValue = $('#searchbox').val();
-        if (searchBoxValue.length >= 2) {
-            var url = $(location)[0].origin;
-            url = url + '/search?'
-            url = url + queryKeySearchText + '=' + searchBoxValue;
-            $(location).attr('href', url)
-        }
+        _redirectToSearch(searchBoxValue);
+    });
+
+    $('#searchPage').click(function () {
+        var searchBoxValue = $('#txtComponentSearch').val();
+        _redirectToSearch(searchBoxValue);
     });
 
 
@@ -471,7 +512,7 @@ INFORMA.TechSearch = (function (window, $, namespace) {
         _loadPreviousPage();
     });
     $("#myBtn").on("click", function () {
-        _loadSpecigficPage();
+        _loadSpecificPage();
     });
     $("#btnNextPage").on("click", function () {
         _loadNextPage();

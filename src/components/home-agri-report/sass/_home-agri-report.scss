@@ -22,7 +22,7 @@ section#agri-report {
           }
           &:first-child{
               color: $grey-color03;
-              font-family: FSMe-Bold;
+              font-weight: bold;
               margin-top: 0;
           }
           &:last-child{
@@ -33,13 +33,13 @@ section#agri-report {
 
     .agri-report-wrapper {
         position: relative;
-        font-family: FSMe-Light;
+        font-weight: 200;
         font-size: 18px;
         @include mobile {
             font-size: 14px;
         }
         .headline {
-            font-family: FSMe-Bold;
+            font-weight: bold;
             padding: 60px 0 20px;
             @include tablet {
                 padding: 30px 0 10px;
@@ -113,12 +113,11 @@ section#agri-report {
                 padding-top: 15px;
             }
             strong {
-                font-family: FSMe-Bold;
+                font-weight: bold;
             }
         }
         .orange-bd {
              font-size: 14px;
-             font-family: FSMe;
              float: left;
              margin-right: 10px;
              margin-top: 60px;

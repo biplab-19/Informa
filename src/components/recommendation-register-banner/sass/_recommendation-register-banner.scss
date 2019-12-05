@@ -58,26 +58,26 @@ section.recommendation-register-banner {
           }
         }
         span.bold{
-          position: relative;
-          // padding-left: 35px;
-          font-family: FSMe-bold;
-          &:before {
-              margin-right: 10px;
-              font-family: "InformaIcons" !important;
-              content: "\e914";
-              font-size: 20px;
-              //color: #ffd500;
-              position: absolute;
-              left: -27px;
-              top: -5px;
-              @include mobile {
-                left: -4px;
-                top: 0px;
-              }
-              @include tablet {
-                left: -34px;
-              }
-          }
+            position: relative;
+            // padding-left: 35px;
+            font-weight: bold;
+            &:before {
+                margin-right: 10px;
+                font-family: "InformaIcons" !important;
+                content: "\e914";
+                font-size: 20px;
+                //color: #ffd500;
+                position: absolute;
+                left: -27px;
+                top: -5px;
+                @include mobile {
+                    left: -4px;
+                    top: 0px;
+                }
+                @include tablet {
+                    left: -34px;
+                }
+            }
         }
     }
     .create-profile-btn-container {
@@ -165,6 +165,6 @@ section.recommendation-register-banner {
         }
     }
     .light-font {
-        font-family: FSMe-Light;
+        font-weight: 200;
     }
 }

@@ -72,7 +72,8 @@
             h4 {
                 padding: 25px 30px;
                 border-radius: 53px;
-                font-weight: bold;
+                font-weight: normal !important;
+                letter-spacing: -0.02em;
                 font-size: 20px !important;
                 line-height: 26px !important;
                 cursor: pointer;
@@ -93,8 +94,8 @@
 
             &:hover::before {
                 content: url('/static/images/tech/three-dots-menu.svg');
-                top: 27%;
-                right: -70px;
+                top: 20%;
+                right: -78px;
                 position: absolute;
                 display: inline-block;
                 width: 53px;
@@ -102,8 +103,6 @@
         }
 
         li.listgroup-item.current {
-
-
             h4 {
                 background: #f0f0f3;
             }
@@ -115,8 +114,8 @@
 
         li.listgroup-item.current:before {
             content: url('/static/images/tech/three-dots-menu.svg');
-            top: 27%;
-            right: -70px;
+            top: 20%;
+            right: -78px;
             position: absolute;
             display: inline-block;
             width: 53px;
@@ -141,7 +140,7 @@
         border: solid $border #94bb17;
         border-radius: 0;
         flex-direction: column;
-        @media only screen and (max-width: 812px) {
+        @include not-mid-tablet{
             min-height: 415px;  
         }
 
@@ -175,7 +174,7 @@
     .brand-log {
         width: 100%;
         position: absolute;
-        bottom: 15px;
+        bottom: 32px;
 
         .row {
             margin-bottom: 25px;
@@ -283,7 +282,7 @@
     }
 
 
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
 
         .discover-community {
 
@@ -358,7 +357,7 @@
     }
 
     .sub-headline {
-        font-family: $font-Aleo;
+        font-family: 'SWTechBrandFont';
         font-weight: normal;
         font-size: 48px;
         line-height: 60px;
@@ -368,31 +367,7 @@
         margin: 0;
         width:calc(100% - 30px);
     }
-
-    .imgright {
-        justify-content: flex-end;
-
-        .img-right {
-            margin-left: 20px;
-            margin-top: -8px;
-        }
-    }
-
-    .imgleft {
-        justify-content: flex-start;
-
-        .img-right {
-            margin-right: 20px;
-            margin-top: -8px;
-        }
-    }
-
-    .sub-text-n-img {
-        display: flex;
-        align-items: center;
-        margin-bottom: 0px;
-        
-    }
+    
     // primary button
     .tech-theme .btn.btnprimary.border-button {
         width: auto !important;

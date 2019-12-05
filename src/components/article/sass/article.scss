@@ -71,19 +71,27 @@
 .artcl-headline {
   line-height: 33px;
   padding-top:0px;
-  &:hover {
-    display: inline-block;
-    text-decoration: underline;
-  }
+  border-bottom: 1px solid transparent;
   a {
     font-size: 30px;
     line-height: 35px;
-    font-family: "OpenSans Light";
-    font-weight: lighter;
-    color: #002244;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 4px;
+    font-weight: 200;
+    color: #024;
+    padding-bottom: 0px;
+    display: inline;
+    &:hover{
+      -moz-box-shadow: inset 0px -0.9px #000;
+      -webkit-box-shadow: inset 0px -0.9px #000;
+      box-shadow: inset 0px -0.9px #000;
+    }
   }
+}
+@-moz-document url-prefix() { 
+   .artcl-headline:hover a {
+      -moz-box-shadow: inset 0px -0.9px #000;
+      -webkit-box-shadow: inset 0px -0.9px #000;
+      box-shadow: inset 0px -0.9px #000;
+   }
 }
 
 .artcl-info.list-unstyled {
@@ -96,7 +104,7 @@
     font-size: 16px;
     line-height: 16px;
     margin-top: 7px;
-    font-family: "OpenSans Bold";
+    font-weight: bold;
     &:last-child {
       border-right: none;
     }
@@ -128,8 +136,7 @@
   a {
     font-size: 30px;
     line-height: 20px;
-    font-family: "OpenSans Light";
-    font-weight: lighter;
+    font-weight: 200;
     color: #002244;
     border-bottom: 1px solid transparent;
     padding-bottom: 4px;
@@ -151,11 +158,11 @@
 a.artcl-read-more {
   color: #11a7d9;
   font-size: 16px;
-  font-family: "OpenSans Bold";
+  font-weight: bold;
+  margin-left: 5px;
   i {
     color: #11a7d9;
     font-size: 16px;
-    font-family: "OpenSans Bold";
     font-family: fontawesome;
   }
   &:hover {
@@ -166,8 +173,7 @@ a.artcl-read-more {
 
 .related-content-head {
   font-size: 16px;
-  font-weight: lighter;
-  font-family: "Open Sans", sans-serif;
+  font-weight: 200;
   color: #002244;
   border-bottom: 1px solid #555;
   padding-bottom: 5px;
@@ -216,6 +222,9 @@ a.artcl-read-more {
 }
 
 .article-list-filter {
+  .custom-dropdown .sgmnt-menu .dropdown-content {
+    top: 62px;
+  }
   .nav-tabs {
     border: none !important;
   }
@@ -254,6 +263,7 @@ a.artcl-read-more {
     }
   }
   .dropdown-content {
+    top: 62px;
     width: 678px;
     border: 1px solid #002244;
     margin-left: 0;
@@ -330,13 +340,6 @@ a.artcl-read-more {
         overflow: hidden;
       }
     }
-    .drop-options {
-      overflow: auto;
-      max-height: 500px;
-      @include not-desktop {
-        max-height: none;
-      }
-    }
   }
   .round-checkbox {
     float: left;
@@ -344,7 +347,7 @@ a.artcl-read-more {
     width: 12px;
     height: 12px;
     margin-top: 7px;
-    margin-right: 15px;
+    margin-right: 10px;
     margin-bottom: 12px;
     cursor: pointer;
     user-select: none;
@@ -372,7 +375,7 @@ a.artcl-read-more {
   .segmanet-head {
     float: left;
     clear: none;
-    width: 85%;
+    width: calc(100% - 22px);
     padding: 0;
     margin-bottom: 15px;
     font-size: 18px;
@@ -380,10 +383,12 @@ a.artcl-read-more {
     color: #024;
   }
   .sub-seg {
+    float: left;
+    clear: none;
+    width: calc(100% - 22px);
     font-size: 14px;
     color: #024;
     padding: 0;
-    clear: none;
   }
   .load-btn {
     text-align: center;
@@ -593,7 +598,7 @@ a.artcl-read-more {
         content: 'Filters';
         display: block;
         margin-bottom: 30px;
-        font-family: 'Aleo Regular';
+        font-family: 'SWTechBrandFont';
         font-size: 28px;
         line-height: 35px;
         text-transform: uppercase;
