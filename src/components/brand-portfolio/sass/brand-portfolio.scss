@@ -1256,7 +1256,8 @@ a:hover, a:focus {
             padding-top: 7px;
         }
     }
-    .ui-widget.ui-widget-content{
+    /* Auto Selector*/
+    .ui-widget.ui-widget-content {
         border: 1px solid #c5c5c5;
         background: #ffffff;
         color: #333333;
@@ -1267,6 +1268,14 @@ a:hover, a:focus {
         margin: 0;
         display: block;
         outline: 0;
+        .ui-menu-item {
+            margin: 0;
+            cursor: pointer;
+        }
+        .ui-menu-item-wrapper {
+            position: relative;
+            padding: 3px 1em 3px .4em;
+        }
     }
     .ui-autocomplete {
         position: absolute;
@@ -1276,14 +1285,6 @@ a:hover, a:focus {
     }
     .ui-front {
         z-index: 100;
-    }
-    .ui-menu .ui-menu-item {
-        margin: 0;
-        cursor: pointer;
-    }
-    .ui-menu .ui-menu-item-wrapper {
-        position: relative;
-        padding: 3px 1em 3px .4em;
     }
     .ui-helper-hidden-accessible {
         border: 0;
@@ -1295,8 +1296,7 @@ a:hover, a:focus {
         position: absolute;
         width: 1px;
     }
-
-    .ui-state-active, .ui-widget-content .ui-state-active{
+	.ui-state-active, .ui-widget-content .ui-state-active{
         border: 1px solid #003eff;
         background: #007fff;
         font-weight: normal;
