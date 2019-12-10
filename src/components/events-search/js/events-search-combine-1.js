@@ -16,7 +16,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     var Templates = INFORMA.Templates,
         ajaxMethod = 'POST',
         //methods
-        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, getMomentDate, getDateString, isDev;
+        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, getMomentDate, getDateString, isDev ,EventSearchTextValue;
 
     InformaFilters = {
         Container: $('.events-search'),
@@ -404,11 +404,13 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.FilterContainer.empty();
             this.EnableAllSelectOptions();
             // now add elements in ActiveFilters array and disable them in selects
+            
             if (activeFilterLength > 0) {
                 this.ActiveFilters.forEach(function (filterObj) {
                     that.AddFilterElement(filterObj);
                     // dont disable if month so we can scroll to view
-                    if (filterObj.type !== 'MonthYear')
+                    //if (filterObj.type !== 'MonthYear')
+                    if (filterObj.type !== 'MonthYear' && filterObj.type != 'EventSearchText')
                         that.DisableSelectOption(filterObj.type, filterObj.value);
                 });
             }
@@ -1087,6 +1089,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         PreviousDate: moment().subtract(11, 'months'),
         EndDate: moment().add(11, 'months'),
         PageNum: 1,
+        EventSearchText:$("#txtEventSearchText"),
         LoadCalled: false,
         ErrorTimeout: 0,
         Init: function () {

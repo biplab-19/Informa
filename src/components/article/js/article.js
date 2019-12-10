@@ -43,6 +43,7 @@ INFORMA.articletech = (function (window, $, namespace) {
         isAjaxCalled,
         SubSegments,
         _ToggleArticleList,
+        inputSearchText,
         x2;
     document.addEventListener('readystatechange', function (event) {
         if (event.target.readyState === 'complete') {
@@ -184,6 +185,20 @@ INFORMA.articletech = (function (window, $, namespace) {
     $(document).on("click", ".clearAllArticlesFilters", function () {
         window.location = window.location.href.split("?")[0];
     });
+    //GS:Handled article search text box event
+    $("#txtArticleSearchText").keypress(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if (keycode == '13') {
+            var val = this.value;
+            inputSearchText = val;
+            if (val != "") {
+                $('#filterpageno').val("0");
+                $("#txtArticleSearchText").val("");
+                _addBreadcrumbSelectedFilter("Input", "ArticleSearchText", val, 1);
+                _LoadArticleListdata();
+            }
+        }
+    });
     $(document).on("click", ".article-cross", function () {
         var id = $(this).attr("data-attr-id");
         var valueofoption = $(this).attr("data-attr-valueofoption");
@@ -202,7 +217,11 @@ INFORMA.articletech = (function (window, $, namespace) {
             }
             _updateSegmentSelection("Segments");
         }
-
+        //GS:set empty article text search value
+        var deleteArticleSearch = id + "_" + valueofoption;
+        if (deleteArticleSearch == "Input_ArticleSearchText") {
+            inputSearchText = "";
+        }
         if (id == "articlebrands")//update selected attribute for brands
             _updateBrandSelection(id);
 
@@ -231,6 +250,7 @@ INFORMA.articletech = (function (window, $, namespace) {
                 CurrentPage: $('#CurrentPage').val(),
                 ProductLineId: $('#productlinepre').val(),
                 MaxItemCount: $('#maxitemcount').val(),
+                ArticleSearchText:inputSearchText,
                 PageNo: showmoredispcount,
             })
         }
@@ -287,7 +307,8 @@ INFORMA.articletech = (function (window, $, namespace) {
         BrandID: _GetSelectedBrands(),
         SearchText: $('#searchText').val(),
         CurrentPage: $('#CurrentPage').val(),
-        ProductLineId: $('#productlinepre').val(), 
+        ProductLineId: $('#productlinepre').val(),
+        ArticleSearchText:inputSearchText,
         PageNo: pageNumber,
         })
         }
