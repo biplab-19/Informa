@@ -16,7 +16,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
     var Templates = INFORMA.Templates,
         ajaxMethod = 'POST',
         //methods
-        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, getMomentDate, getDateString, isDev ,EventSearchTextValue;
+        init, InformaFilters, InformaEventTiles, InformaEventList, InformaFC, InformaEventsController, InformaEventQuery, getMomentDate, getDateString, isDev ,EventSearchTextValue,_loadEventFilteredData,_bindAutoComplete;
 
     InformaFilters = {
         Container: $('.events-search'),
@@ -1132,24 +1132,21 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 var val = this.value;
                 InformaEventQuery.AddProp('ViewType', val);
             });
+            
+
             //GS:Handled enter key when "event search text" provide
             this.EventSearchText.keypress(function (event) {
                 var keycode = (event.keyCode ? event.keyCode : event.which);
+                var val = this.value;
+                EventSearchTextValue = val;
                 if (keycode == '13') {
-                    var val = this.value;
-                    EventSearchTextValue = val;
-                    if (val != "") {
-                        if (InformaFilters.FilterContainer.children('[data-type="EventSearchText"]').length > 0) {
-                            var eventSearchFilterObj = (InformaFilters.FilterContainer.children('[data-type="EventSearchText"]'));
-                            var value = $(eventSearchFilterObj).attr("data-value");
-                            var type = $(eventSearchFilterObj).attr("data-type");
-                            InformaFilters.RemoveFilter(type, value);
-                            InformaEventQuery.RemoveProp(type, value);
-                        }
-                        ($("#txtEventSearchText").val(""));
-                        InformaEventQuery.AddProp('EventSearchText', val);
-                    }
+                   that._loadEventFilteredData(val);
                 }
+                else {
+                   that._bindAutoComplete(val);
+                }
+
+
             });
             this.MoreBtn.click(function () {
                 that.LoadMoreEvents();
@@ -1158,6 +1155,62 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 				that.DownloadEvents();
 			})
         },
+        _bindAutoComplete : function(val){
+            if (val != "" && val.length>3) {                       
+                var obj = {
+                        data: JSON.stringify({
+                        SearchKeyword: val,
+                        CurrentPage: $('#events-calendar').data("currentpage"),
+                        RequestType:"Event",
+                        PageNo: 1
+                    })
+                }
+                
+                $.ajax({
+                url: "/client/search/GetAutocompleteList",
+                type: "POST",
+                data: obj,
+                success: function (result) {             
+                            var dataArray = [];
+                             $.each(result.Articles, function (index, value) {
+                             if($.inArray(value.Title,dataArray)==-1)
+                             {
+                                dataArray.push(value.Title);
+                                }
+                            });
+                             $("#txtEventSearchText").autocomplete({
+                              source: dataArray,
+                              select: function (event, ui) {
+                                var label = ui.item.label;
+                                var value = ui.item.value;
+                                InformaEventsController._loadEventFilteredData(value);
+                            }
+                            });
+                        },
+                        error: function (error) {
+                            INFORMA.Spinner.Hide();
+                        },
+                        complete: function (data) {					   
+                            setTimeout(function () { INFORMA.Spinner.Hide(); }, 1000);
+                        }
+                })
+            }
+        },
+        _loadEventFilteredData: function (val) {
+            EventSearchTextValue = val;
+            if (val != "") {
+                if (InformaFilters.FilterContainer.children('[data-type="EventSearchText"]').length > 0) {
+                    var eventSearchFilterObj = (InformaFilters.FilterContainer.children('[data-type="EventSearchText"]'));
+                    var value = $(eventSearchFilterObj).attr("data-value");
+                    var type = $(eventSearchFilterObj).attr("data-type");
+                    InformaFilters.RemoveFilter(type, value);
+                    InformaEventQuery.RemoveProp(type, value);
+                }
+                ($("#txtEventSearchText").val(""));
+                InformaEventQuery.AddProp('EventSearchText', val);
+            }
+        },
+        
         AddInfiniteScrollEvent: function() {
             var that = this,
                 $win = $(window);

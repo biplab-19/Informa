@@ -45,6 +45,8 @@ INFORMA.articletech = (function (window, $, namespace) {
         _ToggleArticleList,
         inputSearchText,
         dataArray = [],
+        _bindAutoComplete,
+		_LoadArticleFilteredData,
         x2;
     document.addEventListener('readystatechange', function (event) {
         if (event.target.readyState === 'complete') {
@@ -186,7 +188,68 @@ INFORMA.articletech = (function (window, $, namespace) {
     $(document).on("click", ".clearAllArticlesFilters", function () {
         window.location = window.location.href.split("?")[0];
     });
+    _LoadArticleFilteredData = function (val) {
+        inputSearchText = val;
+        if (val != "") {
+            $('#filterpageno').val("0");
+            $("#txtArticleSearchText").val("");
+            _addBreadcrumbSelectedFilter("Input", "ArticleSearchText", val, 1);
+            _LoadArticleListdata();
+        }
+    }
+    _bindAutoComplete = function (val) {
+        var obj = {
+            data: JSON.stringify({
+                SearchKeyword: val,
+                CurrentPage: $("#CurrentPage").val(),
+                RequestType: "Article",
+                PageNo: 1
+            })
+        }
+
+        $.ajax({
+            url: "/client/search/GetAutocompleteList",
+            type: "POST",
+            data: obj,
+            success: function (result) {
+
+                $.each(result.Articles, function (index, value) {
+                    if ($.inArray(value.Title, dataArray) == -1) {
+                        dataArray.push(value.Title);
+                    }
+                });
+                $("#txtArticleSearchText").autocomplete({
+                    source: dataArray,
+                    select: function (event, ui) {
+                        var label = ui.item.label;
+                        var value = ui.item.value;
+                        //store in session
+                        _LoadArticleFilteredData(value);
+                    }
+                });
+            },
+            error: function (error) {
+                INFORMA.Spinner.Hide();
+            },
+            complete: function (data) {
+                setTimeout(function () { INFORMA.Spinner.Hide(); }, 1000);
+            }
+        })
+
+    }
     //GS:Handled article search text box event
+    $("#txtArticleSearchText").keypress(function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        var val = this.value;
+        if (keycode == '13') {
+            _LoadArticleFilteredData(val);
+        }
+        if (val != "" && val.length > 3) {
+
+            _bindAutoComplete(val);
+        }
+    });
+    /*
     $("#txtArticleSearchText").keypress(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         var val = this.value;
@@ -232,6 +295,7 @@ INFORMA.articletech = (function (window, $, namespace) {
             })
         }
     });
+    */
     $("#txtArticleSearchText").autocomplete({
         source: dataArray
     });
