@@ -44,6 +44,7 @@ INFORMA.articletech = (function (window, $, namespace) {
         SubSegments,
         _ToggleArticleList,
         inputSearchText,
+        dataArray = [],
         x2;
     document.addEventListener('readystatechange', function (event) {
         if (event.target.readyState === 'complete') {
@@ -188,8 +189,8 @@ INFORMA.articletech = (function (window, $, namespace) {
     //GS:Handled article search text box event
     $("#txtArticleSearchText").keypress(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
+        var val = this.value;
         if (keycode == '13') {
-            var val = this.value;
             inputSearchText = val;
             if (val != "") {
                 $('#filterpageno').val("0");
@@ -198,6 +199,41 @@ INFORMA.articletech = (function (window, $, namespace) {
                 _LoadArticleListdata();
             }
         }
+        if (val != "" && val.length > 3) {
+
+            var obj = {
+                data: JSON.stringify({
+                    SearchKeyword: val,
+                    CurrentPage: $("#CurrentPage").val(),
+                    RequestType: "Article",
+                    PageNo: 1
+                })
+            }
+
+            $.ajax({
+                url: "/client/search/GetAutocompleteList",
+                type: "POST",
+                data: obj,
+                success: function (result) {
+
+                    $.each(result.Articles, function (index, value) {
+                        if ($.inArray(value.Title, dataArray) == -1) {
+                            dataArray.push(value.Title);
+                        }
+                    });
+
+                },
+                error: function (error) {
+                    INFORMA.Spinner.Hide();
+                },
+                complete: function (data) {
+                    setTimeout(function () { INFORMA.Spinner.Hide(); }, 1000);
+                }
+            })
+        }
+    });
+    $("#txtArticleSearchText").autocomplete({
+        source: dataArray
     });
     $(document).on("click", ".article-cross", function () {
         var id = $(this).attr("data-attr-id");
