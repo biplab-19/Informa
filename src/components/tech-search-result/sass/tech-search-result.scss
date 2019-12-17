@@ -175,6 +175,13 @@ div#tech-main-header .stellarnav {
       }
     }
   }
+  .menu.brands{
+    .drop-content {
+      max-height: 592px;
+      overflow-y: scroll;
+      margin: 0px 0px 20px 0px;
+    }
+  } 
 }
 .hot-topics-view {
     .view-toggle {
@@ -451,3 +458,23 @@ div#tech-main-header .stellarnav {
     top: 105px;
   }
 }
+.section-content {
+  .filter-section {
+    .heading {
+      font-weight: 600;
+      color: #555;
+      width: 150px;
+      float: left;
+      text-transform: capitalize;
+    }
+    .section {
+      .unit {
+        label {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+
+
