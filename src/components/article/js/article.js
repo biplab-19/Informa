@@ -378,10 +378,11 @@ INFORMA.articletech = (function (window, $, namespace) {
                
                 if (reset) {
                     $("#article-list").empty();
+                    $(".no-records").show();
                 }
                
                 if ($($(result).find(".artical-list-outer > .artcl-list")).length) {            
-                   
+                    $(".no-records").hide();
                     $("#article-list").html("");
                     $("#article-list").html($(result).find("#article-list"));      
                     _ToggleArticleList();          
