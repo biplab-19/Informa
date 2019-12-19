@@ -180,6 +180,10 @@ div#tech-main-header .stellarnav {
       max-height: 592px;
       overflow-y: scroll;
       margin: 0px 0px 20px 0px;
+      @include not-desktop{
+        overflow-y: hidden;
+        max-height: none;
+      }
     }
   } 
 }
