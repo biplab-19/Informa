@@ -596,8 +596,8 @@
     }
     
     .sub-headline {
-      font-size: 45px;
-      width: calc(100% - 30px);
+      font-size: 40px;
+      width: calc(100% - 125px);
       color: #fff;
       @include mobile-to-midtab {
           left: 0;
@@ -645,7 +645,7 @@
     .dot-img-left,
     .dot-img-right {
       @include mid-tablet {
-        width: 108px;
+        width: 125px;
         margin-top: 20px;
       }
       @include not-mid-tablet {
@@ -674,5 +674,6 @@
   }
   .dot-img-left ,.dot-img-right {
     background-image:none;
+    float:left;
   }
 }
