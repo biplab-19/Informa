@@ -978,12 +978,21 @@ display:block;
     }
 }
 
-.stellarnav.mobile .menu-container > ul{
-    height:300px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding-right:26px;
-    scrollbar-color: #658fba #024;
-    scrollbar-width: thin;
+.stellarnav.mobile {
+    .menu-container > ul{
+        height:300px;
+        max-height:500px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-right:26px;
+        scrollbar-color: #658fba #024;
+        scrollbar-width: thin;
+    }
+    &.sub-open {
+        .menu-container > ul {
+            height:auto;
+        }
+    }
 }
+
 
