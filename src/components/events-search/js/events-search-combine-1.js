@@ -268,6 +268,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             //GS: Set filterobj if event search text added
             if (filterObj.type == 'EventSearchText') {
                     filterObj.value = filterObj.text;
+                    EventSearchTextValue=filterObj.text;
             }
             // does FilterContainer have it already? if so dont add it
             if (this.FilterContainer.children('[data-value="' + filterObj.value + '"]').length > 0) return;
@@ -1298,9 +1299,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 // set props for header text and infinite loading check
                 that.TotalCount = totalCount;
                 that.ActualCount = that.PageNum > 1 ? that.ActualCount + eventsCount : eventsCount;
+                if(eventsCount === 0 && that.ActualCount==0)
+					that.EventExportButton.hide();
 
                 // if actual events count = 0 then dont do anything else
-                if (eventsCount === 0) { that.EventExportButton.hide(); return;}
+                if (eventsCount === 0) { return;}
+                if(that.ActualCount>0)
                 that.EventExportButton.show();
 
                 // render calendar after eventscount check because global no-events message handles no events
