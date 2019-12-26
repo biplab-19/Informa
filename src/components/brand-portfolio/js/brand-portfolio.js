@@ -2,7 +2,7 @@ var INFORMA = window.INFORMA || {};
 INFORMA.BrandPortfolio = (function (window, $, namespace) {
     'use strict';
     var $filterContainer = $('.portfolio .select-filter'),
-        $showFiltersBtn = $('#showFiltersBtn'),
+        $showFiltersBtn = $('.portfolio #showFiltersBtn'),
         $closeFilterBtn = $('<a href="#" id="closeFilterBtn">Hide filters</a>'),
         $searchBtn = $('.search-icon'),
         $body = $('body'),

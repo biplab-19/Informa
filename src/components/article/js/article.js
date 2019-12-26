@@ -146,6 +146,7 @@ INFORMA.articletech = (function (window, $, namespace) {
             } else {
                 $(this).text('Select filters');
                 $body.css('overflow-y', '');
+                _LoadArticleFilteredData($("#txtArticleSearchText").val());
             }
         });
         $('.segmanet-head, .sub-segment').click(function () {

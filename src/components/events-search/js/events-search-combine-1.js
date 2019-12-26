@@ -1959,7 +1959,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 
         var $body = InformaEventsController.BodyContainer,
             $selectSection = $('.select-section'),
-            $showFiltersBtn = $('#showFiltersBtn'),
+            $showFiltersBtn = $('.events-search #showFiltersBtn'),
             $closeFilterBtn = $('#closeFilterBtn'),
             filtersOpen = false
         
@@ -1986,6 +1986,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 $selectSection.hide();
                 $showFiltersBtn.text("Select filters");
                 $showFiltersBtn.attr('data-state', 'select');
+                InformaEventsController._loadEventFilteredData($("#txtEventSearchText").val());
+                
+
             }
         });
     };
