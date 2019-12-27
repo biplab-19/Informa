@@ -670,4 +670,12 @@ a.artcl-read-more {
     }
   }
 }
+.events-search {
+  .search-bar {
+    @include not-desktop {
+    position: relative;
+    width: 100%;
+    }
+  }
+}
 
