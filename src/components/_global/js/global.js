@@ -46,6 +46,24 @@ INFORMA.global = (function(window, $, namespace) {
 		else if($('html').hasClass('experience-mode')){
 			siteCore.isExperience = true;
 		}
+		
+		//Creating session cookies to maintain referral 
+        $(document).ready(function () {
+            var docCookies = document.cookie;
+            var docCookiesArray = docCookies.split(';');
+            var hasDocReferrerCookie = docCookiesArray.filter(function (item) {
+                return item.trim().indexOf('document-referrer=') == 0
+            }).length;
+            if (!hasDocReferrerCookie) {
+                var docReferrer = document.referrer;
+                var docReferrerValue = window.location.hostname;
+                if (docReferrer) {
+                    var referrerUrl = new URL(docReferrer);
+                    docReferrerValue = referrerUrl.hostname;
+                }
+                document.cookie = 'document-referrer=' + docReferrerValue;
+            }
+        });
 	}
 
 	return {
