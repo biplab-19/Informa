@@ -386,6 +386,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                         //GS: set empty "eventsearch" text variable when click on delete button						
                         if (type === 'EventSearchText') {
                             EventSearchTextValue = "";
+							$("#txtEventSearchText").val("");//ISW-3912
                         }
                     // update filters
                     that.RemoveFilter(type, value);
@@ -1090,6 +1091,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         PreviousDate: moment().subtract(11, 'months'),
         EndDate: moment().add(11, 'months'),
         PageNum: 1,
+		AutocompleteMinCharCount:4,
         EventSearchText:$("#txtEventSearchText"),
         LoadCalled: false,
         ErrorTimeout: 0,
@@ -1139,15 +1141,17 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             this.EventSearchText.keypress(function (event) {
                 var keycode = (event.keyCode ? event.keyCode : event.which);
                 var val = this.value;
-                EventSearchTextValue = val;
-                if (keycode == '13') {
+				//ISW-3912
+                if(val.length>InformaEventsController.AutocompleteMinCharCount)
+				{
+				EventSearchTextValue = val;
+				if (keycode == '13') {
                    that._loadEventFilteredData(val);
                 }
                 else {
                    that._bindAutoComplete(val);
                 }
-
-
+				}
             });
             this.MoreBtn.click(function () {
                 that.LoadMoreEvents();
@@ -1157,23 +1161,34 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 			})
         },
         _bindAutoComplete : function(val){
-            if (val != "" && val.length>3) {                       
+            if (val != "" && val.length>InformaEventsController.AutocompleteMinCharCount) {   
+			//ISW-3912
+
+				var sendDataObj=this.GetSendDataAutoComplete(val);			
+
                 var obj = {
                         data: JSON.stringify({
-                        SearchKeyword: val,
+                        SearchKeyword: sendDataObj.SearchKeyword,
+						MonthYear:sendDataObj.MonthYear,
+						EventsEndDate:sendDataObj.EventsEndDate,
+						ViewMode:sendDataObj.ViewMode,
+						ProductLineId:sendDataObj.ProductLineId,
+						SegmentId:sendDataObj.SegmentId,
+						Country:sendDataObj.Country,
+						EventsStartDate:sendDataObj.EventsStartDate,
                         CurrentPage: $('#events-calendar').data("currentpage"),
-                        RequestType:"Event",
                         PageNo: 1
                     })
                 }
-                
+				
+				
                 $.ajax({
-                url: "/client/search/GetAutocompleteList",
+                url: "/client/search/GetAutocompleteListEvent",
                 type: "POST",
                 data: obj,
                 success: function (result) {             
                             var dataArray = [];
-                             $.each(result.Articles, function (index, value) {
+                             $.each(result.Events, function (index, value) {
                              if($.inArray(value.Title,dataArray)==-1)
                              {
                                 dataArray.push(value.Title);
@@ -1181,12 +1196,17 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                             });
                              $("#txtEventSearchText").autocomplete({
                               source: dataArray,
+							  minLength:InformaEventsController.AutocompleteMinCharCount,
                               select: function (event, ui) {
                                 var label = ui.item.label;
                                 var value = ui.item.value;
                                 InformaEventsController._loadEventFilteredData(value);
                             }
-                            });
+                            }).keyup(function (e) {
+								if(e.which === 13) {
+									$("#ui-id-1").hide();
+								}            
+							});
                         },
                         error: function (error) {
                             INFORMA.Spinner.Hide();
@@ -1420,6 +1440,90 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             console.log('data sent (pre stringification)', sendDataObj);
 
             return JSON.stringify({data: JSON.stringify(sendDataObj)});
+        },
+		GetSendDataAutoComplete: function(searchText) {
+			//ISW-3912
+            var that = this,
+                sendDataObj = {},
+                selectIgnoreAttr,
+                cselectIgnoreAttr,
+                ignoreAlwaysActiveTypes = []
+
+            // add filters as property name and push multiple filters of the same type into array
+            InformaFilters.ActiveFilters.forEach(function (filterObj) {
+                if (!sendDataObj[filterObj.type]) {
+                    // if active filters has values from ignored select then prevent AlwaysSelectedFilters from being read
+                    // for for every filterObj, check the select with matching name to its type, to see if it has data-ignore
+                    selectIgnoreAttr = InformaFilters.Selects.filter('[name="' + filterObj.type + '"]').data('ignore');
+                    if (selectIgnoreAttr && selectIgnoreAttr.length > 0) {
+                        // then set a flag
+                        ignoreAlwaysActiveTypes.push(filterObj.type);
+                    }
+                    cselectIgnoreAttr = InformaFilters.CustomSelects.filter('[name="' + filterObj.type + '"]').data('ignore');
+                    if (cselectIgnoreAttr && cselectIgnoreAttr.length > 0) {
+                        // then set a flag
+                        ignoreAlwaysActiveTypes.push(filterObj.type);
+                    }
+                    sendDataObj[filterObj.type] = [];
+                }
+                sendDataObj[filterObj.type].push(filterObj.value);
+            });
+            //GS: set value for event search text
+            sendDataObj.SearchKeyword=searchText;
+            InformaFilters.AlwaysSelectedFilters.forEach(function (filterObj) {
+                // now ignore always selected if ignore flag is set
+                if (ignoreAlwaysActiveTypes.indexOf(filterObj.type) === -1) {
+                    if (!sendDataObj[filterObj.type])
+                        sendDataObj[filterObj.type] = [];
+                    sendDataObj[filterObj.type].push(filterObj.value);
+                }
+            });
+
+            if (!sendDataObj.MonthYear) return null;
+
+            // add non filter props
+            sendDataObj.CurrentPage = $('#events-calendar').data("currentpage");
+            sendDataObj.ViewMode = this.View === 'calendar-view' ? 'calendar' : 'list';
+
+            // set endate to far in the future for list view for infinite scrolling
+            if (this.View === 'calendar-view') {
+                sendDataObj.EventsEndDate = moment(this.Date).add(1, this.ViewType + 's').format('MMMM YYYY');
+            } else {
+                sendDataObj.EventsEndDate = moment(this.Date).add(100, 'years').format('MMMM YYYY');
+            }
+            
+
+            switch (this.View) {
+                case 'list-view':
+                case 'tile-view':
+                    // add event listing specific non filter props
+                    sendDataObj.PageNo = 1;
+                case 'calendar-view':
+                    // explicitly set MonthYear property to EventsStartDate
+                    sendDataObj.EventsStartDate = sendDataObj.MonthYear[0];
+                    delete sendDataObj.MonthYear;
+                    break;
+                default:
+                    console.log('View : ' + this.View + ' is invalid. Essential senddata props are not set, headsup errors are coming!');
+            }
+
+            if (!sendDataObj.EventsStartDate || typeof sendDataObj.EventsStartDate !== 'string')
+                throw "EventsStartDate not valid : " + sendDataObj.EventsStartDate;
+            
+            if (!sendDataObj.EventsEndDate || typeof sendDataObj.EventsEndDate !== 'string')
+                throw "EventsEndDate not valid : " + sendDataObj.EventsEndDate;
+            
+            if (!sendDataObj.CurrentPage || typeof sendDataObj.CurrentPage !== 'string')
+                throw "CurrentPage not valid : " + sendDataObj.CurrentPage;
+
+            if (this.View !== 'calendar-view') {
+                if (isNaN(sendDataObj.PageNo))
+                    throw "PageNo not valid : " + sendDataObj.PageNo;                    
+            }
+
+            console.log('data sent (pre stringification)', sendDataObj);
+
+            return sendDataObj;
         },
         GetAjaxData: function (url, method, data, SCallback, Errcallback, SearchType) {
             INFORMA.Spinner.Show(InformaEventsController.BodyContainer);
