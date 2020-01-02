@@ -27,6 +27,7 @@ INFORMA.articletech = (function (window, $, namespace) {
         _addBreadcrumbSelectedFilter,
         _updateArticleFilterBreadcrumb,
         _updateSearchTextBreadcrumb,
+		_updateSearchTextBreadcrumbWithText,
         _showMessage,
         _DeleteFilter,
         _setArticleFilterSelectedMessage,
@@ -39,6 +40,7 @@ INFORMA.articletech = (function (window, $, namespace) {
         BrandsId,
         checkSearchBoxHasValue,
         id,
+		AutocompleteMinCharCount=4,
         subsegmentId,
         isAjaxCalled,
         SubSegments,
@@ -205,14 +207,17 @@ INFORMA.articletech = (function (window, $, namespace) {
         inputSearchText = val;
         if (val != "") {
             $('#filterpageno').val("0");
-            $("#txtArticleSearchText").val("");
-            _addBreadcrumbSelectedFilter("Input", "ArticleSearchText", val, 1);
+			_removeSearchTextBreadcrumb();          
+			_updateArticleFilterBreadcrumb();
             _LoadArticleListdata();
+			_updateSearchTextBreadcrumbWithText(inputSearchText);
         }
     }
     _bindAutoComplete = function (val) {
         var obj = {
             data: JSON.stringify({
+				SegmentAndSubSegments: _GetSelectedSegment(),
+                BrandID: _GetSelectedBrands(),
                 SearchKeyword: val,
                 CurrentPage: $("#CurrentPage").val(),
                 RequestType: "Article",
@@ -233,13 +238,19 @@ INFORMA.articletech = (function (window, $, namespace) {
                 });
                 $("#txtArticleSearchText").autocomplete({
                     source: dataArray,
+					minLength:AutocompleteMinCharCount,
                     select: function (event, ui) {
                         var label = ui.item.label;
                         var value = ui.item.value;
                         //store in session
                         _LoadArticleFilteredData(value);
+						_setArticleFilterSelectedMessage();
                     }
-                });
+                }).keyup(function (e) {
+					if(e.which === 13) {
+						$("#ui-id-1").hide();
+					}            
+				});
             },
             error: function (error) {
                 INFORMA.Spinner.Hide();
@@ -254,64 +265,22 @@ INFORMA.articletech = (function (window, $, namespace) {
     $("#txtArticleSearchText").keypress(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         var val = this.value;
-        if (keycode == '13') {
-            _LoadArticleFilteredData(val);
-        }
-        if (val != "" && val.length > 3) {
-
-            _bindAutoComplete(val);
-        }
+		if(val!="" && val.length>AutocompleteMinCharCount)
+		{
+			if (keycode == '13') {
+					_LoadArticleFilteredData(val);
+					_setArticleFilterSelectedMessage();
+				}
+			else
+			{
+			_bindAutoComplete(val);
+			}
+		}
     });
-    /*
-    $("#txtArticleSearchText").keypress(function (event) {
-        var keycode = (event.keyCode ? event.keyCode : event.which);
-        var val = this.value;
-        if (keycode == '13') {
-            inputSearchText = val;
-            if (val != "") {
-                $('#filterpageno').val("0");
-                $("#txtArticleSearchText").val("");
-                _addBreadcrumbSelectedFilter("Input", "ArticleSearchText", val, 1);
-                _LoadArticleListdata();
-            }
-        }
-        if (val != "" && val.length > 3) {
-
-            var obj = {
-                data: JSON.stringify({
-                    SearchKeyword: val,
-                    CurrentPage: $("#CurrentPage").val(),
-                    RequestType: "Article",
-                    PageNo: 1
-                })
-            }
-
-            $.ajax({
-                url: "/client/search/GetAutocompleteList",
-                type: "POST",
-                data: obj,
-                success: function (result) {
-
-                    $.each(result.Articles, function (index, value) {
-                        if ($.inArray(value.Title, dataArray) == -1) {
-                            dataArray.push(value.Title);
-                        }
-                    });
-
-                },
-                error: function (error) {
-                    INFORMA.Spinner.Hide();
-                },
-                complete: function (data) {
-                    setTimeout(function () { INFORMA.Spinner.Hide(); }, 1000);
-                }
-            })
-        }
-    });
-    */
-    $("#txtArticleSearchText").autocomplete({
+	
+   /* $("#txtArticleSearchText").autocomplete({
         source: dataArray
-    });
+    });*/
     $(document).on("click", ".article-cross", function () {
         var id = $(this).attr("data-attr-id");
         var valueofoption = $(this).attr("data-attr-valueofoption");
@@ -330,9 +299,10 @@ INFORMA.articletech = (function (window, $, namespace) {
             }
             _updateSegmentSelection("Segments");
         }
-        //GS:set empty article text search value
-        var deleteArticleSearch = id + "_" + valueofoption;
-        if (deleteArticleSearch == "Input_ArticleSearchText") {
+        //ISW-3912
+		//GS:set empty article text search value
+        //var deleteArticleSearch = id;
+		if (id == searchInputCross) {
             inputSearchText = "";
         }
         if (id == "articlebrands")//update selected attribute for brands
@@ -416,15 +386,15 @@ INFORMA.articletech = (function (window, $, namespace) {
         }
         
         var obj = {
-        data: JSON.stringify({
-        SegmentAndSubSegments: _GetSelectedSegment(),
-        BrandID: _GetSelectedBrands(),
-        SearchText: $('#searchText').val(),
-        CurrentPage: $('#CurrentPage').val(),
-        ProductLineId: $('#productlinepre').val(),
-        ArticleSearchText:inputSearchText,
-        PageNo: pageNumber,
-        })
+			data: JSON.stringify({
+				SegmentAndSubSegments: _GetSelectedSegment(),
+				BrandID: _GetSelectedBrands(),
+				SearchText: $('#txtArticleSearchText').val(),
+				CurrentPage: $('#CurrentPage').val(),
+				ProductLineId: $('#productlinepre').val(),
+				ArticleSearchText:inputSearchText,
+				PageNo: pageNumber,
+			})
         }
         $('#filterpageno').val(pageNumber);
         _BindArticlesPartialView(ArticleSearch, "POST", obj, true);
@@ -654,7 +624,8 @@ INFORMA.articletech = (function (window, $, namespace) {
             $("#" + segmentContainerId).attr("data-value-segment-and-subsegment", JSON.stringify(jsonSegmentObj));
     }
     _checkSearchBoxHasValue = function () {
-        var searchTextValue = $('#searchText').val();
+		//ISW-3912
+        var searchTextValue = $('#txtArticleSearchText').val();
         if (searchTextValue != "" && searchTextValue != "View Search") {
             return true;
         }
@@ -761,15 +732,30 @@ INFORMA.articletech = (function (window, $, namespace) {
         _updateSearchTextBreadcrumb();
     }
     _removeSearchTextBreadcrumb = function () {
-        if ($("#SearchInput").length > 0) {
-            $("#SearchInput").remove();
+		//ISW-3912#7
+        if ($("#Input_ArticleSearchText").length > 0) {
+            $("#Input_ArticleSearchText").remove();
         }
     }
     _updateSearchTextBreadcrumb = function () {
-        var input = $.trim($("#searchText").val());
+        var input = $.trim($("#txtArticleSearchText").val());
         if (input != "") {
             _removeSearchTextBreadcrumb();
-            var x = '<div class="unit" id="SearchInput"><label class="value">' + input + '</label> <label data-attr-id="SearchInput" class="article-cross">X</label></div>';
+			//ISW-3912#7
+            var x = '<div class="unit" id="Input_ArticleSearchText"><label class="value">' + input + '</label> <label data-attr-id="SearchInput" class="article-cross">X</label></div>';
+            $(".section").append(x);
+        }
+        else {
+            _removeSearchTextBreadcrumb();
+        }
+    }
+	//ISW-3912
+	 _updateSearchTextBreadcrumbWithText = function (inputText) {
+        var input = $.trim(inputText);
+        if (input != "") {
+            _removeSearchTextBreadcrumb();
+			//ISW-3912#7
+            var x = '<div class="unit" id="Input_ArticleSearchText"><label class="value">' + input + '</label> <label data-attr-id="SearchInput" class="article-cross">X</label></div>';
             $(".section").append(x);
         }
         else {
@@ -785,8 +771,8 @@ INFORMA.articletech = (function (window, $, namespace) {
     _DeleteFilter = function (id, li_value) {
         if (id == searchInputCross) {
             //search text box selection
-            $("#" + id).remove();
-            $("#searchText").val("");
+            $("#Input_ArticleSearchText").remove();
+            $("#txtArticleSearchText").val("");
         }
         else {
             $("#" + li_value + " p").removeClass("selected");
@@ -831,13 +817,19 @@ INFORMA.articletech = (function (window, $, namespace) {
         if (hidenfilterCount > 0) {
             length = length - hidenfilterCount;
         }
-
-        if (length > 1) {
-            // $(".filter-section .heading").show();
-            $(".filter-section .heading").text("Active Filters (" + (length - 1) + ")");
-            $(".clearAllArticlesFilters").removeClass("hide-clear-filter")
+		//ISW-3912
+		if(length==1)
+		{
+			 $(".filter-section .heading").show();            
+			$(".filter-section .heading").text("Active Filters (" + (length) + ")");
+			  $(".clearAllArticlesFilters").addClass("hide-clear-filter");
+		}
+        else if (length > 1) { //ISW-3912
+             $(".filter-section .heading").show();            
+            $(".clearAllArticlesFilters").removeClass("hide-clear-filter");
+			$(".filter-section .heading").text("Active Filters (" + (length) + ")");
         } else {
-            // $(".filter-section .heading").hide();
+            $(".filter-section .heading").hide();
             $(".clearAllArticlesFilters").addClass("hide-clear-filter")
         }
     }
