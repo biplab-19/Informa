@@ -261,6 +261,12 @@ INFORMA.articletech = (function (window, $, namespace) {
         })
 
     }
+	
+	$(".article-list-filter .search-bar i.search-icon").click(function (){
+		_LoadArticleFilteredData($('#txtArticleSearchText').val());
+		_setArticleFilterSelectedMessage();
+	});
+	
     //GS:Handled article search text box event
     $("#txtArticleSearchText").keypress(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);

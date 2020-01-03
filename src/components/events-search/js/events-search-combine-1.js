@@ -1093,6 +1093,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         PageNum: 1,
 		AutocompleteMinCharCount:4,
         EventSearchText:$("#txtEventSearchText"),
+		BtnSearchCmd:$(".search-bar i.search-icon"),
         LoadCalled: false,
         ErrorTimeout: 0,
         Init: function () {
@@ -1136,7 +1137,9 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 InformaEventQuery.AddProp('ViewType', val);
             });
             
-
+			this.BtnSearchCmd.click(function (){
+				that._loadEventFilteredData($("#txtEventSearchText").val());
+			});
             //GS:Handled enter key when "event search text" provide
             this.EventSearchText.keypress(function (event) {
                 var keycode = (event.keyCode ? event.keyCode : event.which);
