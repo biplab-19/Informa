@@ -53,7 +53,7 @@ INFORMA.global = (function (window, $, namespace) {
             var docCookiesArray = docCookies.split(';');
             var hasDocReferrerCookie = docCookiesArray.filter(function (item) {
                 return item.trim().indexOf('document-referrer=') == 0
-            }).length;
+            }).length > 0;
             if (!hasDocReferrerCookie) {
                 var docReferrer = document.referrer;
                 var docReferrerValue = window.location.hostname;
