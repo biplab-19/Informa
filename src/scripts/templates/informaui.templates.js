@@ -19,6 +19,7 @@ var INFORMA = window.INFORMA || {};
         '{{#each Articles}}'+
             '<li>'+
                 '<div class="col-xs-12">'+
+                '<a class="newco-article-image" href="#" > <img display: "none" src="{{Image}}" alt="" class="img-responsive" /> </a>' +
                     '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
                         '<div class="recomend-content">'+
                             '<div class="content">'+
