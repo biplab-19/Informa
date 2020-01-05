@@ -77,9 +77,10 @@ INFORMA.ArticleList = (function(window, $, namespace) {
             INFORMA.DataLoader.GetServiceData(Urls.GetArticles, {
                 method: "GET",
                 data: data,
-                success_callback: function(data) {
+                success_callback: function (data) {
+                    var isNewCoTemplate = $('body').data('sitetemplate') === 'ovum-new';
                     if (data.Articles !== undefined && data.Articles.length > 0) {
-                        var html = GetCarouselUpdatedHtml(INFORMA.Templates.articleListItems, { Articles: data.Articles });
+                        var html = GetCarouselUpdatedHtml(isNewCoTemplate ? INFORMA.Templates.articleListItemsNewCo : INFORMA.Templates.articleListItems, { Articles: data.Articles });
                         _ArticleLists.slick('unslick');
                         ArticleCont.show();
                         RenderCarousel(html, _ArticleLists,1,2);
