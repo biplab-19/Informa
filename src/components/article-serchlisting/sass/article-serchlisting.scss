@@ -1,4 +1,59 @@
+@font-face {
+  font-family: 'OpenSansRegular';
+  src: url('../fonts/OpenSans-Regular.eot');  
+  src:  url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSans-Regular.ttf')  format('truetype'),
+  url('../fonts/OpenSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSansBold';
+  src: url('../fonts/OpenSans-Bold.eot');  
+  src:  url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSans-Bold.ttf')  format('truetype'),
+  url('../fonts/OpenSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSansSemiBold';
+  src: url('../fonts/OpenSans-SemiBold.eot');  
+  src:  url('../fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/OpenSans-SemiBold.ttf')  format('truetype'),
+  url('../fonts/OpenSans-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
 .product-detail-page.newco-product-detail {
+  $font-opensansregular:'OpenSansRegular';
+  $font-opensansbold:'OpenSansBold';
+  $font-opensanssemibold:'OpenSansSemiBold';
+  $font-color: #000;
+  $headline-text: 24px;
+  $subhead-text: 14px;
+  $bg-white: #fff;
+  $base-bg: #f9f8f9;
+  $subhead-text-lineheight: 25px;
+  $checkbox-background: transparent;
+  $checkbox-border: #555;
+  $text-prple: #a54eac;
+    h2 {
+      font-family:$font-opensanssemibold;   
+    }
+    h3{
+        font-family:$font-opensansregular;  
+    }
+    h2,
+    h3,
+    h4 {
+      font-family:$font-opensansregular;   
+      font-size: $headline-text;
+      color: $font-color;
+      line-height: 29px;
+      padding: 0px;
+    }
   .product-finder-results {
     .search-container {
       width: 100%;
@@ -11,11 +66,73 @@
       width: 50%;
      }
      .list-items{
-       .recomended-wrapper{
+      &:hover {
+        box-shadow: 7px 7px 16px #ece9e9;
+      }
+      @include mobile {
+        box-shadow: 7px 7px 16px #ece9e9;
+      }
+      .recomended-wrapper{
         background-color: #fff;
+        padding: 0px 20px 0px;
          img{
            height: 202px;
-         }
+        }
+        .content {
+            margin-bottom: 0;
+            p{
+              color: $font-color;
+              font-size: $subhead-text;
+              line-height: $subhead-text-lineheight;
+            }
+            h4 {
+              padding: 0;
+              overflow: hidden;
+              position: relative;
+              white-space: nowrap;
+              a {
+                color: $font-color;
+                overflow: hidden;
+                position: relative;
+                font-family: $font-opensansregular;
+                display: block;
+                &:after {
+                  content: "";
+                  position: absolute;
+                  top: 1px;
+                  right: 0;
+                  width: 60%;
+                  height: 97%;
+                  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…dpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==);
+                  background-size: 100%;
+                  background-image: -moz-linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+                  background-image: -webkit-linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+                  background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+                  pointer-events: none;
+                }
+                &:hover {
+                  color: $text-prple;
+                }
+              }
+            }
+            p.type{
+              font-family:$font-opensanssemibold;
+              padding-top: 20px;
+            }
+            p.description{
+              font-family:$font-opensansregular;
+              padding-bottom: 20px;
+            }
+            p.publish{
+              font-family:$font-opensansregular;
+              a{
+                $text-prple: #a54eac;
+              }
+            }
+          }
+          .footer{
+            display: none;
+          }
        }
      }
   }
