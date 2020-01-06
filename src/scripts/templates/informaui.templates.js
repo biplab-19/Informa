@@ -52,7 +52,7 @@ var INFORMA = window.INFORMA || {};
                         '{{/compare}}'+
                     '{{/compare}}'+
                     '{{#compare PageURL.length "0" operator="=="}}' +
-                        '<img src="{{Image}}" alt="{{Title}}" class="img-responsive" />'+'+
+                        '<img src="{{Image}}" alt="{{Title}}" class="img-responsive" />'+ 
                     '{{/compare}}'+
                     '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
                         '<div class="recomend-content">'+
