@@ -1,11 +1,9 @@
-
-
 var INFORMA = window.INFORMA || {};
 INFORMA.articleHeadline = (function (window, $, namespace) {
     'use strict';
     //variables
-    var  categoryChild=$(".all-category").children("a"),
-         init;
+    var categoryChild = $(".all-category").children("a"),
+        init;
     init = function () {
         $(document).ready(function () {
             //checking the gradient required or not
@@ -16,9 +14,9 @@ INFORMA.articleHeadline = (function (window, $, namespace) {
             }
             //on click of all category
             $(document).on("click", ".all-category a", function () {
-                var thisChild =$(this).children("a").children("span"),
-                    thisParent=$(this).parent().hasClass('active'),
-                    thisSpan=$(this).children("span");
+                var thisChild = $(this).children("a").children("span"),
+                    thisParent = $(this).parent().hasClass('active'),
+                    thisSpan = $(this).children("span");
                 $(this).removeClass("active");
                 $(this).children(".dropdown-content").removeClass("drop-content-active");
                 thisChild.removeClass('triangle-down');

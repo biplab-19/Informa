@@ -7,19 +7,19 @@
   $subhead-text-lineheight: 25px;
   $checkbox-background: transparent;
   $checkbox-border: #555;
-  $text-prple: #a54eac;
+  $newcoprimarycolor: #a54eac;
   .article-headlines {
     background-color: $bg-white;
     h2 {
-      font-family: "SWBrandFont";
+      font-weight: 600;
     }
     h3 {
-      font-family: "SWBrandFont";
+      font-weight: normal;
     }
     h2,
     h3,
     h4 {
-      font-family: "SWBrandFont";
+      font-weight: normal;
       font-size: $headline-text;
       color: $font-color;
       line-height: 29px;
@@ -30,7 +30,7 @@
       color: $font-color;
       font-size: $subhead-text;
       line-height: $subhead-text-lineheight;
-      font-family: "SWBrandFont";
+      font-weight: normal;
     }
     .article-filter-section {
       background-color: $base-bg;
@@ -55,7 +55,7 @@
             width: 212px;
             display: inline-block;
             vertical-align: top;
-            font-family: "SWBrandFont";
+            font-weight: 600;
           }
           .custom-radio {
             position: relative;
@@ -118,7 +118,7 @@
                     animation: borderscale 300ms ease-in;
                   }
                   &:after {
-                    background: $text-prple;
+                    background:$newcoprimarycolor;
                     transform: scale(1);
                   }
                 }
@@ -144,8 +144,8 @@
               height: 0;
               width: 0;
               &:checked ~ .checkmark {
-                background-color: $text-prple;
-                border: 2px solid $text-prple;
+                background-color: $newcoprimarycolor;
+                border: 2px solid $newcoprimarycolor;
               }
             }
             .checkmark {
@@ -277,8 +277,8 @@
                       height: 0;
                       width: 0;
                       &:checked ~ .checkmark {
-                        background-color: $text-prple;
-                        border: 2px solid $text-prple;
+                        background-color: $newcoprimarycolor;
+                        border: 2px solid $newcoprimarycolor;
                       }
                     }
                     .checkmark {
@@ -333,15 +333,15 @@
     }
     background-color: $bg-white;
     h2 {
-      font-family: "SWBrandFont";
+      font-weight: 600;
     }
     h3 {
-      font-family: "SWBrandFont";
+      font-weight: normal;
     }
     h2,
     h3,
     h4 {
-      font-family: "SWBrandFont";
+      font-weight: normal;
       font-size: $headline-text;
       color: $font-color;
       line-height: 29px;
@@ -356,7 +356,7 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         position: relative;
-        font-family: "SWBrandFont";
+        font-weight: normal;
         &:after {
           content: "";
           position: absolute;
@@ -380,7 +380,7 @@
           pointer-events: none;
         }
         &:hover {
-          color: $text-prple;
+          color: $newcoprimarycolor;
         }
       }
     }
@@ -422,14 +422,14 @@
                 font-size: $subhead-text;
                 line-height: $subhead-text-lineheight;
                 margin: 0;
-                font-family: "SWBrandFont";
+                font-weight: 600;
               }
               p.description {
                 max-height: 120px;
                 overflow: hidden;
                 margin-top: 30px;
                 position: relative;
-                font-family: "SWBrandFont";
+                font-weight: normal;
                 border-bottom: 8px #fff solid;
                 &:after {
                   content: "";
@@ -540,8 +540,8 @@
             display: none;
           }
           &.slick-active {
-            background-color: $text-prple;
-            border: 2px solid $text-prple;
+            background-color: $newcoprimarycolor;
+            border: 2px solid $newcoprimarycolor;
           }
         }
       }
