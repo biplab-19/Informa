@@ -2,10 +2,16 @@
   width: 100%;
   float: left;
   position: relative;
-  min-height: 400px;
   @include mobile {
     position: initial;
     max-width: 100%;
+  }
+  .vertical-align{
+    .btn-primary{
+      @include mobile{
+        margin-bottom: 10px;
+      }
+    }
   }
   .hero-items {
     max-width: 1400px;
@@ -14,7 +20,7 @@
     @include mobile {
       display: flex;
       flex-direction: column;
-      margin-top: 25px;
+      margin-top:25px;
     }
     .hero-cf-image {
       @include mobile {
@@ -55,7 +61,7 @@
           position: relative;
           top: 0;
           left: 60px;
-          @media screen and (max-width: 812px) {
+          @include not-mid-tablet {
             left: 10px;
             width: calc(100% - 10px);
           }
@@ -115,7 +121,7 @@
 
       .for-left,
       .for-right {
-        max-width: 50%;
+        max-width: 60%;
         @include mobile {
           max-width: 100%;
         }
@@ -142,7 +148,7 @@
         text-align: right;
       }
       .for-center {
-        max-width: 50%;
+        max-width: 60%;
         margin: 0 auto;
         text-align: center;
         @include mobile {
@@ -155,39 +161,21 @@
       }
 
       h1 {
-        font-family: "Aleo Regular";
-        font-size: 48px;
-        line-height: 60px;
         text-transform: uppercase;
         margin-top: 0;
         margin-bottom: 20px;
-        @include mobile {
-          font-size: 24px;
-          line-height: 30px;
-        }
+        font-weight: 200;
+        
       }
     }
-    .btn-primary {
-      text-align: center;
-      border-radius: 28px;
-      padding: 20px 40px;
-      height: auto;
-      min-width: 160px;
-      font-family: "OpenSans Bold";
-      font-size: 21px;
-      width: auto;
-      background-color: #024;
-      color: #fff;
-      border-width: 0;
-      min-width: 150px;
-      margin-right: 10px;
-      &:after {
-        content: " ";
-      }
-      @include mobile {
-        min-width: 130px;
-        padding: 10px 5px;
-        font-size: 12px;
+    
+  }
+  .color-white {
+    h1,
+    h2 {
+      color: #fff !important;
+      @include mobile{
+      color: #024 !important;
       }
     }
   }
@@ -218,60 +206,26 @@
   clear: both;
   min-height: 400px;
   h2.sub-headline {
-    @media screen and (max-width: 812px) and (min-width: 320px) {
+    @include mobile-to-midtab {
       left: 0 !important;
-    }
-  }
-  .dot-img-left {
-    @media screen and (max-width: 812px) and (min-width: 320px) {
-      background-position: -26px 0;
-      width: 45px;
-      height: 40px;
-      background-size: 145%;
-      margin-right: 0;
     }
   }
   .global-discription {
     @media only screen and (max-width: 768px) {
       padding: 10px 0px 0 0px;
     }
-    @media screen and (max-width: 812px) and (min-width: 320px) {
+    @include mobile-to-midtab {
       padding: 10px 2px 0 4px !important;
     }
   }
   .nopadding {
     padding: 0;
   }
-  .sub-text-n-img {
-    display: flex;
-    align-items: center !important;
-    margin-bottom: 10px;
-    margin-top: 25px;
-  }
-  .dot-img-left {
-    background-image: url(../../static/images/tech/leftdotted.png);
-    background-size: 100%;
-    width: 80px;
-    height: 35px;
-    background-repeat: no-repeat;
-    margin-right: 20px;
-    margin-top: 53px;
-    @media screen and (max-width: 812px) and (min-width: 320px) {
-      background-position: -26px 0;
-      width: 45px;
-      height: 40px;
-      background-size: 145%;
-      margin-right: 0;
-    }
-  }
-  .imgleft .sub-headline {
-    text-align: left;
-  }
   .our-reach-container {
     @media only screen and (max-width: 768px) {
       padding: 20px 0px;
     }
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
       padding: 0px 0px 10px 0px;
     }
   }
@@ -279,30 +233,13 @@
     margin-top: 0px;
     position: absolute;
     width: 100%;
-    @media screen and (max-width: 812px) {
+    @include not-mid-tablet {
       position: inherit;
       margin: 0;
     }
   }
 
-  .sub-headline {
-    font-family: "Aleo";
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 60px;
-    text-transform: uppercase;
-    color: #024;
-    position: relative;
-    margin: 0;
-    width: calc(100% - 30px);
-    @media screen and (max-width: 812px) and (min-width: 320px) {
-      left: 0;
-    }
-    @media screen and (max-width: 812px) {
-      font-size: 28px;
-      line-height: 28px;
-    }
-  }
+  
   div.subofsub-text {
     width: 50%;
     margin-left: 100px;
@@ -314,7 +251,7 @@
     }
   }
   .b-one {
-    font-family: "OpenSans Light";
+    font-weight: 200;
     font-size: 18px;
     line-height: 28px;
     color: #555;
@@ -332,7 +269,7 @@
     display: -webkit-inline-box;
     align-items: center;
     font-size: 70px;
-    font-weight: bold;
+    font-weight: normal;
     color: #92b20a;
     display: flex;
     justify-content: center;
@@ -364,31 +301,7 @@
   }
 }
 
-.Viewsolutions {
-  .btn-primary {
-    text-align: center;
-    border-radius: 28px;
-    padding: 20px 40px;
-    height: auto;
-    min-width: 160px;
-    font-family: "OpenSans Bold";
-    font-size: 21px;
-    width: auto;
-    background-color: #024;
-    color: #fff;
-    border-width: 0;
-    min-width: 150px;
-    margin-right: 10px;
-    &:hover {
-      background-color: #11a7d9;
-      border-color: #11a7d9;
-      color: #fff !important;
-    }
-    &:after {
-      content: "";
-    }
-  }
-}
+
 
 .feature-hero-banner {
   .hero-banner-carousel {
@@ -513,7 +426,6 @@
           @media only screen and (min-width: 768px) {
             max-width: 100%;
             width: 100%;
-            transform: translateY(0%);
             z-index: 9999;
           }
           .for-center {
@@ -537,9 +449,7 @@
           width: 100%;
           float: left;
           word-break: break-word;
-          span {
-          }
-        }
+         }
       }
       &.overlay-text {
         .for-right {
@@ -553,6 +463,7 @@
               word-break: break-word;
             }
           }
+          
         }
       }
     }
@@ -623,10 +534,17 @@
     .vertical-align {
       h1,
       h4 {
+        color: #fff;
         @include mobile {
           color: #024;
         }
-        color: #fff;
+        p {
+          color: #fff;
+          @include mobile {
+            color: #024;
+          }
+        }
+        
       }
     }
     .hero-items {
@@ -644,7 +562,7 @@
         .second-banner-left-outer {
           .second-banner-left-inner {
             left: 0px;
-            @media screen and (max-width: 812px) {
+            @include not-mid-tablet {
               left: 10px;
             }
           }
@@ -657,26 +575,10 @@
       }
     }
   }
-
   .feature-hero-banner {
     h1,h4 {
       color: #fff !important;
     }
-    &.hero-banner {
-      .vertical-align {
-          top: 0;
-          transform: translateY(0%);
-          &.overlay-text{
-            @include mobile{
-              top: 0;
-              left: 0; 
-              transform: translate(0, 0);
-            }
-          }
-      }
-       
-    }
-    
     .hero-items {
       .vertical-align {
         @include mobile{
@@ -686,22 +588,28 @@
     }
   }
   .reach-img-section {
-    .sub-headline {
-      color: #fff;
-      @media screen and (max-width: 812px) {
-        color: #024;
-      }
-    }
     .b-one {
       color: #fff;
-      @media screen and (max-width: 812px) {
+      @include not-mid-tablet {
         color: #555;
       }
     }
+    
+    .sub-headline {
+      font-size: 40px;
+      width: calc(100% - 125px);
+      color: #fff;
+      @include mobile-to-midtab {
+          left: 0;
+        }
+        @include not-mid-tablet {
+          font-size: 28px;
+          line-height: 28px;
+          left:20px;
+          color: #024;
+        }
+    }
   }
-
- 
-  
   @media only screen and (min-width: 768px) {
     .feature-hero-banner .hero-items .vertical-align {
       max-width: 1172px;
@@ -730,31 +638,42 @@
     h4 {
       margin: 0 15px 20px 15px;
       color: #fff;
+      float:left;
     }
   }
-}
+  .reach-img-section {
+    .dot-img-left,
+    .dot-img-right {
+      @include mid-tablet {
+        width: 125px;
+        margin-top: 20px;
+      }
+      @include not-mid-tablet {
+        margin-top: 25px;
+      }
+    }
+    .text-right {
+      div.subofsub-text {
+        @include mid-tablet {
+          margin-right: 128px;
+          width:50%;
+        }
+        float: right;
+        margin-right:50px;
+        width:calc(100% - 40px);
 
-.dot-img-left {
-  background-image: url(/static/images/tech/leftdotted.png);
-  background-size: 100%;
-  width: 80px;
-  height: 35px;
-  background-repeat: no-repeat;
-  margin-right: 20px;
-  margin-top: 53px;
-}
-
-.dot-img-right {
-  background-image: url(/static/images/tech/rightdotted.png);
-  background-size: 100%;
-  width: 80px;
-  height: 35px;
-  background-repeat: no-repeat;
-  margin-left: 20px;
-  margin-top: 53px;
-}
-.imgright {
-  .subheadline {
-    text-align: right;
+      }
+    }
+    .text-left {
+      div.subofsub-text {
+        @include mid-tablet {
+          margin-left: 128px;
+        }
+      }
+    }
+  }
+  .dot-img-left ,.dot-img-right {
+    background-image:none;
+    float:left;
   }
 }

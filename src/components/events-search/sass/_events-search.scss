@@ -2,6 +2,13 @@
     position: relative;
     background-color: #676c7a;
     padding: 30px 0 15px;
+    z-index: 2;
+    @include tablet{
+        z-index:999999;
+    }
+    @include mobile {
+        z-index:999999;
+    }
     .container {
         position: relative;
     }
@@ -29,7 +36,7 @@
                 content: 'Filters';
                 display: block;
                 margin-bottom: 30px;
-                font-family: 'Aleo Regular';
+                font-family: 'SWTechBrandFont';
                 font-size: 28px;
                 line-height: 35px;
                 text-transform: uppercase;
@@ -67,8 +74,7 @@
             font-size: 15px;
             width: 100%;
             text-align: left;
-            font-weight: normal;
-            font-family: 'FSMe-Light';
+            font-weight: 200;
         }
 
         .custom-dd-menu {
@@ -86,6 +92,9 @@
                     .dropdown-content {
                         right: 15px;
                         border-radius: 25px 0 25px 25px;
+                        @include not-desktop {
+                            right: 0;
+                        }
                     }
                     &.active > a {
                         &:before {
@@ -138,6 +147,7 @@
                     position: absolute;
                     top: 59px;
                     width: 556px;
+                    padding: 20px;
                     background-color: white;
                     border-top: 1px solid $grey-color06;
                     z-index: 1;
@@ -150,6 +160,21 @@
                         & > li {
                             break-inside: avoid;
                         }
+                    }
+                    .drop-content {
+                        overflow-y: auto;
+                        overflow-x: hidden;
+                        max-height: 550px;
+                        padding: 0;
+                        @include not-desktop {
+                            max-height: none;
+                        }
+                    }
+                }
+                &#Eventregions .dropdown-content .custom-drop-options {
+                    column-count: 2;
+                    @include not-desktop {
+                        column-count: auto;
                     }
                 }
             }
@@ -195,14 +220,6 @@
                         border-top: none;
                     }
                 }
-                .custom-drop-options {
-                    overflow-y: auto;
-                    overflow-x: hidden;
-                    max-height: 500px;
-                    @include not-desktop {
-                        max-height: none;
-                    }
-                }
                 .round-checkbox {
                     position: relative;
                     padding-left: 22px;
@@ -239,8 +256,10 @@
                 }
                 .segmanet-head {
                     clear: none;
-                    font-size: 18px;
-                    font-weight: bold;
+                    float: left;
+                    width: calc(100% - 22px);
+                    font-size: 17px;
+                    font-weight: normal;
                     color: #002244;
                     margin-bottom: 15px;
                     padding-top: 0;
@@ -298,6 +317,9 @@
         transform: translateX(-50%);
         margin: 0;
         z-index: 999999;
+        @include not-desktop {
+            display: block;
+        }
         .select, .search {
             display: none;
         }
@@ -309,7 +331,7 @@
     .filter-section {
         font-size: 1.125em;
         .heading {
-            font-family: 'FSMe-Bold';
+            font-weight: bold;
             float: left;
             margin-right: 3em;
             margin-top: 0.5em;
@@ -370,17 +392,33 @@
                 display: inline-block;
                 vertical-align: middle;
                 margin-bottom: 0;
-                font-family: 'FSMe-Bold';
+                font-weight: bold;
                 font-size: 1.125em;
             }
             .btn.ical {
+                position: relative;
                 display: inline-block;
-                width: 33px;
-                height: 33px;
                 vertical-align: middle;
-                text-indent: -99999px;
-                margin-left: 10px;
-                padding: 5px 10px;
+                margin-left: 15px;
+                padding: 0 10px;
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    vertical-align: middle;
+                    right: 0;
+                    width: 28px;
+                    height: 28px;
+                    background-color: white;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    pointer-events: auto;
+                }
+                .text {
+                    display: inline-block;
+                    vertical-align: middle;
+                    margin-left: 10px;
+                }
             }
         }
         .views {
@@ -447,6 +485,17 @@
             }
         }
     }
+    
+    .search-bar {
+        @include not-desktop {
+        position: relative;
+        width: 100%;
+        }
+        i {
+            cursor: pointer;
+        }
+    }
+    
 }
 // functionality css
 body {

@@ -175,6 +175,12 @@
             $('.menu-toggle, .stellarnav-open').on('click', function (e) {
                 e.preventDefault();
 
+                //hide topsearchbar 
+                $(this).siblings(".menu-mobile").removeClass("active");
+                $(this).siblings(".outer-search-icon").removeClass("active");
+                $("#tech-main-header").removeClass("search-active");
+                $(this).siblings(".outer-search-icon").children(".search-icons").removeClass("active");
+                $(this).siblings(".outer-search-icon").children(".search-icons").children("i").addClass("search-active");
                 // if nav position is left or right, uses fadeToggle instead of slideToggle
                 if (settings.position == 'left' || settings.position == 'right') {
                     nav.find('ul:first').stop(true, true).fadeToggle(settings.openingSpeed);
@@ -222,6 +228,15 @@
                     $(this).parent('li').addClass('no-sub'); 
                 }
                 $(this).parent('li').append('<a class="dd-toggle" href="#"><span class="icon-plus"></span></a>');
+				
+				//handled if href is empty
+				var href=$(this).attr("href");
+				if(href.indexOf("javascript")!=-1)
+				{
+					$(this).click(function() {
+						$(this).parent().children(".dd-toggle").trigger("click");
+					})
+				}
             });
 
             // expands the dropdown menu on each click

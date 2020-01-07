@@ -11,7 +11,7 @@ section#hero-banner {
     }
 
     h1 {
-        font-family: FSMe-Bold;
+        font-weight: bold;
         //font-size: 60px;
         font-size: 50px;
         margin: 0 0 30px 0;
@@ -92,7 +92,7 @@ section#hero-banner {
     }
 
     .subtext {
-        font-family: FSMe-Bold;
+        font-weight: bold;
         font-size: 17px;
         padding-bottom: 24px;
 
@@ -106,7 +106,7 @@ section#hero-banner {
     }
 
     .description {
-        font-family: FSMe-Light;
+        font-weight: 200;
         font-size: 14px;
         padding-bottom: 62px;
 
@@ -135,12 +135,12 @@ section#hero-banner {
             padding: 0;
             font-size: 14px;
             color: $light;
-            font-family: FSMe-Light;
+            font-weight: 200;
 
             .priceDetails {
                 span.price {
                     font-size: 24px;
-                    font-family: FSMe-Bold;
+                    font-weight: bold;
 
                     &:before {
                         content: "\00a3";
@@ -150,7 +150,7 @@ section#hero-banner {
             }
 
             .headline {
-                font-family: FSMe-Bold;
+                font-weight: bold;
             }
 
             @include tablet {
@@ -165,15 +165,15 @@ section#hero-banner {
 
     .cta1, .cta2 {
         font-size: 14px;
-        font-family: FSMe-Bold;
+        font-weight: bold;
     }
 
     .cta2 {
-        font-family: FSMe;
+        font-weight: normal;
     }
 
     .cta3 {
-        font-family: FSMe-Light;
+        font-weight: 200;
         font-size: 16px;
         color: $orange !important;
 
@@ -350,7 +350,7 @@ section#hero-banner {
 
         h2,
         .subtext {
-            font-family: FSMe-light;
+            font-weight: 200;
             font-size: 40px;
             color: #444957;
             padding-bottom: 0px;
@@ -370,7 +370,7 @@ section#hero-banner {
         }
 
         h3 {
-            font-family: FSMe-light;
+            font-weight: 200;
             font-size: 20px;
             color: #444957;
             color: $white;
@@ -379,7 +379,7 @@ section#hero-banner {
         .color-subtext {
             color: #444957;
             line-height: 22px;
-            font-family: FSMe-light;
+            font-weight: 200;
             color: $white;
             margin-top: 30px;
 
@@ -473,7 +473,6 @@ section#hero-banner {
         }
 
         .subtext {
-            font-family: FSMe;
             font-size: 30px;
             color: #444957;
             padding-bottom: 0px;
@@ -600,7 +599,6 @@ section#hero-banner {
         }
 
         .subtext {
-            font-family: FSMe;
             font-size: 30px;
             color: #444957;
             padding-bottom: 0px;
@@ -1232,41 +1230,12 @@ section#hero-banner {
         left: 0%;
         transform: translate(0%,0%);
     }
-    .cta-button-containor .btn-primary {
-        text-align: center;
-        border-radius: 28px;
-        padding: 20px 40px;
-        height: auto;
-        min-width: 160px;
-        font-family: 'OpenSans Bold';
-        font-size: 21px;
-        width: auto;
-        background-color: #024;
-        color: #fff;
-        border-width: 0;
-        min-width: 150px;
-        margin-right: 10px;
-        @media screen and (max-width: 768px) and (min-width: 320px){
-            min-width: 130px;
-            padding: 10px 5px;
-            font-size: 12px;
-            }
-        &:hover{
-        background-color: #11a7d9;
-        border-color: #11a7d9;
-        color: #fff!important;
-        }
-        
-    }
+    
     .single-image img {
         width: 100%;
     }
     @media only screen and (min-width: 1201px){
         
-        div.for-left, div.for-right {
-            width: 50%;
-        }
-
         div.for-left, div.for-right {
             width: 50%;
         }
@@ -1282,29 +1251,7 @@ section#hero-banner {
         display: inline-block !important;
         float: left;
     }
-    h1 {
-        font-family: 'Aleo Regular'!important;
-        font-size: 48px!important;
-        line-height: 60px!important;
-        text-transform: uppercase!important;
-        color: #024!important;
-        margin-top: 0!important;
-        margin-bottom: 20px!important;
-        @media only screen and (max-width: 768px) {
-                font-size: 24px!important;
-                line-height: 30px!important;
-        }
-    }
-    h4 {
-        font-family: 'OpenSans Light'!important;
-        font-size: 24px!important;
-        line-height: 34px!important;
-        color: #555!important;
-        @media only screen and (max-width: 768px) {
-                font-size: 18px!important;
-                line-height: 28px!important;
-        }
-    }
+    
     .second-banner-left-outer {
         display: inline-block !important;
         float: left;
@@ -1327,10 +1274,7 @@ section#hero-banner {
     h1 {
         color: #002144;
     }
-    .btn-primary:after {
-        content: "";
-        display:none;
-    }
+    
     .second-banner-left-outer .second-banner-left-inner {
         width: 100%;
         padding: 0;
@@ -1374,11 +1318,17 @@ section#hero-banner.feature-hero-banner {
     color: #fff;
     position: relative;
     overflow: hidden;
-    height: 100vh;
+    height: 800px;
     clear: both;
+    @include mobile{
+        height:100vh;
+    }
+    @include tablet{
+        height:100vh;
+    }
 }
 section#hero-banner.feature-hero-banner {
-    max-height: 720px;
+    max-height: 800px;
 }
 
 section#hero-banner.feature-hero-banner .btn {
@@ -1410,7 +1360,6 @@ section#hero-banner .vertical-align.overlay-text {
     .hero-items.hero-carousel .vertical-align.overlay-text {
         max-width: 100%;
         width: 100%;
-        transform: translateY(0%);
         z-index: 9999;
         
     }
@@ -1432,19 +1381,3 @@ section#hero-banner .vertical-align.overlay-text {
     
 }
 
-
-
-
-
-
-@media only screen and (max-width: 1200px) and (min-width: 768px){
-.hero-items .vertical-align.overlay-text {
-    top: 108px;
- }
-}
-
-@media only screen and (min-width: 1201px){
-.hero-items .vertical-align.overlay-text {
-    top: 0;
- }
-}
