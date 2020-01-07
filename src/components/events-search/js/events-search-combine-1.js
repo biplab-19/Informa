@@ -1145,7 +1145,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                 var keycode = (event.keyCode ? event.keyCode : event.which);
                 var val = this.value;
 				//ISW-3912
-                if(val.length>InformaEventsController.AutocompleteMinCharCount)
+                if(val.length>0)
 				{
 				EventSearchTextValue = val;
 				if (keycode == '13') {
@@ -1164,7 +1164,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 			})
         },
         _bindAutoComplete : function(val){
-            if (val != "" && val.length>InformaEventsController.AutocompleteMinCharCount) {   
+            if (val != "" && val.length>0) {   
 			//ISW-3912
 
 				var sendDataObj=this.GetSendDataAutoComplete(val);			
@@ -1230,7 +1230,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     InformaFilters.RemoveFilter(type, value);
                     InformaEventQuery.RemoveProp(type, value);
                 }
-                ($("#txtEventSearchText").val(""));
+                //($("#txtEventSearchText").val(""));
                 InformaEventQuery.AddProp('EventSearchText', val);
             }
         },
