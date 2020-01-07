@@ -76,30 +76,32 @@ var INFORMA = window.INFORMA || {};
                                             '{{#compare ShowForm false operator="=="}}'+
                                                 '{{#compare IsAuthenticatedUser false operator="=="}}'+
                                                     '{{#if LinkText}}'+
-                                                        '<h4><a href="{{PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_blank">{{Title}}</a></h4>'+
+                                                        '<h4><a href="{{PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_blank" title="{{Title}}">{{Title}}</a></h4>'+
                                                     '{{/if}}'+
                                                 '{{/compare}}'+
                                             '{{/compare}}'+
                                             '{{#compare ShowForm true operator="=="}}'+
                                                 '{{#compare IsAuthenticatedUser false operator="=="}}'+
                                                     '{{#if LinkText}}'+
-                                                        '<h4><a class="show-register-form gated-content" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">{{Title}}</a></h4>'+
+                                                        '<h4><a class="show-register-form gated-content" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}" title="{{Title}}">{{Title}}</a></h4>'+
                                                     '{{/if}}'+
                                                 '{{/compare}}'+
                                             '{{/compare}}'+
                                             '{{#compare IsAuthenticatedUser true operator="=="}}'+
                                                 '{{#if LinkText}}'+
-                                                    '<h4><a href="{{PageURL}}" target="_blank">{{Title}}</a></h4>'+
+                                                    '<h4><a href="{{PageURL}}" target="_blank" title="{{Title}}">{{Title}}</a></h4>'+
                                                 '{{/if}}'+
                                             '{{/compare}}'+
                                         '{{/compare}}'+
                                     '{{/compare}}'+
                                 '{{/compare}}'+
                                 '{{#compare PageURL.length "0" operator="=="}}' +
-                                    '<h4><span>{{Title}}</span></h4>'+
+                                    '<h4><span title="{{Title}}">{{Title}}</span></h4>'+
                                 '{{/compare}}'+
                                 '{{#compare Description null operator="!="}}'+
-                                    '<p class="description">{{Description}}</p>'+
+                                    '{{#compare Description.length "0" operator=">"}}' +
+                                        '<p class="description">{{Description}}</p>'+
+                                    '{{/compare}}'+
                                 '{{/compare}}'+
                                 '{{#compare Video null operator="=="}}'+
                                         '<div class="video-container">' +
