@@ -218,6 +218,7 @@ INFORMA.articletech = (function (window, $, namespace) {
             data: JSON.stringify({
 				SegmentAndSubSegments: _GetSelectedSegment(),
                 BrandID: _GetSelectedBrands(),
+				ProductLineId: $('#productlinepre').val(),
                 SearchKeyword: val,
                 CurrentPage: $("#CurrentPage").val(),
                 RequestType: "Article",
@@ -271,7 +272,7 @@ INFORMA.articletech = (function (window, $, namespace) {
     $("#txtArticleSearchText").keypress(function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         var val = this.value;
-		if(val!="" && val.length>AutocompleteMinCharCount)
+		if(val!="" && val.length>0)
 		{
 			if (keycode == '13') {
 					_LoadArticleFilteredData(val);
