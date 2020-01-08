@@ -465,7 +465,7 @@
                   }
                   &.gated-content {
                     &::after {
-                      background-image: url(../../Static/images/lock-icon/lock-icon-black.jpg);
+                      background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
                       background-repeat: no-repeat;
                       content: "";
                       width: 27px;
@@ -479,7 +479,7 @@
                     }
                     &:hover {
                       &::after {
-                        background-image: url(../../Static/images/lock-icon/lock-icon.jpg);
+                        background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
                         @include mobile {
                           background-image: none;
                         }
@@ -509,14 +509,14 @@
         margin-left: 0;
         top: 100px;
         &:before {
-          content: url(../../Static/images/article-headlines/next-btn.png);
+          content: url(../../Static/images/tmt-newco/images/article-headlines/next-btn.png);
         }
       }
       .slick-prev {
         left: -30px;
         top: 100px;
         &:before {
-          content: url(../../Static/images/article-headlines/prev-btn.png);
+          content: url(../../Static/images/tmt-newco/images/article-headlines/prev-btn.png);
           @include mobile {
             left: -70%;
           }
