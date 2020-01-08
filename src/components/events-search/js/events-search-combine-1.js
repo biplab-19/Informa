@@ -1230,7 +1230,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                     InformaFilters.RemoveFilter(type, value);
                     InformaEventQuery.RemoveProp(type, value);
                 }
-                //($("#txtEventSearchText").val(""));
                 InformaEventQuery.AddProp('EventSearchText', val);
             }
         },
