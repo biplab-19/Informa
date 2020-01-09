@@ -7,10 +7,12 @@ INFORMA.articleHeadline = (function (window, $, namespace) {
     init = function () {
         $(document).ready(function () {
             //checking the gradient required or not
-            if ($('.drop-content #all-category')[0].checked) {
-                categoryChild.removeClass("select-gradient");
-            } else {
-                categoryChild.addClass("select-gradient");
+            if ($('.drop-content #all-category').length > 0) {
+                if ($('.drop-content #all-category')[0].checked) {
+                    categoryChild.removeClass("select-gradient");
+                } else {
+                    categoryChild.addClass("select-gradient");
+                }
             }
             //on click of all category
             $(document).on("click", ".all-category a", function () {

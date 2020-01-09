@@ -63,6 +63,16 @@ Handlebars.registerHelper('splitURL', function(string, substring) {
   }
 });
 
+Handlebars.registerHelper('IfNotBlank', function(strvalue,options) {
+  if(strvalue==null || strvalue==undefined) ( strvalue="")
+  strvalue = strvalue.trim();
+  if( strvalue.length > 0 ) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 Handlebars.registerHelper('AnalystData', function(profile) {
   if(profile){
     var u = profile.split("#");
