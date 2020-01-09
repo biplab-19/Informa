@@ -7,1341 +7,256 @@
                     <p>Select a research sector and then a corresponding need to view related results. </p>
                 </div>
                 <div class="col-md-6">
-                    <form class="form" method="post" action="#">
-                        <fieldset>
-                            <ul class="filter-category selected-sectors">
-                                <li><a><span class="triangle-right"></span>Selected Sectors</a></li>
-                                <li class="dropdown-content">
-                                    <ul class="drop-content">
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox" name="yesno" id="all-category" checked="checked">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">All</p>
-                                        </li>
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">1</p>
-                                        </li>
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">2</p>
-                                        </li>
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">3</p>
-                                        </li>
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">4</p>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="filter-category selected-needs">
-                                <li><a><span class="triangle-right"></span>Selected Needs</a></li>
-                                <li class="dropdown-content">
-                                    <ul class="drop-content">
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox" name="yesno" id="all-category" checked="checked">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">All</p>
-                                        </li>
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">1</p>
-                                        </li>
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">2</p>
-                                        </li>
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">3</p>
-                                        </li>
-                                        <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">4</p>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <div class="refine-result-btn"><button type="button" class="btn btn-primary" data-submit="sector-search">Refine and sort results</button></div>
-                        </fieldset>
-                    </form>
+                <form class="form" method="post" action="#">
+                    <fieldset>
+                        <ul class="resource-sector-search">
+                            <li class="menu">
+                                <label for="sector-list" class="label-text">Sector:</label>
+                                <div class="custom-multiselect">
+                                    <select id="resource-sector-list" name="ResourceSectors" class="Sector" multiple="multiple" data-placeholder="Selected Sectors">
+                                        <option value="sector1">Commodities</option>
+                                        <option value="sector2">Crop protection</option>
+                                        <option value="sector3">Diary Products</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="menu disabled">
+                                <label for="resource-sub-sector-list" class="label-text">Needs:</label>
+                                <div class="custom-multiselect">
+                                    <select id="sub-sector-list" name="ResourceSubSectors" class="SubSector" disabled="disabled" multiple="multiple" data-placeholder="Selected Needs">
+                                        <option value="subsector1">Diary</option>
+                                        <option value="subsector2">Meats</option>
+                                        <option value="subsector3">Electronics</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="menu button disabled">
+                                <button type="button" class="btn btn-primary" data-submit="sector-search">Go</button>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </form>
                 </div>
             </div>
         </div>
     </div>
     <div class="product-finder-results clearfix">
         <div class="container">
-            <section class="refine-container">
+            <section id="refine-container-sction" class="refine-container">
                 <form class="form">
-                    <p class="heading">Refine results by</p>
+                    <p class="heading">Refine results</p>
+                    <a href="#" class="clear-all">Clear All</a>
                     <div class="panel-group" id="refine-list">
-                        <!-- here for refine filter-->
-                        <div class="panel-group" id="refine-list">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        <span class="custom-checkbox">
-                                            <label for="Topic1" class="label">
-                                                <input type="checkbox" name="Topic1" id="Topic1" value="">
-                                                <span>Topics</span>
-                                            </label>
-                                        </span>
-
-
-                                        <a data-toggle="collapse" href="#Topic" class="collapsed">
-                                            <strong>Topics</strong>
-                                        </a>
-                                    </h3>
-                                </div>
-                                    <div id="Topic" class="panel-collapse collapse ">
-                                        <div class="panel-body" data-defaultcount="13">
-                                            <fieldset>
-                                                <legend class="hidden">Topics</legend>
-                                                <ul>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="securityd2c8fd75713d44dcb25aaa42791df164" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Security" id="securityd2c8fd75713d44dcb25aaa42791df164" value="d2c8fd75713d44dcb25aaa42791df164">
-
-                                                                <span>Security</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="sdn/nfvb5fff6d9f3a545b2a8115f9300cff3ff" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="SDN/NFV" id="sdn/nfvb5fff6d9f3a545b2a8115f9300cff3ff" value="b5fff6d9f3a545b2a8115f9300cff3ff">
-
-                                                                <span>SDN/NFV</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="smart-homece1e23de90b0466babc0a6a844196936" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Smart home" id="smart-homece1e23de90b0466babc0a6a844196936" value="ce1e23de90b0466babc0a6a844196936">
-
-                                                                <span>Smart home</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="wearables5af52deecad34eb39829f4b87579c3df" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Wearables" id="wearables5af52deecad34eb39829f4b87579c3df" value="5af52deecad34eb39829f4b87579c3df">
-
-                                                                <span>Wearables</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="">
-                                                        <span class="custom-checkbox">
-                                                            <label for="video3da4d5f373e1400c8def566cc8b4cbac" class="label">
-                                                                    <input type="checkbox" name="Video" id="video3da4d5f373e1400c8def566cc8b4cbac" value="3da4d5f373e1400c8def566cc8b4cbac">
-
-                                                                <span>Video</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="payments8399cf96c4984a5d891400a61f31bf21" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Payments" id="payments8399cf96c4984a5d891400a61f31bf21" value="8399cf96c4984a5d891400a61f31bf21">
-
-                                                                <span>Payments</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="ai3565b1ac36b242fda85c0c6c7818be6b" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="AI" id="ai3565b1ac36b242fda85c0c6c7818be6b" value="3565b1ac36b242fda85c0c6c7818be6b">
-
-                                                                <span>AI</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="5g879d65a191bd4040912d66dc7807a098" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="5G" id="5g879d65a191bd4040912d66dc7807a098" value="879d65a191bd4040912d66dc7807a098">
-
-                                                                <span>5G</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="big-data-and-analyticsa3f2d3d8a9754562b782fb584aba8a49" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Big data and analytics" id="big-data-and-analyticsa3f2d3d8a9754562b782fb584aba8a49" value="a3f2d3d8a9754562b782fb584aba8a49">
-
-                                                                <span>Big data and analytics</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="iot4605da38c07d4ed08840ec0f480fc649" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="IoT" id="iot4605da38c07d4ed08840ec0f480fc649" value="4605da38c07d4ed08840ec0f480fc649">
-
-                                                                <span>IoT</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="cloud651c1322ffe146c1a2735fe957403a85" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Cloud" id="cloud651c1322ffe146c1a2735fe957403a85" value="651c1322ffe146c1a2735fe957403a85">
-
-                                                                <span>Cloud</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="cybersecurity064d0db342124b4da02bfb0b731cd9e7" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Cybersecurity" id="cybersecurity064d0db342124b4da02bfb0b731cd9e7" value="064d0db342124b4da02bfb0b731cd9e7">
-
-                                                                <span>Cybersecurity</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="video-gaming21626b812d314071a3ac035e73e226bf" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Video Gaming" id="video-gaming21626b812d314071a3ac035e73e226bf" value="21626b812d314071a3ac035e73e226bf">
-
-                                                                <span>Video Gaming</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                            </fieldset>
-                                            <a href="#" class="show-more" data-moretext="Show More" data-lesstext="Show Less">
-                                                Show More
-                                            </a>
-                                        </div>
-                                    </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                <span class="custom-checkbox">
+                                    <label for="selectAll1" class="label">
+                                        <input type="checkbox" name="selectAll1" id="selectAll1" value="">
+                                        <span>Select All</span>
+                                    </label>
+                                </span>
+                                <a data-toggle="collapse" data-parent="#preference" href="#InformationType">
+                                    <strong>All Topic</strong>
+                                </a>
+                            </h3>
                             </div>
-                            <div class="panel panel-default hide">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        <span class="custom-checkbox">
-                                            <label for="ContentType1" class="label">
-                                                <input type="checkbox" name="ContentType1" id="ContentType1" value="">
-                                                <span>Resources</span>
-                                            </label>
-                                        </span>
-
-
-                                        <a data-toggle="collapse" href="#ContentType" class="">
-                                            <strong>Resources</strong>
-                                        </a>
-                                    </h3>
+                            <div id="InformationType" class="specialist panel-collapse">
+                                <div class="panel-body" data-defaultcount="2">
+                                    <ul>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="grains" class="label">
+                                                    <input type="checkbox" name="grains" id="grains" value="guid001">
+                                                    <span>Grains</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="softs" class="label">
+                                                    <input type="checkbox" name="softs" id="softs" value="guid002">
+                                                    <span>Softs</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="livestock" class="label">
+                                                    <input type="checkbox" name="livestock" id="livestock" value="guid003">
+                                                    <span>Livestock</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="commodities" class="label">
+                                                    <input type="checkbox" name="commodities" id="commodities" value="guid004">
+                                                    <span>Commodities</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="agri" class="label">
+                                                    <input type="checkbox" name="agri" id="agri" value="guid005">
+                                                    <span>Agri</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="games" class="label">
+                                                    <input type="checkbox" name="games" id="games" value="guid006">
+                                                    <span>Games</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="show-more" data-moretext="Show more" data-lesstext="Less See">Show more...</a>
                                 </div>
-                                    <div id="ContentType" class="panel-collapse collapse in">
-                                        <div class="panel-body" data-defaultcount="4">
-                                            <fieldset>
-                                                <legend class="hidden">Resources</legend>
-                                                <ul>
-                                                    <li class="">
-                                                        <span class="custom-checkbox">
-                                                            <label for="analyst-opinion03c657d5bd994db790dfad027fddd20f" class="label">
-                                                                    <input checked="" type="checkbox" name="Analyst Opinion" id="analyst-opinion03c657d5bd994db790dfad027fddd20f" value="03c657d5bd994db790dfad027fddd20f">
-
-                                                                <span>Analyst Opinion</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="whitepaper8827b7d23cb84d169722b66b6e01978e" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Whitepaper" id="whitepaper8827b7d23cb84d169722b66b6e01978e" value="8827b7d23cb84d169722b66b6e01978e">
-
-                                                                <span>Whitepaper</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="webinar0c4cac1489ce4b23bf60f944c13bad23" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Webinar" id="webinar0c4cac1489ce4b23bf60f944c13bad23" value="0c4cac1489ce4b23bf60f944c13bad23">
-
-                                                                <span>Webinar</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="infographics842967fef3cd46f5a79026fbe0873492" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Infographics" id="infographics842967fef3cd46f5a79026fbe0873492" value="842967fef3cd46f5a79026fbe0873492">
-
-                                                                <span>Infographics</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="video01531659303a4e56868426ac1d88f191" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Video" id="video01531659303a4e56868426ac1d88f191" value="01531659303a4e56868426ac1d88f191">
-
-                                                                <span>Video</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="media-coverageb7dc0e98364b4457a57f3a77af35ab23" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Media Coverage" id="media-coverageb7dc0e98364b4457a57f3a77af35ab23" value="b7dc0e98364b4457a57f3a77af35ab23">
-
-                                                                <span>Media Coverage</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="press-released72a7b69902242b990073854f19c326d" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Press Release" id="press-released72a7b69902242b990073854f19c326d" value="d72a7b69902242b990073854f19c326d">
-
-                                                                <span>Press Release</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="bloga9d346a4ea184ad291234215c7a67b26" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Blog" id="bloga9d346a4ea184ad291234215c7a67b26" value="a9d346a4ea184ad291234215c7a67b26">
-
-                                                                <span>Blog</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="ebookcb868bd6a03746f9b3c0150667e7efc7" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="eBook" id="ebookcb868bd6a03746f9b3c0150667e7efc7" value="cb868bd6a03746f9b3c0150667e7efc7">
-
-                                                                <span>eBook</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="analysis85ca54fef9ec4baba785db0d7546134a" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Analysis" id="analysis85ca54fef9ec4baba785db0d7546134a" value="85ca54fef9ec4baba785db0d7546134a">
-
-                                                                <span>Analysis</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="dataf90b03595b3b46cfa79ad754be8a5ae7" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Data" id="dataf90b03595b3b46cfa79ad754be8a5ae7" value="f90b03595b3b46cfa79ad754be8a5ae7">
-
-                                                                <span>Data</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                            </fieldset>
-                                            <a href="#" class="show-more show" data-moretext="Show More" data-lesstext="Show Less">
-                                                Show More
-                                            </a>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        <span class="custom-checkbox">
-                                            <label for="Product1" class="label">
-                                                <input type="checkbox" name="Product1" id="Product1" value="">
-                                                <span>Products</span>
-                                            </label>
-                                        </span>
-
-
-                                        <a data-toggle="collapse" href="#Product" class="">
-                                            <strong>Products</strong>
-                                        </a>
-                                    </h3>
-                                </div>
-                                    <div id="Product" class="panel-collapse collapse in">
-                                        <div class="panel-body" data-defaultcount="6">
-                                            <fieldset>
-                                                <legend class="hidden">Products</legend>
-                                                <ul>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="enterprise-vendor-market-forecasts79f3170386e843e7b72c0155ff719c79" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Enterprise Vendor Market Forecasts" id="enterprise-vendor-market-forecasts79f3170386e843e7b72c0155ff719c79" value="79f3170386e843e7b72c0155ff719c79">
-
-                                                                <span>Enterprise Vendor Market Forecasts</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="consulting-servicesc41a4a9f73e54ccb9ab20615e00fc9b4" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Consulting Services" id="consulting-servicesc41a4a9f73e54ccb9ab20615e00fc9b4" value="c41a4a9f73e54ccb9ab20615e00fc9b4">
-
-                                                                <span>Consulting Services</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="">
-                                                        <span class="custom-checkbox">
-                                                            <label for="digital-consumer-insightscc5512c844bc438b98b5079a18912999" class="label">
-                                                                    <input type="checkbox" name="Digital Consumer Insights" id="digital-consumer-insightscc5512c844bc438b98b5079a18912999" value="cc5512c844bc438b98b5079a18912999">
-
-                                                                <span>Digital Consumer Insights</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="enterprise-services22204f388ff94d938fd60859b02df872" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Enterprise Services" id="enterprise-services22204f388ff94d938fd60859b02df872" value="22204f388ff94d938fd60859b02df872">
-
-                                                                <span>Enterprise Services</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="service-provider-markets653100bb9d8944c9945410fa12bb1819" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Service Provider Markets" id="service-provider-markets653100bb9d8944c9945410fa12bb1819" value="653100bb9d8944c9945410fa12bb1819">
-
-                                                                <span>Service Provider Markets</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="ict-spending-and-contractsde8d0ef6862c48958fdf1586f8375586" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="ICT Spending and Contracts" id="ict-spending-and-contractsde8d0ef6862c48958fdf1586f8375586" value="de8d0ef6862c48958fdf1586f8375586">
-
-                                                                <span>ICT Spending and Contracts</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="enterprise-decision-maker39c2683cd55a47e59a5220a7f1183224" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Enterprise Decision Maker" id="enterprise-decision-maker39c2683cd55a47e59a5220a7f1183224" value="39c2683cd55a47e59a5220a7f1183224">
-
-                                                                <span>Enterprise Decision Maker</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="artificial-intelligence0f53ae9361664b47bd7b243eb56be5b8" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Artificial Intelligence" id="artificial-intelligence0f53ae9361664b47bd7b243eb56be5b8" value="0f53ae9361664b47bd7b243eb56be5b8">
-
-                                                                <span>Artificial Intelligence</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="world-broadband-information-service61f6f8251fc04734a57033e18d2b6e92" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="World Broadband Information Service" id="world-broadband-information-service61f6f8251fc04734a57033e18d2b6e92" value="61f6f8251fc04734a57033e18d2b6e92">
-
-                                                                <span>World Broadband Information Service</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="wis-sp3d2c00d28154428ea03c435f76fdaf93" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="WIS-SP" id="wis-sp3d2c00d28154428ea03c435f76fdaf93" value="3d2c00d28154428ea03c435f76fdaf93">
-
-                                                                <span>WIS-SP</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="service-provider-market---globaled46d55b26364bd08ac343cf02910c49" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Service Provider Market - Global" id="service-provider-market---globaled46d55b26364bd08ac343cf02910c49" value="ed46d55b26364bd08ac343cf02910c49">
-
-                                                                <span>Service Provider Market - Global</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="cybersecurity-accelerator09f552fe8c824e5192214ca949401bd1" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Cybersecurity Accelerator" id="cybersecurity-accelerator09f552fe8c824e5192214ca949401bd1" value="09f552fe8c824e5192214ca949401bd1">
-
-                                                                <span>Cybersecurity Accelerator</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="service-provider-market-middle-east-and-africa959413e7b23640049b0359766a12d6cc" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Service Provider Market Middle East and Africa" id="service-provider-market-middle-east-and-africa959413e7b23640049b0359766a12d6cc" value="959413e7b23640049b0359766a12d6cc">
-
-                                                                <span>Service Provider Market Middle East and Africa</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="world-cellular-information-serviceb14d341056c24d758c9f6751caae1a5a" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="World Cellular Information Service" id="world-cellular-information-serviceb14d341056c24d758c9f6751caae1a5a" value="b14d341056c24d758c9f6751caae1a5a">
-
-                                                                <span>World Cellular Information Service</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="5g-accelerator582f50a357624279811d72ef7aff6495" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="5G Accelerator" id="5g-accelerator582f50a357624279811d72ef7aff6495" value="582f50a357624279811d72ef7aff6495">
-
-                                                                <span>5G Accelerator</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="target-–-ict-spending-and-contractsebfc33ed01024fe9860775282ba5f32d" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Target – ICT spending and contracts" id="target-–-ict-spending-and-contractsebfc33ed01024fe9860775282ba5f32d" value="ebfc33ed01024fe9860775282ba5f32d">
-
-                                                                <span>Target – ICT spending and contracts</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="enterprise-verticals42d572dbdb2242f5800d7f8f95b12bab" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Enterprise Verticals" id="enterprise-verticals42d572dbdb2242f5800d7f8f95b12bab" value="42d572dbdb2242f5800d7f8f95b12bab">
-
-                                                                <span>Enterprise Verticals</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="tracticafbe4b653ea85418993d18a95b771a93f" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Tractica" id="tracticafbe4b653ea85418993d18a95b771a93f" value="fbe4b653ea85418993d18a95b771a93f">
-
-                                                                <span>Tractica</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="service-provider-market-forecasts5fe9098b32d1414f94ce957064fa07a7" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Service Provider Market Forecasts" id="service-provider-market-forecasts5fe9098b32d1414f94ce957064fa07a7" value="5fe9098b32d1414f94ce957064fa07a7">
-
-                                                                <span>Service Provider Market Forecasts</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="service-provider-market-europedf8b52413c4346d493c89fea00f5aae3" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Service Provider Market Europe" id="service-provider-market-europedf8b52413c4346d493c89fea00f5aae3" value="df8b52413c4346d493c89fea00f5aae3">
-
-                                                                <span>Service Provider Market Europe</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="service-provider-market---asia6c3dbb84fc574c95afefaabba5d98390" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Service Provider Market - Asia" id="service-provider-market---asia6c3dbb84fc574c95afefaabba5d98390" value="6c3dbb84fc574c95afefaabba5d98390">
-
-                                                                <span>Service Provider Market - Asia</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="consumer-and-entertainment-services5e0d55d641a643649b8dabeb958549cb" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Consumer and Entertainment Services" id="consumer-and-entertainment-services5e0d55d641a643649b8dabeb958549cb" value="5e0d55d641a643649b8dabeb958549cb">
-
-                                                                <span>Consumer and Entertainment Services</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="ict-enterprise-insightsf6d0ed6262b741ecbbc8ae594e1038d5" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="ICT Enterprise Insights" id="ict-enterprise-insightsf6d0ed6262b741ecbbc8ae594e1038d5" value="f6d0ed6262b741ecbbc8ae594e1038d5">
-
-                                                                <span>ICT Enterprise Insights</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="world-tv-information-servicefa6453e39f9e4fbca9d1b03768887fc8" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="World TV Information Service" id="world-tv-information-servicefa6453e39f9e4fbca9d1b03768887fc8" value="fa6453e39f9e4fbca9d1b03768887fc8">
-
-                                                                <span>World TV Information Service</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="ict-enterprise-insights-2019-203264dfe5318d41fab471b55ee239cb52" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="ICT Enterprise Insights 2019-20" id="ict-enterprise-insights-2019-203264dfe5318d41fab471b55ee239cb52" value="3264dfe5318d41fab471b55ee239cb52">
-
-                                                                <span>ICT Enterprise Insights 2019-20</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="internet-of-thingseb0a7e5e2d0647e087f3ced535d2040c" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Internet of Things" id="internet-of-thingseb0a7e5e2d0647e087f3ced535d2040c" value="eb0a7e5e2d0647e087f3ced535d2040c">
-
-                                                                <span>Internet of Things</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="it59edbb38a39d41bb922fe62c7dccdfef" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="IT" id="it59edbb38a39d41bb922fe62c7dccdfef" value="59edbb38a39d41bb922fe62c7dccdfef">
-
-                                                                <span>IT</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="service-provider-market-americasda9f5385156a4c359288f09325d208fd" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Service Provider Market Americas" id="service-provider-market-americasda9f5385156a4c359288f09325d208fd" value="da9f5385156a4c359288f09325d208fd">
-
-                                                                <span>Service Provider Market Americas</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="forecasterf4fba87be0374b539f17fb91d96c55de" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Forecaster" id="forecasterf4fba87be0374b539f17fb91d96c55de" value="f4fba87be0374b539f17fb91d96c55de">
-
-                                                                <span>Forecaster</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide hidden">
-                                                        <span class="custom-checkbox">
-                                                            <label for="service-provider-technologyceb01aa0af87462592b3febc82f487bc" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Service Provider Technology" id="service-provider-technologyceb01aa0af87462592b3febc82f487bc" value="ceb01aa0af87462592b3febc82f487bc">
-
-                                                                <span>Service Provider Technology</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                            </fieldset>
-                                            <a href="#" class="show-more show" data-moretext="Show More" data-lesstext="Show Less">
-                                                Show More
-                                            </a>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="panel panel-default hide">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        <span class="custom-checkbox">
-                                            <label for="ProductType1" class="label">
-                                                <input type="checkbox" name="ProductType1" id="ProductType1" value="">
-                                                <span>Product Type</span>
-                                            </label>
-                                        </span>
-
-
-                                        <a data-toggle="collapse" href="#ProductType" class="collapsed">
-                                            <strong>Product Type</strong>
-                                        </a>
-                                    </h3>
-                                </div>
-                                    <div id="ProductType" class="panel-collapse collapse ">
-                                        <div class="panel-body" data-defaultcount="5">
-                                            <fieldset>
-                                                <legend class="hidden">Product Type</legend>
-                                                <ul>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="consulting-servicesc41a4a9f73e54ccb9ab20615e00fc9b4" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Consulting Services" id="consulting-servicesc41a4a9f73e54ccb9ab20615e00fc9b4" value="c41a4a9f73e54ccb9ab20615e00fc9b4">
-
-                                                                <span>Consulting Services</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="research7b1b6291198646059e0b70b24a82ab12" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Research" id="research7b1b6291198646059e0b70b24a82ab12" value="7b1b6291198646059e0b70b24a82ab12">
-
-                                                                <span>Research</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="datab930e5adc11e44af94387a4aa8bbbae5" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Data" id="datab930e5adc11e44af94387a4aa8bbbae5" value="b930e5adc11e44af94387a4aa8bbbae5">
-
-                                                                <span>Data</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="consultingfc1ff9d58e9c4954b7a6d63840ca2d41" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="Consulting" id="consultingfc1ff9d58e9c4954b7a6d63840ca2d41" value="fc1ff9d58e9c4954b7a6d63840ca2d41">
-
-                                                                <span>Consulting</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                    <li class="hide">
-                                                        <span class="custom-checkbox">
-                                                            <label for="2017-research-agenda1a415b7554d04b3989efb1e4154aeeb4" class="label">
-                                                                    <input type="checkbox" disabled="disabled" name="2017 Research Agenda" id="2017-research-agenda1a415b7554d04b3989efb1e4154aeeb4" value="1a415b7554d04b3989efb1e4154aeeb4">
-
-                                                                <span>2017 Research Agenda</span>
-                                                            </label>
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                            </fieldset>
-                                            <a href="#" class="show-more" data-moretext="Show More" data-lesstext="Show Less">
-                                                Show More
-                                            </a>
-                                        </div>
-                                    </div>
-                            </div>
-                            <div class="panel panel-default hide">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">
-                                        <span class="custom-checkbox">
-                                            <label for="SubSubSector1" class="label">
-                                                <input type="checkbox" name="SubSubSector1" id="SubSubSector1" value="">
-                                                <span>Specialism</span>
-                                            </label>
-                                        </span>
-
-
-                                        <a data-toggle="collapse" href="#SubSubSector" class="">
-                                            <strong>Specialism</strong>
-                                        </a>
-                                    </h3>
-                                </div>
-                                    <div id="SubSubSector" class="panel-collapse collapse in">
-                                        <div class="panel-body" data-defaultcount="5">
-                                            <fieldset>
-                                                <legend class="hidden">Specialism</legend>
-                                                <ul>
-                                                            <li class="hide">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="enterprise-ict-managementb0e0837013ee43e28fc4c297bd7c9ce8" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Enterprise ICT Management" id="enterprise-ict-managementb0e0837013ee43e28fc4c297bd7c9ce8" value="b0e0837013ee43e28fc4c297bd7c9ce8">
-
-                                                                        <span>Enterprise ICT Management</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="educationb70b14ac7ccf4d2dbb7a9099e8109cf6" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Education" id="educationb70b14ac7ccf4d2dbb7a9099e8109cf6" value="b70b14ac7ccf4d2dbb7a9099e8109cf6">
-
-                                                                        <span>Education</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="customer-engagement9702826c028d4377b08a59430f5ae1c3" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Customer Engagement" id="customer-engagement9702826c028d4377b08a59430f5ae1c3" value="9702826c028d4377b08a59430f5ae1c3">
-
-                                                                        <span>Customer Engagement</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="analytics-and-information-management9e6cd2987ee44beea2cff7fe8c26ec13" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Analytics and Information Management" id="analytics-and-information-management9e6cd2987ee44beea2cff7fe8c26ec13" value="9e6cd2987ee44beea2cff7fe8c26ec13">
-
-                                                                        <span>Analytics and Information Management</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="network-infrastructure-and-software082ba3809aab49f8b1b362bae5df45db" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Network Infrastructure and Software" id="network-infrastructure-and-software082ba3809aab49f8b1b362bae5df45db" value="082ba3809aab49f8b1b362bae5df45db">
-
-                                                                        <span>Network Infrastructure and Software</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="infrastructure-solutions263a0c3f9b1d4039ab31955b6bcbde38" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Infrastructure Solutions" id="infrastructure-solutions263a0c3f9b1d4039ab31955b6bcbde38" value="263a0c3f9b1d4039ab31955b6bcbde38">
-
-                                                                        <span>Infrastructure Solutions</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="components5f0b99ac7f3449da9d8c01216ca8a680" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Components" id="components5f0b99ac7f3449da9d8c01216ca8a680" value="5f0b99ac7f3449da9d8c01216ca8a680">
-
-                                                                        <span>Components</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="retail-bankinga5abb4dbc2e644fea6b38abae4b05dbd" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Retail Banking" id="retail-bankinga5abb4dbc2e644fea6b38abae4b05dbd" value="a5abb4dbc2e644fea6b38abae4b05dbd">
-
-                                                                        <span>Retail Banking</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="oil-and-gasddc041f446ef40ffa7d0b3c1d65d7ef6" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Oil and Gas" id="oil-and-gasddc041f446ef40ffa7d0b3c1d65d7ef6" value="ddc041f446ef40ffa7d0b3c1d65d7ef6">
-
-                                                                        <span>Oil and Gas</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="utilities93f40a8e73094fa68a303b2eb0d76e03" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Utilities" id="utilities93f40a8e73094fa68a303b2eb0d76e03" value="93f40a8e73094fa68a303b2eb0d76e03">
-
-                                                                        <span>Utilities</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="media-technologyfcb36f471b7942aa99c995a49b8d12bc" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Media Technology" id="media-technologyfcb36f471b7942aa99c995a49b8d12bc" value="fcb36f471b7942aa99c995a49b8d12bc">
-
-                                                                        <span>Media Technology</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="governmentad35d1b1ecb94c2693fe0fc51981046e" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Government" id="governmentad35d1b1ecb94c2693fe0fc51981046e" value="ad35d1b1ecb94c2693fe0fc51981046e">
-
-                                                                        <span>Government</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="financial-marketscea7a4392ea249bdac193ec0984d6783" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Financial Markets" id="financial-marketscea7a4392ea249bdac193ec0984d6783" value="cea7a4392ea249bdac193ec0984d6783">
-
-                                                                        <span>Financial Markets</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="insurance2a58ec4f9789424c887d47a57197d869" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Insurance" id="insurance2a58ec4f9789424c887d47a57197d869" value="2a58ec4f9789424c887d47a57197d869">
-
-                                                                        <span>Insurance</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="healthcare8576d512c22a41419cf63f49b7692bcb" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Healthcare" id="healthcare8576d512c22a41419cf63f49b7692bcb" value="8576d512c22a41419cf63f49b7692bcb">
-
-                                                                        <span>Healthcare</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="large-enterprise-servicese7643586cbc14a34b4890cfe8559460a" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Large Enterprise Services" id="large-enterprise-servicese7643586cbc14a34b4890cfe8559460a" value="e7643586cbc14a34b4890cfe8559460a">
-
-                                                                        <span>Large Enterprise Services</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="paymentsc4038f42c93948729f9690e27ad64fcb" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Payments" id="paymentsc4038f42c93948729f9690e27ad64fcb" value="c4038f42c93948729f9690e27ad64fcb">
-
-                                                                        <span>Payments</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="advanced-digital-services51d4aa906b6f46ce9362492d1f031c60" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Advanced Digital Services" id="advanced-digital-services51d4aa906b6f46ce9362492d1f031c60" value="51d4aa906b6f46ce9362492d1f031c60">
-
-                                                                        <span>Advanced Digital Services</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="enterprise-technologyc6bffc6e98de4d299496c32b8f66ad1d" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Enterprise Technology" id="enterprise-technologyc6bffc6e98de4d299496c32b8f66ad1d" value="c6bffc6e98de4d299496c32b8f66ad1d">
-
-                                                                        <span>Enterprise Technology</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="consumer-technology3bbf2a00ff31493d9f983724e9ea5937" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Consumer Technology" id="consumer-technology3bbf2a00ff31493d9f983724e9ea5937" value="3bbf2a00ff31493d9f983724e9ea5937">
-
-                                                                        <span>Consumer Technology</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="communications-and-socialbc315bfe20a745638b28e673fdb892c7" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Communications and Social" id="communications-and-socialbc315bfe20a745638b28e673fdb892c7" value="bc315bfe20a745638b28e673fdb892c7">
-
-                                                                        <span>Communications and Social</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="entertainment6c1ffa01aa5c40b1b2f5af10af45e0f8" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Entertainment" id="entertainment6c1ffa01aa5c40b1b2f5af10af45e0f8" value="6c1ffa01aa5c40b1b2f5af10af45e0f8">
-
-                                                                        <span>Entertainment</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="regulation486c7bd6e52243b8a282071bcde26ea6" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Regulation" id="regulation486c7bd6e52243b8a282071bcde26ea6" value="486c7bd6e52243b8a282071bcde26ea6">
-
-                                                                        <span>Regulation</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="americas-marketsaaf0483ffe254a72aa9ada355104eda4" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Americas Markets" id="americas-marketsaaf0483ffe254a72aa9ada355104eda4" value="aaf0483ffe254a72aa9ada355104eda4">
-
-                                                                        <span>Americas Markets</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="telecoms-operations-and-it334b1756f6b549838af3f0f29a729eb9" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Telecoms Operations and IT" id="telecoms-operations-and-it334b1756f6b549838af3f0f29a729eb9" value="334b1756f6b549838af3f0f29a729eb9">
-
-                                                                        <span>Telecoms Operations and IT</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="wholesaleef4ba90dd8e04fd18721cc6aba9143b0" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Wholesale" id="wholesaleef4ba90dd8e04fd18721cc6aba9143b0" value="ef4ba90dd8e04fd18721cc6aba9143b0">
-
-                                                                        <span>Wholesale</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="europe-marketscbb95ffb66f240b6b90f5320e636399d" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Europe Markets" id="europe-marketscbb95ffb66f240b6b90f5320e636399d" value="cbb95ffb66f240b6b90f5320e636399d">
-
-                                                                        <span>Europe Markets</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="service-provider-strategies481e2f79d30f48d089fe423f79baa2d5" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Service Provider Strategies" id="service-provider-strategies481e2f79d30f48d089fe423f79baa2d5" value="481e2f79d30f48d089fe423f79baa2d5">
-
-                                                                        <span>Service Provider Strategies</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="internet-of-thingsaf5ef6185f664ec59df8d132a0c5d3c5" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Internet of Things" id="internet-of-thingsaf5ef6185f664ec59df8d132a0c5d3c5" value="af5ef6185f664ec59df8d132a0c5d3c5">
-
-                                                                        <span>Internet of Things</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="middle-east-and-africa-markets63f9370c3a1744c9938bb41f9428f0d3" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Middle East and Africa Markets" id="middle-east-and-africa-markets63f9370c3a1744c9938bb41f9428f0d3" value="63f9370c3a1744c9938bb41f9428f0d3">
-
-                                                                        <span>Middle East and Africa Markets</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="asia-markets6623b3a1d78443708ca8beb352b71628" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Asia Markets" id="asia-markets6623b3a1d78443708ca8beb352b71628" value="6623b3a1d78443708ca8beb352b71628">
-
-                                                                        <span>Asia Markets</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="broadband-and-multi-playd4c3d2ba965d47b0bb803220b56b672e" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Broadband and Multi-play" id="broadband-and-multi-playd4c3d2ba965d47b0bb803220b56b672e" value="d4c3d2ba965d47b0bb803220b56b672e">
-
-                                                                        <span>Broadband and Multi-play</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="smart-livingb169d01a153a487589e9ec5c31ad9bba" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Smart Living" id="smart-livingb169d01a153a487589e9ec5c31ad9bba" value="b169d01a153a487589e9ec5c31ad9bba">
-
-                                                                        <span>Smart Living</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="retail0b63066c45304c4bb1a0f202c7d9199c" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Retail" id="retail0b63066c45304c4bb1a0f202c7d9199c" value="0b63066c45304c4bb1a0f202c7d9199c">
-
-                                                                        <span>Retail</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="sme/soho-services2ff77104115143be9fe902e92d6641e4" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="SME/SoHo Services" id="sme/soho-services2ff77104115143be9fe902e92d6641e4" value="2ff77104115143be9fe902e92d6641e4">
-
-                                                                        <span>SME/SoHo Services</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="vertical-intelligence21832c1272274cb088b356cb245e7a62" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Vertical Intelligence" id="vertical-intelligence21832c1272274cb088b356cb245e7a62" value="21832c1272274cb088b356cb245e7a62">
-
-                                                                        <span>Vertical Intelligence</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="vendor-strategiesb554aa31a9e440f6a7e2bbfafbb333ed" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Vendor Strategies" id="vendor-strategiesb554aa31a9e440f6a7e2bbfafbb333ed" value="b554aa31a9e440f6a7e2bbfafbb333ed">
-
-                                                                        <span>Vendor Strategies</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="market-and-ecosystem77c06b6b525b42ec885b6083ca559fcd" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Market and Ecosystem" id="market-and-ecosystem77c06b6b525b42ec885b6083ca559fcd" value="77c06b6b525b42ec885b6083ca559fcd">
-
-                                                                        <span>Market and Ecosystem</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="data-and-enterprise-intelligence11b9ab4867cc4e1d9afb2d23d0cf277b" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Data and Enterprise Intelligence" id="data-and-enterprise-intelligence11b9ab4867cc4e1d9afb2d23d0cf277b" value="11b9ab4867cc4e1d9afb2d23d0cf277b">
-
-                                                                        <span>Data and Enterprise Intelligence</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="platforms-and-technologiesd4786f9edcb046cab824a25ac39326a3" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Platforms and Technologies" id="platforms-and-technologiesd4786f9edcb046cab824a25ac39326a3" value="d4786f9edcb046cab824a25ac39326a3">
-
-                                                                        <span>Platforms and Technologies</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="network-transformation-and-cloud1ffa5b1b7b4348819ecd8a98d919c986" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Network Transformation and Cloud" id="network-transformation-and-cloud1ffa5b1b7b4348819ecd8a98d919c986" value="1ffa5b1b7b4348819ecd8a98d919c986">
-
-                                                                        <span>Network Transformation and Cloud</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="telco-itcccb9b9782dc480ebf0371187c52308a" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Telco IT" id="telco-itcccb9b9782dc480ebf0371187c52308a" value="cccb9b9782dc480ebf0371187c52308a">
-
-                                                                        <span>Telco IT</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                            <li class="hide hidden">
-                                                                <span class="custom-checkbox">
-                                                                    <label for="workspace-services562d96d127e547bdb87bd5a762615f1a" class="label">
-                                                                            <input type="checkbox" disabled="disabled" name="Workspace Services" id="workspace-services562d96d127e547bdb87bd5a762615f1a" value="562d96d127e547bdb87bd5a762615f1a">
-
-                                                                        <span>Workspace Services</span>
-                                                                    </label>
-                                                                </span>
-                                                            </li>
-                                                </ul>
-                                            </fieldset>
-                                            <a href="#" class="show-more show" data-moretext="Show More" data-lesstext="Show Less">
-                                                Show More
-                                            </a>
-                                        </div>
-                                    </div>
                             </div>
                         </div>
-                        {{!-- <div class="article-searchlisting-filter-section">
-                            <ul class="filter-category">
-                                    <li><a><span class="triangle-right"></span>All Topic</a></li>
-                                    <li class="dropdown-content">
-                                        <ul class="drop-content">
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox" name="yesno" id="all-category" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">All</p>
-                                            </li>
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">1</p>
-                                            </li>
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">2</p>
-                                            </li>
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">3</p>
-                                            </li>
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">4</p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                            </ul>
-                            <ul class="filter-category">
-                                <li><a><span class="triangle-right"></span>All Products</a></li>
-                                <li class="dropdown-content">
-                                    <ul class="drop-content">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <span class="custom-checkbox">
+                                        <label for="selectAll2" class="label">
+                                            <input type="checkbox" name="selectAll2" id="selectAll2" value="">
+                                            <span>Select All</span>
+                                        </label>
+                                    </span>
+                                    <a data-toggle="collapse" data-parent="#preference" href="#Role" class="collapsed">
+                                        <strong>All Products</strong>
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="Role" class="panel-collapse collapse">
+                                <div class="panel-body" data-defaultcount="5">
+                                    <ul>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox" name="yesno" id="all-category" checked="checked">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <p class="sub-seg">All</p>
+                                            <span class="custom-checkbox">
+                                                <label for="pharma" class="label">
+                                                    <input type="checkbox" name="pharma" id="pharma" value="guid007">
+                                                    <span>Pharma</span>
+                                                </label>
+                                            </span>
                                         </li>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
+                                            <span class="custom-checkbox">
+                                <label for="article" class="label">
+                                    <input type="checkbox" name="article" id="article" value="guid008">
+                                    <span>Article</span>
                                             </label>
-                                            <p class="sub-seg">1</p>
+                                            </span>
                                         </li>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
+                                            <span class="custom-checkbox">
+                                <label for="sectors" class="label">
+                                    <input type="checkbox" name="sectors" id="sectors" value="guid009">
+                                    <span>Sectors</span>
                                             </label>
-                                            <p class="sub-seg">2</p>
+                                            </span>
                                         </li>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
+                                            <span class="custom-checkbox">
+                                <label for="commodities1" class="label">
+                                    <input type="checkbox" name="commodities1" id="commodities1" value="guid010">
+                                    <span>Commodities</span>
                                             </label>
-                                            <p class="sub-seg">3</p>
+                                            </span>
                                         </li>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
+                                            <span class="custom-checkbox">
+                                <label for="agri1" class="label">
+                                    <input type="checkbox" name="agri1" id="agri1" value="guid011">
+                                    <span>Agri</span>
                                             </label>
-                                            <p class="sub-seg">4</p>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                <label for="games1" class="label">
+                                    <input type="checkbox" name="games1" id="games1" value="guid012">
+                                    <span>Games</span>
+                                            </label>
+                                            </span>
                                         </li>
                                     </ul>
-                                </li>
-                            </ul>
-                            <ul class="filter-category">
-                                    <li><a><span class="triangle-right"></span>All Specialisms</a></li>
-                                    <li class="dropdown-content">
-                                        <ul class="drop-content">
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox" name="yesno" id="all-category" checked="checked">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">All</p>
-                                            </li>
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">1</p>
-                                            </li>
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">2</p>
-                                            </li>
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">3</p>
-                                            </li>
-                                            <li>
-                                                <label class="round-checkbox">
-                                                    <input type="checkbox">
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                                <p class="sub-seg">4</p>
-                                            </li>
-                                        </ul>
-                                    </li>
-                            </ul>
-                            <ul class="filter-category">
-                                <li><a><span class="triangle-right"></span>Most recent</a></li>
-                                <li class="dropdown-content">
-                                    <ul class="drop-content">
+                                    <a href="#" class="show-more">Show more...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                        <span class="custom-checkbox">
+                            <label for="selectAll3" class="label">
+                                <input type="checkbox" name="selectAll1" id="selectAll3" value="">
+                                <span>Select All</span>
+                            </label>
+                        </span>
+                        <a data-toggle="collapse" data-parent="#preference" href="#Product" class="collapsed">
+                        <strong>All Specialisms</strong>
+                        </a>
+                    </h3>
+                            </div>
+                            <div id="Product" class="panel-collapse collapse">
+                                <div class="panel-body" data-defaultcount="5">
+                                    <ul>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox" name="yesno" id="all-category" checked="checked">
-                                                <span class="checkmark"></span>
+                                            <span class="custom-checkbox">
+                                <label for="pharma" class="label">
+                                    <input type="checkbox" name="pharma" id="pharma" value="guid007">
+                                    <span>Pharma</span>
                                             </label>
-                                            <p class="sub-seg">All</p>
+                                            </span>
                                         </li>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
+                                            <span class="custom-checkbox">
+                                <label for="article" class="label">
+                                    <input type="checkbox" name="article" id="article" value="guid008">
+                                    <span>Article</span>
                                             </label>
-                                            <p class="sub-seg">1</p>
+                                            </span>
                                         </li>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
+                                            <span class="custom-checkbox">
+                                <label for="sectors" class="label">
+                                    <input type="checkbox" name="sectors" id="sectors" value="guid009">
+                                    <span>Sectors</span>
                                             </label>
-                                            <p class="sub-seg">2</p>
+                                            </span>
                                         </li>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
+                                            <span class="custom-checkbox">
+                                <label for="commodities1" class="label">
+                                    <input type="checkbox" name="commodities1" id="commodities1" value="guid010">
+                                    <span>Commodities</span>
                                             </label>
-                                            <p class="sub-seg">3</p>
+                                            </span>
                                         </li>
                                         <li>
-                                            <label class="round-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
+                                            <span class="custom-checkbox">
+                                <label for="agri1" class="label">
+                                    <input type="checkbox" name="agri1" id="agri1" value="guid011">
+                                    <span>Agri</span>
                                             </label>
-                                            <p class="sub-seg">4</p>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                <label for="games1" class="label">
+                                    <input type="checkbox" name="games1" id="games1" value="guid012">
+                                    <span>Games</span>
+                                            </label>
+                                            </span>
                                         </li>
                                     </ul>
-                                </li>
-                            </ul>
-                        </div> --}}
+                                    <a href="#" class="show-more">Show more...</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </section>
