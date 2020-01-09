@@ -98,11 +98,13 @@ var INFORMA = window.INFORMA || {};
                                 '{{#compare PageURL.length "0" operator="=="}}' +
                                     '<h4><span title="{{Title}}">{{Title}}</span></h4>'+
                                 '{{/compare}}'+
+                                '{{#IfNotBlank Description}}'+
                                 '{{#compare Description null operator="!="}}'+
                                     '{{#compare Description.length "0" operator=">"}}' +
                                         '<p class="description">{{Description}}</p>'+
                                     '{{/compare}}'+
                                 '{{/compare}}'+
+                                '{{/IfNotBlank}}'+
                                 '{{#compare Video null operator="=="}}'+
                                         '<div class="video-container">' +
                                         '<img src="{{ContentTileImage.Url}}" alt="{{ContentTileImage.Alt}}"/>' +
