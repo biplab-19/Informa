@@ -506,6 +506,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                     for (var j = 0; j < Lists.length; j++) {
                         if (Lists[j].Category) {
                             ContentType = Lists[j].Category;
+                            if (ContentType == "SampleContent" && $("#IsNewCoTemplateEnabled").val() == "True") {
+                                ContentType = "SampleContentNewCo"
+                            }
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                             ListTemplate = Handlebars.compile(TemplateName);
                             Html += ListTemplate({ results: Lists[j] });
@@ -541,6 +544,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 for (var j = 0; j < Lists.length; j++) {
                     if (Lists[j].Category) {
                         ContentType = Lists[j].Category;
+                        if (ContentType == "SampleContent" && $("#IsNewCoTemplateEnabled").val() == "True") {
+                            ContentType = "SampleContentNewCo"
+                        }
                         TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                         ListTemplate = Handlebars.compile(TemplateName);
                         Html += ListTemplate({ results: Lists[j] });
