@@ -140,6 +140,7 @@ module.exports = function(grunt) {
                     '<%= config.dist %>/unminified/Static/css/tech-theme.css': ['<%= config.tmp %>/Static/css/tech-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/financial-theme.css': ['<%= config.tmp %>/Static/css/financial-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/tmt-theme.css': ['<%= config.tmp %>/Static/css/tmt-theme.css'],
+                    '<%= config.dist %>/unminified/Static/css/tmt-newco-theme.css': ['<%= config.tmp %>/Static/css/tmt-newco-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/maritime-theme.css': ['<%= config.tmp %>/Static/css/maritime-theme.css', '<%= config.tmp %>/Static/css/law-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/law-theme.css': ['<%= config.tmp %>/Static/css/law-theme.css'],
                     '<%= config.dist %>/unminified/Static/css/marketing-module.css': ['src/sass/marketing-module.css'],
