@@ -2064,7 +2064,6 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         InformaEventQuery.Init();
 
         var $body = InformaEventsController.BodyContainer,
-            $selectSection = $('.select-section'),
             $showFiltersBtn = $('.events-search #showFiltersBtn'),
             $closeFilterBtn = $('#closeFilterBtn'),
             filtersOpen = false
@@ -2072,8 +2071,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         // add event listner to close button
         $closeFilterBtn.click(function (evt) {
             evt.preventDefault();
-            $body.css('overflow-y', '');
-            $selectSection.hide();
+            $body.removeClass('showfilters');
             $showFiltersBtn.text("Select filters");
             $showFiltersBtn.attr('data-state', 'select');
             filtersOpen = false;
@@ -2083,13 +2081,11 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             evt.preventDefault();
             filtersOpen = !filtersOpen;
             if (filtersOpen) {
-                $body.css('overflow-y', 'hidden');
-                $selectSection.show();
+                $body.addClass('showfilters');
                 $showFiltersBtn.text("Search");
                 $showFiltersBtn.attr('data-state', 'search');
             } else {
-                $body.css('overflow-y', '');
-                $selectSection.hide();
+                $body.removeClass('showfilters');
                 $showFiltersBtn.text("Select filters");
                 $showFiltersBtn.attr('data-state', 'select');
                 InformaEventsController._loadEventFilteredData($("#txtEventSearchText").val());
