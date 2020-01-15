@@ -252,9 +252,11 @@ INFORMA.articletech = (function (window, $, namespace) {
                         _LoadArticleFilteredData(value);
 						_setArticleFilterSelectedMessage();
                     },
+                    create: function( event, ui ) {
+                        $('#ui-id-1').css('width', event.target.offsetWidth);
+                    },
                     open: function( event, ui ) {
-                      if (INFORMA.global.device.viewportN === 2)
-                          $('#ui-id-1').css('width', event.target.offsetWidth);
+                        $('#ui-id-1').css('width', event.target.offsetWidth);
                     }
                 }).on('input', function (e) {
 					if(e.which === 13) {
