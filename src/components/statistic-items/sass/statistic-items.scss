@@ -1,13 +1,10 @@
 .our-reach-section {
-
     .container {
         padding: 0;
     }
-
     .researchsubs {
         text-align: center;
         padding: 00px 0 20px;
-
         .numberntext {
             font-size: 60px;
             font-weight: normal;
@@ -15,25 +12,20 @@
             justify-content: center;
             line-height: normal;
         }
-
         .text {
             font-size: 18px;
             font-weight: normal;
             margin-bottom: 0px;
         }
-
         span.plus {
             right: 0;
             vertical-align: top;
-            //font-size: 59px !important;
             display: block;
         }
     }
-
     .our-set-divchild {
         padding: 0;
     }
-
     .sub-text {
         font-size: 18px;
         font-weight: 100;
@@ -154,34 +146,35 @@
         padding: 0;
     }
 }
-
-.reach-img-section {
-
-    .sub-headline {
-        font-family: 'SWTechBrandFont';
-        font-weight: normal;
-        font-size: 48px;
-        line-height: 60px;
-        text-transform: uppercase;
-        color: #024;
-        position: relative;
-        margin: 0;
-        width:calc(100% - 30px);
-        @media screen and (max-width: 812px) {
-            left:20px;
+.tech-theme{
+    .reach-img-section {
+        .sub-headline {
+            font-family: 'SWTechBrandFont';
+            font-weight: normal;
+            font-size: 48px;
+            line-height: 60px;
+            text-transform: uppercase;
+            color: #024;
+            position: relative;
+            margin: 0;
+            width:auto;
+            @media screen and (max-width: 812px) {
+                left:20px;
+            }
         }
-    }
-
-    .global-discription {
-        padding: 0 0px;
-    }
-
-    picture {
-        img {
-            width: 100%;
+    
+        .global-discription {
+            padding: 0 0px;
+        }
+    
+        picture {
+            img {
+                width: 100%;
+            }
         }
     }
 }
+
 
 
 @media screen and (max-width: 768px) and (min-width: 320px) {
