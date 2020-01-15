@@ -64,10 +64,11 @@
                   }
                   .btn-group{
                     border: 2px solid $border-refine-filter;
-                    width: 165px;
+                    width: 180px;
                     border-radius: 25px;
                     background: transparent;
                     margin-top: 0px;
+                    min-width: 165px;
                     @include mobile{
                       border: 2px solid $newcoprimarycolor;
                       width: 250px;
@@ -102,10 +103,12 @@
                       padding: 10px 10px 10px 40px;
                       box-shadow: none;
                       height: auto;
-                     font-weight: 600;
+                      font-weight: 600;
                       font-size: $subhead-text;
                       line-height: $subhead-text-lineheight;
                       color: $font-color;
+                      min-width: 165px;
+                      height: auto;
                       &::before{
                         content: ' ';
                         width: 12px;
@@ -181,7 +184,7 @@
                 padding: 0;
                 display: inline-block;
                 text-align: center;
-                width: 200px;
+                width: 170px;
                 
                 @include mobile{
                   display: block;

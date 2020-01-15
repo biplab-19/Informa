@@ -24,10 +24,10 @@ INFORMA.articleSerchlisting = (function(window, $, namespace) {
             });
             $(document).on("click", ".resource-sector-search .button button", function () {
                 $(this).parents(".resource-finder").siblings(".product-finder-results").addClass("show-refine-container");
-                $(this).parents(".resource-finder").siblings(".product-finder-results").find("#refine-container-sction").show();
+                $(this).parents(".resource-finder").siblings(".product-finder-results").find(".refine-container").show();
             });
             $(document).on("click", ".close-refine-list", function (){
-                $(this).parent("#refine-container-sction").hide();
+                $(this).parent(".refine-container").hide();
               });
             if($(".product-finder-results").children(".container").children(".refine-container").find(".heading").hasClass("heading-collapsed")){
                 $(".product-finder-results").children(".container").children(".refine-container").find(".heading").removeClass("heading-collapsed");
