@@ -145,10 +145,10 @@
                           a{
                             display: block;
                             overflow: hidden;
-                            padding: 10px 0px !important;
+                            padding: 15px 0px !important;
                           }
                           .checkbox{
-                            padding: 0px 45px;
+                            padding: 0px 40px;
                             white-space: nowrap;
                             &::before{
                               background-color: transparent;
@@ -165,13 +165,16 @@
                           }
                           &::before {
                             content: ' ';
-                            width: 80%;
+                            width: 76%;
                             background-color: #e1e1e1;
                             height: 1px;
                             position: absolute;
                             bottom: 0;
                             right: 0;
-                        }
+                            @include mobile{
+                              width: 85%;
+                            }
+                          }
                         }
                         
                     }
@@ -430,6 +433,7 @@
                           margin-left: 0;
                           display: flex;
                           align-items: center;
+                          font-weight: normal;
                              span {
                                display: block;
                                padding: 0 0 15px 0px;
@@ -562,7 +566,7 @@
                     border: 2px solid $border-refine-filter;
                     border-top: none;
                     background-color: $bg-white;
-                    padding: 20px 0px 10px 34px;
+                    padding: 10px 0px 10px 34px;
                     .chosen-results{
                       padding: 0;
                       margin: 0;
