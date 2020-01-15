@@ -1141,19 +1141,18 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 				that._loadEventFilteredData($("#txtEventSearchText").val());
 			});
             //GS:Handled enter key when "event search text" provide
-            this.EventSearchText.keypress(function (event) {
+            this.EventSearchText.on('input', function (event) {
                 var keycode = (event.keyCode ? event.keyCode : event.which);
                 var val = this.value;
 				//ISW-3912
-                if(val.length>0)
-				{
-				EventSearchTextValue = val;
-				if (keycode == '13') {
-                   that._loadEventFilteredData(val);
-                }
-                else {
-                   that._bindAutoComplete(val);
-                }
+                if (val.length > 0) {
+				    EventSearchTextValue = val;
+                    if (keycode == '13') {
+                        that._loadEventFilteredData(val);
+                    }
+                    else {
+                        that._bindAutoComplete(val);
+                    }
 				}
             });
             this.MoreBtn.click(function () {
@@ -1197,15 +1196,19 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                 dataArray.push(value.Title);
                                 }
                             });
-                             $("#txtEventSearchText").autocomplete({
+                            $("#txtEventSearchText").autocomplete({
                               source: dataArray,
 							  minLength:InformaEventsController.AutocompleteMinCharCount,
                               select: function (event, ui) {
                                 var label = ui.item.label;
                                 var value = ui.item.value;
                                 InformaEventsController._loadEventFilteredData(value);
-                            }
-                            }).keyup(function (e) {
+                              },
+                              open: function( event, ui ) {
+                                if (INFORMA.global.device.viewportN === 2)
+                                    $('#ui-id-1').css('width', event.target.offsetWidth);
+                              }
+                            }).on('input', function (e) {
 								if(e.which === 13) {
 									$("#ui-id-1").hide();
 								}            
@@ -2064,6 +2067,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         InformaEventQuery.Init();
 
         var $body = InformaEventsController.BodyContainer,
+            $html = $('html'),
             $showFiltersBtn = $('.events-search #showFiltersBtn'),
             $closeFilterBtn = $('#closeFilterBtn'),
             filtersOpen = false
@@ -2072,6 +2076,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
         $closeFilterBtn.click(function (evt) {
             evt.preventDefault();
             $body.removeClass('showfilters');
+            $html.removeClass('showfilters');
             $showFiltersBtn.text("Select filters");
             $showFiltersBtn.attr('data-state', 'select');
             filtersOpen = false;
@@ -2082,10 +2087,12 @@ INFORMA.EventsViews = (function (window, $, namespace) {
             filtersOpen = !filtersOpen;
             if (filtersOpen) {
                 $body.addClass('showfilters');
+                $html.addClass('showfilters');
                 $showFiltersBtn.text("Search");
                 $showFiltersBtn.attr('data-state', 'search');
             } else {
                 $body.removeClass('showfilters');
+                $html.removeClass('showfilters');
                 $showFiltersBtn.text("Select filters");
                 $showFiltersBtn.attr('data-state', 'select');
                 InformaEventsController._loadEventFilteredData($("#txtEventSearchText").val());
