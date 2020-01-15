@@ -667,15 +667,11 @@ a.artcl-read-more {
         position: relative;
         width: 100%;
       }
+      i {
+        cursor: pointer;
+      }
     }
   }
 }
-.events-search {
-  .search-bar {
-    @include not-desktop {
-    position: relative;
-    width: 100%;
-    }
-  }
-}
+
 
