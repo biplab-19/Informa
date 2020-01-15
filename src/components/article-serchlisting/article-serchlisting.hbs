@@ -31,7 +31,7 @@
                                 </div>
                             </li>
                             <li class="menu button disabled">
-                                <button type="button" class="btn btn-primary" data-submit="sector-search">Go</button>
+                                <button type="button" class="btn btn-primary" data-submit="sector-search">Refine and sort results</button>
                             </li>
                         </ul>
                     </fieldset>
@@ -43,9 +43,12 @@
     <div class="product-finder-results clearfix">
         <div class="container">
             <section id="refine-container-sction" class="refine-container">
+                 <button class="close-refine-list"></button>
                 <form class="form">
-                    <p class="heading">Refine results</p>
-                    <a href="#" class="clear-all">Clear All</a>
+                    <h2>Filters</h2>
+                    <p class="heading">Refine results
+                    </p>
+                    
                     <div class="panel-group" id="refine-list">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -257,6 +260,13 @@
                                 </div>
                             </div>
                         </div>
+                         <div class="view-by">
+                            <label>View By:</label>
+                            <select class="chosen-select" name="sector" style="display: none;">
+                                <option value="All">All</option>
+                                <option value="latest">latest</option>
+                            </select>
+                        </div>
                     </div>
                 </form>
             </section>
@@ -264,49 +274,45 @@
                 <div class="container">
                     <div class="product-results" data-pagesize="9">
                         <div class="row list">
-                            <div class="">
-                                <div class="list-items" data-fetch="a30408547c854513be425823caeebc01" data-type="SampleContent"
-                                    data-showform="True" style="height: auto;">
-                                    <div class="recomended-wrapper">
-                                        <div class="recomend-content wrap-content" style="height: auto;">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <img src="cms-images/product_brands/brand-3.png" alt=""class="img-responsive" />
-                                                </div>
-                                                <div class="col-md-8 content">
-                                                    <p class="type">
-                                                        IT, Enterprise Decision Maker
-                                                    </p>
-                                                    <h4>
-                                                        <a data-show-register="true" class="show-register-form" data-toggle="modal"
-                                                            data-modal="#formRegistration"
-                                                            data-url="/resources/product-content/the-key-to-a-resilient-organization-is-a-comprehensive-backup-and-recovery-plan-and-capability-int005-000076">The
-                                                            key to a resilient organization is a comprehensive backup and recovery plan and
-                                                            capability
-                                                        </a>
-                                                    </h4>
-                                                    <p class="publish">
-                                                        <span> By</span>
-                                                        <a href="/analysts-and-events/meet-the-team/maxine-holt"><strong> Maxine
-                                                                Holt</strong>
-                                                        </a>
-                                                        03 Jan 2020
-                                                    </p>
-                                                    <p class="description">
-                                                        When it comes to cyberattacks, organizations can fail if there are inadequate
-                                                        security incident response plans in place. The "six P's" mantra clearly applies:
-                                                        proper preparation and planning prevents poor performance.
-                                                    </p>
-                                                </div>
-                                            </div>
+                            <div class="list-items" data-fetch="a30408547c854513be425823caeebc01" data-type="SampleContent"
+                                data-showform="True" style="height: auto;">
+                                <div class="recomended-wrapper">
+                                    <div class="recomend-content row wrap-content" style="height: auto;">
+                                        <div class="col-md-4">
+                                            <img src="cms-images/product_brands/brand-3.png" alt=""class="img-responsive" />
                                         </div>
-                                        <div class="footer">
-                                            <div class="btn-container text-right">
-                                                <a data-show-register="true" class="btn btn-primary show-register-form"
-                                                    data-toggle="modal" data-modal="#formRegistration"
-                                                    data-url="/resources/product-content/the-key-to-a-resilient-organization-is-a-comprehensive-backup-and-recovery-plan-and-capability-int005-000076">View
-                                                    analyst opinion</a>
-                                            </div>
+                                        <div class="col-md-8 content">
+                                            <p class="type">
+                                                IT, Enterprise Decision Maker
+                                            </p>
+                                            <h4>
+                                                <a data-show-register="true" class="show-register-form" data-toggle="modal"
+                                                    data-modal="#formRegistration"
+                                                    data-url="/resources/product-content/the-key-to-a-resilient-organization-is-a-comprehensive-backup-and-recovery-plan-and-capability-int005-000076">The
+                                                    key to a resilient organization is a comprehensive backup and recovery plan and
+                                                    capability
+                                                </a>
+                                            </h4>
+                                            <p class="publish">
+                                                <span> By</span>
+                                                <a href="/analysts-and-events/meet-the-team/maxine-holt"><strong> Maxine
+                                                        Holt</strong>
+                                                </a>
+                                                03 Jan 2020
+                                            </p>
+                                            <p class="description">
+                                                When it comes to cyberattacks, organizations can fail if there are inadequate
+                                                security incident response plans in place. The "six P's" mantra clearly applies:
+                                                proper preparation and planning prevents poor performance.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="btn-container text-right">
+                                            <a data-show-register="true" class="btn btn-primary show-register-form"
+                                                data-toggle="modal" data-modal="#formRegistration"
+                                                data-url="/resources/product-content/the-key-to-a-resilient-organization-is-a-comprehensive-backup-and-recovery-plan-and-capability-int005-000076">View
+                                                analyst opinion</a>
                                         </div>
                                     </div>
                                 </div>
@@ -314,8 +320,7 @@
                             <div class="list-items" data-fetch="e32cac682c414cdbae86a0183aee7d5e" data-type="SampleContent"
                                 data-showform="True" style="height: auto;">
                                 <div class="recomended-wrapper">
-                                    <div class="recomend-content wrap-content" style="height: auto;">
-                                        <div class="row">
+                                    <div class="recomend-content row wrap-content" style="height: auto;">
                                             <div class="col-md-4">
                                                 <img src="cms-images/product_brands/brand-3.png" alt=""class="img-responsive" />
                                             </div>
@@ -342,7 +347,6 @@
                                                     </p>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="footer">
                                         <div class="btn-container text-right">
