@@ -1,4 +1,118 @@
-.product-hero-banner{
+@font-face {
+    font-family: "OpenSansRegular";
+    src: url("../fonts/OpenSans-Regular.eot");
+    src: url("../fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+      url("../fonts/OpenSans-Regular.ttf") format("truetype"), url("../fonts/OpenSans-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "OpenSansBold";
+    src: url("../fonts/OpenSans-Bold.eot");
+    src: url("../fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"),
+      url("../fonts/OpenSans-Bold.ttf") format("truetype"), url("../fonts/OpenSans-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "OpenSansSemiBold";
+    src: url("../fonts/OpenSans-SemiBold.eot");
+    src: url("../fonts/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"),
+      url("../fonts/OpenSans-SemiBold.ttf") format("truetype"), url("../fonts/OpenSans-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  section.hero-banner-texture.dark-banner-subscribe.bg-gray-dark.product.supergraphic.product-hero-banner{
+    $font-opensansregular: "OpenSansRegular";
+    $font-opensansbold: "OpenSansBold";
+    $font-opensanssemibold: "OpenSansSemiBold";
+    $font-color: #000;
+    $font-color-white: #fff;
+    $super-headline-text: 60px;
+    $super-headline-lineheight: 66px;
+    $headline-text: 24px;
+    $subhead-text: 14px;
+    $bg-white: #fff;
+    $base-bg: #f9f8f9;
+    $subhead-text-lineheight: 25px;
+    $checkbox-background: transparent;
+    $checkbox-border: #555;
+    $newcoprimarycolor: #a54eac;
+    $border-refine-filter: #a8abb5;
+
     background: rgb(40,201,247);
     background: linear-gradient(356deg, rgba(40,201,247,1) 0%, rgba(212,149,236,1) 77%, rgba(252,125,239,1) 100%);
+
+    h1{
+        font-family: $font-opensansregular;
+        font-weight: normal;
+        color: $font-color-white;
+        font-size: $super-headline-text;
+        line-height: $super-headline-lineheight;
+    }
+    span{
+        font-family: $font-opensansregular;
+        font-weight: normal;
+        font-size: $subhead-text;
+        color: $font-color-white;
+        line-height: $subhead-text-lineheight;
+    }
+    .subtext{
+        font-family: $font-opensansregular;
+        font-weight: normal;
+        font-size: $subhead-text;
+        color: $font-color-white;
+        line-height: $subhead-text-lineheight;
+    }
+    .description{
+        display: none;
+    }
+    .cta2 {
+        border-radius: 50px;
+        background-color: transparent;
+        border: 1px solid #fff;
+        font-family: $font-opensansregular;
+        font-weight: normal;
+        line-height: $subhead-text-lineheight;
+        font-size: $subhead-text;
+        text-align: center;
+        padding: 10px 15px;
+        &.btn:after {
+            content: " ";
+        }
+    }
+    .share-icon{
+        ul {
+            padding-top: 0;
+            list-style-type: none;
+            li{
+                position: static;
+                margin-bottom: 0;
+                padding-left: 0;
+                display: inline-block;
+                margin-right: 20px;
+
+                &::before {
+                    content: " ";
+                }
+                a {
+                    color: #fff;
+                    width: 35px;
+                    height: 35px;
+                    display: block;
+                    background: #fff;
+                    border-radius: 50px;
+                    text-align: center;
+                    .at-icon{
+                        fill: #000;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
 }
