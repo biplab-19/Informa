@@ -491,6 +491,12 @@
     
 }
 // functionality css
+html.showfilters {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
 body {
     // show month year switch in calendar
     &.calendar-view .events-search .views-section .date-views {
@@ -499,7 +505,9 @@ body {
 
     // ui for mobile
     &.showfilters {
-        overflow-y: hidden;
+        overflow: hidden;
+        position: relative;
+        height: 100%;
         .events-search {
             z-index: 999990;
             .select-section {

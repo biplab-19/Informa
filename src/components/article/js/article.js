@@ -133,21 +133,26 @@ INFORMA.articletech = (function (window, $, namespace) {
         });
         $(".article-list-filter #closeFilterBtn").on("click", function () {
             var $articleList = $('.article-list-filter'),
-                $body = $('body')
+                $body = $('body'),
+                $html = $('html')
             $articleList.removeClass('active');
             $("#showArticleFiltersBtn").text('Select filters');
-            $body.css('overflow-y', '');
+            $html.removeClass('showfilters');
+            $body.removeClass('showfilters');
         });
         $("#showArticleFiltersBtn").on("click", function () {
             var $articleList = $('.article-list-filter'),
-                $body = $('body')
+                $body = $('body'),
+                $html = $('html')
             $articleList.toggleClass('active');
             if ($articleList.hasClass('active')) {
                 $(this).text('Search');
-                $body.css('overflow-y', 'hidden');
+                $html.addClass('showfilters');
+                $body.addClass('showfilters');
             } else {
                 $(this).text('Select filters');
-                $body.css('overflow-y', '');
+                $html.removeClass('showfilters');
+                $body.removeClass('showfilters');
                 _LoadArticleFilteredData($("#txtArticleSearchText").val());
             }
         });
@@ -246,8 +251,12 @@ INFORMA.articletech = (function (window, $, namespace) {
                         //store in session
                         _LoadArticleFilteredData(value);
 						_setArticleFilterSelectedMessage();
+                    },
+                    open: function( event, ui ) {
+                      if (INFORMA.global.device.viewportN === 2)
+                          $('#ui-id-1').css('width', event.target.offsetWidth);
                     }
-                }).keyup(function (e) {
+                }).on('input', function (e) {
 					if(e.which === 13) {
 						$("#ui-id-1").hide();
 					}            
@@ -269,7 +278,7 @@ INFORMA.articletech = (function (window, $, namespace) {
 	});
 	
     //GS:Handled article search text box event
-    $("#txtArticleSearchText").keypress(function (event) {
+    $("#txtArticleSearchText").on('input', function (event) {
         var keycode = (event.keyCode ? event.keyCode : event.which);
         var val = this.value;
 		if(val!="" && val.length>0)
