@@ -183,6 +183,18 @@ INFORMA.articletech = (function (window, $, namespace) {
                 $(this).children("label").addClass("active");
             }
         });
+        $(".brands,.sgmnt-menu").mouseout(function (e) {
+            var obj = e.relatedTarget;
+            while (obj != null) {
+                if (obj == this) {
+                    return;
+                }
+                obj = obj.parentNode;
+            }
+            $(this).removeClass('active');
+            $(this).find('.drop-content-active').removeClass("drop-content-active");
+            $(this).find('.triangle-down').addClass("triangle-right").removeClass("triangle-down");
+        });
 
     });
     $(document).on("click", ".clearAllArticlesFilters", function () {
@@ -821,7 +833,7 @@ INFORMA.articletech = (function (window, $, namespace) {
 
         if (length > 1) {
             // $(".filter-section .heading").show();
-            $(".filter-section .heading").text("active filters (" + (length - 1) + ")");
+            $(".filter-section .heading").text("Active Filters (" + (length - 1) + ")");
             $(".clearAllArticlesFilters").removeClass("hide-clear-filter")
         } else {
             // $(".filter-section .heading").hide();
