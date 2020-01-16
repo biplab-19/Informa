@@ -991,61 +991,8 @@ var INFORMA = window.INFORMA || {};
                         '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
                             '<div class="recomended-wrapper">'+
                                 '<div class="recomend-content wrap-content">'+
-                                '<div class="col-md-4">' +
-                                '<img src="{{results.Image}}" alt="{{results.Title}}" class="img-responsive" />' +
-                                '</div>' +
-                                    '<div class="content">'+
-                                        '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
-                                            '<p class="type">'+
-                                                '<span>{{results.SamplecontentProducts}}</span>'+
-                                            '</p>'+
-                                        '{{/compare}}'+
-                                        '{{#compare results.PageURL null operator="!="}}' +
-                                            '{{#compare results.PageURL.length "0" operator=">"}}' +
-                                                '{{#if results.HasExternalLink}}'+
-                                                    '{{#compare results.HasExternalLink true operator="=="}}'+
-                                                        '{{#if results.LinkText}}'+
-                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
-                                                        '{{/if}}'+
-                                                    '{{/compare}}'+
-                                                '{{/if}}'+
-                                                '{{#compare results.HasExternalLink false operator="=="}}'+
-                                                    '{{#compare results.ShowForm false operator="=="}}'+
-                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-                                                            '{{#if results.LinkText}}'+
-                                                                '<h4><a href="{{results.PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_self">{{results.Title}}</a></h4>'+
-                                                            '{{/if}}'+
-                                                        '{{/compare}}'+
-                                                    '{{/compare}}'+
-                                                    '{{#compare results.ShowForm true operator="=="}}'+
-                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
-                                                            '{{#if results.LinkText}}'+
-                                                                '<h4><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
-                                                            '{{/if}}'+
-                                                        '{{/compare}}'+
-                                                        '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-                                                            '{{#if results.LinkText}}'+
-                                                                '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
-                                                            '{{/if}}'+
-                                                        '{{/compare}}'+
-                                                    '{{/compare}}'+
-                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
-                                                        '{{#if results.LinkText}}'+
-                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
-                                                        '{{/if}}'+
-                                                    '{{/compare}}'+
-                                                '{{/compare}}'+
-                                            '{{/compare}}'+
-                                        '{{/compare}}'+
-                                        '{{#compare results.PageURL.length "0" operator="=="}}' +
-                                            '<h4><span>{{results.Title}}</span></h4>'+
-                                        '{{/compare}}'+
-                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
-                                        '{{#compare results.Publisher null operator="!="}}'+
-                                            '<p><span>{{results.PublisherKeyword}} </span><strong>{{results.Publisher}}<strong></p>'+
-                                        '{{/compare}}'+
-                                        '{{#compare results.Video null operator="!="}}'+
-                                            '<div class="video-container">'+
+									'{{#compare results.Video null operator="!="}}'+
+                                            '<div class="col-md-4">'+
                                                 '{{#if results.HasExternalLink}}'+
                                                     '{{#compare results.HasExternalLink true operator="=="}}'+
                                                         '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
@@ -1089,9 +1036,66 @@ var INFORMA = window.INFORMA || {};
                                             '</div>'+
                                         '{{/compare}}'+
                                         '{{#compare results.ContentTileImage null operator="!="}}'+
-                                            '<div class="video-container">' +
+                                            '<div class="col-md-4">' +
                                                 '<img src="{{results.ContentTileImage.Url}}" alt="{{results.ContentTileImage.Alt}}">'+
                                             '</div>' +
+                                        '{{/compare}}'+
+										'{{#compare results.Video null operator="=="}}'+
+											'{{#compare results.ContentTileImage null operator="=="}}'+
+												'<div class="col-md-4">' +
+													'<img src="{{results.Image}}" alt="{{results.Title}}" class="img-responsive" />' +
+												'</div>' +
+											'{{/compare}}'+
+										'{{/compare}}'+
+                                     '<div class="content">'+
+                                        '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
+                                            '<p class="type">'+
+                                                '<span>{{results.SamplecontentProducts}}</span>'+
+                                            '</p>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.PageURL null operator="!="}}' +
+                                            '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                                '{{#if results.HasExternalLink}}'+
+                                                    '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                                '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                    '{{#compare results.ShowForm false operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.ShowForm true operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4 class="gated-content"><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.PageURL.length "0" operator="=="}}' +
+                                            '<h4><span>{{results.Title}}</span></h4>'+
+                                        '{{/compare}}'+
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
+                                        '{{#compare results.Publisher null operator="!="}}'+
+                                            '<p><span>{{results.PublisherKeyword}} </span><strong>{{results.Publisher}}<strong></p>'+
                                         '{{/compare}}'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+

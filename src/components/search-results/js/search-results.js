@@ -26,6 +26,7 @@ INFORMA.SearchResults = (function(window, $, namespace) {
         SubSectorHidden = $("input.sub-sector-list"),
         RefineSection = $(".refine-container"),
         SortDropDown = SearchContent.find(".chosen-select"),
+        SortDropDownNewCo = $(".refine-container").find(".chosen-select"),
         ProductSearchText = $('input[name="SearchText"]'),
         SeeAllButton = SearchContent.find(".see-all"),
         IsShowFlag = false,
@@ -133,7 +134,23 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                 DefaultData = GetDefaultValues();
                 Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
                 Data.PageNo = 1;
-                // debugger;
+                GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, null);
+                ResetPageSize();
+            });
+            SortDropDownNewCo.on("change", function(e) {
+
+                var ProdData, FilterData, Data, DefaultData;
+                if (SearchType === "ResourceResult") {
+                    ProdData = INFORMA.ResourceFilter.GetResourceData();
+                }
+                if (SearchType === "SearchResult") {
+                    ProdData = INFORMA.ProductFinder.GetProductData();
+                }
+
+                FilterData = INFORMA.SearchResultFilter.GetRefineData();
+                DefaultData = GetDefaultValues();
+                Data = INFORMA.ProductFinder.MergeData(ProdData, FilterData, DefaultData);
+                Data.PageNo = 1;
                 GetAjaxData(Urls[SearchType], "Post", Data, ParseSearchData, null, null);
                 ResetPageSize();
             });
