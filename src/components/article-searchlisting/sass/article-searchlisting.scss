@@ -63,14 +63,16 @@
                     position: static;
                   }
                   .btn-group{
-                    border: 2px solid $border-refine-filter;
+                    border: 1px solid $newcoprimarycolor;
                     width: 180px;
-                    border-radius: 25px;
+                    border-radius: 22px;
                     background: transparent;
                     margin-top: 0px;
                     min-width: 165px;
+                    // &:hover{
+                    //   background-image: linear-gradient(90deg, rgba(238, 147, 236, 1) 50%, rgba(117, 217, 244, 1) 100%);
+                    // }
                     @include mobile{
-                      border: 2px solid $newcoprimarycolor;
                       width: 250px;
                     }
                    &.open{
@@ -91,9 +93,9 @@
                       }
                    }
                     button.select-gradient{
-                    background-image: linear-gradient(90deg, rgba(116, 218, 244, 1) 50%, rgba(227, 153, 237, 1) 100%);
+                      background-image: linear-gradient(90deg, rgba(238, 147, 236, 1) 50%, rgba(117, 217, 244, 1) 100%);
                     border: 0px solid transparent;
-                    border-radius: 25px;
+                    border-radius: 22px;
                   }
                     button{
                       background-color: transparent;
@@ -130,7 +132,7 @@
                       position: static;
                       background: #f9f9f9;
                       box-shadow: none;
-                      border-radius: 0px 0px 25px 25px;
+                      border-radius: 0px 0px 22px 22px;
                         li.active{
                           .checkbox{
                             &::before{
@@ -201,7 +203,7 @@
                   display: inline-block;
                   background-color: transparent;
                   color: $font-color;
-                  border-radius: 25px;
+                  border-radius: 22px;
                   border: 2px solid $border-refine-filter;
                   width: 100%;
                   font-size: 14px;
@@ -317,7 +319,7 @@
               .panel-collapse {
                 .panel-body{
                   border: 2px solid #a8abb5;
-                  border-radius: 0px 0px 25px 25px;
+                  border-radius: 0px 0px 22px 22px;
                   border-top: none;
                   position: absolute;
                   left: 0;
@@ -364,16 +366,16 @@
                     position: relative;
                     padding: 10px 38px;
                     background-color: transparent;
-                    border: 2px solid #a8abb5;
+                    border: 1px solid #a8abb5;
                     color: $font-color;
                     white-space: nowrap;
                     display: block;
-                    border-radius: 25px;
+                    border-radius: 22px;
                     &.toggle-panel-body{
                       border-bottom: none;
-                      -moz-border-radius: 25px 25px 0 0;
-                      -webkit-border-radius: 25px 25px 0 0;
-                      border-radius: 25px 25px 0px 0px;
+                      -moz-border-radius: 22px 22px 0 0;
+                      -webkit-border-radius: 22px 22px 0 0;
+                      border-radius: 22px 22px 0px 0px;
                     }
                     @include mobile{
                       border: 2px solid $newcoprimarycolor;
@@ -499,7 +501,7 @@
                   padding: 10px 38px;
                   height: auto;
                   border: 2px solid $border-refine-filter;
-                  border-radius: 25px;
+                  border-radius: 22px;
                   background-color: transparent;
                   box-shadow: none;
                   color: $font-color;
@@ -542,11 +544,11 @@
                 }
                 &.chosen-with-drop {
                   a{
-                    border: 2px solid $border-refine-filter;
+                    border: 1px solid $border-refine-filter;
                     border-bottom: none;
-                    -moz-border-radius: 25px 25px 0 0;
-                    -webkit-border-radius: 25px 25px 0 0;
-                    border-radius: 25px 25px 0 0;
+                    -moz-border-radius: 22px 22px 0 0;
+                    -webkit-border-radius: 22px 22px 0 0;
+                    border-radius: 22px 22px 0 0;
                     &::before{
                       content: ' ';
                       width: 12px;
@@ -562,8 +564,8 @@
                     }
                   }
                   .chosen-drop{
-                    border-radius: 0px 0px 25px 25px;
-                    border: 2px solid $border-refine-filter;
+                    border-radius: 0px 0px 22px 22px;
+                    border: 1px solid $border-refine-filter;
                     border-top: none;
                     background-color: $bg-white;
                     padding: 10px 0px 10px 34px;
@@ -778,7 +780,7 @@
             position: relative;
             color: $font-color;
             float: left;
-            border-radius: 25px;
+            border-radius: 22px;
             font-size: $subhead-text;
             padding: 8px 20px;
             cursor: pointer;
@@ -828,7 +830,7 @@
           }
         }
         a.select-gradient {
-          background-image: linear-gradient(90deg, rgba(116, 218, 244, 1) 50%, rgba(227, 153, 237, 1) 100%);
+          background-image: linear-gradient(90deg, rgba(238, 147, 236, 1) 50%, rgba(117, 217, 244, 1) 100%);
           border: 0px solid transparent;
         }
         .dropdown-content {
@@ -838,7 +840,7 @@
           display: none;
           margin-top: -2px;
           width: 235px;
-          border-radius: 0px 0px 25px 25px;
+          border-radius: 0px 0px 22px 22px;
           border-top: none;
           position: absolute;
           left: 0;
@@ -907,9 +909,9 @@
         }
       .filter-category li.active a {
         border-bottom: none;
-        -moz-border-radius: 25px 25px 0 0;
-        -webkit-border-radius: 25px 25px 0 0;
-        border-radius: 25px 25px 0 0;
+        -moz-border-radius: 22px 22px 0 0;
+        -webkit-border-radius: 22px 22px 0 0;
+        border-radius: 22px 22px 0 0;
         .dropdown-content {
           display: block;
         }
