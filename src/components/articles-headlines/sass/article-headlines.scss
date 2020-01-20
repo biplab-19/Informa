@@ -404,8 +404,24 @@
           display: block;
           width: 100%;
         }
-        & .slick-slide {
+        &.slick-slide {
           margin-bottom: 20px;
+          .video-container{
+            position: relative;
+            a{
+              .play-icon{
+                color: #fff;
+                display: block;
+                font-size: 5em;
+                height: 30px;
+                position: absolute;
+                right: 50%;
+                top: 50%;
+                width: 30px;
+                transform: translateY(-50%);
+              }
+            }
+          }
           &:hover {
             box-shadow: 7px 7px 16px #ece9e9;
           }
