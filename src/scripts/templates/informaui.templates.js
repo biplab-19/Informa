@@ -19,41 +19,92 @@ var INFORMA = window.INFORMA || {};
         '{{#each Articles}}'+
             '<li>'+
                 '<div class="col-xs-12">'+
-                    '{{#compare Image null operator="!="}}' +
-                        '{{#compare Image.length "0" operator=">"}}' +
-                            '{{#if HasExternalLink}}'+
+                '{{#compare Video null operator="=="}}'+
+                '{{#compare ContentTileImage null operator="!="}}'+
+                    '<div class="video-container">' +
+                    '<img src="{{ContentTileImage.Url}}" alt="{{ContentTileImage.Alt}}"/>' +
+                    '</div>' +
+                        '{{/compare}}' + 
+                        '{{/compare}}' +
+                        '{{#compare Video null operator="!="}}'+
+                            '<div class="video-container">'+
+                                '{{#compare HasExternalLink false operator="=="}}'+
+                                    '{{#compare ShowForm true operator="=="}}'+
+                                        '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                            '<a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">'+
+                                                '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                                '<span class="play-icon icon-play"></span>'+
+                                            '</a>'+
+                                        '{{/compare}}'+
+                                        '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                            '{{#if LinkText}}'+
+                                                '<div class="btn-container text-right">'+
+                                                    '<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_self">{{LinkText}}</a>'+
+                                                '</div>'+
+                                            '{{/if}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                    '{{#compare ShowForm false operator="=="}}'+
+                                        '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                            '<a href="{{Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0">'+
+                                                '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                                '<span class="play-icon icon-play"></span>'+
+                                            '</a>'+
+                                        '{{/compare}}'+    
+                                    '{{/compare}}'+
+                                    '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                        '<a href="{{Video.Url}}" class="video-link"  tabindex="0">'+
+                                            '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                            '<span class="play-icon icon-play"></span>'+
+                                        '</a>'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+  
                                 '{{#compare HasExternalLink true operator="=="}}'+
-                                    '{{#if LinkText}}'+
-                                        '<a class="newco-article-image" href="{{PageURL}}" target="_blank" title="{{Title}}"><img src="{{Image}}" alt="" class="img-responsive" /></a>'+
-                                    '{{/if}}'+
+                                    '<a href="{{Video.Url}}" class="video-link"  tabindex="0">'+
+                                        '<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+                                        '<span class="play-icon icon-play"></span>'+
+                                    '</a>'+
                                 '{{/compare}}'+
+                            '</div>'+
+                        '{{/compare}}'+
+                        '{{#compare Video null operator="=="}}'+
+                        '{{#compare ContentTileImage null operator="=="}}'+
+                        '{{#compare Image null operator="!="}}' +
+                    '{{#compare Image.length "0" operator=">"}}' +
+                    '{{#if HasExternalLink}}'+
+                        '{{#compare HasExternalLink true operator="=="}}'+
+                            '{{#if LinkText}}'+
+                                '<a class="newco-article-image" href="{{PageURL}}" target="_blank" title="{{Title}}"><img src="{{Image}}" alt="" class="img-responsive" /></a>'+
                             '{{/if}}'+
-                            '{{#compare HasExternalLink false operator="=="}}'+
-                                '{{#compare ShowForm false operator="=="}}'+
-                                    '{{#compare IsAuthenticatedUser false operator="=="}}'+
-                                        '{{#if LinkText}}'+
-                                            '<a href="{{PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_blank"><img src="{{Image}}" alt="{{Title}}" class="img-responsive" /></a>'+
-                                        '{{/if}}'+
-                                    '{{/compare}}'+
-                                '{{/compare}}'+
-                                '{{#compare ShowForm true operator="=="}}'+
-                                    '{{#compare IsAuthenticatedUser false operator="=="}}'+
-                                        '{{#if LinkText}}'+
-                                            '<a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}"><img src="{{Image}}" alt="{{Title}}" class="img-responsive" /></a>'+
-                                        '{{/if}}'+
-                                    '{{/compare}}'+
-                                '{{/compare}}'+
-                                '{{#compare IsAuthenticatedUser true operator="=="}}'+
-                                    '{{#if LinkText}}'+
-                                        '<a href="{{PageURL}}" target="_blank"><img src="{{Image}}" alt="{{Title}}" class="img-responsive" /></a>'+
-                                    '{{/if}}'+
-                                '{{/compare}}'+
+                        '{{/compare}}'+
+                    '{{/if}}'+
+                    '{{#compare HasExternalLink false operator="=="}}'+
+                        '{{#compare ShowForm false operator="=="}}'+
+                            '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                '{{#if LinkText}}'+
+                                    '<a href="{{PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_blank"><img src="{{Image}}" alt="{{Title}}" class="img-responsive" /></a>'+
+                                '{{/if}}'+
                             '{{/compare}}'+
                         '{{/compare}}'+
+                        '{{#compare ShowForm true operator="=="}}'+
+                            '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                '{{#if LinkText}}'+
+                                    '<a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}"><img src="{{Image}}" alt="{{Title}}" class="img-responsive" /></a>'+
+                                '{{/if}}'+
+                            '{{/compare}}'+
+                        '{{/compare}}'+
+                        '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                            '{{#if LinkText}}'+
+                                '<a href="{{PageURL}}" target="_blank"><img src="{{Image}}" alt="{{Title}}" class="img-responsive" /></a>'+
+                            '{{/if}}'+
+                        '{{/compare}}'+
                     '{{/compare}}'+
-                    '{{#compare PageURL.length "0" operator="=="}}' +
-                        '<img src="{{Image}}" alt="{{Title}}" class="img-responsive" />'+ 
-                    '{{/compare}}'+
+                '{{/compare}}'+
+            '{{/compare}}'+
+            '{{#compare PageURL.length "0" operator="=="}}' +
+                '<img src="{{Image}}" alt="{{Title}}" class="img-responsive" />'+
+            '{{/compare}}'+
+                    '{{/compare}}'+ 
                     '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
                         '<div class="recomend-content">'+
                             '<div class="content">'+
