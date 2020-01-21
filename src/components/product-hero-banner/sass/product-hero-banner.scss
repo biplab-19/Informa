@@ -67,31 +67,19 @@
             margin-bottom: 20px;
         }
     }
-    
-    .share-icon{
+    .follow-row {
+        // float: right;
         margin-top: -60px;
-        float: right;
-        @include mobile{
-            float: none;
-            margin-top: 28px;
-        }
-        ul {
-            padding-top: 0;
-            list-style-type: none;
-            li{
-                position: static;
-                margin-bottom: 0;
-                padding-left: 0;
-                display: inline-block;
-                margin-right: 20px;
-                @include mobile{
-                    margin-right: 10px;
-                }
-
-                &::before {
+        .share-tab{
+            .share{
+                &::after {
                     content: " ";
                 }
-                a {
+            }
+            display: inline;
+            .follow-button{
+                a{
+                    margin-right: 20px;
                     color: #fff;
                     width: 35px;
                     height: 35px;
@@ -99,13 +87,13 @@
                     background: #fff;
                     border-radius: 50px;
                     text-align: center;
-                    .at-icon-wrapper {
+                    .at-icon-wrapper{
                         display: inline-block;
                         overflow: hidden;
-                        position: relative;
-                        top: 7px;
-                        width: 20px !important;
-                        height: 20px !important;
+                        width: 34px !important;
+                        height: 39px !important;
+                        line-height: 50px !important;
+                        background-color: transparent !important;
                         .at-icon{
                             fill: #7daff2;
                             width: 20px !important;
@@ -115,9 +103,15 @@
                     @include mobile{
                         width: 33px;
                         height: 33px;
+                        margin-right: 10px;
                     }
                 }
             }
+        }
+        &.follow {
+            width: auto;
+            display: inline-block;
+            float: none;
         }
     }
 }
