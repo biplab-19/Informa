@@ -68,22 +68,41 @@
         }
     }
     .follow-row {
-        // float: right;
+        width: 30%;
+        float: right;
         margin-top: -60px;
+        @include mobile{
+            width: 100%;
+            float: none;
+            margin-top: 32px;
+        }
+        .follow {
+            &.share-tab{
+                width: auto;
+                display: inline-block;
+                float: none;
+                margin-right: 40px;
+                vertical-align: top;
+                margin-top: 6px;
+                .share{
+                     text-align: left;
+                     padding-top: 0;
+                     &::after {
+                         content: " ";
+                     }
+                 }
+             }
+        }
         .share-tab{
-            .share{
-                &::after {
-                    content: " ";
-                }
-            }
             display: inline;
+            float: none;
             .follow-button{
                 a{
                     margin-right: 20px;
                     color: #fff;
                     width: 35px;
                     height: 35px;
-                    display: block;
+                    display: inline-block;
                     background: #fff;
                     border-radius: 50px;
                     text-align: center;
@@ -92,7 +111,7 @@
                         overflow: hidden;
                         width: 34px !important;
                         height: 39px !important;
-                        line-height: 50px !important;
+                        line-height: 45px !important;
                         background-color: transparent !important;
                         .at-icon{
                             fill: #7daff2;
@@ -107,11 +126,6 @@
                     }
                 }
             }
-        }
-        &.follow {
-            width: auto;
-            display: inline-block;
-            float: none;
         }
     }
 }
