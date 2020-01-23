@@ -30,7 +30,7 @@
     }
     .article-filter-section {
       background-color: $base-bg;
-      padding: 15px 30px;
+      padding: 30px;
       @include mobile {
         padding: 15px 20px;
       }
@@ -44,14 +44,18 @@
         }
         li {
           display: inline-block;
-          padding: 0px 12px 12px 0;
+          max-width: 265px;
+          line-height: 25px;
+          width: 265px;
+          margin-bottom: 12px;
           span {
             margin-left: 12px;
+            margin-right: 32px;
             color: $font-color;
             font-size: $subhead-text;
             line-height: $subhead-text-lineheight;
-            width: 212px;
-            display: inline-block;
+            max-width: 212px;
+            display: inline;
             vertical-align: top;
             font-weight: 600;
           }
@@ -59,6 +63,8 @@
             position: relative;
             margin-bottom: 10px;
             width: 9px;
+            height: 9px;
+            vertical-align: bottom;
             input[type="radio"] {
               opacity: 0;
               position: absolute;
@@ -518,6 +524,8 @@
         top: 100px;
         &:before {
           content: url(../../Static/images/tmt-newco/images/article-headlines/next-btn.png);
+          height: 30px;
+          width: 40px;
         }
       }
       .slick-prev {
@@ -528,6 +536,8 @@
         top: 100px;
         &:before {
           content: url(../../Static/images/tmt-newco/images/article-headlines/prev-btn.png);
+          height: 30px;
+          width: 40px;
           @include mobile {
             left: -75%;
           }
