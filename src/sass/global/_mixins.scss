@@ -1874,3 +1874,170 @@ $properties: (margin, padding);
     margin-top:10px;
   }
 }
+
+// newco theme only for artcle-searchlisting
+@mixin newco($newcoprimarycolor, $base-bg, $border-refine-filter, $checkbox-border,$newcolightercolor) {
+  $newcoprimarycolor: $newcoprimarycolor;
+  $base-bg:$base-bg;
+  $border-refine-filter: $border-refine-filter;
+  $checkbox-border: $checkbox-border;
+
+  .tmt-newco {
+    .product-detail-page.newco-product-detail {
+      .resource-finder {
+        background-color: $newcolightercolor;
+        ul.resource-sector-search {
+          .menu {
+            .custom-multiselect {
+              .multiselect-native-select {
+                .btn-group {
+                  border: 1px solid $newcoprimarycolor;
+                  .multiselect-container {
+                    background: $newcolightercolor;
+                    li.active {
+                      .checkbox {
+                        &::before {
+                          background: $newcoprimarycolor;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          &.disabled {
+            .custom-multiselect {
+              .multiselect-native-select {
+                .btn-group {
+                  border: 1px solid $newcoprimarycolor;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .product-finder-results {
+      .refine-container {
+        form {
+          .panel-group {
+            .panel {
+              .panel-collapse {
+                .panel-body {
+                  @include mobile {
+                    border: 1px solid $newcoprimarycolor;
+                    background: $base-bg;
+                  }
+                }
+              }
+              .panel-heading {
+                h3 {
+                  a {
+                    @include mobile {
+                      border: 1px solid $newcoprimarycolor;
+                    }
+                  }
+                }
+              }
+              .panel-collapse {
+                .panel-body {
+                  ul {
+                    li {
+                      .custom-checkbox {
+                        label {
+                          input:checked + span:before {
+                            background: $newcoprimarycolor;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            .view-by {
+              .chosen-container {
+                .chosen-single {
+                  border: 1px solid $border-refine-filter;
+                }
+
+                &.chosen-with-drop {
+                  a {
+                    border: 1px solid $border-refine-filter;
+                  }
+                  .chosen-drop {
+                    border: 1px solid $border-refine-filter;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      .listView {
+        .list-items {
+          .recomended-wrapper {
+            .content {
+              h4 {
+                a {
+                  &:hover {
+                    color: $newcoprimarycolor;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.show-refine-container {
+        @include mobile {
+          .refine-container {
+            background-color: $newcolightercolor;
+          }
+        }
+      }
+    }
+    .filter-category {
+      li {
+        a {
+          border: 1px solid $border-refine-filter;
+
+          &:hover {
+            background: transparent;
+            text-decoration: none;
+          }
+        }
+        &.active {
+          a {
+            border: 1px solid $border-refine-filter;
+          }
+        }
+      }
+
+      .dropdown-content {
+        border: 1px solid $border-refine-filter;
+
+        &.drop-content-active {
+          .drop-content {
+            li {
+              .round-checkbox {
+                input {
+                  &:checked ~ .checkmark {
+                    background-color: $newcoprimarycolor;
+                    border: 1px solid $newcoprimarycolor;
+                  }
+                }
+                .checkmark {
+                  border: 1px solid $checkbox-border;
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
