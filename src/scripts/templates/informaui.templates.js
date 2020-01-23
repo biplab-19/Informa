@@ -996,6 +996,208 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '</div>'+
                     '</div>',
+                    'SampleContentNewCo': '<div class="">'+
+                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
+                            '<div class="recomended-wrapper">'+
+                                '<div class="recomend-content wrap-content">'+
+									'{{#compare results.Video null operator="!="}}'+
+                                            '<div class="col-md-4">'+
+                                                '{{#if results.HasExternalLink}}'+
+                                                    '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                        '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                            '<span class="play-icon icon-play"></span>'+
+                                                        '</a>'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                                '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                    '{{#compare results.ShowForm false operator="=="}}'+
+                                                            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                                '<a href="{{results.Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0" target="_self">'+
+                                                                    '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                    '<span class="play-icon icon-play"></span>'+
+                                                                '</a>'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.ShowForm true operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '<a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.Video.Url}}">'+
+                                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                '<span class="play-icon icon-play"></span>'+
+                                                            '</a>'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                '<span class="play-icon icon-play"></span>'+
+                                                            '</a>'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                '<span class="play-icon icon-play"></span>'+
+                                                            '</a>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                            '</div>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.ContentTileImage null operator="!="}}'+
+                                            '<div class="col-md-4">' +
+                                                '<img src="{{results.ContentTileImage.Url}}" alt="{{results.ContentTileImage.Alt}}">'+
+                                            '</div>' +
+                                        '{{/compare}}'+
+										'{{#compare results.Video null operator="=="}}'+
+											'{{#compare results.ContentTileImage null operator="=="}}'+
+												'<div class="col-md-4">' +
+													'<img src="{{results.Image}}" alt="{{results.Title}}" class="img-responsive" />' +
+												'</div>' +
+											'{{/compare}}'+
+										'{{/compare}}'+
+                                     '<div class="content">'+
+                                        '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
+                                            '<p class="type">'+
+                                                '<span>{{results.SamplecontentProducts}}</span>'+
+                                            '</p>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.PageURL null operator="!="}}' +
+                                            '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                                '{{#if results.HasExternalLink}}'+
+                                                    '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                                '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                    '{{#compare results.ShowForm false operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.ShowForm true operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4 class="gated-content"><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.PageURL.length "0" operator="=="}}' +
+                                            '<h4><span>{{results.Title}}</span></h4>'+
+                                        '{{/compare}}'+
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}} <strong> {{{AnalystData results.Profile}}} </strong>{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}</p>'+
+                                        '{{#compare results.Publisher null operator="!="}}'+
+                                            '<p><span>{{results.PublisherKeyword}} </span><strong>{{results.Publisher}}<strong></p>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.Description null operator="!="}}'+
+                                            '<p class="description">{{results.Description}}</p>'+
+                                        '{{/compare}}'+
+                                    '</div>'+
+                                    // '{{#compare results.Brand.length 0 operator=">"}}'+
+                                    //         '<p class="brands">'+
+                                    //             '{{#each results.Brand}}'+
+                                    //                 '<span>{{this}}</span>'+
+                                    //             '{{/each}}'+
+                                    //         '</p>'+
+                                    // '{{/compare}}'+
+                                    '{{#compare results.TopicURLS.length 0 operator=">"}}'+
+                                        '<p class="topics">'+
+                                            '{{results.TopicKeyword}} '+
+                                            '{{#each results.TopicURLS}}'+
+                                                '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
+                                            '{{/each}}'+
+                                        '</p>'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.ShowSubSectorOnSampleContentPage true operator="=="}}'+
+                                            '{{#compare results.SubSectorsUrlDetails.length 0 operator=">"}}'+
+                                                '<p class="SubSectors">'+
+                                                    '<span>{{results.SubSectorKeyword}}</span>'+
+                                                    '{{#each results.SubSectorsUrlDetails}}'+
+                                                        '<span>'+
+                                                            '<a href="{{this.Value}}">{{this.Key}}</a>'+
+                                                        '</span>'+
+                                                    '{{/each}}'+
+                                                '</p>'+
+                                            '{{/compare}}'+
+                                    '{{/compare}}'+
+                                '</div>'+
+                                '<div class="footer">'+
+                                    '{{#compare results.Price null operator="!="}}'+
+                                            '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.PageURL null operator="!="}}' +
+                                        '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                            '{{#if results.HasExternalLink}}'+
+                                                '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                    '{{#if results.LinkText}}'+
+                                                        '<div class="btn-container text-right">'+
+                                                            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
+                                                        '</div>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/if}}'+
+                                            '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                '{{#compare results.ShowForm false operator="=="}}'+
+                                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn show-content-first-time" data-firstcontent="true" target="_blank">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                                '{{#compare results.ShowForm true operator="=="}}'+
+                                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                                '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                    '{{#if results.LinkText}}'+
+                                                        '<div class="btn-container text-right">'+
+                                                            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
+                                                        '</div>'+
+                                                    '{{/if}}'+    
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.PageURL.length "0" operator="=="}}' +
+                                        '<div class="btn-container text-right">'+
+                                            '<a class="btn btn-primary" disabled>{{results.LinkText}}</a>'+
+                                        '</div>'+
+                                    '{{/compare}}'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>',
             'Product':
                 '<div class="col-xs-12 col-sm-6 col-md-4">'+
                 '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+

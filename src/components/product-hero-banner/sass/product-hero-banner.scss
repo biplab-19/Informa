@@ -1,0 +1,132 @@
+.tmt-newco{
+  section.hero-banner-texture.dark-banner-subscribe.bg-gray-dark.product.supergraphic.product-hero-banner{
+    background: rgb(40,201,247);
+    background: linear-gradient(356deg, rgba(40,201,247,1) 0%, rgba(212,149,236,1) 77%, rgba(252,125,239,1) 100%);
+
+    h1{
+        font-weight: normal;
+        color: $font-color-white;
+        font-size: $super-headline-text;
+        line-height: $super-headline-lineheight;
+        @include mobile{
+            font-size: 34px;
+            line-height: 40px;
+            padding: 35px 0 20px;
+        }
+    }
+    span{
+        font-weight: normal;
+        font-size: $subhead-text;
+        color: $font-color-white;
+        line-height: $subhead-text-lineheight;
+    }
+    .description{
+        font-weight: normal;
+        font-size: $subhead-text;
+        color: $font-color-white;
+        line-height: $subhead-text-lineheight;
+        width: 80%;
+        @include mobile{
+            width: 100%;
+            text-align: justify;
+        }
+    }
+    .subtext{
+        display: none;
+    }
+    .cta2 {
+        border-radius: 22px;
+        background-color: transparent;
+        border: 1px solid $font-color-white;
+        font-weight: 600;
+        line-height: $subhead-text-lineheight;
+        font-size: $subhead-text;
+        text-align: center;
+        padding: 15px 30px;
+        display: inline-block;
+        min-width: 120px;
+        color: $font-color-white;
+        &.semi-trans{
+            background-color: rgba(255,255,255,.85);
+            text-align: center;
+            color: $font-color;
+            &:hover{
+                background-color: rgba(255,255,255,1);
+            }
+        }
+        &.subscribe-stick{
+            &:hover{
+                background-color: rgba(109,44,167,.85);
+            }
+        }
+        &.btn:after {
+            content: " ";
+        }
+        @include mobile{
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+    }
+    .follow-row {
+        width: 30%;
+        float: right;
+        margin-top: -60px;
+        @include mobile{
+            width: 100%;
+            float: none;
+            margin-top: 32px;
+        }
+        .follow {
+            &.share-tab{
+                width: auto;
+                display: inline-block;
+                float: none;
+                margin-right: 40px;
+                vertical-align: top;
+                margin-top: 6px;
+                .share{
+                     text-align: left;
+                     padding-top: 0;
+                     &::after {
+                         content: " ";
+                     }
+                 }
+             }
+        }
+        .share-tab{
+            display: inline;
+            float: none;
+            .follow-button{
+                a{
+                    margin-right: 20px;
+                    color: #fff;
+                    width: 35px;
+                    height: 35px;
+                    display: inline-block;
+                    background: #fff;
+                    border-radius: 50px;
+                    text-align: center;
+                    .at-icon-wrapper{
+                        display: inline-block;
+                        overflow: hidden;
+                        width: 34px !important;
+                        height: 39px !important;
+                        line-height: 45px !important;
+                        background-color: transparent !important;
+                        .at-icon{
+                            fill: #7daff2;
+                            width: 20px !important;
+                            height: 20px !important;
+                        }
+                    }
+                    @include mobile{
+                        width: 33px;
+                        height: 33px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+}
