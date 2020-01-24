@@ -1196,6 +1196,7 @@ INFORMA.EventsViews = (function (window, $, namespace) {
                                 dataArray.push(value.Title);
                                 }
                             });
+                            $("#txtEventSearchText").closest('.search-bar').addClass('ui-front');
                             $("#txtEventSearchText").autocomplete({
                               source: dataArray,
 							  minLength:InformaEventsController.AutocompleteMinCharCount,
@@ -1212,7 +1213,17 @@ INFORMA.EventsViews = (function (window, $, namespace) {
 								if(e.which === 13) {
 									$("#ui-id-1").hide();
 								}            
-							});
+							}).off('focus blur').on('focus blur', function (e) {
+                                var val = e.target.value;
+                                if (val.length > 3) {
+                                    $(e.target).autocomplete('search', val);
+                                }
+                            });
+
+                            $('body').click(function (e) {
+                                if (e.target !== $("#txtEventSearchText")[0])
+                                    $("#txtEventSearchText").autocomplete('close');
+                            });
                         },
                         error: function (error) {
                             INFORMA.Spinner.Hide();
