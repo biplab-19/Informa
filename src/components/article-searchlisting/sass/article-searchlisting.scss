@@ -238,9 +238,26 @@
   
       
       .product-finder-results {
-      .search-container {
-        width: 100%;
-      }
+        .search-container {
+          width: 100%;
+          .list-items{
+            .recomend-content{
+              a{
+                .play-icon{
+                  color: #fff;
+                  display: block;
+                  font-size: 5em;
+                  height: 30px;
+                  position: absolute;
+                  right: 50%;
+                  top: 50%;
+                  width: 30px;
+                  transform: translateY(-50%);
+                }
+              }
+            }
+          }
+        }
       .refine-container {
         width: 100%;
         background-color: #fff;
