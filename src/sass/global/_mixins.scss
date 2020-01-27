@@ -1883,6 +1883,40 @@ $properties: (margin, padding);
   $checkbox-border: $checkbox-border;
 
   .tmt-newco {
+    // theme override styleguide.scss 
+    section {
+        // Grey heading only.. Rest should be overriden on component level
+        h1 {
+            @include family-style(normal,$black);
+            @include heading-font-size(60px,60px,60px);
+            @include heading-line-height(66px,66px,66px);
+            @include margin-reset;
+        }
+        // light font which comes after h1
+        h2 {
+            @include family-style(600,$black);
+            @include heading-font-size(24px,24px,24px);
+            @include heading-line-height(29px,29px,29px);
+            @include heading-padding(0,0,0);
+            @include margin-reset;
+        }
+
+        h3 {
+            @include family-style(normal,$black);
+            @include heading-font-size(24px,24px,24px);
+            @include heading-line-height(29px,29px,29px);
+            @include margin-reset;
+        }
+
+        p{
+            @include family-style(normal,$black);
+            @include heading-font-size(14px,14px,14px);
+            @include heading-line-height(25px,25px,25px);
+            strong {
+                @include family-style(bold,$newcoprimarycolor);
+            }
+        }
+    }
     .product-detail-page.newco-product-detail {
       .resource-finder {
         background-color: $newcolightercolor;
