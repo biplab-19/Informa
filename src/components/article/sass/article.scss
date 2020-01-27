@@ -663,12 +663,17 @@ a.artcl-read-more {
 .custom-dropdown {
   .custom-nav {
     .search-bar {
-        @include not-desktop {
+      @include not-desktop {
         position: relative;
         width: 100%;
       }
       i {
         cursor: pointer;
+      }
+      .ui-autocomplete {
+        @include not-desktop {
+            position: relative;
+        }
       }
     }
   }
