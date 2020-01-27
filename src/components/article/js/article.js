@@ -27,6 +27,7 @@ INFORMA.articletech = (function (window, $, namespace) {
         _addBreadcrumbSelectedFilter,
         _updateArticleFilterBreadcrumb,
         _updateSearchTextBreadcrumb,
+		_updateSearchTextBreadcrumbWithText,
         _showMessage,
         _DeleteFilter,
         _setArticleFilterSelectedMessage,
@@ -39,10 +40,15 @@ INFORMA.articletech = (function (window, $, namespace) {
         BrandsId,
         checkSearchBoxHasValue,
         id,
+		AutocompleteMinCharCount=4,
         subsegmentId,
         isAjaxCalled,
         SubSegments,
         _ToggleArticleList,
+        inputSearchText,
+        dataArray = [],
+        _bindAutoComplete,
+		_LoadArticleFilteredData,
         x2;
     document.addEventListener('readystatechange', function (event) {
         if (event.target.readyState === 'complete') {
@@ -127,21 +133,27 @@ INFORMA.articletech = (function (window, $, namespace) {
         });
         $(".article-list-filter #closeFilterBtn").on("click", function () {
             var $articleList = $('.article-list-filter'),
-                $body = $('body')
+                $body = $('body'),
+                $html = $('html')
             $articleList.removeClass('active');
             $("#showArticleFiltersBtn").text('Select filters');
-            $body.css('overflow-y', '');
+            $html.removeClass('showfilters');
+            $body.removeClass('showfilters');
         });
         $("#showArticleFiltersBtn").on("click", function () {
             var $articleList = $('.article-list-filter'),
-                $body = $('body')
+                $body = $('body'),
+                $html = $('html')
             $articleList.toggleClass('active');
             if ($articleList.hasClass('active')) {
                 $(this).text('Search');
-                $body.css('overflow-y', 'hidden');
+                $html.addClass('showfilters');
+                $body.addClass('showfilters');
             } else {
                 $(this).text('Select filters');
-                $body.css('overflow-y', '');
+                $html.removeClass('showfilters');
+                $body.removeClass('showfilters');
+                _LoadArticleFilteredData($("#txtArticleSearchText").val());
             }
         });
         $('.segmanet-head, .sub-segment').click(function () {
@@ -179,11 +191,125 @@ INFORMA.articletech = (function (window, $, namespace) {
                 $(this).children("label").addClass("active");
             }
         });
+        $(".brands,.sgmnt-menu").mouseout(function (e) {
+            var obj = e.relatedTarget;
+            while (obj != null) {
+                if (obj == this) {
+                    return;
+                }
+                obj = obj.parentNode;
+            }
+            $(this).removeClass('active');
+            $(this).find('.drop-content-active').removeClass("drop-content-active");
+            $(this).find('.triangle-down').addClass("triangle-right").removeClass("triangle-down");
+        });
 
     });
     $(document).on("click", ".clearAllArticlesFilters", function () {
         window.location = window.location.href.split("?")[0];
     });
+    _LoadArticleFilteredData = function (val) {
+        inputSearchText = val;
+        if (val != "") {
+            $('#filterpageno').val("0");
+			_removeSearchTextBreadcrumb();          
+			_updateArticleFilterBreadcrumb();
+            _LoadArticleListdata();
+			_updateSearchTextBreadcrumbWithText(inputSearchText);
+        }
+    }
+    _bindAutoComplete = function (val) {
+        var obj = {
+            data: JSON.stringify({
+				SegmentAndSubSegments: _GetSelectedSegment(),
+                BrandID: _GetSelectedBrands(),
+				ProductLineId: $('#productlinepre').val(),
+                SearchKeyword: val,
+                CurrentPage: $("#CurrentPage").val(),
+                RequestType: "Article",
+                PageNo: 1
+            })
+        }
+
+        $.ajax({
+            url: "/client/search/GetAutocompleteList",
+            type: "POST",
+            data: obj,
+            success: function (result) {
+
+                $.each(result.Articles, function (index, value) {
+                    if ($.inArray(value.Title, dataArray) == -1) {
+                        dataArray.push(value.Title);
+                    }
+                });
+                $("#txtArticleSearchText").closest('.search-bar').addClass('ui-front');
+                $("#txtArticleSearchText").autocomplete({
+                    source: dataArray,
+					minLength:AutocompleteMinCharCount,
+                    select: function (event, ui) {
+                        var label = ui.item.label;
+                        var value = ui.item.value;
+                        //store in session
+                        _LoadArticleFilteredData(value);
+						_setArticleFilterSelectedMessage();
+                    },
+                    create: function( event, ui ) {
+                        $('#ui-id-1').css('width', event.target.offsetWidth);
+                    },
+                    open: function( event, ui ) {
+                        $('#ui-id-1').css('width', event.target.offsetWidth);
+                    }
+                }).on('input', function (e) {
+					if(e.which === 13) {
+						$("#ui-id-1").hide();
+					}            
+				}).off('focus blur').on('focus blur', function (e) {
+                    var val = e.target.value;
+                    if (val.length > 3) {
+                        $(e.target).autocomplete('search', val);
+                    }
+                });
+
+                $('body').click(function (e) {
+                    if (e.target !== $("#txtEventSearchText")[0])
+                        $("#txtEventSearchText").autocomplete('close');
+                });
+            },
+            error: function (error) {
+                INFORMA.Spinner.Hide();
+            },
+            complete: function (data) {
+                setTimeout(function () { INFORMA.Spinner.Hide(); }, 1000);
+            }
+        })
+
+    }
+	
+	$(".article-list-filter .search-bar i.search-icon").click(function (){
+		_LoadArticleFilteredData($('#txtArticleSearchText').val());
+		_setArticleFilterSelectedMessage();
+	});
+	
+    //GS:Handled article search text box event
+    $("#txtArticleSearchText").on('input', function (event) {
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        var val = this.value;
+		if(val!="" && val.length>0)
+		{
+			if (keycode == '13') {
+					_LoadArticleFilteredData(val);
+					_setArticleFilterSelectedMessage();
+				}
+			else
+			{
+			_bindAutoComplete(val);
+			}
+		}
+    });
+	
+   /* $("#txtArticleSearchText").autocomplete({
+        source: dataArray
+    });*/
     $(document).on("click", ".article-cross", function () {
         var id = $(this).attr("data-attr-id");
         var valueofoption = $(this).attr("data-attr-valueofoption");
@@ -202,7 +328,12 @@ INFORMA.articletech = (function (window, $, namespace) {
             }
             _updateSegmentSelection("Segments");
         }
-
+        //ISW-3912
+		//GS:set empty article text search value
+        //var deleteArticleSearch = id;
+		if (id == searchInputCross) {
+            inputSearchText = "";
+        }
         if (id == "articlebrands")//update selected attribute for brands
             _updateBrandSelection(id);
 
@@ -231,6 +362,7 @@ INFORMA.articletech = (function (window, $, namespace) {
                 CurrentPage: $('#CurrentPage').val(),
                 ProductLineId: $('#productlinepre').val(),
                 MaxItemCount: $('#maxitemcount').val(),
+                ArticleSearchText:inputSearchText,
                 PageNo: showmoredispcount,
             })
         }
@@ -246,10 +378,11 @@ INFORMA.articletech = (function (window, $, namespace) {
                
                 if (reset) {
                     $("#article-list").empty();
+                    $(".no-records").show();
                 }
                
                 if ($($(result).find(".artical-list-outer > .artcl-list")).length) {            
-                   
+                    $(".no-records").hide();
                     $("#article-list").html("");
                     $("#article-list").html($(result).find("#article-list"));      
                     _ToggleArticleList();          
@@ -282,14 +415,15 @@ INFORMA.articletech = (function (window, $, namespace) {
         }
         
         var obj = {
-        data: JSON.stringify({
-        SegmentAndSubSegments: _GetSelectedSegment(),
-        BrandID: _GetSelectedBrands(),
-        SearchText: $('#searchText').val(),
-        CurrentPage: $('#CurrentPage').val(),
-        ProductLineId: $('#productlinepre').val(), 
-        PageNo: pageNumber,
-        })
+			data: JSON.stringify({
+				SegmentAndSubSegments: _GetSelectedSegment(),
+				BrandID: _GetSelectedBrands(),
+				SearchText: $('#txtArticleSearchText').val(),
+				CurrentPage: $('#CurrentPage').val(),
+				ProductLineId: $('#productlinepre').val(),
+				ArticleSearchText:inputSearchText,
+				PageNo: pageNumber,
+			})
         }
         $('#filterpageno').val(pageNumber);
         _BindArticlesPartialView(ArticleSearch, "POST", obj, true);
@@ -519,7 +653,8 @@ INFORMA.articletech = (function (window, $, namespace) {
             $("#" + segmentContainerId).attr("data-value-segment-and-subsegment", JSON.stringify(jsonSegmentObj));
     }
     _checkSearchBoxHasValue = function () {
-        var searchTextValue = $('#searchText').val();
+		//ISW-3912
+        var searchTextValue = $('#txtArticleSearchText').val();
         if (searchTextValue != "" && searchTextValue != "View Search") {
             return true;
         }
@@ -626,15 +761,30 @@ INFORMA.articletech = (function (window, $, namespace) {
         _updateSearchTextBreadcrumb();
     }
     _removeSearchTextBreadcrumb = function () {
-        if ($("#SearchInput").length > 0) {
-            $("#SearchInput").remove();
+		//ISW-3912#7
+        if ($("#Input_ArticleSearchText").length > 0) {
+            $("#Input_ArticleSearchText").remove();
         }
     }
     _updateSearchTextBreadcrumb = function () {
-        var input = $.trim($("#searchText").val());
+        var input = $.trim($("#txtArticleSearchText").val());
         if (input != "") {
             _removeSearchTextBreadcrumb();
-            var x = '<div class="unit" id="SearchInput"><label class="value">' + input + '</label> <label data-attr-id="SearchInput" class="article-cross">X</label></div>';
+			//ISW-3912#7
+            var x = '<div class="unit" id="Input_ArticleSearchText"><label class="value">' + input + '</label> <label data-attr-id="SearchInput" class="article-cross">X</label></div>';
+            $(".section").append(x);
+        }
+        else {
+            _removeSearchTextBreadcrumb();
+        }
+    }
+	//ISW-3912
+	 _updateSearchTextBreadcrumbWithText = function (inputText) {
+        var input = $.trim(inputText);
+        if (input != "") {
+            _removeSearchTextBreadcrumb();
+			//ISW-3912#7
+            var x = '<div class="unit" id="Input_ArticleSearchText"><label class="value">' + input + '</label> <label data-attr-id="SearchInput" class="article-cross">X</label></div>';
             $(".section").append(x);
         }
         else {
@@ -650,8 +800,8 @@ INFORMA.articletech = (function (window, $, namespace) {
     _DeleteFilter = function (id, li_value) {
         if (id == searchInputCross) {
             //search text box selection
-            $("#" + id).remove();
-            $("#searchText").val("");
+            $("#Input_ArticleSearchText").remove();
+            $("#txtArticleSearchText").val("");
         }
         else {
             $("#" + li_value + " p").removeClass("selected");
@@ -678,9 +828,6 @@ INFORMA.articletech = (function (window, $, namespace) {
     }
     _showClearOption = function () {
         var length = $('.drop-options p.selected').length;
-        var result = _checkSearchBoxHasValue();
-        if (result)
-            length++;
         if (length >= 1)
             return true;
         else
@@ -696,13 +843,19 @@ INFORMA.articletech = (function (window, $, namespace) {
         if (hidenfilterCount > 0) {
             length = length - hidenfilterCount;
         }
-
-        if (length > 1) {
-            // $(".filter-section .heading").show();
-            $(".filter-section .heading").text("active filters (" + (length - 1) + ")");
-            $(".clearAllArticlesFilters").removeClass("hide-clear-filter")
+		//ISW-3912
+		if(length==1)
+		{
+			 $(".filter-section .heading").show();            
+			$(".filter-section .heading").text("Active Filters (" + (length) + ")");
+			  $(".clearAllArticlesFilters").addClass("hide-clear-filter");
+		}
+        else if (length > 1) { //ISW-3912
+             $(".filter-section .heading").show();            
+            $(".clearAllArticlesFilters").removeClass("hide-clear-filter");
+			$(".filter-section .heading").text("Active Filters (" + (length) + ")");
         } else {
-            // $(".filter-section .heading").hide();
+            $(".filter-section .heading").hide();
             $(".clearAllArticlesFilters").addClass("hide-clear-filter")
         }
     }

@@ -57,6 +57,7 @@ div#tech-main-header {
 
     .has-sub img.arrow-right {
         margin-right: 12px;
+        margin-top:12px;
     }
 }
 
@@ -96,18 +97,6 @@ div#tech-main-header {
         position: relative;
         width: 100%;
         line-height: normal;
-        &.sub-open {
-            .menu-container {
-                .main-nav-bar {
-                    height: 550px;
-                    height: calc(100vh - 250px);
-                    @include not-desktop {
-                        height: 330px;
-                        height: calc(100vh - 250px);
-                    }
-                }
-            }
-        }
         .menu-container {
             .main-nav-bar {
                 // 250ms linear matches stellarnav opening speed and easing, 
@@ -287,9 +276,8 @@ div#tech-main-header {
         top: 0;
         right: 0;
         padding: 0;
-        width: 17px;
-        height: 17px;
-        text-align: center;
+        width: 30px;
+        height: 30px;
         z-index: 9999;
         border: 0;
     }
@@ -368,6 +356,7 @@ div#tech-main-header {
                         border-radius: 14px;
                         top: 30%;
                         transition: width 0.3s;
+                        left:3px;
                     }
                    
                 }
@@ -879,8 +868,8 @@ div#tech-main-header {
     }
 
     .stellarnav .has-sub a.dd-toggle .icon-plus:before, .stellarnav .has-sub a.dd-toggle .icon-plus:after {
-        width: 17px;
-        border-bottom: solid 2px #c6c70a;
+        width: 20px;
+        border-bottom: solid 3px #c6c70a;
     }
 
     .stellarnav.mobile li.open > a.dd-toggle .icon-plus:before {
@@ -989,12 +978,21 @@ display:block;
     }
 }
 
-.stellarnav.mobile .menu-container > ul{
-    height:300px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    padding-right:26px;
-    scrollbar-color: #658fba #024;
-    scrollbar-width: thin;
+.stellarnav.mobile {
+    .menu-container > ul{
+        height:300px;
+        max-height:500px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-right:26px;
+        scrollbar-color: #658fba #024;
+        scrollbar-width: thin;
+    }
+    &.sub-open {
+        .menu-container > ul {
+            height:auto;
+        }
+    }
 }
+
 

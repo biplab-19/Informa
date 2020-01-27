@@ -228,6 +228,15 @@
                     $(this).parent('li').addClass('no-sub'); 
                 }
                 $(this).parent('li').append('<a class="dd-toggle" href="#"><span class="icon-plus"></span></a>');
+				
+				//handled if href is empty
+				var href=$(this).attr("href");
+				if(href.indexOf("javascript")!=-1)
+				{
+					$(this).click(function() {
+						$(this).parent().children(".dd-toggle").trigger("click");
+					})
+				}
             });
 
             // expands the dropdown menu on each click

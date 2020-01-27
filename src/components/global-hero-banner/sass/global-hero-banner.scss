@@ -2,10 +2,16 @@
   width: 100%;
   float: left;
   position: relative;
-  
   @include mobile {
     position: initial;
     max-width: 100%;
+  }
+  .vertical-align{
+    .btn-primary{
+      @include mobile{
+        margin-bottom: 10px;
+      }
+    }
   }
   .hero-items {
     max-width: 1400px;
@@ -155,16 +161,11 @@
       }
 
       h1 {
-        font-family: 'SWTechBrandFont';
-        font-size: 48px;
-        line-height: 60px;
         text-transform: uppercase;
         margin-top: 0;
         margin-bottom: 20px;
-        @include mobile {
-          font-size: 24px;
-          line-height: 30px;
-        }
+        font-weight: 200;
+        
       }
     }
     
@@ -498,6 +499,14 @@
       text-align: center !important;
     }
   }
+  &#hero-banner {
+    .cf-img{
+       height:100%;
+       img{
+         height:100%;
+       }
+    }
+  }
 }
 
 .tech-theme,
@@ -595,8 +604,8 @@
     }
     
     .sub-headline {
-      font-size: 45px;
-      width: calc(100% - 30px);
+      font-size: 40px;
+      width: calc(100% - 125px);
       color: #fff;
       @include mobile-to-midtab {
           left: 0;
@@ -644,7 +653,7 @@
     .dot-img-left,
     .dot-img-right {
       @include mid-tablet {
-        width: 108px;
+        width: 125px;
         margin-top: 20px;
       }
       @include not-mid-tablet {
@@ -673,5 +682,6 @@
   }
   .dot-img-left ,.dot-img-right {
     background-image:none;
+    float:left;
   }
 }
