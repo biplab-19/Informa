@@ -16,14 +16,6 @@ INFORMA.articleSerchlisting = (function (window, $, namespace) {
                     $(this).removeClass("select-gradient");
                 }
             });
-
-            $(document).on("click", ".panel-default .panel-title a", function () {
-                var panelSibling = $(this).parents(".panel-heading").siblings(".panel-collapse");
-                $(this).toggleClass("toggle-panel-body");
-                if (panelSibling.hasClass("panel-collapse")) {
-                    panelSibling.toggleClass("open-collapse");
-                }
-            });
             $(document).on("click", ".resource-sector-search .button button", function () {
                 var resourceSibling = $(this).parents(".resource-finder").siblings(".product-finder-results");
                 resourceSibling.addClass("show-refine-container");
@@ -37,7 +29,7 @@ INFORMA.articleSerchlisting = (function (window, $, namespace) {
                 refineChild.find(".heading").removeClass("heading-collapsed");
                 refineChild.find(".panel-group").css("display", "block");
             }
-            $(".panel-default .panel-title a").parents(".panel-heading").siblings(".panel-collapse").removeClass("collapse");
+
         });
     };
 

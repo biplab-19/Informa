@@ -1,4 +1,10 @@
 .tmt-newco{
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
   .product-detail-page.newco-product-detail {
     @include mobile{
       position: relative;
@@ -66,16 +72,19 @@
                     border: 1px solid $newcoprimarycolor;
                     width: 180px;
                     border-radius: 22px;
-                    background: transparent;
+                    background: $newcolightercolor;
                     margin-top: 0px;
                     min-width: 165px;
-                    &:hover{
+                    &:hover .dropdown-toggle{
                        background-image: linear-gradient(90deg, rgba(238, 147, 236, 1) 50%, rgba(117, 217, 244, 1) 100%);
-                     }
+                        border-radius: 22px;
+                      }
                     @include mobile{
                       width: 250px;
                     }
                    &.open{
+                      &:hover .dropdown-toggle{
+                        border-radius: 22px 22px 0px 0px;
                       button{
                         &::before{
                           content: ' ';
@@ -91,6 +100,8 @@
                           border-radius: 0px;  
                         }
                       }
+                     }
+                     
                    }
                     button.select-gradient{
                       background-image: linear-gradient(90deg, rgba(238, 147, 236, 1) 50%, rgba(117, 217, 244, 1) 100%);
@@ -133,6 +144,7 @@
                       background: #f9f9f9;
                       box-shadow: none;
                       border-radius: 0px 0px 22px 22px;
+                      margin-bottom: 36px;
                         li.active{
                           .checkbox{
                             &::before{
@@ -238,9 +250,26 @@
   
       
       .product-finder-results {
-      .search-container {
-        width: 100%;
-      }
+        .search-container {
+          width: 100%;
+          .list-items{
+            .recomend-content{
+              a{
+                .play-icon{
+                  color: #fff;
+                  display: block;
+                  font-size: 5em;
+                  height: 30px;
+                  position: absolute;
+                  right: 50%;
+                  top: 50%;
+                  width: 30px;
+                  transform: translateY(-50%);
+                }
+              }
+            }
+          }
+        }
       .refine-container {
         width: 100%;
         background-color: #fff;
@@ -384,6 +413,9 @@
                         border-bottom: none;
                       }
                     }
+                    &:hover{
+                      background-color: #eef0f5;
+                    }
                   }
                   .custom-checkbox{
                     display: none;
@@ -415,10 +447,6 @@
                 }
               }
               .panel-collapse {
-                display: none;
-                &.open-collapse{
-                  display: block;
-                }
                 .panel-body{
                   ul{
                     @include mobile{
@@ -461,6 +489,9 @@
                                border: 1px solid transparent;
                              }
                          }
+                       }
+                       &.active{
+                        outline: none !important;
                        }
                     }
                   }
@@ -531,6 +562,9 @@
                     font-weight: 600;
                     color: $font-color;
                     white-space: nowrap;
+                  }
+                  &:hover{
+                    background-color: #eef0f5;
                   }
                 }
                 .chosen-drop{
