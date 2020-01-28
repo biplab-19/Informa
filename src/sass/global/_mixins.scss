@@ -1888,8 +1888,8 @@ $properties: (margin, padding);
         // Grey heading only.. Rest should be overriden on component level
         h1 {
             @include family-style(normal,$black);
-            @include heading-font-size(60px,60px,60px);
-            @include heading-line-height(66px,66px,66px);
+            @include heading-font-size(60px,48px,34px);
+            @include heading-line-height(66px,54px,40px);
             @include margin-reset;
         }
         // light font which comes after h1
