@@ -3,41 +3,98 @@
 @import "mixins";
 /*fonts*/
 @font-face {
-    font-family: 'SWBrandFont';
-    src: url('../fonts/OpenSans-Regular.eot');  
-    src:  url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/OpenSans-Regular.ttf')  format('truetype'),
-    url('../fonts/OpenSans-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "SWBrandFont";
+  src: url("../fonts/OpenSans-Regular.eot");
+  src: url("../fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-Regular.ttf") format("truetype"), url("../fonts/OpenSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'SWBrandFont';
-    src: url('../fonts/OpenSans-Bold.eot');  
-    src:  url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/OpenSans-Bold.ttf')  format('truetype'),
-    url('../fonts/OpenSans-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "SWBrandFont";
+  src: url("../fonts/OpenSans-Bold.eot");
+  src: url("../fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-Bold.ttf") format("truetype"), url("../fonts/OpenSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'SWBrandFont';
-    src: url('../fonts/OpenSans-SemiBold.eot');  
-    src:  url('../fonts/OpenSans-SemiBold.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/OpenSans-SemiBold.ttf')  format('truetype'),
-    url('../fonts/OpenSans-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
+  font-family: "SWBrandFont";
+  src: url("../fonts/OpenSans-SemiBold.eot");
+  src: url("../fonts/OpenSans-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-SemiBold.ttf") format("truetype"), url("../fonts/OpenSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
 }
 @font-face {
-    font-family: 'SWBrandFont';
-    src: url('../fonts/OpenSans-Light.eot');  
-    src:  url('../fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
-    url('../fonts/OpenSans-Light.ttf')  format('truetype'),
-    url('../fonts/OpenSans-Light.woff') format('woff');
-    font-weight: 200;
-    font-style: normal;
+  font-family: "SWBrandFont";
+  src: url("../fonts/OpenSans-Light.eot");
+  src: url("../fonts/OpenSans-Light.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/OpenSans-Light.ttf") format("truetype"), url("../fonts/OpenSans-Light.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
 }
 @include theme(tmt-newco, $tmtprimarycolor, $tmtsecondrydarkcolor, $tmtsecondarylightcolor, $navlinktmtcolor);
+@include newco($newcoprimarycolor, $base-bg, $border-refine-filter, $checkbox-border, $newcolightercolor);
+//cta skinning for newco theme
+$newcobtnprimarygradiant-left: #ee93ec;
+$newcobtnprimarygradiant-right: #75d9f4;
+$newcobtnprimary-hover-gradiant-left: #ee93ec;
+$newcobtnprimary-hover-gradiant-right: #75d9f4;
+$newcobtnprimary-border-color: #fff;
+$newcobtnprimary-bakground-color: #434854;
+$newcobtnprimary-color: #000;
 
-@include newco($newcoprimarycolor, $base-bg, $border-refine-filter, $checkbox-border,$newcolightercolor);
+$newcobtnprimary-hover-color: #000;
+$newcobtnprimary-hover-background: #fff;
+$newcobtnprimary-hover-border: #fff;
+
+$newcobtndefault-border: #a54eac;
+$newcobtndefault-background: #f9f8f9;
+$newcobtndefault-color: #000;
+
+$newcobtndefault-hover-border: #a54eac;
+$newcobtndefault-hover-background: #f6f0fb;
+
+.tmt-newco {
+  .btn {
+    min-width: 120px;
+    border-radius: 22px;
+    padding: 15px 30px;
+    height: auto;
+    font-weight: 600;
+    text-align: center;
+    &::after {
+      content: none;
+    }
+  }
+  .btn-primary {
+    border-color: $newcobtnprimary-border-color;
+    background-color: $newcobtnprimary-bakground-color;
+    color: $newcobtnprimary-color;
+    position: relative;
+    background-image: linear-gradient(90deg, $newcobtnprimarygradiant-left 50%, $newcobtnprimarygradiant-right 100%);
+    &:hover {
+      color: $newcobtnprimary-hover-color;
+      text-decoration: none;
+      background-color: $newcobtnprimary-hover-background;
+      border-color: $newcobtnprimary-hover-border;
+      background-image: linear-gradient(
+        90deg,
+        $newcobtnprimary-hover-gradiant-left 50%,
+        $newcobtnprimary-hover-gradiant-right 100%
+      );
+    }
+  }
+  .btn-container {
+    .btn-default {
+      border: 1px solid $newcobtndefault-border;
+      background-color: $newcobtndefault-background;
+      color: $newcobtndefault-color;
+      &:hover {
+        background-color: $newcobtndefault-hover-background;
+        border: 1px solid $newcobtndefault-hover-border;
+      }
+    }
+  }
+}
