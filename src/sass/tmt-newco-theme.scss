@@ -97,6 +97,19 @@ $newcobtndefault-hover-background: #f6f0fb;
       }
     }
   }
+  .product-brands-list{
+    .card-col-heading{
+      .btn-default {
+        border: 1px solid $newcobtndefault-border;
+        background-color: $newcobtndefault-background;
+        color: $newcobtndefault-color;
+        &:hover {
+          background-color: $newcobtndefault-hover-background;
+          border: 1px solid $newcobtndefault-hover-border;
+        }
+      }
+    }
+  }
   .btn-default {
     border: 1px solid $newcobtndefault-border;
     background-color: $newcobtndefault-background;
