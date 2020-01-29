@@ -85,6 +85,7 @@
                    &.open{
                       &:hover .dropdown-toggle{
                         border-radius: 22px 22px 0px 0px;
+                      }
                       button{
                         &::before{
                           content: ' ';
@@ -100,7 +101,6 @@
                           border-radius: 0px;  
                         }
                       }
-                     }
                      
                    }
                     button.select-gradient{
@@ -379,7 +379,6 @@
                     max-height: 520px;
                     overflow: scroll;
                     @include mobile{
-                      height: auto;
                       max-height: unset;
                       overflow: auto;
                     }
@@ -422,7 +421,7 @@
                   .custom-checkbox{
                     display: none;
                   }
-                  a.toggle-panel-body:before {
+                  a.collapsed:before {
                     content: ' ';
                     width: 12px;
                     height: 10px;
