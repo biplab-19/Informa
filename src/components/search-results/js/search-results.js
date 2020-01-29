@@ -526,6 +526,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             if (ContentType == "SampleContent" && $("#IsNewCoTemplateEnabled").val() == "True") {
                                 ContentType = "SampleContentNewCo"
                             }
+                            if (ContentType == "Product" && $("#IsNewCoTemplateEnabled").val() == "True") {
+                                ContentType = "ProductNewCo"
+                            }
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                             ListTemplate = Handlebars.compile(TemplateName);
                             Html += ListTemplate({ results: Lists[j] });
