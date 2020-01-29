@@ -41,13 +41,13 @@ $newcobtnprimarygradiant-left: #ee93ec;
 $newcobtnprimarygradiant-right: #75d9f4;
 $newcobtnprimary-hover-gradiant-left: #fcbffa;
 $newcobtnprimary-hover-gradiant-right: #a1e0fa;
-$newcobtnprimary-border-color: #fff;
+$newcobtnprimary-border-color: transparent;
 $newcobtnprimary-bakground-color: #434854;
 $newcobtnprimary-color: #000;
 
 $newcobtnprimary-hover-color: #000;
 $newcobtnprimary-hover-background: #fff;
-$newcobtnprimary-hover-border: #fff;
+$newcobtnprimary-hover-border: transparent;
 
 $newcobtndefault-border: #a54eac;
 $newcobtndefault-background: #f9f8f9;
@@ -60,10 +60,11 @@ $newcobtndefault-hover-background: #f6f0fb;
   .btn {
     min-width: 120px;
     border-radius: 22px;
-    padding: 15px 30px;
+    padding: 9px 30px;
     height: auto;
     font-weight: 600;
     text-align: center;
+    border-width: 0px;
     &::after {
       content: none;
     }
