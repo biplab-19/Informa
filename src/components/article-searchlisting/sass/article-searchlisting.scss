@@ -358,6 +358,7 @@
                   width: 208px;
                   z-index: 99;
                   background: #fff;
+                  padding-bottom: 18px;
                   @include mobile{
                     border: 1px solid $newcoprimarycolor;
                     position: static;
@@ -393,20 +394,20 @@
                   font-weight: 600;
                   color: $font-color;
                   a{
-                    position: relative;
-                    padding: 10px 38px;
-                    background-color: transparent;
-                    border: 1px solid #a8abb5;
-                    color: $font-color;
-                    white-space: nowrap;
-                    display: block;
-                    border-radius: 22px;
-                    &.toggle-panel-body{
+                    &.collapsed{
+                      border: 1px solid #a8abb5;
+                      border-radius: 22px;
+                    }
+                      position: relative;
+                      padding: 10px 38px;
+                      background-color: transparent;
+                      color: $font-color;
+                      white-space: nowrap;
+                      display: block;
                       border-bottom: none;
                       -moz-border-radius: 22px 22px 0 0;
                       -webkit-border-radius: 22px 22px 0 0;
                       border-radius: 22px 22px 0px 0px;
-                    }
                     @include mobile{
                       border: 1px solid $newcoprimarycolor;
                       &.toggle-panel-body{
