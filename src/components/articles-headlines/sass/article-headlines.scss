@@ -1,4 +1,11 @@
 .tmt-newco {
+  .product-detail-page.newco-product-detail{
+    .article-filter-section{
+      h2{
+        font-weight: 600;
+      }
+    }
+  }
  .article-headlines {
     background-color: $bg-white;
     h2 {
@@ -397,21 +404,24 @@
       }
     }
     .list-container {
-      margin: 36px 40px;
+      margin: 26px 40px;
       padding-left: 0;
       @include mobile {
         margin: 36px 35px 20px;
       }
+      .slick-track {
+        padding-top: 16px;
+      }
       li {
         padding: 0px 0px;
-        max-height: 490px;
+        max-height: 560px;
         img {
           height: 202px;
           display: block;
           width: 100%;
         }
         &.slick-slide {
-          margin-bottom: 20px;
+          margin: 0 15px 20px 15px;
           .video-container{
             position: relative;
             a{
@@ -429,10 +439,10 @@
             }
           }
           &:hover {
-            box-shadow: 7px 7px 16px #ece9e9;
+            box-shadow: 3px -2px 16px #ece9e9;
           }
           @include mobile {
-            box-shadow: 7px 7px 16px #ece9e9;
+            box-shadow: 2px 4px 16px #ece9e9;
           }
         }
         .recomended-wrapper {
@@ -587,6 +597,24 @@
             background-color: $newcoprimarycolor;
             border: 2px solid $newcoprimarycolor;
           }
+        }
+        &::after{
+          content: "";
+            height: 1px;
+            width: 44%;
+            background: #e3e3e6;
+            position: absolute;
+            top: 10px;
+            right: 0;
+        }
+        &::before{
+          content: "";
+            height: 1px;
+            width: 44%;
+            background: #e3e3e6;
+            position: absolute;
+            top: 10px;
+            left: 0;
         }
       }
     }

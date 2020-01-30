@@ -1912,19 +1912,53 @@ $properties: (margin, padding);
   $checkbox-border: $checkbox-border;
 
   .tmt-newco {
-      header {
-        .cookieBanner,  section.informa-header-copyright {
-            position: relative;
-            z-index: 2;
+    // theme override styleguide.scss 
+    section {
+        // Grey heading only.. Rest should be overriden on component level
+        h1 {
+            @include family-style(normal,$black);
+            @include heading-font-size(60px,48px,34px);
+            @include heading-line-height(66px,54px,40px);
+            @include margin-reset;
         }
-      }
-      .newco-header {
-        .newco-searchbtn {
-            .navsearch {
-                color: $newcoprimarycolor;
+        // light font which comes after h1
+        h2 {
+            @include family-style(600,$black);
+            @include heading-font-size(24px,24px,24px);
+            @include heading-line-height(29px,29px,29px);
+            @include heading-padding(0,0,0);
+            @include margin-reset;
+        }
+
+        h3 {
+            @include family-style(normal,$black);
+            @include heading-font-size(24px,24px,24px);
+            @include heading-line-height(29px,29px,29px);
+            @include margin-reset;
+        }
+
+        p{
+            @include family-style(normal,$black);
+            @include heading-font-size(14px,14px,14px);
+            @include heading-line-height(25px,25px,25px);
+            strong {
+                @include family-style(bold,$newcoprimarycolor);
             }
         }
+    }
+    header {
+      .cookieBanner,  section.informa-header-copyright {
+          position: relative;
+          z-index: 2;
       }
+    }
+    .newco-header {
+      .newco-searchbtn {
+          .navsearch {
+              color: $newcoprimarycolor;
+          }
+      }
+    }
     .product-detail-page.newco-product-detail {
       .resource-finder {
         background-color: $newcolightercolor;
