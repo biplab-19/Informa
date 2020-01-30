@@ -8,7 +8,7 @@ INFORMA.articleSerchlisting = (function (window, $, namespace) {
     init = function () {
         $(document).ready(function () {
             $(document).on("click", ".btn-group .dropdown-toggle", function () {
-                $(this).parent(".btn-group").toggleClass("open");
+                // $(this).parent(".btn-group").toggleClass("open");
                 if ($(this).siblings(".multiselect-container").children("li").hasClass("active")) {
                     $(this).toggleClass("select-gradient");
                 }
