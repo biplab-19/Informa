@@ -1967,15 +1967,27 @@ $properties: (margin, padding);
           }
       }
       .newco-nav {
-        .top-menu-items > .menu-item a {
+        .top-menu-items > .menu-item {
             @include family-style(bold,$newcoprimarycolor);
             font-size: 14px;
             line-height: 25px;
+            a {
+              font-weight: inherit;
+              font-size: inherit;
+              line-height: inherit;
+              color: inherit;
+            }
         }
-        .menu-items > .menu-item a {
+        .menu-items > .menu-item {
             @include family-style(normal,$black);
             font-size: 14px;
             line-height: 25px;
+            a {
+              font-weight: inherit;
+              font-size: inherit;
+              line-height: inherit;
+              color: inherit;
+            }
         }
       }
       .newco-searchbtn {
