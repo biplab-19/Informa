@@ -18,7 +18,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         $navsearch = $newcoHeader.find('.navsearch'),
         $newcoNav = $newcoHeader.find('.newco-nav'),
         $menuItems = $newcoNav.find('.menu-items'),
-        $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub > a'),
+        $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub'),
         // methods
         OffsetParentHeight, init;
 
@@ -51,7 +51,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         });
         // set listner for submenus
         $menuItemWWithSubs.click(function(e) {
-            var $menuItem = $(this).closest('.menu-item'),
+            var $menuItem = $(this),
                 $childMenuItemsContainer = $menuItem.children('.menu-items');
             
             $childMenuItemsContainer.toggleClass('nav-closed');
@@ -73,6 +73,8 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
             e.stopPropagation();
         });
+        $menuItemWWithSubs.children('a').click(function (e) {e.stopPropagation();});
+        $menuItemWWithSubs.children('a').click(function (e) {e.stopPropagation();});
     }
     
     $(window).on('load', function() {
