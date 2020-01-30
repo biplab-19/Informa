@@ -379,7 +379,7 @@ a.artcl-read-more {
     padding: 0;
     margin-bottom: 15px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: normal;
     color: #024;
   }
   .sub-seg {
@@ -566,6 +566,10 @@ a.artcl-read-more {
   .filter-section {
     padding: 0 15px;
   }
+  .no-records{
+    width:100%;
+    float:left;
+  }
 }
 .section {
   .unit {
@@ -656,4 +660,27 @@ a.artcl-read-more {
   display: none;
 }
 
+.custom-dropdown {
+  .custom-nav {
+    .search-bar {
+      @include not-desktop {
+        position: relative;
+        width: 100%;
+      }
+      i {
+        cursor: pointer;
+      }
+      .ui-autocomplete {
+        @include not-desktop {
+            position: relative;
+        }
+      }
+    }
+  }
+}
 
+html.showfilters, body.showfilters {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}

@@ -25,7 +25,6 @@
             margin: 0;
             padding: 50px;
             background: #fff;
-            z-index: 999998;
             &:before {
                 content: 'Filters';
                 display: block;
@@ -253,7 +252,7 @@
                     float: left;
                     width: calc(100% - 22px);
                     font-size: 17px;
-                    font-weight: bold;
+                    font-weight: normal;
                     color: #002244;
                     margin-bottom: 15px;
                     padding-top: 0;
@@ -479,12 +478,48 @@
             }
         }
     }
+    
+    .search-bar {
+        @include not-desktop {
+            position: relative;
+            width: 100%;
+        }
+        i {
+            cursor: pointer;
+        }
+        .ui-autocomplete {
+            @include not-desktop {
+                position: relative;
+            }
+        }
+    }
+    
 }
 // functionality css
+html.showfilters {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+
 body {
     // show month year switch in calendar
     &.calendar-view .events-search .views-section .date-views {
         display: block;
+    }
+
+    // ui for mobile
+    &.showfilters {
+        overflow: hidden;
+        position: relative;
+        height: 100%;
+        .events-search {
+            z-index: 999990;
+            .select-section {
+                display: block;
+                z-index: 1;
+            }
+        }
     }
 
     // hide filters element when empty

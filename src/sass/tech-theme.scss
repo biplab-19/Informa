@@ -1071,7 +1071,7 @@ section#hero-banner h1 {
         .vertical-align {
             max-width: 100%;
             width: 100%;
-            transform: translateY(370%);
+            transform: translateY(0);
         }
     }
     div#tech-main-header .nav-bar, .hero-banner .vertical-align .for-left {
@@ -2906,18 +2906,7 @@ section#customers_list .customers_list_slider.slick-slider .slick-list{
             display: none;
         }
     }
-    .active {
-        .triangle-right {
-            width: 15px;
-            height: 10px;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 13px solid #002244;
-            border-bottom: none;
-            display: inline-block;
-            margin-right: 10px;
-        }
-    }
+    
 }
 /* events calendar end */
 
@@ -2970,7 +2959,7 @@ section#hero-banner {
     .cf-img {
         position: absolute;
         right: 0;
-        height:100vh;
+        height:100%;
       }
       h1{
         color: #002144;
@@ -2995,6 +2984,7 @@ section#hero-banner {
         top: 0%;
         left: 0%;
         transform: translate(0%,0%);
+        height:100%;
     
     }
   }
