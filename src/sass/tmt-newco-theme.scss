@@ -74,7 +74,7 @@ $newcobtndefault-hover-background: #f6f0fb;
     background-color: $newcobtnprimary-bakground-color;
     color: $newcobtnprimary-color;
     position: relative;
-    background-image: linear-gradient(90deg, $newcobtnprimarygradiant-left 50%, $newcobtnprimarygradiant-right 100%);
+    background-image: linear-gradient(90deg, $newcobtnprimarygradiant-left 0%, $newcobtnprimarygradiant-right 100%);
     &:hover {
       color: $newcobtnprimary-hover-color;
       text-decoration: none;
@@ -82,7 +82,7 @@ $newcobtndefault-hover-background: #f6f0fb;
       border-color: $newcobtnprimary-hover-border;
       background-image: linear-gradient(
         90deg,
-        $newcobtnprimary-hover-gradiant-left 50%,
+        $newcobtnprimary-hover-gradiant-left 0%,
         $newcobtnprimary-hover-gradiant-right 100%
       );
     }
