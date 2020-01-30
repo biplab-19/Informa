@@ -1953,6 +1953,31 @@ $properties: (margin, padding);
       }
     }
     .newco-header {
+      .newco-search {
+          background-color: $newcoprimarycolor;
+          .textbox {
+              label {
+                @include family-style(normal,$black);
+                font-size: 14px;
+                line-height: 25px;
+              }
+          }
+          button[type="submit"] {
+              color: $newcoprimarycolor;
+          }
+      }
+      .newco-nav {
+        .top-menu-items > .menu-item a {
+            @include family-style(bold,$newcoprimarycolor);
+            font-size: 14px;
+            line-height: 25px;
+        }
+        .menu-items > .menu-item a {
+            @include family-style(normal,$black);
+            font-size: 14px;
+            line-height: 25px;
+        }
+      }
       .newco-searchbtn {
           .navsearch {
               color: $newcoprimarycolor;

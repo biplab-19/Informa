@@ -55,6 +55,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
                 $childMenuItemsContainer = $menuItem.children('.menu-items');
             
             $childMenuItemsContainer.toggleClass('nav-closed');
+            $menuItem.toggleClass('subnav-open');
             
             if($childMenuItemsContainer.hasClass('nav-closed')) {
                 // close children
