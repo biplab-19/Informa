@@ -56,7 +56,27 @@ $newcobtndefault-color: #000;
 $newcobtndefault-hover-border: #a54eac;
 $newcobtndefault-hover-background: #f6f0fb;
 
+$newco-white-background: #ffffff;
+
 .tmt-newco {
+  .product-brands-list {
+    background-color: $newco-white-background;
+  }
+  .contactus-list {
+    background: $newco-white-background;
+  }
+  .sectorpage-strengths {
+    background: $newco-white-background;
+  }
+  section#feature-list, section.feature-list-section {
+    background: $newco-white-background;
+  }
+  section#agri-report {
+    background: $newco-white-background;
+  }
+  section#services-list section:nth-child(2n) {
+    background: $newco-white-background;
+  }
   .btn {
     min-width: 120px;
     border-radius: 22px;
