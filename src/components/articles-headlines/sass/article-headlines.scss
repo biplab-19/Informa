@@ -447,6 +447,10 @@
               .recomend-content{
                 .content{
                   h4{
+                    &::after{
+                      content: " ";
+                      background-image: none;
+                    }
                     a{
                       color: $newcoprimarycolor;
                       &.gated-content{
