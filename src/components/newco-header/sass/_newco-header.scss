@@ -112,6 +112,10 @@
     justify-content: center;
     img {
       display: none;
+      width: auto;
+      height: auto;
+      max-width: 155px;
+      max-height: 55px;
       margin: 0 auto;
       @include not-desktop {
         &.logo-img-small {
