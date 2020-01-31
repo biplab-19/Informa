@@ -451,14 +451,6 @@
                       content: " ";
                       background-image: none;
                     }
-                    a{
-                      color: $newcoprimarycolor;
-                      &.gated-content{
-                        &::after {
-                          background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
-                        }
-                      }
-                    }
                   }
                   p.description{
                     &::after{

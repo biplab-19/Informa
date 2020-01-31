@@ -143,5 +143,35 @@ $newco-white-background: #ffffff;
   #informa-footer {
     background-color: $grey-color03;
   }
+  .headline-carousel{
+    .list-container{
+      li{
+        &.slick-slide {
+          &:hover{
+            .recomended-wrapper{
+              .recomend-content{
+                .content{
+                  h4{
+                    &::after{
+                      content: " ";
+                      background-image: none;
+                    }
+                    a{
+                      color: $newcoprimarycolor;
+                      &.gated-content{
+                        &::after {
+                          background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
