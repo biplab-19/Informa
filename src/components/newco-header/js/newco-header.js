@@ -73,8 +73,11 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
             e.stopPropagation();
         });
-        $menuItemWWithSubs.children('a').click(function (e) {e.stopPropagation();});
-        $menuItemWWithSubs.children('a').click(function (e) {e.stopPropagation();});
+
+        // prevents the menu from closing on click
+        $newcoNav.find('a').click(function (e) {
+            e.stopPropagation();
+        });
     }
     
     $(window).on('load', function() {
