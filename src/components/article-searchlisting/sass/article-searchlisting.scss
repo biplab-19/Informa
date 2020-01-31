@@ -9,12 +9,6 @@
     @include mobile{
       position: relative;
     }
-      h2 {
-        font-weight: 600;
-      }
-      h3{
-          font-weight: normal;
-      }
       h2,
       h3,
       h4 {
@@ -22,8 +16,11 @@
         font-size: $headline-text;
         color: $font-color;
         line-height: 29px;
-        padding: 0px;
+        padding: 0;
         margin: 0;
+      }
+      h2 {
+        margin-bottom: 40px;
       }
       .resource-finder {
         background-color: #f9f9f9;
