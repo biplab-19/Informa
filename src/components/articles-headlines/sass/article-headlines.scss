@@ -376,6 +376,7 @@
         overflow: hidden;
         position: relative;
         font-weight: normal;
+        width: 100%;
         &:after {
           content: "";
           position: absolute;
@@ -398,9 +399,6 @@
           background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
           pointer-events: none;
         }
-        &:hover {
-          color: $newcoprimarycolor;
-        }
       }
     }
     .list-container {
@@ -422,6 +420,9 @@
         }
         &.slick-slide {
           margin: 0 15px 20px 15px;
+          .col-xs-12 {
+            padding: 0;
+          }
           .video-container{
             position: relative;
             a{
@@ -440,6 +441,26 @@
           }
           &:hover {
             box-shadow: 3px -2px 16px #ece9e9;
+          }
+          &:hover{
+            .recomended-wrapper{
+              .recomend-content{
+                .content{
+                  h4{
+                    &::after{
+                      content: " ";
+                      background-image: none;
+                    }
+                  }
+                  p.description{
+                    &::after{
+                      content: " ";
+                      background-image: none;
+                    }
+                  }
+                }
+              }
+            }
           }
           @include mobile {
             box-shadow: 2px 4px 16px #ece9e9;
@@ -511,11 +532,6 @@
                       position: absolute;
                       top: 0px;
                       right: 0;
-                    }
-                    &:hover {
-                      &::after {
-                        background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
-                      }
                     }
                   }
                 }
