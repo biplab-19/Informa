@@ -49,14 +49,14 @@ in the empire of Sapient. Har Har Mahadev !! --->
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="textbox">
-                            <label for="searchField">
-                                Search
-                                <input type="text" placeholder="Enter keyword" id="searchField"
-                                    name="searchtext" />
-                            </label>
-                        </div>
-                        <button type="submit" class="btn trigger-sc-event" data-submit="sector-search">&xrarr;</button>
+                        <form class="form" method="post" action="/client/Shared/RedirectToProductLoad">
+                            <div class="textbox">
+                                <label for="searchField">
+                                    <input type="text" placeholder="Search" id="searchField" name="searchtext" />
+                                </label>
+                            </div>
+                            <button type="submit" class="btn newco-gobtn-2 small trigger-sc-event" data-submit="sector-search"><i class="fas fa-chevron-right"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>
