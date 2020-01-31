@@ -107,6 +107,38 @@ $newco-white-background: #ffffff;
       );
     }
   }
+  [class*="newco-gobtn-"] {
+    min-width: auto;
+    border-radius: 50%;
+    padding: 0 0 0 2px;
+    font-size: 10px;
+    line-height: 1;
+    font-weight: normal;
+    text-align: center;
+    border-width: 0px;
+    &.small {
+      width: 24px;
+      height: 24px;
+    }
+    &.large {
+      width: 36px;
+      height: 36px;
+    }
+    &[class*="gobtn-1"] {
+      color: $black;
+      background-image: linear-gradient(90deg, $newcobtnprimarygradiant-left 0%, $newcobtnprimarygradiant-right 100%);
+      &:hover {
+        background-image: linear-gradient(90deg, $newcobtnprimary-hover-gradiant-left 0%, $newcobtnprimary-hover-gradiant-right 100%);
+      }
+    }
+    &[class*="gobtn-2"] {
+      color: $newcoprimarycolor;
+      background-color: rgba($color: $white, $alpha: 0.85);
+      &:hover {
+        background-color: rgba($color: $white, $alpha: 1);
+      }
+    }
+  }
   .btn-container {
     .btn-default {
       border: 1px solid $newcobtndefault-border;
