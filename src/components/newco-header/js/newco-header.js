@@ -76,7 +76,16 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         // prevents the menu from closing on click
         $newcoNav.find('a').click(function (e) {
-            e.stopPropagation();
+            var hrefAttr = $(this).attr('href'),
+                hasURL = hrefAttr && hrefAttr.length > 0;
+
+            if (hasURL) {
+                // do click of a tag and prevent bubble
+                e.stopPropagation();
+            } else {
+                // prevent click of a tag and let bubble
+                e.preventDefault();
+            }
         });
     }
     
