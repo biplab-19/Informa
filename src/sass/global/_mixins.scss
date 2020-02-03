@@ -3,6 +3,14 @@ $min-width: 320px; // define breakpoints
 $tablet-width: 768px;
 $desktop-width: 1142px;
 $mid-tablet: 813px;
+$bootstrap-mobile:991px;
+
+
+@mixin bootstrap-mobile {
+  @media (max-width: #{$bootstrap-mobile}) {
+    @content;
+  }
+}
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
