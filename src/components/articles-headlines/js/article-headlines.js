@@ -6,6 +6,11 @@ INFORMA.articleHeadline = (function (window, $, namespace) {
         init;
     init = function () {
         $(document).ready(function () {
+            //onload all category ckecked
+            var $radios = $('.drop-content ul li:first-child input:radio[name=yesno]');
+            if($radios.is(':checked') === false) {
+                $radios.prop('checked', true);
+            }
             //checking the gradient required or not
             if ($('.drop-content #all-category').length > 0) {
                 if ($('.drop-content #all-category')[0].checked) {
