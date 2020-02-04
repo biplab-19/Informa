@@ -20,7 +20,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         $menuItems = $newcoNav.find('.menu-items'),
         $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub'),
         // methods
-        OffsetParentHeight, init;
+        OffsetParentHeight, MenuAnchorEventHandler, init;
 
     OffsetParentHeight = function($menuItemsContainer, action) {
         var $menuItem = $menuItemsContainer.closest('.menu-item'),
@@ -33,6 +33,19 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         if (action === 'subtract')
             $parent.css('height', $parent.height() - parseInt($menuItemsContainer.attr('data-height')));
+    }
+
+    MenuAnchorEventHandler = function(evt) {
+        var hrefAttr = $(evt.target).attr('href'),
+            hasURL = hrefAttr && hrefAttr.length > 0;
+
+        if (hasURL) {
+            // do click/hover of a tag and prevent bubble
+            evt.stopPropagation();
+        } else {
+            // prevent click/hover of a tag and let bubble
+            evt.preventDefault();
+        }
     }
 
     init = function() {
@@ -75,8 +88,16 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         });
 
         // prevents the menu from closing on click
-        $newcoNav.find('a').click(function (e) {
-            e.stopPropagation();
+        $newcoNav.find('a').each(function() {
+            var $this = $(this),
+                hrefAttr = $this.attr('href'),
+                hasURL = hrefAttr && hrefAttr.length > 0;
+            
+            // if no URL, disable click of Anchor to prevent action
+            if (!hasURL) {
+                $this.addClass('disable');
+            }
+                
         });
     }
     
