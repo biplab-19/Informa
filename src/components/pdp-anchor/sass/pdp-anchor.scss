@@ -1,7 +1,8 @@
     nav#pdp-anchor-nav {
         &.pdp-anchor-newco-navigation{
             @include desktop{
-                padding: 12px 0;
+                padding: 30px 0 95px 0;
+                background-color: $bg-white;
           }
           border-bottom: 0;
           @include not-desktop{
@@ -34,8 +35,10 @@
                 margin-right: 20px;
                 a {
                     @include anchor-font(14px,13px,12px);
-                    padding: 0;
-                    padding-top: 5px;
+                    padding: 0px;
+                    color: $font-color;
+                    line-height: $subhead-text-lineheight;
+                    font-weight: 400;
                 }
             }
           }

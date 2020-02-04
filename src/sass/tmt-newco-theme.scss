@@ -205,5 +205,24 @@ $newco-white-background: #ffffff;
       }
     }
   }
+  #pdp-navigation {
+    background-color: $bg-white;
+    padding: 30px 0 95px 0;
+    ul{
+      li{
+        a{
+          padding: 0px;
+          color: $font-color;
+          line-height: $subhead-text-lineheight;
+          font-weight: 400;
+        }
+      }
+    }
+    .menuFollower {
+      background-color: $newcoprimarycolor;
+      border-bottom: 1px solid $newcoprimarycolor;
+    }
+  }
+  
 }
 
