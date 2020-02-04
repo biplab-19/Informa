@@ -1,0 +1,237 @@
+    nav#pdp-anchor-nav {
+        &.pdp-anchor-newco-navigation{
+            @include desktop{
+                padding: 12px 0;
+          }
+          border-bottom: 0;
+          @include not-desktop{
+            margin-top: -1px;
+            .nav-pdp-col{
+                    padding: 0;
+            }
+          }
+          &.navbar-fixed-top {
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+          }
+          &.navbar-fixed-top.deviceactive{
+            height:95%;
+            -moz-transition: height 1s ease;
+            -webkit-transition: height 1s ease;
+            -o-transition: height 1s ease;
+            transition: height 1s ease;
+            #pdp-sections{
+              position: fixed;
+              height:95%;
+              overflow: scroll;
+            }
+          }
+          ul {
+            margin: 0;
+            position: relative;
+            li {
+                margin-right: 20px;
+                a {
+                    @include anchor-font(14px,13px,12px);
+                    padding: 0;
+                    padding-top: 5px;
+                }
+            }
+          }
+          .menuFollower {
+                //background: $white;
+                height: 5px;
+                margin-top: 7px;
+                width: 150px;
+                position: absolute;
+                transition: .3s ease-in;
+                display: none;
+                border-bottom: 1px solid $grey-color08;
+          }
+      
+          @include desktop{
+                .nav-pdp-nondesktop{
+                      display: none;
+                }
+                #pdp-sections{
+                      display: block;
+                      padding-left:0;
+                      .nav-pdp-desktop-sticky{
+                            float: right;
+                            opacity: 0;
+                            a{
+                                margin-top: -10px;
+                                margin-bottom: 10px;
+                                margin-left: 10px;
+                                padding-top: 10px;
+                                padding-bottom: 10px;
+                                padding-right: 25px;
+                                color: #444957;
+                                &:after{
+                                    position: absolute;
+                                    right: 5px;
+                                    content: "\e900";
+                                    font-family: "InformaIcons" !important;
+                                }
+                            }
+                            &.move-left{
+                                opacity: 1;
+                                transition: opacity 2s ease-in;
+                            }
+                            .try-stick{
+                                &.btn{
+                                    color: $white;
+                                    background: $orange !important;
+                                }
+                            }
+                            .subscribe-stick{
+                                &.btn{
+                                    color: $grey-color01;
+                                    background: none !important;
+                                }
+      
+                            }
+                      }
+                      #pdp-sections-heading{
+                            margin: 0;
+                            opacity: 0;
+                            font-size: 18px;
+                            font-weight: bold;
+                            float: left;
+                            &.move-left{
+                                opacity: 1;
+                                transition: opacity 2s ease-in;
+                                margin-right: 20px;
+                                position: relative;
+                                top: 2px;
+                            }
+                      }
+                      .navbar-nav {
+                            display: block;
+                            width: auto;
+                            margin: 0;
+                      }
+                      .navbar-nav > li {
+                            float: none;
+                            display: inline-block;
+                            text-align: left;
+                      }
+                }
+          }
+      
+          @include not-desktop{
+      
+                .container{
+                    .row{
+                        position: relative;
+                        .nav-pdp-nondesktop{
+                                display: inline-block;
+                                height: 50px;
+                                text-align: left;
+                                padding: 15px 0;
+                                width: 95%;
+                                padding-left: 15px;
+                                transition: width 2s, left 2s;
+                                &.move-left{
+                                    width: 28%;
+                                    padding-left: 20px;
+                                    @include tablet{
+                                        width: 13%;
+                                        padding-left: 20px;
+                                    }
+                                }
+                                a{
+                                    position: relative;
+                                    color: $white;
+                                    @include anchor-font(14px,13px,12px);
+                                    &:after {
+                                            content: '>';
+                                            position: absolute;
+                                            transform: rotate(90Deg);
+                                            -ms-transform: rotate(90Deg);
+                                            -webkit-transform: rotate(90Deg);
+                                            top: -1px;
+                                            right: -15px;
+                                            font-weight: bold;
+                                    }
+                                    &:hover{
+                                            text-decoration: none;
+                                    }
+                                    &:focus{
+                                            text-decoration: none;
+                                    }
+                                }
+                        }
+                        .nav-pdp-nondesktop-sticky{
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                opacity: 0;
+    
+                                a{
+                                    height: 30px;
+                                    padding: 5px;
+                                    margin-top: 10px;
+                                    margin-bottom: 10px;
+                                    margin-right: 10px;
+                                }
+                                &.move-left{
+                                    opacity: 1;
+                                    transition: opacity 2s ease-in;
+                                }
+                        }
+                        #pdp-sections{
+                                display: none;
+                                padding: 0 15px;
+                                ul{
+                                    margin-top: 0;
+                                    margin-bottom: 0;
+                                    float: none;
+                                    li {
+                                        width: 100%;
+                                        display: block;
+                                        @include not-desktop{
+                                            a{
+                                                padding: 0;
+                                                padding-bottom: 20px;
+                                                &:first-child{
+                                                    padding-top: 20px;
+                                                }
+                                                &:last-child{
+                                                    padding-bottom: 30px;
+                                                }
+                                                &:after{
+                                                    content: ">";
+                                                    display: block;
+                                                    float: right;
+                                                    font-weight: bold;
+                                                }
+                                            }
+                                        }
+    
+                                    }
+                                }
+                                #pdp-sections-heading{
+                                    text-align: left;
+                                    margin: 0;
+                                    &.move-left{
+                                        padding: 20px 0;
+                                        font-weight: bold;
+                                        border-bottom: 1px solid $grey-color08;
+    
+                                    }
+                                }
+                        }
+                    }
+                }
+      
+                .menuFollower {
+                      display: none!important;
+                }
+          }
+        }
+    
+    
+    }
+
