@@ -10,10 +10,7 @@
         font-weight: 200;
         color: #6a7285;
         font-size: 16px;
-        padding: 0px 20px;
-        @include bootstrap-mobile {
-            padding:0 15px;
-        }
+        
         .col-md-12{
             margin-bottom: 10px;
         }
@@ -21,8 +18,7 @@
     .image {
         background: url(../../Static/images/tmt-newco/images/analyst-list/back-gradiant.jpg) no-repeat;
         background-size: cover;
-        .analyst-img{
-            min-height:230px;
+        .analyst-img {
             max-width: 362px;
             margin: 0 auto;
             img{
@@ -53,6 +49,7 @@
         .analyst-footer{
             background-color: #fff;
              transform: skewY(0deg);
+             padding: 0px 15px 15px 15px;
              @include bootstrap-mobile {
                 padding-top: 0px;
              }
@@ -73,10 +70,12 @@
         .anlyst-heading {
             background-color: #fff;
             transform: skewY(0deg);
+            padding:20px 0px;
             .analyst-heading-content{
                 transform: skewY(0deg);  
             }
             .analyst-details {
+                width:100%;
                 .analyst-type{
                     background-color: #fff;
                     color: #000;
