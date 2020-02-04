@@ -6,7 +6,7 @@ INFORMA.articleHeadline = (function (window, $, namespace) {
         init;
     init = function () {
         $(document).ready(function () {
-            //onload all category ckecked
+            //onload all category checked
             var $radios = $('.drop-content ul li:first-child input:radio[name=yesno]');
             if($radios.is(':checked') === false) {
                 $radios.prop('checked', true);
