@@ -393,6 +393,12 @@ INFORMA.heroBanner = (function(window, $, namespace) {
                 }
             });
            
+            $(document).ready(function () {
+
+                if ($(".single-image .hero-items .hero-cf-image").length == 0) {
+                    $(".single-image .hero-items .vertical-align").addClass("empty-banner-image");
+                }
+            });
 
             $(window).on("resize", function() {
                 if(_heroBannerFull.length > 0){
