@@ -316,5 +316,16 @@
     .newco-search {
       transform: translate(0, -100%);
     }
+    &.nav-closed.scrolled{
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+      top: 0px;
+      .newco-logo img{
+        width: 85px;
+      }
+    }
+    
   }
+   
 }
