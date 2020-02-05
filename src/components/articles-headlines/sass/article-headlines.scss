@@ -425,7 +425,7 @@
         padding-top: 16px;
       }
       li {
-        padding: 0px 0px;
+        padding: 0px 15px;
         max-height: 560px;
         img {
           height: 202px;
@@ -433,7 +433,6 @@
           width: 100%;
         }
         &.slick-slide {
-          margin: 0 15px 20px 15px;
           .col-xs-12 {
             padding: 0;
           }
@@ -453,31 +452,13 @@
               }
             }
           }
-          &:hover {
-            box-shadow: 3px -2px 16px #ece9e9;
-          }
-          &:hover{
-            .recomended-wrapper{
-              .recomend-content{
-                .content{
-                  h4{
-                    &::after{
-                      content: " ";
-                      background-image: none;
-                    }
-                  }
-                  p.description{
-                    &::after{
-                      content: " ";
-                      background-image: none;
-                    }
-                  }
-                }
-              }
-            }
-          }
           @include mobile {
             box-shadow: 2px 4px 16px #ece9e9;
+          }
+        }
+        &.image-container{
+          .col-xs-12 {
+            padding: 0;
           }
         }
         .recomended-wrapper {
