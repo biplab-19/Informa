@@ -59,7 +59,7 @@
           width: 265px;
           margin-bottom: 12px;
           @include mobile{
-            width: 211px;
+            width: 270px;
           }
           span {
             margin-left: 12px;
@@ -186,12 +186,12 @@
         display: inline-block;
         .all-category {
           position: relative;
-          width: 235px;
+          width: 292px;
           display: block;
 
           a {
             border: 2px solid #a54eac;
-            width: 235px;
+            width: 292px;
             margin: 10px 18px 0 0;
             position: relative;
             color: $font-color;
@@ -267,7 +267,7 @@
             padding: 4px 0px 4px 20px;
             display: none;
             margin-top: -1px;
-            width: 235px;
+            width: 292px;
             border-radius: 0px 0px 25px 25px;
             border-top: none;
             position: absolute;
@@ -409,7 +409,7 @@
             color-stop(80%, #ffffff),
             color-stop(100%, #ffffff)
           );
-          background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+          background-image: -moz-linear-gradient(left, rgba(94, 73, 73, 0) 0%, #ffffff 80%, #ffffff 100%);
           background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
           background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
           pointer-events: none;
@@ -420,7 +420,7 @@
       margin: 26px 40px;
       padding-left: 0;
       @include mobile {
-        margin: 36px 35px 20px;
+        margin: 36px 55px 20px;
       }
       .slick-track {
         padding-top: 16px;
@@ -465,6 +465,7 @@
         .recomended-wrapper {
           background-color: $bg-white;
           padding: 25px 20px 44px 20px;
+          margin-bottom: 10px;
           .footer,
           .topics {
             display: none;
