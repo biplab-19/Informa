@@ -59,6 +59,11 @@ $newcobtndefault-hover-background: #f6f0fb;
 $newco-white-background: #ffffff;
 
 .tmt-newco {
+  .collapsing {
+    -webkit-transition: height 0.05s ease;
+    -o-transition: height 0.05s ease;
+    transition: height 0.05s ease;
+  }
   .product-brands-list {
     background-color: $newco-white-background;
   }
