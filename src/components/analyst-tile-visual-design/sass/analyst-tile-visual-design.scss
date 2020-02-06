@@ -1,118 +1,123 @@
-
-.newco-analyst-views{
-    .analyst-view-container{
-        cursor: pointer;
-        margin-bottom:15px;
-         > .row{
-            margin-left: 0px;
-            margin-right: 0px;
-            &:hover {
-                box-shadow: 5px 3px 10px #888888;
-            }
-         }
-         
-        
-    }
-    .discription{
-        font-weight: 200;
-        color: #6a7285;
-        font-size: 16px;
-        
-        .col-md-12{
-            margin-bottom: 10px;
-        }
-    }
-    .image {
-        background: url(../../Static/images/tmt-newco/images/analyst-list/back-gradiant.jpg) no-repeat;
-        background-size: cover;
-        .analyst-img {
-            max-width: 362px;
-            margin: 0 auto;
-            img{
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 50%;
-                padding: 25px 0px;
-                border-radius:50%;
-            }
-            .default-user {
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 50%;
-                padding: 25px 0;
-                border-radius: 50%;
-                background: url(../../Static/images/tmt-newco/images/analyst-list/user.png) no-repeat;
-                background-size: cover;
-                height: 180px;
-                margin-top: 20px;
-            }
-        }
-    }
-    .meet-anlyst-section {
-        margin-bottom: 0px;
-        background-color: #fff;
-        .analyst-footer{
-            background-color: #fff;
-             transform: skewY(0deg);
-             padding: 0px 0px 15px 0px;
-             @include bootstrap-mobile {
-                padding-top: 0px;
-             }
-            &::after{
-                background-color: #fff; 
-            }
-            .nav-links{
-                @include bootstrap-mobile {
-                    float:left;
+.tmt-newco{
+    .newco-analyst-views{
+        .analyst-view-container{
+            cursor: pointer;
+            margin-bottom:15px;
+             > .row{
+                margin-left: 0px;
+                margin-right: 0px;
+                &:hover {
+                    box-shadow: 5px 3px 10px #888888;
                 }
-            }
-            .analyst-footer-content {
-                transform: skewY(0deg);
-            }
+             }
+             
             
         }
-        .anlyst-heading {
-            background-color: #fff;
-            transform: skewY(0deg);
-            padding:20px 0px;
-            .analyst-heading-content{
-                transform: skewY(0deg);  
-            }
-            .analyst-details {
-                width:100%;
-                .analyst-type{
-                    background-color: #fff;
-                    color: #000;
-                    font-size: 18px;
-                    font-weight: 600;
-                    padding: 0;
-                    margin: 0;
-                }
-                h4 {
-                    font-weight: 600;
-                    font-size: 24px;
-                    color: #000;
-                    &:hover{
-                        color:$newcoprimarycolor;
-                    }
-                }
-                .designation,.newco-location{
-                    border-right: 1px solid #6a7285;
-                    padding-right: 10px;
-                    font-size: 16px;
-                }
-                .experiance{
-                    font-size: 16px;
-                }
-                h5 {
-                    color: #6a7285;
-                }
-            }
-            &::after{
-                background-color: #fff;
+        .discription{
+            font-weight: 200;
+            color: #6a7285;
+            font-size: 16px;
+            
+            .col-md-12{
+                margin-bottom: 10px;
             }
         }
+        .image {
+            background: url(../../Static/images/tmt-newco/images/analyst-list/back-gradiant.jpg) no-repeat;
+            background-size: cover;
+            .analyst-img {
+                max-width: 362px;
+                margin: 0 auto;
+                img{
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+                    padding: 25px 0px;
+                    border-radius:50%;
+                }
+                .default-user {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width: 50%;
+                    padding: 25px 0;
+                    border-radius: 50%;
+                    background: url(../../Static/images/tmt-newco/images/analyst-list/user.png) no-repeat;
+                    background-size: cover;
+                    height: 180px;
+                    margin-top: 20px;
+                }
+            }
+        }
+        .meet-anlyst-section {
+            margin-bottom: 0px;
+            background-color: #fff;
+            .analyst-footer{
+                background-color: #fff;
+                 transform: skewY(0deg);
+                 padding: 0px 0px 15px 0px;
+                 @include bootstrap-mobile {
+                    padding-top: 0px;
+                 }
+                &::after{
+                    background-color: #fff; 
+                }
+                .nav-links{
+                    @include bootstrap-mobile {
+                        float:left;
+                    }
+                }
+                .analyst-footer-content {
+                    transform: skewY(0deg);
+                }
+                
+            }
+            .anlyst-heading {
+                background-color: #fff;
+                transform: skewY(0deg);
+                padding:20px 0px;
+                .analyst-heading-content{
+                    transform: skewY(0deg);  
+                }
+                .analyst-details {
+                    width:100%;
+                    .analyst-type{
+                        background-color: #fff;
+                        color: #000;
+                        font-size: 18px;
+                        font-weight: 600;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    h4 {
+                        font-weight: 600;
+                        font-size: 24px;
+                        color: #000;
+                        &:hover{
+                            color:$newcoprimarycolor;
+                        }
+                    }
+                    .designation,.newco-location{
+                        border-right: 1px solid #6a7285;
+                        padding-right: 10px;
+                        font-size: 16px;
+                    }
+                    .experiance{
+                        font-size: 16px;
+                    }
+                    h5 {
+                        color: #6a7285;
+                    }
+                }
+                &::after{
+                    background-color: #fff;
+                }
+            }
+        }
+        .trigger-sc-event .at-icon{
+            fill: $white;
+        }
     }
+
 }
