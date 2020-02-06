@@ -3,6 +3,18 @@ $min-width: 320px; // define breakpoints
 $tablet-width: 768px;
 $desktop-width: 1142px;
 $mid-tablet: 813px;
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+@mixin bootstrap-mobile {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -1973,17 +1985,34 @@ $properties: (margin, padding);
             @include family-style(bold,$newcoprimarycolor);
             font-size: 14px;
             line-height: 25px;
+            &:hover {
+              color: $black;
+            }
+            &.subnav-open {
+              &::before {
+                color: $black;
+              }
+              & > a {
+                color: $black;
+              }
+            }
             a {
               font-weight: inherit;
               font-size: inherit;
               line-height: inherit;
               color: inherit;
+              &:hover {
+                color: $black;
+              }
             }
         }
         .menu-items > .menu-item {
-            @include family-style(normal,$black);
+            @include family-style(600,$black);
             font-size: 14px;
             line-height: 25px;
+            .menu-item {
+              font-weight: normal;
+            }
             a {
               font-weight: inherit;
               font-size: inherit;

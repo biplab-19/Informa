@@ -183,24 +183,31 @@ $newco-white-background: #ffffff;
   .headline-carousel{
     .list-container{
       li{
-        &.slick-slide {
-          &:hover{
-            .recomended-wrapper{
-              .recomend-content{
-                .content{
-                  h4{
-                    &::after{
-                      content: " ";
-                      background-image: none;
-                    }
-                    a{
-                      color: $newcoprimarycolor;
-                      &.gated-content{
-                        &::after {
-                          background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
-                        }
+        &:hover{
+          .list-items{
+            box-shadow: 3px -2px 16px #ece9e9;
+          }
+          .recomended-wrapper{
+            .recomend-content{
+              .content{
+                h4{
+                  &::after{
+                    content: " ";
+                    background-image: none;
+                  }
+                  a{
+                    color: $newcoprimarycolor;
+                    &.gated-content{
+                      &::after {
+                        background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
                       }
                     }
+                  }
+                }
+                p.description{
+                  &::after{
+                    content: " ";
+                    background-image: none;
                   }
                 }
               }
