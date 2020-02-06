@@ -1,10 +1,17 @@
 
 .newco-analyst-views{
     .analyst-view-container{
+        cursor: pointer;
         margin-bottom:15px;
-        &:hover {
-            box-shadow: 5px 3px 10px #888888;
-        }
+         > .row{
+            margin-left: 0px;
+            margin-right: 0px;
+            &:hover {
+                box-shadow: 5px 3px 10px #888888;
+            }
+         }
+         
+        
     }
     .discription{
         font-weight: 200;
@@ -49,7 +56,7 @@
         .analyst-footer{
             background-color: #fff;
              transform: skewY(0deg);
-             padding: 0px 15px 15px 15px;
+             padding: 0px 0px 15px 0px;
              @include bootstrap-mobile {
                 padding-top: 0px;
              }
@@ -57,7 +64,6 @@
                 background-color: #fff; 
             }
             .nav-links{
-                float:right;
                 @include bootstrap-mobile {
                     float:left;
                 }
