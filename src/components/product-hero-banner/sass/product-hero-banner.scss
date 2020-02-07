@@ -8,6 +8,7 @@
         color: $font-color-white;
         font-size: $super-headline-text;
         line-height: $super-headline-lineheight;
+        padding: 64px 0 30px;
         @include mobile{
             font-size: 34px;
             line-height: 40px;
@@ -26,16 +27,22 @@
         color: $font-color-white;
         line-height: $subhead-text-lineheight;
         width: 80%;
+        padding-bottom: 38px;
         @include mobile{
             width: 100%;
             text-align: justify;
+            padding-bottom: 30px;
         }
     }
     .subtext{
         display: none;
     }
     .cta-semitrans-width {
-        width: 20%;
+        padding: 0;
+        margin-right: 15px;
+        @include mobile{
+            margin: 0;
+        }
     }
     .cta2 {
         border-radius: 22px;
@@ -48,6 +55,12 @@
         display: inline-block;
         min-width: 120px;
         color: $font-color-white;
+        margin-left: 0px;
+        line-height: 25px;
+        width: 190px;
+        @include mobile{
+            width: 250px;
+        }
         &.semi-trans{
             background-color: rgba(255,255,255,.85);
             text-align: center;
@@ -72,13 +85,12 @@
         }
     }
     .follow-row {
-        width: 30%;
         float: right;
         margin-top: -40px;
         @include mobile{
             width: 100%;
             float: none;
-            margin-top: 32px;
+            margin-top: 13px;
         }
         .follow {
             &.share-tab{
@@ -113,10 +125,14 @@
                     .at-icon-wrapper{
                         display: inline-block;
                         overflow: hidden;
-                        width: 34px !important;
-                        height: 39px !important;
+                        width: 35px !important;
+                        height: 35px !important;
                         line-height: 45px !important;
                         background-color: transparent !important;
+                        @include mobile{
+                            width: 33px !important;
+                            height: 33px !important;
+                        }
                         .at-icon{
                             fill: #7daff2;
                             width: 20px !important;
