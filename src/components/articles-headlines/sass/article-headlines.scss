@@ -466,7 +466,7 @@
       }
       li {
         padding: 0px 15px;
-        max-height: 560px;
+        max-height: 590px;
         @include mobile{
           padding: 0;
           margin: 0 15px;
@@ -479,6 +479,10 @@
         &.slick-slide {
           .col-xs-12 {
             padding: 0;
+            margin-bottom: 20px;
+            @include mobile{
+              box-shadow: 3px 7px 16px #ece9e9;
+            }
           }
           .video-container{
             position: relative;
@@ -505,6 +509,7 @@
           }
           .col-xs-12 {
             padding: 0;
+            margin-bottom: 20px;
           }
         }
         .recomended-wrapper {
@@ -640,7 +645,7 @@
         bottom: 0;
         position: relative;
         z-index: 2;
-        margin: 15px 0;
+        margin: 42px 0;
         li {
           height: 9px;
           width: 9px;
