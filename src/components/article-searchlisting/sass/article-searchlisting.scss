@@ -377,8 +377,9 @@
                   ul{
                     margin-top: 20px;
                     height: auto;
-                    max-height: 520px;
-                    overflow: scroll;
+                    max-height: 460px;
+                    overflow: auto;
+                    padding-bottom: 0px;
                     @include mobile{
                       max-height: unset;
                       overflow: auto;
@@ -454,9 +455,29 @@
                     @include mobile{
                       margin-top: 20px;
                     }
+                    li.hidden {
+                      display: flex !important;
+                      visibility: visible !important;
+                      position: relative;
+                      cursor: not-allowed;
+                      &:before {
+                        content: "";
+                        width: 100%;
+                        height: 100%;
+                        background: #000;
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        z-index: 9;
+                        opacity: 0.1;
+                        -khtml-opacity: 0.1;
+                        filter: alpha(opacity=10);
+                      }
+                    }
                     li{
                       display: flex;
                       align-items: center;
+                      margin-bottom: 0px;
                        .custom-checkbox{
                           width: 100%;
                         label{
@@ -473,10 +494,11 @@
                           }
                              span {
                                display: block;
-                               padding: 15px 0 15px 0px;
-                               margin-left: 45px;
+                               padding: 15px 0 15px 45px;
+                               margin-left: 0px;
                                border-bottom: 1px solid #e1e1e1;
                                width: 100%;
+                               cursor: pointer;
                                &:before {
                                  background: #fff;
                                  content: "";
