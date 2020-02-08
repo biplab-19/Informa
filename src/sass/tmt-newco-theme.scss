@@ -258,8 +258,11 @@ $newco-white-background: #ffffff;
     .list-container{
       li{
         &:hover{
+          div.col-xs-12{
+            box-shadow: 3px 7px 16px #ece9e9;
+          }
           .list-items{
-            box-shadow: 3px -2px 16px #ece9e9;
+            box-shadow: 3px 7px 16px #ece9e9;
           }
           .recomended-wrapper{
             .recomend-content{
