@@ -147,10 +147,22 @@ in the empire of Sapient. Har Har Mahadev !! --->
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
 -->
+<!--
                     <div class="newco-search-header">
                         <i class="fa fa-search" aria-hidden="true"></i>
                         <input type="text" id="newco-searchbox" name="search" placeholder="Enter Search Term">
                     </div>
+                    -->
+                    <form class="form newco-search-header" method="post" action="/client/Shared/RedirectToProductLoad">
+                            <div class="textbox">
+                                <label for="searchField">
+                                    <input type="text" placeholder="Search" id="searchField" name="searchtext" />
+                                </label>
+                            </div>
+                            <button type="submit" class="btn newco-gobtn-2 small trigger-sc-event" data-submit="sector-search">
+                                 <i class="fa fa-search" aria-hidden="true"></i>
+                                 </button>
+                    </form>
                     <div class="newco-clientlogin">
                         <span>Client Login</span>
                         <img src="Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg" alt="">
