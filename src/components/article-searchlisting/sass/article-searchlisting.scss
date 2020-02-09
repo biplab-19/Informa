@@ -359,7 +359,7 @@
                   width: 208px;
                   z-index: 99;
                   background: #fff;
-                  padding-bottom: 18px;
+                  padding-bottom: 0px;
                   @include mobile{
                     border: 1px solid $newcoprimarycolor;
                     position: static;
@@ -374,8 +374,10 @@
                       margin: 0;
                     }
                   }
+                  a.show-more.show {
+                    display: none !important;
+                  }
                   ul{
-                    margin-top: 20px;
                     height: auto;
                     max-height: 460px;
                     overflow: auto;
@@ -473,6 +475,11 @@
                         -khtml-opacity: 0.1;
                         filter: alpha(opacity=10);
                       }
+                      &:last-child {
+                        &:before {
+                          border-radius: 0 0 22px 22px;
+                        }
+                      }
                     }
                     li{
                       display: flex;
@@ -523,6 +530,15 @@
                        }
                        &.active{
                         outline: none !important;
+                       }
+                       &:last-child {
+                        .custom-checkbox {
+                          label {
+                            span {
+                              border-bottom: none;
+                            }
+                          }
+                        }
                        }
                     }
                   }

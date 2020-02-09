@@ -60,9 +60,9 @@ $newco-white-background: #ffffff;
 
 .tmt-newco {
   .collapsing {
-    -webkit-transition: height 0.05s ease;
-    -o-transition: height 0.05s ease;
-    transition: height 0.05s ease;
+    -webkit-transition: height 0.02s ease;
+    -o-transition: height 0.02s ease;
+    transition: height 0.02s ease;
   }
   .product-brands-list {
     background-color: $newco-white-background;
@@ -81,6 +81,80 @@ $newco-white-background: #ffffff;
   }
   section#services-list section:nth-child(2n) {
     background: $newco-white-background;
+  }
+  .related-products {
+    .card {
+      background: #fff;
+      .title {
+        background-image: url(../../Static/images/tmt-newco/gradient-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200px;
+        padding: 15px;
+        color: #fff;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 29px;
+        overflow: hidden;
+        a {
+          color: #fff;
+          width: 100%;
+          display: inline-block;
+          height: 100%;
+          margin-top: 65px;
+        }
+      }
+      .caption {
+        font-size: 14px;
+        color: #000;
+        line-height: 25px;
+        max-height: 340px;
+        min-height: 340px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        p.type {
+          font-weight: 600;
+          margin-top: 25px;
+          margin-bottom: 2px;
+        }
+        a.name {
+          font-size: 24px;
+          font-weight: 600;
+          color: #000;
+          margin-bottom: 35px;
+          display: block;
+          &:hover {
+            color: #b650be;
+          }
+        }
+        &::after{
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          right: 0;
+          width: 100%;
+          height: 8%;
+          background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiP…dpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==);
+          background-size: 100%;
+          background-image: -webkit-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+          background-image: -moz-linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+          background-image: -webkit-linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+          background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 46%, #fff 100%);
+          pointer-events: none;
+        }
+      }
+      &:hover {
+        box-shadow: 0px 0px 16px #ece9e9;
+        .caption {
+          a.name {
+            color: #b650be;
+          }
+          &::after{
+            background-image: none;
+          }
+        }
+      }
+    }
   }
   .btn {
     min-width: 120px;
@@ -184,8 +258,11 @@ $newco-white-background: #ffffff;
     .list-container{
       li{
         &:hover{
+          div.col-xs-12{
+            box-shadow: 3px 7px 16px #ece9e9;
+          }
           .list-items{
-            box-shadow: 3px -2px 16px #ece9e9;
+            box-shadow: 3px 7px 16px #ece9e9;
           }
           .recomended-wrapper{
             .recomend-content{
