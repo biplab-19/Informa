@@ -82,8 +82,10 @@ body {
                 padding:0px;
                 width: auto;
                 margin-right: 100px;
+                max-width:200px;
                 @include not-desktop {
                     margin-right:70px;   
+                    max-width:100%;
                 }
                 .by {
                     margin-left: 0px;
