@@ -15,7 +15,8 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
     'use strict';
     var $newcoHeader = $('.newco-header'),
         $hamburger = $newcoHeader.find('.hamburger'),
-        $navsearch = $newcoHeader.find('.navsearch'),
+        //$navsearch = $newcoHeader.find('.navsearch'),
+        $navsearch = $newcoHeader.find('.newco-search-header'),
         $newcoNav = $newcoHeader.find('.newco-nav'),
         $menuItems = $newcoNav.find('.menu-items'),
         $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub'),
