@@ -1,5 +1,6 @@
 .tmt-newco {
     #events-calendar {
+        color: #000;
         .header {
             h2 {
                 font-size: 24px;
@@ -10,42 +11,39 @@
             .arrows {
                 width: 40px;
                 height: 30px;
-                background-image: url(../../Static/images/tmt-newco/arrow-sprite.png);
-                background-repeat: no-repeat;
-                background-position: -500px -500px;
+                background: url(../../Static/images/tmt-newco/arrow-sprite.png) !important;
+                background-repeat: no-repeat !important;
+                background-position: -500px -500px !important;
                 &:before {
                     content: '' !important;
                 }
             }
             .arrows.previous {
-                background-position: 0px 0px;
+                background-position: 0px 0px !important;
                 right: auto;
                 left: 0px;
                 top: 10px;
                 &:hover {
-                    background-position: 0px -30px;
+                    background-position: 0px -30px !important;
                 }
             }
             .arrows.next {
-                background-position: -40px 0px;
+                background-position: -40px 0px !important;
                 left: auto;
                 right: 0px;
                 top: 10px;
                 &:hover {
-                    background-position: -40px -30px;
+                    background-position: -40px -30px !important; 
                 }
             }
         }
-    }
-    .CurrentDate {
-        color: #000;
         .events-wrap {
             .dates {
                 .date {
                     background-color: #fff;
                     color: #000;
                     padding: 0px;
-                    font-size: 24px;
+                    font-size: 22px;
                     line-height: 29px;
                     font-weight: 400;
                 }
