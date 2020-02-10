@@ -20,6 +20,8 @@
             .profile-discription{
                 height:262px;
                 overflow:hidden;
+                font-size:14px;
+                line-height: 25px;
                 &::after{
                     content: "";
                     position: absolute;
@@ -104,10 +106,11 @@
                 .analyst-details {
                     width:100%;
                     .analyst-type{
-                        background-color: #fff;
-                        color: #000;
-                        font-size: 18px;
+                        background-color: $white;
+                        color: $black;
+                        font-size: 14px;
                         font-weight: 600;
+                        line-height: 25px;
                         padding: 0;
                         margin: 0;
                     }
@@ -122,10 +125,12 @@
                     .designation,.newco-location{
                         border-right: 1px solid $black;
                         padding-right: 10px;
-                        font-size: 16px;
+                        font-size: 14px;
+                        line-height: 25px;
                     }
                     .experiance{
-                        font-size: 16px;
+                        font-size: 14px;
+                        line-height: 25px;
                     }
                     h5 {
                         color: $black;
