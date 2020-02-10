@@ -1,4 +1,23 @@
 .tmt-newco {
+    .events-search {
+        background-color: #fff;
+        .select-section {
+            .custom-dd-menu {
+                a {
+                    border: 1px solid #000;
+                    color: #000;
+                    span.triangle-right {
+                        &:after {
+                            color: #000;
+                        }
+                    }
+                }
+            }
+        }
+        .filter-section {
+            color: #000;
+        }
+    }
     #events-calendar {
         color: #000;
         .header {
