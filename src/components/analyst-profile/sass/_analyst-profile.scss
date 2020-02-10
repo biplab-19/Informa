@@ -69,10 +69,16 @@
 					@include mobile {
 						margin-top: 10px;
 					}
+					&:before {
+						background: none;
+					}
 				}
 				p.experience {
 					padding-left: 0px;
 					margin-top: 5px;
+					&:before {
+						background: none;
+					}
 				}
 			}
 			.image {
@@ -120,6 +126,9 @@
 					width: 100%;
 					float: none;
 					padding-right: 0px;
+					&:before {
+						content: '';
+					}
 				}
 			}
 		}
