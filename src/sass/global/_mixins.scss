@@ -990,9 +990,37 @@ $screen-lg-min: 1200px;
     }
 
     .product-brands-list .card .caption h4,
-    .product-results .list-items .products h4 {
-      &:after {
-        @extend .sprite-image;
+    .product-results .list-items {
+      .events-wrap {
+        .header {
+          width: auto;
+          margin: 5px 20px 0;
+          & > * {
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .date-field {
+            margin: 0;
+          }
+          .country-field {
+            p {
+              margin-bottom: 0;
+            }
+          }
+        }
+        .content-wrap {
+          .content {
+            margin-top: 10px;
+          }
+        }
+        .footer {
+          padding: 0 20px;
+        }
+      }
+      .products h4 {
+        &:after {
+          @extend .sprite-image;
+        }
       }
     }
 
