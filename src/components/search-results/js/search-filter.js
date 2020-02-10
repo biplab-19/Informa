@@ -27,7 +27,7 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         siteSearch = $('button[data-submit="site-search"]'),
         productSearchCTA = $('button[data-submit="sector-search"]'),
         resourceProductSearchCTA = $('.resource-sector-search button[data-submit="sector-search"]'),
-        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorQuery, subsectorQuery,
+        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorQuery, subsectorQuery,getUrlParameter,
         // methods
         init, SelectAllCheckBox, BindRefineEvents, ClearAllLinkBinding, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
 
