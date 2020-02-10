@@ -9,19 +9,18 @@
                     box-shadow: 0px 0px 25px #888888;
                 }
              }
-             .content{
-             }
+             
             
         }
         .discription{
-            font-weight: 200;
             color: $black;
-            font-size: 16px;
+            font-size:14px;
+            line-height: 25px;
+            font-weight: 400;
             .profile-discription{
                 height:262px;
                 overflow:hidden;
-                font-size:14px;
-                line-height: 25px;
+                
                 &::after{
                     content: "";
                     position: absolute;
@@ -127,10 +126,12 @@
                         padding-right: 10px;
                         font-size: 14px;
                         line-height: 25px;
+                        font-weight: 400;
                     }
                     .experiance{
                         font-size: 14px;
                         line-height: 25px;
+                        font-weight: 400;
                     }
                     h5 {
                         color: $black;
