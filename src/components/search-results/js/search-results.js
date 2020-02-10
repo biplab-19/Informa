@@ -529,6 +529,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             if (ContentType == "Product" && $("#IsNewCoTemplateEnabled").val() == "True") {
                                 ContentType = "ProductNewCo"
                             }
+                            if (ContentType == "Event" && $("#IsNewCoTemplateEnabled").val() == "True") {
+                                ContentType = "EventNewCo"
+                            }
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                             ListTemplate = Handlebars.compile(TemplateName);
                             Html += ListTemplate({ results: Lists[j] });
@@ -566,6 +569,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         ContentType = Lists[j].Category;
                         if (ContentType == "SampleContent" && $("#IsNewCoTemplateEnabled").val() == "True") {
                             ContentType = "SampleContentNewCo"
+                        }
+                        if (ContentType == "Event" && $("#IsNewCoTemplateEnabled").val() == "True") {
+                            ContentType = "EventNewCo"
                         }
                         TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                         ListTemplate = Handlebars.compile(TemplateName);
