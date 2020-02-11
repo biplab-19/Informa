@@ -532,6 +532,97 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                 '</div>'+
             '</section>',
+      'AnalystListNewCo': '<section class="analyst-views newco-analyst-views">' +
+          '<div class="container">' +
+          '<h2 class="header">{{results.header}}</h2>' +
+          '<div class="row">' +
+          '{{#each results.ModelItem}}' +
+          '<div class="col-md-4 col-sm-12 col-xs-12 analyst-view-container">' +
+          '<div class="row">' +
+          '<div class="col-lg-12  image ">' +
+          '<div class="analyst-img">' +
+          '{{#if ProfileImage}}' +
+          '<a href="{{ProfileUrl}}">' +
+          '<img src="{{ProfileImage}}" alt="{{image}}" />' +
+          '</a>' +
+          '{{/if}}' +
+          '</div>' +
+          '</div>' +
+          '<div class="col-lg-12  content">' +
+          '<div class="row">' +
+          '<div class="col-md-12">' +
+          '<div class="meet-anlyst-section">' +
+          '<div class="anlyst-heading">' +
+          '<div class="analyst-heading-content">' +
+          '<div class="analyst-details">' +
+          '<span class="analyst-type">{{Type}}</span>' +
+          '<a href="{{ProfileUrl}}">' +
+          '<h4>{{Name}}</h4>' +
+          '</a>' +
+          '<h5>' +
+          '<span class="designation">{{Type}}{{#if Type}}{{#if JobTitle}},{{/if}}{{/if}} {{JobTitle}}</span>' +
+          '<span class="newco-location">{{State}}{{#if Country}}{{#if State}},{{/if}}{{/if}} {{Country}}</span>' +
+          '<span class="experiance">{{YearsOfExperience}}+ +{{ExperienceText}}</span>' +
+          '</h5>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '<div class="row discription">' +
+          '<div class="profile-discription">' +
+          '<div class="col-md-12">' +
+          '<strong>' +
+          'Specialities include ' +
+          '</strong>' + '{{#each Specialization}}' +
+          '{{this}}, ' +
+          '{{/each}}' +
+          '</div>' +
+          '<div class="col-md-12">' +
+          '<strong>' +
+          'Product covered include ' +
+          '</strong>' + '{{#each ProductDetails}}' +
+          '{{this.Key}} ' +
+          '{{/each}}' +
+          '</div>' +
+          '</div>' +
+          '<div class="col-md-12 meet-anlyst-section">' +
+          '<div class="analyst-footer">' +
+          '<div class="analyst-footer-content clearfix">' +
+          '<ul class="nav-links">' +
+          '{{#if LinkedInProfileID}}' +
+          '{{#compare LinkedInProfileID.length "1" operator=">"}}' +
+          '<li>' +
+          '<a class="addthis_button_linkedin_follow trigger-sc-event" addthis:userid="{{LinkedInProfileID}}"></a>' +
+          '</li>' +
+          '{{/compare}}' +
+          '{{/if}}' +
+          '{{#if TwitterHandleID}}' +
+          '{{#compare TwitterHandleID.length "1" operator=">"}}' +
+          '<li>' +
+          '<a class="addthis_button_twitter_follow trigger-sc-event" addthis:userid="{{TwitterHandleID}}"></a>' +
+          '</li>' +
+          '{{/compare}}' +
+          '{{/if}}' +
+          '{{#if EmailAddressLink.Url}}' +
+          '{{#compare EmailAddressLink.Url null operator="!="}}' +
+          '<li><a href="{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+          '{{/compare}}' +
+          '{{/if}}' +
+          '</ul>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '</div>' +
+          '{{/each}}' +
+          '</div>' +
+          '</div>' +
+          '</section>',
+
         'AnalystList': '<section class="analyst-views">' +
                             '<div class="container">' +
                                 '<h2 class="header">{{results.header}}</h2>' +

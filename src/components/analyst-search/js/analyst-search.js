@@ -212,17 +212,33 @@ INFORMA.AnalystSearch = (function(window, $, namespace) {
         var results = data.SearchDictionary,
             html = "";
 
-        for (var key in results) {
-            if (results.hasOwnProperty(key)) {
-                var Data = results[key],
-                    HeaderText = key,
-                    TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
-                    ListTemplate = Handlebars.compile(TemplateName);
-                Data.header = HeaderText;
-                html += ListTemplate({ results: Data });
+            for (var key in results) {
 
-            }
-        }
+                if(results.hasOwnProperty(key))
+                {
+                if ($("#IsNewCoTemplateEnabled").val() == "True") {
+                var Data = results[key],
+                HeaderText = key,
+                TemplateName = (Templates.AnalystListNewCo !== "undefined") ? Templates.AnalystListNewCo : "",
+                ListTemplate = Handlebars.compile(TemplateName);
+                Data.header = HeaderText;
+                
+                html += ListTemplate({ results: Data });
+                
+                }
+                else{
+                var Data = results[key],
+                HeaderText = key,
+                TemplateName = (Templates.AnalystList !== "undefined") ? Templates.AnalystList : "",
+                ListTemplate = Handlebars.compile(TemplateName);
+                Data.header = HeaderText;
+                
+                html += ListTemplate({ results: Data });
+                
+                }
+                }
+                
+                }
         if (Object.getOwnPropertyNames(results).length === 0) {
             $('.NoRecords').removeClass('hidden');
         } else {
