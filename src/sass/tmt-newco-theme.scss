@@ -164,6 +164,18 @@ $newco-white-background: #ffffff;
       }
     }
   }
+  .btn-showMore, .btn-plus {
+    border-bottom: 2px solid #fff !important;
+    color: #000 !important;
+    &:after {
+      color: #a54eac !important;
+    }
+    &:hover {
+      &:after {
+        color: #b650be !important;
+      }
+    }
+  }
   .btn {
     min-width: 120px;
     border-radius: 22px;
