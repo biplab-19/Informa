@@ -532,6 +532,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                             if (ContentType == "Event" && $("#IsNewCoTemplateEnabled").val() == "True") {
                                 ContentType = "EventNewCo"
                             }
+                            if (ContentType == "Specialist" && $("#IsNewCoTemplateEnabled").val() == "True") {
+                                ContentType = "SpecialistNewCo"
+                            }
                             TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                             ListTemplate = Handlebars.compile(TemplateName);
                             Html += ListTemplate({ results: Lists[j] });
@@ -572,6 +575,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         }
                         if (ContentType == "Event" && $("#IsNewCoTemplateEnabled").val() == "True") {
                             ContentType = "EventNewCo"
+                        }
+                        if (ContentType == "Specialist" && $("#IsNewCoTemplateEnabled").val() == "True") {
+                            ContentType = "SpecialistNewCo"
                         }
                         TemplateName = (Templates[ContentType]) ? Templates[ContentType] : "";
                         ListTemplate = Handlebars.compile(TemplateName);

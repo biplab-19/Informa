@@ -1480,6 +1480,94 @@ var INFORMA = window.INFORMA || {};
                                                 '</div>'+
                                             '</div>'+
                                         '</div>',
+                                        'SpecialistNewCo': '<section class="analyst-views newco-analyst-views">' +
+                                        '<div class="row">' +
+                                        '<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 image ">' +
+                                        '<div class="analyst-img">' +
+                                        '<a href="{{results.PageURL}}">  <img src="{{results.Image}}" alt="{{results.Name}}" /></a>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 content">' +
+                                        '<div class="row">' +
+                                        '<div class="col-md-9">' +
+                                        '<div class="meet-anlyst-section">' +
+
+                                        '<div class="anlyst-heading">' +
+                                        '<div class="analyst-heading-content">' +
+                                        '<div class="analyst-details">' +
+                                        '<span class="analyst-type">{{results.Type}}</span>' +
+                                        '<a href="@Model.PageURL"><h4>{{results.Name}}</h4></a>' +
+                                        '<h5>' +
+                                        '<span class="designation">{{results.JobTitle}}</span>' +
+                                        '<span class="newco-location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}} </span>' +
+                                        '<span class="experiance">{{results.YearsOfExperience}}' +
+                                        '+{{results.ExperienceText}}</span>' +
+                                        '</h5>' +
+                                        '</div>' +
+
+                                        '</div>' +
+                                        '</div>' +
+
+
+
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="col-md-3 meet-anlyst-section">' +
+                                        '<div class="analyst-footer">' +
+                                        '<div class="analyst-footer-content clearfix">' +
+
+                                        '<ul class="nav-links">' +
+                                        '{{#if results.LinkedInProfileID}}' +
+                                        '{{#compare results.LinkedInProfileID.length "1" operator=">"}}' +
+                                        '<li>' +
+                                        '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>' +
+                                        '</li>' +
+                                        '{{/compare}}' +
+                                        '{{/if}}' +
+                                        '{{#if results.TwitterHandleID}}' +
+                                        '{{#compare results.TwitterHandleID.length "1" operator=">"}}' +
+                                        '<li>' +
+                                        '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>' +
+                                        '</li>' +
+                                        '{{/compare}}' +
+                                        '{{/if}}' +
+                                        '{{#if results.EmailAddressLink}}' +
+                                        '{{#compare results.EmailAddressLink.Url.length "0" operator=">"}}' +
+                                        '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                        '{{/compare}}' +
+                                        '{{/if}}' +
+                                        '</ul>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="row discription">' +
+                                        '<div class="col-md-12">' +
+                                        '{{#compare results.Specialization.length "0" operator=">"}}' +
+                                        '<strong>' +
+                                        'Specialities include ' +
+                                        '</strong>' +
+                                        '{{#each results.Specialization}}' +
+                                        '{{this}} ' +
+                                        '{{/each}}' +
+
+                                        '{{/compare}}' +
+                                        '</div>' +
+                                        '<div class="col-md-12">' +
+                                        '{{#compare results.ProductDetails.length "0" operator=">"}}' +
+                                        '<strong>' +
+                                        'Product covered include ' +
+                                        '</strong>' +
+                                        '{{#each results.ProductDetails}}' +
+                                        '{{this.Key}}' +
+                                        '{{/each}}' +
+
+                                        '{{/compare}}' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</section>',                
                         'EventNewCo': '<div class="">'+
                                     '<div class="list-items">'+
                                         '<div class="col-md-4">'+
