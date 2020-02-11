@@ -378,6 +378,9 @@
       width: 100%;
       z-index: 999;
       top: 0px;
+      @include bootstrap-mobile{
+        top: 50px;
+      }
       .newco-logo img{
         width: 85px;
       }
