@@ -15,11 +15,12 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
     'use strict';
     var $newcoHeader = $('.newco-header'),
         $hamburger = $newcoHeader.find('.hamburger'),
-        //$navsearch = $newcoHeader.find('.navsearch'),
+        $searchicon = $newcoHeader.find('button#mobile-search'),
         $navsearch = $newcoHeader.find('.newco-search-header'),
         $newcoNav = $newcoHeader.find('.newco-nav'),
         $menuItems = $newcoNav.find('.menu-items'),
         $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub'),
+        
         // methods
         OffsetParentHeight, MenuAnchorEventHandler, init;
 
@@ -100,6 +101,12 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             }
                 
         });
+
+        //mobile searchbox show on click
+        $searchicon.click(function(e){
+            $(".newco-search-header .textbox").toggleClass("active");
+            $(".nav-closed").addClass("scrolled search-closed");
+        });
     }
     
     $(window).on('load', function() {
@@ -127,6 +134,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         }
     });
     
+
     return {
         init: init
     }
