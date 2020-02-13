@@ -105,7 +105,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         //mobile searchbox show on click
         $searchicon.click(function(e){
             $(".newco-search-header .textbox").toggleClass("active");
-            $(".nav-closed").addClass("scrolled search-closed");
+            $(".nav-closed").addClass("scrolled");
         });
     }
     
