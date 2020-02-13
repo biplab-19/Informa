@@ -65,6 +65,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             if($childMenuItemsContainer.hasClass('nav-closed')) {
                 // close children
                 $childMenuItemsContainer.find('.menu-items').addClass('nav-closed').css('height', '');
+                $childMenuItemsContainer.find('.menu-item').removeClass('subnav-open');
                 // set height 
                 $childMenuItemsContainer.css('height', '');
                 // if has parent menu, then remove it's height too
