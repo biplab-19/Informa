@@ -13,16 +13,16 @@
 var INFORMA = window.INFORMA || {};
 INFORMA.NewcoHeader = (function (window, $, namespace) {
     'use strict';
-    var $newcoHeader = $('.newco-header'),
+    var $mainHeader = $('#informa-main-header'),
+        $newcoHeader = $mainHeader.find('.newco-header'),
         $hamburger = $newcoHeader.find('.hamburger'),
         $searchicon = $newcoHeader.find('button#mobile-search'),
         $navsearch = $newcoHeader.find('.newco-search-header'),
         $newcoNav = $newcoHeader.find('.newco-nav'),
         $menuItems = $newcoNav.find('.menu-items'),
         $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub'),
-        
         // methods
-        OffsetParentHeight, MenuAnchorEventHandler, init;
+        OffsetParentHeight, init;
 
     OffsetParentHeight = function($menuItemsContainer, action) {
         var $menuItem = $menuItemsContainer.closest('.menu-item'),
@@ -35,19 +35,6 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         if (action === 'subtract')
             $parent.css('height', $parent.height() - parseInt($menuItemsContainer.attr('data-height')));
-    }
-
-    MenuAnchorEventHandler = function(evt) {
-        var hrefAttr = $(evt.target).attr('href'),
-            hasURL = hrefAttr && hrefAttr.length > 0;
-
-        if (hasURL) {
-            // do click/hover of a tag and prevent bubble
-            evt.stopPropagation();
-        } else {
-            // prevent click/hover of a tag and let bubble
-            evt.preventDefault();
-        }
     }
 
     init = function() {
@@ -68,6 +55,9 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         $menuItemWWithSubs.click(function(e) {
             var $menuItem = $(this),
                 $childMenuItemsContainer = $menuItem.children('.menu-items');
+
+            // dont collapse if a tag with href is clicked
+            if (e.target.nodeName === 'A' && !$(e.target).hasClass('disable')) return;
             
             $childMenuItemsContainer.toggleClass('nav-closed');
             $menuItem.toggleClass('subnav-open');
@@ -128,9 +118,9 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         var scroll = $(window).scrollTop();
     
         if (scroll > 100) {
-            $newcoHeader.addClass('scrolled');
+            $mainHeader.addClass('scrolled');
         } else {
-            $newcoHeader.removeClass('scrolled');
+            $mainHeader.removeClass('scrolled');
         }
     });
     
