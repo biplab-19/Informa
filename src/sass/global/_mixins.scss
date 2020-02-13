@@ -16,6 +16,12 @@ $screen-lg-min: 1200px;
   }
 }
 
+@mixin bootstarp-md-max{
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;

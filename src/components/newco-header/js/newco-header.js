@@ -16,6 +16,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
     var $mainHeader = $('#informa-main-header'),
         $newcoHeader = $mainHeader.find('.newco-header'),
         $hamburger = $newcoHeader.find('.hamburger'),
+        $searchicon = $newcoHeader.find('button#mobile-search'),
         $navsearch = $newcoHeader.find('.newco-search-header'),
         $newcoNav = $newcoHeader.find('.newco-nav'),
         $menuItems = $newcoNav.find('.menu-items'),
@@ -90,6 +91,12 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             }
                 
         });
+
+        //mobile searchbox show on click
+        $searchicon.click(function(e){
+            $(".newco-search-header .textbox").toggleClass("active");
+            $(".nav-closed").addClass("scrolled");
+        });
     }
     
     $(window).on('load', function() {
@@ -117,6 +124,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         }
     });
     
+
     return {
         init: init
     }
