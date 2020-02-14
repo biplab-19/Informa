@@ -1228,15 +1228,28 @@ a:hover, a:focus {
         }
     }
 
-    .tech-theme{
-        .view-all{
-            .btn-primary-small{
+    .tech-theme {
+        .view-all {
+            .btn-primary-small {
                 @include tablet {
                     font-size: 14px;
                     padding: 10px 10px;
                 }
+                @include midtab-to-desktop {
+                    font-size: 12px;  
+                }
+            }
+        }
+        .content div.discription p {
+            @include midtab-to-desktop{
+                height: 75px;
             }
         } 
+        .item.port.grid-item-content .content .labels {
+            @include midtab-to-desktop {
+                font-size:14px;
+            }
+        }
     }
     .search-bar {
         position: static;
