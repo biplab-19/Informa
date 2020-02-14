@@ -204,4 +204,26 @@
             }
         }
     }
+    .search-container.listView{
+        .product-results{
+            .list-items{
+                .recomended-wrapper.products{
+                    .wrap-content{
+                        .body{
+                            padding: 20px 0px;
+                            @include mobile{
+                                padding: 20px;
+                            }
+                        }
+                        .footer{
+                            display: block;
+                            .btn{
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
