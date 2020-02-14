@@ -247,6 +247,7 @@
     .newco-clientlogin{
       cursor: pointer;
       a {
+        position: relative;
           &::after{
           background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
           background-repeat: no-repeat;
@@ -254,8 +255,8 @@
           width: 18px;
           height: 18px;
           position: absolute;
-          top: 50px;
-          right: -10px;
+          bottom: 3px;
+          right: -30px;
           background-size: contain;
           @include bootstarp-md-max {
             top: 44px;
