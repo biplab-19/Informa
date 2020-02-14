@@ -182,7 +182,7 @@
           right: 20px;
           @include bootstrap-mobile {
             display:none;
-            top: 100px;
+            top: 130px;
             width: 100%;
             left: 0;
             right: 0;
@@ -191,8 +191,8 @@
             width: 100%;
             padding: 17px 0px;
             background-color: $newcoprimarycolor;
-            height: 40px;
-            padding: 8px 0px;
+            height: 55px;    
+            padding: 9px 0;
             &.active{
               display:block;
             }
@@ -208,8 +208,6 @@
             font-size: 14px;
             display: block;
             @include bootstrap-mobile {
-              width: 320px;
-              height: 24px;
               margin: 0 auto;
               border-radius: 0;
               border: 1px solid transparent;
@@ -257,6 +255,7 @@
           width: 18px;
           height: 18px;
           position: absolute;
+          bottom: 3px;
           right: -30px;
           background-size: contain;
           @include bootstarp-md-max {
@@ -489,3 +488,28 @@ header#informa-main-header {
   }
    
 }
+
+.scrolled {
+  .newco-header {
+    .newco-searchbtn {
+      .newco-search-header {
+        .textbox {
+          @include bootstarp-md-max {
+            top:80px;
+          }
+        }
+      }
+      .newco-clientlogin a::after {
+        top:30px;
+        @include bootstarp-md-max{
+          top:35px;
+        }
+      }
+    }
+  }
+  
+  
+}
+
+
+
