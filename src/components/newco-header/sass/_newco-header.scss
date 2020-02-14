@@ -259,8 +259,8 @@
           right: -30px;
           background-size: contain;
           @include bootstarp-md-max {
-            top: 44px;
             right: 10px;
+            
           }
         }
         
@@ -281,7 +281,6 @@
           &::after {
             background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
             @include bootstarp-md-max {
-              top: 44px;
               right: 10px;
             }
         }
@@ -497,12 +496,6 @@ header#informa-main-header {
           @include bootstarp-md-max {
             top:80px;
           }
-        }
-      }
-      .newco-clientlogin a::after {
-        top:30px;
-        @include bootstarp-md-max{
-          top:35px;
         }
       }
     }
