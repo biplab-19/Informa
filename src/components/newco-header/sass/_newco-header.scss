@@ -1,508 +1,511 @@
-.newco-header {
-  position: relative;
-  width: 100%;
-  height: 120px;
-  box-shadow: 0px 0px 30px 0px rgba(0,0,0,0);
-  transition: height 200ms;
-  @include not-desktop {
-      height: 100px;
-  }
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    background: white;
-    z-index: 20;
-  }
-  .newco-search {
-    display:none;
-    position: absolute;
-    left: 0;
-    top: 100%;
+.tmt-newco{
+  .newco-header {
+    position: relative;
     width: 100%;
-    padding: 9px 0 9px 0;
-    z-index: 10;
-    transform: translate(0, 0);
-    transition: transform 200ms;
-    background: grey;
-    text-align: center;
-    *[class*="col-"] {
-      display: flex;
-      justify-content: center;
+    height: 120px;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0);
+    transition: height 200ms;
+    @include not-desktop {
+        height: 100px;
     }
-    .textbox {
-      display: inline-block;
-      vertical-align: middle;
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      background: white;
+      z-index: 20;
+    }
+    .newco-search {
+      display:none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      padding: 9px 0 9px 0;
+      z-index: 10;
+      transform: translate(0, 0);
+      transition: transform 200ms;
+      background: grey;
+      text-align: center;
+      *[class*="col-"] {
+        display: flex;
+        justify-content: center;
+      }
+      .textbox {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        width: 320px;
+        @include mobile {
+          width: 265px;
+        }
+        label {
+          margin-bottom: 0;
+          padding: 0 9px;
+          background: $white;
+        }
+        #searchField {
+          padding: 0;
+          background: transparent;
+          border: none;
+          &::-webkit-input-placeholder, &::-moz-placeholder, &::-ms-input-placeholder, &::placeholder {
+            color: $black;
+          }
+        }
+      }
+      button[type="submit"] {
+        vertical-align: middle;
+        margin-left: 10px;
+        padding: 1px 0 0 1px;
+      }
+    }
+    .header-content {
       position: relative;
-      width: 320px;
-      @include mobile {
-        width: 265px;
+      height: 100%;
+      & > .row {
+        height: 100%;
+        & > [class*="col-"] {
+          display: flex;
+          align-items: center;
+          height: 100%;
+        }
       }
-      label {
-        margin-bottom: 0;
-        padding: 0 9px;
-        background: $white;
-      }
-      #searchField {
+    }
+    .newco-navbtn {
+      position: relative;
+      justify-content: flex-start;
+      .hamburger {
+        position: relative;
+        width: 21px;
+        height: 21px;
+        margin: 0;
         padding: 0;
         background: transparent;
         border: none;
-        &::-webkit-input-placeholder, &::-moz-placeholder, &::-ms-input-placeholder, &::placeholder {
-          color: $black;
-        }
-      }
-    }
-    button[type="submit"] {
-      vertical-align: middle;
-      margin-left: 10px;
-      padding: 1px 0 0 1px;
-    }
-  }
-  .header-content {
-    position: relative;
-    height: 100%;
-    & > .row {
-      height: 100%;
-      & > [class*="col-"] {
-        display: flex;
-        align-items: center;
-        height: 100%;
-      }
-    }
-  }
-  .newco-navbtn {
-    position: relative;
-    justify-content: flex-start;
-    .hamburger {
-      position: relative;
-      width: 21px;
-      height: 21px;
-      margin: 0;
-      padding: 0;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      .burgerline {
-        position: absolute;
-        display: block;
-        top: calc(50% - 3px);
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background-color: $black;
-        border-radius: 3px;
-        transform: rotate(0deg);
-        transition: 0.15s ease-in-out;
-        &:nth-of-type(1),
-        &:nth-of-type(4) {
-          left: 50%;
-          width: 0;
-          transform: translateY(0px) translate(0, 0);
-        }
-        &:nth-of-type(2) {
-          transform: rotate(45deg);
-        }
-        &:nth-of-type(3) {
-          transform: rotate(-45deg);
-        }
-      }
-    }
-  }
-  .newco-logo {
-    justify-content: center;
-    img {
-      display: none;
-      width: auto;
-      height: auto;
-      max-width: 155px;
-      max-height: 55px;
-      margin: 0 auto;
-      transform: scale(1);
-      transition: transform 200ms;
-      @include not-desktop {
-        &.logo-img-small {
-          display: block;
-        }
-      }
-      @include desktop {
-        &.logo-img-big {
-          display: block;
-        }
-      }
-    }
-  }
-  .newco-searchbtn {
-    justify-content: flex-end;
-    @include bootstrap-mobile{
-          background-color: #fff;
-          top: -5px;
-          padding: 0px 15px;
-    }
-    .navsearch {
-      position: relative;
-      padding: 1px 2px;
-      background: transparent;
-      border: none;
-      border-radius: 0;
-      color: $black;
-      font-size: 18px;
-      line-height: 18px;
-      &::before, &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        top: calc(50% - 3px);
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background-color: $black;
-        border-radius: 3px;
-        transition: 0.15s ease-in-out;
-      }
-      &::before {
-        transform: scale(1) rotate(45deg);
-      }
-      &::after {
-        transform: scale(1) rotate(-45deg);
-      }
-      .fa-search {
-        transform: scale(0);
-        transition: 0.15s ease-in-out;
-      }
-    }
-    .newco-search-header{
-        height: 35px;
-        position: relative;
-        .textbox{
+        border-radius: 0;
+        .burgerline {
           position: absolute;
-          right: 20px;
-          @include bootstrap-mobile {
+          display: block;
+          top: calc(50% - 3px);
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: $black;
+          border-radius: 3px;
+          transform: rotate(0deg);
+          transition: 0.15s ease-in-out;
+          &:nth-of-type(1),
+          &:nth-of-type(4) {
+            left: 50%;
+            width: 0;
+            transform: translateY(0px) translate(0, 0);
+          }
+          &:nth-of-type(2) {
+            transform: rotate(45deg);
+          }
+          &:nth-of-type(3) {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+    .newco-logo {
+      justify-content: center;
+      img {
+        display: none;
+        width: auto;
+        height: auto;
+        max-width: 155px;
+        max-height: 55px;
+        margin: 0 auto;
+        transform: scale(1);
+        transition: transform 200ms;
+        @include not-desktop {
+          &.logo-img-small {
+            display: block;
+          }
+        }
+        @include desktop {
+          &.logo-img-big {
+            display: block;
+          }
+        }
+      }
+    }
+    .newco-searchbtn {
+      justify-content: flex-end;
+      @include bootstrap-mobile{
+            background-color: #fff;
+            top: -5px;
+            padding: 0px 15px;
+      }
+      .navsearch {
+        position: relative;
+        padding: 1px 2px;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        color: $black;
+        font-size: 18px;
+        line-height: 18px;
+        &::before, &::after {
+          content: '';
+          position: absolute;
+          display: block;
+          top: calc(50% - 3px);
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: $black;
+          border-radius: 3px;
+          transition: 0.15s ease-in-out;
+        }
+        &::before {
+          transform: scale(1) rotate(45deg);
+        }
+        &::after {
+          transform: scale(1) rotate(-45deg);
+        }
+        .fa-search {
+          transform: scale(0);
+          transition: 0.15s ease-in-out;
+        }
+      }
+      .newco-search-header{
+          height: 35px;
+          position: relative;
+          .textbox{
+            position: absolute;
+            right: 20px;
+            @include bootstrap-mobile {
+              display:none;
+              top: 130px;
+              width: 100%;
+              left: 0;
+              right: 0;
+              position: fixed;
+              text-align: center;
+              width: 100%;
+              padding: 17px 0px;
+              background-color: $newcoprimarycolor;
+              height: 55px;    
+              padding: 9px 0;
+              &.active{
+                display:block;
+              }
+            }
+            input[type="text"]{
+              width: 250px;
+              height: 37px;
+              border-radius: 29px;
+              border: 1px solid #a8abb5;
+              padding: 8px 35px 8px 10px;
+              font-weight: 200;
+              color: #000;
+              font-size: 14px;
+              display: block;
+              @include bootstrap-mobile {
+                margin: 0 auto;
+                border-radius: 0;
+                border: 1px solid transparent;
+              }
+             }
+          }
+        .newco-gobtn-2{
+          position: absolute;
+          right: 30px;
+          z-index: 9;   
+          top: 7px;
+          &[data-submit="sector-search"]{
+          display:block;
+          @include bootstarp-md-max {
             display:none;
-            top: 130px;
-            width: 100%;
-            left: 0;
-            right: 0;
-            position: fixed;
-            text-align: center;
-            width: 100%;
-            padding: 17px 0px;
-            background-color: $newcoprimarycolor;
-            height: 55px;    
-            padding: 9px 0;
-            &.active{
+          }
+          }
+          &#mobile-search{
+            display:none;
+            @include bootstarp-md-max {
               display:block;
             }
           }
-          input[type="text"]{
-            width: 250px;
-            height: 37px;
-            border-radius: 29px;
-            border: 1px solid #a8abb5;
-            padding: 8px 35px 8px 10px;
-            font-weight: 200;
-            color: #000;
-            font-size: 14px;
-            display: block;
-            @include bootstrap-mobile {
-              margin: 0 auto;
-              border-radius: 0;
-              border: 1px solid transparent;
+          @include bootstrap-mobile {
+            right: 32px;
+            top:10px;
+          }
+          i{
+            font-size: 18px;
+            color:#000;
+            cursor: pointer;
+            
             }
-           }
-        }
-      .newco-gobtn-2{
-        position: absolute;
-        right: 30px;
-        z-index: 9;   
-        top: 7px;
-        &[data-submit="sector-search"]{
-        display:block;
-        @include bootstarp-md-max {
-          display:none;
-        }
-        }
-        &#mobile-search{
-          display:none;
-          @include bootstarp-md-max {
-            display:block;
-          }
-        }
-        @include bootstrap-mobile {
-          right: 32px;
-          top:10px;
-        }
-        i{
-          font-size: 18px;
-          color:#000;
-          cursor: pointer;
-          
-          }
-      }
-      
-    }
-    .newco-clientlogin{
-      cursor: pointer;
-      a {
-        position: relative;
-          &::after{
-          background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
-          background-repeat: no-repeat;
-          content: "";
-          width: 18px;
-          height: 18px;
-          position: absolute;
-          bottom: 3px;
-          right: -30px;
-          background-size: contain;
-          @include bootstarp-md-max {
-            right: 0px;
-            top: -6px;
-          }
         }
         
-        span{
-          color:$black;
-          font-weight: normal;
-          line-height: 25px;
-          @include bootstarp-md-max{
-            display:none;
+      }
+      .newco-clientlogin{
+        cursor: pointer;
+        a {
+          position: relative;
+            &::after{
+            background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
+            background-repeat: no-repeat;
+            content: "";
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            bottom: 3px;
+            right: -30px;
+            background-size: contain;
+            @include bootstarp-md-max {
+              right: 0px;
+              top: -6px;
+            }
+          }
+          
+          span{
+            color:$black;
+            font-weight: normal;
+            line-height: 25px;
+            @include bootstarp-md-max{
+              display:none;
+            }
           }
         }
-      }
-      &:hover {
-        span {
-          color:$newcoprimarycolor;
+        &:hover {
+          span {
+            color:$newcoprimarycolor;
+          }
+          a{
+            &::after {
+              background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
+              @include bootstarp-md-max {
+                right: 10px;
+              }
+          }
+          }
         }
-        a{
-          &::after {
-            background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
-            @include bootstarp-md-max {
-              right: 10px;
-            }
-        }
+        img {
+          margin-left: 8px;
+          width: 16px;
+          margin-top: -4px;
         }
       }
-      img {
-        margin-left: 8px;
-        width: 16px;
-        margin-top: -4px;
-      }
     }
-  }
-
-  .newco-nav {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 33.33%;
-    visibility: hidden;
-    z-index: 10;
-    @include mobile {
-      width: 100%;
-    }
-    &.ready {
-      visibility: visible;
-      .top-menu-items {
-        transition: transform 200ms;
-      }
-    }
-    & + .row {
-      position: relative;
-      z-index: 30;
-    }
-    .top-menu-items {
-      overflow-x: hidden;
-      overflow-y: auto;
+  
+    .newco-nav {
       position: absolute;
-      top: calc(100% - 1px);
-      width: calc(100% - 30px);
-      max-height: calc(100vh - 150px);
-      margin-left: 15px;
-      margin-right: 15px;
-      padding: 12.5px 27px 12.5px 10px;
-      list-style: none;
-      direction: rtl;
-      text-align: left;
-      background: $white;
-      box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
-      transform: translate(0, 0);
-      @include not-desktop {
-        width: calc(100% - 15px);
-        margin-left: 7.5px;
-        margin-right: 7.5px;
-      }
-    }
-    .menu-items {
-      overflow: hidden;
-      height: auto;
-      padding: 0;
-      list-style: none;
+      left: 0;
+      bottom: 0;
+      width: 33.33%;
       visibility: hidden;
-      pointer-events: none;
+      z-index: 10;
+      @include mobile {
+        width: 100%;
+      }
       &.ready {
         visibility: visible;
-        transition: height 200ms;
-        &.nav-closed {
-          height: 0;
+        .top-menu-items {
+          transition: transform 200ms;
         }
       }
-      & > .menu-item {
-        pointer-events: auto;
-        a {
-          padding: 5px 0;
-        }
-      }
-    }
-    .menu-item {
-      padding: 0 0 0 30px;
-      user-select: none;
-      a {
-        display: block;
-        padding: 12.5px 0;
-        &.disable {
-          opacity: 1;
-        }
-      }
-      &.hassub {
+      & + .row {
         position: relative;
-        cursor: pointer;
-        &.subnav-open {
-          &::before {
-            margin-top: -1px;
-            content: '\2013';
+        z-index: 30;
+      }
+      .top-menu-items {
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        top: calc(100% - 1px);
+        width: calc(100% - 30px);
+        max-height: calc(100vh - 150px);
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 12.5px 27px 12.5px 10px;
+        list-style: none;
+        direction: rtl;
+        text-align: left;
+        background: $white;
+        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
+        transform: translate(0, 0);
+        @include not-desktop {
+          width: calc(100% - 15px);
+          margin-left: 7.5px;
+          margin-right: 7.5px;
+        }
+      }
+      .menu-items {
+        overflow: hidden;
+        height: auto;
+        padding: 0;
+        list-style: none;
+        visibility: hidden;
+        pointer-events: none;
+        &.ready {
+          visibility: visible;
+          transition: height 200ms;
+          &.nav-closed {
+            height: 0;
           }
         }
-        &::before {
-          content: '+';
-          position: absolute;
-          top: 12.5px;
-          left: 0;
-          width: 30px;
-          line-height: 25px;
-          text-align: center;
-      
+        & > .menu-item {
+          pointer-events: auto;
+          a {
+            padding: 5px 0;
+          }
         }
       }
-      & > .menu-items {
-        margin-left: -30px;
-        .menu-item.hassub {
+      .menu-item {
+        padding: 0 0 0 30px;
+        user-select: none;
+        a {
+          display: block;
+          padding: 12.5px 0;
+          &.disable {
+            opacity: 1;
+          }
+        }
+        &.hassub {
+          position: relative;
+          cursor: pointer;
           &.subnav-open {
             &::before {
-              margin-top: -2px;
+              margin-top: -1px;
+              content: '\2013';
             }
           }
           &::before {
-            top: 5px;
+            content: '+';
+            position: absolute;
+            top: 12.5px;
+            left: 0;
+            width: 30px;
+            line-height: 25px;
+            text-align: center;
+        
+          }
+        }
+        & > .menu-items {
+          margin-left: -30px;
+          .menu-item.hassub {
+            &.subnav-open {
+              &::before {
+                margin-top: -2px;
+              }
+            }
+            &::before {
+              top: 5px;
+            }
           }
         }
       }
     }
-  }
-  &.nav-closed {
-    .newco-navbtn {
-      .hamburger {
-        .burgerline {
-          &:nth-of-type(1) {
-            left: 0;
-            width: 100%;
-            transform: translateY(-7px);
-          }
-          &:nth-of-type(2),
-          &:nth-of-type(3) {
-            transform: rotate(0deg);
-          }
-          &:nth-of-type(4) {
-            left: 0;
-            width: 100%;
-            transform: translateY(7px);
+    &.nav-closed {
+      .newco-navbtn {
+        .hamburger {
+          .burgerline {
+            &:nth-of-type(1) {
+              left: 0;
+              width: 100%;
+              transform: translateY(-7px);
+            }
+            &:nth-of-type(2),
+            &:nth-of-type(3) {
+              transform: rotate(0deg);
+            }
+            &:nth-of-type(4) {
+              left: 0;
+              width: 100%;
+              transform: translateY(7px);
+            }
           }
         }
       }
+      .newco-nav {
+        .top-menu-items {
+          transform: translate(0, -100%);
+          box-shadow: 0px 0px 30px 0px rgba(0,0,0,0);
+        }
+      }
     }
-    .newco-nav {
-      .top-menu-items {
+    &.search-closed {
+      .newco-searchbtn {
+        .navsearch {
+          &::before {
+            transform: scale(0) rotate(45deg);
+          }
+          &::after {
+            transform: scale(0) rotate(-45deg);
+          }
+          .fa-search {
+            transform: scale(1) translate(0, -2px);
+          }
+        }
+      }
+      .newco-search {
         transform: translate(0, -100%);
-        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0);
       }
     }
   }
-  &.search-closed {
-    .newco-searchbtn {
-      .navsearch {
-        &::before {
-          transform: scale(0) rotate(45deg);
-        }
-        &::after {
-          transform: scale(0) rotate(-45deg);
-        }
-        .fa-search {
-          transform: scale(1) translate(0, -2px);
+  header#informa-main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    &.scrolled {
+      & + * {
+        transform: translateY(80px);
+      }
+      .newco-header {
+        height: 80px;
+        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
+        .newco-logo img {
+          transform: scale(0.74);
         }
       }
-    }
-    .newco-search {
-      transform: translate(0, -100%);
-    }
-  }
-}
-header#informa-main-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  &.scrolled {
-    & + * {
-      transform: translateY(80px);
-    }
-    .newco-header {
-      height: 80px;
-      box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
-      .newco-logo img {
-        transform: scale(0.74);
+      .informa-header-copyright {
+        display: none;
       }
     }
     .informa-header-copyright {
-      display: none;
+      z-index: 35;
     }
-  }
-  .informa-header-copyright {
-    z-index: 35;
-  }
-  & + * {
-    transition: transform 200ms;
-    transform: translateY(158px);
-    @include not-desktop {
-      transform: translateY(138px);
+    & + * {
+      transition: transform 200ms;
+      transform: translateY(158px);
+      @include not-desktop {
+        transform: translateY(138px);
+      }
     }
+    &.scrolled{
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+      top: 0px;
+    }
+     
   }
-  &.scrolled{
-    position: fixed;
-    width: 100%;
-    z-index: 999;
-    top: 0px;
-  }
-   
-}
-
-.scrolled {
-  .newco-header {
-    .newco-searchbtn {
-      .newco-search-header {
-        .textbox {
-          @include bootstarp-md-max {
-            top:80px;
+  
+  .scrolled {
+    .newco-header {
+      .newco-searchbtn {
+        .newco-search-header {
+          .textbox {
+            @include bootstarp-md-max {
+              top:80px;
+            }
           }
         }
       }
     }
+    
+    
   }
-  
-  
 }
+
 
 
 
