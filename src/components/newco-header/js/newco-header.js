@@ -21,8 +21,14 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         $newcoNav = $newcoHeader.find('.newco-nav'),
         $menuItems = $newcoNav.find('.menu-items'),
         $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub'),
+        $banner = $('#banner'),
+        $pdpNav = $('#pdp-navigation'),
+        headerHeight = $mainHeader.height(),
+        bannerHeight = $banner.height(),
+        pdpNavThreshold = headerHeight + bannerHeight,
+        headerHeightChangeTimerEvent = 0,
         // methods
-        OffsetParentHeight, init;
+        OffsetParentHeight, repositionPdpNav, init;
 
     OffsetParentHeight = function($menuItemsContainer, action) {
         var $menuItem = $menuItemsContainer.closest('.menu-item'),
@@ -35,6 +41,21 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         if (action === 'subtract')
             $parent.css('height', $parent.height() - parseInt($menuItemsContainer.attr('data-height')));
+    }
+
+    repositionPdpNav = function(scroll) {
+        // on threshold, set top css, which should be the calculated header height
+        if (scroll >= pdpNavThreshold) {
+            // if (!$pdpNav.hasClass('navbar-fixed-top')) {
+                $pdpNav.css('top', headerHeight);
+                // console.log('headerHeight', headerHeight);
+            // }
+            // add the class, which sets the position fixed etc
+            $pdpNav.addClass('navbar-fixed-top').next().css('padding-top', $pdpNav[0].clientHeight);
+        } else {
+            // reset back to "in body" position
+            $pdpNav.removeClass('navbar-fixed-top').css('top', '').next().css('padding-top', '');
+        }
     }
 
     init = function() {
@@ -98,6 +119,23 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             $(".newco-search-header .textbox").toggleClass("active");
             $(".nav-closed").addClass("scrolled");
         });
+        
+        // emit custom event on header height change
+        headerHeightChangeTimerEvent = setInterval(function() {
+            if ($mainHeader.height() != headerHeight) {
+                $mainHeader.trigger('heightchanged');
+            }
+        }, 500);
+
+        // on height change event, store header height for use in scroll event
+        $mainHeader.on('heightchanged', function() {
+            headerHeight = $mainHeader.height();
+            // set banner height for pdp-nav scroll threshold
+            bannerHeight = $banner[0].clientHeight;
+            // set threshold so pdp-nav sticky threshold occurs in the correct place
+            pdpNavThreshold = (bannerHeight - $mainHeader.next().offset().top) + headerHeight;
+            repositionPdpNav($(window).scrollTop());
+        })
     }
     
     $(window).on('load', function() {
@@ -118,11 +156,13 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
     $(window).scroll(function() {    
         var scroll = $(window).scrollTop();
     
-        if (scroll > 100) {
+        if (scroll > headerHeight) {
             $mainHeader.addClass('scrolled');
         } else {
             $mainHeader.removeClass('scrolled');
         }
+
+        repositionPdpNav(scroll);
     });
     
 
