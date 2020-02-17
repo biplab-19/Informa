@@ -31,16 +31,16 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         // methods
         init, SelectAllCheckBox, BindRefineEvents, ClearAllLinkBinding, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
 
-    GetAjaxData = function (url, method, data, SCallback, Errcallback) {
-        INFORMA.Spinner.Show($("body"));
-        INFORMA.DataLoader.GetServiceData(url, {
-            method: method,
-            data: data,
-            success_callback: SCallback,
-            error_callback: Errcallback
-        });
-        INFORMA.SearchResults.ResetPaging();
-    },
+        GetAjaxData = function (url, method, data, SCallback, Errcallback) {
+            INFORMA.Spinner.Show($("body"));
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: data,
+                success_callback: SCallback,
+                error_callback: Errcallback
+            });
+            INFORMA.SearchResults.ResetPaging();
+        },
         GetSelectedFilter = function () {
             var Data = {},
                 ParamData = [];
@@ -96,7 +96,6 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             if (SearchType === "ProductSearch") {
                 Data.IsProduct = true;
             }
-            Data.SearchText = getUrlParameter('searchtext');
             var isnewco = $("#productListingPageUrl").val();
             if (isnewco != undefined && isnewco != "") {
                 if (isnewco.indexOf("newco") != -1) {
@@ -180,7 +179,6 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             }
             return urlQueryStrings;
         },
-
         getResourceResultParams = function () {
             var resourceSearchParams = [], SubSectorNames = [], SectorNames = [];
             $("#Sector :selected").map(function (i, el) {
@@ -495,11 +493,11 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 $("#SubSectorNames").val(SubSectorNames.toString());
             });
         };
-    return {
-        init: init,
-        GetRefineData: GetSelectedFilter,
-        BindRefineEvents: BindRefineEvents
+        return {
+            init: init,
+            GetRefineData: GetSelectedFilter,
+            BindRefineEvents: BindRefineEvents
 
-    };
+        };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchResultFilter.init());

@@ -59,6 +59,20 @@ $newcobtndefault-hover-background: #f6f0fb;
 $newco-white-background: #ffffff;
 
 .tmt-newco {
+  .product-detail-page.newco-product-detail{
+    h2{
+      font-weight: 600;
+    }
+  }
+  section{
+    p{
+      strong{
+        font-size: $headline-text;
+        line-height: 29px;
+        font-weight: normal;
+      }
+    }
+  }
   .collapsing {
     -webkit-transition: height 0.02s ease;
     -o-transition: height 0.02s ease;
@@ -87,6 +101,7 @@ $newco-white-background: #ffffff;
       padding: 0 15px;
       h2 {
         color: #000;
+        font-weight: 600;
       }
     }
     .card {
@@ -173,6 +188,16 @@ $newco-white-background: #ffffff;
     &:hover {
       &:after {
         color: #b650be !important;
+      }
+    }
+  }
+  .related-products {
+    .productfinder-link {
+      a {
+        color: #a54eac;
+        &:hover {
+          color: #b650be;
+        }
       }
     }
   }
