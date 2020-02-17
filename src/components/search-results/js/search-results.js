@@ -573,6 +573,9 @@ INFORMA.SearchResults = (function(window, $, namespace) {
                         if (ContentType == "SampleContent" && $("#IsNewCoTemplateEnabled").val() == "True") {
                             ContentType = "SampleContentNewCo"
                         }
+                        if (ContentType == "Product" && $("#IsNewCoTemplateEnabled").val() == "True") {
+                            ContentType = "ProductNewCo"
+                        }
                         if (ContentType == "Event" && $("#IsNewCoTemplateEnabled").val() == "True") {
                             ContentType = "EventNewCo"
                         }
