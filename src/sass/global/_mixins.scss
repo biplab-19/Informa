@@ -2013,7 +2013,7 @@ $properties: (margin, padding);
         z-index: 999;
         &.scrolled {
           & ~ * {
-            transform: translateY(80px);
+            top: 80px;
           }
           .newco-header {
             height: 80px;
@@ -2045,10 +2045,13 @@ $properties: (margin, padding);
           z-index: 35;
         }
         & ~ * {
-          transition: transform 200ms;
-          transform: translateY(158px);
+          position: relative;
+          transition: top 200ms;
+          top: 158px;
+          // override non-newco js css
+          padding-top: 0 !important;
           @include not-desktop {
-            transform: translateY(138px);
+            top: 138px;
           }
         }   
       }
