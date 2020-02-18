@@ -1996,6 +1996,9 @@ $properties: (margin, padding);
             @include family-style(normal,$black);
             @include heading-font-size(14px,14px,14px);
             @include heading-line-height(25px,25px,25px);
+          }
+        a {
+            @include family-style(bold,$newcoprimarycolor);
         }
     }
     header {
