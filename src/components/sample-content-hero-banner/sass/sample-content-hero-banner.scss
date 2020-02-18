@@ -45,14 +45,20 @@ body {
                 width: auto;
                 margin-right: 25px;
             }
-            div.by,div.date{
+            div.by,div.date {
                 font-weight: normal;
                 font-size: 14px;
                 color: #000;
                 line-height: 25px;
                 padding-bottom: 0px;
-                a{
+                a {
                     color: #a54eac;
+                    font-weight:600;
+                }
+            }
+            div.by{
+                &::first-letter {
+                    text-transform: uppercase;
                 }
             }
             .category{
