@@ -212,30 +212,16 @@
       .newco-gobtn-2{
         position: absolute;
         right: 30px;
-        z-index: 9;   
-        top: 7px;
-        &[data-submit="sector-search"]{
-        display:block;
-        @include bootstarp-md-max {
-          display:none;
-        }
-        }
-        &#mobile-search{
-          display:none;
-          @include bootstarp-md-max {
-            display:block;
-          }
-        }
+        top: 6px;
+        z-index: 9;
         @include bootstrap-mobile {
-          right: 32px;
-          top:10px;
+          right: 10px;
         }
-        i{
+        i {
           font-size: 18px;
           color:#000;
           cursor: pointer;
-          
-          }
+        }
       }
       
     }
@@ -243,6 +229,8 @@
       cursor: pointer;
       a {
         position: relative;
+        display: block;
+        padding-right: 23px;
           &::after{
           background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
           background-repeat: no-repeat;
@@ -250,16 +238,15 @@
           width: 18px;
           height: 18px;
           position: absolute;
-          bottom: 3px;
-          right: -30px;
+          bottom: 6px;
+          right: 0;
           background-size: contain;
-          @include bootstarp-md-max {
-            right: 0px;
-            top: -6px;
+          @include bootstarp-md-max{
+            bottom: -9px;
           }
         }
         
-        span{
+        span {
           color:$black;
           font-weight: normal;
           line-height: 25px;
