@@ -90,6 +90,9 @@
     .follow-row {
         float: right;
         margin-top: -40px;
+        @include tablet {
+            margin-top: -55px;
+        }
         @include mobile{
             width: 100%;
             float: none;
@@ -103,6 +106,9 @@
                 margin-right: 40px;
                 vertical-align: top;
                 margin-top: 6px;
+                @include tablet {
+                    padding-top: 0px;
+                }
                 .share{
                      text-align: left;
                      padding-top: 0;
