@@ -26,10 +26,14 @@
       }
     }
       .main-container{
+        overflow: hidden;
         position: relative;
-        //height: 277px;
-        img{
-          //height: 277px;
+        .img-responsive {
+          position: absolute;
+          width: 100%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
         h3{
           font-size: 24px;

@@ -1992,19 +1992,53 @@ $properties: (margin, padding);
             @include margin-reset;
         }
 
-        p{
+        p {
             @include family-style(normal,$black);
             @include heading-font-size(14px,14px,14px);
             @include heading-line-height(25px,25px,25px);
-            strong {
-                @include family-style(bold,$newcoprimarycolor);
-            }
+          }
+        a {
+            @include family-style(normal,$newcoprimarycolor);
         }
     }
     header {
       .cookieBanner,  section.informa-header-copyright {
           position: relative;
           z-index: 2;
+      }
+      &#informa-main-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        &.scrolled {
+          & ~ * {
+            top: 80px;
+          }
+          .newco-header {
+            height: 80px;
+            box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
+            .newco-logo img {
+              transform: scale(0.74);
+            }
+          }
+          .informa-header-copyright {
+            display: none;
+          }
+        }
+        .cookieBanner, .informa-header-copyright {
+          z-index: 35;
+        }
+        & ~ * {
+          position: relative;
+          transition: top 100ms;
+          top: 158px;
+          // override non-newco js css
+          padding-top: 0 !important;
+          @include not-desktop {
+            top: 138px;
+          }
+        }   
       }
     }
     .newco-header {

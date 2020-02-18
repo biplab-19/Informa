@@ -4,10 +4,6 @@
   .row {
     margin: 0 auto;
   }
-  @media only screen and (max-width:768px) {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
   &.orange {
     background-color: #ef7c22;
     .list-inline.social-icon {
@@ -30,6 +26,10 @@
     padding-right: 100px;
     @media screen and (max-width: 1250px) {
       text-align: center;
+    }
+    @media only screen and (max-width:768px) {
+      padding-left: 15px;
+      padding-right: 15px;
     }
     ul {
       &.list-inline {

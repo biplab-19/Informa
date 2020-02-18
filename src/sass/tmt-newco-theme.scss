@@ -59,6 +59,11 @@ $newcobtndefault-hover-background: #f6f0fb;
 $newco-white-background: #ffffff;
 
 .tmt-newco {
+  .product-detail-page.newco-product-detail{
+    h2{
+      font-weight: 600;
+    }
+  }
   .collapsing {
     -webkit-transition: height 0.02s ease;
     -o-transition: height 0.02s ease;
@@ -87,6 +92,7 @@ $newco-white-background: #ffffff;
       padding: 0 15px;
       h2 {
         color: #000;
+        font-weight: 600;
       }
     }
     .card {
@@ -173,6 +179,30 @@ $newco-white-background: #ffffff;
     &:hover {
       &:after {
         color: #b650be !important;
+      }
+    }
+  }
+  .related-products {
+    .productfinder-link {
+      a {
+        color: #a54eac;
+        &:hover {
+          color: #b650be;
+        }
+      }
+    }
+  }
+  .sectorpage-strengths {
+    .slant {
+      display: none;
+    }
+  }
+  .view-all-sectors-btn-container {
+    border: none;
+    .informa-icon {
+      color: #a54eac;
+      &:hover {
+        color: #b650be;
       }
     }
   }
@@ -316,7 +346,7 @@ $newco-white-background: #ffffff;
   }
   #pdp-navigation {
     background-color: $bg-white;
-    padding: 30px 0 95px 0;
+    margin-bottom: 20px;
     #pdp-sections {
       #pdp-sections-heading{
         &.move-left{
@@ -354,6 +384,5 @@ $newco-white-background: #ffffff;
       border-bottom: 1px solid $newcoprimarycolor;
     }
   }
-  
 }
 
