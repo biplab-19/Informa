@@ -1996,6 +1996,9 @@ $properties: (margin, padding);
             @include family-style(normal,$black);
             @include heading-font-size(14px,14px,14px);
             @include heading-line-height(25px,25px,25px);
+          }
+        a {
+            @include family-style(bold,$newcoprimarycolor);
         }
     }
     header {
@@ -2017,6 +2020,15 @@ $properties: (margin, padding);
             box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.04);
             .newco-logo img {
               transform: scale(0.74);
+            }
+            .newco-searchbtn {
+              .newco-search-header {
+                .textbox {
+                  @include bootstarp-md-max {
+                    top:80px;
+                  }
+                }
+              }
             }
           }
           .informa-header-copyright {
