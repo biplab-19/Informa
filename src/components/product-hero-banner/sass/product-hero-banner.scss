@@ -58,9 +58,6 @@
         margin-left: 0px;
         line-height: 25px;
         width: 190px;
-        @include mobile{
-            width: 250px;
-        }
         &.semi-trans{
             background-color: rgba(255,255,255,.85);
             text-align: center;
@@ -79,7 +76,13 @@
         &.btn:after {
             content: " ";
         }
+        @include tablet {
+            padding: 9px 10px;
+            width: 160px;
+            margin-bottom: 20px;
+        }
         @include mobile{
+            width: 250px;
             margin-top: 0;
             margin-bottom: 20px;
         }
