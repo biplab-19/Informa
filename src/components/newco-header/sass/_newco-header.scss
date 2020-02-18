@@ -251,9 +251,9 @@
           height: 18px;
           position: absolute;
           bottom: 6px;
-          right: 0px;
+          right: 0;
           background-size: contain;
-          @include bootstarp-md-max {
+          @include bootstarp-md-max{
             bottom: -9px;
           }
         }
@@ -443,21 +443,7 @@
     }
   }
 }
-.scrolled {
-  .newco-header {
-    .newco-searchbtn {
-      .newco-search-header {
-        .textbox {
-          @include bootstarp-md-max {
-            top:80px;
-          }
-        }
-      }
-    }
-  }
-  
-  
-}
+
 
 
 
