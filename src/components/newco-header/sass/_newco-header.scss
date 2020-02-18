@@ -244,27 +244,26 @@
         }
         
       }
-      .newco-clientlogin{
+      .newco-clientlogin {
         cursor: pointer;
         a {
-          position: relative;
-            &::after{
-            background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
-            background-repeat: no-repeat;
-            content: "";
-            width: 18px;
-            height: 18px;
-            position: absolute;
-            bottom: 3px;
-            right: -30px;
-            background-size: contain;
+            position: relative;
+            &::after {
+              background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
+              background-repeat: no-repeat;
+              content: "";
+              width: 18px;
+              height: 18px;
+              position: absolute;
+              bottom: 3px;
+              right: -30px;
+              background-size: contain;
             @include bootstarp-md-max {
               right: 0px;
               top: -6px;
             }
           }
-          
-          span{
+           span{
             color:$black;
             font-weight: normal;
             line-height: 25px;
@@ -277,13 +276,10 @@
           span {
             color:$newcoprimarycolor;
           }
-          a{
-            &::after {
-              background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
-              @include bootstarp-md-max {
-                right: 10px;
+          a {
+              &::after {
+                background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
               }
-          }
           }
         }
         img {
@@ -487,7 +483,6 @@
     }
      
   }
-  
   .scrolled {
     .newco-header {
       .newco-searchbtn {
@@ -503,7 +498,22 @@
     
     
   }
-
+  .tmt-newco {
+    .scrolled {
+      .newco-header {
+        .newco-searchbtn {
+          .newco-search-header {
+            .textbox {
+              @include bootstrap-mobile {
+                top:80px;
+              }
+            }
+          }   
+        }
+      } 
+    }
+    
+  }
 
 
 
