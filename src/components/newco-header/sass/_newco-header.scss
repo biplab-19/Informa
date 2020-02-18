@@ -233,6 +233,12 @@
           font-size: 18px;
           color:#000;
           cursor: pointer;
+          @include bootstrap-mobile {
+            display:none;
+          }
+          &.active {
+            display:inline-block;
+          }
         }
       }
       
