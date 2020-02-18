@@ -95,8 +95,19 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         //mobile searchbox show on click
         $searchicon.click(function(e){
-            $(".newco-search-header .textbox").toggleClass("active");
-            $(".nav-closed").addClass("scrolled");
+            var hasclassactive=$(".newco-search-header .textbox").hasClass("active");
+            if(hasclassactive) {
+                $(".newco-search-header .textbox").removeClass("active");
+                $(".newco-search-header .newco-gobtn-2 i.fa-times").removeClass("active");
+                $(".newco-search-header .newco-gobtn-2 i.fa-search").addClass("active");
+            }
+            else {
+                $(".newco-search-header .textbox").addClass("active");
+                $(".newco-search-header .newco-gobtn-2 i.fa-times").addClass("active");
+                $(".newco-search-header .newco-gobtn-2 i.fa-search").removeClass("active");
+            }
+            
+            
         });
     }
     
