@@ -204,21 +204,37 @@
             display: block;
             @include bootstrap-mobile {
               margin: 0 auto;
-              border-radius: 0;
-              border: 1px solid transparent;
             }
            }
+          &.active {
+            .newco-gobtn-2[data-submit="sector-search"]{
+              display:none;
+              @include bootstarp-md-max {
+                display: inline-block;
+                position: absolute;
+                top: 16px;
+                right: calc(50% - 115px);
+              }
+              i {
+                  display:none;
+                  @include bootstarp-md-max {
+                    display:inline-block;
+                  }
+              }
+            }
+          }
         }
       .newco-gobtn-2{
         position: absolute;
         right: 30px;
         top: 6px;
         z-index: 9;
+        outline: none;
         &[data-submit="sector-search"]{
-        display:block;
-        @include bootstarp-md-max {
-          display:none;
-        }
+          display:block;
+          @include bootstarp-md-max {
+            display:none;
+          }
         }
         &#mobile-search{
           display:none;
