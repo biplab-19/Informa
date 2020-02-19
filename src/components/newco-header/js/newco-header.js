@@ -125,13 +125,11 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         });
         
         // emit custom event on header height change
-        // if ($pdpNav.length > 0) {
-            headerHeightChangeTimerEvent = setInterval(function() {
-                if ($mainHeader.height() != headerHeight) {
-                    $mainHeader.trigger('heightchanged');
-                }
-            }, 100);
-        // }
+        headerHeightChangeTimerEvent = setInterval(function() {
+            if ($mainHeader.height() != headerHeight) {
+                $mainHeader.trigger('heightchanged');
+            }
+        }, 100);
 
         // on height change event, store header height for use in scroll event
         $mainHeader.on('heightchanged', function(e) {
