@@ -142,6 +142,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             pdpNavTop = DESIRED_HEADER_HEIGHT;
             // subtract cookiebanner height if its not been closed
             if ($cookieBanner.is(':visible')) {
+                // add class for cookie state so we can adjust the body's alignment
                 if (!$mainHeader.hasClass('cookie-active'))
                     $mainHeader.addClass('cookie-active');
                 pdpNavThreshold -= $cookieBanner.outerHeight();
