@@ -124,17 +124,18 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             $(".nav-closed").addClass("scrolled");
         });
         
-        // emit custom event on header height change if $pdpNav exists
-        if ($pdpNav.length > 0) {
+        // emit custom event on header height change
+        // if ($pdpNav.length > 0) {
             headerHeightChangeTimerEvent = setInterval(function() {
                 if ($mainHeader.height() != headerHeight) {
                     $mainHeader.trigger('heightchanged');
                 }
-            }, 500);
-        }
+            }, 100);
+        // }
 
         // on height change event, store header height for use in scroll event
-        $mainHeader.on('heightchanged', function() {
+        $mainHeader.on('heightchanged', function(e) {
+            // console.log('heightchanged', e);
             headerHeight = $mainHeader.height();
             // set banner height for pdp-nav scroll threshold
             bannerHeight = $banner.outerHeight();
@@ -144,8 +145,12 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             pdpNavTop = DESIRED_HEADER_HEIGHT;
             // subtract cookiebanner height if its not been closed
             if ($cookieBanner.is(':visible')) {
+                if (!$mainHeader.hasClass('cookie-active'))
+                    $mainHeader.addClass('cookie-active');
                 pdpNavThreshold -= $cookieBanner.outerHeight();
                 pdpNavTop += $cookieBanner.outerHeight();
+            } else {
+                $mainHeader.removeClass('cookie-active');
             }
             repositionPdpNav($(window).scrollTop());
         });
