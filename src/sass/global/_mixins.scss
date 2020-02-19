@@ -2023,10 +2023,14 @@ $properties: (margin, padding);
             }
           }
           .informa-header-copyright {
-            display: none;
+            max-height: 0;
           }
         }
         .cookieBanner, .informa-header-copyright {
+          overflow: hidden;
+          height: auto;
+          max-height: 190px;
+          transition: max-height 200ms ease-in-out;
           z-index: 35;
         }
         & ~ * {
@@ -2038,7 +2042,17 @@ $properties: (margin, padding);
           @include not-desktop {
             top: 138px;
           }
-        }   
+        }
+        &.cookie-active {
+          &.scrolled {
+            & ~ * {
+              top: 158px;
+            }
+          }
+          & ~ * {
+            top: 236px;
+          }
+        }
       }
     }
     .newco-header {

@@ -135,14 +135,12 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             
         });
         
-        // emit custom event on header height change if $pdpNav exists
-        if ($pdpNav.length > 0) {
-            headerHeightChangeTimerEvent = setInterval(function() {
-                if ($mainHeader.height() != headerHeight) {
-                    $mainHeader.trigger('heightchanged');
-                }
-            }, 500);
-        }
+        // emit custom event on header height change
+        headerHeightChangeTimerEvent = setInterval(function() {
+            if ($mainHeader.height() != headerHeight) {
+                $mainHeader.trigger('heightchanged');
+            }
+        }, 100);
 
         // on height change event, store header height for use in scroll event
         $mainHeader.on('heightchanged', function() {
@@ -155,8 +153,13 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             pdpNavTop = DESIRED_HEADER_HEIGHT;
             // subtract cookiebanner height if its not been closed
             if ($cookieBanner.is(':visible')) {
+                // add class for cookie state so we can adjust the body's alignment
+                if (!$mainHeader.hasClass('cookie-active'))
+                    $mainHeader.addClass('cookie-active');
                 pdpNavThreshold -= $cookieBanner.outerHeight();
                 pdpNavTop += $cookieBanner.outerHeight();
+            } else {
+                $mainHeader.removeClass('cookie-active');
             }
             repositionPdpNav($(window).scrollTop());
         });
