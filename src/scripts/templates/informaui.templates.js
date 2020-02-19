@@ -1090,7 +1090,7 @@ var INFORMA = window.INFORMA || {};
                     'SampleContentNewCo': '<div class="">'+
                         '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
                             '<div class="recomended-wrapper">'+
-                                '<div class="recomend-content wrap-content">'+
+                                '<div class="recomend-content wrap-content row">'+
 									'{{#compare results.Video null operator="!="}}'+
                                             '<div class="col-md-4">'+
                                                 '{{#if results.HasExternalLink}}'+
@@ -1661,6 +1661,8 @@ var INFORMA = window.INFORMA || {};
                                         '</section>',                
                         'EventNewCo': '<div class="">'+
                                     '<div class="list-items">'+
+                                    '<div class="recomended-wrapper">'+
+                                        '<div class="recomend-content wrap-content row" style="height: auto;">'+
                                         '<div class="col-md-4">'+
                                         '<div class="image-gradient">'+
                                         'Events'+
@@ -1744,7 +1746,10 @@ var INFORMA = window.INFORMA || {};
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+
-                                        '</div>',
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>',
+
                                 'Other': '<div class="col-xs-12 col-sm-6 col-md-4">'+
                                             '<div class="list-items">'+
                                                 '<div class="others-wrapper">'+
