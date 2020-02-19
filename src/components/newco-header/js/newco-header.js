@@ -68,24 +68,24 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         if (!$body.hasClass('tmt-newco')) return;
 
         // set variable values
-        $cookieBanner = $('#cookieBanner'),
-        $mainHeader = $('#informa-main-header'),
-        $newcoHeader = $mainHeader.find('.newco-header'),
-        $hamburger = $newcoHeader.find('.hamburger'),
-        $searchicon = $newcoHeader.find('button#mobile-search'),
-        $navsearch = $newcoHeader.find('.newco-search-header'),
-        $newcoNav = $newcoHeader.find('.newco-nav'),
-        $menuItems = $newcoNav.find('.menu-items'),
-        $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub'),
-        $banner = $('#banner'),
-        $pdpNav = $('#pdp-navigation'),
-        headerHeight = $mainHeader.height(),
-        DESIRED_HEADER_HEIGHT = 80,
-        bannerHeight = $banner.height(),
-        pdpNavThreshold = headerHeight + bannerHeight,
-        pdpNavTop = 0,
-        pdpNavHeight = 0,
-        headerHeightChangeTimerEvent = 0,
+        $cookieBanner = $('#cookieBanner');
+        $mainHeader = $('#informa-main-header');
+        $newcoHeader = $mainHeader.find('.newco-header');
+        $hamburger = $newcoHeader.find('.hamburger');
+        $searchicon = $newcoHeader.find('button#mobile-search');
+        $navsearch = $newcoHeader.find('.newco-search-header');
+        $newcoNav = $newcoHeader.find('.newco-nav');
+        $menuItems = $newcoNav.find('.menu-items');
+        $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub');
+        $banner = $('#banner');
+        $pdpNav = $('#pdp-navigation');
+        headerHeight = $mainHeader.height();
+        DESIRED_HEADER_HEIGHT = 80;
+        bannerHeight = $banner.height();
+        pdpNavThreshold = headerHeight + bannerHeight;
+        pdpNavTop = 0;
+        pdpNavHeight = 0;
+        headerHeightChangeTimerEvent = 0;
 
         // set listner for burger button
         $hamburger.click(function() {
