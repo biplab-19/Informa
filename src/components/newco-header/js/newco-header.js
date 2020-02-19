@@ -13,7 +13,8 @@
 var INFORMA = window.INFORMA || {};
 INFORMA.NewcoHeader = (function (window, $, namespace) {
     'use strict';
-    var $cookieBanner = $('#cookieBanner'),
+    var $body = $('body'),
+        $cookieBanner = $('#cookieBanner'),
         $mainHeader = $('#informa-main-header'),
         $newcoHeader = $mainHeader.find('.newco-header'),
         $hamburger = $newcoHeader.find('.hamburger'),
@@ -63,7 +64,8 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
     }
 
     init = function() {
-        
+        // don't run if we're not in newco
+        if (!$body.hasClass('tmt-newco')) return;
         // set listner for burger button
         $hamburger.click(function() {
             $newcoHeader.toggleClass('nav-closed');
