@@ -59,6 +59,15 @@ module.exports.register = function (Handlebars, options, params) {
         return false;
       }
     });
+    Handlebars.registerHelper('IfNotBlank', function(strvalue,options) {
+      if(strvalue==null || strvalue==undefined) ( strvalue="")
+      strvalue = strvalue.trim();
+      if( strvalue.length > 0 ) {
+        return options.fn(this);
+      } else {
+        return options.inverse(this);
+      }
+    });
     
     Handlebars.registerHelper('AnalystData', function(profile) {
       if(profile){
@@ -70,6 +79,7 @@ module.exports.register = function (Handlebars, options, params) {
         }
       }
     });
+
     
     Handlebars.registerHelper({
         eq: function (v1, v2) {

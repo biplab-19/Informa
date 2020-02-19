@@ -15,6 +15,155 @@ var INFORMA = window.INFORMA || {};
     'use strict';
     //variables
   INFORMA.Templates = {
+	'articleListItemsNewCo':
+        '{{#each Articles}}'+
+            '<li>'+
+                '<div class="col-xs-12">'+
+                '{{#compare Video null operator="=="}}'+
+						'{{#compare ContentTileImage null operator="!="}}'+
+							'<div class="video-container">' +
+								'<img src="{{ContentTileImage.Url}}" alt="{{ContentTileImage.Alt}}"/>' +
+							'</div>' +
+						'{{/compare}}' +	
+					'{{/compare}}' +
+					'{{#compare Video null operator="!="}}'+
+						'<div class="video-container">'+
+							'{{#compare HasExternalLink false operator="=="}}'+
+								'{{#compare ShowForm true operator="=="}}'+
+									'{{#compare IsAuthenticatedUser false operator="=="}}'+
+										'<a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}">'+
+											'<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+											'<span class="play-icon icon-play"></span>'+
+										'</a>'+
+									'{{/compare}}'+
+									'{{#compare IsAuthenticatedUser true operator="=="}}'+
+										'{{#if LinkText}}'+
+											'<div class="btn-container text-right">'+
+												'<a href="{{PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_self">{{LinkText}}</a>'+
+											'</div>'+
+										'{{/if}}'+
+									'{{/compare}}'+
+								'{{/compare}}'+
+								'{{#compare ShowForm false operator="=="}}'+
+									'{{#compare IsAuthenticatedUser false operator="=="}}'+
+										'<a href="{{Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0">'+
+											'<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+											'<span class="play-icon icon-play"></span>'+
+										'</a>'+
+									'{{/compare}}'+    
+								'{{/compare}}'+
+								'{{#compare IsAuthenticatedUser true operator="=="}}'+
+									'<a href="{{Video.Url}}" class="video-link"  tabindex="0">'+
+										'<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+										'<span class="play-icon icon-play"></span>'+
+									'</a>'+
+								'{{/compare}}'+
+							'{{/compare}}'+  
+							 '{{#compare HasExternalLink true operator="=="}}'+
+								'<a href="{{Video.Url}}" class="video-link"  tabindex="0">'+
+									'<img src="{{Video.ImageSrc}}" alt="{{Video.ImageAltText}}">'+
+									'<span class="play-icon icon-play"></span>'+
+								'</a>'+
+							 '{{/compare}}'+
+						'</div>'+
+					'{{/compare}}'+
+
+					'{{#compare Video null operator="=="}}'+
+						'{{#compare ContentTileImage null operator="=="}}'+
+						   '{{#compare Image null operator="!="}}' +
+								'{{#compare Image.length "0" operator=">"}}' +
+									'{{#if HasExternalLink}}'+
+										'{{#compare HasExternalLink true operator="=="}}'+
+											'{{#if LinkText}}'+
+												'<a class="newco-article-image" href="{{PageURL}}" target="_blank" title="{{Title}}"><img src="{{Image}}" alt="" class="img-responsive" /></a>'+
+											'{{/if}}'+
+										'{{/compare}}'+
+									'{{/if}}'+
+									'{{#compare HasExternalLink false operator="=="}}'+
+										'{{#compare ShowForm false operator="=="}}'+
+											'{{#compare IsAuthenticatedUser false operator="=="}}'+
+												'{{#if LinkText}}'+
+													'<a href="{{PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_blank"><img src="{{Image}}" alt="{{Title}}" class="img-responsive" /></a>'+
+												'{{/if}}'+
+											'{{/compare}}'+
+										'{{/compare}}'+
+										'{{#compare ShowForm true operator="=="}}'+
+											'{{#compare IsAuthenticatedUser false operator="=="}}'+
+												'{{#if LinkText}}'+
+													'<a class="show-register-form" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}"><img src="{{Image}}" alt="{{Title}}" class="img-responsive" /></a>'+
+												'{{/if}}'+
+											'{{/compare}}'+
+										'{{/compare}}'+
+										'{{#compare IsAuthenticatedUser true operator="=="}}'+
+											'{{#if LinkText}}'+
+												'<a href="{{PageURL}}" target="_blank"><img src="{{Image}}" alt="{{Title}}" class="img-responsive" /></a>'+
+											'{{/if}}'+
+										'{{/compare}}'+
+									'{{/compare}}'+
+								'{{/compare}}'+
+							'{{/compare}}'+
+							'{{#compare PageURL.length "0" operator="=="}}' +
+								'<img src="{{Image}}" alt="{{Title}}" class="img-responsive" />'+ 
+							'{{/compare}}'+
+						'{{/compare}}'+
+					'{{/compare}}'+
+                    '<div class="recomended-wrapper" data-fetch="{{Id}}">'+
+                        '<div class="recomend-content">'+
+                            '<div class="content">'+
+                                '{{#compare SamplecontentProducts.length "0" operator=">"}}'+
+                                    '<p class="type">'+
+                                        '<span>{{SamplecontentProducts}}</span>'+
+                                    '</p>'+
+                                '{{/compare}}'+
+                                '{{#compare PageURL null operator="!="}}' +
+                                    '{{#compare PageURL.length "0" operator=">"}}' +
+                                        '{{#if HasExternalLink}}'+
+                                            '{{#compare HasExternalLink true operator="=="}}'+
+                                                '{{#if LinkText}}'+
+                                                    '<h4><a href="{{PageURL}}" target="_blank" title="{{Title}}">{{Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/if}}'+
+
+                                        '{{#compare HasExternalLink false operator="=="}}'+
+                                            '{{#compare ShowForm false operator="=="}}'+
+                                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                    '{{#if LinkText}}'+
+                                                        '<h4><a href="{{PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_blank" title="{{Title}}">{{Title}}</a></h4>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                            '{{#compare ShowForm true operator="=="}}'+
+                                                '{{#compare IsAuthenticatedUser false operator="=="}}'+
+                                                    '{{#if LinkText}}'+
+                                                        '<h4><a class="show-register-form gated-content" data-show-register="true" data-toggle="modal" data-modal="#formRegistration" data-url="{{PageURL}}" title="{{Title}}">{{Title}}</a></h4>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                            '{{#compare IsAuthenticatedUser true operator="=="}}'+
+                                                '{{#if LinkText}}'+
+                                                    '<h4><a href="{{PageURL}}" target="_blank" title="{{Title}}">{{Title}}</a></h4>'+
+                                                '{{/if}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
+                                '{{#compare PageURL.length "0" operator="=="}}' +
+                                    '<h4><span title="{{Title}}">{{Title}}</span></h4>'+
+                                '{{/compare}}'+
+                                '{{#IfNotBlank Description}}'+
+                                '{{#compare Description null operator="!="}}'+
+                                    '{{#compare Description.length "0" operator=">"}}' +
+                                        '<p class="description">{{Description}}</p>'+
+                                    '{{/compare}}'+
+                                '{{/compare}}'+
+                                '{{/IfNotBlank}}'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>'+
+                '</div>'+
+            '</li>'+
+          '{{/each}}',
     'articleListItems':
         '{{#each Articles}}'+
             '<li>'+
@@ -383,6 +532,97 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                 '</div>'+
             '</section>',
+        'AnalystListNewCo': '<section class="analyst-views newco-analyst-views">' +
+                                '<div class="container">' +
+                                    '<h2 class="header">{{results.header}}</h2>' +
+                                    '<div class="row">' +
+                                        '{{#each results.ModelItem}}' +
+                                        '<div class="col-md-4 col-sm-12 col-xs-12 analyst-view-container">' +
+                                            '<div class="row">' +
+                                                '<div class="col-lg-12  image ">' +
+                                                    '<div class="analyst-img">' +
+                                                        '{{#if ProfileImage}}' +
+                                                        '<a href="{{ProfileUrl}}">' +
+                                                            '<img src="{{ProfileImage}}" alt="{{image}}" />' +
+                                                        '</a>' +
+                                                        '{{/if}}' +
+                                                    '</div>' +
+                                                '</div>' +
+                                                '<div class="col-lg-12  content">' +
+                                                    '<div class="row">' +
+                                                        '<div class="col-md-12">' +
+                                                            '<div class="meet-anlyst-section">' +
+                                                                '<div class="anlyst-heading">' +
+                                                                    '<div class="analyst-heading-content">' +
+                                                                        '<div class="analyst-details">' +
+                                                                            '<span class="analyst-type">{{Type}}</span>' +
+                                                                            '<a href="{{ProfileUrl}}">' +
+                                                                                '<h4>{{Name}}</h4>' +
+                                                                            '</a>' +
+                                                                            '<h5>' +
+                                                                                '<span class="designation">{{Type}}{{#if Type}}{{#if JobTitle}},{{/if}}{{/if}} {{JobTitle}}</span>' +
+                                                                                '<span class="newco-location">{{State}}{{#if Country}}{{#if State}},{{/if}}{{/if}} {{Country}}</span>' +
+                                                                                '<span class="experiance"> {{YearsOfExperience}}+ {{ExperienceText}}</span>' +
+                                                                            '</h5>' +
+                                                                        '</div>' +
+                                                                    '</div>' +
+                                                                '</div>' +
+                                                            '</div>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                    '<div class="row discription">' +
+                                                        '<div class="profile-discription">' +
+                                                            '<div class="col-md-12">' +
+                                                                '<strong>' +
+                                                                    'Specialities include ' +
+                                                                    '</strong>' + '{{#each Specialization}}' +
+                                                                    ' {{#if @last}}{{this}} {{else}}{{this}}, {{/if}} ' +
+                                                                    '{{/each}}' +
+                                                            '</div>' +
+                                                        '<div class="col-md-12">' +
+                                                            '<strong>' +
+                                                                'Product covered include ' +
+                                                                '</strong>' + '{{#each ProductDetails}}' +
+                                                                ' {{#if @last}}{{this.Key}} {{else}}{{this.Key}}, {{/if}}' +
+                                                                '{{/each}}' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                    '<div class="col-md-12 meet-anlyst-section">' +
+                                                        '<div class="analyst-footer">' +
+                                                            '<div class="analyst-footer-content clearfix">' +
+                                                                '<ul class="nav-links">' +
+                                                                '{{#if LinkedInProfileID}}' +
+                                                                '{{#compare LinkedInProfileID.length "1" operator=">"}}' +
+                                                                    '<li>' +
+                                                                        '<a class="addthis_button_linkedin_follow trigger-sc-event" addthis:userid="{{LinkedInProfileID}}"></a>' +
+                                                                    '</li>' +
+                                                                    '{{/compare}}' +
+                                                                    '{{/if}}' +
+                                                                    '{{#if TwitterHandleID}}' +
+                                                                    '{{#compare TwitterHandleID.length "1" operator=">"}}' +
+                                                                    '<li>' +
+                                                                        '<a class="addthis_button_twitter_follow trigger-sc-event" addthis:userid="{{TwitterHandleID}}"></a>' +
+                                                                    '</li>' +
+                                                                    '{{/compare}}' +
+                                                                    '{{/if}}' +
+                                                                    '{{#if EmailAddressLink.Url}}' +
+                                                                    '{{#compare EmailAddressLink.Url null operator="!="}}' +
+                                                                    '<li><a href="{{EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                                                    '{{/compare}}' +
+                                                                    '{{/if}}' +
+                                                                '</ul>' +
+                                                            '</div>' +
+                                                        '</div>' +
+                                                    '</div>' +
+                                                '</div>' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                    '{{/each}}' +
+                                '</div>' +
+                            '</div>' +
+                        '</section>',
+
         'AnalystList': '<section class="analyst-views">' +
                             '<div class="container">' +
                                 '<h2 class="header">{{results.header}}</h2>' +
@@ -847,6 +1087,204 @@ var INFORMA = window.INFORMA || {};
                             '</div>'+
                         '</div>'+
                     '</div>',
+                    'SampleContentNewCo': '<div class="">'+
+                        '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
+                            '<div class="recomended-wrapper">'+
+                                '<div class="recomend-content wrap-content">'+
+									'{{#compare results.Video null operator="!="}}'+
+                                            '<div class="col-md-4">'+
+                                                '{{#if results.HasExternalLink}}'+
+                                                    '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                        '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                            '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                            '<span class="play-icon icon-play"></span>'+
+                                                        '</a>'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                                '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                    '{{#compare results.ShowForm false operator="=="}}'+
+                                                            '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                                '<a href="{{results.Video.Url}}" class="video-link show-content-first-time" data-firstcontent="true" tabindex="0" target="_self">'+
+                                                                    '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                    '<span class="play-icon icon-play"></span>'+
+                                                                '</a>'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.ShowForm true operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '<a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.Video.Url}}">'+
+                                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                '<span class="play-icon icon-play"></span>'+
+                                                            '</a>'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                '<span class="play-icon icon-play"></span>'+
+                                                            '</a>'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
+                                                                '<img src="{{results.Video.ImageSrc}}" alt="{{results.Video.ImageAltText}}">'+
+                                                                '<span class="play-icon icon-play"></span>'+
+                                                            '</a>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                            '</div>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.ContentTileImage null operator="!="}}'+
+                                            '<div class="col-md-4">' +
+                                                '<img src="{{results.ContentTileImage.Url}}" alt="{{results.ContentTileImage.Alt}}">'+
+                                            '</div>' +
+                                        '{{/compare}}'+
+										'{{#compare results.Video null operator="=="}}'+
+											'{{#compare results.ContentTileImage null operator="=="}}'+
+												'<div class="col-md-4">' +
+													'<img src="{{results.Image}}" alt="{{results.Title}}" class="img-responsive" />' +
+												'</div>' +
+											'{{/compare}}'+
+										'{{/compare}}'+
+                                     '<div class="content">'+
+                                        '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
+                                            '<p class="type">'+
+                                                '<span>{{results.SamplecontentProducts}}</span>'+
+                                            '</p>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.PageURL null operator="!="}}' +
+                                            '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                                '{{#if results.HasExternalLink}}'+
+                                                    '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/if}}'+
+                                                '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                    '{{#compare results.ShowForm false operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" class="show-content-first-time" data-firstcontent="true" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.ShowForm true operator="=="}}'+
+                                                        '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4 class="gated-content"><a data-show-register="true" class="show-register-form" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                            '{{#if results.LinkText}}'+
+                                                                '<h4><a href="{{results.PageURL}}" target="_self">{{results.Title}}</a></h4>'+
+                                                            '{{/if}}'+
+                                                        '{{/compare}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<h4><a href="{{results.PageURL}}" target="_blank">{{results.Title}}</a></h4>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.PageURL.length "0" operator="=="}}' +
+                                            '<h4><span>{{results.Title}}</span></h4>'+
+                                        '{{/compare}}'+
+                                        '{{#compare results.Description null operator="!="}}'+
+                                            '<p class="description">{{results.Description}}</p>'+
+                                        '{{/compare}}'+
+                                    '</div>'+
+                                    // '{{#compare results.Brand.length 0 operator=">"}}'+
+                                    //         '<p class="brands">'+
+                                    //             '{{#each results.Brand}}'+
+                                    //                 '<span>{{this}}</span>'+
+                                    //             '{{/each}}'+
+                                    //         '</p>'+
+                                    // '{{/compare}}'+
+                                    '{{#compare results.TopicURLS.length 0 operator=">"}}'+
+                                        '<p class="topics">'+
+                                            '{{results.TopicKeyword}} '+
+                                            '{{#each results.TopicURLS}}'+
+                                                '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
+                                            '{{/each}}'+
+                                        '</p>'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.ShowSubSectorOnSampleContentPage true operator="=="}}'+
+                                            '{{#compare results.SubSectorsUrlDetails.length 0 operator=">"}}'+
+                                                '<p class="SubSectors">'+
+                                                    '<span>{{results.SubSectorKeyword}}</span>'+
+                                                    '{{#each results.SubSectorsUrlDetails}}'+
+                                                        '<span>'+
+                                                            '<a href="{{this.Value}}">{{this.Key}}</a>'+
+                                                        '</span>'+
+                                                    '{{/each}}'+
+                                                '</p>'+
+                                            '{{/compare}}'+
+                                    '{{/compare}}'+
+                                '</div>'+
+                                '<div class="footer">'+
+                                    '{{#compare results.Price null operator="!="}}'+
+                                            '<div class="recomended-currency"><strong>{{results.Price}}</strong></div>'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.PageURL null operator="!="}}' +
+                                        '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                            '{{#if results.HasExternalLink}}'+
+                                                '{{#compare results.HasExternalLink true operator="=="}}'+
+                                                    '{{#if results.LinkText}}'+
+                                                        '<div class="btn-container text-right">'+
+                                                            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
+                                                        '</div>'+
+                                                    '{{/if}}'+
+                                                '{{/compare}}'+
+                                            '{{/if}}'+
+                                            '{{#compare results.HasExternalLink false operator="=="}}'+
+                                                '{{#compare results.ShowForm false operator="=="}}'+
+                                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn show-content-first-time" data-firstcontent="true" target="_blank">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                                '{{#compare results.ShowForm true operator="=="}}'+
+                                                    '{{#compare results.IsAuthenticatedUser false operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a data-show-register="true" class="btn btn-primary show-register-form full-width-btn" data-toggle="modal" data-modal="#formRegistration" data-url="{{results.PageURL}}">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                    '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                        '{{#if results.LinkText}}'+
+                                                            '<div class="btn-container text-right">'+
+                                                                '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
+                                                            '</div>'+
+                                                        '{{/if}}'+
+                                                    '{{/compare}}'+
+                                                '{{/compare}}'+
+                                                '{{#compare results.IsAuthenticatedUser true operator="=="}}'+
+                                                    '{{#if results.LinkText}}'+
+                                                        '<div class="btn-container text-right">'+
+                                                            '<a href="{{results.PageURL}}" class="btn btn-primary btn-ecommerce full-width-btn" target="_blank">{{results.LinkText}}</a>'+
+                                                        '</div>'+
+                                                    '{{/if}}'+    
+                                                '{{/compare}}'+
+                                            '{{/compare}}'+
+                                        '{{/compare}}'+
+                                    '{{/compare}}'+
+                                    '{{#compare results.PageURL.length "0" operator="=="}}' +
+                                        '<div class="btn-container text-right">'+
+                                            '<a class="btn btn-primary" disabled>{{results.LinkText}}</a>'+
+                                        '</div>'+
+                                    '{{/compare}}'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'+
+                    '</div>',
             'Product':
                 '<div class="col-xs-12 col-sm-6 col-md-4">'+
                 '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">'+
@@ -905,6 +1343,61 @@ var INFORMA = window.INFORMA || {};
                     '</div>'+
                 '</div>'+
             '</div>',
+            'ProductNewCo':
+                '<div>' +
+                    '<div class="list-items" data-fetch="{{results.Id}}" data-type="{{results.Category}}">' +
+                        '<div class="recomended-wrapper products">' +
+                            '<div class="recomend-content wrap-content row">' +
+                                '<div class="col-md-4">' +
+                                    '<div class="image-gradient">' +
+                                        '{{results.Title}}' +
+                                    '</div>' +
+                                '</div>' +
+                                '<div class="wrap-content col-md-8">' +
+                                    '<div class="body">' +
+                                        '<p>{{results.Description}}</p>' +
+                                        '<ul>' +
+                                            '{{#each results.Benefits}}' +
+                                            '<li class="icon-tick">{{this}}</li>' +
+                                            '{{/each}}' +
+                                        '</ul>' +
+                                    '</div>' +
+                                    '<div class="footer clearfix">' +
+                                        '<div class="row">' +
+                                            '<div class="col-xs-6">' +
+                                                '{{#compare results.PageURL null operator="!="}}' +
+                                                '{{#compare results.PageURL.length "0" operator=">"}}' +
+                                                '<a href="{{results.PageURL}}" target="{{results.LinkTarget}}" class="btn btn-default">{{results.DetailText}}</a>' +
+                                                '{{/compare}}' +
+                                                '{{/compare}}' +
+                                            '</div>' +
+                                            '<div class="col-xs-6">' +
+                                                '{{#if results.ProductSearchCTAType}}' +
+                                                '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="=="}}' +
+                                                '{{#if (splitURL results.SalesforceLink.Url "registration")}}' +
+                                                '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>' +
+                                                '{{else}}' +
+                                                '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">' +
+                                                    '{{results.SearchCTAName}}' +
+                                                '</a>' +
+                                                '{{/if}}' +
+                                                '{{/compare}}' +
+                                                '{{#compare results.ProductSearchCTAType "formRequestATrial"  operator="!="}}' +
+                                                '<a href="javascript:void(0)" data-toggle="modal" data-modal="#{{results.ProductSearchCTAType}}" data-productid="{{results.FreeTrialLink.ProductGuid}}" class="btn btn-primary free-trial wffm-elq-form-btn">' +
+                                                    '{{results.SearchCTAName}}' +
+                                                '</a>' +
+                                                '{{/compare}}' +
+                                                '{{else}}' +
+                                                '<a href="{{results.SalesforceLink.Url}}" target="{{results.SalesforceLink.Target}}" class="btn btn-primary">{{results.SearchCTAName}}</a>' +
+                                                '{{/if}}' +
+                                            '</div>' +
+                                        '</div>' +
+                                    '</div>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>',
                 'SearchTemplate': '<div class="product-results" data-pagesize="{{results.DefaultItemCount}}">'+
                                     '{{#if results.ProductTitle}}'+
                                        '<h2> <strong>{{results.ProductTitle}}</strong></h2>'+
@@ -1067,6 +1560,180 @@ var INFORMA = window.INFORMA || {};
                                                                 '{{/compare}}'+
                                                             '{{/compare}}'+
                                                         '{{/compare}}'+ 
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>',
+                                        'SpecialistNewCo': '<section class="analyst-views newco-analyst-views">' +
+                                        '<div class="row">' +
+                                        '<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 image ">' +
+                                        '<div class="analyst-img">' +
+                                        '<a href="{{results.PageURL}}">  <img src="{{results.Image}}" alt="{{results.Name}}" /></a>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 content">' +
+                                        '<div class="row">' +
+                                        '<div class="col-md-9">' +
+                                        '<div class="meet-anlyst-section">' +
+
+                                        '<div class="anlyst-heading">' +
+                                        '<div class="analyst-heading-content">' +
+                                        '<div class="analyst-details">' +
+                                        '<span class="analyst-type">{{results.Type}}</span>' +
+                                        '<a href="@Model.PageURL"><h4>{{results.Name}}</h4></a>' +
+                                        '<h5>' +
+                                        '<span class="designation">{{results.JobTitle}}</span>' +
+                                        '<span class="newco-location">{{results.State}}{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}} {{results.Country}} </span>' +
+                                        '<span class="experiance">{{results.YearsOfExperience}}' +
+                                        '+{{results.ExperienceText}}</span>' +
+                                        '</h5>' +
+                                        '</div>' +
+
+                                        '</div>' +
+                                        '</div>' +
+
+
+
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="col-md-3 meet-anlyst-section">' +
+                                        '<div class="analyst-footer">' +
+                                        '<div class="analyst-footer-content clearfix">' +
+
+                                        '<ul class="nav-links">' +
+                                        '{{#if results.LinkedInProfileID}}' +
+                                        '{{#compare results.LinkedInProfileID.length "1" operator=">"}}' +
+                                        '<li>' +
+                                        '<a class="addthis_button_linkedin_follow" addthis:userid="{{results.LinkedInProfileID}}"></a>' +
+                                        '</li>' +
+                                        '{{/compare}}' +
+                                        '{{/if}}' +
+                                        '{{#if results.TwitterHandleID}}' +
+                                        '{{#compare results.TwitterHandleID.length "1" operator=">"}}' +
+                                        '<li>' +
+                                        '<a class="addthis_button_twitter_follow" addthis:userid="{{results.TwitterHandleID}}"></a>' +
+                                        '</li>' +
+                                        '{{/compare}}' +
+                                        '{{/if}}' +
+                                        '{{#if results.EmailAddressLink}}' +
+                                        '{{#compare results.EmailAddressLink.Url.length "0" operator=">"}}' +
+                                        '<li><a href="{{results.EmailAddressLink.Url}}" class="icon-email"></a></li>' +
+                                        '{{/compare}}' +
+                                        '{{/if}}' +
+                                        '</ul>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '<div class="row discription">' +
+                                        '<div class="col-md-12">' +
+                                        '{{#compare results.Specialization.length "0" operator=">"}}' +
+                                        '<strong>' +
+                                        'Specialities include ' +
+                                        '</strong>' +
+                                        '{{#each results.Specialization}}' +
+                                        '{{this}} ' +
+                                        '{{/each}}' +
+
+                                        '{{/compare}}' +
+                                        '</div>' +
+                                        '<div class="col-md-12">' +
+                                        '{{#compare results.ProductDetails.length "0" operator=">"}}' +
+                                        '<strong>' +
+                                        'Product covered include ' +
+                                        '</strong>' +
+                                        '{{#each results.ProductDetails}}' +
+                                        '{{this.Key}}' +
+                                        '{{/each}}' +
+
+                                        '{{/compare}}' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</div>' +
+                                        '</section>',                
+                        'EventNewCo': '<div class="">'+
+                                    '<div class="list-items">'+
+                                        '<div class="col-md-4">'+
+                                        '<div class="image-gradient">'+
+                                        'Events'+
+                                        '</div>'+
+                                        '</div>'+
+                                            '<div class="events-wrap col-md-8">'+
+                                                '<div class="wrap-content">'+
+                                                    '<div class="header clearfix">'+
+                                                        '<div class="date-field">{{results.EventDate}}</div>'+
+                                                    '</div>'+
+                                                    '<div class="content-wrap">'+
+                                                        '<p class="country">'+
+                                                            '<span>{{results.State}}</span>'+
+                                                            '{{#if results.Country}}{{#if results.State}},{{/if}}{{/if}}'+
+                                                            '<strong> {{results.Country}}</strong>'+
+                                                        '</p>'+
+                                                        '<p><span class="type">{{results.EventType}}</span></p>'+
+                                                        '<h3 class="title">{{results.Title}}</h3>'+
+                                                            '{{#compare results.Presenters.length 0 operator=">"}}'+
+                                                                '<div class="content clearfix">'+
+                                                                    '<div class="title-content">'+
+                                                                        '{{results.PresentersLabel}}'+
+                                                                    '</div>'+
+                                                                    '<div class="title-body">'+
+                                                                        '<ul class="clearfix">'+
+                                                                            '{{#each results.Presenters}}'+
+                                                                            '<li>{{this}}</li>'+
+                                                                            '{{/each}}'+
+                                                                        '</ul>'+
+                                                                    '</div>'+
+                                                                '</div>'+
+                                                            '{{/compare}}'+
+                                                            '{{#compare results.Themes.length 0 operator=">"}}'+
+                                                            '<div class="content clearfix">'+
+                                                                '<div class="title-content">'+
+                                                                    '{{results.ThemeLabel}}'+
+                                                                '</div>'+
+                                                                '<div class="title-body">'+
+                                                                    '<ul class="clearfix">'+
+                                                                        '{{#each results.Themes}}'+
+                                                                            '<li>{{this}}</li>'+
+                                                                        '{{/each}}'+
+                                                                    '</ul>'+
+                                                                '</div>'+
+                                                            '</div>'+
+                                                            '{{/compare}}'+
+                                                        '</div>'+
+                                                    '</div>'+
+                                                    '<div class="footer clearfix">'+
+                                                        '{{#compare results.FullDetail null operator="!="}}' +
+                                                            '{{#compare results.FullDetail.Url null operator="!="}}' +
+                                                                '{{#compare results.FullDetail.Url.length "0" operator=">"}}' + 
+                                                                    '<a href="{{results.FullDetail.Url}}" target="{{results.FullDetail.Target}}" class="btn btn-default full-detail pull-left">'+
+                                                                        '{{results.FullDetail.LinkText}}'+
+                                                                    '</a>'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.StatusEnabled  true operator="=="}}'+
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
+                                                        '{{#compare results.StatusEnabled  false operator="=="}}'+  
+                                                            '{{#compare results.Register null operator="!="}}' +
+                                                                '{{#compare results.Register.Url null operator="!="}}' +
+                                                                    '{{#compare results.Register.Url.length "0" operator=">"}}' +
+                                                                        '<a href="{{results.Register.Url}}" target="_blank" class="btn btn-primary register pull-right disabled">'+
+                                                                            '{{results.EventCTAText}}'+
+                                                                        '</a>'+
+                                                                    '{{/compare}}'+
+                                                                '{{/compare}}'+
+                                                            '{{/compare}}'+
+                                                        '{{/compare}}'+
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+

@@ -27,20 +27,20 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
         siteSearch = $('button[data-submit="site-search"]'),
         productSearchCTA = $('button[data-submit="sector-search"]'),
         resourceProductSearchCTA = $('.resource-sector-search button[data-submit="sector-search"]'),
-        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorQuery, subsectorQuery,
+        getProductSearchParams, getResourceResultParams, productSearchString, newSearch = false, sectorQuery, subsectorQuery,getUrlParameter,
         // methods
         init, SelectAllCheckBox, BindRefineEvents, ClearAllLinkBinding, DoRefine, RefineSearchResult, GetAjaxData, GetSelectedFilter;
 
-    GetAjaxData = function (url, method, data, SCallback, Errcallback) {
-        INFORMA.Spinner.Show($("body"));
-        INFORMA.DataLoader.GetServiceData(url, {
-            method: method,
-            data: data,
-            success_callback: SCallback,
-            error_callback: Errcallback
-        });
-        INFORMA.SearchResults.ResetPaging();
-    },
+        GetAjaxData = function (url, method, data, SCallback, Errcallback) {
+            INFORMA.Spinner.Show($("body"));
+            INFORMA.DataLoader.GetServiceData(url, {
+                method: method,
+                data: data,
+                success_callback: SCallback,
+                error_callback: Errcallback
+            });
+            INFORMA.SearchResults.ResetPaging();
+        },
         GetSelectedFilter = function () {
             var Data = {},
                 ParamData = [];
@@ -96,6 +96,13 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             if (SearchType === "ProductSearch") {
                 Data.IsProduct = true;
             }
+            var isnewco = $("#productListingPageUrl").val();
+            if (isnewco != undefined && isnewco != "") {
+                if (isnewco.indexOf("newco") != -1) {
+                    SearchType = "SearchResult";
+                }
+
+            }
             if (Data.SearchText) {
                 searchText = Data.SearchText;
             }
@@ -144,7 +151,20 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             }
 
         },
+        getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
 
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+        },
         getProductSearchParams = function () {
             var parameter, urlQueryStrings = [];
             if ($('#SectorNames').val()) {
@@ -159,7 +179,6 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
             }
             return urlQueryStrings;
         },
-
         getResourceResultParams = function () {
             var resourceSearchParams = [], SubSectorNames = [], SectorNames = [];
             $("#Sector :selected").map(function (i, el) {
@@ -474,11 +493,11 @@ INFORMA.SearchResultFilter = (function (window, $, namespace) {
                 $("#SubSectorNames").val(SubSectorNames.toString());
             });
         };
-    return {
-        init: init,
-        GetRefineData: GetSelectedFilter,
-        BindRefineEvents: BindRefineEvents
+        return {
+            init: init,
+            GetRefineData: GetSelectedFilter,
+            BindRefineEvents: BindRefineEvents
 
-    };
+        };
 }(this, $INFORMA = jQuery.noConflict(), 'INFORMA'));
 jQuery(INFORMA.SearchResultFilter.init());

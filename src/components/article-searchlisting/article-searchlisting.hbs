@@ -1,0 +1,372 @@
+<div class="product-detail-page newco-product-detail" id="productDetails">
+    <div id="resource-finder-section" class="resource-finder" data-resource="true">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Analyst opinion</h2>
+                    <p>Select a research sector and then a corresponding need to view related results. </p>
+                </div>
+                <div class="col-md-6">
+                <form class="form" method="post" action="#">
+                    <fieldset>
+                        <ul class="resource-sector-search">
+                            <li class="menu">
+                                <label for="sector-list" class="label-text">Sector:</label>
+                                <div class="custom-multiselect">
+                                    <select id="resource-sector-list" name="ResourceSectors" class="Sector" multiple="multiple" data-placeholder="Selected Sectors">
+                                        <option value="sector1">Commodities</option>
+                                        <option value="sector2">Crop protection</option>
+                                        <option value="sector3">Diary Products</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="menu disabled">
+                                <label for="resource-sub-sector-list" class="label-text">Needs:</label>
+                                <div class="custom-multiselect">
+                                    <select id="sub-sector-list" name="ResourceSubSectors" class="SubSector" disabled="disabled" multiple="multiple" data-placeholder="Selected Needs">
+                                        <option value="subsector1">Diary</option>
+                                        <option value="subsector2">Meats</option>
+                                        <option value="subsector3">Electronics</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="menu button disabled">
+                                <button type="button" class="btn btn-primary" data-submit="sector-search">Refine and sort results</button>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-finder-results clearfix">
+        <div class="container">
+            <section id="refine-container-sction" class="refine-container">
+                 <button class="close-refine-list"></button>
+                <form class="form">
+                    <h2>Filters</h2>
+                    <p class="heading">Refine results
+                    </p>
+                    
+                    <div class="panel-group" id="refine-list">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                <span class="custom-checkbox">
+                                    <label for="selectAll1" class="label">
+                                        <input type="checkbox" name="selectAll1" id="selectAll1" value="">
+                                        <span>Select All</span>
+                                    </label>
+                                </span>
+                                <a data-toggle="collapse" data-parent="#refine-list" href="#Topic">
+                                    <strong>All Topic</strong>
+                                </a>
+                            </h3>
+                            </div>
+                            <div id="Topic" class="specialist panel-collapse">
+                                <div class="panel-body" data-defaultcount="2">
+                                    <ul>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="grains" class="label">
+                                                    <input type="checkbox" name="grains" id="grains" value="guid001">
+                                                    <span>Grains</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="softs" class="label">
+                                                    <input type="checkbox" name="softs" id="softs" value="guid002">
+                                                    <span>Softs</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="livestock" class="label">
+                                                    <input type="checkbox" name="livestock" id="livestock" value="guid003">
+                                                    <span>Livestock</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="commodities" class="label">
+                                                    <input type="checkbox" name="commodities" id="commodities" value="guid004">
+                                                    <span>Commodities</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="agri" class="label">
+                                                    <input type="checkbox" name="agri" id="agri" value="guid005">
+                                                    <span>Agri</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="games" class="label">
+                                                    <input type="checkbox" name="games" id="games" value="guid006">
+                                                    <span>Games</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="show-more" data-moretext="Show more" data-lesstext="Less See">Show more...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <span class="custom-checkbox">
+                                        <label for="selectAll2" class="label">
+                                            <input type="checkbox" name="selectAll2" id="selectAll2" value="">
+                                            <span>Select All</span>
+                                        </label>
+                                    </span>
+                                    <a data-toggle="collapse" href="#Role" class="collapsed">
+                                        <strong>All Products</strong>
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="Role" class="panel-collapse collapse">
+                                <div class="panel-body" data-defaultcount="5">
+                                    <ul>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="pharma" class="label">
+                                                    <input type="checkbox" name="pharma" id="pharma" value="guid007">
+                                                    <span>Pharma</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                <label for="article" class="label">
+                                    <input type="checkbox" name="article" id="article" value="guid008">
+                                    <span>Article</span>
+                                            </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                <label for="sectors" class="label">
+                                    <input type="checkbox" name="sectors" id="sectors" value="guid009">
+                                    <span>Sectors</span>
+                                            </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                <label for="commodities1" class="label">
+                                    <input type="checkbox" name="commodities1" id="commodities1" value="guid010">
+                                    <span>Commodities</span>
+                                            </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                <label for="agri1" class="label">
+                                    <input type="checkbox" name="agri1" id="agri1" value="guid011">
+                                    <span>Agri</span>
+                                            </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                <label for="games1" class="label">
+                                    <input type="checkbox" name="games1" id="games1" value="guid012">
+                                    <span>Games</span>
+                                            </label>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="show-more">Show more...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <span class="custom-checkbox">
+                                        <label for="selectAll3" class="label">
+                                            <input type="checkbox" name="selectAll1" id="selectAll3" value="">
+                                            <span>Select All</span>
+                                        </label>
+                                    </span>
+                                    <a data-toggle="collapse" href="#Product" class="collapsed">
+                                    <strong>All Specialisms</strong>
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="Product" class="panel-collapse collapse">
+                                <div class="panel-body" data-defaultcount="5">
+                                    <ul>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="pharma" class="label">
+                                                    <input type="checkbox" name="pharma" id="pharma" value="guid007">
+                                                    <span>Pharma</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="article" class="label">
+                                                    <input type="checkbox" name="article" id="article" value="guid008">
+                                                    <span>Article</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="sectors" class="label">
+                                                    <input type="checkbox" name="sectors" id="sectors" value="guid009">
+                                                    <span>Sectors</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="commodities1" class="label">
+                                                    <input type="checkbox" name="commodities1" id="commodities1" value="guid010">
+                                                    <span>Commodities</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="agri1" class="label">
+                                                    <input type="checkbox" name="agri1" id="agri1" value="guid011">
+                                                    <span>Agri</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="custom-checkbox">
+                                                <label for="games1" class="label">
+                                                    <input type="checkbox" name="games1" id="games1" value="guid012">
+                                                    <span>Games</span>
+                                                </label>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="show-more">Show more...</a>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="view-by">
+                            <label>View By:</label>
+                            <select class="chosen-select" name="sector" style="display: none;">
+                                <option value="All">All</option>
+                                <option value="latest">latest</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <section class="search-container listView">
+                <div class="container">
+                    <div class="product-results" data-pagesize="9">
+                        <div class="row list">
+                            <div class="list-items" data-fetch="a30408547c854513be425823caeebc01" data-type="SampleContent"
+                                data-showform="True" style="height: auto;">
+                                <div class="recomended-wrapper">
+                                    <div class="recomend-content row wrap-content" style="height: auto;">
+                                        <div class="col-md-4">
+                                            <img src="cms-images/product_brands/brand-3.png" alt=""class="img-responsive" />
+                                        </div>
+                                        <div class="col-md-8 content">
+                                            <p class="type">
+                                                IT, Enterprise Decision Maker
+                                            </p>
+                                            <h4>
+                                                <a data-show-register="true" class="show-register-form" data-toggle="modal"
+                                                    data-modal="#formRegistration"
+                                                    data-url="/resources/product-content/the-key-to-a-resilient-organization-is-a-comprehensive-backup-and-recovery-plan-and-capability-int005-000076">The
+                                                    key to a resilient organization is a comprehensive backup and recovery plan and
+                                                    capability
+                                                </a>
+                                            </h4>
+                                            <p class="publish">
+                                                <span> By</span>
+                                                <a href="/analysts-and-events/meet-the-team/maxine-holt"><strong> Maxine
+                                                        Holt</strong>
+                                                </a>
+                                                03 Jan 2020
+                                            </p>
+                                            <p class="description">
+                                                When it comes to cyberattacks, organizations can fail if there are inadequate
+                                                security incident response plans in place. The "six P's" mantra clearly applies:
+                                                proper preparation and planning prevents poor performance.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="btn-container text-right">
+                                            <a data-show-register="true" class="btn btn-primary show-register-form"
+                                                data-toggle="modal" data-modal="#formRegistration"
+                                                data-url="/resources/product-content/the-key-to-a-resilient-organization-is-a-comprehensive-backup-and-recovery-plan-and-capability-int005-000076">View
+                                                analyst opinion</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-items" data-fetch="e32cac682c414cdbae86a0183aee7d5e" data-type="SampleContent"
+                                data-showform="True" style="height: auto;">
+                                <div class="recomended-wrapper">
+                                    <div class="recomend-content row wrap-content" style="height: auto;">
+                                            <div class="col-md-4">
+                                                <img src="cms-images/product_brands/brand-3.png" alt=""class="img-responsive" />
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="content">
+                                                    <p class="type">
+                                                        Service Provider Technology
+                                                    </p>
+                                                    <h4>
+                                                        <a data-show-register="true" class="show-register-form" data-toggle="modal"
+                                                            data-modal="#formRegistration"
+                                                            data-url="/resources/product-content/cisco-launches-new-silicon-8000-series-router-and-xr7-products-spt002-000289">Cisco
+                                                            launches new silicon, 8000 Series router, and XR7 products</a>
+                                                    </h4>
+                                                    <p class="publish">
+                                                        <span> By</span>
+                                                        <a href="/analysts-and-events/meet-the-team/don-frey"><strong> Don Frey</strong></a>
+                                                        18 Dec 2019
+                                                    </p>
+                                                    <p class="description">
+                                                        Cisco laid out a disruptive sales strategy for its new router and Silicon One
+                                                        architecture. The flexibility includes software, hardware, and processor sales
+                                                        options allowing for service providers to build router networks their way.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="footer">
+                                        <div class="btn-container text-right">
+                                            <a data-show-register="true" class="btn btn-primary show-register-form"
+                                                data-toggle="modal" data-modal="#formRegistration"
+                                                data-url="/resources/product-content/cisco-launches-new-silicon-8000-series-router-and-xr7-products-spt002-000289">View
+                                                analyst opinion</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="#" class="btn-showMore">
+                             Show More
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

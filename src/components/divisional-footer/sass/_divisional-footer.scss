@@ -1,16 +1,8 @@
 .divisional-footer {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding-left: 100px;
-  padding-right: 100px;
   overflow-x: unset;
   background-color: #454955;
   .row {
     margin: 0 auto;
-  }
-  @media only screen and (max-width:768px) {
-    padding-left: 15px;
-    padding-right: 15px;
   }
   &.orange {
     background-color: #ef7c22;
@@ -28,8 +20,16 @@
     }
   }
   .divisional-footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 100px;
+    padding-right: 100px;
     @media screen and (max-width: 1250px) {
       text-align: center;
+    }
+    @media only screen and (max-width:768px) {
+      padding-left: 15px;
+      padding-right: 15px;
     }
     ul {
       &.list-inline {
