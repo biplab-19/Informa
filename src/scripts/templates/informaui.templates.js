@@ -562,7 +562,7 @@ var INFORMA = window.INFORMA || {};
                                                                             '<h5>' +
                                                                                 '<span class="designation">{{Type}}{{#if Type}}{{#if JobTitle}},{{/if}}{{/if}} {{JobTitle}}</span>' +
                                                                                 '<span class="newco-location">{{State}}{{#if Country}}{{#if State}},{{/if}}{{/if}} {{Country}}</span>' +
-                                                                                '<span class="experiance">{{YearsOfExperience}}+ +{{ExperienceText}}</span>' +
+                                                                                '<span class="experiance"> {{YearsOfExperience}}+ {{ExperienceText}}</span>' +
                                                                             '</h5>' +
                                                                         '</div>' +
                                                                     '</div>' +
@@ -575,16 +575,16 @@ var INFORMA = window.INFORMA || {};
                                                             '<div class="col-md-12">' +
                                                                 '<strong>' +
                                                                     'Specialities include ' +
-                                                                '</strong>' + '{{#each Specialization}}' +
-                                                                '{{this}}, ' +
-                                                                '{{/each}}' +
+                                                                    '</strong>' + '{{#each Specialization}}' +
+                                                                    ' {{#if @last}}{{this}} {{else}}{{this}}, {{/if}} ' +
+                                                                    '{{/each}}' +
                                                             '</div>' +
                                                         '<div class="col-md-12">' +
                                                             '<strong>' +
                                                                 'Product covered include ' +
-                                                            '</strong>' + '{{#each ProductDetails}}' +
-                                                            '{{this.Key}} ' +
-                                                            '{{/each}}' +
+                                                                '</strong>' + '{{#each ProductDetails}}' +
+                                                                ' {{#if @last}}{{this.Key}} {{else}}{{this.Key}}, {{/if}}' +
+                                                                '{{/each}}' +
                                                         '</div>' +
                                                     '</div>' +
                                                     '<div class="col-md-12 meet-anlyst-section">' +
