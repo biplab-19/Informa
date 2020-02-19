@@ -248,6 +248,7 @@
   
       
       .product-finder-results {
+         
         .container {
           padding: 0 15px;
         }
@@ -710,7 +711,7 @@
         }
          
       }
-      .listView{
+      .listView {
         .col-md-4{
          width: 33.33%;
          @include mobile{
@@ -723,7 +724,7 @@
           width: 100%;
         }
        }
-       .list-items{
+       .list-items {
         overflow: hidden;
         &:hover {
           box-shadow: 5px 1px 22px #ece9e9;
@@ -732,7 +733,10 @@
           box-shadow: 1px 3px 26px #c7c7c7;
           margin: 5px 5px 74px 5px;
         }
-        .recomended-wrapper{
+        .recomended-wrapper {
+          .events-wrap .footer {
+            display:inline-block;
+          }
           background-color: #fff;
           padding: 0px 60px 0px 0px;
           @include mobile{
@@ -1034,4 +1038,5 @@
         }
       }
   }
+  
 }
