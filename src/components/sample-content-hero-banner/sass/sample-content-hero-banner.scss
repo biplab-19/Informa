@@ -111,7 +111,12 @@ body {
                 width:auto;
                 .by {
                     margin-left: 0px;
-                    
+                    .topic-pipe {
+                        @include mobile {
+                            float: unset;
+                            padding:0;
+                        }
+                    }
                 }
             }
         }
