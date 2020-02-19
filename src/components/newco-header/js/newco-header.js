@@ -132,8 +132,7 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
         }, 100);
 
         // on height change event, store header height for use in scroll event
-        $mainHeader.on('heightchanged', function(e) {
-            // console.log('heightchanged', e);
+        $mainHeader.on('heightchanged', function() {
             headerHeight = $mainHeader.height();
             // set banner height for pdp-nav scroll threshold
             bannerHeight = $banner.outerHeight();
