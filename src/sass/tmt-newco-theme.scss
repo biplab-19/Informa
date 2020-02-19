@@ -384,5 +384,18 @@ $newco-white-background: #ffffff;
       border-bottom: 1px solid $newcoprimarycolor;
     }
   }
+  .scrolled {
+    .newco-header {
+      .newco-searchbtn {
+        .newco-search-header {
+          .textbox {
+            @include bootstarp-md-max {
+              top:80px;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
