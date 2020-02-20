@@ -169,6 +169,25 @@ $newco-white-background: #ffffff;
         }
       }
     }
+    .search-container {
+      .btn-container {
+        .btn-ShowMore {
+          border-bottom: 2px solid #fff;
+          span {
+            &:before {
+              right: 15px;
+              top: 13px;
+              color: #a54eac;
+            }
+            &:hover {
+              &:before {
+                color: #b650be;
+              }
+            }
+          }
+        }
+      }
+    }
   }
   .btn-showMore, .btn-plus {
     border-bottom: 2px solid #fff !important;
