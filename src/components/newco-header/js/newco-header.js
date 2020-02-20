@@ -167,24 +167,17 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
 
         // on height change event, store header height for use in scroll event
         $mainHeader.on('heightchanged', function() {
+            var cbHeight = $cookieBanner.is(':visible') ? $cookieBanner.outerHeight() : 0;
             headerHeight = $mainHeader.height();
             // set banner height for pdp-nav scroll threshold
             bannerHeight = $banner.outerHeight();
             // set threshold so pdp-nav sticky threshold occurs in the correct place
             // replaced headerHeight with 80 because of animation, if scrolled height changes this will have to
-            pdpNavThreshold = (bannerHeight - $mainHeader.next().offset().top) + DESIRED_HEADER_HEIGHT;
-            pdpNavTop = DESIRED_HEADER_HEIGHT;
-            // subtract cookiebanner height if its not been closed
-            if ($cookieBanner.is(':visible')) {
-                // add class for cookie state so we can adjust the body's alignment
-                if (!$mainHeader.hasClass('cookie-active'))
-                    $mainHeader.addClass('cookie-active');
-                pdpNavThreshold -= $cookieBanner.outerHeight();
-                pdpNavTop += $cookieBanner.outerHeight();
-            } else {
-                $mainHeader.removeClass('cookie-active');
-            }
+            pdpNavThreshold = (bannerHeight - $mainHeader.next().offset().top - cbHeight) + DESIRED_HEADER_HEIGHT;
+            pdpNavTop = DESIRED_HEADER_HEIGHT + cbHeight;
             repositionPdpNav($(window).scrollTop());
+            // add cookiebanner height to the next element to ensure that its not covered by menu
+            $mainHeader.next().css('margin-top', cbHeight > 0 ? cbHeight : '');
         });
         $mainHeader.trigger('heightchanged');
     }
