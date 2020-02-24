@@ -2032,6 +2032,9 @@ $properties: (margin, padding);
           max-height: 190px;
           transition: max-height 200ms ease-in-out;
           z-index: 35;
+          @include mobile {
+            max-height: 430px;
+          }
         }
         & ~ * {
           position: relative;
