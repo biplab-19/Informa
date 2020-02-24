@@ -40,6 +40,9 @@
     .cta-semitrans-width {
         padding: 0;
         margin-right: 15px;
+        @include mobile-to-midtab{
+            margin-right: 5px;
+        }
         @include mobile{
             margin: 0;
         }
@@ -89,6 +92,11 @@
     .follow-row {
         float: right;
         margin-top: -60px;
+        @include mobile-to-midtab{
+            width: 100%;
+            float: none;
+            margin-top: 13px;
+        }
         @include mobile{
             width: 100%;
             float: none;
