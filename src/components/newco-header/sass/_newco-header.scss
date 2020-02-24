@@ -175,7 +175,7 @@
         .textbox{
           position: absolute;
           right: 20px;
-          @include bootstrap-mobile {
+          @include mobile {
             display:none;
             top: 130px;
             width: 100%;
@@ -191,6 +191,9 @@
             &.active{
               display:block;
             }
+          }
+          @include tablet {
+            right:10px;
           }
           input[type="text"]{
             width: 250px;
@@ -208,7 +211,7 @@
            }
             .newco-gobtn-2[data-submit="sector-search"]{
               display:none;
-              @include bootstarp-md-max {
+              @include mobile {
                 display: inline-block;
                 position: absolute;
                 top: 16px;
@@ -216,7 +219,7 @@
               }
               i {
                   display:none;
-                  @include bootstarp-md-max {
+                  @include mobile {
                     display:inline-block;
                   }
               }
@@ -229,26 +232,26 @@
         top: 6px;
         z-index: 9;
         outline: none;
+        @include tablet {
+          right:20px;
+        }
         &[data-submit="sector-search"]{
           display:block;
-          @include bootstarp-md-max {
+          @include mobile {
             display:none;
           }
         }
         &#mobile-search{
           display:none;
-          @include bootstarp-md-max {
+          @include mobile {
             display:block;
           }
-        }
-        @include bootstrap-mobile {
-          right: 10px;
         }
         i {
           font-size: 18px;
           color:#000;
           cursor: pointer;
-          @include bootstrap-mobile {
+          @include mobile {
             display:none;
           }
           &.active {
