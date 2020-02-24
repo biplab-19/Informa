@@ -2254,6 +2254,22 @@ $properties: (margin, padding);
         }
       }
     }
-    
+    .hero-banner .hero-banner-content {
+      text-align: center;
+      .row {
+        float: none;
+        .col {
+          width: 100%;
+        }
+        h1 {
+          @include mobile {
+            padding: 20px 0;
+          }
+        }
+        .btn {
+          width: auto;
+        }
+      }
+    }
   }
 }
