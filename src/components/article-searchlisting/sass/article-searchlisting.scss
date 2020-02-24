@@ -379,6 +379,7 @@
                   z-index: 99;
                   background: #fff;
                   padding-bottom: 0px;
+                  overflow: hidden;
                   @include tablet {
                     width: 133px;
                   }
@@ -501,11 +502,6 @@
                         -khtml-opacity: 0.1;
                         filter: alpha(opacity=10);
                       }
-                      &:last-child {
-                        &:before {
-                          border-radius: 0 0 22px 22px;
-                        }
-                      }
                     }
                     li{
                       display: flex;
@@ -542,6 +538,9 @@
                                  width: 9px;
                                  border-radius: 50px;
                                  border: 1px solid #000;
+                               }
+                               @include tablet {
+                                padding: 15px 0 15px 35px;
                                }
                              }
                              input:checked + span:before {
