@@ -379,6 +379,7 @@
                   z-index: 99;
                   background: #fff;
                   padding-bottom: 0px;
+                  overflow: hidden;
                   @include tablet {
                     width: 133px;
                   }
@@ -500,11 +501,6 @@
                         opacity: 0.1;
                         -khtml-opacity: 0.1;
                         filter: alpha(opacity=10);
-                      }
-                      &:last-child {
-                        &:before {
-                          border-radius: 0 0 22px 22px;
-                        }
                       }
                     }
                     li{
