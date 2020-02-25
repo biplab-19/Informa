@@ -267,7 +267,7 @@
         position: relative;
         display: block;
         padding-right: 23px;
-          &::after{
+          &::after {
           background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon-black.jpg);
           background-repeat: no-repeat;
           content: "";
@@ -277,8 +277,11 @@
           bottom: 6px;
           right: 0;
           background-size: contain;
-          @include bootstarp-md-max{
+          @include bootstarp-md-max {
             bottom: -9px;
+          }
+          @include mobile {
+            right:16px;
           }
         }
         
@@ -297,10 +300,7 @@
         }
         a{
           &::after {
-            background-image: url(../../Static/images/tmt-newco/images/lock-icon/lock-icon.jpg);
-            @include bootstarp-md-max {
-              right: 10px;
-            }
+            background-image: url(../../Static/images/tmt-newco/images/lock-icon/unlock-icon.png);
         }
         }
       }
