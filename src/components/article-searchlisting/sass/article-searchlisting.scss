@@ -284,6 +284,13 @@
         }
         @include mobile{
           display: none;
+          position: fixed;
+          z-index: 99999;
+          height: 100vh;
+          top: 0px;
+          left: 0;
+          padding: 35px 35px;
+          overflow-y: auto;
         }
         h2{
           display: none;
