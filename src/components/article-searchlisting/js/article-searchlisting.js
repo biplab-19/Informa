@@ -23,7 +23,9 @@ INFORMA.articleSerchlisting = (function (window, $, namespace) {
             $(document).on("click", ".close-refine-list", function () {
                 $(this).parent(".refine-container").hide();
             });
-
+            $(document).on("click",'.refine-container-button .refine-button',function() {
+                $(this).parent(".refine-container-button").siblings(".refine-container").toggle();
+            });
             if (refineChild.find(".heading").hasClass("heading-collapsed")) {
                 refineChild.find(".heading").removeClass("heading-collapsed");
                 refineChild.find(".panel-group").css("display", "block");
