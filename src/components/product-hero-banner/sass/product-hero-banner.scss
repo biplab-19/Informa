@@ -31,7 +31,9 @@
         @include mobile{
             width: 100%;
             text-align: justify;
-            padding-bottom: 30px;
+        }
+        @include not-desktop {
+            padding-bottom: 0px;
         }
     }
     .subtext{
