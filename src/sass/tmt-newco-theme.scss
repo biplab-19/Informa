@@ -57,8 +57,12 @@ $newcobtndefault-hover-border: #a54eac;
 $newcobtndefault-hover-background: #f6f0fb;
 
 $newco-white-background: #ffffff;
+$newco-defaulthyperlink-color:#a54eac;
 
 .tmt-newco {
+  a {
+      color:$newco-defaulthyperlink-color;
+  }
   .product-detail-page.newco-product-detail{
     h2{
       font-weight: 600;
