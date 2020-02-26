@@ -750,6 +750,18 @@
         overflow: hidden;
         &:hover {
           box-shadow: 5px 1px 22px #ece9e9;
+          .recomended-wrapper {
+            .content {
+              h4 {
+                a {
+                  &::after{
+                    content: " ";
+                    background-image: none;
+                  }
+                }
+              }
+            }
+          }
         }
         @include mobile {
           box-shadow: 1px 3px 26px #c7c7c7;
