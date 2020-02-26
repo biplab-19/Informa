@@ -2032,6 +2032,9 @@ $properties: (margin, padding);
           max-height: 190px;
           transition: max-height 200ms ease-in-out;
           z-index: 35;
+          @include tablet {
+            max-height: 240px;
+          }
           @include mobile {
             max-height: 430px;
           }
@@ -2258,7 +2261,6 @@ $properties: (margin, padding);
       }
     }
     .hero-banner .hero-banner-content {
-      text-align: center;
       .row {
         float: none;
         .col {
@@ -2273,6 +2275,9 @@ $properties: (margin, padding);
           width: auto;
         }
       }
+    }
+    .yellow-container {
+      background: rgba($newcoprimarycolor, 0.9);
     }
   }
 }
