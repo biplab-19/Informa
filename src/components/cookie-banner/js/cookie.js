@@ -33,6 +33,7 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
                     }
                 }
                 else{
+                    $("#informa-main-header").addClass("active-cookie");
                     if($('.mobileNavigation').hasClass('navbar-fixed-top')) {
                         $('.mobileNavigation').css("top", $("#cookieBanner").outerHeight());
                         $('#pdp-navigation').css("top", $("#cookieBanner").outerHeight()+ $(".mobileNavigation").outerHeight());
@@ -42,6 +43,7 @@ INFORMA.CookiePolicy = (function(window, $, namespace) {
             $("#cookieBanner a.close").on("click", function(e) {
                 e.preventDefault();
                 RemoveMe();
+                $("#informa-main-header").removeClass("active-cookie");
                 //CreateCookie(cookieName,cookieValue, cookieDuration); 
                 INFORMA.DataLoader.GetServiceData("/client/ajax/SetCookie", {
                     method: "Post",
