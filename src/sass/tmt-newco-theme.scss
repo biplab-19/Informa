@@ -261,6 +261,29 @@ $newco-white-background: #ffffff;
       }
     }
   }
+  .chosen-container .chosen-results li.highlighted, .chosen-container .chosen-results li.result-selected {
+    background-color: #a54eac;
+    color: #fff;
+  }
+  .analyst-search {
+    form {
+      .search-field {
+        .form-control {
+          color: #000;
+        }
+      }
+    }
+  }
+  .chosen-container-single {
+    .chosen-single {
+      color: #000;
+    }
+  }
+  .btn-reset {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000 !important;
+  }
   .btn {
     min-width: 120px;
     border-radius: 22px;
