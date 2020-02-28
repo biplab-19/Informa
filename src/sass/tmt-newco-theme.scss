@@ -211,6 +211,13 @@ $newco-white-background: #ffffff;
       }
     }
   }
+  #article-list-section {
+    #article-list {
+      .load-spinner {
+        top: 0px;
+      }
+    }
+  }
   .btn-showMore, .btn-plus {
     border-bottom: 2px solid #fff !important;
     color: #000 !important;
@@ -253,6 +260,29 @@ $newco-white-background: #ffffff;
         color: #b650be;
       }
     }
+  }
+  .chosen-container .chosen-results li.highlighted, .chosen-container .chosen-results li.result-selected {
+    background-color: #a54eac;
+    color: #fff;
+  }
+  .analyst-search {
+    form {
+      .search-field {
+        .form-control {
+          color: #000;
+        }
+      }
+    }
+  }
+  .chosen-container-single {
+    .chosen-single {
+      color: #000;
+    }
+  }
+  .btn-reset {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000 !important;
   }
   .btn {
     min-width: 120px;

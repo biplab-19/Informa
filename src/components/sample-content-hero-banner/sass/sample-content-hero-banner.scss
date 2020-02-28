@@ -6,6 +6,10 @@ body {
     section.sample-content-hero-banner.hero-banner-texture.dark-banner-subscribe.bg-gray-dark.product.supergraphic.product-hero-banner {
             background: #f9f8f9;
             padding-bottom:40px;
+            @include bootstrap-mobile {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
             h1 {
                 color: $black;
                 max-height:194px;
@@ -123,6 +127,10 @@ body {
             }
         }
         .sample-content-hero-banner {
+            @include bootstrap-mobile {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
             .at-icon {
                 fill: $white;
             }
@@ -163,6 +171,12 @@ body {
             }
             div.addthis_sharing_toolbox a.at-share-btn {
                 margin-right: 20px;
+                @include mobile {
+                    margin-right: 12px;  
+                }
+                &:last-child {
+                    margin-right:0px;
+                }
             }
             
            

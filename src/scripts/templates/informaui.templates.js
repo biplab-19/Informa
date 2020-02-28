@@ -1092,7 +1092,7 @@ var INFORMA = window.INFORMA || {};
                             '<div class="recomended-wrapper">'+
                                 '<div class="recomend-content wrap-content row">'+
 									'{{#compare results.Video null operator="!="}}'+
-                                            '<div class="col-md-4">'+
+                                            '<div class="col-sm-4 col-md-4">'+
                                                 '{{#if results.HasExternalLink}}'+
                                                     '{{#compare results.HasExternalLink true operator="=="}}'+
                                                         '<a href="{{results.Video.Url}}" class="video-link" tabindex="0" target="_self">'+
@@ -1136,18 +1136,18 @@ var INFORMA = window.INFORMA || {};
                                             '</div>'+
                                         '{{/compare}}'+
                                         '{{#compare results.ContentTileImage null operator="!="}}'+
-                                            '<div class="col-md-4">' +
+                                            '<div class="col-sm-4 col-md-4">' +
                                                 '<img src="{{results.ContentTileImage.Url}}" alt="{{results.ContentTileImage.Alt}}">'+
                                             '</div>' +
                                         '{{/compare}}'+
 										'{{#compare results.Video null operator="=="}}'+
 											'{{#compare results.ContentTileImage null operator="=="}}'+
-												'<div class="col-md-4">' +
+												'<div class="col-sm-4 col-md-4">' +
 													'<img src="{{results.Image}}" alt="{{results.Title}}" class="img-responsive" />' +
 												'</div>' +
 											'{{/compare}}'+
 										'{{/compare}}'+
-                                     '<div class="content">'+
+                                     '<div class="content col-sm-8 col-md-8">'+
                                         '{{#compare results.SamplecontentProducts.length "0" operator=">"}}'+
                                             '<p class="type">'+
                                                 '<span>{{results.SamplecontentProducts}}</span>'+
@@ -1193,25 +1193,17 @@ var INFORMA = window.INFORMA || {};
                                         '{{#compare results.PageURL.length "0" operator="=="}}' +
                                             '<h4><span>{{results.Title}}</span></h4>'+
                                         '{{/compare}}'+
+                                        '<p class="publish">{{#if results.Profile}}{{results.ByKeyword}}' +
+                                            '<strong> {{{AnalystData results.Profile}}} </strong>' +
+                                            '{{/if}}{{#if results.PublicationDate}}{{results.PublicationDate}}{{/if}}' +
+                                        '</p>'+
+                                        '{{#compare results.Publisher null operator="!="}}'+
+                                            '<p><span>{{results.PublisherKeyword}} </span><strong>{{results.Publisher}}<strong></p>'+
+                                        '{{/compare}}'+
                                         '{{#compare results.Description null operator="!="}}'+
                                             '<p class="description">{{results.Description}}</p>'+
                                         '{{/compare}}'+
                                     '</div>'+
-                                    // '{{#compare results.Brand.length 0 operator=">"}}'+
-                                    //         '<p class="brands">'+
-                                    //             '{{#each results.Brand}}'+
-                                    //                 '<span>{{this}}</span>'+
-                                    //             '{{/each}}'+
-                                    //         '</p>'+
-                                    // '{{/compare}}'+
-                                    '{{#compare results.TopicURLS.length 0 operator=">"}}'+
-                                        '<p class="topics">'+
-                                            '{{results.TopicKeyword}} '+
-                                            '{{#each results.TopicURLS}}'+
-                                                '<strong><a href="{{this.TopicResourceLink}}">{{this.TopicName}}</a></strong>'+
-                                            '{{/each}}'+
-                                        '</p>'+
-                                    '{{/compare}}'+
                                     '{{#compare results.ShowSubSectorOnSampleContentPage true operator="=="}}'+
                                             '{{#compare results.SubSectorsUrlDetails.length 0 operator=">"}}'+
                                                 '<p class="SubSectors">'+
@@ -1656,12 +1648,12 @@ var INFORMA = window.INFORMA || {};
                                     '<div class="list-items">'+
                                     '<div class="recomended-wrapper">'+
                                         '<div class="recomend-content wrap-content row" style="height: auto;">'+
-                                        '<div class="col-md-4">'+
+                                        '<div class="col-sm-4 col-md-4">'+
                                         '<div class="image-gradient">'+
                                         'Events'+
                                         '</div>'+
                                         '</div>'+
-                                            '<div class="events-wrap col-md-8">'+
+                                            '<div class="events-wrap col-sm-8 col-md-8">'+
                                                 '<div class="wrap-content">'+
                                                     '<div class="header clearfix">'+
                                                         '<div class="date-field">{{results.EventDate}}</div>'+
