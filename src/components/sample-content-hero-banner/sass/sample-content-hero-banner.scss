@@ -8,13 +8,11 @@ body {
             padding-bottom:65px;
             h1 {
                 color: $black;
-                max-height:194px;
                 overflow: hidden;
                 float: left;
                 width: 100%;
                 height:auto;
                 @include mobile {
-                    max-height: 171px;
                     border-bottom: 12px solid #f9f8f9;
                 }
             }
