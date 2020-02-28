@@ -167,40 +167,41 @@ INFORMA.ArticleList = (function(window, $, namespace) {
         CreateSlider = function(el,mobileScroll,ipadScroll) {
             var _listItemCounts = GetListCount(el),
                 Options = GetCarouselOptions(el);
-
-            el.slick({
-                dots: Options.sliderDots,
-                infinite: Options.sliderInfinite,
-                speed: Options.speed,
-                autoplay: (!isExperienceMode) ? Options.autoplay:false,
-                autoplaySpeed: Options.autoplaySpeed,
-                slidesToShow: (_listItemCounts >= Options.slidesShow) ? Options.slidesShow : _listItemCounts,
-                slidesToScroll: Options.slidesScroll,
-                swipe: INFORMA.global.device.isDesktop ? false : true,
-                responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
-                            slidesToScroll: ipadScroll
+            if ( Options != undefined) {
+                el.slick({
+                    dots: Options.sliderDots,
+                    infinite: Options.sliderInfinite,
+                    speed: Options.speed,
+                    autoplay: (!isExperienceMode) ? Options.autoplay:false,
+                    autoplaySpeed: Options.autoplaySpeed,
+                    slidesToShow: (_listItemCounts >= Options.slidesShow) ? Options.slidesShow : _listItemCounts,
+                    slidesToScroll: Options.slidesScroll,
+                    swipe: INFORMA.global.device.isDesktop ? false : true,
+                    responsive: [{
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
+                                slidesToScroll: ipadScroll
+                            }
+                        }, {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
+                                slidesToScroll: ipadScroll
+                            }
+                        }, {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: mobileScroll,
+                                slidesToScroll: mobileScroll
+                            }
                         }
-                    }, {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: (_listItemCounts >= 2) ? ipadScroll : _listItemCounts,
-                            slidesToScroll: ipadScroll
-                        }
-                    }, {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: mobileScroll,
-                            slidesToScroll: mobileScroll
-                        }
-                    }
-                    // You can unslick at a given breakpoint now by adding:
-                    // settings: "unslick"
-                    // instead of a settings object
-                ]
-            });
+                        // You can unslick at a given breakpoint now by adding:
+                        // settings: "unslick"
+                        // instead of a settings object
+                    ]
+                });
+            }
         }
 
     init = function() {
