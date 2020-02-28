@@ -204,7 +204,14 @@ $newco-white-background: #ffffff;
   }
   .view-all-mobile-container {
     border-bottom: 1px solid #fff;
+    .show-more-brands {
+      position: relative;
+      margin-left: -60px;
+    }
     .informa-icon {
+      position: absolute;
+      right: 0px;
+      top: -5px;
       color: #a54eac;
       &:hover {
         color: #b650be;
@@ -260,6 +267,29 @@ $newco-white-background: #ffffff;
         color: #b650be;
       }
     }
+  }
+  .chosen-container .chosen-results li.highlighted, .chosen-container .chosen-results li.result-selected {
+    background-color: #a54eac;
+    color: #fff;
+  }
+  .analyst-search {
+    form {
+      .search-field {
+        .form-control {
+          color: #000;
+        }
+      }
+    }
+  }
+  .chosen-container-single {
+    .chosen-single {
+      color: #000;
+    }
+  }
+  .btn-reset {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000 !important;
   }
   .btn {
     min-width: 120px;
@@ -457,5 +487,13 @@ $newco-white-background: #ffffff;
         display:none;
     }
 }
+.cookieBanner a {
+  color: $newcoprimarycolor;
+}
+.hero-banner.home-page {
+      @include mobile {
+        min-height:auto !important;
+      }
+  }
 }
 
