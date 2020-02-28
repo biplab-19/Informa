@@ -341,13 +341,18 @@ INFORMA.heroBanner = (function(window, $, namespace) {
             if (_heroBannerSg.length > 0) {
                 if (INFORMA.global.device.viewport === "mobile") {
                     secondCol = _heroBannerSg.children('.container').children('.row').children('div').eq(1);
-                    _heroBannerImage.css('top', secondCol[0].offsetTop);
-                    _heroBannerImage.css('height', secondCol.height());
+                    if(_heroBannerImage.legth >0) {
+                        _heroBannerImage.css('top', secondCol[0].offsetTop);
+                        _heroBannerImage.css('height', secondCol.height());
+                    }
                 } else {
-                    _heroBannerImage.css('top', '');
-                    _heroBannerImage.css('height', '');
+                    if(_heroBannerImage.legth >0) {
+                        _heroBannerImage.css('top', '');
+                        _heroBannerImage.css('height', '');
+                    }
                 }
                 _heroBannerImage.addClass('ready');
+                
             }
         },
 

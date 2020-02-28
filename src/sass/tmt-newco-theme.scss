@@ -111,25 +111,26 @@ $newco-defaulthyperlink-color:#a54eac;
         font-weight: 600;
         line-height: 29px;
         overflow: hidden;
+        position: relative;
+        &::after{
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          right: 0;
+          width: 100%;
+          height: 35%;
+          background-image: url(../../Static/images/tmt-newco/gradient-bg.jpg);
+          mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+          -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, to(rgba(0,0,0,1)), from(rgba(0,0,0,0)));
+          pointer-events: none;
+        }
         a {
           color: #fff;
           width: 100%;
-          display: inline-block;
+          display: table-cell;
           height: 200px;
-          padding: 80px 15px 15px;
-          position: relative;
-          &::after{
-            content: "";
-            position: absolute;
-            bottom: 0px;
-            right: 0;
-            width: 100%;
-            height: 35%;
-            background-image: url(../../Static/images/tmt-newco/gradient-bg.jpg);
-            mask-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
-            -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, to(rgba(0,0,0,1)), from(rgba(0,0,0,0)));
-            pointer-events: none;
-          }
+          padding: 15px;
+          vertical-align: middle;
         }
       }
       .caption {
@@ -205,6 +206,29 @@ $newco-defaulthyperlink-color:#a54eac;
       }
     }
   }
+  .view-all-mobile-container {
+    border-bottom: 1px solid #fff;
+    .show-more-brands {
+      position: relative;
+      margin-left: -60px;
+    }
+    .informa-icon {
+      position: absolute;
+      right: 0px;
+      top: -5px;
+      color: #a54eac;
+      &:hover {
+        color: #b650be;
+      }
+    }
+  }
+  #article-list-section {
+    #article-list {
+      .load-spinner {
+        top: 0px;
+      }
+    }
+  }
   .btn-showMore, .btn-plus {
     border-bottom: 2px solid #fff !important;
     color: #000 !important;
@@ -247,6 +271,29 @@ $newco-defaulthyperlink-color:#a54eac;
         color: #b650be;
       }
     }
+  }
+  .chosen-container .chosen-results li.highlighted, .chosen-container .chosen-results li.result-selected {
+    background-color: #a54eac;
+    color: #fff;
+  }
+  .analyst-search {
+    form {
+      .search-field {
+        .form-control {
+          color: #000;
+        }
+      }
+    }
+  }
+  .chosen-container-single {
+    .chosen-single {
+      color: #000;
+    }
+  }
+  .btn-reset {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000 !important;
   }
   .btn {
     min-width: 120px;
@@ -447,5 +494,12 @@ $newco-defaulthyperlink-color:#a54eac;
 .tmt-newco .cookieBanner p a {
   color: $newcoprimarycolor;
 }
+  .hero-banner {
+    .home-page {
+      @include mobile {
+        min-height:auto !important;
+      }
+    }
+  }
 }
 
