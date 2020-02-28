@@ -204,7 +204,14 @@ $newco-white-background: #ffffff;
   }
   .view-all-mobile-container {
     border-bottom: 1px solid #fff;
+    .show-more-brands {
+      position: relative;
+      margin-left: -60px;
+    }
     .informa-icon {
+      position: absolute;
+      right: 0px;
+      top: -5px;
       color: #a54eac;
       &:hover {
         color: #b650be;

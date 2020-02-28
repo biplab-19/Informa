@@ -760,6 +760,12 @@
                   }
                 }
               }
+              p.description {
+                &::after{
+                  content: " ";
+                  background-image: none;
+                }
+              }
             }
           }
         }
