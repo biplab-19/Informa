@@ -480,5 +480,12 @@ $newco-white-background: #ffffff;
         display:none;
     }
 }
+  .hero-banner {
+    .home-page {
+      @include mobile {
+        min-height:auto !important;
+      }
+    }
+  }
 }
 
