@@ -487,5 +487,13 @@ $newco-white-background: #ffffff;
         display:none;
     }
 }
+.cookieBanner a {
+  color: $newcoprimarycolor;
+}
+.hero-banner.home-page {
+      @include mobile {
+        min-height:auto !important;
+      }
+  }
 }
 
