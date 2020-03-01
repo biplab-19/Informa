@@ -581,6 +581,10 @@ footer {
     float: left;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
+    font-size:14px;
+    @include not-desktop {
+        max-height:50px;
+    }
 }
 
 .portfolio .portfolio-grid .port-container .grid-item.is-expanded .port .content .header .view-all {

@@ -13,24 +13,25 @@
 var INFORMA = window.INFORMA || {};
 INFORMA.NewcoHeader = (function (window, $, namespace) {
     'use strict';
-    var $cookieBanner = $('#cookieBanner'),
-        $mainHeader = $('#informa-main-header'),
-        $newcoHeader = $mainHeader.find('.newco-header'),
-        $hamburger = $newcoHeader.find('.hamburger'),
-        $searchicon = $newcoHeader.find('button#mobile-search'),
-        $navsearch = $newcoHeader.find('.newco-search-header'),
-        $newcoNav = $newcoHeader.find('.newco-nav'),
-        $menuItems = $newcoNav.find('.menu-items'),
-        $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub'),
-        $banner = $('#banner'),
-        $pdpNav = $('#pdp-navigation'),
-        headerHeight = $mainHeader.height(),
-        DESIRED_HEADER_HEIGHT = 80,
-        bannerHeight = $banner.height(),
-        pdpNavThreshold = headerHeight + bannerHeight,
-        pdpNavTop = 0,
-        pdpNavHeight = 0,
-        headerHeightChangeTimerEvent = 0,
+    var $body = $('body'),
+        $cookieBanner,
+        $mainHeader,
+        $newcoHeader,
+        $hamburger,
+        $searchicon,
+        $navsearch,
+        $newcoNav,
+        $menuItems,
+        $menuItemWWithSubs,
+        $banner,
+        $pdpNav,
+        headerHeight,
+        DESIRED_HEADER_HEIGHT,
+        bannerHeight,
+        pdpNavThreshold,
+        pdpNavTop,
+        pdpNavHeight,
+        headerHeightChangeTimerEvent,
         // methods
         OffsetParentHeight, repositionPdpNav, init;
 
@@ -63,7 +64,29 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
     }
 
     init = function() {
-        
+        // don't run if we're not in newco
+        if (!$body.hasClass('tmt-newco')) return;
+
+        // set variable values
+        $cookieBanner = $('#cookieBanner');
+        $mainHeader = $('#informa-main-header');
+        $newcoHeader = $mainHeader.find('.newco-header');
+        $hamburger = $newcoHeader.find('.hamburger');
+        $searchicon = $newcoHeader.find('button#mobile-search');
+        $navsearch = $newcoHeader.find('.newco-search-header');
+        $newcoNav = $newcoHeader.find('.newco-nav');
+        $menuItems = $newcoNav.find('.menu-items');
+        $menuItemWWithSubs = $newcoNav.find('.menu-item.hassub');
+        $banner = $('#banner');
+        $pdpNav = $('#pdp-navigation');
+        headerHeight = $mainHeader.height();
+        DESIRED_HEADER_HEIGHT = 80;
+        bannerHeight = $banner.height();
+        pdpNavThreshold = headerHeight + bannerHeight;
+        pdpNavTop = 0;
+        pdpNavHeight = 0;
+        headerHeightChangeTimerEvent = 0;
+
         // set listner for burger button
         $hamburger.click(function() {
             $newcoHeader.toggleClass('nav-closed');
@@ -135,54 +158,53 @@ INFORMA.NewcoHeader = (function (window, $, namespace) {
             
         });
         
-        // emit custom event on header height change if $pdpNav exists
-        if ($pdpNav.length > 0) {
-            headerHeightChangeTimerEvent = setInterval(function() {
-                if ($mainHeader.height() != headerHeight) {
-                    $mainHeader.trigger('heightchanged');
-                }
-            }, 500);
-        }
+        // emit custom event on header height change
+        headerHeightChangeTimerEvent = setInterval(function() {
+            if ($mainHeader.height() != headerHeight) {
+                $mainHeader.trigger('heightchanged');
+            }
+        }, 100);
 
         // on height change event, store header height for use in scroll event
         $mainHeader.on('heightchanged', function() {
+            var cbHeight = $cookieBanner.is(':visible') ? $cookieBanner.outerHeight() : 0;
             headerHeight = $mainHeader.height();
             // set banner height for pdp-nav scroll threshold
             bannerHeight = $banner.outerHeight();
             // set threshold so pdp-nav sticky threshold occurs in the correct place
             // replaced headerHeight with 80 because of animation, if scrolled height changes this will have to
-            pdpNavThreshold = (bannerHeight - $mainHeader.next().offset().top) + DESIRED_HEADER_HEIGHT;
-            pdpNavTop = DESIRED_HEADER_HEIGHT;
-            // subtract cookiebanner height if its not been closed
-            if ($cookieBanner.is(':visible')) {
-                pdpNavThreshold -= $cookieBanner.outerHeight();
-                pdpNavTop += $cookieBanner.outerHeight();
-            }
+            pdpNavThreshold = (bannerHeight - $mainHeader.next().offset().top - cbHeight) + DESIRED_HEADER_HEIGHT;
+            pdpNavTop = DESIRED_HEADER_HEIGHT + cbHeight;
             repositionPdpNav($(window).scrollTop());
+            // add cookiebanner height to the next element to ensure that its not covered by menu
+            $mainHeader.next().css('margin-top', cbHeight > 0 ? cbHeight : '');
         });
         $mainHeader.trigger('heightchanged');
     }
     
     $(window).on('load', function() {
-        // set calculated height for animations
-        $menuItems.each(function(itemInd, el) {
-            var $el = $(el),
-                $descendentMenus = $el.find('.menu-item.hassub .menu-items');
+        if($menuItems != undefined){
+            // set calculated height for animations
+            $menuItems.each(function(itemInd, el) {
+                var $el = $(el),
+                    $descendentMenus = $el.find('.menu-item.hassub .menu-items');
 
-            $descendentMenus.css('height', 0);
-            $el.attr('data-height', el.clientHeight).addClass('ready');
-            $descendentMenus.css('height', '');
-        });
+                $descendentMenus.css('height', 0);
+                $el.attr('data-height', el.clientHeight).addClass('ready');
+                $descendentMenus.css('height', '');
+            });
 
-        // store pdpnav height, if it exists, for later use
-        if ($pdpNav.length > 0)
-            pdpNavHeight = $pdpNav.outerHeight(true);
-        
-        // add ready class to make menu visible after preload
-        $newcoNav.addClass('ready');
+            // store pdpnav height, if it exists, for later use
+            if ($pdpNav.length > 0)
+                pdpNavHeight = $pdpNav.outerHeight(true);
+            
+            // add ready class to make menu visible after preload
+            $newcoNav.addClass('ready');
+        }
     });
 
     $(window).scroll(function() {    
+        if (!$body.hasClass('tmt-newco')) return;
         var scroll = $(window).scrollTop();
     
         if (scroll > 50) {
